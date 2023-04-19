@@ -13,10 +13,16 @@ export class StaticCodeGeneratorComponent implements OnInit {
   vueCode = '';
 
   ngOnInit() {
-    this.angularCode = this.staticContent;
-    const cleanCode = this.removeAngularSpecificAttributes(this.staticContent);
+    const code = this.addNewLinesBetweenTags(this.staticContent);
+    this.angularCode = code;
+
+    const cleanCode = this.removeAngularSpecificAttributes(code);
     this.vueCode = this.createVueCodeFromStaticContent(cleanCode);
     this.reactCode = this.createReactCodeFromStaticContent(cleanCode);
+  }
+
+  private addNewLinesBetweenTags(code: string): string {
+    return code.replace(/>\s?</g, '>\n<');
   }
 
   private removeAngularSpecificAttributes(code: string): string {
