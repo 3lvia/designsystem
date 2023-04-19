@@ -64,6 +64,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private removeAngularEvents(code: string): string {
+    // Matches e.g. (onClose)="isShowing = false"
     return code.replace(/\(\w+\)="[a-zA-Z\s=]+"/g, '');
   }
 
