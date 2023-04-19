@@ -14,6 +14,10 @@ export const darkThemeColors = {
       color: '#171717',
       contrastText: '#EDEDED',
     },
+    grey: {
+      color: '#1F1F1F',
+      contrastText: '#EDEDED',
+    },
   },
   'signal-colors': {
     yellow: {
@@ -56,10 +60,6 @@ export const darkThemeColors = {
     },
   },
   'grey-colors': {
-    'grey-80': {
-      color: '#1F1F1F',
-      contrastText: '#EDEDED',
-    },
     'grey-70': {
       color: '#242424',
       contrastText: '#EDEDED',
@@ -99,146 +99,164 @@ export type DarkThemeColorName = typeof darkThemeColors extends Record<string, i
   : never;
 
 export const darkTheme = {
+  text: {
+    'text-1': {
+      hex: darkThemeColors['primary-colors'].white.color,
+    },
+    'text-2': {
+      hex: darkThemeColors['grey-colors']['grey-10'].color,
+    },
+    'text-3': {
+      hex: darkThemeColors['grey-colors']['grey-20'].color,
+    },
+    'text-disabled-1': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+    },
+    'text-disabled-2': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+    },
+  },
   background: {
-    'background-primary': {
-      hex: darkThemeColors['grey-colors']['grey-80'].color,
-      contrast: darkThemeColors['grey-colors']['grey-80'].contrastText,
+    'background-1': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
     },
-    'background-secondary': {
-      hex: darkThemeColors['grey-colors']['grey-80'].color,
-      contrast: darkThemeColors['grey-colors']['grey-80'].contrastText,
+    'background-2': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
     },
-    'background-tertiary': {
-      hex: darkThemeColors['grey-colors']['grey-80'].color,
-      contrast: darkThemeColors['grey-colors']['grey-80'].contrastText,
+    'background-element-1': {
+      hex: 'transparent', // TODO: Will this work?
     },
-    'background-element': {
-      hex: darkThemeColors['grey-colors']['grey-80'].color,
-      contrast: darkThemeColors['grey-colors']['grey-80'].contrastText,
-    },
-    'background-element-zebra': {
+    'background-element-2': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,
       contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
     },
-    'background-overlay': {
-      hex: darkThemeColors['grey-colors']['grey-70'].color,
-      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
-    },
-    'background-overlay-strong': {
+    'background-element-3': {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
-    'background-header': {
+    'background-element-4': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
+    },
+    'background-overlay-1': {
+      hex: darkThemeColors['grey-colors']['grey-70'].color,
+      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
+    },
+    'background-overlay-2': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'background-overlay-3': {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
-    'background-accent': {
+    'background-disabled-1': {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
-    'background-accent-strong': {
+    'background-disabled-2': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+    },
+    'background-hover-1': {
+      hex: darkThemeColors['primary-colors']['green'].color,
+      contrast: darkThemeColors['primary-colors']['green'].contrastText,
+    },
+    'background-hover-2': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'background-selected-1': {
+      hex: darkThemeColors['primary-colors']['green'].color,
+      contrast: darkThemeColors['primary-colors']['green'].contrastText,
+    },
+    'background-selected-2': {
       hex: darkThemeColors['grey-colors']['grey-50'].color,
       contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
   },
-  text: {
-    'text-primary': {
-      hex: darkThemeColors['primary-colors'].white.color,
-    },
-    'text-secondary': {
-      hex: darkThemeColors['grey-colors']['grey-10'].color,
-    },
-    'text-placeholder': {
-      hex: darkThemeColors['grey-colors']['grey-20'].color,
-    },
-  },
-  state: {
-    'state-on': {
-      hex: darkThemeColors['primary-colors'].green.color,
-      contrast: darkThemeColors['primary-colors'].green.contrastText,
-    },
-    'state-caution': {
-      hex: darkThemeColors['signal-colors'].yellow.color,
-      contrast: darkThemeColors['signal-colors'].yellow.contrastText,
-    },
-    'state-warning': {
-      hex: darkThemeColors['signal-colors'].orange.color,
-      contrast: darkThemeColors['signal-colors'].orange.contrastText,
-    },
-    'state-error': {
-      hex: darkThemeColors['signal-colors'].red.color,
-      contrast: darkThemeColors['signal-colors'].red.contrastText,
-    },
-    'state-hover-green': {
-      hex: darkThemeColors['primary-colors'].green.color,
-      contrast: darkThemeColors['primary-colors'].green.contrastText,
-    },
-    'state-hover-grey': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
-    },
-    'state-selected-grey': {
-      hex: darkThemeColors['grey-colors']['grey-50'].color,
-      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
-    },
-    'state-disabled': {
-      hex: darkThemeColors['grey-colors']['grey-40'].color,
-      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
-    },
-    'state-disabled-foreground': {
-      hex: darkThemeColors['grey-colors']['grey-40'].color,
-      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
-    },
-    'state-disabled-background': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
-    },
-    'state-disabled-foreground-strong': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
-    },
-    'state-disabled-background-strong': {
-      hex: darkThemeColors['grey-colors']['grey-40'].color,
-      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
-    },
-    'state-focus': {
-      hex: darkThemeColors['internal-colors']['focus-outline'].color,
-    },
-  },
-  data: {
-    'data-green': {
-      hex: darkThemeColors['data-colors']['green-apple'].color,
-      contrast: darkThemeColors['data-colors']['green-apple'].contrastText,
-    },
-    'data-violet': {
-      hex: darkThemeColors['data-colors']['violet-grape'].color,
-      contrast: darkThemeColors['data-colors']['violet-grape'].contrastText,
-    },
-    'data-blue': {
-      hex: darkThemeColors['data-colors']['blue-berry'].color,
-      contrast: darkThemeColors['data-colors']['blue-berry'].contrastText,
-    },
-    'data-purple': {
-      hex: darkThemeColors['data-colors']['purple-plum'].color,
-      contrast: darkThemeColors['data-colors']['purple-plum'].contrastText,
-    },
-    'data-orange': {
-      hex: darkThemeColors['data-colors']['orange-mango'].color,
-      contrast: darkThemeColors['data-colors']['orange-mango'].contrastText,
-    },
-    'data-red': {
-      hex: darkThemeColors['data-colors']['red-tomato'].color,
-      contrast: darkThemeColors['data-colors']['red-tomato'].contrastText,
-    },
-  },
-  static: {
-    'static-white': {
+  border: {
+    'border-1': {
       hex: darkThemeColors['primary-colors'].white.color,
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
-    'static-black': {
-      hex: darkThemeColors['primary-colors'].black.color,
-      contrast: darkThemeColors['primary-colors'].black.contrastText,
+    'border-2': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'border-3': {
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
+    },
+    'border-4': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'border-disabled-1': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+    },
+    'border-hover-1': {
+      hex: darkThemeColors['primary-colors'].green.color,
+      contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
+    'border-selected-1': {
+      hex: darkThemeColors['primary-colors'].green.color,
+      contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
+    'border-selected-2': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+  },
+  signal: {
+    'signal-success': {
+      hex: darkThemeColors['primary-colors'].green.color,
+      contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
+    'signal-caution': {
+      hex: darkThemeColors['signal-colors'].yellow.color,
+      contrast: darkThemeColors['signal-colors'].yellow.contrastText,
+    },
+    'signal-warning': {
+      hex: darkThemeColors['signal-colors'].orange.color,
+      contrast: darkThemeColors['signal-colors'].orange.contrastText,
+    },
+    'signal-error': {
+      hex: darkThemeColors['signal-colors'].red.color,
+      contrast: darkThemeColors['signal-colors'].red.contrastText,
+    },
+    'signal-info': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+  },
+  data: {
+    'data-1': {
+      hex: darkThemeColors['data-colors']['green-apple'].color,
+      contrast: darkThemeColors['data-colors']['green-apple'].contrastText,
+    },
+    'data-2': {
+      hex: darkThemeColors['data-colors']['violet-grape'].color,
+      contrast: darkThemeColors['data-colors']['violet-grape'].contrastText,
+    },
+    'data-3': {
+      hex: darkThemeColors['data-colors']['blue-berry'].color,
+      contrast: darkThemeColors['data-colors']['blue-berry'].contrastText,
+    },
+    'data-4': {
+      hex: darkThemeColors['data-colors']['purple-plum'].color,
+      contrast: darkThemeColors['data-colors']['purple-plum'].contrastText,
+    },
+    'data-5': {
+      hex: darkThemeColors['data-colors']['orange-mango'].color,
+      contrast: darkThemeColors['data-colors']['orange-mango'].contrastText,
+    },
+    'data-6': {
+      hex: darkThemeColors['data-colors']['red-tomato'].color,
+      contrast: darkThemeColors['data-colors']['red-tomato'].contrastText,
     },
   },
   icon: {
@@ -258,7 +276,7 @@ export const darkTheme = {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
-    'icon-on': {
+    'icon-success': {
       hex: darkThemeColors['primary-colors'].green.color,
       contrast: darkThemeColors['primary-colors'].green.contrastText,
     },
@@ -273,6 +291,20 @@ export const darkTheme = {
     'icon-error': {
       hex: darkThemeColors['signal-colors'].red.color,
       contrast: darkThemeColors['signal-colors'].red.contrastText,
+    },
+    'icon-info': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+  },
+  static: {
+    'static-white': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+    'static-black': {
+      hex: darkThemeColors['primary-colors'].black.color,
+      contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
   },
 } as const satisfies Theme;
