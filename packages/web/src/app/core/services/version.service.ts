@@ -41,7 +41,7 @@ export class VersionService {
         this.codePenTag.next(`
 ${this.createScriptTag(scriptFile)}
 ${this.createStyleTag(styleFile)}`);
-        console.log('New version available: ' + this.cdnVersion);
+        this.latestVersion.next(this.cdnVersion);
       },
       () => {
         this.scriptFile.next('CDN is down');
