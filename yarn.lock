@@ -2577,7 +2577,20 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@^1.5.0, @elvia/elvis-colors@^1.6.0, @elvia/elvis-colors@^1.7.0, @elvia/elvis-colors@^1.8.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@npm:^1.4.2, @elvia/elvis-colors@npm:^1.4.3, @elvia/elvis-colors@npm:^1.5.0, @elvia/elvis-colors@npm:^1.6.0, @elvia/elvis-colors@npm:^1.7.0, @elvia/elvis-colors@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@elvia/elvis-colors@npm:1.8.0"
+  checksum: 5d29f0a24915e9afc0225559d41db7803ec5b8b07e882f0ad4a46b1b7681910fee81d7138fc90e3550281fa40e91ab15b275f29ce6d5ddb7f7462e0bb350f9f0
+  languageName: node
+  linkType: hard
+
+"@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  languageName: node
+  linkType: soft
+
+"@elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -2590,12 +2603,6 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~4.9.5
   languageName: unknown
-  linkType: soft
-
-"@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  languageName: node
   linkType: soft
 
 "@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^4.0.0, @elvia/elvis-component-wrapper@^4.0.1, @elvia/elvis-component-wrapper@^4.1.1, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
