@@ -10,7 +10,6 @@ export const tabsData: ComponentData = {
       isRequired: true,
       type: 'string[]',
       description: 'Items shown as tabs.',
-      cegDisplayName: 'Tabs',
     },
     value: {
       isRequired: false,
@@ -28,10 +27,6 @@ export const tabsData: ComponentData = {
       type: 'boolean',
       description: 'Decides if tabs should be inverted.',
       default: 'false',
-      cegDefault: 0,
-      cegType: 'boolean',
-      cegFormType: 'background',
-      cegOptions: ['White', 'Dark grey'],
     },
     hasManualActivation: {
       isRequired: false,
@@ -39,12 +34,6 @@ export const tabsData: ComponentData = {
       description:
         'Activates the tab when user hits either space, enter or a mouse click. Manual activation is usually necessary when panels cannot be displayed instantly.',
       default: 'false',
-      cegDisplayName: 'Activate tab manually',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: false,
-      cegOption: 'true',
-      cegDisplayGroup: 'Keyboard navigation',
     },
     tabIdPrefix: {
       isRequired: false,
@@ -59,65 +48,4 @@ export const tabsData: ComponentData = {
         'Gets called every time the value is changed. Value is the index of the clicked tab in items.',
     },
   },
-  codeReact:
-    `<Tabs 
-  value={0}
-  items={'` +
-    exampleContents.words.random['eng-GBR'][0] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][1] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][2] +
-    `'}
-  ariaLabel={'Simple tablist example'}
-  valueOnChange={(event) => handleOnChange(event)}
-></Tabs>`,
-  codeAngular:
-    `<elvia-tabs 
-  [value]="0"
-  [items]="['` +
-    exampleContents.words.random['eng-GBR'][0] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][1] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][2] +
-    `']" 
-  [ariaLabel]="'Simple tablist example'"
-  (valueOnChange)="handleOnChange($event.detail.value)"
-></elvia-tabs>`,
-  codeVue:
-    `<elvia-tabs 
-  :value="0"
-  :items="['` +
-    exampleContents.words.random['eng-GBR'][0] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][1] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][2] +
-    `']" 
-  :ariaLabel="'Simple tablist example'"
-  @value-on-change="handleOnChange($event.detail.value)"
-></elvia-tabs>`,
-  codeNativeHTML: `<elvia-tabs 
-  id="example-elvia-tabs"
-></elvia-tabs>
-`,
-  codeNativeScript: `  const tabs = document.getElementById('example-elvia-tabs');
-  const items = [${JSON.stringify(exampleContents.words.random['eng-GBR'][0])}, ${JSON.stringify(
-    exampleContents.words.random['eng-GBR'][1],
-  )}, ${JSON.stringify(exampleContents.words.random['eng-GBR'][2])}]
-  tabs.setProps({items: items})
-  tabs.setProps({value: 0 });
-  tabs.setProps({ariaLabel: 'Simple tablist example' });
-  tabs.addEventListener('valueOnChange', (event) => {
-    console.log('Do what you want with selected tab: ', event.detail.value)
-  });
-`,
-
-  does: ['If you have sub-sections of a page and can not display everything at once'],
-  donts: [
-    'If the content can be displayed at once.',
-    'Don’t use tab in tab.',
-    'Primary navigation that links to other pages',
-  ],
 };
