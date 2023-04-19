@@ -4,7 +4,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./context-menu-headings-ceg.component.html';
 
 @Component({
-  selector: 'app-context-headings-menu-ceg',
+  selector: 'app-context-menu-headings-ceg',
   templateUrl: './context-menu-headings-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ContextMenuHeadingsCegComponent }],
 })

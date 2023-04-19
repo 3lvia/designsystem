@@ -14,6 +14,7 @@ import { ContextMenuHeadingsCegComponent } from './context-menu-headings-ceg/con
 import { ContextMenuDocComponent } from './context-menu-doc.component';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { CommonModule } from '@angular/common';
+import { ContextMenuIconsCegComponent } from './context-menu-icons-ceg/context-menu-icons-ceg.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,12 @@ import { CommonModule } from '@angular/common';
     ComponentSubsubsectionModule,
     WhenToUseModule,
   ],
-  declarations: [ContextMenuDocComponent, ContextMenuCegComponent, ContextMenuHeadingsCegComponent],
+  declarations: [
+    ContextMenuDocComponent,
+    ContextMenuCegComponent,
+    ContextMenuHeadingsCegComponent,
+    ContextMenuIconsCegComponent,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ContextMenuDocModule {}

@@ -71,7 +71,9 @@
       <app-component-subsubsection [sectionTitle]="'Icons'">
         <ng-container ngProjectAs="sectionContent">
           Use icons to help users easily recognize known actions.
-          <!-- TODO: statisk CEG -->
+          <app-static-ceg>
+            <app-context-menu-icons-ceg />
+          </app-static-ceg>
           <app-component-example-generator
             [componentData]="$any(contextMenuIconsCode)"
             [inlineExample]="true"
@@ -82,7 +84,7 @@
         <ng-container ngProjectAs="sectionContent">
           Different actions can be separated by headings and provide more context to the actions.
           <app-static-ceg>
-            <app-context-headings-menu-ceg />
+            <app-context-menu-headings-ceg />
           </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
