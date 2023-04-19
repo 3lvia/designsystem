@@ -196,8 +196,4 @@ export const CardCornerIcon = styled.div`
   position: absolute;
   right: 16px;
   top: 16px;
-  ${CardArea}:hover & {
-    right: 14px;
-    top: 14px;
-  }
 `;
