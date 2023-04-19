@@ -1,5 +1,4 @@
-import { CSSProperties } from 'react';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { BaseProps } from '@elvia/elvis-toolbox';
 
 export type CardType = 'simple' | 'detail';
 export type BorderColor = 'none' | 'green' | 'blue-berry' | 'blueBerry' | 'blue' | 'red' | 'orange';
@@ -35,7 +34,7 @@ export interface CardColoredLineProps {
   borderColor?: BorderColor;
 }
 
-export interface CardProps {
+export interface CardProps extends BaseProps {
   icon?: string | JSX.Element;
   iconHover?: string | JSX.Element;
   /**
@@ -67,7 +66,4 @@ export interface CardProps {
   label?: never;
   tag?: string;
   cornerIcon?: string | JSX.Element;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }
