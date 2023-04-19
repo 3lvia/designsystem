@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentExample, StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 import * as template from 'html-loader!./card-links-ceg.component.html';
 
