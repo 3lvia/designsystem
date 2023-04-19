@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { AccordionProps } from '@elvia/elvis-accordion/react';
 
@@ -8,16 +8,8 @@ import { AccordionProps } from '@elvia/elvis-accordion/react';
   styleUrls: ['./accordion-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: AccordionCegComponent }],
 })
-export class AccordionCegComponent implements ComponentExample, OnInit {
+export class AccordionCegComponent implements ComponentExample {
   elementName = 'accordion';
-  accordionType: string | undefined;
-
-  ngOnInit() {
-    this.cegContent.currentComponentTypeName.subscribe((res) => {
-      console.log(res);
-      this.accordionType = res;
-    });
-  }
 
   cegContent = new CegControlManager<AccordionProps>([
     {
