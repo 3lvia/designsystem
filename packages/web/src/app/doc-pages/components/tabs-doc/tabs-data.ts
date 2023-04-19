@@ -1,5 +1,4 @@
 import changelogJson from 'src/assets/changelogs/elvis-tabs/CHANGELOG.json';
-import { exampleContents } from 'src/app/shared/example-contents';
 import ComponentData from '../component-data.interface';
 
 export const tabsData: ComponentData = {
