@@ -119,19 +119,23 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   }
 
   private getCleanSlot(slots: string[]): string[] {
-    return slots
-      .map((slot) => {
-        if (slot.includes('e-icon') || slot.includes('<elvia-')) {
-          const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
+    return (
+      slots
+        .map((slot) => {
+          if (slot.includes('e-icon') || slot.includes('<elvia-')) {
+            const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
 
-          this.cleanIconsInSlot(parsedSlot);
-          this.cleanElviaComponentsInSlot(slot, parsedSlot);
-          return parsedSlot.body.innerHTML;
-        }
-        return slot;
-      })
-      .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
-      .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''));
+            this.cleanIconsInSlot(parsedSlot);
+            this.cleanElviaComponentsInSlot(slot, parsedSlot);
+            return parsedSlot.body.innerHTML;
+          }
+          return slot;
+        })
+        // Ensure that each slot falls on a new line.
+        .map((slot) => slot.replace(/></g, '>\n<'))
+        .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
+        .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''))
+    );
   }
 
   private cleanIconsInSlot(parsedSlot: Document) {
