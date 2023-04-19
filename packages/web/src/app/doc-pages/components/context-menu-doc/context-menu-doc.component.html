@@ -81,11 +81,9 @@
       <app-component-subsubsection [sectionTitle]="'Headings'">
         <ng-container ngProjectAs="sectionContent">
           Different actions can be separated by headings and provide more context to the actions.
-          <!-- TODO: statisk CEG -->
-          <app-component-example-generator
-            [componentData]="$any(contextMenuHeadingsCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-context-headings-menu-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Selectable'">

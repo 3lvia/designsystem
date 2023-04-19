@@ -10,6 +10,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { ContextMenuCegComponent } from './context-menu-ceg/context-menu-ceg.component';
+import { ContextMenuHeadingsCegComponent } from './context-menu-headings-ceg/context-menu-headings-ceg.component';
 import { ContextMenuDocComponent } from './context-menu-doc.component';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { CommonModule } from '@angular/common';
@@ -28,7 +29,7 @@ import { CommonModule } from '@angular/common';
     ComponentSubsubsectionModule,
     WhenToUseModule,
   ],
-  declarations: [ContextMenuDocComponent, ContextMenuCegComponent],
+  declarations: [ContextMenuDocComponent, ContextMenuCegComponent, ContextMenuHeadingsCegComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ContextMenuDocModule {}

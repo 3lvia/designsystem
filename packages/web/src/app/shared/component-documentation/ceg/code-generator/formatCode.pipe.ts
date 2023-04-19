@@ -14,6 +14,7 @@ export class FormatCodePipe implements PipeTransform {
       parser: language === 'html' ? 'html' : 'babel',
       plugins: [parserHtml, parserBabel],
       singleAttributePerLine: true,
+      printWidth: 200,
     });
 
     /**
