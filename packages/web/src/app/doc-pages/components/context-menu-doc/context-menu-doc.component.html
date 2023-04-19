@@ -71,31 +71,25 @@
       <app-component-subsubsection [sectionTitle]="'Icons'">
         <ng-container ngProjectAs="sectionContent">
           Use icons to help users easily recognize known actions.
-          <!-- TODO: statisk CEG -->
-          <app-component-example-generator
-            [componentData]="$any(contextMenuIconsCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-context-menu-icons-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Headings'">
         <ng-container ngProjectAs="sectionContent">
           Different actions can be separated by headings and provide more context to the actions.
-          <!-- TODO: statisk CEG -->
-          <app-component-example-generator
-            [componentData]="$any(contextMenuHeadingsCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-context-menu-headings-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Selectable'">
         <ng-container ngProjectAs="sectionContent">
           Always one alternative selected, works likes a radio button.
-          <!-- TODO: statisk CEG -->
-          <app-component-example-generator
-            [componentData]="$any(contextMenuSelectableCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-context-menu-selectable-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Disabled '">
@@ -104,11 +98,9 @@
           color to
           <code>disabled</code>
           yourself.
-          <!-- TODO: statisk CEG -->
-          <app-component-example-generator
-            [componentData]="$any(contextMenuDisabledCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-context-menu-disabled-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
     </ng-container>

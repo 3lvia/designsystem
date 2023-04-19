@@ -13,7 +13,7 @@ export class FormatCodePipe implements PipeTransform {
     let formattedCode = Prettier.format(codeWithClosedTags, {
       parser: language === 'html' ? 'html' : 'babel',
       plugins: [parserHtml, parserBabel],
-      singleAttributePerLine: true,
+      printWidth: 80,
     });
 
     /**

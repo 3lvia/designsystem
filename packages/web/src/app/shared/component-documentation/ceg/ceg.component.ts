@@ -8,7 +8,7 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { first, map, switchMap, takeUntil } from 'rxjs/operators';
+import { debounceTime, map, switchMap, takeUntil } from 'rxjs/operators';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
@@ -112,7 +112,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     this.zone.onStable
       .pipe(
         takeUntil(this.unsubscriber),
-        first(),
+        debounceTime(50),
         switchMap(() => this.componentExample.cegContent.getSlotVisibility()),
       )
       .subscribe((slots) => {

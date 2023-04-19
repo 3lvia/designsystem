@@ -13,9 +13,27 @@ export class StaticCodeGeneratorComponent implements OnInit {
   vueCode = '';
 
   ngOnInit() {
-    this.angularCode = this.staticContent;
-    this.vueCode = this.staticContent.slice().replace(/\[/g, ':').replace(/]/g, '');
-    this.reactCode = this.createReactCodeFromStaticContent(this.staticContent);
+    const code = this.addNewLinesBetweenTags(this.staticContent);
+    this.angularCode = code;
+
+    const cleanCode = this.removeAngularSpecificAttributes(code);
+    this.vueCode = this.createVueCodeFromStaticContent(cleanCode);
+    this.reactCode = this.createReactCodeFromStaticContent(cleanCode);
+  }
+
+  private addNewLinesBetweenTags(code: string): string {
+    return code.replace(/>\s?</g, '>\n<');
+  }
+
+  private removeAngularSpecificAttributes(code: string): string {
+    return code.replace(/\[ngClass\]=".*"/g, '').replace(/\[ngStyle\]=".*"/g, '');
+  }
+
+  private createVueCodeFromStaticContent(staticContent: string): string {
+    const vuePropSyntax = staticContent.slice().replace(/\[/g, ':').replace(/]/g, '');
+    const vueEventSyntax = vuePropSyntax.replace(/ \(/g, ' @').replace(/\)=/g, '=');
+
+    return vueEventSyntax;
   }
 
   private transformAngularAttributeToReact(attribute: string): string {
@@ -51,8 +69,28 @@ export class StaticCodeGeneratorComponent implements OnInit {
       .replace(/}__"/g, '}');
   }
 
+  private removeAngularEvents(code: string): string {
+    // Matches e.g. (onClose)="isShowing = false"
+    return code.replace(/\(\w+\)="[a-zA-Z\s=]+"/g, '');
+  }
+
   private transformTagsToReactStyle(code: string): string {
-    return code.replace(/elvia(^|-)([a-z])/g, (_match, _prefix, letter) => letter.toUpperCase());
+    return code
+      .split('elvia-')
+      .map((elviaTag) => {
+        const tagParts = elviaTag.split(' ');
+        if (tagParts[0].length > 1) {
+          const componentName = tagParts.shift() || '';
+          const titleCase = componentName
+            .split('-')
+            .map((part) => `${part.substring(0, 1).toUpperCase()}${part.substring(1)}`)
+            .join('');
+
+          return `${titleCase} ${tagParts.join(' ')}`;
+        }
+        return elviaTag;
+      })
+      .join('');
   }
 
   private transformAttributesToReactStyle(code: string): string {
@@ -77,6 +115,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   private createReactCodeFromStaticContent(angularCode: string): string {
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
+    reactCode = this.removeAngularEvents(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
     reactCode = this.transformAttributesToReactStyle(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);

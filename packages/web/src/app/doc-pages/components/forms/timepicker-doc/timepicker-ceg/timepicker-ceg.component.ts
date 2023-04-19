@@ -12,6 +12,7 @@ export class TimepickerCegComponent implements ComponentExample {
   cegContent = new CegControlManager<TimepickerProps>([
     {
       controls: {
+        isCompact: { type: 'checkbox', label: 'Compact', group: 'Size' },
         minuteInterval: {
           type: 'radioGroup',
           value: '10',
@@ -24,13 +25,12 @@ export class TimepickerCegComponent implements ComponentExample {
           ],
           group: 'Minute interval',
         },
-        isDisabled: { type: 'checkbox', label: 'Disabled', group: 'State' },
-        isFullWidth: { type: 'checkbox', label: 'Full width', group: 'State' },
-        isCompact: { type: 'checkbox', label: 'Compact', group: 'Size' },
         isRequired: { type: 'checkbox', label: 'Required', group: 'Options' },
+        isFullWidth: { type: 'checkbox', label: 'Full width', group: 'Options' },
         selectNowOnOpen: { type: 'checkbox', label: 'Select Now on Open', group: 'Options', value: true },
+        isDisabled: { type: 'checkbox', label: 'Disabled', group: 'State' },
       },
-      groupOrder: ['Minute interval', 'State', 'Size', 'Options'],
+      groupOrder: ['Size', 'Minute interval', 'Options', 'State'],
     },
   ]);
 
