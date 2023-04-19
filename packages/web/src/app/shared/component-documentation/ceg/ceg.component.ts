@@ -117,6 +117,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
       )
       .subscribe((slots) => {
         const slotList = this.getUpdatedSlotList(slots);
+        console.log(slotList);
 
         this._componentSlots.next(slotList);
 

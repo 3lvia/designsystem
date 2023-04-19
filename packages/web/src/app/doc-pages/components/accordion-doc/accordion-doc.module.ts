@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { AccordionDocComponent } from './accordion-doc.component';
 import { AccordionCegComponent } from './accordion-ceg/accordion-ceg.component';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
@@ -17,6 +18,7 @@ import '@elvia/elvis-accordion';
 @NgModule({
   imports: [
     RouterModule,
+    CommonModule,
     CegModule,
     ComponentHeaderModule,
     ComponentPropertiesModule,

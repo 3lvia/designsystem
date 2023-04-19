@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import '@elvia/elvis-card';
 import { CardDocComponent } from './card-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
@@ -12,6 +13,8 @@ import { ComponentExampleGeneratorModule } from 'src/app/shared/component-docume
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { RouterModule } from '@angular/router';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { CardCegComponent } from './card-ceg/card-ceg.component';
 
 @NgModule({
   imports: [
@@ -27,7 +30,9 @@ import { RouterModule } from '@angular/router';
     ComponentPropertiesTableModule,
     ComponentChangelogModule,
     RouterModule,
+    CegModule,
   ],
-  declarations: [CardDocComponent],
+  declarations: [CardDocComponent, CardCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CardDocModule {}

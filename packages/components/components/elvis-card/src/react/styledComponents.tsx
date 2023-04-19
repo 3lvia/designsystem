@@ -8,12 +8,11 @@ import {
   CardContentProps,
   CardHeadingProps,
   CardDescriptionProps,
-  CardColoredLineContainerProps,
   CardColoredLineProps,
-  CardCornerIconProps,
 } from './elvia-card.types';
 
 const borderColors: BorderColors = {
+  none: 'transparent',
   green: getColor('green'),
   'blue-berry': getColor('blue-berry'),
   blueBerry: getColor('blue-berry'),
@@ -50,7 +49,7 @@ export const CardArea = styled.div<CardAreaProps>`
   background: ${getColor('white')};
   box-sizing: border-box;
 
-  padding: 24px;
+  padding: 22px;
   min-width: ${({ type, minWidth }) => getCardAreaMinWidth(type, minWidth)};
   max-width: ${({ type, maxWidth }) => getCardAreaMaxWidth(type, maxWidth)};
   width: ${({ width }) => width};
@@ -58,11 +57,10 @@ export const CardArea = styled.div<CardAreaProps>`
   aspect-ratio: ${({ type }) => type === 'simple' && '1 / 1'};
 
   border-radius: 8px;
-  border: ${({ hasBorder }) => (hasBorder ? `1px solid ${getColor('grey-10')}` : 'none')};
+  border: 2px solid ${getColor('grey-05')};
 
   &:hover {
     border: 2px solid ${getColor('elvia-charge')};
-    padding: ${({ hasBorder }) => (hasBorder ? '23px' : '22px')};
     cursor: pointer;
   }
 `;
@@ -125,16 +123,13 @@ export const CardIcon = styled.div`
   }
 `;
 
-export const CardColoredLineContainer = styled.div<CardColoredLineContainerProps>`
+export const CardColoredLineContainer = styled.div`
   box-sizing: border-box;
   position: absolute;
   overflow: hidden;
-  top: ${({ hasBorder }) => (hasBorder ? '-1px' : '0')};
-  left: ${({ hasBorder }) => (hasBorder ? '-1px' : '0')};
-  height: ${({ hasBorder }) => (hasBorder ? 'calc(100% + 2px)' : '100%')};
-  width: ${({ hasBorder }) => (hasBorder ? 'calc(100% + 2px)' : '100%')};
+  height: calc(100% + 2px);
+  width: calc(100% + 2px);
   border-radius: inherit;
-  border: ${({ hasBorder }) => (hasBorder ? '1px solid transparent' : '0')};
   pointer-events: none;
 `;
 
@@ -197,12 +192,12 @@ export const CardHoverArrow = styled.div`
   }
 `;
 
-export const CardCornerIcon = styled.div<CardCornerIconProps>`
+export const CardCornerIcon = styled.div`
   position: absolute;
   right: 16px;
   top: 16px;
   ${CardArea}:hover & {
-    right: ${({ hasBorder }) => (hasBorder ? '15px' : '14px')};
-    top: ${({ hasBorder }) => (hasBorder ? '15px' : '14px')};
+    right: 14px;
+    top: 14px;
   }
 `;
