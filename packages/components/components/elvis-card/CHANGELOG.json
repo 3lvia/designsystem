@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fix broken type export.", "Updated borderColor prop to have default 'none' type"]
+          "changes": ["Moved type export.", "Updated borderColor prop to have default 'none' type"]
         },
         {
           "type": "new_feature",

@@ -13,8 +13,9 @@ import { ComponentExampleGeneratorModule } from 'src/app/shared/component-docume
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { RouterModule } from '@angular/router';
-import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { CardCegComponent } from './card-ceg/card-ceg.component';
+import { CardLinksCegComponent } from './card-links-ceg/card-links-ceg.component';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 
 @NgModule({
   imports: [
@@ -32,7 +33,7 @@ import { CardCegComponent } from './card-ceg/card-ceg.component';
     RouterModule,
     CegModule,
   ],
-  declarations: [CardDocComponent, CardCegComponent],
+  declarations: [CardDocComponent, CardCegComponent, CardLinksCegComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CardDocModule {}
