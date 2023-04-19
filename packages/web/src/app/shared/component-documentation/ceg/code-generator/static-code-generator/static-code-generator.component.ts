@@ -64,7 +64,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private removeAngularEvents(code: string): string {
-    return code.replace(/\(.+\)="[^"]*" /g, '');
+    return code.replace(/\(\w+\)="[a-zA-Z\s=]+"/g, '');
   }
 
   private transformTagsToReactStyle(code: string): string {
