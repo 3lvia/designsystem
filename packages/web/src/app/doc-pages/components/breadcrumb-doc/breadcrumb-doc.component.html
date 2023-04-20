@@ -12,7 +12,9 @@
 <!--BODY-->
 <div class="page-body">
   <!-- CEG -->
-  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+  <app-static-ceg>
+    <app-breadcrumb-ceg />
+  </app-static-ceg>
 
   <!-- USAGE -->
   <app-component-section [sectionTitle]="'Usage'">
@@ -24,11 +26,7 @@
           besides the current page are a link. The breadcrumb is hidden until you have two levels (no
           breadcrumbs are visible on the homepage).
           <div class="breadcrumb-levels">
-            <img
-              alt="breadcrumb-levels on desktop"
-              class="e-mt-16"
-              src="./../../../../assets/breadcrumb/levels.svg"
-            />
+            <img alt="breadcrumb-levels on desktop" class="e-mt-16" src="assets/breadcrumb/levels.svg" />
           </div>
 
           <div class="e-mt-40">On mobile you only get the closest parent.</div>

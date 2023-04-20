@@ -30,21 +30,10 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private createVueCodeFromStaticContent(staticContent: string): string {
-    const vuePropSyntax = staticContent.slice().replace(/\[/g, ':').replace(/]/g, '');
+    const vuePropSyntax = staticContent.slice().replace(/\[(\w+)\]/g, ':$1');
     const vueEventSyntax = vuePropSyntax.replace(/ \(/g, ' @').replace(/\)=/g, '=');
 
     return vueEventSyntax;
-  }
-
-  private transformAngularAttributeToReact(attribute: string): string {
-    const keyValue = attribute.split('=');
-    const key = keyValue[0].replace('[', '').replace(']', '');
-    const value = keyValue[1].trim().replace(/"/g, '').replace('>', '');
-    let output = `${key}={${value}}`;
-    if (attribute.trim().endsWith('>')) {
-      return `${output}>\n`;
-    }
-    return output;
   }
 
   private transformSlotsIntoReactAttributes(code: string): string {
@@ -93,16 +82,14 @@ export class StaticCodeGeneratorComponent implements OnInit {
       .join('');
   }
 
-  private transformAttributesToReactStyle(code: string): string {
-    return code
-      .split(' ')
-      .map((attribute) => {
-        if (attribute.startsWith('[')) {
-          return this.transformAngularAttributeToReact(attribute);
-        }
-        return attribute;
-      })
-      .join(' ');
+  private transformAngularAttributesToReactStyle(code: string): string {
+    /**
+     * This RegEx finds two things:
+     *   - Attributes surrounded by square brackets: \[(\w+)\]
+     *   - The value following the attribute with square brackets: ((?:.|\n)+?)
+     * Then it pulls those values out as two capture groups, and formats it as React
+     */
+    return code.replace(/\[(\w+)\]="((?:.|\n)+?)"/g, '$1={$2}');
   }
 
   /**
@@ -117,7 +104,8 @@ export class StaticCodeGeneratorComponent implements OnInit {
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
     reactCode = this.removeAngularEvents(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
-    reactCode = this.transformAttributesToReactStyle(reactCode);
+    reactCode = this.transformAngularAttributesToReactStyle(reactCode);
+    console.log(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
 
     return reactCode;
