@@ -2584,12 +2584,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  languageName: node
-  linkType: soft
-
 "@elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
@@ -10506,7 +10500,7 @@ __metadata:
     "@elvia/elvis-card": "portal:../components/components/elvis-card"
     "@elvia/elvis-carousel": "portal:../components/components/elvis-carousel"
     "@elvia/elvis-chip": "portal:../components/components/elvis-chip"
-    "@elvia/elvis-colors": "portal:../elvis-colors"
+    "@elvia/elvis-colors": ^1.8.0
     "@elvia/elvis-context-menu": "portal:../components/components/elvis-context-menu"
     "@elvia/elvis-datepicker": "portal:../components/components/elvis-datepicker"
     "@elvia/elvis-datepicker-range": "portal:../components/components/elvis-datepicker-range"
