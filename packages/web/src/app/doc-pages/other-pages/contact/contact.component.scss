@@ -37,8 +37,10 @@
       }
       .profile-emoji {
         left: 314px - 36px - 58px;
+        top: 157px + 5px;
         @include breakpoints.breakpoint-up(Mobile) {
           left: 186px - 44px;
+          top: 5px;
         }
       }
     }

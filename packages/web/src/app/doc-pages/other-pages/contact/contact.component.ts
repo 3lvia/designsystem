@@ -3,7 +3,8 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
 
 export type ContactInfo = {
-  name: string;
+  firstName: string;
+  lastName: string;
   image: string;
   title: string;
   email: string;
@@ -22,7 +23,8 @@ export class ContactComponent {
   title = getDocPagesNotFromCMS('contact')?.title;
   contactList: ContactInfo[] = [
     {
-      name: 'Kari Clifford',
+      firstName: 'Kari',
+      lastName: 'Clifford',
       image: 'assets/contact/Kari.jpg',
       title: 'Product lead',
       email: 'kari.clifford@elvia.no',
@@ -31,7 +33,8 @@ export class ContactComponent {
       loadedImg: false,
     },
     {
-      name: 'Fride Skarseth',
+      firstName: 'Fride',
+      lastName: 'Skarseth',
       image: 'assets/contact/Fride.jpg',
       title: 'Developer',
       email: 'fride.skarseth@elvia.no',
@@ -40,7 +43,8 @@ export class ContactComponent {
       loadedImg: false,
     },
     {
-      name: 'Trygve Scheline Urdahl',
+      firstName: 'Trygve',
+      lastName: 'Scheline Urdahl',
       image: 'assets/contact/Trygve.png',
       title: 'Developer',
       email: 'trygve.scheline.urdahl@elvia.no',
@@ -49,7 +53,8 @@ export class ContactComponent {
       loadedImg: false,
     },
     {
-      name: 'Viljar Tornøe',
+      firstName: 'Viljar',
+      lastName: 'Tornøe',
       image: 'assets/contact/Viljar.png',
       title: 'Designer',
       email: 'viljar.tornoe@elvia.no',
@@ -58,7 +63,8 @@ export class ContactComponent {
       loadedImg: false,
     },
     {
-      name: 'Hilde Iren Breivik',
+      firstName: 'Hilde',
+      lastName: 'Iren Breivik',
       image: 'assets/contact/Hilde.jpg',
       title: 'Designer',
       email: 'hilde.iren.breivik@elvia.no',
@@ -67,7 +73,8 @@ export class ContactComponent {
       loadedImg: false,
     },
     {
-      name: 'Tom Schrier',
+      firstName: 'Tom',
+      lastName: 'Schrier',
       image: 'assets/contact/Tom.png',
       title: 'Developer',
       email: 'tom.schrier@elvia.no',
@@ -76,7 +83,8 @@ export class ContactComponent {
       loadedImg: false,
     },
     {
-      name: 'Erik Tallang',
+      firstName: 'Erik',
+      lastName: 'Tallang',
       image: 'assets/contact/Erik.png',
       title: 'Developer',
       email: 'erik.tallang@elvia.no',
@@ -85,7 +93,8 @@ export class ContactComponent {
       loadedImg: false,
     },
     {
-      name: 'Maja Bækken Nilsen',
+      firstName: 'Maja',
+      lastName: 'Bækken Nilsen',
       image: 'assets/contact/Maja.jpg',
       title: 'Developer',
       email: 'maja.bekken.nilsen@elvia.no',
@@ -97,13 +106,6 @@ export class ContactComponent {
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | ' + 'Elvia design system');
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  hideContentLoader(evt: any, index: number): void {
-    if (evt && evt.target) {
-      this.contactList[index].loadedImg = true;
-    }
   }
 
   veryImportantFunction = (name: string, legacy: string): void => {
@@ -118,9 +120,5 @@ export class ContactComponent {
       }
       element.classList.remove('criticallyImportantStyle');
     }, 400);
-  };
-
-  getFirstName = (contact: ContactInfo): string => {
-    return contact.name.split(' ')[0];
   };
 }

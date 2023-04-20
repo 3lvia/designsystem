@@ -13,35 +13,37 @@
       <div class="contact-grid">
         <div *ngFor="let contact of contactList; index as i" class="contact-profile-container">
           <div class="contact-profile" [ngClass]="{ odd: i % 2 !== 0 }">
-            <div style="position: relative">
-              <div
-                (click)="veryImportantFunction(getFirstName(contact), contact.emoji)"
-                id="{{ getFirstName(contact) }}"
-                class="profile-emoji"
-              >
-                {{ contact.emoji }}
-              </div>
-              <div
-                class="e-content-loader e-content-loader--circle profile-image-loader"
-                *ngIf="!contact.loadedImg"
-              ></div>
-              <img
-                alt="{{ contact.name }}"
-                class="profile-image"
-                src="{{ contact.image }}"
-                (load)="hideContentLoader($event, i)"
-              />
+            <div
+              (click)="veryImportantFunction(contact.firstName, contact.emoji)"
+              [id]="contact.firstName"
+              class="profile-emoji"
+            >
+              {{ contact.emoji }}
             </div>
+            <div
+              class="e-content-loader e-content-loader--circle profile-image-loader"
+              *ngIf="!contact.loadedImg"
+            ></div>
+            <img
+              [alt]="contact.firstName"
+              class="profile-image"
+              [src]="contact.image"
+              (load)="contact.loadedImg = true"
+            />
             <div class="profile-info">
               <div class="e-title-caps">{{ contact.title }}</div>
-              <div class="e-title-sm e-mt-8">{{ contact.name }}</div>
-              <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">{{ contact.email }}</div>
-              <div class="profile-slack-button">
-                <a class="e-btn e-btn--tertiary" href="{{ contact.slackUrl }}">
+              <div class="e-title-sm e-mt-8" style="margin-bottom: 4px">
+                {{ contact.firstName + ' ' + contact.lastName }}
+              </div>
+              <a class="e-text-md" [href]="'mailto:' + contact.email">
+                {{ contact.email }}
+              </a>
+              <div class="profile-slack-button e-mt-16">
+                <a class="e-btn e-btn--tertiary" [href]="contact.slackUrl">
                   <span class="e-btn__icon">
                     <img alt="" src="assets/contact/slack-icon.svg" />
                   </span>
-                  <span class="e-btn__title">Slack {{ getFirstName(contact) }}</span>
+                  <span class="e-btn__title">Slack {{ contact.firstName }}</span>
                 </a>
               </div>
             </div>
