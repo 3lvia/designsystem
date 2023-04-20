@@ -228,7 +228,7 @@ module.exports = [
   {
     name: 'columns',
     terms: ['table', 'row', 'pillars', 'show', 'hide', 'data'],
-    thirdparty: { name: ['streamline'], duplicate: ['streamline'] },
+    thirdparty: { name: ['streamline'], duplicate: ['list'] },
   },
   { name: 'cookie', terms: ['cookies'], thirdparty: { name: ['streamline'] } },
   { name: 'cost_cut-color', terms: [], thirdparty: { name: ['streamline'] } },
