@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StaticCodeGeneratorComponent implements OnInit {
   @Input() staticContent = '';
+  @Input() comment?: string;
 
   angularCode = '';
   reactCode = '';
@@ -14,7 +15,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   ngOnInit() {
     const code = this.addNewLinesBetweenTags(this.staticContent);
-    this.angularCode = code;
+    this.angularCode = this.comment ? `<!--${this.comment}-->\n${code}` : code;
 
     const cleanCode = this.removeAngularSpecificAttributes(code);
     this.vueCode = this.createVueCodeFromStaticContent(cleanCode);
@@ -30,14 +31,10 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private createVueCodeFromStaticContent(staticContent: string): string {
-    const comment = this.getCommentFromCode(staticContent);
-    const staticContentWithoutComment = comment
-      ? staticContent.slice(staticContent.indexOf('-->') + 3)
-      : staticContent;
-    const vuePropSyntax = staticContentWithoutComment.replace(/\[/g, ':').replace(/]/g, '');
+    const vuePropSyntax = staticContent.slice().replace(/\[/g, ':').replace(/]/g, '');
     const vueEventSyntax = vuePropSyntax.replace(/ \(/g, ' @').replace(/\)=/g, '=');
-    if (comment) {
-      return `<!--${comment}-->${vueEventSyntax}`;
+    if (this.comment) {
+      return `<!--${this.comment}-->\n${vueEventSyntax}`;
     }
     return vueEventSyntax;
   }
@@ -136,14 +133,13 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private createReactCodeFromStaticContent(angularCode: string): string {
-    const comment = this.getCommentFromCode(angularCode);
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
     reactCode = this.removeAngularEvents(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
     reactCode = this.transformAttributesToReactStyle(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
-    if (comment) {
-      reactCode = '// ' + comment.replace(/\n/g, '\n// ') + '\n' + reactCode;
+    if (this.comment) {
+      reactCode = '// ' + this.comment.replace(/\n/g, '\n// ') + '\n' + reactCode;
     }
     return reactCode;
   }

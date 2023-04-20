@@ -11,6 +11,13 @@ import * as template from 'html-loader!./radio-filter-icon-ceg.component.html';
 })
 export class RadioFilterIconCegComponent implements StaticComponentExample {
   html = template.default;
+  comment = `Define the items in Typescript:
+  const radioFilterItems = [
+    { label: 'All', value: 'all'},
+    { label: 'Read', value: 'read'},
+    { label: 'Unread', value: 'unread'},
+    { label: '<i class="e-icon e-icon--bookmark-filled e-icon--xs"></i>Flagged', value: 'flagged' },
+  ];`;
 
   radioFilterItems: RadioFilterProps['items'] = [
     { label: 'All', value: 'all' },

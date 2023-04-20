@@ -16,4 +16,5 @@ export abstract class StaticComponentExample {
    * ```
    */
   html: string;
+  comment?: string;
 }
