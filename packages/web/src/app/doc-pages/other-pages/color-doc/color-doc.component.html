@@ -1,8 +1,8 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Colors</ng-container>
+  <ng-container ngProjectAs="headerTitle">{{ locale === 'nb-NO' ? titleNo : title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
-    {{ description }}
+    {{ locale === 'nb-NO' ? descriptionNo : description }}
   </ng-container>
 </app-component-header>
 
@@ -10,7 +10,7 @@
 <div class="page-body">
   <!--PREVIEWS-->
   <!--PRIMARY-->
-  <app-component-subsection [sectionTitle]="'Primary Colors'">
+  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Primær farger' : 'Primary Colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
         <div
@@ -35,7 +35,10 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-sm">
-              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-title e-title-caps">
+                <ng-container *ngIf="locale === 'en-GB'">Name</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Navn</ng-container>
+              </div>
               <div class="sub-content">
                 {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
               </div>
@@ -58,7 +61,10 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div class="sub-title e-title-caps e-text-black">
+                <ng-container *ngIf="locale === 'en-GB'">Contrast</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Kontrast</ng-container>
+              </div>
               <div
                 class="sub-content e-text-sm"
                 style="
@@ -116,7 +122,7 @@
   </app-component-subsection>
 
   <!--SIGNAL-->
-  <app-component-subsection [sectionTitle]="'Signal colors'">
+  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Signal farger' : 'Signal Colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
         <div class="display-card" style="min-width: 200px" *ngFor="let item of signalColors">
@@ -129,7 +135,10 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-sm">
-              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-title e-title-caps">
+                <ng-container *ngIf="locale === 'en-GB'">Name</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Navn</ng-container>
+              </div>
               <div class="sub-content">
                 {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
               </div>
@@ -152,7 +161,10 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div class="sub-title e-title-caps e-text-black">
+                <ng-container *ngIf="locale === 'en-GB'">Contrast</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Kontrast</ng-container>
+              </div>
               <div
                 class="sub-content e-text-sm"
                 style="
@@ -210,7 +222,7 @@
   </app-component-subsection>
 
   <!--DATA-->
-  <app-component-subsection [sectionTitle]="'Data colors'">
+  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Data farger' : 'Data colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
         <div class="display-card" style="min-width: 200px" *ngFor="let item of dataColors">
@@ -225,7 +237,10 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-sm">
-              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-title e-title-caps">
+                <ng-container *ngIf="locale === 'en-GB'">Name</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Navn</ng-container>
+              </div>
               <div class="sub-content">
                 {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
               </div>
@@ -248,7 +263,10 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div class="sub-title e-title-caps e-text-black">
+                <ng-container *ngIf="locale === 'en-GB'">Contrast</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Kontrast</ng-container>
+              </div>
               <div
                 class="sub-content e-text-sm"
                 style="
@@ -306,7 +324,7 @@
   </app-component-subsection>
 
   <!--GREYS-->
-  <app-component-subsection [sectionTitle]="'Greys'">
+  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Grå farger' : 'Grey Colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
         <div class="display-card" style="min-width: 200px" *ngFor="let item of greysColors">
@@ -319,7 +337,10 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-sm">
-              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-title e-title-caps">
+                <ng-container *ngIf="locale === 'en-GB'">Name</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Navn</ng-container>
+              </div>
               <div class="sub-content">
                 {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
               </div>
@@ -342,7 +363,10 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div class="sub-title e-title-caps e-text-black">
+                <ng-container *ngIf="locale === 'en-GB'">Contrast</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Kontrast</ng-container>
+              </div>
               <div
                 class="sub-content e-text-sm"
                 style="
@@ -400,16 +424,30 @@
   </app-component-subsection>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Bruk' : 'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      All colors should be used in solid 100%, with the exception of illustrations, graphs and labels. In
-      these cases, color shades can be used as long as the color isn’t the only visual indication of important
-      data.
+      <ng-container *ngIf="locale === 'en-GB'">
+        All colors should be used in solid 100%, with the exception of illustrations, graphs and labels. In
+        these cases, color shades can be used as long as the color isn’t the only visual indication of
+        important data.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Alle farger skal brukes i heldekkende 100 %, med unntak av illustrasjoner, grafer og etiketter. I
+        disse tilfellene kan fargenyanser brukes så lenge fargen ikke er den eneste visuelle indikasjonen på
+        viktige data.
+      </ng-container>
 
-      <app-component-subsection [sectionTitle]="'Color weight'">
+      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Fargevekt' : 'Color weight'">
         <ng-container ngProjectAs="sectionContent">
-          Elvia is mainly white and dark grey, with some black components and a touch of green in details such
-          as icons, illustration and active states.
+          <ng-container *ngIf="locale === 'en-GB'">
+            Elvia is mainly white and dark grey, with some black components and a touch of green in details
+            such as icons, illustration and active states.
+          </ng-container>
+          <ng-container *ngIf="locale === 'nb-NO'">
+            Elvia er hovedsakelig hvit og mørkegrå, med noen svarte komponenter og et snev av grønt i detaljer
+            som ikoner, illustrasjoner og aktive tilstander.
+          </ng-container>
+
           <div>
             <img
               style="width: calc(20% + 180px)"
@@ -419,13 +457,22 @@
             />
           </div>
 
-          <app-component-subsubsection [sectionTitle]="'Green'">
+          <app-component-subsubsection [sectionTitle]="locale === 'nb-NO' ? 'Grønn' : 'Green'">
             <ng-container ngProjectAs="sectionContent">
-              Green shows that Elvia is ON, activated, fully charged and environmentally friendly. The green
-              color should be used intentionally and should not be used on large surfaces as a background. The
-              green color are used to display when something is active/clickable on interactions. It’s also
-              used in illustration and icons to highlight the most important or just to get a touch of the
-              green light in between all the white and black.
+              <ng-container *ngIf="locale === 'en-GB'">
+                Green shows that Elvia is ON, activated, fully charged and environmentally friendly. The green
+                color should be used intentionally and should not be used on large surfaces as a background.
+                The green color are used to display when something is active/clickable on interactions. It’s
+                also used in illustration and icons to highlight the most important or just to get a touch of
+                the green light in between all the white and black.
+              </ng-container>
+              <ng-container *ngIf="locale === 'nb-NO'">
+                Grønn viser at Elvia er PÅ, aktivert, fulladet og miljøvennlig. Den grønne fargen bør brukes
+                bevisst og bør ikke brukes på store flater som bakgrunn. Den grønne fargen brukes til å vise
+                når noe er aktivt/klikkbart på interaksjoner. Den brukes også i illustrasjoner og ikoner for å
+                fremheve det viktigste eller bare for å få et snev av grønt lys mellom alt det hvite og
+                svarte.
+              </ng-container>
               <app-do-dont-text>
                 <ng-container ngProjectAs="do">
                   <img src="assets/color-doc/a.svg" style="max-width: 100%" alt="" />
@@ -437,23 +484,40 @@
             </ng-container>
           </app-component-subsubsection>
 
-          <app-component-subsubsection [sectionTitle]="'White'">
+          <app-component-subsubsection [sectionTitle]="locale === 'nb-NO' ? 'Hvitt' : 'White'">
             <ng-container ngProjectAs="sectionContent">
-              White stands for light and energy. White is used as a background colour and as a text colour on
-              darker surfaces.
+              <ng-container *ngIf="locale === 'en-GB'">
+                White stands for light and energy. White is used as a background colour and as a text colour
+                on darker surfaces.
+              </ng-container>
+              <ng-container *ngIf="locale === 'nb-NO'">
+                Hvitt står for lys og energi. Hvitt brukes som bakgrunnsfarge og som tekstfarge på mørkere
+                flater.
+              </ng-container>
             </ng-container>
           </app-component-subsubsection>
 
-          <app-component-subsubsection [sectionTitle]="'Black'">
+          <app-component-subsubsection [sectionTitle]="locale === 'nb-NO' ? 'Svart' : 'Black'">
             <ng-container ngProjectAs="sectionContent">
-              Black shows that Elvia is OFF. It’s the primary color for text and icons, but can also be used
-              to get a dark surface.
+              <ng-container *ngIf="locale === 'en-GB'">
+                Black shows that Elvia is OFF. It’s the primary color for text and icons, but can also be used
+                to get a dark surface.
+              </ng-container>
+              <ng-container *ngIf="locale === 'nb-NO'">
+                Svart viser at Elvia er AV. Det er den primære fargen for tekst og ikoner, men kan også brukes
+                for å få en mørk overflate.
+              </ng-container>
             </ng-container>
           </app-component-subsubsection>
 
-          <app-component-subsubsection [sectionTitle]="'Dark (grey)'">
+          <app-component-subsubsection [sectionTitle]="locale === 'nb-NO' ? 'Mørk (grå)' : 'Dark (grey)'">
             <ng-container ngProjectAs="sectionContent">
-              Dark (grey) is the preferred dark background.
+              <ng-container *ngIf="locale === 'en-GB'">
+                Dark (grey) is the preferred dark background.
+              </ng-container>
+              <ng-container *ngIf="locale === 'nb-NO'">
+                Mørk (grå) er den foretrukne mørke bakgrunnen.
+              </ng-container>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
