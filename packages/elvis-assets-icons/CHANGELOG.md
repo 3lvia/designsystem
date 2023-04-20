@@ -1,5 +1,17 @@
 # Elvis-assets-icon
 
+## 2.12.0 (20.09.23)
+
+### New feature
+
+- New icons:
+  1. `columns`.
+  2. `step_6`.
+  3. `step_7`.
+  4. `step_8`.
+  5. `step_9`.
+  6. `step_10`.
+
 ## 2.11.0 (09.03.23)
 
 ### New feature
