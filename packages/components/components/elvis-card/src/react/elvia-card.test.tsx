@@ -26,11 +26,6 @@ describe('Elvis Card', () => {
       expect(cardDescription).toHaveTextContent('Description');
     });
 
-    it('should have border', () => {
-      const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).toHaveStyle(`border: 2px solid ${getColor('grey-05')}`);
-    });
-
     it('should not have top border with color', () => {
       const cardColoredLine = screen.queryByTestId('card-colored-line');
       expect(cardColoredLine).toHaveStyle(`border-top: 4px solid transparent`);

@@ -24,7 +24,7 @@ export const config: ComponentConfig = {
       name: 'hasBorder',
       type: 'boolean',
       deprecatedDetails: {
-        version: '3.1.1',
+        version: '3.2.0',
         explanation: 'Card now has the same border on all backgrounds. No replacement needed.',
       },
     },
