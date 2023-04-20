@@ -225,6 +225,11 @@ module.exports = [
   { name: 'close_menu', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
   { name: 'cloud_upload', terms: ['upload', 'cloud', 'import'], thirdparty: { name: ['streamline'] } },
   { name: 'cog', terms: ['settings', 'gear'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'columns',
+    terms: ['table', 'row', 'pillars', 'show', 'hide', 'data'],
+    thirdparty: { name: ['streamline'], duplicate: ['streamline'] },
+  },
   { name: 'cookie', terms: ['cookies'], thirdparty: { name: ['streamline'] } },
   { name: 'cost_cut-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'collapse_circle-color', terms: [], thirdparty: { name: ['streamline'] } },
@@ -773,6 +778,11 @@ module.exports = [
   { name: 'step_3', terms: ['number', 'third', 'three'], thirdparty: { name: ['streamline'] } },
   { name: 'step_4', terms: ['number', 'fourth', 'four'], thirdparty: { name: ['streamline'] } },
   { name: 'step_5', terms: ['number', 'fifth', 'five'], thirdparty: { name: ['streamline'] } },
+  { name: 'step_6', terms: ['number', 'sixth', 'six'], thirdparty: { name: ['streamline'] } },
+  { name: 'step_7', terms: ['number', 'seventh', 'seven'], thirdparty: { name: ['streamline'] } },
+  { name: 'step_8', terms: ['number', 'eighth', 'eight'], thirdparty: { name: ['streamline'] } },
+  { name: 'step_9', terms: ['number', 'ninth', 'nine'], thirdparty: { name: ['streamline'] } },
+  { name: 'step_10', terms: ['number', 'tenth', 'ten'], thirdparty: { name: ['streamline'] } },
   { name: 'stove', terms: ['oven'] },
   {
     name: 'subtract_circle',
