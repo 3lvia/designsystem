@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { primaryColors, signalColors, dataColors, greysColors } from './color';
 import { Title } from '@angular/platform-browser';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './color-doc.component.html',
   styleUrls: ['./color-doc.component.scss'],
 })
-export class ColorDocComponent implements OnInit, OnDestroy {
+export class ColorDocComponent implements OnDestroy {
   localizationSubscriber: Subscription;
   primaryColors = primaryColors;
   signalColors = signalColors;
@@ -32,9 +32,7 @@ color: var(--e-red);`;
   dontCodeCSS = `background: var(--e-bg-green);
 color: var(--e-text-red);`;
 
-  constructor(private titleService: Title, private localizationService: LocalizationService) {}
-
-  ngOnInit(): void {
+  constructor(private titleService: Title, private localizationService: LocalizationService) {
     this.setTabTitle();
     this.localizationSubscriber = this.localizationService.listenLocalization().subscribe((locale) => {
       this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
