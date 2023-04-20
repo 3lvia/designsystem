@@ -30,9 +30,16 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private createVueCodeFromStaticContent(staticContent: string): string {
-    const vuePropSyntax = staticContent.slice().replace(/\[/g, ':').replace(/]/g, '');
+    const comment = this.getCommentFromCode(staticContent);
+    const staticContentWithoutComment =
+      staticContent.indexOf('-->') > -1
+        ? staticContent.slice(staticContent.indexOf('-->') + 3)
+        : staticContent;
+    const vuePropSyntax = staticContentWithoutComment.replace(/\[/g, ':').replace(/]/g, '');
     const vueEventSyntax = vuePropSyntax.replace(/ \(/g, ' @').replace(/\)=/g, '=');
-
+    if (comment) {
+      return `<!--${comment}-->${vueEventSyntax}`;
+    }
     return vueEventSyntax;
   }
 
@@ -95,6 +102,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   private transformAttributesToReactStyle(code: string): string {
     return code
+      .replace(/>/g, ' > ')
       .split(' ')
       .map((attribute) => {
         if (attribute.startsWith('[')) {
@@ -106,6 +114,21 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   /**
+   * Get a comment from the HTML code. Must be called before the code is passed through a `DOMParser`.
+   *
+   * **NB!**: Only finds the first comment.
+   */
+  private getCommentFromCode(rawCode: string) {
+    const code = rawCode.replace(/>\n</g, '><');
+    const commentStart = code.indexOf('<!--');
+    const commentEnd = code.indexOf('-->');
+    if (commentStart === -1 || commentEnd === -1) {
+      return null;
+    }
+    return code.slice(commentStart + 4, commentEnd);
+  }
+
+  /**
    * When the app is build, the HTML may be minified, removing new lines.
    * This leaves white space between elements which Prettier adds as a new line between elements.
    */
@@ -114,12 +137,15 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private createReactCodeFromStaticContent(angularCode: string): string {
+    const comment = this.getCommentFromCode(angularCode);
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
     reactCode = this.removeAngularEvents(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
     reactCode = this.transformAttributesToReactStyle(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
-
+    if (comment) {
+      reactCode = '// ' + comment.replace(/\n/g, '\n// ') + '\n' + reactCode;
+    }
     return reactCode;
   }
 }
