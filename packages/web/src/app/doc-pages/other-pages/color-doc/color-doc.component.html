@@ -10,7 +10,7 @@
 <div class="page-body">
   <!--PREVIEWS-->
   <!--PRIMARY-->
-  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Primær Farger' : 'Primary Colors'">
+  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Primær farger' : 'Primary Colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
         <div
@@ -35,7 +35,10 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-sm">
-              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-title e-title-caps">
+                <ng-container *ngIf="locale === 'en-GB'">Name</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Navn</ng-container>
+              </div>
               <div class="sub-content">
                 {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
               </div>
@@ -58,7 +61,10 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div class="sub-title e-title-caps e-text-black">
+                <ng-container *ngIf="locale === 'en-GB'">Contrast</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Kontrast</ng-container>
+              </div>
               <div
                 class="sub-content e-text-sm"
                 style="
@@ -116,7 +122,7 @@
   </app-component-subsection>
 
   <!--SIGNAL-->
-  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Signal Farger' : 'Signal Colors'">
+  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Signal farger' : 'Signal Colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
         <div class="display-card" style="min-width: 200px" *ngFor="let item of signalColors">
@@ -129,7 +135,10 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-sm">
-              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-title e-title-caps">
+                <ng-container *ngIf="locale === 'en-GB'">Name</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Navn</ng-container>
+              </div>
               <div class="sub-content">
                 {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
               </div>
@@ -152,7 +161,10 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div class="sub-title e-title-caps e-text-black">
+                <ng-container *ngIf="locale === 'en-GB'">Contrast</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Kontrast</ng-container>
+              </div>
               <div
                 class="sub-content e-text-sm"
                 style="
@@ -210,7 +222,7 @@
   </app-component-subsection>
 
   <!--DATA-->
-  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Data Farger' : 'Data colors'">
+  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Data farger' : 'Data colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
         <div class="display-card" style="min-width: 200px" *ngFor="let item of dataColors">
@@ -225,7 +237,10 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-sm">
-              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-title e-title-caps">
+                <ng-container *ngIf="locale === 'en-GB'">Name</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Navn</ng-container>
+              </div>
               <div class="sub-content">
                 {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
               </div>
@@ -248,7 +263,10 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div class="sub-title e-title-caps e-text-black">
+                <ng-container *ngIf="locale === 'en-GB'">Contrast</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Kontrast</ng-container>
+              </div>
               <div
                 class="sub-content e-text-sm"
                 style="
@@ -306,7 +324,7 @@
   </app-component-subsection>
 
   <!--GREYS-->
-  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Grå Farger' : 'Grey Colors'">
+  <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Grå farger' : 'Grey Colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
         <div class="display-card" style="min-width: 200px" *ngFor="let item of greysColors">
@@ -319,7 +337,10 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-sm">
-              <div class="sub-title e-title-caps">Name</div>
+              <div class="sub-title e-title-caps">
+                <ng-container *ngIf="locale === 'en-GB'">Name</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Navn</ng-container>
+              </div>
               <div class="sub-content">
                 {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
               </div>
@@ -342,7 +363,10 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-title-caps e-text-black">Contrast</div>
+              <div class="sub-title e-title-caps e-text-black">
+                <ng-container *ngIf="locale === 'en-GB'">Contrast</ng-container>
+                <ng-container *ngIf="locale === 'nb-NO'">Kontrast</ng-container>
+              </div>
               <div
                 class="sub-content e-text-sm"
                 style="
