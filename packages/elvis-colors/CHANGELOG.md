@@ -1,5 +1,13 @@
 # Elvia Colors Changelog
 
+## 2.0.0 (20.04.23)
+
+### Breaking changes
+
+- Updated the theme color labels to the new ones.
+- Removed the `getColor()`. Use `getThemeColor()` or `getCustomThemeColor()` instead.
+- Removed the old color object, as it has been replaced by the new theme functionality and theme color object.
+
 ## 1.8.0 (09.03.23)
 
 ### New feature
