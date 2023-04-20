@@ -59,10 +59,9 @@
           index of the clicked breadcrumb. This functionality can be used to handle routing outside of the
           breadcrumb component allowing the use of routing modules (e.g. Angular RoutingModule or React
           Router).
-          <app-component-example-generator
-            [componentData]="$any(breadcrumbEventCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-breadcrumb-event-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>

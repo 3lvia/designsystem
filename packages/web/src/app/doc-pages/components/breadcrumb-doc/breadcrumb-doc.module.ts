@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { BreadcrumbCegComponent } from './breadcrumb-ceg/breadcrumb-ceg.component';
+import { BreadcrumbEventCegComponent } from './breadcrumb-event-ceg/breadcrumb-event-ceg.component';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import '@elvia/elvis-breadcrumb';
 
@@ -28,7 +29,7 @@ import '@elvia/elvis-breadcrumb';
     ComponentChangelogModule,
     CegModule,
   ],
-  declarations: [BreadcrumbDocComponent, BreadcrumbCegComponent],
+  declarations: [BreadcrumbDocComponent, BreadcrumbCegComponent, BreadcrumbEventCegComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BreadcrumbDocModule {}

@@ -58,9 +58,18 @@ export class StaticCodeGeneratorComponent implements OnInit {
       .replace(/}__"/g, '}');
   }
 
-  private removeAngularEvents(code: string): string {
-    // Matches e.g. (onClose)="isShowing = false"
-    return code.replace(/\(\w+\)="[a-zA-Z\s=]+"/g, '');
+  private transformAngularEventsToReactStyle(code: string): string {
+    return code.replace(/\((\w+)\)="((.|\n)+?)"/g, (_, attributeName: string, attributeValue: string) => {
+      let value = attributeValue;
+
+      /**
+       * If the value is a function, map it to React syntax
+       * "handleRoutingOnClick($any($event).detail.value)" becomes "value => handleRoutingOnClick(value)"
+       */
+      value = value.replace(/(\w+)(\(.+\))/, 'value => $1(value)');
+
+      return `${attributeName}={${value}}`;
+    });
   }
 
   private transformTagsToReactStyle(code: string): string {
@@ -102,10 +111,9 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   private createReactCodeFromStaticContent(angularCode: string): string {
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
-    reactCode = this.removeAngularEvents(reactCode);
+    reactCode = this.transformAngularEventsToReactStyle(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
     reactCode = this.transformAngularAttributesToReactStyle(reactCode);
-    console.log(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
 
     return reactCode;
