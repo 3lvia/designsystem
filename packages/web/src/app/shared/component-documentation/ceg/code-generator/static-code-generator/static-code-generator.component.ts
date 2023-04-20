@@ -110,21 +110,6 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   /**
-   * Get a comment from the HTML code. Must be called before the code is passed through a `DOMParser`.
-   *
-   * **NB!**: Only finds the first comment.
-   */
-  private getCommentFromCode(rawCode: string) {
-    const code = rawCode.replace(/>\n</g, '><');
-    const commentStart = code.indexOf('<!--');
-    const commentEnd = code.indexOf('-->');
-    if (commentStart === -1 || commentEnd === -1) {
-      return null;
-    }
-    return code.slice(commentStart + 4, commentEnd);
-  }
-
-  /**
    * When the app is build, the HTML may be minified, removing new lines.
    * This leaves white space between elements which Prettier adds as a new line between elements.
    */
