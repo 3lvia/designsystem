@@ -1,0 +1,12 @@
+<!--Define the items in Typescript:
+  const radioFilterItems = [
+    { label: 'All', value: 'all'},
+    { label: 'Read', value: 'read'},
+    { label: 'Unread', value: 'unread'},
+    { label: '<i class="e-icon e-icon--bookmark-filled e-icon--xs"></i>Flagged', value: 'flagged' },
+  ];-->
+<elvia-radio-filter
+  [items]="radioFilterItems"
+  [value]="'read'"
+  [name]="'radioFilterIconExample'"
+></elvia-radio-filter>

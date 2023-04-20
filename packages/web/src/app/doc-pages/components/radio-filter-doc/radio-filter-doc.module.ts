@@ -12,6 +12,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { RadioFilterCegComponent } from './radio-filter-ceg/radio-filter-ceg.component';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { RadioFilterIconCegComponent } from './radio-filter-icon-ceg/radio-filter-icon-ceg.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,6 @@ import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module
     ComponentChangelogModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [RadioFilterDocComponent, RadioFilterCegComponent],
+  declarations: [RadioFilterDocComponent, RadioFilterCegComponent, RadioFilterIconCegComponent],
 })
 export class RadioFilterDocModule {}
