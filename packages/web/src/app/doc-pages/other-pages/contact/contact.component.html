@@ -12,7 +12,7 @@
     <ng-container ngProjectAs="sectionContent">
       <div class="contact-grid">
         <div *ngFor="let contact of contactList; index as i" class="contact-profile-container">
-          <div class="{{ isEven(i) ? 'contact-profile' : 'contact-profile odd' }}">
+          <div class="contact-profile" [ngClass]="{ odd: i % 2 !== 0 }">
             <div style="position: relative">
               <div
                 (click)="veryImportantFunction(getFirstName(contact), contact.emoji)"

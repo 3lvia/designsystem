@@ -123,8 +123,4 @@ export class ContactComponent {
   getFirstName = (contact: ContactInfo): string => {
     return contact.name.split(' ')[0];
   };
-
-  isEven = (n: number): boolean => {
-    return n % 2 == 0;
-  };
 }
