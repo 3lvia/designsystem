@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
-import { exampleContents } from 'src/app/shared/example-contents';
 import { cardData } from './card-data';
-import { cardLinkCode } from './card-link-code';
-import { cardSimpleCode } from './card-simple-code';
-import { cardDetailCode } from './card-detail-code';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -13,12 +9,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./card-doc.component.scss'],
 })
 export class CardDocComponent {
-  examples = exampleContents;
   componentData = cardData;
-  cardLinkCode = cardLinkCode;
-  cardSimpleCode = cardSimpleCode;
-  cardDetailCode = cardDetailCode;
-  typesData = [cardSimpleCode, cardDetailCode];
   title = getComponent('card')?.title;
   figmaUrl = getComponent('card')?.figmaUrl;
   description = getComponent('card')?.description;

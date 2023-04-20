@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { tabsData } from './tabs-data';
-import { exampleContents } from 'src/app/shared/example-contents';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -10,10 +9,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./tabs-doc.component.scss'],
 })
 export class TabsDocComponent {
-  exampleContents = exampleContents;
   componentData = tabsData;
-  does = tabsData.does;
-  donts = tabsData.donts;
   figmaUrl = getComponent('tabs')?.figmaUrl;
   description = getComponent('tabs')?.description;
   title = getComponent('tabs')?.title;
@@ -21,4 +17,11 @@ export class TabsDocComponent {
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
   }
+
+  does = ['If you have sub-sections of a page and can not display everything at once'];
+  donts = [
+    'If the content can be displayed at once.',
+    'Don’t use tab in tab.',
+    'Primary navigation that links to other pages',
+  ];
 }

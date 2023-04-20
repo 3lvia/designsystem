@@ -109,6 +109,10 @@ export class StaticCodeGeneratorComponent implements OnInit {
       .join(' ');
   }
 
+  private transformReactSpecificProps(code: string): string {
+    return code.replace(/class=/g, 'className=');
+  }
+
   /**
    * When the app is build, the HTML may be minified, removing new lines.
    * This leaves white space between elements which Prettier adds as a new line between elements.
@@ -117,15 +121,25 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return code.replace(/> *</g, '><');
   }
 
+  private htmlHasMultipleRoots(code: string): boolean {
+    const parsed = new DOMParser().parseFromString(code, 'text/html');
+    return parsed.body.children.length > 1;
+  }
+
   private createReactCodeFromStaticContent(angularCode: string): string {
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
     reactCode = this.removeAngularEvents(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
     reactCode = this.transformAttributesToReactStyle(reactCode);
+    reactCode = this.transformReactSpecificProps(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
+    if (this.htmlHasMultipleRoots(reactCode)) {
+      reactCode = `<>${reactCode}</>`;
+    }
     if (this.comment) {
       reactCode = '// ' + this.comment.replace(/\n/g, '\n// ') + '\n' + reactCode;
     }
+
     return reactCode;
   }
 }

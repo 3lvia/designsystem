@@ -17,22 +17,4 @@ export const outlineData: ComponentData = {
         "Custom CSS style object that can be added to the outline. Example: {borderColor: 'black'}",
     },
   },
-  codeReact: `<button className="e-btn e-btn--sm">
-  Focus via keyboard to receive an outline
-</button>
-<Outline></Outline>`,
-  codeAngular: `<button class="e-btn e-btn--sm">
-  Focus via keyboard to receive an outline
-</button>
-<elvia-outline></elvia-outline>`,
-  codeVue: `<button class="e-btn e-btn--sm">
-  Focus via keyboard to receive an outline
-</button>
-<elvia-outline></elvia-outline>`,
-  codeNativeHTML: `<button class="e-btn e-btn--sm">
-  Focus via keyboard to receive an outline
-</button>
-<elvia-outline></elvia-outline>
-`,
-  codeNativeScript: ``,
 };
