@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StaticCodeGeneratorComponent implements OnInit {
   @Input() staticContent = '';
+  @Input() comment?: string;
 
   angularCode = '';
   reactCode = '';
@@ -14,7 +15,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   ngOnInit() {
     const code = this.addNewLinesBetweenTags(this.staticContent);
-    this.angularCode = code;
+    this.angularCode = this.comment ? `<!--${this.comment}-->\n${code}` : code;
 
     const cleanCode = this.removeAngularSpecificAttributes(code);
     this.vueCode = this.createVueCodeFromStaticContent(cleanCode);
@@ -32,7 +33,9 @@ export class StaticCodeGeneratorComponent implements OnInit {
   private createVueCodeFromStaticContent(staticContent: string): string {
     const vuePropSyntax = staticContent.slice().replace(/\[(\w+)\]/g, ':$1');
     const vueEventSyntax = vuePropSyntax.replace(/ \(/g, ' @').replace(/\)=/g, '=');
-
+    if (this.comment) {
+      return `<!--${this.comment}-->\n${vueEventSyntax}`;
+    }
     return vueEventSyntax;
   }
 
@@ -101,6 +104,10 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return code.replace(/\[(\w+)\]="((?:.|\n)+?)"/g, '$1={$2}');
   }
 
+  private transformReactSpecificProps(code: string): string {
+    return code.replace(/class=/g, 'className=');
+  }
+
   /**
    * When the app is build, the HTML may be minified, removing new lines.
    * This leaves white space between elements which Prettier adds as a new line between elements.
@@ -109,12 +116,26 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return code.replace(/> *</g, '><');
   }
 
+  private htmlHasMultipleRoots(code: string): boolean {
+    const parsed = new DOMParser().parseFromString(code, 'text/html');
+    return parsed.body.children.length > 1;
+  }
+
   private createReactCodeFromStaticContent(angularCode: string): string {
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
     reactCode = this.transformAngularEventsToReactStyle(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
     reactCode = this.transformAngularAttributesToReactStyle(reactCode);
+    reactCode = this.transformReactSpecificProps(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
+
+    if (this.htmlHasMultipleRoots(reactCode)) {
+      reactCode = `<>${reactCode}</>`;
+    }
+
+    if (this.comment) {
+      reactCode = '// ' + this.comment.replace(/\n/g, '\n// ') + '\n' + reactCode;
+    }
 
     return reactCode;
   }

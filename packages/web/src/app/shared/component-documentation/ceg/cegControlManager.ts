@@ -28,8 +28,8 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
   }
 
   getControlSnapshot(): Controls<TComponentProps> | undefined {
-    const confIndex = this.getCurrentComponentTypeIndex();
-    return this._componentTypes.value[confIndex]?.controls;
+    const typeIndex = this.getCurrentComponentTypeIndex();
+    return this._componentTypes.value[typeIndex]?.controls;
   }
 
   getCurrentControlGroupOrder(): Observable<string[] | undefined> {
@@ -41,8 +41,8 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
   }
 
   getStaticPropsSnapshot(): Partial<StaticProps<TComponentProps>> | undefined {
-    const confIndex = this.getCurrentComponentTypeIndex();
-    return this._componentTypes.value[confIndex]?.staticProps;
+    const typeIndex = this.getCurrentComponentTypeIndex();
+    return this._componentTypes.value[typeIndex]?.staticProps;
   }
 
   getCurrentComponentTypeNameSnapshot(): string | undefined {
@@ -50,8 +50,8 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
   }
 
   getGroupOrderSnapshot(): string[] | undefined {
-    const confIndex = this.getCurrentComponentTypeIndex();
-    return this._componentTypes.value[confIndex]?.groupOrder;
+    const typeIndex = this.getCurrentComponentTypeIndex();
+    return this._componentTypes.value[typeIndex]?.groupOrder;
   }
 
   setActiveComponentTypeName(name: string): void {
@@ -61,15 +61,23 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
   getSlotVisibility(): Observable<{ slotName: string; isVisible: true }[]> {
     return this.getCurrentControls().pipe(
       map((controls: Controls | undefined) => {
-        if (!controls) {
-          return [];
-        }
-
-        const toggles = Object.entries(controls).filter(([_, control]) => control?.type === 'slotToggle');
-        return toggles.map(([controlName, control]) => ({
-          slotName: controlName,
-          isVisible: control?.value,
+        const typeIndex = this.getCurrentComponentTypeIndex();
+        const hiddenSlots = this._componentTypes.value[typeIndex]?.hiddenSlots?.map((slotName) => ({
+          slotName: slotName,
+          isVisible: false,
         }));
+
+        const toggles = Object.entries(controls ?? {}).filter(
+          ([slotName, control]) =>
+            control?.type === 'slotToggle' &&
+            !hiddenSlots?.find((hiddenSlot) => hiddenSlot.slotName === slotName),
+        );
+        return toggles
+          .map(([controlName, control]) => ({
+            slotName: controlName,
+            isVisible: control?.value,
+          }))
+          .concat(hiddenSlots ?? []);
       }),
     );
   }
@@ -82,11 +90,11 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
    */
   setPropValue(propName: keyof TComponentProps, value: ControlValue): boolean {
     let propWasUpdated = false;
-    const confIndex = this.getCurrentComponentTypeIndex();
+    const typeIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._componentTypes.value);
 
     // First we check if the prop is in the props-array
-    const prop = this.getControl(listClone[confIndex], propName);
+    const prop = this.getControl(listClone[typeIndex], propName);
     if (prop) {
       prop.value = value;
       propWasUpdated = true;

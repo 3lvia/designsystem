@@ -10,6 +10,7 @@ import { AccordionProps } from '@elvia/elvis-accordion/react';
 })
 export class AccordionCegComponent implements ComponentExample {
   elementName = 'accordion';
+
   cegContent = new CegControlManager<AccordionProps>([
     {
       name: 'Normal',
@@ -85,6 +86,7 @@ export class AccordionCegComponent implements ComponentExample {
         },
       },
       groupOrder: ['Size'],
+      hiddenSlots: ['content'],
     },
   ]);
 }

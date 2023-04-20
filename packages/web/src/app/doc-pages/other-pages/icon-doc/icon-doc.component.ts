@@ -5,6 +5,7 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';
+import naturalCompare from 'natural-compare-lite';
 
 type IconArray = { pretty: string; title: string; terms: string[] }[];
 
@@ -92,7 +93,7 @@ export class IconDocComponent implements OnInit {
   }
 
   @HostListener('document:click', ['$event', '$event.target'])
-  onClick(event: MouseEvent, targetElement: HTMLElement): void {
+  onClick(_event: MouseEvent, targetElement: HTMLElement): void {
     const alert = document.getElementById(this.latestIcon);
     const iconContainer = document.getElementById(this.latestIcon + '_container');
     if (!alert && !iconContainer) {
@@ -142,10 +143,10 @@ export class IconDocComponent implements OnInit {
       }
     }
 
-    this.allIcons.sort((icon: any, icon2: any) => {
+    this.allIcons.sort((icon, icon2) => {
       const a = icon.title.toLowerCase();
       const b = icon2.title.toLowerCase();
-      return a < b ? -1 : a > b ? 1 : 0;
+      return naturalCompare(a, b);
     });
   }
 

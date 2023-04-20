@@ -51,59 +51,6 @@ const radioFilterData: ComponentData = {
         "Custom CSS style object that can be added to the radio filter. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: `<RadioFilter
-  items={[
-    { label: 'All', value: 'all'},
-    { label: 'Read', value: 'read'},
-    { label: 'Unread', value: 'unread'},
-  ]}
-  value={"read"}
-  name={"readRadioFilters"}
-  ariaLabel={"{value} filtrering valgt"}
-  valueOnChange={(event) => handleValueChange(event)}
-></RadioFilter>
-`,
-  codeAngular: `<elvia-radio-filter 
-  [items]="[
-    { label: 'All', value: 'all'},
-    { label: 'Read', value: 'read'},
-    { label: 'Unread', value: 'unread'},
-  ]"
-  [value]="'read'"
-  [name]="'readRadioFilters'"
-  [ariaLabel]="'{value} filtrering valgt'"
-  (valueOnChange)="handleValueChange($event.detail.value)"
-></elvia-radio-filter>
-`,
-  codeVue: `<elvia-radio-filter 
-  :items="[
-    { label: 'All', value: 'all'},
-    { label: 'Read', value: 'read'},
-    { label: 'Unread', value: 'unread'},
-  ]"
-  :value="'read'"
-  :name="'readRadioFilters'"
-  :ariaLabel="'{value} filtrering valgt'"
-  @value-on-change="handleValueChange($event.detail.value)"
-></elvia-radio-filter>
-`,
-  codeNativeHTML: `<elvia-radio-filter 
-  id="example-elvia-radio-filter"
-  name="readRadioFilters"
-  value="read"
-></elvia-radio-filter>
-`,
-  codeNativeScript: `  const radioFilter = document.getElementById('example-elvia-radio-filter');
-  const filters = [
-    { label: "All", value: "all" },
-    { label: "Read", value: "read" },
-    { label: "Unread", value: "unread" }
-  ];
-  radioFilter.setProps({items: filters});
-  radioFilter.addEventListener('valueOnChange', (event) => {
-    console.log('Do something with the new value: ', event.detail.value);
-  });
-`,
 };
 
 export { radioFilterData };
