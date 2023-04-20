@@ -6,7 +6,9 @@ export interface NavbarAnchor {
 
 export interface DocPage {
   title: string;
+  titleNo?: string;
   description?: string;
+  descriptionNo?: string;
   imageUrl?: string;
   imageUrlOn?: string;
   absolutePath?: string;
