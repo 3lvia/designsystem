@@ -31,10 +31,9 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   private createVueCodeFromStaticContent(staticContent: string): string {
     const comment = this.getCommentFromCode(staticContent);
-    const staticContentWithoutComment =
-      staticContent.indexOf('-->') > -1
-        ? staticContent.slice(staticContent.indexOf('-->') + 3)
-        : staticContent;
+    const staticContentWithoutComment = comment
+      ? staticContent.slice(staticContent.indexOf('-->') + 3)
+      : staticContent;
     const vuePropSyntax = staticContentWithoutComment.replace(/\[/g, ':').replace(/]/g, '');
     const vueEventSyntax = vuePropSyntax.replace(/ \(/g, ' @').replace(/\)=/g, '=');
     if (comment) {
