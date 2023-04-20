@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CegControlManager, StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { RadioFilterProps } from '@elvia/elvis-radio-filter/react';
 
 import * as template from 'html-loader!./radio-filter-icon-ceg.component.html';
