@@ -11,8 +11,8 @@
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
       <div class="contact-grid">
-        <div *ngFor="let contact of contactList; index as i" class="contact-profile-container">
-          <div class="contact-profile" [ngClass]="{ odd: i % 2 !== 0 }">
+        <div *ngFor="let contact of contactList; odd as isOdd" class="contact-profile-container">
+          <div class="contact-profile" [ngClass]="{ odd: isOdd }">
             <div
               (click)="veryImportantFunction(contact.firstName, contact.emoji)"
               [id]="contact.firstName"
