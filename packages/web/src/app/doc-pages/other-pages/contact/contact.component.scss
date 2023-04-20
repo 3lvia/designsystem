@@ -1,9 +1,16 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .page-body {
-  margin-top: 104px;
-  @include breakpoints.breakpoint-up(Mobile) {
-    margin-top: 72px;
+  display: flex;
+  justify-content: center;
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 128px 8vw;
+    @include breakpoints.breakpoint-up(Mobile) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 0;
+    }
   }
   .contact-profile-container {
     display: flex;
@@ -16,40 +23,6 @@
         margin-bottom: 72px;
       }
     }
-    &.trygve {
-      margin-top: -80px;
-    }
-    &.viljar {
-      margin-top: -70px;
-    }
-    &.hilde {
-      margin-top: -100px;
-    }
-    &.tom {
-      margin-top: -100px;
-    }
-    &.erik {
-      margin-top: -270px;
-    }
-    &.fride {
-      margin-top: -230px;
-    }
-    &.fride,
-    &.trygve,
-    &.viljar,
-    &.hilde,
-    &.tom,
-    &.erik {
-      @media (max-width: 1300px) {
-        margin-top: 40px;
-      }
-      @include breakpoints.breakpoint-up(Tablet) {
-        margin-top: -120px;
-      }
-      @include breakpoints.breakpoint-up(Mobile) {
-        margin-top: 0px;
-      }
-    }
   }
   .contact-profile {
     display: flex;
@@ -57,9 +30,17 @@
     justify-content: center;
     align-items: center;
     max-width: 350px;
-    position: absolute;
-    @include breakpoints.breakpoint-up(Mobile) {
-      position: relative;
+    &.odd {
+      margin-top: 314px;
+      @include breakpoints.breakpoint-up(Mobile) {
+        margin-top: initial;
+      }
+      .profile-emoji {
+        left: 314px - 36px - 58px;
+        @include breakpoints.breakpoint-up(Mobile) {
+          left: 186px - 44px;
+        }
+      }
     }
     .profile-emoji {
       font-size: 58px;
@@ -67,15 +48,10 @@
       top: 5px;
       left: 36px;
       user-select: none;
+      z-index: 1;
       @include breakpoints.breakpoint-up(Mobile) {
         font-size: 44px;
         left: 186px - 44px;
-      }
-      &.right {
-        left: 314px - 36px - 58px;
-        @include breakpoints.breakpoint-up(Mobile) {
-          left: 186px - 44px;
-        }
       }
     }
     .profile-image-loader {
@@ -88,6 +64,8 @@
     }
     .profile-image {
       max-width: 314px;
+      border-radius: 100%;
+      filter: grayscale(100%);
       @include breakpoints.breakpoint-up(Mobile) {
         max-width: 186px;
       }
@@ -100,30 +78,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-      }
-    }
-    &.viljar {
-      right: 7%;
-      @media (max-width: 1300px) {
-        right: 0px;
-      }
-    }
-    &.fride {
-      right: -6%;
-      @include breakpoints.breakpoint-up(Mobile) {
-        left: 0px;
-      }
-    }
-    &.tom {
-      right: -6%;
-      @include breakpoints.breakpoint-up(Mobile) {
-        left: 0px;
-      }
-    }
-    &.kari {
-      left: 8%;
-      @include breakpoints.breakpoint-up(Mobile) {
-        left: 0px;
       }
     }
   }

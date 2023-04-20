@@ -10,226 +10,40 @@
 <div class="page-body">
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
-      <div class="contact-profile-container kari">
-        <div class="contact-profile kari">
-          <div style="position: relative">
-            <div (click)="veryImportantFunction('kari', '🐧')" id="kari" class="profile-emoji">🐧</div>
-            <div
-              class="e-content-loader e-content-loader--circle profile-image-loader"
-              *ngIf="!loadedImgKari"
-            ></div>
-            <img
-              alt="Kari"
-              class="profile-image"
-              src="assets/contact/Kari.jpg"
-              (load)="hideContentLoader($event, 'kari')"
-            />
-          </div>
-          <div class="profile-info">
-            <div class="e-title-caps">Product lead</div>
-            <div class="e-title-sm e-mt-8">Kari Clifford</div>
-            <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">kari.clifford@elvia.no</div>
-            <div class="profile-slack-button">
-              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U03NGQQJK16">
-                <span class="e-btn__icon">
-                  <img alt="" src="assets/contact/slack-icon.svg" />
-                </span>
-                <span class="e-btn__title">Slack Kari</span>
-              </a>
+      <div class="contact-grid">
+        <div *ngFor="let contact of contactList; index as i" class="contact-profile-container">
+          <div class="{{ isEven(i) ? 'contact-profile' : 'contact-profile odd' }}">
+            <div style="position: relative">
+              <div
+                (click)="veryImportantFunction(getFirstName(contact), contact.emoji)"
+                id="{{ getFirstName(contact) }}"
+                class="profile-emoji"
+              >
+                {{ contact.emoji }}
+              </div>
+              <div
+                class="e-content-loader e-content-loader--circle profile-image-loader"
+                *ngIf="!contact.loadedImg"
+              ></div>
+              <img
+                alt="{{ contact.name }}"
+                class="profile-image"
+                src="{{ contact.image }}"
+                (load)="hideContentLoader($event, i)"
+              />
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-profile-container fride">
-        <div class="contact-profile fride">
-          <div style="position: relative">
-            <div (click)="veryImportantFunction('fride', '🦙')" id="fride" class="profile-emoji">🦙</div>
-            <div
-              class="e-content-loader e-content-loader--circle profile-image-loader"
-              *ngIf="!loadedImgFride"
-            ></div>
-            <img
-              alt="Fride"
-              class="profile-image"
-              src="assets/contact/Fride.jpg"
-              (load)="hideContentLoader($event, 'fride')"
-            />
-          </div>
-          <div class="profile-info">
-            <div class="e-title-caps">Developer</div>
-            <div class="e-title-sm e-mt-8">Fride Skarseth</div>
-            <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">fride.skarseth@elvia.no</div>
-            <div class="profile-slack-button">
-              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U01BLN1QTHD">
-                <span class="e-btn__icon">
-                  <img alt="" src="assets/contact/slack-icon.svg" />
-                </span>
-                <span class="e-btn__title">Slack Fride</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-profile-container trygve">
-        <div class="contact-profile">
-          <div style="position: relative">
-            <div (click)="veryImportantFunction('trygve', '🐐')" id="trygve" class="profile-emoji">🐐</div>
-            <div
-              class="e-content-loader e-content-loader--circle profile-image-loader"
-              *ngIf="!loadedImgTrygve"
-            ></div>
-            <img
-              alt="Trygve"
-              class="profile-image"
-              src="assets/contact/Trygve.png"
-              (load)="hideContentLoader($event, 'trygve')"
-            />
-          </div>
-          <div class="profile-info">
-            <div class="e-title-caps">Developer</div>
-            <div class="e-title-sm e-mt-8">Trygve Scheline Urdahl</div>
-            <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">
-              trygve.scheline.urdahl@elvia.no
-            </div>
-            <div class="profile-slack-button">
-              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U02M1T23PJM">
-                <span class="e-btn__icon">
-                  <img alt="" src="assets/contact/slack-icon.svg" />
-                </span>
-                <span class="e-btn__title">Slack Trygve</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-profile-container viljar">
-        <div class="contact-profile viljar">
-          <div (click)="veryImportantFunction('viljar', '🦥')" id="viljar" class="profile-emoji right">
-            🦥
-          </div>
-          <div
-            class="e-content-loader e-content-loader--circle profile-image-loader"
-            *ngIf="!loadedImgViljar"
-          ></div>
-          <div>
-            <img
-              alt="Viljar"
-              class="profile-image"
-              src="assets/contact/Viljar.png"
-              (load)="hideContentLoader($event, 'viljar')"
-            />
-          </div>
-          <div class="profile-info">
-            <div class="e-title-caps">Designer</div>
-            <div class="e-title-sm e-mt-8">Viljar Tornøe</div>
-            <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">viljar.tornoe@elvia.no</div>
-            <div class="profile-slack-button">
-              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U02HB13D551">
-                <span class="e-btn__icon">
-                  <img alt="" src="assets/contact/slack-icon.svg" />
-                </span>
-                <span class="e-btn__title">Slack Viljar</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-profile-container hilde">
-        <div class="contact-profile hilde">
-          <div style="position: relative">
-            <div (click)="veryImportantFunction('hilde', '🙊')" id="hilde" class="profile-emoji right">
-              🙊
-            </div>
-            <div
-              class="e-content-loader e-content-loader--circle profile-image-loader"
-              *ngIf="!loadedImgHil"
-            ></div>
-            <img
-              alt="Hilde"
-              class="profile-image"
-              src="assets/contact/Hilde.jpg"
-              (load)="hideContentLoader($event, 'hilde')"
-            />
-          </div>
-          <div class="profile-info">
-            <div class="e-title-caps">Designer</div>
-            <div class="e-title-sm e-mt-8">Hilde Iren Breivik</div>
-            <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">
-              hilde.iren.breivik@elvia.no
-            </div>
-            <div class="profile-slack-button">
-              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U01A2FKJYCQ">
-                <span class="e-btn__icon">
-                  <img alt="" src="assets/contact/slack-icon.svg" />
-                </span>
-                <span class="e-btn__title">Slack Hilde</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-profile-container tom">
-        <div class="contact-profile tom">
-          <div style="position: relative">
-            <div (click)="veryImportantFunction('tom', '🦅')" id="tom" class="profile-emoji">🦅</div>
-            <div
-              class="e-content-loader e-content-loader--circle profile-image-loader"
-              *ngIf="!loadedImgTom"
-            ></div>
-            <img
-              alt="tom"
-              class="profile-image"
-              src="assets/contact/Tom.png"
-              (load)="hideContentLoader($event, 'tom')"
-            />
-          </div>
-          <div class="profile-info">
-            <div class="e-title-caps">Developer</div>
-            <div class="e-title-sm e-mt-8">Tom Schrier</div>
-            <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">tom.schrier@elvia.no</div>
-            <div class="profile-slack-button">
-              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U03MESY0YLD">
-                <span class="e-btn__icon">
-                  <img alt="" src="assets/contact/slack-icon.svg" />
-                </span>
-                <span class="e-btn__title">Slack Tom</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-profile-container erik">
-        <div class="contact-profile">
-          <div style="position: relative">
-            <div (click)="veryImportantFunction('erik', '🐘')" id="erik" class="profile-emoji">🐘</div>
-            <div
-              class="e-content-loader e-content-loader--circle profile-image-loader"
-              *ngIf="!loadedImgErik"
-            ></div>
-            <img
-              alt="Erik"
-              class="profile-image"
-              src="assets/contact/Erik.png"
-              (load)="hideContentLoader($event, 'erik')"
-            />
-          </div>
-          <div class="profile-info">
-            <div class="e-title-caps">Developer</div>
-            <div class="e-title-sm e-mt-8">Erik Tallang</div>
-            <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">erik.tallang@elvia.no</div>
-            <div class="profile-slack-button">
-              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U018X0SN05C">
-                <span class="e-btn__icon">
-                  <img alt="" src="assets/contact/slack-icon.svg" />
-                </span>
-                <span class="e-btn__title">Slack Erik</span>
-              </a>
+            <div class="profile-info">
+              <div class="e-title-caps">{{ contact.title }}</div>
+              <div class="e-title-sm e-mt-8">{{ contact.name }}</div>
+              <div class="e-text-md" style="margin-top: 4px; margin-bottom: 16px">{{ contact.email }}</div>
+              <div class="profile-slack-button">
+                <a class="e-btn e-btn--tertiary" href="{{ contact.slackUrl }}">
+                  <span class="e-btn__icon">
+                    <img alt="" src="assets/contact/slack-icon.svg" />
+                  </span>
+                  <span class="e-btn__title">Slack {{ getFirstName(contact) }}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
