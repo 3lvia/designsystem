@@ -85,6 +85,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private transformAngularEventsToReactStyle(code: string): string {
+    // Finds all angular events (like "isShowing") and it's value within the quotes.
     return code.replace(/\((\w+)\)="((.|\n)+?)"/g, (_, attributeName: string, attributeValue: string) => {
       let value = attributeValue;
 
