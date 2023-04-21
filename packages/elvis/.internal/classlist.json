@@ -884,9 +884,15 @@
 				},
 				"e-table__cell": {
 					"modifier": {
+						"e-table__cell--invalid": {},
 						"e-table__cell--multiline": {},
 						"e-table__cell--multiline-small": {},
 						"e-table__cell--multiline-sm": {}
+					}
+				},
+				"e-table__row": {
+					"modifier": {
+						"e-table__row--invalid": {}
 					}
 				},
 				"e-table__input": {},
@@ -1841,9 +1847,11 @@
 		"e-table-footnote": {},
 		"e-table__footnote": {},
 		"e-table__footnote--compact": {},
+		"e-table__cell--invalid": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
 		"e-table__cell--multiline-sm": {},
+		"e-table__row--invalid": {},
 		"e-table--no-stripes": {},
 		"e-table--sticky-header": {},
 		"e-table--sticky-column-header": {},

@@ -40,9 +40,4 @@ export const configurationProps: ComponentData = {
         'Allows for writing inner HTML to replace the default icon. Example: <i class="e-icon e-icon--crane"></i>',
     },
   },
-  codeReact: ``,
-  codeAngular: ``,
-  codeVue: ``,
-  codeNativeHTML: ``,
-  codeNativeScript: ``,
 };

@@ -1,63 +1,77 @@
 interface ControlBase {
-  type: string;
-  group: string;
+  readonly type: string;
+  readonly group: string;
   disabledBy?: string[];
 }
 
 export interface Checkbox extends ControlBase {
-  type: 'checkbox';
-  label: string;
+  readonly type: 'checkbox';
+  readonly label: string;
   value?: boolean;
-  children?: { [key: string]: Checkbox };
+  readonly children?: { [key: string]: Checkbox };
 }
 
-export interface RadioGroup extends ControlBase {
-  type: 'radioGroup';
-  value: string | number;
-  radios: Radio[];
+export interface RadioGroup<T = string | number> extends ControlBase {
+  readonly type: 'radioGroup';
+  value: T;
+  readonly radios: Radio<T>[];
 }
 
-interface Radio {
-  label: string;
-  value: string | number;
+interface Radio<T> {
+  readonly label: string;
+  value: T;
 }
 
 export interface Switch extends ControlBase {
-  type: 'switch';
-  label: string;
+  readonly type: 'switch';
+  readonly label: string;
+  value?: boolean;
+}
+
+export interface SlotToggle extends ControlBase {
+  readonly type: 'slotToggle';
+  readonly label: string;
   value?: boolean;
 }
 
 export interface Counter extends ControlBase {
-  type: 'counter';
-  postfix?: string;
+  readonly type: 'counter';
+  readonly postfix?: string;
   value: number;
-  increment: number;
-  min?: number;
-  max?: number;
+  readonly increment: number;
+  readonly min: number;
+  readonly max: number;
 }
 
 export interface Text extends ControlBase {
-  type: 'text';
-  label: string;
+  readonly type: 'text';
+  readonly label: string;
   value?: string;
-  inputType?: 'input' | 'textarea';
+  readonly inputType?: 'input' | 'textarea';
 }
 
-export type CegControl = Checkbox | Switch | RadioGroup | Counter | Text;
+export type CegControl = Checkbox | Switch | SlotToggle | RadioGroup | Counter | Text;
 
-export type Controls<T = Record<string, any>> = Partial<{
-  [key in keyof T]: T[key] extends boolean
-    ? Checkbox | Switch
-    : T[key] extends string
-    ? RadioGroup | Text
-    : RadioGroup | Counter | Text;
-}>;
+export type Controls<T = Record<string, any>> = Readonly<
+  Partial<{
+    [key in keyof T]: NonNullable<T[key]> extends boolean
+      ? Checkbox | Switch
+      : NonNullable<T[key]> extends string
+      ? RadioGroup<T[key]> | Text
+      : RadioGroup | Counter | Text | SlotToggle;
+  }>
+>;
+
+export type StaticProps<T> = {
+  readonly [K in keyof T]?: T[K];
+};
 
 export interface ComponentType<T> {
-  name: string;
-  controls: Controls<T>;
-  groupOrder: string[];
+  readonly name?: string;
+  readonly controls: Controls<T>;
+  readonly groupOrder: string[];
+  readonly staticProps?: Partial<StaticProps<T>>;
+  readonly hiddenSlots?: string[];
 }
 
 export type ControlValue = CegControl['value'];

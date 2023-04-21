@@ -1,14 +1,14 @@
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CegControl, ComponentType, Controls, ControlValue } from './controlType';
+import { CegControl, ComponentType, Controls, ControlValue, StaticProps } from './controlType';
 
-export type UnknownCegControlManager = CegControlManager<unknown>;
+export type UnknownCegControlManager = CegControlManager<Record<string, any>>;
 
-export class CegControlManager<TComponentProps> {
+export class CegControlManager<TComponentProps extends Record<string, any>> {
   private _componentTypes = new BehaviorSubject<ComponentType<TComponentProps>[]>([]);
   componentTypes = this._componentTypes.asObservable();
 
-  private _currentComponentTypeName = new BehaviorSubject('');
+  private _currentComponentTypeName = new BehaviorSubject<string | undefined>(undefined);
   currentComponentTypeName = this._currentComponentTypeName.asObservable();
 
   constructor(
@@ -28,21 +28,58 @@ export class CegControlManager<TComponentProps> {
   }
 
   getControlSnapshot(): Controls<TComponentProps> | undefined {
-    const confIndex = this.getCurrentComponentTypeIndex();
-    return this._componentTypes.value[confIndex]?.controls;
+    const typeIndex = this.getCurrentComponentTypeIndex();
+    return this._componentTypes.value[typeIndex]?.controls;
   }
 
   getCurrentControlGroupOrder(): Observable<string[] | undefined> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.groupOrder));
   }
 
+  getStaticProps(): Observable<Partial<StaticProps<TComponentProps>> | undefined> {
+    return this.getCurrentComponentType().pipe(map((configuration) => configuration?.staticProps));
+  }
+
+  getStaticPropsSnapshot(): Partial<StaticProps<TComponentProps>> | undefined {
+    const typeIndex = this.getCurrentComponentTypeIndex();
+    return this._componentTypes.value[typeIndex]?.staticProps;
+  }
+
+  getCurrentComponentTypeNameSnapshot(): string | undefined {
+    return this._currentComponentTypeName.value;
+  }
+
   getGroupOrderSnapshot(): string[] | undefined {
-    const confIndex = this.getCurrentComponentTypeIndex();
-    return this._componentTypes.value[confIndex]?.groupOrder;
+    const typeIndex = this.getCurrentComponentTypeIndex();
+    return this._componentTypes.value[typeIndex]?.groupOrder;
   }
 
   setActiveComponentTypeName(name: string): void {
     this._currentComponentTypeName.next(name);
+  }
+
+  getSlotVisibility(): Observable<{ slotName: string; isVisible: true }[]> {
+    return this.getCurrentControls().pipe(
+      map((controls: Controls | undefined) => {
+        const typeIndex = this.getCurrentComponentTypeIndex();
+        const hiddenSlots = this._componentTypes.value[typeIndex]?.hiddenSlots?.map((slotName) => ({
+          slotName: slotName,
+          isVisible: false,
+        }));
+
+        const toggles = Object.entries(controls ?? {}).filter(
+          ([slotName, control]) =>
+            control?.type === 'slotToggle' &&
+            !hiddenSlots?.find((hiddenSlot) => hiddenSlot.slotName === slotName),
+        );
+        return toggles
+          .map(([controlName, control]) => ({
+            slotName: controlName,
+            isVisible: control?.value,
+          }))
+          .concat(hiddenSlots ?? []);
+      }),
+    );
   }
 
   /**
@@ -53,11 +90,11 @@ export class CegControlManager<TComponentProps> {
    */
   setPropValue(propName: keyof TComponentProps, value: ControlValue): boolean {
     let propWasUpdated = false;
-    const confIndex = this.getCurrentComponentTypeIndex();
+    const typeIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._componentTypes.value);
 
     // First we check if the prop is in the props-array
-    const prop = this.getControl(listClone[confIndex], propName);
+    const prop = this.getControl(listClone[typeIndex], propName);
     if (prop) {
       prop.value = value;
       propWasUpdated = true;
@@ -93,6 +130,7 @@ export class CegControlManager<TComponentProps> {
         }
       }
     }
+    return undefined;
   }
 
   private getCurrentComponentType(): Observable<ComponentType<TComponentProps> | undefined> {

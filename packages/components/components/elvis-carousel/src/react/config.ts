@@ -4,13 +4,23 @@ export const config: ComponentConfig = {
   name: 'Carousel',
   attributes: [
     { name: 'items', type: 'string' },
-    { name: 'loop', type: 'boolean' },
+    { name: 'type', type: 'string' },
     { name: 'hasConfirmationCheckmark', type: 'boolean' },
     { name: 'hasAnimation', type: 'boolean' },
     { name: 'value', type: 'number' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
     // Deprecated attributes
+    {
+      name: 'loop',
+      type: 'string',
+      deprecatedDetails: {
+        version: '3.0.0',
+        newProp: 'type',
+        isDirectReplacement: false,
+        explanation: "'loop' has been replaced by 'type'.",
+      },
+    },
     {
       name: 'elements',
       type: 'string',

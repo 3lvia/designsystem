@@ -1,5 +1,8 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
+>
   <ng-container ngProjectAs="headerTitle">Context menu</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -9,14 +12,16 @@
 <!--BODY-->
 <div class="page-body e-mt-72">
   <!--CEG-->
-  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+  <app-ceg>
+    <app-context-menu-ceg></app-context-menu-ceg>
+  </app-ceg>
 
   <!--STRUCTURE-->
   <app-component-section [sectionTitle]="'Structure'">
     <ng-container ngProjectAs="sectionContent">
       <img
-        alt="List popover structure"
-        src="./../../../../assets/popover/Popover list example.svg"
+        alt="Context menu structure"
+        src="/assets/popover/Popover list example.svg"
         class="usage-image-desktop e-w-100 e-mt-40"
       />
       <div class="usage-image-mobile e-w-100">
@@ -66,44 +71,36 @@
       <app-component-subsubsection [sectionTitle]="'Icons'">
         <ng-container ngProjectAs="sectionContent">
           Use icons to help users easily recognize known actions.
-
-          <app-component-example-generator
-            [componentData]="$any(contextMenuIconsCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-context-menu-icons-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Headings'">
         <ng-container ngProjectAs="sectionContent">
           Different actions can be separated by headings and provide more context to the actions.
-
-          <app-component-example-generator
-            [componentData]="$any(contextMenuHeadingsCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-context-menu-headings-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Selectable'">
         <ng-container ngProjectAs="sectionContent">
           Always one alternative selected, works likes a radio button.
-
-          <app-component-example-generator
-            [componentData]="$any(contextMenuSelectableCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-context-menu-selectable-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Disabled '">
         <ng-container ngProjectAs="sectionContent">
           Buttons and links inside the context menu may be disabled. If you use icons, make sure to set their
           color to
-          <span class="code-text">disabled</span>
+          <code>disabled</code>
           yourself.
-
-          <app-component-example-generator
-            [componentData]="$any(contextMenuDisabledCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-context-menu-disabled-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsubsection>
     </ng-container>
@@ -116,19 +113,19 @@
         <ng-container ngProjectAs="sectionContent">
           <div class="accessibility-keyboard-navigation">
             <div>
-              <span class="keyboard-button">Space</span>
+              <kbd>Space</kbd>
               or
-              <span class="keyboard-button">Enter</span>
+              <kbd>Enter</kbd>
               to open or close the popover.
             </div>
             <div>
-              <span class="keyboard-button">ArrowUp/ArrowLeft</span>
+              <kbd>ArrowUp/ArrowLeft</kbd>
               or
-              <span class="keyboard-button">ArrowDown/ArrowRight</span>
+              <kbd>ArrowDown/ArrowRight</kbd>
               to cycle between the options.
             </div>
             <div>
-              <span class="keyboard-button">Esc</span>
+              <kbd>Esc</kbd>
               to close the popover when open.
             </div>
           </div>
@@ -141,20 +138,19 @@
             to your DOM elements:
             <ul class="e-list">
               <li>
-                <span class="code-text">aria-haspopup="menu"</span>
+                <code>aria-haspopup="menu"</code>
                 should be added to the trigger element.
               </li>
               <li>
-                <span class="code-text">role="menuitem"</span>
+                <code>role="menuitem"</code>
                 should be added to each menu item, if it's a regular context menu.
               </li>
               <li>
-                <span class="code-text">role="menuitemradio"</span>
+                <code>role="menuitemradio"</code>
                 should be added to each menu item, if it's a selectable context menu.
               </li>
             </ul>
-
-            <span class="code-text">role="menu"</span>
+            <code>role="menu"</code>
             is added to the overlay by default. If you are unsure of how to apply the attributes, see the
             example code at the top of the page.
           </div>
@@ -169,7 +165,7 @@
       <app-component-subsection [sectionTitle]="'Trigger'">
         <ng-container ngProjectAs="sectionContent">
           When the trigger is selected remember to add the
-          <span class="code-text">e-btn---selected</span>
+          <code>e-btn---selected</code>
           class for the trigger.
         </ng-container>
       </app-component-subsection>

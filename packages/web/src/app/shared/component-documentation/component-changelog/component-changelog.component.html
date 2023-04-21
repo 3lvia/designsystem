@@ -37,7 +37,7 @@
 </ng-template>
 
 <ng-template #changelogTemplateContent>
-  <table *ngIf="filteredChangelog.length > 0">
+  <table *ngIf="filteredChangelog && filteredChangelog.length > 0">
     <caption class="e-sr-only">Component changes</caption>
     <tr class="e-sr-only">
       <th class="changelog-date py-0" scope="col">Date and version</th>
@@ -130,14 +130,14 @@
       </tr>
     </tbody>
   </table>
-  <div class="no-properties-found" *ngIf="filteredChangelog.length === 0">
+  <div class="no-properties-found" *ngIf="filteredChangelog && filteredChangelog.length === 0">
     <img src="assets/no-results/no-results.svg" alt="" aria-hidden="true" />
     <span class="e-title-caps e-text-center">No entries found matching your search</span>
   </div>
 </ng-template>
 
 <!-- No accordion  -->
-<ng-container *ngIf="!hasAccordion || changelog.length <= 2; else accordionTemplate">
+<ng-container *ngIf="!hasAccordion || (changelog && changelog.length <= 2); else accordionTemplate">
   <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
   <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
 </ng-container>

@@ -9,10 +9,11 @@ import { Language } from './language';
 })
 export class FormatCodePipe implements PipeTransform {
   transform(code: string, language: Language): string {
-    let formattedCode = Prettier.format(code, {
+    const codeWithClosedTags = this.addClosingTagsToVoidElements(code);
+    let formattedCode = Prettier.format(codeWithClosedTags, {
       parser: language === 'html' ? 'html' : 'babel',
       plugins: [parserHtml, parserBabel],
-      singleAttributePerLine: true,
+      printWidth: 80,
     });
 
     /**
@@ -27,4 +28,21 @@ export class FormatCodePipe implements PipeTransform {
 
     return formattedCode;
   }
+
+  /**
+   * Adds a closing tag to void elements in the given HTML code.
+   * Needed for Prettier.
+   */
+  private addClosingTagsToVoidElements = (code: string): string => {
+    const tags = code.match(/<(img|input|hr)[^>]*>/g);
+
+    if (tags) {
+      tags.forEach((tag) => {
+        const tagWithClosingTag = tag.replace('>', '/>');
+        code = code.replace(tag, tagWithClosingTag);
+      });
+    }
+
+    return code;
+  };
 }

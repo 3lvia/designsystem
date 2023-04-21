@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
-import { exampleContents } from 'src/app/shared/example-contents';
 import { radioFilterData } from './radio-filter.data';
 import { Title } from '@angular/platform-browser';
-import { radioFilterIconCode } from './radio-filter-icon';
 
 @Component({
   selector: 'app-radio-filter-doc',
@@ -12,11 +10,9 @@ import { radioFilterIconCode } from './radio-filter-icon';
 })
 export class RadioFilterDocComponent {
   componentData = radioFilterData;
-  examples = exampleContents;
-  radioFilterIconCode = radioFilterIconCode;
-  figmaUrl = getComponent('radio-filter').figmaUrl;
-  description = getComponent('radio-filter').description;
-  title = getComponent('radio-filter').title;
+  figmaUrl = getComponent('radio-filter')?.figmaUrl;
+  description = getComponent('radio-filter')?.description;
+  title = getComponent('radio-filter')?.title;
 
   whens = [
     'Filter/toggle between different views of same content',

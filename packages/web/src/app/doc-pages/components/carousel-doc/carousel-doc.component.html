@@ -1,5 +1,8 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
+>
   <ng-container ngProjectAs="headerTitle">Carousel</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -9,10 +12,9 @@
 <!--BODY-->
 <div class="page-body">
   <!--CEG-->
-  <app-component-example-generator
-    [componentData]="componentData"
-    [height]="'580'"
-  ></app-component-example-generator>
+  <app-ceg>
+    <app-carousel-ceg></app-carousel-ceg>
+  </app-ceg>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
@@ -51,13 +53,13 @@
         <ng-container ngProjectAs="sectionContent">
           <div class="accessibility-keyboard-navigation">
             <div>
-              <span class="keyboard-button">ArrowLeft/ArrowRight</span>
+              <kbd>ArrowLeft/ArrowRight</kbd>
               to navigate through the arrows and pages.
             </div>
             <div>
-              <span class="keyboard-button">Space</span>
+              <kbd>Space</kbd>
               or
-              <span class="keyboard-button">Enter</span>
+              <kbd>Enter</kbd>
               to select a carousel page.
             </div>
           </div>

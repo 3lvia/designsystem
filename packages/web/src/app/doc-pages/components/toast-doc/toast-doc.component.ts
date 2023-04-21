@@ -12,9 +12,9 @@ import { Title } from '@angular/platform-browser';
 export class ToastDocComponent {
   componentData = toastData;
   toastConfigurationProps = configurationProps;
-  figmaUrl = getComponent('toast').figmaUrl;
-  description = getComponent('toast').description;
-  title = getComponent('toast').title;
+  figmaUrl = getComponent('toast')?.figmaUrl;
+  description = getComponent('toast')?.description;
+  title = getComponent('toast')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

@@ -1,4 +1,5 @@
 <div class="counter">
+  <div class="e-text-sm visually-hidden" #maxValueElement>{{ counter.max }}</div>
   <button
     class="e-btn e-btn--icon e-btn--circled e-btn--sm"
     aria-label="Add to count"
@@ -15,7 +16,9 @@
     </span>
   </button>
 
-  <div class="value e-text-md e-text-center">{{ counter.value }}{{ counter.postfix }}</div>
+  <div class="e-text-sm e-text-center" [ngStyle]="{ 'width.px': maxValueElement.clientWidth }">
+    {{ counter.value }}{{ counter.postfix }}
+  </div>
 
   <button
     class="e-btn e-btn--icon e-btn--circled e-btn--sm"

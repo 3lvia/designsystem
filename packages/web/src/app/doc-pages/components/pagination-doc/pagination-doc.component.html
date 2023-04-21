@@ -1,5 +1,8 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
+>
   <ng-container ngProjectAs="headerTitle">Pagination</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -8,12 +11,9 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-component-example-generator
-    overflowX="auto"
-    overflowy="auto"
-    [inlineExample]="true"
-    [componentData]="componentData"
-  ></app-component-example-generator>
+  <app-ceg>
+    <app-pagination-ceg />
+  </app-ceg>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">

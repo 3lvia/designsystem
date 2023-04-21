@@ -9,9 +9,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./tag-doc.component.scss'],
 })
 export class TagDocComponent {
-  figmaUrl = getComponent('tag').figmaUrl;
-  description = getComponent('tag').description;
-  title = getComponent('tag').title;
+  figmaUrl = getComponent('tag')?.figmaUrl;
+  description = getComponent('tag')?.description;
+  title = getComponent('tag')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

@@ -38,7 +38,11 @@
               "lodash.isequal",
               "lodash.throttle",
               "natural-compare-lite",
-              "prismjs"
+              "prismjs",
+              "prettier/parser-babel",
+              "prettier/parser-html",
+              "prettier/standalone",
+              "react-dom/client"
             ],
             "index": "src/index.html",
             "main": "src/main.ts",

@@ -15,9 +15,9 @@ export class TypographyDocComponent {
 
   typographyClasses = [];
 
-  description = getDocPagesNotFromCMS('typography').description;
-  figmaUrl = getDocPagesNotFromCMS('typography').figmaUrl;
-  title = getDocPagesNotFromCMS('typography').title;
+  description = getDocPagesNotFromCMS('typography')?.description;
+  figmaUrl = getDocPagesNotFromCMS('typography')?.figmaUrl;
+  title = getDocPagesNotFromCMS('typography')?.title;
 
   isDesktop = true;
   isMobile = false;

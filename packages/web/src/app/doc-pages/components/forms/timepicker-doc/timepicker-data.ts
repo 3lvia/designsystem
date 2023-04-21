@@ -96,25 +96,4 @@ export const timepickerData: ComponentData = {
         "Custom CSS style object that can be added to the time picker. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: `<Timepicker
-  minuteInterval="10"
-  valueOnChange={(event) => handleOnChange(event)}
-></Timepicker>`,
-  codeAngular: `<elvia-timepicker
-  minuteInterval="10"
-  (valueOnChange)="handleOnChange($event.detail.value)"
-></elvia-timepicker>`,
-  codeVue: `<elvia-timepicker
-  minuteInterval="10"
-  @value-on-change="handleOnChange($event.detail.value)"
-></elvia-timepicker>`,
-  codeNativeHTML: `<elvia-timepicker
-  id="example-elvia-timepicker"
-  minuteInterval="10"
-></elvia-timepicker>`,
-  codeNativeScript: `  const timepicker = document.getElementById('example-elvia-timepicker');
-  timepicker.addEventListener('valueOnChange', (event) => {
-    console.log(event.detail.value)
-  });
-`,
 };

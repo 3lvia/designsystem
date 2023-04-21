@@ -1,8 +1,8 @@
 <fieldset class="e-strip-fieldset" *ngFor="let group of groups">
-  <legend class="e-text-sm-strong e-mb-8">{{ group.name }}</legend>
+  <legend class="fieldset-legend e-text-sm-strong">{{ group.name }}</legend>
 
   <ng-container *ngFor="let control of group.controls | keyvalue : noSort">
-    <ng-container [ngSwitch]="control.value.type">
+    <ng-container *ngIf="control.value">
       <app-radio-group
         *ngIf="control.value.type === 'radioGroup'"
         [radioGroup]="control.value"
@@ -21,9 +21,13 @@
       </ng-container>
 
       <app-switch
-        *ngIf="control.value.type === 'switch'"
+        *ngIf="control.value.type === 'switch' || control.value.type === 'slotToggle'"
         [switch]="control.value"
-        (toggle)="updateValue(control.key, $event)"
+        (toggle)="
+          control.value.type === 'switch'
+            ? updateValue(control.key, $event)
+            : slotToggleChange(control.key, $event)
+        "
       />
 
       <app-counter

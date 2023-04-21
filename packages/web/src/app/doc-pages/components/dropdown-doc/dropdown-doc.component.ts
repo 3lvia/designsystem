@@ -17,9 +17,9 @@ export class DropdownDocComponent {
   componentData = dropdownData;
   does = dropdownData.does;
   donts = dropdownData.donts;
-  figmaUrl = getComponent('dropdown').figmaUrl;
-  description = getComponent('dropdown').description;
-  title = getComponent('dropdown').title;
+  figmaUrl = getComponent('dropdown')?.figmaUrl;
+  description = getComponent('dropdown')?.description;
+  title = getComponent('dropdown')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
@@ -34,8 +34,6 @@ export class DropdownDocComponent {
   isDisabled = true;
   isMulti = true;
   isSearchable = true;
-
-  isSelected;
 
   exampleOptions = [
     {

@@ -1,11 +1,15 @@
-<div class="e-mb-48 e-mt-72" class="ceg-container">
+<div class="ceg-container">
   <div class="ceg-header e-mb-8" *ngIf="hasMultipleComponentTypes | async">
     <app-type-switcher [controlManager]="componentExample.cegContent" />
   </div>
 
-  <div class="component-example-container" #componentContainer>
+  <div
+    class="component-example-container"
+    #componentContainer
+    [ngClass]="{ 'full-width-example': (hasControlsForType | async) === false && fullWidth }"
+  >
     <ng-content />
-    <div class="ceg-floating-toolbar">
+    <div class="ceg-floating-toolbar" *ngIf="hasControlsForType | async">
       <app-controls-popover
         [controlManager]="componentExample.cegContent"
         (propChange)="setPropValue($event.propName, $event.value)"
@@ -17,10 +21,12 @@
     class="ceg-desktop-controls"
     [controlManager]="componentExample.cegContent"
     (propChange)="setPropValue($event.propName, $event.value)"
+    (slotToggle)="toggleSlot($event.slotName, $event.isVisible)"
   />
 
-  <app-code-generator
+  <app-dynamic-code-generator
     class="code-generator"
+    [ngClass]="{ 'full-width-example': (hasControlsForType | async) === false && fullWidth }"
     [controlManager]="componentExample.cegContent"
     [elementName]="componentExample.elementName"
     [componentSlots]="componentSlots"

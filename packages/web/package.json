@@ -7,7 +7,7 @@
     "start": "ng serve",
     "contentful": "cd contentful && node syncFromContentful.js",
     "contentful:production": "cd contentful && NODE_ENV=production node syncFromContentful.js",
-    "contentful:types": "cd contentful && contentful-typescript-codegen --output types.d.ts",
+    "contentful:types": "cd contentful && contentful-typescript-codegen --output types.d.ts --localization",
     "lint": "ng lint"
   },
   "dependencies": {
@@ -78,13 +78,13 @@
     "@angular/cli": "^15.2.4",
     "@angular/compiler-cli": "^15.2.3",
     "@angular/language-service": "^15.2.3",
+    "@babel/eslint-parser": "^7.11.0",
     "@types/lodash.debounce": "^4.0.6",
     "@types/natural-compare-lite": "^1.4.0",
     "@types/node": "16.11.7",
     "@types/prismjs": "^1.26.0",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
-    "babel-eslint": "^10.1.0",
     "contentful-management": "^10.27.2",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^8.23.1",
