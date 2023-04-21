@@ -603,6 +603,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Icons',
+    titleNo: 'Ikoner',
     description: `In our icon library, you’ll find all available icons in the design system, 
     as well guides on how to use them. Missing a specific icon? Let us know on our Slack channel 
   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
@@ -610,6 +611,12 @@ export const docPagesNotFromCMS: DocPage[] = [
   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
 </a>
    and we’ll look into adding it to the library.`,
+    descriptionNo: `I ikonbiblioteket vårt finner du alle tilgjengelige ikoner i designsystemet, samt veiledninger om hvordan du bruker dem. Savner du et bestemt ikon? Gi oss beskjed på vår Slack-kanal 
+   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
+   <span class="e-link__title">#designsystemet</span>
+   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+ </a>
+   så skal vi se på muligheten for å legge det til i biblioteket.`,
     docUrl: Pages.Icon,
     absolutePath: '/brand/' + Pages.Icon,
     status: DocPageStatus.Done,
