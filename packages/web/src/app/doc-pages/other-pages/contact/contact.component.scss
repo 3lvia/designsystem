@@ -3,6 +3,10 @@
 .page-body {
   display: flex;
   justify-content: center;
+  padding-bottom: 154px - 72px;
+  @include breakpoints.breakpoint-up(Mobile) {
+    padding-bottom: 0;
+  }
   .contact-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
