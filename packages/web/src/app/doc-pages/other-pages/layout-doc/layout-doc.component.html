@@ -20,11 +20,11 @@
         <ng-container *ngIf="locale === 'nb-NO'">
           Vi bruker et rutenett med 12 kolonner i designsystemet vårt. Vi har to versjoner av det, en for
           ekstern bruk og en for intern bruk. Begge er responsive og har samme antall kolonner, men de har
-          forskjellige takrenner og marginer.
+          forskjellige gutters og marginer.
         </ng-container>
       </div>
 
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Eksternt Rutenett' : 'External grid'">
+      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Eksternt rutenett' : 'External grid'">
         <ng-container ngProjectAs="sectionContent">
           <ng-container *ngIf="locale === 'en-GB'">
             The external grid are used on elvia.no and design.elvia.io.
@@ -152,7 +152,7 @@
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Internt Rutenett' : 'Internal grid'">
+      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Internt rutenett' : 'Internal grid'">
         <ng-container ngProjectAs="sectionContent">
           <ng-container *ngIf="locale === 'en-GB'">
             The internal grid is used on internal applications.
@@ -288,7 +288,7 @@
             tablet and 6 on mobile.
           </ng-container>
           <ng-container *ngIf="locale === 'nb-NO'">
-            Rastersystemet følger en 12-kolonners regel, men maks antall kolonner bør ikke overstige 8 på
+            Rutenettet følger en 12-kolonners regel, men maks antall kolonner bør ikke overstige 8 på
             nettbrett og 6 på mobil.
           </ng-container>
 
@@ -486,7 +486,7 @@
   </app-component-section>
 
   <!--SPACING-->
-  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Mellomrom' : 'Spacing'">
+  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Avstand' : 'Spacing'">
     <ng-container ngProjectAs="sectionContent">
       <div>
         <ng-container *ngIf="locale === 'en-GB'">
@@ -494,8 +494,8 @@
           relationship between items and are a big part of the visual design.
         </ng-container>
         <ng-container *ngIf="locale === 'nb-NO'">
-          Avstand viser til mellomrom mellom brukergrensesnitts-elementer. Det er viktig å skape et passende
-          romlig forhold mellom elementene og er en stor del av den visuelle utformingen.
+          Avstand viser til mellomrommet mellom brukergrensesnitts-elementer. Det er viktig å skape et
+          passende romlig forhold mellom elementene og er en stor del av den visuelle layouten.
         </ng-container>
       </div>
       <div class="display-container centered-content e-mt-24">
@@ -530,7 +530,9 @@
           <ng-container *ngIf="locale === 'en-GB'">
             The bigger the object, the bigger space around it.
           </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">Jo større objekt, jo større plass rundt det.</ng-container>
+          <ng-container *ngIf="locale === 'nb-NO'">
+            Jo større objekt, desto større plass rundt det.
+          </ng-container>
         </li>
         <li>
           <ng-container *ngIf="locale === 'en-GB'">
@@ -625,7 +627,7 @@
                 </ul>
               </ng-container>
               <ng-container *ngIf="locale === 'nb-NO'">
-                Bruk mellomrom mellom 80 piksler og 112 piksler for avstand mellom ulike
+                Bruk mellomrom mellom 80px og 112px for avstand mellom ulike
                 <strong>seksjoner</strong>
                 . Dette brukes oftere av eksterne nettsteder.
                 <h4 class="e-title-caps e-mt-32">Eksempel:</h4>
@@ -641,7 +643,7 @@
   </app-component-section>
 
   <!--BOX-->
-  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Bokser' : 'Box'">
+  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Bokser' : 'Boxes'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsubsection>
         <ng-container ngProjectAs="sectionContent">
@@ -710,8 +712,8 @@
       <app-component-subsubsection>
         <ng-container ngProjectAs="sectionContent">
           <ng-container *ngIf="locale === 'en-GB'">
-            Box are used as a background container to group content and together with grid and space you can
-            make different layouts. Box has no max width or height.
+            Boxes are used as a background container to group content and together with grid and space you can
+            make different layouts. Boxes have no max width or height.
           </ng-container>
           <ng-container *ngIf="locale === 'nb-NO'">
             Bokser brukes som en bakgrunnsbeholder for å gruppere innhold, og sammen med rutenett og mellomrom

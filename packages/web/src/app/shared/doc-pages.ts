@@ -618,7 +618,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Layout',
-    titleNo: 'Utforming',
+    titleNo: 'Layout',
     description:
       'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
     descriptionNo:
