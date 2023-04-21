@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class WhenToUseComponent {
   @Input() whens? = [''];
   @Input() whenNots? = [''];
+  @Input() locale = 'en-GB';
 }

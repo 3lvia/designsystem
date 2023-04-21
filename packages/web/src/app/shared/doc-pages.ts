@@ -580,8 +580,11 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Shadow',
+    titleNo: 'Skygge',
     description:
       'Shadow is used to make an element stand out from the surface to create depth. Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent. Elvia have a flat design, so shadow should be used carefully and only on overlays.',
+    descriptionNo:
+      'Skygge brukes til å få et element til å skille seg ut fra overflaten for å skape dybde. Valg av skygge er opp til hvert scenario - men skyggen skal "oppleves" og bør ikke være fremtredende. Elvia har et flatt design, så skygge bør brukes forsiktig og bare på overlegg.',
     docUrl: Pages.Shadow,
     absolutePath: '/brand/' + Pages.Shadow,
     status: DocPageStatus.Done,
