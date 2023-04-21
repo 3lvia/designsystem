@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Observable, combineLatest } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { UnknownCegControlManager } from '../../cegControlManager';
@@ -25,6 +25,8 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   reactCode = '';
   vueCode = '';
 
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+
   ngOnInit() {
     this.initialProps = this.getFlatPropList(
       this.controlManager.getControlSnapshot() ?? {},
@@ -45,6 +47,14 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
         this.vueCode = this.createWebComponentCode(props, slots, ':');
         this.reactCode = this.createReactCode(props, slots);
+
+        /**
+         * For some reason, changes in slots in our web components does
+         * not trigger a change detection cycle in Angular, thus e.g. changes
+         * in applied CSS classes are "late" and gets rendered on the next tick.
+         * We fix this by explicitly telling Angular to trigger change detection.
+         */
+        this.changeDetectorRef.detectChanges();
       });
   }
 
@@ -109,19 +119,23 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   }
 
   private getCleanSlot(slots: string[]): string[] {
-    return slots
-      .map((slot) => {
-        if (slot.includes('e-icon') || slot.includes('<elvia-')) {
-          const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
+    return (
+      slots
+        .map((slot) => {
+          if (slot.includes('e-icon') || slot.includes('<elvia-')) {
+            const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
 
-          this.cleanIconsInSlot(parsedSlot);
-          this.cleanElviaComponentsInSlot(slot, parsedSlot);
-          return parsedSlot.body.innerHTML;
-        }
-        return slot;
-      })
-      .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
-      .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''));
+            this.cleanIconsInSlot(parsedSlot);
+            this.cleanElviaComponentsInSlot(slot, parsedSlot);
+            return parsedSlot.body.innerHTML;
+          }
+          return slot;
+        })
+        // Ensure that each slot falls on a new line.
+        .map((slot) => slot.replace(/></g, '>\n<'))
+        .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
+        .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''))
+    );
   }
 
   private cleanIconsInSlot(parsedSlot: Document) {

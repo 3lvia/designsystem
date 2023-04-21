@@ -24,7 +24,7 @@ export class GetStartedDocComponent implements OnInit {
   }
 
   toggleAccordion(id: string): void {
-    const element = document.getElementById(id) as HTMLElement;
+    const element = document.getElementById(id);
     if (element) {
       if (element.classList.contains('e-accordion__item--open')) {
         element.classList.remove('e-accordion__item--open');
@@ -35,11 +35,11 @@ export class GetStartedDocComponent implements OnInit {
   }
 
   updateCodeExamples(): void {
-    this.versionService.getCDNScriptFile().subscribe((tag: string) => {
+    this.versionService.getCDNScriptFile().subscribe((tag) => {
       this.scriptTagCode = tag;
       this.createFullExample();
     });
-    this.versionService.getCDNStyleFile().subscribe((tag: string) => {
+    this.versionService.getCDNStyleFile().subscribe((tag) => {
       this.linkTagCode = tag;
       this.createFullExample();
     });

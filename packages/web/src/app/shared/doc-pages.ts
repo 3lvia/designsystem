@@ -590,8 +590,11 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Colors',
+    titleNo: 'Farger',
     description:
       'Elvia colors are a reference for energy and light. It plays an important part to bring the concept ON/OFF to life. For consistency, you shall use the defined color palette throughout our interface.',
+    descriptionNo:
+      'Elvia-fargene er en referanse for energi og lys. Det spiller en viktig rolle for å gi konseptet PÅ/AV liv. For konsistens skal du bruke den definerte fargepaletten i hele grensesnittet vårt.',
     docUrl: Pages.Color,
     absolutePath: '/brand/' + Pages.Color,
     status: DocPageStatus.Done,

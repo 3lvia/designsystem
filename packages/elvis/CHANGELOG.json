@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "11.3.0",
+      "date": "April 20, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add new icons: <code>columns</code>, <code>step_6</code>, <code>step_7</code>, <code>step_8</code>, <code>step_9</code>, and <code>step_10</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "11.2.0",
       "date": "April 18, 2023",
       "changelog": [

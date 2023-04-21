@@ -1,3 +1,9 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
 .accordion-container {
   height: 100%;
+  padding-top: 54px;
+  @include breakpoints.breakpoint-up(Mobile) {
+    padding-top: 0px;
+  }
 }

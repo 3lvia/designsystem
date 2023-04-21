@@ -1,0 +1,32 @@
+<elvia-context-menu (onOpen)="isShowing = true" (onClose)="isShowing = false">
+  <button
+    aria-haspopup="menu"
+    slot="trigger"
+    class="e-btn e-btn--icon"
+    aria-label="More menu"
+    [ngClass]="{ 'e-btn---selected': isShowing }"
+  >
+    <span class="e-btn__icon" aria-hidden="true">
+      <i class="e-icon e-icon--more_menu e-icon--inverted"></i>
+      <i class="e-icon e-icon--more_menu"></i>
+    </span>
+  </button>
+  <div slot="content">
+    <div class="ewc-context-menu__list-group">
+      <button role="menuitem">
+        <elvia-icon name="edit" size="xs"></elvia-icon>
+        <span>Rediger</span>
+      </button>
+      <button role="menuitem">
+        <elvia-icon name="bin" size="xs"></elvia-icon>
+        <span>Slett</span>
+      </button>
+    </div>
+    <div class="ewc-context-menu__list-group">
+      <a role="menuitem">
+        <elvia-icon name="download" size="xs"></elvia-icon>
+        <span>Last ned</span>
+      </a>
+    </div>
+  </div>
+</elvia-context-menu>

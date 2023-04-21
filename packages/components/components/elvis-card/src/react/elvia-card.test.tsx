@@ -26,14 +26,9 @@ describe('Elvis Card', () => {
       expect(cardDescription).toHaveTextContent('Description');
     });
 
-    it('should have border', () => {
-      const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).toHaveStyle(`border: 1px solid ${getColor('grey-10')}`);
-    });
-
     it('should not have top border with color', () => {
       const cardColoredLine = screen.queryByTestId('card-colored-line');
-      expect(cardColoredLine).not.toBeInTheDocument();
+      expect(cardColoredLine).toHaveStyle(`border-top: 4px solid transparent`);
     });
 
     it('should not have corner icon', () => {
@@ -129,22 +124,6 @@ describe('Elvis Card', () => {
 
       await user.unhover(cardArea);
       expect(cardIcon).toHaveTextContent('Icon');
-    });
-  });
-
-  describe('Type = simple square, no border', () => {
-    beforeEach(() => {
-      render(<Card icon={'Icon'} hasBorder={false}></Card>);
-    });
-
-    it('should not have standard border', () => {
-      const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).not.toHaveStyle(`border: 1px solid ${getColor('grey-10')}`);
-    });
-
-    it('should have grey border (to match "on grey")', () => {
-      const cardArea = screen.getByTestId('card-area');
-      expect(cardArea).not.toHaveStyle(`border: 1px solid ${getColor('grey-10')}`);
     });
   });
 
