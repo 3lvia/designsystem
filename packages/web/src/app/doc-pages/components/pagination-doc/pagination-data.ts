@@ -9,7 +9,7 @@ export const paginationData: ComponentData = {
       isRequired: false,
       type: 'object',
       description:
-        'The range of elements that should be visible in the paginator from star. "start" represents first element index and "end" represents last element index. {start: number, end: number}',
+        'The range of elements that should be visible in the paginator from start. "start" represents first element index and "end" represents last element index. {start: number, end: number}',
       default: '{ start: undefined, end: undefined }',
     },
     numberOfElements: {
