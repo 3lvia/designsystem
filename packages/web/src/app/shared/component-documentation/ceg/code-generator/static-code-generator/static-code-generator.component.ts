@@ -39,7 +39,22 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return vueEventSyntax;
   }
 
+  private getOriginalAttributeNames(code: string): string[] {
+    return Array.from(code.match(/\w+[\)\]]?="/g) || []);
+  }
+
+  private restoreOriginalPropNames(code: string, originalAttributeNames: string[]): string {
+    let transformedCode = code;
+    originalAttributeNames.forEach(
+      (attributeName) =>
+        (transformedCode = transformedCode.replace(attributeName.toLowerCase(), attributeName)),
+    );
+    return transformedCode;
+  }
+
   private transformSlotsIntoReactAttributes(code: string): string {
+    const originalPropNames = this.getOriginalAttributeNames(code);
+
     const parsedCode = new DOMParser().parseFromString(code, 'text/html');
     parsedCode.querySelectorAll('[slot]').forEach((slotElement) => {
       const slotName = slotElement.getAttribute('slot');
@@ -54,11 +69,16 @@ export class StaticCodeGeneratorComponent implements OnInit {
       slotElement.parentElement?.setAttribute(slotName, `__{<>${slotElement.outerHTML}</>}__`);
       slotElement.parentElement?.removeChild(slotElement);
     });
+
     // Remove quotes around curly braces and convert &quot; to "
-    return parsedCode.body.innerHTML
+    const transformedCode = parsedCode.body.innerHTML
       .replace(/&quot;/g, '"')
       .replace(/"__{/g, '{')
       .replace(/}__"/g, '}');
+
+    // We need to restore prop casing, because they are all lowercase due to the
+    // DOMParser used earlier. This will break our components in React.
+    return this.restoreOriginalPropNames(transformedCode, originalPropNames);
   }
 
   private transformAngularEventsToReactStyle(code: string): string {
