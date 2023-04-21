@@ -4,7 +4,8 @@ const styles = require('./tasks/styles.js');
 const icons = require('./tasks/icons.js');
 const classList = require('./tasks/classlist.js');
 const gulp = require('gulp');
-const minify = require('gulp-minify');
+const terser = require('gulp-terser');
+const tap = require('gulp-tap');
 
 // Copies changelog to web dictionary
 function copyChangelogs() {
@@ -13,10 +14,24 @@ function copyChangelogs() {
   return gulp.src(elvisSrc).pipe(gulp.dest('../web/src/assets/changelogs/elvis'));
 }
 
+function copyElvisToElvisFull() {
+  const elvisSrc = 'elvis.js';
+  const elvisFull = 'elvis.full.js';
+
+  return gulp
+    .src(elvisSrc)
+    .pipe(
+      tap((file) => {
+        file.basename = elvisFull;
+      }),
+    )
+    .pipe(gulp.dest('.'));
+}
+
 function minifyElvisJs() {
   return gulp
     .src('elvis.js')
-    .pipe(minify({ ext: { min: '.js', src: '.full.js' } }))
+    .pipe(terser())
     .pipe(
       gulp.dest('.', {
         overwrite: true,
@@ -33,6 +48,7 @@ gulp.task(
     icons.generateIcons,
     classList.injectDeprecatedElvisClasses,
     copyChangelogs,
+    copyElvisToElvisFull,
     minifyElvisJs,
     function (done) {
       done();
