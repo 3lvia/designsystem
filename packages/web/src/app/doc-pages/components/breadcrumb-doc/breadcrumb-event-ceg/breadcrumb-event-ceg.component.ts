@@ -12,6 +12,6 @@ export class BreadcrumbEventCegComponent implements StaticComponentExample {
   html = template.default;
 
   handleRoutingOnClick(route: string) {
-    console.log('The selected route was:', route);
+    console.log('The selected route index is:', route);
   }
 }
