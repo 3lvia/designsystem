@@ -40,10 +40,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private getOriginalAttributeNames(code: string): string[] {
-    const attributes = code.match(/\w+\]?="/g) || [];
-    const events = code.match(/\w+\)="/) || [];
-
-    return [...attributes, ...events];
+    return code.match(/\w+[\]\)]?="/g) || [];
   }
 
   private restoreOriginalPropNames(code: string, originalAttributeNames: string[]): string {
