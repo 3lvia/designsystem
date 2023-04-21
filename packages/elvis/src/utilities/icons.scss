@@ -38,6 +38,10 @@ $default-size: 'md';
   @include icon-size($default-size);
   display: inline-block;
 
+  svg {
+    vertical-align: top;
+  }
+
   &.e-icon-- {
     @each $class, $colors in IconMap.$icon-theme-classes {
       &#{$class} {
