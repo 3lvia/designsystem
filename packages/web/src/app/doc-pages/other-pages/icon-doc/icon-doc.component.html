@@ -1,9 +1,7 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">{{ locale === 'nb-NO' ? titleNo : title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ locale === 'nb-NO' ? descriptionNo : description }}
-  </ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="locale === 'nb-NO' ? descriptionNo : description"></div>
 </app-component-header>
 
 <!--COPY ALERT-->
