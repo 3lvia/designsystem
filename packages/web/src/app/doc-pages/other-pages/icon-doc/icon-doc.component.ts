@@ -1,4 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter,
+  HostListener,
+  OnDestroy,
+} from '@angular/core';
 import { Icon } from './icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 // @ts-ignore
@@ -6,6 +15,9 @@ import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';
 import naturalCompare from 'natural-compare-lite';
+import { Subscription } from 'rxjs';
+import { LOCALE_CODE } from 'contentful/types';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 
 type IconArray = { pretty: string; title: string; terms: string[] }[];
 
@@ -14,12 +26,13 @@ type IconArray = { pretty: string; title: string; terms: string[] }[];
   templateUrl: './icon-doc.component.html',
   styleUrls: ['./icon-doc.component.scss'],
 })
-export class IconDocComponent implements OnInit {
+export class IconDocComponent implements OnInit, OnDestroy {
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
   @ViewChild('accordionIconsMobile') accordionIconsMobile: ElementRef;
   @ViewChild('icons') icons: ElementRef;
   @Output() clickOutside = new EventEmitter();
 
+  localizationSubscriber: Subscription;
   componentData = elvisIconData;
   noSubs = true;
 
@@ -30,11 +43,14 @@ export class IconDocComponent implements OnInit {
   twoColoredIcons: IconArray = [];
   figmaUrl = getDocPagesNotFromCMS('icon')?.figmaUrl;
   description = getDocPagesNotFromCMS('icon')?.description;
+  descriptionNo = getDocPagesNotFromCMS('icon')?.descriptionNo;
   title = getDocPagesNotFromCMS('icon')?.title;
+  titleNo = getDocPagesNotFromCMS('icon')?.titleNo;
   inverted = false;
   selected = 'all';
   latestIcon = '';
   copied = false;
+  locale: LOCALE_CODE = 'en-GB';
 
   iconColorClassExample = `<h5>Default colors</h5>
 <i class="e-icon e-icon--chat e-icon--color-default e-mr-40" aria-hidden="true"></i>
@@ -86,10 +102,12 @@ export class IconDocComponent implements OnInit {
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private titleService: Title) {
-    if (this.title) {
-      this.titleService.setTitle(this.title);
-    }
+  constructor(private titleService: Title, private localizationService: LocalizationService) {
+    this.setTabTitle();
+    this.localizationSubscriber = this.localizationService.listenLocalization().subscribe((locale) => {
+      this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+      this.setTabTitle();
+    });
   }
 
   @HostListener('document:click', ['$event', '$event.target'])
@@ -113,6 +131,16 @@ export class IconDocComponent implements OnInit {
     this.setTwoColoredIcons();
     this.visibleIcons = this.allIcons;
   }
+
+  ngOnDestroy(): void {
+    this.localizationSubscriber && this.localizationSubscriber.unsubscribe();
+  }
+
+  setTabTitle = (): void => {
+    this.titleService.setTitle(
+      (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
+    );
+  };
 
   invert(): void {
     this.inverted = !this.inverted;
