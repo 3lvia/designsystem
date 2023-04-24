@@ -13,3 +13,8 @@
   position: absolute;
   white-space: nowrap;
 }
+
+.disabled {
+  color: var(--e-grey-30);
+  cursor: not-allowed;
+}

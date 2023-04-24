@@ -20,6 +20,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
   @Input() controlManager: UnknownCegControlManager;
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   @Output() slotToggle = new EventEmitter<{ slotName: string; isVisible: boolean }>();
+  disabledControls: string[] = [];
   groups: Group[] = [];
 
   ngOnInit() {
@@ -39,6 +40,15 @@ export class ControlsComponent implements OnInit, OnDestroy {
         if (!controls || !groupOrder) return;
         this.createControlGroups(controls, groupOrder);
       });
+
+    this.controlManager
+      .getDisabledControls()
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe((controls) => (this.disabledControls = controls));
+  }
+
+  isDisabled(controlName: string): boolean {
+    return this.disabledControls.includes(controlName);
   }
 
   private createControlGroups(controls: Controls, groupOrder: string[]) {
