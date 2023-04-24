@@ -12,7 +12,9 @@
 <!--BODY-->
 <div class="page-body">
   <!-- CEG -->
-  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+  <app-static-ceg>
+    <app-breadcrumb-ceg />
+  </app-static-ceg>
 
   <!-- USAGE -->
   <app-component-section [sectionTitle]="'Usage'">
@@ -24,11 +26,7 @@
           besides the current page are a link. The breadcrumb is hidden until you have two levels (no
           breadcrumbs are visible on the homepage).
           <div class="breadcrumb-levels">
-            <img
-              alt="breadcrumb-levels on desktop"
-              class="e-mt-16"
-              src="./../../../../assets/breadcrumb/levels.svg"
-            />
+            <img alt="breadcrumb-levels on desktop" class="e-mt-16" src="assets/breadcrumb/levels.svg" />
           </div>
 
           <div class="e-mt-40">On mobile you only get the closest parent.</div>
@@ -36,7 +34,7 @@
             <img
               alt="breadcrumb-levels on mobile"
               class="e-mt-16"
-              src="./../../../../assets/breadcrumb/levels-mobile.svg"
+              src="assets/breadcrumb/levels-mobile.svg"
             />
           </div>
         </ng-container>
@@ -61,10 +59,9 @@
           index of the clicked breadcrumb. This functionality can be used to handle routing outside of the
           breadcrumb component allowing the use of routing modules (e.g. Angular RoutingModule or React
           Router).
-          <app-component-example-generator
-            [componentData]="$any(breadcrumbEventCode)"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-breadcrumb-event-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>

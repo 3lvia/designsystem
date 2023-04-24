@@ -31,7 +31,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private createVueCodeFromStaticContent(staticContent: string): string {
-    const vuePropSyntax = staticContent.slice().replace(/\[/g, ':').replace(/]/g, '');
+    const vuePropSyntax = staticContent.slice().replace(/\[(\w+)\]/g, ':$1');
     const vueEventSyntax = vuePropSyntax.replace(/ \(/g, ' @').replace(/\)=/g, '=');
     if (this.comment) {
       return `<!--${this.comment}-->\n${vueEventSyntax}`;
@@ -39,18 +39,22 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return vueEventSyntax;
   }
 
-  private transformAngularAttributeToReact(attribute: string): string {
-    const keyValue = attribute.split('=');
-    const key = keyValue[0].replace('[', '').replace(']', '');
-    const value = keyValue[1].trim().replace(/"/g, '').replace('>', '');
-    let output = `${key}={${value}}`;
-    if (attribute.trim().endsWith('>')) {
-      return `${output}>\n`;
-    }
-    return output;
+  private getOriginalAttributeNames(code: string): string[] {
+    return code.match(/\w+[\])]?="/g) || [];
+  }
+
+  private restoreOriginalPropNames(code: string, originalAttributeNames: string[]): string {
+    let transformedCode = code;
+    originalAttributeNames.forEach(
+      (attributeName) =>
+        (transformedCode = transformedCode.replace(attributeName.toLowerCase(), attributeName)),
+    );
+    return transformedCode;
   }
 
   private transformSlotsIntoReactAttributes(code: string): string {
+    const originalPropNames = this.getOriginalAttributeNames(code);
+
     const parsedCode = new DOMParser().parseFromString(code, 'text/html');
     parsedCode.querySelectorAll('[slot]').forEach((slotElement) => {
       const slotName = slotElement.getAttribute('slot');
@@ -65,16 +69,31 @@ export class StaticCodeGeneratorComponent implements OnInit {
       slotElement.parentElement?.setAttribute(slotName, `__{<>${slotElement.outerHTML}</>}__`);
       slotElement.parentElement?.removeChild(slotElement);
     });
+
     // Remove quotes around curly braces and convert &quot; to "
-    return parsedCode.body.innerHTML
+    const transformedCode = parsedCode.body.innerHTML
       .replace(/&quot;/g, '"')
       .replace(/"__{/g, '{')
       .replace(/}__"/g, '}');
+
+    // We need to restore prop casing, because they are all lowercase due to the
+    // DOMParser used earlier. This will break our components in React.
+    return this.restoreOriginalPropNames(transformedCode, originalPropNames);
   }
 
-  private removeAngularEvents(code: string): string {
-    // Matches e.g. (onClose)="isShowing = false"
-    return code.replace(/\(\w+\)="[a-zA-Z\s=]+"/g, '');
+  private transformAngularEventsToReactStyle(code: string): string {
+    // Finds all angular events (like "isShowing") and it's value within the quotes.
+    return code.replace(/\((\w+)\)="((.|\n)+?)"/g, (_, attributeName: string, attributeValue: string) => {
+      let value = attributeValue;
+
+      /**
+       * If the value is a function, map it to React syntax
+       * "handleRoutingOnClick($any($event).detail.value)" becomes "value => handleRoutingOnClick(value)"
+       */
+      value = value.replace(/(\w+)(\(.+\))/, 'value => $1(value)');
+
+      return `${attributeName}={${value}}`;
+    });
   }
 
   private transformTagsToReactStyle(code: string): string {
@@ -96,17 +115,14 @@ export class StaticCodeGeneratorComponent implements OnInit {
       .join('');
   }
 
-  private transformAttributesToReactStyle(code: string): string {
-    return code
-      .replace(/>/g, ' > ')
-      .split(' ')
-      .map((attribute) => {
-        if (attribute.startsWith('[')) {
-          return this.transformAngularAttributeToReact(attribute);
-        }
-        return attribute;
-      })
-      .join(' ');
+  private transformAngularAttributesToReactStyle(code: string): string {
+    /**
+     * This RegEx finds two things:
+     *   - Attributes surrounded by square brackets: \[(\w+)\]
+     *   - The value following the attribute with square brackets: ((?:.|\n)+?)
+     * Then it pulls those values out as two capture groups, and formats it as React
+     */
+    return code.replace(/\[(\w+)\]="((?:.|\n)+?)"/g, '$1={$2}');
   }
 
   private transformReactSpecificProps(code: string): string {
@@ -128,14 +144,16 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   private createReactCodeFromStaticContent(angularCode: string): string {
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
-    reactCode = this.removeAngularEvents(reactCode);
+    reactCode = this.transformAngularEventsToReactStyle(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
-    reactCode = this.transformAttributesToReactStyle(reactCode);
+    reactCode = this.transformAngularAttributesToReactStyle(reactCode);
     reactCode = this.transformReactSpecificProps(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
+
     if (this.htmlHasMultipleRoots(reactCode)) {
       reactCode = `<>${reactCode}</>`;
     }
+
     if (this.comment) {
       reactCode = '// ' + this.comment.replace(/\n/g, '\n// ') + '\n' + reactCode;
     }
