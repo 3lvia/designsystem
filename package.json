@@ -57,7 +57,7 @@
     ]
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "dependencies": {
     "prettier": "^2.8.4"

@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "11.3.1",
+      "date": "April 21, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed icons not being correctly centered when resized."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "11.3.0",
       "date": "April 20, 2023",
       "changelog": [
