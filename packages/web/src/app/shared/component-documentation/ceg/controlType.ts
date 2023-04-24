@@ -1,7 +1,6 @@
 interface ControlBase {
   readonly type: string;
   readonly group: string;
-  disabledBy?: string[];
 }
 
 export interface Checkbox extends ControlBase {

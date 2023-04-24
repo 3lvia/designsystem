@@ -73,10 +73,4 @@ export const progressbarData: ComponentData = {
         "Custom CSS style object that can be added to the progress bar. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: ``,
-  codeAngular: ``,
-  codeVue: ``,
-  codeNativeHTML: ``,
-
-  codeNativeScript: ``,
 };
