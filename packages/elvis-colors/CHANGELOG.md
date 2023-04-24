@@ -8,6 +8,10 @@
 - Removed the `getColor()`. Use `getThemeColor()` or `getCustomThemeColor()` instead.
 - Removed the old color object, as it has been replaced by the new theme functionality and theme color object.
 
+### Patch
+
+- Improved the types for `getShadow()`.
+
 ## 1.8.0 (09.03.23)
 
 ### New feature
