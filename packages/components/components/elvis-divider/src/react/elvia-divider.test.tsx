@@ -46,6 +46,22 @@ describe('Elvis Divider', () => {
       const dividerArea = screen.getByRole('separator');
       expect(dividerArea).toHaveStyle(`border-bottom: none;`);
     });
+
+    it('should be horizontal by default', () => {
+      const dividerArea = screen.getByRole('separator');
+      expect(dividerArea).toHaveStyle(`height: 4vw;`);
+    });
+  });
+
+  describe('Type = Curved, Orientation = Vertical', () => {
+    beforeEach(() => {
+      render(<Divider type="curved" orientation="vertical" />);
+    });
+
+    it('should be vertical', () => {
+      const dividerArea = screen.getByRole('separator');
+      expect(dividerArea).toHaveStyle(`width: 4vw;`);
+    });
   });
 
   describe('Type = Title', () => {
