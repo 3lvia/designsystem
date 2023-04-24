@@ -26,6 +26,9 @@ export class ProgressbarCegComponent implements ComponentExample {
         },
       },
       groupOrder: ['Loaded', 'State', 'Size'],
+      disabledBy: {
+        value: ['isIndeterminate', 'isError'],
+      },
     },
   ]);
 }
