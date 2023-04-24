@@ -23,7 +23,7 @@ export class ShadowDocComponent {
     'Should not be applied to typography or icons. ',
     'Don’t use a lot of shadows on the same surface, since our visual profile have a flat visual expression.',
   ];
-  doesNo = ['Bak overlegg som popover og modal.'];
+  doesNo = ['Bak overlays som popover og modal.'];
   dontsNo = [
     'Bør ikke brukes på typografi eller ikoner.',
     'Ikke bruk mange skygger på samme flate, siden vår visuelle profil har et flatt visuelt uttrykk.',
