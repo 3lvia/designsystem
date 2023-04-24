@@ -13,7 +13,7 @@ export const DividerArea = styled.div<DividerAreaProps>`
   margin: 0;
   width: ${({ type, orientation }) => (type === 'simple' && orientation === 'vertical' ? '1px' : '100%')};
   height: ${({ type, orientation }) =>
-    type === 'simple' && orientation === 'vertical' ? '100%' : type === 'title' ? 'unset' : '1px'};
+    type !== 'title' && orientation === 'vertical' ? '100%' : type === 'title' ? 'unset' : '1px'};
   border-left: ${({ type, orientation }) =>
     type === 'simple' && orientation === 'vertical' ? `1px solid` : 'none'};
   border-bottom: ${({ type, orientation }) =>
@@ -22,8 +22,9 @@ export const DividerArea = styled.div<DividerAreaProps>`
     type === 'title' ? getThemeColor('text-primary') : getThemeColor('background-accent')};
   text-align: left;
 
-  ${({ type }) =>
+  ${({ type, orientation }) =>
     type === 'curved' &&
+    orientation === 'horizontal' &&
     css`
       height: 4vw;
       position: relative;
@@ -40,6 +41,28 @@ export const DividerArea = styled.div<DividerAreaProps>`
         height: 775%;
         width: 150%;
         left: -25%;
+      }
+    `};
+
+  ${({ type, orientation }) =>
+    type === 'curved' &&
+    orientation === 'vertical' &&
+    css`
+      width: 4vw;
+      position: relative;
+      overflow: hidden;
+      background-color: inherit;
+      &::after {
+        content: '';
+        border: 2px solid;
+        border-color: ${getThemeColor('background-accent-strong')};
+        border-radius: 100%;
+        position: absolute;
+        bottom: 0;
+        margin: auto;
+        width: 775%;
+        height: 150%;
+        top: 0;
       }
     `};
 `;
