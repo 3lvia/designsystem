@@ -36,7 +36,7 @@
     <!--Box-->
     <div class="example-wrapper">
       <h3>Box</h3>
-      <elvia-box :hasBorder="true" :isColored="true">
+      <elvia-box :isColored="true">
         <div slot="title"><h1>Title for the box component</h1></div>
         <div slot="content">Webcomponentent content for the Box component</div>
       </elvia-box>

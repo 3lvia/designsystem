@@ -37,12 +37,6 @@ const cardData: ComponentData = {
       type: 'green | blue-berry | red | orange',
       description: 'Color on top of the card. Only applies to simple card. ',
     },
-    hasBorder: {
-      isRequired: false,
-      type: 'boolean',
-      description: 'If the card is on a light grey background this prop should be set to false.',
-      default: 'true',
-    },
     width: {
       isRequired: false,
       type: 'string',

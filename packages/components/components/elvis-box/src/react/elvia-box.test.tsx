@@ -55,17 +55,6 @@ describe('Elvis Box', () => {
     });
   });
 
-  describe('hasBorder = true', () => {
-    beforeEach(() => {
-      render(<Box hasBorder content=""></Box>);
-    });
-
-    it('should show box content with a grey border', () => {
-      const boxContent = screen.getByTestId('box-content');
-      expect(boxContent).toHaveStyle(`border: 1px solid ${colors.grey10}`);
-    });
-  });
-
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       render(<Box content="" className={'test-class'} inlineStyle={{ margin: '24px' }}></Box>);

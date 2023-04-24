@@ -4,5 +4,6 @@
   "cSpell.words": ["Contentful", "designsystem"],
   "[shellscript]": {
     "editor.defaultFormatter": "shakram02.bash-beautify"
-  }
+  },
+  "vue.features.codeActions.enable": false
 }
