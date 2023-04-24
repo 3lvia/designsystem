@@ -264,7 +264,6 @@ function App() {
             <div className="example-wrapper">
               <h3>Box</h3>
               <Box
-                hasBorder={true}
                 isColored={true}
                 title={<h1>Title for the box component</h1>}
                 content={<div>Heisann dette er en box component sendt med som node i react</div>}

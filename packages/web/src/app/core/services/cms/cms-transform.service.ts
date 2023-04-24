@@ -664,7 +664,6 @@ export class CMSTransformService {
       <a href="${fullPath}">
         <elvia-card
           heading="${cardTitle}"
-          hasBorder="true"
           maxHeadingLines="2"
           >
           <img slot="icon" src="${iconUrl}" alt="" aria-hidden="true"></img>
