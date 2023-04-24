@@ -11,7 +11,6 @@ export class ProgressbarCegComponent implements ComponentExample {
   elementName = 'progress-linear';
   cegContent = new CegControlManager<ProgressLinearProps>([
     {
-      name: 'Default',
       controls: {
         value: { type: 'counter', group: 'Loaded', increment: 10, value: 20, max: 100, min: 0, postfix: '%' },
         isIndeterminate: { type: 'checkbox', group: 'State', label: 'Indeterminate' },
