@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "25.04.23",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added vertical curved divider."]
+        }
+      ]
+    },
+    {
       "date": "27.02.23",
       "version": "2.0.0",
       "changelog": [

@@ -45,8 +45,18 @@ export class DividerCegComponent implements ComponentExample {
     },
     {
       name: 'Curved',
-      controls: {},
-      groupOrder: [],
+      controls: {
+        orientation: {
+          type: 'radioGroup',
+          radios: [
+            { label: 'Horizontal', value: 'horizontal' },
+            { label: 'Vertical', value: 'vertical' },
+          ],
+          value: 'horizontal',
+          group: 'Orientation',
+        },
+      },
+      groupOrder: ['Orientation'],
     },
   ]);
 }

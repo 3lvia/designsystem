@@ -2828,9 +2828,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-divider@workspace:packages/components/components/elvis-divider"
   dependencies:
-    "@elvia/elvis-colors": ^1.6.0
+    "@elvia/elvis-colors": ^1.8.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.6.0
+    "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -2851,9 +2851,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-divider@portal:../components/components/elvis-divider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.6.0
+    "@elvia/elvis-colors": ^1.8.0
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.6.0
+    "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
