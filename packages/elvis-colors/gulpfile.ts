@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as gulp from 'gulp';
 import * as typescript from 'gulp-typescript';
 import * as del from 'del';
-import { shadows } from './src/elviaColors';
+import { shadows } from './src/shadows';
 import { lightTheme, lightThemeColors } from './src/themes/lightTheme';
 import { darkTheme, darkThemeColors } from './src/themes/darkTheme';
 import { BaseColors, Color, Theme, ThemeName } from './src/theme';
