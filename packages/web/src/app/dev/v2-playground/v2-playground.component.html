@@ -5,7 +5,24 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <div style="width: 240px">
+        <div class="e-form-field e-mb-32">
+          <label class="e-form-field__label" for="compact">Test :user-invalid</label>
+          <div class="e-input">
+            <input id="compact" type="text" pattern=".{8,}" placeholder="Minst 8 tegn!" />
+          </div>
+        </div>
+      </div>
+      <div style="width: 240px">
+        <div class="e-form-field e-form-field--compact">
+          <label class="e-form-field__label" for="compact">Test :user-invalid</label>
+          <div class="e-input">
+            <input id="compact" type="text" pattern=".{8,}" placeholder="Minst 8 tegn!" />
+          </div>
+        </div>
+      </div>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
