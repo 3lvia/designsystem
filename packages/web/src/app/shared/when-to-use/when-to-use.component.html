@@ -4,7 +4,10 @@
       <div class="e-mr-8">
         <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green" aria-hidden="true"></i>
       </div>
-      <div>When to use:</div>
+      <div>
+        <ng-container *ngIf="locale === 'en-GB'">When to use:</ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">Riktig bruk:</ng-container>
+      </div>
     </div>
     <span class="e-text-md">
       <ul>
@@ -19,7 +22,10 @@
       <div class="e-mr-8">
         <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red" aria-hidden="true"></i>
       </div>
-      <div>When not to use:</div>
+      <div>
+        <ng-container *ngIf="locale === 'en-GB'">When not to use:</ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">Ikke riktig bruk:</ng-container>
+      </div>
     </div>
     <span class="e-text-md">
       <ul>
