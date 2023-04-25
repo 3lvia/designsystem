@@ -5,7 +5,6 @@ export const config: ComponentConfig = {
   attributes: [
     { name: 'appContent', type: 'string' },
     { name: 'appTitle', type: 'string' },
-    { name: 'bonusContent', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'email', type: 'string' },
     { name: 'inlineStyle', type: 'object' },

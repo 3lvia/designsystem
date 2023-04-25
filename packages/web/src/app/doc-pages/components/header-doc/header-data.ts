@@ -38,12 +38,6 @@ export const headerData: ComponentData = {
       default: 'undefined',
       description: 'The page content. Usually a div, wrapping a router outlet.',
     },
-    bonusContent: {
-      isRequired: false,
-      type: 'HTMLElement | JSX.Element',
-      default: 'undefined',
-      description: 'Custom content placed to the right of the header.',
-    },
     onLogoClick: {
       isRequired: false,
       type: '() => void',

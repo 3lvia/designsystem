@@ -50,15 +50,6 @@ export const SquareContainer = styled.div`
   justify-content: center;
 `;
 
-export const BonusContentContainer = styled.div`
-  align-items: center;
-  display: flex;
-  margin-left: 16px;
-  max-height: 100%;
-  min-width: 16px;
-  overflow-y: scroll;
-`;
-
 export const LogoContainer = styled(SquareContainer)`
   padding: 19px 16px;
 `;

@@ -2,13 +2,13 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "25.04.23",
-      "version": "1.3.0",
+      "date": "26.04.23",
+      "version": "1.2.5",
       "changelog": [
         {
-          "type": "new_feature",
+          "type": "bug_fix",
           "changes": [
-            "Added the new <code>bonusContent</code> slot for including custom content inside the header."
+            "Added flex: 1 to the pageTitle prop, allowing content to be aligned either left or right."
           ]
         },
         {
