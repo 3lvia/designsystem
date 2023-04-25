@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -19,17 +19,17 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
   min-width: 216px;
   text-align: left;
   max-height: calc(50vh - 8px);
-  background-color: ${getColor('elvia-on')};
+  background-color: ${getThemeColor('background-overlay')};
   overflow: auto;
   border-radius: 8px;
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: ${getShadow('medium')};
 
   @supports (max-height: 50svh) {
     max-height: calc(50svh - 8px);
   }
 
   .ewc-context-menu__list-group:not(:last-of-type) {
-    border-bottom: 1px solid ${getColor('grey-10')};
+    border-bottom: 1px solid ${getThemeColor('background-accent')};
   }
 
   > button,
@@ -44,7 +44,7 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
     padding: 10px 16px;
     margin: 0;
     cursor: pointer;
-    color: ${getColor('elvia-off')};
+    color: ${getThemeColor('text-primary')};
     ${getTypographyCss('text-md')}
     background-color: transparent;
     text-decoration: none;
@@ -55,12 +55,12 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
     }
 
     :hover:not(:disabled) {
-      background: ${getColor('grey-05')};
+      background: ${getThemeColor('state-hover-grey')};
     }
 
     :disabled {
       cursor: not-allowed;
-      color: ${getColor('disabled')};
+      color: ${getThemeColor('state-disabled-foreground')};
     }
 
     span {

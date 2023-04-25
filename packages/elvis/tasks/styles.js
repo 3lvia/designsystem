@@ -1,6 +1,5 @@
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
-const cssvariables = require('postcss-css-variables');
 const del = require('del');
 const doiuse = require('doiuse');
 const gulp = require('gulp');
@@ -30,7 +29,6 @@ function lintScssTask() {
 function generateElvisStyle() {
   return gulp
     .src('./src/main.scss')
-    .pipe(postcss([cssvariables()]))
     .pipe(
       tap(function (file) {
         file.contents = Buffer.from(

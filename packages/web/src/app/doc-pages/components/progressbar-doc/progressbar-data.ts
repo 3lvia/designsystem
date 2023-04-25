@@ -82,6 +82,12 @@ export const progressbarData: ComponentData = {
       cegFormType: 'radio',
       cegOptions: ['small', 'medium'],
     },
+    transitionDuration: {
+      isRequired: false,
+      type: 'string',
+      description: 'Set the transition duration for the progress bar animation.',
+      default: '"300ms"',
+    },
     className: {
       isRequired: false,
       type: 'string',

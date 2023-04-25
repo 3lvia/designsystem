@@ -14,6 +14,10 @@ export const darkThemeColors = {
       color: '#171717',
       contrastText: '#EDEDED',
     },
+    grey: {
+      color: '#1F1F1F',
+      contrastText: '#EDEDED',
+    },
   },
   'signal-colors': {
     yellow: {
@@ -56,10 +60,6 @@ export const darkThemeColors = {
     },
   },
   'grey-colors': {
-    'grey-80': {
-      color: '#1F1F1F',
-      contrastText: '#EDEDED',
-    },
     'grey-70': {
       color: '#242424',
       contrastText: '#EDEDED',
@@ -99,136 +99,202 @@ export type DarkThemeColorName = typeof darkThemeColors extends Record<string, i
   : never;
 
 export const darkTheme = {
+  text: {
+    'text-1': {
+      hex: darkThemeColors['primary-colors'].white.color,
+    },
+    'text-2': {
+      hex: darkThemeColors['grey-colors']['grey-10'].color,
+    },
+    'text-3': {
+      hex: darkThemeColors['grey-colors']['grey-20'].color,
+    },
+    'text-disabled-1': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+    },
+    'text-disabled-2': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+    },
+  },
   background: {
-    'background-primary': {
-      hex: darkThemeColors['grey-colors']['grey-80'].color,
-      contrast: darkThemeColors['grey-colors']['grey-80'].contrastText,
+    'background-1': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
     },
-    'background-secondary': {
-      hex: darkThemeColors['grey-colors']['grey-80'].color,
-      contrast: darkThemeColors['grey-colors']['grey-80'].contrastText,
+    'background-2': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
     },
-    'background-tertiary': {
-      hex: darkThemeColors['grey-colors']['grey-80'].color,
-      contrast: darkThemeColors['grey-colors']['grey-80'].contrastText,
+    'background-element-1': {
+      hex: 'transparent',
     },
-    'background-element': {
-      hex: darkThemeColors['grey-colors']['grey-80'].color,
-      contrast: darkThemeColors['grey-colors']['grey-80'].contrastText,
-    },
-    'background-element-zebra': {
+    'background-element-2': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,
       contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
     },
-    'background-overlay': {
-      hex: darkThemeColors['grey-colors']['grey-70'].color,
-      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
-    },
-    'background-overlay-strong': {
+    'background-element-3': {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
-    'background-header': {
+    'background-element-4': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
+    },
+    'background-overlay-1': {
+      hex: darkThemeColors['grey-colors']['grey-70'].color,
+      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
+    },
+    'background-overlay-2': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'background-overlay-3': {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
-    'background-accent': {
+    'background-disabled-1': {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
-    'background-accent-strong': {
+    'background-disabled-2': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+    },
+    'background-hover-1': {
+      hex: darkThemeColors['primary-colors']['green'].color,
+      contrast: darkThemeColors['primary-colors']['green'].contrastText,
+    },
+    'background-hover-2': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'background-selected-1': {
+      hex: darkThemeColors['primary-colors']['green'].color,
+      contrast: darkThemeColors['primary-colors']['green'].contrastText,
+    },
+    'background-selected-2': {
       hex: darkThemeColors['grey-colors']['grey-50'].color,
       contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
   },
-  text: {
-    'text-primary': {
+  border: {
+    'border-1': {
       hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
-    'text-secondary': {
-      hex: darkThemeColors['grey-colors']['grey-10'].color,
+    'border-2': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
-    'text-placeholder': {
-      hex: darkThemeColors['grey-colors']['grey-20'].color,
+    'border-3': {
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
-  },
-  state: {
-    'state-on': {
+    'border-4': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'border-disabled-1': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+    },
+    'border-hover-1': {
       hex: darkThemeColors['primary-colors'].green.color,
       contrast: darkThemeColors['primary-colors'].green.contrastText,
     },
-    'state-caution': {
+    'border-selected-1': {
+      hex: darkThemeColors['primary-colors'].green.color,
+      contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
+    'border-selected-2': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+  },
+  signal: {
+    'signal-success': {
+      hex: darkThemeColors['primary-colors'].green.color,
+      contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
+    'signal-caution': {
       hex: darkThemeColors['signal-colors'].yellow.color,
       contrast: darkThemeColors['signal-colors'].yellow.contrastText,
     },
-    'state-warning': {
+    'signal-warning': {
       hex: darkThemeColors['signal-colors'].orange.color,
       contrast: darkThemeColors['signal-colors'].orange.contrastText,
     },
-    'state-error': {
+    'signal-error': {
       hex: darkThemeColors['signal-colors'].red.color,
       contrast: darkThemeColors['signal-colors'].red.contrastText,
     },
-    'state-hover-green': {
-      hex: darkThemeColors['primary-colors'].green.color,
-      contrast: darkThemeColors['primary-colors'].green.contrastText,
-    },
-    'state-hover-grey': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
-    },
-    'state-selected-grey': {
-      hex: darkThemeColors['grey-colors']['grey-50'].color,
-      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
-    },
-    'state-disabled': {
-      hex: darkThemeColors['grey-colors']['grey-40'].color,
-      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
-    },
-    'state-disabled-foreground': {
-      hex: darkThemeColors['grey-colors']['grey-40'].color,
-      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
-    },
-    'state-disabled-background': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
-    },
-    'state-disabled-foreground-strong': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
-    },
-    'state-disabled-background-strong': {
-      hex: darkThemeColors['grey-colors']['grey-40'].color,
-      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
-    },
-    'state-focus': {
-      hex: darkThemeColors['internal-colors']['focus-outline'].color,
+    'signal-info': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
   },
   data: {
-    'data-green': {
+    'data-1': {
       hex: darkThemeColors['data-colors']['green-apple'].color,
       contrast: darkThemeColors['data-colors']['green-apple'].contrastText,
     },
-    'data-violet': {
+    'data-2': {
       hex: darkThemeColors['data-colors']['violet-grape'].color,
       contrast: darkThemeColors['data-colors']['violet-grape'].contrastText,
     },
-    'data-blue': {
+    'data-3': {
       hex: darkThemeColors['data-colors']['blue-berry'].color,
       contrast: darkThemeColors['data-colors']['blue-berry'].contrastText,
     },
-    'data-purple': {
+    'data-4': {
       hex: darkThemeColors['data-colors']['purple-plum'].color,
       contrast: darkThemeColors['data-colors']['purple-plum'].contrastText,
     },
-    'data-orange': {
+    'data-5': {
       hex: darkThemeColors['data-colors']['orange-mango'].color,
       contrast: darkThemeColors['data-colors']['orange-mango'].contrastText,
     },
-    'data-red': {
+    'data-6': {
       hex: darkThemeColors['data-colors']['red-tomato'].color,
       contrast: darkThemeColors['data-colors']['red-tomato'].contrastText,
+    },
+  },
+  icon: {
+    'icon-stroke': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+    'icon-filled-foreground': {
+      hex: darkThemeColors['primary-colors'].black.color,
+      contrast: darkThemeColors['primary-colors'].black.contrastText,
+    },
+    'icon-filled-background': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
+    },
+    'icon-filled-foreground-colored': {
+      hex: darkThemeColors['primary-colors'].black.color,
+      contrast: darkThemeColors['primary-colors'].black.contrastText,
+    },
+    'icon-success': {
+      hex: darkThemeColors['primary-colors'].green.color,
+      contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
+    'icon-caution': {
+      hex: darkThemeColors['signal-colors'].yellow.color,
+      contrast: darkThemeColors['signal-colors'].yellow.contrastText,
+    },
+    'icon-warning': {
+      hex: darkThemeColors['signal-colors'].orange.color,
+      contrast: darkThemeColors['signal-colors'].orange.contrastText,
+    },
+    'icon-error': {
+      hex: darkThemeColors['signal-colors'].red.color,
+      contrast: darkThemeColors['signal-colors'].red.contrastText,
+    },
+    'icon-info': {
+      hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
   },
   static: {

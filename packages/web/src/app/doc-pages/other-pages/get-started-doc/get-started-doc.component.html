@@ -111,14 +111,16 @@
                     </app-copy>
                   </li>
                   <li>
-                    <strong class="e-mr-16">Add elvis.js from the NPM package in &#x3C;body&#x3E;:</strong>
+                    <strong class="e-mr-16">Import elvis.js from the NPM package in your app:</strong>
                     <app-copy [message]="bodyScriptMessage">
                       <ng-container ngProjectAs="copyContent">
-                        <code class="code-text">
-                          &lt;body&gt; &lt;script src="assets/js/elvis.js"&gt;&lt;/script&gt; &lt;/body&gt;
-                        </code>
+                        <code class="code-text">import '@elvia/elvis/elvis.js';</code>
                       </ng-container>
                     </app-copy>
+                    <p>
+                      Note that elvis.js should be imported only once, somewhere at the base-level of your
+                      app. Depending on what framework you are using, the method of doing this may differ.
+                    </p>
                   </li>
                 </ol>
               </ng-container>
@@ -134,35 +136,6 @@
                     <code class="code-text">var(--e-name-of-class)</code>
                   </div>
                 </div>
-
-                <h4 class="e-title-caps">Internet Explorer Support</h4>
-                <div>
-                  The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a
-                  dependency. But this library is offered as a ponyfill, not a polyfill, meaning that the code
-                  below needs to be added to your project, in your main.js/ts file, for processing to take
-                  place. Read more on the
-                  <span>
-                    <a
-                      class="e-link e-link--inline e-link--new-tab"
-                      href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/"
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      <span class="e-link__title">ponyfill documentation here.</span>
-                      <span class="e-link__icon">
-                        <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </span>
-                  <app-copy [message]="'npm install css-vars-ponyfill'">
-                    <ng-container ngProjectAs="copyContent">
-                      <code class="code-text">npm install css-vars-ponyfill</code>
-                    </ng-container>
-                  </app-copy>
-                </div>
-                <p>
-                  <app-component-example-code [codeTS]="cssVarsCode"></app-component-example-code>
-                </p>
               </ng-container>
             </app-component-subsubsection>
           </div>
@@ -181,12 +154,11 @@
             <div>
               Our components have each their own npm package that can be used individually or together with
               other components and elvis. Our components are also listed together with the styling library
-              under "Components" in the menu. We also offer colors, typography and icons as individual
-              packages if you don't want to use Elvis.
+              under "Components" in the menu.
             </div>
 
             <div class="e-mt-24">
-              Each components has their own guidelines for how to use and install the package in your project.
+              Each component has its own guidelines for how to use and install the package in your project.
             </div>
           </div>
         </div>

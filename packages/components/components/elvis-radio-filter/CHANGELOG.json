@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "21.03.23",
+      "version": "1.7.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["The labels for the radio filter options now support icons by sending in innerHTML."]
+        }
+      ]
+    },
+    {
       "date": "03.02.23",
       "version": "1.6.0",
       "changelog": [

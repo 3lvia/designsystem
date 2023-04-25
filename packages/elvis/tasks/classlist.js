@@ -196,7 +196,6 @@ const injectDeprecatedElvisClasses = async () => {
   const template = fs.readFileSync('elvis.js').toString();
   const newContent = template.replace('//[[INJECT_DEPRECATED_ELVIS_CLASSES]]', embeddedJs);
   fs.writeFileSync('elvis.js', newContent);
-  fs.writeFileSync('../web/src/assets/js/elvis.js', newContent);
 
   return true;
 };

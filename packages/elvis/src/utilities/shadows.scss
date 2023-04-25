@@ -6,12 +6,18 @@
   // Making CSS classes for shadow-variables
   .e {
     &-shadow-#{$label} {
-      box-shadow: $value !important;
+      box-shadow: var(--e-shadow-#{$label}, #{$value}) !important;
     }
   }
+
   // Making CSS variables for shadow-variables
-  :root {
+  :root,
+  .e-theme-light {
     --e-shadow-#{$label}: #{$value};
+  }
+
+  .e-theme-dark {
+    --e-shadow-#{$label}: none;
   }
 }
 

@@ -55,7 +55,7 @@ export const LogoContainer = styled(SquareContainer)`
 `;
 
 export const PageTitle = styled.h1<{ isInvisible: boolean }>`
-  ${getTypographyCss('text-md')};
+  ${getTypographyCss('text-md-strong')};
   transition: opacity 150ms;
   margin: 0 auto;
 
@@ -84,10 +84,6 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
     transform-origin: center left;
   }
 
-  &:last-child {
-    margin-right: 24px;
-  }
-
   &:hover::after {
     transform: scaleX(1);
   }
@@ -99,6 +95,10 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
         transform: scaleX(1);
       }
     `}
+`;
+
+export const ProfileButton = styled(TriggerButton)`
+  margin-right: 24px;
 `;
 
 export const IconButton = styled.button`
@@ -123,14 +123,14 @@ export interface HrProps {
 }
 
 export const Hr = styled.hr<Partial<HrProps>>`
-  border: 0px solid ${getColor('grey-10')};
+  border: 0 solid ${getColor('grey-10')};
 
-  ${(props) => {
-    if (props.direction === 'vertical') {
+  ${({ direction, isGtTablet }) => {
+    if (direction === 'vertical') {
       return css`
         height: 100%;
         border-right-width: 1px;
-        margin: 0 ${props.isGtTablet ? '32px' : '24px'};
+        margin: 0 ${isGtTablet ? '32px' : '24px'};
         height: 20px;
       `;
     } else {
@@ -153,14 +153,14 @@ interface AppContentProps {
 export const AppContent = styled.main<AppContentProps>`
   padding-top: ${toolbarHeight};
   transition: padding-left ${sidebarAnimation};
-  transition-duration: ${(props) => (props.initialized ? '400ms' : '0ms')};
+  transition-duration: ${({ initialized }) => (initialized ? '400ms' : '0ms')};
 
-  ${(props) => {
-    if (props.isGtMobile && props.sidenavPadding) {
+  ${({ isGtMobile, sidenavPadding, isExpanded }) => {
+    if (isGtMobile && sidenavPadding) {
       return css`
-        padding-left: ${props.isExpanded ? sidebarMaxWidth : toolbarHeight};
+        padding-left: ${isExpanded ? sidebarMaxWidth : toolbarHeight};
       `;
-    } else if (!props.isGtMobile && props.sidenavPadding) {
+    } else if (!isGtMobile && sidenavPadding) {
       return css`
         padding-bottom: ${toolbarHeight};
       `;

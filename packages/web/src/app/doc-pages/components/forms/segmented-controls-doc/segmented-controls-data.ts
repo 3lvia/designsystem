@@ -16,8 +16,6 @@ export const segmentedControlData: ComponentData = {
       type: 'Number',
       description:
         'The selected value for the segmented control, which should be the index of the selected item.',
-      cegDisplayName: 'Value',
-      default: '0',
     },
     type: {
       isRequired: false,
@@ -30,11 +28,6 @@ export const segmentedControlData: ComponentData = {
       type: '“small” | “medium” | “large”',
       description: 'Size of the segmented control.',
       default: '"medium"',
-      cegDisplayName: 'Size',
-      cegDefault: 'medium',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['small', 'medium', 'large'],
     },
     valueOnChange: {
       isRequired: false,
@@ -53,11 +46,4 @@ export const segmentedControlData: ComponentData = {
         "Custom CSS style object that can be added to the segmented control. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-
-  // Not used here, as there are separate files with code for each component type.
-  codeReact: ``,
-  codeAngular: ``,
-  codeVue: ``,
-  codeNativeHTML: ``,
-  codeNativeScript: ``,
 };

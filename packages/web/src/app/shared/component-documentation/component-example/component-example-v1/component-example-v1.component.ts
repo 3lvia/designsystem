@@ -7,7 +7,7 @@ import { Component, Input, AfterViewInit, ViewChild, OnInit, ElementRef } from '
 })
 export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @ViewChild('toggle') toggle: ElementRef;
-  @ViewChild('defaultFrame') defaultFrame;
+  @ViewChild('defaultFrame') defaultFrame: ElementRef<HTMLDivElement>;
   @Input() showPreview = true;
   @Input() codeTS = '';
   @Input() codeHTML = '';
@@ -20,6 +20,7 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @Input() showIframeDesktop = false;
   @Input() interactable = true;
   @Input() isInverted = false;
+  @Input() noCodePenLink = false;
 
   code = '';
   desktopScreenWidth: boolean;

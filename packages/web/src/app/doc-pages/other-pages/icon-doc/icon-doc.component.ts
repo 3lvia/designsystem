@@ -1,36 +1,70 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter,
+  HostListener,
+  OnDestroy,
+} from '@angular/core';
 import { Icon } from './icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+// @ts-ignore
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';
+import naturalCompare from 'natural-compare-lite';
+import { Subscription } from 'rxjs';
+import { LOCALE_CODE } from 'contentful/types';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+
+type IconArray = { pretty: string; title: string; terms: string[] }[];
 
 @Component({
   selector: 'app-icon-doc',
   templateUrl: './icon-doc.component.html',
   styleUrls: ['./icon-doc.component.scss'],
 })
-export class IconDocComponent implements OnInit {
+export class IconDocComponent implements OnInit, OnDestroy {
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
   @ViewChild('accordionIconsMobile') accordionIconsMobile: ElementRef;
   @ViewChild('icons') icons: ElementRef;
-  @Output() clickOutside: EventEmitter<any> = new EventEmitter();
+  @Output() clickOutside = new EventEmitter();
 
+  localizationSubscriber: Subscription;
   componentData = elvisIconData;
   noSubs = true;
 
-  visibleIcons = [];
-  allIcons = [];
-  outlinedIcons = [];
-  filledIcons = [];
-  twoColoredIcons = [];
-  figmaUrl = getDocPagesNotFromCMS('icon').figmaUrl;
-  description = getDocPagesNotFromCMS('icon').description;
-  title = getDocPagesNotFromCMS('icon').title;
+  visibleIcons: IconArray = [];
+  allIcons: IconArray = [];
+  outlinedIcons: IconArray = [];
+  filledIcons: IconArray = [];
+  twoColoredIcons: IconArray = [];
+  figmaUrl = getDocPagesNotFromCMS('icon')?.figmaUrl;
+  description = getDocPagesNotFromCMS('icon')?.description;
+  descriptionNo = getDocPagesNotFromCMS('icon')?.descriptionNo;
+  title = getDocPagesNotFromCMS('icon')?.title;
+  titleNo = getDocPagesNotFromCMS('icon')?.titleNo;
   inverted = false;
   selected = 'all';
   latestIcon = '';
   copied = false;
+  locale: LOCALE_CODE = 'en-GB';
+
+  iconColorClassExample = `<h5>Default colors</h5>
+<i class="e-icon e-icon--chat e-icon--color-default e-mr-40" aria-hidden="true"></i>
+<h5>Disabled colors</h5>
+<i class="e-icon e-icon--chat e-icon--color-disabled e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-disabled-light e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-placeholder e-mr-40" aria-hidden="true"></i>
+<h5>Signal colors</h5>
+<i class="e-icon e-icon--check_circle e-icon--color-on e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--warning_circle e-icon--color-warning e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--remove_circle e-icon--color-error e-mr-40" aria-hidden="true"></i>
+<h5>Static colors</h5>
+<i class="e-icon e-icon--chat e-icon--color-black e-mr-40" aria-hidden="true"></i>
+<i class="e-icon e-icon--chat e-icon--color-white e-mr-40" aria-hidden="true"></i>`;
 
   example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40" aria-hidden="true"></i>
@@ -53,10 +87,6 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40" aria-hidden="true"></i>
 `;
-  example2Inverted = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40" aria-hidden="true"></i>
-`;
 
   example3 = `<i class="e-icon e-icon--chat e-mr-40" aria-hidden="true"></i>
 <i class="e-icon e-icon--chat e-icon--color-disabled" aria-hidden="true"></i>
@@ -72,19 +102,23 @@ export class IconDocComponent implements OnInit {
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title);
+  constructor(private titleService: Title, private localizationService: LocalizationService) {
+    this.setTabTitle();
+    this.localizationSubscriber = this.localizationService.listenLocalization().subscribe((locale) => {
+      this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+      this.setTabTitle();
+    });
   }
 
   @HostListener('document:click', ['$event', '$event.target'])
-  onClick(event: MouseEvent, targetElement: HTMLElement): void {
+  onClick(_event: MouseEvent, targetElement: HTMLElement): void {
     const alert = document.getElementById(this.latestIcon);
     const iconContainer = document.getElementById(this.latestIcon + '_container');
     if (!alert && !iconContainer) {
       return;
     }
-    const alertClick = alert.contains(targetElement);
-    const iconContainerClick = iconContainer.contains(targetElement);
+    const alertClick = alert?.contains(targetElement);
+    const iconContainerClick = iconContainer?.contains(targetElement);
     if (!alertClick && !iconContainerClick) {
       this.closeLastAlert(this.latestIcon);
     }
@@ -97,6 +131,16 @@ export class IconDocComponent implements OnInit {
     this.setTwoColoredIcons();
     this.visibleIcons = this.allIcons;
   }
+
+  ngOnDestroy(): void {
+    this.localizationSubscriber && this.localizationSubscriber.unsubscribe();
+  }
+
+  setTabTitle = (): void => {
+    this.titleService.setTitle(
+      (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
+    );
+  };
 
   invert(): void {
     this.inverted = !this.inverted;
@@ -127,10 +171,10 @@ export class IconDocComponent implements OnInit {
       }
     }
 
-    this.allIcons.sort((icon: any, icon2: any) => {
+    this.allIcons.sort((icon, icon2) => {
       const a = icon.title.toLowerCase();
       const b = icon2.title.toLowerCase();
-      return a < b ? -1 : a > b ? 1 : 0;
+      return naturalCompare(a, b);
     });
   }
 
@@ -170,9 +214,9 @@ export class IconDocComponent implements OnInit {
     this.closeLastAlert(this.latestIcon);
 
     const elementContainer = document.getElementById(iconTitle + '_container');
-    elementContainer.classList.add('selected');
+    elementContainer?.classList.add('selected');
     const element = document.getElementById(iconTitle);
-    element.classList.remove('e-none');
+    element?.classList.remove('e-none');
     this.latestIcon = iconTitle;
   }
 

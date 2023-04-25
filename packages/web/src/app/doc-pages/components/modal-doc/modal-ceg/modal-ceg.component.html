@@ -1,0 +1,11 @@
+<button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
+
+<elvia-modal (onClose)="isModalShowing = !isModalShowing" [isShowing]="isModalShowing">
+  <div slot="content">
+    <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+  </div>
+  <div slot="illustration">
+    <img alt="" src="/assets/modal/Empty state.png" />
+  </div>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
+</elvia-modal>

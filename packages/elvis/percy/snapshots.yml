@@ -36,9 +36,6 @@ snapshots:
   - url: /components/list.html
     name: List
     widths: [766, 1440]
-  - url: /components/position-picker.html
-    name: Position Picker
-    widths: [766, 1440]
   - url: /components/radiobutton.html
     name: Radio Button
     widths: [766, 1440]

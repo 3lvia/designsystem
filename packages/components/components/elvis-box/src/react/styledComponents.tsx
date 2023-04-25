@@ -35,17 +35,13 @@ export const BoxTitle = styled.div`
   }
 `;
 
-type BoxContentProps = {
-  hasBorder: boolean;
-};
-
-export const BoxContent = styled.div<BoxContentProps>`
+export const BoxContent = styled.div`
   position: relative;
   display: block;
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-  border: ${({ hasBorder }) => (hasBorder ? `1px solid ${getThemeColor('background-accent')}` : 'none')};
+  border: 2px solid ${getThemeColor('background-accent')};
   background: ${getThemeColor('background-overlay')};
   text-align: left;
   color: ${getThemeColor('text-primary')};

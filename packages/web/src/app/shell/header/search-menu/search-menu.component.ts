@@ -4,7 +4,7 @@ import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
-import { IDocumentationPage } from 'contentful/types';
+import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchItem } from './search-menu.interface';
 import { SearchService } from '../../../core/services/search.service';
@@ -63,7 +63,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     }
     // If the clear search-button is focused, click it instead of the first search result
     if (document.activeElement === document.getElementById('search-clear-button')) {
-      document.getElementById('search-clear-button').click();
+      document.getElementById('search-clear-button')?.click();
       return;
     }
     this.router.navigate([this.activeResults[0].absolutePath]);
@@ -81,7 +81,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const search = document.getElementById('search-field');
-    search.focus();
+    search?.focus();
 
     this.initializeSearchItems()
       .then(() => {
@@ -136,7 +136,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     this.resultsToDisplay = [];
     this.synonymComponents = [];
     const search = document.getElementById('search-field');
-    search.focus();
+    search?.focus();
   }
 
   /**
@@ -186,21 +186,26 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
     const mappedCMSItems: SearchItem[] = [];
     this.mainMenu.pages.forEach((subMenu) => {
-      subMenu.entry.fields.pages[Locale[this.locale]].forEach((documentationPage: IDocumentationPage) => {
+      subMenu.entry.fields.pages?.[Locale[this.locale] as LOCALE_CODE]?.forEach((documentationPage) => {
         let description: string | undefined;
         if (documentationPage.fields.pageDescription) {
-          description = documentToHtmlString(documentationPage.fields.pageDescription[Locale[this.locale]]);
+          description = documentToHtmlString(
+            documentationPage.fields.pageDescription[Locale[this.locale] as LOCALE_CODE]!,
+          );
           description = description.replace(/<.*?>/g, '');
         }
 
         if (
-          !mappedCMSItems.find((item) => item.title === documentationPage.fields.title[Locale[this.locale]])
+          !mappedCMSItems.find(
+            (item) => item.title === documentationPage.fields.title[Locale[this.locale] as LOCALE_CODE],
+          )
         ) {
           mappedCMSItems.push({
-            title: documentationPage.fields.title[Locale[this.locale]],
+            title: documentationPage.fields.title[Locale[this.locale] as LOCALE_CODE]!,
             description: description,
             type: subMenu.title.substring(0, subMenu.title.length - (subMenu.title.endsWith('s') ? 1 : 0)),
-            absolutePath: subMenu.path + '/' + documentationPage.fields.path[Locale[this.locale]],
+            absolutePath:
+              subMenu.path + '/' + documentationPage.fields.path[Locale[this.locale] as LOCALE_CODE],
           });
         }
       });
@@ -209,7 +214,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   private removeDuplicateSearchItems(items: SearchItem[]): SearchItem[] {
-    const seen = {};
+    const seen: Record<string, boolean> = {};
     return items.filter((item) => {
       const title = item.title.replace(' ', '').toLocaleLowerCase();
       return seen[title] ? false : (seen[title] = true);
@@ -222,24 +227,33 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
   private highlightSearchMatches(): void {
     this.searchService.searchResults.forEach((resultItem) => {
-      resultItem.matches.forEach((match) => {
+      resultItem.matches?.forEach((match) => {
         if (match.key === 'title') {
           const titleElement = document.getElementById('search_' + resultItem.item.title);
-          this.setInnerHTML(titleElement, this.getHighlightedTitleString(match, resultItem.item.title));
+          if (titleElement) {
+            this.setInnerHTML(titleElement, this.getHighlightedTitleString(match, resultItem.item.title));
+          }
         } else if (match.key === 'description') {
-          const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
-          this.setInnerHTML(
-            descriptionElement,
-            this.getHighlightedDescriptionString(match, resultItem.item.description),
+          const descriptionElement = document.getElementById(
+            this.encodeHTML(resultItem.item.description ?? ''),
           );
+          if (descriptionElement && resultItem.item.description) {
+            this.setInnerHTML(
+              descriptionElement,
+              this.getHighlightedDescriptionString(match, resultItem.item.description),
+            );
+          }
         }
       });
       // If there are no matches for 'description', just insert the description without any highlighting
-      if (!resultItem.matches.find((item) => item.key === 'description')) {
+      if (!resultItem.matches?.find((item) => item.key === 'description')) {
         if (!resultItem.item.description) {
           return;
         }
         const descriptionElement = document.getElementById(this.encodeHTML(resultItem.item.description));
+        if (!descriptionElement) {
+          return;
+        }
         let description = resultItem.item.description;
         if (description.length > 165) {
           description = description.substring(0, 165) + '...';
@@ -253,7 +267,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     if (element) element.innerHTML = innerHTML;
   }
 
-  private getHighlightedTitleString(match: Fuse.FuseResultMatch, title: string): string {
+  private getHighlightedTitleString(match: Fuse.FuseResultMatch, title: string) {
     let newTitleString = title.substring(0, match.indices[0][0]);
     // match.indices holds two values: the start and end indices of the match.
     match.indices.forEach((matchIndices, index, items) => {
@@ -267,10 +281,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return newTitleString;
   }
 
-  private getHighlightedDescriptionString(match: Fuse.FuseResultMatch, description: string): string {
-    if (!description) {
-      return;
-    }
+  private getHighlightedDescriptionString(match: Fuse.FuseResultMatch, description: string) {
     // Add any part of the description that is before the first match
     let newDescriptionString = description.substring(0, match.indices[0][0]);
     // Add each match, and the part of the description between matches
@@ -334,6 +345,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         } else if (this.searchString.length < 3) {
           return searchTerms?.includes(this.searchString.trim().toLowerCase());
         }
+        return false;
       });
       this.synonymComponents = this.synonymComponents.slice(0, 5);
     } else {

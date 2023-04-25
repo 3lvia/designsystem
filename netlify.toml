@@ -3,8 +3,5 @@
     command = "yarn build"
 
 [build.environment]
-    YARN_VERSION = "3.3.0"
-
-[context.deploy-preview]
-    # ignore all PRs opened by `dependabot` (with last commit made by `dependabot`)
-    ignore = 'git log -1 --pretty=%B | grep dependabot'
+    YARN_VERSION = "3.5.0"
+    

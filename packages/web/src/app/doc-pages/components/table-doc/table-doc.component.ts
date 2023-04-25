@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./table-doc.component.scss'],
 })
 export class TableDocComponent {
-  figmaUrl = getComponent('table').figmaUrl;
-  description = getComponent('table').description;
-  title = getComponent('table').title;
+  figmaUrl = getComponent('table')?.figmaUrl;
+  description = getComponent('table')?.description;
+  title = getComponent('table')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
@@ -1127,6 +1127,78 @@ export class TableDocComponent {
   </table>
 </div>
 `;
+
+  exampleValidationRow = `<div class="e-table-container overview-example">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
+    <caption class="e-sr-only">Beskrivelse av tabellen</caption>
+    <thead>
+      <tr>
+        <th scope="col">Column 1</th>
+        <th scope="col">Column 2</th>
+        <th scope="col">Column 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Row 1</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+      </tr>
+      <tr class="e-table__row--invalid">
+        <td>Row 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div style="display: flex; margin-top: 8px;">
+<i class="e-icon e-icon--warning_circle e-icon--xs e-icon--color-error" style="margin-right: 8px; line-height: 22px"></i>
+<span class="e-text-sm">Her kommer feilmeldingen</span>
+</div>`;
+
+  exampleValidationCell = `<div class="e-table-container overview-example">
+  <table class="e-table" aria-label="Beskrivelse av tabellen">
+    <caption class="e-sr-only">Beskrivelse av tabellen</caption>
+    <thead>
+      <tr>
+        <th scope="col">Column 1</th>
+        <th scope="col">Column 2</th>
+        <th scope="col">Column 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          class="e-table__cell--invalid"
+          style="display: flex; justify-content: space-between; align-items: center"
+        >
+          Row 1
+          <elvia-tooltip display="flex" position="bottom" content="Her kommer feilmeldingen">
+            <i slot="trigger" class="e-icon e-icon--warning_circle e-icon--sm e-icon--color-error"></i>
+          </elvia-tooltip>
+        </td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
+      </tr>
+    </tbody>
+  </table>
+</div>`;
 
   toggleAccordion(id: string): void {
     const element = document.getElementById(id) as HTMLElement;

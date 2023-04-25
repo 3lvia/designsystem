@@ -2,16 +2,24 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "27.02.23",
+      "date": "24.04.22",
       "version": "1.5.0",
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added support for dark theme."]
-        },
+          "changes": [
+            "The <code>hasBorder</code> has been deprecated. The box now has one design that can be used on both white and grey backgrounds."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "13.04.22",
+      "version": "1.4.6",
+      "changelog": [
         {
           "type": "patch",
-          "changes": ["Updated internal dependencies."]
+          "changes": ["Fix broken type export."]
         }
       ]
     },

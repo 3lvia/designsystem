@@ -1,14 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { NavbarAnchor } from 'src/app/shared/shared.interface';
+import { Locale, LocalizationService } from './localization.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ScrollService {
-  private subjectAnchorScrollTo = new Subject<any>();
-  private subjectAnchorAtPositions = new Subject<any>();
-  private subjectAnchorsNew = new Subject<any>();
+  private subjectAnchorScrollTo = new Subject<NavbarAnchor>();
+  private subjectAnchorAtPositions = new Subject<NavbarAnchor>();
+  private subjectAnchorsNew = new Subject<NavbarAnchor[]>();
+
+  private localizedOverview = 'Overview';
+
+  constructor(private localizationService: LocalizationService) {
+    this.localizationService.listenLocalization().subscribe((localization) => {
+      switch (localization) {
+        case Locale['en-GB']:
+          this.localizedOverview = 'Overview';
+          break;
+        case Locale['nb-NO']:
+          this.localizedOverview = 'Oversikt';
+          break;
+        default:
+          this.localizedOverview = 'Overview';
+          break;
+      }
+    });
+  }
 
   listenAnchorToScrollTo(): Observable<any> {
     return this.subjectAnchorScrollTo.asObservable();
@@ -17,7 +36,7 @@ export class ScrollService {
     this.subjectAnchorScrollTo.next(anchorToScrollTo);
   }
 
-  listenAnchorAtCurrPos(): Observable<any> {
+  listenAnchorAtCurrPos(): Observable<NavbarAnchor> {
     return this.subjectAnchorAtPositions.asObservable();
   }
   newAnchorAtCurrPos(anchorAtPos: NavbarAnchor): void {
@@ -43,7 +62,7 @@ export class ScrollService {
     }
   }
 
-  getPageAnchors(): NodeListOf<Element> {
+  getPageAnchors(): NodeListOf<Element> | undefined {
     const elements = document.querySelectorAll('.elvis-anchor');
     if (elements.length === 0) {
       return;
@@ -51,7 +70,7 @@ export class ScrollService {
     return elements;
   }
 
-  getPageAnchorTitles(): NodeListOf<Element> {
+  getPageAnchorTitles(): NodeListOf<Element> | undefined {
     const elementTitles = document.querySelectorAll('.elvis-anchor-title');
     if (elementTitles.length === 0) {
       return;
@@ -59,13 +78,13 @@ export class ScrollService {
     return elementTitles;
   }
 
-  getVisibleAnchors(): NavbarAnchor[] {
+  getVisibleAnchors(): NavbarAnchor[] | undefined {
     const elements = this.getPageAnchors();
     const elementTitles = this.getPageAnchorTitles();
 
     if (elements && elementTitles) {
       const firstItem = elements.item(0) as HTMLElement;
-      const anchors = [{ title: 'Overview', top: 0, height: firstItem.offsetTop }];
+      const anchors = [{ title: this.localizedOverview, top: 0, height: firstItem.offsetTop }];
       for (let i = 0; i < elements.length; i++) {
         const item = elements.item(i) as HTMLElement;
         const elementTitle = elementTitles.item(i) as HTMLElement;
@@ -86,6 +105,7 @@ export class ScrollService {
       this.newAnchors(anchors);
       return anchors;
     }
+    return undefined;
   }
 
   // Checks for changes in position from top and navigates according to changes or initial list of anchor offset positions.
@@ -95,6 +115,9 @@ export class ScrollService {
 
     if (anchor.title === 'Overview') {
       this.newAnchorToScrollTo(anchor);
+      return;
+    }
+    if (!elements || !elementTitles) {
       return;
     }
     for (let i = 0; i < elements.length; i++) {

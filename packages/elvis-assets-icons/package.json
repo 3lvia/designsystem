@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-assets-icons",
-  "version": "2.9.0",
+  "version": "2.12.0",
   "description": "Elvia icons",
   "license": "MIT",
   "author": "",
@@ -13,19 +13,26 @@
   "files": [
     "icons.js",
     "icons.cjs.js",
-    "icons.d.js",
+    "icons.d.ts",
     "CHANGELOG.md",
     "README.md",
+    "config/icons.config.js",
     "dist/**/*",
     "icons/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-colors": "^1.5.0"
+    "@elvia/elvis-colors": "^1.8.0"
   },
   "devDependencies": {
+    "@types/gulp": "^4.0.10",
+    "@types/gulp-svgmin": "^1.2.2",
+    "@types/node": "^18.11.18",
+    "@types/sharp": "^0.30.2",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-svgmin": "^4.1.0",
-    "sharp": "^0.30.2"
+    "sharp": "^0.30.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   }
 }

@@ -131,6 +131,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
+  setSlots(slots: { [slotName: string]: Element }): void {
+    this._slots = slots;
+  }
+
   protected addDisplayStyleToCustomElement(): void {
     this.style.cssText = 'display: contents;';
   }

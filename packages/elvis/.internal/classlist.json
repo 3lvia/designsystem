@@ -2,6 +2,23 @@
 	"block": {
 		"e-icon": {
 			"modifier": {
+				"e-icon--inverted": {},
+				"e-icon--color-default": {},
+				"e-icon--color-disabled": {},
+				"e-icon--color-disabled-light": {},
+				"e-icon--color-placeholder": {},
+				"e-icon--color-currentColor": {},
+				"e-icon--color-on": {},
+				"e-icon--color-green": {},
+				"e-icon--color-caution": {},
+				"e-icon--color-yellow": {},
+				"e-icon--color-warning": {},
+				"e-icon--color-orange": {},
+				"e-icon--color-error": {},
+				"e-icon--color-danger": {},
+				"e-icon--color-red": {},
+				"e-icon--color-white": {},
+				"e-icon--color-black": {},
 				"e-icon--xxs": {},
 				"e-icon--custom12": {},
 				"e-icon--custom14": {},
@@ -43,6 +60,8 @@
 			}
 		},
 		"e-shadow-none": {},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
@@ -865,9 +884,15 @@
 				},
 				"e-table__cell": {
 					"modifier": {
+						"e-table__cell--invalid": {},
 						"e-table__cell--multiline": {},
 						"e-table__cell--multiline-small": {},
 						"e-table__cell--multiline-sm": {}
+					}
+				},
+				"e-table__row": {
+					"modifier": {
+						"e-table__row--invalid": {}
 					}
 				},
 				"e-table__input": {},
@@ -1136,6 +1161,23 @@
 	},
 	"flat": {
 		"e-icon": {},
+		"e-icon--inverted": {},
+		"e-icon--color-default": {},
+		"e-icon--color-disabled": {},
+		"e-icon--color-disabled-light": {},
+		"e-icon--color-placeholder": {},
+		"e-icon--color-currentColor": {},
+		"e-icon--color-on": {},
+		"e-icon--color-green": {},
+		"e-icon--color-caution": {},
+		"e-icon--color-yellow": {},
+		"e-icon--color-warning": {},
+		"e-icon--color-orange": {},
+		"e-icon--color-error": {},
+		"e-icon--color-danger": {},
+		"e-icon--color-red": {},
+		"e-icon--color-white": {},
+		"e-icon--color-black": {},
 		"e-icon--xxs": {},
 		"e-icon--custom12": {},
 		"e-icon--custom14": {},
@@ -1164,6 +1206,8 @@
 		"e-accordion--center": {},
 		"e-accordion--end": {},
 		"e-shadow-none": {},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
@@ -1803,9 +1847,11 @@
 		"e-table-footnote": {},
 		"e-table__footnote": {},
 		"e-table__footnote--compact": {},
+		"e-table__cell--invalid": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
 		"e-table__cell--multiline-sm": {},
+		"e-table__row--invalid": {},
 		"e-table--no-stripes": {},
 		"e-table--sticky-header": {},
 		"e-table--sticky-column-header": {},
