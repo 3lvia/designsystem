@@ -17,13 +17,13 @@ export const BoxColoredLine = styled.div`
   height: 4px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background: ${getThemeColor('state-on')};
+  background: ${getThemeColor('border-selected-1')};
 `;
 
 export const BoxTitle = styled.div`
   ${getTypographyCss('title-caps')}
   font-style: normal;
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   margin: 0;
   margin-left: 8px;
   margin-bottom: 8px;
@@ -41,10 +41,10 @@ export const BoxContent = styled.div`
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-  border: 2px solid ${getThemeColor('background-accent')};
-  background: ${getThemeColor('background-overlay')};
+  border: 2px solid ${getThemeColor('border-4')};
+  background: ${getThemeColor('background-element-1')}; // TODO: fix this color label
   text-align: left;
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   padding: 40px;
   @media (max-width: 767px) {
     padding: 24px;
