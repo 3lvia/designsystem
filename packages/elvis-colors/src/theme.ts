@@ -42,6 +42,7 @@ type BorderLabels =
   | 'border-2'
   | 'border-3'
   | 'border-4'
+  | 'border-5'
   | 'border-disabled-1'
   | 'border-hover-1'
   | 'border-selected-1'
