@@ -50,14 +50,25 @@ export const SquareContainer = styled.div`
   justify-content: center;
 `;
 
+export const BonusContentContainer = styled.div`
+  display: flex;
+  margin-left: 16px;
+  align-items: center;
+`;
+
 export const LogoContainer = styled(SquareContainer)`
   padding: 19px 16px;
 `;
 
 export const PageTitle = styled.h1<{ isInvisible: boolean }>`
   ${getTypographyCss('text-md-strong')};
-  transition: opacity 150ms;
+  flex: 1;
   margin: 0 auto;
+  min-width: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 150ms;
+  white-space: nowrap;
 
   ${({ isInvisible }) =>
     isInvisible &&

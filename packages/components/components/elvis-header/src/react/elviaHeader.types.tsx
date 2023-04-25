@@ -10,6 +10,7 @@ export interface UserMenuProps {
 export interface HeaderProps extends BaseProps {
   appContent?: JSX.Element;
   appTitle?: string;
+  bonusContent?: JSX.Element;
   email: string;
   navItems?: JSX.Element;
   onLogoClick?: () => void;

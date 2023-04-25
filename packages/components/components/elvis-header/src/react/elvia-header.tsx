@@ -9,6 +9,7 @@ import {
   LogoContainer,
   PageTitle,
   SquareContainer,
+  BonusContentContainer,
 } from './styledComponents';
 import { MobileMenu } from './mobileMenu/mobileMenu';
 import { DesktopMenu } from './desktopMenu/desktopMenu';
@@ -23,6 +24,7 @@ export const Header: React.FC<HeaderProps> = ({
   pageTitle,
   navItems,
   appContent,
+  bonusContent,
   onLogoClick,
   onSignOutClick,
   className,
@@ -37,8 +39,10 @@ export const Header: React.FC<HeaderProps> = ({
   const [desktopMenuIsOpen, setDesktopMenuIsOpen] = useState(false);
   const [applicationTitle, setApplicationTitle] = useState('');
 
+  const { ref: bonusContentRef } = useSlot<HTMLDivElement>('bonusContent', webcomponent, {
+    useEffectDependencies: [initialized],
+  });
   const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
-  const { ref: pageTitleRef } = useSlot<HTMLHeadingElement>('pageTitle', webcomponent);
   const { ref: sidenavRef } = useSlot('navItems', webcomponent);
 
   const hasNavItems = (): boolean => {
@@ -47,6 +51,10 @@ export const Header: React.FC<HeaderProps> = ({
 
   const hasAppContent = (): boolean => {
     return !!webcomponent?.getSlot('appContent') || !!appContent;
+  };
+
+  const hasBonusContent = () => {
+    return !!webcomponent?.getSlot('bonusContent') || !!bonusContent;
   };
 
   const signOutClick = (): void => {
@@ -102,9 +110,15 @@ export const Header: React.FC<HeaderProps> = ({
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
-        <PageTitle data-testid="page-title" ref={pageTitleRef} isInvisible={mobileMenuIsOpen}>
-          {pageTitle}
-        </PageTitle>
+        <PageTitle isInvisible={mobileMenuIsOpen}>{pageTitle}</PageTitle>
+
+        {hasBonusContent() && isGtTablet && (
+          <BonusContentContainer>
+            {bonusContent ? bonusContent : <div ref={bonusContentRef}></div>}
+            <Hr direction="vertical" isGtTablet={isGtTablet} />
+          </BonusContentContainer>
+        )}
+
         {!isGtMobile && (
           <SquareContainer>
             <MobileMenu
