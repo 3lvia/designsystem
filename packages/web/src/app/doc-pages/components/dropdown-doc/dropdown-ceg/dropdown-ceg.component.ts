@@ -30,12 +30,14 @@ export class DropdownCegComponent implements ComponentExample {
           type: 'checkbox',
           label: 'Multiselect',
           value: false,
-        },
-        hasSelectAllOption: {
-          group: 'Options',
-          type: 'checkbox',
-          label: 'Select All Option',
-          value: false,
+          children: {
+            hasSelectAllOption: {
+              group: 'Options',
+              type: 'checkbox',
+              label: 'Select All Option',
+              value: false,
+            },
+          },
         },
         isDisabled: {
           group: 'State',

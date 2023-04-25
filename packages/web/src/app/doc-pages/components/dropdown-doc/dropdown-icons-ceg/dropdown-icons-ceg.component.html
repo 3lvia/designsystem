@@ -1,0 +1,11 @@
+<elvia-dropdown
+  [items]="[
+    { value: 'Powerline', label: 'Powerline', icon: 'powerline' },
+    { value: 'Electricity tower', label: 'Electricity tower', icon: 'electricityTower' },
+    { value: 'Cable', label: 'Cable', icon: 'cable' }
+  ]"
+  value="Electricity tower"
+  label="Label"
+  placeholder="Placeholder"
+  (valueOnChange)="handleOnChange($any($event).detail.value)"
+></elvia-dropdown>
