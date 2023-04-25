@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { Hr } from '../styledComponents';
@@ -11,7 +11,7 @@ export const MenuContainer = styled.div.attrs(() => ({
   padding: 32px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: ${getShadow('medium')};
 `;
 
 export const UserGrid = styled.div`

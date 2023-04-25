@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -24,5 +24,5 @@ export const AppListContainer = styled.div`
   max-height: 80vh;
   overflow: auto;
   padding: 40px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+  box-shadow: ${getShadow('medium')};
 `;
