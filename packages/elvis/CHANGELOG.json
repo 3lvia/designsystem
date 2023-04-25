@@ -1,19 +1,6 @@
 {
   "content": [
     {
-      "version": "11.3.2",
-      "date": "April 25, 2023",
-      "changelog": [
-        {
-          "type": "bug_fix",
-          "changes": [
-            "Fixed a bug where the <code>:user-invalid</code> styles would have the incorrect padding for compact input fields."
-          ],
-          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
-        }
-      ]
-    },
-    {
       "version": "11.3.1",
       "date": "April 21, 2023",
       "changelog": [
