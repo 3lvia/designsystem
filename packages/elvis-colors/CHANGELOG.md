@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 2.1.0 (25.04.23)
+
+### New feature
+
+- Added new theme color label: `background-element-5`.
+
 ## 2.0.0 (25.04.23)
 
 ### Breaking changes
