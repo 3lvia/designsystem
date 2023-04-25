@@ -37,18 +37,18 @@ export const Footer = styled.div`
 
 export const ImageContainer = styled.div<{ thumbnail?: boolean }>`
   width: 48px;
-  height: 48px;
+  flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
   background-color: ${getColor('grey-05')};
   grid-column: 1 / 1;
   grid-row: 1 / -1;
+  aspect-ratio: 1;
 
   ${({ thumbnail }) =>
     thumbnail &&
     css`
       width: 32px;
-      height: 32px;
     `};
 
   svg {
