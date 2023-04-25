@@ -1,10 +1,10 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 
 export interface UserMenuProps {
+  email: string;
   onMenuToggle: (isShowing: boolean) => void;
   onSignOutClick?: () => void;
   username: string;
-  email: string;
 }
 
 export interface HeaderProps extends BaseProps {
@@ -15,6 +15,6 @@ export interface HeaderProps extends BaseProps {
   navItems?: JSX.Element;
   onLogoClick?: () => void;
   onSignOutClick?: () => void;
-  pageTitle: string | JSX.Element;
+  pageTitle: string;
   username: string;
 }

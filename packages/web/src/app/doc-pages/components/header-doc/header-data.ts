@@ -22,9 +22,8 @@ export const headerData: ComponentData = {
     },
     pageTitle: {
       isRequired: true,
-      type: 'string | HTMLElement | JSX.Element',
-      description:
-        'The name of the current page. Can be text, or rich content (use slot in web component if not just text).',
+      type: 'string',
+      description: 'The name of the current page',
     },
     navItems: {
       isRequired: false,
