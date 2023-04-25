@@ -507,7 +507,14 @@ module.exports = [
   { name: 'notification-bold', terms: ['alarm', 'bell', 'alert'], thirdparty: { name: ['streamline'] } },
   { name: 'open', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'open_menu', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'paper_plane_speed_color', terms: ['send', 'message'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'paper_plane_speed_color',
+    terms: ['send', 'message'],
+    deprecated: '11.4.0',
+    newIconName: 'paper_plane_flying-color',
+    thirdparty: { name: ['streamline'] },
+  },
+  { name: 'paper_plane_flying-color', terms: ['send', 'message'], thirdparty: { name: ['streamline'] } },
   { name: 'paper_plane', terms: ['send', 'message'], thirdparty: { name: ['streamline'] } },
   { name: 'pause_circle-color', terms: ['stop'], thirdparty: { name: ['streamline'] } },
   {

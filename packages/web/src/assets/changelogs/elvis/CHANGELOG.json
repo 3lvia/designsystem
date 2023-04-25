@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "11.4.0",
+      "date": "April 25, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>paper_plane_speed_color</code> deprecated, <code>paper_plane_speed-color</code> added and <code>laptop-color</code> update."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "11.3.1",
       "date": "April 21, 2023",
       "changelog": [
