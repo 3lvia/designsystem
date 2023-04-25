@@ -5,7 +5,41 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-header
+        [username]="'Tonje Haugsvær'"
+        [appTitle]="'designsystemet'"
+        [pageTitle]="'The New Angular Preview'"
+      >
+        <div slot="bonusContent" style="display: flex; flex-wrap: nowrap; align-items: center">
+          <span>En veldig lang Meldingsprosessering her:</span>
+          <div class="e-tag e-tag--red e-m-8 e-mr-0">Stoppet</div>
+        </div>
+        <div slot="navItems" class="e-sidenav__container">
+          <a href="#" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
+            <div class="e-sidenav__icon-container">
+              <i class="e-icon e-icon--sm e-icon--search"></i>
+              <i class="e-icon e-icon--sm e-icon--search-color"></i>
+            </div>
+            <div class="e-sidenav__item-text">Dashbord</div>
+          </a>
+          <a href="#" class="e-sidenav__item" aria-label="Søk">
+            <div class="e-sidenav__icon-container">
+              <i class="e-icon e-icon--sm e-icon--upload"></i>
+              <i class="e-icon e-icon--sm e-icon--upload e-icon--upload-color"></i>
+            </div>
+            <div class="e-sidenav__item-text">Søk</div>
+          </a>
+          <a href="#" class="e-sidenav__item" aria-label="Analyse">
+            <div class="e-sidenav__icon-container">
+              <i class="e-icon e-icon--sm e-icon--full_battery"></i>
+              <i class="e-icon e-icon--sm e-icon--full_battery-color"></i>
+            </div>
+            <div class="e-sidenav__item-text">Analyse</div>
+          </a>
+        </div>
+      </elvia-header>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
