@@ -1,10 +1,8 @@
 {
   "name": "@elvia/elvis-progress-linear",
   "version": "2.3.1",
-  "description": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/progressbar",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",
