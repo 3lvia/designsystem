@@ -53,7 +53,7 @@ const cardData: ComponentData = {
       isRequired: false,
       type: 'number',
       default: '112 | 250',
-      description: 'Minimum width of card in px, cannot be less than 112 (or 250 for detail type card).',
+      description: 'Minimum width of card in px, cannot be less than 112px (or 250px for detail type card).',
     },
     maxWidth: {
       isRequired: false,
