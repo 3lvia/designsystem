@@ -10,6 +10,7 @@ export const config: ComponentConfig = {
     { name: 'description', type: 'string' },
     { name: 'borderColor', type: 'string' },
     { name: 'type', type: 'string' },
+    { name: 'height', type: 'string' },
     { name: 'width', type: 'string' },
     { name: 'minWidth', type: 'number' },
     { name: 'maxWidth', type: 'number' },
