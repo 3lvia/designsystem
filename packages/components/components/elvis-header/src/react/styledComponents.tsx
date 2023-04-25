@@ -32,6 +32,7 @@ export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boo
 
       ${PageTitle} {
         margin: 0 auto 0 0;
+        flex: 1;
       }
     `};
 
@@ -56,12 +57,7 @@ export const LogoContainer = styled(SquareContainer)`
 
 export const PageTitle = styled.h1<{ isInvisible: boolean }>`
   ${getTypographyCss('text-md-strong')};
-  flex: 1;
   margin: 0 auto;
-  max-height: 100%;
-  min-width: 10ch;
-  overflow-y: scroll;
-  text-align: left;
   transition: opacity 150ms;
 
   ${({ isInvisible }) =>
@@ -75,6 +71,7 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
   position: relative;
   height: calc(100% - 8px); // Shows the full keyboard-focus outline without clipping
   font-weight: 400;
+  margin-left: 16px;
 
   &::after {
     content: '';
@@ -104,6 +101,7 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
 
 export const ProfileButton = styled(TriggerButton)`
   margin-right: 24px;
+  text-align: left;
 `;
 
 export const IconButton = styled.button`
