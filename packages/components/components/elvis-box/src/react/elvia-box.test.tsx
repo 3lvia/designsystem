@@ -1,13 +1,8 @@
 import Box from './elvia-box';
 import React from 'react';
 import { axe } from 'jest-axe';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
-
-const colors = {
-  green: getColor('green'),
-  grey10: getColor('grey-10'),
-};
 
 const htmlCode = <div>Html content</div>;
 
@@ -40,7 +35,7 @@ describe('Elvis Box', () => {
 
     it('should have green boxColored line', () => {
       const boxColoredLineWithContent = screen.getByTestId('box-colored-line');
-      expect(boxColoredLineWithContent).toHaveStyle(`background: ${colors.green}`);
+      expect(boxColoredLineWithContent).toHaveStyle(`background: ${getThemeColor('border-selected-1')}`);
     });
   });
 
