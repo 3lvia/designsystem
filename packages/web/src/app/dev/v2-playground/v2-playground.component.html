@@ -7,14 +7,21 @@
     <!--Normal version-->
     <div class="e-bg-white">
       <elvia-header
-        [username]="'Tonje Haugsvær'"
+        username="Tonje Hansen Haugsvær (ekstern)"
+        email="tonje.haugsvær@elvia.no"
         [appTitle]="'designsystemet'"
-        [pageTitle]="'The New Angular Preview'"
       >
-        <div slot="bonusContent" style="display: flex; flex-wrap: nowrap; align-items: center">
+        <div slot="pageTitle">
+          <div>
+            <span>pageTitle as slot hello page</span>
+            <i class="e-icon e-icon--chat e-icon--color-black e-icon--xs e-m-0 e-ml-8" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div slot="bonusContent" style="display: flex">
           <span>En veldig lang Meldingsprosessering her:</span>
           <div class="e-tag e-tag--red e-m-8 e-mr-0">Stoppet</div>
         </div>
+
         <div slot="navItems" class="e-sidenav__container">
           <a href="#" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
             <div class="e-sidenav__icon-container">
