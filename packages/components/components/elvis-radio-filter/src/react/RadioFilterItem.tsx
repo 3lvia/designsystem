@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { sanitize } from 'dompurify';
+import DOMPurify from 'dompurify';
 import { RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
 
 interface RadioFilterItemProps {
@@ -42,7 +42,7 @@ export const RadioFilterItem: FC<RadioFilterItemProps> = ({
         checked={optionsValue === selectedValue}
         onChange={() => setSelectedValue(optionsValue)}
       />
-      <RadioFilterTitle ref={titleRef} dangerouslySetInnerHTML={{ __html: sanitize(label) }} />
+      <RadioFilterTitle ref={titleRef} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(label) }} />
     </RadioFilterLabel>
   );
 };
