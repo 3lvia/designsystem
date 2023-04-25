@@ -11,10 +11,21 @@
         email="tonje.haugsvær@elvia.no"
         [appTitle]="'designsystemet'"
       >
-        <div slot="pageTitle">
-          <div>
-            <span>pageTitle as slot hello page</span>
-            <i class="e-icon e-icon--chat e-icon--color-black e-icon--xs e-m-0 e-ml-8" aria-hidden="true"></i>
+        <div slot="pageTitle" (click)="toggleHeader()">
+          <div *ngIf="showLouvreHeader" style="display: flex; align-items: center; gap: 8px">
+            <span>Bildesøk</span>
+            <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
+          </div>
+
+          <div
+            style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px"
+            *ngIf="showElflowHeader"
+          >
+            <span>Send melding</span>
+            <div class="e-text-sm-light" style="display: flex; align-items: center">
+              Meldingprossering
+              <div class="e-tag e-tag--green e-ml-8">Kjører</div>
+            </div>
           </div>
         </div>
 
