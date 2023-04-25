@@ -15,11 +15,16 @@ import { Title } from '@angular/platform-browser';
 export class DropdownDocComponent {
   exampleContents = exampleContents;
   componentData = dropdownData;
-  does = dropdownData.does;
-  donts = dropdownData.donts;
   figmaUrl = getComponent('dropdown')?.figmaUrl;
   description = getComponent('dropdown')?.description;
   title = getComponent('dropdown')?.title;
+  does = [
+    'Use dropdowns sparingly - only when the user has 5-15 options and you have limited space to display all options.',
+  ];
+  donts = [
+    'Fewer than 5 options (consider radio filter or radio buttons)',
+    'More than 15 options (consider autocomplete)',
+  ];
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

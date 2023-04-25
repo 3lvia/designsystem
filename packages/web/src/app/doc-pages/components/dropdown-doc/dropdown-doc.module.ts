@@ -11,6 +11,8 @@ import { ComponentExampleGeneratorModule } from 'src/app/shared/component-docume
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { RouterModule } from '@angular/router';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { DropdownCegComponent } from './dropdown-ceg/dropdown-ceg.component';
 
 @NgModule({
   imports: [
@@ -24,8 +26,9 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     ComponentExampleGeneratorModule,
     ComponentChangelogModule,
+    CegModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [DropdownDocComponent],
+  declarations: [DropdownDocComponent, DropdownCegComponent],
 })
 export class DropdownDocModule {}

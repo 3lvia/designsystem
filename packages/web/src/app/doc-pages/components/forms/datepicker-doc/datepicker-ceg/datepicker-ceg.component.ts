@@ -16,7 +16,7 @@ export class DatepickerCegComponent implements ComponentExample {
           label: 'Compact',
           type: 'checkbox',
           value: false,
-          group: 'Options',
+          group: 'Size',
         },
         isRequired: {
           label: 'Required',
@@ -43,7 +43,7 @@ export class DatepickerCegComponent implements ComponentExample {
           group: 'State',
         },
       },
-      groupOrder: ['Options', 'State'],
+      groupOrder: ['Size', 'Options', 'State'],
     },
   ]);
 

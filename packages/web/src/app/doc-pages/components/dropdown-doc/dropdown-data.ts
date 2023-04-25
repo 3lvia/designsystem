@@ -29,33 +29,18 @@ export const dropdownData: ComponentData = {
       type: 'boolean',
       description: 'Set the dropdown to a smaller Elvia compact style.',
       default: 'false',
-      cegDisplayName: 'Compact',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Size',
     },
     isDisabled: {
       isRequired: false,
       type: 'boolean',
       description: 'Set dropdown to a disabled state.',
       default: 'false',
-      cegDisplayName: 'Disabled',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'State',
     },
     isFullWidth: {
       isRequired: false,
       type: 'boolean',
       description: "Set the dropdown to fill 100% of its parent's container width.",
       default: 'false',
-      cegDisplayName: 'Full width',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
     },
     isSearchable: {
       isRequired: false,
@@ -63,34 +48,18 @@ export const dropdownData: ComponentData = {
       description:
         'Set the dropdown to accept text input that filters possible options based an the search term.',
       default: 'false',
-      cegDisplayName: 'Searchable',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
     },
     isMulti: {
       isRequired: false,
       type: 'boolean',
       description: 'Set the dropdown to accept multiple values.',
       default: 'false',
-      cegDisplayName: 'Multiselect',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
     },
     hasSelectAllOption: {
       isRequired: false,
       type: 'boolean',
       description: 'Add a select all-option to the dropdown. Only available in multiselect dropdown.',
       default: 'false',
-      cegDisplayName: 'Select all option',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
-      cegDependency: [{ name: 'isMulti', value: 'true' }],
     },
     selectAllOption: {
       isRequired: false,
@@ -98,7 +67,6 @@ export const dropdownData: ComponentData = {
       description:
         'Change the label of the select all-option inside the opened dropdown. Only available in multiselect dropdown.',
       default: 'Alle',
-      cegDisplayName: 'Select all option',
     },
     allOptionsSelectedLabel: {
       isRequired: false,
@@ -111,9 +79,6 @@ export const dropdownData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Label value for the dropdown element.',
-      cegFormType: 'custom-text',
-      cegCustomTextType: 'input',
-      cegDefault: 'Label',
     },
     menuPosition: {
       isRequired: false,
@@ -131,9 +96,6 @@ export const dropdownData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Placeholder value for the dropdown menu.',
-      cegFormType: 'custom-text',
-      cegCustomTextType: 'input',
-      cegDefault: 'Placeholder',
     },
     placeholderIcon: {
       isRequired: false,
@@ -182,62 +144,4 @@ export const dropdownData: ComponentData = {
         "Custom CSS style object that can be added to the dropdown. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: `<Dropdown 
-  items={[
-    { value: 'Norge', label: 'Norge' },
-    { value: 'Sverige', label: 'Sverige' },
-    { value: 'Danmark', label: 'Danmark' },
-    { value: 'Finland', label: 'Finland' },
-    { value: 'Island', label: 'Island' }
-  ]} 
-  valueOnChange={(event) => updateSelectedList(event)}
-></Dropdown>
-`,
-  codeAngular: `<elvia-dropdown
-  [items]="[
-    { value: 'Norge', label: 'Norge' },
-    { value: 'Sverige', label: 'Sverige' },
-    { value: 'Danmark', label: 'Danmark' },
-    { value: 'Finland', label: 'Finland' },
-    { value: 'Island', label: 'Island' }
-  ]"
-  (valueOnChange)="updateSelectedList($event.detail.value)"
-></elvia-dropdown>
-`,
-  codeVue: `<elvia-dropdown
-  :items="[
-    { value: 'Norge', label: 'Norge' },
-    { value: 'Sverige', label: 'Sverige' },
-    { value: 'Danmark', label: 'Danmark' },
-    { value: 'Finland', label: 'Finland' },
-    { value: 'Island', label: 'Island' }
-  ]"
-  @value-on-change="updateSelectedList($event.detail.value)"
-></elvia-dropdown>
-`,
-  codeNativeHTML: `<elvia-dropdown
-  id="example-elvia-dropdown"
-></elvia-dropdown>
-`,
-  codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown');
-  const items = [
-    { value: 'Norge', label: 'Norge' },
-    { value: 'Sverige', label: 'Sverige' },
-    { value: 'Danmark', label: 'Danmark' },
-    { value: 'Finland', label: 'Finland' },
-    { value: 'Island', label: 'Island' }
-  ];
-  dropdown.setProps({items: items});
-  dropdown.addEventListener('valueOnChange', (event) => {
-    console.log('Do what you want with selected elements: ', event.detail.value);
-  });
-`,
-
-  does: [
-    'Use dropdowns sparingly - only when the user has 5-15 options and you have limited space to display all options.',
-  ],
-  donts: [
-    'Fewer than 5 options (consider radio filter or radio buttons)',
-    'More than 15 options (consider autocomplete)',
-  ],
 };
