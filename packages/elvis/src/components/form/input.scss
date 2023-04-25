@@ -78,6 +78,7 @@ $form-input-padding-compact-active: 3px 9px;
     border: 2px solid colors.color('red');
   }
 
+  //duplication needed as unsupported browsers fail to read the :user-invalid selector
   input:user-invalid,
   textarea:user-invalid {
     padding: $form-input-padding-active;
@@ -229,6 +230,7 @@ $form-input-padding-compact-active: 3px 9px;
     border: 2px solid colors.color('red');
   }
 
+  //duplication needed as unsupported browsers fail to read the :user-invalid selector
   input:user-invalid,
   textarea:user-invalid {
     padding: $form-input-padding-compact-active;
