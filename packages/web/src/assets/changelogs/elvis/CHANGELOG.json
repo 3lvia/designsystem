@@ -11,6 +11,13 @@
             "<code>car-color</code>, <code>graph_down-color</code>, <code>graph_down</code>, <code>home_office</code>, <code>mail-color</code>, <code>office-color</code>, <code>office</code>, <code>paper_plane-color</code>, <code>recycle-color</code>, <code>recycle</code>, and <code>wrench-color</code> added"
           ],
           "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the <code>:user-invalid</code> styles would have the incorrect padding for compact input fields."
+          ],
+          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         }
       ]
     },
