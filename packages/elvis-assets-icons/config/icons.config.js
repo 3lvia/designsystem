@@ -185,6 +185,7 @@ module.exports = [
   { name: 'calendar_clock-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'calendar-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['calendar'] } },
   { name: 'call', terms: ['phone', 'mobile', 'telephone'], thirdparty: { name: ['streamline'] } },
+  { name: 'car-color', terms: [] },
   { name: 'car_charger-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'chainsaw', terms: ['motorized saw', 'electric'] },
   { name: 'chat', terms: ['message', 'text', 'write', 'conversation'], thirdparty: { name: ['streamline'] } },
@@ -367,6 +368,8 @@ module.exports = [
   { name: 'future', terms: ['time', 'clock', 'fremtid'] },
   { name: 'graph_bar', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'graph_bar-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['graph_bar'] } },
+  { name: 'graph_down', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'graph_down-color', terms: [], thirdparty: { name: ['streamline'] }, duplicate: ['graph_down'] },
   { name: 'graph_up', terms: ['chart', 'cost'], thirdparty: { name: ['streamline'] } },
   { name: 'ground_fault', terms: ['breakdown', 'electricity'], thirdparty: { name: ['streamline'] } },
   {
@@ -382,6 +385,7 @@ module.exports = [
   { name: 'history', terms: ['time', 'clock', 'past', 'fortid'] },
   { name: 'home', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'home-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['home'] } },
+  { name: 'home_office', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'house_rebuilding-color', terms: [], thirdparty: { name: ['streamline'] } },
   {
     name: 'image',
@@ -436,6 +440,12 @@ module.exports = [
   { name: 'logout', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'magic', terms: ['wand', 'star'], thirdparty: { name: ['streamline'] } },
   { name: 'mail', terms: ['e-mail', 'post', 'letter', 'email'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'mail-color',
+    terms: ['e-mail', 'post', 'letter', 'email'],
+    thirdparty: { name: ['streamline'] },
+    duplicate: ['mail'],
+  },
   {
     name: 'mail_error-color',
     terms: ['e-mail', 'post', 'letter', 'fail', 'wrong', 'email'],
@@ -507,8 +517,23 @@ module.exports = [
   { name: 'notification-bold', terms: ['alarm', 'bell', 'alert'], thirdparty: { name: ['streamline'] } },
   { name: 'open', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'open_menu', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'paper_plane_speed_color', terms: ['send', 'message'], thirdparty: { name: ['streamline'] } },
+  { name: 'office', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'office-color', terms: [], thirdparty: { name: ['streamline'] }, duplicate: ['office'] },
+  {
+    name: 'paper_plane_speed_color',
+    terms: ['send', 'message'],
+    deprecated: '11.4.0',
+    newIconName: 'paper_plane_flying-color',
+    thirdparty: { name: ['streamline'] },
+  },
+  { name: 'paper_plane_flying-color', terms: ['send', 'message'], thirdparty: { name: ['streamline'] } },
   { name: 'paper_plane', terms: ['send', 'message'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'paper_plane-color',
+    terms: ['send', 'message'],
+    thirdparty: { name: ['streamline'] },
+    duplicate: ['paper_plane'],
+  },
   { name: 'pause_circle-color', terms: ['stop'], thirdparty: { name: ['streamline'] } },
   {
     name: 'pause_circle-filled-color',
@@ -638,6 +663,8 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['question_circle'] },
   },
   { name: 'quotation-color', terms: ['quote', 'reference'], thirdparty: { name: ['streamline'] } },
+  { name: 'recycle', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'recycle-color', terms: [], thirdparty: { name: ['streamline'] }, duplicate: ['recycle'] },
   { name: 'refresh', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'remove_circle', terms: ['delete', 'dismiss', 'discard'], thirdparty: { name: ['streamline'] } },
   {
@@ -873,6 +900,12 @@ module.exports = [
   { name: 'work_under_line-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'worker-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'wrench', terms: ['working', 'in progress', 'tool'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'wrench-color',
+    terms: ['working', 'in progress', 'tool'],
+    thirdparty: { name: ['streamline'] },
+    duplicate: ['wrench'],
+  },
   { name: 'zoom_in', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'zoom_out', terms: [], thirdparty: { name: ['streamline'] } },
 ];
