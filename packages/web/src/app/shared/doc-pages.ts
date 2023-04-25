@@ -580,8 +580,11 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Shadow',
+    titleNo: 'Skygge',
     description:
       'Shadow is used to make an element stand out from the surface to create depth. Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent. Elvia have a flat design, so shadow should be used carefully and only on overlays.',
+    descriptionNo:
+      'Skygge brukes til å få et element til å skille seg ut fra overflaten for å skape dybde. Valg av skygge er opp til hvert scenario – men skyggen skal "oppleves" og bør ikke være fremtredende. Elvia har et flatt design, så skygge bør brukes forsiktig og bare på overlays.',
     docUrl: Pages.Shadow,
     absolutePath: '/brand/' + Pages.Shadow,
     status: DocPageStatus.Done,
@@ -625,17 +628,40 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Layout',
+    titleNo: 'Layout',
+    description:
+      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
+    descriptionNo:
+      'Layout gir regler for å gi design konsekvent rytme i applikasjonen, samt på tvers av applikasjoner for å sikre et helhetlig design i Elvia. Layouten består av rutenett, mellomrom og boksdesign.',
     figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936%3A67993',
     docUrl: 'layout',
     absolutePath: '/brand/' + 'layout',
-    description:
-      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
     type: 'Brand',
   },
   {
     title: 'Typography',
-    description:
-      'Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family inlcudes two optical sizes: Display and Text.',
+    titleNo: 'Typografi',
+    description: `Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font
+      family inlcudes two optical sizes: Display and Text, and can be
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        href="https://fonts.google.com/?query=red+hat"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title">dowloaded here</span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+      </a>
+      via Google Fonts.`,
+    descriptionNo: `Elvia har en typografien kalt Red Hat som skal brukes i alt materiale. Skriftfamilien Red Hat inneholder to optiske størrelser: Display og Text, og kan <a
+      class="e-link e-link--inline e-link--new-tab"
+      href="https://fonts.google.com/?query=red+hat"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="e-link__title">lastes ned her</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+    </a> via Google Fonts.`,
     docUrl: Pages.Typography,
     absolutePath: '/brand/' + Pages.Typography,
     status: DocPageStatus.Done,

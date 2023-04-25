@@ -15,12 +15,6 @@ const boxData: ComponentData = {
       type: `string | HTMLElement | JSX.Element`,
       description: `Title for the box (slot in webcomponent).`,
     },
-    hasBorder: {
-      isRequired: false,
-      type: 'boolean',
-      description: 'Use this prop if the box is on a white background.',
-      default: 'false',
-    },
     isColored: {
       isRequired: false,
       type: 'boolean',

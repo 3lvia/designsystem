@@ -51,7 +51,7 @@ export interface CardProps extends BaseProps {
    */
   shape?: never;
   /**
-   * @deprecated Deprecated in version 3.1.1. Card now has the same border on all backgrounds. No replacement needed.
+   * @deprecated Deprecated in version 3.2.0. Card now has the same border on all backgrounds. No replacement needed.
    */
   hasBorder?: boolean;
   width?: string;

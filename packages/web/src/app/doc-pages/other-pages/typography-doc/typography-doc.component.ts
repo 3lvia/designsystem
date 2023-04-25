@@ -1,30 +1,49 @@
-import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnDestroy, QueryList, ViewChildren } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { LOCALE_CODE } from 'contentful/types';
 
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
   styleUrls: ['./typography-doc.component.scss'],
 })
-export class TypographyDocComponent {
+export class TypographyDocComponent implements OnDestroy {
   @ViewChildren('toCopy') toCopy: QueryList<ElementRef>;
   @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
 
+  localizationSubscriber: Subscription;
   loadedImg = false;
-
   typographyClasses = [];
-
-  description = getDocPagesNotFromCMS('typography')?.description;
-  figmaUrl = getDocPagesNotFromCMS('typography')?.figmaUrl;
   title = getDocPagesNotFromCMS('typography')?.title;
+  titleNo = getDocPagesNotFromCMS('typography')?.titleNo;
+  description = getDocPagesNotFromCMS('typography')?.description;
+  descriptionNo = getDocPagesNotFromCMS('typography')?.descriptionNo;
+  figmaUrl = getDocPagesNotFromCMS('typography')?.figmaUrl;
+  locale: LOCALE_CODE = 'en-GB';
 
   isDesktop = true;
   isMobile = false;
 
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
+  constructor(private titleService: Title, private localizationService: LocalizationService) {
+    this.setTabTitle();
+    this.localizationSubscriber = this.localizationService.listenLocalization().subscribe((locale) => {
+      this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+      this.setTabTitle();
+    });
   }
+
+  ngOnDestroy(): void {
+    this.localizationSubscriber && this.localizationSubscriber.unsubscribe();
+  }
+
+  setTabTitle = (): void => {
+    this.titleService.setTitle(
+      (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
+    );
+  };
 
   alignmentOfText = `<div class="e-text-left e-m-16">Left aligned text</div>
 <div class="e-text-center e-m-16">Center aligned text</div>
