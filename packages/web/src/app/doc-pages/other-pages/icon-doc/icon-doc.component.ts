@@ -172,8 +172,8 @@ export class IconDocComponent implements OnInit, OnDestroy {
     }
 
     this.allIcons.sort((icon, icon2) => {
-      const a = icon.title.toLowerCase();
-      const b = icon2.title.toLowerCase();
+      const a = icon.pretty.toLowerCase();
+      const b = icon2.pretty.toLowerCase();
       return naturalCompare(a, b);
     });
   }
