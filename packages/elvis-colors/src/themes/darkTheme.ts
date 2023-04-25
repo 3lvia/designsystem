@@ -140,6 +140,10 @@ export const darkTheme = {
       hex: darkThemeColors['primary-colors']['grey'].color,
       contrast: darkThemeColors['primary-colors']['grey'].contrastText,
     },
+    'background-element-5': {
+      hex: darkThemeColors['grey-colors']['grey-70'].color,
+      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
+    },
     'background-overlay-1': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,
       contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
