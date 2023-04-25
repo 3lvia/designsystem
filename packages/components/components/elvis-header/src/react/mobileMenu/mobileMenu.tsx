@@ -52,7 +52,6 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
     <>
       <IconButton
         onClick={() => setIsShowing(!userMenuIsOpen)}
-        type="button"
         aria-label="Åpne brukermeny"
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
