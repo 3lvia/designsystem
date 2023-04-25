@@ -41,7 +41,8 @@ describe('Elvia Header', () => {
           email={email}
           appTitle={appTitle}
           pageTitle={pageTitle}
-          appContent={<div data-testid="main-content">Main content</div>}
+          bonusContent={<div>Bonus content</div>}
+          appContent={<div>Main content</div>}
           onLogoClick={() => (logoHasBeenClicked = true)}
           onSignOutClick={() => (signOutButtonHasBeenClicked = true)}
           navItems={
@@ -84,8 +85,13 @@ describe('Elvia Header', () => {
     });
 
     test('should not have a visible user menu initially', () => {
-      const element = screen.queryAllByTestId('desktop-menu');
-      expect(element.length).toBe(0);
+      const element = screen.queryByRole('menu');
+      expect(element).not.toBeInTheDocument();
+    });
+
+    test('the bonusContent Slot should be displayed', () => {
+      const element = screen.getByText('Bonus content');
+      expect(element).toBeVisible();
     });
 
     describe('when the logo is clicked', () => {
@@ -160,7 +166,8 @@ describe('Elvia Header', () => {
           email={email}
           appTitle={appTitle}
           pageTitle={pageTitle}
-          appContent={<div data-testid="main-content">Main content</div>}
+          appContent={<div>Main content</div>}
+          bonusContent={<div>Bonus content</div>}
           onLogoClick={() => (logoHasBeenClicked = true)}
           onSignOutClick={() => (signOutButtonHasBeenClicked = true)}
           navItems={
@@ -188,8 +195,13 @@ describe('Elvia Header', () => {
     });
 
     test('the mobile menu is not yet visible', () => {
-      const element = screen.queryAllByTestId('mobile-menu');
-      expect(element.length).toBe(0);
+      const element = screen.queryByRole('menu');
+      expect(element).not.toBeInTheDocument();
+    });
+
+    test(' the bonusContent Slot should _not_ be displayed', () => {
+      const element = screen.queryByText('Bonus content');
+      expect(element).not.toBeInTheDocument();
     });
 
     describe('when the mobile menu trigger is clicked', () => {
