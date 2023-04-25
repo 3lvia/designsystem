@@ -7,7 +7,8 @@
         {
           "type": "new_feature",
           "changes": [
-            "<code>paper_plane_speed_color</code> deprecated, <code>paper_plane_speed-color</code> added and <code>laptop-color</code> update."
+            "<code>paper_plane_speed_color</code> deprecated, <code>paper_plane_speed-color</code> added and <code>laptop-color</code> update.",
+            "<code>car-color</code>, <code>graph_down-color</code>, <code>graph_down</code>, <code>home_office</code>, <code>mail-color</code>, <code>office-color</code>, <code>office</code>, <code>paper_plane-color</code>, <code>recycle-color</code>, <code>recycle</code>, and <code>wrench-color</code> added"
           ],
           "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
         }
