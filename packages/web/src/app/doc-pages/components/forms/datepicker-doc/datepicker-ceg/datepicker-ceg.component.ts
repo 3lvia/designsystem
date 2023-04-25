@@ -33,7 +33,7 @@ export class DatepickerCegComponent implements ComponentExample {
         hasSelectDateOnOpen: {
           label: 'Select Today On Open',
           type: 'checkbox',
-          value: false,
+          value: true,
           group: 'Options',
         },
         isDisabled: {
