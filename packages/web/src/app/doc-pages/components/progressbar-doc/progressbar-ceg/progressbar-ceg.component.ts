@@ -12,9 +12,6 @@ export class ProgressbarCegComponent implements ComponentExample {
   cegContent = new CegControlManager<ProgressLinearProps>([
     {
       controls: {
-        value: { type: 'counter', group: 'Loaded', increment: 10, value: 20, max: 100, min: 0, postfix: '%' },
-        isIndeterminate: { type: 'checkbox', group: 'State', label: 'Indeterminate' },
-        isError: { type: 'checkbox', group: 'State', label: 'Error' },
         size: {
           type: 'radioGroup',
           group: 'Size',
@@ -24,8 +21,11 @@ export class ProgressbarCegComponent implements ComponentExample {
             { label: 'Medium', value: 'medium' },
           ],
         },
+        value: { type: 'counter', group: 'Loaded', increment: 10, value: 20, max: 100, min: 0, postfix: '%' },
+        isIndeterminate: { type: 'checkbox', group: 'Options', label: 'Indeterminate' },
+        isError: { type: 'checkbox', group: 'State', label: 'Error' },
       },
-      groupOrder: ['Loaded', 'State', 'Size'],
+      groupOrder: ['Size', 'Loaded', 'Options', 'State'],
       disabledBy: {
         value: ['isIndeterminate', 'isError'],
       },
