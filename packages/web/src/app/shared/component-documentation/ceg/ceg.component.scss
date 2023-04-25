@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 7.5fr 2.5fr;
   gap: 16px 24px;
-  table-layout: fixed;
+
   @include breakpoints.breakpoint-up(Mobile) {
     grid-template-columns: 1fr;
   }
