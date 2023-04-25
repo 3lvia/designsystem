@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["height prop now works as expected."]
+          "changes": ["Height prop now works as expected."]
         }
       ]
     },
