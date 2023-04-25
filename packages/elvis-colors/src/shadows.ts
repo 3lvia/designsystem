@@ -13,9 +13,11 @@ export const shadows = {
   },
 } as const;
 
-export type ShadowName = keyof typeof shadows;
+type Shadows = typeof shadows;
 
-type ShadowVariable = `var(--e-shadow-${ShadowName}, ${string})`;
+export type ShadowName = keyof Shadows;
+
+type ShadowVariable<T extends ShadowName> = `var(--e-shadow-${T}, ${Shadows[T]['boxShadow']})`;
 /**
  * @returns CSS-variable for the shadow from Elvis, with a fallback to the value.
  *
@@ -25,6 +27,6 @@ type ShadowVariable = `var(--e-shadow-${ShadowName}, ${string})`;
  *
  * @since 1.7.0
  */
-export const getShadow = (name: ShadowName): ShadowVariable => {
-  return `var(--e-shadow-${name}, ${shadows[name].boxShadow})`;
+export const getShadow = <T extends ShadowName>(name: T): ShadowVariable<T> => {
+  return `var(--e-shadow-${name}, ${shadows[name].boxShadow})` as ShadowVariable<T>;
 };
