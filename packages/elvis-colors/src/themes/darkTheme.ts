@@ -126,7 +126,7 @@ export const darkTheme = {
       contrast: darkThemeColors['primary-colors']['grey'].contrastText,
     },
     'background-element-1': {
-      hex: 'transparent', // TODO: Will this work?
+      hex: 'transparent',
     },
     'background-element-2': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,

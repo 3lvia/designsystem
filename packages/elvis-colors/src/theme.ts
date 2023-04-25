@@ -53,7 +53,6 @@ type IconColors =
   | 'icon-filled-background'
   | 'icon-filled-foreground-colored'
   | (SignalLabels extends `signal-${infer T}` ? `icon-${T}` : never);
-// | (SignalLabels extends `signal-${infer T}` ? `icon-filled-foreground-${T}` : never);
 type StaticLabels = 'static-white' | 'static-black';
 
 export type ColorLabel =
