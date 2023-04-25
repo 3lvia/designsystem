@@ -55,6 +55,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
         aria-label="Åpne brukermeny"
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
+        aria-controls="ewc-header-mobile-menu"
         ref={triggerButtonRef}
       >
         <IconWrapper
@@ -67,7 +68,12 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
         createPortal(
           <>
             <Backdrop fadeOut={fadeOut} onClick={() => setIsShowing(false)} />
-            <MenuContainer fadeOut={fadeOut} onAnimationEnd={onAnimationEnd} ref={popoverRef}>
+            <MenuContainer
+              fadeOut={fadeOut}
+              onAnimationEnd={onAnimationEnd}
+              ref={popoverRef}
+              id="ewc-header-mobile-menu"
+            >
               {view === 'mainPage' && (
                 <>
                   <ImageContainer>

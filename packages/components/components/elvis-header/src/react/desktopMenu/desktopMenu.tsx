@@ -51,7 +51,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
         aria-label="Åpne brukermeny"
         aria-expanded={isShowing}
         aria-haspopup="dialog"
-        aria-controls="ewc-header-menu-0"
+        aria-controls="ewc-header-desktop-menu"
         isActive={isShowing}
         ref={connectedElementRef}
       >
@@ -62,7 +62,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
       </ProfileButton>
       {isShowing && (
         <Overlay ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
-          <MenuContainer id="ewc-header-menu-0">
+          <MenuContainer id="ewc-header-desktop-menu">
             <UserGrid>
               <ImageContainer>
                 <ProfilePicture />
