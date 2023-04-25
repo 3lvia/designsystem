@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-box",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "main": "web_component.js",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/box",
