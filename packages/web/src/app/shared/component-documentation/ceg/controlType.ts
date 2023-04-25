@@ -48,6 +48,7 @@ export interface Text extends ControlBase {
   readonly label: string;
   value?: string;
   readonly inputType?: 'input' | 'textarea';
+  readonly placeholder?: string;
 }
 
 export type CegControl = Checkbox | Switch | SlotToggle | RadioGroup | Counter | Text;
