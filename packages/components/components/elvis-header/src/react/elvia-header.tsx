@@ -43,6 +43,7 @@ export const Header: React.FC<HeaderProps> = ({
     useEffectDependencies: [initialized],
   });
   const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
+  const { ref: pageTitleRef } = useSlot<HTMLHeadingElement>('pageTitle', webcomponent);
   const { ref: sidenavRef } = useSlot('navItems', webcomponent);
 
   const hasNavItems = (): boolean => {
@@ -109,7 +110,9 @@ export const Header: React.FC<HeaderProps> = ({
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
-        <PageTitle isInvisible={mobileMenuIsOpen}>{pageTitle}</PageTitle>
+        <PageTitle isInvisible={mobileMenuIsOpen} ref={pageTitleRef}>
+          {pageTitle}
+        </PageTitle>
 
         {hasBonusContent() && isGtTablet && (
           <BonusContentContainer>
