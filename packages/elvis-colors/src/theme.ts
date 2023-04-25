@@ -27,6 +27,7 @@ type BackgroundLabels =
   | 'background-element-2'
   | 'background-element-3'
   | 'background-element-4'
+  | 'background-element-5'
   | 'background-overlay-1'
   | 'background-overlay-2'
   | 'background-overlay-3'
