@@ -218,6 +218,21 @@ describe('Elvia Header', () => {
         const element = screen.getByRole('menu');
         expect(element).not.toBeEmptyDOMElement();
       });
+
+      test('the mobile menu displays a log out button', () => {
+        const element = screen.getByRole('button', { name: /^logg ut$/i });
+        expect(element).toBeInTheDocument();
+      });
+
+      test('the mobile menu displays the users username', () => {
+        const element = screen.getByText(username);
+        expect(element).toBeVisible();
+      });
+
+      test('the mobile menu displays the users email', () => {
+        const element = screen.getByText(email);
+        expect(element).toBeVisible();
+      });
     });
   });
 
