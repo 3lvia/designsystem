@@ -35,7 +35,7 @@ describe('Elvis Box', () => {
 
     it('should have green boxColored line', () => {
       const boxColoredLineWithContent = screen.getByTestId('box-colored-line');
-      expect(boxColoredLineWithContent).toHaveStyle(`background: ${getThemeColor('state-on')}`);
+      expect(boxColoredLineWithContent).toHaveStyle(`background: ${getThemeColor('border-selected-1')}`);
     });
   });
 
