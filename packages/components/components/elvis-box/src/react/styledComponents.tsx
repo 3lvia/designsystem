@@ -41,7 +41,7 @@ export const BoxContent = styled.div`
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-  border: 2px solid ${getThemeColor('border-4')};
+  border: 2px solid ${getThemeColor('border-5')};
   background: ${getThemeColor('background-element-5')};
   text-align: left;
   color: ${getThemeColor('text-1')};
