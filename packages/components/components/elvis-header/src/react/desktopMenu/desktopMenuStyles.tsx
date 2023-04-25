@@ -3,7 +3,9 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { Hr } from '../styledComponents';
 
-export const MenuContainer = styled.div`
+export const MenuContainer = styled.div.attrs(() => ({
+  role: 'menu',
+}))`
   background-color: ${getColor('elvia-on')};
   border-radius: 8px;
   padding: 32px;

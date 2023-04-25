@@ -39,7 +39,9 @@ const backdropFadeOut = keyframes`
   to { opacity: 0; }
 `;
 
-export const MenuContainer = styled.div<{ fadeOut: boolean }>`
+export const MenuContainer = styled.div.attrs(() => ({
+  role: 'menu',
+}))<{ fadeOut: boolean }>`
   position: fixed;
   top: ${toolbarHeight};
   padding: 0 32px 32px;

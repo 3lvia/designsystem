@@ -48,13 +48,12 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
       <ProfileButton
         size="sm"
         onClick={() => togglePopupVisibility(!isShowing)}
-        type="button"
         aria-label="Åpne brukermeny"
         aria-expanded={isShowing}
         aria-haspopup="dialog"
+        aria-controls="ewc-header-menu-0"
         isActive={isShowing}
         ref={connectedElementRef}
-        data-testid="desktop-menu-trigger"
       >
         <ImageContainer thumbnail>
           <ProfilePicture />
@@ -63,17 +62,17 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
       </ProfileButton>
       {isShowing && (
         <Overlay ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
-          <MenuContainer data-testid="desktop-menu">
+          <MenuContainer id="ewc-header-menu-0">
             <UserGrid>
               <ImageContainer>
                 <ProfilePicture />
               </ImageContainer>
-              <Username data-testid="desktop-username">{username}</Username>
-              <Email data-testid="desktop-email">{email}</Email>
+              <Username>{username}</Username>
+              <Email>{email}</Email>
             </UserGrid>
             <MenuHr></MenuHr>
             <Footer>
-              <TertiaryButton size="sm" onClick={onSignOutClick} data-testid="desktop-sign-out-trigger">
+              <TertiaryButton size="sm" onClick={onSignOutClick}>
                 <IconWrapper icon={logout} size="xs" color="black" />
                 Logg ut
               </TertiaryButton>

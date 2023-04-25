@@ -57,7 +57,6 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
         ref={triggerButtonRef}
-        data-testid="mobile-menu-trigger"
       >
         <IconWrapper
           icon={userMenuIsOpen ? removeCircleColor : moreMenu}
@@ -69,22 +68,17 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
         createPortal(
           <>
             <Backdrop fadeOut={fadeOut} onClick={() => setIsShowing(false)} />
-            <MenuContainer
-              data-testid="mobile-menu"
-              fadeOut={fadeOut}
-              onAnimationEnd={onAnimationEnd}
-              ref={popoverRef}
-            >
+            <MenuContainer fadeOut={fadeOut} onAnimationEnd={onAnimationEnd} ref={popoverRef}>
               {view === 'mainPage' && (
                 <>
                   <ImageContainer>
                     <ProfilePicture />
                   </ImageContainer>
-                  <TextSmallStrong data-testid="mobile-username">{username}</TextSmallStrong>
-                  <TextSmall data-testid="mobile-email">{email}</TextSmall>
+                  <TextSmallStrong>{username}</TextSmallStrong>
+                  <TextSmall>{email}</TextSmall>
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
                   <section>
-                    <TertiaryButton size="sm" onClick={onSignOutClick} data-testid="mobile-sign-out-trigger">
+                    <TertiaryButton size="sm" onClick={onSignOutClick}>
                       <IconWrapper icon={logout} size="xs" color="black" />
                       Logg ut
                     </TertiaryButton>

@@ -80,7 +80,6 @@ export const Header: React.FC<HeaderProps> = ({
         <LogoContainer>
           <IconButton
             aria-label="logo"
-            data-testid="header-logo"
             onClick={() => {
               if (!webcomponent && onLogoClick) {
                 onLogoClick();
