@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/react-preview/',
   optimizeDeps: {
+    force: true,
     include: [
       '@elvia/elvis-accordion/react',
       '@elvia/elvis-badge/react',
