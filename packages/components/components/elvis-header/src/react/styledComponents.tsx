@@ -51,9 +51,12 @@ export const SquareContainer = styled.div`
 `;
 
 export const BonusContentContainer = styled.div`
+  align-items: center;
   display: flex;
   margin-left: 16px;
-  align-items: center;
+  max-height: 100%;
+  min-width: 16px;
+  overflow-y: scroll;
 `;
 
 export const LogoContainer = styled(SquareContainer)`
@@ -64,11 +67,11 @@ export const PageTitle = styled.h1<{ isInvisible: boolean }>`
   ${getTypographyCss('text-md-strong')};
   flex: 1;
   margin: 0 auto;
-  min-width: 72px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-height: 100%;
+  min-width: 10ch;
+  overflow-y: scroll;
+  text-align: left;
   transition: opacity 150ms;
-  white-space: nowrap;
 
   ${({ isInvisible }) =>
     isInvisible &&
