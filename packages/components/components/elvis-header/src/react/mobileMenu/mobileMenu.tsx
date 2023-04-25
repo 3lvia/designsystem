@@ -72,6 +72,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
               fadeOut={fadeOut}
               onAnimationEnd={onAnimationEnd}
               ref={popoverRef}
+              role="menu"
               id="ewc-header-mobile-menu"
             >
               {view === 'mainPage' && (

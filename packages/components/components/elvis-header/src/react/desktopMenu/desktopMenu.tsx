@@ -62,7 +62,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
       </ProfileButton>
       {isShowing && (
         <Overlay ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
-          <MenuContainer id="ewc-header-desktop-menu">
+          <MenuContainer role="menu" id="ewc-header-desktop-menu">
             <UserGrid>
               <ImageContainer>
                 <ProfilePicture />
