@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 2.2.0 (25.04.23)
+
+### New feature
+
+- Added new theme color label: `border-5`.
+
 ## 2.1.0 (25.04.23)
 
 ### New feature

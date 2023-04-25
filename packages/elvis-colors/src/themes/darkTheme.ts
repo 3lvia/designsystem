@@ -198,6 +198,9 @@ export const darkTheme = {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
+    'border-5': {
+      hex: 'transparent',
+    },
     'border-disabled-1': {
       hex: darkThemeColors['grey-colors']['grey-40'].color,
       contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
