@@ -54,7 +54,7 @@ export const CardArea = styled.div<CardAreaProps>`
   max-width: ${({ type, maxWidth }) => getCardAreaMaxWidth(type, maxWidth)};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  aspect-ratio: ${({ type }) => type === 'simple' && '1 / 1'};
+  aspect-ratio: ${({ type, height }) => type === 'simple' && height === undefined && '1 / 1'};
 
   border-radius: 8px;
   border: 2px solid ${getColor('grey-05')};
