@@ -99,8 +99,8 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
     transform: scaleX(1);
   }
 
-  ${(props) =>
-    props.isActive &&
+  ${({ isActive }) =>
+    isActive &&
     css`
       &::after {
         transform: scaleX(1);
