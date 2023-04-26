@@ -8,11 +8,12 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { debounceTime, map, switchMap, takeUntil } from 'rxjs/operators';
+import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
-import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 interface Slot {
   name: string;
@@ -52,9 +53,18 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     );
   }
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone, private route: ActivatedRoute, private router: Router) {}
 
   ngAfterViewInit(): void {
+    this.zone.onStable.pipe(takeUntil(this.unsubscriber), first()).subscribe(() => {
+      Object.entries(this.route.snapshot.queryParams).forEach(([propName, value]) => {
+        const isNumber =
+          this.componentExample.cegContent.getControlSnapshot()?.[propName]?.type === 'counter';
+        const parsedValue = isNumber ? +value : value;
+        this.setPropValue(propName, parsedValue, false);
+      });
+    });
+
     this.setUpSlotSubscription();
     this.setUpTypeChangeSubscription();
     this.setUpStaticPropSubscription();
@@ -65,11 +75,21 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     this.unsubscriber.complete();
   }
 
-  setPropValue(propName: string, value: ControlValue): void {
+  setPropValue(propName: string, value: ControlValue, setInUrl = true): void {
     const propWasUpdated = this.componentExample.cegContent.setPropValue(propName, value);
 
     if (propWasUpdated) {
       this.getWebComponent().setProps({ [propName]: value });
+
+      if (setInUrl) {
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParamsHandling: 'merge',
+          queryParams: { [propName]: value },
+          replaceUrl: true,
+          preserveFragment: true,
+        });
+      }
     }
   }
 
