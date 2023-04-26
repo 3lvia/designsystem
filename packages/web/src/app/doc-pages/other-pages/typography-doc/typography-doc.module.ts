@@ -9,6 +9,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentExampleCodeModule } from 'src/app/shared/component-documentation/component-example/component-example-code/component-example-code.module';
 import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
     ComponentSubsubsectionModule,
     ComponentExampleCodeModule,
     DoDontModule,
+    ComponentChangelogModule,
   ],
   declarations: [TypographyDocComponent],
 })

@@ -11,6 +11,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { ComponentExampleCodeModule } from 'src/app/shared/component-documentation/component-example/component-example-code/component-example-code.module';
 import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.modul
     ComponentSubsubsectionModule,
     ComponentExampleCodeModule,
     DoDontTextModule,
+    ComponentChangelogModule,
   ],
   declarations: [ColorDocComponent],
 })

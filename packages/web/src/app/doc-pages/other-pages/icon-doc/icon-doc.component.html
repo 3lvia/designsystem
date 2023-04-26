@@ -609,15 +609,15 @@
               ></app-component-properties-table>
             </ng-container>
           </app-component-section>
-
-          <!--CHANGELOG-->
-          <app-component-section [sectionTitle]="'Changelog'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-            </ng-container>
-          </app-component-section>
         </ng-container>
       </app-component-subsubsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--Changelog-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [elvisComponentToFilter]="'Icons'"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>
