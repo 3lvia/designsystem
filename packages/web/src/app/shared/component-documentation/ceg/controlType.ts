@@ -1,7 +1,6 @@
 interface ControlBase {
   readonly type: string;
   readonly group: string;
-  disabledBy?: string[];
 }
 
 export interface Checkbox extends ControlBase {
@@ -68,12 +67,19 @@ export type StaticProps<T> = {
   readonly [K in keyof T]?: T[K];
 };
 
+export type DisabledBy<T = Record<string, any>> = Readonly<
+  Partial<{
+    [key in keyof T]: Array<keyof T>;
+  }>
+>;
+
 export interface ComponentType<T> {
   readonly name?: string;
   readonly controls: Controls<T>;
   readonly groupOrder: string[];
   readonly staticProps?: Partial<StaticProps<T>>;
   readonly hiddenSlots?: string[];
+  readonly disabledControls?: DisabledBy<T>;
 }
 
 export type ControlValue = CegControl['value'];
