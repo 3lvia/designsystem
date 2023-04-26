@@ -49,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({
     return !!webcomponent?.getSlot('appContent') || !!appContent;
   };
 
-  const getUsername = (): string => {
+  const getCleanedUsername = (): string => {
     return username ? username.replace(/\(ekstern\)/g, '').trim() : '';
   };
 
@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({
             <MobileMenu
               appTitle={applicationTitle}
               email={email}
-              username={getUsername()}
+              username={getCleanedUsername()}
               onSignOutClick={signOutClick}
               onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
             />
