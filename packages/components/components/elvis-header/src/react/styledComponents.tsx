@@ -58,7 +58,7 @@ export const LogoContainer = styled(SquareContainer)`
 export const PageTitle = styled.h1<{ isInvisible: boolean }>`
   ${getTypographyCss('text-md-strong')};
   flex: 1;
-  transition: opacity 150ms;
+  transition: opacity 400ms;
 
   ${({ isInvisible }) =>
     isInvisible &&
