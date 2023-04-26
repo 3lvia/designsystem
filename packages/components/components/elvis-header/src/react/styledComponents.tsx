@@ -14,6 +14,7 @@ export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boo
   height: ${toolbarHeight};
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +33,6 @@ export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boo
 
       ${PageTitle} {
         margin: 0 auto 0 0;
-        flex: 1;
       }
     `};
 
@@ -57,7 +57,7 @@ export const LogoContainer = styled(SquareContainer)`
 
 export const PageTitle = styled.h1<{ isInvisible: boolean }>`
   ${getTypographyCss('text-md-strong')};
-  margin: 0 auto;
+  flex: 1;
   transition: opacity 150ms;
 
   ${({ isInvisible }) =>
