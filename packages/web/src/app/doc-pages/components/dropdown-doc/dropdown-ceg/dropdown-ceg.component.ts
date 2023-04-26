@@ -61,7 +61,7 @@ export class DropdownCegComponent implements ComponentExample {
           { value: 'Island', label: 'Island' },
         ],
       },
-      groupOrder: ['Size', 'Options', 'State', 'Label', 'Placeholder'],
+      groupOrder: ['Size', 'Options', 'State', 'Label'],
     },
   ]);
 
