@@ -26,7 +26,7 @@ export class ProgressbarCegComponent implements ComponentExample {
         isError: { type: 'checkbox', group: 'State', label: 'Error' },
       },
       groupOrder: ['Size', 'Loaded', 'Options', 'State'],
-      disabledBy: {
+      disabledControls: {
         value: ['isIndeterminate', 'isError'],
       },
     },

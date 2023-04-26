@@ -77,7 +77,7 @@ export interface ComponentType<T> {
   readonly groupOrder: string[];
   readonly staticProps?: Partial<StaticProps<T>>;
   readonly hiddenSlots?: string[];
-  readonly disabledBy?: DisabledBy<T>;
+  readonly disabledControls?: DisabledBy<T>;
 }
 
 export type ControlValue = CegControl['value'];

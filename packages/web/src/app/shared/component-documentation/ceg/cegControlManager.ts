@@ -86,7 +86,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     return this.getCurrentControls().pipe(
       map((currentControls) => {
         const typeIndex = this.getCurrentComponentTypeIndex();
-        const disableMap = this._componentTypes.value[typeIndex].disabledBy;
+        const disableMap = this._componentTypes.value[typeIndex].disabledControls;
 
         if (!disableMap) {
           return [];
