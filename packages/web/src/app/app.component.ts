@@ -1,22 +1,22 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { DocumentEventListenerService } from './core/services/document-event-listener.service';
+import { RouterService } from './core/services/router.service';
+import { ViewportScroller } from '@angular/common';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  title = 'elvia-designsystem';
+export class AppComponent implements OnInit, OnDestroy {
+  private unsubscriber = new Subject();
 
-  isDarkMode = window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addListener((e) => e.matches && this.handleMode(e.matches));
-  isLightMode = window
-    .matchMedia('(prefers-color-scheme: light)')
-    .addListener((e) => e.matches && this.handleMode(!e.matches));
-
-  constructor(private documentEventListenerService: DocumentEventListenerService) {}
+  constructor(
+    private documentEventListenerService: DocumentEventListenerService,
+    private routerService: RouterService,
+    private viewportScroller: ViewportScroller,
+  ) {}
 
   @HostListener('document:keypress', ['$event'])
   navigateOnKeyboardEvents(event: KeyboardEvent): void {
@@ -26,9 +26,25 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
     this.handleMode(darkMode.matches);
+    this.scrollOnRouteChange();
   }
 
-  handleMode(darkMode: boolean): void {
+  ngOnDestroy(): void {
+    this.unsubscriber.next();
+    this.unsubscriber.complete();
+  }
+
+  private scrollOnRouteChange(): void {
+    this.routerService
+      .urlPathChange()
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(() => {
+        console.log('Scrolling to the top');
+        this.viewportScroller.scrollToPosition([0, 0]);
+      });
+  }
+
+  private handleMode(darkMode: boolean): void {
     const favicon = document.querySelector('link[rel="icon"]');
     if (!favicon) {
       console.warn('Cant find favicon element');
