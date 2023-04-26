@@ -77,7 +77,7 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   ${({ typography }) => typography && getTypographyCss(typography)}
   text-align: left;
   cursor: pointer;
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   width: ${({ isFullWidth, currType }) => (isFullWidth && currType === 'normal' ? '100%' : 'auto')};
   justify-content: ${({ isFullWidth, currType }) =>
     isFullWidth && currType === 'normal' ? 'space-between' : 'inherit'};
@@ -133,7 +133,7 @@ export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
   ${({ size }) => decideDetailTextSize(size)};
   display: flex;
   text-align: left;
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   margin-left: ${({ openDetailText }) => (openDetailText !== undefined ? '8px;' : '0;')};
 `;
 
