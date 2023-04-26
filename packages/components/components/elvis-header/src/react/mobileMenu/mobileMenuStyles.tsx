@@ -95,9 +95,8 @@ export const ImageContainer = styled.div`
   background-color: ${getColor('grey-05')};
   margin-bottom: 8px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 `;
 
 export const TextSmallStrong = styled.div`
