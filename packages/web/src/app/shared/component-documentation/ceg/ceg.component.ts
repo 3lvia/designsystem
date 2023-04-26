@@ -67,15 +67,12 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     this.unsubscriber.complete();
   }
 
-  setPropValue(propName: string, value: ControlValue, setInUrl = true): void {
+  setPropValue(propName: string, value: ControlValue): void {
     const propWasUpdated = this.componentExample.cegContent.setPropValue(propName, value);
 
     if (propWasUpdated) {
       this.getWebComponent().setProps({ [propName]: value });
-
-      if (setInUrl) {
-        this.patchPropValueInUrl(propName, value);
-      }
+      this.patchPropValueInUrl(propName, value);
     }
   }
 
@@ -96,12 +93,24 @@ export class CegComponent implements AfterViewInit, OnDestroy {
         this.componentExample.cegContent.setActiveComponentTypeName(componentType);
       }
 
-      Object.entries(this.route.snapshot.queryParams).forEach(([propName, value]) => {
-        const isNumber =
-          this.componentExample.cegContent.getControlSnapshot()?.[propName]?.type === 'counter';
-        const parsedValue = isNumber ? +value : value;
-        this.setPropValue(propName, parsedValue, false);
-      });
+      Object.entries(this.route.snapshot.queryParams)
+        .filter(([propName]) => propName !== 'type')
+        .forEach(([propName, value]) => {
+          const controlType = this.componentExample.cegContent.getControlSnapshot()?.[propName]?.type;
+
+          let parsedValue = value;
+          if (controlType === 'counter') {
+            parsedValue = +value;
+          } else if (!!controlType && ['slotToggle', 'checkbox', 'switch'].includes(controlType)) {
+            parsedValue = value === 'true';
+          }
+
+          const propWasUpdated = this.componentExample.cegContent.setPropValue(propName, parsedValue);
+
+          if (propWasUpdated && controlType !== 'slotToggle') {
+            this.getWebComponent().setProps({ [propName]: parsedValue });
+          }
+        });
     });
   }
 
