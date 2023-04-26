@@ -49,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({
     return !!webcomponent?.getSlot('appContent') || !!appContent;
   };
 
-  const getCleanedUsername = (): string => {
+  const getTrimmedUsername = (): string => {
     return username ? username.replace(/\(ekstern\)/g, '').trim() : '';
   };
 
@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({
             <MobileMenu
               appTitle={applicationTitle}
               email={email}
-              username={getCleanedUsername()}
+              username={getTrimmedUsername()}
               onSignOutClick={signOutClick}
               onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
             />
@@ -125,7 +125,7 @@ export const Header: React.FC<HeaderProps> = ({
             <Hr direction="vertical" isGtTablet={isGtTablet} />
             <DesktopMenu
               email={email}
-              username={getCleanedUsername()}
+              username={getTrimmedUsername()}
               onSignOutClick={signOutClick}
               onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
             />
