@@ -121,12 +121,15 @@ export const Header: React.FC<HeaderProps> = ({
           </SquareContainer>
         )}
         {isGtMobile && (
-          <DesktopMenu
-            email={email}
-            username={getUsername()}
-            onSignOutClick={signOutClick}
-            onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
-          />
+          <>
+            <Hr direction="vertical" isGtTablet={isGtTablet} />
+            <DesktopMenu
+              email={email}
+              username={getCleanedUsername()}
+              onSignOutClick={signOutClick}
+              onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
+            />
+          </>
         )}
       </StyledHeader>
       {hasNavItems() && (

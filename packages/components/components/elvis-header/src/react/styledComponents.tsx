@@ -71,7 +71,6 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
   position: relative;
   height: calc(100% - 8px); // Shows the full keyboard-focus outline without clipping
   font-weight: 400;
-  margin-left: 16px;
 
   &::after {
     content: '';
