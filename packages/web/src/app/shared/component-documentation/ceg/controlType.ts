@@ -8,8 +8,10 @@ export interface Checkbox extends ControlBase {
   readonly type: 'checkbox';
   readonly label: string;
   value?: boolean;
-  readonly children?: { [key: string]: Checkbox };
+  readonly children?: { [key: string]: ChildCheckbox };
 }
+
+export type ChildCheckbox = Omit<Checkbox, 'group'>;
 
 export interface RadioGroup<T = string | number> extends ControlBase {
   readonly type: 'radioGroup';
@@ -50,7 +52,7 @@ export interface Text extends ControlBase {
   readonly inputType?: 'input' | 'textarea';
 }
 
-export type CegControl = Checkbox | Switch | SlotToggle | RadioGroup | Counter | Text;
+export type CegControl = Checkbox | ChildCheckbox | Switch | SlotToggle | RadioGroup | Counter | Text;
 
 export type Controls<T = Record<string, any>> = Readonly<
   Partial<{
