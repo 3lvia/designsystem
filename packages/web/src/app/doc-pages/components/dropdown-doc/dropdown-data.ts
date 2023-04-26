@@ -78,7 +78,7 @@ export const dropdownData: ComponentData = {
     label: {
       isRequired: false,
       type: 'string',
-      description: 'Label value for the dropdown element.',
+      description: 'The label for the dropdown.',
     },
     menuPosition: {
       isRequired: false,
