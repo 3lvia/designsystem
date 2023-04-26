@@ -2217,10 +2217,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.0
+    "@elvia/elvis-assets-icons": ^2.13.0
+    "@elvia/elvis-colors": ^2.0.0
+    "@elvia/elvis-component-wrapper": ^4.1.1
+    "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -2241,10 +2241,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-accordion@portal:../components/components/elvis-accordion::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.4.0
+    "@elvia/elvis-assets-icons": ^2.13.0
+    "@elvia/elvis-colors": ^2.0.0
+    "@elvia/elvis-component-wrapper": ^4.1.1
+    "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -2261,7 +2261,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.11.0, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@^2.8.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.11.0, @elvia/elvis-assets-icons@^2.13.0, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@^2.8.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
@@ -2341,7 +2341,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-box@workspace:packages/components/components/elvis-box"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-colors": ^2.2.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.1
@@ -2364,7 +2364,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-box@portal:../components/components/elvis-box::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-colors": ^2.2.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.1
@@ -2577,7 +2577,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-colors@^1.4.2, @elvia/elvis-colors@^1.4.3, @elvia/elvis-colors@^1.5.0, @elvia/elvis-colors@^1.6.0, @elvia/elvis-colors@^1.7.0, @elvia/elvis-colors@^1.8.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@^2.0.0, @elvia/elvis-colors@^2.2.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -2592,11 +2592,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-colors@portal:../elvis-colors::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+"@elvia/elvis-colors@npm:^1.4.2, @elvia/elvis-colors@npm:^1.4.3, @elvia/elvis-colors@npm:^1.5.0, @elvia/elvis-colors@npm:^1.6.0, @elvia/elvis-colors@npm:^1.7.0, @elvia/elvis-colors@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@elvia/elvis-colors@npm:1.8.0"
+  checksum: 5d29f0a24915e9afc0225559d41db7803ec5b8b07e882f0ad4a46b1b7681910fee81d7138fc90e3550281fa40e91ab15b275f29ce6d5ddb7f7462e0bb350f9f0
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^4.0.0, @elvia/elvis-component-wrapper@^4.0.1, @elvia/elvis-component-wrapper@^4.1.1, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
@@ -10480,7 +10481,7 @@ __metadata:
     "@elvia/elvis-card": "portal:../components/components/elvis-card"
     "@elvia/elvis-carousel": "portal:../components/components/elvis-carousel"
     "@elvia/elvis-chip": "portal:../components/components/elvis-chip"
-    "@elvia/elvis-colors": "portal:../elvis-colors"
+    "@elvia/elvis-colors": ^1.8.0
     "@elvia/elvis-context-menu": "portal:../components/components/elvis-context-menu"
     "@elvia/elvis-datepicker": "portal:../components/components/elvis-datepicker"
     "@elvia/elvis-datepicker-range": "portal:../components/components/elvis-datepicker-range"

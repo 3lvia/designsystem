@@ -16,12 +16,13 @@ const getTheme = (name: ThemeName) => {
 const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
   const theme = getTheme(themeName);
   const color =
-    theme.data[label as keyof typeof theme.data] ??
-    theme.state[label as keyof typeof theme.state] ??
     theme.text[label as keyof typeof theme.text] ??
     theme.background[label as keyof typeof theme.background] ??
-    theme.static[label as keyof typeof theme.static] ??
+    theme.border[label as keyof typeof theme.border] ??
+    theme.signal[label as keyof typeof theme.signal] ??
+    theme.data[label as keyof typeof theme.data] ??
     theme.icon[label as keyof typeof theme.icon] ??
+    theme.static[label as keyof typeof theme.static] ??
     null;
   if (!color) {
     console.error(`Color ${label} not found.`);
@@ -33,7 +34,7 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
 /**
  * Get a color from a theme by label.
  * @param label
- * @param themeName The theme name. Defaults to `'light'`.
+ * @param themeName The theme name. Defaults to `'light'`. This only affects the fallback color.
  * @returns CSS-variable for label, with fallback to the color hex.
  * @example
  * const color = getThemeColor('background-primary');
@@ -65,7 +66,7 @@ export const getThemeColorContrast = (label: ColorLabel, themeName: ThemeName = 
     console.error(`Color '${label}' not found.`);
     return '';
   }
-  if (!color.contrast) {
+  if (!('contrast' in color)) {
     console.error(`Color '${label}' does not have a contrast color.`);
     return '';
   }

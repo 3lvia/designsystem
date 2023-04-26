@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import {
   AccordionLabelPosition,
   AccordionSize,
@@ -43,16 +43,15 @@ export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
 `;
 
 const decideButtonFontSize = (size: AccordionSize) => {
-  if (size === 'small') {
-    return '14px';
+  switch (size) {
+    case 'small':
+      return '14';
+    case 'large':
+      return '20';
+    case 'medium':
+    default:
+      return '16';
   }
-  if (size === 'medium') {
-    return '16px';
-  }
-  if (size === 'large') {
-    return '20px';
-  }
-  return '16px';
 };
 
 interface AccordionButtonProps {
@@ -73,12 +72,12 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: ${({ hasBoldLabel, openDetailText }) =>
     !hasBoldLabel && openDetailText === undefined ? '400' : '500'};
-  font-size: ${({ size }) => decideButtonFontSize(size)};
+  font-size: ${({ size }) => `${decideButtonFontSize(size)}px`};
   line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
   ${({ typography }) => typography && getTypographyCss(typography)}
   text-align: left;
   cursor: pointer;
-  color: ${getColor('black')};
+  color: ${getThemeColor('text-1')};
   width: ${({ isFullWidth, currType }) => (isFullWidth && currType === 'normal' ? '100%' : 'auto')};
   justify-content: ${({ isFullWidth, currType }) =>
     isFullWidth && currType === 'normal' ? 'space-between' : 'inherit'};
@@ -107,8 +106,8 @@ export const AccordionLabel = styled.div<AccordionLabelProps>`
   display: ${({ openLabel, hasLabel }) => (openLabel && hasLabel ? 'flex' : 'none')};
   flex-direction: row;
   align-items: baseline;
-  margin-left: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '8px' : '0px')};
-  margin-right: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '0px' : '8px')};
+  margin-left: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '8px' : '0')};
+  margin-right: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '0' : '8px')};
 `;
 
 export const AccordionLabelText = styled.div`
@@ -134,8 +133,8 @@ export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
   ${({ size }) => decideDetailTextSize(size)};
   display: flex;
   text-align: left;
-  color: ${getColor('black')};
-  margin-left: ${({ openDetailText }) => (openDetailText !== undefined ? '8px;' : '0px;')};
+  color: ${getThemeColor('text-1')};
+  margin-left: ${({ openDetailText }) => (openDetailText !== undefined ? '8px;' : '0;')};
 `;
 
 const decideContentMarginTop = (
@@ -144,7 +143,7 @@ const decideContentMarginTop = (
   spacingAboveContent: AccordionSpacingContent,
 ): string => {
   if (type === 'overflow' || !hasContent) {
-    return '0px';
+    return '0';
   }
   return spacingAboveContent;
 };

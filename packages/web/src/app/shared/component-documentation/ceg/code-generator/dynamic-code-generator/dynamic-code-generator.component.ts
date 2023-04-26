@@ -39,10 +39,13 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
       this.componentSlots,
       this.controlManager.currentComponentTypeName,
       this.controlManager.getStaticProps(),
+      this.controlManager.getDisabledControls(),
     ])
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([controls, slots, type, staticProps]) => {
-        const props = this.getFlatPropList(controls ?? {}, staticProps ?? {}, type);
+      .subscribe(([controls, slots, type, staticProps, disabledControls]) => {
+        const props = this.getFlatPropList(controls ?? {}, staticProps ?? {}, type).filter(
+          (prop) => !disabledControls.includes(prop.name),
+        );
 
         this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
         this.vueCode = this.createWebComponentCode(props, slots, ':');

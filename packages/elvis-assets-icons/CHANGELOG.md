@@ -1,6 +1,26 @@
 # Elvis-assets-icon
 
-## 2.12.0 (20.09.23)
+## 2.13.0 (25.05.23)
+
+### New feature
+
+- `paper_plane_speed_color` deprecated
+- `paper_plane_speed-color` added
+- `laptop-color` updated
+
+- `car-color` added
+- `graph_down-color` added
+- `graph_down` added
+- `home_office` added
+- `mail-color` added
+- `office-color` added
+- `office` added
+- `paper_plane-color` added
+- `recycle-color` added
+- `recycle` added
+- `wrench-color` added
+
+## 2.12.0 (20.05.23)
 
 ### New feature
 
