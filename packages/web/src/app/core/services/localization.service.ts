@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 export enum Locale {
   'en-GB' = 0,
@@ -34,7 +35,7 @@ export class LocalizationService {
   }
 
   listenLocalization(): Observable<Locale> {
-    return this.localizationSubject.asObservable();
+    return this.localizationSubject.asObservable().pipe(distinctUntilChanged());
   }
 
   setLocalization(locale: Locale): void {
