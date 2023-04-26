@@ -39,7 +39,6 @@ export class AppComponent implements OnInit, OnDestroy {
       .urlPathChange()
       .pipe(takeUntil(this.unsubscriber))
       .subscribe(() => {
-        console.log('Scrolling to the top');
         this.viewportScroller.scrollToPosition([0, 0]);
       });
   }

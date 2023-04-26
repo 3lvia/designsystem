@@ -56,15 +56,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   constructor(private zone: NgZone, private route: ActivatedRoute, private router: Router) {}
 
   ngAfterViewInit(): void {
-    this.zone.onStable.pipe(takeUntil(this.unsubscriber), first()).subscribe(() => {
-      Object.entries(this.route.snapshot.queryParams).forEach(([propName, value]) => {
-        const isNumber =
-          this.componentExample.cegContent.getControlSnapshot()?.[propName]?.type === 'counter';
-        const parsedValue = isNumber ? +value : value;
-        this.setPropValue(propName, parsedValue, false);
-      });
-    });
-
+    this.setCegStateFromURL();
     this.setUpSlotSubscription();
     this.setUpTypeChangeSubscription();
     this.setUpStaticPropSubscription();
@@ -82,19 +74,45 @@ export class CegComponent implements AfterViewInit, OnDestroy {
       this.getWebComponent().setProps({ [propName]: value });
 
       if (setInUrl) {
-        this.router.navigate([], {
-          relativeTo: this.route,
-          queryParamsHandling: 'merge',
-          queryParams: { [propName]: value },
-          replaceUrl: true,
-          preserveFragment: true,
-        });
+        this.patchPropValueInUrl(propName, value);
       }
     }
   }
 
   toggleSlot(slotName: string, isVisible: boolean) {
     this.componentExample.cegContent.setPropValue(slotName, isVisible);
+    this.patchPropValueInUrl(slotName, isVisible);
+  }
+
+  setComponentType(typeName: string): void {
+    this.componentExample.cegContent.setActiveComponentTypeName(typeName);
+    this.patchPropValueInUrl('type', typeName, false);
+  }
+
+  private setCegStateFromURL(): void {
+    this.zone.onStable.pipe(takeUntil(this.unsubscriber), first()).subscribe(() => {
+      const componentType = this.route.snapshot.queryParamMap.get('type');
+      if (componentType) {
+        this.componentExample.cegContent.setActiveComponentTypeName(componentType);
+      }
+
+      Object.entries(this.route.snapshot.queryParams).forEach(([propName, value]) => {
+        const isNumber =
+          this.componentExample.cegContent.getControlSnapshot()?.[propName]?.type === 'counter';
+        const parsedValue = isNumber ? +value : value;
+        this.setPropValue(propName, parsedValue, false);
+      });
+    });
+  }
+
+  private async patchPropValueInUrl(propName: string, value: ControlValue, merge = true): Promise<void> {
+    await this.router.navigate([], {
+      relativeTo: this.route,
+      queryParamsHandling: merge ? 'merge' : '',
+      queryParams: { [propName]: value },
+      replaceUrl: true,
+      preserveFragment: true,
+    });
   }
 
   private getUpdatedSlotList(
