@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { getThemeColor, ThemeName, getShadow } from '@elvia/elvis-colors';
+import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 const mobileMax = '767px';
@@ -29,15 +29,11 @@ const modalDesktopWithIllustrationTitlePaddingBottom = '24px';
 const modalDesktopWithIllustrationTitleFontSize = '44px';
 const modalDesktopWithIllustrationTitleFontWeight = '900';
 
-const fadeIn = keyframes`0% {opacity: 0;} 100% {opacity: 1;}}`;
+const fadeIn = keyframes`0% {opacity: 0;} 100% {opacity: 1;}`;
 
 type ModalProps = {
   isShowing: boolean;
   disableBackdrop: boolean;
-};
-
-type IllustrationProps = {
-  theme: ThemeName;
 };
 
 type WrapperProps = {
@@ -82,7 +78,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
     maxWidth ? maxWidth : hasIllustration ? '1090px' : modalMaxWidth};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
-  background: ${getThemeColor('background-element')};
+  background: ${getThemeColor('background-overlay-1')};
   box-shadow: ${getShadow('soft')};
 
   ${({ hasIllustration }) =>
@@ -125,6 +121,7 @@ export const ModalContent = styled.div<ContentProps>`
   display: flex;
   flex-direction: column;
   z-index: 1;
+  background: transparent;
 
   ${({ hasIllustration }) =>
     hasIllustration &&
@@ -150,8 +147,8 @@ export const ModalContent = styled.div<ContentProps>`
 
 export const ModalIllustration = styled.div.attrs(() => ({
   role: 'presentation',
-}))<IllustrationProps>`
-  background: ${getThemeColor('background-tertiary')};
+}))`
+  background: ${getThemeColor('background-element-4')};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,9 +160,9 @@ export const ModalIllustration = styled.div.attrs(() => ({
 
   ::after {
     content: '';
-    background: ${getThemeColor('background-element')};
+    background: ${getThemeColor('background-overlay-1')};
     border-radius: 100%;
-    border: ${({ theme }) => (theme === 'dark' ? `1px solid ${getThemeColor('background-accent')}` : 'none')};
+    border: ${`1px solid ${getThemeColor('border-2')}`};
     position: absolute;
     height: calc(550px * 6.85);
     width: calc(550px * 6.85);
@@ -278,7 +275,7 @@ export const ModalCloseButton = styled.button`
   }
 
   :hover {
-    background-color: ${getThemeColor('state-on')};
-    border-color: ${getThemeColor('state-on')};
+    background-color: ${getThemeColor('background-hover-1')};
+    border-color: ${getThemeColor('border-hover-1')};
   }
 `;

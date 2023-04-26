@@ -9,18 +9,12 @@ import {
   ModalText,
   ModalActions,
 } from './styledComponents';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import {
-  warnDeprecatedProps,
-  useFocusTrap,
-  useSlot,
-  IconWrapper,
-  useCurrentTheme,
-} from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useFocusTrap, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { config } from './config';
 
@@ -86,8 +80,6 @@ export const ModalComponent: FC<ModalProps> = function ({
   const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent);
   const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent);
   const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent);
-
-  const { currentTheme } = useCurrentTheme(modalIllustration);
 
   const hasIllustration = !!illustration || !!(webcomponent && !!webcomponent.getSlot('illustration'));
   const hasPrimaryButton = !!primaryButton || !!(webcomponent && !!webcomponent.getSlot('primaryButton'));
@@ -155,10 +147,8 @@ export const ModalComponent: FC<ModalProps> = function ({
         maxWidth={maxWidth}
         data-testid="modal-wrapper"
       >
-        {illustration && <ModalIllustration theme={currentTheme}>{illustration}</ModalIllustration>}
-        {!illustration && hasIllustration && (
-          <ModalIllustration ref={modalIllustration} theme={currentTheme}></ModalIllustration>
-        )}
+        {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
+        {!illustration && hasIllustration && <ModalIllustration ref={modalIllustration}></ModalIllustration>}
         {hasCloseButton && (
           <ModalCloseButton
             onClick={() => handleOnClose()}
@@ -169,7 +159,7 @@ export const ModalComponent: FC<ModalProps> = function ({
           >
             <IconWrapper
               icon={close}
-              color={hasIllustration ? getColor('white') : undefined}
+              color={hasIllustration ? getThemeColor('static-white') : undefined}
               style={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
             />
           </ModalCloseButton>
