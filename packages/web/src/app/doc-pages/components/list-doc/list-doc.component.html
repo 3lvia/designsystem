@@ -8,9 +8,8 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <app-static-ceg style="width: 100%">
+    <app-static-ceg>
       <app-list-ceg />
     </app-static-ceg>
   </div>
@@ -24,6 +23,7 @@
           <app-static-ceg>
             <app-bullet-list-ceg />
           </app-static-ceg>
+          <app-when-to-use [whens]="doesExample1"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
 
@@ -33,6 +33,7 @@
           <app-static-ceg>
             <app-numbered-list-ceg />
           </app-static-ceg>
+          <app-when-to-use [whens]="doesExample3"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
 
@@ -42,6 +43,7 @@
           <app-static-ceg>
             <app-icon-list-ceg />
           </app-static-ceg>
+          <app-when-to-use [whens]="doesExample4"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
     </ng-container>

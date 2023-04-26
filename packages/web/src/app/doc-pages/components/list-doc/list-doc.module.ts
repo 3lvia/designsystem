@@ -8,7 +8,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ListDocComponent } from './list-doc.component';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
-import { CegModule } from '../../../shared/component-documentation/ceg/ceg.module';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { BulletListCegComponent } from './bullet-list-ceg/bullet-list-ceg.component';
 import { NumberedListCegComponent } from './numbered-list-ceg/numbered-list-ceg.component';
 import { IconListCegComponent } from './icon-list-ceg/icon-list-ceg.component';
