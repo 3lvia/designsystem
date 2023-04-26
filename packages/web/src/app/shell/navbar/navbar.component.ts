@@ -1,14 +1,14 @@
-import { AfterContentInit, Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { NavbarAnchor } from 'src/app/shared/shared.interface';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
-import { combineLatest, fromEvent, Subscription } from 'rxjs';
+import { combineLatest, fromEvent, Subject, Subscription } from 'rxjs';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
 import { LOCALE_CODE } from 'contentful/types';
-import { filter } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -16,14 +16,10 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
-  anchorChangeSubscription: Subscription;
-  anchorPosSubscription: Subscription;
-  listenOnScrollSubscription: Subscription;
-  routerSubscription: Subscription;
-  contentLoadedSubscription: Subscription;
-  anchorToScrollToSubscription: Subscription;
-  scrollEventTimeout: any;
-  startedScrollSub = false;
+  private unsubscriber = new Subject();
+  private listenOnScrollSubscription: Subscription;
+  private scrollEventTimeout: any;
+  private startedScrollSub = false;
   isLandingPage = false;
   isLoaded = false;
 
@@ -31,14 +27,13 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   activeNavbarItem: CMSNavbarItem;
   prevActiveNavbarItem: CMSNavbarItem;
   subMenuRoute: string;
-  oldSubMenuRoute: string;
-  clickedNavbarItem: CMSNavbarItem;
-  isCmsPage = false;
+  private clickedNavbarItem: CMSNavbarItem;
+  private isCmsPage = false;
 
   visibleAnchors: NavbarAnchor[] = [];
   prevVisibleAnchors: NavbarAnchor[] = [];
   activeAnchor: NavbarAnchor;
-  prevActiveAnchor: NavbarAnchor;
+  private prevActiveAnchor: NavbarAnchor;
 
   showLocaleToggle = true;
   locale: LOCALE_CODE = 'en-GB';
@@ -61,18 +56,13 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     const localizationSubscriber = this.localizationService.listenLocalization();
     const routerSubscriber = this.router.events.pipe(
       filter((event) => {
-        if (event instanceof NavigationEnd) {
-          // We do not want to trigger navigation events when only query params change.
-          const currentPath = location.pathname;
-          return currentPath !== event.urlAfterRedirects.split('?')[0];
-        }
-
-        return false;
+        return event instanceof NavigationEnd;
       }),
     );
     this.updateLocaleSwitchVisibility();
-    this.routerSubscription = combineLatest([localizationSubscriber, routerSubscriber]).subscribe(
-      ([locale]) => {
+    combineLatest([localizationSubscriber, routerSubscriber])
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(([locale]) => {
         this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
 
         this.updateLocaleSwitchVisibility();
@@ -85,26 +75,30 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
             this.updateAnchorList();
           }, 200);
         }
-      },
-    );
-    this.contentLoadedSubscription = this.cmsService.listenContentLoadedFromCMS().subscribe(() => {
-      this.setNewActiveNavbarItem();
-      setTimeout(() => {
-        this.updateAnchorList();
-        this.updateNavbarHeight();
-      }, 200);
-    });
-    this.anchorPosSubscription = this.scrollService
+      });
+    this.cmsService
+      .listenContentLoadedFromCMS()
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(() => {
+        this.setNewActiveNavbarItem();
+        setTimeout(() => {
+          this.updateAnchorList();
+          this.updateNavbarHeight();
+        }, 200);
+      });
+    this.scrollService
       .listenAnchorAtCurrPos()
+      .pipe(takeUntil(this.unsubscriber))
       .subscribe((anchor: NavbarAnchor) => {
         this.setNewActiveAnchor(anchor);
       });
-    this.anchorToScrollToSubscription = this.scrollService
+    this.scrollService
       .listenAnchorToScrollTo()
+      .pipe(takeUntil(this.unsubscriber))
       .subscribe((anchor: NavbarAnchor) => {
         this.chooseAnchor(anchor.title);
       });
-    this.anchorChangeSubscription = this.route.fragment.subscribe((fragment) => {
+    this.route.fragment.pipe(takeUntil(this.unsubscriber)).subscribe((fragment) => {
       setTimeout(() => {
         if (fragment) {
           this.chooseAnchor(fragment);
@@ -131,16 +125,12 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   ngOnDestroy(): void {
-    this.contentLoadedSubscription && this.contentLoadedSubscription.unsubscribe();
-    this.anchorPosSubscription && this.anchorPosSubscription.unsubscribe();
-    this.anchorChangeSubscription && this.anchorChangeSubscription.unsubscribe();
+    this.unsubscriber.next();
+    this.unsubscriber.complete();
     this.listenOnScrollSubscription && this.listenOnScrollSubscription.unsubscribe();
-    this.anchorToScrollToSubscription && this.anchorToScrollToSubscription.unsubscribe();
-    this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
   private setSubMenuRoute(): void {
-    this.oldSubMenuRoute = this.subMenuRoute;
     this.subMenuRoute = this.router.url.split('/')[1];
   }
 
