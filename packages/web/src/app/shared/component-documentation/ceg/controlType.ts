@@ -75,7 +75,7 @@ export type DisabledBy<T = Record<string, any>> = Readonly<
 >;
 
 export interface ComponentType<T> {
-  readonly name?: string;
+  readonly type?: string;
   readonly controls: Controls<T>;
   readonly groupOrder: string[];
   readonly staticProps?: Partial<StaticProps<T>>;
