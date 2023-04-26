@@ -162,7 +162,6 @@ export const ModalIllustration = styled.div.attrs(() => ({
     content: '';
     background: ${getThemeColor('background-overlay-1')};
     border-radius: 100%;
-    border: ${`1px solid ${getThemeColor('border-2')}`};
     position: absolute;
     height: calc(550px * 6.85);
     width: calc(550px * 6.85);
