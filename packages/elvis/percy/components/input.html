@@ -120,6 +120,54 @@
       </span>
     </div>
 
+    <div class="e-form-field e-w-50 e-mt-16">
+      <label class="e-form-field__label" for="invalid">Invalid compact input field with error-message</label>
+      <div class="e-input e-input--compact e-input---invalid">
+        <button class="e-btn e-btn--icon">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
+          </span>
+        </button>
+        <input id="validationExample" type="password" value="Passord" #validationExample />
+      </div>
+      <span class="e-form-field__error e-form-field__error--visible">
+        <span>
+          <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
+        </span>
+        <span>
+          Using
+          <code>e-input---invalid</code>
+          .
+          <em>Should</em>
+          be red
+        </span>
+      </span>
+    </div>
+
+    <div class="e-form-field e-w-50 e-mt-16">
+      <label class="e-form-field__label" for="invalid">Invalid compact input field with error-message</label>
+      <div class="e-input e-input--compact">
+        <button class="e-btn e-btn--icon">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
+          </span>
+        </button>
+        <input id="validationExample" type="password" value="Passord" invalid #validationExample />
+      </div>
+      <span class="e-form-field__error e-form-field__error--visible">
+        <span>
+          <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
+        </span>
+        <span>
+          Using
+          <code>invalid</code>
+          HTML attribute. Should
+          <em>not</em>
+          be red
+        </span>
+      </span>
+    </div>
+
     <div class="e-title-xs e-my-16">Focus</div>
     <div class="e-form-field">
       <label class="e-form-field__label" for="normal">Normal input field</label>

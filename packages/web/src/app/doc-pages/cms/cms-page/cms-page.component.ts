@@ -23,11 +23,11 @@ export class CMSPageComponent implements OnDestroy {
   showContentLoader = true;
   contentHTML: any = '';
   descriptionHTML: any = '';
-  lastUpdated;
+  lastUpdated: string;
   isCmsPage = true;
   landingPage = false;
   hasChecked = false;
-  activeEventListeners = [];
+  activeEventListeners: HTMLElement[] = [];
   errorMessages: CMSDocPageError[] = [];
 
   constructor(
@@ -92,8 +92,8 @@ export class CMSPageComponent implements OnDestroy {
   async getDocPageFromCMS(locale: Locale, pageId?: string): Promise<void> {
     this.removeClickEventListenersForCopyPath();
 
-    const id = pageId ? pageId : await this.cmsService.getPageSysId(locale);
-    const entry: IDocumentationPage = await this.cmsService.getEntryFromCMS(id);
+    const id = pageId ?? (await this.cmsService.getPageSysId(locale));
+    const entry = (await this.cmsService.getEntryFromCMS(id)) as IDocumentationPage;
     const docPage = await this.cmsService.getTransformedDocPageByEntry(entry, locale);
     this.setInnerHTMLToCMSContent(docPage);
     this.titleService.setTitle(docPage.title + ' | ' + 'Elvia design system');
@@ -113,9 +113,8 @@ export class CMSPageComponent implements OnDestroy {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
-    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    this.lastUpdated = new Date(this.cmsContent.lastUpdated);
-    this.lastUpdated = this.lastUpdated.toLocaleDateString('nb-NO', options).replace('/', '.');
+    const cmsLastUpdatedDate = new Date(this.cmsContent.lastUpdated);
+    this.lastUpdated = cmsLastUpdatedDate.toLocaleDateString('en-GB').replace('/', '.');
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
     this.addClickEventListenersForCopyPath();
@@ -131,7 +130,7 @@ export class CMSPageComponent implements OnDestroy {
         .querySelectorAll('.cms-section__title, .cms-heading1__title')
         .forEach((domElement: HTMLElement) => {
           const tooltip = domElement.querySelector('elvia-tooltip');
-          tooltip.addEventListener('click', () => this.copyAnchor(domElement['id']));
+          tooltip?.addEventListener('click', () => this.copyAnchor(domElement['id']));
           this.activeEventListeners.push(domElement);
         });
     });
@@ -150,9 +149,9 @@ export class CMSPageComponent implements OnDestroy {
   checkIfPageExistsInProject(): void {
     const currentPathWithoutAnchor = this.router.url.split('#')[0];
     if (currentPathWithoutAnchor.split('/')[2]) {
-      this.router.config[0].children.forEach((subRoute) => {
+      this.router.config[0].children?.forEach((subRoute) => {
         if (subRoute.path === currentPathWithoutAnchor.split('/')[1]) {
-          this.isCmsPage = !subRoute.children.some(
+          this.isCmsPage = !subRoute.children?.some(
             (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPathWithoutAnchor,
           );
         }
@@ -172,10 +171,10 @@ export class CMSPageComponent implements OnDestroy {
     const tooltipElement = document.getElementById(`elvia-tooltip-${id}`) as ElvisComponentWrapper;
     tooltipElement.setProps({ content: 'Copied!' });
 
-    anchorTitleElement.classList.add('anchor-copied');
+    anchorTitleElement?.classList.add('anchor-copied');
 
     setTimeout(() => {
-      anchorTitleElement.classList.remove('anchor-copied');
+      anchorTitleElement?.classList.remove('anchor-copied');
       tooltipElement.setProps({ content: 'Copy' });
     }, 800);
     const modifiedAnchor = id;

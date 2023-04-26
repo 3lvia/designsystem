@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./toggle-doc.component.scss'],
 })
 export class ToggleDocComponent {
-  figmaUrl = getComponent('toggle').figmaUrl;
-  description = getComponent('toggle').description;
-  title = getComponent('toggle').title;
+  figmaUrl = getComponent('toggle')?.figmaUrl;
+  description = getComponent('toggle')?.description;
+  title = getComponent('toggle')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

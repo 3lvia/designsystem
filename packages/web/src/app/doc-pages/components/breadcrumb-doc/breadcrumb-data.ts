@@ -29,46 +29,6 @@ const breadcrumbData: ComponentData = {
         "Custom CSS style object that can be added to the breadcrumb. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: `<Breadcrumb 
-  items={[
-    { href: 'https://design.elvia.io/', text: 'Home' },
-    { href: 'https://design.elvia.io/components', text: 'Components' },
-    { href: 'https://design.elvia.io/components/breadcrumb', text: 'Breadcrumbs' }
-  ]}
-></Breadcrumb>`,
-  codeAngular: `<elvia-breadcrumb
-  [items]="[
-    { href: 'https://design.elvia.io/', text: 'Home' },
-    { href: 'https://design.elvia.io/components', text: 'Components' },
-    { href: 'https://design.elvia.io/components/breadcrumb', text: 'Breadcrumbs' }
-  ]"
-></elvia-breadcrumb>`,
-  codeVue: `<elvia-breadcrumb
-  :items="[
-    { href: 'https://design.elvia.io/', text: 'Home' },
-    { href: 'https://design.elvia.io/components', text: 'Components' },
-    { href: 'https://design.elvia.io/components/breadcrumb', text: 'Breadcrumbs' }
-  ]"
-></elvia-breadcrumb>`,
-  codeNativeHTML: `<elvia-breadcrumb id="example-elvia-breadcrumb">
-</elvia-breadcrumb>`,
-  codeNativeScript: `  const breadcrumb = document.getElementById('example-elvia-breadcrumb');
-  const items = [
-    {
-      href: 'https://design.elvia.io/',
-      text: 'Home',
-    },
-    {
-      href: 'https://design.elvia.io/components',
-      text: 'Components',
-    },
-    {
-      href: 'https://design.elvia.io/components/breadcrumb',
-      text: 'Breadcrumbs',
-    },
-  ];
-  breadcrumb.setProps({items: items });
-  `,
 };
 
 export { breadcrumbData };

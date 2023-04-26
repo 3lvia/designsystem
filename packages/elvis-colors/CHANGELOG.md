@@ -1,5 +1,47 @@
 # Elvia Colors Changelog
 
+## 2.2.0 (25.04.23)
+
+### New feature
+
+- Added new theme color label: `border-5`.
+
+## 2.1.0 (25.04.23)
+
+### New feature
+
+- Added new theme color label: `background-element-5`.
+
+## 2.0.0 (25.04.23)
+
+### Breaking changes
+
+- Updated the theme color labels to the new ones.
+- Removed the `getColor()`. Use `getThemeColor()` or `getCustomThemeColor()` instead.
+- Removed the old color object, as it has been replaced by the new theme functionality and theme color object.
+
+### Patch
+
+- Improved the types for `getShadow()`.
+
+## 1.8.0 (09.03.23)
+
+### New feature
+
+- Added new theme color labels for icon colors.
+
+### Patch
+
+- Added missing export for `getThemeColorContrast()`.
+
+## 1.7.0 (01.03.23)
+
+### New feature
+
+- Added functionality for getting shadows. This introduces a new function `getShadow()` that returns a
+  css-variable that can be used to set box-shadow.
+- Generating `elvisShadowMap.scss` with a scss-map of all the shadows for use in elvis.
+
 ## 1.6.0 (24.02.23)
 
 ### New feature

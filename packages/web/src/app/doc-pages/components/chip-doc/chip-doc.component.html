@@ -1,5 +1,8 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
+>
   <ng-container ngProjectAs="headerTitle">Chip</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -8,7 +11,9 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+  <app-ceg>
+    <app-chip-ceg />
+  </app-ceg>
 
   <!-- TYPE -->
   <app-component-section [sectionTitle]="'Type'">
@@ -23,7 +28,7 @@
                 [value]="chip.value"
                 [color]="chip.color"
                 [isDisabled]="chip.isDisabled"
-                (onDelete)="handleOnDeleteInType($event.target.value)"
+                (onDelete)="handleOnDeleteInType($any($event).target.value)"
               ></elvia-chip>
             </div>
           </div>
@@ -40,7 +45,7 @@
                 [value]="2018"
                 type="legend"
                 isSelected="true"
-                (isSelectedOnChange)="handleOnChange($event)"
+                (isSelectedOnChange)="handleOnChange($any($event))"
               ></elvia-chip>
             </div>
             <div class="e-m-8">
@@ -49,7 +54,7 @@
                 type="legend"
                 color="purple"
                 isSelected="true"
-                (isSelectedOnChange)="handleOnChange($event)"
+                (isSelectedOnChange)="handleOnChange($any($event))"
               ></elvia-chip>
             </div>
             <div class="e-m-8">
@@ -57,7 +62,7 @@
                 [value]="2020"
                 type="legend"
                 color="red"
-                (isSelectedOnChange)="handleOnChange($event)"
+                (isSelectedOnChange)="handleOnChange($any($event))"
               ></elvia-chip>
             </div>
             <div class="e-m-8">
@@ -67,7 +72,7 @@
                 type="legend"
                 color="blue"
                 isDisabled="true"
-                (isSelectedOnChange)="handleOnChange($event)"
+                (isSelectedOnChange)="handleOnChange($any($event))"
               ></elvia-chip>
             </div>
           </div>
@@ -85,7 +90,7 @@
                 type="choice"
                 iconType="checkmark"
                 isSelected="true"
-                (isSelectedOnChange)="handleOnChange($event)"
+                (isSelectedOnChange)="handleOnChange($any($event))"
               ></elvia-chip>
             </div>
             <div class="e-m-8">
@@ -93,7 +98,7 @@
                 [value]="'Koblingsfeil'"
                 type="choice"
                 isSelected="false"
-                (isSelectedOnChange)="handleOnChange($event)"
+                (isSelectedOnChange)="handleOnChange($any($event))"
               ></elvia-chip>
             </div>
             <div class="e-m-8">
@@ -102,7 +107,7 @@
                 isSelected="true"
                 type="choice"
                 isDisabled="true"
-                (isSelectedOnChange)="handleOnChange($event)"
+                (isSelectedOnChange)="handleOnChange($any($event))"
               ></elvia-chip>
             </div>
           </div>
@@ -122,7 +127,7 @@
               <elvia-chip
                 [value]="chip.value"
                 [color]="chip.color"
-                (onDelete)="handleOnDeleteInType($event.detail.value)"
+                (onDelete)="handleOnDeleteInType($any($event).detail.value)"
               ></elvia-chip>
             </div>
           </div>
@@ -140,7 +145,7 @@
                 [value]="chip.value"
                 [color]="chip.color"
                 [isDisabled]="chip.disabled"
-                (onDelete)="handleOnDeleteColor($event.detail.value)"
+                (onDelete)="handleOnDeleteColor($any($event).detail.value)"
               ></elvia-chip>
             </div>
           </div>

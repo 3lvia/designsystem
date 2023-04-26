@@ -10,6 +10,7 @@ packages/web/src/assets/changelogs
 /packages/elvis/css/elvis.css
 /packages/elvis/css/elvis.min.css
 /packages/elvis/elvis.js
+/packages/elvis/elvis.full.js
 
 # Only exists if Bazel was run
 /bazel-out

@@ -13,9 +13,9 @@ export class ComponentHeaderComponent implements AfterViewInit {
   @ViewChild('contentWrapper') content: ElementRef;
 
   @Input() componentStatus = '';
-  @Input() figmaUrl: string;
+  @Input() figmaUrl?: string;
   @Input() figmaOnly = false;
-  @Input() lastUpdated: string;
+  @Input() lastUpdated?: string;
   @Output() selectedChange = new EventEmitter();
 
   DocPageStatus = DocPageStatus;
@@ -29,10 +29,10 @@ export class ComponentHeaderComponent implements AfterViewInit {
     this.currentRoute = this.currentRoute.substring(0, this.currentRoute.indexOf('/'));
     this.backBtn = this.currentRoute.replace('-', ' ');
 
-    this.scrollService.listenAnchorAtCurrPos().subscribe((anchor: NavbarAnchor) => {
+    this.scrollService.listenAnchorAtCurrPos().subscribe((anchor) => {
       this.activeAnchor = anchor;
     });
-    this.scrollService.listenAnchors().subscribe((anchors: NavbarAnchor[]) => {
+    this.scrollService.listenAnchors().subscribe((anchors) => {
       this.navbarAnchors = anchors;
       this.activeAnchor = this.navbarAnchors[0];
     });

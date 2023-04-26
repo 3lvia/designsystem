@@ -1,0 +1,26 @@
+<elvia-popover
+  verticalPosition="below"
+  horizontalPosition="center"
+  (onOpen)="popoverIsOpen = true"
+  (onClose)="popoverIsOpen = false"
+>
+  <div slot="content">
+    <app-controls
+      class="ceg-controls"
+      [controlManager]="controlManager"
+      (propChange)="onPropChange($event.propName, $event.value)"
+    />
+  </div>
+
+  <button
+    slot="trigger"
+    class="e-btn e-btn--icon"
+    aria-label="Open control popover"
+    [ngClass]="{ 'e-btn---active': popoverIsOpen }"
+  >
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--list e-icon--inverted" aria-hidden="true"></i>
+      <i class="e-icon e-icon--list" aria-hidden="true"></i>
+    </span>
+  </button>
+</elvia-popover>

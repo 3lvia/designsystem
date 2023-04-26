@@ -78,6 +78,7 @@ $form-input-padding-compact-active: 3px 9px;
     border: 2px solid colors.color('red');
   }
 
+  //duplication needed as unsupported browsers fail to read the :user-invalid selector
   input:user-invalid,
   textarea:user-invalid {
     padding: $form-input-padding-active;
@@ -110,6 +111,16 @@ $form-input-padding-compact-active: 3px 9px;
     @include helpers.placeholder() {
       color: colors.color('grey-30');
     }
+
+    &[type='number'] {
+      appearance: textfield;
+
+      ::-webkit-outer-spin-button,
+      ::-webkit-inner-spin-button {
+        margin: 0;
+        appearance: none;
+      }
+    }
   }
 
   &.e-input---readonly {
@@ -121,6 +132,16 @@ $form-input-padding-compact-active: 3px 9px;
       border: 1px solid transparent;
       background: colors.color('grey-02');
       color: colors.color('text-light');
+
+      &[type='number'] {
+        appearance: textfield;
+
+        ::-webkit-outer-spin-button,
+        ::-webkit-inner-spin-button {
+          margin: 0;
+          appearance: none;
+        }
+      }
     }
   }
 
@@ -205,6 +226,13 @@ $form-input-padding-compact-active: 3px 9px;
 
   &.e-input---invalid input,
   &.e-input---invalid textarea {
+    padding: $form-input-padding-compact-active;
+    border: 2px solid colors.color('red');
+  }
+
+  //duplication needed as unsupported browsers fail to read the :user-invalid selector
+  input:user-invalid,
+  textarea:user-invalid {
     padding: $form-input-padding-compact-active;
     border: 2px solid colors.color('red');
   }

@@ -1,5 +1,75 @@
 # Elvis-assets-icon
 
+## 2.13.0 (25.05.23)
+
+### New feature
+
+- `paper_plane_speed_color` deprecated
+- `paper_plane_speed-color` added
+- `laptop-color` updated
+
+- `car-color` added
+- `graph_down-color` added
+- `graph_down` added
+- `home_office` added
+- `mail-color` added
+- `office-color` added
+- `office` added
+- `paper_plane-color` added
+- `recycle-color` added
+- `recycle` added
+- `wrench-color` added
+
+## 2.12.0 (20.05.23)
+
+### New feature
+
+- New icons:
+  1. `columns`.
+  2. `step_6`.
+  3. `step_7`.
+  4. `step_8`.
+  5. `step_9`.
+  6. `step_10`.
+
+## 2.11.0 (09.03.23)
+
+### New feature
+
+- The color of the icons are now set using css-variables. The variables are defined in `@elvia/elvis`, but
+  have a fallback value in case Elvis is not present. This introduces support for dark theme.
+
+### Patch
+
+- Migrated the build system to Typescript.
+
+### Bug fix
+
+- Fixed an issue with the `step_` icons.
+
+## 2.10.2 (07.03.23)
+
+### Patch
+
+- Added missing file export for the Typescript declaration file.
+
+## 2.10.1 (06.03.23)
+
+### Patch
+
+- Renamed icon `movie` to `media-color`.
+
+## 2.10.0 (06.03.23)
+
+### New feature
+
+- New icons:
+  1. `fearless`.
+  2. `link`.
+  3. `magic`.
+  4. `movie`.
+  5. `shortcut`.
+
 ## 2.9.0 (07.02.23)
 
 ### New feature

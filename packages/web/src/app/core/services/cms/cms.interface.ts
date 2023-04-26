@@ -5,8 +5,8 @@ export interface TransformedDocPage {
   pageDescription: string;
   figmaUrl: string;
   content: string;
-  isMainPage: boolean | string;
-  docUrl: string;
+  isMainPage: boolean;
+  docUrl?: string;
   fullPath: string;
   lastUpdated: string;
   errorMessages: CMSDocPageError[];
@@ -21,7 +21,7 @@ export interface CMSSubMenu {
   title: string;
   entry_id: string;
   entry: ISubMenu;
-  path: string;
+  path?: string;
 }
 
 export interface CMSMenu {

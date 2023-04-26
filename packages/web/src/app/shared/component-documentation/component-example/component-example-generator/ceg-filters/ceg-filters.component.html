@@ -2,7 +2,7 @@
   <form class="ceg-side-filter e-form_field e-w-100" *ngFor="let formGroup of formGroupList; let i = index">
     <!--Radios-->
     <div
-      *ngIf="formGroup.formType === 'radio' && (formGroup | visibleFields: formStates:false)"
+      *ngIf="formGroup.formType === 'radio' && (formGroup | visibleFields : formStates : false)"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
@@ -14,7 +14,7 @@
         for="{{ formGroup.label }}-{{ formField.name }}-{{ desktop }}"
         (change)="
           onInputValueChange(formGroup, undefined, formField.name);
-          updateRadioProp(formGroup.propName, formField.name, formGroup.type)
+          updateRadioProp(formGroup.propName, formField.name, $any(formGroup.type))
         "
       >
         <input
@@ -22,7 +22,7 @@
           id="{{ formGroup.label }}-{{ formField.name }}-{{ desktop }}"
           name="{{ formGroup.label }}"
           [checked]="formField.defaultValue"
-          [disabled]="!(formGroup | visibleFields: formStates:true)"
+          [disabled]="!(formGroup | visibleFields : formStates : true)"
         />
         <span class="e-radio__mark"></span>
         <span
@@ -40,7 +40,7 @@
 
     <!--Toggle-->
     <div
-      *ngIf="formGroup.formType === 'toggle' && (formGroup | visibleFields: formStates:false)"
+      *ngIf="formGroup.formType === 'toggle' && (formGroup | visibleFields : formStates : false)"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
@@ -50,7 +50,7 @@
         class="e-toggle"
         role="switch"
         [ngClass]="{
-          'e-toggle---disabled': !(formGroup | visibleFields: formStates:true)
+          'e-toggle---disabled': !(formGroup | visibleFields : formStates : true)
         }"
       >
         {{ formGroup.label }}
@@ -60,14 +60,14 @@
           id="{{ formGroup.propName }}-{{ desktop }}"
           [checked]="formGroup.defaultValue"
           (change)="onInputValueChange(formGroup, $event, undefined); updateToggleCheckboxProp(formGroup)"
-          [disabled]="!(formGroup | visibleFields: formStates:true)"
+          [disabled]="!(formGroup | visibleFields : formStates : true)"
         />
       </label>
     </div>
 
     <!--Checkbox-->
     <div
-      *ngIf="formGroup.formType === 'checkbox' && (formGroup | visibleFields: formStates:false)"
+      *ngIf="formGroup.formType === 'checkbox' && (formGroup | visibleFields : formStates : false)"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
@@ -81,7 +81,7 @@
           "
           class="e-checkbox e-checkbox--compact"
           [ngClass]="{
-            'e-ml-8': (formField | checkboxChildFields: componentData)
+            'e-ml-8': (formField | checkboxChildFields : componentData)
           }"
         >
           <input
@@ -89,7 +89,7 @@
             type="checkbox"
             id="{{ formField.propName }}-{{ desktop }}"
             name="{{ formGroup.label }}"
-            [disabled]="!(formField | visibleFields: formStates:true)"
+            [disabled]="!(formField | visibleFields : formStates : true)"
             checked
           />
           <input
@@ -97,7 +97,7 @@
             type="checkbox"
             id="{{ formField.propName }}-{{ desktop }}"
             name="{{ formGroup.label }}"
-            [disabled]="!(formField | visibleFields: formStates:true)"
+            [disabled]="!(formField | visibleFields : formStates : true)"
           />
           <span class="e-checkbox__mark"></span>
           <span class="e-checkbox__label">{{ formField.name }}</span>
@@ -107,7 +107,7 @@
 
     <!--Counter-->
     <div
-      *ngIf="formGroup.formType === 'counter' && (formGroup | visibleFields: formStates:false)"
+      *ngIf="formGroup.formType === 'counter' && (formGroup | visibleFields : formStates : false)"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
@@ -116,13 +116,15 @@
       <div class="counter">
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8"
-          [disabled]="counterNumber === formGroup.counterMin || !(formGroup | visibleFields: formStates:true)"
+          [disabled]="
+            counterNumber === formGroup.counterMin || !(formGroup | visibleFields : formStates : true)
+          "
           (click)="
             onInputValueChange(formGroup, undefined, counterNumber ? counterNumber : formGroup.defaultValue);
             updateCounterProp(
-              counterNumber ? counterNumber : formGroup.defaultValue,
+              counterNumber ? counterNumber : $any(formGroup.defaultValue),
               formGroup,
-              -formGroup.counterStepValue
+              -$any(formGroup.counterStepValue)
             )
           "
           aria-label="Subtract from count"
@@ -132,7 +134,7 @@
               class="e-icon e-icon--subtract_circle"
               [ngClass]="{
                 'e-icon--color-disabled':
-                  counterNumber === formGroup.counterMin || !(formGroup | visibleFields: formStates:true)
+                  counterNumber === formGroup.counterMin || !(formGroup | visibleFields : formStates : true)
               }"
               aria-hidden="true"
             ></i>
@@ -142,8 +144,8 @@
         <span
           class="counter__number e-text-md"
           [ngClass]="{
-            small: formGroup.counterMax < 10,
-            disabled: !(formGroup | visibleFields: formStates:true)
+            small: $any(formGroup.counterMax) < 10,
+            disabled: !(formGroup | visibleFields : formStates : true)
           }"
           *ngIf="counterNumber !== undefined"
         >
@@ -152,8 +154,8 @@
         <span
           class="counter__number e-text-md"
           [ngClass]="{
-            small: formGroup.counterMax < 10,
-            disabled: !(formGroup | visibleFields: formStates:true)
+            small: $any(formGroup.counterMax) < 10,
+            disabled: !(formGroup | visibleFields : formStates : true)
           }"
           *ngIf="counterNumber === undefined"
         >
@@ -161,13 +163,15 @@
         </span>
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"
-          [disabled]="counterNumber === formGroup.counterMax || !(formGroup | visibleFields: formStates:true)"
+          [disabled]="
+            counterNumber === formGroup.counterMax || !(formGroup | visibleFields : formStates : true)
+          "
           (click)="
             onInputValueChange(formGroup, undefined, counterNumber ? counterNumber : formGroup.defaultValue);
             updateCounterProp(
-              counterNumber ? counterNumber : formGroup.defaultValue,
+              counterNumber ? counterNumber : $any(formGroup.defaultValue),
               formGroup,
-              formGroup.counterStepValue
+              $any(formGroup.counterStepValue)
             )
           "
           aria-label="Add to count"
@@ -177,7 +181,7 @@
               class="e-icon e-icon--add_circle"
               [ngClass]="{
                 'e-icon--color-disabled':
-                  counterNumber === formGroup.counterMax || !(formGroup | visibleFields: formStates:true)
+                  counterNumber === formGroup.counterMax || !(formGroup | visibleFields : formStates : true)
               }"
               aria-hidden="true"
             ></i>

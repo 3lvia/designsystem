@@ -1,5 +1,8 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
+>
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -11,7 +14,7 @@
   <!--CEG-->
   <app-component-example-generator
     [componentData]="componentData"
-    width="70"
+    [width]="70"
   ></app-component-example-generator>
 
   <!--USAGE-->

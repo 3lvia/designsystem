@@ -23,6 +23,14 @@
         </ng-container>
       </app-copy>
     </div>
+    <div class="e-text-md e-mt-8">or</div>
+    <div class="code-text e-mt-8">
+      <app-copy message="yarn add @elvia/{{ packageName }}">
+        <ng-container ngProjectAs="copyContent">
+          <span class="code-text" style="line-height: 26px">yarn add @elvia/{{ packageName }}</span>
+        </ng-container>
+      </app-copy>
+    </div>
   </li>
   <li>
     <strong>Import package:</strong>

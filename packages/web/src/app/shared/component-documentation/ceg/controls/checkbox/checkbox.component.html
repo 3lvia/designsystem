@@ -1,0 +1,16 @@
+<label
+  class="e-checkbox e-checkbox--compact"
+  [for]="checkboxId"
+  [ngClass]="{ indented: isChild, 'e-checkbox---disabled': disabled || checkbox.disabledBy }"
+>
+  <input
+    type="checkbox"
+    [id]="checkboxId"
+    [checked]="checkbox.value"
+    (change)="onChange(input.checked)"
+    [disabled]="disabled || checkbox.disabledBy"
+    #input
+  />
+  <span class="e-checkbox__mark"></span>
+  <span class="e-checkbox__label">{{ checkbox.label }}</span>
+</label>

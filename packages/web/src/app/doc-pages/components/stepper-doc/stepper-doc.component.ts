@@ -14,9 +14,9 @@ export interface Step {
   styleUrls: ['./stepper-doc.component.scss'],
 })
 export class StepperDocComponent implements OnInit {
-  figmaUrl = getComponent('stepper').figmaUrl;
-  description = getComponent('stepper').description;
-  title = getComponent('stepper').title;
+  figmaUrl = getComponent('stepper')?.figmaUrl;
+  description = getComponent('stepper')?.description;
+  title = getComponent('stepper')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "03.04.23",
+      "version": "7.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix broken type exports."]
+        }
+      ]
+    },
+    {
       "date": "03.02.23",
       "version": "7.1.0",
       "changelog": [

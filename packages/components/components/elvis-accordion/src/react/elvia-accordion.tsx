@@ -86,11 +86,14 @@ const Accordion: FC<AccordionProps> = ({
       setContentHeight(current.scrollHeight);
     };
     const observer = new MutationObserver(updateContentHeight);
+    const ro = new ResizeObserver(updateContentHeight);
     observer.observe(current, { childList: true, subtree: true });
+    ro.observe(current);
     updateContentHeight();
 
     return () => {
       observer.disconnect();
+      ro.disconnect();
     };
   }, [accordionContentRef, accordionContentRef.current]);
 

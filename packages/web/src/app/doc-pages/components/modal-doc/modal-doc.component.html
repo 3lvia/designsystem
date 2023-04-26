@@ -1,5 +1,8 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
+>
   <ng-container ngProjectAs="headerTitle">Modal</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -9,10 +12,9 @@
 <!--BODY-->
 <div class="page-body">
   <!--CEG-->
-  <app-component-example-generator
-    [componentData]="componentData"
-    [typesData]="typesData"
-  ></app-component-example-generator>
+  <app-ceg>
+    <app-modal-ceg />
+  </app-ceg>
 
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
@@ -47,10 +49,9 @@
           If you need multiple pages in the modal
           <a class="e-link e-link--inline" [routerLink]="['/components/carousel']">carousel</a>
           are added to navigate. A close icon button is then added to make it easy to escape the modal.
-          <app-component-example-generator
-            [componentData]="modalMultipageCode"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-ceg [fullWidth]="true">
+            <app-modal-multiple-pages-ceg />
+          </app-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>

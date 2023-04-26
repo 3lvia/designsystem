@@ -1,6 +1,6 @@
 <!--PROPERTIES-->
 
-<div class="e-mt-72" *ngIf="elements.length > 0 || modifiers.length !== 0 || psuedos.length !== 0">
+<div class="e-mt-72" *ngIf="elements.length > 0 || modifiers.length !== 0 || pseudos.length !== 0">
   <div *ngIf="container">
     <h3 class="e-title-sm e-mt-72 e-mb-16">Container</h3>
     <ul class="e-list">
@@ -59,10 +59,10 @@
     </ul>
   </div>
 
-  <div *ngIf="psuedos.length !== 0">
+  <div *ngIf="pseudos.length !== 0">
     <h3 class="e-title-sm e-mt-72 e-mb-16">Pseudos</h3>
     <ul class="e-list">
-      <div *ngFor="let psu of psuedos" class="prop-element">
+      <div *ngFor="let psu of pseudos" class="prop-element">
         <li>
           <app-copy [message]="psu">
             <ng-container ngProjectAs="copyContent">

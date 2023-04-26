@@ -1,0 +1,46 @@
+<fieldset class="e-strip-fieldset" *ngFor="let group of groups">
+  <legend class="fieldset-legend e-text-sm-strong">{{ group.name }}</legend>
+
+  <ng-container *ngFor="let control of group.controls | keyvalue : noSort">
+    <ng-container *ngIf="control.value">
+      <app-radio-group
+        *ngIf="control.value.type === 'radioGroup'"
+        [radioGroup]="control.value"
+        (toggle)="updateValue(control.key, $event)"
+      />
+
+      <ng-container *ngIf="control.value.type === 'checkbox'">
+        <app-checkbox [checkbox]="control.value" (toggle)="updateValue(control.key, $event)" />
+        <app-checkbox
+          [disabled]="!control.value.value"
+          [isChild]="true"
+          *ngFor="let child of control.value.children | keyvalue : noSort"
+          [checkbox]="child.value"
+          (toggle)="updateValue(child.key, $event)"
+        />
+      </ng-container>
+
+      <app-switch
+        *ngIf="control.value.type === 'switch' || control.value.type === 'slotToggle'"
+        [switch]="control.value"
+        (toggle)="
+          control.value.type === 'switch'
+            ? updateValue(control.key, $event)
+            : slotToggleChange(control.key, $event)
+        "
+      />
+
+      <app-counter
+        *ngIf="control.value.type === 'counter'"
+        [counter]="control.value"
+        (valueChange)="updateValue(control.key, $event)"
+      />
+
+      <app-text
+        *ngIf="control.value.type === 'text'"
+        [input]="control.value"
+        (valueChange)="updateValue(control.key, $event)"
+      />
+    </ng-container>
+  </ng-container>
+</fieldset>

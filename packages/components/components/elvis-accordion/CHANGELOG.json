@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "??.03.23",
+      "date": "26.04.23",
       "version": "2.9.0",
       "changelog": [
         {
@@ -12,6 +12,18 @@
         {
           "type": "patch",
           "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "14.03.23",
+      "version": "2.8.16",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Improved the detection of changing heights inside the accordion content, which should avoid the accordion not opening properly."
+          ]
         }
       ]
     },
