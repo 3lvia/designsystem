@@ -8,6 +8,7 @@ import { Counter } from '../../controlType';
 })
 export class CounterComponent {
   @Input() counter: Counter;
+  @Input() disabled: boolean;
   @Output() valueChange = new EventEmitter<Counter['value']>();
 
   updateValue(delta: Counter['value']): void {

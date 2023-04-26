@@ -36,6 +36,11 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.groupOrder));
   }
 
+  getGroupOrderSnapshot(): string[] | undefined {
+    const typeIndex = this.getCurrentComponentTypeIndex();
+    return this._componentTypes.value[typeIndex]?.groupOrder;
+  }
+
   getStaticProps(): Observable<Partial<StaticProps<TComponentProps>> | undefined> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.staticProps));
   }
@@ -47,11 +52,6 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
 
   getCurrentComponentTypeNameSnapshot(): string | undefined {
     return this._currentComponentTypeName.value;
-  }
-
-  getGroupOrderSnapshot(): string[] | undefined {
-    const typeIndex = this.getCurrentComponentTypeIndex();
-    return this._componentTypes.value[typeIndex]?.groupOrder;
   }
 
   setActiveComponentTypeName(name: string): void {
@@ -78,6 +78,27 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
             isVisible: control?.value,
           }))
           .concat(hiddenSlots ?? []);
+      }),
+    );
+  }
+
+  getDisabledControls(): Observable<(keyof TComponentProps)[]> {
+    return this.getCurrentControls().pipe(
+      map((currentControls) => {
+        const typeIndex = this.getCurrentComponentTypeIndex();
+        const disableMap = this._componentTypes.value[typeIndex].disabledControls;
+
+        if (!disableMap) {
+          return [];
+        }
+
+        return Object.entries(disableMap)
+          .filter(([_, disabledBy]) => {
+            const controlValues =
+              disabledBy?.map((controlName) => !!currentControls?.[controlName]?.value) || [];
+            return controlValues.some((controlValue) => controlValue === true);
+          })
+          .map(([controlName]) => controlName);
       }),
     );
   }
