@@ -46,21 +46,23 @@ export class CMSService {
       const pages = menu['pages'][0].entry.fields.pages;
       const localeKey = (Object.keys(pages!)[localization] ?? 'en-GB') as LOCALE_CODE;
       const subMenu = menu['pages'].find((subMenu) => subMenu.path === urlWithoutAnchor[1]);
-      if (urlWithoutAnchor[1] === 'preview' && urlWithoutAnchor[2]) {
-        pageId = urlWithoutAnchor[2];
+      const urlWithoutQueryParams = urlWithoutAnchor[2]?.split('?')[0];
+
+      if (urlWithoutAnchor[1] === 'preview' && urlWithoutQueryParams) {
+        pageId = urlWithoutQueryParams;
       } else {
         if (!subMenu) {
           console.error('Can´t find this submenu: ' + urlWithoutAnchor[1]);
           this.router.navigate(['not-found']);
         }
-        if (!urlWithoutAnchor[2] && subMenu?.entry.fields.landingPage) {
+        if (!urlWithoutQueryParams && subMenu?.entry.fields.landingPage) {
           pageId = extractLocale(subMenu.entry.fields.landingPage, localeKey)?.sys.id ?? '';
         } else if (subMenu?.entry.fields.pages) {
           const docPage = extractLocale(subMenu.entry.fields.pages, localeKey)?.find(
-            (page) => extractLocale(page.fields.path, localeKey) === urlWithoutAnchor[2],
+            (page) => extractLocale(page.fields.path, localeKey) === urlWithoutQueryParams,
           );
           if (!docPage) {
-            console.error('Can´t find this docPage: ' + urlWithoutAnchor[2]);
+            console.error('Can´t find this docPage: ' + urlWithoutQueryParams);
             this.router.navigate(['not-found']);
           }
           pageId = docPage!.sys.id;

@@ -8,6 +8,7 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
 import { LOCALE_CODE } from 'contentful/types';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -58,22 +59,31 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
 
   ngOnInit(): void {
     const localizationSubscriber = this.localizationService.listenLocalization();
-    const routerSubscriber = this.router.events;
+    const routerSubscriber = this.router.events.pipe(
+      filter((event) => {
+        if (event instanceof NavigationEnd) {
+          // We do not want to trigger navigation events when only query params change.
+          const currentPath = location.pathname;
+          return currentPath !== event.urlAfterRedirects.split('?')[0];
+        }
+
+        return false;
+      }),
+    );
     this.updateLocaleSwitchVisibility();
     this.routerSubscription = combineLatest([localizationSubscriber, routerSubscriber]).subscribe(
-      ([locale, routerEvent]) => {
+      ([locale]) => {
         this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
-        if (routerEvent instanceof NavigationEnd) {
-          this.updateLocaleSwitchVisibility();
-          this.setSubMenuRoute();
-          this.isLandingPage = this.router.url.split('/')[2] === undefined;
-          this.updateNavbarList(locale);
-          this.checkIfPageExistsInProject();
-          if (!this.isCmsPage) {
-            setTimeout(() => {
-              this.updateAnchorList();
-            }, 200);
-          }
+
+        this.updateLocaleSwitchVisibility();
+        this.setSubMenuRoute();
+        this.isLandingPage = this.router.url.split('/')[2] === undefined;
+        this.updateNavbarList(locale);
+        this.checkIfPageExistsInProject();
+        if (!this.isCmsPage) {
+          setTimeout(() => {
+            this.updateAnchorList();
+          }, 200);
         }
       },
     );
@@ -142,15 +152,20 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     return currentRoute;
   }
 
+  private getCurrentPathWithoutAnchorOrParams(): string {
+    const urlWithoutAnchor = this.router.url.split('#')[0];
+    return urlWithoutAnchor.split('?')[0];
+  }
+
   private checkIfPageExistsInProject(): void {
-    const currentPathWithoutAnchor = this.router.url.split('#')[0];
-    if (currentPathWithoutAnchor === '/components') {
+    const currentPath = this.getCurrentPathWithoutAnchorOrParams();
+    if (currentPath === '/components') {
       this.isCmsPage = false;
-    } else if (currentPathWithoutAnchor.split('/')[2]) {
+    } else if (currentPath.split('/')[2]) {
       this.router.config[0].children?.forEach((subRoute) => {
-        if (subRoute.path === currentPathWithoutAnchor.split('/')[1]) {
+        if (subRoute.path === currentPath.split('/')[1]) {
           this.isCmsPage = !subRoute.children?.some(
-            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPathWithoutAnchor,
+            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPath,
           );
         }
       });
@@ -161,10 +176,10 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
 
   private async updateNavbarList(locale: Locale): Promise<void> {
     this.isLoaded = false;
-    const routeWithoutAnchor = this.router.url.split('#')[0];
+    const currentPath = this.getCurrentPathWithoutAnchorOrParams();
     this.navbarList = await this.cmsService.getSubMenuList(locale);
     this.navbarList.forEach((element) => {
-      if (element.docUrl === routeWithoutAnchor.split('/')[2]) {
+      if (element.docUrl === currentPath.split('/')[2]) {
         this.markNewActiveNavbarItem(element);
         if (!this.isCmsPage) {
           this.setNewActiveNavbarItem();
@@ -204,8 +219,9 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       return;
     }
     this.visibleAnchors = newVisibleAnchors;
-    if (this.router.url.split('#')[1]) {
-      this.chooseAnchor(this.router.url.split('#')[1]);
+    const anchor = this.router.url.split('#')[1];
+    if (anchor) {
+      this.chooseAnchor(anchor);
     } else {
       this.chooseAnchor(this.visibleAnchors[0].title);
     }
