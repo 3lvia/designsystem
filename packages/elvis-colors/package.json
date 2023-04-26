@@ -1,12 +1,11 @@
 {
   "name": "@elvia/elvis-colors",
-  "version": "1.8.0",
+  "version": "2.2.0",
   "description": "Elvia colors",
   "license": "MIT",
   "author": "",
-  "main": "dist/elviaColors.js",
-  "types": "dist/elviaColors.d.ts",
-  "style": "dist/elviaColors.scss",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "gulp"
   },

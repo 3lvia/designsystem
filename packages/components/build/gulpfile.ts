@@ -153,6 +153,7 @@ function TSX_to_JS() {
               [
                 '@babel/preset-env',
                 {
+                  modules: false,
                   targets: [
                     '>0.2%, last 2 versions, Firefox ESR, not dead, not IE <= 11, not op_mini all, not op_mob > 0',
                   ],
