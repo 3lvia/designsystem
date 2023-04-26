@@ -1,0 +1,20 @@
+.component-example-container {
+  position: relative;
+  grid-row: 2;
+  grid-column: 1;
+  border: 1px solid var(--e-grey-10);
+  border-radius: 8px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+}
+
+/** Even though ::ng-deep is deprecated, it's still the current
+ * recommended way of partially disabling view encapsulation.
+ * By setting "display: contents" on the child CEG component, isFullWidth works as expected.
+ **/
+.component-example-container ::ng-deep > :first-child {
+  display: contents;
+}

@@ -1,11 +1,5 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
-.alert-type-container-desktop {
-  display: none;
-  @include breakpoints.breakpoint-up(MaxDesktop) {
-    display: block;
-  }
-}
 .e-table-mobile {
   display: none;
   @include breakpoints.breakpoint-up(Mobile) {
@@ -26,8 +20,9 @@
     flex-direction: column;
     justify-content: flex-start;
   }
+
   @include breakpoints.breakpoint-up(MaxDesktop) {
-    display: none;
+    flex-direction: row;
   }
 
   .alert-type-item {
@@ -40,6 +35,9 @@
     margin-top: 24px;
     @include breakpoints.breakpoint-up(MinDesktop) {
       text-align: left;
+    }
+    @include breakpoints.breakpoint-up(MaxDesktop) {
+      align-items: flex-start;
     }
 
     .type-images {

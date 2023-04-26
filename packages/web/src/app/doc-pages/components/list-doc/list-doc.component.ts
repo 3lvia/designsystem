@@ -9,9 +9,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./list-doc.component.scss'],
 })
 export class ListDocComponent {
-  figmaUrl = getComponent('list').figmaUrl;
-  description = getComponent('list').description;
-  title = getComponent('list').title;
+  figmaUrl = getComponent('list')?.figmaUrl;
+  description = getComponent('list')?.description;
+  title = getComponent('list')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

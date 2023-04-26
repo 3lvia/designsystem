@@ -9,9 +9,9 @@ import { Title } from '@angular/platform-browser';
 export class AlertMessagesComponent {
   @ViewChild('alertAccordionExample') alertAccordionExample: ElementRef;
 
-  figmaUrl = getComponent('alert').figmaUrl;
-  description = getComponent('alert').description;
-  title = getComponent('alert').title;
+  figmaUrl = getComponent('alert')?.figmaUrl;
+  description = getComponent('alert')?.description;
+  title = getComponent('alert')?.title;
 
   doesAlertDefault = [
     'Message related to the content of the page.',
@@ -75,28 +75,6 @@ export class AlertMessagesComponent {
            <div>Description with an <a class="e-link e-link--inline">inline link.</a></div>
         </div>
      </div>
-  </div>
-</div>
-`;
-
-  localAlertClosable = `<div class="e-alert e-alert--info" role="note">
-  <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
-  </div>
-  <div class="e-alert__content">
-    <div class="e-alert__title">Short title</div>
-    <div class="e-alert__text">
-      <ul>
-        <li>Bullet list</li>
-        <li>Bullet list</li>
-        <li>Bullet list</li>
-      </ul>
-    </div>
-  </div>
-  <div class="e-alert__close">
-    <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
-    </button>
   </div>
 </div>
 `;
@@ -211,102 +189,6 @@ export class AlertMessagesComponent {
   </div>
   <div class="e-alert__content">
      <div class="e-alert__text">General information for all users across applications.</div>
-  </div>
-</div>
-`;
-
-  toastAlert = `<div role="status">
-  <div class="e-alert e-alert--toast" >
-     <div class="e-alert__icon">
-        <i class="e-icon e-icon--check_circle e-icon--color-green" aria-hidden="true"></i>
-     </div>
-     <div class="e-alert__content">
-        <div class="e-alert__title">Short title</div>
-        <div class="e-alert__text">A successful confirmation message.</div>
-     </div>
-  </div>
-</div>
-`;
-
-  toastAlertClosable = `<div role="status">
-  <div class="e-alert e-alert--toast">
-     <div class="e-alert__icon">
-        <i class="e-icon e-icon--check_circle e-icon--color-green" aria-hidden="true"></i>
-     </div>
-     <div class="e-alert__content">
-        <div class="e-alert__title">Short title</div>
-        <div class="e-alert__text">A successful confirmation message.</div>
-     </div>
-     <div class="e-alert__close">
-        <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
-        </button>
-     </div>
-  </div>
-</div>
-`;
-
-  toastAlertNoTitle = `<div role="status">
-  <div class="e-alert e-alert--toast e-alert--no-title" >
-     <div class="e-alert__icon">
-        <i class="e-icon e-icon--check_circle e-icon--color-green" aria-hidden="true"></i>
-     </div>
-     <div class="e-alert__content">
-        <div class="e-alert__text">A successful confirmation message.</div>
-     </div>
-  </div>
-</div>
-`;
-
-  // STATUSES
-  errorStatus = `<div role="alert">
-  <div class="e-alert">
-    <div class="e-alert__icon">
-      <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
-    </div>
-    <div class="e-alert__content">
-      <div class="e-alert__title">Danger</div>
-      <div class="e-alert__text">Describe what went wrong.</div>
-    </div>
-  </div>
-</div>
-`;
-
-  warnStatus = `<div role="status">
-  <div class="e-alert e-alert--warn">
-    <div class="e-alert__icon">
-      <i class="e-icon e-icon--warning_circle e-icon--color-orange" aria-hidden="true"></i>
-    </div>
-    <div class="e-alert__content">
-      <div class="e-alert__title">Warn</div>
-      <div class="e-alert__text">Describe what went wrong.</div>
-    </div>
-  </div>
-</div>
-`;
-
-  infoStatus = `<div role="note">
-  <div class="e-alert e-alert--info">
-    <div class="e-alert__icon">
-      <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
-    </div>
-    <div class="e-alert__content">
-      <div class="e-alert__title">Info</div>
-      <div class="e-alert__text">Important information.</div>
-    </div>
-  </div>
-</div>
-`;
-
-  positiveStatus = `<div role="status">
-  <div class="e-alert e-alert--toast" >
-    <div class="e-alert__icon">
-      <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
-    </div>
-    <div class="e-alert__content">
-      <div class="e-alert__title">Positive</div>
-      <div class="e-alert__text">Describe what went right.</div>
-    </div>
   </div>
 </div>
 `;

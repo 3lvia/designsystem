@@ -1,6 +1,121 @@
 {
   "content": [
     {
+      "version": "11.3.1",
+      "date": "April 21, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed icons not being correctly centered when resized."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "11.3.0",
+      "date": "April 20, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add new icons: <code>columns</code>, <code>step_6</code>, <code>step_7</code>, <code>step_8</code>, <code>step_9</code>, and <code>step_10</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "11.2.0",
+      "date": "April 18, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new classes <code>e-table__cell--invalid</code> and <code>e-table__row--invalid</code> which can be used to show validation state in tables."
+          ],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        }
+      ]
+    },
+    {
+      "version": "11.1.0",
+      "date": "March 16, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>e-alert--toast</code> is now marked as deprecated. Use the Elvia toast component instead."
+          ],
+          "components": [{ "displayName": "Toast", "url": "https://design.elvia.io/components/toast" }]
+        }
+      ]
+    },
+    {
+      "version": "11.0.0",
+      "date": "March 9, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Icons are now injected as SVG elements into the DOM, instead of the previous method of injecting them as background images. This changes the internal DOM structure of the icons, however it should not affect how icons are used or displayed. This change also allows icons to be recolored using CSS-variables.",
+            "The classes to set colors of icons have been changed. Most color classes should still function the same way, but some have been renamed or removed. New color names prefer the use of semantic names. E.g.: if you have used <code>e-icon--color-grey-30</code>, you should now use <code>e-icon--color-disabled</code> instead. For a full overview of what colors are available for icons, see <a class=\"e-link\" href=\"https://design.elvia.io/brand/icon#Options\">the icon page</a>.",
+            "<code>elvis.js</code> no longer contains an object of all the Elvia colors.",
+            "Updated internal <code>@elvia/elvis-typography</code> dependency to <code>2.3.2</code>. In this update, the line height for 'Text medium' typography on mobile has been adjusted to 160% from its previous value of 175%."
+          ],
+          "fixes": [
+            "Check that the colors you use for icons are still working. If you need any icon colors that are not available, please contact the design system and we will help you.",
+            "Adjust your design to accommodate for the new, smaller, line height for 'Text medium' typography on mobile."
+          ],
+          "pages": [
+            { "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" },
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }
+          ],
+          "components": [
+            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
+            { "displayName": "Autocomplete", "url": "https://design.elvia.io/components/autocomplete" },
+            { "displayName": "File Upload", "url": "https://design.elvia.io/components/file-upload" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" },
+            { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": ["Icons now support theme functionality."]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "The <code>elvis.js</code> script is now minified by default. If you need the non-minified version, it is named <code>elvis.full.js</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "10.6.0",
+      "date": "March 6, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Renamed icon <code>movie</code> to <code>media-color</code>."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "10.5.0",
+      "date": "March 6, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add new icons: <code>fearless</code>, <code>link</code>, <code>magic</code>, <code>movie</code>, and <code>shortcut</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "10.4.1",
       "date": "March 1, 2023",
       "changelog": [

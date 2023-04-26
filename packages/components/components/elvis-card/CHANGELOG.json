@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.04.23",
+      "version": "3.2.0",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Moved type export.", "Updated borderColor prop to have default 'none' type"]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
+            "The <code>hasBorder</code> has been deprecated. The card now has one design that can be used on both white and grey backgrounds."
+          ]
+        }
+      ]
+    },
+    {
       "date": "11.01.23",
       "version": "3.1.0",
       "changelog": [

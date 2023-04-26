@@ -9,9 +9,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./chip-doc.component.scss'],
 })
 export class ChipDocComponent {
-  title = getComponent('chip').title;
-  figmaUrl = getComponent('chip').figmaUrl;
-  description = getComponent('chip').description;
+  title = getComponent('chip')?.title;
+  figmaUrl = getComponent('chip')?.figmaUrl;
+  description = getComponent('chip')?.description;
   does = chipData.does;
   donts = chipData.donts;
   componentData = chipData;
@@ -36,7 +36,7 @@ export class ChipDocComponent {
     { value: 2021, color: 'green', isDisabled: true },
   ];
 
-  colorChips = [
+  colorChips: { value: string; color: string; disabled?: boolean }[] = [
     { value: '2019', color: 'red' },
     { value: '2021', color: 'red' },
     { value: '1239840912', color: 'purple' },

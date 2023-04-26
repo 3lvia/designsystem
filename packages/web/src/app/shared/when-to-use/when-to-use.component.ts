@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LOCALE_CODE } from 'contentful/types';
 
 @Component({
   selector: 'app-when-to-use',
@@ -6,6 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./when-to-use.component.scss'],
 })
 export class WhenToUseComponent {
-  @Input() whens = [''];
-  @Input() whenNots = [''];
+  @Input() whens? = [''];
+  @Input() whenNots? = [''];
+  @Input() locale: LOCALE_CODE = 'en-GB';
 }

@@ -55,6 +55,7 @@ import { TagDocComponent } from './doc-pages/components/tag-doc/tag-doc.componen
 import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
 import { ThumbnailDocComponent } from './doc-pages/components/thumbnail-doc/thumbnail-doc.component';
 import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
+import { ToastDocComponent } from './doc-pages/components/toast-doc/toast-doc.component';
 import { ToggleDocComponent } from './doc-pages/components/forms/toggle-doc/toggle-doc.component';
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
 import { TypographyDocComponent } from './doc-pages/other-pages/typography-doc/typography-doc.component';
@@ -320,6 +321,10 @@ const routes: Routes = [
           {
             path: Pages.Thumbnail,
             component: ThumbnailDocComponent,
+          },
+          {
+            path: Pages.Toast,
+            component: ToastDocComponent,
           },
           {
             path: Pages.Tooltip,

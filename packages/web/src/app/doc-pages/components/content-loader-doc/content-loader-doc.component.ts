@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./content-loader-doc.component.scss'],
 })
 export class ContentLoaderDocComponent {
-  figmaUrl = getComponent('content-loader').figmaUrl;
-  description = getComponent('content-loader').description;
-  title = getComponent('content-loader').title;
+  figmaUrl = getComponent('content-loader')?.figmaUrl;
+  description = getComponent('content-loader')?.description;
+  title = getComponent('content-loader')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

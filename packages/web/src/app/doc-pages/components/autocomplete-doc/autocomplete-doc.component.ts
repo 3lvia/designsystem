@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./autocomplete-doc.component.scss'],
 })
 export class AutocompleteDocComponent {
-  figmaUrl = getComponent('autocomplete').figmaUrl;
-  description = getComponent('autocomplete').description;
-  title = getComponent('autocomplete').title;
+  figmaUrl = getComponent('autocomplete')?.figmaUrl;
+  description = getComponent('autocomplete')?.description;
+  title = getComponent('autocomplete')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

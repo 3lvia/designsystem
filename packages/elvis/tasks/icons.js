@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const icons = require('@elvia/elvis-assets-icons/config/icons.config');
-const svgToMiniDataURI = require('mini-svg-data-uri');
 const fs = require('fs');
 const svgIcons = require('@elvia/elvis-assets-icons/icons.cjs.js');
 const resolve = require('resolve');
@@ -47,11 +46,13 @@ async function createEmbeddedIconsJS() {
     const fileContent = svgIcons[createCamelCase(iconsToInclude[i].name)].getIcon();
     const iconName = iconsToInclude[i].name;
 
-    const optimizedSVGDataURI = svgToMiniDataURI(fileContent);
+    const iconsWithReplacedDimensions = fileContent
+      .replace(/width="([^"]*)"/, `width="100%"`)
+      .replace(/height="([^"]*)"/, `height="100%"`);
     embeddedJs =
       embeddedJs +
       `
-     "e-icon--${iconName}":"${optimizedSVGDataURI}"`;
+     "e-icon--${iconName}":'${iconsWithReplacedDimensions}'`;
 
     if (i < iconsToInclude.length - 1) {
       embeddedJs += ',';
@@ -86,7 +87,6 @@ async function createEmbeddedIconsJS() {
   const template = fs.readFileSync('./src/templates/elvis.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', embeddedJs);
   fs.writeFileSync('elvis.js', newContent);
-  fs.writeFileSync('../web/src/assets/js/elvis.js', newContent);
 
   return true;
 }

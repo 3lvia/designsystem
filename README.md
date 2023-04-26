@@ -144,6 +144,13 @@ If for some reason a package publishing fails, you can publish all the packages 
 `yarn publish --otp <INSERT_OTP>` from root. It will publish all packages where the version number is updated
 from what is currently published and the package is not marked as private in the `package.json`.
 
+### Updating Yarn
+
+We use Yarn 3 (berry) for this project. To update Yarn, run `yarn set version stable`. This will update the
+Yarn version in the `.yarn/releases`-folder, as well as the `.yarnrc.yml` and `package.json` files. If the
+`netlify.toml` doesn't automatically update the `[build.environment] YARN_VERSION`, this must be changed too.
+Commit the changes (including the `yarn-3.x.x.cjs`-file) and push to the repository.
+
 ## 🤝 Contribute
 
 Feedback from everyone in Elvia is welcomed and developers and designers are urged to contribute where they

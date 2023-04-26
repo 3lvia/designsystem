@@ -24,6 +24,7 @@ import { Slider } from '@elvia/elvis-slider/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
+import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -132,6 +133,17 @@ function App() {
   const tabsItems = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const [isChipLoading, setIsChipLoading] = useState(false);
 
+  // Toast
+  const showToast = () => {
+    openElviaToast({
+      title: 'Test title',
+      body: 'This is an information toast',
+      status: 'informative',
+      closable: true,
+      duration: 2000000,
+    });
+  };
+
   return (
     <Header
       appTitle="Louvre"
@@ -162,6 +174,7 @@ function App() {
       pageTitle="Components"
       appContent={
         <div className="App e-pt-40">
+          <Toast />
           <h1 className="e-mt-0">React Preview</h1>
           <div className="components-examples">
             {/* CURRENTLY TESTING */}
@@ -251,7 +264,6 @@ function App() {
             <div className="example-wrapper">
               <h3>Box</h3>
               <Box
-                hasBorder={true}
                 isColored={true}
                 title={<h1>Title for the box component</h1>}
                 content={<div>Heisann dette er en box component sendt med som node i react</div>}
@@ -508,10 +520,17 @@ function App() {
               <h3>Tabs</h3>
               <Tabs items={tabsItems} value={2} valueOnChange={(event) => logValue('Tabs', event)}></Tabs>
             </div>
+
+            {/* TIMEPICKER */}
             <div className="example-wrapper">
               <h3>Timepicker</h3>
               <Timepicker />
             </div>
+
+            {/* TOAST */}
+            <button className="e-btn" onClick={showToast}>
+              Show toast
+            </button>
           </div>
         </div>
       }
