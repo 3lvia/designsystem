@@ -1,14 +1,15 @@
 import { AfterContentInit, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { NavbarAnchor } from 'src/app/shared/shared.interface';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { combineLatest, fromEvent, Subject, Subscription } from 'rxjs';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
 import { LOCALE_CODE } from 'contentful/types';
-import { filter, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
+import { RouterService } from '../../core/services/router.service';
 
 @Component({
   selector: 'app-navbar',
@@ -45,6 +46,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     private location: Location,
     private cmsService: CMSService,
     private localizationService: LocalizationService,
+    private routerService: RouterService,
   ) {}
 
   @HostListener('window:popstate') // for updating side menu on changes to the history (clicking back-button)
@@ -54,13 +56,9 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
 
   ngOnInit(): void {
     const localizationSubscriber = this.localizationService.listenLocalization();
-    const routerSubscriber = this.router.events.pipe(
-      filter((event) => {
-        return event instanceof NavigationEnd;
-      }),
-    );
+
     this.updateLocaleSwitchVisibility();
-    combineLatest([localizationSubscriber, routerSubscriber])
+    combineLatest([localizationSubscriber, this.routerService.urlPathChange()])
       .pipe(takeUntil(this.unsubscriber))
       .subscribe(([locale]) => {
         this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
