@@ -50,12 +50,6 @@ export class DropdownCegComponent implements ComponentExample {
           label: 'Label',
           value: 'Land',
         },
-        placeholder: {
-          group: 'Placeholder',
-          type: 'text',
-          label: 'Placeholder',
-          value: 'Land',
-        },
       },
       staticProps: {
         value: 'Norge',
