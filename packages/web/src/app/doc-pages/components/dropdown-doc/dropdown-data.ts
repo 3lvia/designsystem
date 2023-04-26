@@ -33,7 +33,7 @@ export const dropdownData: ComponentData = {
     isDisabled: {
       isRequired: false,
       type: 'boolean',
-      description: 'Set dropdown to a disabled state.',
+      description: 'Set the dropdown to a disabled state.',
       default: 'false',
     },
     isFullWidth: {
