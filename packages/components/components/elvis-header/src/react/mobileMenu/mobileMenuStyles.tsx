@@ -6,24 +6,20 @@ import { headerZIndex, toolbarHeight } from '../styledComponents';
 const fadeIn = keyframes`
   from {
     transform: scaleY(0.7);
-    opacity: 0;
   }
 
   to {
     transform: scaleY(1);
-    opacity: 1;
   }
   `;
 
 const fadeOut = keyframes`
   from {
     transform: scaleY(1);
-    opacity: 1;
   }
 
   to {
     transform: scaleY(0.5);
-    opacity: 0;
   }
   `;
 
