@@ -5,7 +5,7 @@ import { headerZIndex, toolbarHeight } from '../styledComponents';
 
 const fadeIn = keyframes`
   from {
-    transform: scaleY(0.7);
+    transform: scaleY(0);
   }
 
   to {
@@ -19,7 +19,7 @@ const fadeOut = keyframes`
   }
 
   to {
-    transform: scaleY(0.5);
+    transform: scaleY(0);
   }
   `;
 
