@@ -16,8 +16,8 @@
     <app-header-ceg />
   </app-ceg>
 
-  <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
+  <!-- Implementation -->
+  <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
       The header contains a general top menu and a side navigation section. The navigation bar on the side
       contain app-specific tabs, while the top menu gathers general navigation, such as the app switch and any
@@ -27,16 +27,25 @@
         <ng-container ngProjectAs="sectionContent">
           Since routing usually is performed by a framework-specific library, the DOM for the sidenav items is
           written in your app. This enables use of routing-library features, such as setting active sidenav
-          item and changing icon between colored and grayscale if desired. See the examples in the CEG on how
-          the DOM structure should be like.
+          item and changing icon between colored and grayscale. See the examples in the CEG on how the DOM
+          structure should be like.
+          <div class="e-mt-16">
+            Use the CSS classes
+            <ul class="e-list">
+              <li><code>e-sidenav__container</code></li>
+              <li><code>e-sidenav__icon-container</code></li>
+              <li><code>e-sidenav__item</code></li>
+              <li><code>e-sidenav__item-text</code></li>
+            </ul>
+          </div>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection sectionTitle="Active sidenav item">
         <ng-container ngProjectAs="sectionContent">
           The active state of sidenav items can be toggled with the CSS class
-          <span class="code-text no-wrap">e-sidenav__item--active</span>
+          <code>e-sidenav__item--active</code>
           and should be added to the link element that already has the class
-          <span class="code-text no-wrap">e-sidenav__item</span>
+          <code>e-sidenav__item</code>
           . The toggle of the active class depends on your framework or routing library, but most modern
           routing libraries has an attribute for setting an active class on routes (see for example
           <a
@@ -59,6 +68,20 @@
             <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
           </a>
           for Vue).
+          <p>
+            Use a colored icon from our
+            <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">icon library</a>
+            for active sidenav items. If your desired icon does not have a colored variant, please
+            <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">contact Team Atom</a>
+            .
+          </p>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection sectionTitle="Additional content in the header">
+        <ng-container ngProjectAs="sectionContent">
+          You can include additional content besides the page title in the Header by using the
+          <code>pageTitle</code>
+          as a slot rather than just a string. For instance, you can add an icon button or a status message.
         </ng-container>
       </app-component-subsection>
     </ng-container>

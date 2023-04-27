@@ -10,6 +10,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { HeaderCegComponent } from './header-ceg/header-ceg.component';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module
     ComponentPropertiesTableModule,
     ComponentChangelogModule,
     CegModule,
+    RouterModule,
   ],
   declarations: [HeaderDocComponent, HeaderCegComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
