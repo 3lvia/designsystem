@@ -68,14 +68,6 @@ export class v2PlaygroundComponent {
     end: (date: Date) => date.getDate() % 7 === 0,
   };
 
-  showLouvreHeader = true;
-  showElflowHeader = false;
-
-  toggleHeader = () => {
-    this.showLouvreHeader = !this.showLouvreHeader;
-    this.showElflowHeader = !this.showElflowHeader;
-  };
-
   // Dropdown
   selectedDropdownItem = 'sverige';
   longDropdownList = dropdownData;

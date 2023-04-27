@@ -5,55 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <elvia-header
-        username="Tonje Hansen Haugsvær (ekstern)"
-        email="tonje.haugsvær@elvia.no"
-        [appTitle]="'designsystemet'"
-      >
-        <div slot="pageTitle" (click)="toggleHeader()">
-          <div *ngIf="showLouvreHeader" style="display: flex; align-items: center; gap: 8px">
-            <span>Bildesøk</span>
-            <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
-          </div>
-
-          <div
-            style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px"
-            *ngIf="showElflowHeader"
-          >
-            <span>Send melding</span>
-            <div class="e-text-sm-light" style="display: flex; align-items: center">
-              Meldingprossering
-              <div class="e-tag e-tag--green e-ml-8">Kjører</div>
-            </div>
-          </div>
-        </div>
-
-        <div slot="navItems" class="e-sidenav__container">
-          <a href="#" class="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
-            <div class="e-sidenav__icon-container">
-              <i class="e-icon e-icon--sm e-icon--search"></i>
-              <i class="e-icon e-icon--sm e-icon--search-color"></i>
-            </div>
-            <div class="e-sidenav__item-text">Dashbord</div>
-          </a>
-          <a href="#" class="e-sidenav__item" aria-label="Søk">
-            <div class="e-sidenav__icon-container">
-              <i class="e-icon e-icon--sm e-icon--upload"></i>
-              <i class="e-icon e-icon--sm e-icon--upload e-icon--upload-color"></i>
-            </div>
-            <div class="e-sidenav__item-text">Søk</div>
-          </a>
-          <a href="#" class="e-sidenav__item" aria-label="Analyse">
-            <div class="e-sidenav__icon-container">
-              <i class="e-icon e-icon--sm e-icon--full_battery"></i>
-              <i class="e-icon e-icon--sm e-icon--full_battery-color"></i>
-            </div>
-            <div class="e-sidenav__item-text">Analyse</div>
-          </a>
-        </div>
-      </elvia-header>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
