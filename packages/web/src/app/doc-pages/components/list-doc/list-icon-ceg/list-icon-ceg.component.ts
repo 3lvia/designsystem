@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
-import * as template from 'html-loader!./icon-list-ceg.component.html';
+import * as template from 'html-loader!./list-icon-ceg.component.html';
 
 @Component({
-  selector: 'app-icon-list-ceg',
-  templateUrl: './icon-list-ceg.component.html',
+  selector: 'app-list-icon-ceg',
+  templateUrl: './list-icon-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: IconListCegComponent }],
 })
 export class IconListCegComponent implements StaticComponentExample {
