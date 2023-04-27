@@ -22,7 +22,7 @@ export class TypeSwitcherComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.controlManager.componentTypes.pipe(takeUntil(this.unsubscriber)).subscribe((componentTypes) => {
       this.dropdownOptions = componentTypes.map(
-        (option) => ({ label: option.name, value: option.name } as DropdownOption),
+        (option) => ({ label: option.type, value: option.type } as DropdownOption),
       );
       this.selectedOption = this.dropdownOptions[0].value;
     });

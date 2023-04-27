@@ -20,7 +20,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     controls: ComponentType<TComponentProps>[],
   ) {
     this._componentTypes.next(controls);
-    this._currentComponentTypeName.next(controls[0].name);
+    this._currentComponentTypeName.next(controls[0].type);
   }
 
   getCurrentControls(): Observable<Controls<TComponentProps> | undefined> {
@@ -129,7 +129,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
   }
 
   private getCurrentComponentTypeIndex(): number {
-    return this._componentTypes.value.findIndex((conf) => conf.name === this._currentComponentTypeName.value);
+    return this._componentTypes.value.findIndex((conf) => conf.type === this._currentComponentTypeName.value);
   }
 
   private getControl(
@@ -157,7 +157,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
   private getCurrentComponentType(): Observable<ComponentType<TComponentProps> | undefined> {
     return combineLatest([this.componentTypes, this.currentComponentTypeName]).pipe(
       map(([componentTypes, name]) => {
-        return componentTypes.find((configuration) => configuration.name === name);
+        return componentTypes.find((configuration) => configuration.type === name);
       }),
     );
   }

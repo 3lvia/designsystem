@@ -11,7 +11,7 @@ export class ChipCegComponent implements ComponentExample {
   elementName = 'chip';
   cegContent = new CegControlManager<ChipProps>([
     {
-      name: 'Removable',
+      type: 'Removable',
       controls: {
         color: {
           type: 'radioGroup',
@@ -43,7 +43,7 @@ export class ChipCegComponent implements ComponentExample {
       groupOrder: ['Color', 'State', 'Text'],
     },
     {
-      name: 'Legend',
+      type: 'Legend',
       controls: {
         color: {
           type: 'radioGroup',
@@ -75,7 +75,7 @@ export class ChipCegComponent implements ComponentExample {
       groupOrder: ['Color', 'State', 'Text'],
     },
     {
-      name: 'Choice',
+      type: 'Choice',
       controls: {
         isDisabled: {
           label: 'Disabled',
