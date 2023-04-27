@@ -13,7 +13,7 @@ export class AccordionCegComponent implements ComponentExample {
 
   cegContent = new CegControlManager<AccordionProps>([
     {
-      name: 'Normal',
+      type: 'Normal',
       controls: {
         labelPosition: {
           type: 'radioGroup',
@@ -37,13 +37,13 @@ export class AccordionCegComponent implements ComponentExample {
         },
         isFullWidth: { type: 'checkbox', group: 'Options', label: 'Full width' },
         isStartAligned: { type: 'checkbox', group: 'Options', label: 'Start Aligned' },
-        closeLabel: { type: 'text', group: 'Label When Closed', label: 'Label when closed', value: 'Show' },
-        openLabel: { type: 'text', group: 'Label When Open', label: 'Label when open', value: 'Hide' },
+        closeLabel: { type: 'text', group: 'Label When Open', label: 'Label when open', value: 'Hide' },
+        openLabel: { type: 'text', group: 'Label When Closed', label: 'Label when closed', value: 'Show' },
       },
       groupOrder: ['Position', 'Size', 'Options', 'Label When Closed', 'Label When Open'],
     },
     {
-      name: 'Overflow',
+      type: 'Overflow',
       controls: {
         labelPosition: {
           type: 'radioGroup',
@@ -66,13 +66,13 @@ export class AccordionCegComponent implements ComponentExample {
           ],
         },
         isStartAligned: { type: 'checkbox', group: 'Options', label: 'Start Aligned' },
-        closeLabel: { type: 'text', group: 'Label When Closed', label: 'Label when closed', value: 'Show' },
-        openLabel: { type: 'text', group: 'Label When Open', label: 'Label when open', value: 'Hide' },
+        closeLabel: { type: 'text', group: 'Label When Open', label: 'Label when open', value: 'Hide' },
+        openLabel: { type: 'text', group: 'Label When Closed', label: 'Label when closed', value: 'Show' },
       },
       groupOrder: ['Position', 'Size', 'Options', 'Label When Closed', 'Label When Open'],
     },
     {
-      name: 'Single',
+      type: 'Single',
       controls: {
         size: {
           type: 'radioGroup',

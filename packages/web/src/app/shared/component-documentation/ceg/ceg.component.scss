@@ -2,7 +2,7 @@
 
 .ceg-container {
   display: grid;
-  grid-template-columns: 8fr 2fr;
+  grid-template-columns: 7.5fr 2.5fr;
   gap: 16px 24px;
 
   @include breakpoints.breakpoint-up(Mobile) {
@@ -42,6 +42,7 @@
 
 .component-example-container,
 .code-generator {
+  overflow: auto;
   &.full-width-example {
     grid-column: 1 / -1;
   }

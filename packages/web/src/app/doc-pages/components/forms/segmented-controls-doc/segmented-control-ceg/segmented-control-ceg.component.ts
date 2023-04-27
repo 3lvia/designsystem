@@ -11,7 +11,7 @@ export class SegmentedControlCegComponent implements ComponentExample {
   elementName = 'segmented-control';
   cegContent = new CegControlManager<SegmentedControlProps>([
     {
-      name: 'Text',
+      type: 'Text',
       controls: {
         size: {
           type: 'radioGroup',
@@ -30,7 +30,7 @@ export class SegmentedControlCegComponent implements ComponentExample {
       },
     },
     {
-      name: 'Icon',
+      type: 'Icon',
       controls: {
         size: {
           type: 'radioGroup',

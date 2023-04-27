@@ -33,7 +33,7 @@ const modalData: ComponentData = {
     secondaryButton: {
       isRequired: false,
       type: 'HTMLElement | JSX.Element',
-      description: 'Secondary button placed to the right in the modal (slot in webcomponent).',
+      description: 'Secondary button placed to the left in the modal (slot in webcomponent).',
     },
     className: {
       isRequired: false,
