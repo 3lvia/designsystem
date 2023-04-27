@@ -49,7 +49,8 @@ export class MobileMenuComponent implements OnDestroy {
     this.onDestroy.next();
   }
 
-  navigate(path: string): void {
+  navigate(path?: string): void {
+    if (!path) return;
     this.router.navigate(['/' + path]);
     this.onClose();
   }
