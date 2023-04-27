@@ -34,7 +34,7 @@ export class FormatCodePipe implements PipeTransform {
    * Needed for Prettier.
    */
   private addClosingTagsToVoidElements = (code: string): string => {
-    const tags = code.match(/<(img|input|hr)[^>]*>/g);
+    const tags = code.match(/<(img|input|hr)[^>]*[^\/]>/g);
 
     if (tags) {
       tags.forEach((tag) => {
