@@ -2388,7 +2388,7 @@ __metadata:
   resolution: "@elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb"
   dependencies:
     "@elvia/elvis-assets-icons": ^2.13.0
-    "@elvia/elvis-colors": ^2.0.0
+    "@elvia/elvis-colors": ^2.2.0
     "@elvia/elvis-component-wrapper": ^4.1.1
     "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.1
@@ -2412,7 +2412,7 @@ __metadata:
   resolution: "@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-assets-icons": ^2.13.0
-    "@elvia/elvis-colors": ^2.0.0
+    "@elvia/elvis-colors": ^2.2.0
     "@elvia/elvis-component-wrapper": ^4.1.1
     "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.1
