@@ -51,7 +51,11 @@ export const MenuContainer = styled.div<{ fadeOut: boolean }>`
   ${(props) =>
     props.fadeOut &&
     css`
-      animation: ${fadeOut} 200ms ease;
+      animation: ${fadeOut} 250ms ease-out;
+
+      > * {
+        opacity: 0;
+      }
     `}
 
   &::before {
@@ -84,7 +88,7 @@ export const Backdrop = styled.div<{ fadeOut: boolean }>`
   ${(props) =>
     props.fadeOut &&
     css`
-      animation: ${backdropFadeOut} 200ms ease;
+      animation: ${backdropFadeOut} 250ms ease;
     `};
 `;
 

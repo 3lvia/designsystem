@@ -19,7 +19,7 @@
           "changes": [
             "Header now uses the <code>getShadow</code> helpers functions from the Elvia colors package.",
             "Improved the aria roles for pop-up elements in the Header.",
-            "Improved the opening and closing animations on mobile."
+            "Adjusted the opening and closing animations on mobile."
           ]
         }
       ]
