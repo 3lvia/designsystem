@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
-import { exampleContents } from 'src/app/shared/example-contents';
 import { Title } from '@angular/platform-browser';
 
 @Component({
