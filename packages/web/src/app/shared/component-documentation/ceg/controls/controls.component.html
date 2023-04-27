@@ -33,6 +33,7 @@
       <app-counter
         *ngIf="control.value.type === 'counter'"
         [counter]="control.value"
+        [disabled]="isDisabled(control.key)"
         (valueChange)="updateValue(control.key, $event)"
       />
 

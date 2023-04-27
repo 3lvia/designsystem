@@ -29,7 +29,7 @@ export class ScrollService {
     });
   }
 
-  listenAnchorToScrollTo(): Observable<any> {
+  listenAnchorToScrollTo(): Observable<NavbarAnchor> {
     return this.subjectAnchorScrollTo.asObservable();
   }
   newAnchorToScrollTo(anchorToScrollTo: NavbarAnchor): void {
@@ -43,7 +43,7 @@ export class ScrollService {
     this.subjectAnchorAtPositions.next(anchorAtPos);
   }
 
-  listenAnchors(): Observable<any> {
+  listenAnchors(): Observable<NavbarAnchor[]> {
     return this.subjectAnchorsNew.asObservable();
   }
   newAnchors(anchors: NavbarAnchor[]): void {

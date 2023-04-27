@@ -171,7 +171,7 @@ export class CMSService {
    * @param pageId
    * @returns Object from Netlify.
    */
-  async getEntryFromCMS(pageId: string): Promise<any> {
+  async getEntryFromCMS(pageId: string): Promise<IEntry> {
     return this.http
       .get(`https://elvis-designsystem.netlify.app/.netlify/functions/services?id=${pageId}`)
       .toPromise()

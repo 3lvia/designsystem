@@ -11,7 +11,7 @@ export class DividerCegComponent implements ComponentExample {
   elementName = 'divider';
   cegContent = new CegControlManager<DividerProps>([
     {
-      name: 'Simple',
+      type: 'Simple',
       controls: {
         orientation: {
           type: 'radioGroup',
@@ -26,7 +26,7 @@ export class DividerCegComponent implements ComponentExample {
       groupOrder: ['Orientation'],
     },
     {
-      name: 'Title',
+      type: 'Title',
       controls: {
         typography: {
           type: 'radioGroup',
@@ -44,7 +44,7 @@ export class DividerCegComponent implements ComponentExample {
       },
     },
     {
-      name: 'Curved',
+      type: 'Curved',
       controls: {},
       groupOrder: [],
     },

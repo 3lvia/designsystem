@@ -8,16 +8,10 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <ul class="e-list">
-      <li>Bullet point list</li>
-      <li>Bullet point list</li>
-      <li>Bullet point list</li>
-    </ul>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="overviewExample"></app-component-example-v1>
-    </div>
+    <app-static-ceg>
+      <app-list-ceg />
+    </app-static-ceg>
   </div>
 
   <!--TYPE-->
@@ -26,7 +20,9 @@
       <app-component-subsection [sectionTitle]="'Bullet list'">
         <ng-container ngProjectAs="sectionContent">
           Green elvis dots for regular unordered list.
-          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+          <app-static-ceg>
+            <app-list-bullet-ceg />
+          </app-static-ceg>
           <app-when-to-use [whens]="doesExample1"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
@@ -34,7 +30,9 @@
       <app-component-subsection [sectionTitle]="'Numbered list'">
         <ng-container ngProjectAs="sectionContent">
           Ordered list with generated elvis styled bullet point
-          <app-component-example-v1 [codeHTML]="example3"></app-component-example-v1>
+          <app-static-ceg>
+            <app-list-numbered-ceg />
+          </app-static-ceg>
           <app-when-to-use [whens]="doesExample3"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
@@ -42,7 +40,9 @@
       <app-component-subsection [sectionTitle]="'Icon list'">
         <ng-container ngProjectAs="sectionContent">
           List with icons as bullet point
-          <app-component-example-v1 [codeHTML]="example4"></app-component-example-v1>
+          <app-static-ceg>
+            <app-list-icon-ceg />
+          </app-static-ceg>
           <app-when-to-use [whens]="doesExample4"></app-when-to-use>
         </ng-container>
       </app-component-subsection>

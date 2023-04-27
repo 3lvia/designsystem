@@ -12,12 +12,12 @@ export class CarouselCegComponent implements ComponentExample {
   elementName = 'carousel';
   cegContent = new CegControlManager<CarouselProps>([
     {
-      name: 'Loop',
+      type: 'Loop',
       controls: {},
       groupOrder: [''],
     },
     {
-      name: 'Linear',
+      type: 'Linear',
       controls: {
         hasConfirmationCheckmark: {
           group: 'Options',
