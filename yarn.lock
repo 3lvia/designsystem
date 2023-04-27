@@ -2261,7 +2261,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.11.0, @elvia/elvis-assets-icons@^2.13.0, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@^2.8.0, @elvia/elvis-assets-icons@^2.9.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.11.0, @elvia/elvis-assets-icons@^2.12.0, @elvia/elvis-assets-icons@^2.13.0, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@^2.8.0, @elvia/elvis-assets-icons@^2.9.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
@@ -2485,10 +2485,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-carousel@workspace:packages/components/components/elvis-carousel"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.11.0
-    "@elvia/elvis-colors": ^1.7.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.0
+    "@elvia/elvis-assets-icons": ^2.12.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.1
+    "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.2
     styled-components: ^5.3.3
   peerDependencies:
@@ -2509,10 +2509,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-carousel@portal:../components/components/elvis-carousel::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.11.0
-    "@elvia/elvis-colors": ^1.7.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.0
+    "@elvia/elvis-assets-icons": ^2.12.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.1
+    "@elvia/elvis-toolbox": ^7.8.1
     "@elvia/elvis-typography": ^2.3.2
     styled-components: ^5.3.3
   peerDependencies:

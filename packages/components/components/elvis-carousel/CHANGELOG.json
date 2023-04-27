@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "27.03.23",
+      "version": "3.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies to use new color labels."]
+        }
+      ]
+    },
+    {
       "date": "14.04.23",
       "version": "3.0.0",
       "changelog": [
