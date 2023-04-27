@@ -133,11 +133,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   private getCurrentRoute(): string {
-    let currentRoute = this.router.url.slice(this.router.url.lastIndexOf('/') + 1);
-    if (currentRoute.includes('#')) {
-      currentRoute = currentRoute.slice(0, currentRoute.indexOf('#'));
-    }
-    return currentRoute;
+    return location.pathname.split('/').pop() || '';
   }
 
   private getCurrentPathWithoutAnchorOrParams(): string {
@@ -189,6 +185,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       this.activeNavbarItem = this.clickedNavbarItem;
     } else {
       this.navbarList.forEach((item) => {
+        console.log('Setting active item: ', item.docUrl, this.getCurrentRoute());
         if (item.docUrl === this.getCurrentRoute()) {
           this.activeNavbarItem = item;
         }
@@ -313,7 +310,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       this.listenOnScrollSubscription.unsubscribe();
     }
     clearTimeout(this.scrollEventTimeout);
-    this.scrollEventTimeout = window.setTimeout(() => {
+    this.scrollEventTimeout = setTimeout(() => {
       this.startScrollSubscription();
     }, 750);
   }
