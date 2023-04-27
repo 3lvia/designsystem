@@ -79,7 +79,7 @@ export interface ComponentType<T> {
   readonly controls: Controls<T>;
   readonly groupOrder: string[];
   readonly staticProps?: Partial<StaticProps<T>>;
-  readonly hiddenSlots?: string[];
+  readonly hiddenSlots?: (string & keyof T)[];
   readonly disabledControls?: DisabledBy<T>;
 }
 
