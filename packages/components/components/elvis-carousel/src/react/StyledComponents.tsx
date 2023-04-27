@@ -134,7 +134,7 @@ interface CarouselDotProps {
 }
 
 export const CarouselDot = styled.button<CarouselDotProps>`
-  border: 1px solid ${({ isSelected }) => getThemeColor(isSelected ? 'state-on' : 'text-primary')};
+  border: 1px solid ${({ isSelected }) => getThemeColor(isSelected ? 'border-selected-1' : 'border-1')};
   height: ${({ isSelected }) => (isSelected ? '9px' : '8px')};
   width: ${({ isSelected }) => (isSelected ? '9px' : '8px')};
   @media (max-width: 767px) {
@@ -143,12 +143,13 @@ export const CarouselDot = styled.button<CarouselDotProps>`
   }
 
   border-radius: 50%;
-  background-color: ${({ isSelected }) => getThemeColor(isSelected ? 'state-on' : 'background-primary')};
+  background-color: ${({ isSelected }) =>
+    getThemeColor(isSelected ? 'background-selected-1' : 'background-1')};
   margin: ${({ isSelected }) => (isSelected ? '7.5px' : '8px')};
   cursor: pointer;
   padding: 0;
   &:hover {
-    background-color: ${getThemeColor('state-hover-green')};
+    background-color: ${getThemeColor('background-hover-1')};
   }
 `;
 
