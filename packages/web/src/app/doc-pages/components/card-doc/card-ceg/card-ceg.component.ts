@@ -11,7 +11,7 @@ export class CardCegComponent implements ComponentExample {
   elementName = 'card';
   cegContent = new CegControlManager<CardProps>([
     {
-      name: 'Simple',
+      type: 'Simple',
       controls: {
         borderColor: {
           type: 'radioGroup',
@@ -47,7 +47,7 @@ export class CardCegComponent implements ComponentExample {
       groupOrder: ['Border Color', 'Options', 'Heading', 'Description'],
     },
     {
-      name: 'Detail',
+      type: 'Detail',
       controls: {
         heading: {
           type: 'text',

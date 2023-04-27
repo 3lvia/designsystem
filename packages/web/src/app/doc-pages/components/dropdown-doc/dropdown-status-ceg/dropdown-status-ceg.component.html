@@ -1,0 +1,13 @@
+<elvia-dropdown
+  [items]="[
+    { value: 'Danmark', label: 'Danmark', status: 'warning' },
+    { value: 'Nord-Makedonia', label: 'Nord-Makedonia' },
+    { value: 'Norge', label: 'Norge' },
+    { value: 'Oman', label: 'Oman' },
+    { value: 'Sverige', label: 'Sverige', status: 'warning' }
+  ]"
+  value="Nord-Makedonia"
+  label="Label"
+  placeholder="Placeholder"
+  (valueOnChange)="handleOnChange($any($event).detail.value)"
+></elvia-dropdown>

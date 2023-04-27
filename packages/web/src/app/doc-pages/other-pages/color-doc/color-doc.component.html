@@ -586,4 +586,11 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
+
+  <!--Changelog-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [elvisComponentToFilter]="'Color'"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
 </div>

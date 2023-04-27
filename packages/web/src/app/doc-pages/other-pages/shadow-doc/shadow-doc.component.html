@@ -49,4 +49,11 @@
       ></app-when-to-use>
     </ng-container>
   </app-component-section>
+
+  <!--Changelog-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [elvisComponentToFilter]="'Shadow'"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
 </div>

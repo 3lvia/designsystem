@@ -1,15 +1,15 @@
-<div class="counter">
-  <div class="e-text-sm visually-hidden" #maxValueElement>{{ counter.max }}</div>
+<div class="counter" [ngClass]="{ disabled: disabled }">
+  <div class="e-text-sm visually-hidden" #maxValueElement>{{ counter.max }}{{ counter.postfix }}</div>
   <button
     class="e-btn e-btn--icon e-btn--circled e-btn--sm"
     aria-label="Add to count"
     (click)="updateValue(counter.increment * -1)"
-    [disabled]="counter.value <= counter.min"
+    [disabled]="counter.value <= counter.min || disabled"
   >
     <span class="e-btn__icon">
       <i
         class="e-icon e-icon--subtract_circle"
-        [ngClass]="{ 'e-icon--color-disabled': counter.value <= counter.min }"
+        [ngClass]="{ 'e-icon--color-disabled': counter.value <= counter.min || disabled }"
         aria-hidden="true"
       ></i>
       <i class="e-icon e-icon e-icon--subtract_circle-filled-color" aria-hidden="true"></i>
@@ -24,12 +24,12 @@
     class="e-btn e-btn--icon e-btn--circled e-btn--sm"
     aria-label="Subtract from count"
     (click)="updateValue(counter.increment)"
-    [disabled]="counter.value >= counter.max"
+    [disabled]="counter.value >= counter.max || disabled"
   >
     <span class="e-btn__icon">
       <i
         class="e-icon e-icon--add_circle"
-        [ngClass]="{ 'e-icon--color-disabled': counter.value >= counter.max }"
+        [ngClass]="{ 'e-icon--color-disabled': counter.value >= counter.max || disabled }"
         aria-hidden="true"
       ></i>
       <i class="e-icon e-icon e-icon--add_circle-filled-color" aria-hidden="true"></i>

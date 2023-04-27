@@ -13,7 +13,7 @@ export class AccordionCegComponent implements ComponentExample {
 
   cegContent = new CegControlManager<AccordionProps>([
     {
-      name: 'Normal',
+      type: 'Normal',
       controls: {
         labelPosition: {
           type: 'radioGroup',
@@ -43,7 +43,7 @@ export class AccordionCegComponent implements ComponentExample {
       groupOrder: ['Position', 'Size', 'Options', 'Label When Closed', 'Label When Open'],
     },
     {
-      name: 'Overflow',
+      type: 'Overflow',
       controls: {
         labelPosition: {
           type: 'radioGroup',
@@ -72,7 +72,7 @@ export class AccordionCegComponent implements ComponentExample {
       groupOrder: ['Position', 'Size', 'Options', 'Label When Closed', 'Label When Open'],
     },
     {
-      name: 'Single',
+      type: 'Single',
       controls: {
         size: {
           type: 'radioGroup',

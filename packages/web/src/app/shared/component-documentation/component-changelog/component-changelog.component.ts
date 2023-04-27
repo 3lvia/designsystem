@@ -13,6 +13,7 @@ import { ChangelogTypePipe } from './component-changelog-pipe';
 type ChangelogEntry = ComponentChangelog & { skipped?: number };
 type Changelog = ChangelogEntry[];
 type ChangelogRadioFilter = ComponentChangelog['changelog'][0]['type'] | 'all';
+type ChangelogLinks = { displayName: string; url: string }[];
 
 @Component({
   selector: 'app-component-changelog',
@@ -294,9 +295,15 @@ export class ComponentChangelogComponent implements OnInit {
     elvisChangelogJson.content.forEach((elvisChangelogEntry) => {
       let wasSkipped = true;
       elvisChangelogEntry.changelog.forEach((version: (typeof elvisChangelogEntry.changelog)[number]) => {
-        const components = 'components' in version ? version['components'] : undefined;
-        if (!components) return;
-        components.some(({ displayName }) => {
+        let allEntries: ChangelogLinks = [];
+        if ('components' in version) {
+          allEntries = allEntries.concat(version['components'] as ChangelogLinks);
+        }
+        if ('pages' in version) {
+          allEntries = allEntries.concat(version['pages'] as ChangelogLinks);
+        }
+        if (allEntries.length === 0) return;
+        allEntries.some(({ displayName }) => {
           if (
             displayName.toLowerCase() === elvisComponentToFilter.toLowerCase() &&
             !filteredElvisChangelog.includes(elvisChangelogEntry)

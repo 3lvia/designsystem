@@ -21,7 +21,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   routerSubscription: Subscription;
   contentLoadedSubscription: Subscription;
   anchorToScrollToSubscription: Subscription;
-  scrollEventTimeout: any;
+  scrollEventTimeout: ReturnType<typeof setTimeout>;
   startedScrollSub = false;
   isLandingPage = false;
   isLoaded = false;

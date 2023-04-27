@@ -136,6 +136,8 @@ export class v2PlaygroundComponent {
 
   // Modal
   isModalShowing = false;
+  isIllustrationModalShowing = false;
+  isMultiPageModalShowing = false;
 
   // Pagination
   defaultPaginationValue = { start: 1, end: 10 };

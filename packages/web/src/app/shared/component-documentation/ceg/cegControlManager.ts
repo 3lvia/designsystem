@@ -20,7 +20,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     controls: ComponentType<TComponentProps>[],
   ) {
     this._componentTypes.next(controls);
-    this._currentComponentTypeName.next(controls[0].name);
+    this._currentComponentTypeName.next(controls[0].type);
   }
 
   getCurrentControls(): Observable<Controls<TComponentProps> | undefined> {
@@ -36,6 +36,11 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.groupOrder));
   }
 
+  getGroupOrderSnapshot(): string[] | undefined {
+    const typeIndex = this.getCurrentComponentTypeIndex();
+    return this._componentTypes.value[typeIndex]?.groupOrder;
+  }
+
   getStaticProps(): Observable<Partial<StaticProps<TComponentProps>> | undefined> {
     return this.getCurrentComponentType().pipe(map((configuration) => configuration?.staticProps));
   }
@@ -47,11 +52,6 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
 
   getCurrentComponentTypeNameSnapshot(): string | undefined {
     return this._currentComponentTypeName.value;
-  }
-
-  getGroupOrderSnapshot(): string[] | undefined {
-    const typeIndex = this.getCurrentComponentTypeIndex();
-    return this._componentTypes.value[typeIndex]?.groupOrder;
   }
 
   setActiveComponentTypeName(name: string): void {
@@ -82,6 +82,27 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     );
   }
 
+  getDisabledControls(): Observable<(keyof TComponentProps)[]> {
+    return this.getCurrentControls().pipe(
+      map((currentControls) => {
+        const typeIndex = this.getCurrentComponentTypeIndex();
+        const disableMap = this._componentTypes.value[typeIndex].disabledControls;
+
+        if (!disableMap) {
+          return [];
+        }
+
+        return Object.entries(disableMap)
+          .filter(([_, disabledBy]) => {
+            const controlValues =
+              disabledBy?.map((controlName) => !!currentControls?.[controlName]?.value) || [];
+            return controlValues.some((controlValue) => controlValue === true);
+          })
+          .map(([controlName]) => controlName);
+      }),
+    );
+  }
+
   /**
    *
    * @param propName The name of the prop to be updated
@@ -108,7 +129,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
   }
 
   private getCurrentComponentTypeIndex(): number {
-    return this._componentTypes.value.findIndex((conf) => conf.name === this._currentComponentTypeName.value);
+    return this._componentTypes.value.findIndex((conf) => conf.type === this._currentComponentTypeName.value);
   }
 
   private getControl(
@@ -136,7 +157,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
   private getCurrentComponentType(): Observable<ComponentType<TComponentProps> | undefined> {
     return combineLatest([this.componentTypes, this.currentComponentTypeName]).pipe(
       map(([componentTypes, name]) => {
-        return componentTypes.find((configuration) => configuration.name === name);
+        return componentTypes.find((configuration) => configuration.type === name);
       }),
     );
   }

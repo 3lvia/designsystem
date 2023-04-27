@@ -89,7 +89,8 @@
           ],
           "pages": [
             { "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" },
-            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" },
+            { "displayName": "Color", "url": "https://design.elvia.io/brand/color" }
           ],
           "components": [
             { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
@@ -406,6 +407,10 @@
           "type": "patch",
           "changes": [
             "Bumped dependencies on internal packages <code>@elvia/elvis-colors</code> and <code>@elvia/elvis-typography</code>."
+          ],
+          "pages": [
+            { "displayName": "Color", "url": "https://design.elvia.io/brand/color" },
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }
           ]
         }
       ]
@@ -802,7 +807,8 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Now using elvis-colors for the colors in elvis.js. "]
+          "changes": ["Now using elvis-colors for the colors in elvis.js. "],
+          "pages": [{ "displayName": "Color", "url": "https://design.elvia.io/brand/color" }]
         }
       ]
     },
@@ -856,7 +862,8 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Now using elvis-colors for color definitions."]
+          "changes": ["Now using elvis-colors for color definitions."],
+          "pages": [{ "displayName": "Color", "url": "https://design.elvia.io/brand/color" }]
         }
       ]
     },
