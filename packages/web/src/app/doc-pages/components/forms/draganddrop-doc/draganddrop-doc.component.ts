@@ -15,10 +15,4 @@ export class DraganddropDocComponent {
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
   }
-
-  example1 = `<div class="e-dragdrop" style="width:300px; height:150px"></div>
-`;
-
-  example2 = `<div class="e-dragdrop e-dragdrop--dragover" style="width:300px; height:150px"></div>
-`;
 }
