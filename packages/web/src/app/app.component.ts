@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
     this.handleMode(darkMode.matches);
-    this.scrollOnRouteChange();
+    this.enableScrollRestorationOnUrlPathChange();
   }
 
   ngOnDestroy(): void {
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.unsubscriber.complete();
   }
 
-  private scrollOnRouteChange(): void {
+  private enableScrollRestorationOnUrlPathChange(): void {
     this.routerService
       .urlPathChange()
       .pipe(takeUntil(this.unsubscriber))

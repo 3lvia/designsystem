@@ -19,7 +19,7 @@ import { RouterService } from '../../core/services/router.service';
 export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   private unsubscriber = new Subject();
   private listenOnScrollSubscription: Subscription;
-  private scrollEventTimeout: any;
+  private scrollEventTimeout: ReturnType<typeof setTimeout>;
   private startedScrollSub = false;
   isLandingPage = false;
   isLoaded = false;
@@ -313,7 +313,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       this.listenOnScrollSubscription.unsubscribe();
     }
     clearTimeout(this.scrollEventTimeout);
-    this.scrollEventTimeout = setTimeout(() => {
+    this.scrollEventTimeout = window.setTimeout(() => {
       this.startScrollSubscription();
     }, 750);
   }
