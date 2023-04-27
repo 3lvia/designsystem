@@ -1,15 +1,16 @@
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 import { CegControl, ComponentType, Controls, ControlValue, StaticProps } from './controlType';
 
 export type UnknownCegControlManager = CegControlManager<Record<string, any>>;
 
 export class CegControlManager<TComponentProps extends Record<string, any>> {
+  private changedPropsWithInitialValues = new Map<keyof TComponentProps, ControlValue>();
   private _componentTypes = new BehaviorSubject<ComponentType<TComponentProps>[]>([]);
   componentTypes = this._componentTypes.asObservable();
 
   private _currentComponentTypeName = new BehaviorSubject<string | undefined>(undefined);
-  currentComponentTypeName = this._currentComponentTypeName.asObservable();
+  currentComponentTypeName = this._currentComponentTypeName.asObservable().pipe(distinctUntilChanged());
 
   constructor(
     /**
@@ -55,6 +56,10 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
   }
 
   setActiveComponentTypeName(name: string): void {
+    // Reset props to default values
+    this.changedPropsWithInitialValues.forEach((value, key) => this.setPropValue(key, value));
+    this.changedPropsWithInitialValues.clear();
+
     this._currentComponentTypeName.next(name);
   }
 
@@ -110,6 +115,8 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
    * @returns true/false to indicate if the prop was updated or not.
    */
   setPropValue(propName: keyof TComponentProps, value: ControlValue): boolean {
+    this.storeInitialValueForProp(propName);
+
     let propWasUpdated = false;
     const typeIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._componentTypes.value);
@@ -126,6 +133,17 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     }
 
     return propWasUpdated;
+  }
+
+  getChangedPropsWithInitialValues(): Record<string, ControlValue> {
+    return Object.fromEntries(this.changedPropsWithInitialValues);
+  }
+
+  private storeInitialValueForProp(propName: keyof TComponentProps): void {
+    if (!this.changedPropsWithInitialValues.has(propName)) {
+      const value = this.getControlSnapshot()?.[propName]?.value;
+      this.changedPropsWithInitialValues.set(propName, value);
+    }
   }
 
   private getCurrentComponentTypeIndex(): number {

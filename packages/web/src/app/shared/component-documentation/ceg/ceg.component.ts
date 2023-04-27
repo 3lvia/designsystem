@@ -9,7 +9,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
@@ -82,6 +82,9 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   }
 
   setComponentType(typeName: string): void {
+    const initialValues = this.componentExample.cegContent.getChangedPropsWithInitialValues();
+    this.getWebComponent().setProps(initialValues);
+
     this.componentExample.cegContent.setActiveComponentTypeName(typeName);
     this.patchPropValueInUrl('type', typeName, false);
   }
@@ -178,12 +181,10 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   }
 
   private setUpTypeChangeSubscription() {
-    combineLatest([
-      this.componentExample.cegContent.currentComponentTypeName,
-      this.componentExample.cegContent.getCurrentControls(),
-    ])
+    this.componentExample.cegContent.currentComponentTypeName
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([type, controls]) => {
+      .subscribe((type) => {
+        const controls = this.componentExample.cegContent.getControlSnapshot();
         if (type) {
           this.getWebComponent().setProps({ type: type.toLowerCase() });
         }

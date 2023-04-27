@@ -185,7 +185,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       this.activeNavbarItem = this.clickedNavbarItem;
     } else {
       this.navbarList.forEach((item) => {
-        console.log('Setting active item: ', item.docUrl, this.getCurrentRoute());
         if (item.docUrl === this.getCurrentRoute()) {
           this.activeNavbarItem = item;
         }
