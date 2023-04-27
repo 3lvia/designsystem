@@ -56,10 +56,10 @@ export type CegControl = Checkbox | ChildCheckbox | Switch | SlotToggle | RadioG
 
 export type Controls<T = Record<string, any>> = Readonly<
   Partial<{
-    [key in keyof T]: NonNullable<T[key]> extends boolean
+    [K in keyof T]: NonNullable<T[K]> extends boolean
       ? Checkbox | Switch
-      : NonNullable<T[key]> extends string
-      ? RadioGroup<T[key]> | Text
+      : NonNullable<T[K]> extends string
+      ? RadioGroup<T[K]> | Text
       : RadioGroup | Counter | Text | SlotToggle;
   }>
 >;
@@ -70,7 +70,7 @@ export type StaticProps<T> = {
 
 export type DisabledBy<T = Record<string, any>> = Readonly<
   Partial<{
-    [key in keyof T]: Array<keyof T>;
+    [K in keyof T]: Array<keyof T>;
   }>
 >;
 
