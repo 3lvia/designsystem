@@ -16,6 +16,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   ngOnInit() {
     let code = this.addNewLinesBetweenTags(this.staticContent);
     code = this.cleanSrcAttribute(code);
+    code = this.cleanCheckedAttribute(code);
     this.angularCode = this.comment ? `<!--${this.comment}-->\n${code}` : code;
 
     const cleanCode = this.removeAngularSpecificAttributes(code);
@@ -31,6 +32,10 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return code.replace(/src="([^\s]+)"/, (_, srcValue: string) => {
       return `src="${srcValue.substring(srcValue.indexOf('assets/'))}"`;
     });
+  }
+
+  private cleanCheckedAttribute(code: string): string {
+    return code.replace(/checked="([^\s]*)"/, 'checked');
   }
 
   private removeAngularSpecificAttributes(code: string): string {
