@@ -19,7 +19,6 @@ export class LocalizationService {
   constructor(private routerService: RouterService) {
     // Set localization to english on route change outside of brand
     this.routerService.urlPathChange().subscribe((newPath) => {
-      console.log(newPath);
       if (newPath.split('/')[1] !== 'brand') {
         this.setLocalization(Locale['en-GB']);
       } else {
