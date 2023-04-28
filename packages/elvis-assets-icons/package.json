@@ -21,7 +21,7 @@
     "icons/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-colors": "^1.8.0"
+    "@elvia/elvis-colors": "^2.2.0"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.10",

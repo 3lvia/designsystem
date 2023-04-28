@@ -1,5 +1,16 @@
 # Elvis-assets-icon
 
+## 3.0.0 (28.04.23)
+
+### Breaking changes
+
+- All icons now use `getThemeColor` instead of `getColor` when used through this package. This causes the
+  icons to now use the new color labels instead of the old ones.
+
+### Patch
+
+- Now using the newest color labels to set colors in icons.
+
 ## 2.13.0 (25.05.23)
 
 ### New feature

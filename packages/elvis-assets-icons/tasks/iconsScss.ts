@@ -8,7 +8,7 @@ export type IconLabels =
   | 'filled-foreground'
   | 'filled-background'
   | 'filled-foreground-colored'
-  | 'on'
+  | 'success'
   | 'caution'
   | 'warning'
   | 'error';
@@ -48,26 +48,27 @@ const iconClassToThemeColor = {
     'filled-background': 'icon-filled-background',
     'filled-foreground': 'icon-filled-foreground',
     'filled-foreground-colored': 'icon-filled-foreground-colored',
-    on: 'icon-on',
+    success: 'icon-success',
     caution: 'icon-caution',
     warning: 'icon-warning',
     error: 'icon-error',
   },
   disabled: {
-    stroke: 'state-disabled-foreground',
-    'filled-background': 'state-disabled-foreground',
+    stroke: 'text-disabled-1',
+    'filled-background': 'text-disabled-1',
   },
   'disabled-light': {
-    stroke: 'state-disabled-foreground-strong',
-    'filled-background': 'state-disabled-foreground-strong',
+    stroke: 'text-disabled-2',
+    'filled-background': 'text-disabled-2',
   },
-  placeholder: { stroke: 'text-placeholder', 'filled-background': 'text-placeholder' },
+  placeholder: { stroke: 'text-3', 'filled-background': 'text-3' },
   currentColor: {
     stroke: 'currentColor',
     'filled-background': 'currentColor',
   },
-  on: defaultLabeledIconWithContrast('icon-on'),
-  green: defaultLabeledIconWithContrast('icon-on'),
+  on: defaultLabeledIconWithContrast('icon-success'),
+  success: defaultLabeledIconWithContrast('icon-success'),
+  green: defaultLabeledIconWithContrast('icon-success'),
   caution: defaultLabeledIconWithContrast('icon-caution'),
   yellow: defaultLabeledIconWithContrast('icon-caution'),
   warning: defaultLabeledIconWithContrast('icon-warning'),
