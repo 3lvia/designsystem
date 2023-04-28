@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "11.5.0",
+      "date": "April 25, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>sorting_alfabetical_a_to_z</code> deprecated, <code>sorting_alfabetical_z_to_a</code> deprecated, <code>sorting_date_earliest_to_latest</code> deprecated, <code>sorting_date_latest_to_earliest</code> deprecated, <code>sorting_number_high_to_low</code> deprecated,  <code>sorting_number_low_to_high</code> deprecated, <code>sorting_time_earliest_to_latest</code> deprecated,  <code>sorting_time_latest_to_earliest</code> deprecated. All these icons now points to another sorting icon."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "11.4.0",
       "date": "April 25, 2023",
       "changelog": [

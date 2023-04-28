@@ -762,36 +762,52 @@ module.exports = [
   },
   {
     name: 'sorting_alfabetical_a_to_z',
+    deprecated: '7.5.0',
+    newIconName: 'sorting_ascending-bold',
     terms: ['sort', 'sorting', 'alfabetical', 'arrow', 'ascending'],
   },
   {
     name: 'sorting_alfabetical_z_to_a',
+    deprecated: '7.5.0',
+    newIconName: 'sorting_descending-bold',
     terms: ['sort', 'sorting', 'alfabetical', 'arrow', 'descending'],
   },
   {
     name: 'sorting_date_earliest_to_latest',
+    deprecated: '7.5.0',
+    newIconName: 'sorting_ascending-bold',
     terms: ['sort', 'sorting', 'date', 'arrow', 'ascending'],
   },
   {
     name: 'sorting_date_latest_to_earliest',
+    deprecated: '7.5.0',
+    newIconName: 'sorting_descending-bold',
     terms: ['sort', 'sorting', 'date', 'arrow', 'descending'],
   },
   { name: 'sorting-bold', terms: ['sort', 'sorting', 'order'], thirdparty: { name: ['streamline'] } },
   { name: 'sorting-2-bold', terms: ['sort', 'sorting', 'order', 'ascending'] },
   {
     name: 'sorting_number_high_to_low',
+    deprecated: '7.5.0',
+    newIconName: 'sorting_descending-bold',
     terms: ['sort', 'sorting', 'integer', 'arrow', 'descending'],
   },
   {
     name: 'sorting_number_low_to_high',
+    deprecated: '7.5.0',
+    newIconName: 'sorting_ascending-bold',
     terms: ['sort', 'sorting', 'integer', 'arrow', 'ascending'],
   },
   {
     name: 'sorting_time_earliest_to_latest',
+    deprecated: '7.5.0',
+    newIconName: 'sorting_ascending-bold',
     terms: ['sort', 'sorting', 'time', 'arrow', 'ascending'],
   },
   {
     name: 'sorting_time_latest_to_earliest',
+    deprecated: '7.5.0',
+    newIconName: 'sorting_descending-bold',
     terms: ['sort', 'sorting', 'time', 'arrow', 'descending'],
   },
   {
