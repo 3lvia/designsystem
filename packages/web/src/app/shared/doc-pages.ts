@@ -444,7 +444,7 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Stepper,
     absolutePath: '/components/' + Pages.Stepper,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=622%3A0',
+    figmaUrl: 'https://www.figma.com/file/x8ae3TPZemAkxtjSS2JI7x/Stepper?node-id=0-1&t=0oTWvsI5AMzfMr8Q-0',
     type: 'Component',
     searchTerms: ['steps', 'progress', 'process'],
   },
