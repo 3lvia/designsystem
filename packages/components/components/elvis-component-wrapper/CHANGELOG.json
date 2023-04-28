@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.04.23",
+      "version": "4.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix comparison issue where prop name was not lowercased when updating prop values."]
+        }
+      ]
+    },
+    {
       "date": "18.04.23",
       "version": "4.1.1",
       "changelog": [
