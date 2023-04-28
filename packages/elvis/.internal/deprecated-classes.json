@@ -2,7 +2,6 @@
   "e-content-loader--grey": {
     "deprecateChildren": true,
     "version": "10.6.0",
-    "sunset": "July 2023",
     "replacement": {
       "name": "Content Loader",
       "type": "component",
