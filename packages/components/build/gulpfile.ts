@@ -10,6 +10,7 @@ import * as typescript from 'gulp-typescript';
 import * as filter from 'gulp-filter';
 import * as cache from 'gulp-cached';
 import * as sourcemaps from 'gulp-sourcemaps';
+// Must import from src because the files don't exist in dist before this build script
 import { ComponentAttribute, ComponentConfig } from '../components/elvis-toolbox/src/componentConfig.types';
 
 let componentConfigs: ComponentConfig[] = [];
