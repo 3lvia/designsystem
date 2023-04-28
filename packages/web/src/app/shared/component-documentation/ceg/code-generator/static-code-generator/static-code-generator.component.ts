@@ -29,13 +29,13 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private cleanSrcAttribute(code: string): string {
-    return code.replace(/src="([^\s]+)"/, (_, srcValue: string) => {
+    return code.replace(/src="([^\s]+)"/g, (_, srcValue: string) => {
       return `src="${srcValue.substring(srcValue.indexOf('assets/'))}"`;
     });
   }
 
   private cleanCheckedAttribute(code: string): string {
-    return code.replace(/checked="[^\s]*"/, 'checked');
+    return code.replace(/checked="[^\s]*"/g, 'checked');
   }
 
   private removeAngularSpecificAttributes(code: string): string {
@@ -90,7 +90,10 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
     // We need to restore prop casing, because they are all lowercase due to the
     // DOMParser used earlier. This will break our components in React.
-    return this.restoreOriginalPropNames(transformedCode, originalPropNames);
+    const codeWithOriginalPropNames = this.restoreOriginalPropNames(transformedCode, originalPropNames);
+
+    // We need to clean the checked attributes, because the DOMParser adds empty quotes as value.
+    return this.cleanCheckedAttribute(codeWithOriginalPropNames);
   }
 
   private transformAngularEventsToReactStyle(code: string): string {
