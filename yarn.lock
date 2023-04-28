@@ -2628,7 +2628,6 @@ __metadata:
     "@babel/preset-typescript": ^7.18.6
     "@babel/register": ^7.18.9
     "@elvia/elvis-component-wrapper": "*"
-    "@elvia/elvis-toolbox": "*"
     "@testing-library/dom": 8.19.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": 13.4.0
@@ -3565,29 +3564,6 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-toolbox@*, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
-  dependencies:
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-typography": ^2.3.1
-    styled-components: ^5.3.6
-    tslib: ^2.4.1
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: unknown
-  linkType: soft
-
 "@elvia/elvis-toolbox@npm:^7.4.0, @elvia/elvis-toolbox@npm:^7.4.1, @elvia/elvis-toolbox@npm:^7.4.3, @elvia/elvis-toolbox@npm:^7.4.4, @elvia/elvis-toolbox@npm:^7.5.0, @elvia/elvis-toolbox@npm:^7.5.1, @elvia/elvis-toolbox@npm:^7.6.0, @elvia/elvis-toolbox@npm:^7.7.0, @elvia/elvis-toolbox@npm:^7.8.0, @elvia/elvis-toolbox@npm:^7.8.1":
   version: 7.8.1
   resolution: "@elvia/elvis-toolbox@npm:7.8.1"
@@ -3633,6 +3609,29 @@ __metadata:
     react-is:
       optional: true
   languageName: node
+  linkType: soft
+
+"@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
+  dependencies:
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.0.0
+    "@elvia/elvis-typography": ^2.3.1
+    styled-components: ^5.3.6
+    tslib: ^2.4.1
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  languageName: unknown
   linkType: soft
 
 "@elvia/elvis-tooltip@*, @elvia/elvis-tooltip@^1.1.6, @elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip":

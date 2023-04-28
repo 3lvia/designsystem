@@ -10,7 +10,7 @@ import * as typescript from 'gulp-typescript';
 import * as filter from 'gulp-filter';
 import * as cache from 'gulp-cached';
 import * as sourcemaps from 'gulp-sourcemaps';
-import { ComponentAttribute, ComponentConfig } from '@elvia/elvis-toolbox/src/componentConfig.types';
+import { ComponentAttribute, ComponentConfig } from '../components/elvis-toolbox/src/componentConfig.types';
 
 let componentConfigs: ComponentConfig[] = [];
 
