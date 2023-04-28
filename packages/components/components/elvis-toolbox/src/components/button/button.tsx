@@ -49,7 +49,7 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
     cursor: pointer;
 
     &::selection {
-      background-color: ${getThemeColor('state-on')};
+      background-color: ${getThemeColor('background-selected-1')};
     }
   }
 `;
@@ -85,19 +85,19 @@ const getButtonPadding = (size?: Size) => {
 export const PrimaryButton = styled(ButtonBase)`
   height: ${({ size }) => getButtonHeight(size)};
   border: 1px solid
-    ${({ isActive }) => (isActive ? getThemeColor('state-on') : getThemeColor('text-primary'))};
+    ${({ isActive }) => (isActive ? getThemeColor('border-selected-1') : getThemeColor('text-1'))};
   padding: ${({ size }) => getButtonPadding(size)};
   background-color: ${({ isActive }) =>
-    isActive ? getThemeColor('state-on') : getThemeColor('text-primary')};
-  color: ${({ isActive }) => (isActive ? getThemeColor('text-primary') : getThemeColor('state-on'))};
+    isActive ? getThemeColor('background-selected-1') : getThemeColor('text-1')};
+  color: ${({ isActive }) => (isActive ? getThemeColor('text-1') : getThemeColor('signal-success'))};
   transition: transform 100ms;
   border-radius: 99px;
 
   &:not(:disabled) {
     &:hover {
-      background-color: ${getThemeColor('state-hover-green')};
-      border-color: ${getThemeColor('state-hover-green')};
-      color: ${getThemeColor('text-primary')};
+      background-color: ${getThemeColor('background-hover-1')};
+      border-color: ${getThemeColor('border-hover-1')};
+      color: ${getThemeColor('text-1')};
     }
 
     &:active {
@@ -107,19 +107,19 @@ export const PrimaryButton = styled(ButtonBase)`
   }
 
   &:disabled {
-    border-color: ${getThemeColor('state-disabled')};
-    background-color: ${getThemeColor('state-disabled')};
+    border-color: ${getThemeColor('border-disabled-1')};
+    background-color: ${getThemeColor('background-disabled-1')};
   }
 `;
 
 export const SecondaryButton = styled(PrimaryButton)`
-  background-color: ${({ isActive }) => (isActive ? getThemeColor('state-on') : 'transparent')};
-  color: ${getThemeColor('text-primary')};
+  background-color: ${({ isActive }) => (isActive ? getThemeColor('background-selected-1') : 'transparent')};
+  color: ${getThemeColor('text-1')};
 
   &:disabled {
     background-color: transparent;
-    border-color: ${getThemeColor('state-disabled')};
-    color: ${getThemeColor('state-disabled')};
+    border-color: ${getThemeColor('border-disabled-1')};
+    color: ${getThemeColor('text-disabled-1')};
   }
 `;
 
@@ -138,7 +138,8 @@ export const TertiaryButton = styled(ButtonBase)`
     left: 0;
     right: 0;
     height: 2px;
-    background-color: ${({ isActive }) => (isActive ? getThemeColor('state-on') : 'transparent')};
+    background-color: ${({ isActive }) =>
+      isActive ? getThemeColor('background-selected-1') : 'transparent'};
     transform: scaleY(1);
     transform-origin: center bottom;
     transition: background-color 60ms, transform 100ms;
@@ -146,7 +147,7 @@ export const TertiaryButton = styled(ButtonBase)`
 
   &:not(:disabled) {
     &:hover:after {
-      background-color: ${getThemeColor('state-hover-green')};
+      background-color: ${getThemeColor('background-hover-1')};
     }
 
     &:active:after {
@@ -155,6 +156,6 @@ export const TertiaryButton = styled(ButtonBase)`
   }
 
   &:disabled {
-    color: ${getThemeColor('state-disabled')};
+    color: ${getThemeColor('background-disabled-1')};
   }
 `;
