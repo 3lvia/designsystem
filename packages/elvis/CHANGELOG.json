@@ -7,7 +7,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Content loader now uses same color for grey and whit background. Nothing should break, but the class <code>e-content-loader--grey</code> is not needed."
+            "Content loader now uses the same color for grey and white background. Nothing should break, but the class <code>e-content-loader--grey</code> is not needed."
           ],
           "pages": [
             { "displayName": "Content Loader", "url": "https://design.elvia.io/components/content-loader" }
