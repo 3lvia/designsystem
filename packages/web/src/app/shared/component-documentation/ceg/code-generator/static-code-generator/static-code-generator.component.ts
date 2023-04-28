@@ -35,7 +35,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private cleanCheckedAttribute(code: string): string {
-    return code.replace(/checked="([^\s]*)"/, 'checked');
+    return code.replace(/checked="[^\s]*"/, 'checked');
   }
 
   private removeAngularSpecificAttributes(code: string): string {
