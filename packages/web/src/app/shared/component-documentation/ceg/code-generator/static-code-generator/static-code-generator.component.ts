@@ -14,11 +14,9 @@ export class StaticCodeGeneratorComponent implements OnInit {
   vueCode = '';
 
   ngOnInit() {
-    console.log('Static content: ', this.staticContent);
     let code = this.addNewLinesBetweenTags(this.staticContent);
     code = this.cleanSrcAttribute(code);
     code = this.cleanCheckedAttribute(code);
-    console.log('Code after clean: ', code);
     this.angularCode = this.comment ? `<!--${this.comment}-->\n${code}` : code;
 
     const cleanCode = this.removeAngularSpecificAttributes(code);
@@ -160,15 +158,12 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private createReactCodeFromStaticContent(angularCode: string): string {
-    console.log('Code before react slot stuff: ', angularCode);
     let reactCode = this.transformSlotsIntoReactAttributes(angularCode);
-    console.log('After DOMParser: ', reactCode);
     reactCode = this.transformAngularEventsToReactStyle(reactCode);
     reactCode = this.transformTagsToReactStyle(reactCode);
     reactCode = this.transformAngularAttributesToReactStyle(reactCode);
     reactCode = this.transformReactSpecificProps(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
-    console.log('End: ', reactCode);
 
     if (this.htmlHasMultipleRoots(reactCode)) {
       reactCode = `<>${reactCode}</>`;
