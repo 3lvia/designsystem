@@ -4,8 +4,8 @@
     "version": "10.6.0",
     "sunset": "July 2023",
     "replacement": {
-      "name": "Content Loader",
-      "type": "component",
+      "name": "e-content-loader",
+      "type": "class",
       "documentation": "https://design.elvia.io/components/content-loader"
     }
   },
