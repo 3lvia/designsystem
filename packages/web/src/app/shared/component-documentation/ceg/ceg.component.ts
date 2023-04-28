@@ -8,11 +8,12 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { debounceTime, map, switchMap, takeUntil } from 'rxjs/operators';
+import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
 import { Controls, ControlValue } from './controlType';
-import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 interface Slot {
   name: string;
@@ -52,9 +53,10 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     );
   }
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone, private route: ActivatedRoute, private router: Router) {}
 
   ngAfterViewInit(): void {
+    this.setCegStateFromURL();
     this.setUpSlotSubscription();
     this.setUpTypeChangeSubscription();
     this.setUpStaticPropSubscription();
@@ -70,11 +72,59 @@ export class CegComponent implements AfterViewInit, OnDestroy {
 
     if (propWasUpdated) {
       this.getWebComponent().setProps({ [propName]: value });
+      this.patchPropValueInUrl(propName, value);
     }
   }
 
   toggleSlot(slotName: string, isVisible: boolean) {
     this.componentExample.cegContent.setPropValue(slotName, isVisible);
+    this.patchPropValueInUrl(slotName, isVisible);
+  }
+
+  setComponentType(typeName: string): void {
+    const initialValues = this.componentExample.cegContent.getChangedPropsWithInitialValues();
+    this.getWebComponent().setProps(initialValues);
+
+    this.componentExample.cegContent.setActiveComponentTypeName(typeName);
+    this.patchPropValueInUrl('type', typeName, false);
+  }
+
+  private setCegStateFromURL(): void {
+    this.zone.onStable.pipe(takeUntil(this.unsubscriber), first()).subscribe(() => {
+      const componentType = this.route.snapshot.queryParamMap.get('type');
+      if (componentType) {
+        this.componentExample.cegContent.setActiveComponentTypeName(componentType);
+      }
+
+      Object.entries(this.route.snapshot.queryParams)
+        .filter(([propName]) => propName !== 'type')
+        .forEach(([propName, value]) => {
+          const controlType = this.componentExample.cegContent.getControlSnapshot()?.[propName]?.type;
+
+          let parsedValue = value;
+          if (controlType === 'counter') {
+            parsedValue = +value;
+          } else if (!!controlType && ['slotToggle', 'checkbox', 'switch'].includes(controlType)) {
+            parsedValue = value === 'true';
+          }
+
+          const propWasUpdated = this.componentExample.cegContent.setPropValue(propName, parsedValue);
+
+          if (propWasUpdated && controlType !== 'slotToggle') {
+            this.getWebComponent().setProps({ [propName]: parsedValue });
+          }
+        });
+    });
+  }
+
+  private async patchPropValueInUrl(propName: string, value: ControlValue, merge = true): Promise<void> {
+    await this.router.navigate([], {
+      relativeTo: this.route,
+      queryParamsHandling: merge ? 'merge' : '',
+      queryParams: { [propName]: value },
+      replaceUrl: true,
+      preserveFragment: true,
+    });
   }
 
   private getUpdatedSlotList(
@@ -131,12 +181,10 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   }
 
   private setUpTypeChangeSubscription() {
-    combineLatest([
-      this.componentExample.cegContent.currentComponentTypeName,
-      this.componentExample.cegContent.getCurrentControls(),
-    ])
+    this.componentExample.cegContent.currentComponentTypeName
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe(([type, controls]) => {
+      .subscribe((type) => {
+        const controls = this.componentExample.cegContent.getControlSnapshot();
         if (type) {
           this.getWebComponent().setProps({ type: type.toLowerCase() });
         }

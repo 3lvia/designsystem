@@ -1,6 +1,9 @@
 <div class="ceg-container">
   <div class="ceg-header e-mb-8" *ngIf="hasMultipleComponentTypes | async">
-    <app-type-switcher [controlManager]="componentExample.cegContent" />
+    <app-type-switcher
+      [controlManager]="componentExample.cegContent"
+      (typeChange)="setComponentType($event)"
+    />
   </div>
 
   <div
