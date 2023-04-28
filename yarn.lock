@@ -2261,7 +2261,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^2.11.0, @elvia/elvis-assets-icons@^2.12.0, @elvia/elvis-assets-icons@^2.13.0, @elvia/elvis-assets-icons@^2.5.1, @elvia/elvis-assets-icons@^2.6.1, @elvia/elvis-assets-icons@^2.7.0, @elvia/elvis-assets-icons@^2.8.0, @elvia/elvis-assets-icons@^2.9.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
@@ -2278,6 +2278,15 @@ __metadata:
     typescript: ^4.9.4
   languageName: unknown
   linkType: soft
+
+"@elvia/elvis-assets-icons@npm:^2.11.0, @elvia/elvis-assets-icons@npm:^2.12.0, @elvia/elvis-assets-icons@npm:^2.13.0, @elvia/elvis-assets-icons@npm:^2.5.1, @elvia/elvis-assets-icons@npm:^2.6.1, @elvia/elvis-assets-icons@npm:^2.7.0, @elvia/elvis-assets-icons@npm:^2.8.0, @elvia/elvis-assets-icons@npm:^2.9.0":
+  version: 2.13.0
+  resolution: "@elvia/elvis-assets-icons@npm:2.13.0"
+  dependencies:
+    "@elvia/elvis-colors": ^1.8.0
+  checksum: 2d083052b7e4a31684fb9069cdaaf845892612c382f835f18660956f18372b28864d8fc54d9df2720c12f385cd1b9e831cff6b3da1f3f71c94519f392741ff36
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-assets-icons@portal:../elvis-assets-icons::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
   version: 0.0.0-use.local
