@@ -14,7 +14,8 @@ export class StaticCodeGeneratorComponent implements OnInit {
   vueCode = '';
 
   ngOnInit() {
-    const code = this.addNewLinesBetweenTags(this.staticContent);
+    let code = this.addNewLinesBetweenTags(this.staticContent);
+    code = this.cleanSrcAttribute(code);
     this.angularCode = this.comment ? `<!--${this.comment}-->\n${code}` : code;
 
     const cleanCode = this.removeAngularSpecificAttributes(code);
@@ -24,6 +25,12 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   private addNewLinesBetweenTags(code: string): string {
     return code.replace(/>\s?</g, '>\n<');
+  }
+
+  private cleanSrcAttribute(code: string): string {
+    return code.replace(/src="([^\s]+)"/, (_, srcValue: string) => {
+      return `src="${srcValue.substring(srcValue.indexOf('assets/'))}"`;
+    });
   }
 
   private removeAngularSpecificAttributes(code: string): string {
