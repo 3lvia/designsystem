@@ -6,7 +6,6 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ThumbnailDocComponent } from './thumbnail-doc.component';
-import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ThumbnailCegComponent } from './thumbnail-ceg/thumbnail-ceg.component';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { ThumbnailSelectedCegComponent } from './thumbnail-selected-ceg/thumbnail-selected-ceg.component';
@@ -19,7 +18,6 @@ import { ThumbnailSelectedCegComponent } from './thumbnail-selected-ceg/thumbnai
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
-    WhenToUseModule,
     ComponentChangelogModule,
     CegModule,
   ],
