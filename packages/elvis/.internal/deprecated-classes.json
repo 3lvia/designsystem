@@ -1,4 +1,14 @@
 {
+  "e-content-loader--grey": {
+    "deprecateChildren": true,
+    "version": "10.6.0",
+    "sunset": "July 2023",
+    "replacement": {
+      "name": "Content Loader",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/content-loader"
+    }
+  },
   "e-accordion": {
     "deprecateChildren": true,
     "version": "10.4.0",

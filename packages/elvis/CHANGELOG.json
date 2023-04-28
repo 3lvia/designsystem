@@ -1,6 +1,21 @@
 {
   "content": [
     {
+      "version": "11.6.0",
+      "date": "April 28, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Content loader now uses same color for grey and whit background. Nothing should break, but the class <code>e-content-loader--grey</code> is not needed."
+          ],
+          "pages": [
+            { "displayName": "Content Loader", "url": "https://design.elvia.io/components/content-loader" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "11.4.0",
       "date": "April 25, 2023",
       "changelog": [
