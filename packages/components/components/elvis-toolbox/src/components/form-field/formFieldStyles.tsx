@@ -6,7 +6,7 @@ import { FormFieldError } from './errorStyles';
 
 const setActiveBorder = (isCompact?: boolean) => {
   return css`
-    border: 2px solid ${getThemeColor('state-on')};
+    border: 2px solid ${getThemeColor('border-selected-1')};
     padding: ${isCompact ? '0 3px 0 7px' : '0 7px 0 15px'};
   `;
 };
@@ -16,7 +16,7 @@ export const FormFieldInputContainer = styled.div`
   align-items: center;
   gap: 8px;
   padding: 0 8px 0 16px;
-  border: 1px solid ${getThemeColor('text-primary')};
+  border: 1px solid ${getThemeColor('text-1')};
   height: 48px;
   border-radius: 4px;
   cursor: text;
@@ -73,7 +73,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
 
         ${FormFieldLabel} {
           font-size: 0.625rem;
-          background-color: ${getThemeColor('background-primary')};
+          background-color: ${getThemeColor('background-1')};
           position: absolute;
           margin-left: 7px;
           top: 0;
@@ -108,7 +108,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       && ${FormFieldInputContainer} {
          {
           cursor: not-allowed;
-          border-color: ${getThemeColor('state-disabled')};
+          border-color: ${getThemeColor('border-disabled-1')};
         }
       }
     `};
@@ -118,7 +118,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
     css`
       ${FormFieldInputContainer} {
         ${setActiveBorder(isCompact)};
-        border-color: ${getThemeColor('state-error')};
+        border-color: ${getThemeColor('signal-error')};
       }
     `};
 
@@ -163,6 +163,6 @@ export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
   cursor: inherit;
 
   &:disabled {
-    color: ${getThemeColor('state-disabled')};
+    color: ${getThemeColor('text-disabled-1')};
   }
 `;

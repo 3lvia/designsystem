@@ -81,7 +81,6 @@ export class AccordionCegComponent implements ComponentExample {
           radios: [
             { label: 'Small', value: 'small' },
             { label: 'Medium', value: 'medium' },
-            { label: 'Large', value: 'large' },
           ],
         },
       },

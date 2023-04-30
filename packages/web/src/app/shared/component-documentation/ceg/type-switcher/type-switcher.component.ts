@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { UnknownCegControlManager } from '../cegControlManager';
@@ -16,6 +16,7 @@ interface DropdownOption {
 export class TypeSwitcherComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject();
   @Input() controlManager: UnknownCegControlManager;
+  @Output() typeChange = new EventEmitter<string>();
   dropdownOptions: DropdownOption[] = [];
   selectedOption = '';
 
@@ -24,8 +25,13 @@ export class TypeSwitcherComponent implements OnInit, OnDestroy {
       this.dropdownOptions = componentTypes.map(
         (option) => ({ label: option.type, value: option.type } as DropdownOption),
       );
-      this.selectedOption = this.dropdownOptions[0].value;
     });
+
+    this.controlManager.currentComponentTypeName
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe((componentType) => {
+        this.selectedOption = componentType || '';
+      });
   }
 
   ngOnDestroy(): void {
@@ -34,6 +40,6 @@ export class TypeSwitcherComponent implements OnInit, OnDestroy {
   }
 
   onSelect(configurationName: string): void {
-    this.controlManager.setActiveComponentTypeName(configurationName);
+    this.typeChange.emit(configurationName);
   }
 }

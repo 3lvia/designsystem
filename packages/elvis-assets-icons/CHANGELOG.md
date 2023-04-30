@@ -1,5 +1,31 @@
 # Elvis-assets-icon
 
+## 3.0.0 (28.04.23)
+
+### Breaking changes
+
+- All icons now use `getThemeColor` instead of `getColor` when used through this package. This causes the
+  icons to now use the new color labels instead of the old ones.
+
+### Patch
+
+- Now using the newest color labels to set colors in icons.
+
+## 2.14.0 (28.05.23)
+
+### New feature
+
+All these icons now points to another sorting icon.
+
+- `sorting_alfabetical_a_to_z` deprecated
+- `sorting_alfabetical_z_to_a` deprecated
+- `sorting_date_earliest_to_latest` deprecated
+- `sorting_date_latest_to_earliest` deprecated
+- `sorting_number_high_to_low` deprecated
+- `sorting_number_low_to_high` deprecated
+- `sorting_time_earliest_to_latest` deprecated
+- `sorting_time_latest_to_earliest` deprecated.
+
 ## 2.13.0 (25.05.23)
 
 ### New feature

@@ -2,9 +2,8 @@ import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/co
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
-import { filter, startWith } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
@@ -147,12 +146,13 @@ export class CMSPageComponent implements OnDestroy {
   }
 
   checkIfPageExistsInProject(): void {
-    const currentPathWithoutAnchor = this.router.url.split('#')[0];
-    if (currentPathWithoutAnchor.split('/')[2]) {
+    const urlWithoutAnchor = this.router.url.split('#')[0];
+    const currentPath = urlWithoutAnchor.split('?')[0];
+    if (currentPath.split('/')[2]) {
       this.router.config[0].children?.forEach((subRoute) => {
-        if (subRoute.path === currentPathWithoutAnchor.split('/')[1]) {
+        if (subRoute.path === currentPath.split('/')[1]) {
           this.isCmsPage = !subRoute.children?.some(
-            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPathWithoutAnchor,
+            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPath,
           );
         }
       });

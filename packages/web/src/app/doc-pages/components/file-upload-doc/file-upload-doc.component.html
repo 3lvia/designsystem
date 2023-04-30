@@ -8,46 +8,21 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="liveExample e-mt-40">
-      <div class="e-fileupload" style="width: 380px" appDnd>
-        <div class="e-fileupload__icon">
-          <i class="e-icon e-icon--image_add-color" aria-hidden="true" aria-hidden="true"></i>
-        </div>
-        <div class="e-fileupload__description">Drag and drop or</div>
-        <div class="e-fileupload__input">
-          <input type="file" id="fileUploadTemplate" />
-          <label for="fileUploadTemplate">
-            <i class="e-icon e-icon--upload" aria-hidden="true" aria-hidden="true"></i>
-            Choose file
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeHTML]="example1"
-        [codeTS]="dndDirective"
-      ></app-component-example-v1>
-    </div>
-  </div>
+  <app-static-ceg>
+    <app-file-upload-ceg />
+  </app-static-ceg>
 
   <!--STATUS-->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Before dragover'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
       <app-component-subsection [sectionTitle]="'On dragover'">
         <ng-container ngProjectAs="sectionContent">
           Use the class modifier
           <span class="code-text">e-fileupload--dragover</span>
           on dragging over.
-          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
+          <app-static-ceg>
+            <app-file-upload-dragover-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Uploading'" [figmaOnly]="true">

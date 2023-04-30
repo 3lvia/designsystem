@@ -104,7 +104,7 @@ const accordionData: ComponentData = {
     isStartAligned: {
       isRequired: false,
       type: `boolean`,
-      description: `Determines if the accordion is full width.`,
+      description: `Sets the accordion icon at the start, before the accordion label.`,
     },
     className: {
       isRequired: false,
