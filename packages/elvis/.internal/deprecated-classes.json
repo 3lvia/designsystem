@@ -1,4 +1,13 @@
 {
+  "e-content-loader--grey": {
+    "deprecateChildren": true,
+    "version": "10.6.0",
+    "replacement": {
+      "name": "e-content-loader",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/content-loader"
+    }
+  },
   "e-accordion": {
     "deprecateChildren": true,
     "version": "10.4.0",
