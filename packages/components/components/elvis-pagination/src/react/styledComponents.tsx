@@ -33,7 +33,7 @@ export const PaginatorInfoText = styled.div`
 `;
 
 export const PaginatorInfoDropdown = styled.div<{ optimalWidth: number }>`
-  width: ${({ optimalWidth: minWidth }) => minWidth + 52}px; //52px = 4+8px padding, 8px gap + 32px button
+  width: ${({ optimalWidth }) => optimalWidth + 52}px; //52px = 4+8px padding, 8px gap + 32px button
   min-width: 75px;
   transition: width 200ms;
 
