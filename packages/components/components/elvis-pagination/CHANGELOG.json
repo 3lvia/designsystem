@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.05.23",
+      "version": "3.3.8",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where large numbers would not fit inside the dropdown."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Update internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "03.04.23",
       "version": "3.3.8",
       "changelog": [
