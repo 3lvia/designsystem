@@ -2880,7 +2880,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^6.0.0, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^6.0.2, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
@@ -3121,7 +3121,7 @@ __metadata:
     "@elvia/elvis-assets-icons": ^3.0.0
     "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-dropdown": ^6.0.0
+    "@elvia/elvis-dropdown": ^6.0.2
     "@elvia/elvis-toolbox": ^8.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
@@ -3146,7 +3146,7 @@ __metadata:
     "@elvia/elvis-assets-icons": ^3.0.0
     "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-dropdown": ^6.0.0
+    "@elvia/elvis-dropdown": ^6.0.2
     "@elvia/elvis-toolbox": ^8.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
