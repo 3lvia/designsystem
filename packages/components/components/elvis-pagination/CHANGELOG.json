@@ -7,7 +7,10 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fixed a bug where large numbers would not fit inside the dropdown."]
+          "changes": [
+            "Fixed a bug where large numbers would not fit inside the dropdown.",
+            "Fixed a bug where The Pagination would emit its default values when initiated."
+          ]
         },
         {
           "type": "patch",
