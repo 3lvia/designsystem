@@ -145,6 +145,7 @@ export class v2PlaygroundComponent {
     { value: '88', label: '88' },
   ];
 
+  defaultPaginationValue3 = { start: 51, end: 60 };
   defaultPaginationOptions3 = [
     { value: '1', label: '1' },
     { value: '10', label: '10' },

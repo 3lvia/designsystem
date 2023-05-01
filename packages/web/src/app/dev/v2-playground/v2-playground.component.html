@@ -7,11 +7,11 @@
     <!--Normal version-->
     <div class="e-bg-white">
       <elvia-pagination
-        numberOfElements="60000"
-        [value]="defaultPaginationValue"
+        [numberOfElements]="100"
+        [value]="{ start: 61, end: 90 }"
         [alignment]="'right'"
         dropdownMenuPosition="top"
-        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+        (valueOnChange)="logValue('Pagination0', $any($event).detail.value)"
       ></elvia-pagination>
 
       <elvia-pagination
@@ -19,7 +19,7 @@
         [value]="defaultPaginationValue"
         [alignment]="'right'"
         [dropdownItems]="defaultPaginationOptions1"
-        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+        (valueOnChange)="logValue('Pagination1', $any($event).detail.value)"
       ></elvia-pagination>
 
       <elvia-pagination
@@ -27,15 +27,16 @@
         [value]="defaultPaginationValue"
         [alignment]="'right'"
         [dropdownItems]="defaultPaginationOptions2"
-        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+        (valueOnChange)="logValue('Pagination2', $any($event).detail.value)"
       ></elvia-pagination>
 
       <elvia-pagination
         numberOfElements="60000"
-        [value]="defaultPaginationValue"
+        [value]="defaultPaginationValue3"
         [alignment]="'right'"
+        [dropdownSelectedItemIndex]="1"
         [dropdownItems]="defaultPaginationOptions3"
-        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+        (valueOnChange)="logValue('Pagination3', $any($event).detail.value)"
       ></elvia-pagination>
     </div>
     <!--Inverted version-->
@@ -163,7 +164,7 @@
   <!--Carousel-->
   <div class="example-wrapper">
     <h3>Carousel</h3>
-    <elvia-carousel [loop]="false" [hasConfirmationCheckmark]="true">
+    <!-- <elvia-carousel [loop]="false" [hasConfirmationCheckmark]="true">
       <div slot="title-1">
         <h3 class="e-title-sm">title 1</h3>
       </div>
@@ -184,7 +185,7 @@
           style="width: 100%; min-width: 278px; border-radius: 8px"
         />
       </div>
-    </elvia-carousel>
+    </elvia-carousel> -->
   </div>
 
   <!--Chip-->
