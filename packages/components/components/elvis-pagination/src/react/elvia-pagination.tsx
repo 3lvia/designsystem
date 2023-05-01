@@ -15,6 +15,7 @@ import {
   PaginatorInfoText,
   PaginatorSelectorArea,
   PaginatorSelectorArrowBtn,
+  CurrentDropdownOption,
 } from './styledComponents';
 import { useRovingFocus, warnDeprecatedProps, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
@@ -49,6 +50,14 @@ const Pagination: FC<PaginationProps> = function ({
     parseInt(dropdownItems[dropdownSelectedItemIndex].value),
   );
   const previousDropdownValue = useRef(selectedDropdownValue);
+
+  const currentDropdownOptionRef = useRef<HTMLSpanElement | null>(null);
+  const [optimalDropdownWidth, setOptimalDropdownWidth] = useState(0);
+
+  useEffect(() => {
+    setOptimalDropdownWidth(currentDropdownOptionRef?.current?.offsetWidth ?? 0);
+  }, [selectedDropdownValue, currentDropdownOptionRef]);
+
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
   /** Calculate number of pages based on total elements divided by amount of elements showing. */
   const [numberOfPages, setNumberOfPages] = useState(Math.ceil(numberOfElements / selectedDropdownValue));
@@ -182,10 +191,12 @@ const Pagination: FC<PaginationProps> = function ({
     >
       <PaginatorInfoContainer>
         <PaginatorInfoText data-testid="info-text">{labelOptionsState.displaying}</PaginatorInfoText>
-        <PaginatorInfoDropdown>
+        <CurrentDropdownOption ref={currentDropdownOptionRef}>
+          {selectedDropdownValue.toString()}
+        </CurrentDropdownOption>
+        <PaginatorInfoDropdown optimalWidth={optimalDropdownWidth}>
           <Dropdown
             isCompact
-            placeholder=""
             items={dropdownItems}
             menuPosition={dropdownMenuPosition}
             className="number-of-items-dropdown"
