@@ -5,7 +5,39 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white">
+      <elvia-pagination
+        numberOfElements="60000"
+        [value]="defaultPaginationValue"
+        [alignment]="'right'"
+        dropdownMenuPosition="top"
+        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+      ></elvia-pagination>
+
+      <elvia-pagination
+        numberOfElements="60000"
+        [value]="defaultPaginationValue"
+        [alignment]="'right'"
+        [dropdownItems]="defaultPaginationOptions1"
+        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+      ></elvia-pagination>
+
+      <elvia-pagination
+        numberOfElements="60000"
+        [value]="defaultPaginationValue"
+        [alignment]="'right'"
+        [dropdownItems]="defaultPaginationOptions2"
+        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+      ></elvia-pagination>
+
+      <elvia-pagination
+        numberOfElements="60000"
+        [value]="defaultPaginationValue"
+        [alignment]="'right'"
+        [dropdownItems]="defaultPaginationOptions3"
+        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+      ></elvia-pagination>
+    </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -367,13 +399,13 @@
   <!--Paginator-->
   <div class="example-wrapper">
     <h3>Paginator</h3>
-    <elvia-pagination
+    <!--  <elvia-pagination
       numberOfElements="60000"
       [value]="defaultPaginationValue"
       [alignment]="'right'"
       dropdownMenuPosition="top"
       (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
-    ></elvia-pagination>
+    ></elvia-pagination> -->
   </div>
 
   <!--Popover-->

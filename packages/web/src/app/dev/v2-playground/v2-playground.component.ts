@@ -133,6 +133,25 @@ export class v2PlaygroundComponent {
 
   // Pagination
   defaultPaginationValue = { start: 1, end: 10 };
+  defaultPaginationOptions1 = [
+    { value: '10', label: '10' },
+    { value: '100', label: '100' },
+    { value: '1111', label: '1111' },
+  ];
+
+  defaultPaginationOptions2 = [
+    { value: '10', label: '10' },
+    { value: '222', label: '222' },
+    { value: '88', label: '88' },
+  ];
+
+  defaultPaginationOptions3 = [
+    { value: '1', label: '1' },
+    { value: '10', label: '10' },
+    { value: '100', label: '100' },
+    { value: '1000', label: '1000' },
+    { value: '10000', label: '10000' },
+  ];
 
   // Popover
   isPopoverShowing = false;
