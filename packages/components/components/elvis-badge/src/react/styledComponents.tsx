@@ -42,7 +42,7 @@ export const BadgeCircle = styled.div<BadgeCircleProps>`
   font-weight: 600;
   height: 16px;
   line-height: 9px;
-  padding: ${({ count }) => (count === '99+' ? '4px 4px' : '4px 0')};
+  padding: ${({ count }) => (count === '99+' ? '4px' : '4px 0')};
   place-items: center;
   position: absolute;
   right: 0;
