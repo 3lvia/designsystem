@@ -68,6 +68,9 @@ export class ComponentPropertiesTableComponent implements OnInit {
         try {
           const element = document.getElementById(`property-row-${resultItem.item.attribute}-${match.key}`);
           if (element && match.key && match.key in resultItem.item) {
+            if (resultItem.item.attribute === 'dropdownSelectedItemIndex') {
+              console.log(resultItem.item, match);
+            }
             element.innerHTML = this.getHighlightedHTMLString(
               match,
               resultItem.item[match.key as keyof ComponentProp] as string,
@@ -94,25 +97,35 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   private getHighlightedHTMLString(match: Fuse.FuseResultMatch, value: string): string {
+    const usedIndices: Fuse.RangeTuple[] = [];
     // Add any part of the description that is before the first match
     let highlightedValue = value.substring(0, match.indices[0][0]);
     // Add each match, and the part of the description between matches
-    match.indices.forEach((matchIndices, index, items) => {
-      const [matchStart, matchEnd] = matchIndices;
-      // Only highlight in description if more than one character
-      if (matchEnd - matchStart > 0) {
-        highlightedValue += this.addHighlightBackground(
-          this.encodeHTML(value.substring(matchStart, matchEnd + 1)),
-        );
-      } else {
-        highlightedValue += this.encodeHTML(value.substring(matchStart, matchEnd + 1));
-      }
+    match.indices
+      // Filter out any duplicate matches (happens if you search the exact name of a long prop)
+      .filter((matchIndices) => {
+        if (usedIndices.find((used) => used[0] === matchIndices[0] && used[1] === matchIndices[1])) {
+          return false;
+        }
+        usedIndices.push(matchIndices);
+        return true;
+      })
+      .forEach((matchIndices, index, items) => {
+        const [matchStart, matchEnd] = matchIndices;
+        // Only highlight in description if more than one character
+        if (matchEnd - matchStart > 0) {
+          highlightedValue += this.addHighlightBackground(
+            this.encodeHTML(value.substring(matchStart, matchEnd + 1)),
+          );
+        } else {
+          highlightedValue += this.encodeHTML(value.substring(matchStart, matchEnd + 1));
+        }
 
-      // If not the last match, add the part of the description upto next match
-      if (index !== match.indices.length - 1) {
-        highlightedValue += this.encodeHTML(value.substring(matchEnd + 1, items[index + 1][0]));
-      }
-    });
+        // If not the last match, add the part of the description upto next match
+        if (index !== items.length - 1) {
+          highlightedValue += this.encodeHTML(value.substring(matchEnd + 1, items[index + 1][0]));
+        }
+      });
     // Add the part after the last match
     highlightedValue += this.encodeHTML(
       value.substring(match.indices[match.indices.length - 1][1] + 1, value.length),
