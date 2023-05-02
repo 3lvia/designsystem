@@ -33,7 +33,7 @@ export class SliderCegComponent implements ComponentExample {
     {
       type: 'Range',
       controls: {
-        hasInputField: { type: 'checkbox', group: 'Options', label: 'Input Field' },
+        hasInputField: { type: 'checkbox', group: 'Options', label: 'Input Fields' },
         hasHintValues: { type: 'checkbox', group: 'Options', label: 'Help Values' },
         hasTooltip: { type: 'checkbox', group: 'Options', label: 'Display Tooltip', value: true },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
