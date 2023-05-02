@@ -6,6 +6,9 @@ import commonjs from '@rollup/plugin-commonjs';
 export default defineConfig({
   plugins: [react()],
   base: '/react-preview/',
+  resolve: {
+    preserveSymlinks: true,
+  },
   optimizeDeps: {
     force: true,
     include: ['@elvia/elvis-colors', '@elvia/elvis-typography', '@elvia/elvis-toolbox'],
