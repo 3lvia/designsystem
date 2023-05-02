@@ -72,14 +72,11 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
           isVisible: false,
         }));
 
-        let toggles: [string, CegControl][] = [];
-        if (controls) {
-          toggles = Object.entries(controls).filter(
-            ([slotName, control]: [string, CegControl]) =>
-              control?.type === 'slotToggle' &&
-              !hiddenSlots?.find((hiddenSlot) => hiddenSlot.slotName === slotName),
-          );
-        }
+        const toggles = Object.entries(controls || {}).filter(
+          ([slotName, control]: [string, CegControl]) =>
+            control?.type === 'slotToggle' &&
+            !hiddenSlots?.find((hiddenSlot) => hiddenSlot.slotName === slotName),
+        );
 
         return toggles
           .map(([controlName, control]) => ({
