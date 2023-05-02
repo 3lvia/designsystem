@@ -10,11 +10,6 @@ export const sliderData: ComponentData = {
       description: 'Variants of slider.',
       isRequired: false,
       type: '“simple” | “range”',
-
-      cegDefault: 0,
-      cegFormType: 'type',
-      cegOptions: ['simple', 'range'],
-      cegType: 'string',
     },
 
     hasInputField: {
@@ -22,13 +17,6 @@ export const sliderData: ComponentData = {
       description: 'Decides if the slider should have input field(s).',
       isRequired: false,
       type: 'boolean',
-
-      cegDefault: false,
-      cegDisplayGroup: 'Options',
-      cegDisplayName: 'Input field',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegType: 'boolean',
     },
 
     hasHintValues: {
@@ -37,28 +25,14 @@ export const sliderData: ComponentData = {
         'Decides if the slider should display its minimum and maximum values at each end of the slider. Not available of type="range" with hasInputField="true".',
       isRequired: false,
       type: 'boolean',
-
-      cegDefault: false,
-      cegDisplayGroup: 'Options',
-      cegDisplayName: 'Help values',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegType: 'boolean',
     },
 
     hasTooltip: {
-      default: 'false',
+      default: 'true',
       description:
         'Decides if a tooltip should be displayed when the user uses the slider. A tooltip is always displayed on devices with touch as their primary input method.',
       isRequired: false,
       type: 'boolean',
-
-      cegDefault: true,
-      cegDisplayGroup: 'Options',
-      cegDisplayName: 'Display tooltip',
-      cegFormType: 'checkbox',
-      cegOption: 'false',
-      cegType: 'boolean',
     },
 
     hasPercent: {
