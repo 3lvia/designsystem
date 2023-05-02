@@ -1,6 +1,6 @@
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
-import { ComponentType, Controls, ControlValue, StaticProps } from './controlType';
+import { CegControl, ComponentType, Controls, ControlValue, StaticProps } from './controlType';
 
 export type UnknownCegControlManager = CegControlManager<Record<string, any>>;
 
@@ -63,24 +63,28 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     this._currentComponentTypeName.next(name);
   }
 
-  getSlotVisibility(): Observable<{ slotName: string; isVisible: true }[]> {
+  getSlotVisibility(): Observable<{ slotName: string; isVisible: boolean }[]> {
     return this.getCurrentControls().pipe(
-      map((controls: Controls<TComponentProps> | undefined) => {
+      map((controls) => {
         const typeIndex = this.getCurrentComponentTypeIndex();
         const hiddenSlots = this._componentTypes.value[typeIndex]?.hiddenSlots?.map((slotName) => ({
           slotName: slotName,
           isVisible: false,
         }));
 
-        const toggles = Object.entries(controls ?? {}).filter(
-          ([slotName, control]) =>
-            control?.type === 'slotToggle' &&
-            !hiddenSlots?.find((hiddenSlot) => hiddenSlot.slotName === slotName),
-        );
+        let toggles: [string, CegControl][] = [];
+        if (controls) {
+          toggles = Object.entries(controls).filter(
+            ([slotName, control]: [string, CegControl]) =>
+              control?.type === 'slotToggle' &&
+              !hiddenSlots?.find((hiddenSlot) => hiddenSlot.slotName === slotName),
+          );
+        }
+
         return toggles
           .map(([controlName, control]) => ({
             slotName: controlName,
-            isVisible: control?.value,
+            isVisible: !!control?.value,
           }))
           .concat(hiddenSlots ?? []);
       }),
