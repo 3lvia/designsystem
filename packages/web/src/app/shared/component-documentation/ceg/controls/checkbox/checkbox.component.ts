@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Checkbox, ChildCheckbox } from '../../controlType';
+import { Checkbox } from '../../controlType';
 
 let CEG_CHECKBOX_ID = 0;
 
@@ -9,7 +9,7 @@ let CEG_CHECKBOX_ID = 0;
   styleUrls: ['./checkbox.component.scss'],
 })
 export class CheckboxComponent {
-  @Input() checkbox: Checkbox | ChildCheckbox;
+  @Input() checkbox: Checkbox;
   @Input() isChild = false;
   @Input() disabled = false;
   @Output() toggle = new EventEmitter<Checkbox['value']>();

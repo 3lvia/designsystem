@@ -12,7 +12,7 @@ import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
-import { Controls, ControlValue } from './controlType';
+import { Controls, ControlValue, SlotVisibility } from './controlType';
 import { ActivatedRoute, Router } from '@angular/router';
 
 interface Slot {
@@ -127,12 +127,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  private getUpdatedSlotList(
-    slots: {
-      slotName: string;
-      isVisible: true;
-    }[],
-  ): Slot[] {
+  private getUpdatedSlotList(slots: SlotVisibility[]): Slot[] {
     let slotList: Slot[] = [];
 
     const slotIsActive = (slotName: string): boolean => {
@@ -222,8 +217,15 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   }
 
   private getWebComponent() {
-    return this.componentContainer.nativeElement.querySelector(
-      `elvia-${this.componentExample.elementName}`,
-    ) as ElvisComponentWrapper;
+    const tagName = `elvia-${this.componentExample.elementName}`;
+    const element = this.componentContainer.nativeElement.querySelector(tagName) as ElvisComponentWrapper;
+
+    if (!element) {
+      throw new Error(
+        `CEG - ${tagName} was not found in the DOM. Ensure that you have spelled the element name correct in the HTML and when implementing the ComponentExample interface.`,
+      );
+    }
+
+    return element;
   }
 }

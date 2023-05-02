@@ -51,6 +51,14 @@ export class ControlsComponent implements OnInit, OnDestroy {
     return this.disabledControls.includes(controlName);
   }
 
+  parentIsChecked(parentName?: string): boolean {
+    const control = this.controlManager.getControlSnapshot()?.[parentName || ''];
+    if (!control) {
+      return true;
+    }
+    return control.value;
+  }
+
   private createControlGroups(controls: Controls, groupOrder: string[]) {
     const newGroups: Group[] = [];
 
