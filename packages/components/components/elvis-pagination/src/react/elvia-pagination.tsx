@@ -43,7 +43,7 @@ const Pagination: FC<PaginationProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
-  const [isInitialized, setIsInitialized] = useState(false);
+  const isInitializedRef = useRef<boolean>(false);
 
   const [selectedPageNumber, setSelectedPageNumber] = useState(
     value.start ? Math.ceil(value.start / parseInt(dropdownItems[dropdownSelectedItemIndex].value)) : 1,
@@ -117,11 +117,13 @@ const Pagination: FC<PaginationProps> = function ({
     setSelectedDropdownValue(parseInt(dropdownItems[dropdownSelectedItemIndex].value));
   }, [dropdownItems, dropdownSelectedItemIndex]);
 
-  useEffect(() => setIsInitialized(true), []);
+  useEffect(() => {
+    isInitializedRef.current = true;
+  }, []);
 
   const emitValueOnChangeEvent = (): void => {
     if (
-      !isInitialized ||
+      isInitializedRef.current === false ||
       visibleElements.start === undefined ||
       visibleElements.end === undefined ||
       visibleElements.start > numberOfElements
