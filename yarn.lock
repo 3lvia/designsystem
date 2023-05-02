@@ -2288,14 +2288,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@elvia/elvis-assets-icons@portal:../elvis-assets-icons::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-assets-icons@portal:../elvis-assets-icons::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-colors": ^2.2.0
-  languageName: node
-  linkType: soft
-
 "@elvia/elvis-assets-trademark@workspace:packages/elvis-assets-trademark":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-trademark@workspace:packages/elvis-assets-trademark"
@@ -3619,29 +3611,6 @@ __metadata:
   checksum: 8ddc0617c84957d36b1d5a41c4ee18aa733e642ffa372e6a1da6c8c8b48fef45f6424018cff588fccb421ff87137b9a771bdb8b60fd09ecaa5cc5cf22e81b3c3
   languageName: node
   linkType: hard
-
-"@elvia/elvis-toolbox@portal:../components/components/elvis-toolbox::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-toolbox@portal:../components/components/elvis-toolbox::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-typography": ^2.3.1
-    styled-components: ^5.3.6
-    tslib: ^2.4.1
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
 
 "@elvia/elvis-tooltip@*, @elvia/elvis-tooltip@^1.1.6, @elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip":
   version: 0.0.0-use.local
@@ -10507,7 +10476,7 @@ __metadata:
     "@contentful/rich-text-types": ^15.11.1
     "@elvia/elvis": "portal:../elvis"
     "@elvia/elvis-accordion": "portal:../components/components/elvis-accordion"
-    "@elvia/elvis-assets-icons": "portal:../elvis-assets-icons"
+    "@elvia/elvis-assets-icons": ^2.13.0
     "@elvia/elvis-badge": "portal:../components/components/elvis-badge"
     "@elvia/elvis-box": "portal:../components/components/elvis-box"
     "@elvia/elvis-breadcrumb": "portal:../components/components/elvis-breadcrumb"
@@ -10533,7 +10502,6 @@ __metadata:
     "@elvia/elvis-tabs": "portal:../components/components/elvis-tabs"
     "@elvia/elvis-timepicker": "portal:../components/components/elvis-timepicker"
     "@elvia/elvis-toast": "portal:../components/components/elvis-toast"
-    "@elvia/elvis-toolbox": "portal:../components/components/elvis-toolbox"
     "@elvia/elvis-tooltip": "portal:../components/components/elvis-tooltip"
     "@elvia/elvis-typography": "portal:../elvis-typography"
     "@types/lodash.debounce": ^4.0.6
