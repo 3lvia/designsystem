@@ -94,19 +94,17 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   private getHighlightedHTMLString(match: Fuse.FuseResultMatch, value: string): string {
-    const usedIndices: Fuse.RangeTuple[] = [];
     // Add any part of the description that is before the first match
     let highlightedValue = value.substring(0, match.indices[0][0]);
     // Add each match, and the part of the description between matches
     match.indices
       // Filter out any duplicate matches (happens if you search the exact name of a long prop)
-      .filter((matchIndices) => {
-        if (usedIndices.find((used) => used[0] === matchIndices[0] && used[1] === matchIndices[1])) {
-          return false;
+      .reduce((usedIndices, current) => {
+        if (usedIndices.find((used) => used[0] === current[0] && used[1] === current[1])) {
+          return usedIndices;
         }
-        usedIndices.push(matchIndices);
-        return true;
-      })
+        return [...usedIndices, current];
+      }, [] as Fuse.RangeTuple[])
       .forEach((matchIndices, index, items) => {
         const [matchStart, matchEnd] = matchIndices;
         // Only highlight in description if more than one character
