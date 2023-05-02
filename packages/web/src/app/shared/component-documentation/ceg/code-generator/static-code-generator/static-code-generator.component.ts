@@ -25,7 +25,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private addNewLinesBetweenTags(code: string): string {
-    return code.replace(/>\s?</g, '>\n<');
+    return code.replace(/>(.*?)</g, (_, innerContent?: string) => `>\n${innerContent?.trim()}\n<`);
   }
 
   private cleanSrcAttribute(code: string): string {
