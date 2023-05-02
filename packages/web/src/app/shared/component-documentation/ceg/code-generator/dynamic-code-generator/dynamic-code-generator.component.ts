@@ -81,13 +81,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
           return [];
         }
 
-        const props: Prop[] = [{ name: controlName, value: control?.value }];
-        if (control && control.type === 'checkbox' && control.children) {
-          Object.entries(control.children).forEach(([childName, child]) => {
-            props.push({ name: childName, value: child.value ?? false });
-          });
-        }
-        return props;
+        return [{ name: controlName, value: control?.value }];
       })
       .flat();
 

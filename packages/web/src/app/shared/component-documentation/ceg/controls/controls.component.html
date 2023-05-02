@@ -9,20 +9,13 @@
         (toggle)="updateValue(control.key, $event)"
       />
 
-      <ng-container *ngIf="control.value.type === 'checkbox'">
-        <app-checkbox
-          [checkbox]="control.value"
-          [disabled]="isDisabled(control.key)"
-          (toggle)="updateValue(control.key, $event)"
-        />
-        <app-checkbox
-          [disabled]="!control.value.value"
-          [isChild]="true"
-          *ngFor="let child of control.value.children | keyvalue : noSort"
-          [checkbox]="child.value"
-          (toggle)="updateValue(child.key, $event)"
-        />
-      </ng-container>
+      <app-checkbox
+        *ngIf="control.value.type === 'checkbox'"
+        [checkbox]="control.value"
+        [disabled]="isDisabled(control.key) || !parentIsChecked(control.value.childOf)"
+        (toggle)="updateValue(control.key, $event)"
+        [isChild]="!!control.value.childOf"
+      />
 
       <app-switch
         *ngIf="control.value.type === 'switch' || control.value.type === 'slotToggle'"

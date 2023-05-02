@@ -3,11 +3,11 @@ interface ControlBase {
   readonly group: string;
 }
 
-export interface Checkbox extends ControlBase {
+export interface Checkbox<T = Record<string, any>> extends ControlBase {
   readonly type: 'checkbox';
   readonly label: string;
   value?: boolean;
-  readonly children?: { [key: string]: ChildCheckbox };
+  readonly childOf?: keyof T;
 }
 
 export type ChildCheckbox = Omit<Checkbox, 'group'>;
@@ -57,10 +57,10 @@ export type CegControl = Checkbox | ChildCheckbox | Switch | SlotToggle | RadioG
 export type Controls<T = Record<string, any>> = Readonly<
   Partial<{
     [K in keyof T]: NonNullable<T[K]> extends boolean
-      ? Checkbox | Switch
+      ? Checkbox<T> | Switch
       : NonNullable<T[K]> extends string
       ? RadioGroup<T[K]> | Text
-      : RadioGroup | Counter | Text | SlotToggle;
+      : RadioGroup<T[K]> | Counter | Text | SlotToggle;
   }>
 >;
 
