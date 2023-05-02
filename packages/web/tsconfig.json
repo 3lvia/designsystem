@@ -5,9 +5,6 @@
     "baseUrl": "./",
     "module": "es2020",
     "outDir": "./dist/out-tsc",
-    "paths": {
-      "@elvia/elvis-toolbox": ["../components/components/elvis-toolbox/"] // Make web listen to changes to toolbox
-    },
     "strict": true,
     "noImplicitThis": false, // TODO: Remove line -> fix errors
     "strictPropertyInitialization": false
