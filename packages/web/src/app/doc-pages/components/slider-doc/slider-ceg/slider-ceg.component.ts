@@ -40,6 +40,9 @@ export class SliderCegComponent implements ComponentExample {
         unit: { type: 'text', group: 'Unit', label: 'Unit' },
       },
       groupOrder: ['Options', 'State', 'Unit'],
+      disabledControls: {
+        hasHintValues: ['hasInputField'],
+      },
     },
   ]);
 }
