@@ -115,7 +115,7 @@ const Pagination: FC<PaginationProps> = function ({
 
   const emitValueOnChangeEvent = (): void => {
     if (
-      !isInitialized.current ||
+      isInitialized.current === false ||
       visibleElements.start === undefined ||
       visibleElements.end === undefined ||
       visibleElements.start > numberOfElements
