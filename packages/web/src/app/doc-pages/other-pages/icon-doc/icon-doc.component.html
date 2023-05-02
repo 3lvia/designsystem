@@ -496,14 +496,7 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'General'">
         <ng-container ngProjectAs="sectionContent">
-          <div>
-            All Elvia icons are available through the @elvia/elvis package or CDN, but we also offer all Elvia
-            icons as a separate npm package and as a web/React component.
-            <a class="e-link e-link--inline" href="https://www.npmjs.com/package/@elvia/elvis-assets-icons">
-              @elvia/elvis-assets-icons
-            </a>
-            .
-          </div>
+          <div>All Elvia icons are available through the @elvia/elvis package or CDN.</div>
         </ng-container>
       </app-component-subsection>
 
@@ -538,52 +531,7 @@
         </ng-container>
       </app-component-subsubsection>
 
-      <app-component-subsubsection [sectionTitle]="'Method 2: Using JS Module / SVGs'">
-        <ng-container ngProjectAs="sectionContent">
-          <a href="https://www.npmjs.com/package/@elvia/elvis-assets-icons" class="e-link">
-            Elvis-assets-icons npm package
-          </a>
-          <div class="e-mt-16">
-            All icons are accessible in a separate package from Elvis (
-            <span class="code-text">@elvia/elvis-assets-icons</span>
-            ) as SVGs within a JS module. Import the required icon individually where you need them:
-          </div>
-          <div class="e-mt-16">
-            <app-component-example-code
-              [noSubscriptions]="noSubs"
-              [codeTS]="importCodeTS"
-            ></app-component-example-code>
-          </div>
-          <ul class="e-list e-mt-16">
-            <li>
-              To get the icon you can use the following:
-              <br />
-              <code class="code-text">addCircle.getIcon()</code>
-              .
-            </li>
-            <li>
-              If you want a inverted icon use the following:
-              <br />
-              <code class="code-text">addCircle.getIcon('inverted')</code>
-              .
-            </li>
-            <li>
-              If you want a color:
-              <br />
-              <code class="code-text">addCircle.getIcon('white')</code>
-              .
-            </li>
-            <li>
-              Or set the color yourself with a hex:
-              <br />
-              <code class="code-text">addCircle.getIcon('#bdbdbd')</code>
-              .
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsubsection>
-
-      <app-component-subsubsection [sectionTitle]="'Method 3: Elvis-icon component'">
+      <app-component-subsubsection [sectionTitle]="'Method 2: Elvis-icon component'">
         <ng-container ngProjectAs="sectionContent">
           <a href="https://www.npmjs.com/package/@elvia/elvis-icon" class="e-link">Elvis-icon npm package</a>
           <p class="e-mb-0">
