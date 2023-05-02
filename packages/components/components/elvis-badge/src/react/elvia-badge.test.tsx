@@ -21,7 +21,7 @@ describe('Elvis Badge', () => {
     it('is green', () => {
       const badgeCircle = screen.getByRole('status');
 
-      expect(badgeCircle).toHaveStyle(`background-color: ${getThemeColor('state-on')}`);
+      expect(badgeCircle).toHaveStyle(`background-color: ${getThemeColor('background-selected-1')}`);
     });
   });
 
@@ -47,7 +47,7 @@ describe('Elvis Badge', () => {
 
     it('should have normal padding', () => {
       const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`padding: 2px 0px`);
+      expect(badgeCircle).toHaveStyle(`padding: 4px 0px`);
     });
 
     it('should have a fixed width to stay round', () => {
@@ -78,7 +78,7 @@ describe('Elvis Badge', () => {
 
     it('have some extra padding', () => {
       const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`padding: 2px 4px`);
+      expect(badgeCircle).toHaveStyle(`padding: 4px`);
     });
 
     it('should not have a fixed width', () => {
