@@ -82,3 +82,8 @@ export interface ComponentType<T extends Record<string, any>> {
 }
 
 export type ControlValue = CegControl['value'];
+
+export interface SlotVisibility {
+  slotName: string;
+  isVisible: boolean;
+}

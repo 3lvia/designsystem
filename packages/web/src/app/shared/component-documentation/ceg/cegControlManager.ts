@@ -1,6 +1,13 @@
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
-import { CegControl, ComponentType, Controls, ControlValue, StaticProps } from './controlType';
+import {
+  CegControl,
+  ComponentType,
+  Controls,
+  ControlValue,
+  SlotVisibility,
+  StaticProps,
+} from './controlType';
 
 export type UnknownCegControlManager = CegControlManager<Record<string, any>>;
 
@@ -63,7 +70,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     this._currentComponentTypeName.next(name);
   }
 
-  getSlotVisibility(): Observable<{ slotName: string; isVisible: boolean }[]> {
+  getSlotVisibility(): Observable<SlotVisibility[]> {
     return this.getCurrentControls().pipe(
       map((controls) => {
         const typeIndex = this.getCurrentComponentTypeIndex();

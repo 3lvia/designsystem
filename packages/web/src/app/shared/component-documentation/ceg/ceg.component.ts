@@ -12,7 +12,7 @@ import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
-import { Controls, ControlValue } from './controlType';
+import { Controls, ControlValue, SlotVisibility } from './controlType';
 import { ActivatedRoute, Router } from '@angular/router';
 
 interface Slot {
@@ -127,12 +127,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  private getUpdatedSlotList(
-    slots: {
-      slotName: string;
-      isVisible: true;
-    }[],
-  ): Slot[] {
+  private getUpdatedSlotList(slots: SlotVisibility[]): Slot[] {
     let slotList: Slot[] = [];
 
     const slotIsActive = (slotName: string): boolean => {
