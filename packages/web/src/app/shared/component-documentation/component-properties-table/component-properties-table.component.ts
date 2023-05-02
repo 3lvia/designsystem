@@ -68,9 +68,6 @@ export class ComponentPropertiesTableComponent implements OnInit {
         try {
           const element = document.getElementById(`property-row-${resultItem.item.attribute}-${match.key}`);
           if (element && match.key && match.key in resultItem.item) {
-            if (resultItem.item.attribute === 'dropdownSelectedItemIndex') {
-              console.log(resultItem.item, match);
-            }
             element.innerHTML = this.getHighlightedHTMLString(
               match,
               resultItem.item[match.key as keyof ComponentProp] as string,
