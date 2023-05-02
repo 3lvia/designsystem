@@ -1,6 +1,6 @@
 import { BadgeColor } from './elvia-badge.types';
 import styled from 'styled-components';
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 interface BadgeCircleProps {
   readonly badgeColor: BadgeColor;
   readonly count: string | undefined;
@@ -9,7 +9,7 @@ interface BadgeCircleProps {
 const getTextColor = (color: BadgeColor) => {
   switch (color) {
     case 'green':
-      return getThemeColor('static-black');
+      return getThemeColorContrast('background-selected-1');
     case 'red':
       return getThemeColor('static-white');
     default:
