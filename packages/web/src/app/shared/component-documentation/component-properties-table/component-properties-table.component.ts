@@ -97,22 +97,30 @@ export class ComponentPropertiesTableComponent implements OnInit {
     // Add any part of the description that is before the first match
     let highlightedValue = value.substring(0, match.indices[0][0]);
     // Add each match, and the part of the description between matches
-    match.indices.forEach((matchIndices, index, items) => {
-      const [matchStart, matchEnd] = matchIndices;
-      // Only highlight in description if more than one character
-      if (matchEnd - matchStart > 0) {
-        highlightedValue += this.addHighlightBackground(
-          this.encodeHTML(value.substring(matchStart, matchEnd + 1)),
-        );
-      } else {
-        highlightedValue += this.encodeHTML(value.substring(matchStart, matchEnd + 1));
-      }
+    match.indices
+      // Filter out any duplicate matches (happens if you search the exact name of a long prop)
+      .reduce((usedIndices, current) => {
+        if (usedIndices.find((used) => used[0] === current[0] && used[1] === current[1])) {
+          return usedIndices;
+        }
+        return [...usedIndices, current];
+      }, [] as Fuse.RangeTuple[])
+      .forEach((matchIndices, index, items) => {
+        const [matchStart, matchEnd] = matchIndices;
+        // Only highlight in description if more than one character
+        if (matchEnd - matchStart > 0) {
+          highlightedValue += this.addHighlightBackground(
+            this.encodeHTML(value.substring(matchStart, matchEnd + 1)),
+          );
+        } else {
+          highlightedValue += this.encodeHTML(value.substring(matchStart, matchEnd + 1));
+        }
 
-      // If not the last match, add the part of the description upto next match
-      if (index !== match.indices.length - 1) {
-        highlightedValue += this.encodeHTML(value.substring(matchEnd + 1, items[index + 1][0]));
-      }
-    });
+        // If not the last match, add the part of the description upto next match
+        if (index !== items.length - 1) {
+          highlightedValue += this.encodeHTML(value.substring(matchEnd + 1, items[index + 1][0]));
+        }
+      });
     // Add the part after the last match
     highlightedValue += this.encodeHTML(
       value.substring(match.indices[match.indices.length - 1][1] + 1, value.length),
