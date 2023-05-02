@@ -16,7 +16,12 @@ export class SliderCegComponent implements ComponentExample {
         hasInputField: { type: 'checkbox', group: 'Options', label: 'Input Field' },
         hasHintValues: { type: 'checkbox', group: 'Options', label: 'Help Values' },
         hasTooltip: { type: 'checkbox', group: 'Options', label: 'Display Tooltip', value: true },
-        hasPercent: { type: 'checkbox', group: 'Options', label: 'Display Percentage' },
+        hasPercent: {
+          type: 'checkbox',
+          group: 'Options',
+          label: 'Display Percentage',
+          childOf: 'hasTooltip',
+        },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
         unit: { type: 'text', group: 'Unit', label: 'Unit' },
       },
@@ -31,14 +36,10 @@ export class SliderCegComponent implements ComponentExample {
         hasInputField: { type: 'checkbox', group: 'Options', label: 'Input Field' },
         hasHintValues: { type: 'checkbox', group: 'Options', label: 'Help Values' },
         hasTooltip: { type: 'checkbox', group: 'Options', label: 'Display Tooltip', value: true },
-        hasPercent: { type: 'checkbox', group: 'Options', label: 'Display Percentage' },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
         unit: { type: 'text', group: 'Unit', label: 'Unit' },
       },
       groupOrder: ['Options', 'State', 'Unit'],
-      disabledControls: {
-        unit: ['hasPercent'],
-      },
     },
   ]);
 }
