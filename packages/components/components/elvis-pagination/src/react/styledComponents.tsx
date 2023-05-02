@@ -32,10 +32,8 @@ export const PaginatorInfoText = styled.div`
   text-align: left;
 `;
 
-export const PaginatorInfoDropdown = styled.div<{ optimalWidth: number }>`
-  width: ${({ optimalWidth }) => optimalWidth + 52}px; //52px = 4+8px padding, 8px gap + 32px button
-  min-width: 75px;
-  transition: width 200ms;
+export const PaginatorInfoDropdown = styled.div`
+  width: 82px; //82px = 4+8px padding, 8px gap + 32px button, + 30px for number
 
   .number-of-items-dropdown {
     padding: 0;
@@ -157,17 +155,4 @@ export const PaginatorDots = styled.div`
   height: 36px;
   justify-content: center;
   width: 36px;
-`;
-
-//Visually hidden element to measure the width of the current dropdown option text
-export const CurrentDropdownOption = styled.span`
-  ${getTypographyCss('text-md')}
-  clip-path: inset(50%);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
 `;
