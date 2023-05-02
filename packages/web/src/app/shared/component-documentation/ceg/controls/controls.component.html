@@ -10,7 +10,11 @@
       />
 
       <ng-container *ngIf="control.value.type === 'checkbox'">
-        <app-checkbox [checkbox]="control.value" (toggle)="updateValue(control.key, $event)" />
+        <app-checkbox
+          [checkbox]="control.value"
+          [disabled]="isDisabled(control.key)"
+          (toggle)="updateValue(control.key, $event)"
+        />
         <app-checkbox
           [disabled]="!control.value.value"
           [isChild]="true"
@@ -40,6 +44,7 @@
       <app-text
         *ngIf="control.value.type === 'text'"
         [input]="control.value"
+        [disabled]="isDisabled(control.key)"
         (valueChange)="updateValue(control.key, $event)"
       />
     </ng-container>
