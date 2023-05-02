@@ -222,8 +222,16 @@ export class CegComponent implements AfterViewInit, OnDestroy {
   }
 
   private getWebComponent() {
-    return this.componentContainer.nativeElement.querySelector(
+    const element = this.componentContainer.nativeElement.querySelector(
       `elvia-${this.componentExample.elementName}`,
     ) as ElvisComponentWrapper;
+
+    if (!element) {
+      throw new Error(
+        'CEG - Component wrapper was not found in the DOM. Ensure that you have spelled the element name correct in the HTML and when implementing the ComponentExample interface.',
+      );
+    }
+
+    return element;
   }
 }
