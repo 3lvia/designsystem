@@ -10,8 +10,6 @@ export interface Checkbox<T = Record<string, any>> extends ControlBase {
   readonly childOf?: keyof T;
 }
 
-export type ChildCheckbox = Omit<Checkbox, 'group'>;
-
 export interface RadioGroup<T = string | number> extends ControlBase {
   readonly type: 'radioGroup';
   value: T;
@@ -52,7 +50,7 @@ export interface Text extends ControlBase {
   readonly placeholder?: string;
 }
 
-export type CegControl = Checkbox | ChildCheckbox | Switch | SlotToggle | RadioGroup | Counter | Text;
+export type CegControl = Checkbox | Switch | SlotToggle | RadioGroup | Counter | Text;
 
 export type Controls<T = Record<string, any>> = Readonly<
   Partial<{
