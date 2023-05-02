@@ -18007,6 +18007,7 @@ __metadata:
     "@elvia/elvis-badge": "*"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"
+    "@elvia/elvis-card": "*"
     "@elvia/elvis-carousel": "*"
     "@elvia/elvis-chip": "*"
     "@elvia/elvis-context-menu": "*"
@@ -18026,6 +18027,7 @@ __metadata:
     "@elvia/elvis-tabs": "*"
     "@elvia/elvis-timepicker": "*"
     "@elvia/elvis-toast": "*"
+    "@elvia/elvis-tooltip": "*"
     "@elvia/elvis-typography": "*"
     "@rollup/plugin-commonjs": ^24.0.1
     "@types/react": ^18.0.27
