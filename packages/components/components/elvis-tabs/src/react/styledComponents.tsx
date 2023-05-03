@@ -109,7 +109,7 @@ const Underline = css`
 
 const decideLabelTextShadow = (isSelected: boolean) => {
   if (isSelected) {
-    return `0 0 0 ${getThemeColor('text-primary')}, 0 0 0.5px ${getThemeColor('text-primary')}`;
+    return `0 0 0 ${getThemeColor('text-1')}, 0 0 0.5px ${getThemeColor('text-1')}`;
   } else {
     return 'none';
   }
@@ -124,7 +124,7 @@ export const TabLabel = styled.span<TabLabelProps>`
     ${getTypographyCss('title-caps')}
     line-height: ${tabsLineHeight}px;
     font-weight: normal;
-    color: ${getThemeColor('text-primary')};
+    color: ${getThemeColor('text-1')};
     text-shadow: ${decideLabelTextShadow(isSelected)};
     display: block;
     position: relative;
@@ -136,7 +136,7 @@ export const TabLabel = styled.span<TabLabelProps>`
     &::before {
       ${Underline}
       width: 100%;
-      background-color: ${getThemeColor('background-accent')};
+      background-color: ${getThemeColor('background-element-3')};
     }
 
     &::after {
@@ -149,7 +149,7 @@ export const TabLabel = styled.span<TabLabelProps>`
     &:hover {
       cursor: pointer;
       &::after {
-        background-color: ${getThemeColor('state-on')};
+        background-color: ${getThemeColor('background-hover-1')};
         width: 100%;
       }
     }
@@ -159,7 +159,7 @@ export const TabLabel = styled.span<TabLabelProps>`
     isSelected &&
     css`
       &::after {
-        background-color: ${getThemeColor('state-on')};
+        background-color: ${getThemeColor('background-hover-1')};
       }
     `}
 `;
