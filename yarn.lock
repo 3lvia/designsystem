@@ -2261,7 +2261,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^3.0.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
@@ -2600,7 +2600,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^4.0.0, @elvia/elvis-component-wrapper@^4.0.1, @elvia/elvis-component-wrapper@^4.1.1, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
+"@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^4.0.0, @elvia/elvis-component-wrapper@^4.0.1, @elvia/elvis-component-wrapper@^4.1.1, @elvia/elvis-component-wrapper@^4.1.2, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
   dependencies:
@@ -2972,7 +2972,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-icon@*, @elvia/elvis-icon@^1.3.7, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
+"@elvia/elvis-icon@*, @elvia/elvis-icon@^1.3.7, @elvia/elvis-icon@^1.3.8, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-icon@workspace:packages/components/components/elvis-icon"
   dependencies:
@@ -3276,12 +3276,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-segmented-control@workspace:packages/components/components/elvis-segmented-control"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.8.0
-    "@elvia/elvis-colors": ^1.5.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-icon": ^1.3.7
-    "@elvia/elvis-toolbox": ^7.6.0
-    "@elvia/elvis-typography": ^2.3.1
+    "@elvia/elvis-assets-icons": ^3.0.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-icon": ^1.3.8
+    "@elvia/elvis-toolbox": ^8.0.0
+    "@elvia/elvis-typography": ^2.3.2
     "@types/lodash.uniqueid": ^4.0.7
     lodash.uniqueid: ^4.0.1
     styled-components: ^5.3.3
@@ -3303,12 +3303,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-segmented-control@portal:../components/components/elvis-segmented-control::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.8.0
-    "@elvia/elvis-colors": ^1.5.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-icon": ^1.3.7
-    "@elvia/elvis-toolbox": ^7.6.0
-    "@elvia/elvis-typography": ^2.3.1
+    "@elvia/elvis-assets-icons": ^3.0.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-icon": ^1.3.8
+    "@elvia/elvis-toolbox": ^8.0.0
+    "@elvia/elvis-typography": ^2.3.2
     lodash.uniqueid: ^4.0.1
     styled-components: ^5.3.3
   peerDependencies:
