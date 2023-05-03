@@ -12,9 +12,9 @@ export class SearchDocComponent {
   @ViewChild('exampleSearch') exampleSearch: ElementRef;
   @ViewChild('exampleInput') exampleInput: ElementRef;
 
-  figmaUrl = getComponent('search').figmaUrl;
-  description = getComponent('search').description;
-  title = getComponent('search').title;
+  figmaUrl = getComponent('search')?.figmaUrl;
+  description = getComponent('search')?.description;
+  title = getComponent('search')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

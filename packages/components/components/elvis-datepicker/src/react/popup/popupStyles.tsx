@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const OverlayContainer = styled.div`
   background-color: ${getThemeColor('background-overlay')};
   border-radius: 4px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+  box-shadow: ${getShadow('medium')};
   min-width: 304px;
 `;
 

@@ -10,7 +10,6 @@ import { warnDeprecatedProps, IconWrapper, BaseProps } from '@elvia/elvis-toolbo
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { config } from './config';
-import { getThemeColor } from '@elvia/elvis-colors';
 
 interface BreadcrumbLink {
   /**
@@ -90,7 +89,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
       <BreadcrumbWrapper>
         <IconWrapper
           icon={arrowLeftBold}
-          color={getThemeColor('text-primary')}
           size="xxs"
           style={{
             marginRight: '8px',
@@ -142,7 +140,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
           </BreadcrumbLinkStyle>
           <IconWrapper
             icon={arrowRightBold}
-            color={getThemeColor('text-primary')}
             size="xxs"
             style={{
               margin: '0px 8px',

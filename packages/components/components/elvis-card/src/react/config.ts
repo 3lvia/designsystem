@@ -10,7 +10,7 @@ export const config: ComponentConfig = {
     { name: 'description', type: 'string' },
     { name: 'borderColor', type: 'string' },
     { name: 'type', type: 'string' },
-    { name: 'hasBorder', type: 'boolean' },
+    { name: 'height', type: 'string' },
     { name: 'width', type: 'string' },
     { name: 'minWidth', type: 'number' },
     { name: 'maxWidth', type: 'number' },
@@ -21,6 +21,14 @@ export const config: ComponentConfig = {
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
     // Deprecated attributes
+    {
+      name: 'hasBorder',
+      type: 'boolean',
+      deprecatedDetails: {
+        version: '3.2.0',
+        explanation: 'Card now has the same border on all backgrounds. No replacement needed.',
+      },
+    },
     {
       name: 'header',
       type: 'string',

@@ -1,0 +1,133 @@
+<!--HEADER-->
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="componentData.changelog && componentData.changelog && componentData.changelog[0].date"
+>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body e-mt-72">
+  <!--CEG-->
+  <app-toast-ceg></app-toast-ceg>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--STATUS-->
+  <app-component-section [sectionTitle]="'Status'">
+    <ng-container ngProjectAs="sectionContent">
+      The status of an alert helps to communicate the information and the severity of the toast. Each status
+      consists of a defined color and an icon. It is important to use the correct status of the toast to
+      provide a consistent and universal user experience.
+      <div class="alert-status e-mt-80">
+        <div class="alert-icons">
+          <div class="e-bg-green e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
+          <div>
+            <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xl" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div>
+          <div class="title e-title-caps">positive</div>
+          <div class="e-mt-8">
+            Provide a positive response to user actions, like a confirmation that an action is fully
+            completed. Example: save, edit and submit.
+          </div>
+        </div>
+      </div>
+      <div class="alert-status">
+        <div class="alert-icons">
+          <div class="e-bg-grey e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
+          <div>
+            <i class="e-icon e-icon--information_circle e-icon--color-grey e-icon--xl" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div>
+          <div class="title e-title-caps">informative</div>
+          <div class="e-mt-8">
+            Inform users to understand minor contextual changes, and are not typically in response to a user
+            action. Like a helpful tip or a suggestion.
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section sectionTitle="Accessibility">
+    <ng-container ngProjectAs="sectionContent">
+      A toast will automatically be read by a screen reader in an assertive way.
+    </ng-container>
+  </app-component-section>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section sectionTitle="Implementation">
+    <ng-container ngProjectAs="sectionContent">
+      There are two steps necessary to use the toast component:
+      <ol class="e-list e-list--numbers">
+        <li>
+          Add the
+          <code>&lt;elvia-toast&gt;&lt;/elvia-toast&gt;</code>
+          (Angular/Vue) or
+          <code>&lt;Toast&gt;</code>
+          (React) component to the root of your app, for example
+          <code>App.vue</code>
+          (Vue),
+          <code>App.component.ts</code>
+          (Angular), or
+          <code>App.tsx</code>
+          (React). This is the actual toast component, and will listen for events dispatched by the
+          <code>openElviaToast</code>
+          method.
+        </li>
+        <li>
+          Import the method
+          <code>openElviaToast</code>
+          from
+          <code>@elvia/elvis-toast</code>
+          (Angular/Vue) or
+          <code>@elvia/elvis-toast/react</code>
+          (React) where you want to dispatch a toast, and call it with the appropriate toast configuration.
+          The different options for the toast configuration is displayed below.
+        </li>
+      </ol>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section sectionTitle="Toast configuration">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table
+        [componentData]="toastConfigurationProps"
+      ></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section sectionTitle="Installation">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section sectionTitle="Properties">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section sectionTitle="Changelog">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
+</div>

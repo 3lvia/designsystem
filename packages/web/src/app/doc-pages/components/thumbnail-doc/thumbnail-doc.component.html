@@ -7,11 +7,24 @@
 </app-component-header>
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-flex e-align-items-center e-w-50">
+  <app-static-ceg>
+    <app-thumbnail-ceg />
+  </app-static-ceg>
+
+  <!--STATES-->
+  <app-component-section [sectionTitle]="'States'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-static-ceg>
+        <app-thumbnail-selected-ceg />
+      </app-static-ceg>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
       <div class="e-flex e-flex-direction-column e-gap-16">
-        <img [src]="selectedImage" alt="Selected image" class="e-w-100" />
+        <img [src]="selectedImage" alt="Selected image" style="width: 248px" />
         <div class="e-flex e-gap-8 e-align-items-left">
           <button
             *ngFor="let image of images"
@@ -24,14 +37,10 @@
           </button>
         </div>
       </div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeHTML]="thumbnailExample"
-      ></app-component-example-v1>
-    </div>
-  </div>
+
+      <p>This is an example of how a thumbnail should be used.</p>
+    </ng-container>
+  </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section [sectionTitle]="'Accessibility'">

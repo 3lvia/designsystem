@@ -15,10 +15,10 @@ export const SideNav = React.forwardRef<HTMLElement, SideNavProps>(
     const isGtMobile = useBreakpoint('gt-mobile');
 
     return (
-      <SideNavContainer isGtMobile={isGtMobile} isExpanded={isExpanded} ref={ref} data-testid="sidenav">
+      <SideNavContainer isGtMobile={isGtMobile} isExpanded={isExpanded} ref={ref}>
         {children}
         {isGtMobile && (
-          <ToggleWidthButton onClick={() => onSideNavToggle()} data-testid="sidenav-width-toggle">
+          <ToggleWidthButton onClick={() => onSideNavToggle()}>
             <IconContainer>
               <IconWrapper icon={isExpanded ? closeMenu : openMenu} color="black" size="sm" />
             </IconContainer>

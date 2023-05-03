@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ElviaDropdownItem } from '@elvia/elvis-dropdown';
+import { openElviaToast } from '@elvia/elvis-toast';
 import { dropdownData } from './dropdown-data';
 
 @Component({
@@ -10,10 +10,9 @@ import { dropdownData } from './dropdown-data';
 })
 export class v2PlaygroundComponent {
   toggleTheme = () => {
-    const componentExamples = document.getElementById('dev-component-examples');
-    componentExamples.classList.toggle('e-theme-dark');
     document.body.classList.toggle('e-theme-dark');
   };
+
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
@@ -32,7 +31,7 @@ export class v2PlaygroundComponent {
   // Chips
   deleteValue = 0;
   filteredValues = { 2021: false, 2022: true, 2023: true, 2024: true };
-  filteredKeys = Object.keys(this.filteredValues);
+  filteredKeys = Object.keys(this.filteredValues) as unknown as Array<keyof typeof this.filteredValues>;
   deletableChipsList = [
     { value: 2022, color: 'green' },
     { value: 2023, color: 'red' },
@@ -62,8 +61,8 @@ export class v2PlaygroundComponent {
     end: { isErrorState: true, hasErrorPlaceholder: false },
   };
   labelOptions = { start: 'Start-dato', end: 'Sluttdato' };
-  minDateRange = new Date(2022, 6, 26);
-  maxDateRange = new Date(2022, 6, 30);
+  minDateRange = new Date(2022, 6, 26, 14, 0);
+  maxDateRange = new Date(2022, 6, 30, 23, 0);
   disableDates = {
     start: (date: Date) => date.getDate() % 3 === 0,
     end: (date: Date) => date.getDate() % 7 === 0,
@@ -72,7 +71,7 @@ export class v2PlaygroundComponent {
   // Dropdown
   selectedDropdownItem = 'sverige';
   longDropdownList = dropdownData;
-  dropdownItems: ElviaDropdownItem[] = [
+  dropdownItems = [
     {
       value: 0,
       label: 'Norge',
@@ -129,6 +128,8 @@ export class v2PlaygroundComponent {
 
   // Modal
   isModalShowing = false;
+  isIllustrationModalShowing = false;
+  isMultiPageModalShowing = false;
 
   // Pagination
   defaultPaginationValue = { start: 1, end: 10 };
@@ -143,8 +144,16 @@ export class v2PlaygroundComponent {
 
   // Progress linear
   progressValue = 0;
-  progressError;
-  indeterminate;
+  progressError = false;
+  indeterminate = false;
+
+  // Radio filter
+  radioFilterValues = [
+    { label: 'All', value: 'all' },
+    { label: 'Read', value: 'read' },
+    { label: 'Unread', value: 'unread' },
+    { label: '<i class="e-icon e-icon--bookmark-filled e-icon--xs"></i>Flagged', value: 'flagged' },
+  ];
 
   // Spotlight
   showSpotlight = false;
@@ -161,6 +170,16 @@ export class v2PlaygroundComponent {
 
   // Timepicker
   timepickerValue = new Date();
+
+  // Toast
+  showToast = () => {
+    openElviaToast({
+      title: 'First title',
+      body: 'First body. This is a long one though. It should probably wrap over several lines so that we can check how that looks.',
+      closable: true,
+      duration: 4000,
+    });
+  };
 
   // Tooltip
   tooltipPosition: 'top' | 'bottom' | 'left' | 'right' = 'top';
@@ -203,9 +222,9 @@ export class v2PlaygroundComponent {
     this.filteredValues = { ...this.filteredValues, [event.target.value]: event.detail.value };
   };
   changeChipStates = (): void => {
-    Object.keys(this.filteredValues).forEach((key) => {
-      this.filteredValues[key] = !this.filteredValues[key];
-    });
+    this.filteredValues = Object.fromEntries(
+      Object.entries(this.filteredValues).map(([key, value]) => [key, !value]),
+    ) as typeof this.filteredValues;
   };
   handleOnDelete = (event: number): void => {
     this.deleteValue = event;

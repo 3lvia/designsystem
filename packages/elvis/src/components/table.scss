@@ -2,6 +2,7 @@
 @use '../variables/typography';
 @use '../utilities/icons';
 @use '../utilities/helpers';
+@use '../utilities/breakpoints.scss';
 
 $table-padding: 10px 16px;
 $table-compact-padding: 9px 16px;
@@ -9,6 +10,8 @@ $table-phone-padding: 6px 8px;
 $table-border-radius: 8px;
 $table-header-height: 56px;
 $table-header-compact-height: 40px;
+$table-invalid-border: 2px solid colors.color('red');
+$table-invalid-padding: 8px 16px;
 
 $grey10: colors.color('grey-10');
 
@@ -93,9 +96,19 @@ $grey10: colors.color('grey-10');
   td,
   th {
     @include typography.typography('text-md');
+
     padding: $table-padding;
     background: colors.color('white');
     text-align: left;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      line-height: 28px;
+    }
+
+    &.e-table__cell--invalid {
+      padding: $table-invalid-padding;
+      border: $table-invalid-border;
+    }
 
     &.e-table__cell--multiline {
       width: 450px;
@@ -120,6 +133,22 @@ $grey10: colors.color('grey-10');
   tbody {
     tr {
       background: colors.color('white');
+
+      &.e-table__row--invalid {
+        td {
+          padding: $table-invalid-padding;
+          border-top: $table-invalid-border;
+          border-bottom: $table-invalid-border;
+        }
+
+        td:first-child {
+          border-left: $table-invalid-border;
+        }
+
+        td:last-child {
+          border-right: $table-invalid-border;
+        }
+      }
     }
 
     tr:nth-of-type(odd) {
@@ -129,6 +158,19 @@ $grey10: colors.color('grey-10');
     tr:nth-of-type(odd) th,
     tr:nth-of-type(odd) td {
       background: colors.color('grey-05');
+    }
+
+    tr:last-child {
+      border-bottom-left-radius: $table-border-radius;
+      border-bottom-right-radius: $table-border-radius;
+
+      td:first-child {
+        border-bottom-left-radius: $table-border-radius;
+      }
+
+      td:last-child {
+        border-bottom-right-radius: $table-border-radius;
+      }
     }
   }
 
@@ -221,6 +263,10 @@ $grey10: colors.color('grey-10');
     color: colors.color('font-color');
     line-height: 27px;
     text-align: left;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      line-height: 27px;
+    }
   }
 
   th[class*='e-table-mobile__cell'] {

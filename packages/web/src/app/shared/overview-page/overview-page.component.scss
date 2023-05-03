@@ -3,50 +3,18 @@
 
 .components-overview-cards,
 .overview-action-link {
+  display: grid;
+  column-gap: 32px;
+  row-gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(154px, 1fr));
+  grid-template-rows: auto;
+
+  @include breakpoints.breakpoint-up(MaxDesktop) {
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+
   @include breakpoints.breakpoint-up(Tablet) {
-    display: none;
-  }
-}
-
-@media (min-width: 1650px) {
-  .col-xl-2dot4 {
-    flex: 0 0 20%;
-    max-width: 20%;
-  }
-}
-@media (max-width: 1450px) {
-  .col-sm-4 {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-}
-@media (max-width: 1200px) {
-  .col-sm-4 {
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
-  }
-}
-@include breakpoints.breakpoint-up(Tablet) {
-  .col-sm-4 {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-}
-@media (max-width: 750px) {
-  .col-sm-4 {
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
-  }
-}
-@media (max-width: 500px) {
-  .col-sm-4 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
-@include breakpoints.breakpoint-up(Tablet) {
-  .col-0 {
     display: none;
   }
 }

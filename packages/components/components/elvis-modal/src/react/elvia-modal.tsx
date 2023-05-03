@@ -9,7 +9,7 @@ import {
   ModalText,
   ModalActions,
 } from './styledComponents';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
@@ -137,7 +137,6 @@ export const ModalComponent: FC<ModalProps> = function ({
       aria-label={heading}
       isShowing={isShowing}
       disableBackdrop={disableBackdrop}
-      data-testid="modal-container"
       {...rest}
     >
       <ModalWrapper
@@ -148,9 +147,7 @@ export const ModalComponent: FC<ModalProps> = function ({
         maxWidth={maxWidth}
         data-testid="modal-wrapper"
       >
-        {illustration && (
-          <ModalIllustration data-testid="modal-illustration">{illustration}</ModalIllustration>
-        )}
+        {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
         {!illustration && hasIllustration && <ModalIllustration ref={modalIllustration}></ModalIllustration>}
         {hasCloseButton && (
           <ModalCloseButton
@@ -158,29 +155,25 @@ export const ModalComponent: FC<ModalProps> = function ({
             onMouseEnter={() => setIsHoveringCloseButton(true)}
             onMouseLeave={() => setIsHoveringCloseButton(false)}
             aria-label="Lukk modal"
-            data-testid="modal-close-btn"
+            name="Lukk modal"
           >
             <IconWrapper
               icon={close}
-              color={hasIllustration ? getColor('white') : undefined}
+              color={hasIllustration ? getThemeColor('static-white') : undefined}
               style={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
             />
           </ModalCloseButton>
         )}
 
         <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
-          {heading && (
-            <ModalHeading hasIllustration={hasIllustration} data-testid="modal-heading">
-              {heading}
-            </ModalHeading>
-          )}
+          {heading && <ModalHeading hasIllustration={hasIllustration}>{heading}</ModalHeading>}
           <ModalText data-testid="modal-content" ref={modalText}>
             {content}
           </ModalText>
           {(hasPrimaryButton || hasSecondaryButton) && (
             <ModalActions>
               {secondaryButton && (
-                <secondaryButton.type {...secondaryButton.props} data-testid="modal-secondary-btn">
+                <secondaryButton.type {...secondaryButton.props}>
                   {secondaryButton.props.children}
                 </secondaryButton.type>
               )}
@@ -188,7 +181,7 @@ export const ModalComponent: FC<ModalProps> = function ({
                 <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
               )}
               {primaryButton ? (
-                <primaryButton.type {...primaryButton.props} data-testid="modal-primary-btn">
+                <primaryButton.type {...primaryButton.props}>
                   {primaryButton.props.children}
                 </primaryButton.type>
               ) : (

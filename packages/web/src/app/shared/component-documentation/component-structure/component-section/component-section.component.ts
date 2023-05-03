@@ -15,6 +15,9 @@ export class ComponentSectionComponent {
 
   copyAnchor(): void {
     const anchorTitleElement = document.getElementById(this.sectionTitle);
+    if (!anchorTitleElement) {
+      return;
+    }
     anchorTitleElement.classList.add('anchor-copied');
     setTimeout(() => {
       anchorTitleElement.classList.remove('anchor-copied');

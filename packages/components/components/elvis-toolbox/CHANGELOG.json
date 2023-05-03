@@ -2,6 +2,35 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.04.23",
+      "version": "8.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Changed the <code>iconWrapper</code> types to now use <code>getThemeColor</code>."]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Updated all reusable components to use the new color labels.",
+            "Updated dependencies on <code>@elvia/elvis-colors</code> to 2.0.0."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "09.03.23",
+      "version": "7.8.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Added a way to manually trigger a recalculation of the <code>useCurrentTheme</code> hook."
+          ]
+        }
+      ]
+    },
+    {
       "date": "27.02.23",
       "version": "7.8.0",
       "changelog": [

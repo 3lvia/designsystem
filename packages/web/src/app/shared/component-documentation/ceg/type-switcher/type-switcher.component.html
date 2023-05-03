@@ -1,0 +1,7 @@
+<elvia-dropdown
+  label="Type"
+  [items]="dropdownOptions"
+  [value]="selectedOption"
+  (valueOnChange)="onSelect($any($event).detail.value)"
+  [errorOptions]="{ hasErrorPlaceholder: false }"
+></elvia-dropdown>

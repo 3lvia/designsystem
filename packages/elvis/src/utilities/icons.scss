@@ -1,4 +1,6 @@
 @use 'sass:map';
+@use '@elvia/elvis-assets-icons/dist/scss/themeVariables' as IconMap;
+
 // Multiples of 8
 $sizes: (
   'xxs': 8px,
@@ -35,9 +37,18 @@ $default-size: 'md';
 .e-icon {
   @include icon-size($default-size);
   display: inline-block;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+
+  line-height: 0;
+
+  &.e-icon-- {
+    @each $class, $colors in IconMap.$icon-theme-classes {
+      &#{$class} {
+        @each $label, $color in $colors {
+          --e-color-icon-#{$label}: #{$color};
+        }
+      }
+    }
+  }
 }
 
 // Making icon size classes

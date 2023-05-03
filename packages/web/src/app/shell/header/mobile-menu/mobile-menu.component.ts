@@ -3,13 +3,14 @@ import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 @Component({
   selector: 'app-mobile-menu',
   templateUrl: './mobile-menu.component.html',
   styleUrls: ['./mobile-menu.component.scss'],
 })
 export class MobileMenuComponent implements OnDestroy {
-  mainMenu: any;
+  mainMenu: CMSMenu;
   devMode = false;
   isLoaded = false;
 
@@ -48,7 +49,8 @@ export class MobileMenuComponent implements OnDestroy {
     this.onDestroy.next();
   }
 
-  navigate(path: string): void {
+  navigate(path?: string): void {
+    if (!path) return;
     this.router.navigate(['/' + path]);
     this.onClose();
   }

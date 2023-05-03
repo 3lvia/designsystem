@@ -1,0 +1,44 @@
+{
+  "name": "@elvia/elvis-toast",
+  "version": "1.0.1",
+  "license": "MIT",
+  "homepage": "https://design.elvia.io/components/toast",
+  "main": "web_component.js",
+  "files": [
+    "web_component.js",
+    "web_component.d.ts",
+    "react.js",
+    "react.d.ts",
+    "CHANGELOG.json",
+    "README.md",
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "@elvia/elvis-assets-icons": "^2.11.0",
+    "@elvia/elvis-colors": "^1.8.0",
+    "@elvia/elvis-component-wrapper": "^4.0.1",
+    "@elvia/elvis-toolbox": "^7.8.1",
+    "@elvia/elvis-typography": "^2.3.2",
+    "dompurify": "^3.0.1",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-is": {
+      "optional": true
+    }
+  }
+}

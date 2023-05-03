@@ -1,7 +1,7 @@
 <div class="highlight-container" [ngClass]="{ 'do-dont-comp': doDontComp }">
   <div class="top-menu">
     <elvia-tabs
-      (valueOnChange)="changeTab($event.detail.value)"
+      (valueOnChange)="changeTab($any($event).detail.value)"
       [isInverted]="true"
       [value]="activeTab"
       [items]="tabs"
@@ -41,7 +41,7 @@
   </div>
 
   <!--Codepen-->
-  <div class="codepen-link" *ngIf="this.codeHTML !== ''">
+  <div class="codepen-link" *ngIf="this.codeHTML !== '' && noCodePenLink">
     <form class="codepen" #codepenForm action="https://codepen.io/pen/define" method="POST" target="_blank">
       <input type="hidden" name="data" [value]="codepen" />
       <a

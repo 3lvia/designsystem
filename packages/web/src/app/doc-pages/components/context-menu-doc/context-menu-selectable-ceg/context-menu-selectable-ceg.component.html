@@ -1,0 +1,28 @@
+<elvia-context-menu isSelectable="true" (onOpen)="isShowing = true" (onClose)="isShowing = false">
+  <button
+    aria-haspopup="menu"
+    slot="trigger"
+    class="e-btn e-btn--icon"
+    aria-label="More menu"
+    [ngClass]="{ 'e-btn---selected': isShowing }"
+  >
+    <span class="e-btn__icon" aria-hidden="true">
+      <i class="e-icon e-icon--more_menu e-icon--inverted"></i>
+      <i class="e-icon e-icon--more_menu"></i>
+    </span>
+  </button>
+  <div slot="content">
+    <div class="ewc-context-menu__list-group">
+      <button role="menuitemradio">
+        <elvia-icon name="checkBold" size="xs"></elvia-icon>
+        <span>Dato - nyeste til eldste</span>
+      </button>
+      <button role="menuitemradio">
+        <span>Dato - eldste til nyeste</span>
+      </button>
+      <button role="menuitemradio">
+        <span>Relevans</span>
+      </button>
+    </div>
+  </div>
+</elvia-context-menu>

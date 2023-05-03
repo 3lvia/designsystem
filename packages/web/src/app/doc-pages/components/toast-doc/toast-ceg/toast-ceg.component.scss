@@ -1,0 +1,45 @@
+.ceg-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 24px;
+}
+
+.customize-text-btn {
+  justify-self: flex-end;
+}
+
+.main-area {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.component-example-container {
+  border: 1px solid var(--e-grey-10);
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.ceg-controls {
+  grid-row: 2;
+  grid-column: 2;
+  padding-bottom: 64px;
+}
+
+legend {
+  padding: 0;
+  border: none;
+}
+
+.custom-text-popover-container {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reset-btn {
+  margin-left: auto;
+}
