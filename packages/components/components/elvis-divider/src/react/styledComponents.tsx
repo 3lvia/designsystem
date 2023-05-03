@@ -18,7 +18,7 @@ export const DividerArea = styled.div<DividerAreaProps>`
     type === 'simple' && orientation === 'vertical' ? `1px solid` : 'none'};
   border-bottom: ${({ type, orientation }) =>
     type !== 'curved' && orientation === 'horizontal' ? `1px solid` : 'none'};
-  border-color: ${({ type }) => (type === 'title' ? getThemeColor('text-1') : getThemeColor('border-2'))};
+  border-color: ${({ type }) => (type === 'title' ? getThemeColor('border-1') : getThemeColor('border-2'))};
   text-align: left;
 
   ${({ type }) =>
