@@ -61,7 +61,7 @@ export const NoItemsMessage = styled.div`
 
 export const Divider = styled.hr`
   height: 0px;
-  border: 0px solid ${getThemeColor('background-element-3')};
+  border: 0px solid ${getThemeColor('border-2')};
   border-bottom-width: 1px;
   margin: 0;
 `;

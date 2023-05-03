@@ -41,7 +41,7 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
   width: 24px;
   background-color: ${getThemeColor('background-element-1')};
   border-radius: ${({ isCompact }) => (isCompact ? '3px' : '4px')};
-  border: 1px solid ${getThemeColor('text-1')};
+  border: 1px solid ${getThemeColor('border-1')};
   position: relative;
 
   &::before {
@@ -65,7 +65,7 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
   ${({ isIndeterminate }) =>
     isIndeterminate &&
     css`
-      background-color: ${getThemeColor('background-hover-1')};
+      background-color: ${getThemeColor('background-selected-1')};
 
       ${IndeterminateLine}::after {
         transform: scaleX(1);
