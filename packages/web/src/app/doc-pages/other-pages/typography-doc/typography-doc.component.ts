@@ -1,31 +1,49 @@
-import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnDestroy, QueryList, ViewChildren } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import { Title } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { LOCALE_CODE } from 'contentful/types';
 
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
   styleUrls: ['./typography-doc.component.scss'],
 })
-export class TypographyDocComponent {
+export class TypographyDocComponent implements OnDestroy {
   @ViewChildren('toCopy') toCopy: QueryList<ElementRef>;
   @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
 
+  localizationSubscriber: Subscription;
   loadedImg = false;
-
   typographyClasses = [];
-
-  description = getDocPagesNotFromCMS('typography').description;
-  figmaUrl = getDocPagesNotFromCMS('typography').figmaUrl;
-  title = getDocPagesNotFromCMS('typography').title;
+  title = getDocPagesNotFromCMS('typography')?.title;
+  titleNo = getDocPagesNotFromCMS('typography')?.titleNo;
+  description = getDocPagesNotFromCMS('typography')?.description;
+  descriptionNo = getDocPagesNotFromCMS('typography')?.descriptionNo;
+  figmaUrl = getDocPagesNotFromCMS('typography')?.figmaUrl;
+  locale: LOCALE_CODE = 'en-GB';
 
   isDesktop = true;
   isMobile = false;
 
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
+  constructor(private titleService: Title, private localizationService: LocalizationService) {
+    this.setTabTitle();
+    this.localizationSubscriber = this.localizationService.listenLocalization().subscribe((locale) => {
+      this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+      this.setTabTitle();
+    });
   }
+
+  ngOnDestroy(): void {
+    this.localizationSubscriber && this.localizationSubscriber.unsubscribe();
+  }
+
+  setTabTitle = (): void => {
+    this.titleService.setTitle(
+      (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
+    );
+  };
 
   alignmentOfText = `<div class="e-text-left e-m-16">Left aligned text</div>
 <div class="e-text-center e-m-16">Center aligned text</div>
@@ -65,19 +83,6 @@ export class TypographyDocComponent {
   <span class="e-text-micro-light">Text Micro Light</span>
 </p>
 `;
-  exampleCss = `@use '@elvia/elvis-typography';`;
-  exampleCssLong = `@use '@elvia/elvis-typography/dist/elviaTypography.scss';`;
-  exampleImportFonts = `@import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500,600,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap");`;
-  exampleGetTypographyCssTS = `import { getTypographyCss } from '@elvia/elvis-typography';
-const titleMdCss = getTypographyCss('title-md');`;
-  exampleGetTypographyCssCSS = `// titleMdCss: \n` + getTypographyCss('title-md');
-  exampleStyledComponents = `import styled from 'styled-components';
-import { getTypographyCss } from '@elvia/elvis-typography';
-
-const typography = getTypographyCss('text-md');
-const MediumParagraph = styled.p'\${typography}';`;
 
   changeListView(): void {
     this.isDesktop = !this.isDesktop;

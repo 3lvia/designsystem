@@ -39,7 +39,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
   ${getTypographyCss('text-sm')}
   white-space: pre-wrap;
   color: ${getThemeColor('static-white')};
-  background: ${getThemeColor('background-overlay-strong')};
+  background: ${getThemeColor('background-overlay-2')};
   display: grid;
   place-items: center;
   padding: 8px 10px;
@@ -68,7 +68,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
           &::after {
             border-left: ${arrowSize}px solid transparent;
             border-right: ${arrowSize}px solid transparent;
-            border-top: ${arrowSize}px solid ${getThemeColor('background-overlay-strong')};
+            border-top: ${arrowSize}px solid ${getThemeColor('background-overlay-2')};
             top: 100%;
           }
         `;
@@ -80,7 +80,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
           &::after {
             border-top: ${arrowSize}px solid transparent;
             border-bottom: ${arrowSize}px solid transparent;
-            border-left: ${arrowSize}px solid ${getThemeColor('background-overlay-strong')};
+            border-left: ${arrowSize}px solid ${getThemeColor('background-overlay-2')};
             left: 100%;
           }
         `;
@@ -92,7 +92,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
           &::after {
             border-top: ${arrowSize}px solid transparent;
             border-bottom: ${arrowSize}px solid transparent;
-            border-right: ${arrowSize}px solid ${getThemeColor('background-overlay-strong')};
+            border-right: ${arrowSize}px solid ${getThemeColor('background-overlay-2')};
             right: 100%;
           }
         `;
@@ -104,7 +104,7 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
           &::after {
             border-left: ${arrowSize}px solid transparent;
             border-right: ${arrowSize}px solid transparent;
-            border-bottom: ${arrowSize}px solid ${getThemeColor('background-overlay-strong')};
+            border-bottom: ${arrowSize}px solid ${getThemeColor('background-overlay-2')};
             bottom: 100%;
           }
         `;

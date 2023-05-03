@@ -33,18 +33,22 @@ export class DocumentEventListenerService {
     if (keyPressed === 'g') {
       this.lastGPress = new Date().getTime();
     }
-    if (keyPressed in this.keyboardPaths) {
+    if (this.keyPressIsInShortcuts(keyPressed)) {
       const now = new Date().getTime();
       if (now - this.lastGPress <= 1000) {
         if (keyPressed === 's') {
           const searchButton = document.getElementById('search-button');
           setTimeout(() => {
-            searchButton.click();
+            searchButton?.click();
           });
         } else {
           this.router.navigate([this.keyboardPaths[keyPressed]]);
         }
       }
     }
+  }
+
+  private keyPressIsInShortcuts(keyPressed: string): keyPressed is keyof typeof this.keyboardPaths {
+    return keyPressed in this.keyboardPaths;
   }
 }

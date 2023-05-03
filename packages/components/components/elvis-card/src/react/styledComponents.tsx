@@ -8,18 +8,17 @@ import {
   CardContentProps,
   CardHeadingProps,
   CardDescriptionProps,
-  CardColoredLineContainerProps,
   CardColoredLineProps,
-  CardCornerIconProps,
 } from './elvia-card.types';
 
 const borderColors: BorderColors = {
-  green: getThemeColor('state-on'),
-  'blue-berry': getThemeColor('data-blue'),
-  blueBerry: getThemeColor('data-blue'),
-  blue: getThemeColor('data-blue'),
-  red: getThemeColor('state-error'),
-  orange: getThemeColor('state-warning'),
+  none: 'transparent',
+  green: getThemeColor('signal-success'),
+  'blue-berry': getThemeColor('data-3'),
+  blueBerry: getThemeColor('data-3'),
+  blue: getThemeColor('data-3'),
+  red: getThemeColor('signal-error'),
+  orange: getThemeColor('signal-warning'),
 };
 
 const simpleMinWidth = 150;
@@ -47,22 +46,21 @@ export const CardArea = styled.article<CardAreaProps>`
   align-items: center;
   justify-content: ${({ type }) => (type === 'simple' ? 'center' : 'flex-start')};
   position: relative;
-  background: ${getThemeColor('background-primary')};
+  background: ${getThemeColor('background-1')};
   box-sizing: border-box;
 
-  padding: 24px;
+  padding: 22px;
   min-width: ${({ type, minWidth }) => getCardAreaMinWidth(type, minWidth)};
   max-width: ${({ type, maxWidth }) => getCardAreaMaxWidth(type, maxWidth)};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  aspect-ratio: ${({ type }) => type === 'simple' && '1 / 1'};
+  aspect-ratio: ${({ type, height }) => type === 'simple' && height === undefined && '1 / 1'};
 
   border-radius: 8px;
-  border: ${({ hasBorder }) => (hasBorder ? `1px solid ${getThemeColor('background-accent')}` : 'none')};
+  border: 2px solid ${getThemeColor('border-4')};
 
   &:hover {
-    border: 2px solid ${getThemeColor('state-on')};
-    padding: ${({ hasBorder }) => (hasBorder ? '23px' : '22px')};
+    border: 2px solid ${getThemeColor('border-hover-1')};
     cursor: pointer;
   }
 `;
@@ -88,7 +86,7 @@ export const CardHeading = styled.h3<CardHeadingProps>`
   margin: 0;
   ${({ type }) => getTypographyCss(type === 'simple' ? 'text-sm-strong' : 'title-xs')};
   text-align: ${({ type }) => (type === 'simple' ? 'center' : 'left')};
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   display: flexbox;
   overflow: hidden;
   -webkit-line-clamp: ${({ type, maxHeadingLines }) => getHeadingLineClamp(type, maxHeadingLines)};
@@ -102,7 +100,7 @@ export const CardDescription = styled.p<CardDescriptionProps>`
   margin: 0;
   ${({ type }) => getTypographyCss(type === 'simple' ? 'text-micro' : 'text-sm')};
   text-align: ${({ type }) => (type === 'simple' ? 'center' : 'left')};
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -113,7 +111,7 @@ export const CardDescription = styled.p<CardDescriptionProps>`
 export const CardIcon = styled.div`
   ${getTypographyCss('title-lg')}
   text-align: center;
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   white-space: nowrap;
   width: fit-content;
 
@@ -125,16 +123,13 @@ export const CardIcon = styled.div`
   }
 `;
 
-export const CardColoredLineContainer = styled.div<CardColoredLineContainerProps>`
+export const CardColoredLineContainer = styled.div`
   box-sizing: border-box;
   position: absolute;
   overflow: hidden;
-  top: ${({ hasBorder }) => (hasBorder ? '-1px' : '0')};
-  left: ${({ hasBorder }) => (hasBorder ? '-1px' : '0')};
-  height: ${({ hasBorder }) => (hasBorder ? 'calc(100% + 2px)' : '100%')};
-  width: ${({ hasBorder }) => (hasBorder ? 'calc(100% + 2px)' : '100%')};
+  height: calc(100% + 2px);
+  width: calc(100% + 2px);
   border-radius: inherit;
-  border: ${({ hasBorder }) => (hasBorder ? '1px solid transparent' : '0')};
   pointer-events: none;
 `;
 
@@ -157,7 +152,7 @@ export const CardTag = styled.span`
   width: fit-content;
   padding: 4px 8px;
   border-radius: 4px;
-  background: ${getThemeColor('background-accent')};
+  background: ${getThemeColor('background-element-3')};
   font-family: 'Red Hat Text', 'Verdana, sans-serif';
   font-style: normal;
   font-weight: 400;
@@ -165,7 +160,7 @@ export const CardTag = styled.span`
   line-height: 16px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   white-space: nowrap;
 `;
 
@@ -190,19 +185,15 @@ export const CardHoverArrow = styled.div`
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: radial-gradient(circle, ${getThemeColor('background-element')} 20%, transparent 100%);
+  background: radial-gradient(circle, ${getThemeColor('background-element-1')} 20%, transparent 100%);
   opacity: 0;
   ${CardArea}:hover & {
     animation: ${CardHoverArrowHoverKeyframe} 300ms ease forwards;
   }
 `;
 
-export const CardCornerIcon = styled.div<CardCornerIconProps>`
+export const CardCornerIcon = styled.div`
   position: absolute;
   right: 16px;
   top: 16px;
-  ${CardArea}:hover & {
-    right: ${({ hasBorder }) => (hasBorder ? '15px' : '14px')};
-    top: ${({ hasBorder }) => (hasBorder ? '15px' : '14px')};
-  }
 `;

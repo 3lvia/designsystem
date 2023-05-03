@@ -28,7 +28,6 @@ export const AppDrawer: React.FC<Props> = ({ appTitle, onMenuToggle }) => {
     <>
       <TriggerButton
         isActive={isShowing}
-        data-testid="app-title"
         ref={connectedElementRef}
         onClick={() => setIsShowing((prevIsShowing) => !prevIsShowing)}
       >

@@ -1,12 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-
-const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  white: getColor('elvia-on'),
-  black: getColor('elvia-off'),
-};
 
 const typography = {
   textMd: getTypographyCss('text-md'),
@@ -41,11 +35,7 @@ const fadeInOpacity = keyframes`
   }
 `;
 
-export const CarouselContainer = styled.section.attrs(() => ({
-  'aria-roledescription': 'carousel',
-  'aria-live': 'polite',
-  role: 'group',
-}))`
+export const CarouselContainer = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -103,7 +93,7 @@ export const CarouselElement = styled.div`
   ${typography.textMd}
   padding-bottom: '10px';
   * {
-    margin: 0px;
+    margin: 0;
     ${typography.textMd}
   }
 `;
@@ -136,7 +126,7 @@ export const CarouselListOfDots = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 24px;
+  padding: 0 24px;
 `;
 
 interface CarouselDotProps {
@@ -144,61 +134,43 @@ interface CarouselDotProps {
 }
 
 export const CarouselDot = styled.button<CarouselDotProps>`
-  border: 1px solid ${(props) => (props.isSelected ? colors.elviaCharge : colors.black)};
-  height: ${(props) => (props.isSelected ? '9px' : '8px')};
-  width: ${(props) => (props.isSelected ? '9px' : '8px')};
+  border: 1px solid ${({ isSelected }) => getThemeColor(isSelected ? 'border-selected-1' : 'border-1')};
+  height: ${({ isSelected }) => (isSelected ? '9px' : '8px')};
+  width: ${({ isSelected }) => (isSelected ? '9px' : '8px')};
   @media (max-width: 767px) {
-    border: 1px solid ${(props) => (props.isSelected ? colors.elviaCharge : colors.black)};
-    height: ${(props) => (props.isSelected ? '13px' : '12px')};
-    width: ${(props) => (props.isSelected ? '13px' : '12px')};
+    height: ${({ isSelected }) => (isSelected ? '13px' : '12px')};
+    width: ${({ isSelected }) => (isSelected ? '13px' : '12px')};
   }
 
   border-radius: 50%;
-  background-color: ${(props) => (props.isSelected ? colors.elviaCharge : colors.white)};
-  margin: ${(props) => (props.isSelected ? '7.5px' : '8px')};
+  background-color: ${({ isSelected }) =>
+    getThemeColor(isSelected ? 'background-selected-1' : 'background-1')};
+  margin: ${({ isSelected }) => (isSelected ? '7.5px' : '8px')};
   cursor: pointer;
   padding: 0;
   &:hover {
-    background-color: ${colors.elviaCharge};
+    background-color: ${getThemeColor('background-hover-1')};
   }
 `;
 
-export const CarouselLeftButton = styled.button`
+const CarouselButtonBase = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding: 0px;
-  visibility: ${(props) => (props.hidden ? 'hidden' : 'visible')};
+  padding: 0;
   cursor: pointer;
+  visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
   i {
-    background-color: ${colors.white};
     display: inline-block;
   }
 `;
 
-export const CarouselRightButton = styled.button`
+export const CarouselLeftButton = styled(CarouselButtonBase)``;
+
+export const CarouselRightButton = styled(CarouselButtonBase)`
   margin-left: 0;
-  border: none;
-  background: transparent;
-  display: flex;
-  padding: 0px;
-  visibility: ${(props) => (props.hidden ? 'hidden' : 'visible')};
-  cursor: pointer;
-  i {
-    background-color: ${colors.white};
-    display: inline-block;
-  }
 `;
 
-export const CarouselCheckButton = styled.button`
+export const CarouselCheckButton = styled(CarouselButtonBase)`
   margin-left: 0;
-  border: none;
-  background: transparent;
-  display: flex;
-  padding: 0px;
-  cursor: pointer;
-  i {
-    background-color: ${colors.white};
-    display: inline-block;
-  }
 `;

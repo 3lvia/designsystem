@@ -5,25 +5,21 @@ import { headerZIndex, toolbarHeight } from '../styledComponents';
 
 const fadeIn = keyframes`
   from {
-    transform: scaleY(0.7);
-    opacity: 0;
+    transform: scaleY(0);
   }
 
   to {
     transform: scaleY(1);
-    opacity: 1;
   }
   `;
 
 const fadeOut = keyframes`
   from {
     transform: scaleY(1);
-    opacity: 1;
   }
 
   to {
-    transform: scaleY(0.5);
-    opacity: 0;
+    transform: scaleY(0);
   }
   `;
 
@@ -55,7 +51,11 @@ export const MenuContainer = styled.div<{ fadeOut: boolean }>`
   ${(props) =>
     props.fadeOut &&
     css`
-      animation: ${fadeOut} 200ms ease;
+      animation: ${fadeOut} 250ms ease-out;
+
+      > * {
+        opacity: 0;
+      }
     `}
 
   &::before {
@@ -88,7 +88,7 @@ export const Backdrop = styled.div<{ fadeOut: boolean }>`
   ${(props) =>
     props.fadeOut &&
     css`
-      animation: ${backdropFadeOut} 200ms ease;
+      animation: ${backdropFadeOut} 250ms ease;
     `};
 `;
 
@@ -99,9 +99,8 @@ export const ImageContainer = styled.div`
   background-color: ${getColor('grey-05')};
   margin-bottom: 8px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 `;
 
 export const TextSmallStrong = styled.div`

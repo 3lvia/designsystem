@@ -1,12 +1,15 @@
-import { AfterContentInit, Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { NavbarAnchor } from 'src/app/shared/shared.interface';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { combineLatest, fromEvent, Subscription } from 'rxjs';
+import { combineLatest, fromEvent, Subject, Subscription } from 'rxjs';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
+import { LOCALE_CODE } from 'contentful/types';
+import { takeUntil } from 'rxjs/operators';
+import { RouterService } from '../../core/services/router.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,16 +17,10 @@ import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
-  @Input() navbarItems: any[][];
-
-  anchorChangeSubscription: Subscription;
-  anchorPosSubscription: Subscription;
-  listenOnScrollSubscription: Subscription;
-  routerSubscription: Subscription;
-  contentLoadedSubscription: Subscription;
-  anchorToScrollToSubscription: Subscription;
-  scrollEventTimeout;
-  startedScrollSub = false;
+  private unsubscriber = new Subject();
+  private listenOnScrollSubscription: Subscription;
+  private scrollEventTimeout: ReturnType<typeof setTimeout>;
+  private startedScrollSub = false;
   isLandingPage = false;
   isLoaded = false;
 
@@ -31,14 +28,16 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   activeNavbarItem: CMSNavbarItem;
   prevActiveNavbarItem: CMSNavbarItem;
   subMenuRoute: string;
-  oldSubMenuRoute: string;
-  clickedNavbarItem: CMSNavbarItem;
-  isCmsPage = false;
+  private clickedNavbarItem: CMSNavbarItem;
+  private isCmsPage = false;
 
   visibleAnchors: NavbarAnchor[] = [];
   prevVisibleAnchors: NavbarAnchor[] = [];
   activeAnchor: NavbarAnchor;
-  prevActiveAnchor: NavbarAnchor;
+  private prevActiveAnchor: NavbarAnchor;
+
+  showLocaleToggle = true;
+  locale: LOCALE_CODE = 'en-GB';
 
   constructor(
     private route: ActivatedRoute,
@@ -47,54 +46,61 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     private location: Location,
     private cmsService: CMSService,
     private localizationService: LocalizationService,
+    private routerService: RouterService,
   ) {}
 
-  @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll(): void {
-    this.updateNavbarHeight();
-  }
-
-  @HostListener('window:popstate', ['$event']) // for updating side menu on changes to the history (clicking back-button)
+  @HostListener('window:popstate') // for updating side menu on changes to the history (clicking back-button)
   onPopstate(): void {
-    setTimeout(() => this.updateNavbarList(0), 200);
+    setTimeout(() => this.updateNavbarList(Locale[this.locale]), 200);
   }
 
   ngOnInit(): void {
     const localizationSubscriber = this.localizationService.listenLocalization();
-    const routerSubscriber = this.router.events;
-    this.routerSubscription = combineLatest([localizationSubscriber, routerSubscriber]).subscribe((value) => {
-      if (value[1] instanceof NavigationEnd) {
+
+    this.updateLocaleSwitchVisibility();
+    combineLatest([localizationSubscriber, this.routerService.urlPathChange()])
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(([locale]) => {
+        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+
+        this.updateLocaleSwitchVisibility();
         this.setSubMenuRoute();
         this.isLandingPage = this.router.url.split('/')[2] === undefined;
-        this.updateNavbarList(value[0]);
+        this.updateNavbarList(locale);
         this.checkIfPageExistsInProject();
         if (!this.isCmsPage) {
           setTimeout(() => {
             this.updateAnchorList();
           }, 200);
         }
-      }
-    });
-    this.contentLoadedSubscription = this.cmsService.listenContentLoadedFromCMS().subscribe(() => {
-      this.setNewActiveNavbarItem();
-      setTimeout(() => {
-        this.updateAnchorList();
-        this.updateNavbarHeight();
-      }, 200);
-    });
-    this.anchorPosSubscription = this.scrollService
+      });
+    this.cmsService
+      .listenContentLoadedFromCMS()
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(() => {
+        this.setNewActiveNavbarItem();
+        setTimeout(() => {
+          this.updateAnchorList();
+          this.updateNavbarHeight();
+        }, 200);
+      });
+    this.scrollService
       .listenAnchorAtCurrPos()
+      .pipe(takeUntil(this.unsubscriber))
       .subscribe((anchor: NavbarAnchor) => {
         this.setNewActiveAnchor(anchor);
       });
-    this.anchorToScrollToSubscription = this.scrollService
+    this.scrollService
       .listenAnchorToScrollTo()
+      .pipe(takeUntil(this.unsubscriber))
       .subscribe((anchor: NavbarAnchor) => {
         this.chooseAnchor(anchor.title);
       });
-    this.anchorChangeSubscription = this.route.fragment.subscribe((fragment) => {
+    this.route.fragment.pipe(takeUntil(this.unsubscriber)).subscribe((fragment) => {
       setTimeout(() => {
-        this.chooseAnchor(fragment);
+        if (fragment) {
+          this.chooseAnchor(fragment);
+        }
       }, 200);
     });
   }
@@ -108,43 +114,42 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     if (!isPageWithNavbar) {
       return;
     }
-    this.updateNavbarList(0);
+    this.localizationService.listenLocalization().subscribe((locale) => {
+      this.updateNavbarList(locale);
+    });
     setTimeout(() => {
       this.updateAnchorList();
     }, 200);
   }
 
   ngOnDestroy(): void {
-    this.contentLoadedSubscription && this.contentLoadedSubscription.unsubscribe();
-    this.anchorPosSubscription && this.anchorPosSubscription.unsubscribe();
-    this.anchorChangeSubscription && this.anchorChangeSubscription.unsubscribe();
+    this.unsubscriber.next();
+    this.unsubscriber.complete();
     this.listenOnScrollSubscription && this.listenOnScrollSubscription.unsubscribe();
-    this.anchorToScrollToSubscription && this.anchorToScrollToSubscription.unsubscribe();
-    this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
-  setSubMenuRoute(): void {
-    this.oldSubMenuRoute = this.subMenuRoute;
+  private setSubMenuRoute(): void {
     this.subMenuRoute = this.router.url.split('/')[1];
   }
 
-  getCurrentRoute(): string {
-    let currentRoute = this.router.url.slice(this.router.url.lastIndexOf('/') + 1);
-    if (currentRoute.includes('#')) {
-      currentRoute = currentRoute.slice(0, currentRoute.indexOf('#'));
-    }
-    return currentRoute;
+  private getCurrentRoute(): string {
+    return location.pathname.split('/').pop() || '';
   }
 
-  checkIfPageExistsInProject(): void {
-    const currentPathWithoutAnchor = this.router.url.split('#')[0];
-    if (currentPathWithoutAnchor === '/components') {
+  private getCurrentPathWithoutAnchorOrParams(): string {
+    const urlWithoutAnchor = this.router.url.split('#')[0];
+    return urlWithoutAnchor.split('?')[0];
+  }
+
+  private checkIfPageExistsInProject(): void {
+    const currentPath = this.getCurrentPathWithoutAnchorOrParams();
+    if (currentPath === '/components') {
       this.isCmsPage = false;
-    } else if (currentPathWithoutAnchor.split('/')[2]) {
-      this.router.config[0].children.forEach((subRoute) => {
-        if (subRoute.path === currentPathWithoutAnchor.split('/')[1]) {
-          this.isCmsPage = !subRoute.children.some(
-            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPathWithoutAnchor,
+    } else if (currentPath.split('/')[2]) {
+      this.router.config[0].children?.forEach((subRoute) => {
+        if (subRoute.path === currentPath.split('/')[1]) {
+          this.isCmsPage = !subRoute.children?.some(
+            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPath,
           );
         }
       });
@@ -153,14 +158,12 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     }
   }
 
-  async updateNavbarList(locale: Locale): Promise<any> {
+  private async updateNavbarList(locale: Locale): Promise<void> {
     this.isLoaded = false;
-    const routeWithoutAnchor = this.router.url.split('#')[0];
-    this.navbarList = [];
-    const content = await this.cmsService.getSubMenuList(locale);
-    content.forEach((element) => {
-      this.navbarList.push(element);
-      if (element.docUrl === routeWithoutAnchor.split('/')[2]) {
+    const currentPath = this.getCurrentPathWithoutAnchorOrParams();
+    this.navbarList = await this.cmsService.getSubMenuList(locale);
+    this.navbarList.forEach((element) => {
+      if (element.docUrl === currentPath.split('/')[2]) {
         this.markNewActiveNavbarItem(element);
         if (!this.isCmsPage) {
           this.setNewActiveNavbarItem();
@@ -171,7 +174,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.isLoaded = true;
   }
 
-  setNewActiveNavbarItem(): void {
+  private setNewActiveNavbarItem(): void {
     this.setSubMenuRoute();
     if (this.activeNavbarItem) {
       if (this.clickedNavbarItem === this.activeNavbarItem) {
@@ -193,13 +196,16 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.clickedNavbarItem = navbarItem;
   }
 
-  updateAnchorList(): void {
-    this.visibleAnchors = this.scrollService.getVisibleAnchors();
-    if (!this.visibleAnchors) {
+  private updateAnchorList(): void {
+    const newVisibleAnchors = this.scrollService.getVisibleAnchors();
+    if (!newVisibleAnchors) {
+      this.visibleAnchors = [];
       return;
     }
-    if (this.router.url.split('#')[1]) {
-      this.chooseAnchor(this.router.url.split('#')[1]);
+    this.visibleAnchors = newVisibleAnchors;
+    const anchor = this.router.url.split('#')[1];
+    if (anchor) {
+      this.chooseAnchor(anchor);
     } else {
       this.chooseAnchor(this.visibleAnchors[0].title);
     }
@@ -209,7 +215,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     }
   }
 
-  setNewActiveAnchor(anchor: NavbarAnchor): void {
+  private setNewActiveAnchor(anchor: NavbarAnchor): void {
     if (this.prevActiveAnchor !== anchor) {
       this.formatRouteWithFragment(anchor);
     }
@@ -217,7 +223,9 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.activeAnchor = anchor;
   }
 
-  updateNavbarHeight(): void {
+  @HostListener('window:resize', ['$event'])
+  @HostListener('window:scroll', ['$event'])
+  private updateNavbarHeight(): void {
     const fromTop = document.documentElement.scrollTop + window.innerHeight + 200 + 60;
     const scrollHeight = document.documentElement.scrollHeight + 48;
     const el = document.getElementById('side-navbar') as HTMLElement;
@@ -231,12 +239,11 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   updateNavbarBlur(): void {
-    const removePostfix = (value: string, postfix: string) => {
-      return value.substring(0, navbarElement.style.height.lastIndexOf(postfix));
-    };
-
-    const navbarElement = document.getElementById('side-navbar');
-    const clientHeight = Number(removePostfix(navbarElement.style.height, 'px'));
+    const navbarElement = document.getElementById('side-navbar')?.firstChild as HTMLElement | null;
+    if (!navbarElement) {
+      return;
+    }
+    const clientHeight = navbarElement.getBoundingClientRect().height;
     const bottomOfNavbar = clientHeight + navbarElement.scrollTop;
     const heightOfNavbar = navbarElement.scrollHeight;
 
@@ -246,13 +253,13 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       const remainingHeight = heightOfNavbar - bottomOfNavbar;
       const remainingPercentage = (100 * remainingHeight) / heightOfNavbar;
       const blurAmount = `${100 - remainingPercentage * (1 - navbarBlurStartFraction) * 20}%`;
-      document.documentElement.style.setProperty('--navbar-blur-amount', blurAmount);
+      navbarElement.style.setProperty('--navbar-blur-amount', blurAmount);
     } else {
-      document.documentElement.style.setProperty('--navbar-blur-amount', '80%');
+      navbarElement.style.setProperty('--navbar-blur-amount', '80%');
     }
   }
 
-  formatRouteWithFragment(anchor: NavbarAnchor): void {
+  private formatRouteWithFragment(anchor: NavbarAnchor): void {
     let currentRoute = this.router.url;
     if (currentRoute.includes('#')) {
       currentRoute = currentRoute.slice(0, currentRoute.indexOf('#'));
@@ -286,13 +293,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     });
   }
 
-  scrollToElement(anchor: NavbarAnchor): void {
-    this.setNewActiveAnchor(anchor);
-    this.formatRouteWithFragment(this.activeAnchor);
-    this.scrollService.navigateToAnchor(anchor);
-  }
-
-  startScrollSubscription(): void {
+  private startScrollSubscription(): void {
     const scrollEvents = fromEvent(document, 'scroll');
     if (this.listenOnScrollSubscription) {
       this.listenOnScrollSubscription.unsubscribe();
@@ -303,7 +304,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     });
   }
 
-  timeoutScrollSubscription(): void {
+  private timeoutScrollSubscription(): void {
     if (this.listenOnScrollSubscription) {
       this.listenOnScrollSubscription.unsubscribe();
     }
@@ -313,7 +314,17 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     }, 750);
   }
 
-  findAnchorAtScrollPosition = (): void => {
+  private findAnchorAtScrollPosition = (): void => {
     this.scrollService.findAnchorAtScrollPosition(this.visibleAnchors);
   };
+
+  setLocale(locale: LOCALE_CODE): void {
+    this.localizationService.setLocalization(Locale[locale]);
+    this.localizationService.setPreferredLocalization(Locale[locale]);
+  }
+
+  private updateLocaleSwitchVisibility(): void {
+    // Only show locale switch on brand pages
+    this.showLocaleToggle = this.router.url.split('/')[1] === 'brand';
+  }
 }

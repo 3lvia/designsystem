@@ -14,7 +14,7 @@ export class CheckboxChildFieldsPipe implements PipeTransform {
     formField.dependency.every((dependency) => {
       Object.keys(componentData.attributes).forEach((attribute) => {
         if (attribute === dependency.name) {
-          const fieldDisplayGroup = componentData.attributes[formField.propName].cegDisplayGroup;
+          const fieldDisplayGroup = componentData.attributes[formField.propName!].cegDisplayGroup;
           const dependencyDisplayGroup = componentData.attributes[attribute].cegDisplayGroup;
           if (fieldDisplayGroup === dependencyDisplayGroup) {
             isCheckboxChild = true;

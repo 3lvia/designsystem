@@ -12,7 +12,7 @@ export const BreadcrumbWrapper = styled.nav`
   a:last-child,
   i:last-child {
     font-weight: 500;
-    color: ${getThemeColor('text-primary')};
+    color: ${getThemeColor('text-1')};
   }
 `;
 
@@ -44,7 +44,7 @@ export const BreadcrumbLinkStyle = styled.a<BreadcrumbLinkProps>`
   letter-spacing: 0.2px;
   text-align: left;
   text-decoration: none;
-  color: ${getThemeColor('text-secondary')};
+  color: ${getThemeColor('text-2')};
   pointer-events: ${({ isClickable }) => (isClickable ? 'auto' : 'none')};
   cursor: ${({ isClickable }) => (isClickable ? 'pointer' : 'default')};
   text-overflow: ellipsis;
@@ -58,7 +58,7 @@ export const BreadcrumbLinkStyle = styled.a<BreadcrumbLinkProps>`
     width: 0;
     height: 2px;
     border-radius: 25px;
-    background: ${getThemeColor('state-on')};
+    background: ${getThemeColor('background-hover-1')};
     opacity: 1;
     transition: all 0.3s ease-in-out;
     visibility: hidden;

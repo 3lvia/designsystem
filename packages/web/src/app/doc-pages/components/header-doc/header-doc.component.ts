@@ -10,9 +10,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class HeaderDocComponent {
   componentData = headerData;
-  figmaUrl = getComponent('header').figmaUrl;
-  description = getComponent('header').description;
-  title = getComponent('header').title;
+  figmaUrl = getComponent('header')?.figmaUrl;
+  description = getComponent('header')?.description;
+  title = getComponent('header')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

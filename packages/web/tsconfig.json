@@ -5,17 +5,13 @@
     "baseUrl": "./",
     "module": "es2020",
     "outDir": "./dist/out-tsc",
-    "paths": {
-      "@elvia/elvis-toolbox": ["../components/components/elvis-toolbox/"] // Make web listen to changes to toolbox
-    },
-
-    "noImplicitReturns": false, // TODO: Remove line -> fix errors
+    "strict": true,
     "noImplicitThis": false, // TODO: Remove line -> fix errors
-    "noImplicitAny": false, // TODO: Remove line -> fix errors
-    "strictNullChecks": false // TODO: Remove line -> fix errors
+    "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "strictTemplates": true
   }
 }

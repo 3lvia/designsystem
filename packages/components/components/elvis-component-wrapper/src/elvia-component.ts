@@ -121,7 +121,7 @@ export class ElvisComponentWrapper extends HTMLElement {
    */
   setProps(newProps: { [propName: string]: any }, preventRerender?: boolean): void {
     Object.keys(newProps).forEach((key) => {
-      if (!isEqual(this._data[key], newProps[key])) {
+      if (!isEqual(this._data[key.toLowerCase()], newProps[key])) {
         this._data[key.toLowerCase()] = newProps[key];
       }
     });
@@ -129,6 +129,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (!preventRerender) {
       this.throttleRenderReactDOM();
     }
+  }
+
+  setSlots(slots: { [slotName: string]: Element }): void {
+    this._slots = slots;
   }
 
   protected addDisplayStyleToCustomElement(): void {

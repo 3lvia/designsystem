@@ -72,7 +72,6 @@ export const Header: React.FC<HeaderProps> = ({
         <LogoContainer>
           <IconButton
             aria-label="logo"
-            data-testid="header-logo"
             onClick={() => {
               if (!webcomponent && onLogoClick) {
                 onLogoClick();
@@ -102,9 +101,10 @@ export const Header: React.FC<HeaderProps> = ({
             <Hr direction="vertical" isGtTablet={isGtTablet} />
           </>
         )}
-        <PageTitle data-testid="page-title" ref={pageTitleRef} isInvisible={mobileMenuIsOpen}>
+        <PageTitle isInvisible={mobileMenuIsOpen} ref={pageTitleRef}>
           {pageTitle}
         </PageTitle>
+
         {!isGtMobile && (
           <SquareContainer>
             <MobileMenu
@@ -117,12 +117,15 @@ export const Header: React.FC<HeaderProps> = ({
           </SquareContainer>
         )}
         {isGtMobile && (
-          <DesktopMenu
-            email={email}
-            username={username}
-            onSignOutClick={signOutClick}
-            onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
-          />
+          <>
+            <Hr direction="vertical" isGtTablet={isGtTablet} />
+            <DesktopMenu
+              email={email}
+              username={username}
+              onSignOutClick={signOutClick}
+              onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
+            />
+          </>
         )}
       </StyledHeader>
       {hasNavItems() && (

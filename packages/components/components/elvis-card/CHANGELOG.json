@@ -2,8 +2,8 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "28.02.23",
-      "version": "3.2.0",
+      "date": "04.05.23",
+      "version": "3.3.0",
       "changelog": [
         {
           "type": "new_feature",
@@ -12,6 +12,32 @@
         {
           "type": "patch",
           "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "25.04.23",
+      "version": "3.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Height prop now works as expected."]
+        }
+      ]
+    },
+    {
+      "date": "20.04.23",
+      "version": "3.2.0",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Moved type export.", "Updated borderColor prop to have default 'none' type"]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
+            "The <code>hasBorder</code> has been deprecated. The card now has one design that can be used on both white and grey backgrounds."
+          ]
         }
       ]
     },

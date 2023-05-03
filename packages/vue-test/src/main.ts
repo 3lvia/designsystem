@@ -28,6 +28,7 @@ import '@elvia/elvis-slider';
 import '@elvia/elvis-spotlight';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-timepicker';
+import '@elvia/elvis-toast';
 import '@elvia/elvis-tooltip';
 
 createApp(App).use(router).mount('#app');

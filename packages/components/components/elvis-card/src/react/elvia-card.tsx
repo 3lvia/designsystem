@@ -1,5 +1,5 @@
 import React, { FC, useRef, useEffect, useState } from 'react';
-import { CardType, BorderColor, HeadingLevel } from './elvia-card.types';
+import { CardProps } from './elvia-card.types';
 import {
   CardArea,
   CardContent,
@@ -12,41 +12,10 @@ import {
   CardCornerIcon,
   CardColoredLineContainer,
 } from './styledComponents';
-import { warnDeprecatedProps, useIsOverflowing, IconWrapper, BaseProps } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { config } from './config';
-
-export interface CardProps extends BaseProps {
-  icon?: string | JSX.Element;
-  iconHover?: string | JSX.Element;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use `heading` instead.
-   */
-  header?: never;
-  heading?: string;
-  headingLevel?: HeadingLevel;
-  description?: string;
-  borderColor?: BorderColor;
-  type?: CardType;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Card no longer supports circle type.
-   */
-  shape?: never;
-  hasBorder?: boolean;
-  width?: string;
-  height?: string;
-  minWidth?: number;
-  maxWidth?: number;
-  maxDescriptionLines?: number;
-  maxHeadingLines?: number;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Instead use `tag`.
-   */
-  label?: never;
-  tag?: string;
-  cornerIcon?: string | JSX.Element;
-}
 
 const Card: FC<CardProps> = function ({
   icon,
@@ -54,9 +23,8 @@ const Card: FC<CardProps> = function ({
   heading,
   headingLevel = 'h3',
   description,
-  borderColor,
+  borderColor = 'none',
   type = 'simple',
-  hasBorder = true,
   width = '100%',
   height,
   minWidth,
@@ -132,7 +100,6 @@ const Card: FC<CardProps> = function ({
   return (
     <CardArea
       type={type}
-      hasBorder={hasBorder}
       width={width}
       height={height}
       minWidth={minWidth}
@@ -144,7 +111,7 @@ const Card: FC<CardProps> = function ({
       {...rest}
     >
       {type === 'simple' && !!borderColor && (
-        <CardColoredLineContainer hasBorder={hasBorder}>
+        <CardColoredLineContainer>
           <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
         </CardColoredLineContainer>
       )}
@@ -180,7 +147,7 @@ const Card: FC<CardProps> = function ({
         </CardHoverArrow>
       )}
       {type === 'detail' && (!!cornerIcon || !!cornerIconRef) && (
-        <CardCornerIcon hasBorder={hasBorder} ref={cornerIconRef} data-testid="card-corner-icon">
+        <CardCornerIcon ref={cornerIconRef} data-testid="card-corner-icon">
           {cornerIcon}
         </CardCornerIcon>
       )}

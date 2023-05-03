@@ -1,0 +1,13 @@
+<form class="e-form_field">
+  <label class="e-radio e-radio--compact" *ngFor="let radio of radioGroup.radios">
+    <input
+      type="radio"
+      [name]="radioGroupId"
+      [value]="radio.value"
+      [checked]="radio.value === radioGroup.value"
+      (change)="onChange(radio.value)"
+    />
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">{{ radio.label }}</span>
+  </label>
+</form>

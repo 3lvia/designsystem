@@ -1,5 +1,12 @@
 # Elvia Typography Changelog
 
+## 2.3.2 (09.03.23)
+
+### Patch
+
+- The line height for 'Text medium' typography on mobile has been adjusted to 160% from its previous value of
+  175%.
+
 ## 2.3.1 (29.08.22)
 
 ### Patch

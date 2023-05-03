@@ -1,9 +1,7 @@
 {
   "name": "@elvia/elvis-accordion",
-  "version": "2.8.15",
-  "description": "",
+  "version": "2.9.0",
   "main": "web_component.js",
-  "author": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/accordion",
   "files": [
@@ -15,10 +13,10 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-assets-icons": "^2.6.1",
-    "@elvia/elvis-colors": "^1.4.2",
-    "@elvia/elvis-component-wrapper": "^4.0.0",
-    "@elvia/elvis-toolbox": "^7.4.0",
+    "@elvia/elvis-assets-icons": "^2.13.0",
+    "@elvia/elvis-colors": "^2.0.0",
+    "@elvia/elvis-component-wrapper": "^4.1.1",
+    "@elvia/elvis-toolbox": "^7.8.1",
     "@elvia/elvis-typography": "^2.3.1",
     "styled-components": "^5.3.3"
   },

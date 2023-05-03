@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 
 @Component({
@@ -13,11 +13,7 @@ export class MainComponent {
   isHomePage = false;
   isNotFound = false;
 
-  constructor(
-    private router: Router,
-    private scrollService: ScrollService,
-    private activatedRoute: ActivatedRoute,
-  ) {
+  constructor(private router: Router, private scrollService: ScrollService) {
     // subscribe to router navigation
     this.router.events.subscribe((event) => {
       // filter `NavigationEnd` events

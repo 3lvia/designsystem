@@ -2,6 +2,50 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.03.23",
+      "version": "6.2.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Updated the dark theme colors in the year view.",
+            "Updated dependency on <code>@elvia/elvis-colors</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "07.03.23",
+      "version": "6.2.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Updating prop <code>minDate</code>, <code>maxDate</code> or <code>value</code> will now trigger validation."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Add internal prop for showing time in min/max error when used in datepicker range.",
+            "Remove shadow when used with dark theme."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "01.03.23",
+      "version": "6.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the selected date in the pop up overlay would wrap to a new line after resetting the Date Picker."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.01.23",
       "version": "6.2.0",
       "changelog": [
