@@ -2881,7 +2881,7 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^4.1.2
     "@elvia/elvis-icon": ^1.3.7
     "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-tooltip": ^1.1.6
+    "@elvia/elvis-tooltip": ^1.2.1
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -2907,7 +2907,7 @@ __metadata:
     "@elvia/elvis-component-wrapper": ^4.1.2
     "@elvia/elvis-icon": ^1.3.7
     "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-tooltip": ^1.1.6
+    "@elvia/elvis-tooltip": ^1.2.1
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -3612,7 +3612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@elvia/elvis-tooltip@*, @elvia/elvis-tooltip@^1.1.6, @elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip":
+"@elvia/elvis-tooltip@*, @elvia/elvis-tooltip@^1.1.6, @elvia/elvis-tooltip@^1.2.1, @elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip"
   dependencies:
