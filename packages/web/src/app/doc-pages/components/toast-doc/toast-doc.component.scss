@@ -1,0 +1,29 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+.alert-status {
+  display: flex;
+  align-items: center;
+  margin-top: 56px;
+  @include breakpoints.breakpoint-up(Mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .alert-icons {
+    display: flex;
+    margin-right: 48px;
+    @media screen and (-ms-high-contrast: none) {
+      margin-right: 48px + 48px;
+    }
+    @include breakpoints.breakpoint-up(Mobile) {
+      margin-right: 0px;
+    }
+  }
+  .title {
+    display: flex;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      margin-top: 16px;
+    }
+  }
+}

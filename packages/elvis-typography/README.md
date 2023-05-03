@@ -1,5 +1,9 @@
 # Elvia typography
 
+**This package is meant for internal use only. All typographies are available through
+[Elvis](https://www.npmjs.com/package/@elvia/elvis). This package should not be imported by an end-user
+directly.**
+
 Available typography reflect the typography classes availabe at
 [design.elvia.io](https://design.elvia.io/brand/typography).
 

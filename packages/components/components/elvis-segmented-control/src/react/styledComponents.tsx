@@ -54,9 +54,9 @@ const getFontSize = (size: string) => {
 
 const getControlBorder = (scType: Type, isSelected: boolean, isHovering?: boolean): string => {
   if (scType === 'icon' && isSelected) {
-    return `1px solid ${getThemeColor('text-primary')}`;
+    return `1px solid ${getThemeColor('border-1')}`;
   } else if (scType === 'icon' && isHovering) {
-    return `1px solid ${getThemeColor('state-on')}`;
+    return `1px solid ${getThemeColor('border-hover-1')}`;
   } else {
     return '1px solid transparent';
   }
@@ -68,10 +68,10 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   grid-auto-flow: column;
   position: relative;
   width: max-content;
-  border: ${({ scType }) => (scType === 'text' ? `1px solid ${getThemeColor('text-primary')}` : 'none')};
+  border: ${({ scType }) => (scType === 'text' ? `1px solid ${getThemeColor('border-1')}` : 'none')};
   border-radius: 100px;
   gap: ${({ scType }) => (scType === 'text' ? '0' : '8px')};
-  background: ${({ scType }) => (scType === 'text' ? getThemeColor('background-primary') : 'transparent')};
+  background: ${({ scType }) => (scType === 'text' ? getThemeColor('background-1') : 'transparent')};
 
   // Selected control background
   ${({ scType, numberOfControls, selectedIndex }) =>
@@ -85,7 +85,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
         top: 0;
         left: ${(100 / numberOfControls) * selectedIndex}%;
         border-radius: 100px;
-        background-color: ${getThemeColor('text-primary')};
+        background-color: ${getThemeColor('text-1')};
         transition: left 250ms ${controlAnimation};
       }
     `}
@@ -103,8 +103,7 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   ${getTypographyCss('text-md')}
   font-size: ${({ size }) => getFontSize(size)};
   text-align: center;
-  color: ${({ isSelected }) =>
-    isSelected ? getThemeColor('background-primary') : getThemeColor('text-primary')};
+  color: ${({ isSelected }) => (isSelected ? getThemeColor('background-1') : getThemeColor('text-1'))};
   text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
 
   transition: color 250ms ${controlAnimation}, border 200ms linear, text-shadow 200ms ${controlAnimation};

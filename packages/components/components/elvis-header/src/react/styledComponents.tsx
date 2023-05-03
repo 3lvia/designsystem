@@ -14,6 +14,7 @@ export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boo
   height: ${toolbarHeight};
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -55,9 +56,9 @@ export const LogoContainer = styled(SquareContainer)`
 `;
 
 export const PageTitle = styled.h1<{ isInvisible: boolean }>`
-  ${getTypographyCss('text-md')};
-  transition: opacity 150ms;
-  margin: 0 auto;
+  ${getTypographyCss('text-md-strong')};
+  flex: 1;
+  transition: opacity 400ms;
 
   ${({ isInvisible }) =>
     isInvisible &&
@@ -88,8 +89,8 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
     transform: scaleX(1);
   }
 
-  ${(props) =>
-    props.isActive &&
+  ${({ isActive }) =>
+    isActive &&
     css`
       &::after {
         transform: scaleX(1);
@@ -99,6 +100,7 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
 
 export const ProfileButton = styled(TriggerButton)`
   margin-right: 24px;
+  text-align: left;
 `;
 
 export const IconButton = styled.button`
@@ -123,14 +125,14 @@ export interface HrProps {
 }
 
 export const Hr = styled.hr<Partial<HrProps>>`
-  border: 0px solid ${getColor('grey-10')};
+  border: 0 solid ${getColor('grey-10')};
 
-  ${(props) => {
-    if (props.direction === 'vertical') {
+  ${({ direction, isGtTablet }) => {
+    if (direction === 'vertical') {
       return css`
         height: 100%;
         border-right-width: 1px;
-        margin: 0 ${props.isGtTablet ? '32px' : '24px'};
+        margin: 0 ${isGtTablet ? '32px' : '24px'};
         height: 20px;
       `;
     } else {
@@ -153,14 +155,14 @@ interface AppContentProps {
 export const AppContent = styled.main<AppContentProps>`
   padding-top: ${toolbarHeight};
   transition: padding-left ${sidebarAnimation};
-  transition-duration: ${(props) => (props.initialized ? '400ms' : '0ms')};
+  transition-duration: ${({ initialized }) => (initialized ? '400ms' : '0ms')};
 
-  ${(props) => {
-    if (props.isGtMobile && props.sidenavPadding) {
+  ${({ isGtMobile, sidenavPadding, isExpanded }) => {
+    if (isGtMobile && sidenavPadding) {
       return css`
-        padding-left: ${props.isExpanded ? sidebarMaxWidth : toolbarHeight};
+        padding-left: ${isExpanded ? sidebarMaxWidth : toolbarHeight};
       `;
-    } else if (!props.isGtMobile && props.sidenavPadding) {
+    } else if (!isGtMobile && sidenavPadding) {
       return css`
         padding-bottom: ${toolbarHeight};
       `;

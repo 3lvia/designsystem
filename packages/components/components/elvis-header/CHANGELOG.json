@@ -2,6 +2,49 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "27.04.23",
+      "version": "1.2.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The <code>pageTitle</code> slot now spans the entire width of the header, making alignment easier.",
+            "The username will now no longer include '(ekstern)' for external employees.",
+            "Fixed a bug where the page title would not be left align on mobile.",
+            "Fixed a bug where the default profile picture would not show up on mobile in Safari."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Header now uses the <code>getShadow</code> helpers functions from the Elvia colors package.",
+            "Improved the aria roles for pop-up elements in the Header.",
+            "Adjusted the opening and closing animations on mobile."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "17.04.23",
+      "version": "1.2.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where the page title was not in bold."]
+        }
+      ]
+    },
+    {
+      "date": "12.04.23",
+      "version": "1.2.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix broken type export"]
+        }
+      ]
+    },
+    {
       "date": "27.02.23",
       "version": "1.2.2",
       "changelog": [

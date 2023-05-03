@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 import { IconWrapper } from '@elvia/elvis-toolbox';
 import { UserEvent } from '@testing-library/user-event/dist/types/setup/setup';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
   Object.defineProperty(window, 'matchMedia', {
@@ -41,7 +41,7 @@ describe('Elvia Header', () => {
           email={email}
           appTitle={appTitle}
           pageTitle={pageTitle}
-          appContent={<div data-testid="main-content">Main content</div>}
+          appContent={<div>Main content</div>}
           onLogoClick={() => (logoHasBeenClicked = true)}
           onSignOutClick={() => (signOutButtonHasBeenClicked = true)}
           navItems={
@@ -59,38 +59,39 @@ describe('Elvia Header', () => {
     });
 
     test('should show the app title', () => {
-      const element = screen.getByTestId('app-title');
-      expect(element).toHaveTextContent(appTitle);
+      const element = screen.getByText(appTitle);
+      expect(element).toBeInTheDocument();
     });
 
     test('should show the page title', () => {
-      const element = screen.getByTestId('page-title');
+      const element = screen.getByRole('heading', { name: pageTitle });
       expect(element).toHaveTextContent(pageTitle);
     });
 
     test('should show the name of the current user', () => {
-      const element = screen.getByTestId('desktop-menu-trigger');
+      const element = screen.getByRole('button', { name: /^åpne brukermeny$/i });
       expect(element).toHaveTextContent(username);
     });
 
     test('should show the sidenav items', () => {
-      const sidenav = screen.getByTestId('sidenav');
+      const sidenav = screen.getByRole('navigation');
       expect(sidenav.querySelectorAll('a').length).toBe(1);
     });
 
     test('should have a width toggle in the side nav', () => {
-      const element = screen.getByTestId('sidenav-width-toggle');
+      const element = screen.getByRole('button', { name: /^maksimer$/i });
+
       expect(element).not.toBeEmptyDOMElement();
     });
 
     test('should not have a visible user menu initially', () => {
-      const element = screen.queryAllByTestId('desktop-menu');
-      expect(element.length).toBe(0);
+      const element = screen.queryByRole('menu');
+      expect(element).not.toBeInTheDocument();
     });
 
     describe('when the logo is clicked', () => {
       beforeEach(async () => {
-        const element = screen.getByTestId('header-logo');
+        const element = screen.getByRole('button', { name: /^logo$/i });
         await user.click(element);
       });
 
@@ -103,43 +104,46 @@ describe('Elvia Header', () => {
       let classList = '';
 
       beforeEach(async () => {
-        const sidenav = screen.getByTestId('sidenav');
+        const sidenav = screen.getByRole('navigation');
         classList = sidenav.classList.toString();
+        const element = screen.getByRole('button', { name: /^maksimer$/i });
 
-        const element = screen.getByTestId('sidenav-width-toggle');
         await user.click(element);
       });
 
       test('the class list for the sidenav changes', () => {
-        const sidenav = screen.getByTestId('sidenav');
+        const sidenav = screen.getByRole('navigation');
         expect(sidenav.classList.toString()).not.toBe(classList);
       });
     });
 
     describe('when the menu trigger is pressed', () => {
       beforeEach(async () => {
-        const element = await screen.findByTestId('desktop-menu-trigger');
+        const element = await screen.getByRole('button', { name: /^åpne brukermeny$/i });
         await user.click(element);
       });
 
       test('the user menu opens', () => {
-        const element = screen.getByTestId('desktop-menu');
-        expect(element).not.toBeEmptyDOMElement();
+        const element = screen.getByRole('menu');
+        expect(element).toBeVisible();
       });
 
       test('the name of the user is displayed', () => {
-        const element = screen.getByTestId('desktop-username');
-        expect(element).toHaveTextContent(username);
+        const menu = screen.getByRole('menu');
+        const element = within(menu).getByText(username);
+        expect(element).toBeVisible();
       });
 
       test('the email of the user is displayed', () => {
-        const element = screen.getByTestId('desktop-email');
-        expect(element).not.toBeEmptyDOMElement();
+        const menu = screen.getByRole('menu');
+        const element = within(menu).getByText(email);
+        expect(element).toBeVisible();
       });
 
       describe('and the sign out button is clicked', () => {
         beforeEach(async () => {
-          const element = await screen.findByTestId('desktop-sign-out-trigger');
+          const menu = screen.getByRole('menu');
+          const element = within(menu).getByRole('button', { name: /^logg ut$/i });
           await user.click(element);
         });
 
@@ -160,7 +164,7 @@ describe('Elvia Header', () => {
           email={email}
           appTitle={appTitle}
           pageTitle={pageTitle}
-          appContent={<div data-testid="main-content">Main content</div>}
+          appContent={<div>Main content</div>}
           onLogoClick={() => (logoHasBeenClicked = true)}
           onSignOutClick={() => (signOutButtonHasBeenClicked = true)}
           navItems={
@@ -178,29 +182,44 @@ describe('Elvia Header', () => {
     });
 
     test('the app title is not visible', () => {
-      const element = screen.queryAllByTestId('app-title');
-      expect(element.length).toBe(0);
+      const element = screen.queryByText(appTitle);
+      expect(element).not.toBeInTheDocument();
     });
 
     test('the header has a mobile menu', () => {
-      const element = screen.getByTestId('mobile-menu-trigger');
+      const element = screen.getByRole('button', { name: /^åpne brukermeny$/i });
       expect(element).not.toBeEmptyDOMElement();
     });
 
     test('the mobile menu is not yet visible', () => {
-      const element = screen.queryAllByTestId('mobile-menu');
-      expect(element.length).toBe(0);
+      const element = screen.queryByRole('menu');
+      expect(element).not.toBeInTheDocument();
     });
 
     describe('when the mobile menu trigger is clicked', () => {
       beforeEach(async () => {
-        const element = screen.getByTestId('mobile-menu-trigger');
+        const element = screen.getByRole('button', { name: /^åpne brukermeny$/i });
         await user.click(element);
       });
 
       test('the mobile menu opens', () => {
-        const element = screen.getByTestId('mobile-menu');
+        const element = screen.getByRole('menu');
         expect(element).not.toBeEmptyDOMElement();
+      });
+
+      test('the mobile menu displays a log out button', () => {
+        const element = screen.getByRole('button', { name: /^logg ut$/i });
+        expect(element).toBeInTheDocument();
+      });
+
+      test('the mobile menu displays the users username', () => {
+        const element = screen.getByText(username);
+        expect(element).toBeVisible();
+      });
+
+      test('the mobile menu displays the users email', () => {
+        const element = screen.getByText(email);
+        expect(element).toBeVisible();
       });
     });
   });
@@ -214,7 +233,7 @@ describe('Elvia Header', () => {
             email={email}
             appTitle={appTitle}
             pageTitle={pageTitle}
-            appContent={<div data-testid="main-content">Main content</div>}
+            appContent={<div>Main content</div>}
             onLogoClick={() => (logoHasBeenClicked = true)}
             onSignOutClick={() => (signOutButtonHasBeenClicked = true)}
             navItems={
@@ -248,7 +267,7 @@ describe('Elvia Header', () => {
             email={email}
             appTitle={appTitle}
             pageTitle={pageTitle}
-            appContent={<div data-testid="main-content">Main content</div>}
+            appContent={<div>Main content</div>}
             onLogoClick={() => (logoHasBeenClicked = true)}
             onSignOutClick={() => (signOutButtonHasBeenClicked = true)}
             navItems={

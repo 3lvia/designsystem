@@ -10,7 +10,8 @@ import * as typescript from 'gulp-typescript';
 import * as filter from 'gulp-filter';
 import * as cache from 'gulp-cached';
 import * as sourcemaps from 'gulp-sourcemaps';
-import { ComponentAttribute, ComponentConfig } from '@elvia/elvis-toolbox/src/componentConfig.types';
+// Must import from src because the files don't exist in dist before this build script
+import { ComponentAttribute, ComponentConfig } from '../components/elvis-toolbox/src/componentConfig.types';
 
 let componentConfigs: ComponentConfig[] = [];
 
@@ -153,6 +154,7 @@ function TSX_to_JS() {
               [
                 '@babel/preset-env',
                 {
+                  modules: false,
                   targets: [
                     '>0.2%, last 2 versions, Firefox ESR, not dead, not IE <= 11, not op_mini all, not op_mob > 0',
                   ],

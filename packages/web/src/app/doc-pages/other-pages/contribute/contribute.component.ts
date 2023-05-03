@@ -8,8 +8,8 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./contribute.component.scss'],
 })
 export class ContributeComponent {
-  description = getDocPagesNotFromCMS('contribute').description;
-  title = getDocPagesNotFromCMS('contribute').title;
+  description = getDocPagesNotFromCMS('contribute')?.description;
+  title = getDocPagesNotFromCMS('contribute')?.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | ' + 'Elvia design system');

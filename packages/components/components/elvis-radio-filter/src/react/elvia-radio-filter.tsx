@@ -1,23 +1,20 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { useWebComponentState } from '@elvia/elvis-toolbox';
-import React, { CSSProperties, FC } from 'react';
-import { RadioFilterGroup, RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
+import React, { FC } from 'react';
+import { useWebComponentState, BaseProps } from '@elvia/elvis-toolbox';
+import { RadioFilterGroup } from './styledComponents';
+import { RadioFilterItem } from './RadioFilterItem';
 
 export interface Option {
   label: string;
   value: string;
 }
 
-export interface RadioFilterProps {
+export interface RadioFilterProps extends BaseProps {
   name: string;
   items: Option[];
   value: string;
   ariaLabel?: string;
   groupAriaLabel?: string;
   valueOnChange?: (value: string) => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }
 
 export const RadioFilter: FC<RadioFilterProps> = ({
@@ -37,7 +34,7 @@ export const RadioFilter: FC<RadioFilterProps> = ({
   return (
     <RadioFilterGroup
       role="radiogroup"
-      className={className ?? ''}
+      className={className}
       style={inlineStyle}
       data-testid="radio-filter-group"
       aria-label={groupAriaLabel}
@@ -45,21 +42,15 @@ export const RadioFilter: FC<RadioFilterProps> = ({
     >
       {items &&
         items.map(({ label, value: optionsValue }) => (
-          <RadioFilterLabel
+          <RadioFilterItem
             key={optionsValue}
-            isSelected={optionsValue === selectedValue}
-            data-testid="radio-button"
-          >
-            <RadioFilterInput
-              type="radio"
-              name={name}
-              aria-label={ariaLabel ?? label + ' filtrering valgt'}
-              aria-checked={optionsValue === selectedValue}
-              checked={optionsValue === selectedValue}
-              onChange={() => setSelectedValue(optionsValue)}
-            />
-            <RadioFilterTitle>{label}</RadioFilterTitle>
-          </RadioFilterLabel>
+            label={label}
+            optionsValue={optionsValue}
+            selectedValue={selectedValue}
+            setSelectedValue={setSelectedValue}
+            name={name}
+            ariaLabel={ariaLabel}
+          />
         ))}
     </RadioFilterGroup>
   );

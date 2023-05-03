@@ -31,7 +31,7 @@ export const IconButton = styled.button.attrs(() => ({ type: 'button' }))<Partia
   place-items: center;
   ${({ size }) => getSize(size ?? 'md')};
   border: 1px solid transparent;
-  background-color: ${({ isActive }) => (isActive ? getThemeColor('state-on') : 'transparent')};
+  background-color: ${({ isActive }) => (isActive ? getThemeColor('background-selected-1') : 'transparent')};
   border-radius: 99px;
   padding: 0;
   margin: 0;
@@ -44,8 +44,8 @@ export const IconButton = styled.button.attrs(() => ({ type: 'button' }))<Partia
     cursor: pointer;
 
     &:hover {
-      background-color: ${getThemeColor('state-on')};
-      border-color: ${getThemeColor('state-on')};
+      background-color: ${getThemeColor('background-hover-1')};
+      border-color: ${getThemeColor('border-hover-1')};
     }
 
     &:active {

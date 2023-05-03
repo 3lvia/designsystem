@@ -6,10 +6,11 @@ import { ComponentExampleV1Module } from 'src/app/shared/component-documentation
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
-import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { RouterModule } from '@angular/router';
+import { OutlineCegComponent } from './outline-ceg/outline-ceg.component';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 
 @NgModule({
   imports: [
@@ -19,12 +20,12 @@ import { RouterModule } from '@angular/router';
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentPropertiesTableModule,
-    ComponentExampleGeneratorModule,
     ComponentInstallationModule,
     ComponentChangelogModule,
     RouterModule,
+    CegModule,
   ],
-  declarations: [OutlineDocComponent],
+  declarations: [OutlineDocComponent, OutlineCegComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class OutlineDocModule {}

@@ -45,6 +45,10 @@ export const RadioFilterInput = styled.input`
 `;
 
 export const RadioFilterTitle = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   font-family: 'Red Hat Display', verdana, sans-serif;
   font-style: normal;
   font-weight: 500;

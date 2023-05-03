@@ -85,7 +85,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Box',
     description:
-      'Box are used to group different content. Use a box together with grid and space to make different layouts.',
+      'Use Box to group content. Use it together with a grid and spacing to make different layouts.',
     docUrl: Pages.Box,
     absolutePath: '/components/' + Pages.Box,
     status: DocPageStatus.Done,
@@ -444,7 +444,7 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Stepper,
     absolutePath: '/components/' + Pages.Stepper,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=622%3A0',
+    figmaUrl: 'https://www.figma.com/file/x8ae3TPZemAkxtjSS2JI7x/Stepper?node-id=0-1&t=0oTWvsI5AMzfMr8Q-0',
     type: 'Component',
     searchTerms: ['steps', 'progress', 'process'],
   },
@@ -502,6 +502,17 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/cIyfnYdCJ6Nlj5fLVi245M/Thumbnail?node-id=11%3A30',
     type: 'Component',
     searchTerms: ['image', 'preview', 'picture', 'photo', 'gallery'],
+  },
+  {
+    title: 'Toast',
+    description:
+      'Toast alert should be used to provide short and simple feedback after a user action (positive or informative). Toast appear in the top right corner, above the content, and disappears after 7 seconds by default. On mobile, the toast will show at the bottom center.',
+    docUrl: Pages.Toast,
+    absolutePath: '/components/' + Pages.Toast,
+    status: DocPageStatus.Done,
+    figmaUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-message?t=lWHxCnNZBJatqKnV-0',
+    type: 'Component',
+    searchTerms: ['notifications', 'feedback', 'flag', 'snackbar', 'message', 'confirmation'],
   },
   {
     title: 'Tooltip',
@@ -569,8 +580,11 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Shadow',
+    titleNo: 'Skygge',
     description:
       'Shadow is used to make an element stand out from the surface to create depth. Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent. Elvia have a flat design, so shadow should be used carefully and only on overlays.',
+    descriptionNo:
+      'Skygge brukes til å få et element til å skille seg ut fra overflaten for å skape dybde. Valg av skygge er opp til hvert scenario – men skyggen skal "oppleves" og bør ikke være fremtredende. Elvia har et flatt design, så skygge bør brukes forsiktig og bare på overlays.',
     docUrl: Pages.Shadow,
     absolutePath: '/brand/' + Pages.Shadow,
     status: DocPageStatus.Done,
@@ -579,8 +593,11 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Colors',
+    titleNo: 'Farger',
     description:
       'Elvia colors are a reference for energy and light. It plays an important part to bring the concept ON/OFF to life. For consistency, you shall use the defined color palette throughout our interface.',
+    descriptionNo:
+      'Elvia-fargene er en referanse for energi og lys. Det spiller en viktig rolle for å gi konseptet PÅ/AV liv. For konsistens skal du bruke den definerte fargepaletten i hele grensesnittet vårt.',
     docUrl: Pages.Color,
     absolutePath: '/brand/' + Pages.Color,
     status: DocPageStatus.Done,
@@ -589,6 +606,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Icons',
+    titleNo: 'Ikoner',
     description: `In our icon library, you’ll find all available icons in the design system, 
     as well guides on how to use them. Missing a specific icon? Let us know on our Slack channel 
   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
@@ -596,6 +614,12 @@ export const docPagesNotFromCMS: DocPage[] = [
   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
 </a>
    and we’ll look into adding it to the library.`,
+    descriptionNo: `I ikonbiblioteket vårt finner du alle tilgjengelige ikoner i designsystemet, samt veiledninger om hvordan du bruker dem. Savner du et bestemt ikon? Gi oss beskjed på vår Slack-kanal 
+   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
+   <span class="e-link__title">#designsystemet</span>
+   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+ </a>
+   så skal vi se på muligheten for å legge det til i biblioteket.`,
     docUrl: Pages.Icon,
     absolutePath: '/brand/' + Pages.Icon,
     status: DocPageStatus.Done,
@@ -604,17 +628,40 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Layout',
+    titleNo: 'Layout',
+    description:
+      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
+    descriptionNo:
+      'Layout gir regler for å gi design konsekvent rytme i applikasjonen, samt på tvers av applikasjoner for å sikre et helhetlig design i Elvia. Layouten består av rutenett, mellomrom og boksdesign.',
     figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936%3A67993',
     docUrl: 'layout',
     absolutePath: '/brand/' + 'layout',
-    description:
-      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
     type: 'Brand',
   },
   {
     title: 'Typography',
-    description:
-      'Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family inlcudes two optical sizes: Display and Text.',
+    titleNo: 'Typografi',
+    description: `Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font
+      family inlcudes two optical sizes: Display and Text, and can be
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        href="https://fonts.google.com/?query=red+hat"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title">dowloaded here</span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+      </a>
+      via Google Fonts.`,
+    descriptionNo: `Elvia har en typografien kalt Red Hat som skal brukes i alt materiale. Skriftfamilien Red Hat inneholder to optiske størrelser: Display og Text, og kan <a
+      class="e-link e-link--inline e-link--new-tab"
+      href="https://fonts.google.com/?query=red+hat"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="e-link__title">lastes ned her</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+    </a> via Google Fonts.`,
     docUrl: Pages.Typography,
     absolutePath: '/brand/' + Pages.Typography,
     status: DocPageStatus.Done,
@@ -672,9 +719,9 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
 ];
 
-export function getComponent(docUrl: string): DocPage {
+export function getComponent(docUrl: string): DocPage | undefined {
   return componentsDocPages.find((component) => component.docUrl === docUrl);
 }
-export function getDocPagesNotFromCMS(docUrl: string): DocPage {
+export function getDocPagesNotFromCMS(docUrl: string): DocPage | undefined {
   return docPagesNotFromCMS.find((component) => component.docUrl === docUrl);
 }

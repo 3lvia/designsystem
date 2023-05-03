@@ -1,4 +1,13 @@
-import { Component, Input, ViewChild, AfterViewInit, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewChild,
+  AfterViewInit,
+  OnChanges,
+  SimpleChanges,
+  OnInit,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-iframe-screen',
@@ -6,8 +15,8 @@ import { Component, Input, ViewChild, AfterViewInit, OnChanges, SimpleChanges, O
   styleUrls: ['./iframe-screen.component.scss'],
 })
 export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
-  @ViewChild('iframeDesktop') iframeDesktop;
-  @ViewChild('iframePhone') iframePhone;
+  @ViewChild('iframeDesktop') iframeDesktop: ElementRef<HTMLIFrameElement>;
+  @ViewChild('iframePhone') iframePhone: ElementRef<HTMLIFrameElement>;
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
@@ -47,7 +56,10 @@ export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
   createIframe(): void {
     this.code += '<script src="assets/js/elvis.js"></script>';
     if (this.screenSize === 'desktop') {
-      const doc = this.iframeDesktop.nativeElement.contentWindow.document;
+      const doc = this.iframeDesktop.nativeElement.contentWindow?.document;
+      if (!doc) {
+        return;
+      }
       doc.open();
       doc.write(
         `<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto;">${this.code}</div></body></html>`,
@@ -59,7 +71,10 @@ export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
       }
     }
     if (this.screenSize === 'phone') {
-      const doc = this.iframePhone.nativeElement.contentWindow.document;
+      const doc = this.iframePhone.nativeElement.contentWindow?.document;
+      if (!doc) {
+        return;
+      }
       doc.open();
       doc.write(
         `<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto;">${this.code}</div></body></html>`,

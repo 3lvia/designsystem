@@ -8,9 +8,20 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ListDocComponent } from './list-doc.component';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { BulletListCegComponent } from './list-bullet-ceg/list-bullet-ceg.component';
+import { NumberedListCegComponent } from './list-numbered-ceg/list-numbered-ceg.component';
+import { IconListCegComponent } from './list-icon-ceg/list-icon-ceg.component';
+import { ListCegComponent } from './list-ceg/list-ceg.component';
 
 @NgModule({
-  declarations: [ListDocComponent],
+  declarations: [
+    ListDocComponent,
+    ListCegComponent,
+    BulletListCegComponent,
+    NumberedListCegComponent,
+    IconListCegComponent,
+  ],
   imports: [
     CommonModule,
     ComponentHeaderModule,
@@ -20,6 +31,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentSubsectionModule,
     WhenToUseModule,
     ComponentChangelogModule,
+    CegModule,
   ],
 })
 export class ListDocModule {}

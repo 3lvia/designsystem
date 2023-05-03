@@ -1,0 +1,26 @@
+<button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
+
+<elvia-modal (onClose)="isModalShowing = false" [isShowing]="isModalShowing" [hasCloseButton]="true">
+  <div slot="content">
+    <elvia-carousel type="loop">
+      <div slot="heading-1">
+        <h3 class="e-title-sm">Er strømbruddet kun hos deg?</h3>
+      </div>
+      <div slot="item-1">
+        <img alt="Carousel item 1" src="/assets/carousel/el1.jpeg" />
+      </div>
+      <div slot="heading-2">
+        <h3 class="e-title-sm">Har flere mistet strømmen?</h3>
+      </div>
+      <div slot="item-2">
+        <img alt="Carousel item 2" src="/assets/carousel/el2.jpeg" />
+      </div>
+      <div slot="heading-3">
+        <h3 class="e-title-sm">Vær forberedt på strømbrudd</h3>
+      </div>
+      <div slot="item-3">
+        <img alt="Carousel item 3" src="/assets/carousel/el3.jpeg" />
+      </div>
+    </elvia-carousel>
+  </div>
+</elvia-modal>

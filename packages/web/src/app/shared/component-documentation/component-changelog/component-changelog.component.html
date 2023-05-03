@@ -3,7 +3,7 @@
     <elvia-radio-filter
       [items]="changelogRadioFilterItems"
       [value]="radioFilterValue"
-      (valueOnChange)="radioFilterValue = $event.detail.value; searchChangelog()"
+      (valueOnChange)="radioFilterValue = $any($event).detail.value; searchChangelog()"
     ></elvia-radio-filter>
     <div class="e-form-field">
       <div class="e-search e-search--instant" [ngClass]="{ 'e-search--searched': searchValue.length > 0 }">
@@ -37,7 +37,7 @@
 </ng-template>
 
 <ng-template #changelogTemplateContent>
-  <table *ngIf="filteredChangelog.length > 0">
+  <table *ngIf="filteredChangelog && filteredChangelog.length > 0">
     <caption class="e-sr-only">Component changes</caption>
     <tr class="e-sr-only">
       <th class="changelog-date py-0" scope="col">Date and version</th>
@@ -62,7 +62,7 @@
             <div class="changelog-section" *ngFor="let changelog of el.changelog">
               <div
                 class="changelog-section-title"
-                [id]="el.date | ChangelogIdPipe: el.version:(changelog.type | ChangelogTypePipe):''"
+                [id]="el.date | ChangelogIdPipe : el.version : (changelog.type | ChangelogTypePipe) : ''"
               >
                 {{ changelog.type | ChangelogTypePipe }}
               </div>
@@ -78,7 +78,7 @@
                   <a
                     class="e-link e-link--inline"
                     [href]="component.url"
-                    [id]="el.date | ChangelogIdPipe: el.version:component.displayName:changelog.type"
+                    [id]="el.date | ChangelogIdPipe : el.version : component.displayName : changelog.type"
                   >
                     {{ component.displayName }}
                   </a>
@@ -95,7 +95,7 @@
                   <a
                     class="e-link e-link--inline"
                     [href]="component.url"
-                    [id]="el.date | ChangelogIdPipe: el.version:component.displayName:changelog.type"
+                    [id]="el.date | ChangelogIdPipe : el.version : component.displayName : changelog.type"
                   >
                     {{ component.displayName }}
                   </a>
@@ -103,7 +103,10 @@
               </div>
               <ul class="e-list">
                 <li *ngFor="let change of changelog.changes">
-                  <p [innerHTML]="change" [id]="el.date | ChangelogIdPipe: el.version:change:'entry'"></p>
+                  <p
+                    [innerHTML]="change"
+                    [id]="el.date | ChangelogIdPipe : el.version : change : 'entry'"
+                  ></p>
                 </li>
               </ul>
               <ng-container *ngIf="changelog.fixes && changelog.fixes.length > 0">
@@ -127,14 +130,14 @@
       </tr>
     </tbody>
   </table>
-  <div class="no-properties-found" *ngIf="filteredChangelog.length === 0">
+  <div class="no-properties-found" *ngIf="filteredChangelog && filteredChangelog.length === 0">
     <img src="assets/no-results/no-results.svg" alt="" aria-hidden="true" />
     <span class="e-title-caps e-text-center">No entries found matching your search</span>
   </div>
 </ng-template>
 
 <!-- No accordion  -->
-<ng-container *ngIf="!hasAccordion || changelog.length <= 2; else accordionTemplate">
+<ng-container *ngIf="!hasAccordion || (changelog && changelog.length <= 2); else accordionTemplate">
   <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
   <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
 </ng-container>

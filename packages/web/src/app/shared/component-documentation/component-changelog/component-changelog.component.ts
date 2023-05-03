@@ -10,9 +10,10 @@ import { ChangelogTypePipe } from './component-changelog-pipe';
 
 // Extend the ComponentChangelog interface with a skipped property to be able to
 // show changelog entries that have been skipped in the elvis changelog
-type ChangelogEntry = ComponentChangelog | { skipped: number };
+type ChangelogEntry = ComponentChangelog & { skipped?: number };
 type Changelog = ChangelogEntry[];
 type ChangelogRadioFilter = ComponentChangelog['changelog'][0]['type'] | 'all';
+type ChangelogLinks = { displayName: string; url: string }[];
 
 @Component({
   selector: 'app-component-changelog',
@@ -48,7 +49,7 @@ export class ComponentChangelogComponent implements OnInit {
 
   searchValue = '';
   radioFilterValue: ChangelogRadioFilter = 'all';
-  filteredChangelog: Changelog = [];
+  filteredChangelog: Changelog | undefined = [];
   accordionIsOpen = false;
 
   changelogIdPipe = new ChangelogIdPipe();
@@ -85,10 +86,10 @@ export class ComponentChangelogComponent implements OnInit {
         ? this.searchService.search(this.searchValue.trim())
         : this.changelog;
     if (this.radioFilterValue !== 'all') {
-      this.filteredChangelog = this.filteredChangelog.filter((change) => {
+      this.filteredChangelog = this.filteredChangelog?.filter((change) => {
         return (
           'changelog' in change && // Filter out 'skipped entries' (for elvis changelogs)
-          change.changelog.some((changelogEntry) => {
+          change.changelog?.some((changelogEntry) => {
             return changelogEntry.type === this.radioFilterValue;
           })
         );
@@ -111,13 +112,13 @@ export class ComponentChangelogComponent implements OnInit {
   private highlightSearchMatches(): void {
     this.resetHighlighting();
     this.searchService.searchResults?.forEach((resultItem) => {
-      resultItem.matches.forEach((match) => {
+      resultItem.matches?.forEach((match) => {
         switch (match.key) {
           case 'changelog.changes': {
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
-              match.value,
+              match.value!,
               'entry',
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
@@ -131,7 +132,7 @@ export class ComponentChangelogComponent implements OnInit {
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
-              match.value,
+              match.value!,
               changelogType,
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
@@ -145,7 +146,7 @@ export class ComponentChangelogComponent implements OnInit {
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
-              match.value,
+              match.value!,
               changelogType,
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
@@ -155,7 +156,7 @@ export class ComponentChangelogComponent implements OnInit {
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
               (resultItem.item as ComponentChangelog).version,
-              match.value,
+              match.value!,
               '',
             );
             this.updateElementInnerHTML(elementId, this.getHighlightedHTMLString(match));
@@ -168,6 +169,9 @@ export class ComponentChangelogComponent implements OnInit {
 
   private getHighlightedHTMLString(match: Fuse.FuseResultMatch): string {
     const { value, indices } = match;
+    if (!value) {
+      return '';
+    }
     // Add any part of the description that is before the first match
     let highlightedValue = value.substring(0, indices[0][0]);
 
@@ -207,9 +211,9 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   private resetHighlighting(): void {
-    this.filteredChangelog.forEach((changelogEntry) => {
+    this.filteredChangelog?.forEach((changelogEntry) => {
       if ('changelog' in changelogEntry) {
-        changelogEntry.changelog.forEach((entry) => {
+        changelogEntry.changelog?.forEach((entry) => {
           entry.changes.forEach((change) => {
             const elementId = this.changelogIdPipe.transform(
               changelogEntry.date,
@@ -258,6 +262,9 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   private initializeSearchService(): void {
+    if (!this.changelog) {
+      return;
+    }
     this.searchService.initializeSearch(this.changelog, {
       threshold: 0.2,
       includeMatches: true,
@@ -288,16 +295,22 @@ export class ComponentChangelogComponent implements OnInit {
     elvisChangelogJson.content.forEach((elvisChangelogEntry) => {
       let wasSkipped = true;
       elvisChangelogEntry.changelog.forEach((version: (typeof elvisChangelogEntry.changelog)[number]) => {
-        const components = 'components' in version ? version['components'] : undefined;
-        if (!components) return;
-        components.some(({ displayName }) => {
+        let allEntries: ChangelogLinks = [];
+        if ('components' in version) {
+          allEntries = allEntries.concat(version['components'] as ChangelogLinks);
+        }
+        if ('pages' in version) {
+          allEntries = allEntries.concat(version['pages'] as ChangelogLinks);
+        }
+        if (allEntries.length === 0) return;
+        allEntries.some(({ displayName }) => {
           if (
             displayName.toLowerCase() === elvisComponentToFilter.toLowerCase() &&
             !filteredElvisChangelog.includes(elvisChangelogEntry)
           ) {
             wasSkipped = false;
             if (filteredElvisChangelog.length !== 0 && numberOfReleasesSkipped > 0) {
-              filteredElvisChangelog.push({ skipped: numberOfReleasesSkipped });
+              filteredElvisChangelog.push({ skipped: numberOfReleasesSkipped } as ChangelogEntry);
             }
             filteredElvisChangelog.push(elvisChangelogEntry);
             numberOfReleasesSkipped = 0;

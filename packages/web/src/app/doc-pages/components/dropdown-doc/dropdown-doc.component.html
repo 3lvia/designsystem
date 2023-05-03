@@ -1,5 +1,8 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog[0].date">
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
+>
   <ng-container ngProjectAs="headerTitle">Dropdown</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -8,7 +11,7 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+  <app-ceg><app-dropdown-ceg /></app-ceg>
 
   <!--OPTIONS-->
   <app-component-section [sectionTitle]="'Options'">
@@ -29,10 +32,9 @@
             </a>
             for more information on the icon component
           </div>
-          <app-component-example-generator
-            [componentData]="dropdownIconsCode"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-dropdown-icons-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Nested dropdowns'">
@@ -45,10 +47,9 @@
             of screen space if the tree is too deep. Note that all values should be unique, since the output
             only is the select value.
           </div>
-          <app-component-example-generator
-            [componentData]="dropdownTreeCode"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-dropdown-tree-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Status icon'">
@@ -100,10 +101,9 @@
             <span class="code-text">info</span>
             .
           </div>
-          <app-component-example-generator
-            [componentData]="dropdownStatusCode"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-dropdown-status-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Full width'">
@@ -153,10 +153,9 @@
             . This will show a spinner in the button. When there are no more options to load, the button
             should be removed.
           </div>
-          <app-component-example-generator
-            [componentData]="dropdownLoadMoreItemsCode"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          <app-static-ceg>
+            <app-dropdown-load-more-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>

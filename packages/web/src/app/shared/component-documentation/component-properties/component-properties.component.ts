@@ -8,14 +8,14 @@ import deprecated from '@elvia/elvis/.internal/deprecated-classes.json';
   styleUrls: ['./component-properties.component.scss'],
 })
 export class ComponentPropertiesComponent implements OnInit {
-  @Input() componentName: string;
+  @Input() componentName: keyof typeof data.block;
 
-  container;
-  elements = [];
-  modifiers = [];
-  psuedos = [];
-  allElementModifiers = [];
-  deprecatedClasses = [];
+  container: string;
+  elements: { name: string; elementModifiers: string[] }[] = [];
+  modifiers: string[] = [];
+  pseudos: string[] = [];
+  allElementModifiers: string[] = [];
+  deprecatedClasses: string[] = [];
 
   ngOnInit(): void {
     this.makePropertyLists();
@@ -30,9 +30,7 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   getDeprecatedClasses(): void {
-    Object.keys(deprecated).forEach((key) => {
-      this.deprecatedClasses.push(key);
-    });
+    this.deprecatedClasses = Object.keys(deprecated);
   }
 
   makePropertyLists(): void {
@@ -48,19 +46,22 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   getContainer(): void {
-    if (data.block[this.componentName].container) {
-      Object.keys(data.block[this.componentName].container).forEach((el) => {
+    const component = data.block[this.componentName];
+    if ('container' in component) {
+      Object.keys(component.container).forEach((el) => {
         this.container = el;
       });
     }
   }
 
   getAllElements(): void {
-    if (data.block[this.componentName].element) {
-      Object.keys(data.block[this.componentName].element).forEach((el) => {
-        const elementModifiers = [];
-        if (data.block[this.componentName].element[el].modifier) {
-          Object.keys(data.block[this.componentName].element[el].modifier).forEach((el2) => {
+    const component = data.block[this.componentName];
+    if ('element' in component) {
+      const element = component.element;
+      Object.keys(element).forEach((el) => {
+        const elementModifiers: string[] = [];
+        if ('modifier' in element[el as keyof typeof element]) {
+          Object.keys((element[el as keyof typeof element] as any).modifier).forEach((el2) => {
             if (!this.isCustom(el2) && !this.isDeprecated(el2)) {
               this.allElementModifiers.push(el2);
             }
@@ -75,8 +76,9 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   getAllModifiers(): void {
-    if (data.block[this.componentName].modifier) {
-      Object.keys(data.block[this.componentName].modifier).forEach((mod) => {
+    const component = data.block[this.componentName];
+    if ('modifier' in component) {
+      Object.keys(component.modifier).forEach((mod) => {
         if (!this.isCustom(mod) && !this.isDeprecated(mod)) {
           this.modifiers.push(mod);
         }
@@ -85,10 +87,11 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   getAllPsuedo(): void {
-    if (data.block[this.componentName].psuedo) {
-      Object.keys(data.block[this.componentName].psuedo).forEach((psu) => {
+    const component = data.block[this.componentName];
+    if ('psuedo' in component) {
+      Object.keys(component.psuedo).forEach((psu) => {
         if (!this.isCustom(psu) && !this.isDeprecated(psu)) {
-          this.psuedos.push(psu);
+          this.pseudos.push(psu);
         }
       });
     }

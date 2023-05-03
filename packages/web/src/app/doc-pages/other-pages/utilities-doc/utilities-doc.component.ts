@@ -9,8 +9,8 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./utilities-doc.component.scss'],
 })
 export class UtilitiesDocComponent {
-  description = getDocPagesNotFromCMS('utility-classes').description;
-  title = getDocPagesNotFromCMS('utility-classes').title;
+  description = getDocPagesNotFromCMS('utility-classes')?.description;
+  title = getDocPagesNotFromCMS('utility-classes')?.title;
   utilityGroups: UtilityGroup[] = [
     {
       title: 'Accessibility',

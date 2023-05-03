@@ -9,9 +9,9 @@ import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
   styleUrls: ['./changelog.component.scss'],
 })
 export class ChangelogComponent {
-  description = getDocPagesNotFromCMS('changelog').description;
-  title = getDocPagesNotFromCMS('changelog').title;
-  externalUrl = getDocPagesNotFromCMS('changelog').externalUrl;
+  description = getDocPagesNotFromCMS('changelog')?.description;
+  title = getDocPagesNotFromCMS('changelog')?.title;
+  externalUrl = getDocPagesNotFromCMS('changelog')?.externalUrl;
   changelog = changelogJson.content;
 
   constructor(private titleService: Title) {

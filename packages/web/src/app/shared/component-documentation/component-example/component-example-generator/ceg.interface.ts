@@ -34,6 +34,7 @@ interface CegFormGroupCounter {
 
 interface CegFormGroupCheckbox {
   formType: 'checkbox';
+  label?: ComponentData['attributes'][0]['cegDisplayName'];
   name: ComponentData['attributes'][0]['cegDisplayName'];
   propValue: ComponentData['attributes'][0]['cegOption'];
   formGroupOptions?: CegFormGroupOption[];
