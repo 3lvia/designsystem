@@ -117,7 +117,7 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
     `};
 
   ${({ isIndeterminate, isChecked, currentTheme, isDisabled }) =>
-    (isChecked || isIndeterminate || (isChecked && isDisabled)) &&
+    (isChecked || isIndeterminate || isDisabled) &&
     currentTheme === 'dark' &&
     css`
       border: none;
