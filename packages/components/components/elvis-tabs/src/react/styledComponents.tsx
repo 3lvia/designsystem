@@ -159,7 +159,7 @@ export const TabLabel = styled.span<TabLabelProps>`
     isSelected &&
     css`
       &::after {
-        background-color: ${getThemeColor('background-hover-1')};
+        background-color: ${getThemeColor('background-selected-1')};
       }
     `}
 `;
