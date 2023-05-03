@@ -1,5 +1,6 @@
 import React from 'react';
 import { IndeterminateLine, StyledCheckbox } from './checkboxStyles';
+import { ThemeName } from '@elvia/elvis-colors';
 
 export interface CheckboxProps {
   isChecked?: boolean;
@@ -7,18 +8,31 @@ export interface CheckboxProps {
   isDisabled?: boolean;
   isCompact?: boolean;
   isFocused?: boolean;
+  currentTheme: ThemeName;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = (props) => {
+export interface IndeterminateLineProps {
+  isCompact?: boolean;
+}
+
+export const Checkbox: React.FC<CheckboxProps> = ({
+  isIndeterminate,
+  isChecked,
+  isDisabled,
+  isCompact,
+  isFocused,
+  currentTheme,
+}) => {
   return (
     <StyledCheckbox
-      isIndeterminate={props.isIndeterminate && !props.isChecked}
-      isChecked={props.isChecked}
-      isDisabled={props.isDisabled}
-      isCompact={props.isCompact}
-      isFocused={props.isFocused}
+      isIndeterminate={isIndeterminate && !isChecked}
+      isChecked={isChecked}
+      isDisabled={isDisabled}
+      isCompact={isCompact}
+      isFocused={isFocused}
+      currentTheme={currentTheme}
     >
-      <IndeterminateLine />
+      <IndeterminateLine isCompact={isCompact} />
     </StyledCheckbox>
   );
 };
