@@ -60,7 +60,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   border: none;
   margin: 0;
   width: 100%;
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   padding: 0 0 0 16px;
   align-items: center;
   cursor: pointer;
@@ -70,7 +70,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     isActive &&
     !isMulti &&
     css`
-      background-color: ${getThemeColor('state-selected-grey')};
+      background-color: ${getThemeColor('background-selected-2')};
     `};
 
   ${({ isMulti, isGtMobile, isDisabled }) =>
@@ -80,7 +80,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     css`
       &:hover {
         ${OpenOverlayButton} {
-          background-color: ${getThemeColor('state-on')};
+          background-color: ${getThemeColor('background-hover-1')};
         }
       }
     `};
@@ -105,16 +105,16 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     if (isDisabled) {
       return css`
         cursor: not-allowed;
-        color: ${getThemeColor('state-disabled-foreground')};
+        color: ${getThemeColor('text-disabled-1')};
       `;
     }
     return css`
       &:hover {
-        background-color: ${getThemeColor('state-hover-grey')};
+        background-color: ${getThemeColor('background-hover-2')};
 
         ${StyledCheckbox} {
-          background-color: ${getThemeColor('state-on')};
-          border-color: ${getThemeColor('text-primary')};
+          background-color: ${getThemeColor('background-hover-1')};
+          border-color: ${getThemeColor('text-1')};
         }
       }
     `;
@@ -124,7 +124,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     isFocused &&
     (!isActive || isMulti) &&
     css`
-      background-color: ${getThemeColor('state-hover-grey')};
+      background-color: ${getThemeColor('background-hover-2')};
     `};
 `;
 

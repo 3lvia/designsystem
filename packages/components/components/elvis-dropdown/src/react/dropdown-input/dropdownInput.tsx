@@ -101,13 +101,13 @@ export const DropdownInput: React.FC<Props> = ({
         <Icon
           name={placeholderIcon}
           size="xs"
-          color={isDisabled ? getThemeColor('state-disabled-foreground') : getThemeColor('text-placeholder')}
+          color={isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-3')}
         />
       )}
       {!!currentValIcon && (
         <Icon
           name={currentValIcon}
-          color={isDisabled ? getThemeColor('state-disabled-foreground') : getThemeColor('text-primary')}
+          color={isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-1')}
         />
       )}
       <Input

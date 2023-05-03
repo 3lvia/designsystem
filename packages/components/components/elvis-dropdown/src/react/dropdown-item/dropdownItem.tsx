@@ -7,7 +7,7 @@ import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdown
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
-import { ThemeName, getColor } from '@elvia/elvis-colors';
+import { ThemeName, getThemeColor } from '@elvia/elvis-colors';
 import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRight';
 
 interface DropdownItemProps {
@@ -225,7 +225,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
               <IconWrapper
                 icon={arrowRight}
                 size={isCompact ? 'xs' : 'sm'}
-                color={item.isDisabled ? getColor('disabled') : ''}
+                color={item.isDisabled ? getThemeColor('text-disabled-1') : ''}
               />
             </OpenOverlayButton>
           </IconContainer>

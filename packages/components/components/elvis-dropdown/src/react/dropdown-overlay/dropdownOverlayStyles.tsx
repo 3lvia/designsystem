@@ -34,7 +34,7 @@ export const DropdownPopupContainer = styled.div<{ isCompact: boolean }>`
 `;
 
 export const DropdownPopup = styled.div.attrs({ role: 'listbox' })<{ isInvisible: boolean }>`
-  background-color: ${getThemeColor('background-overlay')};
+  background-color: ${getThemeColor('background-overlay-1')};
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
   position: relative;
   border-radius: 4px;
@@ -61,7 +61,7 @@ export const NoItemsMessage = styled.div`
 
 export const Divider = styled.hr`
   height: 0px;
-  border: 0px solid ${getThemeColor('background-accent')};
+  border: 0px solid ${getThemeColor('background-element-3')};
   border-bottom-width: 1px;
   margin: 0;
 `;
@@ -108,7 +108,7 @@ export const BackButtonStyles = styled(DropdownItemStyles)`
 
   &:hover {
     ${IconButton} {
-      background-color: ${getThemeColor('state-on')};
+      background-color: ${getThemeColor('background-hover-1')};
     }
   }
 `;

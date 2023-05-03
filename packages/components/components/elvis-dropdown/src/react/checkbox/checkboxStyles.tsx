@@ -27,7 +27,7 @@ export const IndeterminateLine = styled.div<IndeterminateLineProps>`
 
 const checkmarkLineBase = css<CheckboxProps>`
   background-color: ${({ isDisabled }) =>
-    isDisabled ? getThemeColor('state-disabled-foreground') : getThemeColor('static-black')};
+    isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('static-black')};
   border-radius: 2px;
   content: '';
   height: 2px;
@@ -39,9 +39,9 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
   flex: none;
   aspect-ratio: 1 / 1;
   width: 24px;
-  background-color: ${getThemeColor('background-element')};
+  background-color: ${getThemeColor('background-element-1')};
   border-radius: ${({ isCompact }) => (isCompact ? '3px' : '4px')};
-  border: 1px solid ${getThemeColor('text-primary')};
+  border: 1px solid ${getThemeColor('text-1')};
   position: relative;
 
   &::before {
@@ -65,7 +65,7 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
   ${({ isIndeterminate }) =>
     isIndeterminate &&
     css`
-      background-color: ${getThemeColor('state-on')};
+      background-color: ${getThemeColor('background-hover-1')};
 
       ${IndeterminateLine}::after {
         transform: scaleX(1);
@@ -76,7 +76,7 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
   ${({ isChecked }) =>
     isChecked &&
     css`
-      background-color: ${getThemeColor('state-on')};
+      background-color: ${getThemeColor('background-selected-1')};
 
       &::before {
         transform: rotate(45deg) scaleX(1);
@@ -105,14 +105,14 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
     isFocused &&
     !isDisabled &&
     css`
-      background-color: ${getThemeColor('state-on')};
+      background-color: ${getThemeColor('background-selected-1')};
     `};
 
   ${({ isDisabled }) =>
     isDisabled &&
     css`
-      background-color: ${getThemeColor('state-disabled-background')};
-      border: 1px solid ${getThemeColor('state-disabled-foreground')};
+      background-color: ${getThemeColor('background-disabled-1')};
+      border: 1px solid ${getThemeColor('border-disabled-1')};
       cursor: not-allowed;
     `};
 
