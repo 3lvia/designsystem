@@ -1,12 +1,12 @@
 import Chip from './elvia-chip';
 import React from 'react';
 import { axe } from 'jest-axe';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
 
 const colors = {
-  green: getColor('green-apple'),
-  blue: getColor('blue-berry'),
+  green: getThemeColor('data-1'),
+  blue: getThemeColor('data-3'),
 };
 
 describe('Elvis Chip', () => {
