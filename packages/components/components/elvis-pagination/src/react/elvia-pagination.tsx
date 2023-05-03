@@ -63,7 +63,7 @@ const Pagination: FC<PaginationProps> = function ({
 
   const visibleElements = useMemo(
     () => getPaginationRange(selectedPageNumber, selectedDropdownValue, numberOfElements),
-    [selectedPageNumber, numberOfElements],
+    [selectedPageNumber, selectedDropdownValue, numberOfElements],
   );
 
   useEffect(() => {
@@ -139,7 +139,6 @@ const Pagination: FC<PaginationProps> = function ({
       }
       const firstElementIndex =
         Math.floor((previousPaginationRange.start - 1) / selectedDropdownValue) * selectedDropdownValue + 1;
-
       return Math.ceil(firstElementIndex / selectedDropdownValue);
     });
   };
@@ -163,16 +162,13 @@ const Pagination: FC<PaginationProps> = function ({
     if (parseInt(newSelectedDropdownValue) === selectedDropdownValue) {
       return;
     }
-
     if (!isValidDropdownItem(newSelectedDropdownValue)) {
       setShowPaginationNumbers(false);
       return;
     }
-
     if (!showPaginationNumbers) {
       setShowPaginationNumbers(true);
     }
-
     setSelectedDropdownValue((previousValue) => {
       previousDropdownValue.current = previousValue;
       return parseInt(newSelectedDropdownValue);
