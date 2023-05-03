@@ -5,8 +5,8 @@ export interface DropdownItem {
   label: string;
 }
 export interface VisibleElements {
-  start: number | undefined;
-  end: number | undefined;
+  start?: number;
+  end?: number;
 }
 export interface PaginationLabel {
   displaying?: string;
