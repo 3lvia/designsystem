@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { ChipComponent, ChipDot, ChipTitle, ChipLoading } from './styledComponents';
 import { ChipProps } from './elvia-chip.types';
 import { useHover } from '@react-aria/interactions';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { warnDeprecatedProps, useWebComponentState, IconWrapper } from '@elvia/elvis-toolbox';
 import { config } from './config';
 import check from '@elvia/elvis-assets-icons/dist/icons/check';
@@ -98,7 +98,11 @@ export const Chip: FC<ChipProps> = function ({
         {value}
       </ChipTitle>
       {type === 'removable' && (
-        <IconWrapper icon={close} size="xxs" color={isDisabled ? getColor('disabled') : undefined} />
+        <IconWrapper
+          icon={close}
+          size="xxs"
+          color={isDisabled ? getThemeColor('text-disabled-1') : undefined}
+        />
       )}
     </ChipComponent>
   );

@@ -1,17 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 import { ColorType, ChipType } from './elvia-chip.types';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 
-export const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  elviaBlack: getColor('black'),
-  blue: getColor('blue-berry'),
-  green: getColor('green-apple'),
-  orange: getColor('orange-mango'),
-  purple: getColor('purple-plum'),
-  red: getColor('red-tomato'),
-  violet: getColor('violet-grape'),
-  gray05: getColor('grey-05'),
+export const chipBackgroundColors = {
+  green: getThemeColor('data-1'),
+  violet: getThemeColor('data-2'),
+  blue: getThemeColor('data-3'),
+  purple: getThemeColor('data-4'),
+  orange: getThemeColor('data-5'),
+  red: getThemeColor('data-6'),
 };
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
@@ -23,36 +20,27 @@ const setBackgroundColor = (
   type: ChipType,
 ): string => {
   if (type === 'choice') {
-    return isSelected ? setOpacity(colors.green, 40) : 'transparent';
+    return isSelected ? setOpacity(chipBackgroundColors.green, 40) : 'transparent';
   } else if (type === 'legend') {
-    return isSelected && !isLoading ? setOpacity(colors[color], 40) : 'transparent';
+    return isSelected && !isLoading ? setOpacity(chipBackgroundColors[color], 40) : 'transparent';
   } else {
-    return setOpacity(colors[color], 40);
+    return setOpacity(chipBackgroundColors[color], 40);
   }
 };
 
 const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: ChipType): string => {
   if (type !== 'legend') {
-    return colors.elviaCharge;
+    return getThemeColor('background-hover-1');
   } else if (isSelected) {
-    return setOpacity(colors[color], 20);
+    return setOpacity(chipBackgroundColors[color], 20);
   } else {
     return 'transparent';
   }
 };
 
-const decideChipBorder = (
-  isLoading: boolean,
-  isSelected: boolean,
-  disabled: boolean,
-  type: ChipType,
-): string => {
-  if (disabled) {
-    return 'solid 1px transparent';
-  } else if (type === 'legend' && (!isSelected || isLoading)) {
-    return `solid 1px ${colors.gray05}`;
-  } else if (type === 'choice' && !isSelected) {
-    return `solid 1px ${colors.gray05}`;
+const decideChipBorder = (isLoading: boolean, isSelected: boolean, type: ChipType): string => {
+  if ((type === 'choice' || type === 'legend') && (!isSelected || isLoading)) {
+    return `solid 1px ${getThemeColor('border-4')}`;
   }
   return 'solid 1px transparent';
 };
@@ -73,8 +61,7 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   align-items: center;
   background: none;
   box-sizing: border-box;
-  border: ${({ isLoading, isSelected, isDisabled, chipType }) =>
-    decideChipBorder(isLoading, isSelected, isDisabled, chipType)};
+  border: ${({ isLoading, isSelected, chipType }) => decideChipBorder(isLoading, isSelected, chipType)};
   background-color: ${({ color, isLoading, isSelected, chipType }) =>
     setBackgroundColor(color, isLoading, isSelected, chipType)};
   cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
@@ -116,7 +103,7 @@ export const ChipLoading = styled.div<ChipLoadingProps>`
   > span {
     width: 10px;
     height: 10px;
-    background-color: ${({ color }) => colors[color]};
+    background-color: ${({ color }) => chipBackgroundColors[color]};
     border-radius: 100%;
     display: inline-block;
     animation: ${loadingDotsAnimation} 1s infinite ease-in-out both;
@@ -144,7 +131,8 @@ export const ChipDot = styled.span<ChipDotProps>`
   width: 10px;
   border-radius: 50%;
   transition: background-color 150ms ease-in;
-  background-color: ${({ showDot, color }) => (showDot ? colors[color] : colors.gray05)};
+  background-color: ${({ showDot, color }) =>
+    showDot ? chipBackgroundColors[color] : getThemeColor('border-4')};
   opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;
@@ -162,6 +150,6 @@ export const ChipTitle = styled.div<ChipTitleProps>`
   font-style: unset;
   opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
   transition: opacity 150ms ease-in;
-  color: ${colors.elviaBlack};
+  color: ${getThemeColor('text-1')};
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;
