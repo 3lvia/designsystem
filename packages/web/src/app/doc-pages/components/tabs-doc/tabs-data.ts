@@ -21,12 +21,6 @@ export const tabsData: ComponentData = {
       type: 'string',
       description: 'Aria label that describes the tablist. Aria label should be added for accessibility.',
     },
-    isInverted: {
-      isRequired: false,
-      type: 'boolean',
-      description: 'Decides if tabs should be inverted.',
-      default: 'false',
-    },
     hasManualActivation: {
       isRequired: false,
       type: 'boolean',

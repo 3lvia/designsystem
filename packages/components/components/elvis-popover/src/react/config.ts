@@ -18,7 +18,6 @@ export const config: ComponentConfig = {
       type: 'string',
       deprecatedDetails: {
         version: '7.0.0',
-        isCallbackFunction: true,
         explanation:
           'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
       },
@@ -28,7 +27,6 @@ export const config: ComponentConfig = {
       type: 'boolean',
       deprecatedDetails: {
         version: '7.0.0',
-        isCallbackFunction: true,
         explanation:
           'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
       },
@@ -38,7 +36,6 @@ export const config: ComponentConfig = {
       type: 'boolean',
       deprecatedDetails: {
         version: '7.0.0',
-        isCallbackFunction: true,
         explanation:
           'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
       },
@@ -48,7 +45,6 @@ export const config: ComponentConfig = {
       type: 'boolean',
       deprecatedDetails: {
         version: '7.0.0',
-        isCallbackFunction: true,
         explanation:
           'Context menu functionality has been moved to the component ContextMenu. Use that instead.',
       },
