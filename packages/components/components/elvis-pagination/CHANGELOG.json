@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added theme support."]
+          "changes": ["Theme support"]
         },
         {
           "type": "patch",
