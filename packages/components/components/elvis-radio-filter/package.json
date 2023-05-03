@@ -16,7 +16,7 @@
     "@elvia/elvis-colors": "^2.2.0",
     "@elvia/elvis-component-wrapper": "^4.1.2",
     "@elvia/elvis-toolbox": "^8.0.0",
-    "dompurify": "^3.0.1",
+    "dompurify": "^3.0.2",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {
