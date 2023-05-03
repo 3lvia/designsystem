@@ -18,8 +18,7 @@ export const DividerArea = styled.div<DividerAreaProps>`
     type === 'simple' && orientation === 'vertical' ? `1px solid` : 'none'};
   border-bottom: ${({ type, orientation }) =>
     type !== 'curved' && orientation === 'horizontal' ? `1px solid` : 'none'};
-  border-color: ${({ type }) =>
-    type === 'title' ? getThemeColor('text-primary') : getThemeColor('background-accent')};
+  border-color: ${({ type }) => (type === 'title' ? getThemeColor('text-1') : getThemeColor('border-2'))};
   text-align: left;
 
   ${({ type }) =>
@@ -32,7 +31,7 @@ export const DividerArea = styled.div<DividerAreaProps>`
       &::after {
         content: '';
         border: 2px solid;
-        border-color: ${getThemeColor('background-accent-strong')};
+        border-color: ${getThemeColor('border-3')};
         border-radius: 100%;
         position: absolute;
         bottom: 0;
@@ -51,12 +50,12 @@ type DividerTitleProps = {
 export const DividerTitle = styled.div<DividerTitleProps>`
   ${({ typography }) =>
     typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   padding-bottom: ${({ typography }) => (typography === 'medium' ? '24px' : '8px')};
   * {
     margin: 0;
     ${({ typography }) =>
       typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
-    color: ${getThemeColor('text-primary')};
+    color: ${getThemeColor('text-1')};
   }
 `;
