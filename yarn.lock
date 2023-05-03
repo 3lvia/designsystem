@@ -3415,6 +3415,52 @@ __metadata:
   languageName: node
   linkType: soft
 
+"@elvia/elvis-stepper@portal:../components/components/elvis-stepper::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-stepper@portal:../components/components/elvis-stepper::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
+  dependencies:
+    "@elvia/elvis-assets-icons": ^2.13.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.1
+    "@elvia/elvis-toolbox": ^7.8.1
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  languageName: node
+  linkType: soft
+
+"@elvia/elvis-stepper@workspace:packages/components/components/elvis-stepper":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-stepper@workspace:packages/components/components/elvis-stepper"
+  dependencies:
+    "@elvia/elvis-assets-icons": ^2.13.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.1
+    "@elvia/elvis-toolbox": ^7.8.1
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-tabs@*, @elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs"
@@ -10499,6 +10545,7 @@ __metadata:
     "@elvia/elvis-segmented-control": "portal:../components/components/elvis-segmented-control"
     "@elvia/elvis-slider": "portal:../components/components/elvis-slider"
     "@elvia/elvis-spotlight": "portal:../components/components/elvis-spotlight"
+    "@elvia/elvis-stepper": "portal:../components/components/elvis-stepper"
     "@elvia/elvis-tabs": "portal:../components/components/elvis-tabs"
     "@elvia/elvis-timepicker": "portal:../components/components/elvis-timepicker"
     "@elvia/elvis-toast": "portal:../components/components/elvis-toast"
@@ -18007,7 +18054,6 @@ __metadata:
     "@elvia/elvis-badge": "*"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"
-    "@elvia/elvis-card": "*"
     "@elvia/elvis-carousel": "*"
     "@elvia/elvis-chip": "*"
     "@elvia/elvis-context-menu": "*"
@@ -18027,7 +18073,6 @@ __metadata:
     "@elvia/elvis-tabs": "*"
     "@elvia/elvis-timepicker": "*"
     "@elvia/elvis-toast": "*"
-    "@elvia/elvis-tooltip": "*"
     "@elvia/elvis-typography": "*"
     "@rollup/plugin-commonjs": ^24.0.1
     "@types/react": ^18.0.27

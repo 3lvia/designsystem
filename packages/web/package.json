@@ -48,6 +48,7 @@
     "@elvia/elvis-segmented-control": "portal:../components/components/elvis-segmented-control",
     "@elvia/elvis-slider": "portal:../components/components/elvis-slider",
     "@elvia/elvis-spotlight": "portal:../components/components/elvis-spotlight",
+    "@elvia/elvis-stepper": "portal:../components/components/elvis-stepper",
     "@elvia/elvis-tabs": "portal:../components/components/elvis-tabs",
     "@elvia/elvis-timepicker": "portal:../components/components/elvis-timepicker",
     "@elvia/elvis-toast": "portal:../components/components/elvis-toast",

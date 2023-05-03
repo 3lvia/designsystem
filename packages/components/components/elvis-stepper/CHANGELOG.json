@@ -1,0 +1,15 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "27.08.21",
+      "version": "1.0.2 ",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of the Chip component"]
+        }
+      ]
+    }
+  ]
+}
