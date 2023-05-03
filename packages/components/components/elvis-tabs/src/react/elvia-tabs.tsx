@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
 import { IconWrapper, isSsr } from '@elvia/elvis-toolbox';
-import { getThemeColor } from '@elvia/elvis-colors';
 
 import {
   TabsContainer,
@@ -206,7 +205,6 @@ const Tabs: FC<TabsProps> = ({
         <IconWrapper
           icon={arrowLeftBold}
           size="xxs"
-          color={getThemeColor('text-1')}
           style={{
             position: 'absolute',
             top: '11px',
@@ -248,7 +246,6 @@ const Tabs: FC<TabsProps> = ({
         <IconWrapper
           icon={arrowRightBold}
           size="xxs"
-          color={getThemeColor('text-1')}
           style={{
             position: 'absolute',
             top: '11px',

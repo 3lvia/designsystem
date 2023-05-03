@@ -3419,7 +3419,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
+    "@elvia/elvis-assets-icons": ^3.0.0
     "@elvia/elvis-colors": ^2.2.0
     "@elvia/elvis-component-wrapper": ^4.1.2
     "@elvia/elvis-toolbox": ^8.0.0
@@ -3445,7 +3445,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tabs@portal:../components/components/elvis-tabs::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
+    "@elvia/elvis-assets-icons": ^3.0.0
     "@elvia/elvis-colors": ^2.2.0
     "@elvia/elvis-component-wrapper": ^4.1.2
     "@elvia/elvis-toolbox": ^8.0.0
