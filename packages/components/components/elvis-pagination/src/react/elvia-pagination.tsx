@@ -64,7 +64,7 @@ const Pagination: FC<PaginationProps> = function ({
 
   const visibleElements = useMemo(
     () => getPaginationRange(selectedPageNumber, selectedDropdownValue, numberOfElements),
-    [selectedPageNumber, selectedDropdownValue, numberOfElements],
+    [selectedPageNumber, numberOfElements],
   );
 
   useEffect(() => {
