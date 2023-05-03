@@ -13,6 +13,8 @@ export class v2PlaygroundComponent {
     document.body.classList.toggle('e-theme-dark');
   };
 
+  dynamicPaginationValue = { start: 61, end: 70 };
+
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
