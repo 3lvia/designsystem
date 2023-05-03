@@ -20,7 +20,7 @@ export const RadioFilterLabel = styled.label<RadioFilterLabelProps>`
   place-items: center;
   border-radius: 32px;
   padding: 4px 12px;
-  border: ${({ isSelected }) => `1px solid ${isSelected ? getThemeColor('text-1') : 'transparent'}`};
+  border: ${({ isSelected }) => `1px solid ${isSelected ? getThemeColor('border-1') : 'transparent'}`};
   cursor: pointer;
   position: relative;
 
