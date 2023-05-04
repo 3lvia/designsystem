@@ -10,6 +10,7 @@ import {
   useBreakpoint,
   useWebComponentState,
   IconWrapper,
+  useCurrentTheme,
 } from '@elvia/elvis-toolbox';
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import { DropdownInput } from './dropdown-input/dropdownInput';
@@ -17,6 +18,7 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   if (!filter) {
@@ -78,6 +80,8 @@ const Dropdown: React.FC<DropdownProps> = ({
     verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
     alignWidths: true,
   });
+
+  const { currentTheme } = useCurrentTheme(connectedElementRef);
 
   const focusOnSelectedValue = (): void => {
     if (focusedItem || !currentVal) {
@@ -183,7 +187,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           <IconRotator isRotated={isShowing}>
             <IconWrapper
               icon={arrowDownBold}
-              color={isDisabled ? 'disabled' : 'black'}
+              color={isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-1')}
               size={isCompact ? 'xs' : 'sm'}
             />
           </IconRotator>
@@ -214,6 +218,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           setFocusedItem={updateFocusedItem}
           setHoveredItem={emitHoveredItem}
           isSearchMode={!!filter}
+          currentTheme={currentTheme}
         />
       )}
     </>
