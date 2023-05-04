@@ -139,24 +139,8 @@ const Pagination: FC<PaginationProps> = function ({
       }
       const firstElementIndex =
         Math.floor((previousPaginationRange.start - 1) / selectedDropdownValue) * selectedDropdownValue + 1;
-
-      const newSelectedPageNumber = Math.ceil(firstElementIndex / selectedDropdownValue);
-
-      //if no page number change, just update the visible elements
-      if (selectedPageNumber === newSelectedPageNumber) {
-        updateVisibleElementsIfPageNumberTheSame();
-      }
-      return newSelectedPageNumber;
+      return Math.ceil(firstElementIndex / selectedDropdownValue);
     });
-
-    const updateVisibleElementsIfPageNumberTheSame = (): void => {
-      const newVisibleElements = getPaginationRange(
-        selectedPageNumber,
-        selectedDropdownValue,
-        numberOfElements,
-      );
-      emitValueOnChangeEvent(newVisibleElements);
-    };
   };
 
   const shouldHaveLeftArrow = (): boolean => {
