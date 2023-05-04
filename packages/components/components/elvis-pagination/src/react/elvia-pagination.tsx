@@ -6,7 +6,6 @@ import {
   defaultPaginationValue,
   defaultPaginationDropdownItems,
   defaultPaginationLabelOptions,
-  VisibleElements,
 } from './elvia-pagination.types';
 import {
   Paginator,
@@ -96,7 +95,7 @@ const Pagination: FC<PaginationProps> = function ({
   }, [selectedDropdownValue]);
 
   useEffect(() => {
-    emitValueOnChangeEvent(visibleElements);
+    emitValueOnChangeEvent();
   }, [visibleElements]);
 
   useEffect(() => {
@@ -114,18 +113,18 @@ const Pagination: FC<PaginationProps> = function ({
     isInitialized.current = true;
   }, []);
 
-  const emitValueOnChangeEvent = (valuesToEmit: VisibleElements): void => {
+  const emitValueOnChangeEvent = (): void => {
     if (
       isInitialized.current === false ||
-      valuesToEmit.start === undefined ||
-      valuesToEmit.end === undefined ||
-      valuesToEmit.start > numberOfElements
+      visibleElements.start === undefined ||
+      visibleElements.end === undefined ||
+      visibleElements.start > numberOfElements
     ) {
       return;
     }
-    valueOnChange?.(valuesToEmit);
-    webcomponent?.setProps({ value: valuesToEmit }, true);
-    webcomponent?.triggerEvent('valueOnChange', valuesToEmit);
+    valueOnChange?.(visibleElements);
+    webcomponent?.setProps({ value: visibleElements }, true);
+    webcomponent?.triggerEvent('valueOnChange', visibleElements);
   };
 
   const updateVisibleElementsForDropdownChange = (): void => {
