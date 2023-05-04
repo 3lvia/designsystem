@@ -19,7 +19,7 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
   min-width: 216px;
   text-align: left;
   max-height: calc(50vh - 8px);
-  background-color: ${getThemeColor('background-overlay')};
+  background-color: ${getThemeColor('background-overlay-1')};
   overflow: auto;
   border-radius: 8px;
   box-shadow: ${getShadow('medium')};
@@ -29,7 +29,7 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
   }
 
   .ewc-context-menu__list-group:not(:last-of-type) {
-    border-bottom: 1px solid ${getThemeColor('background-accent')};
+    border-bottom: 1px solid ${getThemeColor('border-2')};
   }
 
   > button,
@@ -44,7 +44,7 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
     padding: 10px 16px;
     margin: 0;
     cursor: pointer;
-    color: ${getThemeColor('text-primary')};
+    color: ${getThemeColor('text-1')};
     ${getTypographyCss('text-md')}
     background-color: transparent;
     text-decoration: none;
@@ -55,12 +55,12 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
     }
 
     :hover:not(:disabled) {
-      background: ${getThemeColor('state-hover-grey')};
+      background: ${getThemeColor('background-hover-2')};
     }
 
     :disabled {
       cursor: not-allowed;
-      color: ${getThemeColor('state-disabled-foreground')};
+      color: ${getThemeColor('text-disabled-1')};
     }
 
     span {
