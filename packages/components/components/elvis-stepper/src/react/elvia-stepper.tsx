@@ -1,23 +1,30 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { StepperProps } from './elvia-stepper.types';
+import { StepperProps, StepStates } from './elvia-stepper.types';
 import { StepperVertical } from './elvia-stepper-vertical';
 import { StepperHorizontal } from './elvia-stepper-horizontal';
+
+export const isReachable = (forced: boolean, stepIndex: number, states?: StepStates): boolean => {
+  return !(forced && !states?.[stepIndex - 1]?.isCompleted && stepIndex !== 1);
+};
 
 export const Stepper: FC<StepperProps> = function ({
   // value,
   // valueOnChange,
-  type,
+  type = 'horizontal',
   states,
   content,
   completeButtonText,
+  forced = false,
+  titles,
   className,
   inlineStyle,
   webcomponent,
-  // ...rest
+  ...rest
 }) {
   const [numSteps, setNumSteps] = useState(1);
   const [currentStep, setCurrentStep] = useState<number>(1);
   const contentRef = useRef<HTMLDivElement>(null);
+  // const [isVisited, setIsVisited] = useState<boolean[]>(Array(numSteps).fill(false));
 
   useEffect(() => {
     const elem = webcomponent?.getSlot('content');
@@ -33,7 +40,6 @@ export const Stepper: FC<StepperProps> = function ({
 
   useEffect(() => {
     if (content) {
-      console.log(content.length);
       setNumSteps(content.length);
     }
   }, [content]);
@@ -53,8 +59,11 @@ export const Stepper: FC<StepperProps> = function ({
           completeButtonText={completeButtonText}
           className={className}
           content={content}
+          forced={forced}
+          titles={titles}
           inlineStyle={inlineStyle}
           states={states}
+          {...rest}
         />
       ) : (
         <StepperHorizontal
@@ -65,8 +74,11 @@ export const Stepper: FC<StepperProps> = function ({
           completeButtonText={completeButtonText}
           className={className}
           content={content}
+          forced={forced}
+          titles={titles}
           inlineStyle={inlineStyle}
           states={states}
+          {...rest}
         />
       )}
     </>

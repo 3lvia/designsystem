@@ -48,16 +48,15 @@ export const StepLine = styled.div<StepLineProps>`
     getThemeColor(isSelected ? 'border-selected-2' : 'border-disabled-1')};
   place-items: center;
 
-  /* &:last-of-type {
-    display: none;
-  } */
-
   ${({ type, isSelected }) =>
     type === 'vertical' &&
     css`
-      width: 2px;
+      padding: 0 30px;
+      border-left: 2px solid ${getThemeColor(isSelected ? 'border-selected-2' : 'border-disabled-1')};
+      border-radius: 0;
+      background-color: transparent;
+      margin: 0 15px;
       height: 12px;
-      /* display: ${isSelected ? 'none' : 'initial'}; */
     `}
 `;
 
@@ -132,6 +131,17 @@ export const StepNumber = styled.div<StepNumberProps>`
   &:hover {
     border-color: ${getThemeColor('border-hover-1')};
   }
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+      }
+      &:hover {
+        border-color: ${getThemeColor('border-disabled-1')};
+        cursor: not-allowed;
+      }
+    `}
 `;
 
 interface StepperContentProps {
@@ -151,13 +161,20 @@ export const StepperContent = styled.div<StepperContentProps>`
 
 interface StepperTitleProps {
   type: string;
+  isActive?: boolean;
 }
 export const StepperTitle = styled.div<StepperTitleProps>`
   ${getTypographyCss('title-sm')}
   display: flex;
   justify-content: center;
-  margin: ${({ type }) => (type === 'vertical' ? '0' : '32px')} 0;
+  margin: 32px 0;
   cursor: pointer;
+  ${({ type, isActive }) =>
+    type === 'vertical' &&
+    css`
+      ${isActive ? getTypographyCss('title-sm') : getTypographyCss('text-md')}
+      margin: 0 0;
+    `}
 `;
 
 export const StepperActions = styled.div`

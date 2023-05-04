@@ -8,7 +8,7 @@ interface StepState {
   isCompleted: boolean;
 }
 
-interface StepStates {
+export interface StepStates {
   [step: number]: Partial<StepState>;
 }
 
@@ -16,6 +16,8 @@ export interface StepperTypeProps extends HasValue<number> {
   numSteps: number;
   currentStep: number;
   states?: StepStates;
+  forced?: boolean;
+  titles?: string[];
   completeButtonText?: string;
   className?: string;
   inlineStyle?: CSSProperties;
@@ -28,6 +30,7 @@ export interface StepperProps extends HasValue<number> {
   type: string;
   states?: StepStates;
   forced?: boolean;
+  titles?: string[];
   completeButtonText?: string;
   content?: JSX.Element[];
   className?: string;

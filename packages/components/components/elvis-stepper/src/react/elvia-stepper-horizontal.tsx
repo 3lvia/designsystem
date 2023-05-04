@@ -12,6 +12,7 @@ import {
   StepperTitle,
 } from './styledComponents';
 import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
+import { isReachable } from './elvia-stepper';
 
 export const StepperHorizontal: FC<StepperTypeProps> = function ({
   numSteps,
@@ -19,38 +20,51 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   states,
   completeButtonText,
   className,
+  forced = false,
   inlineStyle,
   handleStepChange,
+  titles,
   contentRef,
   content,
   ...rest
 }) {
-  console.log(completeButtonText, numSteps, currentStep);
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
       <Steps type="horizontal">
-        {[...Array(numSteps)].map((_, i) => (
-          <Step type="horizontal" key={i} isActive={i + 1 === currentStep}>
-            {i > 0 && <StepLine type="horizontal" isSelected={i < currentStep}></StepLine>}
-            <StepHeader>
-              <StepNumber
-                isActive={i + 1 === currentStep}
-                isError={states?.[i + 1]?.isError}
-                isCompleted={states?.[i + 1]?.isCompleted}
-                onClick={() => handleStepChange(i + 1)}
-              >
-                {i + 1}
-              </StepNumber>
-            </StepHeader>
-          </Step>
-        ))}
+        {[...Array(numSteps)].map((_, i) => {
+          const stepIndex = i + 1;
+          return (
+            <Step type="horizontal" key={i} isActive={stepIndex === currentStep}>
+              {stepIndex - 1 > 0 && (
+                <StepLine type="horizontal" isSelected={stepIndex - 1 < currentStep}></StepLine>
+              )}
+              <StepHeader>
+                <StepNumber
+                  isActive={stepIndex === currentStep}
+                  isError={states?.[stepIndex]?.isError}
+                  isCompleted={states?.[stepIndex]?.isCompleted}
+                  isDisabled={!isReachable(forced, stepIndex, states)}
+                  onClick={() =>
+                    handleStepChange(isReachable(forced, stepIndex, states) ? stepIndex : currentStep)
+                  }
+                >
+                  {stepIndex}
+                </StepNumber>
+              </StepHeader>
+            </Step>
+          );
+        })}
       </Steps>
       <StepperContent type="horizontal">
-        <StepperTitle type="horizontal">Title</StepperTitle>
+        <StepperTitle type="horizontal">{titles?.[currentStep - 1] ?? ''}</StepperTitle>
         <div ref={contentRef}>{content?.[currentStep - 1]}</div>
         <StepperActions>
           <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
-          <SecondaryButton onClick={() => handleStepChange(currentStep + 1)}>
+          <SecondaryButton
+            onClick={() =>
+              handleStepChange(isReachable(forced, currentStep + 1, states) ? currentStep + 1 : currentStep)
+            }
+          >
             {completeButtonText && currentStep === numSteps ? completeButtonText : 'Next'}
           </SecondaryButton>
         </StepperActions>
