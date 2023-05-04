@@ -6,6 +6,7 @@ export const config: ComponentConfig = {
     { name: 'value', type: 'number' },
     { name: 'type', type: 'string' },
     { name: 'states', type: 'object' },
+    { name: 'completeButtonText', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
   ],

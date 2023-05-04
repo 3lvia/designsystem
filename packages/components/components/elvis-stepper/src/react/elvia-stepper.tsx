@@ -9,6 +9,7 @@ export const Stepper: FC<StepperProps> = function ({
   type,
   states,
   content,
+  completeButtonText,
   className,
   inlineStyle,
   webcomponent,
@@ -49,6 +50,7 @@ export const Stepper: FC<StepperProps> = function ({
           currentStep={currentStep}
           handleStepChange={handleStepChange}
           numSteps={numSteps}
+          completeButtonText={completeButtonText}
           className={className}
           content={content}
           inlineStyle={inlineStyle}
@@ -60,6 +62,7 @@ export const Stepper: FC<StepperProps> = function ({
           currentStep={currentStep}
           handleStepChange={handleStepChange}
           numSteps={numSteps}
+          completeButtonText={completeButtonText}
           className={className}
           content={content}
           inlineStyle={inlineStyle}

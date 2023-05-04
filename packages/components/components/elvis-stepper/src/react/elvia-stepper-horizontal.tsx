@@ -17,6 +17,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   numSteps,
   currentStep,
   states,
+  completeButtonText,
   className,
   inlineStyle,
   handleStepChange,
@@ -24,6 +25,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   content,
   ...rest
 }) {
+  console.log(completeButtonText, numSteps, currentStep);
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
       <Steps type="horizontal">
@@ -48,7 +50,9 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
         <div ref={contentRef}>{content?.[currentStep - 1]}</div>
         <StepperActions>
           <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
-          <SecondaryButton onClick={() => handleStepChange(currentStep + 1)}>Next</SecondaryButton>
+          <SecondaryButton onClick={() => handleStepChange(currentStep + 1)}>
+            {completeButtonText && currentStep === numSteps ? completeButtonText : 'Next'}
+          </SecondaryButton>
         </StepperActions>
       </StepperContent>
     </StepperContainer>

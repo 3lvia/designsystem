@@ -16,6 +16,7 @@ export interface StepperTypeProps extends HasValue<number> {
   numSteps: number;
   currentStep: number;
   states?: StepStates;
+  completeButtonText?: string;
   className?: string;
   inlineStyle?: CSSProperties;
   handleStepChange: (step: number) => void;
@@ -27,6 +28,7 @@ export interface StepperProps extends HasValue<number> {
   type: string;
   states?: StepStates;
   forced?: boolean;
+  completeButtonText?: string;
   content?: JSX.Element[];
   className?: string;
   inlineStyle?: CSSProperties;
