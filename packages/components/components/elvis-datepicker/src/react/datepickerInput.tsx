@@ -176,7 +176,6 @@ export const DatepickerInput: React.FC<Props> = ({
   }, [date]);
 
   useEffect(() => {
-    console.log('XD');
     if (touched) {
       validateInputValue();
     }
