@@ -2,13 +2,13 @@ import Card from './elvia-card';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
 
 describe('Elvis Card', () => {
   describe('Type = simple square', () => {
     beforeEach(() => {
-      render(<Card icon={'Icon'} heading={'Heading'} description={'Description'} tag={'Tag'}></Card>);
+      render(<Card icon={'Icon'} heading={'Heading'} description={'Description'} tag={'Tag'} />);
     });
 
     it('should have icon', () => {
@@ -17,13 +17,13 @@ describe('Elvis Card', () => {
     });
 
     it('should have header', () => {
-      const cardHeading = screen.getByTestId('card-heading');
-      expect(cardHeading).toHaveTextContent('Heading');
+      const heading = screen.getByRole('heading', { level: 3 });
+      expect(heading).toHaveTextContent('Heading');
     });
 
     it('should have description', () => {
-      const cardDescription = screen.getByTestId('card-description');
-      expect(cardDescription).toHaveTextContent('Description');
+      const description = screen.getByText('Description');
+      expect(description).toBeInTheDocument();
     });
 
     it('should not have top border with color', () => {
@@ -32,18 +32,18 @@ describe('Elvis Card', () => {
     });
 
     it('should not have corner icon', () => {
-      const cardCornerIcon = screen.queryByTestId('card-corner-icon');
-      expect(cardCornerIcon).not.toBeInTheDocument();
+      const cornerIcon = screen.queryByTestId('card-corner-icon');
+      expect(cornerIcon).not.toBeInTheDocument();
     });
 
     it('should not have hover arrow', () => {
-      const cardHoverArrow = screen.queryByTestId('card-detail-hover-arrow');
-      expect(cardHoverArrow).not.toBeInTheDocument();
+      const hoverArrow = screen.queryByTestId('card-detail-hover-arrow');
+      expect(hoverArrow).not.toBeInTheDocument();
     });
 
     it('should not have tag', () => {
-      const cardTag = screen.queryByTestId('card-tag');
-      expect(cardTag).not.toBeInTheDocument();
+      const tag = screen.queryByTestId('card-tag');
+      expect(tag).not.toBeInTheDocument();
     });
 
     it('should not switch icon on hover', async () => {
@@ -51,22 +51,22 @@ describe('Elvis Card', () => {
       const cardIcon = screen.getByTestId('card-icon');
       expect(cardIcon).toHaveTextContent('Icon');
 
-      await user.hover(screen.getByTestId('card-area'));
+      await user.hover(screen.getByRole('article'));
       expect(cardIcon).toHaveTextContent('Icon');
     });
 
     it('should have default width', () => {
-      const cardArea = screen.getByTestId('card-area');
+      const cardArea = screen.getByRole('article');
       expect(cardArea).toHaveStyle(`width: 100%`);
     });
 
     it('should have default minWidth', () => {
-      const cardArea = screen.getByTestId('card-area');
+      const cardArea = screen.getByRole('article');
       expect(cardArea).toHaveStyle(`min-width: 150px`);
     });
 
     it('should have default maxWidth', () => {
-      const cardArea = screen.getByTestId('card-area');
+      const cardArea = screen.getByRole('article');
       expect(cardArea).toHaveStyle(`max-width: 250px`);
     });
   });
@@ -83,39 +83,39 @@ describe('Elvis Card', () => {
           width={'150px'}
           minWidth={200}
           maxWidth={220}
-        ></Card>,
+        />,
       );
     });
 
     it('should have top border with color', () => {
-      const cardColoredLine = screen.getByTestId('card-colored-line');
-      expect(cardColoredLine).toHaveStyle(`border-top: 4px solid ${getColor('red')}`);
+      const coloredLine = screen.getByTestId('card-colored-line');
+      expect(coloredLine).toHaveStyle(`border-top: 4px solid ${getThemeColor('signal-error')}`);
     });
 
     it('should have a set width', () => {
-      const cardArea = screen.getByTestId('card-area');
+      const cardArea = screen.getByRole('article');
       expect(cardArea).toHaveStyle(`width: 150px`);
     });
 
     it('should have minWidth', () => {
-      const cardArea = screen.getByTestId('card-area');
+      const cardArea = screen.getByRole('article');
       expect(cardArea).toHaveStyle(`min-width: 200px`);
     });
 
     it('should have maxWidth', () => {
-      const cardArea = screen.getByTestId('card-area');
+      const cardArea = screen.getByRole('article');
       expect(cardArea).toHaveStyle(`max-width: 220px`);
     });
   });
 
   describe.skip('Type = simple square, with hover icon', () => {
     beforeEach(() => {
-      render(<Card icon={'Icon'} iconHover={'IconHover'}></Card>);
+      render(<Card icon={'Icon'} iconHover={'IconHover'} />);
     });
 
     it('should switch icon on hover', async () => {
       const user = userEvent.setup();
-      const cardArea = screen.getByTestId('card-area');
+      const cardArea = screen.getByRole('article');
       const cardIcon = screen.getByTestId('card-icon');
       expect(cardIcon).toHaveTextContent('Icon');
 
@@ -130,13 +130,7 @@ describe('Elvis Card', () => {
   describe('Type = detail', () => {
     beforeEach(() => {
       render(
-        <Card
-          icon=""
-          type={'detail'}
-          tag={'Tag'}
-          description={'Description'}
-          cornerIcon={'CornerIcon'}
-        ></Card>,
+        <Card icon="" type={'detail'} tag={'Tag'} description={'Description'} cornerIcon={'CornerIcon'} />,
       );
     });
 
@@ -146,65 +140,65 @@ describe('Elvis Card', () => {
     });
 
     it('should have label', () => {
-      const cardTag = screen.getByTestId('card-tag');
-      expect(cardTag).toHaveTextContent('Tag');
+      const tag = screen.getByText('Tag');
+      expect(tag).toBeInTheDocument();
     });
 
     it('should have label with styling', () => {
-      const cardTag = screen.getByTestId('card-tag');
-      expect(cardTag).toHaveStyle(
+      const tag = screen.getByText('Tag');
+      expect(tag).toHaveStyle(
         `padding: 4px 8px;
         border-radius: 4px;
-        background: ${getColor('grey-10')}; 
+        background: ${getThemeColor('background-element-3')}; 
         font-size: 11px;
         font-weight: 400;`,
       );
     });
 
     it('should have shape square', () => {
-      const cardArea = screen.getByTestId('card-area');
+      const cardArea = screen.getByRole('article');
       expect(cardArea).toHaveStyle(`border-radius: 8px`);
     });
 
     it('should have corner icon', () => {
-      const cardCornerIcon = screen.getByTestId('card-corner-icon');
-      expect(cardCornerIcon).toHaveTextContent('CornerIcon');
+      const cornerIcon = screen.getByTestId('card-corner-icon');
+      expect(cornerIcon).toHaveTextContent('CornerIcon');
     });
 
     it('should have hover arrow', () => {
-      const cardHoverArrow = screen.getByTestId('card-detail-hover-arrow');
-      expect(cardHoverArrow).toBeInTheDocument();
+      const hoverArrow = screen.getByTestId('card-detail-hover-arrow');
+      expect(hoverArrow).toBeInTheDocument();
     });
 
     it('should have default lines of description text', () => {
-      const cardDescription = screen.getByTestId('card-description');
-      expect(cardDescription).toHaveStyle(`line-clamp: 3;`);
+      const description = screen.getByText('Description');
+      expect(description).toHaveStyle(`line-clamp: 3;`);
     });
   });
 
   describe('Type = detail, shorter description', () => {
     beforeEach(() => {
-      render(<Card type={'detail'} tag={'Tag'} description={'Description'} maxDescriptionLines={4}></Card>);
+      render(<Card type={'detail'} tag={'Tag'} description={'Description'} maxDescriptionLines={4} />);
     });
 
     it('should have max 4 lines of description text', () => {
-      const cardDescription = screen.getByTestId('card-description');
-      expect(cardDescription).toHaveStyle(`line-clamp: 4;`);
+      const description = screen.getByText('Description');
+      expect(description).toHaveStyle(`line-clamp: 4;`);
     });
 
     it('should have empty corner icon', () => {
-      const cardCornerIcon = screen.getByTestId('card-corner-icon');
-      expect(cardCornerIcon).toHaveTextContent('');
+      const cornerIcon = screen.getByTestId('card-corner-icon');
+      expect(cornerIcon).toHaveTextContent('');
     });
   });
 
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(<Card className="test-class" inlineStyle={{ margin: '24px' }}></Card>);
+      render(<Card className="test-class" inlineStyle={{ margin: '24px' }} />);
     });
 
     it('should have className and inlineStyle', () => {
-      const cardArea = screen.getByTestId('card-area');
+      const cardArea = screen.getByRole('article');
       expect(cardArea).toHaveStyle('margin: 24px');
       expect(cardArea).toHaveClass('test-class');
     });
@@ -214,7 +208,7 @@ describe('Elvis Card', () => {
     it('should have no axe violations', async () => {
       render(
         <div data-testid="cards">
-          <Card icon={'Icon'} heading={'Heading'} description={'Description'} tag={'Tag'}></Card>
+          <Card icon={'Icon'} heading={'Heading'} description={'Description'} tag={'Tag'} />
           <Card
             icon={'Icon'}
             heading={'Heading'}
@@ -224,14 +218,8 @@ describe('Elvis Card', () => {
             width={'150px'}
             minWidth={200}
             maxWidth={220}
-          ></Card>
-          <Card
-            icon=""
-            type={'detail'}
-            tag={'Tag'}
-            description={'Description'}
-            cornerIcon={'CornerIcon'}
-          ></Card>
+          />
+          <Card icon="" type={'detail'} tag={'Tag'} description={'Description'} cornerIcon={'CornerIcon'} />
         </div>,
       );
 

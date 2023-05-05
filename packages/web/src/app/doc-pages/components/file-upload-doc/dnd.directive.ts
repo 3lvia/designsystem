@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Directive, Output, EventEmitter, HostBinding, HostListener } from '@angular/core';
 
 @Directive({

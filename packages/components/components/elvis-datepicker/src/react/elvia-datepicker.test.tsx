@@ -175,7 +175,7 @@ describe('Elvis Datepicker', () => {
 
     it('should have error style', () => {
       const datepickerWrapper = screen.getByTestId('input-container');
-      expect(datepickerWrapper).toHaveStyle(`border-color: ${getThemeColor('state-error')}`);
+      expect(datepickerWrapper).toHaveStyle(`border-color: ${getThemeColor('signal-error')}`);
     });
 
     it('should have custom error in DOM', () => {
@@ -256,7 +256,7 @@ describe('Elvis Datepicker', () => {
 
     it('should have error state', () => {
       const datepickerWrapper = screen.getByTestId('input-container');
-      expect(datepickerWrapper).toHaveStyle(`border-color: ${getThemeColor('state-error')}`);
+      expect(datepickerWrapper).toHaveStyle(`border-color: ${getThemeColor('signal-error')}`);
     });
   });
 
