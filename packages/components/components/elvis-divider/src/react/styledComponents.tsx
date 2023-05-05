@@ -13,12 +13,12 @@ export const DividerArea = styled.div<DividerAreaProps>`
   margin: 0;
   width: ${({ type, orientation }) => (type === 'simple' && orientation === 'vertical' ? '1px' : '100%')};
   height: ${({ type, orientation }) =>
-    type === 'simple' && orientation === 'vertical' ? '100%' : type === 'title' ? 'unset' : '1px'};
+    type === 'simple' && orientation === 'vertical' ? '100%' : type === 'heading' ? 'unset' : '1px'};
   border-left: ${({ type, orientation }) =>
     type === 'simple' && orientation === 'vertical' ? `1px solid` : 'none'};
   border-bottom: ${({ type, orientation }) =>
     type !== 'curved' && orientation === 'horizontal' ? `1px solid` : 'none'};
-  border-color: ${({ type }) => (type === 'title' ? getThemeColor('border-1') : getThemeColor('border-2'))};
+  border-color: ${({ type }) => (type === 'heading' ? getThemeColor('border-1') : getThemeColor('border-2'))};
   text-align: left;
 
   ${({ type }) =>

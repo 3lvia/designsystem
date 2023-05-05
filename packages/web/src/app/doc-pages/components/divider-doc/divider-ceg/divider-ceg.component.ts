@@ -26,7 +26,7 @@ export class DividerCegComponent implements ComponentExample {
       groupOrder: ['Orientation'],
     },
     {
-      type: 'Title',
+      type: 'Heading',
       controls: {
         typography: {
           type: 'radioGroup',

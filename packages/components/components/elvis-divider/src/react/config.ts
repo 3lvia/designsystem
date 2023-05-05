@@ -3,9 +3,9 @@ import { ComponentConfig } from '@elvia/elvis-toolbox';
 export const config: ComponentConfig = {
   name: 'Divider',
   attributes: [
-    { name: 'type', type: 'string' },
-    { name: 'typography', type: 'string' },
+    { name: 'type', type: 'string' }, // type="title" DEPRECATED - Replaced by type="heading"
     { name: 'heading', type: 'string' },
+    { name: 'typography', type: 'string' },
     { name: 'orientation', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },

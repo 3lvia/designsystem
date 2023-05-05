@@ -50,11 +50,11 @@ export const Divider: React.FC<DividerProps> = function ({
       style={inlineStyle}
       {...rest}
     >
-      {heading === '' && type === 'title' && (
+      {heading === '' && type === 'heading' && (
         <DividerHeading typography={typography} ref={dividerHeadingRef}></DividerHeading>
       )}
-      {heading !== '' && type === 'title' && (
-        <DividerHeading typography={typography} data-testid="divider-title">
+      {heading !== '' && type === 'heading' && (
+        <DividerHeading typography={typography} data-testid="divider-heading">
           {heading}
         </DividerHeading>
       )}

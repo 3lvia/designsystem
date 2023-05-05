@@ -43,9 +43,9 @@ describe('Elvis Divider', () => {
     });
   });
 
-  describe('Type = Title', () => {
+  describe('Type = Heading', () => {
     beforeEach(() => {
-      render(<Divider type="title" heading={<h2>Title</h2>} />);
+      render(<Divider type="heading" heading={<h2>Heading</h2>} />);
     });
 
     it('should have border-bottom 1px solid', () => {
@@ -59,21 +59,21 @@ describe('Elvis Divider', () => {
     });
 
     it('should have md typography', () => {
-      const dividerTitle = screen.getByTestId('divider-title');
-      expect(dividerTitle).toHaveStyle('text-transform: unset');
-      expect(dividerTitle).toHaveStyle('font-size: 30px');
+      const dividerHeading = screen.getByTestId('divider-heading');
+      expect(dividerHeading).toHaveStyle('text-transform: unset');
+      expect(dividerHeading).toHaveStyle('font-size: 30px');
     });
   });
 
-  describe('Type = Title, Typography = Caps', () => {
+  describe('Type = Heading, Typography = Caps', () => {
     beforeEach(() => {
-      render(<Divider type="title" heading={<h2>Title</h2>} typography="caps" />);
+      render(<Divider type="heading" heading={<h2>Heading</h2>} typography="caps" />);
     });
 
     it('should have caps typography', () => {
-      const dividerTitle = screen.getByTestId('divider-title');
-      expect(dividerTitle).toHaveStyle('text-transform: uppercase');
-      expect(dividerTitle).toHaveStyle('font-size: 14px');
+      const dividerHeading = screen.getByTestId('divider-heading');
+      expect(dividerHeading).toHaveStyle('text-transform: uppercase');
+      expect(dividerHeading).toHaveStyle('font-size: 14px');
     });
   });
 
@@ -94,7 +94,7 @@ describe('Elvis Divider', () => {
       render(
         <div data-testid="dividers">
           <Divider type="simple" />
-          <Divider type="title" heading={<h2>Title</h2>} />
+          <Divider type="heading" heading={<h2>Heading</h2>} />
         </div>,
       );
     });

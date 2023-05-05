@@ -8,7 +8,8 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "<code>title</code> prop has been deprecated in favor of <code>heading</code> so that all components follow the same convention."
+            "<code>title</code> prop has been deprecated in favor of <code>heading</code> so that all components follow the same convention.",
+            "<code>type='title'</code> has been deprecated in favor of <code>type='heading'</code> to make the prop consistent with the new <code>heading</code> prop."
           ]
         }
       ]

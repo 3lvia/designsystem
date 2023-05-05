@@ -7,7 +7,7 @@ export const dividerData: ComponentData = {
   attributes: {
     type: {
       isRequired: false,
-      type: 'simple | title | curved',
+      type: 'simple | heading | curved',
       description: 'Type of the divider. The curved version of the divider follows the Elvia curve formula.',
       default: 'simple',
     },
@@ -20,7 +20,7 @@ export const dividerData: ComponentData = {
     typography: {
       isRequired: false,
       type: 'medium | caps',
-      description: 'Type of title typography.',
+      description: 'Type of heading typography.',
       default: 'medium',
     },
     orientation: {
