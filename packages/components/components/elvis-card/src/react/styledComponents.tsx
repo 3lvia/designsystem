@@ -180,12 +180,12 @@ export const CardHoverArrow = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 0;
-  bottom: 0;
-  width: 72px;
-  height: 72px;
+  right: 16px;
+  bottom: 16px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: radial-gradient(circle, ${getThemeColor('background-element-1')} 20%, transparent 100%);
+  background: ${getThemeColor('background-element-5')};
   opacity: 0;
   ${CardArea}:hover & {
     animation: ${CardHoverArrowHoverKeyframe} 300ms ease forwards;
