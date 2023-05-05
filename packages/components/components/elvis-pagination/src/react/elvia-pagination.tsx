@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useMemo, useRef } from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import {
   PaginationLabel,
@@ -62,10 +62,10 @@ const Pagination: FC<PaginationProps> = function ({
   });
   const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
 
-  const visibleElements = useMemo(
-    () => getPaginationRange(selectedPageNumber, selectedDropdownValue, numberOfElements),
-    [selectedPageNumber, selectedDropdownValue, numberOfElements],
-  );
+  useEffect(() => {
+    const pageRange = getPaginationRange(selectedPageNumber, selectedDropdownValue, numberOfElements);
+    emitValueOnChangeEvent(pageRange);
+  }, [numberOfElements]);
 
   useEffect(() => {
     // Set page number corresponding to value.start
@@ -94,10 +94,6 @@ const Pagination: FC<PaginationProps> = function ({
   useEffect(() => {
     updateVisibleElementsForDropdownChange();
   }, [selectedDropdownValue]);
-
-  useEffect(() => {
-    emitValueOnChangeEvent();
-  }, [visibleElements]);
 
   useEffect(() => {
     setNumberOfPages(Math.ceil(numberOfElements / selectedDropdownValue));
