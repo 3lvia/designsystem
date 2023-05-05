@@ -264,6 +264,8 @@ kbd,
   display: flex;
   row-gap: 24px;
   flex-direction: column;
+  word-wrap: anywhere;
+
   @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
   }
