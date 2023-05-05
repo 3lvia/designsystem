@@ -1,19 +1,17 @@
 import { useWebComponentState } from './useWebComponentState';
 import { renderHook, act } from '@testing-library/react';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 describe('useWebComponentState', () => {
   describe('with Web Component', () => {
-    let webcomponent: {
-      setProps: jest.Mock;
-      triggerEvent: jest.Mock;
-    };
+    let webcomponent: ElvisComponentWrapper;
     const stateValue = 'test';
 
     beforeEach(() => {
       webcomponent = {
         setProps: jest.fn(),
         triggerEvent: jest.fn(),
-      };
+      } as any as ElvisComponentWrapper;
     });
 
     it('should render hook', () => {
@@ -79,7 +77,7 @@ describe('useWebComponentState', () => {
     });
     it('should update value with callback', () => {
       const { result } = renderHook(() =>
-        useWebComponentState<string, any>(stateValue, 'state', undefined, reactCallback),
+        useWebComponentState<string>(stateValue, 'state', undefined, reactCallback),
       );
 
       act(() => {
