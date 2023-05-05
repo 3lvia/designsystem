@@ -15,9 +15,9 @@ describe('Elvis Divider', () => {
       expect(dividerArea).toHaveStyle('border-bottom: 1px solid');
     });
 
-    it('should have color "background-accent"', () => {
+    it('should have border 2', () => {
       const dividerArea = screen.getByRole('separator');
-      expect(dividerArea).toHaveStyle(`border-color: ${getThemeColor('background-accent')}`);
+      expect(dividerArea).toHaveStyle(`border-color: ${getThemeColor('border-2')}`);
     });
   });
 
@@ -29,11 +29,6 @@ describe('Elvis Divider', () => {
     it('should show vertical border', () => {
       const dividerArea = screen.getByRole('separator');
       expect(dividerArea).toHaveStyle('border-left: 1px solid');
-    });
-
-    it('should have color "background-accent"', () => {
-      const dividerArea = screen.getByRole('separator');
-      expect(dividerArea).toHaveStyle(`border-color: ${getThemeColor('background-accent')}`);
     });
   });
 
@@ -50,7 +45,7 @@ describe('Elvis Divider', () => {
 
   describe('Type = Title', () => {
     beforeEach(() => {
-      render(<Divider type="title" title={<h2>Title</h2>} />);
+      render(<Divider type="title" heading={<h2>Title</h2>} />);
     });
 
     it('should have border-bottom 1px solid', () => {
@@ -58,9 +53,9 @@ describe('Elvis Divider', () => {
       expect(dividerArea).toHaveStyle('border-bottom: 1px solid');
     });
 
-    it('should have the color "text-primary"', () => {
+    it('should have border 1', () => {
       const dividerArea = screen.getByRole('separator');
-      expect(dividerArea).toHaveStyle(`border-color: ${getThemeColor('text-primary')}`);
+      expect(dividerArea).toHaveStyle(`border-color: ${getThemeColor('border-1')}`);
     });
 
     it('should have md typography', () => {
@@ -72,7 +67,7 @@ describe('Elvis Divider', () => {
 
   describe('Type = Title, Typography = Caps', () => {
     beforeEach(() => {
-      render(<Divider type="title" title={<h2>Title</h2>} typography="caps" />);
+      render(<Divider type="title" heading={<h2>Title</h2>} typography="caps" />);
     });
 
     it('should have caps typography', () => {
@@ -99,7 +94,7 @@ describe('Elvis Divider', () => {
       render(
         <div data-testid="dividers">
           <Divider type="simple" />
-          <Divider type="title" title={<h2>Title</h2>} />
+          <Divider type="title" heading={<h2>Title</h2>} />
         </div>,
       );
     });

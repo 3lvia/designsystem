@@ -40,7 +40,7 @@ export class DividerCegComponent implements ComponentExample {
       },
       groupOrder: ['Typography'],
       staticProps: {
-        title: 'Title',
+        heading: 'Heading',
       },
     },
     {

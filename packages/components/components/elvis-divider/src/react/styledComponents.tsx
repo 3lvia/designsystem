@@ -43,11 +43,11 @@ export const DividerArea = styled.div<DividerAreaProps>`
     `};
 `;
 
-type DividerTitleProps = {
+type DividerHeadingProps = {
   typography: DividerTypography;
 };
 
-export const DividerTitle = styled.div<DividerTitleProps>`
+export const DividerHeading = styled.div<DividerHeadingProps>`
   ${({ typography }) =>
     typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
   color: ${getThemeColor('text-1')};

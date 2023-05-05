@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.05.23",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "<code>title</code> prop has been deprecated in favor of <code>heading</code> so that all components follow the same convention."
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.05.23",
       "version": "2.0.1",
       "changelog": [
