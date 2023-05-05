@@ -8,8 +8,7 @@
     "contentful": "cd contentful && node syncFromContentful.js",
     "contentful:production": "cd contentful && NODE_ENV=production node syncFromContentful.js",
     "contentful:types": "cd contentful && contentful-typescript-codegen --output types.d.ts --localization",
-    "lint": "ng lint",
-    "ngupdate": "ng update"
+    "lint": "ng lint"
   },
   "dependencies": {
     "@angular/animations": "^16.0.0",
