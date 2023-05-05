@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.05.23",
+      "version": "6.2.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the Date Picker would not re-validate the current input if the <code>isRequired</code> prop changed."
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.05.23",
       "version": "6.2.4",
       "changelog": [
