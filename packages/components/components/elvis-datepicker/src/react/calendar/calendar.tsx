@@ -13,7 +13,6 @@ import { DateRangeHighlighter } from './DateRangeHighlighter';
 import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLongLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeftBold';
 import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
-import { getThemeColor } from '@elvia/elvis-colors';
 
 interface Props {
   selectedDate?: Date | null;
@@ -155,7 +154,7 @@ export const Calendar: React.FC<Props> = ({
           data-testid="prev-month-btn"
           size="sm"
         >
-          <IconWrapper icon={arrowLongLeftBold} size="xs" color={getThemeColor('text-primary')} />
+          <IconWrapper icon={arrowLongLeftBold} size="xs" />
         </IconButton>
         <MonthName data-testid="month-name" aria-live="polite">
           {formatDate(viewedDate, { month: 'long', year: 'numeric' })}
@@ -166,7 +165,7 @@ export const Calendar: React.FC<Props> = ({
           data-testid="next-month-btn"
           size="sm"
         >
-          <IconWrapper icon={arrowLongRightBold} size="xs" color={getThemeColor('text-primary')} />
+          <IconWrapper icon={arrowLongRightBold} size="xs" />
         </IconButton>
       </CalendarHeader>
       <GridContainer>

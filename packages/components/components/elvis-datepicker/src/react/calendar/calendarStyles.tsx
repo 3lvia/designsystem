@@ -43,7 +43,7 @@ export const GridContainer = styled.div`
 
 export const DayName = styled.div`
   ${getTypographyCss('text-sm')};
-  color: ${getThemeColor('text-placeholder')};
+  color: ${getThemeColor('text-3')};
   text-align: center;
 `;
 
@@ -64,17 +64,17 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
   cursor: inherit;
 
   &:disabled {
-    color: ${getThemeColor('state-disabled')};
+    color: ${getThemeColor('text-disabled-1')};
 
     &::after {
-      background-color: ${getThemeColor('state-disabled')};
+      background-color: ${getThemeColor('background-disabled-1')};
     }
   }
 
   ${(props) =>
     props.isActive &&
     css`
-      background-color: ${getThemeColor('state-on')};
+      background-color: ${getThemeColor('background-selected-1')};
       font-weight: 500;
     `}
 
@@ -86,7 +86,7 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
         position: absolute;
         width: 4px;
         height: 4px;
-        background-color: ${getThemeColor('state-on')};
+        background-color: ${getThemeColor('background-selected-1')};
         bottom: 0;
         border-radius: 50%;
         left: 50%;
