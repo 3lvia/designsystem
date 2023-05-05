@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 type PaginatorProps = {
@@ -75,7 +75,7 @@ export const PaginatorSelectorArrowBtn = styled.button<SelectorArrowBtnProps>`
 
   @media (hover: hover) {
     &:hover {
-      border: 1px solid ${getColor('elvia-charge')};
+      border: 1px solid ${getThemeColor('background-hover-1')};
     }
   }
 
@@ -105,7 +105,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
-  color: ${getColor('black')};
+  color: ${getThemeColor('text-1')};
 
   box-sizing: border-box;
 
@@ -113,7 +113,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: ${(props) => (props.selected ? `1px solid ${getColor('black')}` : 'none')};
+  border: ${(props) => (props.selected ? `1px solid ${getThemeColor('border-1')}` : 'none')};
   border-radius: 50%;
   min-width: 36px;
   ${(props) => props.pageNumber.toString().length < 4 && 'width: 36px'};
@@ -127,7 +127,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
 
   @media (hover: hover) {
     &:hover {
-      border: 1px solid ${getColor('elvia-charge')};
+      border: 1px solid ${getThemeColor('border-hover-1')};
       ${(props) =>
         (props.pageNumber.toString().length >= 4 ||
           (props.pageNumber.toString().length >= 4 && props.selected)) &&
@@ -148,7 +148,7 @@ export const PaginatorDots = styled.div`
   letter-spacing: 1.2px;
   line-height: 21px;
   text-align: center;
-  color: ${getColor('black')};
+  color: ${getThemeColor('text-1')};
 
   align-items: center;
   display: flex;
