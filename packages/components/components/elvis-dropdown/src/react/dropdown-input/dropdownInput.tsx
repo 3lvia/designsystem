@@ -2,6 +2,7 @@ import { Icon, IconName } from '@elvia/elvis-icon/react';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
 import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 import { Input } from './dropdownInputStyles';
 
@@ -97,9 +98,18 @@ export const DropdownInput: React.FC<Props> = ({
   return (
     <>
       {placeholderIcon && !inputValue && (
-        <Icon name={placeholderIcon} size="xs" color={isDisabled ? 'disabled' : 'placeholder'} />
+        <Icon
+          name={placeholderIcon}
+          size="xs"
+          color={isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-3')}
+        />
       )}
-      {!!currentValIcon && <Icon name={currentValIcon} color={isDisabled ? 'disabled' : 'elvia-off'} />}
+      {!!currentValIcon && (
+        <Icon
+          name={currentValIcon}
+          color={isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-1')}
+        />
+      )}
       <Input
         aria-activedescendant={focusedItem ? getDropdownItemId(focusedItem.value) : undefined}
         disabled={isDisabled}

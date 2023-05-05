@@ -14,6 +14,7 @@
     "@elvia/elvis-badge": "*",
     "@elvia/elvis-box": "*",
     "@elvia/elvis-breadcrumb": "*",
+    "@elvia/elvis-card": "*",
     "@elvia/elvis-carousel": "*",
     "@elvia/elvis-chip": "*",
     "@elvia/elvis-context-menu": "*",
@@ -33,6 +34,7 @@
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-timepicker": "*",
     "@elvia/elvis-toast": "*",
+    "@elvia/elvis-tooltip": "*",
     "@elvia/elvis-typography": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -43,7 +45,7 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
     "sass": "^1.58.2",
-    "typescript": "~4.9.5",
+    "typescript": "~5.0.4",
     "vite": "^4.1.0"
   }
 }

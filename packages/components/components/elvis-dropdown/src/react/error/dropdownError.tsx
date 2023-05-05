@@ -10,7 +10,7 @@ interface Props {
 export const DropdownError: React.FC<Props> = ({ errorText }) => {
   return (
     <FormFieldErrorContainer>
-      <IconWrapper icon={removeCircle} color="error" size="xs" />
+      <IconWrapper icon={removeCircle} color="icon-error" size="xs" />
       <FormFieldError data-testid="error">{errorText}</FormFieldError>
     </FormFieldErrorContainer>
   );

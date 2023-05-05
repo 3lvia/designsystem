@@ -22,6 +22,7 @@ export class BoxCegComponent implements ComponentExample {
           group: 'Title',
           type: 'text',
           label: 'Title',
+          placeholder: 'Title for the box',
         },
       },
       groupOrder: ['Options', 'Title'],
