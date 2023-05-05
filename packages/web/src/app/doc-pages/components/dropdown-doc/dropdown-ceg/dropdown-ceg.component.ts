@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { DropdownProps } from '@elvia/elvis-dropdown/react';
-import { DropdownItem } from '@elvia/elvis-pagination/react';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({

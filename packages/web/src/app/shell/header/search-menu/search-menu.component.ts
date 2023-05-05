@@ -9,7 +9,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchItem } from './search-menu.interface';
 import { SearchService } from '../../../core/services/search.service';
 import Fuse from 'fuse.js';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { Router } from '@angular/router';
 
 @Component({
@@ -325,7 +325,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   private addHighlightBackground(str: string) {
-    return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
+    return `<span style='background: ${getThemeColor('background-selected-1')}'>${str}</span>`;
   }
 
   /** Filters activeResults and assigns the resulting array to synonymComponents.

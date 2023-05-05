@@ -18,7 +18,7 @@ export const ProgressLinearWrapper = styled.div<ProgressLinearWrapperProps>`
   width: 100%;
   height: ${({ currSize }) => (currSize === 'medium' ? '8px' : '4px')};
   border-radius: 50px;
-  background-color: ${getThemeColor('background-accent')};
+  background-color: ${getThemeColor('background-element-3')};
   margin: 0;
 `;
 
@@ -34,7 +34,8 @@ export const ProgressLinearProgress = styled.div<ProgressLinearProgressProps>`
   align-self: center;
   height: ${({ currSize }) => (currSize === 'medium' ? '16px' : '8px')};
   margin-left: 0;
-  background-color: ${({ isError }) => (isError ? getThemeColor('state-error') : getThemeColor('state-on'))};
+  background-color: ${({ isError }) =>
+    isError ? getThemeColor('signal-error') : getThemeColor('signal-success')};
   transition: ${({ isIndeterminate, transitionDuration }) =>
     isIndeterminate ? 'none' : `width ${transitionDuration} ease-in;`};
   ${({ isIndeterminate, isError }) => decideProgressValue(isIndeterminate, isError)};
