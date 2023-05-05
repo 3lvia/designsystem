@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 /**
  * Create a state that is synced with the webcomponent attribute state, and that triggers events (both in React and webcomponent) on changes.
@@ -20,25 +21,19 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
  *
  * @since 5.2.0
  */
-export const useWebComponentState = <
-  TValue,
-  TWebcomponent extends {
-    setProps: (...args: unknown[]) => unknown;
-    triggerEvent: (...args: unknown[]) => unknown;
-  },
->(
-  value: TValue,
+export const useWebComponentState = <T>(
+  value: T,
   propName: string,
-  webcomponent: TWebcomponent | undefined,
-  reactOnChangeEvent: ((newValue: TValue) => void) | undefined,
-): [TValue, Dispatch<SetStateAction<TValue>>] => {
+  webcomponent: ElvisComponentWrapper | undefined,
+  reactOnChangeEvent: ((newValue: T) => void) | undefined,
+): [T, Dispatch<SetStateAction<T>>] => {
   const [valueState, setValueState] = useState(value);
 
   useEffect(() => {
     setValueState(value);
   }, [value]);
 
-  const triggerEvent = (eventData: TValue) => {
+  const triggerEvent = (eventData: T) => {
     if (!webcomponent) {
       reactOnChangeEvent?.(eventData);
     } else if (webcomponent) {
@@ -47,10 +42,10 @@ export const useWebComponentState = <
     }
   };
 
-  const updateValue = (newValue: SetStateAction<TValue>) => {
+  const updateValue = (newValue: SetStateAction<T>) => {
     if (typeof newValue === 'function') {
       setValueState((oldValue) => {
-        const newVal = (newValue as (oldValue: TValue) => TValue)(oldValue);
+        const newVal = (newValue as (oldValue: T) => T)(oldValue);
         triggerEvent(newVal);
         return newVal;
       });

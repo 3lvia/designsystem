@@ -10,7 +10,7 @@ const typography = {
 };
 
 export const OverlayContainer = styled.div`
-  background-color: ${getThemeColor('background-overlay')};
+  background-color: ${getThemeColor('background-overlay-1')};
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   display: flex;
@@ -34,7 +34,7 @@ export const NumberPickerTitle = styled.h4`
 
 export const HorizontalLine = styled.hr`
   width: 100%;
-  border: 1px solid ${getThemeColor('background-accent')};
+  border: 1px solid ${getThemeColor('border-2')};
   border-width: 0 0 1px 0;
   margin: 0;
 `;
@@ -57,7 +57,7 @@ export const ArrowButtonContainer = styled.div`
   justify-content: center;
   height: ${listButtonHeight}px;
   position: sticky;
-  background: ${getThemeColor('background-overlay')};
+  background: ${getThemeColor('background-overlay-1')};
   border-radius: 4px;
 
   &:first-of-type {
@@ -82,11 +82,11 @@ export const NumberButton = styled.button<NumberButtonProps>`
   border: none;
   padding: 0;
   height: 48px;
-  background: ${(props) => (props.isSelected ? getThemeColor('state-selected-grey') : 'transparent')};
+  background: ${(props) => (props.isSelected ? getThemeColor('background-selected-2') : 'transparent')};
   scroll-snap-align: center;
   cursor: pointer;
 
   &:hover {
-    background: ${getThemeColor('state-hover-grey')};
+    background: ${getThemeColor('background-hover-2')};
   }
 `;
