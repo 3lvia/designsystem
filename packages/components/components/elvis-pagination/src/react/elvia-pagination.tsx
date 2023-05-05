@@ -139,7 +139,23 @@ const Pagination: FC<PaginationProps> = function ({
       }
       const firstElementIndex =
         Math.floor((previousPaginationRange.start - 1) / selectedDropdownValue) * selectedDropdownValue + 1;
-      return Math.ceil(firstElementIndex / selectedDropdownValue);
+
+      const newSelectedPageNumber = Math.ceil(firstElementIndex / selectedDropdownValue);
+
+      const newSelectedPageRange = getPaginationRange(
+        newSelectedPageNumber,
+        selectedDropdownValue,
+        numberOfElements,
+      );
+
+      // Don't update or dispatch new event if the value is identical to previous value.
+      if (
+        previousPaginationRange.start !== newSelectedPageRange.start ||
+        previousPaginationRange.end !== newSelectedPageRange.end
+      ) {
+        emitValueOnChangeEvent(newSelectedPageRange);
+      }
+      return newSelectedPageNumber;
     });
   };
 
