@@ -23,7 +23,7 @@ describe('Elvis Progress Linear', () => {
 
     it('should have color green', () => {
       const progressLinearProgress = screen.getByTestId('progress-linear-progress');
-      expect(progressLinearProgress).toHaveStyle(`background-color: ${getThemeColor('state-on')}`);
+      expect(progressLinearProgress).toHaveStyle(`background-color: ${getThemeColor('signal-success')}`);
     });
   });
 
@@ -34,7 +34,7 @@ describe('Elvis Progress Linear', () => {
 
     it('should have color red', () => {
       const progressLinearProgress = screen.getByTestId('progress-linear-progress');
-      expect(progressLinearProgress).toHaveStyle(`background-color: ${getThemeColor('state-error')}`);
+      expect(progressLinearProgress).toHaveStyle(`background-color: ${getThemeColor('signal-error')}`);
     });
   });
 

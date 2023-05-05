@@ -18,7 +18,6 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
-import { getThemeColor } from '@elvia/elvis-colors';
 
 const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   if (!filter) {
@@ -187,7 +186,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           <IconRotator isRotated={isShowing}>
             <IconWrapper
               icon={arrowDownBold}
-              color={isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-1')}
+              color={isDisabled ? 'text-disabled-1' : 'text-1'}
               size={isCompact ? 'xs' : 'sm'}
             />
           </IconRotator>

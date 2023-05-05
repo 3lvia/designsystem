@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.05.23",
+      "version": "6.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the color of the error state icon."]
+        }
+      ]
+    },
+    {
       "date": "03.05.23",
       "version": "6.1.0",
       "changelog": [

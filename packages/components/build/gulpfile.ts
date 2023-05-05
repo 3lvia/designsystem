@@ -281,7 +281,7 @@ function buildToolboxComponentTSDeclaration() {
 
 // TODO: Find a way to do cleanup that does not trigger rebuild
 function cleanup() {
-  return del(['../components/**/dist/**/*'], { force: true });
+  return del(['../components/**/dist/**/*', '!../components/**/node_modules/**/*'], { force: true });
 }
 
 // Copies changelogs from component dictionary to web dictionary
