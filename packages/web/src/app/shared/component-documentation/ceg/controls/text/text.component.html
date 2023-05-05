@@ -4,6 +4,7 @@
 >
   <div class="e-input" [ngClass]="{ 'e-input---disabled': disabled }">
     <textarea
+      autocomplete="off"
       [id]="inputId"
       #domTextarea
       (input)="onChange(domTextarea.value)"
@@ -19,6 +20,7 @@
   <div class="e-form-field e-form-field--compact ceg-input">
     <div class="e-input" [ngClass]="{ 'e-input---disabled': disabled }">
       <input
+        autocomplete="off"
         [id]="inputId"
         [value]="textValue"
         #domInput
