@@ -183,62 +183,354 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <i className="e-icon e-icon--add_circle e-icon--sm"></i>
-              <div className="e-bg-white">
-                <Pagination
-                  value={{ start: 31, end: 40 }}
-                  numberOfElements={100}
-                  dropdownSelectedItemIndex={1}
-                  valueOnChange={(value) => console.log('Pagination 1: ', value)}
-                ></Pagination>
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
             {/* ACCORDION */}
+            <div className="example-wrapper">
+              <h3>Accordion</h3>
+              <button onClick={() => setIsOpenContent((prevIsOpen) => !prevIsOpen)}>Trigger animation</button>
+              <Accordion
+                isOpen={isOpenContent}
+                type={'overflow'}
+                openLabel={'Show'}
+                closeLabel={'Hide'}
+                overflowHeight={100}
+                labelPosition={'center'}
+                size={'medium'}
+                content={
+                  'It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. '
+                }
+              ></Accordion>
+            </div>
 
             {/* BADGE */}
+            <div className="example-wrapper">
+              <h3>Badge</h3>
 
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Badge
+                  content={
+                    <button
+                      className="e-thumbnail"
+                      aria-label="Thumbnail button that opens the image in a larger view"
+                    >
+                      <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                    </button>
+                  }
+                />
+
+                <Badge
+                  badgeColor={'red'}
+                  count={8}
+                  content={
+                    <button
+                      className="e-thumbnail"
+                      aria-label="Thumbnail button that opens the image in a larger view"
+                    >
+                      <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                    </button>
+                  }
+                />
+
+                <Badge
+                  badgeColor={'neutral'}
+                  count={101}
+                  content={
+                    <button
+                      className="e-thumbnail"
+                      aria-label="Thumbnail button that opens the image in a larger view"
+                    >
+                      <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                    </button>
+                  }
+                />
+
+                <Badge
+                  badgeColor={'neutral'}
+                  content={
+                    <button
+                      className="e-thumbnail"
+                      aria-label="Thumbnail button that opens the image in a larger view"
+                    >
+                      <img src="https://picsum.photos/200" alt="Thumbnail example image" />
+                    </button>
+                  }
+                />
+              </div>
+            </div>
             {/* BOX */}
+            <div className="example-wrapper">
+              <h3>Box</h3>
+              <Box
+                isColored={true}
+                title={<h1>Title for the box component</h1>}
+                content={<div>Heisann dette er en box component sendt med som node i react</div>}
+              ></Box>
+            </div>
 
             {/* BREADCRUMB */}
-
+            <div className="example-wrapper">
+              <h3>Breadcrumb</h3>
+              <Breadcrumb items={breadcrumbsNoUrl} />
+            </div>
             {/* CARD */}
-
+            <div className="example-wrapper">
+              <h3>Card</h3>
+              <Card
+                heading={'Title1'}
+                borderColor={'red'}
+                icon={<i className="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>}
+                iconHover={<i className="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>}
+                cornerIcon={<Icon name="unlock" size="xs" />}
+              ></Card>
+            </div>
             {/* CAROUSEL */}
-
+            <div className="example-wrapper">
+              <h3>Carousel</h3>
+              <Carousel
+                loop={false}
+                hasConfirmationCheckmark={true}
+                items={[
+                  { heading: <h3 className="e-title-sm">HAN-port</h3>, item: <div>Hallo</div> },
+                  { heading: <h3 className="e-title-sm">AMS-meter</h3>, item: 'Hei' },
+                  {
+                    heading: <h3 className="e-title-sm">About login</h3>,
+                    item: <p>Halla</p>,
+                  },
+                ]}
+                onFinish={() => console.log('Hide')}
+              ></Carousel>
+            </div>
             {/* CHIP */}
+            <div className="example-wrapper">
+              <h3>Chip</h3>
+              <Chip type={'choice'} value={2022} isSelected={true}></Chip>
+              <Chip type={'choice'} value={'Disabled'} isDisabled></Chip>
 
+              <Chip
+                type="legend"
+                isSelectedOnChange={() => {
+                  setChipSelected(!chipSelected);
+                  setIsChipLoading(!isChipLoading);
+                  setTimeout(() => {
+                    setIsChipLoading(false);
+                  }, 2000);
+                }}
+                isSelected={chipSelected}
+                isLoading={isChipLoading}
+                value="Selectable"
+                color="red"
+              ></Chip>
+            </div>
             {/* CONTEXT MENU */}
-
+            <div className="example-wrapper">
+              <h3>Context menu</h3>
+              <ContextMenu
+                onOpen={() => setIsContextMenuShowing(true)}
+                onClose={() => setIsContextMenuShowing(false)}
+                trigger={
+                  <button
+                    className={`e-btn e-btn--icon ${isContextMenuShowing ? 'e-btn---selected' : ''}`}
+                    aria-label="More menu"
+                  >
+                    <span className="e-btn__icon">
+                      <i className="e-icon e-icon--more_menu e-icon--inverted" aria-hidden="true"></i>
+                      <i className="e-icon e-icon--more_menu" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                }
+                content={
+                  <>
+                    <div className="ewc-context-menu__list-group">
+                      <button>
+                        <span>Be om tilgang</span>
+                      </button>
+                      <button>
+                        <span>Legg til bruker</span>
+                      </button>
+                    </div>
+                    <div className="ewc-context-menu__list-group">
+                      <a>
+                        <span>Endre passord</span>
+                      </a>
+                    </div>
+                  </>
+                }
+              ></ContextMenu>
+            </div>
             {/* DATEPICKER */}
-
+            <div className="example-wrapper">
+              <h3>Datepicker</h3>
+              <Datepicker
+                valueOnChange={(value) => console.log(value)}
+                hasSelectDateOnOpen={false}
+              ></Datepicker>
+            </div>
             {/* DATE RANGE PICKER */}
-
+            <div className="example-wrapper">
+              <h3>Date range picker</h3>
+              <DatepickerRange valueOnChange={(event) => console.log(event)}></DatepickerRange>
+            </div>
             {/* DIVIDER */}
-
+            <div className="example-wrapper">
+              <h3>Divider</h3>
+              <Divider />
+            </div>
             {/* DROPDOWN */}
-
+            <div className="example-wrapper">
+              <h3>Dropdown</h3>
+              <Dropdown
+                value={defaultDropdownOptions}
+                placeholder="Select country"
+                label="New dropdown"
+                isSearchable
+                items={dropdownOptions}
+                isMulti
+                isLoadingMoreItems={isLoadingMoreItems}
+                onLoadMoreItems={onLoadMoreItems}
+              ></Dropdown>
+            </div>
             {/* ICON */}
-
+            <div className="example-wrapper">
+              <h3>Icon</h3>
+              <Icon name="arrowLeftBold"></Icon>
+              <Icon name="arrowRightBold"></Icon>
+            </div>
             {/* MODAL */}
-
+            <div className="example-wrapper">
+              <h3>Modal</h3>
+              <button className="e-btn" onClick={() => setIsModalShowingState(true)}>
+                Show modal
+              </button>
+              <Modal
+                isShowing={isModalShowing}
+                hasCloseButton
+                onClose={() => setIsModalShowingState(false)}
+                heading="Title of content"
+                content={<div>Body text comes here and can go over several lines.</div>}
+                primaryButton={<button className="e-btn e-btn--primary">Primary</button>}
+                secondaryButton={<button className="e-btn e-btn--secondary">Secondary</button>}
+              ></Modal>
+            </div>
+            {/* PAGINATION */}
+            <div className="example-wrapper">
+              <h3>Pagination</h3>
+              <Pagination
+                numberOfElements={100}
+                lastNumberLimit={99}
+                dropdownMenuPosition="top"
+                labelOptions={{ displaying: 'Showing' }}
+                alignment={'left'}
+              ></Pagination>
+            </div>
             {/* POPOVER */}
-
+            <div className="example-wrapper">
+              <h3>Popover</h3>
+              <Popover
+                heading="BankID"
+                hasCloseButton
+                content={<Tabs items={tabsItems} value={2}></Tabs>}
+                trigger={<button className="e-btn">Show popover</button>}
+                horizontalPosition="left"
+                verticalPosition="top"
+                isShowing={isPopoverShowing}
+                onOpen={() => setIsPopoverShowingState(true)}
+                onClose={() => setIsPopoverShowingState(false)}
+              ></Popover>
+            </div>
             {/* PROGRESS LINEAR */}
-
+            <div className="example-wrapper">
+              <h3>ProgressLinear</h3>
+              <ProgressLinear value={progressValue}></ProgressLinear>
+              <button className="e-btn e-mr-8" onClick={decreaseProgress}>
+                Decrease
+              </button>
+              <button className="e-btn" onClick={increaseProgress}>
+                Increase
+              </button>
+            </div>
             {/* RADIO FILTER */}
-
+            <div className="example-wrapper">
+              <h3>Radio filter</h3>
+              <RadioFilter
+                items={radioFilterOptions}
+                ariaLabel={`${selectedRadioFilter} filtrering valgt`}
+                valueOnChange={(selected) => {
+                  setSelectedRadioFilter(selected);
+                }}
+                value={selectedRadioFilter}
+                name={'radioFilterTest'}
+              ></RadioFilter>
+            </div>
             {/* SEGMENTED CONTROL */}
-
+            <div className="example-wrapper">
+              <h3>Segmented Control</h3>
+              <SegmentedControl
+                items={[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]}
+                size={'medium'}
+                value={0}
+                valueOnChange={(value) => console.log(value)}
+              ></SegmentedControl>
+              <div className="e-mt-8">
+                <SegmentedControl
+                  type="icon"
+                  items={[
+                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: '' },
+                    { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: '' },
+                  ]}
+                  size={'large'}
+                  value={0}
+                  valueOnChange={(value) => console.log(value)}
+                ></SegmentedControl>
+              </div>
+            </div>
             {/* SLIDER */}
-
+            <div className="example-wrapper">
+              <h3>Slider</h3>
+              <h4>Simple</h4>
+              <Slider min={0} max={100} hasHintValues={true} />
+              <h4>Range</h4>
+              <Slider min={0} max={100} type={'range'} hasHintValues={true} />
+            </div>
             {/* SPOTLIGHT */}
-
+            <div className="example-wrapper">
+              <h3>Spotlight</h3>
+              {spotlightIsShowing && (
+                <Spotlight position={spotlightState.pos} radius={spotlightState.size}></Spotlight>
+              )}
+              <button
+                onClick={() => setSpotlightIsShowing((prevVal) => !prevVal)}
+                style={{ position: 'relative', zIndex: 999999 }}
+                className="e-btn e-mr-8"
+              >
+                Show spotlight
+              </button>
+              <button
+                onClick={updateSpotlight}
+                style={{ position: 'relative', zIndex: 999999 }}
+                className="e-btn"
+              >
+                Update spotlight
+              </button>
+            </div>
             {/* TABS */}
+            <div className="example-wrapper">
+              <h3>Tabs</h3>
+              <Tabs items={tabsItems} value={2} valueOnChange={(event) => logValue('Tabs', event)}></Tabs>
+            </div>
 
             {/* TIMEPICKER */}
+            <div className="example-wrapper">
+              <h3>Timepicker</h3>
+              <Timepicker />
+            </div>
 
             {/* TOAST */}
+            <button className="e-btn" onClick={showToast}>
+              Show toast
+            </button>
           </div>
         </div>
       }

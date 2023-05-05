@@ -5,13 +5,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white" style="display: flex; gap: 64px; flex-direction: column">
-      <elvia-pagination
-        [numberOfElements]="1000"
-        [value]="{ start: 21, end: 30 }"
-        (valueOnChange)="logValue('Pagination #1', $any($event).detail.value)"
-      ></elvia-pagination>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>
   </div>
@@ -137,6 +131,28 @@
   <!--Carousel-->
   <div class="example-wrapper">
     <h3>Carousel</h3>
+    <elvia-carousel [hasConfirmationCheckmark]="true">
+      <div slot="title-1">
+        <h3 class="e-title-sm">title 1</h3>
+      </div>
+      <div slot="item-1">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el1.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+      <div slot="title-2">
+        <h3 class="e-title-sm">title 2</h3>
+      </div>
+      <div slot="item-2">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el2.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+    </elvia-carousel>
   </div>
 
   <!--Chip-->
@@ -351,6 +367,13 @@
   <!--Paginator-->
   <div class="example-wrapper">
     <h3>Paginator</h3>
+    <elvia-pagination
+      numberOfElements="60000"
+      [value]="defaultPaginationValue"
+      [alignment]="'right'"
+      dropdownMenuPosition="top"
+      (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+    ></elvia-pagination>
   </div>
 
   <!--Popover-->
