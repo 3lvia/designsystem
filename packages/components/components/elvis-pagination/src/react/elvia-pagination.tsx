@@ -184,6 +184,15 @@ const Pagination: FC<PaginationProps> = function ({
     webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', selectedIndex);
   };
 
+  const handleOnPageClick = (page: number): void => {
+    if (page === selectedPageNumber) {
+      return;
+    }
+    const pageRange = getPaginationRange(page, selectedDropdownValue, numberOfElements);
+    emitValueOnChangeEvent(pageRange);
+    setSelectedPageNumber(page);
+  };
+
   return (
     <Paginator
       isRightAligned={alignment === 'right'}
@@ -215,7 +224,7 @@ const Pagination: FC<PaginationProps> = function ({
           <PaginatorSelectorArrowBtn
             visible={shouldHaveLeftArrow()}
             aria-hidden={!shouldHaveLeftArrow()}
-            onClick={() => setSelectedPageNumber((previousPageNumber) => previousPageNumber - 1)}
+            onClick={() => handleOnPageClick(selectedPageNumber - 1)}
             data-testid="selector-arrow-btn-left"
             aria-label="Forrige side"
           >
@@ -225,14 +234,14 @@ const Pagination: FC<PaginationProps> = function ({
           <PaginatorNumbersAndDots
             numberOfPages={numberOfPages}
             selectedPageNumber={selectedPageNumber}
-            setSelectedPageNumber={setSelectedPageNumber}
+            setSelectedPageNumber={handleOnPageClick}
             numberOfElements={numberOfElements}
             lastNumberLimit={lastNumberLimit}
           />
           <PaginatorSelectorArrowBtn
             visible={shouldHaveRightArrow()}
             aria-hidden={!shouldHaveRightArrow()}
-            onClick={() => setSelectedPageNumber((previousPageNumber) => previousPageNumber + 1)}
+            onClick={() => handleOnPageClick(selectedPageNumber + 1)}
             data-testid="selector-arrow-btn-right"
             aria-label="Neste side"
           >
