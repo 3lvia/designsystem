@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import Fuse from 'fuse.js';
 import { SearchService } from 'src/app/core/services/search.service';
 import ComponentData, { AttributeType } from 'src/app/doc-pages/components/component-data.interface';
@@ -129,7 +129,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   private addHighlightBackground(str: string): string {
-    return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
+    return `<span style='background: ${getThemeColor('background-selected-1')}'>${str}</span>`;
   }
 
   private resetHighlightedHTML(): void {
