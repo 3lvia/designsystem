@@ -111,6 +111,9 @@ const Pagination: FC<PaginationProps> = function ({
 
   useEffect(() => {
     isInitialized.current = true;
+    return () => {
+      isInitialized.current = false;
+    };
   }, []);
 
   const emitValueOnChangeEvent = (): void => {
