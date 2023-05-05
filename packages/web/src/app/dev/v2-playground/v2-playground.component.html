@@ -6,29 +6,11 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white" style="display: flex; gap: 64px; flex-direction: column">
-      <!-- <button (click)="dynamicPaginationValue = { start: 1, end: 10 }">
-        bytt default value på pagination
-      </button> -->
       <elvia-pagination
         [numberOfElements]="1000"
-        [value]="dynamicPaginationValue"
+        [value]="{ start: 21, end: 30 }"
         (valueOnChange)="logValue('Pagination #1', $any($event).detail.value)"
       ></elvia-pagination>
-
-      <!--  <elvia-pagination
-        [numberOfElements]="100"
-        (valueOnChange)="logValue('Pagination #2', $any($event).detail.value)"
-      ></elvia-pagination>
-
-      <elvia-pagination
-        [numberOfElements]="100"
-        (valueOnChange)="logValue('Pagination #3', $any($event).detail.value)"
-      ></elvia-pagination>
-
-      <elvia-pagination
-        [numberOfElements]="100"
-        (valueOnChange)="logValue('Pagination #4', $any($event).detail.value)"
-      ></elvia-pagination> -->
     </div>
     <!--Inverted version-->
     <div class="e-bg-grey"></div>

@@ -187,6 +187,7 @@ function App() {
                 <Pagination
                   value={{ start: 31, end: 40 }}
                   numberOfElements={100}
+                  dropdownSelectedItemIndex={1}
                   valueOnChange={(value) => console.log('Pagination 1: ', value)}
                 ></Pagination>
               </div>
