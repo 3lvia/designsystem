@@ -13,7 +13,7 @@ import {
   CardColoredLineContainer,
 } from './styledComponents';
 import { warnDeprecatedProps, useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
-import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
+import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { config } from './config';
 
@@ -143,7 +143,7 @@ const Card: FC<CardProps> = function ({
       </CardContent>
       {type === 'detail' && (
         <CardHoverArrow data-testid="card-detail-hover-arrow">
-          <IconWrapper icon={arrowLongRight} />
+          <IconWrapper icon={arrowLongRightBold} />
         </CardHoverArrow>
       )}
       {type === 'detail' && (!!cornerIcon || !!cornerIconRef) && (
