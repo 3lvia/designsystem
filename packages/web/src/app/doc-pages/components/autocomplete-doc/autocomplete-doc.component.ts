@@ -72,7 +72,6 @@ chosenLand = '';
 
 // for autocomplete options when click on outside of options or input area
 @HostListener('click', ['$event'])
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 onClick(event: any): void {
   if (event.target.id === 'ChooseCountry' || event.target.id === 'countryOptions') {
     return;
@@ -340,7 +339,6 @@ countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
 
   // for autocomplete options when click on outside of options or input area
   @HostListener('click', ['$event'])
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onClick(event: any): void {
     if (
       event.target.id !== 'ChooseCountry' ||

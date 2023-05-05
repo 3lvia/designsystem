@@ -13,7 +13,7 @@ import {
   CardColoredLineContainer,
 } from './styledComponents';
 import { warnDeprecatedProps, useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
-import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
+import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { config } from './config';
 
@@ -104,7 +104,6 @@ const Card: FC<CardProps> = function ({
       height={height}
       minWidth={minWidth}
       maxWidth={maxWidth}
-      data-testid="card-area"
       onPointerEnter={() => setIsHoveringArea(true)}
       onPointerLeave={() => setIsHoveringArea(false)}
       className={className ?? ''}
@@ -125,26 +124,18 @@ const Card: FC<CardProps> = function ({
         {!!heading && (
           <Tooltip
             trigger={
-              <CardHeading
-                as={headingLevel}
-                ref={headingRef}
-                type={type}
-                maxHeadingLines={maxHeadingLines}
-                data-testid="card-heading"
-              >
-                {heading}
-              </CardHeading>
+              <header>
+                <CardHeading as={headingLevel} ref={headingRef} type={type} maxHeadingLines={maxHeadingLines}>
+                  {heading}
+                </CardHeading>
+              </header>
             }
             content={heading}
             isDisabled={!headingIsOverflowing}
           />
         )}
         {!!description && (
-          <CardDescription
-            type={type}
-            maxDescriptionLines={type === 'simple' ? 1 : maxDescriptionLines}
-            data-testid="card-description"
-          >
+          <CardDescription type={type} maxDescriptionLines={type === 'simple' ? 1 : maxDescriptionLines}>
             {description}
           </CardDescription>
         )}
@@ -152,7 +143,7 @@ const Card: FC<CardProps> = function ({
       </CardContent>
       {type === 'detail' && (
         <CardHoverArrow data-testid="card-detail-hover-arrow">
-          <IconWrapper icon={arrowLongRight} />
+          <IconWrapper icon={arrowLongRightBold} />
         </CardHoverArrow>
       )}
       {type === 'detail' && (!!cornerIcon || !!cornerIconRef) && (
