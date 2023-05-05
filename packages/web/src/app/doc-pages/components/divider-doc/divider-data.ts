@@ -11,12 +11,11 @@ export const dividerData: ComponentData = {
       description: 'Type of the divider. The curved version of the divider follows the Elvia curve formula.',
       default: 'simple',
     },
-    title: {
+    heading: {
       isRequired: false,
       type: 'HTMLElement | JSX.Element',
       description:
-        'Title displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
-      default: 'Title',
+        'Heading displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
     },
     typography: {
       isRequired: false,
