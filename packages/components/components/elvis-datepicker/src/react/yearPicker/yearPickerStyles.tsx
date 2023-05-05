@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 export const buttonHeight = 48;
 
 export const YearPickerContainer = styled.div`
-  background-color: ${getThemeColor('background-overlay')};
+  background-color: ${getThemeColor('background-overlay-1')};
   width: 100%;
 `;
 
@@ -29,28 +29,28 @@ export const YearButton = styled.button<YearButtonProps>`
   padding: 0;
   height: ${buttonHeight}px;
   cursor: pointer;
-  background-color: ${getThemeColor('background-overlay')};
+  background-color: ${getThemeColor('background-overlay-1')};
   border: none;
   width: 100%;
 
   &:hover:not(:disabled) {
-    background-color: ${getThemeColor('state-hover-grey')};
+    background-color: ${getThemeColor('background-hover-2')};
   }
 
   &:disabled {
     cursor: default;
-    color: ${getThemeColor('state-disabled')};
+    color: ${getThemeColor('text-disabled-1')};
   }
 
   ${({ isFocused }) =>
     isFocused &&
     css`
-      background-color: ${getThemeColor('state-hover-grey')};
+      background-color: ${getThemeColor('background-hover-2')};
     `};
 
   ${({ isActive }) =>
     isActive &&
     css`
-      background-color: ${getThemeColor('state-selected-grey')};
+      background-color: ${getThemeColor('background-selected-2')};
     `};
 `;

@@ -2985,7 +2985,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@npm:^1.4.2, @elvia/elvis-colors@npm:^1.4.3, @elvia/elvis-colors@npm:^1.6.0, @elvia/elvis-colors@npm:^1.7.0, @elvia/elvis-colors@npm:^1.8.0":
+"@elvia/elvis-colors@npm:^1.4.2, @elvia/elvis-colors@npm:^1.4.3, @elvia/elvis-colors@npm:^1.6.0, @elvia/elvis-colors@npm:^1.8.0":
   version: 1.8.0
   resolution: "@elvia/elvis-colors@npm:1.8.0"
   checksum: 5d29f0a24915e9afc0225559d41db7803ec5b8b07e882f0ad4a46b1b7681910fee81d7138fc90e3550281fa40e91ab15b275f29ce6d5ddb7f7462e0bb350f9f0
@@ -3128,10 +3128,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-datepicker": ^6.2.3
-    "@elvia/elvis-timepicker": ^2.5.0
-    "@elvia/elvis-toolbox": ^7.8.1
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-datepicker": ^6.2.4
+    "@elvia/elvis-timepicker": ^2.5.1
+    "@elvia/elvis-toolbox": ^8.0.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3151,10 +3151,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker-range@portal:../components/components/elvis-datepicker-range::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-datepicker": ^6.2.3
-    "@elvia/elvis-timepicker": ^2.5.0
-    "@elvia/elvis-toolbox": ^7.8.1
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-datepicker": ^6.2.4
+    "@elvia/elvis-timepicker": ^2.5.1
+    "@elvia/elvis-toolbox": ^8.0.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3170,15 +3170,15 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.2.3, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.2.4, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.11.0
-    "@elvia/elvis-colors": ^1.7.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.1
-    "@elvia/elvis-typography": ^2.3.1
+    "@elvia/elvis-assets-icons": ^3.0.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-toolbox": ^8.0.0
+    "@elvia/elvis-typography": ^2.3.2
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3198,11 +3198,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.11.0
-    "@elvia/elvis-colors": ^1.7.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.1
-    "@elvia/elvis-typography": ^2.3.1
+    "@elvia/elvis-assets-icons": ^3.0.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-toolbox": ^8.0.0
+    "@elvia/elvis-typography": ^2.3.2
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3858,7 +3858,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^2.5.0, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
+"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^2.5.1, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:
