@@ -1,4 +1,4 @@
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -74,6 +74,7 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
   ${(props) =>
     props.isActive &&
     css`
+      color: ${getThemeColorContrast('background-selected-1')};
       background-color: ${getThemeColor('background-selected-1')};
       font-weight: 500;
     `}
