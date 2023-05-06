@@ -177,7 +177,8 @@ export const DatepickerInput: React.FC<Props> = ({
 
   useEffect(() => {
     if (touched) {
-      validateInputValue();
+      const [day, month, year] = inputValue.split('.');
+      validateInputValue(+day, +month, +year);
     }
   }, [required]);
 
