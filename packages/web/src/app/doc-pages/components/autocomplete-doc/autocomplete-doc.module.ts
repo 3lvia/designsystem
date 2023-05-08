@@ -9,9 +9,11 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { AutocompleteCegComponent } from './autocomplete-ceg/autocomplete-ceg.component';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 
 @NgModule({
-  declarations: [AutocompleteDocComponent],
+  declarations: [AutocompleteDocComponent, AutocompleteCegComponent],
   imports: [
     CommonModule,
     ComponentHeaderModule,
@@ -22,6 +24,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentSubsectionModule,
     WhenToUseModule,
     ComponentChangelogModule,
+    CegModule,
   ],
 })
 export class AutocompleteDocModule {}
