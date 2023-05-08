@@ -269,9 +269,11 @@ describe('Elvis Dropdown', () => {
         await user.type(dropdown, '{enter}');
       });
 
-      it('the proper item is selected', () => {
+      it('the proper item is selected', async () => {
         const element = screen.getByRole('combobox');
-        expect(element).toHaveValue('Subitem');
+        await waitFor(() => {
+          expect(element).toHaveValue('Subitem');
+        });
       });
     });
 
@@ -291,9 +293,11 @@ describe('Elvis Dropdown', () => {
         await user.type(dropdown, '{enter}');
       });
 
-      it('the proper item is selected', () => {
+      it('the proper item is selected', async () => {
         const element = screen.getByRole('combobox');
-        expect(element).toHaveValue('Option 3');
+        await waitFor(() => {
+          expect(element).toHaveValue('Option 3');
+        });
       });
     });
 

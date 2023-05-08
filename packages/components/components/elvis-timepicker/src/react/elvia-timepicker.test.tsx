@@ -218,10 +218,12 @@ describe('Elvis Timepicker', () => {
         await user.click(popoverToggle);
       });
 
-      it('the input receives a default value', () => {
+      it('the input receives a default value', async () => {
         const now = new Date();
         const input = screen.getByTestId('input');
-        expect(input).toHaveValue(`${padDigit(now.getHours())}.${padDigit(now.getMinutes())}`);
+        await waitFor(() => {
+          expect(input).toHaveValue(`${padDigit(now.getHours())}.${padDigit(now.getMinutes())}`);
+        });
       });
     });
   });
