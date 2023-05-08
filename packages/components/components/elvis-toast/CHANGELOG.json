@@ -6,7 +6,7 @@
       "version": "1.0.2",
       "changelog": [
         {
-          "type": "bug_fix",
+          "type": "patch",
           "changes": ["Updated internal dependencies."]
         }
       ]
