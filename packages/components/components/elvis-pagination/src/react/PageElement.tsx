@@ -1,10 +1,10 @@
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import React, { FC } from 'react';
 import { PaginatorPage } from './styledComponents';
 
 interface PageElementProps {
   pageNumber: number;
   selectedPageNumber: number;
-  setSelectedPageNumber: Dispatch<SetStateAction<number>>;
+  setSelectedPageNumber: (page: number) => void;
 }
 
 export const PageElement: FC<PageElementProps> = ({
@@ -32,7 +32,7 @@ export const PageElement: FC<PageElementProps> = ({
 
 interface FirstPageNumberProps {
   selectedPageNumber: number;
-  setSelectedPageNumber: Dispatch<SetStateAction<number>>;
+  setSelectedPageNumber: (page: number) => void;
 }
 
 export const FirstPageNumber: FC<FirstPageNumberProps> = ({ selectedPageNumber, setSelectedPageNumber }) => {
@@ -48,7 +48,7 @@ export const FirstPageNumber: FC<FirstPageNumberProps> = ({ selectedPageNumber, 
 interface LastPageNumberProps {
   numberOfPages: number;
   selectedPageNumber: number;
-  setSelectedPageNumber: Dispatch<SetStateAction<number>>;
+  setSelectedPageNumber: (page: number) => void;
   numberOfElements: number;
   lastNumberLimit?: number;
 }

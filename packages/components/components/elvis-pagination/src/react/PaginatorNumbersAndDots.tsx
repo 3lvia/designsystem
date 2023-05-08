@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 import { BetweenPageNumbers } from './BetweenPageNumbers';
 import {
   maxVisiblePageNumbers,
@@ -13,7 +13,7 @@ import { useBreakpoint } from '@elvia/elvis-toolbox';
 interface PaginatorNumbersAndDotsProps {
   numberOfPages: number;
   selectedPageNumber: number;
-  setSelectedPageNumber: Dispatch<SetStateAction<number>>;
+  setSelectedPageNumber: (page: number) => void;
   numberOfElements: number;
   lastNumberLimit?: number;
 }

@@ -31,8 +31,9 @@ export const PaginatorInfoText = styled.div`
   letter-spacing: 0.2px;
   text-align: left;
 `;
+
 export const PaginatorInfoDropdown = styled.div`
-  width: 75px;
+  width: 82px; //82px = 4+8px padding, 8px gap + 32px button, + 30px for number
 
   .number-of-items-dropdown {
     padding: 0;

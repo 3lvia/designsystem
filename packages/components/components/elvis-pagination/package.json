@@ -1,10 +1,8 @@
 {
   "name": "@elvia/elvis-pagination",
-  "version": "3.3.8",
-  "description": "",
+  "version": "3.4.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/pagination",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",
