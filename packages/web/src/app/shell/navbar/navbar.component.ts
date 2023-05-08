@@ -61,8 +61,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     combineLatest([localizationSubscriber, this.routerService.urlPathChange()])
       .pipe(takeUntil(this.unsubscriber))
       .subscribe(([locale]) => {
-        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
-
         this.updateLocaleSwitchVisibility();
         this.setSubMenuRoute();
         this.isLandingPage = this.router.url.split('/')[2] === undefined;
@@ -116,6 +114,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     }
     this.localizationService.listenLocalization().subscribe((locale) => {
       this.updateNavbarList(locale);
+      this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
     });
     setTimeout(() => {
       this.updateAnchorList();
