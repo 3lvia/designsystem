@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.05.23",
+      "version": "2.3.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Bumped <code>@elvia/elvis-datepicker</code> and <code>@elvia/elvis-timepicker</code> dependencies to use new color labels for theme."
+          ]
+        }
+      ]
+    },
+    {
       "date": "09.03.23",
       "version": "2.3.4",
       "changelog": [

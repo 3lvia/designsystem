@@ -12,7 +12,6 @@
 
 // TODO: This will be moved to elvis
 @use '@elvia/elvis-colors/dist/themeVariables' as ThemeVariables;
-@use './temporaryThemeVariables.scss' as ThemeVariables2;
 
 // Prebuilt css for enabling use of overlays from @angular/cdk
 @import '@angular/cdk/overlay-prebuilt.css';
@@ -265,6 +264,8 @@ kbd,
   display: flex;
   row-gap: 24px;
   flex-direction: column;
+  word-wrap: anywhere;
+
   @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
   }

@@ -9,8 +9,19 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { RadiobuttonDocComponent } from './radiobutton-doc.component';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { RadiobuttonCegComponent } from './radiobutton-ceg/radiobutton-ceg.component';
+import { RadiobuttonSmCegComponent } from './radiobutton-sm-ceg/radiobutton-sm-ceg.component';
+import { RadiobuttonMdCegComponent } from './radiobutton-md-ceg/radiobutton-md-ceg.component';
+import { RadiobuttonStatesCegComponent } from './radiobutton-states-ceg/radiobutton-states-ceg.component';
 @NgModule({
-  declarations: [RadiobuttonDocComponent],
+  declarations: [
+    RadiobuttonDocComponent,
+    RadiobuttonCegComponent,
+    RadiobuttonSmCegComponent,
+    RadiobuttonMdCegComponent,
+    RadiobuttonStatesCegComponent,
+  ],
   imports: [
     CommonModule,
     ComponentHeaderModule,
@@ -21,6 +32,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     WhenToUseModule,
     RouterModule,
     ComponentChangelogModule,
+    CegModule,
   ],
 })
 export class RadiobuttonDocModule {}
