@@ -1,7 +1,6 @@
 import React from 'react';
 import * as DOMPurify from 'dompurify';
 
-import { getThemeColor } from '@elvia/elvis-colors';
 import { IconWrapper } from '@elvia/elvis-toolbox';
 import { ToastConfig } from './elviaToast.types';
 import checkCircle from '@elvia/elvis-assets-icons/dist/icons/checkCircle';
@@ -16,8 +15,8 @@ export const ToastIcon: React.FC<Props> = ({ toast }) => {
     const sanitizedDom = DOMPurify.sanitize(toast.customIcon);
     return <div dangerouslySetInnerHTML={{ __html: sanitizedDom }} />;
   } else if (toast.status === 'informative') {
-    return <IconWrapper icon={informationCircle} color={getThemeColor('text-primary')} size="sm" />;
+    return <IconWrapper icon={informationCircle} color={'text-1'} size="sm" />;
   } else {
-    return <IconWrapper icon={checkCircle} color={getThemeColor('state-on')} size="sm" />;
+    return <IconWrapper icon={checkCircle} color={'icon-success'} size="sm" />;
   }
 };

@@ -57,20 +57,20 @@ export const ToastContainer = styled.output<{
   align-items: center;
   box-sizing: border-box;
   gap: 8px;
-  border: 2px solid ${getThemeColor('state-on')};
+  border: 2px solid ${getThemeColor('border-selected-1')};
   border-radius: 8px;
-  background: ${getThemeColor('background-primary')};
+  background: ${getThemeColor('background-1')};
   text-align: left;
   padding: 6px; // -2px because of border thickness
   animation: ${({ gtMobile }) => fadeIn(gtMobile)} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
   transform-origin: bottom center;
   transition: all 300ms ease;
 
   ${({ toastType }) =>
     toastType === 'informative' &&
     css`
-      border-color: ${getThemeColor('text-primary')};
+      border-color: ${getThemeColor('border-1')};
     `};
 
   ${({ gtMobile }) => {
