@@ -104,7 +104,7 @@ export class ElvisComponentWrapper extends HTMLElement {
    * webcomponent.triggerEvent('onOpen');
    * webcomponent.triggerEvent('onDelete', deletedValue);
    */
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  // eslint-disable-next-line
   triggerEvent(callbackName: string, eventData?: any): void {
     this.onEvent(callbackName, eventData);
   }

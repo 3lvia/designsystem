@@ -2,16 +2,26 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "04.05.23",
+      "date": "08.05.23",
       "version": "3.4.0",
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Theme support"]
+          "changes": ["Pagination now supports dark theme."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where Pagination would emit an incorrect value, resulting from a multiplication with an unexpected factor.",
+            "Fixed a bug where Pagination would emit incorrect values when changing the dropdown value while on a selected page other than 1.",
+            "Fixed a bug where Pagination would emit its default values when initiated.",
+            "Fixed a bug where Pagination would not respect its given default value.",
+            "Fixed a bug where large numbers would not fit inside the dropdown."
+          ]
         },
         {
           "type": "patch",
-          "changes": ["Updated internal dependencies."]
+          "changes": ["Update internal dependencies."]
         }
       ]
     },

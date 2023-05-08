@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useMemo, useRef } from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import {
   PaginationLabel,
@@ -6,6 +6,7 @@ import {
   defaultPaginationValue,
   defaultPaginationDropdownItems,
   defaultPaginationLabelOptions,
+  VisibleElements,
 } from './elvia-pagination.types';
 import {
   Paginator,
@@ -42,6 +43,8 @@ const Pagination: FC<PaginationProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
+  const isInitialized = useRef<boolean>(false);
+
   const [selectedPageNumber, setSelectedPageNumber] = useState(
     value.start ? Math.ceil(value.start / parseInt(dropdownItems[dropdownSelectedItemIndex].value)) : 1,
   );
@@ -49,6 +52,7 @@ const Pagination: FC<PaginationProps> = function ({
     parseInt(dropdownItems[dropdownSelectedItemIndex].value),
   );
   const previousDropdownValue = useRef(selectedDropdownValue);
+
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
   /** Calculate number of pages based on total elements divided by amount of elements showing. */
   const [numberOfPages, setNumberOfPages] = useState(Math.ceil(numberOfElements / selectedDropdownValue));
@@ -58,10 +62,10 @@ const Pagination: FC<PaginationProps> = function ({
   });
   const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
 
-  const visibleElements = useMemo(
-    () => getPaginationRange(selectedPageNumber, selectedDropdownValue, numberOfElements),
-    [selectedPageNumber, selectedDropdownValue, numberOfElements],
-  );
+  useEffect(() => {
+    const pageRange = getPaginationRange(selectedPageNumber, selectedDropdownValue, numberOfElements);
+    emitValueOnChangeEvent(pageRange);
+  }, [numberOfElements]);
 
   useEffect(() => {
     // Set page number corresponding to value.start
@@ -92,10 +96,6 @@ const Pagination: FC<PaginationProps> = function ({
   }, [selectedDropdownValue]);
 
   useEffect(() => {
-    emitValueOnChangeEvent();
-  }, [visibleElements]);
-
-  useEffect(() => {
     setNumberOfPages(Math.ceil(numberOfElements / selectedDropdownValue));
     const allElementsShowing =
       numberOfElements > 0 && Math.ceil(numberOfElements / selectedDropdownValue) < 2;
@@ -106,17 +106,25 @@ const Pagination: FC<PaginationProps> = function ({
     setSelectedDropdownValue(parseInt(dropdownItems[dropdownSelectedItemIndex].value));
   }, [dropdownItems, dropdownSelectedItemIndex]);
 
-  const emitValueOnChangeEvent = (): void => {
+  useEffect(() => {
+    isInitialized.current = true;
+    return () => {
+      isInitialized.current = false;
+    };
+  }, []);
+
+  const emitValueOnChangeEvent = (valueToEmit: VisibleElements): void => {
     if (
-      visibleElements.start === undefined ||
-      visibleElements.end === undefined ||
-      visibleElements.start > numberOfElements
+      isInitialized.current === false ||
+      valueToEmit.start === undefined ||
+      valueToEmit.end === undefined ||
+      valueToEmit.start > numberOfElements
     ) {
       return;
     }
-    valueOnChange?.(visibleElements);
-    webcomponent?.setProps({ value: visibleElements }, true);
-    webcomponent?.triggerEvent('valueOnChange', visibleElements);
+    valueOnChange?.(valueToEmit);
+    webcomponent?.setProps({ value: valueToEmit }, true);
+    webcomponent?.triggerEvent('valueOnChange', valueToEmit);
   };
 
   const updateVisibleElementsForDropdownChange = (): void => {
@@ -131,7 +139,23 @@ const Pagination: FC<PaginationProps> = function ({
       }
       const firstElementIndex =
         Math.floor((previousPaginationRange.start - 1) / selectedDropdownValue) * selectedDropdownValue + 1;
-      return Math.ceil(firstElementIndex / selectedDropdownValue);
+
+      const newSelectedPageNumber = Math.ceil(firstElementIndex / selectedDropdownValue);
+
+      const newSelectedPageRange = getPaginationRange(
+        newSelectedPageNumber,
+        selectedDropdownValue,
+        numberOfElements,
+      );
+
+      // Don't update or dispatch new event if the value is identical to previous value.
+      if (
+        previousPaginationRange.start !== newSelectedPageRange.start ||
+        previousPaginationRange.end !== newSelectedPageRange.end
+      ) {
+        emitValueOnChangeEvent(newSelectedPageRange);
+      }
+      return newSelectedPageNumber;
     });
   };
 
@@ -172,6 +196,15 @@ const Pagination: FC<PaginationProps> = function ({
     webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', selectedIndex);
   };
 
+  const handleOnPageClick = (page: number): void => {
+    if (page === selectedPageNumber) {
+      return;
+    }
+    const pageRange = getPaginationRange(page, selectedDropdownValue, numberOfElements);
+    emitValueOnChangeEvent(pageRange);
+    setSelectedPageNumber(page);
+  };
+
   return (
     <Paginator
       isRightAligned={alignment === 'right'}
@@ -185,7 +218,6 @@ const Pagination: FC<PaginationProps> = function ({
         <PaginatorInfoDropdown>
           <Dropdown
             isCompact
-            placeholder=""
             items={dropdownItems}
             menuPosition={dropdownMenuPosition}
             className="number-of-items-dropdown"
@@ -204,7 +236,7 @@ const Pagination: FC<PaginationProps> = function ({
           <PaginatorSelectorArrowBtn
             visible={shouldHaveLeftArrow()}
             aria-hidden={!shouldHaveLeftArrow()}
-            onClick={() => setSelectedPageNumber((previousPageNumber) => previousPageNumber - 1)}
+            onClick={() => handleOnPageClick(selectedPageNumber - 1)}
             data-testid="selector-arrow-btn-left"
             aria-label="Forrige side"
           >
@@ -214,14 +246,14 @@ const Pagination: FC<PaginationProps> = function ({
           <PaginatorNumbersAndDots
             numberOfPages={numberOfPages}
             selectedPageNumber={selectedPageNumber}
-            setSelectedPageNumber={setSelectedPageNumber}
+            setSelectedPageNumber={handleOnPageClick}
             numberOfElements={numberOfElements}
             lastNumberLimit={lastNumberLimit}
           />
           <PaginatorSelectorArrowBtn
             visible={shouldHaveRightArrow()}
             aria-hidden={!shouldHaveRightArrow()}
-            onClick={() => setSelectedPageNumber((previousPageNumber) => previousPageNumber + 1)}
+            onClick={() => handleOnPageClick(selectedPageNumber + 1)}
             data-testid="selector-arrow-btn-right"
             aria-label="Neste side"
           >
