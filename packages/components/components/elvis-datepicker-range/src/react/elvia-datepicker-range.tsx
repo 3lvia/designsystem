@@ -300,6 +300,17 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     handleEndDatepickerValueOnChange(newDate, 'time');
   };
 
+  const getDatepickerValue = (type: 'start' | 'end'): Date | null => {
+    if (
+      (hasTimepickers && !valueIsSentAsProp && !!selectedDateRange[type]) ||
+      !isTouched(type ? 'startDate' : 'endDate')
+    ) {
+      return null;
+    }
+
+    return selectedDateRange[type];
+  };
+
   return (
     <DatepickerRangeWrapper
       isFullWidth={isFullWidth ?? false}
@@ -313,11 +324,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <Datepicker
           {...passThroughProps}
           label={labelOptions?.start ?? defaultLabelOptions.start}
-          value={
-            hasTimepickers && !valueIsSentAsProp && !isTouched('startDate')
-              ? undefined
-              : selectedDateRange.start
-          }
+          value={getDatepickerValue('start')}
           valueOnChange={handleStartDatePickerValueOnChange}
           isRequired={isRequiredState?.start}
           onClose={openNextPicker}
@@ -369,9 +376,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <Datepicker
           {...passThroughProps}
           label={labelOptions?.end ?? defaultLabelOptions.end}
-          value={
-            hasTimepickers && !valueIsSentAsProp && !isTouched('endDate') ? undefined : selectedDateRange.end
-          }
+          value={getDatepickerValue('end')}
           valueOnChange={handleEndDatePickerValueOnChange}
           isRequired={isRequiredState?.end}
           onClose={openNextPicker}
