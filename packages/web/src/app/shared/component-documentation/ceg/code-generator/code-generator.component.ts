@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { FormatCodePipe } from './formatCode.pipe';
 import { Language } from './language';
@@ -13,10 +13,11 @@ let CODE_GENERATOR_TAB_ID = 0;
   templateUrl: './code-generator.component.html',
   styleUrls: ['./code-generator.component.scss'],
 })
-export class CodeGeneratorComponent {
+export class CodeGeneratorComponent implements OnInit {
   @Input() angularCode = '';
   @Input() reactCode = '';
   @Input() vueCode = '';
+  @Input() hideReact: boolean;
   activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
     ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
     : 0;
@@ -26,8 +27,25 @@ export class CodeGeneratorComponent {
 
   constructor(private codeFormatter: FormatCodePipe) {}
 
+  ngOnInit(): void {
+    if (this.hideReact) {
+      this.tabs.splice(this.tabs.indexOf('React'), 1);
+    }
+
+    /**
+     * Prevent that no tab is selected if user navigates from a page with
+     * the typescript tab selected, to a page without the typescript tab.
+     */
+    if (this.activeTabIndex > this.tabs.length - 1) {
+      this.setActiveTab(this.tabs.length - 1);
+    }
+  }
+
   get language(): Language {
-    return this.activeTab === 'React' ? 'jsx' : 'html';
+    if (this.activeTab === 'React') {
+      return 'jsx';
+    }
+    return 'html';
   }
 
   get activeTab() {
