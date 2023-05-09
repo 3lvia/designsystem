@@ -46,9 +46,14 @@ const Pagination: FC<PaginationProps> = function ({
   const [selectedPageNumber, setSelectedPageNumber] = useState(
     value.start ? Math.ceil(value.start / parseInt(dropdownItems[dropdownSelectedItemIndex].value)) : 1,
   );
+  const [numberOfElementsState, setNumberOfElementsState] = useState<number>(numberOfElements);
   const [selectedDropdownValue, setSelectedDropdownValue] = useState(
     parseInt(dropdownItems[dropdownSelectedItemIndex].value),
   );
+
+  useEffect(() => {
+    setNumberOfElementsState(numberOfElements);
+  }, [numberOfElements]);
 
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
   /** Calculate number of pages based on total elements divided by amount of elements showing. */
@@ -107,7 +112,7 @@ const Pagination: FC<PaginationProps> = function ({
     if (
       valueToEmit.start === undefined ||
       valueToEmit.end === undefined ||
-      valueToEmit.start > numberOfElements
+      valueToEmit.start > numberOfElementsState
     ) {
       return;
     }
