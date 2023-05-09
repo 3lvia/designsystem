@@ -31,32 +31,27 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
       <Steps type="horizontal">
         {[...Array(numSteps)].map((_, i) => {
-          const stepIndex = i + 1;
           return (
-            <Step type="horizontal" key={i} isActive={stepIndex === currentStep}>
-              {stepIndex - 1 > 0 && (
-                <StepLine type="horizontal" isSelected={stepIndex - 1 < currentStep}></StepLine>
-              )}
+            <Step type="horizontal" key={i} isActive={i === currentStep}>
               <StepHeader>
                 <StepNumber
-                  isActive={stepIndex === currentStep}
-                  isError={steps?.[stepIndex]?.isError}
-                  isCompleted={steps?.[stepIndex]?.isCompleted}
-                  isDisabled={!isReachable(forced, stepIndex, steps)}
-                  onClick={() =>
-                    handleStepChange(isReachable(forced, stepIndex, steps) ? stepIndex : currentStep)
-                  }
+                  isActive={i === currentStep}
+                  isError={steps?.[i + 1]?.isError}
+                  isCompleted={steps?.[i + 1]?.isCompleted}
+                  isDisabled={!isReachable(forced, i, steps)}
+                  onClick={() => handleStepChange(isReachable(forced, i, steps) ? i : currentStep)}
                 >
-                  {stepIndex}
+                  {i + 1}
                 </StepNumber>
               </StepHeader>
+              {i < numSteps - 1 && <StepLine type="horizontal" isSelected={i < currentStep}></StepLine>}
             </Step>
           );
         })}
       </Steps>
       <StepperContent type="horizontal">
-        <StepperTitle type="horizontal">{steps?.[currentStep]?.title ?? ''}</StepperTitle>
-        <div ref={contentRef}>{content?.[currentStep - 1]}</div>
+        <StepperTitle type="horizontal">{steps?.[currentStep + 1]?.title ?? ''}</StepperTitle>
+        <div ref={contentRef}>{content?.[currentStep]}</div>
         <StepperActions>
           <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
           <SecondaryButton
@@ -64,7 +59,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
               handleStepChange(isReachable(forced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
             }
           >
-            {completeButtonText && currentStep === numSteps ? completeButtonText : 'Next'}
+            {completeButtonText && currentStep === numSteps - 1 ? completeButtonText : 'Next'}
           </SecondaryButton>
         </StepperActions>
       </StepperContent>

@@ -27,7 +27,7 @@ export interface StepperTypeProps extends HasValue<number> {
 }
 
 export interface StepperProps extends HasValue<number> {
-  type: string;
+  type?: string;
   steps?: StepStates;
   forced?: boolean;
   completeButtonText?: string;

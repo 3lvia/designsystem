@@ -36,6 +36,7 @@ export const Step = styled.div<StepProps>`
 interface StepLineProps {
   type: string;
   isSelected?: boolean;
+  isActive?: boolean;
 }
 
 export const StepLine = styled.div<StepLineProps>`
@@ -48,15 +49,11 @@ export const StepLine = styled.div<StepLineProps>`
     getThemeColor(isSelected ? 'border-selected-2' : 'border-disabled-1')};
   place-items: center;
 
-  ${({ type, isSelected }) =>
+  ${({ type, isActive }) =>
     type === 'vertical' &&
     css`
-      padding: 0 30px;
-      border-left: 2px solid ${getThemeColor(isSelected ? 'border-selected-2' : 'border-disabled-1')};
-      border-radius: 0;
-      background-color: transparent;
-      margin: 0 15px;
-      height: 12px;
+      height: ${isActive ? 'auto' : '12px'};
+      width: 2px;
     `}
 `;
 
@@ -146,17 +143,22 @@ export const StepNumber = styled.div<StepNumberProps>`
 
 interface StepperContentProps {
   type: string;
-  isActive?: boolean;
 }
 export const StepperContent = styled.div<StepperContentProps>`
-  ${({ type, isActive }) =>
+  display: block;
+  justify-content: start;
+  ${({ type }) =>
     type === 'vertical' &&
     css`
       padding: 28px 30px;
-      border-left: 2px solid ${getThemeColor('border-disabled-1')};
-      margin: 0 15px;
-      display: ${isActive ? 'block' : 'none'};
+      /* border-left: 2px solid ${getThemeColor('border-disabled-1')};
+      margin: 0 15px; */
     `}
+`;
+
+export const StepperContentWrapper = styled.div`
+  display: flex;
+  margin: 0 15px;
 `;
 
 interface StepperTitleProps {
