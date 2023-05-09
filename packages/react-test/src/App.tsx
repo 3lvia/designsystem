@@ -195,6 +195,17 @@ function App() {
                     <div>Step 5 content</div>,
                   ]}
                 />
+                <Stepper
+                  type="horizontal"
+                  steps={{ 2: { isError: true } }}
+                  content={[
+                    <div>Step 1 content</div>,
+                    <div>Step 2 content</div>,
+                    <div>Step 3 content</div>,
+                    <div>Step 4 content</div>,
+                    <div>Step 5 content</div>,
+                  ]}
+                />
               </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>

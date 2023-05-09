@@ -56,7 +56,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
       </Steps>
       <StepperContent type="horizontal">
         <StepperTitle type="horizontal">{steps?.[currentStep]?.title ?? ''}</StepperTitle>
-        <div ref={contentRef}>{content?.[currentStep]}</div>
+        <div ref={contentRef}>{content?.[currentStep - 1]}</div>
         <StepperActions>
           <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
           <SecondaryButton

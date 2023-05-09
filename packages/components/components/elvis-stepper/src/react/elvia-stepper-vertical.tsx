@@ -55,7 +55,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                 <StepLine type="vertical" isSelected={stepIndex - 1 < currentStep}></StepLine>
               )}
               <StepperContent type="vertical" isActive={stepIndex === currentStep}>
-                <div ref={contentRef}>{content?.[currentStep]}</div>
+                <div ref={contentRef}>{content?.[currentStep - 1]}</div>
                 <StepperActions>
                   <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
                   <SecondaryButton
