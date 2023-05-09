@@ -11,6 +11,7 @@ import {
   DateRangeString,
   DisableDates,
   defaultLabelOptions,
+  BothDatepickers,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { isAfter, isBefore } from './dateHelpers';
@@ -300,7 +301,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     handleEndDatepickerValueOnChange(newDate, 'time');
   };
 
-  const getDatepickerValue = (type: 'start' | 'end'): Date | null => {
+  const getDatepickerValue = (type: keyof BothDatepickers<any>): Date | null => {
     if ((hasTimepickers && !valueIsSentAsProp && !!selectedDateRange[type]) || !isTouched(`${type}Date`)) {
       return null;
     }
