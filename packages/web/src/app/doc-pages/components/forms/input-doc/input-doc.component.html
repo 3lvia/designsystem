@@ -8,25 +8,18 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-form-field">
-      <label class="e-form-field__label" for="normal">Label</label>
-      <div class="e-input">
-        <input id="normal" type="text" placeholder="Placeholder text" />
-      </div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="overviewExample"></app-component-example-v1>
-    </div>
-  </div>
+  <app-static-ceg>
+    <app-input-ceg />
+  </app-static-ceg>
 
   <!-- TYPE -->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-type-normal-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Combined & Inlined'">
@@ -40,12 +33,16 @@
             class outside the form-field element to align inputs on the same line. When the zip code is filled
             in, the post office should be filled in automatically.
           </p>
-          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-type-combined-inlined-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Textarea'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-type-textarea-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -57,7 +54,9 @@
       <app-component-subsection [sectionTitle]="'With button'">
         <ng-container ngProjectAs="sectionContent">
           The view_on icon button should be used when showing and hiding a password.
-          <app-component-example-v1 [codeHTML]="exampleIcon"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-options-button-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -65,7 +64,9 @@
         <ng-container ngProjectAs="sectionContent">
           If you have an input field without a label, make sure that assistive tools are informed in some
           other way with a description for the input.
-          <app-component-example-v1 [codeHTML]="exampleInputNoLabel"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-options-nolabel-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -74,7 +75,9 @@
           The
           <span class="code-text">e-form-field__label--optional</span>
           class should be added to the label when the input is not required.
-          <app-component-example-v1 [codeHTML]="exampleOptional"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-options-optional-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -88,7 +91,9 @@
             <span class="code-text">e-inlined-field--full-width</span>
             class if the inputs are inlined on the same line, should take up all width available.
           </p>
-          <app-component-example-v1 [codeHTML]="exampleFullwidth"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-options-full-width-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -108,7 +113,9 @@
             <span class="code-text">disabled</span>
             attribute instead.
           </p>
-          <app-component-example-v1 [codeHTML]="readonlyExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-options-readonly-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -118,7 +125,9 @@
           <span class="code-text">e-input---loading</span>
           class should be added to indicate that the text field is loading, for instance if the current value
           is being validated.
-          <app-component-example-v1 [codeHTML]="loadingExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-options-loading-ceg />
+          </app-static-ceg>
           <div class="e-alert e-alert--info e-mt-16" role="note">
             <div class="e-alert__icon">
               <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
@@ -144,7 +153,9 @@
       expected user input and can be changes by setting the width on the container of the input.
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-size-normal-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Compact'">
@@ -152,7 +163,9 @@
           Compact text fields are typically used in Elvia’s internal systems, where screen real estate is an
           important factor. Regardless of which style you use for text fields, you should always stick with
           the same type throughout the page and never mix the two.
-          <app-component-example-v1 [codeHTML]="exampleCompactInput"></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-size-compact-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -170,38 +183,9 @@
           <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
             input validation and behaviors here.
           </a>
-          <div class="exampleContainer e-mt-24">
-            <div class="e-form-field">
-              <label class="e-form-field__label" for="validation-example">Label</label>
-              <div class="e-input e-input---invalid">
-                <button class="e-btn e-btn--icon" (click)="showMockPassword()" aria-label="Vis/skjul passord">
-                  <span class="e-btn__icon">
-                    <i class="e-icon e-icon--view_on" aria-hidden="true" aria-hidden="true"></i>
-                  </span>
-                </button>
-                <input
-                  id="validation-example"
-                  type="password"
-                  value="Passord"
-                  invalid
-                  #validationExample
-                  aria-invalid="true"
-                  aria-errormessage="error-message-example"
-                />
-              </div>
-              <span class="e-form-field__error e-form-field__error--visible">
-                <span>
-                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
-                </span>
-                <span id="error-message-example">Passord må inneholde både bokstaver og tall</span>
-              </span>
-            </div>
-          </div>
-          <app-component-example-v1
-            [showPreview]="false"
-            [codeHTML]="example4"
-            [codeTS]="example4TS"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-input-validation-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Patterns'">
