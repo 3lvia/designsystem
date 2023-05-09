@@ -8,7 +8,6 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp">
     <app-static-ceg [hideReact]="true">
       <app-autocomplete-ceg />
@@ -20,7 +19,9 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleAutocomplete"></app-component-example-v1>
+          <app-static-ceg>
+            <app-autocomplete-normal-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -28,7 +29,9 @@
         <ng-container ngProjectAs="sectionContent">
           Much like compact text fields, the compact autocomplete is a version of the text field that’s
           primarily designed for internal systems, and shouldn’t be mixed with the other input styles.
-          <app-component-example-v1 [codeHTML]="exampleCompact"></app-component-example-v1>
+          <app-static-ceg>
+            <app-autocomplete-compact-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>

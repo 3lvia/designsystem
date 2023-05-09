@@ -161,6 +161,10 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return code.replace(/> *</g, '><');
   }
 
+  private replaceForWithHtmlFor(code: string): string {
+    return code.replace(/ for="/g, ' htmlFor="');
+  }
+
   private htmlHasMultipleRoots(code: string): boolean {
     const parsed = new DOMParser().parseFromString(code, 'text/html');
     return parsed.body.children.length > 1;
@@ -173,6 +177,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
     reactCode = this.transformAngularAttributesToReactStyle(reactCode);
     reactCode = this.transformReactSpecificProps(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
+    reactCode = this.replaceForWithHtmlFor(reactCode);
 
     if (this.htmlHasMultipleRoots(reactCode)) {
       reactCode = `<>${reactCode}</>`;
