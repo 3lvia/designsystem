@@ -19,6 +19,7 @@
     "@elvia/elvis-dropdown": "^6.1.1",
     "@elvia/elvis-toolbox": "^8.0.0",
     "@elvia/elvis-typography": "^2.3.2",
+    "react-use-pagination": "2.0.1",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {
