@@ -68,13 +68,12 @@ const Pagination: FC<PaginationProps> = function ({
   }, [numberOfElements]);
 
   useEffect(() => {
-    // Set page number corresponding to value.start
-    if (value.start === undefined || value.end === undefined) {
-      setSelectedPageNumber(1);
+    if (value.start === undefined || value.end === undefined || value.start === 0) {
+      setPage(0);
       return;
     }
-    const pageNumber = value.start === 0 ? 1 : Math.ceil(value.start / selectedDropdownValue);
-    setSelectedPageNumber(pageNumber);
+
+    setPage(Math.ceil(value.start / selectedDropdownValue));
   }, [value]);
 
   /** If selectedDropdownValue is not a number, hide the pagination */
