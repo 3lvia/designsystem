@@ -3129,8 +3129,8 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-datepicker": ^6.2.4
-    "@elvia/elvis-timepicker": ^2.5.1
+    "@elvia/elvis-datepicker": ^6.2.5
+    "@elvia/elvis-timepicker": ^2.5.2
     "@elvia/elvis-toolbox": ^8.0.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -3152,8 +3152,8 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@portal:../components/components/elvis-datepicker-range::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-datepicker": ^6.2.4
-    "@elvia/elvis-timepicker": ^2.5.1
+    "@elvia/elvis-datepicker": ^6.2.5
+    "@elvia/elvis-timepicker": ^2.5.2
     "@elvia/elvis-toolbox": ^8.0.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -3170,7 +3170,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.2.4, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.2.5, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
@@ -3858,7 +3858,7 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^2.5.1, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
+"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^2.5.2, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:
