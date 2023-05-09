@@ -75,10 +75,10 @@ const Pagination: FC<PaginationProps> = function ({
     setSelectedPageNumber(pageNumber);
   }, [value]);
 
-  /** If selectedDropdownValue is not a number, hide the pagination TODO: Varsle bruker? */
+  /** If selectedDropdownValue is not a number, hide the pagination */
   useEffect(() => {
     if (isNaN(selectedDropdownValue)) {
-      setNumberOfPages(0);
+      console.error(`elvis-pagination: the dropdown (${selectedDropdownValue}) value is not a number.`);
       setShowPaginationNumbers(false);
     }
   }, [selectedDropdownValue]);
