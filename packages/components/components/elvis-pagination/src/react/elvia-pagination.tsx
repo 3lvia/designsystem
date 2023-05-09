@@ -92,11 +92,6 @@ const Pagination: FC<PaginationProps> = function ({
     setLabelOptionsState({ ...defaultPaginationLabelOptions, ...labelOptions });
   }, [labelOptions]);
 
-  /** Handle updating the selected range when changing the dropdown */
-  useEffect(() => {
-    updateVisibleElementsForDropdownChange();
-  }, [selectedDropdownValue]);
-
   useEffect(() => {
     setNumberOfPages(Math.ceil(numberOfElements / selectedDropdownValue));
     const allElementsShowing =
