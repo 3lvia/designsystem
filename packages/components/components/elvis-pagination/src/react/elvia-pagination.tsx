@@ -22,7 +22,7 @@ import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { config } from './config';
 import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
-import { getPaginationRange } from './utilities';
+import { usePagination } from 'react-use-pagination';
 
 const Pagination: FC<PaginationProps> = function ({
   // Value represents the current visible elements in the pagination
@@ -42,30 +42,54 @@ const Pagination: FC<PaginationProps> = function ({
   ...rest
 }) {
   warnDeprecatedProps(config, arguments[0]);
-
-  const [selectedPageNumber, setSelectedPageNumber] = useState(
-    value.start ? Math.ceil(value.start / parseInt(dropdownItems[dropdownSelectedItemIndex].value)) : 1,
-  );
   const [numberOfElementsState, setNumberOfElementsState] = useState<number>(numberOfElements);
   const [selectedDropdownValue, setSelectedDropdownValue] = useState(
     parseInt(dropdownItems[dropdownSelectedItemIndex].value),
   );
+  const initialPage = value.start
+    ? Math.ceil(value.start / parseInt(dropdownItems[dropdownSelectedItemIndex].value))
+    : 0;
+
+  const {
+    currentPage,
+    totalPages,
+    nextEnabled,
+    pageSize,
+    previousEnabled,
+    startIndex,
+    setPage,
+    setPageSize,
+  } = usePagination({
+    totalItems: numberOfElementsState,
+    initialPage: initialPage,
+    initialPageSize: selectedDropdownValue,
+  });
 
   useEffect(() => {
     setNumberOfElementsState(numberOfElements);
   }, [numberOfElements]);
 
+  useEffect(() => {
+    if (selectedDropdownValue === pageSize) {
+      return;
+    }
+    const nextPage = Math.ceil((startIndex + 1) / selectedDropdownValue) - 1;
+
+    setPageSize(selectedDropdownValue, nextPage);
+
+    const start = getStartIndex(selectedDropdownValue, nextPage);
+    const end = getEndIndex(selectedDropdownValue, nextPage, numberOfElementsState);
+    emitValueOnChangeEvent({ start: start, end: end });
+  }, [selectedDropdownValue]);
+
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
+
   const [labelOptionsState, setLabelOptionsState] = useState<PaginationLabel>({
     ...defaultPaginationLabelOptions,
     ...labelOptions,
   });
-  const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
 
-  useEffect(() => {
-    const pageRange = getPaginationRange(selectedPageNumber, selectedDropdownValue, numberOfElements);
-    emitValueOnChangeEvent(pageRange);
-  }, [numberOfElements]);
+  const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
 
   useEffect(() => {
     if (value.start === undefined || value.end === undefined || value.start === 0) {
@@ -130,10 +154,8 @@ const Pagination: FC<PaginationProps> = function ({
     if (!showPaginationNumbers) {
       setShowPaginationNumbers(true);
     }
-    setSelectedDropdownValue((previousValue) => {
-      previousDropdownValue.current = previousValue;
-      return parseInt(newSelectedDropdownValue);
-    });
+
+    setSelectedDropdownValue(parseInt(newSelectedDropdownValue));
 
     const selectedIndex = dropdownItems.findIndex((item) => item.value === newSelectedDropdownValue);
     dropdownSelectedItemIndexOnChange?.(selectedIndex);
@@ -142,12 +164,36 @@ const Pagination: FC<PaginationProps> = function ({
   };
 
   const handleOnPageClick = (page: number): void => {
-    if (page === selectedPageNumber) {
+    const getEndIndex = (pageSize: number, currentPage: number, totalItems: number): number => {
+      const lastPageEndIndex = pageSize * (currentPage + 1);
+
+      if (lastPageEndIndex > totalItems) {
+        return totalItems;
+      }
+
+      return lastPageEndIndex;
+    };
+
+    const getStartIndex = (pageSize: number, currentPage: number): number => {
+      return pageSize * currentPage + 1;
+    };
+
+    if (page === currentPage) {
       return;
     }
-    const pageRange = getPaginationRange(page, selectedDropdownValue, numberOfElements);
-    emitValueOnChangeEvent(pageRange);
-    setSelectedPageNumber(page);
+
+    const start = getStartIndex(pageSize, page);
+    const end = getEndIndex(pageSize, page, numberOfElementsState);
+    emitValueOnChangeEvent({ start: start, end: end });
+    setPage(page);
+  };
+
+  const handleOnPreviousPageClick = (): void => {
+    handleOnPageClick(currentPage - 1);
+  };
+
+  const handleOnNextPageClick = (): void => {
+    handleOnPageClick(currentPage + 1);
   };
 
   return (
@@ -179,9 +225,9 @@ const Pagination: FC<PaginationProps> = function ({
       {showPaginationNumbers && (
         <PaginatorSelectorArea role="navigation" ref={listContainerRef} data-testid="selector-area">
           <PaginatorSelectorArrowBtn
-            visible={shouldHaveLeftArrow()}
-            aria-hidden={!shouldHaveLeftArrow()}
-            onClick={() => handleOnPageClick(selectedPageNumber - 1)}
+            visible={previousEnabled}
+            aria-hidden={!previousEnabled}
+            onClick={handleOnPreviousPageClick}
             data-testid="selector-arrow-btn-left"
             aria-label="Forrige side"
           >
@@ -189,16 +235,16 @@ const Pagination: FC<PaginationProps> = function ({
           </PaginatorSelectorArrowBtn>
 
           <PaginatorNumbersAndDots
-            numberOfPages={numberOfPages}
-            selectedPageNumber={selectedPageNumber}
-            setSelectedPageNumber={handleOnPageClick}
+            numberOfPages={totalPages}
+            selectedPageNumber={currentPage + 1}
+            setSelectedPageNumber={(p) => handleOnPageClick(p - 1)}
             numberOfElements={numberOfElements}
             lastNumberLimit={lastNumberLimit}
           />
           <PaginatorSelectorArrowBtn
-            visible={shouldHaveRightArrow()}
-            aria-hidden={!shouldHaveRightArrow()}
-            onClick={() => handleOnPageClick(selectedPageNumber + 1)}
+            visible={nextEnabled}
+            aria-hidden={!nextEnabled}
+            onClick={handleOnNextPageClick}
             data-testid="selector-arrow-btn-right"
             aria-label="Neste side"
           >
