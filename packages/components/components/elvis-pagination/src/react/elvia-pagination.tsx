@@ -163,21 +163,21 @@ const Pagination: FC<PaginationProps> = function ({
     webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', selectedIndex);
   };
 
+  const getEndIndex = (pageSize: number, currentPage: number, totalItems: number): number => {
+    const lastPageEndIndex = pageSize * (currentPage + 1);
+
+    if (lastPageEndIndex > totalItems) {
+      return totalItems;
+    }
+
+    return lastPageEndIndex;
+  };
+
+  const getStartIndex = (pageSize: number, currentPage: number): number => {
+    return pageSize * currentPage + 1;
+  };
+
   const handleOnPageClick = (page: number): void => {
-    const getEndIndex = (pageSize: number, currentPage: number, totalItems: number): number => {
-      const lastPageEndIndex = pageSize * (currentPage + 1);
-
-      if (lastPageEndIndex > totalItems) {
-        return totalItems;
-      }
-
-      return lastPageEndIndex;
-    };
-
-    const getStartIndex = (pageSize: number, currentPage: number): number => {
-      return pageSize * currentPage + 1;
-    };
-
     if (page === currentPage) {
       return;
     }
