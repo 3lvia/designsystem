@@ -301,10 +301,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   };
 
   const getDatepickerValue = (type: 'start' | 'end'): Date | null => {
-    if (
-      (hasTimepickers && !valueIsSentAsProp && !!selectedDateRange[type]) ||
-      !isTouched(type ? 'startDate' : 'endDate')
-    ) {
+    if ((hasTimepickers && !valueIsSentAsProp && !!selectedDateRange[type]) || !isTouched(`${type}Date`)) {
       return null;
     }
 
