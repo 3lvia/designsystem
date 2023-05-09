@@ -11,11 +11,10 @@ export const Stepper: FC<StepperProps> = function ({
   // value,
   // valueOnChange,
   type = 'horizontal',
-  states,
+  steps,
   content,
   completeButtonText,
   forced = false,
-  titles,
   className,
   inlineStyle,
   webcomponent,
@@ -35,7 +34,7 @@ export const Stepper: FC<StepperProps> = function ({
   }, [webcomponent, contentRef, currentStep]);
 
   useEffect(() => {
-    console.log('current states', states?.[currentStep]);
+    console.log('current states', steps?.[currentStep]);
   }, [currentStep]);
 
   useEffect(() => {
@@ -60,9 +59,8 @@ export const Stepper: FC<StepperProps> = function ({
           className={className}
           content={content}
           forced={forced}
-          titles={titles}
           inlineStyle={inlineStyle}
-          states={states}
+          steps={steps}
           {...rest}
         />
       ) : (
@@ -75,9 +73,8 @@ export const Stepper: FC<StepperProps> = function ({
           className={className}
           content={content}
           forced={forced}
-          titles={titles}
           inlineStyle={inlineStyle}
-          states={states}
+          steps={steps}
           {...rest}
         />
       )}

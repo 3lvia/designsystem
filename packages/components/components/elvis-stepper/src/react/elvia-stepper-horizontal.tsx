@@ -17,13 +17,12 @@ import { isReachable } from './elvia-stepper';
 export const StepperHorizontal: FC<StepperTypeProps> = function ({
   numSteps,
   currentStep,
-  states,
+  steps,
   completeButtonText,
   className,
   forced = false,
   inlineStyle,
   handleStepChange,
-  titles,
   contentRef,
   content,
   ...rest
@@ -41,11 +40,11 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
               <StepHeader>
                 <StepNumber
                   isActive={stepIndex === currentStep}
-                  isError={states?.[stepIndex]?.isError}
-                  isCompleted={states?.[stepIndex]?.isCompleted}
-                  isDisabled={!isReachable(forced, stepIndex, states)}
+                  isError={steps?.[stepIndex]?.isError}
+                  isCompleted={steps?.[stepIndex]?.isCompleted}
+                  isDisabled={!isReachable(forced, stepIndex, steps)}
                   onClick={() =>
-                    handleStepChange(isReachable(forced, stepIndex, states) ? stepIndex : currentStep)
+                    handleStepChange(isReachable(forced, stepIndex, steps) ? stepIndex : currentStep)
                   }
                 >
                   {stepIndex}
@@ -56,13 +55,13 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
         })}
       </Steps>
       <StepperContent type="horizontal">
-        <StepperTitle type="horizontal">{titles?.[currentStep - 1] ?? ''}</StepperTitle>
-        <div ref={contentRef}>{content?.[currentStep - 1]}</div>
+        <StepperTitle type="horizontal">{steps?.[currentStep]?.title ?? ''}</StepperTitle>
+        <div ref={contentRef}>{content?.[currentStep]}</div>
         <StepperActions>
           <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
           <SecondaryButton
             onClick={() =>
-              handleStepChange(isReachable(forced, currentStep + 1, states) ? currentStep + 1 : currentStep)
+              handleStepChange(isReachable(forced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
             }
           >
             {completeButtonText && currentStep === numSteps ? completeButtonText : 'Next'}

@@ -5,11 +5,10 @@ export const config: ComponentConfig = {
   attributes: [
     { name: 'value', type: 'number' },
     { name: 'type', type: 'string' },
-    { name: 'states', type: 'object' },
+    { name: 'steps', type: 'object' },
     { name: 'completeButtonText', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'forced', type: 'boolean' },
-    { name: 'titles', type: 'object' },
     { name: 'inlineStyle', type: 'object' },
   ],
 };

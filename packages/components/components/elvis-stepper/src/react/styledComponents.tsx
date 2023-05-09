@@ -29,7 +29,7 @@ interface StepProps {
 export const Step = styled.div<StepProps>`
   display: flex;
   flex-direction: ${({ type }) => (type === 'vertical' ? 'column' : 'row')};
-  align-items: ${({ type, isActive }) => (type === 'vertical' && isActive ? 'start' : 'center')};
+  align-items: ${({ type }) => (type === 'vertical' ? 'start' : 'center')};
   gap: 4px;
 `;
 

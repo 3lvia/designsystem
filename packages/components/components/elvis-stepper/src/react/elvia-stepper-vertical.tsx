@@ -17,17 +17,17 @@ import { isReachable } from './elvia-stepper';
 export const StepperVertical: FC<StepperTypeProps> = function ({
   numSteps,
   currentStep,
-  states,
+  steps,
   completeButtonText,
   className,
   forced = false,
   inlineStyle,
   handleStepChange,
-  titles,
   contentRef,
   content,
   ...rest
 }) {
+  console.log(contentRef);
   return (
     <StepperContainer type="vertical" className={className} style={inlineStyle} {...rest}>
       <Steps type="vertical">
@@ -38,30 +38,30 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
               <StepHeader>
                 <StepNumber
                   isActive={stepIndex === currentStep}
-                  isError={states?.[stepIndex]?.isError}
-                  isCompleted={states?.[stepIndex]?.isCompleted}
-                  isDisabled={!isReachable(forced, stepIndex, states)}
+                  isError={steps?.[stepIndex]?.isError}
+                  isCompleted={steps?.[stepIndex]?.isCompleted}
+                  isDisabled={!isReachable(forced, stepIndex, steps)}
                   onClick={() =>
-                    handleStepChange(isReachable(forced, stepIndex, states) ? stepIndex : currentStep)
+                    handleStepChange(isReachable(forced, stepIndex, steps) ? stepIndex : currentStep)
                   }
                 >
                   {stepIndex}
                 </StepNumber>
                 <StepperTitle type="vertical" isActive={stepIndex === currentStep}>
-                  {titles?.[stepIndex - 1] ?? ''}
+                  {steps?.[stepIndex]?.title ?? ''}
                 </StepperTitle>
               </StepHeader>
               {stepIndex < numSteps && stepIndex !== currentStep && (
                 <StepLine type="vertical" isSelected={stepIndex - 1 < currentStep}></StepLine>
               )}
               <StepperContent type="vertical" isActive={stepIndex === currentStep}>
-                <div ref={contentRef}>{content?.[currentStep - 1]}</div>
+                <div ref={contentRef}>{content?.[currentStep]}</div>
                 <StepperActions>
                   <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
                   <SecondaryButton
                     onClick={() =>
                       handleStepChange(
-                        isReachable(forced, currentStep + 1, states) ? currentStep + 1 : currentStep,
+                        isReachable(forced, currentStep + 1, steps) ? currentStep + 1 : currentStep,
                       )
                     }
                   >

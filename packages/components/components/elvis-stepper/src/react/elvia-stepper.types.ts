@@ -4,6 +4,7 @@ import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { HasValue } from '@elvia/elvis-toolbox';
 
 interface StepState {
+  title: string;
   isError: boolean;
   isCompleted: boolean;
 }
@@ -15,9 +16,8 @@ export interface StepStates {
 export interface StepperTypeProps extends HasValue<number> {
   numSteps: number;
   currentStep: number;
-  states?: StepStates;
+  steps?: StepStates;
   forced?: boolean;
-  titles?: string[];
   completeButtonText?: string;
   className?: string;
   inlineStyle?: CSSProperties;
@@ -28,9 +28,8 @@ export interface StepperTypeProps extends HasValue<number> {
 
 export interface StepperProps extends HasValue<number> {
   type: string;
-  states?: StepStates;
+  steps?: StepStates;
   forced?: boolean;
-  titles?: string[];
   completeButtonText?: string;
   content?: JSX.Element[];
   className?: string;
