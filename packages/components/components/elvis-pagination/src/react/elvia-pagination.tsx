@@ -56,8 +56,6 @@ const Pagination: FC<PaginationProps> = function ({
   }, [numberOfElements]);
 
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
-  /** Calculate number of pages based on total elements divided by amount of elements showing. */
-  const [numberOfPages, setNumberOfPages] = useState(Math.ceil(numberOfElements / selectedDropdownValue));
   const [labelOptionsState, setLabelOptionsState] = useState<PaginationLabel>({
     ...defaultPaginationLabelOptions,
     ...labelOptions,
@@ -93,7 +91,6 @@ const Pagination: FC<PaginationProps> = function ({
   }, [labelOptions]);
 
   useEffect(() => {
-    setNumberOfPages(Math.ceil(numberOfElements / selectedDropdownValue));
     const allElementsShowing =
       numberOfElements > 0 && Math.ceil(numberOfElements / selectedDropdownValue) < 2;
     setShowPaginationNumbers(!allElementsShowing);
@@ -115,14 +112,6 @@ const Pagination: FC<PaginationProps> = function ({
     webcomponent?.setProps({ value: valueToEmit }, true);
     webcomponent?.triggerEvent('valueOnChange', valueToEmit);
   };
-
-  const shouldHaveLeftArrow = (): boolean => {
-    return showPaginationNumbers && selectedPageNumber > 1;
-  };
-  const shouldHaveRightArrow = (): boolean => {
-    return showPaginationNumbers && selectedPageNumber < numberOfPages;
-  };
-
   /** -- DROPDOWN -- */
   /** Dropdown item is not valid if the value is not a number */
   const isValidDropdownItem = (dropdownItem: string): boolean => {
