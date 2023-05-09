@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useRef } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import {
   PaginationLabel,
@@ -42,8 +42,6 @@ const Pagination: FC<PaginationProps> = function ({
   ...rest
 }) {
   warnDeprecatedProps(config, arguments[0]);
-
-  const isInitialized = useRef<boolean>(false);
 
   const [selectedPageNumber, setSelectedPageNumber] = useState(
     value.start ? Math.ceil(value.start / parseInt(dropdownItems[dropdownSelectedItemIndex].value)) : 1,
@@ -106,16 +104,8 @@ const Pagination: FC<PaginationProps> = function ({
     setSelectedDropdownValue(parseInt(dropdownItems[dropdownSelectedItemIndex].value));
   }, [dropdownItems, dropdownSelectedItemIndex]);
 
-  useEffect(() => {
-    isInitialized.current = true;
-    return () => {
-      isInitialized.current = false;
-    };
-  }, []);
-
   const emitValueOnChangeEvent = (valueToEmit: VisibleElements): void => {
     if (
-      isInitialized.current === false ||
       valueToEmit.start === undefined ||
       valueToEmit.end === undefined ||
       valueToEmit.start > numberOfElements
