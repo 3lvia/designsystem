@@ -49,7 +49,6 @@ const Pagination: FC<PaginationProps> = function ({
   const [selectedDropdownValue, setSelectedDropdownValue] = useState(
     parseInt(dropdownItems[dropdownSelectedItemIndex].value),
   );
-  const previousDropdownValue = useRef(selectedDropdownValue);
 
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
   /** Calculate number of pages based on total elements divided by amount of elements showing. */
@@ -115,38 +114,6 @@ const Pagination: FC<PaginationProps> = function ({
     valueOnChange?.(valueToEmit);
     webcomponent?.setProps({ value: valueToEmit }, true);
     webcomponent?.triggerEvent('valueOnChange', valueToEmit);
-  };
-
-  const updateVisibleElementsForDropdownChange = (): void => {
-    setSelectedPageNumber((previousPageNumber) => {
-      const previousPaginationRange = getPaginationRange(
-        previousPageNumber,
-        previousDropdownValue.current,
-        numberOfElements,
-      );
-      if (previousPaginationRange.start === undefined) {
-        return previousPageNumber;
-      }
-      const firstElementIndex =
-        Math.floor((previousPaginationRange.start - 1) / selectedDropdownValue) * selectedDropdownValue + 1;
-
-      const newSelectedPageNumber = Math.ceil(firstElementIndex / selectedDropdownValue);
-
-      const newSelectedPageRange = getPaginationRange(
-        newSelectedPageNumber,
-        selectedDropdownValue,
-        numberOfElements,
-      );
-
-      // Don't update or dispatch new event if the value is identical to previous value.
-      if (
-        previousPaginationRange.start !== newSelectedPageRange.start ||
-        previousPaginationRange.end !== newSelectedPageRange.end
-      ) {
-        emitValueOnChangeEvent(newSelectedPageRange);
-      }
-      return newSelectedPageNumber;
-    });
   };
 
   const shouldHaveLeftArrow = (): boolean => {
