@@ -2605,7 +2605,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@elvia/elvis-accordion@*, @elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion":
+"@elvia/elvis-accordion@*, @elvia/elvis-accordion@workspace:*, @elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion"
   dependencies:
@@ -2627,30 +2627,6 @@ __metadata:
     react-is:
       optional: true
   languageName: unknown
-  linkType: soft
-
-"@elvia/elvis-accordion@portal:../components/components/elvis-accordion::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-accordion@portal:../components/components/elvis-accordion::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
   linkType: soft
 
 "@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^3.0.0, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
@@ -2686,7 +2662,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-badge@*, @elvia/elvis-badge@workspace:packages/components/components/elvis-badge":
+"@elvia/elvis-badge@*, @elvia/elvis-badge@workspace:*, @elvia/elvis-badge@workspace:packages/components/components/elvis-badge":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-badge@workspace:packages/components/components/elvis-badge"
   dependencies:
@@ -2708,29 +2684,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-badge@portal:../components/components/elvis-badge::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-badge@portal:../components/components/elvis-badge::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^8.0.0
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-box@*, @elvia/elvis-box@workspace:packages/components/components/elvis-box":
+"@elvia/elvis-box@*, @elvia/elvis-box@workspace:*, @elvia/elvis-box@workspace:packages/components/components/elvis-box":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-box@workspace:packages/components/components/elvis-box"
   dependencies:
@@ -2753,30 +2707,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-box@portal:../components/components/elvis-box::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-box@portal:../components/components/elvis-box::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-breadcrumb@*, @elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb":
+"@elvia/elvis-breadcrumb@*, @elvia/elvis-breadcrumb@workspace:*, @elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb"
   dependencies:
@@ -2800,31 +2731,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-breadcrumb@portal:../components/components/elvis-breadcrumb::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.1
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.1
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-card@*, @elvia/elvis-card@workspace:packages/components/components/elvis-card":
+"@elvia/elvis-card@*, @elvia/elvis-card@workspace:*, @elvia/elvis-card@workspace:packages/components/components/elvis-card":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-card@workspace:packages/components/components/elvis-card"
   dependencies:
@@ -2849,32 +2756,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-card@portal:../components/components/elvis-card::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-card@portal:../components/components/elvis-card::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-tooltip": ^1.2.1
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-carousel@*, @elvia/elvis-carousel@workspace:packages/components/components/elvis-carousel":
+"@elvia/elvis-carousel@*, @elvia/elvis-carousel@workspace:*, @elvia/elvis-carousel@workspace:packages/components/components/elvis-carousel":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-carousel@workspace:packages/components/components/elvis-carousel"
   dependencies:
@@ -2898,31 +2780,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-carousel@portal:../components/components/elvis-carousel::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-carousel@portal:../components/components/elvis-carousel::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-chip@*, @elvia/elvis-chip@workspace:packages/components/components/elvis-chip":
+"@elvia/elvis-chip@*, @elvia/elvis-chip@workspace:*, @elvia/elvis-chip@workspace:packages/components/components/elvis-chip":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-chip@workspace:packages/components/components/elvis-chip"
   dependencies:
@@ -2944,30 +2802,6 @@ __metadata:
     react-is:
       optional: true
   languageName: unknown
-  linkType: soft
-
-"@elvia/elvis-chip@portal:../components/components/elvis-chip::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-chip@portal:../components/components/elvis-chip::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.1
-    "@react-aria/interactions": ^3.8.4
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
   linkType: soft
 
 "@elvia/elvis-colors@^2.2.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
@@ -3078,7 +2912,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-context-menu@*, @elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu":
+"@elvia/elvis-context-menu@*, @elvia/elvis-context-menu@workspace:*, @elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu"
   dependencies:
@@ -3101,30 +2935,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-context-menu@portal:../components/components/elvis-context-menu::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-context-menu@portal:../components/components/elvis-context-menu::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-datepicker-range@*, @elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range":
+"@elvia/elvis-datepicker-range@*, @elvia/elvis-datepicker-range@workspace:*, @elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
@@ -3147,30 +2958,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-datepicker-range@portal:../components/components/elvis-datepicker-range::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-datepicker-range@portal:../components/components/elvis-datepicker-range::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-datepicker": ^6.2.5
-    "@elvia/elvis-timepicker": ^2.5.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.2.5, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.2.5, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
@@ -3194,31 +2982,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-datepicker@portal:../components/components/elvis-datepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-divider@*, @elvia/elvis-divider@workspace:packages/components/components/elvis-divider":
+"@elvia/elvis-divider@*, @elvia/elvis-divider@workspace:*, @elvia/elvis-divider@workspace:packages/components/components/elvis-divider":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-divider@workspace:packages/components/components/elvis-divider"
   dependencies:
@@ -3241,30 +3005,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-divider@portal:../components/components/elvis-divider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-divider@portal:../components/components/elvis-divider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^6.1.1, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^6.1.1, @elvia/elvis-dropdown@workspace:*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
@@ -3290,33 +3031,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@portal:../components/components/elvis-dropdown::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-dropdown@portal:../components/components/elvis-dropdown::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-icon": ^1.3.7
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-tooltip": ^1.2.1
-    "@elvia/elvis-typography": ^2.3.1
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-header@*, @elvia/elvis-header@workspace:packages/components/components/elvis-header":
+"@elvia/elvis-header@*, @elvia/elvis-header@workspace:*, @elvia/elvis-header@workspace:packages/components/components/elvis-header":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-header@workspace:packages/components/components/elvis-header"
   dependencies:
@@ -3340,31 +3055,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-header@portal:../components/components/elvis-header::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-header@portal:../components/components/elvis-header::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^2.7.0
-    "@elvia/elvis-colors": ^1.8.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.1
-    "@elvia/elvis-typography": ^2.3.1
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-icon@*, @elvia/elvis-icon@^1.3.7, @elvia/elvis-icon@^1.3.8, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
+"@elvia/elvis-icon@*, @elvia/elvis-icon@^1.3.7, @elvia/elvis-icon@^1.3.8, @elvia/elvis-icon@workspace:*, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-icon@workspace:packages/components/components/elvis-icon"
   dependencies:
@@ -3385,28 +3076,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-icon@portal:../components/components/elvis-icon::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-icon@portal:../components/components/elvis-icon::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.1
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-modal@*, @elvia/elvis-modal@workspace:packages/components/components/elvis-modal":
+"@elvia/elvis-modal@*, @elvia/elvis-modal@workspace:*, @elvia/elvis-modal@workspace:packages/components/components/elvis-modal":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
   dependencies:
@@ -3430,53 +3100,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-modal@portal:../components/components/elvis-modal::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-modal@portal:../components/components/elvis-modal::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-outline@portal:../components/components/elvis-outline::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-outline@portal:../components/components/elvis-outline::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-colors": ^1.4.3
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.1
-    styled-components: ^5.3.6
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-outline@workspace:packages/components/components/elvis-outline":
+"@elvia/elvis-outline@workspace:*, @elvia/elvis-outline@workspace:packages/components/components/elvis-outline":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-outline@workspace:packages/components/components/elvis-outline"
   dependencies:
@@ -3498,7 +3122,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-pagination@*, @elvia/elvis-pagination@workspace:packages/components/components/elvis-pagination":
+"@elvia/elvis-pagination@*, @elvia/elvis-pagination@workspace:*, @elvia/elvis-pagination@workspace:packages/components/components/elvis-pagination":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-pagination@workspace:packages/components/components/elvis-pagination"
   dependencies:
@@ -3523,32 +3147,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-pagination@portal:../components/components/elvis-pagination::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-pagination@portal:../components/components/elvis-pagination::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-dropdown": ^6.1.1
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-popover@*, @elvia/elvis-popover@workspace:packages/components/components/elvis-popover":
+"@elvia/elvis-popover@*, @elvia/elvis-popover@workspace:*, @elvia/elvis-popover@workspace:packages/components/components/elvis-popover":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-popover@workspace:packages/components/components/elvis-popover"
   dependencies:
@@ -3572,31 +3171,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-popover@portal:../components/components/elvis-popover::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-popover@portal:../components/components/elvis-popover::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-progress-linear@*, @elvia/elvis-progress-linear@workspace:packages/components/components/elvis-progress-linear":
+"@elvia/elvis-progress-linear@*, @elvia/elvis-progress-linear@workspace:*, @elvia/elvis-progress-linear@workspace:packages/components/components/elvis-progress-linear":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-progress-linear@workspace:packages/components/components/elvis-progress-linear"
   dependencies:
@@ -3616,28 +3191,6 @@ __metadata:
     react-is:
       optional: true
   languageName: unknown
-  linkType: soft
-
-"@elvia/elvis-progress-linear@portal:../components/components/elvis-progress-linear::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-progress-linear@portal:../components/components/elvis-progress-linear::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
   linkType: soft
 
 "@elvia/elvis-radio-filter@*, @elvia/elvis-radio-filter@workspace:packages/components/components/elvis-radio-filter":
@@ -3664,7 +3217,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-segmented-control@*, @elvia/elvis-segmented-control@workspace:packages/components/components/elvis-segmented-control":
+"@elvia/elvis-segmented-control@*, @elvia/elvis-segmented-control@workspace:*, @elvia/elvis-segmented-control@workspace:packages/components/components/elvis-segmented-control":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-segmented-control@workspace:packages/components/components/elvis-segmented-control"
   dependencies:
@@ -3691,33 +3244,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-segmented-control@portal:../components/components/elvis-segmented-control::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-segmented-control@portal:../components/components/elvis-segmented-control::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-icon": ^1.3.8
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    lodash.uniqueid: ^4.0.1
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-slider@*, @elvia/elvis-slider@workspace:packages/components/components/elvis-slider":
+"@elvia/elvis-slider@*, @elvia/elvis-slider@workspace:*, @elvia/elvis-slider@workspace:packages/components/components/elvis-slider":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-slider@workspace:packages/components/components/elvis-slider"
   dependencies:
@@ -3741,31 +3268,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-slider@portal:../components/components/elvis-slider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-slider@portal:../components/components/elvis-slider::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.3
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.1
-    "@elvia/elvis-typography": ^2.3.1
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-spotlight@*, @elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight":
+"@elvia/elvis-spotlight@*, @elvia/elvis-spotlight@workspace:*, @elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight"
   dependencies:
@@ -3786,28 +3289,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-spotlight@portal:../components/components/elvis-spotlight::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-spotlight@portal:../components/components/elvis-spotlight::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-tabs@*, @elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs":
+"@elvia/elvis-tabs@*, @elvia/elvis-tabs@workspace:*, @elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs"
   dependencies:
@@ -3833,32 +3315,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-tabs@portal:../components/components/elvis-tabs::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-tabs@portal:../components/components/elvis-tabs::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.2
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.1
-    "@elvia/elvis-typography": ^2.3.1
-    lodash.throttle: ^4.1.1
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^2.5.2, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
+"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^2.5.2, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:
@@ -3882,31 +3339,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-timepicker@portal:../components/components/elvis-timepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-timepicker@portal:../components/components/elvis-timepicker::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-toast@*, @elvia/elvis-toast@workspace:packages/components/components/elvis-toast":
+"@elvia/elvis-toast@*, @elvia/elvis-toast@workspace:*, @elvia/elvis-toast@workspace:packages/components/components/elvis-toast":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toast@workspace:packages/components/components/elvis-toast"
   dependencies:
@@ -3930,31 +3363,6 @@ __metadata:
     react-is:
       optional: true
   languageName: unknown
-  linkType: soft
-
-"@elvia/elvis-toast@portal:../components/components/elvis-toast::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-toast@portal:../components/components/elvis-toast::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    dompurify: ^3.0.1
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
   linkType: soft
 
 "@elvia/elvis-toolbox@^8.0.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
@@ -4004,7 +3412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@elvia/elvis-tooltip@*, @elvia/elvis-tooltip@^1.2.1, @elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip":
+"@elvia/elvis-tooltip@*, @elvia/elvis-tooltip@^1.2.1, @elvia/elvis-tooltip@workspace:*, @elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip"
   dependencies:
@@ -4025,28 +3433,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-tooltip@portal:../components/components/elvis-tooltip::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-tooltip@portal:../components/components/elvis-tooltip::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  languageName: node
-  linkType: soft
-
-"@elvia/elvis-typography@*, @elvia/elvis-typography@^2.3.1, @elvia/elvis-typography@^2.3.2, @elvia/elvis-typography@workspace:packages/elvis-typography":
+"@elvia/elvis-typography@*, @elvia/elvis-typography@^2.3.1, @elvia/elvis-typography@^2.3.2, @elvia/elvis-typography@workspace:*, @elvia/elvis-typography@workspace:packages/elvis-typography":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
@@ -4059,12 +3446,6 @@ __metadata:
     ts-node: ^10.9.1
     typescript: ~5.0.4
   languageName: unknown
-  linkType: soft
-
-"@elvia/elvis-typography@portal:../elvis-typography::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-typography@portal:../elvis-typography::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  languageName: node
   linkType: soft
 
 "@elvia/elvis@*, @elvia/elvis@workspace:packages/elvis":
@@ -10339,35 +9720,35 @@ __metadata:
     "@contentful/rich-text-html-renderer": ^15.11.1
     "@contentful/rich-text-types": ^15.11.1
     "@elvia/elvis": "portal:../elvis"
-    "@elvia/elvis-accordion": "portal:../components/components/elvis-accordion"
+    "@elvia/elvis-accordion": "workspace:*"
     "@elvia/elvis-assets-icons": ^2.13.0
-    "@elvia/elvis-badge": "portal:../components/components/elvis-badge"
-    "@elvia/elvis-box": "portal:../components/components/elvis-box"
-    "@elvia/elvis-breadcrumb": "portal:../components/components/elvis-breadcrumb"
-    "@elvia/elvis-card": "portal:../components/components/elvis-card"
-    "@elvia/elvis-carousel": "portal:../components/components/elvis-carousel"
-    "@elvia/elvis-chip": "portal:../components/components/elvis-chip"
+    "@elvia/elvis-badge": "workspace:*"
+    "@elvia/elvis-box": "workspace:*"
+    "@elvia/elvis-breadcrumb": "workspace:*"
+    "@elvia/elvis-card": "workspace:*"
+    "@elvia/elvis-carousel": "workspace:*"
+    "@elvia/elvis-chip": "workspace:*"
     "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-context-menu": "portal:../components/components/elvis-context-menu"
-    "@elvia/elvis-datepicker": "portal:../components/components/elvis-datepicker"
-    "@elvia/elvis-datepicker-range": "portal:../components/components/elvis-datepicker-range"
-    "@elvia/elvis-divider": "portal:../components/components/elvis-divider"
-    "@elvia/elvis-dropdown": "portal:../components/components/elvis-dropdown"
-    "@elvia/elvis-header": "portal:../components/components/elvis-header"
-    "@elvia/elvis-icon": "portal:../components/components/elvis-icon"
-    "@elvia/elvis-modal": "portal:../components/components/elvis-modal"
-    "@elvia/elvis-outline": "portal:../components/components/elvis-outline"
-    "@elvia/elvis-pagination": "portal:../components/components/elvis-pagination"
-    "@elvia/elvis-popover": "portal:../components/components/elvis-popover"
-    "@elvia/elvis-progress-linear": "portal:../components/components/elvis-progress-linear"
-    "@elvia/elvis-segmented-control": "portal:../components/components/elvis-segmented-control"
-    "@elvia/elvis-slider": "portal:../components/components/elvis-slider"
-    "@elvia/elvis-spotlight": "portal:../components/components/elvis-spotlight"
-    "@elvia/elvis-tabs": "portal:../components/components/elvis-tabs"
-    "@elvia/elvis-timepicker": "portal:../components/components/elvis-timepicker"
-    "@elvia/elvis-toast": "portal:../components/components/elvis-toast"
-    "@elvia/elvis-tooltip": "portal:../components/components/elvis-tooltip"
-    "@elvia/elvis-typography": "portal:../elvis-typography"
+    "@elvia/elvis-context-menu": "workspace:*"
+    "@elvia/elvis-datepicker": "workspace:*"
+    "@elvia/elvis-datepicker-range": "workspace:*"
+    "@elvia/elvis-divider": "workspace:*"
+    "@elvia/elvis-dropdown": "workspace:*"
+    "@elvia/elvis-header": "workspace:*"
+    "@elvia/elvis-icon": "workspace:*"
+    "@elvia/elvis-modal": "workspace:*"
+    "@elvia/elvis-outline": "workspace:*"
+    "@elvia/elvis-pagination": "workspace:*"
+    "@elvia/elvis-popover": "workspace:*"
+    "@elvia/elvis-progress-linear": "workspace:*"
+    "@elvia/elvis-segmented-control": "workspace:*"
+    "@elvia/elvis-slider": "workspace:*"
+    "@elvia/elvis-spotlight": "workspace:*"
+    "@elvia/elvis-tabs": "workspace:*"
+    "@elvia/elvis-timepicker": "workspace:*"
+    "@elvia/elvis-toast": "workspace:*"
+    "@elvia/elvis-tooltip": "workspace:*"
+    "@elvia/elvis-typography": "workspace:*"
     "@types/lodash.debounce": ^4.0.6
     "@types/natural-compare-lite": ^1.4.0
     "@types/node": 16.11.7
