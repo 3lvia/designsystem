@@ -17,6 +17,7 @@ export const Paginator = styled.div<PaginatorProps>`
   width: 100%;
   row-gap: 8px;
   user-select: none;
+  background-color: lightblue;
 `;
 
 export const PaginatorInfoContainer = styled.div`
