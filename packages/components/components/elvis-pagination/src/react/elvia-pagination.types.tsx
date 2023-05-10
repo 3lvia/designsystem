@@ -1,4 +1,4 @@
-import { BaseProps } from '@elvia/elvis-toolbox';
+import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 
 export interface DropdownItem {
   value: string;
@@ -45,9 +45,7 @@ export interface DeprecatedPaginationProps {
   labelOf?: string;
 }
 
-export interface PaginationProps extends BaseProps, DeprecatedPaginationProps {
-  value?: VisibleElements;
-  valueOnChange?: (value: VisibleElements) => void;
+export interface PaginationProps extends BaseProps, HasValue<VisibleElements>, DeprecatedPaginationProps {
   numberOfElements?: number;
   lastNumberLimit?: number;
   alignment?: 'left' | 'right';

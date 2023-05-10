@@ -3,5 +3,9 @@
     <ng-content />
   </div>
 
-  <app-static-code-generator [staticContent]="staticContent.html" [comment]="staticContent.comment" />
+  <app-static-code-generator
+    [staticContent]="staticContent.html"
+    [hideReact]="hideReact"
+    [comment]="staticContent.comment"
+  />
 </div>

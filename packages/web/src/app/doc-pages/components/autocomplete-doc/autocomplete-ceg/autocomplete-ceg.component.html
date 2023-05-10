@@ -1,0 +1,17 @@
+<div class="e-form-field">
+  <label class="e-form-field__label" for="country-input">Country</label>
+  <div class="e-input">
+    <input
+      placeholder="Search for country"
+      [value]="chosenCountry"
+      (keyup)="onSearch($any($event).target.value)"
+      (click)="onInputClick()"
+      id="country-input"
+    />
+    <div class="e-autocomplete" *ngIf="showResults" id="country-options">
+      <span class="e-autocomplete__item" *ngFor="let country of results" (click)="selectCountry(country)">
+        {{ country }}
+      </span>
+    </div>
+  </div>
+</div>

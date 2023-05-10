@@ -2,6 +2,24 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.05.23",
+      "version": "2.3.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the Date Picker Range with Time Pickers would give a required error message when clicked on, instead of after clicking away from it."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Bumped <code>@elvia/elvis-datepicker</code> and <code>@elvia/elvis-timepicker</code> dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.05.23",
       "version": "2.3.4",
       "changelog": [
