@@ -10,9 +10,22 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { TableDocComponent } from './table-doc.component';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { TableCegComponent } from './table-ceg/table-ceg.component';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { TableSizeNormalDesktopCegComponent } from './table-size-normal-desktop-ceg/table-size-normal-desktop-ceg.component';
+import { TableSizeNormalMobileCegComponent } from './table-size-normal-mobile-ceg/table-size-normal-mobile-ceg.component';
+import { TableSizeCompactDesktopCegComponent } from './table-size-compact-desktop-ceg/table-size-compact-desktop-ceg.component';
+import { TableSizeCompactMobileCegComponent } from './table-size-compact-mobile-ceg/table-size-compact-mobile-ceg.component';
 
 @NgModule({
-  declarations: [TableDocComponent],
+  declarations: [
+    TableDocComponent,
+    TableCegComponent,
+    TableSizeNormalDesktopCegComponent,
+    TableSizeNormalMobileCegComponent,
+    TableSizeCompactDesktopCegComponent,
+    TableSizeCompactMobileCegComponent,
+  ],
   imports: [
     CommonModule,
     ComponentHeaderModule,
@@ -24,6 +37,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     WhenToUseModule,
     RouterModule,
     ComponentChangelogModule,
+    CegModule,
   ],
 })
 export class TableDocModule {}

@@ -10,38 +10,9 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-table-container overview-example">
-      <table class="e-table" aria-label="Beskrivelse av tabellen">
-        <caption class="e-sr-only">Beskrivelse av tabellen</caption>
-        <thead>
-          <tr>
-            <th scope="col">Column 1</th>
-            <th scope="col">Column 2</th>
-            <th scope="col">Column 3</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Row 1</td>
-            <td>Row 1</td>
-            <td>Row 1</td>
-          </tr>
-          <tr>
-            <td>Row 2</td>
-            <td>Row 2</td>
-            <td>Row 2</td>
-          </tr>
-          <tr>
-            <td>Row 3</td>
-            <td>Row 3</td>
-            <td>Row 3</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
-    </div>
+    <app-static-ceg>
+      <app-table-ceg />
+    </app-static-ceg>
   </div>
 
   <!--SIZE-->
@@ -55,7 +26,9 @@
           scanability with more space than the compact version. Normal is most used in external systems.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleDesktop"></app-component-example-v1>
+              <app-static-ceg>
+                <app-table-size-normal-desktop-ceg />
+              </app-static-ceg>
             </ng-container>
           </app-component-subsubsection>
 
@@ -64,10 +37,9 @@
               The Elvia design system does not include table functionality, which means the design for mobiles
               included here will not automatically appear when switching to smaller screens. The text in the
               last column will always be aligned to the right on phones.
-              <app-component-example-v1
-                [codeHTML]="exampleMobile"
-                [isMobileExample]="true"
-              ></app-component-example-v1>
+              <app-static-ceg [phoneExample]="true">
+                <app-table-size-normal-mobile-ceg />
+              </app-static-ceg>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -80,7 +52,9 @@
           that’s typically easier for the user to navigate in.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleCompact"></app-component-example-v1>
+              <app-static-ceg>
+                <app-table-size-compact-desktop-ceg />
+              </app-static-ceg>
             </ng-container>
           </app-component-subsubsection>
 
@@ -89,10 +63,9 @@
               The Elvia design system does not include table functionality, which means the design for mobiles
               included here will not automatically appear when switching to smaller screens. The text in the
               last column will always be aligned to the right on phones.
-              <app-component-example-v1
-                [codeHTML]="exampleCompactMobile"
-                [isMobileExample]="true"
-              ></app-component-example-v1>
+              <app-static-ceg [phoneExample]="true">
+                <app-table-size-compact-mobile-ceg />
+              </app-static-ceg>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
