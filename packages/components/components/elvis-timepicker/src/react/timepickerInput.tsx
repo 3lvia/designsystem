@@ -27,6 +27,7 @@ export const TimepickerInput: React.FC<Props> = ({
   const [inputValue, setInputValue] = useState('');
   const [hasSelectedText, setHasSelectedText] = useState(false);
   const [caretIndex, setCaretIndex] = useState(0);
+  const [touched, setTouched] = useState(false);
 
   const isNumericValue = (value: string): boolean => {
     return /^\d+$/.test(value);
@@ -154,6 +155,18 @@ export const TimepickerInput: React.FC<Props> = ({
     return `${padDigit(date.getHours())}.${padDigit(date.getMinutes())}`;
   };
 
+  const onInputFocus = (): void => {
+    setTouched(true);
+    onFocus();
+  };
+
+  useEffect(() => {
+    if (touched) {
+      const [hour, minute] = inputValue.split('.');
+      validateInputValue(hour, minute);
+    }
+  }, [required]);
+
   useEffect(() => {
     setInputValue(getFormattedInputValue(time));
     onErrorChange(undefined);
@@ -183,7 +196,7 @@ export const TimepickerInput: React.FC<Props> = ({
       onKeyDown={onKeyDown}
       onChange={parseInput}
       onBlur={onBlur}
-      onFocus={onFocus}
+      onFocus={onInputFocus}
       data-testid="input"
       aria-live="polite"
       required={required}
