@@ -90,6 +90,9 @@ const Pagination: FC<PaginationProps> = function ({
     if (value.start === undefined || value.end === undefined || value.start === 0) {
       /* tom fjern denne senere / rydd opp */
       /*  setPage(0); */
+      console.log(
+        'value useEffect: value.start === undefined || value.end === undefined || value.start === 0',
+      );
       return;
     }
 
