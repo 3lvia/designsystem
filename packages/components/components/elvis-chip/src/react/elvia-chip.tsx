@@ -39,16 +39,6 @@ export const Chip: FC<ChipProps> = function ({
     }
   };
 
-  const decideChoiceCheckmarkIconOpacity = () => {
-    if (isDisabled) {
-      return '0.3';
-    } else if (isHovered || isSelectedState) {
-      return '1';
-    } else {
-      return '0.05';
-    }
-  };
-
   const { hoverProps, isHovered } = useHover({});
 
   return (
@@ -70,13 +60,7 @@ export const Chip: FC<ChipProps> = function ({
       {...rest}
     >
       {type === 'choice' && (
-        <IconWrapper
-          icon={check}
-          size="12px"
-          style={{
-            opacity: decideChoiceCheckmarkIconOpacity(),
-          }}
-        />
+        <IconWrapper icon={check} size="12px" color={isSelectedState || isHovered ? 'text-1' : 'border-2'} />
       )}
       {type === 'legend' && (
         <ChipDot
