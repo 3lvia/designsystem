@@ -7,6 +7,7 @@ export const config: ComponentConfig = {
     { name: 'type', type: 'string' },
     { name: 'steps', type: 'object' },
     { name: 'completeButtonText', type: 'string' },
+    { name: 'typography', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'forced', type: 'boolean' },
     { name: 'inlineStyle', type: 'object' },

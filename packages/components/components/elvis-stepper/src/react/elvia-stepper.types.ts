@@ -2,6 +2,7 @@ import { CSSProperties } from 'react';
 
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { HasValue } from '@elvia/elvis-toolbox';
+import { TypographyName } from '@elvia/elvis-typography';
 
 interface StepState {
   title: string;
@@ -19,6 +20,7 @@ export interface StepperTypeProps extends HasValue<number> {
   steps?: StepStates;
   forced?: boolean;
   completeButtonText?: string;
+  typography?: TypographyName;
   className?: string;
   inlineStyle?: CSSProperties;
   handleStepChange: (step: number) => void;
@@ -31,6 +33,7 @@ export interface StepperProps extends HasValue<number> {
   steps?: StepStates;
   forced?: boolean;
   completeButtonText?: string;
+  typography?: TypographyName;
   content?: JSX.Element[];
   className?: string;
   inlineStyle?: CSSProperties;

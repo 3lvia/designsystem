@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { getThemeColor } from '@elvia/elvis-colors';
-import { getTypographyCss } from '@elvia/elvis-typography';
-
+import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 interface StepperContainerProps {
   type: string;
 }
@@ -151,8 +150,6 @@ export const StepperContent = styled.div<StepperContentProps>`
     type === 'vertical' &&
     css`
       padding: 28px 30px;
-      /* border-left: 2px solid ${getThemeColor('border-disabled-1')};
-      margin: 0 15px; */
     `}
 `;
 
@@ -164,17 +161,22 @@ export const StepperContentWrapper = styled.div`
 interface StepperTitleProps {
   type: string;
   isActive?: boolean;
+  typography?: TypographyName;
 }
 export const StepperTitle = styled.div<StepperTitleProps>`
-  ${getTypographyCss('title-sm')}
+  ${({ typography }) => (typography ? getTypographyCss(typography) : getTypographyCss('title-sm'))}
   display: flex;
   justify-content: center;
   margin: 32px 0;
   cursor: pointer;
-  ${({ type, isActive }) =>
+  ${({ type, isActive, typography }) =>
     type === 'vertical' &&
     css`
-      ${isActive ? getTypographyCss('title-sm') : getTypographyCss('text-md')}
+      ${isActive && typography
+        ? getTypographyCss(typography)
+        : isActive
+        ? getTypographyCss('title-sm')
+        : getTypographyCss('text-md')}
       margin: 0 0;
     `}
 `;

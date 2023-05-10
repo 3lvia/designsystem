@@ -20,12 +20,13 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   currentStep,
   steps,
   completeButtonText,
-  className,
   forced = false,
-  inlineStyle,
   handleStepChange,
+  typography,
   contentRef,
   content,
+  className,
+  inlineStyle,
   ...rest
 }) {
   console.log(contentRef.current?.innerHTML);
@@ -45,7 +46,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                 >
                   {i + 1}
                 </StepNumber>
-                <StepperTitle type="vertical" isActive={i === currentStep}>
+                <StepperTitle type="vertical" isActive={i === currentStep} typography={typography}>
                   {steps?.[i + 1]?.title ?? ''}
                 </StepperTitle>
               </StepHeader>

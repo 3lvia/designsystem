@@ -12,9 +12,10 @@ export const Stepper: FC<StepperProps> = function ({
   // valueOnChange,
   type = 'horizontal',
   steps,
-  content,
   completeButtonText,
   forced = false,
+  typography,
+  content,
   className,
   inlineStyle,
   webcomponent,
@@ -50,28 +51,30 @@ export const Stepper: FC<StepperProps> = function ({
     <>
       {type === 'vertical' ? (
         <StepperVertical
-          contentRef={contentRef}
-          currentStep={currentStep}
-          handleStepChange={handleStepChange}
           numSteps={numSteps}
+          currentStep={currentStep}
           completeButtonText={completeButtonText}
-          className={className}
-          content={content}
           forced={forced}
+          handleStepChange={handleStepChange}
+          typography={typography}
+          contentRef={contentRef}
+          content={content}
+          className={className}
           inlineStyle={inlineStyle}
           steps={steps}
           {...rest}
         />
       ) : (
         <StepperHorizontal
-          contentRef={contentRef}
-          currentStep={currentStep}
-          handleStepChange={handleStepChange}
           numSteps={numSteps}
+          currentStep={currentStep}
           completeButtonText={completeButtonText}
-          className={className}
-          content={content}
           forced={forced}
+          handleStepChange={handleStepChange}
+          typography={typography}
+          contentRef={contentRef}
+          content={content}
+          className={className}
           inlineStyle={inlineStyle}
           steps={steps}
           {...rest}
