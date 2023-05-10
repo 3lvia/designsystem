@@ -21,7 +21,7 @@ export class InputValidationCegComponent implements StaticComponentExample, Afte
       ?.addEventListener('click', () => this.togglePasswordVisibility(inputElement));
   }
 
-  togglePasswordVisibility(inputElement: HTMLInputElement | null) {
+  togglePasswordVisibility(inputElement?: HTMLInputElement | null) {
     if (!inputElement) {
       return;
     }
