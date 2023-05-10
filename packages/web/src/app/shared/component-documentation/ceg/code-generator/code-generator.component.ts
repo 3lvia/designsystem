@@ -42,10 +42,7 @@ export class CodeGeneratorComponent implements OnInit {
   }
 
   get language(): Language {
-    if (this.activeTab === 'React') {
-      return 'jsx';
-    }
-    return 'html';
+    return this.activeTab === 'React' ? 'jsx' : 'html';
   }
 
   get activeTab() {
