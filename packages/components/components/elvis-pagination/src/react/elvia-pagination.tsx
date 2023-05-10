@@ -88,11 +88,14 @@ const Pagination: FC<PaginationProps> = function ({
 
   useEffect(() => {
     if (value.start === undefined || value.end === undefined || value.start === 0) {
-      setPage(0);
+      /* tom fjern denne senere / rydd opp */
+      /*  setPage(0); */
       return;
     }
 
     setPage(Math.ceil(value.start / selectedDropdownValue));
+    console.log('value useEffect: ', value);
+    console.log(Math.ceil(value.start / selectedDropdownValue));
   }, [value]);
 
   /** If selectedDropdownValue is not a number, hide the pagination */
