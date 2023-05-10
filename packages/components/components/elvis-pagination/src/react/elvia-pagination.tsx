@@ -74,12 +74,7 @@ const Pagination: FC<PaginationProps> = function ({
       return;
     }
     const nextPage = Math.ceil((startIndex + 1) / selectedDropdownValue) - 1;
-
     setPageSize(selectedDropdownValue, nextPage);
-
-    const start = getStartIndex(selectedDropdownValue, nextPage);
-    const end = getEndIndex(selectedDropdownValue, nextPage, numberOfElementsState);
-    emitValueOnChangeEvent({ start: start, end: end });
   }, [selectedDropdownValue]);
 
   const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
@@ -142,12 +137,14 @@ const Pagination: FC<PaginationProps> = function ({
   };
 
   /** Update pagination values and dispatch dropdownSelectedItemIndex events */
-  const handleDropdownValueChange = (newSelectedDropdownValue: string): void => {
+  const handleDropdownValueChange = (incomingSelectedDropdownValue: string): void => {
+    const newSelectedDropdownValue = parseInt(incomingSelectedDropdownValue);
+
     // Don't update or dispatch new event if the value is identical to previous value.
-    if (parseInt(newSelectedDropdownValue) === selectedDropdownValue) {
+    if (newSelectedDropdownValue === selectedDropdownValue) {
       return;
     }
-    if (!isValidDropdownItem(newSelectedDropdownValue)) {
+    if (!isValidDropdownItem(incomingSelectedDropdownValue)) {
       setShowPaginationNumbers(false);
       return;
     }
@@ -155,9 +152,16 @@ const Pagination: FC<PaginationProps> = function ({
       setShowPaginationNumbers(true);
     }
 
-    setSelectedDropdownValue(parseInt(newSelectedDropdownValue));
+    setSelectedDropdownValue(newSelectedDropdownValue);
 
-    const selectedIndex = dropdownItems.findIndex((item) => item.value === newSelectedDropdownValue);
+    //emit indexes
+    const nextPage = Math.ceil((startIndex + 1) / newSelectedDropdownValue) - 1;
+    const start = getStartIndex(newSelectedDropdownValue, nextPage);
+    const end = getEndIndex(newSelectedDropdownValue, nextPage, numberOfElementsState);
+    emitValueOnChangeEvent({ start: start, end: end });
+
+    //emit dropdownSelectedItemIndex
+    const selectedIndex = dropdownItems.findIndex((item) => item.value === incomingSelectedDropdownValue);
     dropdownSelectedItemIndexOnChange?.(selectedIndex);
     webcomponent?.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
     webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', selectedIndex);

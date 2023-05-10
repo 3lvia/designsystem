@@ -2,6 +2,24 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "??.05.23",
+      "version": "3.4.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Pagination now correctly emits the <code>onPageChange</code> event when changing the dropdown value."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Component refactored with <code>react-use-pagination</code> to streamline internal state management."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.05.23",
       "version": "3.4.0",
       "changelog": [
