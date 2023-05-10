@@ -1,4 +1,4 @@
-import { Component, ContentChild } from '@angular/core';
+import { Component, ContentChild, Input } from '@angular/core';
 import { StaticComponentExample } from './static-component-example';
 
 @Component({
@@ -8,4 +8,5 @@ import { StaticComponentExample } from './static-component-example';
 })
 export class StaticCegComponent {
   @ContentChild(StaticComponentExample, { static: true }) staticContent: StaticComponentExample;
+  @Input() hideReact: boolean;
 }
