@@ -73,7 +73,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
             <MenuHr></MenuHr>
             <Footer>
               <TertiaryButton size="sm" onClick={onSignOutClick}>
-                <IconWrapper icon={logout} size="xs" color="black" />
+                <IconWrapper icon={logout} size="xs" />
                 Logg ut
               </TertiaryButton>
             </Footer>

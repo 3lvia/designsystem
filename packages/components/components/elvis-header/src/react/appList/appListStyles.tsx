@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -35,7 +35,7 @@ export const IconContainer = styled.div`
 export const IconLetters = styled.div`
   ${getTypographyCss('text-md-strong')};
   font-size: 18px;
-  color: ${getColor('elvis-on')};
+  color: ${getThemeColor('static-white')};
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -43,7 +43,7 @@ export const IconLetters = styled.div`
   color: transparent;
 
   // Works in all browsers, despite webkit prefix
-  -webkit-text-stroke: 1px ${getColor('elvis-on')};
+  -webkit-text-stroke: 1px ${getThemeColor('static-white')};
   -webkit-backface-visibility: hidden;
 
   // Fixes text jumping after scale animation completes
@@ -70,7 +70,7 @@ export const AppLink = styled.a<{ isActive: boolean }>`
 
         ${IconLetters} {
           -webkit-text-stroke-width: 0;
-          color: ${getColor('elvia-on')};
+          color: ${getThemeColor('static-white')};
         }
 
         ${Icon} {

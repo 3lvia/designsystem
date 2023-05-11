@@ -60,7 +60,6 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
       >
         <IconWrapper
           icon={userMenuIsOpen ? removeCircleColor : moreMenu}
-          color="black"
           size={userMenuIsOpen ? 'md' : 'sm'}
         />
       </IconButton>
@@ -85,7 +84,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
                   <section>
                     <TertiaryButton size="sm" onClick={onSignOutClick}>
-                      <IconWrapper icon={logout} size="xs" color="black" />
+                      <IconWrapper icon={logout} size="xs" />
                       Logg ut
                     </TertiaryButton>
                   </section>
