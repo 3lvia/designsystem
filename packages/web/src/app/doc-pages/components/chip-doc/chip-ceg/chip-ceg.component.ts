@@ -66,7 +66,7 @@ export class ChipCegComponent implements ComponentExample {
           inputType: 'input',
         },
       },
-      groupOrder: ['Color', 'State', 'Text'],
+      groupOrder: ['Color', 'Text'],
     },
     {
       type: 'Choice',
@@ -79,7 +79,7 @@ export class ChipCegComponent implements ComponentExample {
           inputType: 'input',
         },
       },
-      groupOrder: ['State', 'Text'],
+      groupOrder: ['Text'],
     },
   ]);
 
