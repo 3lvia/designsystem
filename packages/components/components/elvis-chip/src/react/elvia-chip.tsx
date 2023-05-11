@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
-import { ChipComponent, ChipDot, ChipTitle, ChipLoading } from './styledComponents';
-import { ChipProps } from './elvia-chip.types';
-import { useHover } from '@react-aria/interactions';
-import { warnDeprecatedProps, useWebComponentState, IconWrapper } from '@elvia/elvis-toolbox';
-import { config } from './config';
 import check from '@elvia/elvis-assets-icons/dist/icons/check';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
+import { getBaseThemeColor, getThemeColor } from '@elvia/elvis-colors';
+import { IconWrapper, useWebComponentState, warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { useHover } from '@react-aria/interactions';
+import React, { FC } from 'react';
+import { config } from './config';
+import { ChipProps } from './elvia-chip.types';
+import { ChipComponent, ChipDot, ChipLoading, ChipTitle } from './styledComponents';
 
 export const Chip: FC<ChipProps> = function ({
   ariaLabel,
@@ -39,6 +40,15 @@ export const Chip: FC<ChipProps> = function ({
     }
   };
 
+  const getTextColor = (): string => {
+    if (isDisabled) {
+      return getThemeColor('text-disabled-1');
+    } else if (type === 'removable' && isHovered && !isDisabled) {
+      return getBaseThemeColor('black', 'dark');
+    }
+    return getThemeColor('text-1');
+  };
+
   const { hoverProps, isHovered } = useHover({});
 
   return (
@@ -56,6 +66,7 @@ export const Chip: FC<ChipProps> = function ({
       className={className ?? ''}
       isLoading={isLoading}
       style={inlineStyle}
+      disabled={isDisabled}
       data-testid="chip-button"
       {...rest}
     >
@@ -77,12 +88,17 @@ export const Chip: FC<ChipProps> = function ({
           <span />
         </ChipLoading>
       )}
-      <ChipTitle isDisabled={isDisabled} isHidden={isLoading} data-testid="chip-label">
+      <ChipTitle
+        chipType={type}
+        isDisabled={isDisabled}
+        isHovering={isHovered}
+        isHidden={isLoading}
+        data-testid="chip-label"
+        style={{ color: getTextColor() }}
+      >
         {value}
       </ChipTitle>
-      {type === 'removable' && (
-        <IconWrapper icon={close} size="xxs" color={isDisabled ? 'text-disabled-1' : undefined} />
-      )}
+      {type === 'removable' && <IconWrapper icon={close} size="xxs" color={getTextColor()} />}
     </ChipComponent>
   );
 };

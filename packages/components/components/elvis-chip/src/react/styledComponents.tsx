@@ -21,17 +21,26 @@ export const chipBackgroundColorsDark = {
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
 
-const getChipBackground = (color: ColorType, isSelected: boolean, type: ChipType): string => {
+const getChipBackground = (
+  color: ColorType,
+  isSelected: boolean,
+  isHovering: boolean,
+  isDisabled: boolean,
+  isLoading: boolean,
+  type: ChipType,
+): string => {
   switch (type) {
     case 'removable':
-      return setOpacity(chipBackgroundColors[color], 30);
+      return isHovering && !isDisabled
+        ? getBaseThemeColor('green', 'light')
+        : setOpacity(chipBackgroundColors[color], 30);
     case 'choice':
       if (isSelected) {
         return setOpacity(chipBackgroundColors['green'], 30);
       }
       return 'transparent';
     case 'legend':
-      if (isSelected) {
+      if (isSelected && !isLoading) {
         return setOpacity(chipBackgroundColors[color], 30);
       }
       return 'transparent';
@@ -49,12 +58,16 @@ const getChipBorderDark = (
   color: ColorType,
   isSelected: boolean,
   isDisabled: boolean,
+  isHovering: boolean,
+  isLoading: boolean,
   type: ChipType,
 ): string => {
   switch (type) {
     case 'removable':
       if (isDisabled) {
         return `${setOpacity(chipBackgroundColorsDark[color], 30)}`;
+      } else if (isHovering) {
+        return 'transparent';
       }
       return `${chipBackgroundColorsDark[color]}`;
     case 'choice':
@@ -63,7 +76,7 @@ const getChipBorderDark = (
       }
       return `${getBaseThemeColor('grey-60', 'dark')}`;
     case 'legend':
-      if (isSelected) {
+      if (isSelected && !isLoading) {
         return `${chipBackgroundColorsDark[color]}`;
       }
       return `${getBaseThemeColor('grey-60', 'dark')}`;
@@ -89,26 +102,29 @@ type ChipComponentProps = {
 };
 
 export const ChipComponent = styled.button<ChipComponentProps>`
+  position: relative;
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
-  box-sizing: border-box;
   border: solid 1px ${({ isLoading, isSelected, chipType }) => getChipBorder(isLoading, isSelected, chipType)};
-  background-color: ${({ color, isSelected, chipType }) => getChipBackground(color, isSelected, chipType)};
-  cursor: ${({ isDisabled, isLoading }) => getCursor(isDisabled, isLoading)};
-  font-size: 14px;
-  line-height: 16px;
+  background-color: ${({ color, isSelected, isHovering, isDisabled, isLoading, chipType }) =>
+    getChipBackground(color, isSelected, isHovering, isDisabled, isLoading, chipType)};
   padding: 7px 15px;
   border-radius: 24px;
   transition: background-color 150ms ease-in;
   white-space: nowrap;
-  position: relative;
+  cursor: ${({ isDisabled, isLoading }) => getCursor(isDisabled, isLoading)};
+
   .e-theme-dark && {
     border: solid 1px
-      ${({ color, isSelected, isDisabled, chipType }) =>
-        getChipBorderDark(color, isSelected, isDisabled, chipType)};
-    background-color: transparent !important;
+      ${({ color, isSelected, isDisabled, isHovering, isLoading, chipType }) =>
+        getChipBorderDark(color, isSelected, isDisabled, isHovering, isLoading, chipType)};
+    background-color: transparent;
+    &:hover {
+      background-color: ${({ chipType, isDisabled }) =>
+        chipType === 'removable' && !isDisabled && getBaseThemeColor('green', 'dark')};
+    }
   }
 `;
 
@@ -171,17 +187,20 @@ export const ChipDot = styled.span<ChipDotProps>`
 `;
 
 interface ChipTitleProps {
+  chipType: ChipType;
   isDisabled: boolean;
+  isHovering: boolean;
   isHidden: boolean;
 }
 
 export const ChipTitle = styled.div<ChipTitleProps>`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
-  color: ${({ isDisabled }) => (isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-1'))};
   transition: opacity 150ms ease-in;
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;

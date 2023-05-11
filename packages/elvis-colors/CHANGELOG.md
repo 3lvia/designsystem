@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 2.3.0 (11.05.23)
+
+### New feature
+
+- Added `getBaseThemeColor()` function that can be used to fetch the base token in custom cases.
+
 ## 2.2.0 (25.04.23)
 
 ### New feature
