@@ -89,15 +89,11 @@ const Pagination: FC<PaginationProps> = function ({
   useEffect(() => {
     if (value.start === undefined || value.end === undefined || value.start === 0) {
       setPage(0);
-      console.log(
-        'value useEffect: value.start === undefined || value.end === undefined || value.start === 0',
-      );
+
       return;
     }
 
     setPage(Math.ceil(value.start / pageSize) - 1);
-    console.log('value useEffect: ', value);
-    console.log(Math.ceil(value.start / pageSize));
   }, [value]);
 
   /** If selectedDropdownValue is not a number, hide the pagination */
