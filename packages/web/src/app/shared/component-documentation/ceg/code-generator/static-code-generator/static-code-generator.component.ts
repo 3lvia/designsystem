@@ -29,7 +29,12 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private addNewLinesBetweenTags(code: string): string {
-    return code.replace(/>(.*?)</g, (_, innerContent?: string) => `>\n${innerContent?.trim()}\n<`);
+    return code.replace(/>(.*?)</g, (_, innerContent?: string) => {
+      if (innerContent && innerContent.trim().length > 0) {
+        return `>\n${innerContent.trim()}\n<`;
+      }
+      return '>\n<';
+    });
   }
 
   private cleanSrcAttribute(code: string): string {
