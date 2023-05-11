@@ -28,8 +28,13 @@ export class HeaderCegComponent implements ComponentExample {
     externalHeader?.classList.toggle('e-none');
 
     const mainElement = document.getElementById('main-content');
-    mainElement?.classList.toggle('e-bg-grey-05');
+    // mainElement?.classList.toggle('e-bg-grey-05');
 
     this.headerIsVisible = !this.headerIsVisible;
+  }
+
+  toggleTheme() {
+    const mainElement = document.getElementById('main-content');
+    mainElement?.classList.toggle('e-theme-dark');
   }
 }
