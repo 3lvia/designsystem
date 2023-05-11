@@ -2785,7 +2785,7 @@ __metadata:
   resolution: "@elvia/elvis-chip@workspace:packages/components/components/elvis-chip"
   dependencies:
     "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-colors": ^2.3.0
     "@elvia/elvis-component-wrapper": ^4.1.2
     "@elvia/elvis-toolbox": ^8.0.0
     "@react-aria/interactions": ^3.8.4
@@ -2804,7 +2804,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@^2.2.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@^2.2.0, @elvia/elvis-colors@^2.3.0, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
