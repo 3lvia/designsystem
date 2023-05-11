@@ -2647,7 +2647,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-assets-icons@npm:^2.13.0, @elvia/elvis-assets-icons@npm:^2.6.1, @elvia/elvis-assets-icons@npm:^2.7.0":
+"@elvia/elvis-assets-icons@npm:^2.13.0, @elvia/elvis-assets-icons@npm:^2.6.1":
   version: 2.13.0
   resolution: "@elvia/elvis-assets-icons@npm:2.13.0"
   dependencies:
@@ -3035,11 +3035,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-header@workspace:packages/components/components/elvis-header"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.7.0
-    "@elvia/elvis-colors": ^1.8.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-toolbox": ^7.8.1
-    "@elvia/elvis-typography": ^2.3.1
+    "@elvia/elvis-assets-icons": ^3.0.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-toolbox": ^8.0.0
+    "@elvia/elvis-typography": ^2.3.2
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
