@@ -10,6 +10,14 @@ export const chipBackgroundColors = {
   orange: getBaseThemeColor('orange-mango', 'light'),
   red: getBaseThemeColor('red-tomato', 'light'),
 };
+export const chipBackgroundColorsDark = {
+  green: getBaseThemeColor('green-apple', 'dark'),
+  violet: getBaseThemeColor('violet-grape', 'dark'),
+  blue: getBaseThemeColor('blue-berry', 'dark'),
+  purple: getBaseThemeColor('purple-plum', 'dark'),
+  orange: getBaseThemeColor('orange-mango', 'dark'),
+  red: getBaseThemeColor('red-tomato', 'dark'),
+};
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
 
@@ -46,17 +54,17 @@ const getChipBorderDark = (
   switch (type) {
     case 'removable':
       if (isDisabled) {
-        return `${setOpacity(chipBackgroundColors[color], 30)}`;
+        return `${setOpacity(chipBackgroundColorsDark[color], 30)}`;
       }
-      return `${chipBackgroundColors[color]}`;
+      return `${chipBackgroundColorsDark[color]}`;
     case 'choice':
       if (isSelected) {
-        return `${chipBackgroundColors['green']}`;
+        return `${chipBackgroundColorsDark['green']}`;
       }
       return `${getBaseThemeColor('grey-60', 'dark')}`;
     case 'legend':
       if (isSelected) {
-        return `${chipBackgroundColors[color]}`;
+        return `${chipBackgroundColorsDark[color]}`;
       }
       return `${getBaseThemeColor('grey-60', 'dark')}`;
   }
@@ -96,11 +104,11 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   transition: background-color 150ms ease-in;
   white-space: nowrap;
   position: relative;
-  .e-theme-dark & {
+  .e-theme-dark && {
     border: solid 1px
       ${({ color, isSelected, isDisabled, chipType }) =>
         getChipBorderDark(color, isSelected, isDisabled, chipType)};
-    background-color: 'transparent' !important;
+    background-color: transparent !important;
   }
 `;
 
@@ -157,7 +165,7 @@ export const ChipDot = styled.span<ChipDotProps>`
   border-radius: 50%;
   transition: background-color 150ms ease-in;
   background-color: ${({ showDot, color }) =>
-    showDot ? chipBackgroundColors[color] : getThemeColor('border-2')};
+    showDot ? chipBackgroundColors[color] : getThemeColor('border-4')};
   opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;

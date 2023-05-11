@@ -60,7 +60,7 @@ export const Chip: FC<ChipProps> = function ({
       {...rest}
     >
       {type === 'choice' && (
-        <IconWrapper icon={check} size="12px" color={isSelectedState || isHovered ? 'text-1' : 'border-2'} />
+        <IconWrapper icon={check} size="12px" color={isSelectedState || isHovered ? 'text-1' : 'border-4'} />
       )}
       {type === 'legend' && (
         <ChipDot
