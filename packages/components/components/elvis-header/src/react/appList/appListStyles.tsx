@@ -35,7 +35,6 @@ export const IconContainer = styled.div`
 export const IconLetters = styled.div`
   ${getTypographyCss('text-md-strong')};
   font-size: 18px;
-  color: ${getThemeColor('static-white')};
   font-weight: 700;
   display: flex;
   align-items: center;
