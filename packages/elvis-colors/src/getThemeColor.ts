@@ -129,18 +129,18 @@ export const getCustomThemeColor = (
 };
 
 /**
- * Get a contrast color from a theme by label.
- * @param label
+ * Get a hex code for a specified color and theme.
+ * @param label Base token label
  * @param themeName The theme name. Defaults to 'light'.
- * @returns The color hex code.
+ * @returns The hex code.
  * @example
- * const contrastColor = getBaseThemeColor('grey-10', 'dark');
+ * const baseColor = getBaseColor('grey-10', 'dark');
  *
  * @since 2.3.0
  */
-export function getBaseThemeColor(
+export function getBaseColor(
   label: DarkThemeColorName | LightThemeColorName,
-  themeName: ThemeName,
+  themeName: ThemeName = 'light',
 ): string {
   const colors = getBaseThemeColors(themeName);
   const color =

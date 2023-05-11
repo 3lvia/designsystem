@@ -1,6 +1,6 @@
 import check from '@elvia/elvis-assets-icons/dist/icons/check';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
-import { getBaseThemeColor, getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { IconWrapper, useWebComponentState, warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { useHover } from '@react-aria/interactions';
 import React, { FC } from 'react';
@@ -43,8 +43,8 @@ export const Chip: FC<ChipProps> = function ({
   const getTextColor = (): string => {
     if (isDisabled) {
       return getThemeColor('text-disabled-1');
-    } else if (type === 'removable' && isHovered && !isDisabled) {
-      return getBaseThemeColor('black', 'dark');
+    } else if (type === 'removable' && isHovered) {
+      return getThemeColor('static-black');
     }
     return getThemeColor('text-1');
   };

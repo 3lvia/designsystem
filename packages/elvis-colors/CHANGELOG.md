@@ -4,7 +4,7 @@
 
 ### New feature
 
-- Added `getBaseThemeColor()` function that can be used to fetch the base token in custom cases.
+- Added `getBaseColor()` function that can be used to fetch the base token in custom cases.
 
 ## 2.2.0 (25.04.23)
 
