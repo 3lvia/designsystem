@@ -23,7 +23,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "preserveSymlinks": true,
             "outputPath": "dist/elvia-designsystem",
             "allowedCommonJsDependencies": [
               "@contentful/rich-text-html-renderer",
