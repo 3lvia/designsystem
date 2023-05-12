@@ -1,7 +1,6 @@
 /* The data from this file in each component is used to display information to the user
 through the CEG (component example generator), an installation guide and a properties table. 
 These modules should always be imported for the component module and added in the html:
-- ComponentExampleGeneratorModule
 - ComponentPropertiesTableModule
 - ComponentInstallationModule
 */
