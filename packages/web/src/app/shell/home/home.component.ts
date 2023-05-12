@@ -72,6 +72,7 @@ export class HomeComponent implements OnInit {
       this.isPride = true;
     } else if (this.currentDate >= startDateConstitutionDate && this.currentDate <= endDateConstitutionDate) {
       this.isConstitutionDay = true;
+      this.overviewTitle = 'Hipp Hipp Hurra';
     } else {
       this.isNonHoliday = true;
     }
