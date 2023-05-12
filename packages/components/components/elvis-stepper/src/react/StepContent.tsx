@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { StepStates } from './elvia-stepper.types';
 import { StepperActions, StepperContent } from './styledComponents';
-import { isReachable } from './elvia-stepper';
+import { isReachable } from './utils';
 import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
 
 type StepContentProps = {
   currentStep: number;
-  numSteps: number;
+  numberOfSteps: number;
   steps?: StepStates;
   forced?: boolean;
   completeButtonText?: string;
@@ -18,7 +18,7 @@ type StepContentProps = {
 
 export const StepContent: FC<StepContentProps> = function ({
   currentStep,
-  numSteps,
+  numberOfSteps,
   steps,
   forced = false,
   completeButtonText,
@@ -37,7 +37,7 @@ export const StepContent: FC<StepContentProps> = function ({
             handleStepChange(isReachable(forced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
           }
         >
-          {completeButtonText && currentStep === numSteps ? completeButtonText : 'Next'}
+          {completeButtonText && currentStep === numberOfSteps ? completeButtonText : 'Next'}
         </SecondaryButton>
       </StepperActions>
     </StepperContent>

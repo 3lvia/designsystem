@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StepStates } from './elvia-stepper.types';
 import { StepHeader, StepNumber, StepperTitle } from './styledComponents';
-import { isReachable } from './elvia-stepper';
+import { isReachable } from './utils';
 import { TypographyName } from '@elvia/elvis-typography';
 
 type VerticalStepElementProps = {

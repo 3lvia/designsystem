@@ -140,7 +140,7 @@ export const StepNumber = styled.div<StepNumberProps>`
         height: 8px;
         border-radius: 15px;
         content: '';
-        background-color: white;
+        background-color: ${getThemeColor('icon-filled-foreground')};
         transform: translateX(10px) rotate(-43deg);
         transform-origin: left bottom;
       }
@@ -153,7 +153,7 @@ export const StepNumber = styled.div<StepNumberProps>`
         height: 15px;
         border-radius: 15px;
         content: '';
-        background-color: white;
+        background-color: ${getThemeColor('icon-filled-foreground')};
         transform: translateX(10px) rotate(43deg);
         transform-origin: left bottom;
       }

@@ -1,18 +1,17 @@
 import React, { FC, useMemo } from 'react';
 import { StepperTypeProps } from './elvia-stepper.types';
 import { Steps, StepperContainer, StepperTitle, Step, StepNumber } from './styledComponents';
-import { isReachable } from './elvia-stepper';
+import { isReachable, numberShouldBeVisible } from './utils';
 import { StepDivider } from './StepDivider';
 import { StepContent } from './StepContent';
 
 export const StepperHorizontal: FC<StepperTypeProps> = function ({
-  numSteps,
+  numberOfSteps,
   currentStep,
   steps,
   completeButtonText,
   forced = false,
   handleStepChange,
-  numberShouldBeVisible,
   typography,
   contentRef,
   content,
@@ -20,13 +19,16 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   inlineStyle,
   ...rest
 }) {
-  const stepNumbersArray = useMemo(() => Array.from({ length: numSteps }, (_, i) => i + 1), [numSteps]);
+  const stepNumbersArray = useMemo(
+    () => Array.from({ length: numberOfSteps }, (_, i) => i + 1),
+    [numberOfSteps],
+  );
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
       <Steps type="horizontal">
         {stepNumbersArray.map(
           (stepNumber) =>
-            numberShouldBeVisible(stepNumber) && (
+            numberShouldBeVisible(stepNumber, currentStep, numberOfSteps) && (
               <Step type="horizontal" key={stepNumber} isActive={stepNumber === currentStep}>
                 <StepNumber
                   isActive={stepNumber === currentStep}
@@ -39,9 +41,9 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
                 >
                   {stepNumber}
                 </StepNumber>
-                {stepNumber < numSteps && (
+                {stepNumber < numberOfSteps && (
                   <StepDivider
-                    isDots={!numberShouldBeVisible(stepNumber + 1)}
+                    isDots={!numberShouldBeVisible(stepNumber + 1, currentStep, numberOfSteps)}
                     type="horizontal"
                     isSelected={currentStep > stepNumber}
                     isActive={stepNumber === currentStep}
@@ -57,7 +59,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
       <StepContent
         currentStep={currentStep}
         handleStepChange={handleStepChange}
-        numSteps={numSteps}
+        numberOfSteps={numberOfSteps}
         completeButtonText={completeButtonText}
         content={content}
         contentRef={contentRef}

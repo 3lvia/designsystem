@@ -4,15 +4,15 @@ import { Step, Steps, StepperContainer, StepperContentWrapper } from './styledCo
 import { StepDivider } from './StepDivider';
 import { StepContent } from './StepContent';
 import { VerticalStepElement } from './VerticalStepElement';
+import { numberShouldBeVisible } from './utils';
 
 export const StepperVertical: FC<StepperTypeProps> = function ({
-  numSteps,
+  numberOfSteps,
   currentStep,
   steps,
   completeButtonText,
   forced = false,
   handleStepChange,
-  numberShouldBeVisible,
   typography,
   contentRef,
   content,
@@ -20,13 +20,16 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   inlineStyle,
   ...rest
 }) {
-  const stepNumbersArray = useMemo(() => Array.from({ length: numSteps }, (_, i) => i + 1), [numSteps]);
+  const stepNumbersArray = useMemo(
+    () => Array.from({ length: numberOfSteps }, (_, i) => i + 1),
+    [numberOfSteps],
+  );
   return (
     <StepperContainer type="vertical" className={className} style={inlineStyle} {...rest}>
       <Steps type="vertical">
         {stepNumbersArray.map(
           (stepNumber) =>
-            numberShouldBeVisible(stepNumber) && (
+            numberShouldBeVisible(stepNumber, currentStep, numberOfSteps) && (
               <Step type="vertical" key={stepNumber} isActive={stepNumber === currentStep}>
                 <VerticalStepElement
                   currentStep={currentStep}
@@ -37,9 +40,9 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                   typography={typography}
                 />
                 <StepperContentWrapper>
-                  {stepNumber < numSteps && (
+                  {stepNumber < numberOfSteps && (
                     <StepDivider
-                      isDots={!numberShouldBeVisible(stepNumber + 1)}
+                      isDots={!numberShouldBeVisible(stepNumber + 1, currentStep, numberOfSteps)}
                       type="vertical"
                       isSelected={currentStep > stepNumber}
                       isActive={stepNumber === currentStep}
@@ -49,7 +52,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                     <StepContent
                       currentStep={currentStep}
                       handleStepChange={handleStepChange}
-                      numSteps={numSteps}
+                      numberOfSteps={numberOfSteps}
                       completeButtonText={completeButtonText}
                       content={content}
                       contentRef={contentRef}

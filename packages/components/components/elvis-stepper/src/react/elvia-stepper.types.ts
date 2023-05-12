@@ -15,7 +15,7 @@ export interface StepStates {
 }
 
 export interface StepperTypeProps extends HasValue<number> {
-  numSteps: number;
+  numberOfSteps: number;
   currentStep: number;
   steps?: StepStates;
   forced?: boolean;
@@ -24,7 +24,6 @@ export interface StepperTypeProps extends HasValue<number> {
   className?: string;
   inlineStyle?: CSSProperties;
   handleStepChange: (step: number) => void;
-  numberShouldBeVisible: (stepNumber: number) => boolean;
   contentRef: React.RefObject<HTMLDivElement>;
   content?: JSX.Element[];
 }
