@@ -5,7 +5,7 @@ import { isReachable } from './elvia-stepper';
 import { TypographyName } from '@elvia/elvis-typography';
 
 type VerticalStepElementProps = {
-  i: number;
+  stepNumber: number;
   currentStep: number;
   steps?: StepStates;
   forced?: boolean;
@@ -14,7 +14,7 @@ type VerticalStepElementProps = {
 };
 
 export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
-  i,
+  stepNumber,
   currentStep,
   steps,
   forced = false,
@@ -24,16 +24,16 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
   return (
     <StepHeader>
       <StepNumber
-        isActive={i === currentStep}
-        isError={steps?.[i + 1]?.isError}
-        isCompleted={steps?.[i + 1]?.isCompleted}
-        isDisabled={!isReachable(forced, i, steps)}
-        onClick={() => handleStepChange(isReachable(forced, i, steps) ? i : currentStep)}
+        isActive={stepNumber === currentStep}
+        isError={steps?.[stepNumber]?.isError}
+        isCompleted={steps?.[stepNumber]?.isCompleted}
+        isDisabled={!isReachable(forced, stepNumber, steps)}
+        onClick={() => handleStepChange(isReachable(forced, stepNumber, steps) ? stepNumber : currentStep)}
       >
-        {i + 1}
+        {stepNumber}
       </StepNumber>
-      <StepperTitle type="vertical" isActive={i === currentStep} typography={typography}>
-        {steps?.[i + 1]?.title ?? ''}
+      <StepperTitle type="vertical" isActive={stepNumber === currentStep} typography={typography}>
+        {steps?.[stepNumber]?.title ?? ''}
       </StepperTitle>
     </StepHeader>
   );

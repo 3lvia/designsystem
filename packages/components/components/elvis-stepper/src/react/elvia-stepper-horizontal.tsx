@@ -20,29 +20,31 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   inlineStyle,
   ...rest
 }) {
-  const stepNumbersArray = useMemo(() => Array.from({ length: numSteps }, (_, i) => i), [numSteps]);
+  const stepNumbersArray = useMemo(() => Array.from({ length: numSteps }, (_, i) => i + 1), [numSteps]);
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
       <Steps type="horizontal">
         {stepNumbersArray.map(
-          (i) =>
-            numberShouldBeVisible(i) && (
-              <Step type="horizontal" key={i} isActive={i === currentStep}>
+          (stepNumber) =>
+            numberShouldBeVisible(stepNumber) && (
+              <Step type="horizontal" key={stepNumber} isActive={stepNumber === currentStep}>
                 <StepNumber
-                  isActive={i === currentStep}
-                  isError={steps?.[i + 1]?.isError}
-                  isCompleted={steps?.[i + 1]?.isCompleted}
-                  isDisabled={!isReachable(forced, i, steps)}
-                  onClick={() => handleStepChange(isReachable(forced, i, steps) ? i : currentStep)}
+                  isActive={stepNumber === currentStep}
+                  isError={steps?.[stepNumber]?.isError}
+                  isCompleted={steps?.[stepNumber]?.isCompleted}
+                  isDisabled={!isReachable(forced, stepNumber, steps)}
+                  onClick={() =>
+                    handleStepChange(isReachable(forced, stepNumber, steps) ? stepNumber : currentStep)
+                  }
                 >
-                  {i + 1}
+                  {stepNumber}
                 </StepNumber>
-                {i < numSteps - 1 && (
+                {stepNumber < numSteps && (
                   <StepDivider
-                    isDots={!numberShouldBeVisible(i + 1)}
+                    isDots={!numberShouldBeVisible(stepNumber + 1)}
                     type="horizontal"
-                    isSelected={currentStep > i}
-                    isActive={i === currentStep}
+                    isSelected={currentStep > stepNumber}
+                    isActive={stepNumber === currentStep}
                   />
                 )}
               </Step>
@@ -50,7 +52,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
         )}
       </Steps>
       <StepperTitle type="horizontal" typography={typography}>
-        {steps?.[currentStep + 1]?.title ?? ''}
+        {steps?.[currentStep]?.title ?? ''}
       </StepperTitle>
       <StepContent
         currentStep={currentStep}

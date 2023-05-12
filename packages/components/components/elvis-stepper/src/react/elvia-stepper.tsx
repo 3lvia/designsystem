@@ -22,14 +22,14 @@ export const Stepper: FC<StepperProps> = function ({
   ...rest
 }) {
   const [numSteps, setNumSteps] = useState(1);
-  const [currentStep, setCurrentStep] = useState<number>(0);
+  const [currentStep, setCurrentStep] = useState<number>(1);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const elem = webcomponent?.getSlot('content');
     if (elem && contentRef.current) {
       setNumSteps(elem.children.length);
-      contentRef.current.innerHTML = elem?.children[currentStep].innerHTML;
+      contentRef.current.innerHTML = elem?.children[currentStep - 1].innerHTML;
     }
   }, [webcomponent, contentRef, currentStep]);
 
@@ -41,7 +41,7 @@ export const Stepper: FC<StepperProps> = function ({
 
   const numberShouldBeVisible = (stepNumber: number): boolean => {
     // show if first or last
-    if (stepNumber === 0 || stepNumber === numSteps - 1) {
+    if (stepNumber === 1 || stepNumber === numSteps) {
       return true;
     }
     // show if it is currentStep or next to currentStep
@@ -49,14 +49,14 @@ export const Stepper: FC<StepperProps> = function ({
       return true;
     }
     // if we are at start of stepper
-    if (currentStep < 3) {
-      if (stepNumber < 4) {
+    if (currentStep < 4) {
+      if (stepNumber < 5) {
         return true;
       }
     }
     // if we are at end of stepper
-    if (currentStep >= numSteps - 2) {
-      if (Math.abs(stepNumber - numSteps) < 5) {
+    if (currentStep >= numSteps - 1) {
+      if (Math.abs(stepNumber - numSteps) < 4) {
         return true;
       }
     }
@@ -65,7 +65,7 @@ export const Stepper: FC<StepperProps> = function ({
   };
 
   const handleStepChange = (step: number) => {
-    if (step >= 0 && step < numSteps) setCurrentStep(step);
+    if (step >= 1 && step <= numSteps) setCurrentStep(step);
   };
 
   return (

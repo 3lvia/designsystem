@@ -20,32 +20,32 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   inlineStyle,
   ...rest
 }) {
-  const stepNumbersArray = useMemo(() => Array.from({ length: numSteps }, (_, i) => i), [numSteps]);
+  const stepNumbersArray = useMemo(() => Array.from({ length: numSteps }, (_, i) => i + 1), [numSteps]);
   return (
     <StepperContainer type="vertical" className={className} style={inlineStyle} {...rest}>
       <Steps type="vertical">
         {stepNumbersArray.map(
-          (i) =>
-            numberShouldBeVisible(i) && (
-              <Step type="vertical" key={i} isActive={i === currentStep}>
+          (stepNumber) =>
+            numberShouldBeVisible(stepNumber) && (
+              <Step type="vertical" key={stepNumber} isActive={stepNumber === currentStep}>
                 <VerticalStepElement
                   currentStep={currentStep}
                   handleStepChange={handleStepChange}
-                  i={i}
+                  stepNumber={stepNumber}
                   forced={forced}
                   steps={steps}
                   typography={typography}
                 />
                 <StepperContentWrapper>
-                  {i < numSteps - 1 && (
+                  {stepNumber < numSteps && (
                     <StepDivider
-                      isDots={!numberShouldBeVisible(i + 1)}
+                      isDots={!numberShouldBeVisible(stepNumber + 1)}
                       type="vertical"
-                      isSelected={currentStep > i}
-                      isActive={i === currentStep}
+                      isSelected={currentStep > stepNumber}
+                      isActive={stepNumber === currentStep}
                     />
                   )}
-                  {currentStep === i && (
+                  {currentStep === stepNumber && (
                     <StepContent
                       currentStep={currentStep}
                       handleStepChange={handleStepChange}

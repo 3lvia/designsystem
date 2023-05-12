@@ -29,7 +29,7 @@ export const StepContent: FC<StepContentProps> = function ({
 }) {
   return (
     <StepperContent type={type}>
-      <div ref={contentRef}>{content?.[currentStep]}</div>
+      <div ref={contentRef}>{content?.[currentStep - 1]}</div>
       <StepperActions>
         <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
         <SecondaryButton
@@ -37,7 +37,7 @@ export const StepContent: FC<StepContentProps> = function ({
             handleStepChange(isReachable(forced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
           }
         >
-          {completeButtonText && currentStep === numSteps - 1 ? completeButtonText : 'Next'}
+          {completeButtonText && currentStep === numSteps ? completeButtonText : 'Next'}
         </SecondaryButton>
       </StepperActions>
     </StepperContent>
