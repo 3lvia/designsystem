@@ -29,7 +29,12 @@ export class StaticCodeGeneratorComponent implements OnInit {
   }
 
   private addNewLinesBetweenTags(code: string): string {
-    return code.replace(/>(.*?)</g, (_, innerContent?: string) => `>\n${innerContent?.trim()}\n<`);
+    return code.replace(/>(.*?)</g, (_, innerContent?: string) => {
+      if (innerContent && innerContent.trim().length > 0) {
+        return `>\n${innerContent.trim()}\n<`;
+      }
+      return '>\n<';
+    });
   }
 
   private cleanSrcAttribute(code: string): string {
@@ -53,7 +58,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
       /\*ngFor="let ([a-zA-Z]+) of ([a-zA-Z]+)"/g,
       'v-for="$1 in $2"',
     );
-    const vueEventSyntax = ngForReplaced.replace(/ \(/g, ' @').replace(/\)=/g, '=');
+    const vueEventSyntax = ngForReplaced.replace(/ \(([a-zA-Z]+)\)="/g, ' @$1="');
     if (this.comment) {
       return `<!--${this.comment}-->\n${vueEventSyntax}`;
     }

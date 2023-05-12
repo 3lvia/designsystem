@@ -5,9 +5,95 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white"></div>
+    <div class="e-bg-white e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32">
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Removable</div>
+        <div *ngFor="let chip of deletableChipsList">
+          <elvia-chip
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isDisabled]="chip.isDisabled"
+            (onDelete)="handleOnDelete($any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Choice</div>
+        <div *ngFor="let chip of choiceChipsList">
+          <elvia-chip
+            [type]="'choice'"
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isSelected]="chip.isSelected"
+            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Legend</div>
+        <div *ngFor="let chip of legendChipsList">
+          <elvia-chip
+            [type]="'legend'"
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isSelected]="chip.isSelected"
+            [isLoading]="chip.isLoading"
+            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+    </div>
     <!--Inverted version-->
-    <div class="e-bg-grey"></div>
+    <div class="e-theme-dark e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32">
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Removable</div>
+        <div *ngFor="let chip of deletableChipsList">
+          <elvia-chip
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isDisabled]="chip.isDisabled"
+            (onDelete)="handleOnDelete($any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Choice</div>
+        <div *ngFor="let chip of choiceChipsList">
+          <elvia-chip
+            [type]="'choice'"
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isSelected]="chip.isSelected"
+            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Legend</div>
+        <div *ngFor="let chip of legendChipsList">
+          <elvia-chip
+            [type]="'legend'"
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isSelected]="chip.isSelected"
+            [isLoading]="chip.isLoading"
+            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!--Accordion-->
