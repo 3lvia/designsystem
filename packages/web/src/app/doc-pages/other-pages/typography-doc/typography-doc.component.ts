@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
@@ -12,9 +12,6 @@ import { LOCALE_CODE } from 'contentful/types';
   styleUrls: ['./typography-doc.component.scss'],
 })
 export class TypographyDocComponent {
-  @ViewChildren('toCopy') toCopy: QueryList<ElementRef>;
-  @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
-
   localizationSubscriber: Subscription;
   loadedImg = false;
   typographyClasses = [];
