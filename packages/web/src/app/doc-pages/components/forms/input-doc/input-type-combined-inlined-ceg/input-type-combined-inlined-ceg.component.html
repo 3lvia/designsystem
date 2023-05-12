@@ -1,16 +1,14 @@
 <div style="display: flex; flex-direction: column; gap: 24px">
   <div class="e-form-field e-form-field--combined">
-    <fieldset class="e-strip-fieldset">
-      <legend class="e-form-field__label">Phone</legend>
-      <div class="e-form-field__input">
-        <div class="e-input e-input--small">
-          <input value="+47" />
-        </div>
-        <div class="e-input">
-          <input placeholder="99 99 99 99" />
-        </div>
+    <label class="e-form-field__label" id="phone-1">Phone</label>
+    <div class="e-form-field__input">
+      <div class="e-input e-input--small">
+        <input aria-labelledby="phone-1" value="+47" />
       </div>
-    </fieldset>
+      <div class="e-input">
+        <input aria-labelledby="phone-1" placeholder="99 99 99 99" />
+      </div>
+    </div>
   </div>
 
   <div class="e-inlined-field">
