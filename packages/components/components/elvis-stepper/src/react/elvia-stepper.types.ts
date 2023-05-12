@@ -24,6 +24,7 @@ export interface StepperTypeProps extends HasValue<number> {
   className?: string;
   inlineStyle?: CSSProperties;
   handleStepChange: (step: number) => void;
+  numberShouldBeVisible: (stepNumber: number) => boolean;
   contentRef: React.RefObject<HTMLDivElement>;
   content?: JSX.Element[];
 }

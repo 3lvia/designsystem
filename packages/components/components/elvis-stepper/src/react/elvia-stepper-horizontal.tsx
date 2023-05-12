@@ -1,18 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { StepperTypeProps } from './elvia-stepper.types';
-import {
-  Step,
-  Steps,
-  StepHeader,
-  StepLine,
-  StepNumber,
-  StepperContainer,
-  StepperActions,
-  StepperContent,
-  StepperTitle,
-} from './styledComponents';
-import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
+import { Steps, StepperContainer, StepperTitle, Step, StepNumber } from './styledComponents';
 import { isReachable } from './elvia-stepper';
+import { StepDivider } from './StepDivider';
+import { StepContent } from './StepContent';
 
 export const StepperHorizontal: FC<StepperTypeProps> = function ({
   numSteps,
@@ -21,6 +12,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   completeButtonText,
   forced = false,
   handleStepChange,
+  numberShouldBeVisible,
   typography,
   contentRef,
   content,
@@ -28,13 +20,14 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   inlineStyle,
   ...rest
 }) {
+  const stepNumbersArray = useMemo(() => Array.from({ length: numSteps }, (_, i) => i), [numSteps]);
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
       <Steps type="horizontal">
-        {[...Array(numSteps)].map((_, i) => {
-          return (
-            <Step type="horizontal" key={i} isActive={i === currentStep}>
-              <StepHeader>
+        {stepNumbersArray.map(
+          (i) =>
+            numberShouldBeVisible(i) && (
+              <Step type="horizontal" key={i} isActive={i === currentStep}>
                 <StepNumber
                   isActive={i === currentStep}
                   isError={steps?.[i + 1]?.isError}
@@ -44,28 +37,32 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
                 >
                   {i + 1}
                 </StepNumber>
-              </StepHeader>
-              {i < numSteps - 1 && <StepLine type="horizontal" isSelected={i < currentStep}></StepLine>}
-            </Step>
-          );
-        })}
+                {i < numSteps - 1 && (
+                  <StepDivider
+                    isDots={!numberShouldBeVisible(i + 1)}
+                    type="horizontal"
+                    isSelected={currentStep > i}
+                    isActive={i === currentStep}
+                  />
+                )}
+              </Step>
+            ),
+        )}
       </Steps>
-      <StepperContent type="horizontal">
-        <StepperTitle type="horizontal" typography={typography}>
-          {steps?.[currentStep + 1]?.title ?? ''}
-        </StepperTitle>
-        <div ref={contentRef}>{content?.[currentStep]}</div>
-        <StepperActions>
-          <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
-          <SecondaryButton
-            onClick={() =>
-              handleStepChange(isReachable(forced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
-            }
-          >
-            {completeButtonText && currentStep === numSteps - 1 ? completeButtonText : 'Next'}
-          </SecondaryButton>
-        </StepperActions>
-      </StepperContent>
+      <StepperTitle type="horizontal" typography={typography}>
+        {steps?.[currentStep + 1]?.title ?? ''}
+      </StepperTitle>
+      <StepContent
+        currentStep={currentStep}
+        handleStepChange={handleStepChange}
+        numSteps={numSteps}
+        completeButtonText={completeButtonText}
+        content={content}
+        contentRef={contentRef}
+        forced={forced}
+        steps={steps}
+        type="horizontal"
+      />
     </StepperContainer>
   );
 };

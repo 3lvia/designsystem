@@ -34,14 +34,35 @@ export const Stepper: FC<StepperProps> = function ({
   }, [webcomponent, contentRef, currentStep]);
 
   useEffect(() => {
-    console.log('current states', steps?.[currentStep]);
-  }, [currentStep]);
-
-  useEffect(() => {
     if (content) {
       setNumSteps(content.length);
     }
   }, [content]);
+
+  const numberShouldBeVisible = (stepNumber: number): boolean => {
+    // show if first or last
+    if (stepNumber === 0 || stepNumber === numSteps - 1) {
+      return true;
+    }
+    // show if it is currentStep or next to currentStep
+    if (Math.abs(currentStep - stepNumber) <= 1) {
+      return true;
+    }
+    // if we are at start of stepper
+    if (currentStep < 3) {
+      if (stepNumber < 4) {
+        return true;
+      }
+    }
+    // if we are at end of stepper
+    if (currentStep >= numSteps - 2) {
+      if (Math.abs(stepNumber - numSteps) < 5) {
+        return true;
+      }
+    }
+
+    return false;
+  };
 
   const handleStepChange = (step: number) => {
     if (step >= 0 && step < numSteps) setCurrentStep(step);
@@ -56,6 +77,7 @@ export const Stepper: FC<StepperProps> = function ({
           completeButtonText={completeButtonText}
           forced={forced}
           handleStepChange={handleStepChange}
+          numberShouldBeVisible={numberShouldBeVisible}
           typography={typography}
           contentRef={contentRef}
           content={content}
@@ -71,6 +93,7 @@ export const Stepper: FC<StepperProps> = function ({
           completeButtonText={completeButtonText}
           forced={forced}
           handleStepChange={handleStepChange}
+          numberShouldBeVisible={numberShouldBeVisible}
           typography={typography}
           contentRef={contentRef}
           content={content}

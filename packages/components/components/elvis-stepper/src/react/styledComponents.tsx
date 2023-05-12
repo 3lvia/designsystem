@@ -33,7 +33,7 @@ export const Step = styled.div<StepProps>`
 `;
 
 interface StepLineProps {
-  type: string;
+  type?: string;
   isSelected?: boolean;
   isActive?: boolean;
 }
@@ -53,6 +53,44 @@ export const StepLine = styled.div<StepLineProps>`
     css`
       height: ${isActive ? 'auto' : '12px'};
       width: 2px;
+    `}
+`;
+interface StepLineDashedProps {
+  type?: string;
+}
+export const StepLineDashed = styled.div<StepLineDashedProps>`
+  display: flex;
+  height: 32px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 58px;
+
+  ${({ type }) =>
+    type === 'vertical' &&
+    css`
+      height: unset;
+      width: unset;
+      flex-direction: column;
+      align-items: flex-start;
+    `}
+`;
+
+export const LineDash = styled.div<StepLineDashedProps>`
+  display: inline;
+  width: 6px;
+  height: 2px;
+  margin: 0;
+  border-radius: 50px;
+  background: ${getThemeColor('border-disabled-1')};
+
+  ${({ type }) =>
+    type === 'vertical' &&
+    css`
+      display: flex;
+      width: 2px;
+      height: 6px;
     `}
 `;
 
