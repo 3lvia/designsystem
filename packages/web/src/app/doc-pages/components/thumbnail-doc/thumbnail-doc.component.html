@@ -14,6 +14,15 @@
   <!--STATES-->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
+      Use
+      <code>e-thumbnail---selected</code>
+      to visually highlight a selected thumbnail in a group.
+      <p>
+        Use
+        <code>e-thumbnail---hover</code>
+        to manually apply a green border around a thumbnail during hover. This also occurs automatically when
+        a user hovers over the thumbnail in the browser.
+      </p>
       <app-static-ceg>
         <app-thumbnail-selected-ceg />
       </app-static-ceg>
@@ -27,13 +36,12 @@
         <img [src]="selectedImage" alt="Selected image" style="width: 248px" />
         <div class="e-flex e-gap-8 e-align-items-left">
           <button
-            *ngFor="let image of images"
+            *ngFor="let image of images; let i = index"
             class="e-thumbnail"
             [ngClass]="{ 'e-thumbnail---selected': image.src === selectedImage }"
             (click)="selectedImage = image.src"
-            aria-label="Thumbnail button that opens the image in a larger view"
           >
-            <img [src]="image.src" alt="Thumbnail example image" />
+            <img [src]="image.src" [alt]="'example ' + (i + 1)" />
           </button>
         </div>
       </div>
@@ -50,9 +58,17 @@
           <ul class="e-list">
             <li>
               <strong>Aria label:</strong>
-              Remember to always add a descriptive
+              Always add a descriptive
               <span class="code-text">aria-label</span>
               to the thumbnail button.
+            </li>
+            <li>
+              <strong>Alternate text:</strong>
+              Give the
+              <code>img</code>
+              an
+              <code>alt</code>
+              attribute explaining what the thumbnail button does.
             </li>
           </ul>
         </ng-container>
