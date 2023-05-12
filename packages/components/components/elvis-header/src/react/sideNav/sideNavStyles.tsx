@@ -27,7 +27,7 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
         top: ${toolbarHeight};
         bottom: 0;
         padding: 16px 8px;
-        border-right: 2px solid ${getThemeColor('border-5')};
+        border-right: 1px solid ${getThemeColor('border-5')};
       `;
     }
 

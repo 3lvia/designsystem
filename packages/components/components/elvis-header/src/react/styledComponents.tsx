@@ -24,7 +24,7 @@ export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boo
   ${({ isGtMobile }) =>
     isGtMobile &&
     css`
-      border-bottom: 2px solid ${getThemeColor('border-5')};
+      border-bottom: 1px solid ${getThemeColor('border-5')};
 
       ${LogoContainer} {
         width: unset;
