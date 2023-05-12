@@ -40,7 +40,7 @@ const getChipBackgroundLight = (
       }
       return 'transparent';
     case 'legend':
-      if (isSelected && isHovering) {
+      if (isSelected && isHovering && !isLoading) {
         return setOpacity(chipColors(color), 20);
       } else if (isSelected && !isLoading) {
         return setOpacity(chipColors(color), 30);
@@ -80,7 +80,7 @@ const getChipBorderDark = (
       }
       return `${getBaseColor('grey-60', 'dark')}`;
     case 'legend':
-      if (isSelected && isHovering) {
+      if (isSelected && isHovering && !isLoading) {
         return `${setOpacity(chipColors(color, 'dark'), 80)}`;
       } else if (isSelected && !isLoading) {
         return `${chipColors(color, 'dark')}`;
