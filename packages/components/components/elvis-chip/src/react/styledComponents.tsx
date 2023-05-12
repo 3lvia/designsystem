@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { ColorType, ChipType } from './elvia-chip.types';
 import { getThemeColor, getBaseColor, ThemeName } from '@elvia/elvis-colors';
 
-export const chipColors = (color: ColorType, theme: ThemeName = 'light') => {
+const chipColors = (color: ColorType, theme: ThemeName = 'light') => {
   switch (color) {
     case 'green':
       return getBaseColor('green-apple', theme);
