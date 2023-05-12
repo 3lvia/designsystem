@@ -33,12 +33,16 @@ const getChipBackgroundLight = (
     case 'removable':
       return isHovering && !isDisabled ? getBaseColor('green') : setOpacity(chipColors(color), 30);
     case 'choice':
-      if (isSelected) {
+      if (isSelected && isHovering) {
+        return setOpacity(chipColors('green'), 20);
+      } else if (isSelected) {
         return setOpacity(chipColors('green'), 30);
       }
       return 'transparent';
     case 'legend':
-      if (isSelected && !isLoading) {
+      if (isSelected && isHovering) {
+        return setOpacity(chipColors(color), 20);
+      } else if (isSelected && !isLoading) {
         return setOpacity(chipColors(color), 30);
       }
       return 'transparent';
@@ -69,12 +73,16 @@ const getChipBorderDark = (
       }
       return `${chipColors(color, 'dark')}`;
     case 'choice':
-      if (isSelected) {
+      if (isSelected && isHovering) {
+        return `${setOpacity(chipColors('green', 'dark'), 80)}`;
+      } else if (isSelected) {
         return `${chipColors('green', 'dark')}`;
       }
       return `${getBaseColor('grey-60', 'dark')}`;
     case 'legend':
-      if (isSelected && !isLoading) {
+      if (isSelected && isHovering) {
+        return `${setOpacity(chipColors(color, 'dark'), 80)}`;
+      } else if (isSelected && !isLoading) {
         return `${chipColors(color, 'dark')}`;
       }
       return `${getBaseColor('grey-60', 'dark')}`;
