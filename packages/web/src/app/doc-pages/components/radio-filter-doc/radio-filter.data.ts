@@ -19,7 +19,8 @@ const radioFilterData: ComponentData = {
     name: {
       isRequired: true,
       type: 'string',
-      description: 'The HTML attribute name for the radio button group input elements.',
+      description:
+        'The HTML attribute "name" is used for radio button group input elements in the Radio Filter component. Each name must be unique for each Radio Filter on the page and is not visible to the user. e.g "messageFilter".',
     },
     ariaLabel: {
       isRequired: false,
