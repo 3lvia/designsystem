@@ -127,3 +127,31 @@ export const getCustomThemeColor = (
   }
   return color.color;
 };
+
+/**
+ * Get a hex code for a specified color and theme.
+ * @param label Base token label
+ * @param themeName The theme name. Defaults to 'light'.
+ * @returns The hex code.
+ * @example
+ * const baseColor = getBaseColor('grey-10', 'dark');
+ *
+ * @since 2.3.0
+ */
+export function getBaseColor(
+  label: DarkThemeColorName | LightThemeColorName,
+  themeName: ThemeName = 'light',
+): string {
+  const colors = getBaseThemeColors(themeName);
+  const color =
+    colors['primary-colors'][label as keyof (typeof colors)['primary-colors']] ??
+    colors['signal-colors'][label as keyof (typeof colors)['signal-colors']] ??
+    colors['data-colors'][label as keyof (typeof colors)['data-colors']] ??
+    colors['grey-colors'][label as keyof (typeof colors)['grey-colors']] ??
+    colors['internal-colors'][label as keyof (typeof colors)['internal-colors']];
+  if (!color) {
+    console.error(`Color '${label}' for theme '${themeName}' not found.`);
+    return '';
+  }
+  return color.color;
+}
