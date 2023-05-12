@@ -30,7 +30,7 @@ export class TypographyDocComponent {
       .subscribe((locale) => {
         this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
         this.titleService.setTitle(
-          ((this.locale === 'nb-NO' && this.titleNo) ?? this.title) + ' | Elvia design system',
+          ((this.locale === 'nb-NO' && this.titleNo) || this.title) + ' | Elvia design system',
         );
       });
   }
