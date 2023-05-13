@@ -49,23 +49,21 @@ export class HomeComponent implements OnInit {
 
   setHoliday = (): void => {
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
-    const startDateBirthday = new Date(currentYear, 1, 14);
-    const endDateBirthday = new Date(currentYear, 1, 20);
-    const startDateConstitutionDate = new Date(currentYear, 4, 9);
-    const endDateConstitutionDate = new Date(currentYear, 4, 17);
+    const startDateBirthday = new Date(currentDate.getFullYear(), 1, 14);
+    const endDateBirthday = new Date(currentDate.getFullYear(), 1, 20);
+    const startDateConstitutionDate = new Date(currentDate.getFullYear(), 4, 9);
+    const endDateConstitutionDate = new Date(currentDate.getFullYear(), 4, 17);
 
     this.isNonHoliday = false;
-    if (currentMonth === 9 && currentDate.getUTCDate() >= 25) {
+    if (currentDate.getMonth() === 9 && currentDate.getDate() >= 25) {
       this.isHalloween = true;
-    } else if (currentMonth === 11) {
+    } else if (currentDate.getMonth() === 11) {
       this.isChristmas = true;
       this.overviewTitle = 'Happy Holidays';
     } else if (currentDate >= startDateBirthday && currentDate <= endDateBirthday) {
       this.isBirthday = true;
       this.overviewTitle = 'Happy Birthday';
-    } else if (currentMonth === 5) {
+    } else if (currentDate.getMonth() === 5) {
       this.isPride = true;
     } else if (currentDate >= startDateConstitutionDate && currentDate <= endDateConstitutionDate) {
       this.isConstitutionDay = true;
