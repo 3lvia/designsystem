@@ -127,26 +127,10 @@
 </div>
 
 <ng-template #illustrations>
-  <img
-    *ngIf="isBirthday"
-    src="{{ 'assets/holidayIllustrations/Birthday' + currentYear + '.png' }}"
-    alt="{{ 'Design system birthday illustration for ' + currentYear }}"
-  />
-  <img
-    *ngIf="isChristmas"
-    src="assets/holidayIllustrations/ChristmasIllustration.png"
-    alt="Designsystem christmas illustration"
-  />
-  <img
-    *ngIf="isHalloween"
-    src="assets/holidayIllustrations/Halloween.png"
-    alt="Designsystem halloween illustration"
-  />
+  <img *ngIf="isBirthday" src="{{ 'assets/holidayIllustrations/Birthday' + currentYear + '.png' }}" alt="" />
+  <img *ngIf="isChristmas" src="assets/holidayIllustrations/ChristmasIllustration.png" alt="" />
+  <img *ngIf="isHalloween" src="assets/holidayIllustrations/Halloween.png" alt="" />
   <img *ngIf="isPride" src="assets/holidayIllustrations/Pride.png" alt="Designsystem pride illustration" />
-  <img
-    *ngIf="isConstitutionDay"
-    src="assets/holidayIllustrations/ConstitutionDay.png"
-    alt="Designsystem constitution day illustration"
-  />
-  <img *ngIf="isNonHoliday" src="assets/HomeIllustration.png" alt="Designsystem illustration" />
+  <img *ngIf="isConstitutionDay" src="assets/holidayIllustrations/ConstitutionDay.png" alt="" />
+  <img *ngIf="isNonHoliday" src="assets/HomeIllustration.png" alt="" />
 </ng-template>

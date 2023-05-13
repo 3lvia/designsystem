@@ -14,12 +14,6 @@ export class HomeComponent implements OnInit {
   overviewTitle = 'Elvia design system';
   pages = homeMenu;
   fontLoaded = false;
-  currentDate = new Date();
-  currentYear = this.currentDate.getFullYear();
-  currentMonth = this.currentDate.getMonth();
-  christmasMonth = 11;
-  halloweenMonth = 9;
-  prideMonth = 5;
   isNonHoliday = true;
   isChristmas = false;
   isHalloween = false;
@@ -54,23 +48,26 @@ export class HomeComponent implements OnInit {
   }
 
   setHoliday = (): void => {
-    const startDateBirthday = new Date(this.currentYear, 1, 14);
-    const endDateBirthday = new Date(this.currentYear, 1, 20);
-    const startDateConstitutionDate = new Date(this.currentYear, 4, 9);
-    const endDateConstitutionDate = new Date(this.currentYear, 4, 17);
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    const startDateBirthday = new Date(currentYear, 1, 14);
+    const endDateBirthday = new Date(currentYear, 1, 20);
+    const startDateConstitutionDate = new Date(currentYear, 4, 9);
+    const endDateConstitutionDate = new Date(currentYear, 4, 17);
 
     this.isNonHoliday = false;
-    if (this.currentMonth === this.halloweenMonth && this.currentDate.getUTCDate() >= 25) {
+    if (currentMonth === 9 && currentDate.getUTCDate() >= 25) {
       this.isHalloween = true;
-    } else if (this.currentMonth === this.christmasMonth) {
+    } else if (currentMonth === 11) {
       this.isChristmas = true;
       this.overviewTitle = 'Happy Holidays';
-    } else if (this.currentDate >= startDateBirthday && this.currentDate <= endDateBirthday) {
+    } else if (currentDate >= startDateBirthday && currentDate <= endDateBirthday) {
       this.isBirthday = true;
       this.overviewTitle = 'Happy Birthday';
-    } else if (this.currentMonth === this.prideMonth) {
+    } else if (currentMonth === 5) {
       this.isPride = true;
-    } else if (this.currentDate >= startDateConstitutionDate && this.currentDate <= endDateConstitutionDate) {
+    } else if (currentDate >= startDateConstitutionDate && currentDate <= endDateConstitutionDate) {
       this.isConstitutionDay = true;
       this.overviewTitle = 'Hipp Hipp Hurra';
     } else {
