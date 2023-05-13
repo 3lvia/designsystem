@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   isBirthday = false;
   isPride = false;
   isConstitutionDay = false;
+  currentDate = new Date();
+  currentYear = this.currentDate.getFullYear();
   locale: LOCALE_CODE;
   changelog = changelogJson.content;
 
@@ -48,24 +50,23 @@ export class HomeComponent implements OnInit {
   }
 
   setHoliday = (): void => {
-    const currentDate = new Date();
-    const startDateBirthday = new Date(currentDate.getFullYear(), 1, 14);
-    const endDateBirthday = new Date(currentDate.getFullYear(), 1, 20);
-    const startDateConstitutionDate = new Date(currentDate.getFullYear(), 4, 9);
-    const endDateConstitutionDate = new Date(currentDate.getFullYear(), 4, 17);
+    const startDateBirthday = new Date(this.currentYear, 1, 14);
+    const endDateBirthday = new Date(this.currentYear, 1, 20);
+    const startDateConstitutionDate = new Date(this.currentYear, 4, 9);
+    const endDateConstitutionDate = new Date(this.currentYear, 4, 17);
 
     this.isNonHoliday = false;
-    if (currentDate.getMonth() === 9 && currentDate.getDate() >= 25) {
+    if (this.currentDate.getMonth() === 9 && this.currentDate.getDate() >= 25) {
       this.isHalloween = true;
-    } else if (currentDate.getMonth() === 11) {
+    } else if (this.currentDate.getMonth() === 11) {
       this.isChristmas = true;
       this.overviewTitle = 'Happy Holidays';
-    } else if (currentDate >= startDateBirthday && currentDate <= endDateBirthday) {
+    } else if (this.currentDate >= startDateBirthday && this.currentDate <= endDateBirthday) {
       this.isBirthday = true;
       this.overviewTitle = 'Happy Birthday';
-    } else if (currentDate.getMonth() === 5) {
+    } else if (this.currentDate.getMonth() === 5) {
       this.isPride = true;
-    } else if (currentDate >= startDateConstitutionDate && currentDate <= endDateConstitutionDate) {
+    } else if (this.currentDate >= startDateConstitutionDate && this.currentDate <= endDateConstitutionDate) {
       this.isConstitutionDay = true;
       this.overviewTitle = 'Hipp Hipp Hurra';
     } else {

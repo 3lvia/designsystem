@@ -7,7 +7,8 @@
             <h1 class="big-header">
               <div *ngIf="fontLoaded">
                 <span class="title">{{ overviewTitle }}</span>
-                <span class="dot"></span>
+                <span *ngIf="!isConstitutionDay" class="dot"></span>
+                <span *ngIf="isConstitutionDay" class="e-text-green e-ml-8">!</span>
               </div>
               <div class="content-loader-title" *ngIf="!fontLoaded">
                 <span class="e-content-loader e-content-loader--inverted e-w-75" style="height: 60px"></span>
