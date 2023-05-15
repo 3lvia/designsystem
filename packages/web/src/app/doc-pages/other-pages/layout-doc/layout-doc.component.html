@@ -358,7 +358,9 @@
                 </div>
                 <div class="e-accordion__content">
                   Use col-sm, col-md and col-lg to change grid at breakpoints.
-                  <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
+                  <app-static-ceg>
+                    <app-layout-breakpoints-ceg />
+                  </app-static-ceg>
                 </div>
               </div>
 
@@ -387,21 +389,27 @@
                   <app-component-subsubsection [sectionTitle]="'Alignment'">
                     <ng-container ngProjectAs="sectionContent">
                       Use justify-content, align-content, and offset to align col-classes inside grid.
-                      <app-component-example-v1 [codeHTML]="example6"></app-component-example-v1>
+                      <app-static-ceg>
+                        <app-layout-alignment-ceg />
+                      </app-static-ceg>
                     </ng-container>
                   </app-component-subsubsection>
 
                   <app-component-subsubsection [sectionTitle]="'Ordering'">
                     <ng-container ngProjectAs="sectionContent">
                       Use order to choose the order of columns.
-                      <app-component-example-v1 [codeHTML]="example7"></app-component-example-v1>
+                      <app-static-ceg>
+                        <app-layout-ordering-ceg />
+                      </app-static-ceg>
                     </ng-container>
                   </app-component-subsubsection>
 
                   <app-component-subsubsection [sectionTitle]="'Levels'">
                     <ng-container ngProjectAs="sectionContent">
                       The grid can have levels.
-                      <app-component-example-v1 [codeHTML]="example8"></app-component-example-v1>
+                      <app-static-ceg>
+                        <app-layout-levels-ceg />
+                      </app-static-ceg>
                     </ng-container>
                   </app-component-subsubsection>
                 </div>
@@ -422,31 +430,26 @@
                     internal systems) to add dynamic gutters on rows. Get vertical gutters as well by adding
                     the class e-grid-gutters-vertical.
                   </div>
-
-                  <app-component-subsubsection [sectionTitle]="'External gutters'">
-                    <ng-container ngProjectAs="sectionContent">
-                      <app-component-example-v1 [codeHTML]="exampleGutterExternal"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
-
-                  <app-component-subsubsection [sectionTitle]="'Internal gutters'">
-                    <ng-container ngProjectAs="sectionContent">
-                      <app-component-example-v1 [codeHTML]="exampleGutterInternal"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
+                  <app-static-ceg>
+                    <app-layout-gutters-ceg />
+                  </app-static-ceg>
 
                   <app-component-subsubsection [sectionTitle]="'Custom padding (gutters)'">
                     <ng-container ngProjectAs="sectionContent">
                       Combine the padding classes (e.g. px-lg-3) and negative margin classes (e.g. mx-lg-n3 )
                       to add your own custom gutters.
-                      <app-component-example-v1 [codeHTML]="example3"></app-component-example-v1>
+                      <app-static-ceg>
+                        <app-layout-gutters-custom-ceg />
+                      </app-static-ceg>
                     </ng-container>
                   </app-component-subsubsection>
 
                   <app-component-subsubsection [sectionTitle]="'No gutters'">
                     <ng-container ngProjectAs="sectionContent">
                       Use no-gutters to remove gutters on the row.
-                      <app-component-example-v1 [codeHTML]="example4"></app-component-example-v1>
+                      <app-static-ceg>
+                        <app-layout-gutters-no-ceg />
+                      </app-static-ceg>
                     </ng-container>
                   </app-component-subsubsection>
                 </div>
@@ -466,16 +469,9 @@
                     Use the class e-grid-margin-ext (for external systems) or e-grid-margin-int (for internal
                     systems) to add dynamic margin on rows.
                   </div>
-                  <app-component-subsubsection [sectionTitle]="'External margin'">
-                    <ng-container ngProjectAs="sectionContent">
-                      <app-component-example-v1 [codeHTML]="exampleExternalMargin"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
-                  <app-component-subsubsection [sectionTitle]="'Internal margin'">
-                    <ng-container ngProjectAs="sectionContent">
-                      <app-component-example-v1 [codeHTML]="exampleInternalMargin"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
+                  <app-static-ceg>
+                    <app-layout-margins-ceg />
+                  </app-static-ceg>
                 </div>
               </div>
             </div>
@@ -647,13 +643,13 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsubsection>
         <ng-container ngProjectAs="sectionContent">
-          <div style="display: flex; justify-content: space-between; align-items: flex-end">
+          <div class="e-flex e-gap-16 e-align-items-end">
             <elvia-box>
               <div slot="content">
                 <div
                   class="e-text-md"
                   style="
-                    width: 80px;
+                    width: 100%;
                     height: 80px;
                     border: 1px grey dashed;
                     display: flex;
@@ -673,7 +669,7 @@
                 <div
                   class="e-text-md"
                   style="
-                    width: 80px;
+                    width: 100%;
                     height: 80px;
                     border: 1px grey dashed;
                     display: flex;
@@ -692,7 +688,7 @@
                 <div
                   class="e-text-md"
                   style="
-                    width: 80px;
+                    width: 100%;
                     height: 80px;
                     border: 1px grey dashed;
                     display: flex;
