@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.05.23",
+      "version": "2.9.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Improved the way the accordion calculates the height of its content in Firefox (113)."]
+        }
+      ]
+    },
+    {
       "date": "12.05.23",
       "version": "2.9.2",
       "changelog": [
