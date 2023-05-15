@@ -49,21 +49,17 @@ const Pagination: FC<PaginationProps> = function ({
   const totalPages = Math.floor(numberOfElements / pageSize);
   const nextEnabled = currentPage < totalPages - 1;
   const previousEnabled = currentPage > 0;
-
   const labelOptionsState: PaginationLabel = { ...defaultPaginationLabelOptions, ...labelOptions };
 
-  const showPaginationNumbers = () => {
-    const allDropdownValuesAreNumbers = dropdownItems
-      .map((item) => item.value)
-      .every((value) => !isNaN(+value));
-
-    const allElementsShowing =
-      numberOfElements > 0 && Math.ceil(numberOfElements / parseInt(selectedDropdownValue)) < 2;
-
-    return !allElementsShowing && allDropdownValuesAreNumbers;
-  };
-
   const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
+
+  useEffect(() => {
+    // Clamp current page to valid range when number of elements changes
+    const totalPages = Math.floor(numberOfElements / pageSize);
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [numberOfElements]);
 
   useEffect(() => {
     setSelectedDropdownItemIndex(dropdownSelectedItemIndex);
@@ -83,6 +79,17 @@ const Pagination: FC<PaginationProps> = function ({
     }
   }, [value]);
 
+  const showPaginationNumbers = (): boolean => {
+    const allDropdownValuesAreNumbers = dropdownItems
+      .map((item) => item.value)
+      .every((value) => !isNaN(+value));
+
+    const allElementsShowing =
+      numberOfElements > 0 && Math.ceil(numberOfElements / parseInt(selectedDropdownValue)) < 2;
+
+    return !allElementsShowing && allDropdownValuesAreNumbers;
+  };
+
   const getPaginationValue = (pageIndex: number, elementsPerPage: number): VisibleElements => {
     const start = pageIndex * elementsPerPage;
     const end = start + elementsPerPage;
@@ -90,17 +97,12 @@ const Pagination: FC<PaginationProps> = function ({
     return { start: start + 1, end: Math.min(end, totalPages - 1) };
   };
 
-  const emitValueOnChangeEvent = (valueToEmit: VisibleElements): void => {
-    if (
-      valueToEmit.start === undefined ||
-      valueToEmit.end === undefined ||
-      valueToEmit.start > numberOfElements
-    ) {
-      return;
+  const emitValueOnChangeEvent = (value: VisibleElements): void => {
+    if (value.start != null && value.end != null && value.start <= numberOfElements - 1) {
+      valueOnChange?.(value);
+      webcomponent?.setProps({ value: value }, true);
+      webcomponent?.triggerEvent('valueOnChange', value);
     }
-    valueOnChange?.(valueToEmit);
-    webcomponent?.setProps({ value: valueToEmit }, true);
-    webcomponent?.triggerEvent('valueOnChange', valueToEmit);
   };
 
   /** Update pagination values and dispatch dropdownSelectedItemIndex events */
