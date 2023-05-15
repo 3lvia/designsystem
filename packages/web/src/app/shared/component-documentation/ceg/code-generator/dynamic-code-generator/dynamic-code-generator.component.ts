@@ -130,7 +130,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         })
         // Ensure that each slot falls on a new line.
         .map((slot) => slot.replace(/></g, '>\n<'))
-        .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
+        .map((slot) => slot.replace(/_ngcontent-\S+/g, ''))
         .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''))
     );
   }

@@ -33,10 +33,17 @@ export class v2PlaygroundComponent {
   filteredValues = { 2021: false, 2022: true, 2023: true, 2024: true };
   filteredKeys = Object.keys(this.filteredValues) as unknown as Array<keyof typeof this.filteredValues>;
   deletableChipsList = [
-    { value: 2022, color: 'green' },
     { value: 2023, color: 'red' },
+    { value: 2025, color: 'red', isDisabled: true },
+  ];
+  choiceChipsList = [
+    { value: 2025, color: 'purple' },
+    { value: 2025, color: 'purple', isSelected: true },
+  ];
+  legendChipsList = [
     { value: 2024, color: 'blue' },
-    { value: 2025, color: 'purple', isDisabled: true },
+    { value: 2025, color: 'blue', isSelected: true },
+    { value: 2025, color: 'blue', isLoading: true },
   ];
 
   // Context menu

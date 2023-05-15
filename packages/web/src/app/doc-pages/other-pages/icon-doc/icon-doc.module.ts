@@ -31,7 +31,6 @@ import '@elvia/elvis-radio-filter';
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
-    CopyModule,
     RouterModule,
     ComponentExampleGeneratorModule,
     ComponentPropertiesTableModule,

@@ -20,7 +20,7 @@ export const SideNav = React.forwardRef<HTMLElement, SideNavProps>(
         {isGtMobile && (
           <ToggleWidthButton onClick={() => onSideNavToggle()}>
             <IconContainer>
-              <IconWrapper icon={isExpanded ? closeMenu : openMenu} color="black" size="sm" />
+              <IconWrapper icon={isExpanded ? closeMenu : openMenu} size="sm" />
             </IconContainer>
             {isExpanded ? 'Minimer' : 'Maksimer'}
           </ToggleWidthButton>

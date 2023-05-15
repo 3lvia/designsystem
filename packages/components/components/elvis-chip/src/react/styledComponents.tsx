@@ -1,60 +1,101 @@
 import styled, { keyframes } from 'styled-components';
 import { ColorType, ChipType } from './elvia-chip.types';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor, getBaseColor, ThemeName } from '@elvia/elvis-colors';
 
-export const colors = {
-  elviaCharge: getColor('elvia-charge'),
-  elviaBlack: getColor('black'),
-  blue: getColor('blue-berry'),
-  green: getColor('green-apple'),
-  orange: getColor('orange-mango'),
-  purple: getColor('purple-plum'),
-  red: getColor('red-tomato'),
-  violet: getColor('violet-grape'),
-  gray05: getColor('grey-05'),
+const chipColors = (color: ColorType, theme: ThemeName = 'light') => {
+  switch (color) {
+    case 'green':
+      return getBaseColor('green-apple', theme);
+    case 'violet':
+      return getBaseColor('violet-grape', theme);
+    case 'blue':
+      return getBaseColor('blue-berry', theme);
+    case 'purple':
+      return getBaseColor('purple-plum', theme);
+    case 'orange':
+      return getBaseColor('orange-mango', theme);
+    case 'red':
+      return getBaseColor('red-tomato', theme);
+  }
 };
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
 
-const setBackgroundColor = (
+const getChipBackgroundLight = (
   color: ColorType,
-  isLoading: boolean,
   isSelected: boolean,
+  isHovering: boolean,
+  isDisabled: boolean,
+  isLoading: boolean,
   type: ChipType,
 ): string => {
-  if (type === 'choice') {
-    return isSelected ? setOpacity(colors.green, 40) : 'transparent';
-  } else if (type === 'legend') {
-    return isSelected && !isLoading ? setOpacity(colors[color], 40) : 'transparent';
-  } else {
-    return setOpacity(colors[color], 40);
+  switch (type) {
+    case 'removable':
+      return isHovering && !isDisabled ? getBaseColor('green') : setOpacity(chipColors(color), 30);
+    case 'choice':
+      if (isSelected && isHovering) {
+        return setOpacity(chipColors('green'), 20);
+      } else if (isSelected) {
+        return setOpacity(chipColors('green'), 30);
+      }
+      return 'transparent';
+    case 'legend':
+      if (isSelected && isHovering && !isLoading) {
+        return setOpacity(chipColors(color), 20);
+      } else if (isSelected && !isLoading) {
+        return setOpacity(chipColors(color), 30);
+      }
+      return 'transparent';
   }
 };
 
-const setBackgroundColorHover = (color: ColorType, isSelected: boolean, type: ChipType): string => {
-  if (type !== 'legend') {
-    return colors.elviaCharge;
-  } else if (isSelected) {
-    return setOpacity(colors[color], 20);
-  } else {
-    return 'transparent';
+const getChipBorderLight = (isLoading: boolean, isSelected: boolean, type: ChipType): string => {
+  if ((type === 'choice' || type === 'legend') && (!isSelected || isLoading)) {
+    return `${getThemeColor('border-4')}`;
+  }
+  return 'transparent';
+};
+
+const getChipBorderDark = (
+  color: ColorType,
+  isSelected: boolean,
+  isDisabled: boolean,
+  isHovering: boolean,
+  isLoading: boolean,
+  type: ChipType,
+): string => {
+  switch (type) {
+    case 'removable':
+      if (isDisabled) {
+        return `${setOpacity(chipColors(color, 'dark'), 30)}`;
+      } else if (isHovering) {
+        return 'transparent';
+      }
+      return `${chipColors(color, 'dark')}`;
+    case 'choice':
+      if (isSelected && isHovering) {
+        return `${setOpacity(chipColors('green', 'dark'), 80)}`;
+      } else if (isSelected) {
+        return `${chipColors('green', 'dark')}`;
+      }
+      return `${getBaseColor('grey-60', 'dark')}`;
+    case 'legend':
+      if (isSelected && isHovering && !isLoading) {
+        return `${setOpacity(chipColors(color, 'dark'), 80)}`;
+      } else if (isSelected && !isLoading) {
+        return `${chipColors(color, 'dark')}`;
+      }
+      return `${getBaseColor('grey-60', 'dark')}`;
   }
 };
 
-const decideChipBorder = (
-  isLoading: boolean,
-  isSelected: boolean,
-  disabled: boolean,
-  type: ChipType,
-): string => {
-  if (disabled) {
-    return 'solid 1px transparent';
-  } else if (type === 'legend' && (!isSelected || isLoading)) {
-    return `solid 1px ${colors.gray05}`;
-  } else if (type === 'choice' && !isSelected) {
-    return `solid 1px ${colors.gray05}`;
+const getCursor = (isDisabled: boolean, isLoading: boolean) => {
+  if (isDisabled) {
+    return 'not-allowed';
+  } else if (isLoading) {
+    return 'wait';
   }
-  return 'solid 1px transparent';
+  return 'pointer';
 };
 
 type ChipComponentProps = {
@@ -67,30 +108,37 @@ type ChipComponentProps = {
 };
 
 export const ChipComponent = styled.button<ChipComponentProps>`
+  position: relative;
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
-  background: none;
-  box-sizing: border-box;
-  border: ${({ isLoading, isSelected, isDisabled, chipType }) =>
-    decideChipBorder(isLoading, isSelected, isDisabled, chipType)};
-  background-color: ${({ color, isLoading, isSelected, chipType }) =>
-    setBackgroundColor(color, isLoading, isSelected, chipType)};
-  cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
-  font-size: 14px;
-  line-height: 16px;
+  border: solid 1px
+    ${({ isLoading, isSelected, chipType }) => getChipBorderLight(isLoading, isSelected, chipType)};
+  background-color: ${({ color, isSelected, isHovering, isDisabled, isLoading, chipType }) =>
+    getChipBackgroundLight(color, isSelected, isHovering, isDisabled, isLoading, chipType)};
   padding: 7px 15px;
   border-radius: 24px;
   transition: background-color 150ms ease-in;
   white-space: nowrap;
-  position: relative;
-  ${({ isHovering, isLoading, isDisabled, color, isSelected, chipType }) =>
-    isHovering &&
-    !isLoading &&
-    !isDisabled &&
-    `background-color: ${setBackgroundColorHover(color, isSelected, chipType)}`}
+  cursor: ${({ isDisabled, isLoading }) => getCursor(isDisabled, isLoading)};
+
+  .e-theme-dark && {
+    border: solid 1px
+      ${({ color, isSelected, isDisabled, isHovering, isLoading, chipType }) =>
+        getChipBorderDark(color, isSelected, isDisabled, isHovering, isLoading, chipType)};
+    transition: border 150ms ease-in;
+    background-color: transparent;
+    &:hover {
+      background-color: ${({ chipType, isDisabled }) =>
+        chipType === 'removable' && !isDisabled && getBaseColor('green', 'dark')};
+    }
+  }
 `;
+
+interface ChipLoadingProps {
+  color: ColorType;
+}
 
 const loadingDotsAnimation = keyframes`
   0%,
@@ -103,10 +151,6 @@ const loadingDotsAnimation = keyframes`
   }
 `;
 
-interface ChipLoadingProps {
-  color: ColorType;
-}
-
 export const ChipLoading = styled.div<ChipLoadingProps>`
   position: absolute;
   top: 50%; /* position the top  edge of the element at the middle of the parent */
@@ -116,7 +160,7 @@ export const ChipLoading = styled.div<ChipLoadingProps>`
   > span {
     width: 10px;
     height: 10px;
-    background-color: ${({ color }) => colors[color]};
+    background-color: ${({ color }) => chipColors(color)};
     border-radius: 100%;
     display: inline-block;
     animation: ${loadingDotsAnimation} 1s infinite ease-in-out both;
@@ -144,24 +188,26 @@ export const ChipDot = styled.span<ChipDotProps>`
   width: 10px;
   border-radius: 50%;
   transition: background-color 150ms ease-in;
-  background-color: ${({ showDot, color }) => (showDot ? colors[color] : colors.gray05)};
+  background-color: ${({ showDot, color }) => (showDot ? chipColors(color) : getThemeColor('border-4'))};
   opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;
 
 interface ChipTitleProps {
+  chipType: ChipType;
   isDisabled: boolean;
+  isHovering: boolean;
   isHidden: boolean;
 }
 
 export const ChipTitle = styled.div<ChipTitleProps>`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
-  opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
   transition: opacity 150ms ease-in;
-  color: ${colors.elviaBlack};
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;

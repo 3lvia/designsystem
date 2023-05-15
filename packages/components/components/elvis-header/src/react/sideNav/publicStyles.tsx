@@ -1,10 +1,11 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { css, FlattenInterpolation, ThemeProps } from 'styled-components';
 
 export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemeProps<any>> => {
   return css`
     .e-sidenav__container {
+      color: ${getThemeColor('text-1')};
       display: flex;
       justify-content: space-evenly;
       flex-direction: row;
@@ -36,7 +37,7 @@ export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemePro
       gap: 1rem;
 
       &:hover .e-sidenav__icon-container {
-        border: 1px solid ${getColor('green')};
+        border: 1px solid ${getThemeColor('border-hover-1')};
       }
     }
 
@@ -68,7 +69,7 @@ export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemePro
 
     .e-sidenav__item--active {
       .e-sidenav__icon-container {
-        border-color: ${getColor('elvia-off')};
+        border-color: ${getThemeColor('border-1')};
 
         i {
           display: none;
