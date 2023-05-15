@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 import { headerZIndex, toolbarHeight } from '../styledComponents';
@@ -61,7 +61,7 @@ export const MenuContainer = styled.div<{ fadeOut: boolean }>`
   &::before {
     content: '';
     position: absolute;
-    background-color: ${getColor('elvia-on')};
+    background-color: ${getThemeColor('background-overlay-3')};
     width: 685vw;
     height: 685vw;
     bottom: 0;
@@ -96,7 +96,7 @@ export const ImageContainer = styled.div`
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: ${getColor('grey-05')};
+  background-color: ${getThemeColor('background-element-2')};
   margin-bottom: 8px;
   overflow: hidden;
   display: grid;
@@ -120,7 +120,7 @@ export const TextSmall = styled.div`
 `;
 
 export const ButtonBase = styled.button`
-  color: ${getColor('text')};
+  color: ${getThemeColor('text-1')};
   border: none;
   text-align: left;
   width: 100%;
@@ -134,7 +134,7 @@ export const ButtonBase = styled.button`
 `;
 
 export const AppSelectorTrigger = styled(ButtonBase)`
-  border: 1px solid ${getColor('grey-10')};
+  border: 1px solid ${getThemeColor('border-2')};
   border-width: 1px 0;
   margin: 24px 0;
 `;
