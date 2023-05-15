@@ -22,7 +22,6 @@ import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { config } from './config';
 import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
-import { usePagination } from 'react-use-pagination';
 
 const Pagination: FC<PaginationProps> = function ({
   // Value represents the current visible elements in the pagination
@@ -42,88 +41,60 @@ const Pagination: FC<PaginationProps> = function ({
   ...rest
 }) {
   warnDeprecatedProps(config, arguments[0]);
-  const [numberOfElementsState, setNumberOfElementsState] = useState<number>(numberOfElements);
-  const [selectedDropdownValue, setSelectedDropdownValue] = useState(
-    parseInt(dropdownItems[dropdownSelectedItemIndex].value),
-  );
-  const initialPage = value.start
-    ? Math.ceil(value.start / parseInt(dropdownItems[dropdownSelectedItemIndex].value))
-    : 0;
+  const [selectedDropdownItemIndex, setSelectedDropdownItemIndex] = useState(dropdownSelectedItemIndex);
+  const selectedDropdownValue = dropdownItems[selectedDropdownItemIndex].value;
+  const [currentPage, setCurrentPage] = useState(0);
+  const [pageSize, setPageSize] = useState(parseInt(selectedDropdownValue));
 
-  const {
-    currentPage,
-    totalPages,
-    nextEnabled,
-    pageSize,
-    previousEnabled,
-    startIndex,
-    setPage,
-    setPageSize,
-  } = usePagination({
-    totalItems: numberOfElementsState,
-    initialPage: initialPage,
-    initialPageSize: selectedDropdownValue,
-  });
+  const totalPages = Math.floor(numberOfElements / pageSize);
+  const nextEnabled = currentPage < totalPages - 1;
+  const previousEnabled = currentPage > 0;
 
-  useEffect(() => {
-    setNumberOfElementsState(numberOfElements);
-  }, [numberOfElements]);
+  const labelOptionsState: PaginationLabel = { ...defaultPaginationLabelOptions, ...labelOptions };
 
-  useEffect(() => {
-    if (selectedDropdownValue === pageSize) {
-      return;
-    }
-    const nextPage = Math.ceil((startIndex + 1) / selectedDropdownValue) - 1;
-    setPageSize(selectedDropdownValue, nextPage);
-  }, [selectedDropdownValue]);
+  const showPaginationNumbers = () => {
+    const allDropdownValuesAreNumbers = dropdownItems
+      .map((item) => item.value)
+      .every((value) => !isNaN(+value));
 
-  const [showPaginationNumbers, setShowPaginationNumbers] = useState(true);
+    const allElementsShowing =
+      numberOfElements > 0 && Math.ceil(numberOfElements / parseInt(selectedDropdownValue)) < 2;
 
-  const [labelOptionsState, setLabelOptionsState] = useState<PaginationLabel>({
-    ...defaultPaginationLabelOptions,
-    ...labelOptions,
-  });
+    return !allElementsShowing && allDropdownValuesAreNumbers;
+  };
 
   const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
 
   useEffect(() => {
-    if (value.start === undefined || value.end === undefined || value.start === 0) {
-      setPage(0);
+    setSelectedDropdownItemIndex(dropdownSelectedItemIndex);
 
-      return;
+    const newPageSize = parseInt(dropdownItems[dropdownSelectedItemIndex].value);
+    setPageSize(newPageSize);
+
+    const currentStartIndex = currentPage * pageSize;
+    const newPageIndex = Math.floor(currentStartIndex / newPageSize);
+    setCurrentPage(newPageIndex);
+  }, [dropdownSelectedItemIndex]);
+
+  useEffect(() => {
+    if (value.start && value.end) {
+      const pageSize = value.end - value.start + 1;
+      setCurrentPage(Math.floor(value.start / pageSize));
     }
-
-    setPage(Math.ceil(value.start / pageSize) - 1);
   }, [value]);
 
-  /** If selectedDropdownValue is not a number, hide the pagination */
-  useEffect(() => {
-    if (isNaN(selectedDropdownValue)) {
-      console.error(`elvis-pagination: the dropdown (${selectedDropdownValue}) value is not a number.`);
-      setShowPaginationNumbers(false);
-    }
-  }, [selectedDropdownValue]);
-
-  /** Keep labelOptions prop in sync with the shown label options */
-  useEffect(() => {
-    setLabelOptionsState({ ...defaultPaginationLabelOptions, ...labelOptions });
-  }, [labelOptions]);
-
-  useEffect(() => {
-    const allElementsShowing =
-      numberOfElements > 0 && Math.ceil(numberOfElements / selectedDropdownValue) < 2;
-    setShowPaginationNumbers(!allElementsShowing);
-  }, [numberOfElements, selectedDropdownValue]);
-
-  useEffect(() => {
-    setSelectedDropdownValue(parseInt(dropdownItems[dropdownSelectedItemIndex].value));
-  }, [dropdownItems, dropdownSelectedItemIndex]);
+  const getPaginationValue = (pageIndex: number, elementsPerPage: number): VisibleElements => {
+    const start = pageIndex * elementsPerPage;
+    const end = start + elementsPerPage;
+    // +1 to make it 1-indexed
+    return { start: start + 1, end: Math.min(end, totalPages - 1) };
+  };
 
   const emitValueOnChangeEvent = (valueToEmit: VisibleElements): void => {
     if (
       valueToEmit.start === undefined ||
       valueToEmit.end === undefined ||
-      valueToEmit.start > numberOfElementsState
+      valueToEmit.start > numberOfElements
     ) {
       return;
     }
@@ -131,66 +102,41 @@ const Pagination: FC<PaginationProps> = function ({
     webcomponent?.setProps({ value: valueToEmit }, true);
     webcomponent?.triggerEvent('valueOnChange', valueToEmit);
   };
-  /** -- DROPDOWN -- */
-  /** Dropdown item is not valid if the value is not a number */
-  const isValidDropdownItem = (dropdownItem: string): boolean => {
-    return !isNaN(parseInt(dropdownItem));
-  };
 
   /** Update pagination values and dispatch dropdownSelectedItemIndex events */
   const handleDropdownValueChange = (incomingSelectedDropdownValue: string): void => {
     const newSelectedDropdownValue = parseInt(incomingSelectedDropdownValue);
 
     // Don't update or dispatch new event if the value is identical to previous value.
-    if (newSelectedDropdownValue === selectedDropdownValue) {
+    if (newSelectedDropdownValue === parseInt(selectedDropdownValue)) {
       return;
-    }
-    if (!isValidDropdownItem(incomingSelectedDropdownValue)) {
-      setShowPaginationNumbers(false);
-      return;
-    }
-    if (!showPaginationNumbers) {
-      setShowPaginationNumbers(true);
     }
 
-    setSelectedDropdownValue(newSelectedDropdownValue);
+    const newIndex = dropdownItems.map((item) => item.value).indexOf(incomingSelectedDropdownValue);
+    setSelectedDropdownItemIndex(newIndex);
+
+    const currentStartIndex = currentPage * pageSize;
+    const newPageIndex = Math.floor(currentStartIndex / newSelectedDropdownValue);
+    setCurrentPage(newPageIndex);
+
+    setPageSize(newSelectedDropdownValue);
 
     //emit indexes
-    const nextPage = Math.ceil((startIndex + 1) / newSelectedDropdownValue) - 1;
-    const start = getStartIndex(newSelectedDropdownValue, nextPage);
-    const end = getEndIndex(newSelectedDropdownValue, nextPage, numberOfElementsState);
-    emitValueOnChangeEvent({ start: start, end: end });
+    emitValueOnChangeEvent(getPaginationValue(newPageIndex, newSelectedDropdownValue));
 
     //emit dropdownSelectedItemIndex
-    const selectedIndex = dropdownItems.findIndex((item) => item.value === incomingSelectedDropdownValue);
-    dropdownSelectedItemIndexOnChange?.(selectedIndex);
-    webcomponent?.setProps({ dropdownSelectedItemIndex: selectedIndex }, true);
-    webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', selectedIndex);
+    dropdownSelectedItemIndexOnChange?.(newIndex);
+    webcomponent?.setProps({ dropdownSelectedItemIndex: newIndex }, true);
+    webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', newIndex);
   };
 
-  const getEndIndex = (pageSize: number, currentPage: number, totalItems: number): number => {
-    const lastPageEndIndex = pageSize * (currentPage + 1);
-
-    if (lastPageEndIndex > totalItems) {
-      return totalItems;
-    }
-
-    return lastPageEndIndex;
-  };
-
-  const getStartIndex = (pageSize: number, currentPage: number): number => {
-    return pageSize * currentPage + 1;
-  };
-
-  const handleOnPageClick = (page: number): void => {
-    if (page === currentPage) {
+  const handleOnPageClick = (pageIndex: number): void => {
+    if (pageIndex === currentPage) {
       return;
     }
 
-    const start = getStartIndex(pageSize, page);
-    const end = getEndIndex(pageSize, page, numberOfElementsState);
-    emitValueOnChangeEvent({ start: start, end: end });
-    setPage(page);
+    emitValueOnChangeEvent(getPaginationValue(pageIndex, pageSize));
+    setCurrentPage(pageIndex);
   };
 
   const handleOnPreviousPageClick = (): void => {
@@ -204,7 +150,7 @@ const Pagination: FC<PaginationProps> = function ({
   return (
     <Paginator
       isRightAligned={alignment === 'right'}
-      className={`${className ? className : ''}`}
+      className={className}
       style={inlineStyle}
       data-testid="pagination"
       {...rest}
@@ -217,7 +163,7 @@ const Pagination: FC<PaginationProps> = function ({
             items={dropdownItems}
             menuPosition={dropdownMenuPosition}
             className="number-of-items-dropdown"
-            value={selectedDropdownValue.toString()}
+            value={selectedDropdownValue}
             valueOnChange={(event: string) => handleDropdownValueChange(event)}
             data-testid="dropdown"
             ariaLabel={`viser ${selectedDropdownValue} ${labelOptionsState.label} per side`}
@@ -227,7 +173,7 @@ const Pagination: FC<PaginationProps> = function ({
           {labelOptionsState.of} {numberOfElements.toLocaleString('nb-NO')} {labelOptionsState.label}
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
-      {showPaginationNumbers && (
+      {showPaginationNumbers() && (
         <PaginatorSelectorArea role="navigation" ref={listContainerRef} data-testid="selector-area">
           <PaginatorSelectorArrowBtn
             visible={previousEnabled}

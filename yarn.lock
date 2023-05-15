@@ -3132,7 +3132,6 @@ __metadata:
     "@elvia/elvis-dropdown": ^6.1.1
     "@elvia/elvis-toolbox": ^8.0.0
     "@elvia/elvis-typography": ^2.3.2
-    react-use-pagination: 2.0.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -17585,15 +17584,6 @@ __metadata:
     vite: ^4.1.0
   languageName: unknown
   linkType: soft
-
-"react-use-pagination@npm:2.0.1":
-  version: 2.0.1
-  resolution: "react-use-pagination@npm:2.0.1"
-  peerDependencies:
-    react: ^16.8.0 || ^17 || ^18
-  checksum: ba107fb8ffbdbb7d5e2729ee07d2a9e4f1879eb4606dcf34aa950b8ddbbadeac23495d1156a2c21c81e4c3f022b0ae8ab3f349ad54abf7c26faddd23a3b4c420
-  languageName: node
-  linkType: hard
 
 "react@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react@npm:^18.2.0":
   version: 18.2.0
