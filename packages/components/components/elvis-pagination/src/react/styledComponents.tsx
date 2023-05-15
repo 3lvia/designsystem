@@ -17,14 +17,12 @@ export const Paginator = styled.div<PaginatorProps>`
   width: 100%;
   row-gap: 8px;
   user-select: none;
-  background-color: lightblue !important;
 `;
 
 export const PaginatorInfoContainer = styled.div`
   align-items: center;
   display: flex;
   gap: 8px;
-  background-color: lightgreen !important;
 `;
 
 export const PaginatorInfoText = styled.div`
