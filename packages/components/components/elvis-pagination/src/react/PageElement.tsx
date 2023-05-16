@@ -23,7 +23,6 @@ export const PageElement: FC<PageElementProps> = ({
       selected={pageNumber === selectedPageNumber}
       aria-current={pageNumber === selectedPageNumber}
       aria-label={getAriaLabel(pageNumber)}
-      data-testid={`paginator-button-${pageNumber}`}
     >
       {pageNumber.toLocaleString('nb-NO')}
     </PaginatorPage>

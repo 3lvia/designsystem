@@ -12,7 +12,7 @@ export const Paginator = styled.div<PaginatorProps>`
   display: flex;
   flex-wrap: wrap-reverse;
   height: auto;
-  justify-content: ${(props) => (props.isRightAligned ? 'flex-end' : 'flex-start')};
+  justify-content: ${({ isRightAligned }) => (isRightAligned ? 'flex-end' : 'flex-start')};
   max-width: 100%;
   width: 100%;
   row-gap: 8px;
@@ -71,7 +71,7 @@ export const PaginatorSelectorArrowBtn = styled.button<SelectorArrowBtnProps>`
   min-height: 36px;
   min-width: 36px;
   padding: 0;
-  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 
   @media (hover: hover) {
     &:hover {
@@ -113,24 +113,23 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: ${(props) => (props.selected ? `1px solid ${getThemeColor('border-1')}` : 'none')};
+  border: ${({ selected }) => (selected ? `1px solid ${getThemeColor('border-1')}` : 'none')};
   border-radius: 50%;
   min-width: 36px;
-  ${(props) => props.pageNumber.toString().length < 4 && 'width: 36px'};
+  ${({ pageNumber }) => pageNumber.toString().length < 4 && 'width: 36px'};
   height: 36px;
 
   border-radius: 100px;
   cursor: pointer;
   padding: 0%;
-  ${(props) => props.pageNumber.toString().length >= 4 && `padding: 8px 16px;`};
-  ${(props) => props.pageNumber.toString().length >= 4 && props.selected && `padding: 8px 15px;`};
+  ${({ pageNumber }) => pageNumber.toString().length >= 4 && `padding: 8px 16px;`};
+  ${({ pageNumber, selected }) => pageNumber.toString().length >= 4 && selected && `padding: 8px 15px;`};
 
   @media (hover: hover) {
     &:hover {
       border: 1px solid ${getThemeColor('border-hover-1')};
-      ${(props) =>
-        (props.pageNumber.toString().length >= 4 ||
-          (props.pageNumber.toString().length >= 4 && props.selected)) &&
+      ${({ pageNumber, selected }) =>
+        (pageNumber.toString().length >= 4 || (pageNumber.toString().length >= 4 && selected)) &&
         `padding: 8px 15px;`};
     }
   }
