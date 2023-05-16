@@ -46,7 +46,7 @@ const Pagination: FC<PaginationProps> = function ({
   const [currentPage, setCurrentPage] = useState(0);
   const [pageSize, setPageSize] = useState(parseInt(selectedDropdownValue));
 
-  const totalPages = Math.floor(numberOfElements / pageSize);
+  const totalPages = Math.ceil(numberOfElements / pageSize);
   const nextEnabled = currentPage < totalPages - 1;
   const previousEnabled = currentPage > 0;
   const labelOptionsState: PaginationLabel = { ...defaultPaginationLabelOptions, ...labelOptions };
@@ -94,7 +94,7 @@ const Pagination: FC<PaginationProps> = function ({
     const start = pageIndex * elementsPerPage;
     const end = start + elementsPerPage;
     // +1 to make it 1-indexed
-    return { start: start + 1, end: Math.min(end, totalPages - 1) };
+    return { start: start + 1, end: Math.min(end, numberOfElements - 1) };
   };
 
   const emitValueOnChangeEvent = (value: VisibleElements): void => {
