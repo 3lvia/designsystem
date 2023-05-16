@@ -1,7 +1,7 @@
 import { StepStates } from './elvia-stepper.types';
 
 export const isReachable = (forced: boolean, i: number, steps?: StepStates): boolean => {
-  return !(forced && i !== 0 && !steps?.[i]?.isCompleted);
+  return !(forced && i !== 1 && !steps?.[i - 1]?.isCompleted);
 };
 
 export const numberShouldBeVisible = (

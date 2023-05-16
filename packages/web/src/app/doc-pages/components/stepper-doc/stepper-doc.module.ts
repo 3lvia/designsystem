@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { ComponentExampleCodeModule } from 'src/app/shared/component-documentation/component-example/component-example-code/component-example-code.module';
@@ -9,9 +9,10 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { StepperDocComponent } from './stepper-doc.component';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { StepperCegComponent } from './stepper-ceg/stepper-ceg.component';
 
 @NgModule({
-  declarations: [StepperDocComponent],
   imports: [
     CommonModule,
     ComponentHeaderModule,
@@ -22,6 +23,9 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentSubsectionModule,
     WhenToUseModule,
     ComponentChangelogModule,
+    CegModule,
   ],
+  declarations: [StepperDocComponent, StepperCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class StepperDocModule {}

@@ -8,53 +8,9 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-stepper e-stepper--horizontal">
-      <div class="e-stepper__steps">
-        <!--STEP-->
-        <div class="e-stepper__step e-stepper__step--done">
-          <div class="e-stepper__step-line"></div>
-          <div class="e-stepper__step-header">
-            <div class="e-stepper__step-number">1</div>
-          </div>
-        </div>
-
-        <!--STEP-->
-        <div class="e-stepper__step e-stepper__step--error">
-          <div class="e-stepper__step-line"></div>
-          <div class="e-stepper__step-header">
-            <div class="e-stepper__step-number">2</div>
-          </div>
-        </div>
-
-        <!--STEP-->
-        <div class="e-stepper__step e-stepper__step--active">
-          <div class="e-stepper__step-line"></div>
-          <div class="e-stepper__step-header">
-            <div class="e-stepper__step-number">3</div>
-          </div>
-        </div>
-
-        <!--STEP-->
-        <div class="e-stepper__step">
-          <div class="e-stepper__step-line"></div>
-          <div class="e-stepper__step-header">
-            <div class="e-stepper__step-number">4</div>
-          </div>
-        </div>
-      </div>
-
-      <!--CONTENT - PUT DESIRED CONTENT HERE FOR EACH STEP-->
-      <div class="e-stepper__content"></div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeHTML]="exampleShortHorizontalHTML"
-      ></app-component-example-v1>
-    </div>
-  </div>
+  <app-ceg>
+    <app-stepper-ceg />
+  </app-ceg>
 
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
