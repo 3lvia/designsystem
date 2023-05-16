@@ -14,7 +14,7 @@ import {
   AppListContainer,
   TextMdStrong,
 } from './mobileMenuStyles';
-import { IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
+import { IconWrapper, TertiaryButton, useCurrentTheme } from '@elvia/elvis-toolbox';
 import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
 import removeCircleColor from '@elvia/elvis-assets-icons/dist/icons/removeCircleColor';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
@@ -43,6 +43,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
     triggerButtonRef,
     popoverRef,
   );
+  const { currentTheme } = useCurrentTheme(triggerButtonRef);
 
   useEffect(() => {
     onMenuToggle(userMenuIsOpen);
@@ -60,7 +61,6 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
       >
         <IconWrapper
           icon={userMenuIsOpen ? removeCircleColor : moreMenu}
-          color="black"
           size={userMenuIsOpen ? 'md' : 'sm'}
         />
       </IconButton>
@@ -78,14 +78,14 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
               {view === 'mainPage' && (
                 <>
                   <ImageContainer>
-                    <ProfilePicture />
+                    <ProfilePicture currentTheme={currentTheme} />
                   </ImageContainer>
                   <TextSmallStrong>{username}</TextSmallStrong>
                   <TextSmall>{email}</TextSmall>
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
                   <section>
                     <TertiaryButton size="sm" onClick={onSignOutClick}>
-                      <IconWrapper icon={logout} size="xs" color="black" />
+                      <IconWrapper icon={logout} size="xs" />
                       Logg ut
                     </TertiaryButton>
                   </section>

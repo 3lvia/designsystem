@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { TertiaryButton } from '@elvia/elvis-toolbox';
 
@@ -10,7 +10,7 @@ export const sidebarMaxWidth = '280px';
 export const sidebarAnimation = '400ms cubic-bezier(0.71, 0, 0.31, 1)';
 
 export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boolean }>`
-  background-color: ${getColor('elvia-on')};
+  background-color: ${getThemeColor('background-overlay-3')};
   height: ${toolbarHeight};
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@ export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boo
   ${({ isGtMobile }) =>
     isGtMobile &&
     css`
-      border-bottom: 2px solid ${getColor('grey-05')};
+      border-bottom: 1px solid ${getThemeColor('border-5')};
 
       ${LogoContainer} {
         width: unset;
@@ -57,6 +57,7 @@ export const LogoContainer = styled(SquareContainer)`
 
 export const PageTitle = styled.h1<{ isInvisible: boolean }>`
   ${getTypographyCss('text-md-strong')};
+  color: ${getThemeColor('text-1')};
   flex: 1;
   transition: opacity 400ms;
 
@@ -79,7 +80,7 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
     right: 0;
     top: calc(100% + 2px); // To revert the height-hack
     height: 2px;
-    background-color: ${getColor('green')};
+    background-color: ${getThemeColor('background-selected-1')};
     transform: scaleX(0);
     transition: transform 300ms ease-in-out;
     transform-origin: center left;
@@ -99,6 +100,7 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
 `;
 
 export const ProfileButton = styled(TriggerButton)`
+  color: ${getThemeColor('text-1')};
   margin-right: 24px;
   text-align: left;
 `;
@@ -125,7 +127,7 @@ export interface HrProps {
 }
 
 export const Hr = styled.hr<Partial<HrProps>>`
-  border: 0 solid ${getColor('grey-10')};
+  border: 0 solid ${getThemeColor('border-2')};
 
   ${({ direction, isGtTablet }) => {
     if (direction === 'vertical') {
