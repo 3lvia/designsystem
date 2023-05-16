@@ -19,6 +19,9 @@ import { ComponentChangelogModule } from 'src/app/shared/component-documentation
 import '@elvia/elvis-radio-filter';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { IconCegComponent } from './icon-ceg/icon-ceg.component';
+import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
+import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
+import { IconInvertedDisabledCegComponent } from './icon-inverted-disabled-ceg/icon-inverted-disabled-ceg.component';
 
 @NgModule({
   imports: [
@@ -39,6 +42,13 @@ import { IconCegComponent } from './icon-ceg/icon-ceg.component';
     CegModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [IconDocComponent, IconSearchPipe, IconCegComponent],
+  declarations: [
+    IconDocComponent,
+    IconSearchPipe,
+    IconCegComponent,
+    IconSizesCegComponent,
+    IconColorsCegComponent,
+    IconInvertedDisabledCegComponent,
+  ],
 })
 export class IconDocModule {}

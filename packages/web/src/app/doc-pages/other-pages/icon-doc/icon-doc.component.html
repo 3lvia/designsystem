@@ -329,10 +329,9 @@
               </li>
             </ul>
           </div>
-          <app-component-example-v1
-            [codeHTML]="example"
-            [codeInverted]="exampleInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-icon-sizes-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -367,7 +366,9 @@
               svart/hvitt i mørkt tema, og bør bare brukes på bestemte steder.
             </ng-container>
           </p>
-          <app-component-example-v1 [codeHTML]="iconColorClassExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-icon-colors-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -408,11 +409,9 @@
             </ng-container>
           </p>
 
-          <app-component-example-v1
-            [codeHTML]="example3"
-            [codeInverted]="example3Inverted"
-            [isInverted]="true"
-          ></app-component-example-v1>
+          <app-static-ceg [inverted]="true">
+            <app-icon-inverted-disabled-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Fyll og vekt' : 'Fill and weight'">
