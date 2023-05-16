@@ -158,7 +158,7 @@ const Pagination: FC<PaginationProps> = function ({
       {...rest}
     >
       <PaginatorInfoContainer>
-        <PaginatorInfoText data-testid="info-text">{labelOptionsState.displaying}</PaginatorInfoText>
+        <PaginatorInfoText>{labelOptionsState.displaying}</PaginatorInfoText>
         <PaginatorInfoDropdown>
           <Dropdown
             isCompact
@@ -167,21 +167,19 @@ const Pagination: FC<PaginationProps> = function ({
             className="number-of-items-dropdown"
             value={selectedDropdownValue}
             valueOnChange={(event: string) => handleDropdownValueChange(event)}
-            data-testid="dropdown"
             ariaLabel={`viser ${selectedDropdownValue} ${labelOptionsState.label} per side`}
           />
         </PaginatorInfoDropdown>
-        <PaginatorInfoAmount data-testid="info-amount">
+        <PaginatorInfoAmount>
           {labelOptionsState.of} {numberOfElements.toLocaleString('nb-NO')} {labelOptionsState.label}
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
       {showPaginationNumbers() && (
-        <PaginatorSelectorArea role="navigation" ref={listContainerRef} data-testid="selector-area">
+        <PaginatorSelectorArea ref={listContainerRef}>
           <PaginatorSelectorArrowBtn
             visible={previousEnabled}
             aria-hidden={!previousEnabled}
             onClick={handleOnPreviousPageClick}
-            data-testid="selector-arrow-btn-left"
             aria-label="Forrige side"
           >
             <IconWrapper icon={arrowLongLeft} size="xs" />
@@ -198,7 +196,6 @@ const Pagination: FC<PaginationProps> = function ({
             visible={nextEnabled}
             aria-hidden={!nextEnabled}
             onClick={handleOnNextPageClick}
-            data-testid="selector-arrow-btn-right"
             aria-label="Neste side"
           >
             <IconWrapper icon={arrowLongRight} size="xs" />
