@@ -12,32 +12,29 @@
 <div class="page-body">
   <app-component-subsubsection>
     <ng-container ngProjectAs="sectionContent">
-      <div class="e-accordion e-accordion--group e-mt-72">
-        <div class="e-accordion__item" #contribute>
-          <div class="e-accordion__label" (click)="toggleOpen('contribute')">
-            <div class="e-accordion__title">How do I contribute or propose new components/ideas?</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+      <div class="e-mt-72 e-flex e-flex-direction-column e-gap-16">
+        <elvia-accordion
+          isFullWidth="true"
+          typography="text-lg-strong"
+          openLabel="How do I contribute or propose new components/ideas?"
+          closeLabel="How do I contribute or propose new components/ideas?"
+        >
+          <div slot="content">
             <span class="e-text-lg">
               Check out the
               <a class="e-link e-text-lg" [routerLink]="['/about/contribute']">contribution model</a>
               .
             </span>
           </div>
-        </div>
-        <div class="e-accordion__item" #bugs>
-          <div class="e-accordion__label" (click)="toggleOpen('bugs')">
-            <div class="e-accordion__title">How do I report bugs?</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion
+          isFullWidth="true"
+          typography="text-lg-strong"
+          openLabel="How do I report bugs?"
+          closeLabel="How do I report bugs?"
+        >
+          <div slot="content">
             <span class="e-text-lg">
               Come in contact with us with any requests or reports of bugs and issues on slack
               <a
@@ -66,16 +63,15 @@
               </a>
             </span>
           </div>
-        </div>
-        <div class="e-accordion__item" #browsers>
-          <div class="e-accordion__label" (click)="toggleOpen('browsers')">
-            <div class="e-accordion__title">Which browsers are supported?</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion
+          isFullWidth="true"
+          typography="text-lg-strong"
+          openLabel="Which browsers are supported?"
+          closeLabel="Which browsers are supported?"
+        >
+          <div slot="content">
             <p class="e-text-lg">
               Components are actively tested for these browsers and only minor visual differences should
               occur:
@@ -85,15 +81,10 @@
               <li>Firefox - latest</li>
               <li>Safari - latest</li>
               <li>MS Edge - latest</li>
-              <li>MS Internet Explorer - 11 *</li>
             </ul>
-            <p class="e-text-lg">
-              * FYI: Even though the design system have to support Internet Explorer 11, you might not have
-              to. If you are developing on a internal system for usage by Elvia employees only, you do not
-              have to support IE11. Don't forget to give a warning to the user if the browser is IE11.
-            </p>
           </div>
-        </div>
+        </elvia-accordion>
+        <elvia-divider />
       </div>
     </ng-container>
   </app-component-subsubsection>
