@@ -8,7 +8,8 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Pagination now correctly emits the <code>onPageChange</code> event when changing the dropdown value."
+            "Pagination now correctly emits its correct values after user interaction.",
+            "Resolved a bug that caused an incorrect internal state when both the <code>dropdownSelectedItemIndex</code> and <code>value</code> were set simultaneously"
           ]
         }
       ]
