@@ -38,13 +38,21 @@ export class IconDocComponent implements OnInit {
   copied = false;
   locale: LOCALE_CODE = 'en-GB';
 
-  scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>;`;
+  scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>`;
   iconExample = `<i class="e-icon e-icon--chat e-icon--md" aria-hidden="true"></i>`;
 
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private titleService: Title, private localizationService: LocalizationService) {}
+  constructor(private titleService: Title, private localizationService: LocalizationService) {
+    this.localizationService
+      .listenLocalization()
+      .pipe(takeUntilDestroyed())
+      .subscribe((locale) => {
+        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+        this.setTabTitle();
+      });
+  }
 
   @HostListener('document:click', ['$event', '$event.target'])
   onClick(_event: MouseEvent, targetElement: HTMLElement): void {
@@ -61,17 +69,9 @@ export class IconDocComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setTabTitle();
     this.fillIconList();
     this.visibleIcons = this.allIcons;
-
-    this.setTabTitle();
-    this.localizationService
-      .listenLocalization()
-      .pipe(takeUntilDestroyed())
-      .subscribe((locale) => {
-        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
-        this.setTabTitle();
-      });
   }
 
   private setTabTitle = (): void => {

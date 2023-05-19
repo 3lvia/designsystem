@@ -37,7 +37,7 @@ import { PhoneShellComponent } from './phone-shell/phone-shell.component';
     DynamicCodeGeneratorComponent,
     PhoneShellComponent,
   ],
-  exports: [CegComponent, StaticCegComponent],
+  exports: [CegComponent, StaticCegComponent, StaticCodeGeneratorComponent],
   imports: [CommonModule],
   providers: [FormatCodePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

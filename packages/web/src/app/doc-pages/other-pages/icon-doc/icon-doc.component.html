@@ -502,22 +502,14 @@
       <app-component-subsubsection [sectionTitle]="'Method 1 - Easiest if you are already using Elvis'">
         <ng-container ngProjectAs="sectionContent">
           <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
-          <p class="e-mb-0">
+
+          <p class="e-mb-16">
             Download the npm package and use Elvis.js from inside the npm package like this:
           </p>
-          <p class="e-m-0 e-mt-16">
-            <app-component-example-code
-              [noSubscriptions]="noSubs"
-              [codeHTML]="scriptCodeHTML"
-            ></app-component-example-code>
-          </p>
-          <p class="e-mb-0">The icons can then be used like this:</p>
-          <p class="e-m-0 e-mt-16">
-            <app-component-example-code
-              [noSubscriptions]="noSubs"
-              [codeHTML]="iconExample"
-            ></app-component-example-code>
-          </p>
+          <app-static-code-generator [alwaysVisible]="true" [staticContent]="scriptCodeHTML" />
+
+          <p class="e-mb-16">The icons can then be used like this:</p>
+          <app-static-code-generator [alwaysVisible]="true" [staticContent]="iconExample" />
           <p>
             <strong>How it works:</strong>
             <br />
@@ -539,10 +531,6 @@
           <app-ceg>
             <app-icon-ceg />
           </app-ceg>
-          <app-component-example-generator
-            [componentData]="componentData"
-            [delayInnerHtml]="true"
-          ></app-component-example-generator>
 
           <!--INSTALLATION-->
           <app-component-section [sectionTitle]="'Installation'">
