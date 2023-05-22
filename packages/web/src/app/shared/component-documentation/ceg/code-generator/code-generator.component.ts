@@ -20,7 +20,8 @@ export class CodeGeneratorComponent implements OnInit {
   @Input() hideReact: boolean;
 
   private _typeScriptCode = '';
-  @Input() get typeScriptCode() {
+  @Input()
+  get typeScriptCode() {
     return this._typeScriptCode;
   }
   set typeScriptCode(code: string) {
