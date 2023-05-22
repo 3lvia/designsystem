@@ -1,6 +1,7 @@
 interface ControlBase {
   readonly type: string;
   readonly group: string;
+  readonly excludedFromDomProps?: boolean;
 }
 
 export interface Checkbox<T = Record<string, any>> extends ControlBase {
@@ -50,7 +51,13 @@ export interface Text extends ControlBase {
   readonly placeholder?: string;
 }
 
-export type CegControl = Checkbox | Switch | SlotToggle | RadioGroup | Counter | Text;
+export type CegControl<T = Record<string, any>> =
+  | Checkbox<T>
+  | Switch
+  | SlotToggle
+  | RadioGroup
+  | Counter
+  | Text;
 
 export type Controls<T = Record<string, any>> = Readonly<
   Partial<{
