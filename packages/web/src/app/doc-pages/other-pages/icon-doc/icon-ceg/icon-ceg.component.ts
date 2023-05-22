@@ -28,7 +28,7 @@ export class IconCegComponent implements ComponentExample {
         },
       },
       staticProps: {
-        name: 'chat',
+        name: 'analyticsBars',
       },
       groupOrder: ['Size'],
     },
