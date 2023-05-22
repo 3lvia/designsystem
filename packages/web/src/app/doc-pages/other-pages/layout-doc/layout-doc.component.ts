@@ -24,7 +24,7 @@ export class LayoutDocComponent {
 
   constructor(private titleService: Title, private localizationService: LocalizationService) {
     this.setTabTitle();
-    this.localizationSubscriber = this.localizationService
+    this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
