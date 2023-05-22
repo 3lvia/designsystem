@@ -66,7 +66,7 @@ export class ToastCegComponent extends TypescriptComponentExample implements Com
             this.toastConfig[key] = control.value;
           });
 
-          this.setTypeScript(`import { openElviaToast } from '@elvia/elvis-toast';
+          this.setTypescript(`import { openElviaToast } from '@elvia/elvis-toast';
 
           export const showToast = () => {
             openElviaToast(${JSON.stringify(this.toastConfig)});
