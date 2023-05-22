@@ -51,7 +51,7 @@
     <!--Card-->
     <div class="example-wrapper">
       <h3>Card</h3>
-      <elvia-card :header="'Header'" :description="'Hover me!'">
+      <elvia-card :heading="'Heading'" :description="'Hover me!'">
         <div slot="icon">91</div>
         <div slot="iconHover">92</div>
         <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
@@ -151,8 +151,8 @@
     <div class="example-wrapper">
       <h3>Divider</h3>
       <elvia-divider></elvia-divider>
-      <elvia-divider :isInverted="false" :type="'title'">
-        <h2 slot="title">Title</h2>
+      <elvia-divider :type="'heading'">
+        <h2 slot="heading">Heading</h2>
       </elvia-divider>
     </div>
 
@@ -232,8 +232,8 @@
       <elvia-segmented-control
         :type="'icon'"
         :items="[
-          { iconName: 'thumbnail', iconNameSelected: 'thumbnailSelected', altLabel: 'Label' },
-          { iconName: 'list', iconNameSelected: 'listSelected', altLabel: 'Label' },
+          { iconName: 'thumbnail', iconNameSelected: 'thumbnail', altLabel: 'Label' },
+          { iconName: 'list', iconNameSelected: 'list', altLabel: 'Label' },
         ]"
         @value-on-change="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>
