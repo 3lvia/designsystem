@@ -18,6 +18,7 @@ export class CodeGeneratorComponent implements OnInit {
   @Input() reactCode = '';
   @Input() vueCode = '';
   @Input() hideReact: boolean;
+  @Input() alwaysVisible: boolean;
 
   private _typeScriptCode = '';
   @Input()

@@ -1,5 +1,20 @@
-<elvia-accordion closeLabel="Hide code" openLabel="Show code" size="small">
-  <div slot="content" class="code-container">
+<elvia-accordion
+  closeLabel="Hide code"
+  openLabel="Show code"
+  size="small"
+  *ngIf="!alwaysVisible; else codeBlock"
+>
+  <div slot="content">
+    <ng-container *ngTemplateOutlet="content" />
+  </div>
+</elvia-accordion>
+
+<ng-template #codeBlock>
+  <ng-container *ngTemplateOutlet="content" />
+</ng-template>
+
+<ng-template #content>
+  <div class="code-container">
     <div class="top-menu">
       <elvia-tabs
         (valueOnChange)="setActiveTab($any($event).detail.value)"
@@ -30,4 +45,4 @@
       <pre><code [innerHtml]="activeCode | formatCode:language | highlighter:language" class="active-code"></code></pre>
     </div>
   </div>
-</elvia-accordion>
+</ng-template>
