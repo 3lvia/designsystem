@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { openElviaToast } from '@elvia/elvis-toast';
-import { ToastConfig } from '@elvia/elvis-toast';
+import { openElviaToast, ToastConfig } from '@elvia/elvis-toast';
 import {
   CegControlManager,
   ComponentExample,
