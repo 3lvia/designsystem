@@ -24,17 +24,10 @@
         the components under "Components" in the main menu.
       </div>
 
-      <div class="e-accordion e-accordion--group e-mt-40">
+      <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
         <!--Style library - Elvis-->
-        <div class="e-accordion__item" id="elvis">
-          <div class="e-accordion__label" (click)="toggleAccordion('elvis')">
-            <div class="e-accordion__title">Elvis</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion openLabel="Elvis" closeLabel="Elvis" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               Elvis is the styling library we offer with multiple component classes and utilities like colors,
               icons and typography.
@@ -139,18 +132,11 @@
               </ng-container>
             </app-component-subsubsection>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Components-->
-        <div class="e-accordion__item" id="components">
-          <div class="e-accordion__label" (click)="toggleAccordion('components')">
-            <div class="e-accordion__title">Components</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion openLabel="Components" closeLabel="Components" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               Our components have each their own npm package that can be used individually or together with
               other components and elvis. Our components are also listed together with the styling library
@@ -161,18 +147,11 @@
               Each component has its own guidelines for how to use and install the package in your project.
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Utilities-->
-        <div class="e-accordion__item" id="utilities">
-          <div class="e-accordion__label" (click)="toggleAccordion('utilities')">
-            <div class="e-accordion__title">Utilities</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion openLabel="Utilities" closeLabel="Utilities" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             Find all the utilities we provide under the
             <a class="e-link e-link--inline" [routerLink]="['/brand']">brand</a>
             and
@@ -217,18 +196,11 @@
               </a>
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Talk with us-->
-        <div class="e-accordion__item" id="talk">
-          <div class="e-accordion__label" (click)="toggleAccordion('talk')">
-            <div class="e-accordion__title">Talk with us</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion openLabel="Talk with us" closeLabel="Talk with us" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               If you have any issues at all, please don't hesitate to
               <a class="e-link e-link--inline" [routerLink]="['/about/contact']">contact us!</a>
@@ -249,7 +221,7 @@
               </a>
             </span>
           </div>
-        </div>
+        </elvia-accordion>
       </div>
     </ng-container>
   </app-component-section>
@@ -260,17 +232,10 @@
       As a designer, there’s a few resources to gather before getting started with the design system in Elvia.
       First thing to do is to make sure you have access to the Figma library.
 
-      <div class="e-accordion e-accordion--group">
+      <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
         <!--Figma-->
-        <div class="e-accordion__item" id="figma">
-          <div class="e-accordion__label" (click)="toggleAccordion('figma')">
-            <div class="e-accordion__title">Figma</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion openLabel="Figma" closeLabel="Figma" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div class="flex-container-figma">
               <img class="figma-img" src="../../../../assets/get-started-designers/figma.svg" alt="" />
               <div>
@@ -311,18 +276,16 @@
               rest when you can, to make sure you don’t miss out on anything important.
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Elvia brand and design concept-->
-        <div class="e-accordion__item" id="brand-design-concept">
-          <div class="e-accordion__label" (click)="toggleAccordion('brand-design-concept')">
-            <div class="e-accordion__title">Elvia brand and design concept</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion
+          openLabel="Elvia brand and design concept"
+          closeLabel="Elvia brand and design concept"
+          isFullWidth="true"
+          size="large"
+        >
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               Elvia is characterized by being ON as an energy provider. The most important identity marker is
               Elvia’s logo, which should be used in all visual communication. You can
@@ -354,18 +317,16 @@
               </a>
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Colors and style-->
-        <div class="e-accordion__item" id="colors-style">
-          <div class="e-accordion__label" (click)="toggleAccordion('colors-style')">
-            <div class="e-accordion__title">Colors and style</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion
+          openLabel="Colors and style"
+          closeLabel="Colors and style"
+          isFullWidth="true"
+          size="large"
+        >
+          <div slot="content" class="e-text-lg e-mt-16">
             <div class="flex-img-container">
               <div class="color-text">
                 The main colors we use are black, grey, white and green. The green color specifically should
@@ -404,18 +365,16 @@
               project, let us know.
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Grid and breakpoints-->
-        <div class="e-accordion__item" id="grid-breakpoints">
-          <div class="e-accordion__label" (click)="toggleAccordion('grid-breakpoints')">
-            <div class="e-accordion__title">Grid and breakpoints</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion
+          openLabel="Grid and breakpoints"
+          closeLabel="Grid and breakpoints"
+          isFullWidth="true"
+          size="large"
+        >
+          <div slot="content" class="e-text-lg e-mt-16">
             <img class="e-w-100" src="../../../../assets/get-started-designers/GRID.svg" alt="" />
 
             <div class="e-mt-24">
@@ -445,18 +404,16 @@
               </a>
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Design in Elvia-->
-        <div class="e-accordion__item" id="design-elvia">
-          <div class="e-accordion__label" (click)="toggleAccordion('design-elvia')">
-            <div class="e-accordion__title">Design in Elvia</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion
+          openLabel="Design in Elvia"
+          closeLabel="Design in Elvia"
+          isFullWidth="true"
+          size="large"
+        >
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               In Elvia, designers help each other to create great experiences. You can find information about
               <a class="e-link e-link--inline" [routerLink]="['/tools/design-process']">
@@ -475,7 +432,7 @@
               great input from the full design team.
             </div>
           </div>
-        </div>
+        </elvia-accordion>
       </div>
     </ng-container>
   </app-component-section>
@@ -498,17 +455,10 @@
       <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact us</a>
       if you think you should have access to edit content on design.elvia.io or you need help with anything.
 
-      <div class="e-accordion e-accordion--group">
+      <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
         <!--Useful terms-->
-        <div class="e-accordion__item" id="useful-terms">
-          <div class="e-accordion__label" (click)="toggleAccordion('useful-terms')">
-            <div class="e-accordion__title">Useful terms</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion openLabel="Useful terms" closeLabel="Useful terms" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               <ul class="e-list">
                 <li>
@@ -536,18 +486,11 @@
               </ul>
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Logging in-->
-        <div class="e-accordion__item" id="logging-in">
-          <div class="e-accordion__label" (click)="toggleAccordion('logging-in')">
-            <div class="e-accordion__title">Sign in</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion openLabel="Sign in" closeLabel="Sign in" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               <div>
                 You need an Elvia account to log in to Contentful. If you have received access use SSO in the
@@ -566,18 +509,16 @@
               </div>
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Contentful structure-->
-        <div class="e-accordion__item" id="cotentful-structure">
-          <div class="e-accordion__label" (click)="toggleAccordion('cotentful-structure')">
-            <div class="e-accordion__title">Contentful structure</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion
+          openLabel="Contentful structure"
+          closeLabel="Contentful structure"
+          isFullWidth="true"
+          size="large"
+        >
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               The contentful structure is made up of different content types. In the content tab you can find
               all the content that is relevant for you to edit. Every page on design.elvia.io is called a
@@ -653,18 +594,16 @@
               </div>
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Types-->
-        <div class="e-accordion__item" id="contentful-types">
-          <div class="e-accordion__label" (click)="toggleAccordion('contentful-types')">
-            <div class="e-accordion__title">Useful models and how to's</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion
+          openLabel="Useful models and how to's"
+          closeLabel="Useful models and how to's"
+          isFullWidth="true"
+          size="large"
+        >
+          <div slot="content" class="e-text-lg e-mt-16">
             These are some of the models and options you can use to edit content in Contentful. If you want to
             see examples of how to do something you can easily sort content by type in the lift sidebar when
             you are on the "content" tab.
@@ -735,18 +674,16 @@
               </li>
             </ul>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Publish-->
-        <div class="e-accordion__item" id="contentful-publish">
-          <div class="e-accordion__label" (click)="toggleAccordion('contentful-publish')">
-            <div class="e-accordion__title">Publishing & previews</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion
+          openLabel="Publishing & previews"
+          closeLabel="Publishing & previews"
+          isFullWidth="true"
+          size="large"
+        >
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               <h3 class="e-title-xs">Previews</h3>
               When testing your content you have the "preview" option available in the right sidebar. This
@@ -790,18 +727,16 @@
               </div>
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Delete-->
-        <div class="e-accordion__item" id="contentful-delete">
-          <div class="e-accordion__label" (click)="toggleAccordion('contentful-delete')">
-            <div class="e-accordion__title">Deleting entries</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion
+          openLabel="Deleting entries"
+          closeLabel="Deleting entries"
+          isFullWidth="true"
+          size="large"
+        >
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               Any entry can be deleted as long as you are sure the entry is not used anywhere in Contentful.
               If you are creating an entry by mistake, you should delete it so that there is not a lot of
@@ -827,18 +762,11 @@
               </div>
             </div>
           </div>
-        </div>
-
+        </elvia-accordion>
+        <elvia-divider />
         <!--Errors-->
-        <div class="e-accordion__item" id="contentful-errors">
-          <div class="e-accordion__label" (click)="toggleAccordion('contentful-errors')">
-            <div class="e-accordion__title">Errors</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        <elvia-accordion openLabel="Errors" closeLabel="Errors" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               When getting an error in Contentful the error-message should be displayed like in the image
               below:
@@ -859,7 +787,7 @@
               the error message please contact us.
             </div>
           </div>
-        </div>
+        </elvia-accordion>
       </div>
     </ng-container>
   </app-component-section>
