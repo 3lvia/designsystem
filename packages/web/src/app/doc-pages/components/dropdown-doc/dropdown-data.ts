@@ -24,11 +24,11 @@ export const dropdownData: ComponentData = {
       description:
         'An object that allows for custom configuration of the error handling in the dropdown. Setting "text" will always show the provided error message. "isErrorState" allows for manually activating the visual error UI. "hasErrorPlaceholder" allows you to remove the padding below the dropdown.',
     },
-    isCompact: {
+    size: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Set the dropdown to a smaller Elvia compact style.',
-      default: 'false',
+      type: 'small | medium',
+      description: 'Dropdown can be set to different sizes.',
+      default: 'medium',
     },
     isDisabled: {
       isRequired: false,

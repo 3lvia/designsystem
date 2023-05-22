@@ -3,6 +3,7 @@ import { BaseProps, HasValue, HasError } from '@elvia/elvis-toolbox';
 import { DropdownItemStatus } from './statusToIconMap';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
+export type DropdownSize = 'small' | 'medium';
 
 export type DropdownValueType = string | number;
 export type DropdownValue = DropdownValueType | DropdownValueType[] | undefined | null;
@@ -38,7 +39,11 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasEr
   menuPosition?: DropdownMenuPosition;
   placeholder?: string;
   placeholderIcon?: IconName;
+  /**
+   * @deprecated Removed in version 7.0.0. Replaced by `size`.
+   */
   isCompact?: boolean;
+  size?: DropdownSize;
   isDisabled?: boolean;
   isMulti?: boolean;
   hasSelectAllOption?: boolean;

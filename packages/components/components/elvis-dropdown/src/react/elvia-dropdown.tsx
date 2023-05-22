@@ -34,7 +34,7 @@ let uniqueDropdownId = 0;
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
   value,
-  isCompact = false,
+  size = 'medium',
   isDisabled = false,
   isFullWidth = false,
   isSearchable = false,
@@ -153,7 +153,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <>
       <DropdownContainer
-        isCompact={isCompact}
+        size={size}
         className={className ?? ''}
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
@@ -187,7 +187,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             <IconWrapper
               icon={arrowDownBold}
               color={isDisabled ? 'text-disabled-1' : 'text-1'}
-              size={isCompact ? 'xs' : 'sm'}
+              size={size === 'small' ? 'xs' : 'sm'}
             />
           </IconRotator>
         </DropdownInputContainer>
@@ -202,7 +202,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           noItemsText={noOptionsMessage}
           isMulti={isMulti}
           onItemSelect={setSelectedItem}
-          isCompact={isCompact}
+          size={size}
           onClose={() => setIsShowing(false)}
           filteredItems={filteredItems}
           inputIsKeyboard={inputMode === 'keyboard'}

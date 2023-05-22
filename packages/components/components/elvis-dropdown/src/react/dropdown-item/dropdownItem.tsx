@@ -1,7 +1,12 @@
 import { isSsr, useConnectedOverlay, IconWrapper } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
-import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
+import {
+  DropdownItem as DropdownItemOption,
+  DropdownSize,
+  DropdownValue,
+  DropdownValueType,
+} from '../elviaDropdown.types';
 import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
 import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
@@ -13,7 +18,7 @@ import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRight';
 interface DropdownItemProps {
   item: DropdownItemOption;
   currentVal?: DropdownValue;
-  isCompact?: boolean;
+  size: DropdownSize;
   isMulti: boolean;
   focusedItem?: DropdownItemOption;
   setFocusedItem: (item?: DropdownItemOption) => void;
@@ -31,7 +36,7 @@ interface DropdownItemProps {
 export const DropdownItem: React.FC<DropdownItemProps> = ({
   item,
   currentVal,
-  isCompact,
+  size,
   isMulti,
   focusedItem,
   setFocusedItem,
@@ -165,7 +170,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           (focusedItem?.value === item.value && inputIsKeyboard) || isShowing || (childIsSelected && !isMulti)
         }
         isActive={selfOrAllChildrenAreSelected}
-        isCompact={isCompact}
+        size={size}
         isDisabled={item.isDisabled}
         isGtMobile={isGtMobile}
         isMulti={isMulti}
@@ -188,7 +193,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
             isFocused={(focusedItem?.value === item.value && inputIsKeyboard) || isShowing}
             isIndeterminate={isPartiallyChecked}
             isChecked={selfOrAllChildrenAreSelected}
-            isCompact={isCompact}
+            size={size}
             isDisabled={item.isDisabled}
             currentTheme={currentTheme}
           />
@@ -215,7 +220,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         {item.children && (
           <IconContainer>
             <OpenOverlayButton
-              size={isCompact ? 'sm' : 'md'}
+              size={size === 'small' ? 'sm' : 'md'}
               disabled={isGtMobile || !isMulti ? true : false}
               onClick={(ev) => {
                 ev.stopPropagation();
@@ -224,7 +229,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
             >
               <IconWrapper
                 icon={arrowRight}
-                size={isCompact ? 'xs' : 'sm'}
+                size={size === 'small' ? 'xs' : 'sm'}
                 color={item.isDisabled ? getThemeColor('text-disabled-1') : ''}
               />
             </OpenOverlayButton>
@@ -236,7 +241,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           ref={popoverRef}
           isGtMobile={isGtMobile}
           filteredItems={item.children ?? []}
-          isCompact={!!isCompact}
+          size={size}
           onClose={() => showChildList(false)}
           isMulti={isMulti}
           onItemSelect={(value) => onItemSelect(value)}
