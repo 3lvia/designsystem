@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { VersionService } from 'src/app/core/services/version.service';
 import { Title } from '@angular/platform-browser';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-get-started',
   templateUrl: './get-started-doc.component.html',
   styleUrls: ['./get-started-doc.component.scss'],
 })
-export class GetStartedDocComponent implements OnInit {
+export class GetStartedDocComponent {
   linkTagCode = '';
   scriptTagCode = '';
   fullExampleCode = '';
@@ -16,36 +17,25 @@ export class GetStartedDocComponent implements OnInit {
   loadedFullExample = false;
   bodyScriptMessage = `<body><script src="assets/js/elvis.js"></script></body>`;
 
-  constructor(private versionService: VersionService, private titleService: Title) {}
-
-  ngOnInit(): void {
-    this.updateCodeExamples();
+  constructor(private versionService: VersionService, private titleService: Title) {
+    this.versionService
+      .getCDNScriptFile()
+      .pipe(takeUntilDestroyed())
+      .subscribe((tag) => {
+        this.scriptTagCode = tag;
+        this.createFullExample();
+      });
+    this.versionService
+      .getCDNStyleFile()
+      .pipe(takeUntilDestroyed())
+      .subscribe((tag) => {
+        this.linkTagCode = tag;
+        this.createFullExample();
+      });
     this.titleService.setTitle('Get started | Elvia design system');
   }
 
-  toggleAccordion(id: string): void {
-    const element = document.getElementById(id);
-    if (element) {
-      if (element.classList.contains('e-accordion__item--open')) {
-        element.classList.remove('e-accordion__item--open');
-      } else {
-        element.classList.add('e-accordion__item--open');
-      }
-    }
-  }
-
-  updateCodeExamples(): void {
-    this.versionService.getCDNScriptFile().subscribe((tag) => {
-      this.scriptTagCode = tag;
-      this.createFullExample();
-    });
-    this.versionService.getCDNStyleFile().subscribe((tag) => {
-      this.linkTagCode = tag;
-      this.createFullExample();
-    });
-  }
-
-  createFullExample(): void {
+  private createFullExample(): void {
     if (this.linkTagCode !== '' && this.scriptTagCode !== '') {
       this.loadedScript = true;
       this.loadedStyle = true;
