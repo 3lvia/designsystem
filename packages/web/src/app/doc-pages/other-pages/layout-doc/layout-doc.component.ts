@@ -3,7 +3,6 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { spacingItems } from './spacing';
 import { Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { Subscription } from 'rxjs';
 import { LOCALE_CODE } from 'contentful/types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
@@ -13,7 +12,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./layout-doc.component.scss'],
 })
 export class LayoutDocComponent {
-  localizationSubscriber: Subscription;
   title = getDocPagesNotFromCMS('layout')?.title;
   titleNo = getDocPagesNotFromCMS('layout')?.titleNo;
   description = getDocPagesNotFromCMS('layout')?.description;
