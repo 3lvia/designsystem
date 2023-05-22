@@ -18,6 +18,8 @@ export class CodeGeneratorComponent implements OnInit {
   @Input() reactCode = '';
   @Input() vueCode = '';
   @Input() hideReact: boolean;
+  @Input() alwaysVisible: boolean;
+
   activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
     ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
     : 0;
