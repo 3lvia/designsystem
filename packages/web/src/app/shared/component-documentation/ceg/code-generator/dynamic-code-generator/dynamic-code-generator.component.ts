@@ -78,7 +78,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   ): Prop[] {
     const props = Object.entries(controls)
       .map(([controlName, control]) => {
-        if (control?.type === 'slotToggle' || control?.excludedFromDomProps) {
+        if (control?.type === 'slotToggle' || control?.excludedFromDOM) {
           return [];
         }
 

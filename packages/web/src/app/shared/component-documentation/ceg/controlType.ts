@@ -1,7 +1,7 @@
 interface ControlBase {
   readonly type: string;
   readonly group: string;
-  readonly excludedFromDomProps?: boolean;
+  readonly excludedFromDOM?: boolean;
 }
 
 export interface Checkbox<T = Record<string, any>> extends ControlBase {

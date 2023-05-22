@@ -82,7 +82,7 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
     const updatedProp = this.componentExample.cegContent.setPropValue(propName, value);
 
     if (updatedProp) {
-      if (!updatedProp.excludedFromDomProps) {
+      if (!updatedProp.excludedFromDOM) {
         this.getWebComponent().setProps({ [propName]: value });
       }
       this.patchPropValueInUrl(propName, value);
@@ -124,7 +124,7 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
 
           const propWasUpdated = this.componentExample.cegContent.setPropValue(propName, parsedValue);
 
-          if (propWasUpdated && controlType !== 'slotToggle' && !control?.excludedFromDomProps) {
+          if (propWasUpdated && controlType !== 'slotToggle' && !control?.excludedFromDOM) {
             this.getWebComponent().setProps({ [propName]: parsedValue });
           }
         });
@@ -224,7 +224,7 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
 
   private setAllPropsOnWebComponent(controls: Controls): void {
     Object.entries(controls).forEach(([controlName, control]) => {
-      if (control && control.type !== 'slotToggle' && !control.excludedFromDomProps) {
+      if (control && control.type !== 'slotToggle' && !control.excludedFromDOM) {
         this.getWebComponent().setProps({ [controlName]: control.value });
       }
     });
