@@ -1,17 +1,18 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { spacingItems } from './spacing';
 import { Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { Subscription } from 'rxjs';
 import { LOCALE_CODE } from 'contentful/types';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-layout-doc',
   templateUrl: './layout-doc.component.html',
   styleUrls: ['./layout-doc.component.scss'],
 })
-export class LayoutDocComponent implements OnDestroy {
+export class LayoutDocComponent {
   localizationSubscriber: Subscription;
   title = getDocPagesNotFromCMS('layout')?.title;
   titleNo = getDocPagesNotFromCMS('layout')?.titleNo;
@@ -23,14 +24,13 @@ export class LayoutDocComponent implements OnDestroy {
 
   constructor(private titleService: Title, private localizationService: LocalizationService) {
     this.setTabTitle();
-    this.localizationSubscriber = this.localizationService.listenLocalization().subscribe((locale) => {
-      this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
-      this.setTabTitle();
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.localizationSubscriber && this.localizationSubscriber.unsubscribe();
+    this.localizationSubscriber = this.localizationService
+      .listenLocalization()
+      .pipe(takeUntilDestroyed())
+      .subscribe((locale) => {
+        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+        this.setTabTitle();
+      });
   }
 
   setTabTitle = (): void => {
