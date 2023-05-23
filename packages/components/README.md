@@ -167,9 +167,6 @@ information on how to use it.
 - Navigate to `packages/web/src/app/doc-pages/components` and find the component you want to add documentation
   to or create a new module (like the ones existing already). You will find the standard setup in any of the
   other component modules.
-- The `your-component-data.ts` file should contain all the metadata for your component. Read about how to add
-  the data in the `packages/web/src/app/doc-pages/component-data.template.ts` file to make the component
-  example generator (CEG) work as you want.
 - Remember to add the Angular route for the new component module in the `app-routing.module.ts` file.
 - Lastly you also need to add the route in Contentful for the page to appear in the menu on `design.elvia.io`
   if it is not an existing page. To do this you have to login to Contentful, navigate to the 'Components'
