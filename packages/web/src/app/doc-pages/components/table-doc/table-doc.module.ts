@@ -34,6 +34,8 @@ import { TableSelectMobileCegComponent } from './table-select-mobile-ceg/table-s
 import { TableValidationRowCegComponent } from './table-validation-row-ceg/table-validation-row-ceg.component';
 import { TableValidationCellCegComponent } from './table-validation-cell-ceg/table-validation-cell-ceg.component';
 import '@elvia/elvis-tooltip';
+import '@elvia/elvis-accordion';
+import '@elvia/elvis-divider';
 
 @NgModule({
   declarations: [

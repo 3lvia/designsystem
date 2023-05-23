@@ -21,15 +21,4 @@ export class TableDocComponent {
     'Don’t use a table when you can use a data visualization.',
     'Don’t mix different styles of tables on the same page.',
   ];
-
-  toggleAccordion(id: string): void {
-    const element = document.getElementById(id) as HTMLElement;
-    if (element) {
-      if (element.classList.contains('e-accordion__item--open')) {
-        element.classList.remove('e-accordion__item--open');
-      } else {
-        element.classList.add('e-accordion__item--open');
-      }
-    }
-  }
 }
