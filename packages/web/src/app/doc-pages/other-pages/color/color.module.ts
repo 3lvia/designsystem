@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Color2Component } from './color2.component';
+import { ColorComponent } from './color.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { ColorTokenTableComponent } from './color-token-table/color-token-table.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
@@ -16,6 +16,6 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
   ],
-  declarations: [Color2Component, ColorPickerComponent, ColorTokenTableComponent],
+  declarations: [ColorComponent, ColorPickerComponent, ColorTokenTableComponent],
 })
-export class Color2Module {}
+export class ColorModule {}
