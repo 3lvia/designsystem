@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { VersionService } from 'src/app/core/services/version.service';
 import { Title } from '@angular/platform-browser';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-get-started',
@@ -9,6 +10,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./get-started-doc.component.scss'],
 })
 export class GetStartedDocComponent {
+  description = getDocPagesNotFromCMS('get-started')?.description;
+  title = getDocPagesNotFromCMS('get-started')?.title;
   linkTagCode = '';
   scriptTagCode = '';
   fullExampleCode = '';
