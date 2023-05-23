@@ -6,7 +6,6 @@ These modules should always be imported for the component module and added in th
 */
 
 // Use the exampleContents file if you want some fictional data in your component
-import { exampleContents } from 'src/app/shared/example-contents';
 import ComponentData from './components/component-data.interface';
 
 // Define the componentData
@@ -140,20 +139,16 @@ const componentData: ComponentData = {
     The native example should also have a script that will be displayed below the html to show
     how to set attributes programmatically without using frameworks. 
     */
-  codeReact:
-    `<Accordion
+  codeReact: `<Accordion
   type={"normal"}
   openLabel={"Show"}
   closeLabel={"Hide"}
   labelPosition={"center"}
   size={"medium"}
-  content={"` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `"}
+  content={"'It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.'"}
 ></Accordion>
 `,
-  codeAngular:
-    `<elvia-accordion
+  codeAngular: `<elvia-accordion
   [type]="'normal'"
   [openLabel]="'Show'"
   [closeLabel]="'Hide'"
@@ -161,14 +156,11 @@ const componentData: ComponentData = {
   [size]="'medium'"
 >
   <div slot="content">
-    ` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `
+    It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.
   </div>
 </elvia-accordion>
 `,
-  codeVue:
-    `<elvia-accordion
+  codeVue: `<elvia-accordion
   :type="'normal'"
   :openLabel="'Show'"
   :closeLabel="'Hide'"
@@ -176,23 +168,18 @@ const componentData: ComponentData = {
   :size="'medium'"
 >
   <div slot="content">
-    ` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `
+    It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.
   </div>
 </elvia-accordion>
 `,
-  codeNativeHTML:
-    `<elvia-accordion
+  codeNativeHTML: `<elvia-accordion
   type="normal"
   labelPosition="center"
   size="medium"
   id="example-elvia-accordion"
 >
   <div slot="content">
-    ` +
-    exampleContents.texts.lg['eng-GBR'].description +
-    `
+    It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.
   </div>
 </elvia-accordion>
 `,
