@@ -37,7 +37,7 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
   @ContentChild(TypescriptComponentExample, { static: true }) tsComponentExample: TypescriptComponentExample;
-  private unsubscriber = new Subject();
+  private unsubscriber = new Subject<void>();
   private _componentSlots = new BehaviorSubject<Slot[]>([]);
   readonly componentSlots = this._componentSlots
     .asObservable()

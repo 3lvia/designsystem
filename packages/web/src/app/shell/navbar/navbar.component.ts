@@ -17,7 +17,7 @@ import { RouterService } from '../../core/services/router.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
-  private unsubscriber = new Subject();
+  private unsubscriber = new Subject<void>();
   private listenOnScrollSubscription: Subscription;
   private scrollEventTimeout: ReturnType<typeof setTimeout>;
   private startedScrollSub = false;
