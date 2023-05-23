@@ -1,4 +1,4 @@
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -90,7 +90,7 @@ export const PrimaryButton = styled(ButtonBase)`
   padding: ${({ size }) => getButtonPadding(size ?? 'md')};
   background-color: ${({ isActive }) =>
     isActive ? getThemeColor('background-selected-1') : getThemeColor('text-1')};
-  color: ${({ isActive }) => (isActive ? getThemeColor('text-1') : getThemeColor('static-white'))};
+  color: ${({ isActive }) => (isActive ? getThemeColor('text-1') : getThemeColorContrast('text-1'))};
   transition: transform 100ms;
   border-radius: 99px;
 
