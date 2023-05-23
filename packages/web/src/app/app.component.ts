@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit, OnDestroy {
-  private unsubscriber = new Subject();
+  private unsubscriber = new Subject<void>();
 
   constructor(
     private documentEventListenerService: DocumentEventListenerService,

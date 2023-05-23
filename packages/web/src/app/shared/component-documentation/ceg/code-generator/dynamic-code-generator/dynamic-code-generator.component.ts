@@ -16,7 +16,7 @@ interface Prop {
   styleUrls: ['./dynamic-code-generator.component.scss'],
 })
 export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
-  private unsubscriber = new Subject();
+  private unsubscriber = new Subject<void>();
   @Input() controlManager: UnknownCegControlManager;
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
