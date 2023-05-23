@@ -59,7 +59,9 @@ export class CodeGeneratorComponent implements OnInit {
   }
 
   get language(): Language {
-    if (this.activeTab === 'React') {
+    if (this.angularCode.toLowerCase().startsWith('<!doctype html>')) {
+      return 'html';
+    } else if (this.activeTab === 'React') {
       return 'jsx';
     } else if (this.activeTab === 'Typescript') {
       return 'typescript';
