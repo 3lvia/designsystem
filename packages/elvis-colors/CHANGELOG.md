@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 2.4.0 (23.05.23)
+
+### New feature
+
+- Added contrast colors to text colors.
+
 ## 2.3.0 (12.05.23)
 
 ### New feature

@@ -102,18 +102,23 @@ export const darkTheme = {
   text: {
     'text-1': {
       hex: darkThemeColors['primary-colors'].white.color,
+      contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
     'text-2': {
       hex: darkThemeColors['grey-colors']['grey-10'].color,
+      contrast: darkThemeColors['grey-colors']['grey-10'].contrastText,
     },
     'text-3': {
       hex: darkThemeColors['grey-colors']['grey-20'].color,
+      contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
     },
     'text-disabled-1': {
       hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
     },
     'text-disabled-2': {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
   },
   background: {

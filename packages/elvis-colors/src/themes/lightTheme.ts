@@ -122,18 +122,23 @@ export const lightTheme = {
   text: {
     'text-1': {
       hex: lightThemeColors['primary-colors'].black.color,
+      contrast: lightThemeColors['primary-colors'].black.contrastText,
     },
     'text-2': {
       hex: lightThemeColors['grey-colors']['grey-80'].color,
+      contrast: lightThemeColors['grey-colors']['grey-80'].contrastText,
     },
     'text-3': {
       hex: lightThemeColors['grey-colors']['grey-70'].color,
+      contrast: lightThemeColors['grey-colors']['grey-70'].contrastText,
     },
     'text-disabled-1': {
       hex: lightThemeColors['grey-colors']['grey-30'].color,
+      contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,
     },
     'text-disabled-2': {
       hex: lightThemeColors['grey-colors']['grey-05'].color,
+      contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
     },
   },
   background: {
