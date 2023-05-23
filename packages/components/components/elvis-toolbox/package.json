@@ -1,9 +1,7 @@
 {
   "name": "@elvia/elvis-toolbox",
-  "version": "8.0.0",
-  "description": "",
+  "version": "8.0.1",
   "license": "MIT",
-  "author": "",
   "main": "./dist/index.js",
   "files": [
     "CHANGELOG.json",

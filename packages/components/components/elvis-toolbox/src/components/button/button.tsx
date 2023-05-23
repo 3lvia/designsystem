@@ -40,6 +40,7 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
   justify-content: center;
   gap: 8px;
   margin: 0;
+  white-space: nowrap;
 
   &:disabled {
     cursor: default;
@@ -83,13 +84,13 @@ const getButtonPadding = (size?: Size) => {
 };
 
 export const PrimaryButton = styled(ButtonBase)`
-  height: ${({ size }) => getButtonHeight(size)};
+  height: ${({ size }) => getButtonHeight(size ?? 'md')};
   border: 1px solid
     ${({ isActive }) => (isActive ? getThemeColor('border-selected-1') : getThemeColor('text-1'))};
-  padding: ${({ size }) => getButtonPadding(size)};
+  padding: ${({ size }) => getButtonPadding(size ?? 'md')};
   background-color: ${({ isActive }) =>
     isActive ? getThemeColor('background-selected-1') : getThemeColor('text-1')};
-  color: ${({ isActive }) => (isActive ? getThemeColor('text-1') : getThemeColor('signal-success'))};
+  color: ${({ isActive }) => (isActive ? getThemeColor('text-1') : getThemeColor('static-white'))};
   transition: transform 100ms;
   border-radius: 99px;
 
