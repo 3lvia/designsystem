@@ -181,6 +181,10 @@ export class v2PlaygroundComponent {
     '2': { title: 'Title #2' },
     '3': { isError: true, title: 'Title #3' },
     '4': { title: 'Title #4' },
+    '5': { title: 'Title #5' },
+    '6': { title: 'Title #6' },
+    '7': { title: 'Title #7' },
+    '8': { title: 'Title #8' },
   };
   toggleState = () =>
     (this.stepperStates = { ...this.stepperStates, '2': { isCompleted: true, title: 'Title #2' } });

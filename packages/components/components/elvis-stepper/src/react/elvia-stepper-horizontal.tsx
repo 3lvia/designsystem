@@ -10,7 +10,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   currentStep,
   steps,
   completeButtonText,
-  forced = false,
+  isForced = false,
   handleStepChange,
   typography,
   contentRef,
@@ -34,9 +34,9 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
                   isActive={stepNumber === currentStep}
                   isError={steps?.[stepNumber]?.isError}
                   isCompleted={steps?.[stepNumber]?.isCompleted}
-                  isDisabled={!isReachable(forced, stepNumber, steps)}
+                  isDisabled={!isReachable(isForced, stepNumber, steps)}
                   onClick={() =>
-                    handleStepChange(isReachable(forced, stepNumber, steps) ? stepNumber : currentStep)
+                    handleStepChange(isReachable(isForced, stepNumber, steps) ? stepNumber : currentStep)
                   }
                 >
                   {stepNumber}
@@ -63,7 +63,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
         completeButtonText={completeButtonText}
         content={content}
         contentRef={contentRef}
-        forced={forced}
+        isForced={isForced}
         steps={steps}
         type="horizontal"
       />

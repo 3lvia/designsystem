@@ -9,7 +9,7 @@ export const Stepper: FC<StepperProps> = function ({
   type = 'horizontal',
   steps,
   completeButtonText,
-  forced = false,
+  isForced = false,
   typography,
   content,
   className,
@@ -25,9 +25,10 @@ export const Stepper: FC<StepperProps> = function ({
     const elem = webcomponent?.getSlot('content');
     if (elem && contentRef.current) {
       setNumberOfSteps(elem.children.length);
+      console.log(contentRef.current.innerHTML, elem?.children[currentStep - 1]);
       contentRef.current.innerHTML = elem?.children[currentStep - 1].innerHTML;
     }
-  }, [webcomponent, contentRef, currentStep]);
+  }, [webcomponent, contentRef, currentStep, type]);
 
   useEffect(() => {
     if (content) {
@@ -46,7 +47,7 @@ export const Stepper: FC<StepperProps> = function ({
           numberOfSteps={numberOfSteps}
           currentStep={currentStep}
           completeButtonText={completeButtonText}
-          forced={forced}
+          isForced={isForced}
           handleStepChange={handleStepChange}
           typography={typography}
           contentRef={contentRef}
@@ -61,7 +62,7 @@ export const Stepper: FC<StepperProps> = function ({
           numberOfSteps={numberOfSteps}
           currentStep={currentStep}
           completeButtonText={completeButtonText}
-          forced={forced}
+          isForced={isForced}
           handleStepChange={handleStepChange}
           typography={typography}
           contentRef={contentRef}

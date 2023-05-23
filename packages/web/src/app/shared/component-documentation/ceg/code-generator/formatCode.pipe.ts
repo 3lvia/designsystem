@@ -9,6 +9,7 @@ import { Language } from './language';
 })
 export class FormatCodePipe implements PipeTransform {
   transform(code: string, language: Language): string {
+    console.log(code);
     const codeWithClosedTags = this.addClosingTagsToVoidElements(code);
     let formattedCode = Prettier.format(codeWithClosedTags, {
       parser: language === 'html' ? 'html' : 'babel',

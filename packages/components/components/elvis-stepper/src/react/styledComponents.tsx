@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 interface StepperContainerProps {
-  type: string;
+  type?: string;
 }
 export const StepperContainer = styled.div<StepperContainerProps>`
   position: relative;
@@ -12,7 +12,7 @@ export const StepperContainer = styled.div<StepperContainerProps>`
 `;
 
 interface StepsProps {
-  type: string;
+  type?: string;
 }
 export const Steps = styled.div<StepsProps>`
   display: flex;
@@ -34,7 +34,7 @@ export const Step = styled.div<StepProps>`
 
 interface StepLineProps {
   type?: string;
-  isSelected?: boolean;
+  isSelected: boolean;
   isActive?: boolean;
 }
 
@@ -102,9 +102,9 @@ export const StepHeader = styled.div`
 `;
 
 interface StepNumberProps {
+  isActive: boolean;
   isError?: boolean;
   isCompleted?: boolean;
-  isActive: boolean;
   isDisabled?: boolean;
 }
 

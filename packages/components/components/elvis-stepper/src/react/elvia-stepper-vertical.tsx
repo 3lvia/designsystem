@@ -11,7 +11,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   currentStep,
   steps,
   completeButtonText,
-  forced = false,
+  isForced = false,
   handleStepChange,
   typography,
   contentRef,
@@ -35,7 +35,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                   currentStep={currentStep}
                   handleStepChange={handleStepChange}
                   stepNumber={stepNumber}
-                  forced={forced}
+                  isForced={isForced}
                   steps={steps}
                   typography={typography}
                 />
@@ -56,7 +56,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                       completeButtonText={completeButtonText}
                       content={content}
                       contentRef={contentRef}
-                      forced={forced}
+                      isForced={isForced}
                       steps={steps}
                       type="vertical"
                     />

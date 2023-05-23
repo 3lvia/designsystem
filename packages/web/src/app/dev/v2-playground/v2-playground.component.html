@@ -6,15 +6,30 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <button (click)="toggleState()">Toggle</button>
+      <elvia-stepper type="horizontal" completeButtonText="Save" isForced [steps]="stepperStates">
+        <div slot="content">
+          <div>Step 1 content</div>
+          <div>Step 2 content</div>
+          <div>Step 3 content</div>
+          <div>Step 4 content</div>
+          <div>Step 5 content</div>
+          <div>Step 6 content</div>
+          <div>Step 7 content</div>
+          <div>Step 8 content</div>
+        </div>
+      </elvia-stepper>
       <elvia-stepper
         type="vertical"
         completeButtonText="Submit"
         [steps]="{
-          '3': { title: 'Title #3' },
-          '2': { isError: true, title: 'Title #2' },
           '1': { isCompleted: true, title: 'Title #1' },
-          '4': { title: 'Title #4' }
+          '2': { title: 'Title #2' },
+          '3': { isError: true, title: 'Title #3' },
+          '4': { title: 'Title #4' },
+          '5': { title: 'Title #5' },
+          '6': { title: 'Title #6' },
+          '7': { title: 'Title #7' },
+          '8': { title: 'Title #8' }
         }"
       >
         <div slot="content">
@@ -22,19 +37,54 @@
           <div>Step 2 content</div>
           <div>Step 3 content</div>
           <div>Step 4 content</div>
+          <div>Step 5 content</div>
+          <div>Step 6 content</div>
+          <div>Step 7 content</div>
+          <div>Step 8 content</div>
         </div>
       </elvia-stepper>
-      <elvia-stepper type="horizontal" completeButtonText="Save" [steps]="stepperStates">
+      <button (click)="toggleState()">Toggle</button>
+    </div>
+    <!--Inverted version-->
+    <div class="e-bg-grey">
+      <elvia-stepper type="horizontal" completeButtonText="Save" [steps]="stepperStates" forced>
         <div slot="content">
           <div>Step 1 content</div>
           <div>Step 2 content</div>
           <div>Step 3 content</div>
           <div>Step 4 content</div>
+          <div>Step 5 content</div>
+          <div>Step 6 content</div>
+          <div>Step 7 content</div>
+          <div>Step 8 content</div>
+        </div>
+      </elvia-stepper>
+      <elvia-stepper
+        type="vertical"
+        completeButtonText="Submit"
+        [steps]="{
+          '1': { isCompleted: true, title: 'Title #1' },
+          '2': { title: 'Title #2' },
+          '3': { isError: true, title: 'Title #3' },
+          '4': { title: 'Title #4' },
+          '5': { title: 'Title #5' },
+          '6': { title: 'Title #6' },
+          '7': { title: 'Title #7' },
+          '8': { title: 'Title #8' }
+        }"
+      >
+        <div slot="content">
+          <div>Step 1 content</div>
+          <div>Step 2 content</div>
+          <div>Step 3 content</div>
+          <div>Step 4 content</div>
+          <div>Step 5 content</div>
+          <div>Step 6 content</div>
+          <div>Step 7 content</div>
+          <div>Step 8 content</div>
         </div>
       </elvia-stepper>
     </div>
-    <!--Inverted version-->
-    <div class="e-bg-grey"></div>
   </div>
 
   <!--Accordion-->
@@ -158,7 +208,7 @@
   <!--Carousel-->
   <div class="example-wrapper">
     <h3>Carousel</h3>
-    <elvia-carousel [loop]="false" [hasConfirmationCheckmark]="true">
+    <elvia-carousel [hasConfirmationCheckmark]="true">
       <div slot="title-1">
         <h3 class="e-title-sm">title 1</h3>
       </div>

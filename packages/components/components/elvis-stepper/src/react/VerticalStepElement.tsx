@@ -8,7 +8,7 @@ type VerticalStepElementProps = {
   stepNumber: number;
   currentStep: number;
   steps?: StepStates;
-  forced?: boolean;
+  isForced?: boolean;
   typography?: TypographyName;
   handleStepChange: (step: number) => void;
 };
@@ -17,7 +17,7 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
   stepNumber,
   currentStep,
   steps,
-  forced = false,
+  isForced = false,
   typography,
   handleStepChange,
 }) {
@@ -27,8 +27,8 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
         isActive={stepNumber === currentStep}
         isError={steps?.[stepNumber]?.isError}
         isCompleted={steps?.[stepNumber]?.isCompleted}
-        isDisabled={!isReachable(forced, stepNumber, steps)}
-        onClick={() => handleStepChange(isReachable(forced, stepNumber, steps) ? stepNumber : currentStep)}
+        isDisabled={!isReachable(isForced, stepNumber, steps)}
+        onClick={() => handleStepChange(isReachable(isForced, stepNumber, steps) ? stepNumber : currentStep)}
       >
         {stepNumber}
       </StepNumber>

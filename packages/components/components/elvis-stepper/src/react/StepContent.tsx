@@ -8,7 +8,7 @@ type StepContentProps = {
   currentStep: number;
   numberOfSteps: number;
   steps?: StepStates;
-  forced?: boolean;
+  isForced?: boolean;
   completeButtonText?: string;
   content?: JSX.Element[];
   contentRef?: React.RefObject<HTMLDivElement>;
@@ -20,7 +20,7 @@ export const StepContent: FC<StepContentProps> = function ({
   currentStep,
   numberOfSteps,
   steps,
-  forced = false,
+  isForced = false,
   completeButtonText,
   content,
   contentRef,
@@ -31,14 +31,14 @@ export const StepContent: FC<StepContentProps> = function ({
     <StepperContent type={type}>
       <div ref={contentRef}>{content?.[currentStep - 1]}</div>
       <StepperActions>
-        <PrimaryButton onClick={() => handleStepChange(currentStep - 1)}>Back</PrimaryButton>
-        <SecondaryButton
+        <SecondaryButton onClick={() => handleStepChange(currentStep - 1)}>Tilbake</SecondaryButton>
+        <PrimaryButton
           onClick={() =>
-            handleStepChange(isReachable(forced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
+            handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
           }
         >
-          {completeButtonText && currentStep === numberOfSteps ? completeButtonText : 'Next'}
-        </SecondaryButton>
+          {completeButtonText && currentStep === numberOfSteps ? completeButtonText : 'Neste'}
+        </PrimaryButton>
       </StepperActions>
     </StepperContent>
   );

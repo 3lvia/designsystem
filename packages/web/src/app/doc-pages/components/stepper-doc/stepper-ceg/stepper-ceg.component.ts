@@ -14,6 +14,7 @@ interface StepStates {
 @Component({
   selector: 'app-stepper-ceg',
   templateUrl: './stepper-ceg.component.html',
+  styleUrls: ['./stepper-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: StepperCegComponent }],
 })
 export class StepperCegComponent implements ComponentExample {
@@ -22,7 +23,7 @@ export class StepperCegComponent implements ComponentExample {
     {
       type: 'Horizontal',
       controls: {
-        forced: {
+        isForced: {
           label: 'Forced',
           type: 'checkbox',
           value: false,
@@ -41,7 +42,7 @@ export class StepperCegComponent implements ComponentExample {
     {
       type: 'Vertical',
       controls: {
-        forced: {
+        isForced: {
           label: 'Forced',
           type: 'checkbox',
           value: false,
@@ -64,5 +65,9 @@ export class StepperCegComponent implements ComponentExample {
     '2': { title: 'Title 2' },
     '3': { title: 'Title 3' },
     '4': { title: 'Title 4' },
+    '5': { title: 'Title 5' },
+    '6': { title: 'Title 6' },
+    '7': { title: 'Title 7' },
+    '8': { title: 'Title 8' },
   };
 }

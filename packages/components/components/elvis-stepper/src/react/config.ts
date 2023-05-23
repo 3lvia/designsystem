@@ -9,7 +9,7 @@ export const config: ComponentConfig = {
     { name: 'completeButtonText', type: 'string' },
     { name: 'typography', type: 'string' },
     { name: 'className', type: 'string' },
-    { name: 'forced', type: 'boolean' },
+    { name: 'isForced', type: 'boolean' },
     { name: 'inlineStyle', type: 'object' },
   ],
 };
