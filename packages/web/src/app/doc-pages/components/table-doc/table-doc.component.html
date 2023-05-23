@@ -76,16 +76,9 @@
   <!--OPTIONS-->
   <app-component-section [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
-      <div class="e-accordion e-accordion--group e-mt-72">
-        <div class="e-accordion__item" id="accordion-accordion">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-accordion')">
-            <div class="e-accordion__title">Accordion</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+      <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
+        <elvia-accordion openLabel="Accordion" closeLabel="Accordion" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div><label class="e-tag e-tag--orange e-mb-16">Figma only</label></div>
             <div>
               Accordion is used when you need to have additional information to the row. An accordion is
@@ -143,17 +136,10 @@
               </ng-container>
             </app-component-subsubsection>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-alignment">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-alignment')">
-            <div class="e-accordion__title">Alignment</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Alignment" closeLabel="Alignment" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             The first column should always be left-aligned no matter the content of that column. By default
             all content is left-aligned. There are however helper classes available for aligning content to
             the center or to the right. The table header should always follow the alignment of the column.
@@ -162,17 +148,10 @@
               <app-table-alignment-ceg />
             </app-static-ceg>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-button">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-button')">
-            <div class="e-accordion__title">Button</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Button" closeLabel="Button" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             Use icon buttons when you need actions in your table.
             <app-component-subsubsection [sectionTitle]="'Desktop'">
               <app-static-ceg ngProjectAs="sectionContent">
@@ -185,17 +164,10 @@
               </app-static-ceg>
             </app-component-subsubsection>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-checkbox">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-checkbox')">
-            <div class="e-accordion__title">Checkbox</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Checkbox" closeLabel="Checkbox" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               Use checkboxes when you need to multiselect rows to perform actions. The first checkbox, in the
               table header should check and uncheck all checkboxes that are in the same column. Read about
@@ -220,34 +192,20 @@
               </app-static-ceg>
             </app-component-subsubsection>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-footnote">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-footnote')">
-            <div class="e-accordion__title">Footnote</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Footnote" closeLabel="Footnote" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             Use a footnote when you need to clarify information. Use an asterisk (*) to connect the data to
             the description.
             <app-static-ceg>
               <app-table-footnote-ceg />
             </app-static-ceg>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-input">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-input')">
-            <div class="e-accordion__title">Input</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Input" closeLabel="Input" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             Use an input field when the user can edit values in the table.
             <app-component-subsubsection [sectionTitle]="'Desktop'">
               <app-static-ceg ngProjectAs="sectionContent">
@@ -260,17 +218,10 @@
               </app-static-ceg>
             </app-component-subsubsection>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-longColumn">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-longColumn')">
-            <div class="e-accordion__title">Long column</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Long column" closeLabel="Long column" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               If the table requires scrolling the max-width for a column is 450px, the class
               <code>e-table__cell--multiline</code>
@@ -284,17 +235,10 @@
               <app-table-long-column-ceg />
             </app-static-ceg>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-sticky-header">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-sticky-header')">
-            <div class="e-accordion__title">Sticky header</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Sticky header" closeLabel="Sticky header" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               Sticky headers should primarily be used when there is a lot of information to scroll through so
               that the user can view the context at all times when scrolling. Optional sticky headers for both
@@ -327,17 +271,10 @@
               </ng-container>
             </app-component-subsubsection>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-noStripes">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-noStripes')">
-            <div class="e-accordion__title">No stripes</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="No stripes" closeLabel="No stripes" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               Use the modifier class
               <code>e-table--no-stripes</code>
@@ -347,17 +284,10 @@
               </app-static-ceg>
             </div>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-numbers">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-numbers')">
-            <div class="e-accordion__title">Numbers</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Numbers" closeLabel="Numbers" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               Use the class
               <code>e-text-mono</code>
@@ -368,17 +298,10 @@
               <app-table-numbers-ceg />
             </app-static-ceg>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-select">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-select')">
-            <div class="e-accordion__title">Select</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Select" closeLabel="Select" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             Use select when navigating forward from the selected row.
             <app-component-subsubsection [sectionTitle]="'Desktop'">
               <app-static-ceg ngProjectAs="sectionContent">
@@ -391,18 +314,11 @@
               </app-static-ceg>
             </app-component-subsubsection>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-sorting">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-sorting')">
-            <div class="e-accordion__title">Sorting</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            <div><label class="e-tag e-tag--orange e-mb-16">Figma only</label></div>
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Sorting" closeLabel="Sorting" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
+            <label class="e-tag e-tag--orange e-mb-16">Figma only</label>
             <div>
               Sorting is another way to ease the user's search process in tables. The sorting functionality
               can either be in a sorting dropdown outside of the table, or as a table sorting in the table
@@ -467,17 +383,10 @@
               </ng-container>
             </app-component-subsubsection>
           </div>
-        </div>
-
-        <div class="e-accordion__item" id="accordion-validation">
-          <div class="e-accordion__label" (click)="toggleAccordion('accordion-validation')">
-            <div class="e-accordion__title">Validation</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
+        </elvia-accordion>
+        <elvia-divider />
+        <elvia-accordion openLabel="Validation" closeLabel="Validation" isFullWidth="true" size="large">
+          <div slot="content" class="e-text-lg e-mt-16">
             <div>
               A red border will be added around the cell or row to indicate validation in a table. Depending
               on the case, you can have the validation text either below the table (if the table is small) or
@@ -490,7 +399,7 @@
               <app-table-validation-cell-ceg />
             </app-static-ceg>
           </div>
-        </div>
+        </elvia-accordion>
       </div>
     </ng-container>
   </app-component-section>
