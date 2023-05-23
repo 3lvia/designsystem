@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { combineLatest } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { VersionService } from 'src/app/core/services/version.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-get-started',
@@ -11,6 +12,8 @@ import { VersionService } from 'src/app/core/services/version.service';
   styleUrls: ['./get-started-doc.component.scss'],
 })
 export class GetStartedDocComponent {
+  description = getDocPagesNotFromCMS('get-started')?.description;
+  title = getDocPagesNotFromCMS('get-started')?.title;
   linkTagCode = '';
   scriptTagCode = '';
   fullHTMLExample = '';
