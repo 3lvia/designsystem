@@ -17,21 +17,7 @@
           'e-bg-grey-05': greyBg
         }"
       >
-        <div *ngIf="!showIframeDesktop && !isMobileExample" #defaultFrame></div>
-        <div *ngIf="showIframeDesktop">
-          <app-iframe-screen
-            [codeHTML]="displayCode"
-            [overwriteHeight]="overwriteHeight"
-            [screenSize]="'desktop'"
-          ></app-iframe-screen>
-        </div>
-        <div *ngIf="isMobileExample">
-          <app-iframe-screen
-            [codeHTML]="displayCode"
-            [overwriteHeight]="overwriteHeight"
-            [screenSize]="'phone'"
-          ></app-iframe-screen>
-        </div>
+        <div #defaultFrame></div>
       </div>
     </div>
   </div>

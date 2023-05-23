@@ -13,11 +13,9 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @Input() codeHTML = '';
   @Input() codeCSS = '';
   @Input() codeInverted = '';
-  @Input() isMobileExample = false;
   @Input() greyBg = false;
   @Input() darkGreyBg = false;
   @Input() overwriteHeight: number;
-  @Input() showIframeDesktop = false;
   @Input() interactable = true;
   @Input() isInverted = false;
   @Input() noCodePenLink = false;
@@ -36,13 +34,12 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
     }
 
     this.displayCode = this.code;
-    if (!this.showIframeDesktop) {
-      this.desktopScreenWidth = this.isDesktop();
+
+    this.desktopScreenWidth = this.isDesktop();
+    this.updateShowIframe();
+    window.addEventListener('resize', () => {
       this.updateShowIframe();
-      window.addEventListener('resize', () => {
-        this.updateShowIframe();
-      });
-    }
+    });
   }
 
   ngAfterViewInit(): void {
