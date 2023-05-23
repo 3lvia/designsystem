@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { combineLatest } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { VersionService } from 'src/app/core/services/version.service';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
@@ -22,12 +21,11 @@ export class GetStartedDocComponent {
   constructor(private versionService: VersionService, private titleService: Title) {
     this.titleService.setTitle('Get started | Elvia design system');
 
-    combineLatest([
-      this.versionService.getCDNScriptFile().pipe(tap((script) => (this.scriptTagCode = script))),
-      this.versionService.getCDNStyleFile().pipe(tap((style) => (this.linkTagCode = style))),
-    ])
+    combineLatest([this.versionService.getCDNScriptFile(), this.versionService.getCDNStyleFile()])
       .pipe(takeUntilDestroyed())
       .subscribe(([scriptFile, styleFile]) => {
+        this.scriptTagCode = scriptFile;
+        this.linkTagCode = styleFile;
         this.fullHTMLExample = this.createFullExample(scriptFile, styleFile);
       });
   }
