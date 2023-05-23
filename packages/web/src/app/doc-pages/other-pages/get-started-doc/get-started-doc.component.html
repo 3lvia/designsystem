@@ -1,10 +1,8 @@
 <!--HEADER-->
 <app-component-header>
-  <ng-container ngProjectAs="headerTitle">Get started</ng-container>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
-    We are an open-source design system to be used for Elvia’s external and internal systems to provide a
-    comprehensive and user-friendly experience. We offer classes, variables and components, as well as tools
-    like accessibility guidelines and design principles.
+    {{ description }}
   </ng-container>
 </app-component-header>
 
