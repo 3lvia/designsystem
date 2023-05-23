@@ -19,8 +19,8 @@ export interface Color {
   contrast?: string;
 }
 
-type TextLabels = 'text-1' | 'text-2' | 'text-3' | 'text-disabled-1' | 'text-disabled-2';
-type BackgroundLabels =
+export type TextLabels = 'text-1' | 'text-2' | 'text-3' | 'text-disabled-1' | 'text-disabled-2';
+export type BackgroundLabels =
   | 'background-1'
   | 'background-2'
   | 'background-element-1'
@@ -37,7 +37,7 @@ type BackgroundLabels =
   | 'background-hover-2'
   | 'background-selected-1'
   | 'background-selected-2';
-type BorderLabels =
+export type BorderLabels =
   | 'border-1'
   | 'border-2'
   | 'border-3'
@@ -47,15 +47,20 @@ type BorderLabels =
   | 'border-hover-1'
   | 'border-selected-1'
   | 'border-selected-2';
-type SignalLabels = 'signal-success' | 'signal-caution' | 'signal-warning' | 'signal-error' | 'signal-info';
-type DataLabels = 'data-1' | 'data-2' | 'data-3' | 'data-4' | 'data-5' | 'data-6';
-type IconColors =
+export type SignalLabels =
+  | 'signal-success'
+  | 'signal-caution'
+  | 'signal-warning'
+  | 'signal-error'
+  | 'signal-info';
+export type DataLabels = 'data-1' | 'data-2' | 'data-3' | 'data-4' | 'data-5' | 'data-6';
+export type IconColors =
   | 'icon-stroke'
   | 'icon-filled-foreground'
   | 'icon-filled-background'
   | 'icon-filled-foreground-colored'
   | (SignalLabels extends `signal-${infer T}` ? `icon-${T}` : never);
-type StaticLabels = 'static-white' | 'static-black';
+export type StaticLabels = 'static-white' | 'static-black';
 
 export type ColorLabel =
   | TextLabels
