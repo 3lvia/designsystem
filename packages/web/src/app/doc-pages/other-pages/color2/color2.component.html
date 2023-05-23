@@ -1,3 +1,40 @@
-<p>
-  color2 works!
-</p>
+<!--HEADER-->
+<app-component-header [figmaUrl]="">
+  <ng-container ngProjectAs="headerTitle">Colors</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Elvia colors are a reference for energy and light. It plays an important part to bring the concept ON/OFF
+    to life. For consistency, use the defined color palette throughout our interface. 
+  </ng-container>
+</app-component-header>
+<div class="page-body e-mt-72">
+  <app-color-picker />
+
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Color Weight'">
+        <ng-container ngProjectAs="sectionContent"></ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Dark Theme'">
+        <ng-container ngProjectAs="sectionContent"></ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Light vs Dark Theme Examples'">
+        <ng-container ngProjectAs="sectionContent"></ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'Tokens'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Structure'">
+        <ng-container ngProjectAs="sectionContent"></ng-container>
+      </app-component-subsection>
+      <app-color-token-table />
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Using Classes'">
+        <ng-container ngProjectAs="sectionContent"></ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+</div>
