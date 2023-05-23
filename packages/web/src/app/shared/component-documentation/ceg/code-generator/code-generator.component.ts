@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormatCodePipe } from './formatCode.pipe';
 import { Language } from './language';
 
-type Tab = 'Angular' | 'React' | 'Vue';
+type Tab = 'Angular' | 'React' | 'Vue' | 'Typescript';
 
 const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 let CODE_GENERATOR_TAB_ID = 0;
@@ -19,6 +19,21 @@ export class CodeGeneratorComponent implements OnInit {
   @Input() vueCode = '';
   @Input() hideReact: boolean;
   @Input() alwaysVisible: boolean;
+
+  private _typeScriptCode = '';
+  @Input()
+  get typeScriptCode() {
+    return this._typeScriptCode;
+  }
+  set typeScriptCode(code: string) {
+    this._typeScriptCode = code;
+
+    if (code?.length && !this.tabs.includes('Typescript')) {
+      this.tabs.push('Typescript');
+    } else if (!code?.length && this.tabs.includes('Typescript')) {
+      this.tabs.splice(this.tabs.indexOf('Typescript'), 1);
+    }
+  }
 
   activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
     ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
@@ -44,7 +59,12 @@ export class CodeGeneratorComponent implements OnInit {
   }
 
   get language(): Language {
-    return this.activeTab === 'React' ? 'jsx' : 'html';
+    if (this.activeTab === 'React') {
+      return 'jsx';
+    } else if (this.activeTab === 'Typescript') {
+      return 'typescript';
+    }
+    return 'html';
   }
 
   get activeTab() {
@@ -56,6 +76,8 @@ export class CodeGeneratorComponent implements OnInit {
       return this.angularCode;
     } else if (this.activeTab === 'React') {
       return this.reactCode;
+    } else if (this.activeTab === 'Typescript') {
+      return this.typeScriptCode;
     } else {
       return this.vueCode;
     }
