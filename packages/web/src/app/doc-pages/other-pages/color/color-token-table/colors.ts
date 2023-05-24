@@ -43,9 +43,16 @@ type TableColor<TToken extends ColorLabel> = {
   links?: Link[];
 };
 
+/** A color label with disabled, hovered, or selected in it is defined as a state-color label */
+type StateLabel<T extends ColorLabel> = T extends `${string}${'disabled' | 'hover' | 'selected'}${string}`
+  ? T
+  : never;
+
+type DefaultLabel<T extends ColorLabel> = T extends StateLabel<T> ? never : T;
+
 export type TableColorArray<TToken extends ColorLabel = ColorLabel> = {
-  default: DeepReadonly<TableColor<TToken>[]>;
-  state: DeepReadonly<TableColor<TToken>[]>;
+  default: DeepReadonly<TableColor<DefaultLabel<TToken>>[]>;
+  state: DeepReadonly<TableColor<StateLabel<TToken>>[]>;
 };
 
 /** Define color arrays below here */
