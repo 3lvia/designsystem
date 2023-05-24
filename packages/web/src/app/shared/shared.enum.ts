@@ -63,6 +63,7 @@ export enum Pages {
   Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq',
+  GetStarted = 'get-started',
   Icon = 'icon',
   Shadow = 'shadow',
   TheDesignSystem = 'the-design-system',

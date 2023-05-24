@@ -22,22 +22,27 @@ describe('Elvis Pagination', () => {
   describe('Default values', () => {
     beforeEach(() => {
       mockMatchMedia({ isGtMobile: true });
-      render(<Pagination></Pagination>);
+      render(<Pagination />);
     });
 
     it('should have default info text', () => {
-      const infoText = screen.getByTestId('info-text');
-      expect(infoText).toHaveTextContent(`Viser`);
+      const infoText = screen.queryByText('Viser');
+      expect(infoText).toBeInTheDocument();
     });
 
     it('should have default info amount', () => {
-      const infoAmount = screen.getByTestId('info-amount');
-      expect(infoAmount).toHaveTextContent(`av 0 elementer`);
+      const infoAmount = screen.queryByText('av 0 elementer');
+      expect(infoAmount).toBeInTheDocument();
     });
 
     it('should not be right aligned', () => {
       const pagination = screen.getByTestId('pagination');
       expect(pagination).toHaveStyle(`justify-content: flex-start`);
+    });
+
+    it('show have a dropdown', () => {
+      const dropdown = screen.queryByRole('combobox');
+      expect(dropdown).toBeInTheDocument();
     });
   });
 
@@ -48,18 +53,18 @@ describe('Elvis Pagination', () => {
           numberOfElements={100}
           alignment={'right'}
           labelOptions={{ displaying: 'Showing', of: 'of', label: 'elements' }}
-        ></Pagination>,
+        />,
       );
     });
 
     it('should have info text', () => {
-      const infoText = screen.getByTestId('info-text');
-      expect(infoText).toHaveTextContent(`Showing`);
+      const infoText = screen.getByText('Showing');
+      expect(infoText).toBeVisible();
     });
 
     it('should have info amount', () => {
-      const infoAmount = screen.getByTestId('info-amount');
-      expect(infoAmount).toHaveTextContent(`of 100 elements`);
+      const infoAmount = screen.getByText('of 100 elements');
+      expect(infoAmount).toBeVisible();
     });
 
     it('should be right aligned', () => {
@@ -68,47 +73,58 @@ describe('Elvis Pagination', () => {
     });
 
     it('should have selection area', () => {
-      expect(screen.queryByTestId('selector-area')).toBeInTheDocument();
+      const selectorArea = screen.queryByRole('navigation');
+      expect(selectorArea).toBeInTheDocument();
     });
 
     it('should have hidden left arrow', () => {
-      const selectorArrowBtnLeft = screen.getByTestId('selector-arrow-btn-left');
-      expect(selectorArrowBtnLeft).toHaveStyle(`visibility: hidden`);
+      const previousButton = screen.queryByRole('button', { name: /forrige side/i });
+      expect(previousButton).not.toBeInTheDocument();
     });
 
     it('should have visible right arrow', () => {
-      const selectorArrowBtnRight = screen.getByTestId('selector-arrow-btn-right');
-      expect(selectorArrowBtnRight).toHaveStyle(`visibility: visible`);
+      const nextButton = screen.queryByRole('button', { name: /neste side/i });
+      expect(nextButton).toBeInTheDocument();
     });
 
     it('should have visible left arrow after clicking right arrow', async () => {
       const user = userEvent.setup();
-      const selectorArrowBtnRight = screen.getByTestId('selector-arrow-btn-right');
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
 
-      await user.click(selectorArrowBtnRight);
-      const selectorArrowBtnLeft = screen.getByTestId('selector-arrow-btn-left');
-      expect(selectorArrowBtnLeft).toHaveStyle(`visibility: visible`);
+      await user.click(nextButton);
+      const previousButton = screen.getByRole('button', { name: /forrige side/i });
+      expect(previousButton).toBeVisible();
     });
 
     it('should have hidden right arrow after clicking last paginator number', async () => {
       const user = userEvent.setup();
 
-      const lastPageButton = screen.getByTestId('paginator-button-10');
+      const lastPageButton = screen.getByRole('button', { name: /velg side 10/i });
       await user.click(lastPageButton);
-      const selectorArrowBtnRight = screen.getByTestId('selector-arrow-btn-right');
-      expect(selectorArrowBtnRight).toHaveStyle(`visibility: hidden`);
+      const nextButton = screen.queryByRole('button', { name: /neste side/i });
+      expect(nextButton).not.toBeInTheDocument();
     });
 
     it('should have both arrows visible in middle of selection range', async () => {
       const user = userEvent.setup();
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
 
       for (let i = 0; i < 4; i++) {
-        await user.click(screen.getByTestId('selector-arrow-btn-right'));
+        await user.click(nextButton);
       }
-      const selectorArrowBtnRight = screen.getByTestId('selector-arrow-btn-right');
-      expect(selectorArrowBtnRight).toHaveStyle(`visibility: visible`);
-      const selectorArrowBtnLeft = screen.getByTestId('selector-arrow-btn-left');
-      expect(selectorArrowBtnLeft).toHaveStyle(`visibility: visible`);
+      expect(nextButton).toBeVisible();
+      const previousButton = screen.getByRole('button', { name: /forrige side/i });
+      expect(previousButton).toBeVisible();
+    });
+
+    it('it should update number of page button when the page size is changed', async () => {
+      const user = userEvent.setup();
+      const dropdown = screen.getByRole('combobox');
+      await user.click(dropdown);
+      await user.click(screen.getByRole('option', { name: /20/ }));
+
+      const buttons = screen.queryAllByRole('button', { name: /(velg side \d+|valgt side)/i }); //5 "page dots"
+      expect(buttons.length).toBe(5);
     });
   });
   describe('All elements displayed', () => {
@@ -118,23 +134,18 @@ describe('Elvis Pagination', () => {
           numberOfElements={10}
           alignment={'right'}
           labelOptions={{ displaying: 'Showing', of: 'of', label: 'elements' }}
-        ></Pagination>,
+        />,
       );
     });
 
     it('should have no selection area when all elements are visible', () => {
-      expect(screen.queryByTestId('selector-area')).not.toBeInTheDocument();
+      const selectorArea = screen.queryByRole('navigation');
+      expect(selectorArea).not.toBeInTheDocument();
     });
   });
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(
-        <Pagination
-          numberOfElements={100}
-          className="test-class"
-          inlineStyle={{ margin: '24px' }}
-        ></Pagination>,
-      );
+      render(<Pagination numberOfElements={100} className="test-class" inlineStyle={{ margin: '24px' }} />);
     });
 
     it('should have className and inlineStyle', () => {

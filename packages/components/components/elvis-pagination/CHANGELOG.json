@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.05.23",
+      "version": "3.4.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Pagination now correctly emits its correct values after user interaction.",
+            "Resolved a bug that caused an incorrect internal state when both the <code>dropdownSelectedItemIndex</code> and <code>value</code> were set simultaneously"
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.05.23",
       "version": "3.4.0",
       "changelog": [

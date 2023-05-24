@@ -19,7 +19,6 @@ import { HeaderDocModule } from './header-doc/header-doc.module';
 import { LinkDocModule } from './link-doc/link-doc.module';
 import { ListDocModule } from './list-doc/list-doc.module';
 import { ModalDocModule } from './modal-doc/modal-doc.module';
-import { OverviewModule } from './overview-comp/overview-comp.module';
 import { OutlineDocModule } from './outline-doc/outline-doc.module';
 import { PaginationDocModule } from './pagination-doc/pagination-doc.module';
 import { PopoverDocModule } from './popover-doc/popover-doc.module';
@@ -59,7 +58,6 @@ import { ToastDocModule } from './toast-doc/toast-doc.module';
     ListDocModule,
     ModalDocModule,
     OutlineDocModule,
-    OverviewModule,
     PaginationDocModule,
     PopoverDocModule,
     ProgressbarDocModule,

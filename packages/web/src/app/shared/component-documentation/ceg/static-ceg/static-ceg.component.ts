@@ -10,4 +10,5 @@ export class StaticCegComponent {
   @ContentChild(StaticComponentExample, { static: true }) staticContent: StaticComponentExample;
   @Input() hideReact: boolean;
   @Input() phoneExample: boolean;
+  @Input() inverted: boolean;
 }

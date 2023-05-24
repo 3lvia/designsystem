@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { dropdownData } from './dropdown-data';
-import { exampleContents } from 'src/app/shared/example-contents';
 import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-dropdown-doc',
@@ -9,7 +8,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./dropdown-doc.component.scss'],
 })
 export class DropdownDocComponent {
-  exampleContents = exampleContents;
   componentData = dropdownData;
   figmaUrl = getComponent('dropdown')?.figmaUrl;
   description = getComponent('dropdown')?.description;

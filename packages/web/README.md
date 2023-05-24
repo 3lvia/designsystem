@@ -52,7 +52,7 @@ The CEG component is responsible for everything connected to the code examples w
 component page, where you can filter on type and many different options to be able to see and retrieve the
 version of an component you need.
 
-- Find the code for the CEG at `shared/component-documentation/component-example`.
-- The CEG uses data from each component located at that components doc-folder. E.g.
-  `doc-pages/components/box-doc/box-data.ts`.
-- Template for how to add data in these files are located at `component-data.template.ts`.
+- Find the code for the CEG at `shared/component-documentation/ceg`.
+- Using the CEG component involves creating a CEG component for your component, e.g. `chips-ceg.component.ts`.
+- This component should implement the `ExampleComponent` interface and be wrapped by the `<app-ceg>`
+  component.

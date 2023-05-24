@@ -16,10 +16,11 @@ interface Prop {
   styleUrls: ['./dynamic-code-generator.component.scss'],
 })
 export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
-  private unsubscriber = new Subject();
+  private unsubscriber = new Subject<void>();
   @Input() controlManager: UnknownCegControlManager;
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
+  @Input() typeScriptCode: Observable<string> | undefined;
   initialProps: Prop[] = [];
   angularCode = '';
   reactCode = '';
@@ -77,7 +78,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   ): Prop[] {
     const props = Object.entries(controls)
       .map(([controlName, control]) => {
-        if (control?.type === 'slotToggle') {
+        if (control?.type === 'slotToggle' || control?.excludedFromDOM) {
           return [];
         }
 
