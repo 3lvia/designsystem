@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { textColors } from './colors';
+import { textColorsDefault, textColorsState } from './colors';
 
 @Component({
   selector: 'app-color-token-table',
@@ -7,5 +7,6 @@ import { textColors } from './colors';
   styleUrls: ['./color-token-table.component.scss'],
 })
 export class ColorTokenTableComponent {
-  textColors = textColors;
+  defaultTextColors = textColorsDefault;
+  stateTextColors = textColorsState;
 }

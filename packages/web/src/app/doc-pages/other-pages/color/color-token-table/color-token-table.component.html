@@ -1,8 +1,8 @@
 <!-- This is just to test the data structure, not for final use -->
 
 <div class="container">
-  <div class="color" *ngFor="let color of textColors.default">
-    <h3>{{ color.token }}</h3>
+  <div class="color" *ngFor="let color of defaultTextColors">
+    <h3>e-color-{{ color.token }}</h3>
     <div *ngIf="color.role">
       {{ color.role }}
       <br />
@@ -18,8 +18,8 @@
     </div>
   </div>
   <p>State colors:</p>
-  <div class="color" *ngFor="let color of textColors.state">
-    <h3>{{ color.token }}</h3>
+  <div class="color" *ngFor="let color of stateTextColors">
+    <h3>e-color-{{ color.token }}</h3>
     <div *ngIf="color.role">
       {{ color.role }}
       <br />
