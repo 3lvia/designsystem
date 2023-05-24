@@ -573,6 +573,15 @@ export const docPagesNotFromCMS: DocPage[] = [
     status: DocPageStatus.Done,
   },
   {
+    title: 'Get started',
+    description: `We are an open-source design system to be used for Elvia’s external and internal systems to provide a
+    comprehensive and user-friendly experience. We offer classes, variables and components, as well as tools
+    like accessibility guidelines and design principles.`,
+    docUrl: Pages.GetStarted,
+    absolutePath: '/about/' + Pages.GetStarted,
+    status: DocPageStatus.Done,
+  },
+  {
     title: 'What’s New?',
     description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,

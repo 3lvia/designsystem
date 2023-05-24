@@ -28,4 +28,8 @@ export class PaginationCegComponent implements ComponentExample {
       groupOrder: ['Alignment'],
     },
   ]);
+
+  printChangeEvent(data: { start: number; end: number }): void {
+    console.log('Page changed:', data);
+  }
 }

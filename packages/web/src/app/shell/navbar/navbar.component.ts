@@ -17,7 +17,7 @@ import { RouterService } from '../../core/services/router.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
-  private unsubscriber = new Subject();
+  private unsubscriber = new Subject<void>();
   private listenOnScrollSubscription: Subscription;
   private scrollEventTimeout: ReturnType<typeof setTimeout>;
   private startedScrollSub = false;
@@ -61,8 +61,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     combineLatest([localizationSubscriber, this.routerService.urlPathChange()])
       .pipe(takeUntil(this.unsubscriber))
       .subscribe(([locale]) => {
-        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
-
         this.updateLocaleSwitchVisibility();
         this.setSubMenuRoute();
         this.isLandingPage = this.router.url.split('/')[2] === undefined;
@@ -116,6 +114,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     }
     this.localizationService.listenLocalization().subscribe((locale) => {
       this.updateNavbarList(locale);
+      this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
     });
     setTimeout(() => {
       this.updateAnchorList();

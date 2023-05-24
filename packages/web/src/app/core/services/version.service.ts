@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import naturalCompare from 'natural-compare-lite';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -55,7 +56,7 @@ ${this.createStyleTag(styleFile)}`);
       this.updateVersionFromCDN();
     }
 
-    return this.scriptFile.asObservable();
+    return this.scriptFile.asObservable().pipe(distinctUntilChanged());
   }
 
   getCDNStyleFile(): Observable<string> {
@@ -63,7 +64,7 @@ ${this.createStyleTag(styleFile)}`);
       this.updateVersionFromCDN();
     }
 
-    return this.styleFile.asObservable();
+    return this.styleFile.asObservable().pipe(distinctUntilChanged());
   }
 
   getCodePenTag(): Observable<string> {

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { DropdownProps } from '@elvia/elvis-dropdown/react';
-import { DropdownItem } from '@elvia/elvis-pagination/react';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
@@ -30,13 +29,12 @@ export class DropdownCegComponent implements ComponentExample {
           type: 'checkbox',
           label: 'Multiselect',
           value: false,
-          children: {
-            hasSelectAllOption: {
-              type: 'checkbox',
-              label: 'Select All Option',
-              value: false,
-            },
-          },
+        },
+        hasSelectAllOption: {
+          type: 'checkbox',
+          group: 'Options',
+          label: 'Select All Option',
+          childOf: 'isMulti',
         },
         isDisabled: {
           group: 'State',

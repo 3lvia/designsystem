@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { FormatCodePipe } from './formatCode.pipe';
 import { Language } from './language';
 
-type Tab = 'Angular' | 'React' | 'Vue';
+type Tab = 'Angular' | 'React' | 'Vue' | 'Typescript';
 
 const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 let CODE_GENERATOR_TAB_ID = 0;
@@ -13,10 +13,28 @@ let CODE_GENERATOR_TAB_ID = 0;
   templateUrl: './code-generator.component.html',
   styleUrls: ['./code-generator.component.scss'],
 })
-export class CodeGeneratorComponent {
+export class CodeGeneratorComponent implements OnInit {
   @Input() angularCode = '';
   @Input() reactCode = '';
   @Input() vueCode = '';
+  @Input() hideReact: boolean;
+  @Input() alwaysVisible: boolean;
+
+  private _typeScriptCode = '';
+  @Input()
+  get typeScriptCode() {
+    return this._typeScriptCode;
+  }
+  set typeScriptCode(code: string) {
+    this._typeScriptCode = code;
+
+    if (code?.length && !this.tabs.includes('Typescript')) {
+      this.tabs.push('Typescript');
+    } else if (!code?.length && this.tabs.includes('Typescript')) {
+      this.tabs.splice(this.tabs.indexOf('Typescript'), 1);
+    }
+  }
+
   activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
     ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
     : 0;
@@ -26,8 +44,29 @@ export class CodeGeneratorComponent {
 
   constructor(private codeFormatter: FormatCodePipe) {}
 
+  ngOnInit(): void {
+    if (this.hideReact) {
+      this.tabs.splice(this.tabs.indexOf('React'), 1);
+    }
+
+    /**
+     * Prevent that no tab is selected if user navigates from a page with
+     * the typescript tab selected, to a page without the typescript tab.
+     */
+    if (this.activeTabIndex > this.tabs.length - 1) {
+      this.setActiveTab(this.tabs.length - 1);
+    }
+  }
+
   get language(): Language {
-    return this.activeTab === 'React' ? 'jsx' : 'html';
+    if (this.angularCode.toLowerCase().startsWith('<!doctype html>')) {
+      return 'html';
+    } else if (this.activeTab === 'React') {
+      return 'jsx';
+    } else if (this.activeTab === 'Typescript') {
+      return 'typescript';
+    }
+    return 'html';
   }
 
   get activeTab() {
@@ -39,6 +78,8 @@ export class CodeGeneratorComponent {
       return this.angularCode;
     } else if (this.activeTab === 'React') {
       return this.reactCode;
+    } else if (this.activeTab === 'Typescript') {
+      return this.typeScriptCode;
     } else {
       return this.vueCode;
     }

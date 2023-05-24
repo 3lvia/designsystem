@@ -10,6 +10,7 @@ let CEG_INPUT_ID = 0;
 })
 export class TextComponent {
   @Input() input: Text;
+  @Input() disabled: boolean;
   @Output() valueChange = new EventEmitter<Text['value']>();
   readonly inputId = `ceg-input-${CEG_INPUT_ID++}`;
 

@@ -16,6 +16,7 @@ import { TextComponent } from './controls/text/text.component';
 import { StaticCegComponent } from './static-ceg/static-ceg.component';
 import { StaticCodeGeneratorComponent } from './code-generator/static-code-generator/static-code-generator.component';
 import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
+import { PhoneShellComponent } from './phone-shell/phone-shell.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,9 @@ import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-gen
     TextComponent,
     StaticCodeGeneratorComponent,
     DynamicCodeGeneratorComponent,
+    PhoneShellComponent,
   ],
-  exports: [CegComponent, StaticCegComponent],
+  exports: [CegComponent, StaticCegComponent, StaticCodeGeneratorComponent],
   imports: [CommonModule],
   providers: [FormatCodePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -64,6 +64,7 @@ import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/uti
 import { DevStartComponent } from './dev/dev-start/dev-start.component';
 import { v2PlaygroundComponent } from './dev/v2-playground/v2-playground.component';
 import { OutlineDocComponent } from './doc-pages/components/outline-doc/outline-doc.component';
+import { Color2Component } from './doc-pages/other-pages/color2/color2.component';
 
 const routes: Routes = [
   {
@@ -118,6 +119,10 @@ const routes: Routes = [
           {
             path: 'color',
             component: ColorDocComponent,
+          },
+          {
+            path: 'color2',
+            component: Color2Component,
           },
           {
             path: 'icon',

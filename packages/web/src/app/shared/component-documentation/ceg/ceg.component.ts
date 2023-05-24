@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   AfterViewInit,
   Component,
   ContentChild,
@@ -12,8 +13,9 @@ import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
-import { Controls, ControlValue } from './controlType';
+import { Controls, ControlValue, SlotVisibility } from './controlType';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TypescriptComponentExample } from './typescript-component-example';
 
 interface Slot {
   name: string;
@@ -30,15 +32,18 @@ interface SlotMap {
   templateUrl: './ceg.component.html',
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
 })
-export class CegComponent implements AfterViewInit, OnDestroy {
+export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   @Input() fullWidth = false;
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
-  private unsubscriber = new Subject();
+  @ContentChild(TypescriptComponentExample, { static: true }) tsComponentExample: TypescriptComponentExample;
+  private unsubscriber = new Subject<void>();
   private _componentSlots = new BehaviorSubject<Slot[]>([]);
   readonly componentSlots = this._componentSlots
     .asObservable()
     .pipe(map((slots) => slots.filter((slot) => slot.isActive).map((slot) => slot.html.outerHTML)));
+
+  typeScriptCode: Observable<string> | undefined;
 
   get hasMultipleComponentTypes() {
     return this.componentExample.cegContent.componentTypes.pipe(
@@ -62,16 +67,24 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     this.setUpStaticPropSubscription();
   }
 
+  ngAfterContentInit(): void {
+    if (this.tsComponentExample) {
+      this.typeScriptCode = this.tsComponentExample.typeScript.pipe(takeUntil(this.unsubscriber));
+    }
+  }
+
   ngOnDestroy(): void {
     this.unsubscriber.next();
     this.unsubscriber.complete();
   }
 
   setPropValue(propName: string, value: ControlValue): void {
-    const propWasUpdated = this.componentExample.cegContent.setPropValue(propName, value);
+    const updatedProp = this.componentExample.cegContent.setPropValue(propName, value);
 
-    if (propWasUpdated) {
-      this.getWebComponent().setProps({ [propName]: value });
+    if (updatedProp) {
+      if (!updatedProp.excludedFromDOM) {
+        this.getWebComponent().setProps({ [propName]: value });
+      }
       this.patchPropValueInUrl(propName, value);
     }
   }
@@ -99,7 +112,8 @@ export class CegComponent implements AfterViewInit, OnDestroy {
       Object.entries(this.route.snapshot.queryParams)
         .filter(([propName]) => propName !== 'type')
         .forEach(([propName, value]) => {
-          const controlType = this.componentExample.cegContent.getControlSnapshot()?.[propName]?.type;
+          const control = this.componentExample.cegContent.getControlSnapshot()?.[propName];
+          const controlType = control?.type;
 
           let parsedValue = value;
           if (controlType === 'counter') {
@@ -110,7 +124,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
 
           const propWasUpdated = this.componentExample.cegContent.setPropValue(propName, parsedValue);
 
-          if (propWasUpdated && controlType !== 'slotToggle') {
+          if (propWasUpdated && controlType !== 'slotToggle' && !control?.excludedFromDOM) {
             this.getWebComponent().setProps({ [propName]: parsedValue });
           }
         });
@@ -127,12 +141,7 @@ export class CegComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  private getUpdatedSlotList(
-    slots: {
-      slotName: string;
-      isVisible: true;
-    }[],
-  ): Slot[] {
+  private getUpdatedSlotList(slots: SlotVisibility[]): Slot[] {
     let slotList: Slot[] = [];
 
     const slotIsActive = (slotName: string): boolean => {
@@ -215,15 +224,22 @@ export class CegComponent implements AfterViewInit, OnDestroy {
 
   private setAllPropsOnWebComponent(controls: Controls): void {
     Object.entries(controls).forEach(([controlName, control]) => {
-      if (control && control.type !== 'slotToggle') {
+      if (control && control.type !== 'slotToggle' && !control.excludedFromDOM) {
         this.getWebComponent().setProps({ [controlName]: control.value });
       }
     });
   }
 
   private getWebComponent() {
-    return this.componentContainer.nativeElement.querySelector(
-      `elvia-${this.componentExample.elementName}`,
-    ) as ElvisComponentWrapper;
+    const tagName = `elvia-${this.componentExample.elementName}`;
+    const element = this.componentContainer.nativeElement.querySelector(tagName) as ElvisComponentWrapper;
+
+    if (!element) {
+      throw new Error(
+        `CEG - ${tagName} was not found in the DOM. Ensure that you have spelled the element name correct in the HTML and when implementing the ComponentExample interface.`,
+      );
+    }
+
+    return element;
   }
 }

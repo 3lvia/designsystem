@@ -12,6 +12,7 @@ import { ComponentChangelogModule } from 'src/app/shared/component-documentation
 import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
 import { ToastCegComponent } from './toast-ceg/toast-ceg.component';
 import { FormsModule } from '@angular/forms';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     ComponentChangelogModule,
     WhenToUseModule,
     FormsModule,
+    CegModule,
   ],
   declarations: [ToastDocComponent, ToastCegComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -16,10 +16,11 @@ interface Prop {
   styleUrls: ['./dynamic-code-generator.component.scss'],
 })
 export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
-  private unsubscriber = new Subject();
+  private unsubscriber = new Subject<void>();
   @Input() controlManager: UnknownCegControlManager;
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
+  @Input() typeScriptCode: Observable<string> | undefined;
   initialProps: Prop[] = [];
   angularCode = '';
   reactCode = '';
@@ -77,17 +78,11 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   ): Prop[] {
     const props = Object.entries(controls)
       .map(([controlName, control]) => {
-        if (control?.type === 'slotToggle') {
+        if (control?.type === 'slotToggle' || control?.excludedFromDOM) {
           return [];
         }
 
-        const props: Prop[] = [{ name: controlName, value: control?.value }];
-        if (control && control.type === 'checkbox' && control.children) {
-          Object.entries(control.children).forEach(([childName, child]) => {
-            props.push({ name: childName, value: child.value ?? false });
-          });
-        }
-        return props;
+        return [{ name: controlName, value: control?.value }];
       })
       .flat();
 
@@ -136,7 +131,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         })
         // Ensure that each slot falls on a new line.
         .map((slot) => slot.replace(/></g, '>\n<'))
-        .map((slot) => slot.replace(/_ngcontent.{11}/g, ''))
+        .map((slot) => slot.replace(/_ngcontent-\S+/g, ''))
         .map((slot) => slot.replace(/ng-reflect.*Object]"/g, ''))
     );
   }

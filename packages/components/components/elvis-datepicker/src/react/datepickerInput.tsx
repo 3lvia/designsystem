@@ -113,6 +113,7 @@ export const DatepickerInput: React.FC<Props> = ({
     const noDate = !day && !month && !year;
 
     if (!required && noDate) {
+      onErrorChange(undefined);
       return true;
     } else if (required && noDate) {
       onErrorChange('required');
@@ -173,6 +174,13 @@ export const DatepickerInput: React.FC<Props> = ({
       validateInputValue(date?.getDate(), date ? date.getMonth() + 1 : undefined, date?.getFullYear());
     }
   }, [date]);
+
+  useEffect(() => {
+    if (touched) {
+      const [day, month, year] = inputValue.split('.');
+      validateInputValue(+day, +month, +year);
+    }
+  }, [required]);
 
   // Focus and select the text when the parent container is double clicked
   useEffect(() => {

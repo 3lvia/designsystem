@@ -2,6 +2,37 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.05.23",
+      "version": "6.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the color of the error state icon."]
+        }
+      ]
+    },
+    {
+      "date": "03.05.23",
+      "version": "6.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the check mark would have incorrect size.",
+            "Fixed a bug where the check mark would have incorrect styles when disabled."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "14.02.23",
       "version": "6.0.2",
       "changelog": [
@@ -464,7 +495,7 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed bug where dropdown gave a valueOnChange callback with undefined value on initation",
+            "Fixed bug where dropdown gave a valueOnChange callback with undefined value on initiation",
             "Fixed bug where items list array was empty and returned no found icon",
             "Fixed issue where long labels created scroll in options"
           ]
@@ -503,7 +534,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Adjusted padding in the valuecontainer."]
+          "changes": ["Adjusted padding in the value container."]
         }
       ]
     },
@@ -697,7 +728,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Added type declaration support for dropdown komponent"]
+          "changes": ["Added type declaration support for dropdown component"]
         }
       ]
     },
@@ -757,7 +788,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["First stable version :tada:"]
+          "changes": ["First stable version."]
         }
       ]
     }

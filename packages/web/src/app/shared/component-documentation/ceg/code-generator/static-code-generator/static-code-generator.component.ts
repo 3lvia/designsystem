@@ -7,7 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StaticCodeGeneratorComponent implements OnInit {
   @Input() staticContent = '';
+  @Input() hideReact: boolean;
   @Input() comment?: string;
+  @Input() alwaysVisible: boolean;
 
   angularCode = '';
   reactCode = '';
@@ -21,11 +23,19 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
     const cleanCode = this.removeAngularSpecificAttributes(code);
     this.vueCode = this.createVueCodeFromStaticContent(cleanCode);
-    this.reactCode = this.createReactCodeFromStaticContent(cleanCode);
+
+    if (!this.hideReact) {
+      this.reactCode = this.createReactCodeFromStaticContent(cleanCode);
+    }
   }
 
   private addNewLinesBetweenTags(code: string): string {
-    return code.replace(/>(.*?)</g, (_, innerContent?: string) => `>\n${innerContent?.trim()}\n<`);
+    return code.replace(/>(.*?)</g, (_, innerContent?: string) => {
+      if (innerContent && innerContent.trim().length > 0) {
+        return `>\n${innerContent.trim()}\n<`;
+      }
+      return '>\n<';
+    });
   }
 
   private cleanSrcAttribute(code: string): string {
@@ -44,7 +54,12 @@ export class StaticCodeGeneratorComponent implements OnInit {
 
   private createVueCodeFromStaticContent(staticContent: string): string {
     const vuePropSyntax = staticContent.slice().replace(/\[(\w+)\]/g, ':$1');
-    const vueEventSyntax = vuePropSyntax.replace(/ \(/g, ' @').replace(/\)=/g, '=');
+    const ngIfReplaced = vuePropSyntax.replace(/\*ngIf/g, 'v-if');
+    const ngForReplaced = ngIfReplaced.replace(
+      /\*ngFor="let ([a-zA-Z]+) of ([a-zA-Z]+)"/g,
+      'v-for="$1 in $2"',
+    );
+    const vueEventSyntax = ngForReplaced.replace(/ \(([a-zA-Z]+)\)="/g, ' @$1="');
     if (this.comment) {
       return `<!--${this.comment}-->\n${vueEventSyntax}`;
     }
@@ -64,7 +79,15 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return transformedCode;
   }
 
+  private isScript(code: string): boolean {
+    return code.includes('<script');
+  }
+
   private transformSlotsIntoReactAttributes(code: string): string {
+    if (this.isScript(code)) {
+      return code;
+    }
+
     const originalPropNames = this.getOriginalAttributeNames(code);
 
     const parsedCode = new DOMParser().parseFromString(code, 'text/html');
@@ -152,6 +175,10 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return code.replace(/> *</g, '><');
   }
 
+  private replaceForWithHtmlFor(code: string): string {
+    return code.replace(/ for="/g, ' htmlFor="');
+  }
+
   private htmlHasMultipleRoots(code: string): boolean {
     const parsed = new DOMParser().parseFromString(code, 'text/html');
     return parsed.body.children.length > 1;
@@ -164,6 +191,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
     reactCode = this.transformAngularAttributesToReactStyle(reactCode);
     reactCode = this.transformReactSpecificProps(reactCode);
     reactCode = this.removeWhiteSpaceBetweenTags(reactCode);
+    reactCode = this.replaceForWithHtmlFor(reactCode);
 
     if (this.htmlHasMultipleRoots(reactCode)) {
       reactCode = `<>${reactCode}</>`;

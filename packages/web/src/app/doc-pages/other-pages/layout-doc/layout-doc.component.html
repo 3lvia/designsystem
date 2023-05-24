@@ -345,140 +345,139 @@
             will therefore not break any other potential grid-systems.
           </div>
 
-          <div class="e-mt-24">
-            <div class="e-accordion e-accordion--group">
-              <!--Breakpoints-->
-              <div class="e-accordion__item" id="Breakpoints">
-                <div class="e-accordion__label" (click)="toggleAccordion('Breakpoints')">
-                  <div class="e-accordion__title">Breakpoints</div>
-                  <div class="e-accordion__icon">
-                    <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-                    <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-                  </div>
-                </div>
-                <div class="e-accordion__content">
-                  Use col-sm, col-md and col-lg to change grid at breakpoints.
-                  <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
-                </div>
+          <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
+            <!--Breakpoints-->
+            <elvia-accordion closeLabel="Breakpoints" isFullWidth="true" openLabel="Breakpoints" size="large">
+              <div slot="content">
+                Use
+                <code>col-sm</code>
+                ,
+                <code>col-md</code>
+                and
+                <code>col-lg</code>
+                to change grid at breakpoints.
+                <app-static-ceg>
+                  <app-layout-breakpoints-ceg />
+                </app-static-ceg>
               </div>
+            </elvia-accordion>
+            <elvia-divider />
 
-              <!--Layout-->
-              <div class="e-accordion__item" id="Layout">
-                <div class="e-accordion__label" (click)="toggleAccordion('Layout')">
-                  <div class="e-accordion__title">Layout</div>
-                  <div class="e-accordion__icon">
-                    <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-                    <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-                  </div>
-                </div>
-                <div class="e-accordion__content">
-                  <app-component-subsubsection [sectionTitle]="'Standard'">
-                    <ng-container ngProjectAs="sectionContent">
-                      A grid layout for external and internal systems. If you don’t need to use all 12 column
-                      individually, you can group the columns together to create wider columns.
-                      <img
-                        src="../../../../assets/grid/standardLayout.svg"
-                        alt="Internal grid mobile"
-                        style="max-width: 100%; margin-top: 32px"
-                      />
-                    </ng-container>
-                  </app-component-subsubsection>
+            <!--Layout-->
+            <elvia-accordion closeLabel="Layout" isFullWidth="true" openLabel="Layout" size="large">
+              <div slot="content">
+                <app-component-subsubsection [sectionTitle]="'Standard'">
+                  <ng-container ngProjectAs="sectionContent">
+                    A grid layout for external and internal systems. If you don’t need to use all 12 columns
+                    individually, you can group the columns to create wider columns.
+                    <img
+                      src="/assets/grid/standardLayout.svg"
+                      alt="Internal grid mobile"
+                      style="max-width: 100%; margin-top: 32px"
+                    />
+                  </ng-container>
+                </app-component-subsubsection>
 
-                  <app-component-subsubsection [sectionTitle]="'Alignment'">
-                    <ng-container ngProjectAs="sectionContent">
-                      Use justify-content, align-content, and offset to align col-classes inside grid.
-                      <app-component-example-v1 [codeHTML]="example6"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
+                <app-component-subsubsection [sectionTitle]="'Alignment'">
+                  <ng-container ngProjectAs="sectionContent">
+                    Use
+                    <code>justify-content</code>
+                    ,
+                    <code>align-content</code>
+                    , and
+                    <code>offset</code>
+                    to align
+                    <code>col</code>
+                    -classes inside grid.
+                    <app-static-ceg>
+                      <app-layout-alignment-ceg />
+                    </app-static-ceg>
+                  </ng-container>
+                </app-component-subsubsection>
 
-                  <app-component-subsubsection [sectionTitle]="'Ordering'">
-                    <ng-container ngProjectAs="sectionContent">
-                      Use order to choose the order of columns.
-                      <app-component-example-v1 [codeHTML]="example7"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
+                <app-component-subsubsection [sectionTitle]="'Ordering'">
+                  <ng-container ngProjectAs="sectionContent">
+                    Use
+                    <code>order</code>
+                    to choose the order of columns.
+                    <app-static-ceg>
+                      <app-layout-ordering-ceg />
+                    </app-static-ceg>
+                  </ng-container>
+                </app-component-subsubsection>
 
-                  <app-component-subsubsection [sectionTitle]="'Levels'">
-                    <ng-container ngProjectAs="sectionContent">
-                      The grid can have levels.
-                      <app-component-example-v1 [codeHTML]="example8"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
-                </div>
+                <app-component-subsubsection [sectionTitle]="'Levels'">
+                  <ng-container ngProjectAs="sectionContent">
+                    The grid can have levels.
+                    <app-static-ceg>
+                      <app-layout-levels-ceg />
+                    </app-static-ceg>
+                  </ng-container>
+                </app-component-subsubsection>
               </div>
+            </elvia-accordion>
+            <elvia-divider />
 
-              <!--Gutters-->
-              <div class="e-accordion__item" id="Gutters">
-                <div class="e-accordion__label" (click)="toggleAccordion('Gutters')">
-                  <div class="e-accordion__title">Gutters</div>
-                  <div class="e-accordion__icon">
-                    <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-                    <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-                  </div>
+            <!--Gutters-->
+            <elvia-accordion closeLabel="Gutters" isFullWidth="true" openLabel="Gutters" size="large">
+              <div slot="content">
+                <div>
+                  Use the class
+                  <code>e-grid-gutters-ext</code>
+                  (for external systems) or
+                  <code>e-grid-gutters-int</code>
+                  (for internal systems) to add dynamic gutters on rows. Get vertical gutters as well by
+                  adding the class
+                  <code>e-grid-gutters-vertical</code>
+                  .
                 </div>
-                <div class="e-accordion__content">
-                  <div>
-                    Use the class e-grid-gutters-ext (for external systems) or e-grid-gutters-int (for
-                    internal systems) to add dynamic gutters on rows. Get vertical gutters as well by adding
-                    the class e-grid-gutters-vertical.
-                  </div>
+                <app-static-ceg>
+                  <app-layout-gutters-ceg />
+                </app-static-ceg>
 
-                  <app-component-subsubsection [sectionTitle]="'External gutters'">
-                    <ng-container ngProjectAs="sectionContent">
-                      <app-component-example-v1 [codeHTML]="exampleGutterExternal"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
+                <app-component-subsubsection [sectionTitle]="'Custom padding (gutters)'">
+                  <ng-container ngProjectAs="sectionContent">
+                    Combine the padding classes (e.g.
+                    <code>px-lg-3</code>
+                    ) and negative margin classes (e.g.
+                    <code>mx-lg-n3</code>
+                    ) to add your own custom gutters.
+                    <app-static-ceg>
+                      <app-layout-gutters-custom-ceg />
+                    </app-static-ceg>
+                  </ng-container>
+                </app-component-subsubsection>
 
-                  <app-component-subsubsection [sectionTitle]="'Internal gutters'">
-                    <ng-container ngProjectAs="sectionContent">
-                      <app-component-example-v1 [codeHTML]="exampleGutterInternal"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
-
-                  <app-component-subsubsection [sectionTitle]="'Custom padding (gutters)'">
-                    <ng-container ngProjectAs="sectionContent">
-                      Combine the padding classes (e.g. px-lg-3) and negative margin classes (e.g. mx-lg-n3 )
-                      to add your own custom gutters.
-                      <app-component-example-v1 [codeHTML]="example3"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
-
-                  <app-component-subsubsection [sectionTitle]="'No gutters'">
-                    <ng-container ngProjectAs="sectionContent">
-                      Use no-gutters to remove gutters on the row.
-                      <app-component-example-v1 [codeHTML]="example4"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
-                </div>
+                <app-component-subsubsection [sectionTitle]="'No gutters'">
+                  <ng-container ngProjectAs="sectionContent">
+                    Use
+                    <code>no-gutters</code>
+                    to remove gutters on the row.
+                    <app-static-ceg>
+                      <app-layout-gutters-no-ceg />
+                    </app-static-ceg>
+                  </ng-container>
+                </app-component-subsubsection>
               </div>
+            </elvia-accordion>
+            <elvia-divider />
 
-              <!--Margins-->
-              <div class="e-accordion__item" id="Margins">
-                <div class="e-accordion__label" (click)="toggleAccordion('Margins')">
-                  <div class="e-accordion__title">Margins</div>
-                  <div class="e-accordion__icon">
-                    <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-                    <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-                  </div>
+            <!--Margins-->
+            <elvia-accordion closeLabel="Breakpoints" isFullWidth="true" openLabel="Breakpoints" size="large">
+              <div slot="content">
+                <div>
+                  Use the class
+                  <code>e-grid-margin-ext</code>
+                  (for external systems) or
+                  <code>e-grid-margin-int</code>
+                  (for internal systems) to add dynamic margin on rows.
                 </div>
-                <div class="e-accordion__content">
-                  <div>
-                    Use the class e-grid-margin-ext (for external systems) or e-grid-margin-int (for internal
-                    systems) to add dynamic margin on rows.
-                  </div>
-                  <app-component-subsubsection [sectionTitle]="'External margin'">
-                    <ng-container ngProjectAs="sectionContent">
-                      <app-component-example-v1 [codeHTML]="exampleExternalMargin"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
-                  <app-component-subsubsection [sectionTitle]="'Internal margin'">
-                    <ng-container ngProjectAs="sectionContent">
-                      <app-component-example-v1 [codeHTML]="exampleInternalMargin"></app-component-example-v1>
-                    </ng-container>
-                  </app-component-subsubsection>
-                </div>
+                <app-static-ceg>
+                  <app-layout-margins-ceg />
+                </app-static-ceg>
               </div>
-            </div>
+            </elvia-accordion>
+            <elvia-divider />
           </div>
         </ng-container>
       </app-component-subsection>
@@ -647,13 +646,13 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsubsection>
         <ng-container ngProjectAs="sectionContent">
-          <div style="display: flex; justify-content: space-between; align-items: flex-end">
+          <div class="e-flex e-gap-16 e-align-items-end">
             <elvia-box>
               <div slot="content">
                 <div
                   class="e-text-md"
                   style="
-                    width: 80px;
+                    width: 100%;
                     height: 80px;
                     border: 1px grey dashed;
                     display: flex;
@@ -673,7 +672,7 @@
                 <div
                   class="e-text-md"
                   style="
-                    width: 80px;
+                    width: 100%;
                     height: 80px;
                     border: 1px grey dashed;
                     display: flex;
@@ -692,7 +691,7 @@
                 <div
                   class="e-text-md"
                   style="
-                    width: 80px;
+                    width: 100%;
                     height: 80px;
                     border: 1px grey dashed;
                     display: flex;

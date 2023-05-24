@@ -16,7 +16,7 @@ interface Group {
   styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent implements OnInit, OnDestroy {
-  private unsubscriber = new Subject();
+  private unsubscriber = new Subject<void>();
   @Input() controlManager: UnknownCegControlManager;
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   @Output() slotToggle = new EventEmitter<{ slotName: string; isVisible: boolean }>();
@@ -49,6 +49,14 @@ export class ControlsComponent implements OnInit, OnDestroy {
 
   isDisabled(controlName: string): boolean {
     return this.disabledControls.includes(controlName);
+  }
+
+  parentIsChecked(parentName?: string): boolean {
+    const control = this.controlManager.getControlSnapshot()?.[parentName || ''];
+    if (!control) {
+      return true;
+    }
+    return control.value;
   }
 
   private createControlGroups(controls: Controls, groupOrder: string[]) {

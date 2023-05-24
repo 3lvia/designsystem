@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -10,7 +10,7 @@ import { LOCALE_CODE } from 'contentful/types';
   templateUrl: './shadow-doc.component.html',
   styleUrls: ['./shadow-doc.component.scss'],
 })
-export class ShadowDocComponent {
+export class ShadowDocComponent implements OnDestroy {
   localizationSubscriber: Subscription;
   figmaUrl = getDocPagesNotFromCMS('shadow')?.figmaUrl;
   title = getDocPagesNotFromCMS('shadow')?.title;

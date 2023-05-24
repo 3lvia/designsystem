@@ -313,7 +313,7 @@ function App() {
             <div className="example-wrapper">
               <h3>Carousel</h3>
               <Carousel
-                loop={false}
+                type="linear"
                 hasConfirmationCheckmark={true}
                 items={[
                   { heading: <h3 className="e-title-sm">HAN-port</h3>, item: <div>Hallo</div> },
@@ -324,7 +324,7 @@ function App() {
                   },
                 ]}
                 onFinish={() => console.log('Hide')}
-              ></Carousel>
+              />
             </div>
             {/* CHIP */}
             <div className="example-wrapper">

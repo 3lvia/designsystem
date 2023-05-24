@@ -58,8 +58,8 @@ export class ChipCegComponent implements ComponentExample {
           value: 'green',
           group: 'Color',
         },
-        isDisabled: {
-          label: 'Disabled',
+        isLoading: {
+          label: 'Loading',
           type: 'checkbox',
           value: false,
           group: 'State',
@@ -77,12 +77,6 @@ export class ChipCegComponent implements ComponentExample {
     {
       type: 'Choice',
       controls: {
-        isDisabled: {
-          label: 'Disabled',
-          type: 'checkbox',
-          value: false,
-          group: 'State',
-        },
         value: {
           type: 'text',
           value: 'Chip',
@@ -91,7 +85,7 @@ export class ChipCegComponent implements ComponentExample {
           inputType: 'input',
         },
       },
-      groupOrder: ['State', 'Text'],
+      groupOrder: ['Text'],
     },
   ]);
 

@@ -7,21 +7,20 @@ export const dividerData: ComponentData = {
   attributes: {
     type: {
       isRequired: false,
-      type: 'simple | title | curved',
+      type: 'simple | heading | curved',
       description: 'Type of the divider. The curved version of the divider follows the Elvia curve formula.',
       default: 'simple',
     },
-    title: {
+    heading: {
       isRequired: false,
       type: 'HTMLElement | JSX.Element',
       description:
-        'Title displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
-      default: 'Title',
+        'Heading displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
     },
     typography: {
       isRequired: false,
       type: 'medium | caps',
-      description: 'Type of title typography.',
+      description: 'Type of heading typography.',
       default: 'medium',
     },
     orientation: {

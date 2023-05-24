@@ -1,6 +1,5 @@
 import { Color } from './color.interface';
-import { colors } from '@elvia/elvis-colors';
-import { contrasts } from './color-contrasts';
+import { colors, contrasts } from './colors';
 
 const hexToRgb = (hex: string): string => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -35,7 +34,7 @@ const convertColorObject = (
   return Object.entries(colors[category]).map(([name, color]) => {
     return {
       title: name,
-      labels: color['alt-labels']?.filter((label: string) => !label.includes('elvis')),
+      labels: 'alt-labels' in color ? color['alt-labels']?.filter((label) => !label.includes('elvis')) : [],
       hex: makeHexValue6Length(color.color),
       rgba: category === 'grey-colors' ? getGreyRgba(name) : hexToRgb(color.color),
       contrastBlack: (contrasts[category] as any)[name].contrasts.black,

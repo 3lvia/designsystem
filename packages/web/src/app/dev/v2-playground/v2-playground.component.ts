@@ -41,10 +41,17 @@ export class v2PlaygroundComponent {
   filteredValues = { 2021: false, 2022: true, 2023: true, 2024: true };
   filteredKeys = Object.keys(this.filteredValues) as unknown as Array<keyof typeof this.filteredValues>;
   deletableChipsList = [
-    { value: 2022, color: 'green' },
     { value: 2023, color: 'red' },
+    { value: 2025, color: 'red', isDisabled: true },
+  ];
+  choiceChipsList = [
+    { value: 2025, color: 'purple' },
+    { value: 2025, color: 'purple', isSelected: true },
+  ];
+  legendChipsList = [
     { value: 2024, color: 'blue' },
-    { value: 2025, color: 'purple', isDisabled: true },
+    { value: 2025, color: 'blue', isSelected: true },
+    { value: 2025, color: 'blue', isLoading: true },
   ];
 
   // Context menu
@@ -140,7 +147,15 @@ export class v2PlaygroundComponent {
   isMultiPageModalShowing = false;
 
   // Pagination
-  defaultPaginationValue = { start: 1, end: 10 };
+  defaultPaginationValue = { start: 76, end: 100 };
+  paginationDropdownItems = [
+    { value: '5', label: '5' },
+    { value: '10', label: '10' },
+    { value: '15', label: '15' },
+    { value: '25', label: '25' },
+    { value: '50', label: '50' },
+  ];
+  dropdownSelectedItemIndex = 3;
 
   // Popover
   isPopoverShowing = false;

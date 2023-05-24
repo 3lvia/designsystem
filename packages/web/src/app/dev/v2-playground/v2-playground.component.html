@@ -44,47 +44,19 @@
         </div>
       </elvia-stepper>
       <button (click)="toggleState()">Toggle</button>
+
+      <elvia-pagination
+        numberOfElements="60000"
+        [value]="defaultPaginationValue"
+        [dropdownItems]="paginationDropdownItems"
+        [dropdownSelectedItemIndex]="dropdownSelectedItemIndex"
+        [alignment]="'right'"
+        dropdownMenuPosition="top"
+        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+      ></elvia-pagination>
     </div>
     <!--Inverted version-->
-    <div class="e-bg-grey">
-      <elvia-stepper type="horizontal" completeButtonText="Save" [steps]="stepperStates" forced>
-        <div slot="content">
-          <div>Step 1 content</div>
-          <div>Step 2 content</div>
-          <div>Step 3 content</div>
-          <div>Step 4 content</div>
-          <div>Step 5 content</div>
-          <div>Step 6 content</div>
-          <div>Step 7 content</div>
-          <div>Step 8 content</div>
-        </div>
-      </elvia-stepper>
-      <elvia-stepper
-        type="vertical"
-        completeButtonText="Submit"
-        [steps]="{
-          '1': { isCompleted: true, title: 'Title #1' },
-          '2': { title: 'Title #2' },
-          '3': { isError: true, title: 'Title #3' },
-          '4': { title: 'Title #4' },
-          '5': { title: 'Title #5' },
-          '6': { title: 'Title #6' },
-          '7': { title: 'Title #7' },
-          '8': { title: 'Title #8' }
-        }"
-      >
-        <div slot="content">
-          <div>Step 1 content</div>
-          <div>Step 2 content</div>
-          <div>Step 3 content</div>
-          <div>Step 4 content</div>
-          <div>Step 5 content</div>
-          <div>Step 6 content</div>
-          <div>Step 7 content</div>
-          <div>Step 8 content</div>
-        </div>
-      </elvia-stepper>
-    </div>
+    <div class="e-bg-grey"></div>
   </div>
 
   <!--Accordion-->
@@ -333,7 +305,7 @@
     <h3>Divider</h3>
     <h4>Title divider</h4>
     <elvia-divider type="title" typography="caps">
-      <h2 slot="title">Title with caps</h2>
+      <h2 slot="heading">Title with caps</h2>
     </elvia-divider>
     <h4>Vertical divider</h4>
     <div style="height: 100px">
@@ -444,13 +416,6 @@
   <!--Paginator-->
   <div class="example-wrapper">
     <h3>Paginator</h3>
-    <elvia-pagination
-      numberOfElements="60000"
-      [value]="defaultPaginationValue"
-      [alignment]="'right'"
-      dropdownMenuPosition="top"
-      (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
-    ></elvia-pagination>
   </div>
 
   <!--Popover-->

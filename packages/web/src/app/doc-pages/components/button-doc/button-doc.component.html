@@ -8,15 +8,9 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <button class="e-btn">
-      <span class="e-btn__title">Button</span>
-    </button>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
-    </div>
-  </div>
+  <app-static-ceg>
+    <app-button-ceg />
+  </app-static-ceg>
 
   <!-- TYPE -->
   <app-component-section [sectionTitle]="'Type'">
@@ -27,10 +21,9 @@
           are design to stand out and take the most attention of all the buttons. Primary button are often
           used for saving, sending, submitting, registering and so on. It can be used alone or together with
           secondary and tertiary.
-          <app-component-example-v1
-            [codeHTML]="example1"
-            [codeInverted]="example1Inverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-button-type-primary-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -39,10 +32,9 @@
           Secondary buttons are the alternative we give users to the primary action and should be used in less
           important actions. Secondary are often used for canceling, declining, go back and so on. It can be
           used alone or together to support primary or link style button.'
-          <app-component-example-v1
-            [codeHTML]="example2"
-            [codeInverted]="example2Inverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-button-type-secondary-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -52,10 +44,9 @@
           for to do right then. Tertiary are designed to be less striking than primary and secondary. Example
           of use is download and edit. It can be used isolated alone or paired together with primary or
           secondary.
-          <app-component-example-v1
-            [codeHTML]="example3"
-            [codeInverted]="example3Inverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-button-type-tertiary-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -63,10 +54,9 @@
         <ng-container ngProjectAs="sectionContent">
           Danger button can be used for destructive actions with high severity. The red color warns the user,
           but make sure to confirm the action with a confirmation screen.
-          <app-component-example-v1
-            [codeHTML]="exampleDanger"
-            [codeInverted]="exampleDangerInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-button-type-danger-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -75,18 +65,16 @@
           Icon buttons are used for well-known and simple actions such as close, edit, delete etc. They are
           ideal for task based actions where the button should not attract to much attention. Icon button
           should be supported by a tooltip.
-          <app-component-example-v1
-            [codeHTML]="exampleIcon"
-            [codeInverted]="exampleIconInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-button-type-icon-ceg />
+          </app-static-ceg>
           <app-component-subsubsection [sectionTitle]="'Circled icon'">
             <ng-container ngProjectAs="sectionContent">
               The modifier for circled icon button can be added when circled icon buttons are used alone, and
               results in a different hover effect than in the normal icon button.
-              <app-component-example-v1
-                [codeHTML]="exampleIconCircles"
-                [codeInverted]="exampleIconCirclesInverted"
-              ></app-component-example-v1>
+              <app-static-ceg>
+                <app-button-type-icon-circled-ceg />
+              </app-static-ceg>
               The following icons are examples of typical circled icon button usage:
               <div class="e-mt-16">
                 <i class="e-icon e-icon--information_circle e-icon--sm e-mr-16" aria-hidden="true"></i>
@@ -128,7 +116,9 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1 [codeHTML]="sizesHTML"></app-component-example-v1>
+      <app-static-ceg>
+        <app-button-size-ceg />
+      </app-static-ceg>
       <p class="e-mt-24">
         There are three different sizes of buttons: small, medium, and large. The choice of button size
         depends on how important the button is and how much attention it should have. It can also depend on
@@ -247,10 +237,9 @@
           The
           <code>e-btn</code>
           class can also be used on anchor tags to make links appear like buttons.
-          <app-component-example-v1
-            [codeHTML]="buttonLinks"
-            [codeInverted]="buttonLinksInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-button-link-ceg />
+          </app-static-ceg>
           <app-when-to-use [whenNots]="dontsExample7"></app-when-to-use>
         </ng-container>
       </app-component-subsection>

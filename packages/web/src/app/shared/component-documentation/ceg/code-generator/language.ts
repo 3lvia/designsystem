@@ -1,1 +1,1 @@
-export type Language = 'html' | 'jsx';
+export type Language = 'html' | 'jsx' | 'typescript';

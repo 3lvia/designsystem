@@ -1,16 +1,15 @@
 interface ControlBase {
   readonly type: string;
   readonly group: string;
+  readonly excludedFromDOM?: boolean;
 }
 
-export interface Checkbox extends ControlBase {
+export interface Checkbox<T = Record<string, any>> extends ControlBase {
   readonly type: 'checkbox';
   readonly label: string;
   value?: boolean;
-  readonly children?: { [key: string]: ChildCheckbox };
+  readonly childOf?: keyof T;
 }
-
-export type ChildCheckbox = Omit<Checkbox, 'group'>;
 
 export interface RadioGroup<T = string | number> extends ControlBase {
   readonly type: 'radioGroup';
@@ -52,15 +51,21 @@ export interface Text extends ControlBase {
   readonly placeholder?: string;
 }
 
-export type CegControl = Checkbox | ChildCheckbox | Switch | SlotToggle | RadioGroup | Counter | Text;
+export type CegControl<T = Record<string, any>> =
+  | Checkbox<T>
+  | Switch
+  | SlotToggle
+  | RadioGroup
+  | Counter
+  | Text;
 
 export type Controls<T = Record<string, any>> = Readonly<
   Partial<{
     [K in keyof T]: NonNullable<T[K]> extends boolean
-      ? Checkbox | Switch
+      ? Checkbox<T> | Switch
       : NonNullable<T[K]> extends string
       ? RadioGroup<T[K]> | Text
-      : RadioGroup | Counter | Text | SlotToggle;
+      : RadioGroup<T[K]> | Counter | Text | SlotToggle;
   }>
 >;
 
@@ -84,3 +89,8 @@ export interface ComponentType<T extends Record<string, any>> {
 }
 
 export type ControlValue = CegControl['value'];
+
+export interface SlotVisibility {
+  slotName: string;
+  isVisible: boolean;
+}

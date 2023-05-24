@@ -14,13 +14,14 @@ export class HomeComponent implements OnInit {
   overviewTitle = 'Elvia design system';
   pages = homeMenu;
   fontLoaded = false;
-  date = new Date();
-  currentYear = this.date.getFullYear();
-  christmasMonth = 11;
-  christmas = false;
-  halloweenMonth = 9;
-  halloween = false;
+  isNonHoliday = true;
+  isChristmas = false;
+  isHalloween = false;
   isBirthday = false;
+  isPride = false;
+  isConstitutionDay = false;
+  currentDate = new Date();
+  currentYear = this.currentDate.getFullYear();
   locale: LOCALE_CODE;
   changelog = changelogJson.content;
 
@@ -40,7 +41,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.holiday();
+    this.setHoliday();
     (document as any).fonts.ready.then(() => {
       this.fontLoaded = true;
     });
@@ -48,23 +49,28 @@ export class HomeComponent implements OnInit {
     this.isMobileScreenWidth = window.innerWidth <= 430;
   }
 
-  holiday = (): void => {
-    // halloween
-    if (this.date.getMonth() === this.halloweenMonth && this.date.getUTCDate() >= 25) {
-      this.halloween = true;
-    }
-    // christmas
-    if (this.date.getMonth() === this.christmasMonth) {
-      this.christmas = true;
-      this.overviewTitle = 'Happy Holidays';
-    }
+  setHoliday = (): void => {
+    const startDateBirthday = new Date(this.currentYear, 1, 14);
+    const endDateBirthday = new Date(this.currentYear, 1, 20);
+    const startDateConstitutionDate = new Date(this.currentYear, 4, 9);
+    const endDateConstitutionDate = new Date(this.currentYear, 4, 17);
 
-    // birthday
-    const startDate = new Date(this.currentYear, 1, 14);
-    const endDate = new Date(this.currentYear, 1, 20);
-    if (this.date >= startDate && this.date <= endDate) {
+    this.isNonHoliday = false;
+    if (this.currentDate.getMonth() === 9 && this.currentDate.getDate() >= 25) {
+      this.isHalloween = true;
+    } else if (this.currentDate.getMonth() === 11) {
+      this.isChristmas = true;
+      this.overviewTitle = 'Happy Holidays';
+    } else if (this.currentDate >= startDateBirthday && this.currentDate <= endDateBirthday) {
       this.isBirthday = true;
       this.overviewTitle = 'Happy Birthday';
+    } else if (this.currentDate.getMonth() === 5) {
+      this.isPride = true;
+    } else if (this.currentDate >= startDateConstitutionDate && this.currentDate <= endDateConstitutionDate) {
+      this.isConstitutionDay = true;
+      this.overviewTitle = 'Hipp Hipp Hurra';
+    } else {
+      this.isNonHoliday = true;
     }
   };
 

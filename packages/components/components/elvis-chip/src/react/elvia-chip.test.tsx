@@ -1,12 +1,12 @@
 import Chip from './elvia-chip';
 import React from 'react';
 import { axe } from 'jest-axe';
-import { getColor } from '@elvia/elvis-colors';
+import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
 
 const colors = {
-  green: getColor('green-apple'),
-  blue: getColor('blue-berry'),
+  green: getBaseColor('green-apple', 'light'),
+  blue: getBaseColor('blue-berry', 'light'),
 };
 
 describe('Elvis Chip', () => {
@@ -39,7 +39,7 @@ describe('Elvis Chip', () => {
 
     it('should be selected', () => {
       const chipButton = screen.getByTestId('chip-button');
-      expect(chipButton).toHaveStyle(`background-color: ${colors.green}40;`);
+      expect(chipButton).toHaveStyle(`background-color: ${colors.green}30;`);
     });
   });
 
@@ -61,7 +61,7 @@ describe('Elvis Chip', () => {
 
     it('should be selected', () => {
       const chipButton = screen.getByTestId('chip-button');
-      expect(chipButton).toHaveStyle(`background-color: ${colors.green}40;`);
+      expect(chipButton).toHaveStyle(`background-color: ${colors.green}30;`);
     });
   });
 
@@ -72,7 +72,7 @@ describe('Elvis Chip', () => {
 
     it('should have color blue', () => {
       const chipButton = screen.getByTestId('chip-button');
-      expect(chipButton).toHaveStyle(`background-color: ${colors.blue}40;`);
+      expect(chipButton).toHaveStyle(`background-color: ${colors.blue}30;`);
     });
   });
 
@@ -81,9 +81,9 @@ describe('Elvis Chip', () => {
       render(<Chip value="chip value" isDisabled></Chip>);
     });
 
-    it('should have text with opacity 0.3', () => {
+    it('should have text disabled', () => {
       const chipLabel = screen.getByTestId('chip-label');
-      expect(chipLabel).toHaveStyle(`opacity: 0.3;`);
+      expect(chipLabel).toHaveStyle(`color: ${getThemeColor('text-disabled-1')}`);
     });
   });
 
