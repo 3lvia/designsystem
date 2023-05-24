@@ -1,1 +1,37 @@
-<div>color-token-table works!</div>
+<!-- This is just to test the data structure, not for final use -->
+
+<div class="container">
+  <div class="color" *ngFor="let color of textColors.default">
+    <h3>{{ color.token }}</h3>
+    <div *ngIf="color.role">
+      {{ color.role }}
+      <br />
+      <a class="e-link e-mr-8" [routerLink]="[link.path]" *ngFor="let link of $any(color).links">
+        {{ link.title }}
+      </a>
+    </div>
+    <div>
+      <div class="circle" [ngStyle]="{ backgroundColor: color.light.hex }"></div>
+      <div class="e-text-sm">{{ color.light.label }}</div>
+      <div class="circle" [ngStyle]="{ backgroundColor: color.dark.hex }"></div>
+      <div class="e-text-sm">{{ color.dark.label }}</div>
+    </div>
+  </div>
+  <p>State colors:</p>
+  <div class="color" *ngFor="let color of textColors.state">
+    <h3>{{ color.token }}</h3>
+    <div *ngIf="color.role">
+      {{ color.role }}
+      <br />
+      <a class="e-link e-mr-8" [routerLink]="[link.path]" *ngFor="let link of $any(color).links">
+        {{ link.title }}
+      </a>
+    </div>
+    <div>
+      <div class="circle" [ngStyle]="{ backgroundColor: color.light.hex }"></div>
+      <div class="e-text-sm">{{ color.light.label }}</div>
+      <div class="circle" [ngStyle]="{ backgroundColor: color.dark.hex }"></div>
+      <div class="e-text-sm">{{ color.dark.label }}</div>
+    </div>
+  </div>
+</div>
