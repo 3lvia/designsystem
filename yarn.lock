@@ -2665,6 +2665,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-assets-icons@npm:^2.13.0":
+  version: 2.14.0
+  resolution: "@elvia/elvis-assets-icons@npm:2.14.0"
+  dependencies:
+    "@elvia/elvis-colors": ^1.8.0
+  checksum: 2c94adb0572b971ff3b1d60278c4d0cd8f26a15af1366ec52d588f29cedd4a2bdc1e57c5c72b0afb5e046e7c653109548098054b1a5d57b71376b3e53ed3af1f
+  languageName: node
+  linkType: hard
+
 "@elvia/elvis-assets-icons@npm:^2.6.1":
   version: 2.13.0
   resolution: "@elvia/elvis-assets-icons@npm:2.13.0"
@@ -3291,6 +3300,29 @@ __metadata:
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.1.2
     "@elvia/elvis-toolbox": ^8.0.0
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-stepper@workspace:*, @elvia/elvis-stepper@workspace:packages/components/components/elvis-stepper":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-stepper@workspace:packages/components/components/elvis-stepper"
+  dependencies:
+    "@elvia/elvis-assets-icons": ^2.13.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.1
+    "@elvia/elvis-toolbox": ^7.8.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -9604,6 +9636,7 @@ __metadata:
     "@elvia/elvis-segmented-control": "workspace:*"
     "@elvia/elvis-slider": "workspace:*"
     "@elvia/elvis-spotlight": "workspace:*"
+    "@elvia/elvis-stepper": "workspace:*"
     "@elvia/elvis-tabs": "workspace:*"
     "@elvia/elvis-timepicker": "workspace:*"
     "@elvia/elvis-toast": "workspace:*"

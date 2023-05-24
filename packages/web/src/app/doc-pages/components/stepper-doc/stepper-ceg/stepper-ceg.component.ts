@@ -19,6 +19,16 @@ interface StepStates {
 })
 export class StepperCegComponent implements ComponentExample {
   elementName = 'stepper';
+  stepperStates: StepStates = {
+    '1': { title: 'Title 1' },
+    '2': { title: 'Title 2' },
+    '3': { title: 'Title 3' },
+    '4': { title: 'Title 4' },
+    '5': { title: 'Title 5' },
+    '6': { title: 'Title 6' },
+    '7': { title: 'Title 7' },
+    '8': { title: 'Title 8' },
+  };
   cegContent = new CegControlManager<StepperProps>([
     {
       type: 'Horizontal',
@@ -36,6 +46,9 @@ export class StepperCegComponent implements ComponentExample {
           group: 'Complete Button Text',
           inputType: 'input',
         },
+      },
+      staticProps: {
+        steps: this.stepperStates,
       },
       groupOrder: ['Options', 'Complete Button Text'],
     },
@@ -56,18 +69,10 @@ export class StepperCegComponent implements ComponentExample {
           inputType: 'input',
         },
       },
+      staticProps: {
+        steps: this.stepperStates,
+      },
       groupOrder: ['Options', 'Complete Button Text'],
     },
   ]);
-
-  stepperStates: StepStates = {
-    '1': { title: 'Title 1' },
-    '2': { title: 'Title 2' },
-    '3': { title: 'Title 3' },
-    '4': { title: 'Title 4' },
-    '5': { title: 'Title 5' },
-    '6': { title: 'Title 6' },
-    '7': { title: 'Title 7' },
-    '8': { title: 'Title 8' },
-  };
 }

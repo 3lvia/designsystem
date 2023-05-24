@@ -12,88 +12,19 @@
     <app-stepper-ceg />
   </app-ceg>
 
-  <!--STATES-->
-  <app-component-section [sectionTitle]="'States'">
-    <ng-container ngProjectAs="sectionContent">
-      <div class="state-container">
-        <div class="state">
-          <div class="number-cont e-stepper">
-            <div class="e-stepper__step e-stepper__step--active">
-              <div class="e-stepper__step-header">
-                <div class="e-stepper__step-number">2</div>
-              </div>
-            </div>
-          </div>
-          <div class="e-text-md">Active steps are steps the user is currently working on or completing.</div>
-        </div>
-
-        <div class="state">
-          <div class="number-cont e-stepper">
-            <div class="e-stepper__step e-stepper__step--done">
-              <div class="e-stepper__step-header">
-                <div class="e-stepper__step-number">2</div>
-              </div>
-            </div>
-          </div>
-          <div class="e-text-md">Done steps are steps that the user has already completed.</div>
-        </div>
-
-        <div class="state">
-          <div class="number-cont e-stepper">
-            <div class="e-stepper__step e-stepper__step--active-done">
-              <div class="e-stepper__step-header">
-                <div class="e-stepper__step-number">2</div>
-              </div>
-            </div>
-          </div>
-          <div class="e-text-md">Active-done steps are active steps that has been completed.</div>
-        </div>
-
-        <div class="state">
-          <div class="number-cont">
-            <div class="number error">2</div>
-          </div>
-          <div class="e-text-md">
-            Error steps are used to highlight a step if you have forgotten to fill out required fields. This
-            step should not be activated before you are at the final step and click the button to submit a
-            form.
-          </div>
-        </div>
-
-        <div class="state">
-          <div class="number-cont">
-            <div class="number disabled">2</div>
-          </div>
-          <div class="e-text-md">
-            Disabled steps are used in a forced stepper where the user has to complete previous steps to
-            enable this one.
-          </div>
-        </div>
-
-        <div class="state">
-          <div class="number-cont collapsed">
-            <span class="e-stepper e-stepper__step">
-              <span class="number collapsed">5</span>
-              <span class="e-stepper__step-lines">
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-                <div class="e-stepper__step-line"></div>
-              </span>
-              <span class="number collapsed">7</span>
-            </span>
-          </div>
-          <div class="e-text-md">Collapsed steps are used when you have more than 4 steps.</div>
-        </div>
-      </div>
-    </ng-container>
-  </app-component-section>
-
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section sectionTitle="Stepper configuration">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table
+        [componentData]="stepperConfigurationProps"
+      ></app-component-properties-table>
     </ng-container>
   </app-component-section>
 

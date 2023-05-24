@@ -19,14 +19,13 @@ export const Stepper: FC<StepperProps> = function ({
 }) {
   const [numberOfSteps, setNumberOfSteps] = useState(1);
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const elem = webcomponent?.getSlot('content');
     if (elem && contentRef.current) {
       setNumberOfSteps(elem.children.length);
-      console.log(contentRef.current.innerHTML, elem?.children[currentStep - 1]);
-      contentRef.current.innerHTML = elem?.children[currentStep - 1].innerHTML;
+      contentRef.current.innerHTML = elem?.children[currentStep - 1].outerHTML;
     }
   }, [webcomponent, contentRef, currentStep, type]);
 

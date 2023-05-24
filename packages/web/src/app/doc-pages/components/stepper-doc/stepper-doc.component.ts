@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
 import { stepperData } from './stepper-data';
+import { configurationProps } from './stepper-configuration-props';
 
 export interface Step {
   number: number;
@@ -19,6 +20,7 @@ export class StepperDocComponent implements OnInit {
   description = getComponent('stepper')?.description;
   title = getComponent('stepper')?.title;
   componentData = stepperData;
+  stepperConfigurationProps = configurationProps;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
