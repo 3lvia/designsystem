@@ -83,8 +83,8 @@ const Accordion: FC<AccordionProps> = ({
     if (!current) return;
 
     const updateContentHeight = () => {
-      const height = 2 * Math.round(Math.ceil(current.scrollHeight) / 2); //nearest even number
-      setContentHeight(height);
+      const height = Math.ceil(current.scrollHeight / 2) * 2;
+      setContentHeight((prev) => (Math.abs(prev - height) === 2 ? prev : height));
     };
     const observer = new MutationObserver(updateContentHeight);
     const ro = new ResizeObserver(updateContentHeight);

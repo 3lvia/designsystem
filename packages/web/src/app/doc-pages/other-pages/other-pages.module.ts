@@ -11,10 +11,12 @@ import { ShadowDocModule } from './shadow-doc/shadow-doc.module';
 import { TheDesignSystemDocModule } from './the-design-system-doc/the-design-system-doc.module';
 import { TypographyDocModule } from './typography-doc/typography-doc.module';
 import { UtilitiesDocModule } from './utilities-doc/utilities-doc.module';
+import { ColorModule } from './color/color.module';
 
 @NgModule({
   imports: [
     ColorDocModule,
+    ColorModule,
     IconDocModule,
     TypographyDocModule,
     LayoutDocModule,
