@@ -1,4 +1,5 @@
 export * from './getThemeColor';
 export * from './theme';
-
-export { shadows, getShadow } from './shadows';
+export * from './themes/lightTheme';
+export * from './themes/darkTheme';
+export * from './shadows';
