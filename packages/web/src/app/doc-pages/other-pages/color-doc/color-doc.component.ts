@@ -27,10 +27,14 @@ export class ColorDocComponent implements OnDestroy {
 
   doCode = `<div class="e-bg-green"></div>`;
   dontCode = `<div class="e-bg-green e-text-grey"></div>`;
-  doCodeCSS = `background: var(--e-green);
-color: var(--e-red);`;
-  dontCodeCSS = `background: var(--e-bg-green);
-color: var(--e-text-red);`;
+  doCodeCSS = `.my-class {
+    background: var(--e-green);
+color: var(--e-red);
+  }`;
+  dontCodeCSS = `.my-class {
+    background: var(--e-bg-green);
+color: var(--e-text-red);
+  }`;
 
   constructor(private titleService: Title, private localizationService: LocalizationService) {
     this.setTabTitle();

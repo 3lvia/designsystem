@@ -81,8 +81,6 @@
     }
   }
   .title {
-    display: flex;
-
     @include breakpoints.breakpoint-up(Mobile) {
       margin-top: 16px;
     }
