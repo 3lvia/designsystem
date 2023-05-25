@@ -62,7 +62,7 @@
 
                 <p>The result should look like this:</p>
                 <div *ngIf="fullHTMLExample">
-                  <app-static-code-generator [alwaysVisible]="true" [staticContent]="fullHTMLExample" />
+                  <app-code-viewer [activeCode]="fullHTMLExample" />
                 </div>
                 <div
                   *ngIf="!fullHTMLExample"

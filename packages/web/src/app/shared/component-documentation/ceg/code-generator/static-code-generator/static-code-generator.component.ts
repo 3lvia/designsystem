@@ -9,7 +9,6 @@ export class StaticCodeGeneratorComponent implements OnInit {
   @Input() staticContent = '';
   @Input() hideReact: boolean;
   @Input() comment?: string;
-  @Input() alwaysVisible: boolean;
 
   angularCode = '';
   reactCode = '';

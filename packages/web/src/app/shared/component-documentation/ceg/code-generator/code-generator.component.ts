@@ -1,24 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { FormatCodePipe } from './formatCode.pipe';
-import { Language } from './language';
-
-type Tab = 'Angular' | 'React' | 'Vue' | 'Typescript';
+import { Tab } from './types';
 
 const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
-let CODE_GENERATOR_TAB_ID = 0;
 
 @Component({
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',
-  styleUrls: ['./code-generator.component.scss'],
 })
 export class CodeGeneratorComponent implements OnInit {
   @Input() angularCode = '';
   @Input() reactCode = '';
   @Input() vueCode = '';
   @Input() hideReact: boolean;
-  @Input() alwaysVisible: boolean;
 
   private _typeScriptCode = '';
   @Input()
@@ -39,10 +33,6 @@ export class CodeGeneratorComponent implements OnInit {
     ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
     : 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
-  copyMessage = '';
-  tabGroupId = `ceg-tabs-id-${CODE_GENERATOR_TAB_ID++}`;
-
-  constructor(private codeFormatter: FormatCodePipe) {}
 
   ngOnInit(): void {
     if (this.hideReact) {
@@ -56,17 +46,6 @@ export class CodeGeneratorComponent implements OnInit {
     if (this.activeTabIndex > this.tabs.length - 1) {
       this.setActiveTab(this.tabs.length - 1);
     }
-  }
-
-  get language(): Language {
-    if (this.angularCode.toLowerCase().startsWith('<!doctype html>')) {
-      return 'html';
-    } else if (this.activeTab === 'React') {
-      return 'jsx';
-    } else if (this.activeTab === 'Typescript') {
-      return 'typescript';
-    }
-    return 'html';
   }
 
   get activeTab() {
@@ -88,15 +67,5 @@ export class CodeGeneratorComponent implements OnInit {
   setActiveTab(newIndex: number): void {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, newIndex.toString());
     this.activeTabIndex = newIndex;
-  }
-
-  copyCode() {
-    navigator.clipboard.writeText(this.codeFormatter.transform(this.activeCode, this.language)).then(() => {
-      this.copyMessage = 'Copied!';
-      const copyTimeout = setTimeout(() => {
-        this.copyMessage = '';
-        clearTimeout(copyTimeout);
-      }, 3000);
-    });
   }
 }
