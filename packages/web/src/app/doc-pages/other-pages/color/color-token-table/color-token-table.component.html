@@ -1,23 +1,23 @@
 <!-- This is just to test the data structure, not for final use -->
 
 <div class="container">
-  <ng-container *ngTemplateOutlet="colorList; context: { colors: textColorsDefault }"></ng-container>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: textColorsDefault }"></ng-container>
   <p>State colors:</p>
-  <ng-container *ngTemplateOutlet="colorList; context: { colors: textColorsState }"></ng-container>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: textColorsState }"></ng-container>
 </div>
 
 <div class="container">
-  <ng-container *ngTemplateOutlet="colorList; context: { colors: backgroundColorsDefault }"></ng-container>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: backgroundColorsDefault }"></ng-container>
   <p>Element colors:</p>
-  <ng-container *ngTemplateOutlet="colorList; context: { colors: backgroundColorsElement }"></ng-container>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: backgroundColorsElement }"></ng-container>
   <p>Overlay colors:</p>
-  <ng-container *ngTemplateOutlet="colorList; context: { colors: backgroundColorsOverlay }"></ng-container>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: backgroundColorsOverlay }"></ng-container>
   <p>State colors:</p>
-  <ng-container *ngTemplateOutlet="colorList; context: { colors: backgroundColorsState }"></ng-container>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: backgroundColorsState }"></ng-container>
 </div>
 
-<ng-template #colorList let-colors="colors">
-  <div class="color" *ngFor="let color of colors">
+<ng-template #colorList let-colors>
+  <div class="color" *ngFor="let color of asColorArray(colors)">
     <h5>e-color-{{ color.token }}</h5>
     <div *ngIf="color.role">
       {{ color.role }}
