@@ -5,6 +5,7 @@ import {
   DataLabels,
   SignalLabels,
   TextLabels,
+  IconColors as IconLabels,
   ThemeName,
   DarkThemeColorName,
   LightThemeColorName,
@@ -45,7 +46,7 @@ interface Color<
 
 interface TableColor<TToken extends ColorLabel> {
   token: TToken;
-  role: string;
+  role?: string;
   light: Color<Capitalize<LightThemeColorName>>;
   dark: Color<`Dark-${DarkThemeColorName}` | 'Transparent'>;
   links?: ReadonlyArray<Link>;
@@ -262,21 +263,168 @@ export const backgroundColorsStates = [
   },
 ] as const satisfies TableColorArray<BackgroundLabels>;
 
-// export const borderColors = [
-//   {
-//     token: 'border-1',
-//     role: 'Border color',
-//     light: { hex: getColor('border-1', 'light'), label: 'Grey-20' },
-//     dark: { hex: getColor('border-1', 'dark'), label: 'Dark-grey-20' },
-//     links: [
-//       { title: 'Input', path: '/components/input' },
-//       { title: 'Table (zebra row)', path: '/components/table' },
-//       { title: 'Table (zebra row)', path: '/components/table' },
-//       { title: 'Tag', path: '/components/tag' },
-//     ],
-//   },
-// ] as const satisfies TableColorArray<BorderLabels>;
+export const borderColors = [
+  {
+    token: 'border-1',
+    role: 'Border color option 1',
+    light: { hex: getColor('border-1', 'light'), label: 'Black' },
+    dark: { hex: getColor('border-1', 'dark'), label: 'Dark-white' },
+    links: [
+      { title: 'Input', path: '/components/input' },
+      { title: 'Alert', path: '/components/alert' },
+      { title: 'Secondary button', path: '/components/button' },
+      { title: 'Link', path: '/components/link' },
+      { title: 'Slider', path: '/components/slider' },
+      { title: 'Segmented control', path: '/components/segmented-control' },
+      { title: 'Carousel', path: '/components/carousel' },
+    ],
+  },
+  {
+    token: 'border-2',
+    role: 'Border color option 2',
+    light: { hex: getColor('border-2', 'light'), label: 'Grey-10' },
+    dark: { hex: getColor('border-2', 'dark'), label: 'Dark-grey-60' },
+    links: [
+      { title: 'Table', path: '/components/table' },
+      { title: 'Divider', path: '/components/divider' },
+    ],
+  },
+  {
+    token: 'border-3',
+    role: 'Border color option 3',
+    light: { hex: getColor('border-3', 'light'), label: 'Grey-20' },
+    dark: { hex: getColor('border-3', 'dark'), label: 'Dark-grey-50' },
+    links: [
+      { title: 'Divider', path: '/components/divider' },
+      { title: 'Slider', path: '/components/slider' },
+    ],
+  },
+  {
+    token: 'border-4',
+    role: 'Border color option 4',
+    light: { hex: getColor('border-4', 'light'), label: 'Grey-05' },
+    dark: { hex: getColor('border-4', 'dark'), label: 'Dark-grey-60' },
+    links: [{ title: 'Card', path: '/components/card' }],
+  },
+  {
+    token: 'border-5',
+    role: 'Border color option 5',
+    light: { hex: getColor('border-5', 'light'), label: 'Grey-05' },
+    dark: { hex: getColor('border-5', 'dark'), label: 'Transparent' },
+    links: [{ title: 'Box', path: '/components/box' }],
+  },
+] as const satisfies TableColorArray<BorderLabels>;
 
-export const dataColors = [] as const satisfies TableColorArray<DataLabels>;
+export const borderColorsStates = [
+  {
+    token: 'border-disabled-1',
+    role: 'Disabled border color',
+    light: { hex: getColor('border-disabled-1', 'light'), label: 'Grey-30' },
+    dark: { hex: getColor('border-disabled-1', 'dark'), label: 'Dark-grey-40' },
+    links: [
+      { title: 'Input', path: '/components/input' },
+      { title: 'Radio button', path: '/components/radiobutton' },
+      { title: 'Checkbox', path: '/components/checkbox' },
+      { title: 'Chip', path: '/components/chip' },
+      { title: 'Secondary button', path: '/components/button' },
+    ],
+  },
+  {
+    token: 'border-hover-1',
+    role: 'Hover border color',
+    light: { hex: getColor('border-hover-1', 'light'), label: 'Green' },
+    dark: { hex: getColor('border-hover-1', 'dark'), label: 'Dark-green' },
+    links: [
+      { title: 'Link', path: '/components/link' },
+      { title: 'Card', path: '/components/card' },
+    ],
+  },
+  {
+    token: 'border-selected-1',
+    role: 'Selected border color',
+    light: { hex: getColor('border-selected-1', 'light'), label: 'Green' },
+    dark: { hex: getColor('border-selected-1', 'dark'), label: 'Dark-green' },
+    links: [
+      { title: 'Drag & drop', path: '/components/drag-and-drop' },
+      { title: 'Tertiary button', path: '/components/button' },
+    ],
+  },
+  {
+    token: 'border-selected-2',
+    role: 'Selected border color',
+    light: { hex: getColor('border-selected-2', 'light'), label: 'Black' },
+    dark: { hex: getColor('border-selected-2', 'dark'), label: 'Dark-white' },
+    links: [
+      { title: 'Drag & drop', path: '/components/drag-and-drop' },
+      { title: 'Radio filter', path: '/components/radio-filter' },
+    ],
+  },
+] as const satisfies TableColorArray<BorderLabels>;
 
-export const signalColors = [] as const satisfies TableColorArray<SignalLabels>;
+export const signalColors = [
+  {
+    token: 'signal-success',
+    role: 'Provide a positive response to users like confirmation or success',
+    light: { hex: getColor('signal-success', 'light'), label: 'Green' },
+    dark: { hex: getColor('signal-success', 'dark'), label: 'Dark-green' },
+  },
+  {
+    token: 'signal-caution',
+    role: 'Give attention to something that the users needs to now',
+    light: { hex: getColor('signal-caution', 'light'), label: 'Yellow' },
+    dark: { hex: getColor('signal-caution', 'dark'), label: 'Dark-yellow' },
+  },
+  {
+    token: 'signal-warning',
+    role: 'Give attention to something to avoid errors',
+    light: { hex: getColor('signal-warning', 'light'), label: 'Orange' },
+    dark: { hex: getColor('signal-warning', 'dark'), label: 'Dark-orange' },
+  },
+  {
+    token: 'signal-error',
+    role: 'Something goes wrong',
+    light: { hex: getColor('signal-error', 'light'), label: 'Red' },
+    dark: { hex: getColor('signal-error', 'dark'), label: 'Dark-red' },
+  },
+  {
+    token: 'signal-info',
+    role: 'Inform users (neutral)',
+    light: { hex: getColor('signal-info', 'light'), label: 'Black' },
+    dark: { hex: getColor('signal-info', 'dark'), label: 'Dark-white' },
+  },
+] as const satisfies TableColorArray<SignalLabels>;
+
+export const dataColors = [
+  {
+    token: 'data-1',
+    light: { hex: getColor('data-1', 'light'), label: 'Green-apple' },
+    dark: { hex: getColor('data-1', 'dark'), label: 'Dark-green-apple' },
+  },
+  {
+    token: 'data-2',
+    light: { hex: getColor('data-2', 'light'), label: 'Violet-grape' },
+    dark: { hex: getColor('data-2', 'dark'), label: 'Dark-violet-grape' },
+  },
+  {
+    token: 'data-3',
+    light: { hex: getColor('data-3', 'light'), label: 'Blue-berry' },
+    dark: { hex: getColor('data-3', 'dark'), label: 'Dark-blue-berry' },
+  },
+  {
+    token: 'data-4',
+    light: { hex: getColor('data-4', 'light'), label: 'Purple-plum' },
+    dark: { hex: getColor('data-4', 'dark'), label: 'Dark-purple-plum' },
+  },
+  {
+    token: 'data-5',
+    light: { hex: getColor('data-5', 'light'), label: 'Orange-mango' },
+    dark: { hex: getColor('data-5', 'dark'), label: 'Dark-orange-mango' },
+  },
+  {
+    token: 'data-6',
+    light: { hex: getColor('data-6', 'light'), label: 'Red-tomato' },
+    dark: { hex: getColor('data-6', 'dark'), label: 'Dark-red-tomato' },
+  },
+] as const satisfies TableColorArray<DataLabels>;
+
+export const iconColors = [] as const satisfies TableColorArray<IconLabels>;
