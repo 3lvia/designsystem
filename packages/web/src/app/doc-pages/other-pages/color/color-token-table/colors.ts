@@ -183,15 +183,15 @@ export const backgroundColorsOverlay = [
   {
     token: 'background-overlay-2',
     role: 'Stronger overlay background color',
-    light: { hex: getColor('background-overlay-2', 'light'), label: 'Grey-05' },
-    dark: { hex: getColor('background-overlay-2', 'dark'), label: 'Dark-grey-70' },
+    light: { hex: getColor('background-overlay-2', 'light'), label: 'Grey-80' },
+    dark: { hex: getColor('background-overlay-2', 'dark'), label: 'Dark-grey-60' },
     links: [{ title: 'Tooltip', path: '/components/tooltip' }],
   },
   {
     token: 'background-overlay-3',
     role: 'Overlay background color',
-    light: { hex: getColor('background-overlay-3', 'light'), label: 'Grey-10' },
-    dark: { hex: getColor('background-overlay-3', 'dark'), label: 'Dark-grey-60' },
+    light: { hex: getColor('background-overlay-3', 'light'), label: 'White' },
+    dark: { hex: getColor('background-overlay-3', 'dark'), label: 'Dark-black' },
     links: [{ title: 'Header', path: '/components/header' }],
   },
 ] as const satisfies TableColorArray<BackgroundLabels>;
