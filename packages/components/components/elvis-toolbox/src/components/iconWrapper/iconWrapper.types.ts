@@ -4,7 +4,7 @@ import { ColorLabel } from '@elvia/elvis-colors';
 // eslint-disable-next-line @typescript-eslint/ban-types
 type AnyString = string & {};
 type ColorLabelOrString = ColorLabel | AnyString;
-type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | AnyString;
+type IconSizes = 'xxs' | 'xs' | 'sm' | 'small' | 'md' | 'medium' | 'lg' | 'large' | 'xl' | 'xxl' | AnyString;
 
 export interface IconWrapperProps<TIcon extends { getIcon: (color?: ColorLabelOrString) => string }>
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {

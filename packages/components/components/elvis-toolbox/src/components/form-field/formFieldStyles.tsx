@@ -4,10 +4,12 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { FormFieldError } from './errorStyles';
 
-const setActiveBorder = (isCompact?: boolean) => {
+export type FormFieldSizes = 'small' | 'medium';
+
+const setActiveBorder = (size?: FormFieldSizes) => {
   return css`
     border: 2px solid ${getThemeColor('border-selected-1')};
-    padding: ${isCompact ? '0 3px 0 7px' : '0 7px 0 15px'};
+    padding: ${size === 'small' ? '0 3px 0 7px' : '0 7px 0 15px'};
   `;
 };
 
@@ -25,7 +27,7 @@ export const FormFieldInputContainer = styled.div`
 
 export interface FormFieldContainerProps {
   isFullWidth?: boolean;
-  isCompact?: boolean;
+  size?: FormFieldSizes;
   isActive?: boolean;
   isInvalid?: boolean;
   isDisabled?: boolean;
@@ -35,7 +37,7 @@ export interface FormFieldContainerProps {
 /**
  *
  * @example
- * <FormFieldContainer isCompact isFullWidth isActive isInvalid isDisabled>
+ * <FormFieldContainer size="small" isFullWidth isActive isInvalid isDisabled>
  *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
  *   <FormFieldInputContainer>
  *     <FormFieldInput />
@@ -66,8 +68,8 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `}
 
-  ${({ isCompact }) => {
-    if (isCompact) {
+  ${({ size }) => {
+    if (size === 'small') {
       return css`
         padding-top: 0.5rem;
 
@@ -113,25 +115,25 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `};
 
-  ${({ isInvalid, isCompact }) =>
+  ${({ isInvalid, size }) =>
     isInvalid &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(isCompact)};
+        ${setActiveBorder(size)};
         border-color: ${getThemeColor('signal-error')};
       }
     `};
 
-  ${({ isActive, isCompact }) =>
+  ${({ isActive, size }) =>
     isActive &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(isCompact)}
+        ${setActiveBorder(size)}
       }
     `}
 
   ${FormFieldInputContainer}:focus-within {
-    ${(props) => setActiveBorder(props.isCompact)}
+    ${(props) => setActiveBorder(props.size)}
   }
 `;
 

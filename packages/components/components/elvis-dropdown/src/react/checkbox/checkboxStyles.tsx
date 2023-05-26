@@ -8,7 +8,7 @@ const checkMarkEnterDuration = '180ms';
 export const IndeterminateLine = styled.div<IndeterminateLineProps>`
   height: 2px;
   position: absolute;
-  width: ${({ isCompact }) => (isCompact ? '6px' : '10px')};
+  width: ${({ size }) => (size === 'small' ? '6px' : '10px')};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -40,7 +40,7 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
   aspect-ratio: 1 / 1;
   width: 24px;
   background-color: ${getThemeColor('background-element-1')};
-  border-radius: ${({ isCompact }) => (isCompact ? '3px' : '4px')};
+  border-radius: ${({ size }) => (size === 'small' ? '3px' : '4px')};
   border: 1px solid ${getThemeColor('border-1')};
   position: relative;
 
@@ -89,8 +89,8 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
       }
     `};
 
-  ${({ isCompact }) =>
-    isCompact &&
+  ${({ size }) =>
+    size === 'small' &&
     css`
       width: 16px;
 

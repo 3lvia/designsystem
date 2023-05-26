@@ -1,14 +1,14 @@
-import { Icon, IconName } from '@elvia/elvis-icon/react';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
 import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
-import { getThemeColor } from '@elvia/elvis-colors';
+import DOMPurify from 'dompurify';
 
 import { Input } from './dropdownInputStyles';
+import { DropdownIconContainer } from '../styledComponents';
 
 interface Props {
   placeholder?: string;
-  placeholderIcon?: IconName;
+  placeholderIcon?: string;
   allOptionsSelectedLabel: string;
   isEditable: boolean;
   isDisabled: boolean;
@@ -40,7 +40,7 @@ export const DropdownInput: React.FC<Props> = ({
   ariaLabel,
 }) => {
   const [inputValue, setInputValue] = useState('');
-  const [currentValIcon, setCurrentValIcon] = useState<IconName>();
+  const [currentValIcon, setCurrentValIcon] = useState<string>();
 
   const onInputChange = (inputValue: string): void => {
     onChange(inputValue);
@@ -98,17 +98,14 @@ export const DropdownInput: React.FC<Props> = ({
   return (
     <>
       {placeholderIcon && !inputValue && (
-        <Icon
-          name={placeholderIcon}
-          size="xs"
-          color={isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-3')}
-        />
+        <DropdownIconContainer
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(placeholderIcon) }}
+        ></DropdownIconContainer>
       )}
       {!!currentValIcon && (
-        <Icon
-          name={currentValIcon}
-          color={isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-1')}
-        />
+        <DropdownIconContainer
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(currentValIcon) }}
+        ></DropdownIconContainer>
       )}
       <Input
         aria-activedescendant={focusedItem ? getDropdownItemId(focusedItem.value) : undefined}

@@ -21,10 +21,13 @@ export const IconWrapper: IconWrapperType = ({ icon, color, size = 'sm', ...rest
       case 'xs':
         return '16px';
       case 'sm':
+      case 'small':
         return '24px';
       case 'md':
+      case 'medium':
         return '32px';
       case 'lg':
+      case 'large':
         return '40px';
       case 'xl':
         return '48px';
