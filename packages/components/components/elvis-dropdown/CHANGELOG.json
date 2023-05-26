@@ -10,6 +10,10 @@
           "changes": [
             "Changed prop <code>isCompact</code> to instead be <code>size='small | medium'</code>.",
             "Changed the way icons are used in dropdown. Use the icon html string instead of the icon name, this way we reduce the package size greatly."
+          ],
+          "fixes": [
+            "<code>isCompact</code> can be directly replaced by <code>size='small'</code>",
+            "<code>icon: 'powerline'</code> can be directly replaced by <code><i class='e-icon e-icon--powerline e-icon--sm'></i></code>"
           ]
         }
       ]

@@ -27,7 +27,7 @@ export const config: ComponentConfig = {
     {
       name: 'isCompact',
       type: 'boolean',
-      deprecatedDetails: { version: '7.0.0', newProp: 'size', isDirectReplacement: true },
+      deprecatedDetails: { version: '7.0.0', newProp: 'size', isDirectReplacement: false },
     },
     {
       name: 'errorMessage',
