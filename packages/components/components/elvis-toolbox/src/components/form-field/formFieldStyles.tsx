@@ -4,13 +4,13 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { FormFieldError } from './errorStyles';
 
-const setActiveBorder = (isCompact?: boolean, isSuffixed?: boolean) => {
+const setActiveBorder = (isCompact?: boolean, hasSuffix?: boolean) => {
   let paddingValue: string;
 
   if (isCompact) {
     paddingValue = '0 3px 0 7px';
   } else {
-    paddingValue = isSuffixed ? '0 15px' : '0 7px 0 15px';
+    paddingValue = hasSuffix ? '0 15px' : '0 7px 0 15px';
   }
 
   return css`
@@ -37,14 +37,14 @@ export interface FormFieldContainerProps {
   isActive?: boolean;
   isInvalid?: boolean;
   isDisabled?: boolean;
-  isSuffixed?: boolean;
+  hasSuffix?: boolean;
   hasErrorPlaceholder?: boolean;
 }
 
 /**
  *
  * @example
- * <FormFieldContainer isCompact isFullWidth isActive isInvalid isDisabled isSuffixed>
+ * <FormFieldContainer isCompact isFullWidth isActive isInvalid isDisabled hasSuffix>
  *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
  *   <FormFieldInputContainer>
  *     <FormFieldInput />
@@ -76,8 +76,8 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `}
 
-  ${({ isSuffixed, isCompact }) =>
-    isSuffixed &&
+  ${({ hasSuffix, isCompact }) =>
+    hasSuffix &&
     css`
       ${FormFieldInputContainer} {
         padding: 0 16px;
@@ -141,25 +141,25 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `};
 
-  ${({ isInvalid, isCompact, isSuffixed }) =>
+  ${({ isInvalid, isCompact, hasSuffix }) =>
     isInvalid &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(isCompact, isSuffixed)};
+        ${setActiveBorder(isCompact, hasSuffix)};
         border-color: ${getThemeColor('signal-error')};
       }
     `};
 
-  ${({ isActive, isCompact, isSuffixed }) =>
+  ${({ isActive, isCompact, hasSuffix }) =>
     isActive &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(isCompact, isSuffixed)}
+        ${setActiveBorder(isCompact, hasSuffix)}
       }
     `}
 
   ${FormFieldInputContainer}:focus-within {
-    ${({ isCompact, isSuffixed }) => setActiveBorder(isCompact, isSuffixed)}
+    ${({ isCompact, hasSuffix }) => setActiveBorder(isCompact, hasSuffix)}
   }
 `;
 
