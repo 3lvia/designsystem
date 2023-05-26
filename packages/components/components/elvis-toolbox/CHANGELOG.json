@@ -15,6 +15,16 @@
       ]
     },
     {
+      "date": "26.05.23",
+      "version": "8.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now building to ESM instead of CJS."]
+        }
+      ]
+    },
+    {
       "date": "23.05.23",
       "version": "8.0.1",
       "changelog": [
