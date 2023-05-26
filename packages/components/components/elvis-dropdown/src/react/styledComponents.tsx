@@ -53,3 +53,7 @@ export const IconRotator = styled.div<{ isRotated: boolean }>`
       transform: rotate(180deg);
     `}
 `;
+
+export const DropdownIconContainer = styled.div`
+  display: flex;
+`;

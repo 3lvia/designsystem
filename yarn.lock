@@ -2826,6 +2826,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@elvia/elvis-colors@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "@elvia/elvis-colors@npm:2.4.0"
+  checksum: bee9ab066c57dc62d519cd55fce584022d863c331d9904cd6a07c3486e66649a3656933bf526a9a00dc4dc6d5d01cf454388bc9a79aa98e489f1b43e1498c97b
+  languageName: node
+  linkType: hard
+
 "@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^4.0.0, @elvia/elvis-component-wrapper@^4.1.1, @elvia/elvis-component-wrapper@^4.1.2, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
@@ -3005,9 +3012,35 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^6.1.1, @elvia/elvis-dropdown@workspace:*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@workspace:*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
+  dependencies:
+    "@elvia/elvis-assets-icons": ^3.0.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-toolbox": ^9.0.0
+    "@elvia/elvis-tooltip": ^1.2.1
+    "@elvia/elvis-typography": ^2.3.1
+    dompurify: ^3.0.3
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-dropdown@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "@elvia/elvis-dropdown@npm:6.1.1"
   dependencies:
     "@elvia/elvis-assets-icons": ^3.0.0
     "@elvia/elvis-colors": ^2.2.0
@@ -3028,8 +3061,9 @@ __metadata:
       optional: true
     react-is:
       optional: true
-  languageName: unknown
-  linkType: soft
+  checksum: beed3bcbe94f832a98051cf4fef0455f202f21e0d56240e2d70df1d35973d939b752982edcda0e9e856bcf8214fcb110d4bc570135b3b4dca15ae077fbf07562
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-header@*, @elvia/elvis-header@workspace:*, @elvia/elvis-header@workspace:packages/components/components/elvis-header":
   version: 0.0.0-use.local
@@ -3365,7 +3399,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@^8.0.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@^9.0.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
@@ -3409,6 +3443,30 @@ __metadata:
     react-is:
       optional: true
   checksum: 8ddc0617c84957d36b1d5a41c4ee18aa733e642ffa372e6a1da6c8c8b48fef45f6424018cff588fccb421ff87137b9a771bdb8b60fd09ecaa5cc5cf22e81b3c3
+  languageName: node
+  linkType: hard
+
+"@elvia/elvis-toolbox@npm:^8.0.0":
+  version: 8.0.1
+  resolution: "@elvia/elvis-toolbox@npm:8.0.1"
+  dependencies:
+    "@elvia/elvis-colors": ^2.4.0
+    "@elvia/elvis-component-wrapper": ^4.0.0
+    "@elvia/elvis-typography": ^2.3.1
+    styled-components: ^5.3.6
+    tslib: ^2.4.1
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  checksum: 69701197fa9fb02df0b93942b60f6ac7e60fa6dd5798501ca568c6c50edca8a2ee8265b3b90ed812ca1049321b43791d36ca67ee4b1c2c76904aceab87d690af
   languageName: node
   linkType: hard
 
@@ -9583,6 +9641,13 @@ __metadata:
   version: 3.0.1
   resolution: "dompurify@npm:3.0.1"
   checksum: 19447e6d96415a8ad3a67bc9c76ffe671eb31cf7c1e0a538cbe5037c8b8b03afe144d64cf96c6e0f7fe63b83721a33b5b913394d20a85e96550e42e31f7c086b
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "dompurify@npm:3.0.3"
+  checksum: 02242f2fe6a5c078fd0cb04efc93079d73a2fe886bebb5e33100b7e52f4b9bfe5f2afb0b69cae39d9a13d7bbf54435df41494890c4abe7740429828b2dbb94d9
   languageName: node
   linkType: hard
 

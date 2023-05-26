@@ -1,9 +1,8 @@
-import { IconName } from '@elvia/elvis-icon/react';
-import { BaseProps, HasValue, HasError } from '@elvia/elvis-toolbox';
+import { FormFieldSizes, BaseProps, HasValue, HasError } from '@elvia/elvis-toolbox';
 import { DropdownItemStatus } from './statusToIconMap';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
-export type DropdownSize = 'small' | 'medium';
+export type DropdownSize = FormFieldSizes;
 
 export type DropdownValueType = string | number;
 export type DropdownValue = DropdownValueType | DropdownValueType[] | undefined | null;
@@ -11,7 +10,7 @@ export type DropdownValue = DropdownValueType | DropdownValueType[] | undefined 
 export interface DropdownItem {
   value: DropdownValueType;
   label: string;
-  icon?: IconName;
+  icon?: string;
   isDisabled?: boolean;
   status?: DropdownItemStatus;
   tooltip?: string;
@@ -38,7 +37,7 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasEr
   label?: string;
   menuPosition?: DropdownMenuPosition;
   placeholder?: string;
-  placeholderIcon?: IconName;
+  placeholderIcon?: string;
   /**
    * @deprecated Removed in version 7.0.0. Replaced by `size`.
    */

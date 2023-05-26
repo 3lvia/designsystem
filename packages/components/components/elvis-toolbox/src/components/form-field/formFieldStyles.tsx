@@ -4,7 +4,7 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { FormFieldError } from './errorStyles';
 
-type FormFieldSizes = 'small' | 'medium';
+export type FormFieldSizes = 'small' | 'medium';
 
 const setActiveBorder = (size?: FormFieldSizes) => {
   return css`
@@ -37,7 +37,7 @@ export interface FormFieldContainerProps {
 /**
  *
  * @example
- * <FormFieldContainer size isFullWidth isActive isInvalid isDisabled>
+ * <FormFieldContainer size="small" isFullWidth isActive isInvalid isDisabled>
  *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
  *   <FormFieldInputContainer>
  *     <FormFieldInput />

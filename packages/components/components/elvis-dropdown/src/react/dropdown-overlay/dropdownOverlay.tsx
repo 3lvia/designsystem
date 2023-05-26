@@ -18,9 +18,10 @@ import {
 import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 import { ItemValue } from '../dropdown-item/itemValue';
-import { Icon } from '@elvia/elvis-icon/react';
 import { Overlay } from '@elvia/elvis-toolbox';
 import { ThemeName } from '@elvia/elvis-colors';
+import DOMPurify from 'dompurify';
+import { DropdownIconContainer } from '../styledComponents';
 
 interface DropdownOverlayProps {
   isRootOverlay?: boolean;
@@ -305,11 +306,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   currentTheme={currentTheme}
                 >
                   {item.icon && !isMulti && allItemsHaveIcons && (
-                    <Icon
-                      name={item.icon}
-                      color={item.isDisabled ? 'disabled' : 'elvia-off'}
-                      size={size === 'small' ? 'xs' : 'sm'}
-                    />
+                    <DropdownIconContainer
+                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.icon) }}
+                    ></DropdownIconContainer>
                   )}
                   <ItemValue item={item} focusedValue={focusedItem} isRootOverlay={isRootOverlay} />
                 </DropdownItem>

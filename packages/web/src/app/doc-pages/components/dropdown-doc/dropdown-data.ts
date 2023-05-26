@@ -100,7 +100,8 @@ export const dropdownData: ComponentData = {
     placeholderIcon: {
       isRequired: false,
       type: 'string',
-      description: 'Name of icon to be used in the placeholder.',
+      description:
+        '<i> element for the icon to be used in the placeholder. E.g. <i class="e-icon e-icon--electricity_tower e-icon--sm"></i>',
     },
     valueOnChange: {
       isRequired: false,

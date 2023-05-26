@@ -13,7 +13,7 @@ export const config: ComponentConfig = {
     { name: 'placeholder', type: 'string' },
     { name: 'placeholderIcon', type: 'string' },
     { name: 'value', type: 'string' },
-    { name: 'isCompact', type: 'boolean' },
+    { name: 'size', type: 'string' },
     { name: 'isDisabled', type: 'boolean' },
     { name: 'isMulti', type: 'boolean' },
     { name: 'hasSelectAllOption', type: 'boolean' },
@@ -24,6 +24,11 @@ export const config: ComponentConfig = {
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
     // Deprecated attributes
+    {
+      name: 'isCompact',
+      type: 'boolean',
+      deprecatedDetails: { version: '7.0.0', newProp: 'size', isDirectReplacement: true },
+    },
     {
       name: 'errorMessage',
       type: 'string',

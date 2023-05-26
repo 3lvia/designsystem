@@ -2,12 +2,15 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "22.05.23",
+      "date": "26.05.23",
       "version": "7.0.0",
       "changelog": [
         {
           "type": "breaking_changes",
-          "changes": ["Changed prop <code>isCompact</code> to instead be <code>size='small | medium'</code>."]
+          "changes": [
+            "Changed prop <code>isCompact</code> to instead be <code>size='small | medium'</code>.",
+            "Changed the way icons are used in dropdown. Use the icon html string instead of the icon name, this way we reduce the package size greatly."
+          ]
         }
       ]
     },
