@@ -44,11 +44,11 @@ export interface FormFieldContainerProps {
 /**
  *
  * @example
- * <FormFieldContainer isCompact isFullWidth isActive isInvalid isDisabled>
+ * <FormFieldContainer isCompact isFullWidth isActive isInvalid isDisabled isSuffixed>
  *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
  *   <FormFieldInputContainer>
  *     <FormFieldInput />
- *     <FormFieldInputSuffixText></FormFieldInputSuffixText>
+ *     <FormFieldInputSuffixText>Suffix text</FormFieldInputSuffixText>
  *   </FormFieldInputContainer>
  * </FormFieldContainer>
  *
