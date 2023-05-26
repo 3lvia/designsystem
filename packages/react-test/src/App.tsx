@@ -190,7 +190,7 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <div className="e-bg-white">
-                <FormFieldContainer isSuffixed>
+                <FormFieldContainer hasSuffix>
                   <FormFieldLabel>Mengde</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput style={{ width: '3ch' }} />
@@ -199,7 +199,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer isSuffixed>
+                <FormFieldContainer hasSuffix>
                   <FormFieldLabel>Label text</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -208,7 +208,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer isSuffixed isCompact>
+                <FormFieldContainer hasSuffix isCompact>
                   <FormFieldLabel>Label text</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -217,7 +217,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer isSuffixed isCompact isInvalid>
+                <FormFieldContainer hasSuffix isCompact isInvalid>
                   <FormFieldLabel>Label text</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput placeholder=" " />
@@ -226,7 +226,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer isSuffixed isCompact isDisabled>
+                <FormFieldContainer hasSuffix isCompact isDisabled>
                   <FormFieldLabel>Label text</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput disabled value={'sdf'} />
@@ -235,7 +235,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer isSuffixed>
+                <FormFieldContainer hasSuffix>
                   <FormFieldLabel>Label text</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput placeholder="f" />
