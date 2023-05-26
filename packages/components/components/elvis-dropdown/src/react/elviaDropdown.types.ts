@@ -2,7 +2,6 @@ import { FormFieldSizes, BaseProps, HasValue, HasError } from '@elvia/elvis-tool
 import { DropdownItemStatus } from './statusToIconMap';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
-export type DropdownSize = FormFieldSizes;
 
 export type DropdownValueType = string | number;
 export type DropdownValue = DropdownValueType | DropdownValueType[] | undefined | null;
@@ -42,7 +41,7 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasEr
    * @deprecated Removed in version 7.0.0. Replaced by `size`.
    */
   isCompact?: boolean;
-  size?: DropdownSize;
+  size?: FormFieldSizes;
   isDisabled?: boolean;
   isMulti?: boolean;
   hasSelectAllOption?: boolean;
