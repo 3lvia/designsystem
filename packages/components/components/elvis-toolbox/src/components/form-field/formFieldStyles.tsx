@@ -80,16 +80,12 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
     isSuffixed &&
     css`
       ${FormFieldInputContainer} {
-        align-items: baseline;
         padding: 0 16px;
-        gap: ${isCompact ? '4px' : '8px'};
-      }
 
-      ${FormFieldInput} {
-        height: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        ${isCompact &&
+        css`
+          gap: 4px;
+        `}
       }
     `}
 
