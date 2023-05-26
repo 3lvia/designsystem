@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Dropdown dependency update. isCompact -> size."]
+          "changes": ["Dropdown dependency update."]
         }
       ]
     },
