@@ -25,12 +25,14 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   );
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
-      <Steps type="horizontal">
+      <Steps type="horizontal" role="tablist">
         {stepNumbersArray.map(
           (stepNumber) =>
             numberShouldBeVisible(stepNumber, currentStep, numberOfSteps) && (
               <Step type="horizontal" key={stepNumber} isActive={stepNumber === currentStep}>
                 <StepNumber
+                  role="tab"
+                  aria-selected={stepNumber === currentStep}
                   isActive={stepNumber === currentStep}
                   isError={steps?.[stepNumber]?.isError}
                   isCompleted={steps?.[stepNumber]?.isCompleted}
@@ -53,7 +55,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
             ),
         )}
       </Steps>
-      <StepperTitle type="horizontal" typography={typography}>
+      <StepperTitle aria-label="title" type="horizontal" typography={typography}>
         {steps?.[currentStep]?.title ?? ''}
       </StepperTitle>
       <StepContent

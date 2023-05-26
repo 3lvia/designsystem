@@ -2665,15 +2665,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-assets-icons@npm:^2.13.0":
-  version: 2.14.0
-  resolution: "@elvia/elvis-assets-icons@npm:2.14.0"
-  dependencies:
-    "@elvia/elvis-colors": ^1.8.0
-  checksum: 2c94adb0572b971ff3b1d60278c4d0cd8f26a15af1366ec52d588f29cedd4a2bdc1e57c5c72b0afb5e046e7c653109548098054b1a5d57b71376b3e53ed3af1f
-  languageName: node
-  linkType: hard
-
 "@elvia/elvis-assets-icons@npm:^2.6.1":
   version: 2.13.0
   resolution: "@elvia/elvis-assets-icons@npm:2.13.0"
@@ -3319,11 +3310,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-stepper@workspace:packages/components/components/elvis-stepper"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.13.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.1
-    "@elvia/elvis-toolbox": ^7.8.1
-    styled-components: ^5.3.3
+    "@elvia/elvis-assets-icons": ^3.0.0
+    "@elvia/elvis-colors": ^2.4.0
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-toolbox": ^8.0.1
+    styled-components: ^5.3.11
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3414,7 +3405,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@^8.0.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@^8.0.0, @elvia/elvis-toolbox@^8.0.1, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
@@ -18952,6 +18943,28 @@ __metadata:
   version: 0.1.0
   resolution: "style-search@npm:0.1.0"
   checksum: 3cfefe335033aad6d47da0725cb48f5db91a73935954c77eab77d9e415e6668cdb406da4a4f7ef9f1aca77853cf5ba7952c45e869caa5bd6439691d88098d468
+  languageName: node
+  linkType: hard
+
+"styled-components@npm:^5.3.11":
+  version: 5.3.11
+  resolution: "styled-components@npm:5.3.11"
+  dependencies:
+    "@babel/helper-module-imports": ^7.0.0
+    "@babel/traverse": ^7.4.5
+    "@emotion/is-prop-valid": ^1.1.0
+    "@emotion/stylis": ^0.8.4
+    "@emotion/unitless": ^0.7.4
+    babel-plugin-styled-components: ">= 1.12.0"
+    css-to-react-native: ^3.0.0
+    hoist-non-react-statics: ^3.0.0
+    shallowequal: ^1.1.0
+    supports-color: ^5.5.0
+  peerDependencies:
+    react: ">= 16.8.0"
+    react-dom: ">= 16.8.0"
+    react-is: ">= 16.8.0"
+  checksum: 10edd4dae3b0231ec02d86bdd09c88e894eedfa7e9d4f8e562b09fb69c67a27d586cbcf35c785002d59b3bf11e6c0940b0efce40d13ae9ed148b26b1dc8f3284
   languageName: node
   linkType: hard
 

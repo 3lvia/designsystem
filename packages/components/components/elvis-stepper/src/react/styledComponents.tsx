@@ -4,17 +4,18 @@ import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 interface StepperContainerProps {
   type?: string;
 }
-export const StepperContainer = styled.div<StepperContainerProps>`
+export const StepperContainer = styled.ul<StepperContainerProps>`
   position: relative;
   display: inline-flex;
   flex-direction: column;
   gap: ${({ type }) => (type === 'vertical' ? '4px' : 'initial')};
+  padding: 0;
 `;
 
 interface StepsProps {
   type?: string;
 }
-export const Steps = styled.div<StepsProps>`
+export const Steps = styled.li<StepsProps>`
   display: flex;
   flex-direction: ${({ type }) => (type === 'vertical' ? 'column' : 'row')};
   gap: 4px;
@@ -108,23 +109,26 @@ interface StepNumberProps {
   isDisabled?: boolean;
 }
 
-export const StepNumber = styled.div<StepNumberProps>`
+const getStepNumberBorderColor = ({ isActive, isError, isDisabled }: StepNumberProps) => {
+  if (isActive) {
+    return getThemeColor('border-selected-1');
+  } else if (isError) {
+    return getThemeColor('signal-error');
+  } else if (isDisabled) {
+    return getThemeColor('border-disabled-1');
+  } else {
+    return getThemeColor('icon-stroke');
+  }
+};
+
+export const StepNumber = styled.button<StepNumberProps>`
   ${getTypographyCss('title-xs')}
   display: grid;
   width: 32px;
   height: 32px;
-  border: 2px solid
-    ${({ isActive, isError, isDisabled }) =>
-      getThemeColor(
-        isActive
-          ? 'border-selected-1'
-          : isError
-          ? 'signal-error'
-          : isDisabled
-          ? 'border-disabled-1'
-          : 'icon-stroke',
-      )};
+  border: 2px solid ${(props) => getStepNumberBorderColor(props)};
   border-radius: 50%;
+  background-color: transparent;
   color: ${({ isDisabled }) => getThemeColor(isDisabled ? 'text-disabled-1' : 'text-1')};
   ${({ isCompleted }) =>
     isCompleted &&
@@ -196,25 +200,30 @@ export const StepperContentWrapper = styled.div`
   margin: 0 15px;
 `;
 
+const getStepTitleTypography = ({ type, isActive, typography }: StepperTitleProps) => {
+  if ((isActive || type !== 'vertical') && typography) {
+    return getTypographyCss(typography);
+  } else if (isActive || type !== 'vertical') {
+    return getTypographyCss('title-sm');
+  } else {
+    return getTypographyCss('text-md');
+  }
+};
+
 interface StepperTitleProps {
   type: string;
   isActive?: boolean;
   typography?: TypographyName;
 }
 export const StepperTitle = styled.div<StepperTitleProps>`
-  ${({ typography }) => (typography ? getTypographyCss(typography) : getTypographyCss('title-sm'))}
+  ${(props) => getStepTitleTypography(props)}
   display: flex;
   justify-content: center;
   margin: 32px 0;
   cursor: pointer;
-  ${({ type, isActive, typography }) =>
+  ${({ type }) =>
     type === 'vertical' &&
     css`
-      ${isActive && typography
-        ? getTypographyCss(typography)
-        : isActive
-        ? getTypographyCss('title-sm')
-        : getTypographyCss('text-md')}
       margin: 0 0;
     `}
 `;

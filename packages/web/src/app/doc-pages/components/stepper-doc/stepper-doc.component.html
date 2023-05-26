@@ -19,12 +19,37 @@
     </ng-container>
   </app-component-section>
 
+  <!--IMPLEMENTATION-->
+  <app-component-section sectionTitle="Implementation">
+    <ng-container ngProjectAs="sectionContent">
+      An object describing the title and state of the steps should be configured. The keys of the object are
+      the step indexes (starting at index 1), and the values are an object containing the title and the state
+      of each step index. The value object (
+      <code>StepItem</code>
+      ) is described in the Stepper configuration section.
+    </ng-container>
+  </app-component-section>
+
   <!--PROPERTIES-->
   <app-component-section sectionTitle="Stepper configuration">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table
-        [componentData]="stepperConfigurationProps"
-      ></app-component-properties-table>
+      <app-component-subsection sectionTitle="">
+        <ng-container ngProjectAs="sectionContent"></ng-container>
+      </app-component-subsection>
+      <app-component-subsection sectionTitle="">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-properties-table
+            [componentData]="stepperConfigurationProps"
+          ></app-component-properties-table>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 

@@ -12,6 +12,7 @@ import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module
 import { StepperCegComponent } from './stepper-ceg/stepper-ceg.component';
 import '@elvia/elvis-stepper';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
+import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentPropertiesTableModule,
+    ComponentInstallationModule,
     WhenToUseModule,
     ComponentChangelogModule,
     CegModule,

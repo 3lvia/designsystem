@@ -7,13 +7,13 @@ export const stepperData: ComponentData = {
   attributes: {
     type: {
       isRequired: false,
-      type: 'horizontal | vertical',
+      type: '"horizontal" | "vertical"',
       description: 'Which type of stepper should be displayed.',
       default: '"horizontal"',
     },
     steps: {
       isRequired: false,
-      type: '{[stepIndex: number]: {title: string, isError: boolean, isComplete: boolean}}',
+      type: '{[stepIndex: number]: StepItem}',
       description: 'An object to define the title and/or the state of the step.',
     },
     isForced: {

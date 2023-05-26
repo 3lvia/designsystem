@@ -24,6 +24,7 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
   return (
     <StepHeader>
       <StepNumber
+        role="tab"
         isActive={stepNumber === currentStep}
         isError={steps?.[stepNumber]?.isError}
         isCompleted={steps?.[stepNumber]?.isCompleted}
@@ -32,7 +33,12 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
       >
         {stepNumber}
       </StepNumber>
-      <StepperTitle type="vertical" isActive={stepNumber === currentStep} typography={typography}>
+      <StepperTitle
+        aria-label="title"
+        type="vertical"
+        isActive={stepNumber === currentStep}
+        typography={typography}
+      >
         {steps?.[stepNumber]?.title ?? ''}
       </StepperTitle>
     </StepHeader>

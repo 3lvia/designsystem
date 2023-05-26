@@ -20,9 +20,9 @@ interface StepStates {
 export class StepperCegComponent implements ComponentExample {
   elementName = 'stepper';
   stepperStates: StepStates = {
-    '1': { title: 'Title 1' },
-    '2': { title: 'Title 2' },
-    '3': { title: 'Title 3' },
+    '1': { title: 'Title 1', isCompleted: true },
+    '2': { title: 'Title 2', isCompleted: true },
+    '3': { title: 'Title 3', isError: true },
     '4': { title: 'Title 4' },
     '5': { title: 'Title 5' },
     '6': { title: 'Title 6' },
