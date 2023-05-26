@@ -25,6 +25,13 @@ import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
+import {
+  FormFieldContainer,
+  FormFieldInput,
+  FormFieldInputContainer,
+  FormFieldLabel,
+} from '@elvia/elvis-toolbox';
+import { FormFieldInputSuffixText } from '@elvia/elvis-toolbox/dist/components/form-field/formFieldStyles';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -182,8 +189,60 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <i className="e-icon e-icon--add_circle e-icon--sm"></i>
-              <div className="e-bg-white"></div>
+              <div className="e-bg-white">
+                <FormFieldContainer isSuffixed>
+                  <FormFieldLabel>Mengde</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput style={{ width: '3ch' }} />
+                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer isSuffixed>
+                  <FormFieldLabel>Label text</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer isSuffixed isCompact>
+                  <FormFieldLabel>Label text</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer isSuffixed isCompact isInvalid>
+                  <FormFieldLabel>Label text</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput placeholder=" " />
+                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer isSuffixed isCompact isDisabled>
+                  <FormFieldLabel>Label text</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput disabled value={'sdf'} />
+                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer isSuffixed>
+                  <FormFieldLabel>Label text</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput placeholder="f" />
+                    <FormFieldInputSuffixText>en lang kilogram</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+              </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
