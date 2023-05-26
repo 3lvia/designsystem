@@ -164,5 +164,6 @@ export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
 
   &:disabled {
     color: ${getThemeColor('text-disabled-1')};
+    -webkit-text-fill-color: ${getThemeColor('text-disabled-1')};
   }
 `;
