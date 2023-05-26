@@ -3245,6 +3245,7 @@ __metadata:
     "@elvia/elvis-toolbox": ^8.0.0
     "@elvia/elvis-typography": ^2.3.2
     "@types/lodash.uniqueid": ^4.0.7
+    dompurify: ^3.0.3
     lodash.uniqueid: ^4.0.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -9452,6 +9453,13 @@ __metadata:
   version: 3.0.1
   resolution: "dompurify@npm:3.0.1"
   checksum: 19447e6d96415a8ad3a67bc9c76ffe671eb31cf7c1e0a538cbe5037c8b8b03afe144d64cf96c6e0f7fe63b83721a33b5b913394d20a85e96550e42e31f7c086b
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "dompurify@npm:3.0.3"
+  checksum: 02242f2fe6a5c078fd0cb04efc93079d73a2fe886bebb5e33100b7e52f4b9bfe5f2afb0b69cae39d9a13d7bbf54435df41494890c4abe7740429828b2dbb94d9
   languageName: node
   linkType: hard
 

@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Icon } from '@elvia/elvis-icon/react';
-import { IconName } from '@elvia/elvis-assets-icons';
 import {
   TextSegmentedControl,
   IconSegmentedControl,
   SegmentedControlProps,
 } from './elviaSegmentedControl.types';
-import { SegmentedControlContainer, SegmentedControlLabel, SegmentedControlInput } from './styledComponents';
+import {
+  SegmentedControlContainer,
+  SegmentedControlLabel,
+  SegmentedControlInput,
+  SegmentedControlIconContainer,
+} from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
+import DOMPurify from 'dompurify';
 
 export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   items,
@@ -30,6 +34,22 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       webcomponent.setProps({ value: selectedIndex }, true);
       webcomponent.triggerEvent('valueOnChange', selectedIndex);
     }
+  };
+
+  const getIconString = (icon: string): string => {
+    let newIconString = icon;
+    if (icon.includes('e-icon ')) {
+      if (size === 'large') {
+        newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--sm ');
+      } else {
+        newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--xs ');
+      }
+    } else {
+      console.error(
+        'Segmented Control: The icon needs to be sent in as an <i> element and using elvis icon classes.',
+      );
+    }
+    return newIconString;
   };
 
   return (
@@ -67,17 +87,17 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
             )}
             {type === 'icon' &&
               (index !== selectedIndex ? (
-                <Icon
-                  name={(control as IconSegmentedControl).iconName as IconName}
-                  size={size === 'large' ? 'sm' : 'xs'}
-                  data-testid="segmented-control-icon"
-                />
+                <SegmentedControlIconContainer
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).icon)),
+                  }}
+                ></SegmentedControlIconContainer>
               ) : (
-                <Icon
-                  name={(control as IconSegmentedControl).iconNameSelected as IconName}
-                  size={size === 'large' ? 'sm' : 'xs'}
-                  data-testid="segmented-control-icon"
-                />
+                <SegmentedControlIconContainer
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).iconSelected)),
+                  }}
+                ></SegmentedControlIconContainer>
               ))}
           </SegmentedControlLabel>
         ))}
