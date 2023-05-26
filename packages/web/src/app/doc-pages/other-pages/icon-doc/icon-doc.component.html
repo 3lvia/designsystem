@@ -329,10 +329,9 @@
               </li>
             </ul>
           </div>
-          <app-component-example-v1
-            [codeHTML]="example"
-            [codeInverted]="exampleInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-icon-sizes-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -367,7 +366,9 @@
               svart/hvitt i mørkt tema, og bør bare brukes på bestemte steder.
             </ng-container>
           </p>
-          <app-component-example-v1 [codeHTML]="iconColorClassExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-icon-colors-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -408,11 +409,9 @@
             </ng-container>
           </p>
 
-          <app-component-example-v1
-            [codeHTML]="example3"
-            [codeInverted]="example3Inverted"
-            [isInverted]="true"
-          ></app-component-example-v1>
+          <app-static-ceg [inverted]="true">
+            <app-icon-inverted-disabled-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Fyll og vekt' : 'Fill and weight'">
@@ -503,22 +502,14 @@
       <app-component-subsubsection [sectionTitle]="'Method 1 - Easiest if you are already using Elvis'">
         <ng-container ngProjectAs="sectionContent">
           <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
-          <p class="e-mb-0">
+
+          <p class="e-mb-16">
             Download the npm package and use Elvis.js from inside the npm package like this:
           </p>
-          <p class="e-m-0 e-mt-16">
-            <app-component-example-code
-              [noSubscriptions]="noSubs"
-              [codeHTML]="scriptCodeHTML"
-            ></app-component-example-code>
-          </p>
-          <p class="e-mb-0">The icons can then be used like this:</p>
-          <p class="e-m-0 e-mt-16">
-            <app-component-example-code
-              [noSubscriptions]="noSubs"
-              [codeHTML]="iconExample"
-            ></app-component-example-code>
-          </p>
+          <app-code-viewer [activeCode]="scriptCodeHTML" />
+
+          <p class="e-mb-16">The icons can then be used like this:</p>
+          <app-code-viewer [activeCode]="iconExample" />
           <p>
             <strong>How it works:</strong>
             <br />
@@ -537,10 +528,9 @@
           <p class="e-mb-0">
             Icons are also accessible through our icon component, as a custom element or React component.
           </p>
-          <app-component-example-generator
-            [componentData]="componentData"
-            [delayInnerHtml]="true"
-          ></app-component-example-generator>
+          <app-ceg>
+            <app-icon-ceg />
+          </app-ceg>
 
           <!--INSTALLATION-->
           <app-component-section [sectionTitle]="'Installation'">

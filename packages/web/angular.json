@@ -50,6 +50,7 @@
               "prismjs",
               "prettier/parser-babel",
               "prettier/parser-html",
+              "prettier/parser-postcss",
               "prettier/standalone",
               "react-dom/client"
             ],

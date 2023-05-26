@@ -1,4 +1,5 @@
-export { getThemeColor, getThemeColorContrast, getCustomThemeColor, getBaseColor } from './getThemeColor';
-export { ThemeName, ThemeClassName, ColorLabel } from './theme';
-
-export { shadows, getShadow } from './shadows';
+export * from './getThemeColor';
+export * from './theme';
+export * from './themes/lightTheme';
+export * from './themes/darkTheme';
+export * from './shadows';

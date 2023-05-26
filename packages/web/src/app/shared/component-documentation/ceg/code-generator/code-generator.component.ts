@@ -1,31 +1,38 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { FormatCodePipe } from './formatCode.pipe';
-import { Language } from './language';
-
-type Tab = 'Angular' | 'React' | 'Vue';
+import { Tab } from './types';
 
 const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
-let CODE_GENERATOR_TAB_ID = 0;
 
 @Component({
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',
-  styleUrls: ['./code-generator.component.scss'],
 })
 export class CodeGeneratorComponent implements OnInit {
   @Input() angularCode = '';
   @Input() reactCode = '';
   @Input() vueCode = '';
   @Input() hideReact: boolean;
+
+  private _typeScriptCode = '';
+  @Input()
+  get typeScriptCode() {
+    return this._typeScriptCode;
+  }
+  set typeScriptCode(code: string) {
+    this._typeScriptCode = code;
+
+    if (code?.length && !this.tabs.includes('Typescript')) {
+      this.tabs.push('Typescript');
+    } else if (!code?.length && this.tabs.includes('Typescript')) {
+      this.tabs.splice(this.tabs.indexOf('Typescript'), 1);
+    }
+  }
+
   activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
     ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
     : 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
-  copyMessage = '';
-  tabGroupId = `ceg-tabs-id-${CODE_GENERATOR_TAB_ID++}`;
-
-  constructor(private codeFormatter: FormatCodePipe) {}
 
   ngOnInit(): void {
     if (this.hideReact) {
@@ -41,10 +48,6 @@ export class CodeGeneratorComponent implements OnInit {
     }
   }
 
-  get language(): Language {
-    return this.activeTab === 'React' ? 'jsx' : 'html';
-  }
-
   get activeTab() {
     return this.tabs[this.activeTabIndex];
   }
@@ -54,6 +57,8 @@ export class CodeGeneratorComponent implements OnInit {
       return this.angularCode;
     } else if (this.activeTab === 'React') {
       return this.reactCode;
+    } else if (this.activeTab === 'Typescript') {
+      return this.typeScriptCode;
     } else {
       return this.vueCode;
     }
@@ -62,15 +67,5 @@ export class CodeGeneratorComponent implements OnInit {
   setActiveTab(newIndex: number): void {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, newIndex.toString());
     this.activeTabIndex = newIndex;
-  }
-
-  copyCode() {
-    navigator.clipboard.writeText(this.codeFormatter.transform(this.activeCode, this.language)).then(() => {
-      this.copyMessage = 'Copied!';
-      const copyTimeout = setTimeout(() => {
-        this.copyMessage = '';
-        clearTimeout(copyTimeout);
-      }, 3000);
-    });
   }
 }

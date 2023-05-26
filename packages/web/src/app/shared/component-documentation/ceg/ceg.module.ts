@@ -17,6 +17,7 @@ import { StaticCegComponent } from './static-ceg/static-ceg.component';
 import { StaticCodeGeneratorComponent } from './code-generator/static-code-generator/static-code-generator.component';
 import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
 import { PhoneShellComponent } from './phone-shell/phone-shell.component';
+import { CodeViewerComponent } from './code-generator/code-viewer/code-viewer.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,9 @@ import { PhoneShellComponent } from './phone-shell/phone-shell.component';
     StaticCodeGeneratorComponent,
     DynamicCodeGeneratorComponent,
     PhoneShellComponent,
+    CodeViewerComponent,
   ],
-  exports: [CegComponent, StaticCegComponent],
+  exports: [CegComponent, StaticCegComponent, CodeViewerComponent],
   imports: [CommonModule],
   providers: [FormatCodePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

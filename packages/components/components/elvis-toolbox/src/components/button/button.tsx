@@ -1,4 +1,4 @@
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
@@ -40,6 +40,7 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
   justify-content: center;
   gap: 8px;
   margin: 0;
+  white-space: nowrap;
 
   &:disabled {
     cursor: default;
@@ -83,13 +84,13 @@ const getButtonPadding = (size?: Size) => {
 };
 
 export const PrimaryButton = styled(ButtonBase)`
-  height: ${({ size }) => getButtonHeight(size)};
+  height: ${({ size }) => getButtonHeight(size ?? 'md')};
   border: 1px solid
     ${({ isActive }) => (isActive ? getThemeColor('border-selected-1') : getThemeColor('text-1'))};
-  padding: ${({ size }) => getButtonPadding(size)};
+  padding: ${({ size }) => getButtonPadding(size ?? 'md')};
   background-color: ${({ isActive }) =>
     isActive ? getThemeColor('background-selected-1') : getThemeColor('text-1')};
-  color: ${({ isActive }) => (isActive ? getThemeColor('text-1') : getThemeColor('signal-success'))};
+  color: ${({ isActive }) => (isActive ? getThemeColor('text-1') : getThemeColorContrast('text-1'))};
   transition: transform 100ms;
   border-radius: 99px;
 

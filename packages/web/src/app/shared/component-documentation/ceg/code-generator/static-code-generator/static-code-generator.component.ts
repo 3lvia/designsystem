@@ -78,7 +78,15 @@ export class StaticCodeGeneratorComponent implements OnInit {
     return transformedCode;
   }
 
+  private isScript(code: string): boolean {
+    return code.includes('<script');
+  }
+
   private transformSlotsIntoReactAttributes(code: string): string {
+    if (this.isScript(code)) {
+      return code;
+    }
+
     const originalPropNames = this.getOriginalAttributeNames(code);
 
     const parsedCode = new DOMParser().parseFromString(code, 'text/html');

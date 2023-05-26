@@ -9,9 +9,9 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
-import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
 import { ToastCegComponent } from './toast-ceg/toast-ceg.component';
 import { FormsModule } from '@angular/forms';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 
 @NgModule({
   imports: [
@@ -22,10 +22,10 @@ import { FormsModule } from '@angular/forms';
     ComponentSubsectionModule,
     ComponentInstallationModule,
     ComponentPropertiesTableModule,
-    ComponentExampleV1Module,
     ComponentChangelogModule,
     WhenToUseModule,
     FormsModule,
+    CegModule,
   ],
   declarations: [ToastDocComponent, ToastCegComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

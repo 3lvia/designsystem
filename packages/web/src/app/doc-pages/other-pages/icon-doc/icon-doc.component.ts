@@ -1,13 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  Output,
-  EventEmitter,
-  HostListener,
-  OnDestroy,
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
 import { Icon } from './icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 // @ts-ignore
@@ -15,9 +6,9 @@ import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';
 import naturalCompare from 'natural-compare-lite';
-import { Subscription } from 'rxjs';
 import { LOCALE_CODE } from 'contentful/types';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 type IconArray = { pretty: string; title: string; terms: string[] }[];
 
@@ -26,88 +17,41 @@ type IconArray = { pretty: string; title: string; terms: string[] }[];
   templateUrl: './icon-doc.component.html',
   styleUrls: ['./icon-doc.component.scss'],
 })
-export class IconDocComponent implements OnInit, OnDestroy {
+export class IconDocComponent implements OnInit {
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
   @ViewChild('accordionIconsMobile') accordionIconsMobile: ElementRef;
   @ViewChild('icons') icons: ElementRef;
   @Output() clickOutside = new EventEmitter();
 
-  localizationSubscriber: Subscription;
   componentData = elvisIconData;
   noSubs = true;
 
   visibleIcons: IconArray = [];
-  allIcons: IconArray = [];
-  outlinedIcons: IconArray = [];
-  filledIcons: IconArray = [];
-  twoColoredIcons: IconArray = [];
+  private allIcons: IconArray = [];
   figmaUrl = getDocPagesNotFromCMS('icon')?.figmaUrl;
   description = getDocPagesNotFromCMS('icon')?.description;
   descriptionNo = getDocPagesNotFromCMS('icon')?.descriptionNo;
   title = getDocPagesNotFromCMS('icon')?.title;
   titleNo = getDocPagesNotFromCMS('icon')?.titleNo;
   inverted = false;
-  selected = 'all';
-  latestIcon = '';
+  private latestIcon = '';
   copied = false;
   locale: LOCALE_CODE = 'en-GB';
 
-  iconColorClassExample = `<h5>Default colors</h5>
-<i class="e-icon e-icon--chat e-icon--color-default e-mr-40" aria-hidden="true"></i>
-<h5>Disabled colors</h5>
-<i class="e-icon e-icon--chat e-icon--color-disabled e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--chat e-icon--color-disabled-light e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--chat e-icon--color-placeholder e-mr-40" aria-hidden="true"></i>
-<h5>Signal colors</h5>
-<i class="e-icon e-icon--check_circle e-icon--color-on e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--warning_circle e-icon--color-warning e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--remove_circle e-icon--color-error e-mr-40" aria-hidden="true"></i>
-<h5>Static colors</h5>
-<i class="e-icon e-icon--chat e-icon--color-black e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--chat e-icon--color-white e-mr-40" aria-hidden="true"></i>`;
-
-  example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--sm e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--md e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--lg e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xl e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xxl" aria-hidden="true"></i>
-`;
-  exampleInverted = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-icon--inverted e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xs e-icon--inverted e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--sm e-icon--inverted e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--md e-icon--inverted e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--lg e-icon--inverted e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xl e-icon--inverted e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xxl e-icon--inverted" aria-hidden="true"></i>
-`;
-
-  example2 = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40" aria-hidden="true"></i>
-`;
-
-  example3 = `<i class="e-icon e-icon--chat e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--chat e-icon--color-disabled" aria-hidden="true"></i>
-`;
-  example3Inverted = `<i class="e-icon e-icon--chat e-icon--inverted e-mr-40" aria-hidden="true"></i>
-<i class="e-icon e-icon--chat e-icon--inverted-disabled-grey-70" aria-hidden="true"></i>
-`;
-
-  importCodeTS = `import { addCircle } from '@elvia/elvis-assets-icons/icons'`;
-  scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>;`;
+  scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>`;
   iconExample = `<i class="e-icon e-icon--chat e-icon--md" aria-hidden="true"></i>`;
 
   term = '';
   IconClassList: Icon[] = [];
 
   constructor(private titleService: Title, private localizationService: LocalizationService) {
-    this.setTabTitle();
-    this.localizationSubscriber = this.localizationService.listenLocalization().subscribe((locale) => {
-      this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
-      this.setTabTitle();
-    });
+    this.localizationService
+      .listenLocalization()
+      .pipe(takeUntilDestroyed())
+      .subscribe((locale) => {
+        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+        this.setTabTitle();
+      });
   }
 
   @HostListener('document:click', ['$event', '$event.target'])
@@ -125,18 +69,12 @@ export class IconDocComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.setTabTitle();
     this.fillIconList();
-    this.setOutlineIcons();
-    this.setFilledIcons();
-    this.setTwoColoredIcons();
     this.visibleIcons = this.allIcons;
   }
 
-  ngOnDestroy(): void {
-    this.localizationSubscriber && this.localizationSubscriber.unsubscribe();
-  }
-
-  setTabTitle = (): void => {
+  private setTabTitle = (): void => {
     this.titleService.setTitle(
       (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
     );
@@ -150,12 +88,12 @@ export class IconDocComponent implements OnInit, OnDestroy {
     this.term = '';
   }
 
-  getShortIconName(iconName: string): string {
+  private getShortIconName(iconName: string): string {
     const short = iconName.split(/[-_]/).join(' ');
     return short.charAt(0).toUpperCase() + short.slice(1);
   }
 
-  fillIconList(): void {
+  private fillIconList(): void {
     this.allIcons = [];
 
     for (const icon of icons) {
@@ -178,35 +116,24 @@ export class IconDocComponent implements OnInit, OnDestroy {
     });
   }
 
-  setOutlineIcons(): void {
-    this.outlinedIcons = this.allIcons.filter((icon) => {
-      return !icon.title.includes('-filled') && !icon.title.includes('-color');
-    });
-  }
-  setFilledIcons(): void {
-    this.filledIcons = this.allIcons.filter((icon) => {
-      return icon.title.includes('-filled');
-    });
-  }
-  setTwoColoredIcons(): void {
-    this.twoColoredIcons = this.allIcons.filter((icon) => {
-      return icon.title.includes('-color');
-    });
-  }
-
   selectFilter(filter: string): void {
-    this.selected = filter;
     if (filter === 'all') {
       this.visibleIcons = this.allIcons;
     }
     if (filter === 'outline') {
-      this.visibleIcons = this.outlinedIcons;
+      this.visibleIcons = this.allIcons.filter((icon) => {
+        return !icon.title.includes('-filled') && !icon.title.includes('-color');
+      });
     }
     if (filter === 'filled') {
-      this.visibleIcons = this.filledIcons;
+      this.visibleIcons = this.allIcons.filter((icon) => {
+        return icon.title.includes('-filled');
+      });
     }
     if (filter === 'colored') {
-      this.visibleIcons = this.twoColoredIcons;
+      this.visibleIcons = this.allIcons.filter((icon) => {
+        return icon.title.includes('-color');
+      });
     }
   }
 
@@ -220,7 +147,7 @@ export class IconDocComponent implements OnInit, OnDestroy {
     this.latestIcon = iconTitle;
   }
 
-  closeLastAlert(itemId: string): void {
+  private closeLastAlert(itemId: string): void {
     this.copied = false;
     if (this.latestIcon !== '') {
       const lastElementContainer = document.getElementById(itemId + '_container');

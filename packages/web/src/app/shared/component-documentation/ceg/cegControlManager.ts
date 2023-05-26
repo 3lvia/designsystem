@@ -120,26 +120,25 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
    *
    * @param propName The name of the prop to be updated
    * @param value The new value of the prop
-   * @returns true/false to indicate if the prop was updated or not.
+   * @returns The updated control, if the prop was updated.
    */
-  setPropValue(propName: keyof TComponentProps, value: ControlValue): boolean {
+  setPropValue(
+    propName: keyof TComponentProps,
+    value: ControlValue,
+  ): CegControl<TComponentProps> | undefined {
     this.storeInitialValueForProp(propName);
 
-    let propWasUpdated = false;
     const typeIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._componentTypes.value);
 
     const prop = listClone[typeIndex].controls[propName];
     if (prop) {
       prop.value = value;
-      propWasUpdated = true;
-    }
-
-    if (propWasUpdated) {
       this._componentTypes.next(listClone);
+      return prop;
     }
 
-    return propWasUpdated;
+    return undefined;
   }
 
   getChangedPropsWithInitialValues(): Record<string, ControlValue> {

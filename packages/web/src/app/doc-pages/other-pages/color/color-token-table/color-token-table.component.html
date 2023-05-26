@@ -1,0 +1,40 @@
+<!-- This is just to test the data structure, not for final use -->
+
+<div class="container">
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: textColorsDefault }"></ng-container>
+  <p>State colors:</p>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: textColorsState }"></ng-container>
+</div>
+
+<div class="container">
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: backgroundColorsDefault }"></ng-container>
+  <p>Element colors:</p>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: backgroundColorsElement }"></ng-container>
+  <p>Overlay colors:</p>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: backgroundColorsOverlay }"></ng-container>
+  <p>State colors:</p>
+  <ng-container *ngTemplateOutlet="colorList; context: { $implicit: backgroundColorsState }"></ng-container>
+</div>
+
+<ng-template #colorList let-colors>
+  <div class="color" *ngFor="let color of asColorArray(colors)">
+    <h5>e-color-{{ color.token }}</h5>
+    <div *ngIf="color.role">
+      {{ color.role }}
+      <br />
+      <a class="e-link e-mr-8" [routerLink]="[link.path]" *ngFor="let link of color.links">
+        {{ link.title }}
+      </a>
+    </div>
+    <div class="e-flex e-flex-direction-row e-gap-8">
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="circle" [ngStyle]="{ backgroundColor: color.light.hex }"></div>
+        <div class="e-text-sm e-text-center">{{ color.light.label }}</div>
+      </div>
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="circle" [ngStyle]="{ backgroundColor: color.dark.hex }"></div>
+        <div class="e-text-sm e-text-center">{{ color.dark.label }}</div>
+      </div>
+    </div>
+  </div>
+</ng-template>

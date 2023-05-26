@@ -1,0 +1,27 @@
+<div class="code-container">
+  <div class="top-menu">
+    <elvia-tabs
+      (valueOnChange)="tabIndexChange.emit($any($event).detail.value)"
+      [isInverted]="true"
+      [value]="activeTabIndex"
+      [items]="tabs"
+      [tabIdPrefix]="tabGroupId"
+    ></elvia-tabs>
+
+    <div class="copy-code">
+      <div class="e-mr-8">
+        {{ copyMessage }}
+      </div>
+      <button class="e-btn e-btn--icon e-btn--sm e-btn--inverted" (click)="copyCode()" aria-label="Copy code">
+        <span class="e-btn__icon">
+          <i class="e-icon e-icon--copy" aria-hidden="true" aria-hidden="true"></i>
+          <i class="e-icon e-icon--copy e-icon--inverted" aria-hidden="true" aria-hidden="true"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="overflow-container">
+    <pre><code [innerHtml]="activeCode | formatCode:language | highlighter:language" class="active-code"></code></pre>
+  </div>
+</div>
