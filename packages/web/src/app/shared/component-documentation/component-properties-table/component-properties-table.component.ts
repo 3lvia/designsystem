@@ -65,12 +65,13 @@ export class ComponentPropertiesTableComponent implements OnInit {
     this.resetHighlightedHTML();
     this.searchService.searchResults.forEach((resultItem) => {
       resultItem.matches?.forEach((match) => {
+        console.log('match', match);
         try {
           const element = document.getElementById(`property-row-${resultItem.item.attribute}-${match.key}`);
           if (element && match.key && match.key in resultItem.item) {
             element.innerHTML = this.getHighlightedHTMLString(
               match,
-              resultItem.item[match.key as keyof ComponentProp] as string,
+              resultItem.item[match.key as keyof ComponentProp]?.toString() ?? '',
             );
           }
         } catch (error) {
@@ -83,7 +84,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
           if (element && match.key && match.key in resultItem.item) {
             element.innerHTML = this.getHighlightedHTMLString(
               match,
-              resultItem.item[match.key as keyof ComponentProp] as string,
+              resultItem.item[match.key as keyof ComponentProp]?.toString() ?? '',
             );
           }
         } catch (error) {
