@@ -12,11 +12,14 @@ export class DropdownCegComponent implements ComponentExample {
   cegContent = new CegControlManager<DropdownProps>([
     {
       controls: {
-        isCompact: {
+        size: {
           group: 'Size',
-          type: 'checkbox',
-          label: 'Compact',
-          value: false,
+          type: 'radioGroup',
+          value: 'medium',
+          radios: [
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+          ],
         },
         isSearchable: {
           group: 'Options',

@@ -157,7 +157,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     } else {
       this.logWarnMessage(
         'mapNameToRealName',
-        "Did you forget to define the attribute '" + attr + "' in elvia-components.config.js?",
+        "Did you forget to define the attribute '" + attr + "' in config.ts?",
       );
       return attr;
     }
@@ -289,7 +289,7 @@ export class ElvisComponentWrapper extends HTMLElement {
 declare class ElviaComponent extends ElvisComponentWrapper {
   constructor();
   static get observedAttributes(): string[];
-  /** Data from `elvia-components.config.js`. */
+  /** Data from `config.ts`. */
   getComponentData(): {
     name: string;
     attributes: { name: string; type: string }[];
