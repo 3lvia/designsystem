@@ -91,12 +91,14 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
                   dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).icon)),
                   }}
+                  data-testid="segmented-control-icon"
                 ></SegmentedControlIconContainer>
               ) : (
                 <SegmentedControlIconContainer
                   dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).iconSelected)),
                   }}
+                  data-testid="segmented-control-icon"
                 ></SegmentedControlIconContainer>
               ))}
           </SegmentedControlLabel>
