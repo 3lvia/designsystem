@@ -216,7 +216,9 @@ $form-input-padding-compact-active: 3px 9px;
 }
 
 .e-form-field.e-form-field--compact .e-input,
-.e-input.e-input--compact {
+.e-form-field.e-form-field--small .e-input,
+.e-input.e-input--compact,
+.e-input.e-input--small {
   input,
   textarea {
     @include typography.typography('text-sm');

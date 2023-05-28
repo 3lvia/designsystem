@@ -75,7 +75,8 @@
     }
   }
 
-  &.e-form-field--compact {
+  &.e-form-field--compact,
+  &.e-form-field--small {
     position: relative;
     padding-top: 8px;
 
@@ -107,7 +108,8 @@
   }
 
   //prevent label to not cover green border when focused
-  &.e-form-field--compact:focus-within {
+  &.e-form-field--compact:focus-within,
+  &.e-form-field--small:focus-within {
     .e-form-field__label {
       height: 10px;
       border-bottom: 1px solid colors.color('elvia-on');

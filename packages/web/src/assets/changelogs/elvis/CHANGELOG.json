@@ -2,6 +2,25 @@
   "content": [
     {
       "version": "11.6.0",
+      "date": "May 30, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Renamed the sizes for all input components from compact to small. E.g. <code>e-radio--compact</code> is renamed to <code>e-radio--small</code> and will need to be updated in the future."
+          ],
+          "components": [
+            { "displayName": "Input / Form field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Radio Button", "url": "https://design.elvia.io/components/radiobutton" },
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "11.6.0",
       "date": "April 28, 2023",
       "changelog": [
         {

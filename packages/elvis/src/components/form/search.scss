@@ -122,7 +122,8 @@
 }
 
 .e-form-field {
-  &.e-form-field--compact {
+  &.e-form-field--compact,
+  &.e-form-field--small {
     .e-search--instant {
       @include typography.typography('text-sm');
       margin-top: -8px;

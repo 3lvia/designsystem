@@ -1,4 +1,112 @@
 {
+  "e-toggle--compact": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-toggle--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/toggle"
+    }
+  },
+  "e-input--compact": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-input--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/input"
+    }
+  },
+  "e-checkbox--compact": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-checkbox--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/checkbox"
+    }
+  },
+  "e-checkbox--compact": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-checkbox--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/checkbox"
+    }
+  },
+  "e-checkbox--sm": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-checkbox--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/checkbox"
+    }
+  },
+  "e-table__footnote--compact": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-table__footnote--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/table"
+    }
+  },
+  "e-table__cell--multiline-sm": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-table__cell--multiline-small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/table"
+    }
+  },
+  ".e-table-mobile--compact": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-table-mobile--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/table"
+    }
+  },
+  ".e-table--compact": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-table--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/table"
+    }
+  },
+  "e-form-field--compact": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-form-field--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/input"
+    }
+  },
+  "e-radio--compact": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-radio--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/radiobutton"
+    }
+  },
+  "e-radio--sm": {
+    "deprecateChildren": false,
+    "version": "8.12.0",
+    "replacement": {
+      "name": "e-radio--small",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/radiobutton"
+    }
+  },
   "e-content-loader--grey": {
     "deprecateChildren": true,
     "version": "10.6.0",
