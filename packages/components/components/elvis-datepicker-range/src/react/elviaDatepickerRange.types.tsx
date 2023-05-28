@@ -1,4 +1,9 @@
-import { BaseProps, ErrorOptions as SinglePickerErrorOptions, HasValue } from '@elvia/elvis-toolbox';
+import {
+  BaseProps,
+  ErrorOptions as SinglePickerErrorOptions,
+  HasValue,
+  FormFieldSizes,
+} from '@elvia/elvis-toolbox';
 import { MinuteInterval } from '@elvia/elvis-timepicker/react';
 
 export type BothDatepickers<T> = {
@@ -33,7 +38,7 @@ export const emptyErrorMessage: CustomError = {
 export interface DatepickerRangeProps extends BaseProps, HasValue<DateRange> {
   valueOnChangeISOString?: (value: DateRangeString) => void;
   labelOptions?: LabelOptions;
-  isCompact?: boolean;
+  size?: FormFieldSizes;
   isFullWidth?: boolean;
   isDisabled?: boolean;
   isRequired?: IsRequired | boolean;

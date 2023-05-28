@@ -23,7 +23,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   valueOnChange,
   valueOnChangeISOString,
   labelOptions,
-  isCompact,
+  size,
   isFullWidth,
   isDisabled,
   isRequired,
@@ -280,7 +280,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const passThroughProps: Partial<DatepickerProps> = {
     minDate,
     maxDate,
-    isCompact,
+    size,
     isFullWidth,
     isDisabled,
   };
@@ -349,7 +349,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         {hasTimepickers && (
           <Timepicker
             label=""
-            isCompact={isCompact}
+            isCompact={size === 'small'}
             isDisabled={isDisabled}
             value={isTouched('startTime') || valueIsSentAsProp ? selectedDateRange.start : undefined}
             valueOnChange={handleStartTimePickerValueOnChange}
@@ -402,7 +402,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         {hasTimepickers && (
           <Timepicker
             label=""
-            isCompact={isCompact}
+            isCompact={size === 'small'}
             isDisabled={isDisabled}
             value={isTouched('endTime') || valueIsSentAsProp ? selectedDateRange.end : undefined}
             valueOnChange={handleEndTimePickerValueOnChange}

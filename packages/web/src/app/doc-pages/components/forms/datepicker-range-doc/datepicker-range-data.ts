@@ -27,11 +27,11 @@ const datepickerRangeData: ComponentData = {
       description: 'Labels of inputs.',
       default: '{start: "Fra dato", end: "Til dato"}',
     },
-    isCompact: {
+    size: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Compact size.',
-      default: 'false',
+      type: 'small | medium',
+      description: 'Datepicker-range can be set to different sizes.',
+      default: 'medium',
     },
     isFullWidth: {
       isRequired: false,

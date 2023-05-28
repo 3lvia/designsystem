@@ -2,6 +2,23 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "31.05.23",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Changed prop <code>isCompact</code> to instead be <code>size='small | medium'</code>."
+          ],
+          "fixes": ["<code>isCompact</code> can be directly replaced by <code>size='small'</code>"]
+        },
+        {
+          "type": "patch",
+          "changes": ["Bumped <code>@elvia/elvis-datepicker</code> dependency."]
+        }
+      ]
+    },
+    {
       "date": "09.05.23",
       "version": "2.3.5",
       "changelog": [
