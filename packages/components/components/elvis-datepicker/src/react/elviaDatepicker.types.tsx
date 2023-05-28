@@ -23,6 +23,10 @@ export interface DatepickerProps extends BaseProps, HasValue<Date | null>, HasEr
   hasOptionalText?: boolean;
   hasSelectDateOnOpen?: boolean;
   size?: FormFieldSizes;
+  /**
+   * @deprecated Removed in version 7.0.0. Replaced by `size`.
+   */
+  isCompact?: boolean;
   isDisabled?: boolean;
   isFullWidth?: boolean;
   isOpen?: boolean;

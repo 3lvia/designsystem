@@ -39,6 +39,10 @@ export interface DatepickerRangeProps extends BaseProps, HasValue<DateRange> {
   valueOnChangeISOString?: (value: DateRangeString) => void;
   labelOptions?: LabelOptions;
   size?: FormFieldSizes;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `size`.
+   */
+  isCompact?: boolean;
   isFullWidth?: boolean;
   isDisabled?: boolean;
   isRequired?: IsRequired | boolean;
