@@ -133,7 +133,7 @@
     <div class="example-wrapper">
       <h3>Datepicker</h3>
       <elvia-datepicker
-        :isCompact="false"
+        size="small"
         label="Fra dato"
         :disableDate="(day: Date) => day.getDay() === 0 || day.getDay() === 6"
       ></elvia-datepicker>
@@ -181,7 +181,7 @@
       >
         <div slot="content">
           <div class="date-container">
-            <elvia-datepicker :isCompact="true"></elvia-datepicker>
+            <elvia-datepicker size="true"></elvia-datepicker>
           </div>
         </div>
         <div slot="secondaryButton">
