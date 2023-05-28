@@ -1,4 +1,4 @@
-import { BaseProps, HasError, HasValue } from '@elvia/elvis-toolbox';
+import { BaseProps, HasError, HasValue, FormFieldSizes } from '@elvia/elvis-toolbox';
 
 export type ErrorType = 'invalidDate' | 'required' | 'beforeMinDate' | 'afterMaxDate';
 
@@ -22,7 +22,7 @@ export interface DatepickerProps extends BaseProps, HasValue<Date | null>, HasEr
   disableDate?: (day: Date) => boolean;
   hasOptionalText?: boolean;
   hasSelectDateOnOpen?: boolean;
-  isCompact?: boolean;
+  size?: FormFieldSizes;
   isDisabled?: boolean;
   isFullWidth?: boolean;
   isOpen?: boolean;

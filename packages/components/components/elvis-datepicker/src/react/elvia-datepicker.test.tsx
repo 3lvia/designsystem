@@ -121,7 +121,7 @@ describe('Elvis Datepicker', () => {
 
   describe('Compact, Full width', () => {
     beforeEach(() => {
-      render(<Datepicker isCompact isFullWidth></Datepicker>);
+      render(<Datepicker size="small" isFullWidth></Datepicker>);
     });
 
     it('should have compact class', () => {

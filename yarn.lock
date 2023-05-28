@@ -2999,9 +2999,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^6.2.5, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
+  dependencies:
+    "@elvia/elvis-assets-icons": ^3.0.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-toolbox": ^9.0.0
+    "@elvia/elvis-typography": ^2.3.2
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-datepicker@npm:^6.2.5":
+  version: 6.2.5
+  resolution: "@elvia/elvis-datepicker@npm:6.2.5"
   dependencies:
     "@elvia/elvis-assets-icons": ^3.0.0
     "@elvia/elvis-colors": ^2.2.0
@@ -3020,8 +3044,9 @@ __metadata:
       optional: true
     react-is:
       optional: true
-  languageName: unknown
-  linkType: soft
+  checksum: fcfa3b863afe572025fe093315c2c92da505b4b8034ad3a2fe675422bab032c8dab8c80481a346e7394d16781a139e30f602e1a16e0ae3ff384e445a5fe6b242
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-divider@*, @elvia/elvis-divider@workspace:*, @elvia/elvis-divider@workspace:packages/components/components/elvis-divider":
   version: 0.0.0-use.local

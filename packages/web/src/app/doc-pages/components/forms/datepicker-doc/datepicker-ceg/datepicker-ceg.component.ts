@@ -12,10 +12,13 @@ export class DatepickerCegComponent implements ComponentExample {
   cegContent = new CegControlManager<DatepickerProps>([
     {
       controls: {
-        isCompact: {
-          label: 'Compact',
-          type: 'checkbox',
-          value: false,
+        size: {
+          type: 'radioGroup',
+          value: 'medium',
+          radios: [
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+          ],
           group: 'Size',
         },
         isRequired: {

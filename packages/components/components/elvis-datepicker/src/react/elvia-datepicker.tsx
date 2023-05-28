@@ -24,7 +24,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   errorOptions = { hideText: false, isErrorState: false, hasErrorPlaceholder: true },
   hasOptionalText,
   hasSelectDateOnOpen = true,
-  isCompact = false,
+  size = 'medium',
   isDisabled = false,
   isFullWidth = false,
   isOpen = false,
@@ -244,7 +244,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   return (
     <>
       <FormFieldContainer
-        isCompact={isCompact}
+        size={size}
         className={className ?? ''}
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
@@ -280,7 +280,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
               setVisibility(!isShowing);
             }}
             ref={openPopoverButtonRef}
-            size={isCompact ? 'sm' : 'md'}
+            size={size === 'small' ? 'sm' : 'md'}
             data-testid="popover-toggle"
             aria-label="Åpne datovelger"
             aria-haspopup="dialog"
@@ -288,7 +288,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             <IconWrapper
               icon={calendar}
               color={isDisabled ? 'text-disabled-1' : undefined}
-              size={isCompact ? 'xs' : 'sm'}
+              size={size === 'small' ? 'xs' : 'sm'}
             />
           </IconButton>
         </FormFieldInputContainer>
