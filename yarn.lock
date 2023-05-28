@@ -3356,9 +3356,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^2.5.2, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
+"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
+  dependencies:
+    "@elvia/elvis-assets-icons": ^3.0.0
+    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-component-wrapper": ^4.1.2
+    "@elvia/elvis-toolbox": ^9.0.0
+    "@elvia/elvis-typography": ^2.3.2
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-timepicker@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "@elvia/elvis-timepicker@npm:2.5.2"
   dependencies:
     "@elvia/elvis-assets-icons": ^3.0.0
     "@elvia/elvis-colors": ^2.2.0
@@ -3377,8 +3401,9 @@ __metadata:
       optional: true
     react-is:
       optional: true
-  languageName: unknown
-  linkType: soft
+  checksum: 3fcbcb7dbed9121526f209e139ff04375093b812b24d7b86c533a73828472e94ed9155576e3da55aa1a1fe6e6fe5eb6086f059feb2be6c585862a98778279be3
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-toast@*, @elvia/elvis-toast@workspace:*, @elvia/elvis-toast@workspace:packages/components/components/elvis-toast":
   version: 0.0.0-use.local
