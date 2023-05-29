@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "30.05.23",
+      "version": "9.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The optional <code>hasSuffix</code> prop has been added to the form field component. It can be used to indicate whether the form field includes a suffix.",
+            "An optional <code>FormFieldInputSuffixText</code> span element has been added for including a suffix in the input."
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.05.23",
       "version": "9.0.0",
       "changelog": [
