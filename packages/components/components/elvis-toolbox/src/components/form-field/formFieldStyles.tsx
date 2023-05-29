@@ -186,6 +186,7 @@ export const FormFieldLabel = styled.div<LabelProps>`
 export const FormFieldInputSuffixText = styled.span`
   ${getTypographyCss('text-micro-light')}
   user-select: none;
+  white-space: nowrap;
 `;
 
 export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
