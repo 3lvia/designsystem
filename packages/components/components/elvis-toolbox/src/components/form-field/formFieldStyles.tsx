@@ -4,10 +4,12 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { FormFieldError } from './errorStyles';
 
-const setActiveBorder = (isCompact?: boolean, hasSuffix?: boolean) => {
+export type FormFieldSizes = 'small' | 'medium';
+
+const setActiveBorder = (size?: FormFieldSizes, hasSuffix?: boolean) => {
   let paddingValue: string;
 
-  if (isCompact) {
+  if (size === 'small') {
     paddingValue = '0 3px 0 7px';
   } else {
     paddingValue = hasSuffix ? '0 15px' : '0 7px 0 15px';
@@ -33,7 +35,7 @@ export const FormFieldInputContainer = styled.div`
 
 export interface FormFieldContainerProps {
   isFullWidth?: boolean;
-  isCompact?: boolean;
+  size?: FormFieldSizes;
   isActive?: boolean;
   isInvalid?: boolean;
   isDisabled?: boolean;
@@ -44,7 +46,7 @@ export interface FormFieldContainerProps {
 /**
  *
  * @example
- * <FormFieldContainer isCompact isFullWidth isActive isInvalid isDisabled hasSuffix>
+ * <FormFieldContainer size="small" isFullWidth isActive isInvalid isDisabled hasSuffix>
  *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
  *   <FormFieldInputContainer>
  *     <FormFieldInput />
@@ -76,21 +78,21 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `}
 
-  ${({ hasSuffix, isCompact }) =>
+  ${({ hasSuffix, size }) =>
     hasSuffix &&
     css`
       ${FormFieldInputContainer} {
         padding: 0 16px;
 
-        ${isCompact &&
+        ${size === 'small' &&
         css`
           gap: 4px;
         `}
       }
     `}
 
-  ${({ isCompact }) => {
-    if (isCompact) {
+  ${({ size }) => {
+    if (size === 'small') {
       return css`
         padding-top: 0.5rem;
 
@@ -141,25 +143,25 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `};
 
-  ${({ isInvalid, isCompact, hasSuffix }) =>
+  ${({ isInvalid, size, hasSuffix }) =>
     isInvalid &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(isCompact, hasSuffix)};
+        ${setActiveBorder(size, hasSuffix)};
         border-color: ${getThemeColor('signal-error')};
       }
     `};
 
-  ${({ isActive, isCompact, hasSuffix }) =>
+  ${({ isActive, size, hasSuffix }) =>
     isActive &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(isCompact, hasSuffix)}
+        ${setActiveBorder(size, hasSuffix)}
       }
     `}
 
   ${FormFieldInputContainer}:focus-within {
-    ${({ isCompact, hasSuffix }) => setActiveBorder(isCompact, hasSuffix)}
+    ${({ size, hasSuffix }) => setActiveBorder(size, hasSuffix)}
   }
 `;
 

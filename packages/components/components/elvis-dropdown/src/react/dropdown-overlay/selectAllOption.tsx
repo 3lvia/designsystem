@@ -2,14 +2,14 @@ import React, { MouseEvent, useEffect, useState } from 'react';
 import { Checkbox } from '../checkbox/checkbox';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
 import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
-import { DropdownItem, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
+import { DropdownItem, DropdownSize, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { Divider } from './dropdownOverlayStyles';
 import { ThemeName } from '@elvia/elvis-colors';
 
 interface SelectAllOptionProps {
   item: DropdownItem;
   focusedValue?: DropdownValueType;
-  isCompact?: boolean;
+  size?: DropdownSize;
   items: DropdownItem[];
   selectedItems: DropdownValue;
   currentTheme: ThemeName;
@@ -22,7 +22,7 @@ type CheckboxState = 'checked' | 'indeterminate' | 'none';
 export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
   item,
   focusedValue,
-  isCompact,
+  size,
   items,
   selectedItems,
   currentTheme,
@@ -58,11 +58,11 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
         onMouseEnter={() => onHover(item)}
         onMouseDown={preventInputElementBlur}
         isFocused={focusedValue === item.value}
-        isCompact={isCompact}
+        size={size}
         id={getDropdownItemId(item.value)}
       >
         <Checkbox
-          isCompact={isCompact}
+          size={size}
           isChecked={checkboxState === 'checked'}
           isIndeterminate={checkboxState === 'indeterminate'}
           isFocused={focusedValue === item.value}

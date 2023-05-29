@@ -2,6 +2,29 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.05.23",
+      "version": "9.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Changed form field styling from using <code>isCompact</code> to instead use <code>size='small | medium'</code>.",
+            "Added support for using values small, medium and large for the size prop in the iconWrapper"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "26.05.23",
+      "version": "8.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now building to ESM instead of CJS."]
+        }
+      ]
+    },
+    {
       "date": "23.05.23",
       "version": "8.0.1",
       "changelog": [

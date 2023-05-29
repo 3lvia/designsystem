@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 2.5.0 (26.05.23)
+
+### New feature
+
+- Now building and exporting both CommonJS and ESModule versions.
+
 ## 2.4.0 (23.05.23)
 
 ### New feature

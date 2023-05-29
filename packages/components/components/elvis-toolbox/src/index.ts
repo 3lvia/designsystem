@@ -7,6 +7,7 @@ export { Backdrop } from './components/backdrop/backdrop';
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { IconButton } from './components/button/iconButton';
 export {
+  FormFieldSizes,
   FormFieldInput,
   FormFieldContainer,
   FormFieldContainerProps,

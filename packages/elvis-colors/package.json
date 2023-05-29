@@ -1,12 +1,14 @@
 {
   "name": "@elvia/elvis-colors",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Elvia colors",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "gulp"
+    "build": "gulp && tsup",
+    "start": "tsup --watch"
   },
   "files": [
     "CHANGELOG.json",
@@ -15,12 +17,11 @@
   ],
   "devDependencies": {
     "@types/gulp": "^4.0.10",
-    "@types/gulp-typescript": "^2.13.0",
     "@types/node": "^18.11.18",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-typescript": "^6.0.0-alpha.1",
     "ts-node": "^10.9.1",
+    "tsup": "^6.7.0",
     "typescript": "~5.0.4"
   }
 }

@@ -18,8 +18,8 @@ export const DropdownContainer = styled(FormFieldContainer)`
       }
     `};
 
-  ${({ isCompact }) =>
-    isCompact &&
+  ${({ size }) =>
+    size === 'small' &&
     css`
       ${IconRotator} {
         width: 32px;
@@ -52,4 +52,8 @@ export const IconRotator = styled.div<{ isRotated: boolean }>`
     css`
       transform: rotate(180deg);
     `}
+`;
+
+export const DropdownIconContainer = styled.div`
+  display: flex;
 `;

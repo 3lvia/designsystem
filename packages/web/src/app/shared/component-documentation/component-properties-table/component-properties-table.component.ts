@@ -70,7 +70,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
           if (element && match.key && match.key in resultItem.item) {
             element.innerHTML = this.getHighlightedHTMLString(
               match,
-              resultItem.item[match.key as keyof ComponentProp] as string,
+              resultItem.item[match.key as keyof ComponentProp]?.toString() ?? '',
             );
           }
         } catch (error) {
@@ -83,7 +83,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
           if (element && match.key && match.key in resultItem.item) {
             element.innerHTML = this.getHighlightedHTMLString(
               match,
-              resultItem.item[match.key as keyof ComponentProp] as string,
+              resultItem.item[match.key as keyof ComponentProp]?.toString() ?? '',
             );
           }
         } catch (error) {
@@ -138,9 +138,10 @@ export class ComponentPropertiesTableComponent implements OnInit {
         const element = document.getElementById(`property-row-${prop.attribute}-${key}`);
         const elementMobile = document.getElementById(`property-row-${prop.attribute}-${key}-mobile`);
         if (key === 'default') {
-          if (element) element.innerHTML = prop[key] ? this.encodeHTML(prop[key]!.toString()) : '-';
+          if (element)
+            element.innerHTML = prop[key] !== undefined ? this.encodeHTML(prop[key]!.toString()) : '-';
           if (elementMobile)
-            elementMobile.innerHTML = prop[key] ? this.encodeHTML(prop[key]!.toString()) : '-';
+            elementMobile.innerHTML = prop[key] !== undefined ? this.encodeHTML(prop[key]!.toString()) : '-';
         } else {
           if (element) element.innerHTML = this.encodeHTML(prop[key]);
           if (elementMobile) elementMobile.innerHTML = this.encodeHTML(prop[key]);

@@ -1,5 +1,11 @@
 # Elvia Typography Changelog
 
+## 2.4.0 (26.05.23)
+
+### New feature
+
+- Now building and exporting both CommonJS and ESModule versions.
+
 ## 2.3.2 (09.03.23)
 
 ### Patch
