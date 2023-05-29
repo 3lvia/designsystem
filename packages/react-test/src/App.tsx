@@ -29,9 +29,9 @@ import {
   FormFieldContainer,
   FormFieldInput,
   FormFieldInputContainer,
+  FormFieldInputSuffixText,
   FormFieldLabel,
 } from '@elvia/elvis-toolbox';
-import { FormFieldInputSuffixText } from '@elvia/elvis-toolbox/dist/components/form-field/formFieldStyles';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -190,58 +190,114 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <div className="e-bg-white">
-                <FormFieldContainer hasSuffix>
-                  <FormFieldLabel>Mengde</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput style={{ width: '3ch' }} />
-                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer hasSuffix>
-                  <FormFieldLabel>Label text</FormFieldLabel>
+                <FormFieldContainer>
+                  <FormFieldLabel>Vanlig</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
-                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
                   </FormFieldInputContainer>
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer hasSuffix isCompact>
-                  <FormFieldLabel>Label text</FormFieldLabel>
+                <FormFieldContainer size={'small'}>
+                  <FormFieldLabel>Liten vanlig</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
-                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer hasSuffix isCompact isInvalid>
-                  <FormFieldLabel>Label text</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput placeholder=" " />
-                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer hasSuffix isCompact isDisabled>
-                  <FormFieldLabel>Label text</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput disabled value={'sdf'} />
-                    <FormFieldInputSuffixText>kg.</FormFieldInputSuffixText>
                   </FormFieldInputContainer>
                 </FormFieldContainer>
                 <br />
                 <br />
                 <FormFieldContainer hasSuffix>
-                  <FormFieldLabel>Label text</FormFieldLabel>
+                  <FormFieldLabel hasOptionalText>Kroner</FormFieldLabel>
                   <FormFieldInputContainer>
-                    <FormFieldInput placeholder="f" />
-                    <FormFieldInputSuffixText>en lang kilogram</FormFieldInputSuffixText>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>kr.</FormFieldInputSuffixText>
                   </FormFieldInputContainer>
                 </FormFieldContainer>
+                <br />
+                <br />
+
+                <FormFieldContainer hasSuffix>
+                  <FormFieldLabel>Pris</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>kroner</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer hasSuffix>
+                  <FormFieldLabel hasOptionalText>Kroner</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>kr.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+
+                <FormFieldContainer hasSuffix>
+                  <FormFieldLabel>Strømgreier</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>kWh.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer hasSuffix>
+                  <FormFieldLabel>Strømgreier</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer hasSuffix size="small">
+                  <FormFieldLabel>Strømgreier</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>kWh.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer hasSuffix size="small">
+                  <FormFieldLabel>Strømgreier</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer hasSuffix size="small" isInvalid>
+                  <FormFieldLabel>Strømgreier</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer hasSuffix size="small" isDisabled>
+                  <FormFieldLabel>Strømgreier</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
+                <FormFieldContainer hasSuffix isDisabled>
+                  <FormFieldLabel>Strømgreier</FormFieldLabel>
+                  <FormFieldInputContainer>
+                    <FormFieldInput />
+                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
+                  </FormFieldInputContainer>
+                </FormFieldContainer>
+                <br />
+                <br />
               </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
