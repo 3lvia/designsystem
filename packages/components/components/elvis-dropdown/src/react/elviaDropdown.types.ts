@@ -1,6 +1,5 @@
 import { FormFieldSizes, BaseProps, HasValue, HasError } from '@elvia/elvis-toolbox';
 import { DropdownItemStatus } from './statusToIconMap';
-export { FormFieldSizes as DropdownSize };
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 
