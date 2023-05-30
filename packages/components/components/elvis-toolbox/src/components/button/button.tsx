@@ -2,7 +2,7 @@ import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export type Size = 'sm' | 'md' | 'lg';
+export type Size = 'sm' | 'small' | 'md' | 'medium' | 'lg' | 'large';
 export interface ButtonProps {
   isActive: boolean;
   size: Size;
@@ -10,12 +10,14 @@ export interface ButtonProps {
 
 const getTypography = (size: Size) => {
   switch (size) {
+    case 'small':
     case 'sm': {
       return css`
         ${getTypographyCss('text-sm')};
         line-height: 1.15;
       `;
     }
+    case 'medium':
     case 'md': {
       return css`
         ${getTypographyCss('text-md')};
@@ -32,7 +34,7 @@ const getTypography = (size: Size) => {
   }
 };
 
-const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<ButtonProps>>`
+const ButtonBase = styled.button<Partial<ButtonProps>>`
   ${({ size }) => getTypography(size ?? 'md')};
   font-weight: 500;
   display: flex;
@@ -57,9 +59,11 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
 
 const getButtonHeight = (size?: Size) => {
   switch (size) {
+    case 'large':
     case 'lg': {
       return '48px';
     }
+    case 'medium':
     case 'md': {
       return '40px';
     }
@@ -71,9 +75,11 @@ const getButtonHeight = (size?: Size) => {
 
 const getButtonPadding = (size?: Size) => {
   switch (size) {
+    case 'large':
     case 'lg': {
       return '0 calc(32px - 1px)';
     }
+    case 'medium':
     case 'md': {
       return '0 calc(24px - 1px)';
     }
@@ -129,7 +135,7 @@ export const TertiaryButton = styled(ButtonBase)`
   background: transparent;
   position: relative;
   padding: 0;
-  height: ${({ size }) => (size === 'sm' ? '1.5rem' : '2rem')};
+  height: ${({ size }) => (size === 'sm' || size === 'small' ? '1.5rem' : '2rem')};
 
   &:after {
     content: '';
