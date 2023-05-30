@@ -8,7 +8,6 @@
         {
           "type": "new_feature",
           "changes": [
-            "The optional <code>hasSuffix</code> prop has been added to the form field component. It can be used to indicate whether the form field includes a suffix.",
             "An optional <code>FormFieldInputSuffixText</code> span element has been added for including a suffix in the input.",
             "The Button components now accept 'small', 'medium' and 'large' as values for the <code>size</code> prop."
           ]
