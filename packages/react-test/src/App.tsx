@@ -198,6 +198,29 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
+                <Dropdown
+                  value={defaultDropdownOptions}
+                  placeholder="Select country"
+                  label="New dropdown"
+                  isSearchable
+                  items={dropdownOptions}
+                  isMulti
+                  isLoadingMoreItems={isLoadingMoreItems}
+                  onLoadMoreItems={onLoadMoreItems}
+                ></Dropdown>
+                <br />
+                <br />
+                <Timepicker />
+                <br />
+                <br />
+
+                <Datepicker />
+                <br />
+                <br />
+
+                <DatepickerRange></DatepickerRange>
+                <br />
+                <br />
                 <FormFieldContainer size={'small'}>
                   <FormFieldLabel>Liten vanlig</FormFieldLabel>
                   <FormFieldInputContainer>
@@ -206,7 +229,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer hasSuffix>
+                <FormFieldContainer>
                   <FormFieldLabel hasOptionalText>Kroner</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -216,7 +239,7 @@ function App() {
                 <br />
                 <br />
 
-                <FormFieldContainer hasSuffix>
+                <FormFieldContainer>
                   <FormFieldLabel>Pris</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -225,7 +248,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer hasSuffix>
+                <FormFieldContainer>
                   <FormFieldLabel hasOptionalText>Kroner</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -235,7 +258,7 @@ function App() {
                 <br />
                 <br />
 
-                <FormFieldContainer hasSuffix>
+                <FormFieldContainer>
                   <FormFieldLabel>Strømgreier</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -244,7 +267,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer hasSuffix>
+                <FormFieldContainer>
                   <FormFieldLabel>Strømgreier</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -253,7 +276,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer hasSuffix size="small">
+                <FormFieldContainer size="small">
                   <FormFieldLabel>Strømgreier</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -262,7 +285,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer hasSuffix size="small">
+                <FormFieldContainer size="small">
                   <FormFieldLabel>Strømgreier</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -271,7 +294,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer hasSuffix size="small" isInvalid>
+                <FormFieldContainer size="small" isInvalid>
                   <FormFieldLabel>Strømgreier</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -280,7 +303,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer hasSuffix size="small" isDisabled>
+                <FormFieldContainer size="small" isDisabled>
                   <FormFieldLabel>Strømgreier</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -289,7 +312,7 @@ function App() {
                 </FormFieldContainer>
                 <br />
                 <br />
-                <FormFieldContainer hasSuffix isDisabled>
+                <FormFieldContainer isDisabled>
                   <FormFieldLabel>Strømgreier</FormFieldLabel>
                   <FormFieldInputContainer>
                     <FormFieldInput />
@@ -299,6 +322,7 @@ function App() {
                 <br />
                 <br />
               </div>
+              <h3>Box</h3>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
