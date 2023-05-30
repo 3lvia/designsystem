@@ -106,7 +106,6 @@
 				"e-form-field--compact": {},
 				"e-form-field--small": {},
 				"e-form-field--full-width": {},
-				"e-form-field--combined": {},
 				"e-form-field--width-auto": {}
 			},
 			"element": {
@@ -1944,7 +1943,6 @@
 		"e-form-field__nested": {},
 		"e-form-field__nested--sm": {},
 		"e-form-field--full-width": {},
-		"e-form-field--combined": {},
 		"e-form-field__input": {},
 		"e-inlined-field": {},
 		"e-form-field--width-auto": {},

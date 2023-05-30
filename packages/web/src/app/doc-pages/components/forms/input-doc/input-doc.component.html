@@ -15,26 +15,10 @@
   <!-- TYPE -->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Normal'">
+      <app-component-subsection [sectionTitle]="'Textfield'">
         <ng-container ngProjectAs="sectionContent">
           <app-static-ceg>
             <app-input-type-normal-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Combined & Inlined'">
-        <ng-container ngProjectAs="sectionContent">
-          Use the
-          <span class="code-text">e-combined-field</span>
-          class on the form-field element to keep two inputs for the same label.
-          <p>
-            Use the
-            <span class="code-text">e-inlined-field</span>
-            class outside the form-field element to align inputs on the same line. When the zip code is filled
-            in, the post office should be filled in automatically.
-          </p>
-          <app-static-ceg>
-            <app-input-type-combined-inlined-ceg />
           </app-static-ceg>
         </ng-container>
       </app-component-subsection>
@@ -95,6 +79,18 @@
           </p>
           <app-static-ceg>
             <app-input-options-full-width-ceg />
+          </app-static-ceg>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Inlined'">
+        <ng-container ngProjectAs="sectionContent">
+          Use the
+          <span class="code-text">e-inlined-field</span>
+          class outside the form-field element to align inputs on the same line. When the zip code is filled
+          in, the post office should be filled in automatically.
+          <app-static-ceg>
+            <app-input-type-combined-inlined-ceg />
           </app-static-ceg>
         </ng-container>
       </app-component-subsection>

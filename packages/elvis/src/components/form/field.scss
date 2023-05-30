@@ -92,11 +92,13 @@
   }
 
   /* Full width - Removes max width for all inputs */
+  &.e-form-field--full-width,
   &.e-form-field--full-width .e-input,
   &.e-form-field--full-width .e-input > input,
   &.e-form-field--full-width .e-input > textarea,
   &.e-form-field--full-width .e-input > div,
-  &.e-form-field--combined.e-form-field--full-width > .e-form-field__input {
+  &.e-form-field--full-width > .e-form-field__input {
+    width: 100%;
     max-width: unset;
   }
 }

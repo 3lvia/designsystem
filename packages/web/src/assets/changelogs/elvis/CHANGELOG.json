@@ -28,6 +28,13 @@
             { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
             { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fix for <code>e-form-field--full-width</code> class."],
+          "components": [
+            { "displayName": "Input / Form field", "url": "https://design.elvia.io/components/input" }
+          ]
         }
       ]
     },
