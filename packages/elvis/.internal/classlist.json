@@ -105,10 +105,9 @@
 			"modifier": {
 				"e-form-field--compact": {},
 				"e-form-field--small": {},
-				"e-form-field--combined": {},
 				"e-form-field--full-width": {},
-				"e-form-field--width-auto": {},
-				"e-form-field--medium": {}
+				"e-form-field--combined": {},
+				"e-form-field--width-auto": {}
 			},
 			"element": {
 				"e-form-field__label": {
@@ -308,8 +307,7 @@
 				"e-input--placeholder": {},
 				"e-input--centered": {},
 				"e-input--compact": {},
-				"e-input--small": {},
-				"e-input--medium": {}
+				"e-input--small": {}
 			},
 			"psuedo": {
 				"e-input---invalid": {},
@@ -1945,13 +1943,11 @@
 		"e-form-field__error--visible": {},
 		"e-form-field__nested": {},
 		"e-form-field__nested--sm": {},
+		"e-form-field--full-width": {},
 		"e-form-field--combined": {},
 		"e-form-field__input": {},
-		"e-input--medium": {},
-		"e-form-field--full-width": {},
 		"e-inlined-field": {},
 		"e-form-field--width-auto": {},
-		"e-form-field--medium": {},
 		"e-inlined-field--full-width": {},
 		"e-fileupload": {},
 		"e-fileupload__icon": {},

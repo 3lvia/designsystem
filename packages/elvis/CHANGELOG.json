@@ -5,6 +5,16 @@
       "date": "May 30, 2023",
       "changelog": [
         {
+          "type": "breaking_changes",
+          "changes": [
+            "<code>e-form-field--medium</code>, <code>e-form-field--small</code> and <code>e-form-field--combined</code> (with all classes under this class) has been removed. This is because these classes were not really used and makes more sense for projects to implement themselves."
+          ],
+          "components": [
+            { "displayName": "Input / Form field", "url": "https://design.elvia.io/components/input" }
+          ],
+          "fixes": ["New styling will have to be added to replace the styling these classes provided."]
+        },
+        {
           "type": "new_feature",
           "changes": [
             "Renamed the sizes for all input components from compact to small. E.g. <code>e-radio--compact</code> is renamed to <code>e-radio--small</code> and will need to be updated in the future."
@@ -14,6 +24,8 @@
             { "displayName": "Radio Button", "url": "https://design.elvia.io/components/radiobutton" },
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
             { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Autocomplete", "url": "https://design.elvia.io/components/autocomplete" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
             { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }
           ]
         }

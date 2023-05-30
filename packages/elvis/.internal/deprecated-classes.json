@@ -1,7 +1,39 @@
 {
+  "e-form-field--combined": {
+    "deprecateChildren": true,
+    "version": "9.0.0"
+  },
+  "e-form-field--small": {
+    "deprecateChildren": true,
+    "version": "9.0.0"
+  },
+  "e-form-field--medium": {
+    "deprecateChildren": true,
+    "version": "9.0.0"
+  },
+  "e-input--medium": {
+    "requiredAncestor": "e-form-field--combined",
+    "deprecateChildren": false,
+    "version": "9.0.0",
+    "replacement": {
+      "name": "e-input--",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/input"
+    }
+  },
+  "e-input--small": {
+    "requiredAncestor": "e-form-field--combined",
+    "deprecateChildren": false,
+    "version": "9.0.0",
+    "replacement": {
+      "name": "e-input--short",
+      "type": "class",
+      "documentation": "https://design.elvia.io/components/input"
+    }
+  },
   "e-toggle--compact": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-toggle--small",
       "type": "class",
@@ -10,7 +42,7 @@
   },
   "e-input--compact": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-input--small",
       "type": "class",
@@ -19,7 +51,7 @@
   },
   "e-checkbox--compact": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-checkbox--small",
       "type": "class",
@@ -28,7 +60,7 @@
   },
   "e-checkbox--sm": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-checkbox--small",
       "type": "class",
@@ -37,7 +69,7 @@
   },
   "e-table__footnote--compact": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-table__footnote--small",
       "type": "class",
@@ -46,7 +78,7 @@
   },
   "e-table__cell--multiline-sm": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-table__cell--multiline-small",
       "type": "class",
@@ -55,7 +87,7 @@
   },
   "e-table-mobile--compact": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-table-mobile--small",
       "type": "class",
@@ -64,7 +96,7 @@
   },
   "e-table--compact": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-table--small",
       "type": "class",
@@ -73,7 +105,7 @@
   },
   "e-form-field--compact": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-form-field--small",
       "type": "class",
@@ -82,7 +114,7 @@
   },
   "e-radio--compact": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-radio--small",
       "type": "class",
@@ -91,7 +123,7 @@
   },
   "e-radio--sm": {
     "deprecateChildren": false,
-    "version": "8.12.0",
+    "version": "9.0.0",
     "replacement": {
       "name": "e-radio--small",
       "type": "class",
