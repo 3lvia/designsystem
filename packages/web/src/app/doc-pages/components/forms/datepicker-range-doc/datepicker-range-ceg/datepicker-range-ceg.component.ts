@@ -19,10 +19,13 @@ export class DatepickerRangeCegComponent implements ComponentExample {
   cegContent = new CegControlManager<DatepickerRangePropsWithFixedRequired>([
     {
       controls: {
-        isCompact: {
-          label: 'Compact',
-          type: 'checkbox',
-          value: false,
+        size: {
+          type: 'radioGroup',
+          value: 'medium',
+          radios: [
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+          ],
           group: 'Size',
         },
         isRequired: {
