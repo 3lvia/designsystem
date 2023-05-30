@@ -25,7 +25,7 @@
           :inlineStyle="{ maxWidth: '280px' }"
           label="Compact"
           :items="dropdownItems"
-          isCompact="true"
+          size="small"
         ></elvia-dropdown>
         <elvia-dropdown
           :inlineStyle="{ maxWidth: '280px' }"
