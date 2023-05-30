@@ -30,7 +30,7 @@ const datepickerRangeData: ComponentData = {
     size: {
       isRequired: false,
       type: 'small | medium',
-      description: 'Datepicker-range can be set to different sizes.',
+      description: 'Datepicker can be set to different sizes.',
       default: 'medium',
     },
     isFullWidth: {

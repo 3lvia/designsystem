@@ -181,7 +181,7 @@
       >
         <div slot="content">
           <div class="date-container">
-            <elvia-datepicker size="true"></elvia-datepicker>
+            <elvia-datepicker size="small"></elvia-datepicker>
           </div>
         </div>
         <div slot="secondaryButton">
