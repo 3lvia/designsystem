@@ -15,7 +15,7 @@ export const configurationProps: ComponentData = {
       type: 'boolean',
       description: 'State if there is an error in the step.',
     },
-    isComplete: {
+    isCompleted: {
       isRequired: false,
       type: 'boolean',
       description: 'State if the step is complete.',
