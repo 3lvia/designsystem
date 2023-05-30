@@ -1,12 +1,7 @@
-import { isSsr, useConnectedOverlay, IconWrapper } from '@elvia/elvis-toolbox';
+import { isSsr, useConnectedOverlay, IconWrapper, FormFieldSizes } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
-import {
-  DropdownItem as DropdownItemOption,
-  DropdownSize,
-  DropdownValue,
-  DropdownValueType,
-} from '../elviaDropdown.types';
+import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
 import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdownItemStyles';
 import { Checkbox } from '../checkbox/checkbox';
@@ -18,7 +13,7 @@ import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRight';
 interface DropdownItemProps {
   item: DropdownItemOption;
   currentVal?: DropdownValue;
-  size: DropdownSize;
+  size: FormFieldSizes;
   isMulti: boolean;
   focusedItem?: DropdownItemOption;
   setFocusedItem: (item?: DropdownItemOption) => void;

@@ -1,12 +1,7 @@
 import React, { useEffect, useState, KeyboardEvent, useRef, useMemo } from 'react';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree, getValueAsList } from '../dropdownListUtils';
-import {
-  DropdownItem as DropdownItemOption,
-  DropdownSize,
-  DropdownValue,
-  DropdownValueType,
-} from '../elviaDropdown.types';
+import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { BackButton } from './backButton';
 import {
   CursorCurve,
@@ -18,7 +13,7 @@ import {
 import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 import { ItemValue } from '../dropdown-item/itemValue';
-import { Overlay } from '@elvia/elvis-toolbox';
+import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
 import { ThemeName } from '@elvia/elvis-colors';
 import DOMPurify from 'dompurify';
 import { DropdownIconContainer } from '../styledComponents';
@@ -29,7 +24,7 @@ interface DropdownOverlayProps {
   filteredItems: DropdownItemOption[];
   allItems?: DropdownItemOption[];
   inputIsKeyboard: boolean;
-  size: DropdownSize;
+  size: FormFieldSizes;
   isMulti: boolean;
   onClose: () => void;
   noItemsText?: string;
