@@ -6,18 +6,10 @@ import { FormFieldError } from './errorStyles';
 
 export type FormFieldSizes = 'small' | 'medium';
 
-const setActiveBorder = (size?: FormFieldSizes, hasSuffix?: boolean) => {
-  let paddingValue: string;
-
-  if (size === 'small') {
-    paddingValue = '0 3px 0 7px';
-  } else {
-    paddingValue = hasSuffix ? '0 15px' : '0 7px 0 15px';
-  }
-
+const setActiveBorder = (size?: FormFieldSizes) => {
   return css`
     border: 2px solid ${getThemeColor('border-selected-1')};
-    padding: ${paddingValue};
+    padding: ${size === 'small' ? '0 3px 0 7px' : '0 7px 0 15px'};
   `;
 };
 
@@ -39,14 +31,13 @@ export interface FormFieldContainerProps {
   isActive?: boolean;
   isInvalid?: boolean;
   isDisabled?: boolean;
-  hasSuffix?: boolean;
   hasErrorPlaceholder?: boolean;
 }
 
 /**
  *
  * @example
- * <FormFieldContainer size="small" isFullWidth isActive isInvalid isDisabled hasSuffix>
+ * <FormFieldContainer size="small" isFullWidth isActive isInvalid isDisabled >
  *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
  *   <FormFieldInputContainer>
  *     <FormFieldInput />
@@ -78,19 +69,6 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `}
 
-  ${({ hasSuffix, size }) =>
-    hasSuffix &&
-    css`
-      ${FormFieldInputContainer} {
-        padding: 0 16px;
-
-        ${size === 'small' &&
-        css`
-          gap: 4px;
-        `}
-      }
-    `}
-
   ${({ size }) => {
     if (size === 'small') {
       return css`
@@ -108,6 +86,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
         }
 
         ${FormFieldInputContainer} {
+          gap: 4px;
           padding: 0 4px 0 8px;
           height: 32px;
         }
@@ -118,6 +97,10 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
 
         ${FormFieldError} {
           ${getTypographyCss('text-micro')}
+        }
+
+        ${FormFieldInputSuffixText} {
+          margin-right: 4px;
         }
       `;
     }
@@ -143,25 +126,25 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `};
 
-  ${({ isInvalid, size, hasSuffix }) =>
+  ${({ isInvalid, size }) =>
     isInvalid &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(size, hasSuffix)};
+        ${setActiveBorder(size)};
         border-color: ${getThemeColor('signal-error')};
       }
     `};
 
-  ${({ isActive, size, hasSuffix }) =>
+  ${({ isActive, size }) =>
     isActive &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(size, hasSuffix)}
+        ${setActiveBorder(size)}
       }
     `}
 
   ${FormFieldInputContainer}:focus-within {
-    ${({ size, hasSuffix }) => setActiveBorder(size, hasSuffix)}
+    ${({ size }) => setActiveBorder(size)}
   }
 `;
 
@@ -184,12 +167,14 @@ export const FormFieldLabel = styled.div<LabelProps>`
 `;
 
 export const FormFieldInputSuffixText = styled.span`
-  ${getTypographyCss('text-micro-light')}
+  ${getTypographyCss('text-sm-strong')}
+  color: ${getThemeColor('text-3')};
   user-select: none;
   white-space: nowrap;
+  margin-right: 8px;
 `;
 
-export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
+export const FormFieldInput = styled.input`
   ${getTypographyCss('text-md')}
   min-width: 0;
   padding: 0;
