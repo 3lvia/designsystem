@@ -4,12 +4,14 @@ import { ButtonProps, Size } from './button';
 
 const getSize = (size: Size) => {
   switch (size) {
+    case 'small':
     case 'sm': {
       return css`
         width: 32px;
         height: 32px;
       `;
     }
+    case 'medium':
     case 'md': {
       return css`
         width: 40px;
@@ -25,7 +27,7 @@ const getSize = (size: Size) => {
   }
 };
 
-export const IconButton = styled.button.attrs(() => ({ type: 'button' }))<Partial<ButtonProps>>`
+export const IconButton = styled.button<Partial<ButtonProps>>`
   flex: none;
   display: grid;
   place-items: center;
