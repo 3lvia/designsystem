@@ -40,7 +40,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
   }
 
   &.e-radio--compact,
-  &.e-radio--sm {
+  &.e-radio--sm,
+  &.e-radio--small {
     @include typography.typography('text-sm');
     color: colors.color('font-color');
 
@@ -209,7 +210,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
   }
   // extends correct radiomark for compact radiobuttons
   &.e-radio--compact[class$='e-radio---checked'] &__mark,
-  &.e-radio--sm[class$='e-radio---checked'] &__mark {
+  &.e-radio--sm[class$='e-radio---checked'] &__mark,
+  &.e-radio--small[class$='e-radio---checked'] &__mark {
     @extend %radiobutton-mark--compact;
   }
 
@@ -246,7 +248,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
   }
   // extends correct radiomark for compact radiobuttons
   &.e-radio--compact[class$='e-radio---disabled-checked'] &__mark,
-  &.e-radio--sm[class$='e-radio---disabled-checked'] &__mark {
+  &.e-radio--sm[class$='e-radio---disabled-checked'] &__mark,
+  &.e-radio--small[class$='e-radio---disabled-checked'] &__mark {
     @extend %radiobutton-mark--compact;
   }
 
