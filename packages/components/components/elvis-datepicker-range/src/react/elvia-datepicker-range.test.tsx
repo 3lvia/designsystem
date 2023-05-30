@@ -59,7 +59,7 @@ describe('Elvis DatepickerRange', () => {
 
   describe('passes props to both underlying date pickers', () => {
     beforeEach(() => {
-      render(<DatepickerRange isDisabled isFullWidth isCompact></DatepickerRange>);
+      render(<DatepickerRange isDisabled isFullWidth size="small"></DatepickerRange>);
     });
 
     it('should have both date pickers disabled', () => {
