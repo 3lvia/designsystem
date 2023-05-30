@@ -1,19 +1,19 @@
 import React from 'react';
 import { IndeterminateLine, StyledCheckbox } from './checkboxStyles';
 import { ThemeName } from '@elvia/elvis-colors';
-import { DropdownSize } from '../elviaDropdown.types';
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 
 export interface CheckboxProps {
   isChecked?: boolean;
   isIndeterminate?: boolean;
   isDisabled?: boolean;
-  size?: DropdownSize;
+  size?: FormFieldSizes;
   isFocused?: boolean;
   currentTheme: ThemeName;
 }
 
 export interface IndeterminateLineProps {
-  size?: DropdownSize;
+  size?: FormFieldSizes;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({

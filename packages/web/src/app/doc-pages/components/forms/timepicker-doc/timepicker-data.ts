@@ -39,11 +39,11 @@ export const timepickerData: ComponentData = {
       description: 'Gives the time picker full width.',
       default: 'false',
     },
-    isCompact: {
+    size: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Compact size.',
-      default: 'false',
+      type: 'small | medium',
+      description: 'Datepicker can be set to different sizes.',
+      default: 'medium',
     },
     isRequired: {
       isRequired: false,

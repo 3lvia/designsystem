@@ -349,7 +349,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         {hasTimepickers && (
           <Timepicker
             label=""
-            isCompact={size === 'small'}
+            size={size}
             isDisabled={isDisabled}
             value={isTouched('startTime') || valueIsSentAsProp ? selectedDateRange.start : undefined}
             valueOnChange={handleStartTimePickerValueOnChange}
@@ -402,7 +402,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         {hasTimepickers && (
           <Timepicker
             label=""
-            isCompact={size === 'small'}
+            size={size}
             isDisabled={isDisabled}
             value={isTouched('endTime') || valueIsSentAsProp ? selectedDateRange.end : undefined}
             valueOnChange={handleEndTimePickerValueOnChange}

@@ -7,7 +7,7 @@ export const config: ComponentConfig = {
     { name: 'minuteInterval', type: 'string' },
     { name: 'isDisabled', type: 'boolean' },
     { name: 'isFullWidth', type: 'boolean' },
-    { name: 'isCompact', type: 'boolean' },
+    { name: 'size', type: 'string' },
     { name: 'isRequired', type: 'boolean' },
     { name: 'isOpen', type: 'boolean' },
     { name: 'errorOptions', type: 'object' },
@@ -15,5 +15,11 @@ export const config: ComponentConfig = {
     { name: 'label', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
+    // Deprecated attributes
+    {
+      name: 'isCompact',
+      type: 'boolean',
+      deprecatedDetails: { version: '3.0.0', newProp: 'size', isDirectReplacement: false },
+    },
   ],
 };

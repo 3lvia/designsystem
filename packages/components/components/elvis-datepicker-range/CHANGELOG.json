@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "30.05.23",
+      "version": "3.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Bumped <code>@elvia/elvis-timepicker</code> dependency."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.23",
       "version": "3.0.0",
       "changelog": [
         {
