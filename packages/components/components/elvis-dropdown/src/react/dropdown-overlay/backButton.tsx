@@ -1,14 +1,14 @@
-import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
+import { FormFieldSizes, IconButton, IconWrapper } from '@elvia/elvis-toolbox';
 import React, { MouseEvent } from 'react';
 import { getDropdownItemId } from '../dropdownListUtils';
-import { DropdownItem, DropdownSize, DropdownValueType } from '../elviaDropdown.types';
+import { DropdownItem, DropdownValueType } from '../elviaDropdown.types';
 import { BackButtonStyles } from './dropdownOverlayStyles';
 import arrowLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLeft';
 
 interface SelectAllOptionProps {
   item: DropdownItem;
   focusedValue?: DropdownValueType;
-  size?: DropdownSize;
+  size?: FormFieldSizes;
   inputIsKeyboard: boolean;
   onClick: () => void;
   onHover: (item: DropdownItem) => void;

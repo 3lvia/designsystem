@@ -21,7 +21,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   errorOnChange,
   label = 'Velg tid',
   minuteInterval = '15',
-  isCompact = false,
+  size = 'medium',
   isFullWidth = false,
   isDisabled = false,
   isRequired = false,
@@ -141,7 +141,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   return (
     <>
       <FormFieldContainer
-        isCompact={isCompact}
+        size={size}
         className={className ?? ''}
         style={{ ...inlineStyle }}
         isDisabled={isDisabled}
@@ -169,7 +169,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
               setVisibility(!isShowing);
             }}
             ref={openPopoverButtonRef}
-            size={isCompact ? 'sm' : 'md'}
+            size={size === 'small' ? 'sm' : 'md'}
             data-testid="popover-toggle"
             aria-label="Åpne tidvelger"
             aria-haspopup="dialog"
@@ -177,7 +177,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             <IconWrapper
               icon={clock}
               color={isDisabled ? 'text-disabled-1' : undefined}
-              size={isCompact ? 'xs' : 'sm'}
+              size={size === 'small' ? 'xs' : 'sm'}
             />
           </IconButton>
         </FormFieldInputContainer>

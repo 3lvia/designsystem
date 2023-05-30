@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
-import { TertiaryButton, IconWrapper } from '@elvia/elvis-toolbox';
-import { DropdownItem, DropdownSize, DropdownValueType } from '../elviaDropdown.types';
+import { TertiaryButton, IconWrapper, FormFieldSizes } from '@elvia/elvis-toolbox';
+import { DropdownItem, DropdownValueType } from '../elviaDropdown.types';
 import { LoadMoreButtonStyles, SpinContainer } from './dropdownOverlayStyles';
 import { getDropdownItemId } from '../dropdownListUtils';
 import sync from '@elvia/elvis-assets-icons/dist/icons/sync';
@@ -10,7 +10,7 @@ interface LoadMoreProps {
   focusedValue?: DropdownValueType;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
-  size: DropdownSize;
+  size: FormFieldSizes;
   onHover: (item: DropdownItem) => void;
 }
 

@@ -1,9 +1,8 @@
 import { getThemeColor } from '@elvia/elvis-colors';
-import { IconButton } from '@elvia/elvis-toolbox';
+import { FormFieldSizes, IconButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { StyledCheckbox } from '../checkbox/checkboxStyles';
-import { DropdownSize } from '../elviaDropdown.types';
 
 export const TooltipContainer = styled.div<{ noRightContent: boolean; isRootOverlay?: boolean }>`
   padding-right: 16px;
@@ -51,7 +50,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   isActive?: boolean;
   isFocused?: boolean;
   isDisabled?: boolean;
-  size?: DropdownSize;
+  size?: FormFieldSizes;
   isMulti?: boolean;
   isInvisible?: boolean;
   isGtMobile?: boolean;
