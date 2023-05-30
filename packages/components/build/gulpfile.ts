@@ -10,6 +10,7 @@ import * as typescript from 'gulp-typescript';
 import * as filter from 'gulp-filter';
 import * as cache from 'gulp-cached';
 import * as sourcemaps from 'gulp-sourcemaps';
+import { exec } from 'child_process';
 // Must import from src because the files don't exist in dist before this build script
 import { ComponentAttribute, ComponentConfig } from '../components/elvis-toolbox/src/componentConfig.types';
 
@@ -232,9 +233,14 @@ function buildToolboxComponent() {
     .pipe(cache(`makeJSTranspileTaskelvis-toolbox`))
     .pipe(sourcemaps.init())
     .pipe(typescript.createProject('../tsconfig.json', { module: 'ESNext' })());
-  // Write the *.dts-files directly to dist, but pass the *.js-files through babel first
+
+  // When the transpilation is done, we need to run 'sourcemap' to generate the .d.ts.map sourcemap files
+  tsTranspiled.js.on('end', () => {
+    exec('yarn sourcemap', { cwd: '../components/elvis-toolbox' });
+  });
+
+  // Pass the *.js files through babel. The *.d.ts-files are generated from the 'yarn sourcemap'
   return mergeStream(
-    tsTranspiled.dts,
     tsTranspiled.js.pipe(
       babel({
         presets: [
