@@ -5,7 +5,7 @@ export const config: ComponentConfig = {
   attributes: [
     { name: 'value', type: 'object' },
     { name: 'labelOptions', type: 'object' },
-    { name: 'isCompact', type: 'boolean' },
+    { name: 'size', type: 'string' },
     { name: 'isDisabled', type: 'boolean' },
     { name: 'isFullWidth', type: 'boolean' },
     { name: 'isRequired', type: 'object' },
@@ -20,5 +20,10 @@ export const config: ComponentConfig = {
     { name: 'disableDates', type: 'function' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
+    {
+      name: 'isCompact',
+      type: 'boolean',
+      deprecatedDetails: { version: '3.0.0', newProp: 'size', isDirectReplacement: false },
+    },
   ],
 };
