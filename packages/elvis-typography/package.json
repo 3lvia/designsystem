@@ -8,13 +8,15 @@
   "types": "dist/elviaTypography.d.ts",
   "style": "dist/elviaTypography.scss",
   "scripts": {
-    "build": "gulp && tsup",
+    "build": "gulp && tsup && yarn sourcemap",
+    "sourcemap": "tsc --emitDeclarationOnly --declaration --declarationMap --outDir dist ./src/elviaTypography.ts",
     "start": "tsup --watch"
   },
   "files": [
     "CHANGELOG.json",
     "README.md",
-    "dist/**/*"
+    "dist/**/*",
+    "!dist/**/*.d.ts.map"
   ],
   "devDependencies": {
     "@types/gulp": "^4.0.10",
