@@ -48,6 +48,20 @@
     </ng-container>
   </app-component-section>
 
+  <!-- IMPLEMENTATION -->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Icons'">
+        <ng-container ngProjectAs="sectionContent">
+          The icons should be sent in as HTML string and using elvis icons are recommended as this also
+          supports the size-prop. If you send in icons in a different way the size prop will not work and the
+          icons needs to be adjusted manually.
+          <p>Large = 24x24px, Medium and Small = 16x16px.</p>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
   <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">

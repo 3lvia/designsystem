@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Icon } from '@elvia/elvis-icon/react';
-import { IconName } from '@elvia/elvis-assets-icons';
 import {
   TextSegmentedControl,
   IconSegmentedControl,
   SegmentedControlProps,
 } from './elviaSegmentedControl.types';
-import { SegmentedControlContainer, SegmentedControlLabel, SegmentedControlInput } from './styledComponents';
+import {
+  SegmentedControlContainer,
+  SegmentedControlLabel,
+  SegmentedControlInput,
+  SegmentedControlIconContainer,
+} from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
+import DOMPurify from 'dompurify';
 
 export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   items,
@@ -32,55 +36,68 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
     }
   };
 
+  const getIconString = (icon: string): string => {
+    let newIconString = icon;
+    if (icon.includes('e-icon ')) {
+      if (size === 'large') {
+        newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--sm ');
+      } else {
+        newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--xs ');
+      }
+    }
+    return newIconString;
+  };
+
   return (
     <SegmentedControlContainer
       scType={type}
       size={size}
       selectedIndex={selectedIndex}
-      numberOfControls={items && items.length}
+      numberOfControls={items?.length}
       role="radiogroup"
       className={className ?? ''}
       style={{ ...inlineStyle }}
       data-testid="segmented-control-container"
     >
-      {items &&
-        items.map((control, index) => (
-          <SegmentedControlLabel
-            scType={type}
-            size={size}
-            isSelected={index === selectedIndex}
-            key={index}
-            htmlFor={segmentedControlId + index}
-            aria-label={type === 'icon' ? (control as IconSegmentedControl).ariaLabel : undefined}
-            data-testid="segmented-control-label"
-          >
-            <SegmentedControlInput
-              type="radio"
-              id={segmentedControlId + index}
-              name={segmentedControlId}
-              checked={index === selectedIndex}
-              onChange={() => setSelected(index)}
-              data-testid="segmented-control-input"
-            ></SegmentedControlInput>
-            {type === 'text' && (
-              <div data-testid="segmented-control-text">{(control as TextSegmentedControl).label}</div>
-            )}
-            {type === 'icon' &&
-              (index !== selectedIndex ? (
-                <Icon
-                  name={(control as IconSegmentedControl).iconName as IconName}
-                  size={size === 'large' ? 'sm' : 'xs'}
-                  data-testid="segmented-control-icon"
-                />
-              ) : (
-                <Icon
-                  name={(control as IconSegmentedControl).iconNameSelected as IconName}
-                  size={size === 'large' ? 'sm' : 'xs'}
-                  data-testid="segmented-control-icon"
-                />
-              ))}
-          </SegmentedControlLabel>
-        ))}
+      {items?.map((control, index) => (
+        <SegmentedControlLabel
+          scType={type}
+          size={size}
+          isSelected={index === selectedIndex}
+          key={index}
+          htmlFor={segmentedControlId + index}
+          aria-label={type === 'icon' ? (control as IconSegmentedControl).ariaLabel : undefined}
+          data-testid="segmented-control-label"
+        >
+          <SegmentedControlInput
+            type="radio"
+            id={segmentedControlId + index}
+            name={segmentedControlId}
+            checked={index === selectedIndex}
+            onChange={() => setSelected(index)}
+            data-testid="segmented-control-input"
+          ></SegmentedControlInput>
+          {type === 'text' && (
+            <div data-testid="segmented-control-text">{(control as TextSegmentedControl).label}</div>
+          )}
+          {type === 'icon' &&
+            (index !== selectedIndex ? (
+              <SegmentedControlIconContainer
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).icon)),
+                }}
+                data-testid="segmented-control-icon"
+              ></SegmentedControlIconContainer>
+            ) : (
+              <SegmentedControlIconContainer
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).iconSelected)),
+                }}
+                data-testid="segmented-control-icon"
+              ></SegmentedControlIconContainer>
+            ))}
+        </SegmentedControlLabel>
+      ))}
     </SegmentedControlContainer>
   );
 };

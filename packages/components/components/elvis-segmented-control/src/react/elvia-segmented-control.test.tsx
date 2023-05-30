@@ -52,8 +52,16 @@ describe('Elvia Segmented Control', () => {
 
   describe('The icon segmented control', () => {
     const items: IconSegmentedControl[] = [
-      { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'label' },
-      { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'label' },
+      {
+        icon: '<i class="e-icon e-icon--thumbnail"></i>',
+        iconSelected: '<i class="e-icon e-icon--thumbnail-color"></i>',
+        ariaLabel: 'label',
+      },
+      {
+        icon: '<i class="e-icon e-icon--thumbnail"></i>',
+        iconSelected: '<i class="e-icon e-icon--thumbnail-color"></i>',
+        ariaLabel: 'label',
+      },
     ];
 
     test('should contain icon', () => {
@@ -76,8 +84,16 @@ describe('Elvia Segmented Control', () => {
   describe('the accessibility', () => {
     const items = [{ label: 'Weekly' }, { label: 'Monthly' }, { label: 'Yearly' }];
     const iconItems: IconSegmentedControl[] = [
-      { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'label' },
-      { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'label' },
+      {
+        icon: '<i class="e-icon e-icon--thumbnail"></i>',
+        iconSelected: '<i class="e-icon e-icon--thumbnail-color"></i>',
+        ariaLabel: 'label',
+      },
+      {
+        icon: '<i class="e-icon e-icon--thumbnail"></i>',
+        iconSelected: '<i class="e-icon e-icon--thumbnail-color"></i>',
+        ariaLabel: 'label',
+      },
     ];
 
     it('should have no axe violations', async () => {

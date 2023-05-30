@@ -126,3 +126,7 @@ export const SegmentedControlInput = styled.input`
     cursor: pointer;
   }
 `;
+
+export const SegmentedControlIconContainer = styled.div`
+  display: flex;
+`;
