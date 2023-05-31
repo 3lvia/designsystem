@@ -23,7 +23,7 @@
           ],
           "fixes": [
             "<code>isCompact</code> can be directly replaced by <code>size='small'</code>",
-            "<code>icon: 'powerline'</code> can be directly replaced by <code><i class='e-icon e-icon--powerline e-icon--sm'></i></code>"
+            "<code>icon: 'powerline'</code> can be directly replaced by <code>&lt;i class='e-icon e-icon--powerline e-icon--sm'&gt;&lt;/i&gt;</code>"
           ]
         }
       ]

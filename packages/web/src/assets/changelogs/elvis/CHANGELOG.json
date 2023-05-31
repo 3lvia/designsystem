@@ -32,9 +32,7 @@
         {
           "type": "patch",
           "changes": ["Fix for <code>e-form-field--full-width</code> class."],
-          "components": [
-            { "displayName": "Input / Form field", "url": "https://design.elvia.io/components/input" }
-          ]
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         }
       ]
     },
