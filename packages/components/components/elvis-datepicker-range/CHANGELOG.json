@@ -2,12 +2,15 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "30.05.23",
+      "date": "31.05.23",
       "version": "3.0.1",
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Bumped <code>@elvia/elvis-timepicker</code> dependency."]
+          "changes": [
+            "Bumped <code>@elvia/elvis-timepicker</code> and <code>@elvia/elvis-datepicker</code> dependencies.",
+            "The <code>start</code> and <code>end</code> objects inside the <code>errorOptions</code> are now marked as Partial."
+          ]
         }
       ]
     },
