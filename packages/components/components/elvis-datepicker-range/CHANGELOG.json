@@ -6,6 +6,10 @@
       "version": "3.0.1",
       "changelog": [
         {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where <code>errorOptions</code> would lose its default values."]
+        },
+        {
           "type": "patch",
           "changes": [
             "Bumped <code>@elvia/elvis-timepicker</code> and <code>@elvia/elvis-datepicker</code> dependencies.",
