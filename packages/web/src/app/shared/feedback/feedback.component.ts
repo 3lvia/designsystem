@@ -1,26 +1,23 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RoutesRecognized } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss'],
 })
-export class FeedbackComponent implements OnInit, OnDestroy {
+export class FeedbackComponent {
   webHook = 'https://hooks.slack.com/services/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';
 
   isEmoji = true;
   isComment = false;
   isSent = false;
   currentEmoji: string;
-  routerSubscription: Subscription;
 
-  constructor(private router: Router, private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.routerSubscription = this.router.events.subscribe((data) => {
+  constructor(private router: Router, private http: HttpClient) {
+    this.router.events.pipe(takeUntilDestroyed()).subscribe((data) => {
       if (data instanceof RoutesRecognized) {
         this.resetFeedback();
       }
@@ -88,9 +85,5 @@ export class FeedbackComponent implements OnInit, OnDestroy {
     };
 
     this.http.post(this.webHook, JSON.stringify(message), { ...options, responseType: 'text' }).subscribe();
-  }
-
-  ngOnDestroy(): void {
-    this.routerSubscription.unsubscribe();
   }
 }

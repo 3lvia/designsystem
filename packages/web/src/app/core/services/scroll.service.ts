@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Observable, Subject } from 'rxjs';
 import { NavbarAnchor } from 'src/app/shared/shared.interface';
 import { Locale, LocalizationService } from './localization.service';
@@ -14,19 +15,19 @@ export class ScrollService {
   private localizedOverview = 'Overview';
 
   constructor(private localizationService: LocalizationService) {
-    this.localizationService.listenLocalization().subscribe((localization) => {
-      switch (localization) {
-        case Locale['en-GB']:
-          this.localizedOverview = 'Overview';
-          break;
-        case Locale['nb-NO']:
-          this.localizedOverview = 'Oversikt';
-          break;
-        default:
-          this.localizedOverview = 'Overview';
-          break;
-      }
-    });
+    this.localizationService
+      .listenLocalization()
+      .pipe(takeUntilDestroyed())
+      .subscribe((localization) => {
+        switch (localization) {
+          case Locale['nb-NO']:
+            this.localizedOverview = 'Oversikt';
+            break;
+          default:
+            this.localizedOverview = 'Overview';
+            break;
+        }
+      });
   }
 
   listenAnchorToScrollTo(): Observable<NavbarAnchor> {
