@@ -72,7 +72,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     },
   );
 
-  const mergedErrorOptions = { ...defaultErrorOptions, ...errorOptions };
+  const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
     let dateISO;
