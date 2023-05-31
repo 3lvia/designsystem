@@ -26,7 +26,7 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Structure'">
         <ng-container ngProjectAs="sectionContent">
-          <p class="e-m-0 e-mb-56">
+          <p class="e-m-0">
             Color tokens are labels that represent specific colors in a design system. They make it easier to
             maintain consistency in the use of colors across different design elements and provide a shared
             language for colors among designers and developers. By using color tokens, designers and
@@ -34,7 +34,7 @@
             for every instance of a particular color. This saves time and helps prevent mistakes.
           </p>
           <!-- slett placeholder når du tar LEGO-2567 -->
-          <div class="placeholder">"LEGO-2567: Illustrasjoner for tokens" 1 here</div>
+          <div class="e-mt-56 placeholder">"LEGO-2567: Illustrasjoner for tokens" 1 here</div>
           <app-component-subsubsection [sectionTitle]="'Hex color'">
             <ng-container ngProjectAs="sectionContent">All tokens are based on a hex color</ng-container>
           </app-component-subsubsection>
@@ -53,14 +53,14 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Light and dark theme'">
         <ng-container ngProjectAs="sectionContent">
-          <p class="e-m-0 e-mb-40">
+          <p class="e-m-0">
             Tokens adapt to light and dark themes automatically, keeping their purpose token names and roles
             the same while adjusting their values. For instance,
             <code>e-color-background-hover-1</code>
             can be a light or dark shade of green depending on the theme used.
           </p>
           <!-- slett placeholder når du tar LEGO-2567 -->
-          <div class="placeholder">"LEGO-2567: Illustrasjoner for tokens" 2 here</div>
+          <div class="e-mt-56 placeholder">"LEGO-2567: Illustrasjoner for tokens" 2 here</div>
         </ng-container>
       </app-component-subsection>
       <app-color-token-table />
