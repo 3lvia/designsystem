@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-mobile-menu',
   templateUrl: './mobile-menu.component.html',
@@ -25,12 +26,15 @@ export class MobileMenuComponent implements OnDestroy {
     private cmsService: CMSService,
     private localizationService: LocalizationService,
   ) {
-    this.localizationService.listenLocalization().subscribe((locale) => {
-      this.cmsService.getMenu(locale).then((data) => {
-        this.mainMenu = data;
-        this.isLoaded = true;
+    this.localizationService
+      .listenLocalization()
+      .pipe(takeUntilDestroyed())
+      .subscribe((locale) => {
+        this.cmsService.getMenu(locale).then((data) => {
+          this.mainMenu = data;
+          this.isLoaded = true;
+        });
       });
-    });
 
     if (
       window.location.href.indexOf('localhost') > -1 ||

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { RouterService } from './router.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 export enum Locale {
   'en-GB' = 0,
@@ -18,17 +19,20 @@ export class LocalizationService {
 
   constructor(private routerService: RouterService) {
     // Set localization to english on route change outside of brand
-    this.routerService.urlPathChange().subscribe((newPath) => {
-      if (newPath.split('/')[1] !== 'brand') {
-        this.setLocalization(Locale['en-GB']);
-      } else {
-        // On route change to brand, check if a preferred locale is set
-        const preferredLocale = localStorage.getItem(LOCALIZATION_STORAGE_KEY);
-        if (this.isKeyofLocale(preferredLocale)) {
-          this.setLocalization(Locale[preferredLocale]);
+    this.routerService
+      .urlPathChange()
+      .pipe(takeUntilDestroyed())
+      .subscribe((newPath) => {
+        if (newPath.split('/')[1] !== 'brand') {
+          this.setLocalization(Locale['en-GB']);
+        } else {
+          // On route change to brand, check if a preferred locale is set
+          const preferredLocale = localStorage.getItem(LOCALIZATION_STORAGE_KEY);
+          if (this.isKeyofLocale(preferredLocale)) {
+            this.setLocalization(Locale[preferredLocale]);
+          }
         }
-      }
-    });
+      });
   }
 
   listenLocalization(): Observable<Locale> {

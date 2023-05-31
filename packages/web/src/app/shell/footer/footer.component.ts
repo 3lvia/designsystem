@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -14,7 +15,7 @@ export class FooterComponent implements OnInit {
 
   constructor(private router: Router) {
     // subscribe to router navigation
-    this.router.events.subscribe((event) => {
+    this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       // filter `NavigationEnd` events
       if (event instanceof NavigationEnd) {
         // get current route without leading slash `/`
