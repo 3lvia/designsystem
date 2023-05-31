@@ -10,12 +10,12 @@ import {
   FormFieldLabel,
   FormFieldInputContainer,
   IconWrapper,
+  ErrorOptions,
 } from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
 import { copyDay, isValidDate } from './dateHelpers';
-import { ErrorOptions } from '@elvia/elvis-toolbox';
 
 const defaultErrorOptions = {
   hideText: false,
