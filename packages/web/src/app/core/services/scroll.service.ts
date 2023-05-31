@@ -20,9 +20,6 @@ export class ScrollService {
       .pipe(takeUntilDestroyed())
       .subscribe((localization) => {
         switch (localization) {
-          case Locale['en-GB']:
-            this.localizedOverview = 'Overview';
-            break;
           case Locale['nb-NO']:
             this.localizedOverview = 'Oversikt';
             break;
