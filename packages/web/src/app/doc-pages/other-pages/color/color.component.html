@@ -25,7 +25,44 @@
   <app-component-section [sectionTitle]="'Tokens'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Structure'">
-        <ng-container ngProjectAs="sectionContent"></ng-container>
+        <ng-container ngProjectAs="sectionContent">
+          <p class="e-m-0 e-mb-56">
+            Color tokens are labels that represent specific colors in a design system. They make it easier to
+            maintain consistency in the use of colors across different design elements and provide a shared
+            language for colors among designers and developers. By using color tokens, designers and
+            developers can easily change the colors used in the design without having to hunt through the code
+            for every instance of a particular color. This saves time and helps prevent mistakes.
+          </p>
+          <!-- slett placeholder når du tar LEGO-2567 -->
+          <div class="placeholder">"LEGO-2567: Illustrasjoner for tokens" 1 here</div>
+          <div class="e-my-40 e-mb-8">
+            <h4 class="e-m-0 e-mb-8">Hex color</h4>
+            <p class="e-m-0">All tokens are based on a hex color</p>
+          </div>
+          <div class="e-my-40">
+            <h4 class="e-m-0 e-mb-8">Base tokens</h4>
+            <p class="e-m-0">The base tokens refer hex color and build the basis of the design system.</p>
+          </div>
+          <div class="e-my-40">
+            <h4 class="e-m-0 e-mb-8">Purpose tokens</h4>
+            <p class="e-m-0">
+              Use purpose tokens in all applications. These always refer to a base token. Purpose tokens have
+              descriptive names that explain their intended use.
+            </p>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Light and dark theme'">
+        <ng-container ngProjectAs="sectionContent">
+          <p class="e-mb-40">
+            Tokens adapt to light and dark themes automatically, keeping their purpose token names and roles
+            the same while adjusting their values. For instance,
+            <code>e-color-background-hover-1</code>
+            can be a light or dark shade of green depending on the theme used.
+          </p>
+          <!-- slett placeholder når du tar LEGO-2567 -->
+          <div class="placeholder">"LEGO-2567: Illustrasjoner for tokens" 2 here</div>
+        </ng-container>
       </app-component-subsection>
       <app-color-token-table />
     </ng-container>
