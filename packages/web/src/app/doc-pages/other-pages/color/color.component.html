@@ -35,26 +35,25 @@
           </p>
           <!-- slett placeholder når du tar LEGO-2567 -->
           <div class="placeholder">"LEGO-2567: Illustrasjoner for tokens" 1 here</div>
-          <div class="e-my-40 e-mb-8">
-            <h4 class="e-m-0 e-mb-8">Hex color</h4>
-            <p class="e-m-0">All tokens are based on a hex color</p>
-          </div>
-          <div class="e-my-40">
-            <h4 class="e-m-0 e-mb-8">Base tokens</h4>
-            <p class="e-m-0">The base tokens refer hex color and build the basis of the design system.</p>
-          </div>
-          <div class="e-my-40">
-            <h4 class="e-m-0 e-mb-8">Purpose tokens</h4>
-            <p class="e-m-0">
+          <app-component-subsubsection [sectionTitle]="'Hex color'">
+            <ng-container ngProjectAs="sectionContent">All tokens are based on a hex color</ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Base tokens'">
+            <ng-container ngProjectAs="sectionContent">
+              The base tokens refer hex color and build the basis of the design system.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Purpose tokens'">
+            <ng-container ngProjectAs="sectionContent">
               Use purpose tokens in all applications. These always refer to a base token. Purpose tokens have
               descriptive names that explain their intended use.
-            </p>
-          </div>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Light and dark theme'">
         <ng-container ngProjectAs="sectionContent">
-          <p class="e-mb-40">
+          <p class="e-m-0 e-mb-40">
             Tokens adapt to light and dark themes automatically, keeping their purpose token names and roles
             the same while adjusting their values. For instance,
             <code>e-color-background-hover-1</code>
