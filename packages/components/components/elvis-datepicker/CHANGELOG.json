@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "01.06.23",
+      "version": "7.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the Date Picker would give an error if the <code>minDate</code>, <code>maxDate</code> and <code>value</code> props were updated at the same time."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.05.23",
       "version": "7.0.0",
       "changelog": [
