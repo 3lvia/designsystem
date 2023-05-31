@@ -11,6 +11,7 @@ import { SearchService } from '../../../core/services/search.service';
 import Fuse from 'fuse.js';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-search-menu',
@@ -41,12 +42,15 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     private searchService: SearchService<SearchItem>,
     private router: Router,
   ) {
-    this.localizationService.listenLocalization().subscribe((locale) => {
-      this.locale = locale;
-      this.cmsService.getMenu(locale).then((data) => {
-        this.mainMenu = data;
+    this.localizationService
+      .listenLocalization()
+      .pipe(takeUntilDestroyed())
+      .subscribe((locale) => {
+        this.locale = locale;
+        this.cmsService.getMenu(locale).then((data) => {
+          this.mainMenu = data;
+        });
       });
-    });
   }
 
   @HostListener('document:keydown.enter')
