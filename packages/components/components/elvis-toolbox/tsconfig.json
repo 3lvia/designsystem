@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "outDir": "./dist/"
+  },
+  "files": ["src/index.ts"]
+}
