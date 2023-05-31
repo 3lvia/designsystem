@@ -6,5 +6,5 @@ export default defineConfig((options) => ({
   format: ['cjs', 'esm'],
   sourcemap: true,
   minify: !options.watch,
-  dts: !!options.watch, // On build (not watch), declaration files are generated directly from tsc compiler
+  dts: !!options.watch, // On build (not watch), declaration files are generated directly from tsc compiler since tsup doesn't support .d.ts.map
 }));
