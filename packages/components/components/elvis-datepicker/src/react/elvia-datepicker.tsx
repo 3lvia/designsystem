@@ -150,7 +150,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     trapFocus(popoverRef);
   };
 
-  const validateDate = (d?: Date | null): void => {
+  const validateDate = ({ d, min, max }: { d?: Date | null; min?: Date; max?: Date }): void => {
     if (!isInitialized) {
       return;
     }
@@ -160,9 +160,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       if (d.getFullYear() < 1800 || !isValidDate(d)) {
         onError('invalidDate');
-      } else if (minDate && d.getTime() < minDate.getTime()) {
+      } else if (min && d.getTime() < min.getTime()) {
         onError('beforeMinDate');
-      } else if (maxDate && d.getTime() > maxDate.getTime()) {
+      } else if (max && d.getTime() > max.getTime()) {
         onError('afterMaxDate');
       } else {
         onError();
@@ -200,8 +200,11 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   // Needed for webcomponent -> To update the default value
   useEffect(() => {
     setDate(value);
-    validateDate(value);
   }, [value]);
+
+  useEffect(() => {
+    validateDate({ d: value, min: minDate, max: maxDate });
+  }, [value, maxDate, minDate]);
 
   // Allows app to open the datepicker programatically
   useEffect(() => {
@@ -221,8 +224,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       setMinDateWithoutTime(undefined);
     }
-
-    validateDate(date);
   }, [minDate]);
 
   useEffect(() => {
@@ -233,8 +234,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       setMaxDateWithoutTime(undefined);
     }
-
-    validateDate(date);
   }, [maxDate]);
 
   // We flag when the component is initialized, so that we don't
