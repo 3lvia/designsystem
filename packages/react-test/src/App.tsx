@@ -25,13 +25,6 @@ import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
-import {
-  FormFieldContainer,
-  FormFieldInput,
-  FormFieldInputContainer,
-  FormFieldInputSuffixText,
-  FormFieldLabel,
-} from '@elvia/elvis-toolbox';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -189,140 +182,8 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white">
-                <FormFieldContainer>
-                  <FormFieldLabel>Vanlig</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <Dropdown
-                  value={defaultDropdownOptions}
-                  placeholder="Select country"
-                  label="New dropdown"
-                  isSearchable
-                  items={dropdownOptions}
-                  isMulti
-                  isLoadingMoreItems={isLoadingMoreItems}
-                  onLoadMoreItems={onLoadMoreItems}
-                ></Dropdown>
-                <br />
-                <br />
-                <Timepicker />
-                <br />
-                <br />
-
-                <Datepicker />
-                <br />
-                <br />
-
-                <DatepickerRange></DatepickerRange>
-                <br />
-                <br />
-                <FormFieldContainer size={'small'}>
-                  <FormFieldLabel>Liten vanlig</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer>
-                  <FormFieldLabel hasOptionalText>Kroner</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>kr.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-
-                <FormFieldContainer>
-                  <FormFieldLabel>Pris</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>kroner</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer>
-                  <FormFieldLabel hasOptionalText>Kroner</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>kr.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-
-                <FormFieldContainer>
-                  <FormFieldLabel>Strømgreier</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>kWh.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer>
-                  <FormFieldLabel>Strømgreier</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer size="small">
-                  <FormFieldLabel>Strømgreier</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>kWh.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer size="small">
-                  <FormFieldLabel>Strømgreier</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer size="small" isInvalid>
-                  <FormFieldLabel>Strømgreier</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer size="small" isDisabled>
-                  <FormFieldLabel>Strømgreier</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-                <FormFieldContainer isDisabled>
-                  <FormFieldLabel>Strømgreier</FormFieldLabel>
-                  <FormFieldInputContainer>
-                    <FormFieldInput />
-                    <FormFieldInputSuffixText>Kilowattime.</FormFieldInputSuffixText>
-                  </FormFieldInputContainer>
-                </FormFieldContainer>
-                <br />
-                <br />
-              </div>
-              <h3>Box</h3>
+              <i className="e-icon e-icon--add_circle e-icon--sm"></i>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
