@@ -25,14 +25,13 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
     theme.static[label as keyof typeof theme.static] ??
     null;
   if (!color) {
-    console.error(`Color ${label} not found.`);
     return null;
   }
   return color;
 };
 
 /**
- * Get a color from a theme by label. Will `console.error` and throw an error if color is not found.
+ * Get a color from a theme by label. Will throw an error if color is not found.
  * @param label
  * @param themeName The theme name. Defaults to `'light'`. This only affects the fallback color.
  * @returns CSS-variable for label, with fallback to the color hex.
@@ -52,7 +51,6 @@ export const getThemeColor = <
   const labelWithoutPrefix = label.replace(/^color-/, '') as TLabelWithoutPrefix;
   const color = getThemeColorObject(labelWithoutPrefix, themeName);
   if (!color) {
-    console.error(`Color '${label}' not found.`);
     throw new Error(`Color '${label}' not found.`);
   }
   return `var(--e-color-${labelWithoutPrefix}, ${color.hex})`;
@@ -79,11 +77,9 @@ export const getThemeColorContrast = <
   const labelWithoutPrefix = label.replace(/^color-/, '') as TLabelWithoutPrefix;
   const color = getThemeColorObject(labelWithoutPrefix, themeName);
   if (!color) {
-    console.error(`Color '${label}' not found.`);
     throw new Error(`Color '${label}' not found.`);
   }
   if (!('contrast' in color)) {
-    console.error(`Color '${label}' does not have a contrast color.`);
     throw new Error(`Color '${label}' does not have a contrast color.`);
   }
 
@@ -139,8 +135,7 @@ export const getCustomThemeColor = (
     colors['data-colors'][label as keyof (typeof colors)['data-colors']] ??
     colors['grey-colors'][label as keyof (typeof colors)['grey-colors']];
   if (!color) {
-    console.error(`Color '${label}' for theme '${themeName}' not found.`);
-    return '';
+    throw new Error(`Color '${label}' for theme '${themeName}' not found.`);
   }
   return color.color;
 };
@@ -167,8 +162,7 @@ export function getBaseColor(
     colors['grey-colors'][label as keyof (typeof colors)['grey-colors']] ??
     colors['internal-colors'][label as keyof (typeof colors)['internal-colors']];
   if (!color) {
-    console.error(`Color '${label}' for theme '${themeName}' not found.`);
-    return '';
+    throw new Error(`Color '${label}' for theme '${themeName}' not found.`);
   }
   return color.color;
 }
