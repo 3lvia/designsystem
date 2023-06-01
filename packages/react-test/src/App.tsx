@@ -188,22 +188,22 @@ function App() {
                   type="vertical"
                   steps={{ 2: { isError: true } }}
                   content={[
-                    <div>Step 1 content</div>,
-                    <div>Step 2 content</div>,
-                    <div>Step 3 content</div>,
-                    <div>Step 4 content</div>,
-                    <div>Step 5 content</div>,
+                    <div key={1}>Step 1 content</div>,
+                    <div key={2}>Step 2 content</div>,
+                    <div key={3}>Step 3 content</div>,
+                    <div key={4}>Step 4 content</div>,
+                    <div key={5}>Step 5 content</div>,
                   ]}
                 />
                 <Stepper
                   type="horizontal"
                   steps={{ 2: { isError: true } }}
                   content={[
-                    <div>Step 1 content</div>,
-                    <div>Step 2 content</div>,
-                    <div>Step 3 content</div>,
-                    <div>Step 4 content</div>,
-                    <div>Step 5 content</div>,
+                    <div key={1}>Step 1 content</div>,
+                    <div key={2}>Step 2 content</div>,
+                    <div key={3}>Step 3 content</div>,
+                    <div key={4}>Step 4 content</div>,
+                    <div key={5}>Step 5 content</div>,
                   ]}
                 />
               </div>
