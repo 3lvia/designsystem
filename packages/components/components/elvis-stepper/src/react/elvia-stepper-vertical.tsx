@@ -24,8 +24,25 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
     () => Array.from({ length: numberOfSteps }, (_, i) => i + 1),
     [numberOfSteps],
   );
+  const errorSteps = useMemo(
+    () => stepNumbersArray.filter((_, i) => steps?.[i + 1].isError),
+    [numberOfSteps, steps],
+  );
   return (
     <StepperContainer type="vertical" className={className} style={inlineStyle} {...rest}>
+      <div className="pf-screen-reader e-sr-only" aria-live="polite">
+        On step {currentStep}. Step{' '}
+        {errorSteps.map((stepNumber: number, i: number) => {
+          if (i === errorSteps.length - 1) {
+            return stepNumber;
+          } else if (i === errorSteps.length - 2) {
+            return stepNumber + ' and ';
+          } else {
+            return stepNumber + ', ';
+          }
+        })}{' '}
+        was invalid.
+      </div>
       <Steps type="vertical">
         {stepNumbersArray.map(
           (stepNumber) =>
