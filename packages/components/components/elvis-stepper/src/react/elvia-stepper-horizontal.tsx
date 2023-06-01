@@ -29,7 +29,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   );
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
-      <div className="pf-screen-reader e-sr-only" aria-live="polite">
+      <div className="pf-screen-reader e-sr-only" aria-live="polite" role="status">
         On step {currentStep}. Step{' '}
         {errorSteps.map((stepNumber: number, i: number) => {
           if (i === errorSteps.length - 1) {

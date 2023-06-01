@@ -14,7 +14,7 @@ describe('Elvis Stepper', () => {
             1: { isCompleted: true, title: 'Title 1' },
             2: { title: 'Title 2' },
             3: { isError: true, title: 'Title 3' },
-            4: { title: 'Title 4' },
+            4: { isError: true, title: 'Title 4' },
             5: { title: 'Title 5' },
           }}
           content={[
@@ -61,17 +61,10 @@ describe('Elvis Stepper', () => {
       expect(title).toHaveTextContent('Title 1');
     });
 
-    // it('should have different background color when isCompleted is applied', async () => {
-    //   const completedStep = screen.getByRole('tab', { name: /1/i });
-
-    //   expect(completedStep).toHaveStyle(`background-color: ${getThemeColor('icon-filled-background')}`);
-    // });
-
-    // it('should have red border when isError is applied', async () => {
-    //   const errorStep = screen.getByRole('tab', { name: /3/i });
-
-    //   expect(errorStep).toHaveStyle(`border: 2px solid ${getThemeColor('signal-error')}`);
-    // });
+    it('should have error state when isError is applied', async () => {
+      const screenReader = screen.getByRole('status');
+      expect(screenReader).toHaveTextContent('On step 1. Step 3 and 4 was invalid.');
+    });
   });
 
   describe('Default', () => {
@@ -83,7 +76,7 @@ describe('Elvis Stepper', () => {
             1: { isCompleted: true, title: 'Title 1' },
             2: { title: 'Title 2' },
             3: { isError: true, title: 'Title 3' },
-            4: { title: 'Title 4' },
+            4: { isError: true, title: 'Title 4' },
             5: { title: 'Title 5' },
           }}
           content={[
@@ -130,16 +123,9 @@ describe('Elvis Stepper', () => {
       expect(content).toHaveTextContent('Step 1 content');
     });
 
-    // it('should have different background color when isCompleted is applied', async () => {
-    //   const completedStep = screen.getByRole('tab', { name: /1/i });
-
-    //   expect(completedStep).toHaveStyle(`background-color: ${getThemeColor('icon-filled-background')}`);
-    // });
-
-    // it('should have red border when isError is applied', async () => {
-    //   const errorStep = screen.getByRole('tab', { name: /3/i });
-
-    //   expect(errorStep).toHaveStyle(`border: 2px solid ${getThemeColor('signal-error')}`);
-    // });
+    it('should have error state when isError is applied', async () => {
+      const screenReader = screen.getByRole('status');
+      expect(screenReader).toHaveTextContent('On step 1. Step 3 and 4 was invalid.');
+    });
   });
 });
