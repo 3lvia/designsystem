@@ -4,5 +4,7 @@
     [items]="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
     [size]="'medium'"
     (valueOnChange)="toggleTheme()"
-  ></elvia-segmented-control>
+  >
+    {{ colorList }}
+  </elvia-segmented-control>
 </div>
