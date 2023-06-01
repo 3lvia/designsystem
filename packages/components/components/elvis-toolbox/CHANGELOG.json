@@ -3,12 +3,24 @@
   "content": [
     {
       "date": "01.06.23",
-      "version": "9.0.1",
+      "version": "9.1.1",
       "changelog": [
         {
           "type": "bug_fix",
           "changes": [
             "<code>formFieldStyle</code> background, border and text fix for normal version and inside <code>e-table</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "01.06.23",
+      "version": "9.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The Button components now accept 'small', 'medium' and 'large' as values for the <code>size</code> prop."
           ]
         }
       ]

@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "01.06.23",
+      "version": "7.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "01.06.23",
       "version": "7.0.1",
       "changelog": [
         {
