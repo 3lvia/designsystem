@@ -100,6 +100,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
         }
 
         ${FormFieldInputSuffixText} {
+          ${getTypographyCss('text-micro-strong')}
           margin-right: 4px;
         }
       `;
