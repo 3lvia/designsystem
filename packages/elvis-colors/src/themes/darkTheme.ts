@@ -206,6 +206,10 @@ export const darkTheme = {
     'border-5': {
       hex: 'transparent',
     },
+    'border-6': {
+      hex: darkThemeColors['grey-colors']['grey-20'].color,
+      contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
+    },
     'border-disabled-1': {
       hex: darkThemeColors['grey-colors']['grey-40'].color,
       contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
