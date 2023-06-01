@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "01.06.23",
+      "version": "9.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The Button components now accept 'small', 'medium' and 'large' as values for the <code>size</code> prop."
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.05.23",
       "version": "9.0.0",
       "changelog": [
