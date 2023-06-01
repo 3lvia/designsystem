@@ -1,6 +1,6 @@
 # Elvia Colors Changelog
 
-## 2.6.0 (31.05.23)
+## 2.6.0 (01.06.23)
 
 ### New feature
 
