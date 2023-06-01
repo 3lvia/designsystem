@@ -10,21 +10,28 @@ import {
   FormFieldLabel,
   FormFieldInputContainer,
   IconWrapper,
+  ErrorOptions,
 } from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
 import { copyDay, isValidDate } from './dateHelpers';
 
+const defaultErrorOptions = {
+  hideText: false,
+  isErrorState: false,
+  hasErrorPlaceholder: true,
+} satisfies Partial<ErrorOptions>;
+
 export const Datepicker: React.FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
   dateRangeProps,
   onFocus,
   disableDate,
-  errorOptions = { hideText: false, isErrorState: false, hasErrorPlaceholder: true },
+  errorOptions,
   hasOptionalText,
   hasSelectDateOnOpen = true,
-  isCompact = false,
+  size = 'medium',
   isDisabled = false,
   isFullWidth = false,
   isOpen = false,
@@ -64,6 +71,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       alignWidths: false,
     },
   );
+
+  const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
     let dateISO;
@@ -150,7 +159,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     trapFocus(popoverRef);
   };
 
-  const validateDate = (d?: Date | null): void => {
+  const validateDate = ({ d, min, max }: { d?: Date | null; min?: Date; max?: Date }): void => {
     if (!isInitialized) {
       return;
     }
@@ -160,9 +169,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       if (d.getFullYear() < 1800 || !isValidDate(d)) {
         onError('invalidDate');
-      } else if (minDate && d.getTime() < minDate.getTime()) {
+      } else if (min && d.getTime() < min.getTime()) {
         onError('beforeMinDate');
-      } else if (maxDate && d.getTime() > maxDate.getTime()) {
+      } else if (max && d.getTime() > max.getTime()) {
         onError('afterMaxDate');
       } else {
         onError();
@@ -200,8 +209,11 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   // Needed for webcomponent -> To update the default value
   useEffect(() => {
     setDate(value);
-    validateDate(value);
   }, [value]);
+
+  useEffect(() => {
+    validateDate({ d: value, min: minDate, max: maxDate });
+  }, [value, maxDate, minDate]);
 
   // Allows app to open the datepicker programatically
   useEffect(() => {
@@ -221,8 +233,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       setMinDateWithoutTime(undefined);
     }
-
-    validateDate(date);
   }, [minDate]);
 
   useEffect(() => {
@@ -233,8 +243,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     } else {
       setMaxDateWithoutTime(undefined);
     }
-
-    validateDate(date);
   }, [maxDate]);
 
   // We flag when the component is initialized, so that we don't
@@ -244,14 +252,14 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   return (
     <>
       <FormFieldContainer
-        isCompact={isCompact}
+        size={size}
         className={className ?? ''}
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
-        hasErrorPlaceholder={!!error || !!errorOptions.hasErrorPlaceholder || !!errorOptions.text}
+        hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
         isActive={isShowing}
-        isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
+        isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
         data-testid="wrapper"
       >
         {!!label && (
@@ -280,7 +288,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
               setVisibility(!isShowing);
             }}
             ref={openPopoverButtonRef}
-            size={isCompact ? 'sm' : 'md'}
+            size={size}
             data-testid="popover-toggle"
             aria-label="Åpne datovelger"
             aria-haspopup="dialog"
@@ -288,13 +296,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             <IconWrapper
               icon={calendar}
               color={isDisabled ? 'text-disabled-1' : undefined}
-              size={isCompact ? 'xs' : 'sm'}
+              size={size === 'small' ? 'xs' : 'sm'}
             />
           </IconButton>
         </FormFieldInputContainer>
-        {((error && !errorOptions.hideText) || errorOptions.text) && (
+        {((error && !mergedErrorOptions.hideText) || mergedErrorOptions.text) && (
           <DatepickerError
-            customText={errorOptions.text}
+            customText={mergedErrorOptions.text}
             errorText={getErrorText(error, minDate, maxDate, dateRangeProps?.showTimeInError)}
           />
         )}

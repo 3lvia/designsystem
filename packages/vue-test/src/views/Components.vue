@@ -133,7 +133,7 @@
     <div class="example-wrapper">
       <h3>Datepicker</h3>
       <elvia-datepicker
-        :isCompact="false"
+        size="small"
         label="Fra dato"
         :disableDate="(day: Date) => day.getDay() === 0 || day.getDay() === 6"
       ></elvia-datepicker>
@@ -181,7 +181,7 @@
       >
         <div slot="content">
           <div class="date-container">
-            <elvia-datepicker :isCompact="true"></elvia-datepicker>
+            <elvia-datepicker size="small"></elvia-datepicker>
           </div>
         </div>
         <div slot="secondaryButton">
@@ -232,8 +232,8 @@
       <elvia-segmented-control
         :type="'icon'"
         :items="[
-          { iconName: 'thumbnail', iconNameSelected: 'thumbnail', altLabel: 'Label' },
-          { iconName: 'list', iconNameSelected: 'list', altLabel: 'Label' },
+          { icon: '<i class="e-icon e-icon--access_control"></i>', iconSelected: '<i class="e-icon e-icon--access_control-color"></i>', altLabel: 'Label' },
+          { icon: '<i class="e-icon e-icon--list"></i>', iconSelected: '<i class="e-icon e-icon--list-color"></i>', altLabel: 'Label' },
         ]"
         @value-on-change="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>

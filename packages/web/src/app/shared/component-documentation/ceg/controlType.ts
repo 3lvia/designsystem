@@ -1,3 +1,6 @@
+/** Used to allow arbitrary strings in a type union while keeping autocomplete support */
+type AnyString = string & {};
+
 interface ControlBase {
   readonly type: string;
   readonly group: string;
@@ -18,7 +21,7 @@ export interface RadioGroup<T = string | number> extends ControlBase {
 }
 
 interface Radio<T> {
-  readonly label: string;
+  readonly label: (T extends string ? Capitalize<T> : T) | AnyString;
   value: T;
 }
 

@@ -1,25 +1,26 @@
 import React from 'react';
 import { IndeterminateLine, StyledCheckbox } from './checkboxStyles';
 import { ThemeName } from '@elvia/elvis-colors';
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 
 export interface CheckboxProps {
   isChecked?: boolean;
   isIndeterminate?: boolean;
   isDisabled?: boolean;
-  isCompact?: boolean;
+  size?: FormFieldSizes;
   isFocused?: boolean;
   currentTheme: ThemeName;
 }
 
 export interface IndeterminateLineProps {
-  isCompact?: boolean;
+  size?: FormFieldSizes;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
   isIndeterminate,
   isChecked,
   isDisabled,
-  isCompact,
+  size,
   isFocused,
   currentTheme,
 }) => {
@@ -28,11 +29,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       isIndeterminate={isIndeterminate && !isChecked}
       isChecked={isChecked}
       isDisabled={isDisabled}
-      isCompact={isCompact}
+      size={size}
       isFocused={isFocused}
       currentTheme={currentTheme}
     >
-      <IndeterminateLine isCompact={isCompact} />
+      <IndeterminateLine size={size} />
     </StyledCheckbox>
   );
 };

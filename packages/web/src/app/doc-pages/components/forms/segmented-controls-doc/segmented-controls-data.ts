@@ -7,9 +7,9 @@ export const segmentedControlData: ComponentData = {
   attributes: {
     items: {
       isRequired: true,
-      type: 'TextSegmentedControl: {label: string} | IconSegmentedControl: {iconName: IconName, iconNameSelected: IconName, ariaLabel: string }',
+      type: 'TextSegmentedControl: {label: string} | IconSegmentedControl: {icon: string, iconSelected: string, ariaLabel: string }',
       description:
-        'The items represent the controls in the segmented control. When using the icon type, the items should be provided with IconName both for normal state and hover and should have an ariaLabel to describe the icon e.g. {iconName: "thumbnail", iconNameSelected: "thumbnailHover", ariaLabel: "Thumbnail..." }.',
+        'The items represent the controls in the segmented control. When using the icon type, the items should be provided with icon as html both for normal state and hover and should have an ariaLabel to describe the icon e.g. {icon: "<i class="e-icon e-icon--access_control"></i>", iconSelected: "<i class="e-icon e-icon--access_control-color"></i>", ariaLabel: "Thumbnail..." }.',
     },
     value: {
       isRequired: false,

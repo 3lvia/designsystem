@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import Prism from 'prismjs';
 
-import { Language } from './language';
+import { Language } from './types';
 
 @Pipe({
   name: 'highlighter',

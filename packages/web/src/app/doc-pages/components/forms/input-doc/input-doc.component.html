@@ -15,26 +15,10 @@
   <!-- TYPE -->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Normal'">
+      <app-component-subsection [sectionTitle]="'Textfield'">
         <ng-container ngProjectAs="sectionContent">
           <app-static-ceg>
             <app-input-type-normal-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Combined & Inlined'">
-        <ng-container ngProjectAs="sectionContent">
-          Use the
-          <span class="code-text">e-combined-field</span>
-          class on the form-field element to keep two inputs for the same label.
-          <p>
-            Use the
-            <span class="code-text">e-inlined-field</span>
-            class outside the form-field element to align inputs on the same line. When the zip code is filled
-            in, the post office should be filled in automatically.
-          </p>
-          <app-static-ceg>
-            <app-input-type-combined-inlined-ceg />
           </app-static-ceg>
         </ng-container>
       </app-component-subsection>
@@ -75,7 +59,7 @@
       <app-component-subsection [sectionTitle]="'Optional inputs'">
         <ng-container ngProjectAs="sectionContent">
           The
-          <span class="code-text">e-form-field__label--optional</span>
+          <code>e-form-field__label--optional</code>
           class should be added to the label when the input is not required.
           <app-static-ceg>
             <app-input-options-optional-ceg />
@@ -86,11 +70,11 @@
       <app-component-subsection [sectionTitle]="'Full width'">
         <ng-container ngProjectAs="sectionContent">
           The
-          <span class="code-text">e-form-field--full-width</span>
+          <code>e-form-field--full-width</code>
           class should be added to the field when the input should take 100% of the width available.
           <p>
             Use the
-            <span class="code-text">e-inlined-field--full-width</span>
+            <code>e-inlined-field--full-width</code>
             class if the inputs are inlined on the same line, should take up all width available.
           </p>
           <app-static-ceg>
@@ -99,20 +83,32 @@
         </ng-container>
       </app-component-subsection>
 
+      <app-component-subsection [sectionTitle]="'Inlined'">
+        <ng-container ngProjectAs="sectionContent">
+          Use the
+          <code>e-inlined-field</code>
+          class outside the form-field element to align inputs on the same line. When the zip code is filled
+          in, the post office should be filled in automatically.
+          <app-static-ceg>
+            <app-input-type-combined-inlined-ceg />
+          </app-static-ceg>
+        </ng-container>
+      </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Read-only'">
         <ng-container ngProjectAs="sectionContent">
           The
-          <span class="code-text">readonly</span>
+          <code>readonly</code>
           attribute makes the input immutable, meaning the user can not edit the input or its value. Use
-          <span class="code-text">readonly</span>
+          <code>readonly</code>
           solely when the user cannot interact with the field, but the value is selected. Also, ensure to only
           use
-          <span class="code-text">readonly</span>
+          <code>readonly</code>
           if there are other interactive input elements in the form, filter, or similar.
           <p>
             Consider that if the input is a stand-alone element, use regular typography instead. If the value
             is immutable and is not selected/should not be read by the computer, use the
-            <span class="code-text">disabled</span>
+            <code>disabled</code>
             attribute instead.
           </p>
           <app-static-ceg>
@@ -124,7 +120,7 @@
       <app-component-subsection [sectionTitle]="'Loading'">
         <ng-container ngProjectAs="sectionContent">
           The
-          <span class="code-text">e-input---loading</span>
+          <code>e-input---loading</code>
           class should be added to indicate that the text field is loading, for instance if the current value
           is being validated.
           <app-static-ceg>
@@ -153,16 +149,16 @@
     <ng-container ngProjectAs="sectionContent">
       There are two different sizes of input. The width of the container should be proportional to the
       expected user input and can be changes by setting the width on the container of the input.
-      <app-component-subsection [sectionTitle]="'Normal'">
+      <app-component-subsection [sectionTitle]="'Medium'">
         <ng-container ngProjectAs="sectionContent">
           <app-static-ceg>
             <app-input-size-normal-ceg />
           </app-static-ceg>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Compact'">
+      <app-component-subsection [sectionTitle]="'Small'">
         <ng-container ngProjectAs="sectionContent">
-          Compact text fields are typically used in Elvia’s internal systems, where screen real estate is an
+          Small text fields are typically used in Elvia’s internal systems, where screen real estate is an
           important factor. Regardless of which style you use for text fields, you should always stick with
           the same type throughout the page and never mix the two.
           <app-static-ceg>
@@ -207,7 +203,7 @@
         <ng-container ngProjectAs="sectionContent">
           Make sure to always add a label that is linked to the input, to make it clear for assistive tools
           what the input is doing. Use the
-          <span class="code-text">e-form-field</span>
+          <code>e-form-field</code>
           classes to get correct styling of labels.
         </ng-container>
       </app-component-subsection>
@@ -215,26 +211,26 @@
         <ng-container ngProjectAs="sectionContent">
           Remember to add attributes to the input-fields to the describe the current state of the input to
           inform assistive technologies. For example
-          <span class="code-text">required</span>
+          <code>required</code>
           ,
-          <span class="code-text">disabled</span>
+          <code>disabled</code>
           , or
-          <span class="code-text">invalid</span>
+          <code>invalid</code>
           .
 
           <p>
             During a
-            <span class="code-text">invalid</span>
+            <code>invalid</code>
             state, ensure to set
-            <span class="code-text">aria-invalid</span>
+            <code>aria-invalid</code>
             to
-            <span class="code-text">true</span>
+            <code>true</code>
             and set the
-            <span class="code-text">aria-errormessage</span>
+            <code>aria-errormessage</code>
             attribute to the
-            <span class="code-text">id</span>
+            <code>id</code>
             of the element containing the error message text for that input. When
-            <span class="code-text">aria-errormessage</span>
+            <code>aria-errormessage</code>
             is used, the element it refers to must be visible in order for users to see or hear the error
             message.
           </p>

@@ -161,7 +161,7 @@ const Pagination: FC<PaginationProps> = function ({
         <PaginatorInfoText>{labelOptionsState.displaying}</PaginatorInfoText>
         <PaginatorInfoDropdown>
           <Dropdown
-            isCompact
+            size="small"
             items={dropdownItems}
             menuPosition={dropdownMenuPosition}
             className="number-of-items-dropdown"

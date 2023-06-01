@@ -286,7 +286,7 @@ export type TypographyName = keyof typeof ElviaTypography;
  */
 export const getTypography = <Key extends TypographyName>(
   typographyName: Key,
-): typeof ElviaTypography[Key] | null => {
+): (typeof ElviaTypography)[Key] | null => {
   if (ElviaTypography[typographyName]) {
     return ElviaTypography[typographyName];
   } else {

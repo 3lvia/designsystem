@@ -500,8 +500,16 @@ function App() {
                 <SegmentedControl
                   type="icon"
                   items={[
-                    { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: '' },
-                    { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: '' },
+                    {
+                      icon: '<i class="e-icon e-icon--access_control"></i>',
+                      iconSelected: '<i class="e-icon e-icon--access_control-color"></i>',
+                      ariaLabel: '',
+                    },
+                    {
+                      icon: '<i class="e-icon e-icon--list"></i>',
+                      iconSelected: '<i class="e-icon e-icon--list-color"></i>',
+                      ariaLabel: '',
+                    },
                   ]}
                   size={'large'}
                   value={0}

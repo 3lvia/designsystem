@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ColorComponent } from './color.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
@@ -7,15 +7,18 @@ import { ComponentHeaderModule } from 'src/app/shared/component-documentation/co
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
+    RouterModule,
     CommonModule,
     ComponentHeaderModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [ColorComponent, ColorPickerComponent, ColorTokenTableComponent],
 })
 export class ColorModule {}

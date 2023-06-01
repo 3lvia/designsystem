@@ -1,4 +1,4 @@
-import { BaseProps, HasError, HasValue } from '@elvia/elvis-toolbox';
+import { BaseProps, FormFieldSizes, HasError, HasValue } from '@elvia/elvis-toolbox';
 
 export type MinuteInterval = '1' | '5' | '10' | '15' | '60';
 export type ChangeType = 'hour' | 'minute';
@@ -7,7 +7,11 @@ export type ErrorType = 'invalidTime' | 'required';
 export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasError {
   minuteInterval: MinuteInterval;
   isDisabled: boolean;
+  /**
+   * @deprecated Removed in version 3.0.0. Replaced by `size`.
+   */
   isCompact: boolean;
+  size: FormFieldSizes;
   isFullWidth: boolean;
   isRequired: boolean;
   isOpen: boolean;

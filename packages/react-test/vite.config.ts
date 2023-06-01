@@ -9,10 +9,7 @@ export default defineConfig({
   resolve: {
     preserveSymlinks: true,
   },
-  optimizeDeps: {
-    force: true,
-    include: ['@elvia/elvis-colors', '@elvia/elvis-typography', '@elvia/elvis-toolbox'],
-  },
+  optimizeDeps: { force: true },
   build: {
     chunkSizeWarningLimit: 2000,
     rollupOptions: {

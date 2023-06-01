@@ -1,0 +1,11 @@
+@use '@elvia/elvis/src/variables/typography.scss' as typography;
+
+//TODO: slett .placeholder når du tar LEGO-2567
+.placeholder {
+  @include typography.typography('text-caps');
+  border: 2px dashed var(--e-grey-40);
+  color: var(--e-grey-40);
+  display: grid;
+  min-height: 100px;
+  place-items: center;
+}

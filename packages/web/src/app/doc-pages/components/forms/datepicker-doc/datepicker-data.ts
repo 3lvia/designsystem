@@ -26,11 +26,11 @@ const datepickerData: ComponentData = {
       type: 'string',
       description: 'Label of input.',
     },
-    isCompact: {
+    size: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Compact size.',
-      default: 'false',
+      type: 'small | medium',
+      description: 'Datepicker can be set to different sizes.',
+      default: 'medium',
     },
     isFullWidth: {
       isRequired: false,
@@ -121,6 +121,7 @@ const datepickerData: ComponentData = {
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
       description:
         'An object that allows for custom configuration of the error handling in the date picker. Setting "text" will always show the provided error message. "hideText" hides the default validation errors. "isErrorState" allows for manually activating the visual error UI. "hasErrorPlaceholder" allows you to remove the padding below the date picker.',
+      default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
     },
     errorOnChange: {
       isRequired: false,

@@ -1,58 +1,37 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
-.doDont-container {
+:host {
   display: inline-block;
   width: 50%;
   margin-bottom: 8px;
+
   @include breakpoints.breakpoint-up(Mobile) {
-    display: flex;
-    flex-direction: column;
-    max-width: fit-content;
+    display: block;
     width: 100%;
   }
-
-  .doDont,
-  .doDo {
-    margin: 0 8px;
-    @include breakpoints.breakpoint-up(Mobile) {
-      margin: 0;
-    }
-  }
-
-  .doDo {
-    margin-left: 0;
-    .code-highlighter {
-      margin-top: -5px;
-      border-bottom: 7px solid var(--e-green);
-      border-radius: 0 0 8px 8px;
-    }
-  }
-  .doDont {
-    margin-right: 0;
-    .code-highlighter {
-      margin-top: -10px;
-      border-bottom: 7px solid var(--e-red);
-      border-radius: 0 0 8px 8px;
-    }
-  }
 }
 
-.doDont-container[_ngcontent-bah-c77]
-  .doDo[_ngcontent-bah-c77]
-  .code-highlighter[_ngcontent-bah-c77]
-  .highlight-container[_ngcontent-osw-c65] {
-  border-radius: 8px 8px 0 0;
-}
+.code-container {
+  position: relative;
 
-.instructions {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  @include breakpoints.breakpoint-up(Mobile) {
-    margin-top: -24px;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto 0px 0px;
+    background-color: var(--e-green);
+    height: 7px;
+    border-radius: 0 0 8px 8px;
   }
 
-  i {
-    margin: 0 5px;
+  &:not(.error) {
+    margin-right: 8px;
+  }
+
+  &.error {
+    margin-left: 8px;
+
+    &::after {
+      background-color: var(--e-red);
+    }
   }
 }

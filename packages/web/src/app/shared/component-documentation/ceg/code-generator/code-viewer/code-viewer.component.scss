@@ -9,15 +9,6 @@
   width: 100%;
 }
 
-.active-code {
-  font-size: 0.875rem;
-  font-family: 'Red Hat Mono', Verdana, sans-serif;
-  color: var(--e-white);
-  background: unset;
-  border-radius: unset;
-  padding: inherit;
-}
-
 .top-menu {
   display: flex;
   justify-content: space-between;
@@ -36,6 +27,15 @@
     color: var(--e-white);
     width: 100px;
   }
+}
+
+.active-code {
+  font-size: 0.875rem;
+  font-family: 'Red Hat Mono', Verdana, sans-serif;
+  color: var(--e-white);
+  background: unset;
+  border-radius: unset;
+  padding: inherit;
 }
 
 .overflow-container {

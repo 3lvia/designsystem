@@ -2,6 +2,43 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "01.06.23",
+      "version": "7.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where <code>errorOptions</code> would lose its default values."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.23",
+      "version": "7.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Size type bugfix introduced in version 7.0.0."]
+        }
+      ]
+    },
+    {
+      "date": "26.05.23",
+      "version": "7.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Changed prop <code>isCompact</code> to instead be <code>size='small | medium'</code>.",
+            "Changed the way icons are used in dropdown. Use the icon html string instead of the icon name, this way we reduce the package size greatly."
+          ],
+          "fixes": [
+            "<code>isCompact</code> can be directly replaced by <code>size='small'</code>",
+            "<code>icon: 'powerline'</code> can be directly replaced by <code>&lt;i class='e-icon e-icon--powerline e-icon--sm'&gt;&lt;/i&gt;</code>"
+          ]
+        }
+      ]
+    },
+    {
       "date": "04.05.23",
       "version": "6.1.1",
       "changelog": [

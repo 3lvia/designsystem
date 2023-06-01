@@ -27,11 +27,11 @@ const datepickerRangeData: ComponentData = {
       description: 'Labels of inputs.',
       default: '{start: "Fra dato", end: "Til dato"}',
     },
-    isCompact: {
+    size: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Compact size.',
-      default: 'false',
+      type: 'small | medium',
+      description: 'Datepicker can be set to different sizes.',
+      default: 'medium',
     },
     isFullWidth: {
       isRequired: false,
@@ -100,8 +100,10 @@ const datepickerRangeData: ComponentData = {
     },
     errorOptions: {
       isRequired: false,
-      type: 'Partial<{start: { text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }, end: { text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }}>',
+      type: 'Partial<{start: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, end: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}>',
       description: 'An object that allows for custom configuration of the error handling.',
+      default:
+        '{ start: { hideText: false, hasErrorPlaceholder: true }, end: { hideText: false, hasErrorPlaceholder: true }}',
     },
     errorOnChange: {
       isRequired: false,

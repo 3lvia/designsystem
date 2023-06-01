@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import Prettier from 'prettier/standalone';
 import parserHtml from 'prettier/parser-html';
 import parserBabel from 'prettier/parser-babel';
-import { Language } from './language';
+import parserPostCss from 'prettier/parser-postcss';
+import { Language } from './types';
 
 @Pipe({
   name: 'formatCode',
@@ -10,9 +11,17 @@ import { Language } from './language';
 export class FormatCodePipe implements PipeTransform {
   transform(code: string, language: Language): string {
     const codeWithClosedTags = this.addClosingTagsToVoidElements(code);
+
+    let parser = 'babel';
+    if (language === 'css') {
+      parser = 'css';
+    } else if (language === 'html') {
+      parser = 'html';
+    }
+
     let formattedCode = Prettier.format(codeWithClosedTags, {
-      parser: language === 'html' ? 'html' : 'babel',
-      plugins: [parserHtml, parserBabel],
+      parser: parser,
+      plugins: [parserHtml, parserBabel, parserPostCss],
       printWidth: 80,
     });
 
