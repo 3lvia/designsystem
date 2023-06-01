@@ -18,7 +18,7 @@ export type DisableDates = Partial<BothDatepickers<(day: Date) => boolean>>;
 export type IsRequired = Partial<BothDatepickers<boolean>>;
 export type IsErrorState = Partial<BothDatepickers<boolean>>;
 export type CustomError = Partial<BothDatepickers<string>>;
-export type ErrorOptions = Partial<BothDatepickers<SinglePickerErrorOptions>>;
+export type ErrorOptions = Partial<BothDatepickers<Partial<SinglePickerErrorOptions>>>;
 
 export const emptyDateRange: DateRange = {
   start: null,

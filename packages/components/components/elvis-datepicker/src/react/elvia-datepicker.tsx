@@ -10,18 +10,25 @@ import {
   FormFieldLabel,
   FormFieldInputContainer,
   IconWrapper,
+  ErrorOptions,
 } from '@elvia/elvis-toolbox';
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
 import { copyDay, isValidDate } from './dateHelpers';
 
+const defaultErrorOptions = {
+  hideText: false,
+  isErrorState: false,
+  hasErrorPlaceholder: true,
+} satisfies Partial<ErrorOptions>;
+
 export const Datepicker: React.FC<DatepickerProps> = ({
   clearButtonText = 'Nullstill',
   dateRangeProps,
   onFocus,
   disableDate,
-  errorOptions = { hideText: false, isErrorState: false, hasErrorPlaceholder: true },
+  errorOptions,
   hasOptionalText,
   hasSelectDateOnOpen = true,
   size = 'medium',
@@ -64,6 +71,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       alignWidths: false,
     },
   );
+
+  const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
     let dateISO;
@@ -248,9 +257,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
-        hasErrorPlaceholder={!!error || !!errorOptions.hasErrorPlaceholder || !!errorOptions.text}
+        hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
         isActive={isShowing}
-        isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
+        isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
         data-testid="wrapper"
       >
         {!!label && (
@@ -279,7 +288,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
               setVisibility(!isShowing);
             }}
             ref={openPopoverButtonRef}
-            size={size === 'small' ? 'sm' : 'md'}
+            size={size}
             data-testid="popover-toggle"
             aria-label="Åpne datovelger"
             aria-haspopup="dialog"
@@ -291,9 +300,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             />
           </IconButton>
         </FormFieldInputContainer>
-        {((error && !errorOptions.hideText) || errorOptions.text) && (
+        {((error && !mergedErrorOptions.hideText) || mergedErrorOptions.text) && (
           <DatepickerError
-            customText={errorOptions.text}
+            customText={mergedErrorOptions.text}
             errorText={getErrorText(error, minDate, maxDate, dateRangeProps?.showTimeInError)}
           />
         )}

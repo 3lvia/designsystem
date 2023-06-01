@@ -61,6 +61,7 @@ export const timepickerData: ComponentData = {
       isRequired: false,
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
       description: 'An object that allows for custom configuration of the error handling in the time picker.',
+      default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
     },
     onOpen: {
       isRequired: false,

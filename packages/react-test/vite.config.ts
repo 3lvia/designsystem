@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     preserveSymlinks: true,
   },
+  optimizeDeps: { force: true },
   build: {
     chunkSizeWarningLimit: 2000,
     rollupOptions: {

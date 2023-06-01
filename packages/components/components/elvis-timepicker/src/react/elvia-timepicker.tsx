@@ -9,11 +9,18 @@ import {
   FormFieldLabel,
   FormFieldInputContainer,
   IconWrapper,
+  ErrorOptions,
 } from '@elvia/elvis-toolbox';
 import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
 import { TimepickerInput } from './timepickerInput';
 import { TimepickerError } from './error/timepickerError';
 import { getErrorText } from './getErrorText';
+
+const defaultErrorOptions = {
+  hideText: false,
+  isErrorState: false,
+  hasErrorPlaceholder: true,
+} satisfies Partial<ErrorOptions>;
 
 export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   value,
@@ -26,7 +33,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   isDisabled = false,
   isRequired = false,
   isOpen = false,
-  errorOptions = { hideText: false, isErrorState: false, hasErrorPlaceholder: true },
+  errorOptions,
   onOpen,
   onClose,
   onFocus,
@@ -47,6 +54,8 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     alignWidths: false,
   });
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
+
+  const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
   const updateValue = (newTime: Date | null, emit = true): void => {
     setTime(newTime);
@@ -147,8 +156,8 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         isDisabled={isDisabled}
         isFullWidth={isFullWidth}
         isActive={isShowing}
-        isInvalid={!!error || !!errorOptions.text || !!errorOptions.isErrorState}
-        hasErrorPlaceholder={!!error || !!errorOptions.hasErrorPlaceholder || !!errorOptions.text}
+        isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
       >
         {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
         <FormFieldInputContainer ref={connectedElementRef}>
@@ -181,8 +190,8 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             />
           </IconButton>
         </FormFieldInputContainer>
-        {((error && !errorOptions.hideText) || errorOptions.text) && (
-          <TimepickerError customText={errorOptions.text} errorType={error} />
+        {((error && !mergedErrorOptions.hideText) || mergedErrorOptions.text) && (
+          <TimepickerError customText={mergedErrorOptions.text} errorType={error} />
         )}
       </FormFieldContainer>
       {isShowing && (
