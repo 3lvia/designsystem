@@ -228,6 +228,10 @@ export const lightTheme = {
       hex: lightThemeColors['grey-colors']['grey-05'].color,
       contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
     },
+    'border-6': {
+      hex: lightThemeColors['grey-colors']['grey-60'].color,
+      contrast: lightThemeColors['grey-colors']['grey-60'].contrastText,
+    },
     'border-disabled-1': {
       hex: lightThemeColors['grey-colors']['grey-30'].color,
       contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,

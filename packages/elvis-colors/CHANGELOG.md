@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 2.7.0 (01.06.23)
+
+### New feature
+
+- Added new theme color label: `border-6`.
+
 ## 2.6.0 (01.06.23)
 
 ### New feature
