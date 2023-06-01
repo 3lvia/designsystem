@@ -23,7 +23,7 @@ export class TabsCegComponent implements ComponentExample {
     },
   ]);
 
-  handleOnChange(newIndex: number): void {
-    console.log('The new tab index is', newIndex);
+  handleOnChange(value: number): void {
+    console.log('New value:', value);
   }
 }

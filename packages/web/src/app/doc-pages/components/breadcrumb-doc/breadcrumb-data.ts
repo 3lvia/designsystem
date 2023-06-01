@@ -13,7 +13,7 @@ const breadcrumbData: ComponentData = {
     },
     onLinkClick: {
       isRequired: false,
-      type: '(value: number) => CustomEvent',
+      type: '(value: number) => void',
       description:
         'Gets called every time a breadcrumb is clicked. The value is the index of the clicked breadcrumb in items.',
     },

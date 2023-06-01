@@ -105,12 +105,12 @@ export const dropdownData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(values: string | string[]) => CustomEvent',
+      type: '(values: string | string[]) => void',
       description: `Gets called every time an option(s) is selected and returns an array of selected objects.`,
     },
     onItemHover: {
       isRequired: false,
-      type: '(value: string | undefined) => CustomEvent',
+      type: '(value: string | undefined) => void',
       description: `Gets called every time an option is hovered and returns the hovered object.`,
     },
     hasLoadMoreItemsButton: {
