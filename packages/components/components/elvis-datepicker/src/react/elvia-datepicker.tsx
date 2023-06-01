@@ -150,7 +150,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     trapFocus(popoverRef);
   };
 
-  const validateDate = ({ d, min, max } : { d?: Date | null; min?: Date; max?: Date }): void => {
+  const validateDate = ({ d, min, max }: { d?: Date | null; min?: Date; max?: Date }): void => {
     if (!isInitialized) {
       return;
     }
