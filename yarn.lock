@@ -3502,6 +3502,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@elvia/elvis-toolbox@npm:^8.0.1":
+  version: 8.0.2
+  resolution: "@elvia/elvis-toolbox@npm:8.0.2"
+  dependencies:
+    "@elvia/elvis-colors": ^2.4.0
+    "@elvia/elvis-component-wrapper": ^4.0.0
+    "@elvia/elvis-typography": ^2.3.1
+    styled-components: ^5.3.6
+    tslib: ^2.4.1
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  checksum: c02d4c24e2fc86d12a4a098cbc7d494cf4978d26789cd063d5ba499a789f096cc163d9511f04e73b404166f05a8ea9c0e43a03b82f368f640ce07a2816c29272
+  languageName: node
+  linkType: hard
+
 "@elvia/elvis-tooltip@*, @elvia/elvis-tooltip@^1.2.1, @elvia/elvis-tooltip@workspace:*, @elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip"
