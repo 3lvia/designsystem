@@ -18,11 +18,17 @@ export const FormFieldInputContainer = styled.div`
   align-items: center;
   gap: 8px;
   padding: 0 8px 0 16px;
-  border: 1px solid ${getThemeColor('text-1')};
+  color: ${getThemeColor('text-1')};
+  border: 1px solid ${getThemeColor('border-1')};
+  background: ${getThemeColor('background-element-1')};
   height: 48px;
   border-radius: 4px;
   cursor: text;
   transition: border-color 150ms;
+  .e-table && {
+    border: 1px solid ${getThemeColor('border-6')};
+    background: transparent;
+  }
 `;
 
 export interface FormFieldContainerProps {
