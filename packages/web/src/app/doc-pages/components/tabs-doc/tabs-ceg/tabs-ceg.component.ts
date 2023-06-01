@@ -18,6 +18,7 @@ export class TabsCegComponent implements ComponentExample {
         value: 0,
         items: ['Electric car', 'AMS-meter', 'HAN-port'],
         ariaLabel: 'Simple tab list example',
+        valueOnChange: () => '',
       },
     },
   ]);
