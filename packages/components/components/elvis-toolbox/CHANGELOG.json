@@ -11,6 +11,10 @@
             "An optional <code>FormFieldInputSuffixText</code> span element has been added for including a suffix in the input.",
             "The Button components now accept 'small', 'medium' and 'large' as values for the <code>size</code> prop."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Update @elvia/elvis-colors version."]
         }
       ]
     },
