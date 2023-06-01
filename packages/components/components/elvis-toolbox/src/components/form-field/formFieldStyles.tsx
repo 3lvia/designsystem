@@ -101,6 +101,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
 
         ${FormFieldInputSuffixText} {
           ${getTypographyCss('text-micro-strong')}
+          color: ${getThemeColor('text-3')};
           margin-right: 4px;
         }
       `;
