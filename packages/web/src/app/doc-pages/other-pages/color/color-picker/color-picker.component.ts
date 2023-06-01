@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './color-picker.component.html',
   styleUrls: ['./color-picker.component.scss'],
 })
-export class ColorPickerComponent {}
+export class ColorPickerComponent {
+  toggleTheme = () => {
+    document.getElementsByClassName('theme-container')[0].classList.toggle('e-theme-dark');
+  };
+}

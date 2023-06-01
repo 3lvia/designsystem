@@ -104,11 +104,9 @@
 		"e-form-field": {
 			"modifier": {
 				"e-form-field--compact": {},
-				"e-form-field--combined": {},
-				"e-form-field--full-width": {},
-				"e-form-field--width-auto": {},
 				"e-form-field--small": {},
-				"e-form-field--medium": {}
+				"e-form-field--full-width": {},
+				"e-form-field--width-auto": {}
 			},
 			"element": {
 				"e-form-field__label": {
@@ -308,8 +306,7 @@
 				"e-input--placeholder": {},
 				"e-input--centered": {},
 				"e-input--compact": {},
-				"e-input--small": {},
-				"e-input--medium": {}
+				"e-input--small": {}
 			},
 			"psuedo": {
 				"e-input---invalid": {},
@@ -861,12 +858,14 @@
 			},
 			"modifier": {
 				"e-table-mobile--compact": {},
+				"e-table-mobile--small": {},
 				"e-table-mobile--sticky-header": {}
 			}
 		},
 		"e-table": {
 			"modifier": {
 				"e-table--compact": {},
+				"e-table--small": {},
 				"e-table--no-stripes": {},
 				"e-table--sticky-header": {},
 				"e-table--sticky-column-header": {}
@@ -879,7 +878,8 @@
 				},
 				"e-table__footnote": {
 					"modifier": {
-						"e-table__footnote--compact": {}
+						"e-table__footnote--compact": {},
+						"e-table__footnote--small": {}
 					}
 				},
 				"e-table__cell": {
@@ -920,6 +920,7 @@
 			"modifier": {
 				"e-checkbox--compact": {},
 				"e-checkbox--sm": {},
+				"e-checkbox--small": {},
 				"e-checkbox--indeterminate": {}
 			},
 			"psuedo": {
@@ -989,6 +990,7 @@
 			},
 			"modifier": {
 				"e-toggle--compact": {},
+				"e-toggle--small": {},
 				"e-toggle--inverted": {}
 			},
 			"psuedo": {
@@ -1030,7 +1032,8 @@
 		"e-radio": {
 			"modifier": {
 				"e-radio--compact": {},
-				"e-radio--sm": {}
+				"e-radio--sm": {},
+				"e-radio--small": {}
 			},
 			"element": {
 				"e-radio__mark": {},
@@ -1237,6 +1240,7 @@
 		"e-dropdown__item": {},
 		"e-form-field": {},
 		"e-form-field--compact": {},
+		"e-form-field--small": {},
 		"e-no-outline": {},
 		"e-outline": {},
 		"e-text": {},
@@ -1389,6 +1393,7 @@
 		"e-input---loading": {},
 		"e-combined-field": {},
 		"e-input--compact": {},
+		"e-input--small": {},
 		"e-dropdown": {},
 		"e-radio-filter": {},
 		"e-radio-filter__label": {},
@@ -1839,6 +1844,7 @@
 		"e-table-mobile": {},
 		"e-table": {},
 		"e-table--compact": {},
+		"e-table--small": {},
 		"e-table-mobile__checkbox": {},
 		"e-table-mobile__checkbox--selected": {},
 		"e-table__checkbox": {},
@@ -1847,6 +1853,7 @@
 		"e-table-footnote": {},
 		"e-table__footnote": {},
 		"e-table__footnote--compact": {},
+		"e-table__footnote--small": {},
 		"e-table__cell--invalid": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
@@ -1856,6 +1863,7 @@
 		"e-table--sticky-header": {},
 		"e-table--sticky-column-header": {},
 		"e-table-mobile--compact": {},
+		"e-table-mobile--small": {},
 		"e-table-mobile--sticky-header": {},
 		"e-text-mono": {},
 		"e-table__input": {},
@@ -1909,6 +1917,7 @@
 		"e-toggle": {},
 		"e-toggle__input": {},
 		"e-toggle--compact": {},
+		"e-toggle--small": {},
 		"e-toggle---checked": {},
 		"e-toggle---focus": {},
 		"e-toggle---disabled": {},
@@ -1917,6 +1926,7 @@
 		"e-checkbox__label": {},
 		"e-checkbox--compact": {},
 		"e-checkbox--sm": {},
+		"e-checkbox--small": {},
 		"e-checkbox--indeterminate": {},
 		"e-checkbox---focus": {},
 		"e-checkbox---hover": {},
@@ -1932,15 +1942,10 @@
 		"e-form-field__error--visible": {},
 		"e-form-field__nested": {},
 		"e-form-field__nested--sm": {},
-		"e-form-field--combined": {},
-		"e-form-field__input": {},
-		"e-input--small": {},
-		"e-input--medium": {},
 		"e-form-field--full-width": {},
+		"e-form-field__input": {},
 		"e-inlined-field": {},
 		"e-form-field--width-auto": {},
-		"e-form-field--small": {},
-		"e-form-field--medium": {},
 		"e-inlined-field--full-width": {},
 		"e-fileupload": {},
 		"e-fileupload__icon": {},
@@ -1955,6 +1960,7 @@
 		"e-radio": {},
 		"e-radio--compact": {},
 		"e-radio--sm": {},
+		"e-radio--small": {},
 		"e-radio__mark": {},
 		"e-radio__label": {},
 		"e-radio---disabled-checked": {},

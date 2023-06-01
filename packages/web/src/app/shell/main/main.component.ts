@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 
@@ -15,7 +16,7 @@ export class MainComponent {
 
   constructor(private router: Router, private scrollService: ScrollService) {
     // subscribe to router navigation
-    this.router.events.subscribe((event) => {
+    this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       // filter `NavigationEnd` events
       if (event instanceof NavigationEnd) {
         // get current route without leading slash `/`

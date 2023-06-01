@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { LOCALE_CODE } from 'contentful/types';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
@@ -29,15 +30,18 @@ export class HomeComponent implements OnInit {
   isMobileScreenWidth: boolean;
 
   constructor(localizationService: LocalizationService, private titleService: Title) {
-    localizationService.listenLocalization().subscribe((locale) => {
-      if (locale === Locale['en-GB']) {
-        this.overviewTitle = 'Elvia design system';
-        this.locale = 'en-GB';
-      } else {
-        this.overviewTitle = 'Elvia designsystem';
-        this.locale = 'nb-NO';
-      }
-    });
+    localizationService
+      .listenLocalization()
+      .pipe(takeUntilDestroyed())
+      .subscribe((locale) => {
+        if (locale === Locale['en-GB']) {
+          this.overviewTitle = 'Elvia design system';
+          this.locale = 'en-GB';
+        } else {
+          this.overviewTitle = 'Elvia designsystem';
+          this.locale = 'nb-NO';
+        }
+      });
   }
 
   ngOnInit(): void {

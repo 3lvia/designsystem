@@ -41,7 +41,8 @@
 
 // form field adujustments for dropdown
 .e-form-field {
-  &.e-form-field--compact {
+  &.e-form-field--compact,
+  &.e-form-field--small {
     .e-dropdown {
       .e-input i {
         right: 10px;

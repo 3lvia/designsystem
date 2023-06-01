@@ -50,32 +50,8 @@
     }
   }
 
-  &.e-form-field--combined {
-    width: 100%;
-    margin-bottom: 0;
-
-    .e-form-field__input {
-      display: flex;
-      width: 100%;
-      max-width: 448px;
-      flex-direction: row;
-      align-items: baseline;
-
-      .e-input:not(:last-of-type) {
-        margin-right: 8px;
-      }
-
-      .e-input--small {
-        width: 80px;
-      }
-
-      .e-input--medium {
-        width: 150px;
-      }
-    }
-  }
-
-  &.e-form-field--compact {
+  &.e-form-field--compact,
+  &.e-form-field--small {
     position: relative;
     padding-top: 8px;
 
@@ -107,7 +83,8 @@
   }
 
   //prevent label to not cover green border when focused
-  &.e-form-field--compact:focus-within {
+  &.e-form-field--compact:focus-within,
+  &.e-form-field--small:focus-within {
     .e-form-field__label {
       height: 10px;
       border-bottom: 1px solid colors.color('elvia-on');
@@ -115,11 +92,13 @@
   }
 
   /* Full width - Removes max width for all inputs */
+  &.e-form-field--full-width,
   &.e-form-field--full-width .e-input,
   &.e-form-field--full-width .e-input > input,
   &.e-form-field--full-width .e-input > textarea,
   &.e-form-field--full-width .e-input > div,
-  &.e-form-field--combined.e-form-field--full-width > .e-form-field__input {
+  &.e-form-field--full-width > .e-form-field__input {
+    width: 100%;
     max-width: unset;
   }
 }
@@ -140,14 +119,6 @@
 
     &:not(:last-of-type) {
       margin-right: 8px;
-    }
-
-    &.e-form-field--small {
-      width: 60px;
-    }
-
-    &.e-form-field--medium {
-      width: 140px;
     }
 
     &.e-form-field--full-width {

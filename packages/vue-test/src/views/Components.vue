@@ -232,8 +232,8 @@
       <elvia-segmented-control
         :type="'icon'"
         :items="[
-          { iconName: 'thumbnail', iconNameSelected: 'thumbnail', altLabel: 'Label' },
-          { iconName: 'list', iconNameSelected: 'list', altLabel: 'Label' },
+          { icon: '<i class="e-icon e-icon--access_control"></i>', iconSelected: '<i class="e-icon e-icon--access_control-color"></i>', altLabel: 'Label' },
+          { icon: '<i class="e-icon e-icon--list"></i>', iconSelected: '<i class="e-icon e-icon--list-color"></i>', altLabel: 'Label' },
         ]"
         @value-on-change="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ColorComponent } from './color.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [ColorComponent, ColorPickerComponent, ColorTokenTableComponent],
 })
 export class ColorModule {}

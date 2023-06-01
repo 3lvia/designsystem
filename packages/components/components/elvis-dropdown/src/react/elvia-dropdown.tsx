@@ -11,6 +11,7 @@ import {
   useWebComponentState,
   IconWrapper,
   useCurrentTheme,
+  ErrorOptions,
 } from '@elvia/elvis-toolbox';
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import { DropdownInput } from './dropdown-input/dropdownInput';
@@ -30,6 +31,10 @@ const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
 };
 
 let uniqueDropdownId = 0;
+const defaultErrorOptions = {
+  isErrorState: false,
+  hasErrorPlaceholder: true,
+} satisfies Partial<ErrorOptions>;
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
@@ -40,7 +45,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isSearchable = false,
   allOptionsSelectedLabel = 'Alle',
   label = '',
-  errorOptions = { isErrorState: false, hasErrorPlaceholder: true },
+  errorOptions,
   menuPosition = 'auto',
   placeholder = '',
   placeholderIcon,
@@ -81,6 +86,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   });
 
   const { currentTheme } = useCurrentTheme(connectedElementRef);
+
+  const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
   const focusOnSelectedValue = (): void => {
     if (focusedItem || !currentVal) {
@@ -158,9 +165,9 @@ const Dropdown: React.FC<DropdownProps> = ({
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
-        hasErrorPlaceholder={!!errorOptions.hasErrorPlaceholder || !!errorOptions.text}
+        hasErrorPlaceholder={!!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
         isActive={isShowing}
-        isInvalid={!!errorOptions.text || !!errorOptions.isErrorState}
+        isInvalid={!!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
         data-testid="wrapper"
         aria-haspopup="true"
       >
@@ -191,7 +198,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             />
           </IconRotator>
         </DropdownInputContainer>
-        {!!errorOptions.text && <DropdownError errorText={errorOptions.text} />}
+        {!!mergedErrorOptions.text && <DropdownError errorText={mergedErrorOptions.text} />}
       </DropdownContainer>
       {isShowing && (
         <DropdownOverlay

@@ -481,8 +481,16 @@
     <elvia-segmented-control
       [type]="'icon'"
       [items]="[
-        { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'Helo' },
-        { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'HEElo' }
+        {
+          icon: '<i class=\'e-icon e-icon--thumbnail\'></i>',
+          iconSelected: '<i class=\'e-icon e-icon--thumbnail-color\'></i>',
+          ariaLabel: 'Segmented control example label'
+        },
+        {
+          icon: '<i class=\'e-icon e-icon--list\'></i>',
+          iconSelected: '<i class=\'e-icon e-icon--list_color\'></i>',
+          ariaLabel: 'Segmented control example label'
+        }
       ]"
       (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
     ></elvia-segmented-control>
@@ -595,7 +603,7 @@
 
       <elvia-timepicker label=""></elvia-timepicker>
 
-      <elvia-timepicker isCompact="true"></elvia-timepicker>
+      <elvia-timepicker size="small"></elvia-timepicker>
 
       <elvia-timepicker label="Only hours" [value]="timepickerValue" minuteInterval="60"></elvia-timepicker>
 

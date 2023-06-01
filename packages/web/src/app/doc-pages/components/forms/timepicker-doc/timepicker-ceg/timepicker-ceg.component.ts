@@ -12,7 +12,15 @@ export class TimepickerCegComponent implements ComponentExample {
   cegContent = new CegControlManager<TimepickerProps>([
     {
       controls: {
-        isCompact: { type: 'checkbox', label: 'Compact', group: 'Size' },
+        size: {
+          type: 'radioGroup',
+          value: 'medium',
+          radios: [
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+          ],
+          group: 'Size',
+        },
         minuteInterval: {
           type: 'radioGroup',
           value: '10',
