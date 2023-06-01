@@ -25,55 +25,65 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
     theme.static[label as keyof typeof theme.static] ??
     null;
   if (!color) {
-    console.error(`Color ${label} not found.`);
     return null;
   }
   return color;
 };
 
 /**
- * Get a color from a theme by label. Will `console.error` and return empty string if color isn't found.
+ * Get a color from a theme by label. Will throw an error if color is not found.
  * @param label
  * @param themeName The theme name. Defaults to `'light'`. This only affects the fallback color.
  * @returns CSS-variable for label, with fallback to the color hex.
+ * @throws Will throw an error if color is not found.
  * @example
  * const color = getThemeColor('background-1');
  *
  * @since 1.5.0
  */
-export const getThemeColor = <TLabel extends ColorLabel>(
+export const getThemeColor = <
+  TLabel extends ColorLabel | `color-${ColorLabel}`,
+  TLabelWithoutPrefix extends ColorLabel = TLabel extends `color-${infer U extends ColorLabel}` ? U : TLabel,
+>(
   label: TLabel,
   themeName: ThemeName = 'light',
-): `var(--e-color-${TLabel}, ${string})` | '' => {
-  const color = getThemeColorObject(label, themeName);
+): `var(--e-color-${TLabelWithoutPrefix}, ${string})` => {
+  const labelWithoutPrefix = label.replace(/^color-/, '') as TLabelWithoutPrefix;
+  const color = getThemeColorObject(labelWithoutPrefix, themeName);
   if (!color) {
-    console.error(`Color '${label}' not found.`);
-    return '';
+    throw new Error(`Color '${label}' not found.`);
   }
-  return `var(--e-color-${label}, ${color.hex})`;
+  return `var(--e-color-${labelWithoutPrefix}, ${color.hex})`;
 };
 
 /**
  * Get a contrast color from a theme by label.
  * @param label
- * @param themeName The theme name. Defaults to 'light'.
+ * @param themeName The theme name. Defaults to 'light'. This only affects the fallback color.
  * @returns CSS-variable for label, with fallback to the contrast color hex.
+ * @throws Will throw an error if color is not found or if color does not have a contrast defined.
  * @example
  * const contrastColor = getThemeColorContrast('background-1');
  *
  * @since 1.6.0
  */
-export const getThemeColorContrast = (label: ColorLabel, themeName: ThemeName = 'light'): string => {
-  const color = getThemeColorObject(label, themeName);
+export const getThemeColorContrast = <
+  TLabel extends ColorLabel | `color-${ColorLabel}`,
+  TLabelWithoutPrefix extends ColorLabel = TLabel extends `color-${infer U extends ColorLabel}` ? U : TLabel,
+>(
+  label: TLabel,
+  themeName: ThemeName = 'light',
+): `var(--e-color-${TLabelWithoutPrefix}--contrast, ${string})` => {
+  const labelWithoutPrefix = label.replace(/^color-/, '') as TLabelWithoutPrefix;
+  const color = getThemeColorObject(labelWithoutPrefix, themeName);
   if (!color) {
-    console.error(`Color '${label}' not found.`);
-    return '';
+    throw new Error(`Color '${label}' not found.`);
   }
   if (!('contrast' in color)) {
-    console.error(`Color '${label}' does not have a contrast color.`);
-    return '';
+    throw new Error(`Color '${label}' does not have a contrast color.`);
   }
-  return `var(--e-color-${label}--contrast, ${color.contrast})`;
+
+  return `var(--e-color-${labelWithoutPrefix}--contrast, ${color.contrast})`;
 };
 
 const getBaseThemeColors = <TThemeName extends ThemeName>(
@@ -125,8 +135,7 @@ export const getCustomThemeColor = (
     colors['data-colors'][label as keyof (typeof colors)['data-colors']] ??
     colors['grey-colors'][label as keyof (typeof colors)['grey-colors']];
   if (!color) {
-    console.error(`Color '${label}' for theme '${themeName}' not found.`);
-    return '';
+    throw new Error(`Color '${label}' for theme '${themeName}' not found.`);
   }
   return color.color;
 };
@@ -153,8 +162,7 @@ export function getBaseColor(
     colors['grey-colors'][label as keyof (typeof colors)['grey-colors']] ??
     colors['internal-colors'][label as keyof (typeof colors)['internal-colors']];
   if (!color) {
-    console.error(`Color '${label}' for theme '${themeName}' not found.`);
-    return '';
+    throw new Error(`Color '${label}' for theme '${themeName}' not found.`);
   }
   return color.color;
 }
