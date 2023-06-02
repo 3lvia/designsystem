@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.0.1",
+      "date": "June 02, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Re-exported the <code>piggy_bank-color</code> icon to fix an issue."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "12.0.0",
       "date": "May 30, 2023",
       "changelog": [
