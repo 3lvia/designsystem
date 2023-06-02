@@ -61,6 +61,10 @@
   </nav>
 
   <div class="external-links" role="tablist">
+    <!-- TODO: Temporary way of adding theme toggle to dev -->
+    <button class="e-btn e-btn--tertiary e-btn--sm e-text-red" (click)="toggleTheme()" *ngIf="devMode">
+      Toggle theme
+    </button>
     <div class="tabs-links elvis-search e-mr-24" (click)="openSearchMenu()" id="search-button">
       <span class="elvis-search__icon e-mr-8">
         <i class="e-icon e-icon--search-bold e-icon--xs e-icon--inverted" aria-hidden="true"></i>
