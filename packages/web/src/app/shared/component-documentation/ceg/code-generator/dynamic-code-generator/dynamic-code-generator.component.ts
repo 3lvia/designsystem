@@ -87,7 +87,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
       .flat();
 
     if (staticProps) {
-      let staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({
+      const staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({
         name,
         value,
         isStatic: true,
@@ -100,7 +100,6 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     if (type) {
       props.unshift({ name: 'type', value: type.toLowerCase() });
     }
-    console.log(props);
     return props;
   }
 
