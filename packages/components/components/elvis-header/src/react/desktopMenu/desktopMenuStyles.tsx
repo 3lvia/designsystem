@@ -1,15 +1,15 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { Hr } from '../styledComponents';
 
 export const MenuContainer = styled.div`
-  background-color: ${getColor('elvia-on')};
+  background-color: ${getThemeColor('background-overlay-3')};
   border-radius: 8px;
   padding: 32px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: ${getShadow('medium')};
 `;
 
 export const UserGrid = styled.div`
@@ -37,18 +37,18 @@ export const Footer = styled.div`
 
 export const ImageContainer = styled.div<{ thumbnail?: boolean }>`
   width: 48px;
-  height: 48px;
+  flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
-  background-color: ${getColor('grey-05')};
+  background-color: ${getThemeColor('background-element-2')};
   grid-column: 1 / 1;
   grid-row: 1 / -1;
+  aspect-ratio: 1;
 
   ${({ thumbnail }) =>
     thumbnail &&
     css`
       width: 32px;
-      height: 32px;
     `};
 
   svg {

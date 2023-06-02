@@ -1,5 +1,5 @@
-import { getColor } from '@elvia/elvis-colors';
-import { IconButton } from '@elvia/elvis-toolbox';
+import { getThemeColor } from '@elvia/elvis-colors';
+import { FormFieldSizes, IconButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { StyledCheckbox } from '../checkbox/checkboxStyles';
@@ -50,7 +50,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   isActive?: boolean;
   isFocused?: boolean;
   isDisabled?: boolean;
-  isCompact?: boolean;
+  size?: FormFieldSizes;
   isMulti?: boolean;
   isInvisible?: boolean;
   isGtMobile?: boolean;
@@ -60,7 +60,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   border: none;
   margin: 0;
   width: 100%;
-  color: ${getColor('elvia-off')};
+  color: ${getThemeColor('text-1')};
   padding: 0 0 0 16px;
   align-items: center;
   cursor: pointer;
@@ -70,7 +70,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     isActive &&
     !isMulti &&
     css`
-      background-color: ${getColor('grey-10')};
+      background-color: ${getThemeColor('background-selected-2')};
     `};
 
   ${({ isMulti, isGtMobile, isDisabled }) =>
@@ -80,13 +80,13 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     css`
       &:hover {
         ${OpenOverlayButton} {
-          background-color: ${getColor('elvia-charge')};
+          background-color: ${getThemeColor('background-hover-1')};
         }
       }
     `};
 
-  ${({ isCompact }) => {
-    if (isCompact) {
+  ${({ size }) => {
+    if (size === 'small') {
       return css`
         ${getTypographyCss('text-sm')};
 
@@ -105,15 +105,16 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     if (isDisabled) {
       return css`
         cursor: not-allowed;
-        color: ${getColor('disabled')};
+        color: ${getThemeColor('text-disabled-1')};
       `;
     }
     return css`
       &:hover {
-        background-color: ${getColor('grey-05')};
+        background-color: ${getThemeColor('background-hover-2')};
 
         ${StyledCheckbox} {
-          background-color: ${getColor('elvia-charge')};
+          background-color: ${getThemeColor('background-hover-1')};
+          border-color: ${getThemeColor('text-1')};
         }
       }
     `;
@@ -123,7 +124,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     isFocused &&
     (!isActive || isMulti) &&
     css`
-      background-color: ${getColor('grey-05')};
+      background-color: ${getThemeColor('background-hover-2')};
     `};
 `;
 

@@ -1,0 +1,44 @@
+:host {
+  line-height: normal;
+}
+
+.code-container {
+  background: var(--e-grey);
+  border-radius: 8px;
+  padding: 24px;
+  width: 100%;
+}
+
+.top-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 16px;
+  margin-bottom: 8px;
+  overflow: auto;
+
+  .copy-code {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--e-white);
+    width: 100px;
+  }
+}
+
+.active-code {
+  font-size: 0.875rem;
+  font-family: 'Red Hat Mono', Verdana, sans-serif;
+  color: var(--e-white);
+  background: unset;
+  border-radius: unset;
+  padding: inherit;
+}
+
+.overflow-container {
+  overflow: auto;
+  max-height: 800px;
+}

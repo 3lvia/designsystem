@@ -8,49 +8,30 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp">
-    <div class="e-form-field">
-      <label class="e-form-field__label" for="compact">Country</label>
-      <div class="e-input">
-        <input
-          placeholder="Search for country"
-          [value]="chosenLand"
-          #searchTerm
-          (keyup)="onSearch(searchTerm.value)"
-          (click)="onInputClick()"
-          id="ChooseCountry"
-        />
-        <div class="e-autocomplete" *ngIf="showResults" id="countryOptions">
-          <span class="e-autocomplete__item" *ngFor="let country of results" (click)="SelectCountry(country)">
-            {{ country }}
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeHTML]="exampleInHTML"
-        [codeTS]="exampleInTS"
-      ></app-component-example-v1>
-    </div>
+    <app-static-ceg [hideReact]="true">
+      <app-autocomplete-ceg />
+    </app-static-ceg>
   </div>
 
   <!-- SIZES -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Normal'">
+      <app-component-subsection [sectionTitle]="'Medium'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleAutocomplete"></app-component-example-v1>
+          <app-static-ceg>
+            <app-autocomplete-normal-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Compact'">
+      <app-component-subsection [sectionTitle]="'Small'">
         <ng-container ngProjectAs="sectionContent">
-          Much like compact text fields, the compact autocomplete is a version of the text field that’s
-          primarily designed for internal systems, and shouldn’t be mixed with the other input styles.
-          <app-component-example-v1 [codeHTML]="exampleCompact"></app-component-example-v1>
+          Much like small text fields, the small autocomplete is a version of the text field that’s primarily
+          designed for internal systems, and shouldn’t be mixed with the other input styles.
+          <app-static-ceg>
+            <app-autocomplete-compact-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>

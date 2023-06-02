@@ -104,7 +104,7 @@ export class ElvisComponentWrapper extends HTMLElement {
    * webcomponent.triggerEvent('onOpen');
    * webcomponent.triggerEvent('onDelete', deletedValue);
    */
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  // eslint-disable-next-line
   triggerEvent(callbackName: string, eventData?: any): void {
     this.onEvent(callbackName, eventData);
   }
@@ -121,7 +121,7 @@ export class ElvisComponentWrapper extends HTMLElement {
    */
   setProps(newProps: { [propName: string]: any }, preventRerender?: boolean): void {
     Object.keys(newProps).forEach((key) => {
-      if (!isEqual(this._data[key], newProps[key])) {
+      if (!isEqual(this._data[key.toLowerCase()], newProps[key])) {
         this._data[key.toLowerCase()] = newProps[key];
       }
     });
@@ -129,6 +129,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (!preventRerender) {
       this.throttleRenderReactDOM();
     }
+  }
+
+  setSlots(slots: { [slotName: string]: Element }): void {
+    this._slots = slots;
   }
 
   protected addDisplayStyleToCustomElement(): void {
@@ -153,7 +157,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     } else {
       this.logWarnMessage(
         'mapNameToRealName',
-        "Did you forget to define the attribute '" + attr + "' in elvia-components.config.js?",
+        "Did you forget to define the attribute '" + attr + "' in config.ts?",
       );
       return attr;
     }
@@ -285,7 +289,7 @@ export class ElvisComponentWrapper extends HTMLElement {
 declare class ElviaComponent extends ElvisComponentWrapper {
   constructor();
   static get observedAttributes(): string[];
-  /** Data from `elvia-components.config.js`. */
+  /** Data from `config.ts`. */
   getComponentData(): {
     name: string;
     attributes: { name: string; type: string }[];

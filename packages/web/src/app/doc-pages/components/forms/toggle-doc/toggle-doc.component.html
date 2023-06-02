@@ -8,16 +8,9 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <label class="e-toggle">
-      Label
-      <input class="e-toggle__input" type="checkbox" role="switch" aria-checked="false" />
-    </label>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
-    </div>
-  </div>
+  <app-static-ceg>
+    <app-toggle-ceg />
+  </app-static-ceg>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
@@ -37,11 +30,9 @@
   <!--STATES-->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1
-        [interactable]="false"
-        [codeHTML]="example1"
-        [codeInverted]="exampleInverted"
-      ></app-component-example-v1>
+      <app-static-ceg>
+        <app-toggle-states-ceg />
+      </app-static-ceg>
     </ng-container>
   </app-component-section>
 
@@ -51,7 +42,9 @@
       <app-component-subsection [sectionTitle]="'Label position'">
         <ng-container ngProjectAs="sectionContent">
           Place the label on the right or left side of the toggle.
-          <app-component-example-v1 [codeHTML]="exampleLabelPosition"></app-component-example-v1>
+          <app-static-ceg>
+            <app-toggle-label-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -62,16 +55,20 @@
     <ng-container ngProjectAs="sectionContent">
       The toggles come in two sizes. Regardless of the size you choose, you should never combine the two and
       always use the same size of toggle throughout the page.
-      <app-component-subsection [sectionTitle]="'Normal'">
+      <app-component-subsection [sectionTitle]="'Medium'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleToggleSizeNormal"></app-component-example-v1>
+          <app-static-ceg>
+            <app-toggle-size-md-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Compact'">
+      <app-component-subsection [sectionTitle]="'Small'">
         <ng-container ngProjectAs="sectionContent">
-          Compact toggles are typically used in Elvia’s internal systems, where screen real estate is an
+          Small toggles are typically used in Elvia’s internal systems, where screen real estate is an
           important factor.
-          <app-component-example-v1 [codeHTML]="exampleToggleSizeCompact"></app-component-example-v1>
+          <app-static-ceg>
+            <app-toggle-size-sm-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>

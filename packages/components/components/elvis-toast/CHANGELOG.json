@@ -1,0 +1,35 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "08.05.23",
+      "version": "1.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "16.03.23",
+      "version": "1.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Remove reference to React in web component types."]
+        }
+      ]
+    },
+    {
+      "date": "16.03.23",
+      "version": "1.0.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["First version of the toast component."]
+        }
+      ]
+    }
+  ]
+}

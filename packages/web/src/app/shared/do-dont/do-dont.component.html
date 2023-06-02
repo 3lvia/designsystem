@@ -1,34 +1,19 @@
-<div class="doDont-container">
-  <div class="doDo" *ngIf="do">
-    <div class="code-highlighter">
-      <app-component-example-code
-        [codeTS]="codeTS"
-        [codeHTML]="codeHTML"
-        [codeCSS]="codeCSS"
-        [doDontComp]="true"
-      ></app-component-example-code>
-    </div>
-    <div class="instructions do">
-      <span style="display: flex; align-items: center">
-        <i class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green" aria-hidden="true"></i>
-      </span>
-      <p class="e-text-lg">Do this!</p>
-    </div>
-  </div>
-  <div class="doDont" *ngIf="!do">
-    <div class="code-highlighter">
-      <app-component-example-code
-        [codeTS]="codeTS"
-        [codeHTML]="codeHTML"
-        [codeCSS]="codeCSS"
-        [doDontComp]="true"
-      ></app-component-example-code>
-    </div>
-    <div class="instructions dont">
-      <span style="display: flex; align-items: center">
-        <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red" aria-hidden="true"></i>
-      </span>
-      <p class="e-text-lg">Don't do this!</p>
-    </div>
-  </div>
+<div class="code-container" [ngClass]="{ error: !do }">
+  <app-code-viewer *ngIf="codeHTML; else cssExample" [activeCode]="codeHTML" />
+
+  <ng-template #cssExample>
+    <app-code-viewer [tabs]="['CSS']" [activeCode]="codeCSS" />
+  </ng-template>
+</div>
+
+<div class="e-flex e-align-items-center e-gap-8 e-mt-16">
+  <i
+    class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"
+    [ngClass]="{
+      'e-icon--check_circle e-icon--color-green': do,
+      'e-icon--remove_circle e-icon--color-red': !do
+    }"
+    aria-hidden="true"
+  ></i>
+  <div class="e-text-lg">{{ do ? 'Do this!' : "Don't do this!" }}</div>
 </div>

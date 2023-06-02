@@ -27,38 +27,23 @@ const datepickerRangeData: ComponentData = {
       description: 'Labels of inputs.',
       default: '{start: "Fra dato", end: "Til dato"}',
     },
-    isCompact: {
+    size: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Compact size.',
-      default: 'false',
-      cegDisplayName: 'Compact',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Size',
+      type: 'small | medium',
+      description: 'Datepicker can be set to different sizes.',
+      default: 'medium',
     },
     isFullWidth: {
       isRequired: false,
       type: 'boolean',
       description: 'Gives the input 100% width (max = 912px).',
       default: 'false',
-      cegDisplayName: 'Full width',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Size',
     },
     isDisabled: {
       isRequired: false,
       type: 'boolean',
       description: 'Disabled datepicker.',
       default: 'false',
-      cegDisplayName: 'Disabled',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'State',
     },
     isRequired: {
       isRequired: false,
@@ -66,11 +51,6 @@ const datepickerRangeData: ComponentData = {
       description:
         'Required datepicker-fields cannot be empty. If a boolean is passed, it will apply to both fields.',
       default: 'false',
-      cegDisplayName: 'Required',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'State',
     },
     isVertical: {
       isRequired: false,
@@ -78,58 +58,30 @@ const datepickerRangeData: ComponentData = {
       description:
         'Set to true to force datepickers to stack vertically instead of horizontally. This is useful for devices with limited screen space.',
       default: 'false',
-      cegDisplayName: 'Vertical Stacking',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
     },
     hasSelectDateOnOpen: {
       isRequired: false,
       type: 'boolean',
       description: 'Sets the current date to selected when opening the datepicker.',
       default: 'true',
-      cegDisplayName: 'Select today on open',
-      cegType: 'boolean',
-      cegDefault: true,
-      cegFormType: 'checkbox',
-      cegOption: 'false',
-      cegDisplayGroup: 'Options',
     },
     hasAutoOpenEndDatepicker: {
       isRequired: false,
       type: 'boolean',
       description: 'Auto opens the next picker when the currently open picker is closed.',
       default: 'false',
-      cegDisplayName: 'Auto open next picker',
-      cegType: 'boolean',
-      cegDefault: false,
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
     },
     hasTimepickers: {
       isRequired: false,
       type: 'boolean',
       description: 'Displays time pickers to enable time selection.',
       default: false,
-      cegDisplayName: 'Has timepickers',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
     },
     timepickerInterval: {
       isRequired: false,
       type: '"1" | "5" | "10" | "15" | "60"',
       default: '"15"',
       description: 'The number of minute steps in the timepicker, if visible.',
-      cegDisplayName: 'Timepicker interval',
-      cegDefault: '15',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['1', '5', '10', '15', '60'],
-      cegDependency: [{ name: 'hasTimepickers', value: 'true' }],
     },
     minDate: {
       isRequired: false,
@@ -148,8 +100,10 @@ const datepickerRangeData: ComponentData = {
     },
     errorOptions: {
       isRequired: false,
-      type: 'Partial<{start: { text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }, end: { text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }}>',
+      type: 'Partial<{start: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, end: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}>',
       description: 'An object that allows for custom configuration of the error handling.',
+      default:
+        '{ start: { hideText: false, hasErrorPlaceholder: true }, end: { hideText: false, hasErrorPlaceholder: true }}',
     },
     errorOnChange: {
       isRequired: false,
@@ -168,27 +122,6 @@ const datepickerRangeData: ComponentData = {
         "Custom CSS style object that can be added to the datepicker range. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: `<DatepickerRange
-  valueOnChange={(event) => handleOnChange(event)}
-></DatepickerRange>
-`,
-  codeAngular: `<elvia-datepicker-range
-  (valueOnChange)="handleOnChange($event.detail.value)"
-></elvia-datepicker-range>
-`,
-  codeVue: `<elvia-datepicker-range
-  @value-on-change="handleOnChange($event.detail.value)"
-></elvia-datepicker-range>
-`,
-  codeNativeHTML: `<elvia-datepicker-range
-  id="example-elvia-datepicker-range"
-></elvia-datepicker-range>
-`,
-  codeNativeScript: `  const datepicker = document.getElementById('example-elvia-datepicker-range');
-  datepicker.addEventListener('valueOnChange', (event) => {
-    console.log('Do what you want with date range: ', event.detail.value)
-  });
-`,
 };
 
 export { datepickerRangeData };

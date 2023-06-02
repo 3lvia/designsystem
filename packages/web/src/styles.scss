@@ -72,6 +72,7 @@ code,
   font-weight: 400;
   font-size: 16px;
   line-height: inherit;
+  overflow: auto;
 
   background: var(--e-grey-05);
   border-radius: 4px;
@@ -136,6 +137,24 @@ kbd,
   }
   @media (max-width: 414px) {
     padding-left: 24px;
+  }
+}
+
+.components-overview-cards,
+.overview-action-link {
+  display: grid;
+  column-gap: 32px;
+  row-gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(154px, 1fr));
+  grid-template-rows: auto;
+
+  @include breakpoints.breakpoint-up(MaxDesktop) {
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: none;
   }
 }
 
@@ -264,6 +283,8 @@ kbd,
   display: flex;
   row-gap: 24px;
   flex-direction: column;
+  word-wrap: anywhere;
+
   @include breakpoints.breakpoint-up(Mobile) {
     width: 100%;
   }

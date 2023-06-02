@@ -2,6 +2,40 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.05.23",
+      "version": "1.2.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies. "]
+        }
+      ]
+    },
+    {
+      "date": "03.04.23",
+      "version": "1.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix broken type export.", "Not possible to update delay time after init."]
+        }
+      ]
+    },
+    {
+      "date": "27.02.23",
+      "version": "1.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "20.12.22",
       "version": "1.1.7",
       "changelog": [

@@ -3,7 +3,8 @@
   "cli": {
     "packageManager": "yarn",
     "cache": { "enabled": false },
-    "schematicCollections": ["@angular-eslint/schematics"]
+    "schematicCollections": ["@angular-eslint/schematics"],
+    "analytics": false
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -12,7 +13,17 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         }
       },
       "root": "",
@@ -22,28 +33,31 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "preserveSymlinks": true,
             "outputPath": "dist/elvia-designsystem",
             "allowedCommonJsDependencies": [
               "@contentful/rich-text-html-renderer",
               "@contentful/rich-text-types",
               "@elvia/elvis-assets-icons/config/icons.config.js",
-              "@elvia/elvis-colors",
-              "@elvia/elvis-toolbox",
-              "@elvia/elvis-typography",
               "hoist-non-react-statics",
               "json5",
               "lodash.debounce",
               "lodash.isequal",
               "lodash.throttle",
               "natural-compare-lite",
-              "prismjs"
+              "prismjs",
+              "prettier/parser-babel",
+              "prettier/parser-html",
+              "prettier/parser-postcss",
+              "prettier/standalone",
+              "react-dom/client"
             ],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/robots.txt",
+              "src/sitemap.xml",
               "src/favicon.ico",
               "src/assets",
               "src/_redirects",
@@ -64,7 +78,7 @@
               }
             ],
             "styles": ["src/styles.scss"],
-            "scripts": [],
+            "scripts": ["./node_modules/@elvia/elvis/elvis.js"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,

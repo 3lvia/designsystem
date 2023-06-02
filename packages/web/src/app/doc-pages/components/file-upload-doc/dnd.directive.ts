@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Directive, Output, EventEmitter, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
@@ -16,14 +15,14 @@ export class DndDirective {
   }
 
   // Dragleave listener
-  @HostListener('dragleave', ['$event']) public onDragLeave(evt): void {
+  @HostListener('dragleave', ['$event']) public onDragLeave(evt: Event): void {
     evt.preventDefault();
     evt.stopPropagation();
     this.fileOver = false;
   }
 
   // Drop listener
-  @HostListener('drop', ['$event']) public ondrop(evt): void {
+  @HostListener('drop', ['$event']) public ondrop(evt: Event): void {
     evt.preventDefault();
     evt.stopPropagation();
     this.fileOver = false;

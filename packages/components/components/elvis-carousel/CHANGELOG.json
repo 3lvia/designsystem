@@ -2,6 +2,57 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.05.23",
+      "version": "3.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies. "]
+        }
+      ]
+    },
+    {
+      "date": "27.04.23",
+      "version": "3.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies to use new color labels."]
+        }
+      ]
+    },
+    {
+      "date": "14.04.23",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Deprecated the <code>loop</code> prop. Use the new <code>type</code> prop instead."],
+          "fixes": [
+            "Replace the <code>loop</code> prop with the <code>type</code> prop. The <code>type</code> prop can be set to <code>\"linear\"</code> or <code>\"loop\"</code>. (default)"
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fixed broken type export"]
+        }
+      ]
+    },
+    {
+      "date": "09.03.23",
+      "version": "2.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "23.12.22",
       "version": "2.2.2",
       "changelog": [

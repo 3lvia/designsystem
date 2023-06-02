@@ -8,13 +8,9 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <a class="e-link" href="https://design.elvia.io/components/link#Overview">Link</a>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="previewLinkHTML"></app-component-example-v1>
-    </div>
-  </div>
+  <app-static-ceg>
+    <app-link-ceg />
+  </app-static-ceg>
 
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
@@ -22,10 +18,9 @@
       <app-component-subsection [sectionTitle]="'Standard link'">
         <ng-container ngProjectAs="sectionContent">
           Standard links stand alone and direct you to another page.
-          <app-component-example-v1
-            [codeHTML]="example1"
-            [codeInverted]="example1Inverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-link-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -33,10 +28,9 @@
         <ng-container ngProjectAs="sectionContent">
           Inline link are used within sentences and text blocks, and will always carry the font size of the
           text block.
-          <app-component-example-v1
-            [codeHTML]="example2"
-            [codeInverted]="example2Inverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-link-inline-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -44,10 +38,9 @@
         <ng-container ngProjectAs="sectionContent">
           New tab link is used when the page you are linking to opens in a new window or tab. You should open
           a link in a new tab when it leads outside of the website
-          <app-component-example-v1
-            [codeHTML]="exampleNewTab"
-            [codeInverted]="exampleNewTabInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-link-new-tab-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -55,10 +48,9 @@
         <ng-container ngProjectAs="sectionContent">
           Action link are mostly used when you link to another page to do an action. It can also be used when
           you have a link alone and want it to take more attention than a regular link.
-          <app-component-example-v1
-            [codeHTML]="exampleAction"
-            [codeInverted]="exampleActionInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-link-action-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -67,10 +59,9 @@
           Back link are used to navigate the user to a previous page or take the user to the start page. Back
           links have a green arrow next to it to make it stand out more and to clarify that you will be sent
           back.
-          <app-component-example-v1
-            [codeHTML]="exampleBack"
-            [codeInverted]="exampleBackInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-link-back-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -92,9 +83,11 @@
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       We have three different sizes: small, medium, and large. Make sure the aspect ratio harmonizes with the
-      rest of the content. An example, If you use small body text and small title or/and compact components -
+      rest of the content. An example, if you use small body text and small title or/and small components -
       use small link.
-      <app-component-example-v1 [codeHTML]="exampleSizes"></app-component-example-v1>
+      <app-static-ceg>
+        <app-link-sizes-ceg />
+      </app-static-ceg>
     </ng-container>
   </app-component-section>
 
@@ -145,7 +138,9 @@
         <ng-container ngProjectAs="sectionContent">
           The e-btn class can also be used on anchor tags to make links appear like buttons. This should only
           be done with good reason as the behavior might confuse the user.
-          <app-component-example-v1 [codeHTML]="example8"></app-component-example-v1>
+          <app-static-ceg>
+            <app-link-as-btn-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>

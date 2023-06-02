@@ -2,6 +2,38 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.05.23",
+      "version": "2.3.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "25.04.23",
+      "version": "2.3.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Properly export types"]
+        }
+      ]
+    },
+    {
+      "date": "27.02.23",
+      "version": "2.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added prop <code>transitionDuration</code> to manually set the duration for the progress animation."
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.02.23",
       "version": "2.2.0",
       "changelog": [

@@ -12,7 +12,6 @@ export enum Pages {
 
   // Component Pages
   Accordion = 'accordion',
-  AccordionGroup = 'accordion-group',
   Alert = 'alert',
   Autocomplete = 'autocomplete',
   Badge = 'badge',
@@ -41,7 +40,6 @@ export enum Pages {
   OverviewComp = 'overview-comp',
   Pagination = 'pagination',
   Popover = 'popover',
-  PositionPicker = 'position-picker',
   Progressbar = 'progressbar',
   RadioFilter = 'radio-filter',
   Radiobutton = 'radiobutton',
@@ -55,6 +53,7 @@ export enum Pages {
   Tag = 'tag',
   Thumbnail = 'thumbnail',
   Timepicker = 'timepicker',
+  Toast = 'toast',
   Toggle = 'toggle',
   Tooltip = 'tooltip',
 
@@ -64,6 +63,7 @@ export enum Pages {
   Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq',
+  GetStarted = 'get-started',
   Icon = 'icon',
   Shadow = 'shadow',
   TheDesignSystem = 'the-design-system',

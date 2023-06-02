@@ -2,6 +2,32 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.05.23",
+      "version": "2.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "27.02.23",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The colors <code>black</code> and <code>white</code> for the <code>badeColor</code> prop have been replaced by the new <code>neutral</code> color which adapts the users theme."
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        }
+      ]
+    },
+    {
       "date": "20.12.22",
       "version": "1.0.4",
       "changelog": [

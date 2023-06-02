@@ -9,10 +9,9 @@
 <!--BODY-->
 <div class="page-body">
   <!--CEG-->
-  <app-component-example-generator
-    [componentData]="componentData"
-    [typesData]="typesData"
-  ></app-component-example-generator>
+  <app-ceg>
+    <app-segmented-control-ceg />
+  </app-ceg>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
@@ -44,6 +43,20 @@
               to navigate between the segmented controls options.
             </div>
           </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- IMPLEMENTATION -->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Icons'">
+        <ng-container ngProjectAs="sectionContent">
+          The icons should be sent in as HTML string and using elvis icons are recommended as this also
+          supports the size-prop. If you send in icons in a different way the size prop will not work and the
+          icons needs to be adjusted manually.
+          <p>Large = 24x24px, Medium and Small = 16x16px.</p>
         </ng-container>
       </app-component-subsection>
     </ng-container>

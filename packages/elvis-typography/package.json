@@ -1,28 +1,30 @@
 {
   "name": "@elvia/elvis-typography",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "description": "Elvia typography",
   "license": "MIT",
-  "author": "",
   "main": "dist/elviaTypography.js",
+  "module": "dist/elviaTypography.mjs",
   "types": "dist/elviaTypography.d.ts",
   "style": "dist/elviaTypography.scss",
   "scripts": {
-    "build": "gulp"
+    "build": "gulp && tsup && yarn sourcemap",
+    "sourcemap": "tsc",
+    "start": "tsup --watch"
   },
   "files": [
     "CHANGELOG.json",
     "README.md",
-    "dist/**/*"
+    "dist/**/*",
+    "!dist/**/*.d.ts.map"
   ],
   "devDependencies": {
     "@types/gulp": "^4.0.10",
-    "@types/gulp-typescript": "^2.13.0",
     "@types/node": "^18.11.18",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-typescript": "^6.0.0-alpha.1",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.4"
+    "tsup": "^6.7.0",
+    "typescript": "~5.0.4"
   }
 }

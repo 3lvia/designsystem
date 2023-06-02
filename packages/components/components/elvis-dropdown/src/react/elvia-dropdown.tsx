@@ -10,6 +10,8 @@ import {
   useBreakpoint,
   useWebComponentState,
   IconWrapper,
+  useCurrentTheme,
+  ErrorOptions,
 } from '@elvia/elvis-toolbox';
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import { DropdownInput } from './dropdown-input/dropdownInput';
@@ -29,17 +31,21 @@ const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
 };
 
 let uniqueDropdownId = 0;
+const defaultErrorOptions = {
+  isErrorState: false,
+  hasErrorPlaceholder: true,
+} satisfies Partial<ErrorOptions>;
 
 const Dropdown: React.FC<DropdownProps> = ({
   items = [],
   value,
-  isCompact = false,
+  size = 'medium',
   isDisabled = false,
   isFullWidth = false,
   isSearchable = false,
   allOptionsSelectedLabel = 'Alle',
   label = '',
-  errorOptions = { isErrorState: false, hasErrorPlaceholder: true },
+  errorOptions,
   menuPosition = 'auto',
   placeholder = '',
   placeholderIcon,
@@ -78,6 +84,10 @@ const Dropdown: React.FC<DropdownProps> = ({
     verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
     alignWidths: true,
   });
+
+  const { currentTheme } = useCurrentTheme(connectedElementRef);
+
+  const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
   const focusOnSelectedValue = (): void => {
     if (focusedItem || !currentVal) {
@@ -150,14 +160,14 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <>
       <DropdownContainer
-        isCompact={isCompact}
+        size={size}
         className={className ?? ''}
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
-        hasErrorPlaceholder={!!errorOptions.hasErrorPlaceholder || !!errorOptions.text}
+        hasErrorPlaceholder={!!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
         isActive={isShowing}
-        isInvalid={!!errorOptions.text || !!errorOptions.isErrorState}
+        isInvalid={!!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
         data-testid="wrapper"
         aria-haspopup="true"
       >
@@ -183,12 +193,12 @@ const Dropdown: React.FC<DropdownProps> = ({
           <IconRotator isRotated={isShowing}>
             <IconWrapper
               icon={arrowDownBold}
-              color={isDisabled ? 'disabled' : 'black'}
-              size={isCompact ? 'xs' : 'sm'}
+              color={isDisabled ? 'text-disabled-1' : 'text-1'}
+              size={size === 'small' ? 'xs' : 'sm'}
             />
           </IconRotator>
         </DropdownInputContainer>
-        {!!errorOptions.text && <DropdownError errorText={errorOptions.text} />}
+        {!!mergedErrorOptions.text && <DropdownError errorText={mergedErrorOptions.text} />}
       </DropdownContainer>
       {isShowing && (
         <DropdownOverlay
@@ -199,7 +209,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           noItemsText={noOptionsMessage}
           isMulti={isMulti}
           onItemSelect={setSelectedItem}
-          isCompact={isCompact}
+          size={size}
           onClose={() => setIsShowing(false)}
           filteredItems={filteredItems}
           inputIsKeyboard={inputMode === 'keyboard'}
@@ -214,6 +224,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           setFocusedItem={updateFocusedItem}
           setHoveredItem={emitHoveredItem}
           isSearchMode={!!filter}
+          currentTheme={currentTheme}
         />
       )}
     </>

@@ -1,75 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { VersionService } from 'src/app/core/services/version.service';
+import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
+import { combineLatest } from 'rxjs';
+import { VersionService } from 'src/app/core/services/version.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-get-started',
   templateUrl: './get-started-doc.component.html',
   styleUrls: ['./get-started-doc.component.scss'],
 })
-export class GetStartedDocComponent implements OnInit {
+export class GetStartedDocComponent {
+  description = getDocPagesNotFromCMS('get-started')?.description;
+  title = getDocPagesNotFromCMS('get-started')?.title;
   linkTagCode = '';
   scriptTagCode = '';
-  fullExampleCode = '';
-  loadedScript = false;
-  loadedStyle = false;
-  loadedFullExample = false;
-  cssVarsCode = `/* main.js/ts - file */
-
-import cssVars from 'css-vars-ponyfill';
-
-cssVars({
-  include: 'style',
-  onlyLegacy: true,
-  watch: true,
-});`;
-
+  fullHTMLExample = '';
   bodyScriptMessage = `<body><script src="assets/js/elvis.js"></script></body>`;
 
-  constructor(private versionService: VersionService, private titleService: Title) {}
-
-  ngOnInit(): void {
-    this.updateCodeExamples();
+  constructor(private versionService: VersionService, private titleService: Title) {
     this.titleService.setTitle('Get started | Elvia design system');
+
+    combineLatest([this.versionService.getCDNScriptFile(), this.versionService.getCDNStyleFile()])
+      .pipe(takeUntilDestroyed())
+      .subscribe(([scriptFile, styleFile]) => {
+        this.scriptTagCode = scriptFile;
+        this.linkTagCode = styleFile;
+        this.fullHTMLExample = this.createFullExample(scriptFile, styleFile);
+      });
   }
 
-  toggleAccordion(id: string): void {
-    const element = document.getElementById(id) as HTMLElement;
-    if (element) {
-      if (element.classList.contains('e-accordion__item--open')) {
-        element.classList.remove('e-accordion__item--open');
-      } else {
-        element.classList.add('e-accordion__item--open');
-      }
-    }
-  }
-
-  updateCodeExamples(): void {
-    this.versionService.getCDNScriptFile().subscribe((tag: string) => {
-      this.scriptTagCode = tag;
-      this.createFullExample();
-    });
-    this.versionService.getCDNStyleFile().subscribe((tag: string) => {
-      this.linkTagCode = tag;
-      this.createFullExample();
-    });
-  }
-
-  createFullExample(): void {
-    if (this.linkTagCode !== '' && this.scriptTagCode !== '') {
-      this.loadedScript = true;
-      this.loadedStyle = true;
-      this.loadedFullExample = true;
-      this.fullExampleCode = `<!doctype html>
+  private createFullExample(scriptFile: string, styleFile: string): string {
+    if (styleFile !== '' && scriptFile !== '') {
+      return `<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    ${this.linkTagCode}
+    ${styleFile}
 </head>
 <body>
-    ${this.scriptTagCode}
+    ${scriptFile}
 </body>
 </html>`;
     }
+
+    return '';
   }
 }

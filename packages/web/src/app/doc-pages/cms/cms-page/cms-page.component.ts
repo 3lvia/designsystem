@@ -1,14 +1,14 @@
-import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { DomSanitizer, Title } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { combineLatest, Subscription } from 'rxjs';
-import { filter, startWith } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { combineLatest } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
 import { ElvisComponentWrapper } from '../../../../../../components/components/elvis-component-wrapper/dist/elvia-component';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-cms-page',
@@ -16,18 +16,16 @@ import { ElvisComponentWrapper } from '../../../../../../components/components/e
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class CMSPageComponent implements OnDestroy {
-  routerSubscription: Subscription;
-
+export class CMSPageComponent {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;
   showContentLoader = true;
-  contentHTML: any = '';
-  descriptionHTML: any = '';
-  lastUpdated;
+  contentHTML: SafeHtml = '';
+  descriptionHTML: SafeHtml = '';
+  lastUpdated: string;
   isCmsPage = true;
   landingPage = false;
   hasChecked = false;
-  activeEventListeners = [];
+  activeEventListeners: HTMLElement[] = [];
   errorMessages: CMSDocPageError[] = [];
 
   constructor(
@@ -44,27 +42,24 @@ export class CMSPageComponent implements OnDestroy {
     }
     this.checkIfPageExistsInProject();
 
-    const localizationSub = this.localizationService.listenLocalization();
-    this.routerSubscription = combineLatest([localizationSub, this.activatedRoute.url]).subscribe((value) => {
-      const firstRoute = value[1][0]?.path;
-      const secondRoute = value[1][1]?.path;
-      this.checkIfPageExistsInProject();
-      if (this.hasChecked && this.isCmsPage) {
-        if (firstRoute === 'preview' && secondRoute) {
-          this.getDocPageFromCMS(value[0], secondRoute);
-        } else if (!environment.production) {
-          this.getDocPageFromCMS(value[0]);
+    combineLatest([this.localizationService.listenLocalization(), this.activatedRoute.url])
+      .pipe(takeUntilDestroyed())
+      .subscribe((value) => {
+        const firstRoute = value[1][0]?.path;
+        const secondRoute = value[1][1]?.path;
+        this.checkIfPageExistsInProject();
+        if (this.hasChecked && this.isCmsPage) {
+          if (firstRoute === 'preview' && secondRoute) {
+            this.getDocPageFromCMS(value[0], secondRoute);
+          } else if (!environment.production) {
+            this.getDocPageFromCMS(value[0]);
+          } else {
+            this.getDocPageFromPreGeneratedList(value[0]);
+          }
         } else {
-          this.getDocPageFromPreGeneratedList(value[0]);
+          this.cmsService.contentLoadedFromCMS();
         }
-      } else {
-        this.cmsService.contentLoadedFromCMS();
-      }
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.routerSubscription && this.routerSubscription.unsubscribe();
+      });
   }
 
   /**
@@ -92,8 +87,8 @@ export class CMSPageComponent implements OnDestroy {
   async getDocPageFromCMS(locale: Locale, pageId?: string): Promise<void> {
     this.removeClickEventListenersForCopyPath();
 
-    const id = pageId ? pageId : await this.cmsService.getPageSysId(locale);
-    const entry: IDocumentationPage = await this.cmsService.getEntryFromCMS(id);
+    const id = pageId ?? (await this.cmsService.getPageSysId(locale));
+    const entry = (await this.cmsService.getEntryFromCMS(id)) as IDocumentationPage;
     const docPage = await this.cmsService.getTransformedDocPageByEntry(entry, locale);
     this.setInnerHTMLToCMSContent(docPage);
     this.titleService.setTitle(docPage.title + ' | ' + 'Elvia design system');
@@ -113,9 +108,8 @@ export class CMSPageComponent implements OnDestroy {
     this.cmsContent = docPage;
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
-    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    this.lastUpdated = new Date(this.cmsContent.lastUpdated);
-    this.lastUpdated = this.lastUpdated.toLocaleDateString('nb-NO', options).replace('/', '.');
+    const cmsLastUpdatedDate = new Date(this.cmsContent.lastUpdated);
+    this.lastUpdated = cmsLastUpdatedDate.toLocaleDateString('en-GB').replace('/', '.');
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
     this.addClickEventListenersForCopyPath();
@@ -131,7 +125,7 @@ export class CMSPageComponent implements OnDestroy {
         .querySelectorAll('.cms-section__title, .cms-heading1__title')
         .forEach((domElement: HTMLElement) => {
           const tooltip = domElement.querySelector('elvia-tooltip');
-          tooltip.addEventListener('click', () => this.copyAnchor(domElement['id']));
+          tooltip?.addEventListener('click', () => this.copyAnchor(domElement['id']));
           this.activeEventListeners.push(domElement);
         });
     });
@@ -148,12 +142,13 @@ export class CMSPageComponent implements OnDestroy {
   }
 
   checkIfPageExistsInProject(): void {
-    const currentPathWithoutAnchor = this.router.url.split('#')[0];
-    if (currentPathWithoutAnchor.split('/')[2]) {
-      this.router.config[0].children.forEach((subRoute) => {
-        if (subRoute.path === currentPathWithoutAnchor.split('/')[1]) {
-          this.isCmsPage = !subRoute.children.some(
-            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPathWithoutAnchor,
+    const urlWithoutAnchor = this.router.url.split('#')[0];
+    const currentPath = urlWithoutAnchor.split('?')[0];
+    if (currentPath.split('/')[2]) {
+      this.router.config[0].children?.forEach((subRoute) => {
+        if (subRoute.path === currentPath.split('/')[1]) {
+          this.isCmsPage = !subRoute.children?.some(
+            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPath,
           );
         }
       });
@@ -172,10 +167,10 @@ export class CMSPageComponent implements OnDestroy {
     const tooltipElement = document.getElementById(`elvia-tooltip-${id}`) as ElvisComponentWrapper;
     tooltipElement.setProps({ content: 'Copied!' });
 
-    anchorTitleElement.classList.add('anchor-copied');
+    anchorTitleElement?.classList.add('anchor-copied');
 
     setTimeout(() => {
-      anchorTitleElement.classList.remove('anchor-copied');
+      anchorTitleElement?.classList.remove('anchor-copied');
       tooltipElement.setProps({ content: 'Copy' });
     }, 800);
     const modifiedAnchor = id;

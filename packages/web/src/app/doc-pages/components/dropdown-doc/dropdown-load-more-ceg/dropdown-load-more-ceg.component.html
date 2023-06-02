@@ -1,0 +1,11 @@
+<elvia-dropdown
+  [items]="items"
+  label="Label"
+  placeholder="Placeholder"
+  [isSearchable]="true"
+  [isMulti]="true"
+  [isLoadingMoreItems]="isLoadingMoreItems"
+  [hasLoadMoreItemsButton]="hasLoadMoreItemsButton"
+  (onLoadMoreItems)="onLoadMoreItems()"
+  (valueOnChange)="handleOnChange($any($event).detail.value)"
+></elvia-dropdown>

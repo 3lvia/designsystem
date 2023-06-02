@@ -8,64 +8,51 @@
   </head>
   <body>
     <div class="e-title-sm e-mt-16">Input</div>
-    <div class="e-title-xs e-my-16">Normal Input</div>
+    <div class="e-title-xs e-my-16">medium Input</div>
     <div class="e-form-field">
-      <label class="e-form-field__label" for="normal">Normal input field</label>
+      <label class="e-form-field__label">medium input field</label>
       <div class="e-input">
-        <input id="normal" type="text" placeholder="Placeholder text" />
-      </div>
-    </div>
-
-    <div class="e-title-xs e-my-16">Combined Input</div>
-    <div class="e-form-field e-form-field--combined">
-      <label class="e-form-field__label" for="phone">Phone</label>
-      <div class="e-form-field__input">
-        <div id="phone" class="e-input e-input--small">
-          <input type="text" value="+47" />
-        </div>
-        <div class="e-input">
-          <input type="text" placeholder="Placeholder text" />
-        </div>
+        <input type="text" placeholder="Placeholder text" />
       </div>
     </div>
 
     <div class="e-title-xs e-my-16">Inlined Input</div>
     <div class="e-inlined-field">
-      <div class="e-form-field e-form-field--medium">
-        <label class="e-form-field__label" for="zip">Zip code</label>
+      <div class="e-form-field" style="width: 140px">
+        <label class="e-form-field__label" for="zip-1">Zip code</label>
         <div class="e-input">
-          <input id="zip" type="text" placeholder="Zip code" />
+          <input id="zip-1" placeholder="Zip code" />
         </div>
       </div>
       <div class="e-form-field">
-        <label class="e-form-field__label" for="city">City</label>
+        <label class="e-form-field__label" for="city-1">City</label>
         <div class="e-input">
-          <input id="city" type="text" placeholder="City" />
+          <input id="city-1" placeholder="City" />
         </div>
       </div>
     </div>
 
     <div class="e-title-xs e-my-16">Textarea</div>
     <div class="e-form-field">
-      <label class="e-form-field__label e-form-field__label--optional" for="textarea">Textarea</label>
+      <label class="e-form-field__label e-form-field__label--optional">Textarea</label>
       <div class="e-input">
-        <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
+        <textarea placeholder="Placeholder text" type="text"></textarea>
       </div>
     </div>
 
-    <div class="e-title-xs e-my-16">Sizing - Normal and Compact</div>
+    <div class="e-title-xs e-my-16">Sizing - medium and small</div>
     <div class="e-form-field">
-      <label class="e-form-field__label" for="normal">Normal input field</label>
+      <label class="e-form-field__label">medium input field</label>
       <div class="e-input">
-        <input id="normal" type="text" placeholder="Placeholder text" />
+        <input type="text" placeholder="Placeholder text" />
       </div>
     </div>
 
     <div class="e-mt-16" style="width: 240px">
-      <div class="e-form-field e-form-field--compact">
-        <label class="e-form-field__label" for="compact">Compact input field</label>
+      <div class="e-form-field e-form-field--small">
+        <label class="e-form-field__label">small input field</label>
         <div class="e-input">
-          <input id="compact" type="text" placeholder="Placeholder text" />
+          <input type="text" placeholder="Placeholder text" />
         </div>
       </div>
     </div>
@@ -73,14 +60,14 @@
     <div class="e-title-sm e-mt-16">States</div>
     <div class="e-title-xs e-my-16">Invalid</div>
     <div class="e-form-field e-w-50">
-      <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
+      <label class="e-form-field__label">Invalid input field with error-message</label>
       <div class="e-input e-input---invalid">
         <button class="e-btn e-btn--icon">
           <span class="e-btn__icon">
             <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
           </span>
         </button>
-        <input id="validationExample" type="password" value="Passord" #validationExample />
+        <input type="password" value="Passord" #validationExample />
       </div>
       <span class="e-form-field__error e-form-field__error--visible">
         <span>
@@ -97,14 +84,14 @@
     </div>
 
     <div class="e-form-field e-w-50 e-mt-16">
-      <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
+      <label class="e-form-field__label">Invalid input field with error-message</label>
       <div class="e-input">
         <button class="e-btn e-btn--icon">
           <span class="e-btn__icon">
             <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
           </span>
         </button>
-        <input id="validationExample" type="password" value="Passord" invalid #validationExample />
+        <input type="password" value="Passord" invalid #validationExample />
       </div>
       <span class="e-form-field__error e-form-field__error--visible">
         <span>
@@ -120,66 +107,67 @@
       </span>
     </div>
 
+    <div class="e-form-field e-w-50 e-mt-16">
+      <label class="e-form-field__label">Invalid small input field with error-message</label>
+      <div class="e-input e-input--small e-input---invalid">
+        <button class="e-btn e-btn--icon">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
+          </span>
+        </button>
+        <input type="password" value="Passord" #validationExample />
+      </div>
+      <span class="e-form-field__error e-form-field__error--visible">
+        <span>
+          <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
+        </span>
+        <span>
+          Using
+          <code>e-input---invalid</code>
+          .
+          <em>Should</em>
+          be red
+        </span>
+      </span>
+    </div>
+
+    <div class="e-form-field e-w-50 e-mt-16">
+      <label class="e-form-field__label">Invalid small input field with error-message</label>
+      <div class="e-input e-input--small">
+        <button class="e-btn e-btn--icon">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--view_on" aria-hidden="true"></i>
+          </span>
+        </button>
+        <input type="password" value="Passord" invalid #validationExample />
+      </div>
+      <span class="e-form-field__error e-form-field__error--visible">
+        <span>
+          <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
+        </span>
+        <span>
+          Using
+          <code>invalid</code>
+          HTML attribute. Should
+          <em>not</em>
+          be red
+        </span>
+      </span>
+    </div>
+
     <div class="e-title-xs e-my-16">Focus</div>
     <div class="e-form-field">
-      <label class="e-form-field__label" for="normal">Normal input field</label>
+      <label class="e-form-field__label">medium input field</label>
       <div class="e-input e-input---focus">
-        <input id="normal" type="text" placeholder="Placeholder text" />
+        <input type="text" placeholder="Placeholder text" />
       </div>
     </div>
 
     <div class="e-title-xs e-my-16">Disabled</div>
     <div class="e-form-field">
-      <label class="e-form-field__label" for="normal">Normal input field</label>
+      <label class="e-form-field__label">medium input field</label>
       <div class="e-input e-input---disabled">
-        <input id="normal" type="text" placeholder="Placeholder text" />
-      </div>
-    </div>
-
-    <!-- Normal field full width-->
-    <div class="e-form-field e-form-field--full-width">
-      <label class="e-form-field__label" for="width-full">Label</label>
-      <div class="e-input">
-        <input id="width-full" type="text" placeholder="Placeholder text" />
-      </div>
-    </div>
-
-    <!-- Inlined field 1 full width -->
-    <div class="e-inlined-field e-mt-24 e-inlined-field--full-width">
-      <div class="e-form-field e-form-field--medium">
-        <label class="e-form-field__label" for="zip">Zip code</label>
-        <div class="e-input">
-          <input id="zip" type="text" placeholder="Zip code" />
-        </div>
-      </div>
-      <div class="e-form-field">
-        <label class="e-form-field__label" for="city">City</label>
-        <div class="e-input">
-          <input id="city" type="text" placeholder="City" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Inlined field 2 full width -->
-    <div class="e-form-field e-form-field--combined e-form-field--full-width">
-      <label class="e-form-field__label" for="phone">Phone</label>
-      <div class="e-form-field__input">
-        <div id="phone" class="e-input e-input--small">
-          <input type="text" value="+47" />
-        </div>
-        <div class="e-input">
-          <input type="text" placeholder="99 99 99 99" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Compact input field full width -->
-    <div class="e-mt-16">
-      <div class="e-form-field e-form-field--compact e-form-field--full-width">
-        <label class="e-form-field__label" for="compact">Compact input field (full width)</label>
-        <div class="e-input">
-          <input id="compact" type="text" placeholder="Placeholder text" />
-        </div>
+        <input type="text" placeholder="Placeholder text" />
       </div>
     </div>
 
@@ -187,33 +175,29 @@
     <div class="e-mt-16">
       <div class="e-title-xs e-my-16">Loading state</div>
       <div class="e-form-field e-mb-32">
-        <label class="e-form-field__label" for="normal">Normal loading</label>
+        <label class="e-form-field__label">medium loading</label>
         <div class="e-input e-input---loading">
-          <input id="normal" type="text" placeholder="Placeholder text" />
+          <input type="text" placeholder="Placeholder text" />
         </div>
       </div>
       <div style="width: 240px">
-        <div class="e-form-field e-form-field--compact">
-          <label class="e-form-field__label" for="compact">Compact loading</label>
+        <div class="e-form-field e-form-field--small">
+          <label class="e-form-field__label">small loading</label>
           <div class="e-input e-input---loading">
-            <input id="compact" type="text" placeholder="Placeholder text" />
+            <input type="text" placeholder="Placeholder text" />
           </div>
         </div>
       </div>
       <div class="e-form-field e-mt-32">
-        <label class="e-form-field__label e-form-field__label--optional" for="textarea">
-          Normal loading textarea
-        </label>
+        <label class="e-form-field__label e-form-field__label--optional">medium loading textarea</label>
         <div class="e-input e-input---loading">
-          <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
+          <textarea placeholder="Placeholder text" type="text"></textarea>
         </div>
       </div>
-      <div class="e-form-field e-form-field--compact e-mt-32">
-        <label class="e-form-field__label e-form-field__label--optional" for="textarea">
-          Compact loading textarea
-        </label>
+      <div class="e-form-field e-form-field--small e-mt-32">
+        <label class="e-form-field__label e-form-field__label--optional">small loading textarea</label>
         <div class="e-input e-input---loading">
-          <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
+          <textarea placeholder="Placeholder text" type="text"></textarea>
         </div>
       </div>
     </div>
@@ -222,16 +206,16 @@
     <div class="e-mt-16">
       <div class="e-title-xs e-my-16">Readonly state</div>
       <div class="e-form-field e-mb-32">
-        <label class="e-form-field__label" for="normal">Normal readonly</label>
+        <label class="e-form-field__label">medium readonly</label>
         <div class="e-input e-input---readonly">
-          <input id="normal" type="text" placeholder="Placeholder text" readonly />
+          <input type="text" placeholder="Placeholder text" readonly />
         </div>
       </div>
       <div style="width: 240px">
-        <div class="e-form-field e-form-field--compact">
-          <label class="e-form-field__label" for="compact">Compact readonly</label>
+        <div class="e-form-field e-form-field--small">
+          <label class="e-form-field__label">small readonly</label>
           <div class="e-input e-input---readonly">
-            <input id="compact" type="text" placeholder="Placeholder text" readonly />
+            <input type="text" placeholder="Placeholder text" readonly />
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const radioFilterData: ComponentData = {
       isRequired: true,
       type: 'Array<object>',
       description:
-        'Options available in the radio-filter component, set as array of objects with keys of :  {label: string, value: string} ',
+        'Options available in the radio-filter component, set as array of objects with keys: {label: string, value: string}. The label will be injected as innerHTML to allow support for icons.',
     },
     value: {
       isRequired: true,
@@ -19,7 +19,8 @@ const radioFilterData: ComponentData = {
     name: {
       isRequired: true,
       type: 'string',
-      description: 'The HTML attribute name for the radio button group input elements.',
+      description:
+        'The HTML attribute "name" is used for radio button group input elements in the Radio Filter component. Each name must be unique for each Radio Filter on the page and is not visible to the user. e.g "messageFilter".',
     },
     ariaLabel: {
       isRequired: false,
@@ -51,59 +52,6 @@ const radioFilterData: ComponentData = {
         "Custom CSS style object that can be added to the radio filter. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: `<RadioFilter
-  items={[
-    { label: 'All', value: 'all'},
-    { label: 'Read', value: 'read'},
-    { label: 'Unread', value: 'unread'},
-  ]}
-  value={"read"}
-  name={"readRadioFilters"}
-  ariaLabel={"{value} filtrering valgt"}
-  valueOnChange={(event) => handleValueChange(event)}
-></RadioFilter>
-`,
-  codeAngular: `<elvia-radio-filter 
-  [items]="[
-    { label: 'All', value: 'all'},
-    { label: 'Read', value: 'read'},
-    { label: 'Unread', value: 'unread'},
-  ]"
-  [value]="'read'"
-  [name]="'readRadioFilters'"
-  [ariaLabel]="'{value} filtrering valgt'"
-  (valueOnChange)="handleValueChange($event.detail.value)"
-></elvia-radio-filter>
-`,
-  codeVue: `<elvia-radio-filter 
-  :items="[
-    { label: 'All', value: 'all'},
-    { label: 'Read', value: 'read'},
-    { label: 'Unread', value: 'unread'},
-  ]"
-  :value="'read'"
-  :name="'readRadioFilters'"
-  :ariaLabel="'{value} filtrering valgt'"
-  @value-on-change="handleValueChange($event.detail.value)"
-></elvia-radio-filter>
-`,
-  codeNativeHTML: `<elvia-radio-filter 
-  id="example-elvia-radio-filter"
-  name="readRadioFilters"
-  value="read"
-></elvia-radio-filter>
-`,
-  codeNativeScript: `  const radioFilter = document.getElementById('example-elvia-radio-filter');
-  const filters = [
-    { label: "All", value: "all" },
-    { label: "Read", value: "read" },
-    { label: "Unread", value: "unread" }
-  ];
-  radioFilter.setProps({items: filters});
-  radioFilter.addEventListener('valueOnChange', (event) => {
-    console.log('Do something with the new value: ', event.detail.value);
-  });
-`,
 };
 
 export { radioFilterData };

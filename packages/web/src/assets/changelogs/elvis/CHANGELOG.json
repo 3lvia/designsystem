@@ -1,6 +1,243 @@
 {
   "content": [
     {
+      "version": "12.0.0",
+      "date": "May 30, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "<code>e-form-field--medium</code>, <code>e-form-field--small</code> and <code>e-form-field--combined</code> (with all classes under this class) has been removed. This is because these classes were not really used and makes more sense for projects to implement themselves."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }],
+          "fixes": [
+            "New styling will have to be added to replace the positioning styling these classes provided. This can be easily done be for example <code>flex</code> to position the fields next to each other and to fix the width of the input just add the <code>width</code> css attribute and the desired width."
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
+            "Renamed the sizes for all input components from compact to small. E.g. <code>e-radio--compact</code> is renamed to <code>e-radio--small</code> and will need to be updated in the future."
+          ],
+          "components": [
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Radio Button", "url": "https://design.elvia.io/components/radiobutton" },
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Autocomplete", "url": "https://design.elvia.io/components/autocomplete" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fix for <code>e-form-field--full-width</code> class."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
+      "version": "11.6.0",
+      "date": "April 28, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Content loader now uses the same color for grey and white background. Nothing should break, but the class <code>e-content-loader--grey</code> is not needed."
+          ],
+          "pages": [
+            { "displayName": "Content Loader", "url": "https://design.elvia.io/components/content-loader" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "11.5.0",
+      "date": "April 25, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>sorting_alfabetical_a_to_z</code> deprecated, <code>sorting_alfabetical_z_to_a</code> deprecated, <code>sorting_date_earliest_to_latest</code> deprecated, <code>sorting_date_latest_to_earliest</code> deprecated, <code>sorting_number_high_to_low</code> deprecated,  <code>sorting_number_low_to_high</code> deprecated, <code>sorting_time_earliest_to_latest</code> deprecated,  <code>sorting_time_latest_to_earliest</code> deprecated. All these icons now points to another sorting icon."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "11.4.0",
+      "date": "April 25, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>paper_plane_speed_color</code> deprecated, <code>paper_plane_speed-color</code> added and <code>laptop-color</code> update.",
+            "<code>car-color</code>, <code>graph_down-color</code>, <code>graph_down</code>, <code>home_office</code>, <code>mail-color</code>, <code>office-color</code>, <code>office</code>, <code>paper_plane-color</code>, <code>recycle-color</code>, <code>recycle</code>, and <code>wrench-color</code> added"
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the <code>:user-invalid</code> styles would have the incorrect padding for compact input fields."
+          ],
+          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
+      "version": "11.3.1",
+      "date": "April 21, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed icons not being correctly centered when resized."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "11.3.0",
+      "date": "April 20, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add new icons: <code>columns</code>, <code>step_6</code>, <code>step_7</code>, <code>step_8</code>, <code>step_9</code>, and <code>step_10</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "11.2.0",
+      "date": "April 18, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new classes <code>e-table__cell--invalid</code> and <code>e-table__row--invalid</code> which can be used to show validation state in tables."
+          ],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        }
+      ]
+    },
+    {
+      "version": "11.1.0",
+      "date": "March 16, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>e-alert--toast</code> is now marked as deprecated. Use the Elvia toast component instead."
+          ],
+          "components": [{ "displayName": "Toast", "url": "https://design.elvia.io/components/toast" }]
+        }
+      ]
+    },
+    {
+      "version": "11.0.0",
+      "date": "March 9, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Icons are now injected as SVG elements into the DOM, instead of the previous method of injecting them as background images. This changes the internal DOM structure of the icons, however it should not affect how icons are used or displayed. This change also allows icons to be recolored using CSS-variables.",
+            "The classes to set colors of icons have been changed. Most color classes should still function the same way, but some have been renamed or removed. New color names prefer the use of semantic names. E.g.: if you have used <code>e-icon--color-grey-30</code>, you should now use <code>e-icon--color-disabled</code> instead. For a full overview of what colors are available for icons, see <a class=\"e-link\" href=\"https://design.elvia.io/brand/icon#Options\">the icon page</a>.",
+            "<code>elvis.js</code> no longer contains an object of all the Elvia colors.",
+            "Updated internal <code>@elvia/elvis-typography</code> dependency to <code>2.3.2</code>. In this update, the line height for 'Text medium' typography on mobile has been adjusted to 160% from its previous value of 175%."
+          ],
+          "fixes": [
+            "Check that the colors you use for icons are still working. If you need any icon colors that are not available, please contact the design system and we will help you.",
+            "Adjust your design to accommodate for the new, smaller, line height for 'Text medium' typography on mobile."
+          ],
+          "pages": [
+            { "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" },
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" },
+            { "displayName": "Color", "url": "https://design.elvia.io/brand/color" }
+          ],
+          "components": [
+            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
+            { "displayName": "Autocomplete", "url": "https://design.elvia.io/components/autocomplete" },
+            { "displayName": "File Upload", "url": "https://design.elvia.io/components/file-upload" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" },
+            { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": ["Icons now support theme functionality."]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "The <code>elvis.js</code> script is now minified by default. If you need the non-minified version, it is named <code>elvis.full.js</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "10.6.0",
+      "date": "March 6, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Renamed icon <code>movie</code> to <code>media-color</code>."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "10.5.0",
+      "date": "March 6, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add new icons: <code>fearless</code>, <code>link</code>, <code>magic</code>, <code>movie</code>, and <code>shortcut</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "10.4.1",
+      "date": "March 1, 2023",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Shadow classes and css-variables will now automatically swap to <code>none</code> in dark theme.",
+            "Now getting shadow class values from token package."
+          ],
+          "pages": [{ "displayName": "Shadow", "url": "https://design.elvia.io/brand/shadow" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the spinbutton on a number input would still be visible when the input was disabled or readonly."
+          ],
+          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
+      "version": "10.4.0",
+      "date": "February 15, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>e-accordion</code> is now marked as deprecated. Use the Elvia accordion component instead."
+          ],
+          "components": [
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "10.3.0",
       "date": "February 7, 2023",
       "changelog": [
@@ -234,6 +471,10 @@
           "type": "patch",
           "changes": [
             "Bumped dependencies on internal packages <code>@elvia/elvis-colors</code> and <code>@elvia/elvis-typography</code>."
+          ],
+          "pages": [
+            { "displayName": "Color", "url": "https://design.elvia.io/brand/color" },
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }
           ]
         }
       ]
@@ -588,8 +829,7 @@
           "type": "bug_fix",
           "changes": ["Fixed a bug that was introduced in version 8.4.5 that broke group accordions."],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -604,8 +844,7 @@
             "Fixed a bug causing nested accordion icons to rotate along with the outermost accordion when opened."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -621,8 +860,7 @@
             "If you are using <code>flex-direction: row</code> inside the accordion group, this might break if you have not defined <code>display: flex</code> yourself."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -633,7 +871,8 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Now using elvis-colors for the colors in elvis.js. "]
+          "changes": ["Now using elvis-colors for the colors in elvis.js. "],
+          "pages": [{ "displayName": "Color", "url": "https://design.elvia.io/brand/color" }]
         }
       ]
     },
@@ -687,7 +926,8 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Now using elvis-colors for color definitions."]
+          "changes": ["Now using elvis-colors for color definitions."],
+          "pages": [{ "displayName": "Color", "url": "https://design.elvia.io/brand/color" }]
         }
       ]
     },
@@ -1242,8 +1482,7 @@
             "Now possible to disable hover on icons when hovering accordion title, by using the new modifier <code>e-accordion__title--no-icon-hover</code>."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         },
         {
@@ -1263,8 +1502,7 @@
           "type": "bug_fix",
           "changes": ["Now possible to use a single accordion inside a group accordion content area."],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -1361,8 +1599,7 @@
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
             { "displayName": "Button", "url": "https://design.elvia.io/components/button" },
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -1412,8 +1649,7 @@
             "Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions."
           ],
           "components": [
-            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" }
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" }
           ]
         }
       ]
@@ -1710,7 +1946,6 @@
           ],
           "components": [
             { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
-            { "displayName": "Accordion Group", "url": "https://design.elvia.io/components/accordion-group" },
             { "displayName": "Header", "url": "https://design.elvia.io/components/header" },
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" }
           ]

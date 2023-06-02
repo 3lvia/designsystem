@@ -1,135 +1,89 @@
 import Divider from './elvia-divider';
 import React from 'react';
 import { axe } from 'jest-axe';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
-
-const colors = {
-  elviaWhite: getColor('white'),
-  elviaBlack: getColor('black'),
-  grey10: getColor('grey-10'),
-  grey20: getColor('grey-20'),
-  grey90: getColor('grey-90'),
-};
 
 describe('Elvis Divider', () => {
   describe('Type = Simple', () => {
     beforeEach(() => {
-      render(<Divider type="simple"></Divider>);
+      render(<Divider type="simple" />);
     });
 
     it('should have border-bottom 1px solid', () => {
-      const dividerArea = screen.getByTestId('divider-area');
+      const dividerArea = screen.getByRole('separator');
       expect(dividerArea).toHaveStyle('border-bottom: 1px solid');
     });
 
-    it('should have color grey10', () => {
-      const dividerArea = screen.getByTestId('divider-area');
-      expect(dividerArea).toHaveStyle(`border-color: ${colors.grey10}`);
+    it('should have border 2', () => {
+      const dividerArea = screen.getByRole('separator');
+      expect(dividerArea).toHaveStyle(`border-color: ${getThemeColor('border-2')}`);
     });
   });
 
   describe('Type = Simple, Orientation = Vertical', () => {
     beforeEach(() => {
-      render(<Divider type="simple" orientation="vertical"></Divider>);
+      render(<Divider type="simple" orientation="vertical" />);
     });
 
     it('should show vertical border', () => {
-      const dividerArea = screen.getByTestId('divider-area');
+      const dividerArea = screen.getByRole('separator');
       expect(dividerArea).toHaveStyle('border-left: 1px solid');
-    });
-
-    it('should have color grey10', () => {
-      const dividerArea = screen.getByTestId('divider-area');
-      expect(dividerArea).toHaveStyle(`border-color: ${colors.grey10}`);
-    });
-  });
-
-  describe('Type = Simple, Inverted', () => {
-    beforeEach(() => {
-      render(<Divider type="simple" isInverted={true}></Divider>);
-    });
-
-    it('should have color grey90', () => {
-      const dividerArea = screen.getByTestId('divider-area');
-      expect(dividerArea).toHaveStyle(`border-color: ${colors.grey90}`);
     });
   });
 
   describe('Type = Curved', () => {
     beforeEach(() => {
-      render(<Divider type="curved"></Divider>);
+      render(<Divider type="curved" />);
     });
 
-    it('should not have border-bottom at dividerarea', () => {
-      const dividerArea = screen.getByTestId('divider-area');
+    it('should not have border-bottom at separator', () => {
+      const dividerArea = screen.getByRole('separator');
       expect(dividerArea).toHaveStyle(`border-bottom: none;`);
     });
   });
 
-  describe('Type = Curved, Inverted', () => {
+  describe('Type = Heading', () => {
     beforeEach(() => {
-      render(<Divider type="curved" isInverted={true}></Divider>);
-    });
-
-    it('should have color grey90', () => {
-      const dividerArea = screen.getByTestId('divider-area');
-      expect(dividerArea).toHaveStyle(`border-color: ${colors.grey90}`);
-    });
-  });
-
-  describe('Type = Title', () => {
-    beforeEach(() => {
-      render(<Divider type="title" title={<h2>Title</h2>}></Divider>);
+      render(<Divider type="heading" heading={<h2>Heading</h2>} />);
     });
 
     it('should have border-bottom 1px solid', () => {
-      const dividerArea = screen.getByTestId('divider-area');
+      const dividerArea = screen.getByRole('separator');
       expect(dividerArea).toHaveStyle('border-bottom: 1px solid');
     });
 
-    it('should have color black', () => {
-      const dividerArea = screen.getByTestId('divider-area');
-      expect(dividerArea).toHaveStyle(`border-color: ${colors.elviaBlack}`);
+    it('should have border 1', () => {
+      const dividerArea = screen.getByRole('separator');
+      expect(dividerArea).toHaveStyle(`border-color: ${getThemeColor('border-1')}`);
     });
 
     it('should have md typography', () => {
-      const dividerTitle = screen.getByTestId('divider-title');
-      expect(dividerTitle).toHaveStyle('text-transform: unset');
-      expect(dividerTitle).toHaveStyle('font-size: 30px');
+      const dividerHeading = screen.getByTestId('divider-heading');
+      expect(dividerHeading).toHaveStyle('text-transform: unset');
+      expect(dividerHeading).toHaveStyle('font-size: 30px');
     });
   });
 
-  describe('Type = Title, Typography = Caps', () => {
+  describe('Type = Heading, Typography = Caps', () => {
     beforeEach(() => {
-      render(<Divider type="title" title={<h2>Title</h2>} typography="caps"></Divider>);
+      render(<Divider type="heading" heading={<h2>Heading</h2>} typography="caps" />);
     });
 
     it('should have caps typography', () => {
-      const dividerTitle = screen.getByTestId('divider-title');
-      expect(dividerTitle).toHaveStyle('text-transform: uppercase');
-      expect(dividerTitle).toHaveStyle('font-size: 14px');
-    });
-  });
-
-  describe('Type = Title, Inverted', () => {
-    beforeEach(() => {
-      render(<Divider type="title" title={<h2>Title</h2>} isInverted={true}></Divider>);
-    });
-
-    it('should have color white', () => {
-      const dividerArea = screen.getByTestId('divider-area');
-      expect(dividerArea).toHaveStyle(`border-color: ${colors.elviaWhite}`);
+      const dividerHeading = screen.getByTestId('divider-heading');
+      expect(dividerHeading).toHaveStyle('text-transform: uppercase');
+      expect(dividerHeading).toHaveStyle('font-size: 14px');
     });
   });
 
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(<Divider className="test-class" inlineStyle={{ margin: '24px' }}></Divider>);
+      render(<Divider className="test-class" inlineStyle={{ margin: '24px' }} />);
     });
 
     it('should have className and inlineStyle', () => {
-      const dividerArea = screen.getByTestId('divider-area');
+      const dividerArea = screen.getByRole('separator');
       expect(dividerArea).toHaveStyle(`margin: 24px`);
       expect(dividerArea).toHaveClass(`test-class`);
     });
@@ -139,8 +93,8 @@ describe('Elvis Divider', () => {
     beforeEach(() => {
       render(
         <div data-testid="dividers">
-          <Divider type="simple"></Divider>
-          <Divider type="title" title={<h2>Title</h2>}></Divider>
+          <Divider type="simple" />
+          <Divider type="heading" heading={<h2>Heading</h2>} />
         </div>,
       );
     });

@@ -13,8 +13,10 @@ import {
 import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 import { ItemValue } from '../dropdown-item/itemValue';
-import { Icon } from '@elvia/elvis-icon/react';
-import { Overlay } from '@elvia/elvis-toolbox';
+import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
+import { ThemeName } from '@elvia/elvis-colors';
+import DOMPurify from 'dompurify';
+import { DropdownIconContainer } from '../styledComponents';
 
 interface DropdownOverlayProps {
   isRootOverlay?: boolean;
@@ -22,7 +24,7 @@ interface DropdownOverlayProps {
   filteredItems: DropdownItemOption[];
   allItems?: DropdownItemOption[];
   inputIsKeyboard: boolean;
-  isCompact: boolean;
+  size: FormFieldSizes;
   isMulti: boolean;
   onClose: () => void;
   noItemsText?: string;
@@ -39,6 +41,7 @@ interface DropdownOverlayProps {
   parentItem?: DropdownItemOption;
   isSearchMode?: boolean;
   id?: string;
+  currentTheme: ThemeName;
 }
 
 let uniqueId = 0;
@@ -51,7 +54,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       filteredItems,
       allItems,
       inputIsKeyboard,
-      isCompact,
+      size,
       isMulti,
       onClose,
       noItemsText,
@@ -68,6 +71,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       parentItem,
       isSearchMode,
       id,
+      currentTheme,
     },
     ref,
   ) => {
@@ -198,7 +202,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
 
     useEffect(() => {
       const scrollItemListToFocusedItem = (itemToFocus: DropdownItemOption) => {
-        const buttonHeight = isCompact ? 40 : 48;
+        const buttonHeight = size === 'small' ? 40 : 48;
         const index = fullTabList.findIndex((item) => item.value === itemToFocus.value);
         if (index !== -1) {
           listRef.current?.scrollTo({
@@ -237,7 +241,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           data-testid="popover"
           id={id}
           onMouseLeave={() => setHoveredItem && setHoveredItem(undefined)}
-          isCompact={isCompact}
+          size={size}
         >
           {!isRootOverlay && isGtMobile && <CursorCurve />}
           <DropdownPopup isInvisible={!isGtMobile && !focusIsOnDirectDescendant}>
@@ -249,19 +253,20 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   onClick={() => closeOpenOverlay()}
                   onHover={(item) => setFocusedItem(item)}
                   focusedValue={focusedItem?.value}
-                  isCompact={isCompact}
+                  size={size}
                   inputIsKeyboard={inputIsKeyboard}
                 />
               )}
               {selectAllOption && isRootOverlay && !!filteredItems.length && (
                 <SelectAllOption
                   focusedValue={focusedItem?.value}
-                  isCompact={isCompact}
+                  size={size}
                   item={selectAllItem}
                   items={allItems ?? []}
                   selectedItems={currentVal}
                   onClick={toggleAllSelection}
                   onHover={(item) => setFocusedItem(item)}
+                  currentTheme={currentTheme}
                 />
               )}
               {filteredItems.map((item) => (
@@ -279,7 +284,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   setHoveredItem={(item) => {
                     setHoveredItem && setHoveredItem(item);
                   }}
-                  isCompact={isCompact}
+                  size={size}
                   isMulti={isMulti}
                   inputIsKeyboard={inputIsKeyboard}
                   currentVal={currentVal}
@@ -293,13 +298,12 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   pressedKey={pressedKey}
                   listRef={listRef}
                   isGtMobile={isGtMobile}
+                  currentTheme={currentTheme}
                 >
                   {item.icon && !isMulti && allItemsHaveIcons && (
-                    <Icon
-                      name={item.icon}
-                      color={item.isDisabled ? 'disabled' : 'elvia-off'}
-                      size={isCompact ? 'xs' : 'sm'}
-                    />
+                    <DropdownIconContainer
+                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.icon) }}
+                    ></DropdownIconContainer>
                   )}
                   <ItemValue item={item} focusedValue={focusedItem} isRootOverlay={isRootOverlay} />
                 </DropdownItem>
@@ -310,7 +314,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   item={loadMoreItem}
                   isLoadingMoreItems={isLoadingMoreItems}
                   onLoadMoreItems={onLoadMoreItems}
-                  isCompact={isCompact}
+                  size={size}
                   onHover={(item) => setFocusedItem(item)}
                 />
               )}

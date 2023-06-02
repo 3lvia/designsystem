@@ -2,6 +2,28 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "30.05.23",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Changed the way icons are used in segmented controls. Use the icon html string instead of the icon name, this way we reduce the package size greatly. <code>iconName</code> is also renamed to <code>icon</icon> and <code>iconNameSelected</code> to <code>iconSelected</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "03.05.23",
+      "version": "1.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "09.02.23",
       "version": "1.1.0",
       "changelog": [

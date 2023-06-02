@@ -70,7 +70,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when disabled and compact', () => {
       beforeEach(() => {
-        render(<Dropdown isDisabled isCompact items={[]}></Dropdown>);
+        render(<Dropdown isDisabled size="small" items={[]}></Dropdown>);
       });
 
       it('should be disabled', () => {
@@ -78,7 +78,7 @@ describe('Elvis Dropdown', () => {
         expect(input).toBeDisabled();
       });
 
-      it('should be compact', () => {
+      it('should be small', () => {
         const dropdownLabel = screen.getByTestId('wrapper');
         expect(dropdownLabel).toHaveStyle(`padding-top: 0.5rem`);
       });

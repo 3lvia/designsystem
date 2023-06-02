@@ -8,31 +8,18 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-text-lg" style="display: flex; flex-direction: column; justify-content: flex-start">
-      <label class="e-checkbox" for="elvis-checkbox">
-        <input type="checkbox" id="elvis-checkbox" />
-        <span class="e-checkbox__mark"></span>
-        <span class="e-checkbox__label">Checkbox option 1</span>
-      </label>
-      <label class="e-checkbox" for="elvis-checkbox2">
-        <input type="checkbox" id="elvis-checkbox2" />
-        <span class="e-checkbox__mark"></span>
-        <span class="e-checkbox__label">Checkbox option 2</span>
-      </label>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
-    </div>
-  </div>
+  <app-static-ceg>
+    <app-checkbox-ceg />
+  </app-static-ceg>
 
   <!-- TYPE -->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Standard'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleStandard"></app-component-example-v1>
+          <app-static-ceg>
+            <app-checkbox-standard-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
 
@@ -40,10 +27,9 @@
         <ng-container ngProjectAs="sectionContent">
           This example is not interactable and logic for adding the indeterminate state should be applied as
           described below.
-          <app-component-example-v1
-            [codeHTML]="exampleNested"
-            [interactable]="false"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-checkbox-nested-ceg />
+          </app-static-ceg>
 
           <app-component-subsubsection [sectionTitle]="'Indeterminate'">
             <ng-container ngProjectAs="sectionContent">
@@ -61,15 +47,19 @@
   <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      Checkboxes come in two sizes: Normal and Compact.
-      <app-component-example-v1 [interactable]="false" [codeHTML]="exampleSizes"></app-component-example-v1>
+      Checkboxes come in two sizes: medium and small.
+      <app-static-ceg>
+        <app-checkbox-size-ceg />
+      </app-static-ceg>
     </ng-container>
   </app-component-section>
 
   <!-- STATES -->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1 [interactable]="false" [codeHTML]="exampleStates"></app-component-example-v1>
+      <app-static-ceg>
+        <app-checkbox-states-ceg />
+      </app-static-ceg>
     </ng-container>
   </app-component-section>
 

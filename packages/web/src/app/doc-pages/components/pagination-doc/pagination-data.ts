@@ -9,14 +9,13 @@ export const paginationData: ComponentData = {
       isRequired: false,
       type: 'object',
       description:
-        'The range of elements that should be visible in the paginator from star. "start" represents first element index and "end" represents last element index. {start: number, end: number}',
-      cegDisplayName: 'value',
+        'The range of elements that should be visible in the paginator from start. "start" represents first element index and "end" represents last element index. {start: number, end: number}',
       default: '{ start: undefined, end: undefined }',
     },
     numberOfElements: {
       isRequired: true,
       type: 'number',
-      description: 'Total amount of rows/objects in a table that is display.',
+      description: 'The total number of rows/objects in a table.',
       default: 0,
     },
     lastNumberLimit: {
@@ -78,7 +77,7 @@ export const paginationData: ComponentData = {
     valueOnChange: {
       isRequired: false,
       type: '(value: object) => CustomEvent',
-      description: `Gets called every time a selection range is updated and return a value object with start and end key value pairs.`,
+      description: `Gets called every time a selection range is updated and returns a value object with start and end key-value pairs.`,
     },
     className: {
       isRequired: false,
@@ -92,27 +91,4 @@ export const paginationData: ComponentData = {
         "Custom CSS style object that can be added to the pagination. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: `<Pagination numberOfElements={156}
-  valueOnChange={(event) => handleOnChange(event)} >
-</Pagination>`,
-  codeAngular: `<elvia-pagination
-  [numberOfElements]="156"
-  (valueOnChange)="handleOnChange($event.detail.value)">
-</elvia-pagination>`,
-  codeVue: `<elvia-pagination
-  :numberOfElements="156"
-  @value-on-change="handleOnChange($event.detail.value)">
-</elvia-pagination>`,
-  codeNativeHTML: `<elvia-pagination
-  id="example-elvia-pagination"
-  ></elvia-pagination>`,
-
-  codeNativeScript: `
-  const pagination = document.getElementById('example-elvia-pagination');
-    const numberOfElements = 156;
-    pagination.setProps({'numberOfElements': numberOfElements})
-    pagination.addEventListener('valueOnChange', (event) => {
-      console.log('Current selection range of paginator is : ', event.detail.value)
-    });
-  `,
 };

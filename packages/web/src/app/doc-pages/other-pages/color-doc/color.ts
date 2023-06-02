@@ -1,6 +1,5 @@
 import { Color } from './color.interface';
-import { colors } from '@elvia/elvis-colors';
-import { contrasts } from './color-contrasts';
+import { colors, contrasts } from './colors';
 
 const hexToRgb = (hex: string): string => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -29,15 +28,17 @@ const makeHexValue6Length = (hex: string): string => {
   return hex.toUpperCase();
 };
 
-const convertColorObject = (category: string): Color[] => {
-  return (Object.entries(colors[category]) as any).map(([name, color]) => {
+const convertColorObject = (
+  category: 'primary-colors' | 'signal-colors' | 'data-colors' | 'grey-colors',
+): Color[] => {
+  return Object.entries(colors[category]).map(([name, color]) => {
     return {
       title: name,
-      labels: color['alt-labels']?.filter((label: string) => !label.includes('elvis')),
+      labels: 'alt-labels' in color ? color['alt-labels']?.filter((label) => !label.includes('elvis')) : [],
       hex: makeHexValue6Length(color.color),
       rgba: category === 'grey-colors' ? getGreyRgba(name) : hexToRgb(color.color),
-      contrastBlack: contrasts[category as keyof typeof contrasts][name].contrasts.black,
-      contrastWhite: contrasts[category as keyof typeof contrasts][name].contrasts.white,
+      contrastBlack: (contrasts[category] as any)[name].contrasts.black,
+      contrastWhite: (contrasts[category] as any)[name].contrasts.white,
       lg: category === 'primary-colors',
     };
   });

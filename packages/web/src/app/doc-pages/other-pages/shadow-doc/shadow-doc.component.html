@@ -1,8 +1,8 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Shadow</ng-container>
+  <ng-container ngProjectAs="headerTitle">{{ locale === 'nb-NO' ? titleNo : title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
-    {{ description }}
+    {{ locale === 'nb-NO' ? descriptionNo : description }}
   </ng-container>
 </app-component-header>
 
@@ -42,7 +42,18 @@
 
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+      <app-when-to-use
+        [locale]="locale"
+        [whens]="locale === 'nb-NO' ? doesNo : does"
+        [whenNots]="locale === 'nb-NO' ? dontsNo : donts"
+      ></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--Changelog-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog [elvisComponentToFilter]="'Shadow'"></app-component-changelog>
     </ng-container>
   </app-component-section>
 </div>

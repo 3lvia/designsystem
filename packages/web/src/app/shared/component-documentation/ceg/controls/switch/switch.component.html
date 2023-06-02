@@ -1,0 +1,12 @@
+<label class="e-toggle e-toggle--small">
+  <input
+    class="e-toggle__input"
+    type="checkbox"
+    role="switch"
+    [attr.aria-checked]="switch.value"
+    [checked]="switch.value"
+    (change)="onChange(input.checked)"
+    #input
+  />
+  {{ switch.label }}
+</label>

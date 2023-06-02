@@ -10,10 +10,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class SliderDocComponent {
   componentData = sliderData;
-  figmaUrl = getComponent('slider').figmaUrl;
-  description = getComponent('slider').description;
-  title = getComponent('slider').title;
-  sliderUnitCode = sliderUnitCode;
+  figmaUrl = getComponent('slider')?.figmaUrl;
+  description = getComponent('slider')?.description;
+  title = getComponent('slider')?.title;
   does = ['When the specific value does not matter but approximate is good enough.'];
   donts = ['When the specific value is important.'];
 

@@ -1,8 +1,8 @@
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export type Size = 'sm' | 'md' | 'lg';
+export type Size = 'sm' | 'small' | 'md' | 'medium' | 'lg' | 'large';
 export interface ButtonProps {
   isActive: boolean;
   size: Size;
@@ -10,12 +10,14 @@ export interface ButtonProps {
 
 const getTypography = (size: Size) => {
   switch (size) {
+    case 'small':
     case 'sm': {
       return css`
         ${getTypographyCss('text-sm')};
         line-height: 1.15;
       `;
     }
+    case 'medium':
     case 'md': {
       return css`
         ${getTypographyCss('text-md')};
@@ -32,7 +34,7 @@ const getTypography = (size: Size) => {
   }
 };
 
-const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<ButtonProps>>`
+const ButtonBase = styled.button<Partial<ButtonProps>>`
   ${({ size }) => getTypography(size ?? 'md')};
   font-weight: 500;
   display: flex;
@@ -40,6 +42,7 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
   justify-content: center;
   gap: 8px;
   margin: 0;
+  white-space: nowrap;
 
   &:disabled {
     cursor: default;
@@ -49,16 +52,18 @@ const ButtonBase = styled.button.attrs(() => ({ type: 'button' }))<Partial<Butto
     cursor: pointer;
 
     &::selection {
-      background-color: ${getThemeColor('state-on')};
+      background-color: ${getThemeColor('background-selected-1')};
     }
   }
 `;
 
 const getButtonHeight = (size?: Size) => {
   switch (size) {
+    case 'large':
     case 'lg': {
       return '48px';
     }
+    case 'medium':
     case 'md': {
       return '40px';
     }
@@ -70,9 +75,11 @@ const getButtonHeight = (size?: Size) => {
 
 const getButtonPadding = (size?: Size) => {
   switch (size) {
+    case 'large':
     case 'lg': {
       return '0 calc(32px - 1px)';
     }
+    case 'medium':
     case 'md': {
       return '0 calc(24px - 1px)';
     }
@@ -83,21 +90,21 @@ const getButtonPadding = (size?: Size) => {
 };
 
 export const PrimaryButton = styled(ButtonBase)`
-  height: ${({ size }) => getButtonHeight(size)};
+  height: ${({ size }) => getButtonHeight(size ?? 'md')};
   border: 1px solid
-    ${({ isActive }) => (isActive ? getThemeColor('state-on') : getThemeColor('text-primary'))};
-  padding: ${({ size }) => getButtonPadding(size)};
+    ${({ isActive }) => (isActive ? getThemeColor('border-selected-1') : getThemeColor('text-1'))};
+  padding: ${({ size }) => getButtonPadding(size ?? 'md')};
   background-color: ${({ isActive }) =>
-    isActive ? getThemeColor('state-on') : getThemeColor('text-primary')};
-  color: ${({ isActive }) => (isActive ? getThemeColor('text-primary') : getThemeColor('state-on'))};
+    isActive ? getThemeColor('background-selected-1') : getThemeColor('text-1')};
+  color: ${({ isActive }) => (isActive ? getThemeColor('text-1') : getThemeColorContrast('text-1'))};
   transition: transform 100ms;
   border-radius: 99px;
 
   &:not(:disabled) {
     &:hover {
-      background-color: ${getThemeColor('state-hover-green')};
-      border-color: ${getThemeColor('state-hover-green')};
-      color: ${getThemeColor('text-primary')};
+      background-color: ${getThemeColor('background-hover-1')};
+      border-color: ${getThemeColor('border-hover-1')};
+      color: ${getThemeColor('text-1')};
     }
 
     &:active {
@@ -107,19 +114,19 @@ export const PrimaryButton = styled(ButtonBase)`
   }
 
   &:disabled {
-    border-color: ${getThemeColor('state-disabled')};
-    background-color: ${getThemeColor('state-disabled')};
+    border-color: ${getThemeColor('border-disabled-1')};
+    background-color: ${getThemeColor('background-disabled-1')};
   }
 `;
 
 export const SecondaryButton = styled(PrimaryButton)`
-  background-color: ${({ isActive }) => (isActive ? getThemeColor('state-on') : 'transparent')};
-  color: ${getThemeColor('text-primary')};
+  background-color: ${({ isActive }) => (isActive ? getThemeColor('background-selected-1') : 'transparent')};
+  color: ${getThemeColor('text-1')};
 
   &:disabled {
     background-color: transparent;
-    border-color: ${getThemeColor('state-disabled')};
-    color: ${getThemeColor('state-disabled')};
+    border-color: ${getThemeColor('border-disabled-1')};
+    color: ${getThemeColor('text-disabled-1')};
   }
 `;
 
@@ -128,7 +135,7 @@ export const TertiaryButton = styled(ButtonBase)`
   background: transparent;
   position: relative;
   padding: 0;
-  height: ${({ size }) => (size === 'sm' ? '1.5rem' : '2rem')};
+  height: ${({ size }) => (size === 'sm' || size === 'small' ? '1.5rem' : '2rem')};
 
   &:after {
     content: '';
@@ -138,7 +145,8 @@ export const TertiaryButton = styled(ButtonBase)`
     left: 0;
     right: 0;
     height: 2px;
-    background-color: ${({ isActive }) => (isActive ? getThemeColor('state-on') : 'transparent')};
+    background-color: ${({ isActive }) =>
+      isActive ? getThemeColor('background-selected-1') : 'transparent'};
     transform: scaleY(1);
     transform-origin: center bottom;
     transition: background-color 60ms, transform 100ms;
@@ -146,7 +154,7 @@ export const TertiaryButton = styled(ButtonBase)`
 
   &:not(:disabled) {
     &:hover:after {
-      background-color: ${getThemeColor('state-hover-green')};
+      background-color: ${getThemeColor('background-hover-1')};
     }
 
     &:active:after {
@@ -155,6 +163,6 @@ export const TertiaryButton = styled(ButtonBase)`
   }
 
   &:disabled {
-    color: ${getThemeColor('state-disabled')};
+    color: ${getThemeColor('background-disabled-1')};
   }
 `;

@@ -1,28 +1,20 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import React, { CSSProperties, FC } from 'react';
+import React, { FC } from 'react';
 import { BoxArea, BoxColoredLine, BoxTitle, BoxContent } from './styledComponents';
-import { useSlot } from '@elvia/elvis-toolbox';
+import { useSlot, warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { BoxProps } from './elvia-box.types';
+import { config } from './config';
 
-export interface BoxProps {
-  title?: string | JSX.Element;
-  content: string | JSX.Element;
-  isColored?: boolean;
-  hasBorder?: boolean;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-}
-
-const Box: FC<BoxProps> = ({
+const Box: FC<BoxProps> = function ({
   title,
   content,
   isColored = false,
-  hasBorder = false,
   className,
   inlineStyle,
   webcomponent,
   ...rest
-}) => {
+}) {
+  warnDeprecatedProps(config, arguments[0]);
+
   const { ref: boxContent } = useSlot<HTMLDivElement>('content', webcomponent);
   const { ref: boxTitle } = useSlot<HTMLDivElement>('title', webcomponent);
 
@@ -31,7 +23,7 @@ const Box: FC<BoxProps> = ({
       <BoxTitle ref={boxTitle} data-testid="box-title">
         {title}
       </BoxTitle>
-      <BoxContent hasBorder={hasBorder} data-testid="box-content">
+      <BoxContent data-testid="box-content">
         {isColored && <BoxColoredLine data-testid="box-colored-line"></BoxColoredLine>}
         {content ? content : <div ref={boxContent}></div>}
       </BoxContent>

@@ -1,8 +1,8 @@
-import type { Color, ColorLabel, Theme, ThemeName } from './theme';
+import type { ColorLabel, ThemeName } from './theme';
 import { lightTheme, lightThemeColors, LightThemeColorName } from './themes/lightTheme';
 import { darkTheme, darkThemeColors, DarkThemeColorName } from './themes/darkTheme';
 
-const getTheme = (name: ThemeName): Theme => {
+const getTheme = (name: ThemeName) => {
   switch (name) {
     case 'dark':
       return darkTheme;
@@ -13,38 +13,77 @@ const getTheme = (name: ThemeName): Theme => {
   }
 };
 
-const getThemeColorObject = (label: ColorLabel, themeName: ThemeName): Color | null => {
+const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
   const theme = getTheme(themeName);
   const color =
-    theme.data[label as keyof typeof theme.data] ??
-    theme.state[label as keyof typeof theme.state] ??
     theme.text[label as keyof typeof theme.text] ??
     theme.background[label as keyof typeof theme.background] ??
+    theme.border[label as keyof typeof theme.border] ??
+    theme.signal[label as keyof typeof theme.signal] ??
+    theme.data[label as keyof typeof theme.data] ??
+    theme.icon[label as keyof typeof theme.icon] ??
+    theme.static[label as keyof typeof theme.static] ??
     null;
   if (!color) {
-    console.error(`Color ${label} not found.`);
     return null;
   }
   return color;
 };
 
 /**
- * Get a color from a theme by label.
+ * Get a color from a theme by label. Will throw an error if color is not found.
  * @param label
- * @param themeName
+ * @param themeName The theme name. Defaults to `'light'`. This only affects the fallback color.
  * @returns CSS-variable for label, with fallback to the color hex.
+ * @throws Will throw an error if color is not found.
  * @example
- * const color = getThemeColor('background-primary');
+ * const color = getThemeColor('background-1');
  *
  * @since 1.5.0
  */
-export const getThemeColor = (label: ColorLabel, themeName: ThemeName = 'light'): string => {
-  const color = getThemeColorObject(label, themeName);
+export const getThemeColor = <
+  TLabel extends ColorLabel | `color-${ColorLabel}`,
+  TLabelWithoutPrefix extends ColorLabel = TLabel extends `color-${infer U extends ColorLabel}` ? U : TLabel,
+>(
+  label: TLabel,
+  themeName: ThemeName = 'light',
+): `var(--e-color-${TLabelWithoutPrefix}, ${string})` => {
+  const labelWithoutPrefix = label.replace(/^color-/, '') as TLabelWithoutPrefix;
+  const color = getThemeColorObject(labelWithoutPrefix, themeName);
   if (!color) {
-    console.error(`Color '${label}' not found.`);
-    return '';
+    throw new Error(`Color '${label}' not found.`);
   }
-  return `var(--e-color-${label}, ${color.hex})`;
+  return `var(--e-color-${labelWithoutPrefix}, ${color.hex})`;
+};
+
+/**
+ * Get a contrast color from a theme by label.
+ * @param label
+ * @param themeName The theme name. Defaults to 'light'. This only affects the fallback color.
+ * @returns CSS-variable for label, with fallback to the contrast color hex.
+ * @throws Will throw an error if color is not found or if color does not have a contrast defined.
+ * @example
+ * const contrastColor = getThemeColorContrast('background-1');
+ *
+ * @since 1.6.0
+ */
+export const getThemeColorContrast = <
+  TLabel extends ColorLabel | `color-${ColorLabel}`,
+  TLabelWithoutPrefix extends ColorLabel = TLabel extends `color-${infer U extends ColorLabel}` ? U : TLabel,
+>(
+  label: TLabel,
+  themeName: ThemeName = 'light',
+): `var(--e-color-${TLabelWithoutPrefix}--contrast, ${string})` => {
+  const labelWithoutPrefix = label.replace(/^color-/, '') as TLabelWithoutPrefix;
+  const color = getThemeColorObject(labelWithoutPrefix, themeName);
+  if (!color) {
+    throw new Error(`Color '${label}' not found.`);
+  }
+  if (!('contrast' in color)) {
+    throw new Error(`Color '${label}' does not have a contrast color.`);
+  }
+
+  return `var(--e-color-${labelWithoutPrefix}--contrast, ${color.contrast})`;
 };
 
 const getBaseThemeColors = <TThemeName extends ThemeName>(
@@ -91,13 +130,39 @@ export const getCustomThemeColor = (
   const colors = getBaseThemeColors(themeName);
   const label = colorNameToThemeMap[themeName];
   const color =
-    colors['primary-colors'][label as keyof typeof colors['primary-colors']] ??
-    colors['signal-colors'][label as keyof typeof colors['signal-colors']] ??
-    colors['data-colors'][label as keyof typeof colors['data-colors']] ??
-    colors['grey-colors'][label as keyof typeof colors['grey-colors']];
+    colors['primary-colors'][label as keyof (typeof colors)['primary-colors']] ??
+    colors['signal-colors'][label as keyof (typeof colors)['signal-colors']] ??
+    colors['data-colors'][label as keyof (typeof colors)['data-colors']] ??
+    colors['grey-colors'][label as keyof (typeof colors)['grey-colors']];
   if (!color) {
-    console.error(`Color '${label}' for theme '${themeName}' not found.`);
-    return '';
+    throw new Error(`Color '${label}' for theme '${themeName}' not found.`);
   }
   return color.color;
 };
+
+/**
+ * Get a hex code for a specified color and theme.
+ * @param label Base token label
+ * @param themeName The theme name. Defaults to 'light'.
+ * @returns The hex code.
+ * @example
+ * const baseColor = getBaseColor('grey-10', 'dark');
+ *
+ * @since 2.3.0
+ */
+export function getBaseColor(
+  label: DarkThemeColorName | LightThemeColorName,
+  themeName: ThemeName = 'light',
+): string {
+  const colors = getBaseThemeColors(themeName);
+  const color =
+    colors['primary-colors'][label as keyof (typeof colors)['primary-colors']] ??
+    colors['signal-colors'][label as keyof (typeof colors)['signal-colors']] ??
+    colors['data-colors'][label as keyof (typeof colors)['data-colors']] ??
+    colors['grey-colors'][label as keyof (typeof colors)['grey-colors']] ??
+    colors['internal-colors'][label as keyof (typeof colors)['internal-colors']];
+  if (!color) {
+    throw new Error(`Color '${label}' for theme '${themeName}' not found.`);
+  }
+  return color.color;
+}

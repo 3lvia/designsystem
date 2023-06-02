@@ -6,173 +6,61 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <h4>Simple Slider</h4>
-      <h5>Default</h5>
-      <elvia-slider (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
-      <br />
-      <h5>hasHintValues</h5>
-      <elvia-slider [hasHintValues]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
-      <br />
-      <h5>hasInputField</h5>
-      <elvia-slider [hasInputField]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
-      <br />
-      <h5>heading-prop</h5>
-      <elvia-slider
-        [heading]="'dette er heading-en'"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>errorOptions</h5>
-      <elvia-slider
-        [errorOptions]="{
-          text: 'Feilmelding her',
-          isErrorState: true,
-          hideText: false,
-          hasErrorPlaceholder: true
-        }"
-        [hasInputField]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>Default (isCompact)</h5>
-      <elvia-slider [isCompact]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
-      <br />
-      <h5>hasHintValues (isCompact)</h5>
-      <elvia-slider
-        [isCompact]="true"
-        [hasHintValues]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>hasInputField (isCompact)</h5>
-      <elvia-slider
-        [isCompact]="true"
-        [hasInputField]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>heading-prop (isCompact)</h5>
-      <elvia-slider
-        [isCompact]="true"
-        [heading]="'dette er heading-en'"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>errorOptions (isCompact)</h5>
-      <elvia-slider
-        [isCompact]="true"
-        [errorOptions]="{
-          text: 'Feilmelding her',
-          isErrorState: true,
-          hideText: false,
-          hasErrorPlaceholder: true
-        }"
-        [hasInputField]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>unit (se tooltip)</h5>
-      <elvia-slider [unit]="' kWh'" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
-      <br />
-      <h5>label</h5>
-      <elvia-slider
-        [label]="'kilowatt'"
-        [hasInputField]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>disabled</h5>
-      <elvia-slider [isDisabled]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
-      <br />
-      <elvia-slider
-        [hasInputField]="true"
-        [isDisabled]="true"
-        [value]="50"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-
-      <h5>percent (se tooltip)</h5>
-      <elvia-slider [hasPercent]="true" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
-      <br />
-      <h5>edge case</h5>
-      <elvia-slider
-        [min]="10000000"
-        [max]="10000000000000000"
-        [hasInputField]="true"
-        [hasHintValues]="true"
-        [hasPercent]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-
-      <br />
-      <elvia-slider
-        [min]="0"
-        [max]="100000000000000"
-        [hasInputField]="true"
-        [isCompact]="true"
-        [hasHintValues]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <elvia-slider
-        [min]="10000000000"
-        [max]="10000000000000000"
-        [hasInputField]="true"
-        [isCompact]="true"
-        [hasHintValues]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h4>Range slider</h4>
-      <elvia-slider [type]="'range'" (valueOnChange)="sliderOnValueChange($event)"></elvia-slider>
-      <elvia-slider
-        [type]="'range'"
-        [max]="100000000000000"
-        [hasInputField]="true"
-        [isCompact]="true"
-        [hasHintValues]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <h5>hasHintValues</h5>
-      <elvia-slider
-        [type]="'range'"
-        [hasHintValues]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>hasInputField</h5>
-      <elvia-slider
-        [type]="'range'"
-        [hasInputField]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-
-      <h5>Default Range (isCompact)</h5>
-      <elvia-slider
-        [type]="'range'"
-        [isCompact]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>hasHintValues (isCompact)</h5>
-      <elvia-slider
-        [type]="'range'"
-        [isCompact]="true"
-        [hasHintValues]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
-      <h5>hasInputField (isCompact)</h5>
-      <elvia-slider
-        [type]="'range'"
-        [isCompact]="true"
-        [hasInputField]="true"
-        (valueOnChange)="sliderOnValueChange($event)"
-      ></elvia-slider>
-      <br />
+      <elvia-pagination
+        numberOfElements="60000"
+        [value]="defaultPaginationValue"
+        [dropdownItems]="paginationDropdownItems"
+        [dropdownSelectedItemIndex]="dropdownSelectedItemIndex"
+        [alignment]="'right'"
+        dropdownMenuPosition="top"
+        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+      ></elvia-pagination>
     </div>
     <!--Inverted version-->
-    <div class="e-bg-grey"></div>
+    <div class="e-theme-dark e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32">
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Removable</div>
+        <div *ngFor="let chip of deletableChipsList">
+          <elvia-chip
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isDisabled]="chip.isDisabled"
+            (onDelete)="handleOnDelete($any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Choice</div>
+        <div *ngFor="let chip of choiceChipsList">
+          <elvia-chip
+            [type]="'choice'"
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isSelected]="chip.isSelected"
+            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Legend</div>
+        <div *ngFor="let chip of legendChipsList">
+          <elvia-chip
+            [type]="'legend'"
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isSelected]="chip.isSelected"
+            [isLoading]="chip.isLoading"
+            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!--Accordion-->
@@ -210,7 +98,7 @@
   <div class="example-wrapper">
     <h3>Badge</h3>
     <div style="display: flex; gap: 1rem">
-      <elvia-badge [count]="0">
+      <elvia-badge [count]="10">
         <button
           class="e-thumbnail"
           aria-label="Thumbnail button that opens the image in a larger view"
@@ -228,7 +116,7 @@
           <img src="https://picsum.photos/56" alt="Thumbnail example image" />
         </button>
       </elvia-badge>
-      <elvia-badge [count]="101" [badgeColor]="'black'">
+      <elvia-badge [count]="101" [badgeColor]="'neutral'">
         <button
           class="e-thumbnail"
           aria-label="Thumbnail button that opens the image in a larger view"
@@ -244,7 +132,7 @@
   <div class="example-wrapper">
     <h3>Box</h3>
     <div style="padding: 8px">
-      <elvia-box [hasBorder]="true">
+      <elvia-box>
         <h3 slot="title">Title</h3>
         <div slot="content">Webcomponentent content for the box component</div>
       </elvia-box>
@@ -296,7 +184,7 @@
   <!--Carousel-->
   <div class="example-wrapper">
     <h3>Carousel</h3>
-    <elvia-carousel [loop]="false" [hasConfirmationCheckmark]="true">
+    <elvia-carousel [hasConfirmationCheckmark]="true">
       <div slot="title-1">
         <h3 class="e-title-sm">title 1</h3>
       </div>
@@ -330,8 +218,8 @@
           [color]="chip.color"
           [ariaLabel]="'Fjern filtrering for ' + chip.value"
           [isDisabled]="chip.isDisabled"
-          (onDelete)="handleOnDelete($event.detail.value)"
-          (isSelectedOnChange)="logValue('chip', $event.detail.value)"
+          (onDelete)="handleOnDelete($any($event).detail.value)"
+          (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
           [inlineStyle]="{ margin: '8px' }"
         ></elvia-chip>
       </div>
@@ -348,7 +236,7 @@
             [isSelected]="filteredValues[chip]"
             color="orange"
             type="legend"
-            (isSelectedOnChange)="handleOnChange($event)"
+            (isSelectedOnChange)="handleOnChange($any($event))"
           ></elvia-chip>
         </div>
       </div>
@@ -399,7 +287,10 @@
   <!--Datepicker-->
   <div class="example-wrapper">
     <h3>DatePicker</h3>
-    <elvia-datepicker [value]="date" (valueOnChange)="writeDate($event.detail.value)"></elvia-datepicker>
+    <elvia-datepicker
+      [value]="date"
+      (valueOnChange)="writeDate($any($event).detail.value)"
+    ></elvia-datepicker>
   </div>
 
   <!--Date range picker-->
@@ -416,13 +307,16 @@
   <!--Divider-->
   <div class="example-wrapper">
     <h3>Divider</h3>
+    <h4>Title divider</h4>
     <elvia-divider type="title" typography="caps">
-      <h3 slot="title">Title</h3>
+      <h2 slot="heading">Title with caps</h2>
     </elvia-divider>
-    <h3>Vertical divider</h3>
+    <h4>Vertical divider</h4>
     <div style="height: 100px">
       <elvia-divider type="simple" orientation="vertical"></elvia-divider>
     </div>
+    <h4>Curved divider</h4>
+    <elvia-divider type="curved"></elvia-divider>
   </div>
 
   <!--Dropdown-->
@@ -431,13 +325,13 @@
     <elvia-dropdown
       [items]="dropdownItems"
       label="Select location"
-      (valueOnChange)="onDropdownSelect($event.detail.value)"
+      (valueOnChange)="onDropdownSelect($any($event).detail.value)"
     ></elvia-dropdown>
     <h3>Dropdown</h3>
     <elvia-dropdown
       [items]="dropdownItems"
       label="Select location"
-      (valueOnChange)="onDropdownSelect($event.detail.value)"
+      (valueOnChange)="onDropdownSelect($any($event).detail.value)"
       [errorOptions]="errorOptions"
     ></elvia-dropdown>
   </div>
@@ -467,20 +361,65 @@
       >
         Avbryt
       </button>
-      <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Lagre</button>
+      <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">
+        Lagre
+      </button>
+    </elvia-modal>
+    <h4>Illustration</h4>
+    <button (click)="isIllustrationModalShowing = true" class="e-btn">Show illustration modal</button>
+    <div>
+      <elvia-modal
+        [hasCloseButton]="true"
+        (onClose)="isIllustrationModalShowing = false"
+        [isShowing]="isIllustrationModalShowing"
+        [heading]="'Title of content'"
+      >
+        <div slot="content">
+          <div>
+            Body text comes here and can go over several lines. It looks like this when it is two lines.
+          </div>
+        </div>
+        <button
+          slot="secondaryButton"
+          class="e-btn e-btn--secondary e-btn--lg"
+          (click)="isIllustrationModalShowing = false"
+        >
+          Cancel
+        </button>
+        <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
+        <div slot="illustration">
+          <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png" />
+        </div>
+      </elvia-modal>
+    </div>
+    <h4>Multiple pages</h4>
+    <button (click)="isMultiPageModalShowing = true" class="e-btn">Show multi-page modal</button>
+    <elvia-modal
+      (onClose)="isMultiPageModalShowing = false"
+      [isShowing]="isMultiPageModalShowing"
+      [heading]="'Title of content'"
+      [hasCloseButton]="true"
+    >
+      <div
+        slot="content"
+        style="display: flex; flex-direction: column; justify-content: space-between; height: 100%"
+      >
+        <div>
+          Body text comes here and can go over several lines. It looks like this when it is two lines.
+        </div>
+        <elvia-carousel items="3">
+          <!-- Carousel contents not shown here for brevity -->
+        </elvia-carousel>
+      </div>
+      <div slot="illustration">
+        <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png" />
+      </div>
     </elvia-modal>
   </div>
 
   <!--Paginator-->
   <div class="example-wrapper">
     <h3>Paginator</h3>
-    <elvia-pagination
-      numberOfElements="32"
-      [value]="defaultPaginationValue"
-      [alignment]="'right'"
-      dropdownMenuPosition="top"
-      (valueOnChange)="logValue('Pagination', $event.detail.value)"
-    ></elvia-pagination>
   </div>
 
   <!--Popover-->
@@ -525,11 +464,7 @@
   <div class="example-wrapper">
     <h3>Radio filter</h3>
     <elvia-radio-filter
-      [items]="[
-        { label: 'All', value: 'all' },
-        { label: 'Read', value: 'read' },
-        { label: 'Unread', value: 'unread' }
-      ]"
+      [items]="radioFilterValues"
       [value]="'read'"
       [name]="'readRadioFilters'"
       [ariaLabel]="'{value} filtrering valgt'"
@@ -541,15 +476,23 @@
     <h3>Segmented control</h3>
     <elvia-segmented-control
       [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
-      (valueOnChange)="logValue('Segmented', $event.detail.value)"
+      (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
     ></elvia-segmented-control>
     <elvia-segmented-control
       [type]="'icon'"
       [items]="[
-        { iconName: 'thumbnail', iconNameSelected: 'thumbnailColor', ariaLabel: 'Helo' },
-        { iconName: 'list', iconNameSelected: 'listColor', ariaLabel: 'HEElo' }
+        {
+          icon: '<i class=\'e-icon e-icon--thumbnail\'></i>',
+          iconSelected: '<i class=\'e-icon e-icon--thumbnail-color\'></i>',
+          ariaLabel: 'Segmented control example label'
+        },
+        {
+          icon: '<i class=\'e-icon e-icon--list\'></i>',
+          iconSelected: '<i class=\'e-icon e-icon--list_color\'></i>',
+          ariaLabel: 'Segmented control example label'
+        }
       ]"
-      (valueOnChange)="logValue('Segmented', $event.detail.value)"
+      (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
     ></elvia-segmented-control>
   </div>
 
@@ -660,7 +603,7 @@
 
       <elvia-timepicker label=""></elvia-timepicker>
 
-      <elvia-timepicker isCompact="true"></elvia-timepicker>
+      <elvia-timepicker size="small"></elvia-timepicker>
 
       <elvia-timepicker label="Only hours" [value]="timepickerValue" minuteInterval="60"></elvia-timepicker>
 
@@ -668,6 +611,13 @@
 
       <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
     </div>
+  </div>
+
+  <!--Toast-->
+  <div class="example-wrapper">
+    <h3>Toast</h3>
+    <elvia-toast></elvia-toast>
+    <button (click)="showToast()">Show toast</button>
   </div>
 
   <!--Tooltip-->

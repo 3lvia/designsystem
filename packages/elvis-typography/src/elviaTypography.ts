@@ -127,6 +127,7 @@ export const ElviaTypography = {
     fontSize: '16px',
     fontWeight: '400',
     lineHeight: '28px',
+    lineHeightMobile: '160%',
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
@@ -285,7 +286,7 @@ export type TypographyName = keyof typeof ElviaTypography;
  */
 export const getTypography = <Key extends TypographyName>(
   typographyName: Key,
-): typeof ElviaTypography[Key] | null => {
+): (typeof ElviaTypography)[Key] | null => {
   if (ElviaTypography[typographyName]) {
     return ElviaTypography[typographyName];
   } else {

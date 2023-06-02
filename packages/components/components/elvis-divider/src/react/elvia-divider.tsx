@@ -1,31 +1,33 @@
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import React, { CSSProperties, useEffect, useRef } from 'react';
 import { DividerOrientation, DividerType, DividerTypography } from './elvia-divider.types';
-import { DividerArea, DividerTitle } from './styledComponents';
+import { DividerArea, DividerHeading } from './styledComponents';
+import { warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { config } from './config';
 
 export interface DividerProps {
   type?: DividerType;
-  title?: string | JSX.Element;
+  heading?: string | JSX.Element;
   typography?: DividerTypography;
-  isInverted?: boolean;
   orientation?: DividerOrientation;
   className?: string;
   inlineStyle?: CSSProperties;
   webcomponent?: ElvisComponentWrapper;
 }
 
-export const Divider: React.FC<DividerProps> = ({
+export const Divider: React.FC<DividerProps> = function ({
   type = 'simple',
   typography = 'medium',
-  title = '',
-  isInverted = false,
+  heading = '',
   orientation = 'horizontal',
   className,
   inlineStyle,
   webcomponent,
   ...rest
-}) => {
-  const dividerTitleRef = useRef<HTMLDivElement>(null);
+}) {
+  warnDeprecatedProps(config, arguments[0]);
+
+  const dividerHeadingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Web component - Placing slots at the right place
@@ -33,30 +35,28 @@ export const Divider: React.FC<DividerProps> = ({
       return;
     }
     // Get slotted items from web component
-    if (dividerTitleRef.current && webcomponent.getSlot('title')) {
-      dividerTitleRef.current.innerHTML = '';
-      dividerTitleRef.current.appendChild(webcomponent.getSlot('title'));
+    if (dividerHeadingRef.current && webcomponent.getSlot('heading')) {
+      dividerHeadingRef.current.innerHTML = '';
+      dividerHeadingRef.current.appendChild(webcomponent.getSlot('heading'));
     }
   });
 
   return (
     <DividerArea
       type={type}
-      isInverted={isInverted}
       orientation={orientation}
-      data-testid="divider-area"
       role="separator"
       className={className ? className : ''}
       style={inlineStyle}
       {...rest}
     >
-      {title === '' && type === 'title' && (
-        <DividerTitle typography={typography} isInverted={isInverted} ref={dividerTitleRef}></DividerTitle>
+      {heading === '' && type === 'heading' && (
+        <DividerHeading typography={typography} ref={dividerHeadingRef}></DividerHeading>
       )}
-      {title !== '' && type === 'title' && (
-        <DividerTitle typography={typography} isInverted={isInverted} data-testid="divider-title">
-          {title}
-        </DividerTitle>
+      {heading !== '' && type === 'heading' && (
+        <DividerHeading typography={typography} data-testid="divider-heading">
+          {heading}
+        </DividerHeading>
       )}
     </DividerArea>
   );

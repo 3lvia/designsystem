@@ -1,5 +1,90 @@
 # Elvia Colors Changelog
 
+## 2.7.0 (01.06.23)
+
+### New feature
+
+- Added new theme color label: `border-6`.
+
+## 2.6.0 (01.06.23)
+
+### New feature
+
+- `getThemeColor` and `getThemeColorContrast` now accepts labels with or without a `color-`-prefix.
+- `getThemeColor` and `getThemeColorContrast` will now throw an error if a color (or contrast) is not found,
+  instead of returning an empty string.
+
+## 2.5.0 (26.05.23)
+
+### New feature
+
+- Now building and exporting both CommonJS and ESModule versions.
+
+## 2.4.0 (23.05.23)
+
+### New feature
+
+- Added contrast colors to text colors.
+
+## 2.3.0 (12.05.23)
+
+### New feature
+
+- Added `getBaseColor()` function that can be used to fetch the base token in custom cases.
+
+## 2.2.0 (25.04.23)
+
+### New feature
+
+- Added new theme color label: `border-5`.
+
+## 2.1.0 (25.04.23)
+
+### New feature
+
+- Added new theme color label: `background-element-5`.
+
+## 2.0.0 (25.04.23)
+
+### Breaking changes
+
+- Updated the theme color labels to the new ones.
+- Removed the `getColor()`. Use `getThemeColor()` or `getCustomThemeColor()` instead.
+- Removed the old color object, as it has been replaced by the new theme functionality and theme color object.
+
+### Patch
+
+- Improved the types for `getShadow()`.
+
+## 1.8.0 (09.03.23)
+
+### New feature
+
+- Added new theme color labels for icon colors.
+
+### Patch
+
+- Added missing export for `getThemeColorContrast()`.
+
+## 1.7.0 (01.03.23)
+
+### New feature
+
+- Added functionality for getting shadows. This introduces a new function `getShadow()` that returns a
+  css-variable that can be used to set box-shadow.
+- Generating `elvisShadowMap.scss` with a scss-map of all the shadows for use in elvis.
+
+## 1.6.0 (24.02.23)
+
+### New feature
+
+- Added new theme color labels: `background-overlay-strong`, `state-selected-grey`,
+  `state-disabled-foreground`, `state-disabled-background`, `state-disabled-foreground-strong`,
+  `state-disabled-background-strong`, `static-black`, and `static-white`.
+- Updated color of `background-accent-strong` in dark theme.
+- Now generating css variables for contrast colors for each theme color.
+- Added new function `getThemeColorContrast()` to get the contrast color for a theme color label.
+
 ## 1.5.0 (30.01.23)
 
 ### New feature

@@ -2,6 +2,24 @@
 	"block": {
 		"e-icon": {
 			"modifier": {
+				"e-icon--inverted": {},
+				"e-icon--color-default": {},
+				"e-icon--color-disabled": {},
+				"e-icon--color-disabled-light": {},
+				"e-icon--color-placeholder": {},
+				"e-icon--color-currentColor": {},
+				"e-icon--color-on": {},
+				"e-icon--color-success": {},
+				"e-icon--color-green": {},
+				"e-icon--color-caution": {},
+				"e-icon--color-yellow": {},
+				"e-icon--color-warning": {},
+				"e-icon--color-orange": {},
+				"e-icon--color-error": {},
+				"e-icon--color-danger": {},
+				"e-icon--color-red": {},
+				"e-icon--color-white": {},
+				"e-icon--color-black": {},
 				"e-icon--xxs": {},
 				"e-icon--custom12": {},
 				"e-icon--custom14": {},
@@ -43,6 +61,8 @@
 			}
 		},
 		"e-shadow-none": {},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
@@ -84,11 +104,9 @@
 		"e-form-field": {
 			"modifier": {
 				"e-form-field--compact": {},
-				"e-form-field--combined": {},
-				"e-form-field--full-width": {},
-				"e-form-field--width-auto": {},
 				"e-form-field--small": {},
-				"e-form-field--medium": {}
+				"e-form-field--full-width": {},
+				"e-form-field--width-auto": {}
 			},
 			"element": {
 				"e-form-field__label": {
@@ -268,7 +286,6 @@
 		"e-content-loader": {
 			"modifier": {
 				"e-content-loader--inverted": {},
-				"e-content-loader--grey": {},
 				"e-content-loader--circle": {},
 				"e-content-loader--text": {},
 				"e-content-loader--short": {}
@@ -289,8 +306,7 @@
 				"e-input--placeholder": {},
 				"e-input--centered": {},
 				"e-input--compact": {},
-				"e-input--small": {},
-				"e-input--medium": {}
+				"e-input--small": {}
 			},
 			"psuedo": {
 				"e-input---invalid": {},
@@ -842,12 +858,14 @@
 			},
 			"modifier": {
 				"e-table-mobile--compact": {},
+				"e-table-mobile--small": {},
 				"e-table-mobile--sticky-header": {}
 			}
 		},
 		"e-table": {
 			"modifier": {
 				"e-table--compact": {},
+				"e-table--small": {},
 				"e-table--no-stripes": {},
 				"e-table--sticky-header": {},
 				"e-table--sticky-column-header": {}
@@ -860,14 +878,21 @@
 				},
 				"e-table__footnote": {
 					"modifier": {
-						"e-table__footnote--compact": {}
+						"e-table__footnote--compact": {},
+						"e-table__footnote--small": {}
 					}
 				},
 				"e-table__cell": {
 					"modifier": {
+						"e-table__cell--invalid": {},
 						"e-table__cell--multiline": {},
 						"e-table__cell--multiline-small": {},
 						"e-table__cell--multiline-sm": {}
+					}
+				},
+				"e-table__row": {
+					"modifier": {
+						"e-table__row--invalid": {}
 					}
 				},
 				"e-table__input": {},
@@ -895,6 +920,7 @@
 			"modifier": {
 				"e-checkbox--compact": {},
 				"e-checkbox--sm": {},
+				"e-checkbox--small": {},
 				"e-checkbox--indeterminate": {}
 			},
 			"psuedo": {
@@ -964,6 +990,7 @@
 			},
 			"modifier": {
 				"e-toggle--compact": {},
+				"e-toggle--small": {},
 				"e-toggle--inverted": {}
 			},
 			"psuedo": {
@@ -1005,7 +1032,8 @@
 		"e-radio": {
 			"modifier": {
 				"e-radio--compact": {},
-				"e-radio--sm": {}
+				"e-radio--sm": {},
+				"e-radio--small": {}
 			},
 			"element": {
 				"e-radio__mark": {},
@@ -1136,6 +1164,24 @@
 	},
 	"flat": {
 		"e-icon": {},
+		"e-icon--inverted": {},
+		"e-icon--color-default": {},
+		"e-icon--color-disabled": {},
+		"e-icon--color-disabled-light": {},
+		"e-icon--color-placeholder": {},
+		"e-icon--color-currentColor": {},
+		"e-icon--color-on": {},
+		"e-icon--color-success": {},
+		"e-icon--color-green": {},
+		"e-icon--color-caution": {},
+		"e-icon--color-yellow": {},
+		"e-icon--color-warning": {},
+		"e-icon--color-orange": {},
+		"e-icon--color-error": {},
+		"e-icon--color-danger": {},
+		"e-icon--color-red": {},
+		"e-icon--color-white": {},
+		"e-icon--color-black": {},
 		"e-icon--xxs": {},
 		"e-icon--custom12": {},
 		"e-icon--custom14": {},
@@ -1164,6 +1210,8 @@
 		"e-accordion--center": {},
 		"e-accordion--end": {},
 		"e-shadow-none": {},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
@@ -1192,6 +1240,7 @@
 		"e-dropdown__item": {},
 		"e-form-field": {},
 		"e-form-field--compact": {},
+		"e-form-field--small": {},
 		"e-no-outline": {},
 		"e-outline": {},
 		"e-text": {},
@@ -1326,7 +1375,6 @@
 		"e-chip---hover": {},
 		"e-content-loader": {},
 		"e-content-loader--inverted": {},
-		"e-content-loader--grey": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},
 		"e-content-loader--short": {},
@@ -1345,6 +1393,7 @@
 		"e-input---loading": {},
 		"e-combined-field": {},
 		"e-input--compact": {},
+		"e-input--small": {},
 		"e-dropdown": {},
 		"e-radio-filter": {},
 		"e-radio-filter__label": {},
@@ -1795,6 +1844,7 @@
 		"e-table-mobile": {},
 		"e-table": {},
 		"e-table--compact": {},
+		"e-table--small": {},
 		"e-table-mobile__checkbox": {},
 		"e-table-mobile__checkbox--selected": {},
 		"e-table__checkbox": {},
@@ -1803,13 +1853,17 @@
 		"e-table-footnote": {},
 		"e-table__footnote": {},
 		"e-table__footnote--compact": {},
+		"e-table__footnote--small": {},
+		"e-table__cell--invalid": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
 		"e-table__cell--multiline-sm": {},
+		"e-table__row--invalid": {},
 		"e-table--no-stripes": {},
 		"e-table--sticky-header": {},
 		"e-table--sticky-column-header": {},
 		"e-table-mobile--compact": {},
+		"e-table-mobile--small": {},
 		"e-table-mobile--sticky-header": {},
 		"e-text-mono": {},
 		"e-table__input": {},
@@ -1863,6 +1917,7 @@
 		"e-toggle": {},
 		"e-toggle__input": {},
 		"e-toggle--compact": {},
+		"e-toggle--small": {},
 		"e-toggle---checked": {},
 		"e-toggle---focus": {},
 		"e-toggle---disabled": {},
@@ -1871,6 +1926,7 @@
 		"e-checkbox__label": {},
 		"e-checkbox--compact": {},
 		"e-checkbox--sm": {},
+		"e-checkbox--small": {},
 		"e-checkbox--indeterminate": {},
 		"e-checkbox---focus": {},
 		"e-checkbox---hover": {},
@@ -1886,15 +1942,10 @@
 		"e-form-field__error--visible": {},
 		"e-form-field__nested": {},
 		"e-form-field__nested--sm": {},
-		"e-form-field--combined": {},
-		"e-form-field__input": {},
-		"e-input--small": {},
-		"e-input--medium": {},
 		"e-form-field--full-width": {},
+		"e-form-field__input": {},
 		"e-inlined-field": {},
 		"e-form-field--width-auto": {},
-		"e-form-field--small": {},
-		"e-form-field--medium": {},
 		"e-inlined-field--full-width": {},
 		"e-fileupload": {},
 		"e-fileupload__icon": {},
@@ -1909,6 +1960,7 @@
 		"e-radio": {},
 		"e-radio--compact": {},
 		"e-radio--sm": {},
+		"e-radio--small": {},
 		"e-radio__mark": {},
 		"e-radio__label": {},
 		"e-radio---disabled-checked": {},

@@ -1,4 +1,4 @@
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { headerZIndex, sidebarAnimation, sidebarMaxWidth, toolbarHeight } from '../styledComponents';
@@ -10,7 +10,7 @@ interface SideNavContainerProps {
 }
 
 export const SideNavContainer = styled.nav<SideNavContainerProps>`
-  background-color: ${getColor('elvia-on')};
+  background-color: ${getThemeColor('background-overlay-3')};
   display: flex;
   position: fixed;
   z-index: ${headerZIndex};
@@ -27,7 +27,7 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
         top: ${toolbarHeight};
         bottom: 0;
         padding: 16px 8px;
-        border-right: 2px solid ${getColor('grey-05')};
+        border-right: 1px solid ${getThemeColor('border-5')};
       `;
     }
 
@@ -37,7 +37,7 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
       right: 0;
       height: ${toolbarHeight};
       padding: 8px 16px;
-      border-top: 2px solid ${getColor('grey-05')};
+      border-top: 2px solid ${getThemeColor('border-5')};
     `;
   }}
 
@@ -100,7 +100,7 @@ export const IconContainer = styled.div<IconContainerProps>`
   ${(props) =>
     props.isActive &&
     css`
-      border-color: ${getColor('black')};
+      border-color: ${getThemeColor('border-1')};
     `}
 `;
 
@@ -115,11 +115,12 @@ export const NavButton = styled.button`
   gap: 16px;
 
   &:hover ${IconContainer} {
-    border: 1px solid ${getColor('green')};
+    border: 1px solid ${getThemeColor('border-hover-1')};
   }
 `;
 
 export const ToggleWidthButton = styled(NavButton)`
+  color: ${getThemeColor('text-1')};
   margin-top: auto;
   gap: 32px;
 `;

@@ -15,7 +15,6 @@ import { DatepickerRangeProps } from '../elviaDatepicker.types';
 import { TertiaryButton, Overlay, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
 import reset from '@elvia/elvis-assets-icons/dist/icons/reset';
-import { getThemeColor } from '@elvia/elvis-colors';
 
 interface Props {
   onClose: () => void;
@@ -102,7 +101,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             >
               {formatDate(viewedDate, { year: 'numeric' })}
               <RotatingContainer isRotated={yearPickerIsOpen}>
-                <IconWrapper icon={arrowDown} size="xs" color={getThemeColor('text-primary')} />
+                <IconWrapper icon={arrowDown} size="xs" />
               </RotatingContainer>
             </TertiaryButton>
           </PopoverHeader>
@@ -134,7 +133,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                 />
                 <PopoverFooter>
                   <TertiaryButton onClick={resetDate} aria-label="Nullstill dato" size="sm">
-                    <IconWrapper icon={reset} size="xs" color={getThemeColor('text-primary')} />
+                    <IconWrapper icon={reset} size="xs" />
                     {clearButtonText}
                   </TertiaryButton>
                 </PopoverFooter>

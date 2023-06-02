@@ -4,10 +4,12 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { FormFieldError } from './errorStyles';
 
-const setActiveBorder = (isCompact?: boolean) => {
+export type FormFieldSizes = 'small' | 'medium';
+
+const setActiveBorder = (size?: FormFieldSizes) => {
   return css`
-    border: 2px solid ${getThemeColor('state-on')};
-    padding: ${isCompact ? '0 3px 0 7px' : '0 7px 0 15px'};
+    border: 2px solid ${getThemeColor('border-selected-1')};
+    padding: ${size === 'small' ? '0 3px 0 7px' : '0 7px 0 15px'};
   `;
 };
 
@@ -16,16 +18,22 @@ export const FormFieldInputContainer = styled.div`
   align-items: center;
   gap: 8px;
   padding: 0 8px 0 16px;
-  border: 1px solid ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
+  border: 1px solid ${getThemeColor('border-1')};
+  background: ${getThemeColor('background-element-1')};
   height: 48px;
   border-radius: 4px;
   cursor: text;
   transition: border-color 150ms;
+  .e-table && {
+    border: 1px solid ${getThemeColor('border-6')};
+    background: transparent;
+  }
 `;
 
 export interface FormFieldContainerProps {
   isFullWidth?: boolean;
-  isCompact?: boolean;
+  size?: FormFieldSizes;
   isActive?: boolean;
   isInvalid?: boolean;
   isDisabled?: boolean;
@@ -35,7 +43,7 @@ export interface FormFieldContainerProps {
 /**
  *
  * @example
- * <FormFieldContainer isCompact isFullWidth isActive isInvalid isDisabled>
+ * <FormFieldContainer size="small" isFullWidth isActive isInvalid isDisabled>
  *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
  *   <FormFieldInputContainer>
  *     <FormFieldInput />
@@ -66,14 +74,14 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `}
 
-  ${({ isCompact }) => {
-    if (isCompact) {
+  ${({ size }) => {
+    if (size === 'small') {
       return css`
         padding-top: 0.5rem;
 
         ${FormFieldLabel} {
           font-size: 0.625rem;
-          background-color: ${getThemeColor('background-primary')};
+          background-color: ${getThemeColor('background-1')};
           position: absolute;
           margin-left: 7px;
           top: 0;
@@ -108,30 +116,30 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       && ${FormFieldInputContainer} {
          {
           cursor: not-allowed;
-          border-color: ${getThemeColor('state-disabled')};
+          border-color: ${getThemeColor('border-disabled-1')};
         }
       }
     `};
 
-  ${({ isInvalid, isCompact }) =>
+  ${({ isInvalid, size }) =>
     isInvalid &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(isCompact)};
-        border-color: ${getThemeColor('state-error')};
+        ${setActiveBorder(size)};
+        border-color: ${getThemeColor('signal-error')};
       }
     `};
 
-  ${({ isActive, isCompact }) =>
+  ${({ isActive, size }) =>
     isActive &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(isCompact)}
+        ${setActiveBorder(size)}
       }
     `}
 
   ${FormFieldInputContainer}:focus-within {
-    ${(props) => setActiveBorder(props.isCompact)}
+    ${(props) => setActiveBorder(props.size)}
   }
 `;
 
@@ -163,7 +171,7 @@ export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
   cursor: inherit;
 
   &:disabled {
-    color: ${getThemeColor('state-disabled')};
+    color: ${getThemeColor('text-disabled-1')};
     -webkit-text-fill-color: ${getThemeColor('state-disabled')}; //fix for Safari where text became invisible
   }
 `;

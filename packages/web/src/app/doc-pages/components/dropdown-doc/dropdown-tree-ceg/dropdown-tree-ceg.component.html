@@ -1,0 +1,37 @@
+<elvia-dropdown
+  [items]="[
+    {
+      value: 0,
+      label: 'Norge',
+      children: [
+        { label: 'Oslo', value: 'oslo' },
+        {
+          label: 'Bergen',
+          value: 'bergen',
+          children: [
+            { label: 'Arna', value: 'arna' },
+            { label: 'Bergenhus', value: 'bergenhus' },
+            { label: 'Fana', value: 'fana' }
+          ]
+        },
+        { label: 'Trondheim', value: 'trondheim' },
+        { label: 'Stavanger', value: 'stavanger' },
+        { label: 'Kristiansand', value: 'kristiansand' }
+      ]
+    },
+    { value: 'spania', label: 'Spania' },
+    { value: 'tyskland', label: 'Tyskland' },
+    {
+      value: 'england',
+      label: 'England',
+      children: [
+        { value: 'london', label: 'London' },
+        { value: 'manchester', label: 'Manchester' },
+        { value: 'birmingham', label: 'Birmingham' }
+      ]
+    }
+  ]"
+  value="birmingham"
+  label="Label"
+  (valueOnChange)="handleOnChange($any($event).detail.value)"
+></elvia-dropdown>

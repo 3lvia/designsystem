@@ -10,7 +10,9 @@ import * as typescript from 'gulp-typescript';
 import * as filter from 'gulp-filter';
 import * as cache from 'gulp-cached';
 import * as sourcemaps from 'gulp-sourcemaps';
-import { ComponentAttribute, ComponentConfig } from '@elvia/elvis-toolbox/src/componentConfig.types';
+import { exec } from 'child_process';
+// Must import from src because the files don't exist in dist before this build script
+import { ComponentAttribute, ComponentConfig } from '../components/elvis-toolbox/src/componentConfig.types';
 
 let componentConfigs: ComponentConfig[] = [];
 
@@ -137,7 +139,7 @@ function buildWebComponentsMagically() {
   return mergeStream(tasks);
 }
 
-// Convert Typescript and JSX/TSX to JS. Also convert scss to css.
+// Convert Typescript and JSX/TSX to JS.
 function TSX_to_JS() {
   const tasks = componentConfigs.map((component) => {
     const packageName = getPackageName(component);
@@ -153,6 +155,7 @@ function TSX_to_JS() {
               [
                 '@babel/preset-env',
                 {
+                  modules: false,
                   targets: [
                     '>0.2%, last 2 versions, Firefox ESR, not dead, not IE <= 11, not op_mini all, not op_mob > 0',
                   ],
@@ -184,76 +187,32 @@ function reactTypescriptDeclarations() {
     const packageName = getPackageName(component);
     return `../components/${packageName}/src/react/**/!(*.test).ts*`;
   });
-  const tsConfig = typescript.createProject('../tsconfig.json');
 
-  return gulp
-    .src(globsToCreateDeclarationsFor, { base: '..' })
-    .pipe(cache('reactTypescriptDeclarations'))
-    .pipe(tsConfig())
-    .on('error', () => {})
-    .pipe(filter(['*.d.ts']))
-    .pipe(
-      rename((path) => {
-        const newPathDirname = path.dirname
-          .replace('src/react', 'dist/react/js')
-          .replace('src\\react', 'dist\\react\\js');
-        path.dirname = newPathDirname;
-      }),
-    )
-    .pipe(gulp.dest('../'));
+  return (
+    gulp
+      .src(globsToCreateDeclarationsFor, { base: '..' })
+      .pipe(cache('reactTypescriptDeclarations'))
+      // By creating the tsproject inline here, it is only created when the build has passed the cache
+      .pipe(typescript.createProject('../tsconfig.json')())
+      .on('error', () => {})
+      .pipe(filter(['*.d.ts']))
+      .pipe(
+        rename((path) => {
+          const newPathDirname = path.dirname
+            .replace('src/react', 'dist/react/js')
+            .replace('src\\react', 'dist\\react\\js');
+          path.dirname = newPathDirname;
+        }),
+      )
+      .pipe(gulp.dest('../'))
+  );
 }
 
-const makeJSTranspileTask = (componentName: string) => {
-  return gulp
-    .src([`../components/${componentName}/src/**/!(*.test).ts*`])
-    .pipe(cache(`makeJSTranspileTask${componentName}`))
-    .pipe(sourcemaps.init())
-    .pipe(
-      babel({
-        presets: [
-          '@babel/preset-typescript',
-          [
-            '@babel/preset-env',
-            {
-              targets: [
-                '>0.2%, last 2 versions, Firefox ESR, not dead, not IE <= 11, not op_mini all, not op_mob > 0',
-              ],
-            },
-          ],
-          [
-            'minify',
-            {
-              builtIns: false,
-            },
-          ],
-        ] as string[],
-        plugins: ['babel-plugin-styled-components', '@babel/plugin-transform-react-jsx'],
-      }),
-    )
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(`../components/${componentName}/dist`));
-};
-
-const makeTypescriptDeclarationsTask = (componentName: string) => {
-  const tsConfig = typescript.createProject('../tsconfig.json');
-  return gulp
-    .src([`../components/${componentName}/src/**/!(*.test).ts*`])
-    .pipe(cache(`makeTypescriptDeclarationsTask${componentName}`))
-    .pipe(tsConfig())
-    .pipe(filter(['*.d.ts']))
-    .pipe(gulp.dest(`../components/${componentName}/dist`));
-};
-
-// TODO: Use makeJSTranspileTask here
-function buildElviaComponentToJS() {
+function buildElviaComponent() {
   return gulp
     .src(`../components/elvis-component-wrapper/src/!(*.test).ts*`)
     .pipe(cache('buildElviaComponentToJS'))
-    .pipe(
-      babel({
-        presets: ['@babel/preset-typescript'],
-      }),
-    )
+    .pipe(typescript.createProject('../tsconfig.json', { module: 'ESNext' })())
     .pipe(header(WARNING))
     .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
 }
@@ -265,21 +224,53 @@ function getElementName(component: ComponentConfig) {
   return 'elvia' + component.name.replace(/([A-Z])/g, '-$1').toLowerCase();
 }
 
-function buildElviaComponentTSDeclaration() {
-  return makeTypescriptDeclarationsTask('elvis-component-wrapper');
-}
+function buildToolboxComponent() {
+  // The @babel/preset-typescript for some reason doesn't properly remove Typescript types that are exported without explicit type marks
+  // (e.g. "export { Interface } from '...'" instead of "export type { Interface } from '...'")
+  // so we have to use gulp-typescript to do the typescript -> javascript transpilation
+  const tsTranspiled = gulp
+    .src([`../components/elvis-toolbox/src/**/!(*.test).ts*`])
+    .pipe(cache(`makeJSTranspileTaskelvis-toolbox`))
+    .pipe(sourcemaps.init())
+    .pipe(typescript.createProject('../tsconfig.json', { module: 'ESNext' })());
 
-function buildToolboxComponentToJS() {
-  return makeJSTranspileTask('elvis-toolbox');
-}
+  // When the transpilation is done, we need to run 'sourcemap' to generate the .d.ts.map sourcemap files
+  tsTranspiled.js.on('end', () => {
+    exec('yarn sourcemap', { cwd: '../components/elvis-toolbox' });
+  });
 
-function buildToolboxComponentTSDeclaration() {
-  return makeTypescriptDeclarationsTask('elvis-toolbox');
+  // Pass the *.js files through babel. The *.d.ts-files are generated from the 'yarn sourcemap'
+  return mergeStream(
+    tsTranspiled.js.pipe(
+      babel({
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              modules: false,
+              targets: [
+                '>0.2%, last 2 versions, Firefox ESR, not dead, not IE <= 11, not op_mini all, not op_mob > 0',
+              ],
+            },
+          ],
+          [
+            'minify',
+            {
+              builtIns: false,
+            },
+          ],
+        ] as unknown as string[], // Babel types expect string[], but the implementation accepts this format
+        plugins: ['babel-plugin-styled-components', '@babel/plugin-transform-react-jsx'],
+      }),
+    ),
+  )
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(`../components/elvis-toolbox/dist`));
 }
 
 // TODO: Find a way to do cleanup that does not trigger rebuild
 function cleanup() {
-  return del(['../components/**/dist/**/*'], { force: true });
+  return del(['../components/**/dist/**/*', '!../components/**/node_modules/**/*'], { force: true });
 }
 
 // Copies changelogs from component dictionary to web dictionary
@@ -294,7 +285,7 @@ function copyChangelogs() {
 
 gulp.task(
   'cleanup',
-  gulp.series(cleanup, function (done) {
+  gulp.series(cleanup, (done) => {
     done();
   }),
 );
@@ -302,11 +293,9 @@ gulp.task(
 gulp.task(
   'default',
   gulp.series(
-    buildElviaComponentTSDeclaration,
-    buildToolboxComponentToJS,
-    buildToolboxComponentTSDeclaration,
+    buildElviaComponent,
+    buildToolboxComponent,
     getComponentConfigs,
-    buildElviaComponentToJS,
     TSX_to_JS,
     copyChangelogs,
     reactTypescriptDeclarations,
@@ -318,43 +307,12 @@ gulp.task(
   ),
 );
 
-gulp.task(
-  'production',
-  gulp.series(
-    buildElviaComponentTSDeclaration,
-    buildToolboxComponentToJS,
-    buildToolboxComponentTSDeclaration,
-    getComponentConfigs,
-    buildElviaComponentToJS,
-    TSX_to_JS,
-    copyChangelogs,
-    // reactTypescriptDeclarations, -- Currently disabled until we can make it take shorter time, remember to build before publish
-    buildWebComponentsMagically,
-    function (done) {
-      done();
-      console.log('Successfully built Elvia Components!');
-    },
-  ),
-);
+gulp.task('production', gulp.series('default'));
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
   gulp.watch(
     ['../components/*/src/**/*', '../components/*/src/react/config.ts', '../components/*/CHANGELOG.json'],
     { ignoreInitial: false },
-    gulp.series(
-      buildElviaComponentTSDeclaration,
-      buildToolboxComponentToJS,
-      buildToolboxComponentTSDeclaration,
-      getComponentConfigs,
-      buildElviaComponentToJS,
-      TSX_to_JS,
-      reactTypescriptDeclarations,
-      copyChangelogs,
-      buildWebComponentsMagically,
-      function (done) {
-        done();
-        console.log('Successfully built Elvia Components!');
-      },
-    ),
+    gulp.series('default'),
   );
 });

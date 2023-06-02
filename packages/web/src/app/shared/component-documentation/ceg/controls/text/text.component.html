@@ -1,0 +1,34 @@
+<div
+  class="e-form-field e-form-field--small ceg-input"
+  *ngIf="input.inputType === 'textarea'; else inputTemplate"
+>
+  <div class="e-input" [ngClass]="{ 'e-input---disabled': disabled }">
+    <textarea
+      autocomplete="off"
+      [id]="inputId"
+      #domTextarea
+      (input)="onChange(domTextarea.value)"
+      [placeholder]="input.placeholder ?? ''"
+      [attr.aria-label]="input.label"
+      [disabled]="disabled"
+      >{{ textValue }}</textarea
+    >
+  </div>
+</div>
+
+<ng-template #inputTemplate>
+  <div class="e-form-field e-form-field--small ceg-input">
+    <div class="e-input" [ngClass]="{ 'e-input---disabled': disabled }">
+      <input
+        autocomplete="off"
+        [id]="inputId"
+        [value]="textValue"
+        #domInput
+        (input)="onChange(domInput.value)"
+        [placeholder]="input.placeholder ?? ''"
+        [attr.aria-label]="input.label"
+        [disabled]="disabled"
+      />
+    </div>
+  </div>
+</ng-template>

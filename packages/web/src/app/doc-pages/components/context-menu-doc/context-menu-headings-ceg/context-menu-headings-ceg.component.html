@@ -1,0 +1,34 @@
+<elvia-context-menu (onOpen)="isShowing = true" (onClose)="isShowing = false">
+  <button
+    aria-haspopup="menu"
+    slot="trigger"
+    class="e-btn e-btn--icon"
+    aria-label="More menu"
+    [ngClass]="{ 'e-btn---selected': isShowing }"
+  >
+    <span class="e-btn__icon" aria-hidden="true">
+      <i class="e-icon e-icon--more_menu e-icon--inverted"></i>
+      <i class="e-icon e-icon--more_menu"></i>
+    </span>
+  </button>
+  <div slot="content">
+    <div class="ewc-context-menu__list-group">
+      <h1>Kundeforhold</h1>
+      <button role="menuitem">
+        <span>Be om tilgang</span>
+      </button>
+      <button role="menuitem">
+        <span>Legg til bruker</span>
+      </button>
+    </div>
+    <div class="ewc-context-menu__list-group">
+      <h1>Innlogging</h1>
+      <a role="menuitem">
+        <span>Endre passord</span>
+      </a>
+      <a role="menuitem">
+        <span>To-faktor autentisering</span>
+      </a>
+    </div>
+  </div>
+</elvia-context-menu>

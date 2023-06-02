@@ -20,13 +20,13 @@ export const RadioFilterLabel = styled.label<RadioFilterLabelProps>`
   place-items: center;
   border-radius: 32px;
   padding: 4px 12px;
-  border: ${({ isSelected }) => `1px solid ${isSelected ? getThemeColor('text-primary') : 'transparent'}`};
+  border: ${({ isSelected }) => `1px solid ${isSelected ? getThemeColor('border-1') : 'transparent'}`};
   cursor: pointer;
   position: relative;
 
   &:hover:not(:disabled) {
     border-color: ${({ isSelected }) =>
-      `${isSelected ? getThemeColor('text-primary') : getThemeColor('state-hover-green')}`};
+      `${isSelected ? getThemeColor('border-1') : getThemeColor('border-hover-1')}`};
   }
   white-space: nowrap;
   margin: 0;
@@ -45,10 +45,14 @@ export const RadioFilterInput = styled.input`
 `;
 
 export const RadioFilterTitle = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   font-family: 'Red Hat Display', verdana, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
-  color: ${getThemeColor('text-primary')};
+  color: ${getThemeColor('text-1')};
 `;

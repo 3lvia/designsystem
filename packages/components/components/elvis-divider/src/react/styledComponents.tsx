@@ -1,57 +1,28 @@
 import styled, { css } from 'styled-components';
 import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider.types';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-
-const colors = {
-  elviaWhite: getColor('white'),
-  elviaBlack: getColor('black'),
-  grey10: getColor('grey-10'),
-  grey20: getColor('grey-20'),
-  grey90: getColor('grey-90'),
-};
-
-const decideBorderColor = (isInverted: boolean, type: DividerType) => {
-  if (!isInverted) {
-    if (type === 'title') {
-      return colors.elviaBlack;
-    } else {
-      return colors.grey10;
-    }
-  } else {
-    if (type === 'title') {
-      return colors.elviaWhite;
-    } else {
-      return colors.grey90;
-    }
-  }
-};
 
 type DividerAreaProps = {
   type: DividerType;
-  isInverted: boolean;
   orientation: DividerOrientation;
 };
 
 export const DividerArea = styled.div<DividerAreaProps>`
   display: block;
   margin: 0;
-  width: ${(props) => (props.type === 'simple' && props.orientation === 'vertical' ? '1px' : '100%')};
-  height: ${(props) =>
-    props.type === 'simple' && props.orientation === 'vertical'
-      ? '100%'
-      : props.type === 'title'
-      ? 'unset'
-      : '1px'};
-  border-left: ${(props) =>
-    props.type === 'simple' && props.orientation === 'vertical' ? `1px solid` : 'none'};
-  border-bottom: ${(props) =>
-    props.type !== 'curved' && props.orientation === 'horizontal' ? `1px solid` : 'none'};
-  border-color: ${(props) => decideBorderColor(props.isInverted, props.type)};
+  width: ${({ type, orientation }) => (type === 'simple' && orientation === 'vertical' ? '1px' : '100%')};
+  height: ${({ type, orientation }) =>
+    type === 'simple' && orientation === 'vertical' ? '100%' : type === 'heading' ? 'unset' : '1px'};
+  border-left: ${({ type, orientation }) =>
+    type === 'simple' && orientation === 'vertical' ? `1px solid` : 'none'};
+  border-bottom: ${({ type, orientation }) =>
+    type !== 'curved' && orientation === 'horizontal' ? `1px solid` : 'none'};
+  border-color: ${({ type }) => (type === 'heading' ? getThemeColor('border-1') : getThemeColor('border-2'))};
   text-align: left;
 
-  ${(props) =>
-    props.type === 'curved' &&
+  ${({ type }) =>
+    type === 'curved' &&
     css`
       height: 4vw;
       position: relative;
@@ -60,7 +31,7 @@ export const DividerArea = styled.div<DividerAreaProps>`
       &::after {
         content: '';
         border: 2px solid;
-        border-color: ${props.isInverted ? colors.grey90 : colors.grey20};
+        border-color: ${getThemeColor('border-3')};
         border-radius: 100%;
         position: absolute;
         bottom: 0;
@@ -72,20 +43,19 @@ export const DividerArea = styled.div<DividerAreaProps>`
     `};
 `;
 
-type DividerTitleProps = {
+type DividerHeadingProps = {
   typography: DividerTypography;
-  isInverted: boolean;
 };
 
-export const DividerTitle = styled.div<DividerTitleProps>`
-  ${(props) =>
-    props.typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
-  color: ${(props) => (props.isInverted ? colors.elviaWhite : colors.elviaBlack)};
-  padding-bottom: ${(props) => (props.typography === 'medium' ? '24px' : '8px')};
+export const DividerHeading = styled.div<DividerHeadingProps>`
+  ${({ typography }) =>
+    typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
+  color: ${getThemeColor('text-1')};
+  padding-bottom: ${({ typography }) => (typography === 'medium' ? '24px' : '8px')};
   * {
-    margin: 0px;
-    ${(props) =>
-      props.typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
-    color: ${(props) => (props.isInverted ? colors.elviaWhite : colors.elviaBlack)};
+    margin: 0;
+    ${({ typography }) =>
+      typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
+    color: ${getThemeColor('text-1')};
   }
 `;

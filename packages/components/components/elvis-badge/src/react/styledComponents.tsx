@@ -1,31 +1,31 @@
 import { BadgeColor } from './elvia-badge.types';
 import styled from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
-
-//To-do: add colors for dark mode
-const colors = {
-  elviaBlack: getColor('black'),
-  elviaCharge: getColor('green'),
-  elviaRed: getColor('red'),
-  elviaWhite: getColor('white'),
-};
-
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 interface BadgeCircleProps {
   readonly badgeColor: BadgeColor;
   readonly count: string | undefined;
 }
 
-/**
- * If the badge color is green or white, return black, otherwise return white.
- * @param {BadgeColor} badgeColor - The color of the badge.
- * @returns The correct color of the text.
- */
-const getTextColor = (badgeColor: BadgeColor) => {
-  if (badgeColor === 'green' || badgeColor === 'white') {
-    return colors.elviaBlack;
+const getTextColor = (color: BadgeColor) => {
+  switch (color) {
+    case 'green':
+      return getThemeColorContrast('background-selected-1');
+    case 'red':
+      return getThemeColor('static-white');
+    default:
+      return getThemeColor('background-overlay-3');
   }
+};
 
-  return colors.elviaWhite;
+const getBadgeColor = (color: BadgeColor) => {
+  switch (color) {
+    case 'green':
+      return getThemeColor('background-selected-1');
+    case 'red':
+      return getThemeColor('signal-error');
+    default:
+      return getThemeColor('text-1');
+  }
 };
 
 export const BadgeContainer = styled.div`
@@ -34,15 +34,15 @@ export const BadgeContainer = styled.div`
 `;
 
 export const BadgeCircle = styled.div<BadgeCircleProps>`
-  background-color: ${({ badgeColor }) => getColor(badgeColor)};
+  background-color: ${({ badgeColor }) => getBadgeColor(badgeColor)};
   border-radius: 50px;
-  color: ${({ badgeColor }) => getTextColor(badgeColor)}; //to-do add support for dark mode
+  color: ${({ badgeColor }) => getTextColor(badgeColor)};
   display: grid;
-  font-size: 0.5625rem;
+  font-size: 9px;
   font-weight: 600;
   height: 16px;
-  line-height: 0.75rem;
-  padding: ${({ count }) => (count === '99+' ? '2px 4px' : '2px 0px')};
+  line-height: 9px;
+  padding: ${({ count }) => (count === '99+' ? '4px' : '4px 0')};
   place-items: center;
   position: absolute;
   right: 0;

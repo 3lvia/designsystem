@@ -1,5 +1,6 @@
 <template>
   <div class="components-examples">
+    <elvia-toast />
     <div class="example-wrapper">
       <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
       <h3>Test your component here</h3>
@@ -35,7 +36,7 @@
     <!--Box-->
     <div class="example-wrapper">
       <h3>Box</h3>
-      <elvia-box :hasBorder="true" :isColored="true">
+      <elvia-box :isColored="true">
         <div slot="title"><h1>Title for the box component</h1></div>
         <div slot="content">Webcomponentent content for the Box component</div>
       </elvia-box>
@@ -50,7 +51,7 @@
     <!--Card-->
     <div class="example-wrapper">
       <h3>Card</h3>
-      <elvia-card :header="'Header'" :description="'Hover me!'">
+      <elvia-card :heading="'Heading'" :description="'Hover me!'">
         <div slot="icon">91</div>
         <div slot="iconHover">92</div>
         <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
@@ -132,7 +133,7 @@
     <div class="example-wrapper">
       <h3>Datepicker</h3>
       <elvia-datepicker
-        :isCompact="false"
+        size="small"
         label="Fra dato"
         :disableDate="(day: Date) => day.getDay() === 0 || day.getDay() === 6"
       ></elvia-datepicker>
@@ -150,8 +151,8 @@
     <div class="example-wrapper">
       <h3>Divider</h3>
       <elvia-divider></elvia-divider>
-      <elvia-divider :isInverted="false" :type="'title'">
-        <h2 slot="title">Title</h2>
+      <elvia-divider :type="'heading'">
+        <h2 slot="heading">Heading</h2>
       </elvia-divider>
     </div>
 
@@ -180,7 +181,7 @@
       >
         <div slot="content">
           <div class="date-container">
-            <elvia-datepicker :isCompact="true"></elvia-datepicker>
+            <elvia-datepicker size="small"></elvia-datepicker>
           </div>
         </div>
         <div slot="secondaryButton">
@@ -231,8 +232,8 @@
       <elvia-segmented-control
         :type="'icon'"
         :items="[
-          { iconName: 'thumbnail', iconNameSelected: 'thumbnailSelected', altLabel: 'Label' },
-          { iconName: 'list', iconNameSelected: 'listSelected', altLabel: 'Label' },
+          { icon: '<i class="e-icon e-icon--access_control"></i>', iconSelected: '<i class="e-icon e-icon--access_control-color"></i>', altLabel: 'Label' },
+          { icon: '<i class="e-icon e-icon--list"></i>', iconSelected: '<i class="e-icon e-icon--list-color"></i>', altLabel: 'Label' },
         ]"
         @value-on-change="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>
@@ -260,105 +261,92 @@
       <h3>Timepicker</h3>
       <elvia-timepicker @value-on-change="onTimepickerChange($event.detail.value)" label="Vue timepicker" />
     </div>
+
+    <!--Toast-->
+    <div class="example-wrapper">
+      <h3>Toast</h3>
+      <button class="e-btn" @click="showToast">Show toast</button>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script lang="ts" setup>
+import { openElviaToast } from '@elvia/elvis-toast';
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    // Accordion
-    const openAccordion = ref(false);
-    // Breadcrumb
-    const breadcrumbsTest = [
-      { href: 'https://elvia.no', text: 'Elvia.no' },
-      { href: 'https://www.elvia.no/nettleie', text: 'Nettleie' },
-      { href: 'https://www.elvia.no/nettleie/elvias-leveringsplikt', text: 'Elvias leveringsplikt' },
-    ];
+// Accordion
+const openAccordion = ref(false);
+// Breadcrumb
+const breadcrumbsTest = [
+  { href: 'https://elvia.no', text: 'Elvia.no' },
+  { href: 'https://www.elvia.no/nettleie', text: 'Nettleie' },
+  { href: 'https://www.elvia.no/nettleie/elvias-leveringsplikt', text: 'Elvias leveringsplikt' },
+];
 
-    const breadcrumbsTestNoUrl = [
-      { text: 'Elvia.no' },
-      { text: 'Nettleie' },
-      { text: 'Elvias leveringsplikt' },
-    ];
+const breadcrumbsTestNoUrl = [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }];
 
-    const carouselValue = ref(0);
+const carouselValue = ref(0);
 
-    // Chips
-    const deletableChipsList = [
-      { value: 2022, color: 'green', isDisabled: false },
-      { value: 2023, color: 'red', isDisabled: false },
-      { value: 2024, color: 'blue', isDisabled: true },
-    ];
+// Chips
+const deletableChipsList = [
+  { value: 2022, color: 'green', isDisabled: false },
+  { value: 2023, color: 'red', isDisabled: false },
+  { value: 2024, color: 'blue', isDisabled: true },
+];
 
-    // Context menu
-    const isContextMenuShowing = ref(false);
+// Context menu
+const isContextMenuShowing = ref(false);
 
-    // Dropdown
-    const dropdownDefaultOption = '675';
-    const dropdownOptions = [
-      { value: '675', label: 'Mast - Råte' },
-      { value: '676', label: 'Mast - Hakkespettskade' },
-      { value: '677', label: 'Mast - Annen skade/ fremmedlegemer' },
-      { value: '678', label: 'Mast - Stag' },
-    ];
+// Dropdown
+const dropdownDefaultOption = '675';
+const dropdownOptions = [
+  { value: '675', label: 'Mast - Råte' },
+  { value: '676', label: 'Mast - Hakkespettskade' },
+  { value: '677', label: 'Mast - Annen skade/ fremmedlegemer' },
+  { value: '678', label: 'Mast - Stag' },
+];
 
-    // Modal
-    const isModalShowing = false;
+// Modal
+const isModalShowing = false;
 
-    // Spotlight
-    const vPos = ref(200);
-    const hPos = ref(200);
-    const radius = ref(100);
+// Spotlight
+const vPos = ref(200);
+const hPos = ref(200);
+const radius = ref(100);
 
-    // Pagination
-    const defaultPaginationValue = { start: 1, end: 10 };
+// Pagination
+const defaultPaginationValue = { start: 1, end: 10 };
 
-    const logValue = (component: string, value: unknown): void => {
-      console.log(component, ': ', value);
-    };
+const logValue = (component: string, value: unknown): void => {
+  console.log(component, ': ', value);
+};
 
-    const moveSpotlight = () => {
-      if (vPos.value === 200) {
-        vPos.value = 500;
-        hPos.value = 500;
-        radius.value = 300;
-      } else {
-        vPos.value = 200;
-        hPos.value = 200;
-        radius.value = 100;
-      }
-    };
+const moveSpotlight = () => {
+  if (vPos.value === 200) {
+    vPos.value = 500;
+    hPos.value = 500;
+    radius.value = 300;
+  } else {
+    vPos.value = 200;
+    hPos.value = 200;
+    radius.value = 100;
+  }
+};
 
-    const incrementCarouselStep = () => {
-      carouselValue.value = (carouselValue.value + 1) % 3;
-      return carouselValue.value;
-    };
+const incrementCarouselStep = () => {
+  carouselValue.value = (carouselValue.value + 1) % 3;
+  return carouselValue.value;
+};
 
-    const onTimepickerChange = (e: string) => {
-      console.log(e);
-    };
+const onTimepickerChange = (e: string) => {
+  console.log(e);
+};
 
-    return {
-      breadcrumbsTest,
-      breadcrumbsTestNoUrl,
-      carouselValue,
-      defaultPaginationValue,
-      deletableChipsList,
-      dropdownDefaultOption,
-      dropdownOptions,
-      hPos,
-      incrementCarouselStep,
-      isContextMenuShowing,
-      isModalShowing,
-      logValue,
-      moveSpotlight,
-      onTimepickerChange,
-      openAccordion,
-      radius,
-      vPos,
-    };
-  },
-});
+const showToast = () => {
+  openElviaToast({
+    title: 'Vue test of toast',
+    body: 'Short body',
+    customIcon: '<i class="e-icon e-icon--crane"></i>',
+  });
+};
 </script>

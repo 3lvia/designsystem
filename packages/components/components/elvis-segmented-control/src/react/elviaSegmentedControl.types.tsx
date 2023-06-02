@@ -1,4 +1,3 @@
-import { IconName } from '@elvia/elvis-assets-icons';
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 
 export type Type = 'text' | 'icon';
@@ -8,8 +7,8 @@ export interface TextSegmentedControl {
   label: string;
 }
 export interface IconSegmentedControl {
-  iconName: IconName;
-  iconNameSelected: IconName;
+  icon: string;
+  iconSelected: string;
   ariaLabel: string;
 }
 

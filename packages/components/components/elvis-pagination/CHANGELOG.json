@@ -2,6 +2,83 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.05.23",
+      "version": "3.4.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Dropdown dependency update."]
+        }
+      ]
+    },
+    {
+      "date": "16.05.23",
+      "version": "3.4.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Pagination now correctly emits its correct values after user interaction.",
+            "Resolved a bug that caused an incorrect internal state when both the <code>dropdownSelectedItemIndex</code> and <code>value</code> were set simultaneously"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "08.05.23",
+      "version": "3.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Pagination now supports dark theme."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where Pagination would emit an incorrect value, resulting from a multiplication with an unexpected factor.",
+            "Fixed a bug where Pagination would emit incorrect values when changing the dropdown value while on a selected page other than 1.",
+            "Fixed a bug where Pagination would emit its default values when initiated.",
+            "Fixed a bug where Pagination would not respect its given default value.",
+            "Fixed a bug where large numbers would not fit inside the dropdown."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Update internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "03.04.23",
+      "version": "3.3.8",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix broken type export."]
+        }
+      ]
+    },
+    {
+      "date": "17.03.23",
+      "version": "3.3.7",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Long numbers doesn't fit in page dots."]
+        }
+      ]
+    },
+    {
+      "date": "16.02.23",
+      "version": "3.3.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Bug fix for updating showing page-numbers"]
+        }
+      ]
+    },
+    {
       "date": "14.02.23",
       "version": "3.3.5",
       "changelog": [
@@ -502,7 +579,7 @@
       ]
     },
     {
-      "date": "1.11.21",
+      "date": "01.11.21",
       "version": "1.0.2 ",
       "changelog": [
         {

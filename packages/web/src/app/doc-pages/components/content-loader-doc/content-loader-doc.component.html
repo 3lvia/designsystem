@@ -8,93 +8,34 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-w-100" style="display: flex; flex-direction: row; flex-wrap: wrap">
-      <div class="e-mr-24 e-my-8" style="display: flex; flex-direction: column">
-        <div class="e-content-loader" style="width: 170px; height: 170px"></div>
-      </div>
-
-      <div class="e-mr-24 e-my-8" style="display: flex; flex-direction: column">
-        <div class="e-content-loader e-content-loader--circle" style="width: 170px; height: 170px"></div>
-      </div>
-
-      <div class="e-w-100 e-my-8" style="display: flex; flex-direction: column; justify-content: center">
-        <div class="e-content-loader e-content-loader--text"></div>
-        <div class="e-content-loader e-content-loader--text e-mt-24"></div>
-        <div class="e-content-loader e-content-loader--text e-content-loader--short e-mt-24"></div>
-      </div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
-    </div>
-  </div>
+  <app-static-ceg>
+    <app-content-loader-ceg />
+  </app-static-ceg>
 
   <!--TYPES -->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Box'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="exampleContentLoader"
-            [codeInverted]="exampleContentLoaderInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-content-loader-box-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Circle'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="exampleContentLoaderCircle"
-            [codeInverted]="exampleContentLoaderCircleInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-content-loader-circle-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Text'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="exampleContentLoaderText"
-            [codeInverted]="exampleContentLoaderTextInverted"
-          ></app-component-example-v1>
+          <app-static-ceg>
+            <app-content-loader-text-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!-- COLOR -->
-  <app-component-section [sectionTitle]="'Color'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'White background'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleContentLoader"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Grey background'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="exampleContentLoaderGrey"
-            [greyBg]="true"
-          ></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Dark background'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="exampleContentLoaderDark"
-            [darkGreyBg]="true"
-          ></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      In the design system, it’s available by using the
-      <span class="code-text">e-content-loader</span>
-      . Place the loader where the content is loading and add size with width and height on the element to
-      match the content that is loading.
-      <app-component-example-v1 [codeHTML]="exampleContentLoaderExample"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 

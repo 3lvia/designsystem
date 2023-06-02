@@ -1,5 +1,5 @@
-import React, { FC, useRef, useEffect, useState, CSSProperties } from 'react';
-import { CardType, BorderColor, HeadingLevel } from './elvia-card.types';
+import React, { FC, useRef, useEffect, useState } from 'react';
+import { CardProps } from './elvia-card.types';
 import {
   CardArea,
   CardContent,
@@ -13,44 +13,9 @@ import {
   CardColoredLineContainer,
 } from './styledComponents';
 import { warnDeprecatedProps, useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
-import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { config } from './config';
-
-export interface CardProps {
-  icon?: string | JSX.Element;
-  iconHover?: string | JSX.Element;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use `heading` instead.
-   */
-  header?: never;
-  heading?: string;
-  headingLevel?: HeadingLevel;
-  description?: string;
-  borderColor?: BorderColor;
-  type?: CardType;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Card no longer supports circle type.
-   */
-  shape?: never;
-  hasBorder?: boolean;
-  width?: string;
-  height?: string;
-  minWidth?: number;
-  maxWidth?: number;
-  maxDescriptionLines?: number;
-  maxHeadingLines?: number;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Instead use `tag`.
-   */
-  label?: never;
-  tag?: string;
-  cornerIcon?: string | JSX.Element;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-}
 
 const Card: FC<CardProps> = function ({
   icon,
@@ -58,9 +23,8 @@ const Card: FC<CardProps> = function ({
   heading,
   headingLevel = 'h3',
   description,
-  borderColor,
+  borderColor = 'none',
   type = 'simple',
-  hasBorder = true,
   width = '100%',
   height,
   minWidth,
@@ -136,12 +100,10 @@ const Card: FC<CardProps> = function ({
   return (
     <CardArea
       type={type}
-      hasBorder={hasBorder}
       width={width}
       height={height}
       minWidth={minWidth}
       maxWidth={maxWidth}
-      data-testid="card-area"
       onPointerEnter={() => setIsHoveringArea(true)}
       onPointerLeave={() => setIsHoveringArea(false)}
       className={className ?? ''}
@@ -149,7 +111,7 @@ const Card: FC<CardProps> = function ({
       {...rest}
     >
       {type === 'simple' && !!borderColor && (
-        <CardColoredLineContainer hasBorder={hasBorder}>
+        <CardColoredLineContainer>
           <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
         </CardColoredLineContainer>
       )}
@@ -162,26 +124,18 @@ const Card: FC<CardProps> = function ({
         {!!heading && (
           <Tooltip
             trigger={
-              <CardHeading
-                as={headingLevel}
-                ref={headingRef}
-                type={type}
-                maxHeadingLines={maxHeadingLines}
-                data-testid="card-heading"
-              >
-                {heading}
-              </CardHeading>
+              <header>
+                <CardHeading as={headingLevel} ref={headingRef} type={type} maxHeadingLines={maxHeadingLines}>
+                  {heading}
+                </CardHeading>
+              </header>
             }
             content={heading}
             isDisabled={!headingIsOverflowing}
           />
         )}
         {!!description && (
-          <CardDescription
-            type={type}
-            maxDescriptionLines={type === 'simple' ? 1 : maxDescriptionLines}
-            data-testid="card-description"
-          >
+          <CardDescription type={type} maxDescriptionLines={type === 'simple' ? 1 : maxDescriptionLines}>
             {description}
           </CardDescription>
         )}
@@ -189,11 +143,11 @@ const Card: FC<CardProps> = function ({
       </CardContent>
       {type === 'detail' && (
         <CardHoverArrow data-testid="card-detail-hover-arrow">
-          <IconWrapper icon={arrowLongRight} />
+          <IconWrapper icon={arrowLongRightBold} />
         </CardHoverArrow>
       )}
       {type === 'detail' && (!!cornerIcon || !!cornerIconRef) && (
-        <CardCornerIcon hasBorder={hasBorder} ref={cornerIconRef} data-testid="card-corner-icon">
+        <CardCornerIcon ref={cornerIconRef} data-testid="card-corner-icon">
           {cornerIcon}
         </CardCornerIcon>
       )}

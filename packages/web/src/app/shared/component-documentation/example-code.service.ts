@@ -93,6 +93,7 @@ export class ExampleCodeService {
       }
       return '  :' + attribute + '="' + newVal + '"';
     }
+    return '';
   }
 
   getNewString(
@@ -123,6 +124,7 @@ export class ExampleCodeService {
       }
       return '<' + elementName + '\n  :' + prop + '="' + newVal + '"';
     }
+    return '';
   }
 
   getNewSlotString(elementName: string, attribute: string, newContent: string): string {

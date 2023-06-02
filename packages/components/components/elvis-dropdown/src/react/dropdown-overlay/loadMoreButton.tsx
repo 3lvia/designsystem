@@ -1,5 +1,5 @@
 import React, { MouseEvent } from 'react';
-import { TertiaryButton, IconWrapper } from '@elvia/elvis-toolbox';
+import { TertiaryButton, IconWrapper, FormFieldSizes } from '@elvia/elvis-toolbox';
 import { DropdownItem, DropdownValueType } from '../elviaDropdown.types';
 import { LoadMoreButtonStyles, SpinContainer } from './dropdownOverlayStyles';
 import { getDropdownItemId } from '../dropdownListUtils';
@@ -10,7 +10,7 @@ interface LoadMoreProps {
   focusedValue?: DropdownValueType;
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
-  isCompact: boolean;
+  size: FormFieldSizes;
   onHover: (item: DropdownItem) => void;
 }
 
@@ -19,7 +19,7 @@ export const LoadMoreButton: React.FC<LoadMoreProps> = ({
   focusedValue,
   onLoadMoreItems,
   isLoadingMoreItems,
-  isCompact,
+  size,
   onHover,
 }) => {
   const preventInputElementBlur = (ev: MouseEvent<HTMLDivElement>): void => {
@@ -35,7 +35,11 @@ export const LoadMoreButton: React.FC<LoadMoreProps> = ({
         isLoading={isLoadingMoreItems}
         id={getDropdownItemId(item.value)}
       >
-        <TertiaryButton tabIndex={-1} isActive={focusedValue === item.value} size={isCompact ? 'sm' : 'md'}>
+        <TertiaryButton
+          tabIndex={-1}
+          isActive={focusedValue === item.value}
+          size={size === 'small' ? 'sm' : 'md'}
+        >
           <SpinContainer>
             <IconWrapper icon={sync} size="xs" />
           </SpinContainer>

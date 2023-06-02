@@ -2,6 +2,43 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.05.23",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "<code>title</code> prop has been deprecated in favor of <code>heading</code> so that all components follow the same convention.",
+            "<code>type='title'</code> has been deprecated in favor of <code>type='heading'</code> to make the prop consistent with the new <code>heading</code> prop."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "03.05.23",
+      "version": "2.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "27.02.23",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Removed the <code>isInverted</code> prop in favour of better dark mode support."]
+        },
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        }
+      ]
+    },
+    {
       "date": "20.12.22",
       "version": "1.4.4",
       "changelog": [
@@ -229,8 +266,8 @@
       ]
     },
     {
-      "date": "13.11.05",
-      "version": "0.0.1-alpha ",
+      "date": "13.11.20",
+      "version": "1.0.0",
       "changelog": [
         {
           "type": "new_feature",

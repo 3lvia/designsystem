@@ -1,5 +1,5 @@
-import { getColor } from '@elvia/elvis-colors';
-import { IconButton, TertiaryButton } from '@elvia/elvis-toolbox';
+import { getThemeColor } from '@elvia/elvis-colors';
+import { FormFieldSizes, IconButton, TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
@@ -14,12 +14,12 @@ export const CursorCurve = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 80% 50%, 50% 20%);
 `;
 
-export const DropdownPopupContainer = styled.div<{ isCompact: boolean }>`
+export const DropdownPopupContainer = styled.div<{ size: FormFieldSizes }>`
   position: relative;
   --item-height: 48px;
 
-  ${({ isCompact }) =>
-    isCompact &&
+  ${({ size }) =>
+    size === 'small' &&
     css`
       --item-height: 40px;
 
@@ -33,8 +33,8 @@ export const DropdownPopupContainer = styled.div<{ isCompact: boolean }>`
     `};
 `;
 
-export const DropdownPopup = styled.div.attrs(() => ({ role: 'listbox' }))<{ isInvisible: boolean }>`
-  background-color: ${getColor('elvia-on')};
+export const DropdownPopup = styled.div.attrs({ role: 'listbox' })<{ isInvisible: boolean }>`
+  background-color: ${getThemeColor('background-overlay-1')};
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
   position: relative;
   border-radius: 4px;
@@ -61,7 +61,7 @@ export const NoItemsMessage = styled.div`
 
 export const Divider = styled.hr`
   height: 0px;
-  border: 0px solid ${getColor('grey-10')};
+  border: 0px solid ${getThemeColor('border-2')};
   border-bottom-width: 1px;
   margin: 0;
 `;
@@ -86,8 +86,8 @@ export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
     pointer-events: none;
   }
 
-  ${(props) =>
-    props.isLoading &&
+  ${({ isLoading }) =>
+    isLoading &&
     css`
       cursor: progress;
 
@@ -108,7 +108,7 @@ export const BackButtonStyles = styled(DropdownItemStyles)`
 
   &:hover {
     ${IconButton} {
-      background-color: ${getColor('elvia-charge')};
+      background-color: ${getThemeColor('background-hover-1')};
     }
   }
 `;

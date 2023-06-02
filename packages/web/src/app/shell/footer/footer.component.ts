@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
-import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,28 +9,14 @@ import { LocalizationService, Locale } from 'src/app/core/services/localization.
 })
 export class FooterComponent implements OnInit {
   bgClass = '';
-  locale: string;
 
   date = new Date();
-  currentYear;
-  showLocaleToggle = window.location.href.indexOf('localhost') > -1 ? true : false;
+  currentYear: number;
 
-  constructor(private router: Router, private localizationService: LocalizationService) {
-    this.localizationService.listenLocalization().subscribe((locale) => {
-      if (locale === Locale['en-GB']) {
-        this.locale = 'en-GB';
-      } else {
-        this.locale = 'no-NB';
-      }
-    });
-
-    // subscribe to router navigation
-    this.router.events.subscribe((event) => {
-      // filter `NavigationEnd` events
+  constructor(private router: Router) {
+    this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // get current route without leading slash `/`
         const eventUrl = event.urlAfterRedirects;
-        // set bgClass property with the value of the current route
         if (eventUrl === '/not-found') {
           this.bgClass = 'not-found';
         } else {
@@ -41,9 +27,5 @@ export class FooterComponent implements OnInit {
   }
   ngOnInit(): void {
     this.currentYear = this.date.getFullYear();
-  }
-
-  setLocale(str: string): void {
-    this.localizationService.setLocalization(Locale[str]);
   }
 }

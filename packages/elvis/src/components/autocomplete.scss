@@ -44,7 +44,8 @@ $autocomplete-padding-item-compact: 6px 10px;
 
 // form field adjustments for autocomplete
 .e-form-field {
-  &.e-form-field--compact {
+  &.e-form-field--compact,
+  &.e-form-field--small {
     .e-autocomplete {
       &__item {
         @include typography.typography('text-sm');

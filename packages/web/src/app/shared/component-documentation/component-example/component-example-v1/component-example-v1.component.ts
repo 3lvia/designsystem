@@ -7,19 +7,18 @@ import { Component, Input, AfterViewInit, ViewChild, OnInit, ElementRef } from '
 })
 export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @ViewChild('toggle') toggle: ElementRef;
-  @ViewChild('defaultFrame') defaultFrame;
+  @ViewChild('defaultFrame') defaultFrame: ElementRef<HTMLDivElement>;
   @Input() showPreview = true;
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
   @Input() codeInverted = '';
-  @Input() isMobileExample = false;
   @Input() greyBg = false;
   @Input() darkGreyBg = false;
   @Input() overwriteHeight: number;
-  @Input() showIframeDesktop = false;
   @Input() interactable = true;
   @Input() isInverted = false;
+  @Input() noCodePenLink = false;
 
   code = '';
   desktopScreenWidth: boolean;
@@ -35,13 +34,12 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
     }
 
     this.displayCode = this.code;
-    if (!this.showIframeDesktop) {
-      this.desktopScreenWidth = this.isDesktop();
+
+    this.desktopScreenWidth = this.isDesktop();
+    this.updateShowIframe();
+    window.addEventListener('resize', () => {
       this.updateShowIframe();
-      window.addEventListener('resize', () => {
-        this.updateShowIframe();
-      });
-    }
+    });
   }
 
   ngAfterViewInit(): void {

@@ -8,35 +8,9 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-form-field">
-      <div class="e-search e-search--instant" style="width: 300px" #exampleSearch>
-        <div class="e-input">
-          <input
-            aria-label="Search"
-            type="search"
-            placeholder="Search"
-            #exampleInput
-            (keyup)="onInput(exampleInput.value)"
-          />
-        </div>
-        <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
-        <button class="e-btn e-btn--icon" (click)="clearExample()" aria-label="Tøm søkefelt">
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--close-bold" aria-hidden="true" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeHTML]="overviewExample"
-        [codeTS]="overviewExampleTS"
-      ></app-component-example-v1>
-    </div>
-  </div>
+  <app-static-ceg>
+    <app-search-ceg />
+  </app-static-ceg>
 
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
@@ -47,29 +21,37 @@
       <app-component-subsection [sectionTitle]="'Instant'">
         <ng-container ngProjectAs="sectionContent">
           For use cases were the search result should appear "instant".
-          <app-component-example-v1 [codeHTML]="searchExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-search-instant-ceg />
+          </app-static-ceg>
           <div class="e-mt-40">
             Use the
             <span class="code-text">e-search--searched</span>
             class when the search input field has a valid search input.
           </div>
-          <app-component-example-v1 [codeHTML]="afterSearchExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-search-instant-searched-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'On Submit'">
         <ng-container ngProjectAs="sectionContent">
           For use cases where the search result should appear "on submit". Use a large button for normal
-          search, and a small button for compact. You can find button documentation
+          search, and a small button for small. You can find button documentation
           <a class="e-link e-link--inline" [routerLink]="['/components/button']">here</a>
           .
 
-          <app-component-example-v1 [codeHTML]="searhOnSubmitExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-search-on-submit-ceg />
+          </app-static-ceg>
           <div class="e-mt-40">
             Use the
             <span class="code-text">e-search--searched</span>
             class when the search input field has a valid search input.
           </div>
-          <app-component-example-v1 [codeHTML]="searhOnSubmitAfterExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-search-on-submit-searched-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -83,7 +65,9 @@
           When a search field needs to take up the entire available width, give the field the
           <span class="code-text">e-form-field—width-full</span>
           class.
-          <app-component-example-v1 [codeHTML]="searchFullWidth"></app-component-example-v1>
+          <app-static-ceg>
+            <app-search-fullwidth-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -92,14 +76,18 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Normal'">
+      <app-component-subsection [sectionTitle]="'Medium'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="searchSizesNormalExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-search-size-normal-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Compact'">
+      <app-component-subsection [sectionTitle]="'Small'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="searchSizesCompactExample"></app-component-example-v1>
+          <app-static-ceg>
+            <app-search-size-compact-ceg />
+          </app-static-ceg>
         </ng-container>
       </app-component-subsection>
     </ng-container>

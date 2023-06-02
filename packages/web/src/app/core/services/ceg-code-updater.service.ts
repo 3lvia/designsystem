@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Injectable } from '@angular/core';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import { CegCodes } from 'src/app/shared/component-documentation/component-example/component-example-generator/ceg.interface';

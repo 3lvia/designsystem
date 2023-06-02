@@ -2,18 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "xx.02.23",
+      "date": "xx.06.23",
       "version": "3.0.0",
       "changelog": [
         {
           "type": "breaking_changes",
           "changes": [
-            "The default size of the slider is now normal.",
+            "The default size of the slider is now 'medium'.",
             "The default minimum value is now 0.",
             "Changes in spacing between elements."
           ],
           "fixes": [
-            "Use the <code>isCompact</code> prop to get the compact size.",
+            "Use the <code>size</code> prop to get the 'small' size.",
             "Set the <code>min</code> prop to get a custom default value if the new one does not fit your application.",
             "Ensure the slider's height still fits in your design."
           ]
@@ -24,7 +24,7 @@
             "Slider can get a custom heading by using the <code>heading</code> prop.",
             "Slider is now more responsive and automatically adjusts to the available space.",
             "Slider now automatically corrects its value if the user inputs a invalid value, meaning the built-in validation is now removed.",
-            "Slider now comes in two sizes, normal and compact.",
+            "Slider now comes in two sizes, medium and small.",
             "Slider now uses <code>input type='text'</code> instead of <code>input type='number'</code>.",
             "You can give the inputs for a slider custom errors using the <code>errorOptions</code> prop.",
             "You can now customize the <code>aria-label</code> using the <code>ariaLabel</code> prop."
@@ -44,6 +44,16 @@
             "Internal restructuring of code to make it easier to maintain.",
             "Update <code>@elvia/elvis-toolbox</code> to <code>7.5.2</code>"
           ]
+        }
+      ]
+    },
+    {
+      "date": "02.05.23",
+      "version": "2.1.9",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix broken type export."]
         }
       ]
     },

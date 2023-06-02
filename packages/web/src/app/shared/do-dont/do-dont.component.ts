@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./do-dont.component.scss'],
 })
 export class DoDontComponent {
-  @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
   @Input() do = false;

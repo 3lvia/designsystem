@@ -1,4 +1,4 @@
-import { BaseProps, HasError, HasValue } from '@elvia/elvis-toolbox';
+import { BaseProps, HasError, HasValue, FormFieldSizes } from '@elvia/elvis-toolbox';
 
 export type ErrorType = 'invalidDate' | 'required' | 'beforeMinDate' | 'afterMaxDate';
 
@@ -14,6 +14,7 @@ export interface DateRange {
 export interface DatepickerRangeProps {
   selectedDateRange?: DateRange;
   whichRangePicker?: 'start' | 'end';
+  showTimeInError?: boolean;
 }
 
 export interface DatepickerProps extends BaseProps, HasValue<Date | null>, HasError {
@@ -21,6 +22,10 @@ export interface DatepickerProps extends BaseProps, HasValue<Date | null>, HasEr
   disableDate?: (day: Date) => boolean;
   hasOptionalText?: boolean;
   hasSelectDateOnOpen?: boolean;
+  size?: FormFieldSizes;
+  /**
+   * @deprecated Removed in version 7.0.0. Replaced by `size`.
+   */
   isCompact?: boolean;
   isDisabled?: boolean;
   isFullWidth?: boolean;

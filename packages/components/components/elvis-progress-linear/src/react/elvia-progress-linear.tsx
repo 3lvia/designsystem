@@ -11,6 +11,7 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
   ariaRole = 'progressbar',
   ariaLabel,
   componentId,
+  transitionDuration = '300ms',
   className,
   inlineStyle,
   ...rest
@@ -36,6 +37,7 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
         currSize={size}
         style={{ width: `${value}%` }}
         data-testid="progress-linear-progress"
+        transitionDuration={transitionDuration}
       ></ProgressLinearProgress>
     </ProgressLinearWrapper>
   );

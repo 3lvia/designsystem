@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+// eslint-disable-next-line
 export function useLockBodyScroll(removeLockBodyScroll: boolean) {
   useEffect(() => {
     const originalStyleOverflowBody = window.getComputedStyle(document.body).overflow;

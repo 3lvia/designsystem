@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const OverlayContainer = styled.div`
-  background-color: ${getThemeColor('background-overlay')};
+  background-color: ${getThemeColor('background-overlay-1')};
   border-radius: 4px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+  box-shadow: ${getShadow('medium')};
   min-width: 304px;
 `;
 
@@ -14,12 +14,13 @@ export const PopoverHeader = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 8px 24px;
-  border-bottom: 1px solid ${getThemeColor('background-accent')};
+  border-bottom: 1px solid ${getThemeColor('border-2')};
   margin-bottom: 8px;
 `;
 
 export const SelectedDateName = styled.div`
   ${getTypographyCss('text-md')};
+  white-space: nowrap;
 
   &::first-letter {
     text-transform: capitalize;

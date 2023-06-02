@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
-import { AccordionGroupDocModule } from './accordion-group-doc/accordion-group-doc.module';
 import { AlertMessagesModule } from './alert-messages/alert-messages.module';
 import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.module';
 import { BadgeDocModule } from './badge-doc/badge-doc.module';
@@ -20,11 +19,9 @@ import { HeaderDocModule } from './header-doc/header-doc.module';
 import { LinkDocModule } from './link-doc/link-doc.module';
 import { ListDocModule } from './list-doc/list-doc.module';
 import { ModalDocModule } from './modal-doc/modal-doc.module';
-import { OverviewModule } from './overview-comp/overview-comp.module';
 import { OutlineDocModule } from './outline-doc/outline-doc.module';
 import { PaginationDocModule } from './pagination-doc/pagination-doc.module';
 import { PopoverDocModule } from './popover-doc/popover-doc.module';
-import { PositionPickerDocModule } from './position-picker-doc/position-picker-doc.module';
 import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
 import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module';
 import { SliderDocModule } from './slider-doc/slider-doc.module';
@@ -36,11 +33,11 @@ import { TagDocModule } from './tag-doc/tag-doc.module';
 import { ThumbnailDocModule } from './thumbnail-doc/thumbnail-doc.module';
 import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.module';
 import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
+import { ToastDocModule } from './toast-doc/toast-doc.module';
 
 @NgModule({
   imports: [
     AccordionDocModule,
-    AccordionGroupDocModule,
     AlertMessagesModule,
     AutocompleteDocModule,
     BadgeDocModule,
@@ -61,10 +58,8 @@ import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
     ListDocModule,
     ModalDocModule,
     OutlineDocModule,
-    OverviewModule,
     PaginationDocModule,
     PopoverDocModule,
-    PositionPickerDocModule,
     ProgressbarDocModule,
     RadioFilterDocModule,
     SliderDocModule,
@@ -76,6 +71,7 @@ import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
     ThumbnailDocModule,
     TimepickerDocModule,
     TooltipDocModule,
+    ToastDocModule,
   ],
 })
 export class ComponentsModule {}

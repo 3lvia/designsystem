@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import Fuse from 'fuse.js';
 import { SearchService } from 'src/app/core/services/search.service';
 import ComponentData, { AttributeType } from 'src/app/doc-pages/components/component-data.interface';
@@ -64,10 +64,15 @@ export class ComponentPropertiesTableComponent implements OnInit {
   private highlightSearchMatches(): void {
     this.resetHighlightedHTML();
     this.searchService.searchResults.forEach((resultItem) => {
-      resultItem.matches.forEach((match) => {
+      resultItem.matches?.forEach((match) => {
         try {
           const element = document.getElementById(`property-row-${resultItem.item.attribute}-${match.key}`);
-          element.innerHTML = this.getHighlightedHTMLString(match, resultItem.item[match.key]);
+          if (element && match.key && match.key in resultItem.item) {
+            element.innerHTML = this.getHighlightedHTMLString(
+              match,
+              resultItem.item[match.key as keyof ComponentProp]?.toString() ?? '',
+            );
+          }
         } catch (error) {
           console.log('id:', `property-row-${resultItem.item.attribute}-${match.key}`, error);
         }
@@ -75,7 +80,12 @@ export class ComponentPropertiesTableComponent implements OnInit {
           const element = document.getElementById(
             `property-row-${resultItem.item.attribute}-${match.key}-mobile`,
           );
-          element.innerHTML = this.getHighlightedHTMLString(match, resultItem.item[match.key]);
+          if (element && match.key && match.key in resultItem.item) {
+            element.innerHTML = this.getHighlightedHTMLString(
+              match,
+              resultItem.item[match.key as keyof ComponentProp]?.toString() ?? '',
+            );
+          }
         } catch (error) {
           console.log('id:', `property-row-${resultItem.item.attribute}-${match.key}-mobile`, error);
         }
@@ -84,28 +94,33 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   private getHighlightedHTMLString(match: Fuse.FuseResultMatch, value: string): string {
-    if (!value) {
-      return;
-    }
     // Add any part of the description that is before the first match
     let highlightedValue = value.substring(0, match.indices[0][0]);
     // Add each match, and the part of the description between matches
-    match.indices.forEach((matchIndices, index, items) => {
-      const [matchStart, matchEnd] = matchIndices;
-      // Only highlight in description if more than one character
-      if (matchEnd - matchStart > 0) {
-        highlightedValue += this.addHighlightBackground(
-          this.encodeHTML(value.substring(matchStart, matchEnd + 1)),
-        );
-      } else {
-        highlightedValue += this.encodeHTML(value.substring(matchStart, matchEnd + 1));
-      }
+    match.indices
+      // Filter out any duplicate matches (happens if you search the exact name of a long prop)
+      .reduce((usedIndices, current) => {
+        if (usedIndices.find((used) => used[0] === current[0] && used[1] === current[1])) {
+          return usedIndices;
+        }
+        return [...usedIndices, current];
+      }, [] as Fuse.RangeTuple[])
+      .forEach((matchIndices, index, items) => {
+        const [matchStart, matchEnd] = matchIndices;
+        // Only highlight in description if more than one character
+        if (matchEnd - matchStart > 0) {
+          highlightedValue += this.addHighlightBackground(
+            this.encodeHTML(value.substring(matchStart, matchEnd + 1)),
+          );
+        } else {
+          highlightedValue += this.encodeHTML(value.substring(matchStart, matchEnd + 1));
+        }
 
-      // If not the last match, add the part of the description upto next match
-      if (index !== match.indices.length - 1) {
-        highlightedValue += this.encodeHTML(value.substring(matchEnd + 1, items[index + 1][0]));
-      }
-    });
+        // If not the last match, add the part of the description upto next match
+        if (index !== items.length - 1) {
+          highlightedValue += this.encodeHTML(value.substring(matchEnd + 1, items[index + 1][0]));
+        }
+      });
     // Add the part after the last match
     highlightedValue += this.encodeHTML(
       value.substring(match.indices[match.indices.length - 1][1] + 1, value.length),
@@ -114,7 +129,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   private addHighlightBackground(str: string): string {
-    return `<span style='background: ${getColor('elvia-charge')}'>${str}</span>`;
+    return `<span style='background: ${getThemeColor('background-selected-1')}'>${str}</span>`;
   }
 
   private resetHighlightedHTML(): void {
@@ -123,11 +138,13 @@ export class ComponentPropertiesTableComponent implements OnInit {
         const element = document.getElementById(`property-row-${prop.attribute}-${key}`);
         const elementMobile = document.getElementById(`property-row-${prop.attribute}-${key}-mobile`);
         if (key === 'default') {
-          element.innerHTML = prop[key] ? this.encodeHTML(prop[key].toString()) : '-';
-          elementMobile.innerHTML = prop[key] ? this.encodeHTML(prop[key].toString()) : '-';
+          if (element)
+            element.innerHTML = prop[key] !== undefined ? this.encodeHTML(prop[key]!.toString()) : '-';
+          if (elementMobile)
+            elementMobile.innerHTML = prop[key] !== undefined ? this.encodeHTML(prop[key]!.toString()) : '-';
         } else {
-          element.innerHTML = this.encodeHTML(prop[key]);
-          elementMobile.innerHTML = this.encodeHTML(prop[key]);
+          if (element) element.innerHTML = this.encodeHTML(prop[key]);
+          if (elementMobile) elementMobile.innerHTML = this.encodeHTML(prop[key]);
         }
       });
     });

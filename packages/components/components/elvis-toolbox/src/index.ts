@@ -7,6 +7,7 @@ export { Backdrop } from './components/backdrop/backdrop';
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { IconButton } from './components/button/iconButton';
 export {
+  FormFieldSizes,
   FormFieldInput,
   FormFieldContainer,
   FormFieldContainerProps,
@@ -37,6 +38,7 @@ export { useCurrentTheme } from './hooks/useCurrentTheme';
 export { BaseProps } from './prop-blocks/baseProps';
 export { ErrorOptions, HasError } from './prop-blocks/hasError';
 export { HasValue } from './prop-blocks/hasValue';
+export { HasTransitionDuration } from './prop-blocks/hasTransitionDuration';
 
 /** Dev exports below */
 export { useEffectDebugger } from './dev/useEffectDebugger';

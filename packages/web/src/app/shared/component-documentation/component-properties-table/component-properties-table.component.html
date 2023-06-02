@@ -22,7 +22,7 @@
   </div>
   <div class="e-table-container desktop">
     <table
-      class="e-table e-table--sticky-column-header e-table--sticky-header e-table--compact"
+      class="e-table e-table--sticky-column-header e-table--sticky-header e-table--small"
       *ngIf="filteredComponentProps.length > 0"
       aria-label="Property details and descriptions"
     >
@@ -65,7 +65,7 @@
     [ngClass]="{ 'properties-mobile': filteredComponentProps.length > 0 }"
   >
     <table
-      class="e-table-mobile e-table-mobile--sticky-header e-table-mobile--compact"
+      class="e-table-mobile e-table-mobile--sticky-header e-table-mobile--small"
       *ngIf="filteredComponentProps.length > 0"
       aria-label="Property details and descriptions"
     >
@@ -111,8 +111,8 @@
       <span class="e-title-caps e-text-center">No properties found matching your search</span>
     </div>
   </div>
-  <div class="e-table__footnote e-table__footnote--compact">* Required - Properties that must be present</div>
-  <div class="e-table__footnote e-table__footnote--compact">
+  <div class="e-table__footnote e-table__footnote--small">* Required - Properties that must be present</div>
+  <div class="e-table__footnote e-table__footnote--small">
     All HTML DOM Events (e.g. click, focus, mouseover) are available to use on the component if needed.
   </div>
 </div>

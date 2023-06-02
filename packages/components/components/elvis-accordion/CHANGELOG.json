@@ -2,6 +2,64 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "24.05.23",
+      "version": "2.9.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Improved the way the accordion calculates the height of its content in Firefox (113)."]
+        }
+      ]
+    },
+    {
+      "date": "12.05.23",
+      "version": "2.9.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the accordion would incorrectly calculate the height of its content in Firefox (113)."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "09.05.23",
+      "version": "2.9.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies. "]
+        }
+      ]
+    },
+    {
+      "date": "26.04.23",
+      "version": "2.9.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for dark theme."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "14.03.23",
+      "version": "2.8.16",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Improved the detection of changing heights inside the accordion content, which should avoid the accordion not opening properly."
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.12.22",
       "version": "2.8.15",
       "changelog": [

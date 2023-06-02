@@ -1,0 +1,10 @@
+<elvia-accordion closeLabel="Hide code" openLabel="Show code" size="small">
+  <div slot="content">
+    <app-code-viewer
+      [activeTabIndex]="activeTabIndex"
+      (tabIndexChange)="setActiveTab($event)"
+      [activeCode]="activeCode"
+      [tabs]="tabs"
+    />
+  </div>
+</elvia-accordion>

@@ -9,7 +9,6 @@ const datepickerData: ComponentData = {
       isRequired: false,
       type: 'Date',
       description: 'Preselected date.',
-      cegDisplayName: 'Value',
     },
     valueOnChange: {
       isRequired: false,
@@ -26,64 +25,36 @@ const datepickerData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Label of input.',
-      cegDisplayName: 'Label',
     },
-    isCompact: {
+    size: {
       isRequired: false,
-      type: 'boolean',
-      description: 'Compact size.',
-      default: 'false',
-      cegDisplayName: 'Compact',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Size',
+      type: 'small | medium',
+      description: 'Datepicker can be set to different sizes.',
+      default: 'medium',
     },
     isFullWidth: {
       isRequired: false,
       type: 'boolean',
       description: 'Gives the input 100% width.',
       default: 'false',
-      cegDisplayName: 'Full width',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Size',
-      cegDefault: false,
     },
     isDisabled: {
       isRequired: false,
       type: 'boolean',
       description: 'Disabled datepicker.',
       default: 'false',
-      cegDisplayName: 'Disabled',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'State',
     },
     isRequired: {
       isRequired: false,
       type: 'boolean',
       description: 'Required datepicker-fields cannot be empty.',
       default: 'false',
-      cegDisplayName: 'Required',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'true',
-      cegDisplayGroup: 'Options',
     },
     hasSelectDateOnOpen: {
       isRequired: false,
       type: 'boolean',
       description: 'Sets the current date to selected when opening the datepicker.',
       default: 'true',
-      cegDisplayName: 'Select today on open',
-      cegType: 'boolean',
-      cegDefault: true,
-      cegFormType: 'checkbox',
-      cegOption: 'false',
-      cegDisplayGroup: 'Options',
     },
     hasOptionalText: {
       isRequired: false,
@@ -91,24 +62,16 @@ const datepickerData: ComponentData = {
       description:
         'An optional prop that adds the text "(valgfri)" behind the label, once set to true, to signalize that the input is optional to fill.',
       default: 'true',
-      cegDisplayName: '"(valgfri)"',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: false,
-      cegOption: 'true',
-      cegDependency: [{ name: 'isRequired', value: 'false' }],
     },
     minDate: {
       isRequired: false,
       type: 'Date',
       description: 'Makes dates before the provided minimum date disabled.',
-      cegDisplayName: 'Min date',
     },
     maxDate: {
       isRequired: false,
       type: 'Date',
       description: 'Makes dates after the provided maximum date disabled.',
-      cegDisplayName: 'Max date',
     },
     onOpen: {
       isRequired: false,
@@ -156,7 +119,9 @@ const datepickerData: ComponentData = {
     errorOptions: {
       isRequired: false,
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
-      description: 'An object that allows for custom configuration of the error handling in the date picker.',
+      description:
+        'An object that allows for custom configuration of the error handling in the date picker. Setting "text" will always show the provided error message. "hideText" hides the default validation errors. "isErrorState" allows for manually activating the visual error UI. "hasErrorPlaceholder" allows you to remove the padding below the date picker.',
+      default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
     },
     errorOnChange: {
       isRequired: false,
@@ -176,27 +141,6 @@ const datepickerData: ComponentData = {
       description: 'Function that sets dates as disabled. Return true to disable a date.',
     },
   },
-  codeReact: `<Datepicker
-  valueOnChange={(event) => handleOnChange(event)}
-></Datepicker>
-`,
-  codeAngular: `<elvia-datepicker
-  (valueOnChange)="handleOnChange($event.detail.value)"
-></elvia-datepicker>
-`,
-  codeVue: `<elvia-datepicker
-  @value-on-change="handleOnChange($event.detail.value)"
-></elvia-datepicker>
-`,
-  codeNativeHTML: `<elvia-datepicker
-  id="example-elvia-datepicker"
-></elvia-datepicker>
-`,
-  codeNativeScript: `  const datepicker = document.getElementById('example-elvia-datepicker');
-  datepicker.addEventListener('valueOnChange', (event) => {
-    console.log('Do what you want with date: ', event.detail.value)
-  });
-`,
 };
 
 export { datepickerData };

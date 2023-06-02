@@ -1,29 +1,20 @@
 {
   "name": "react-test",
-  "version": "0.1.0",
   "private": true,
-  "workspaces": {
-    "installConfig.hoistingLimits": [
-      "react-scripts",
-      "react-scripts/**"
-    ]
-  },
+  "type": "module",
   "scripts": {
-    "build": "react-scripts build",
-    "build:production": "yarn build && mv ./build ../web/dist/elvia-designsystem/react-preview",
-    "start": "react-scripts start",
-    "start:ssr": "yarn build && node server/index.js"
+    "start": "vite",
+    "build": "tsc && vite build",
+    "build:production": "yarn build && mv ./dist ../web/dist/elvia-designsystem/react-preview",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@babel/core": "^7.18.10",
-    "@babel/preset-env": "^7.18.10",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/register": "^7.18.9",
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-badge": "*",
     "@elvia/elvis-box": "*",
     "@elvia/elvis-breadcrumb": "*",
+    "@elvia/elvis-card": "*",
     "@elvia/elvis-carousel": "*",
     "@elvia/elvis-chip": "*",
     "@elvia/elvis-context-menu": "*",
@@ -42,35 +33,19 @@
     "@elvia/elvis-spotlight": "*",
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-timepicker": "*",
+    "@elvia/elvis-toast": "*",
+    "@elvia/elvis-tooltip": "*",
     "@elvia/elvis-typography": "*",
-    "express": "^4.17.1",
-    "ignore-styles": "^5.0.1",
     "react": "^18.2.0",
-    "react-app-polyfill": "^2.0.0",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^1.0.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.9",
-    "eslint": "^8.23.1",
-    "eslint-plugin-react": "^7.27.0",
-    "webpack": "^4.0.0 || ^5.0.0",
-    "webpack-dev-server": "3.11.2"
-  },
-  "homepage": "./",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "sass": "^1.58.2",
+    "typescript": "~5.0.4",
+    "vite": "^4.1.0"
   }
 }

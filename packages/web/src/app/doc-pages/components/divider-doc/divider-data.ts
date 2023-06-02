@@ -7,54 +7,27 @@ export const dividerData: ComponentData = {
   attributes: {
     type: {
       isRequired: false,
-      type: 'simple | title | curved',
+      type: 'simple | heading | curved',
       description: 'Type of the divider. The curved version of the divider follows the Elvia curve formula.',
       default: 'simple',
-      cegDefault: 0,
-      cegType: 'string',
-      cegFormType: 'type',
-      cegOptions: ['simple', 'title', 'curved'],
     },
-    title: {
+    heading: {
       isRequired: false,
       type: 'HTMLElement | JSX.Element',
       description:
-        'Title displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
-      default: 'Title',
+        'Heading displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
     },
     typography: {
       isRequired: false,
       type: 'medium | caps',
-      description: 'Type of title typography.',
+      description: 'Type of heading typography.',
       default: 'medium',
-      cegDisplayName: 'Typography',
-      cegDefault: 'medium',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['medium', 'caps'],
-      cegDependency: [{ name: 'type', value: 'title' }],
-    },
-    isInverted: {
-      isRequired: false,
-      type: 'boolean',
-      description: 'If the divider is on a dark grey background this prop should be set to true.',
-      default: 'false',
-      cegDefault: 0,
-      cegType: 'boolean',
-      cegFormType: 'background',
-      cegOptions: ['White', 'Dark grey'],
     },
     orientation: {
       isRequired: false,
       type: 'horizontal | vertical',
       description: 'Change the orientation of the divider.',
       default: 'horizontal',
-      cegDisplayName: 'Orientation',
-      cegDefault: 'horizontal',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['horizontal', 'vertical'],
-      cegDependency: [{ name: 'type', value: 'simple' }],
     },
     className: {
       isRequired: false,
@@ -68,22 +41,6 @@ export const dividerData: ComponentData = {
         "Custom CSS style object that can be added to the divider. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  codeReact: `<Divider
-  title={<h2>Title</h2>}
-></Divider>`,
-  codeAngular: `<elvia-divider
->
-  <h2 slot="title">Title</h2>
-</elvia-divider>`,
-  codeVue: `<elvia-divider
->
-  <h2 slot="title">Title</h2>
-</elvia-divider>`,
-  codeNativeHTML: `<elvia-divider
->
-  <h2 slot="title">Title</h2>
-</elvia-divider>
-`,
 
   codeNativeScript: ``,
 };

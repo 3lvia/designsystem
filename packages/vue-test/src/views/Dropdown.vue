@@ -25,7 +25,7 @@
           :inlineStyle="{ maxWidth: '280px' }"
           label="Compact"
           :items="dropdownItems"
-          isCompact="true"
+          size="small"
         ></elvia-dropdown>
         <elvia-dropdown
           :inlineStyle="{ maxWidth: '280px' }"
@@ -45,14 +45,13 @@
 </template>
 
 <script lang="ts">
-import { ElviaDropdownItem } from '@elvia/elvis-dropdown';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
     const selectedDropdownItem = ref('sverige');
     const isLoadingMoreItems = ref(false);
-    const dropdownItems: ElviaDropdownItem[] = [
+    const dropdownItems = [
       {
         value: 'norge',
         label: 'Norge med en veldig lang tekst som kommer til å overflowe',

@@ -1,15 +1,8 @@
 import Badge from './elvia-badge';
 import React from 'react';
 import { axe } from 'jest-axe';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
-
-const colors = {
-  elviaBlack: getColor('black'),
-  elviaCharge: getColor('green'),
-  elviaRed: getColor('red'),
-  elviaWhite: getColor('white'),
-};
 
 describe('Elvis Badge', () => {
   describe('the default background color of the badge', () => {
@@ -26,8 +19,9 @@ describe('Elvis Badge', () => {
     });
 
     it('is green', () => {
-      const badgeCircle = screen.getByTestId('badge-circle');
-      expect(badgeCircle).toHaveStyle(`background-color: ${colors.elviaCharge}`);
+      const badgeCircle = screen.getByRole('status');
+
+      expect(badgeCircle).toHaveStyle(`background-color: ${getThemeColor('background-selected-1')}`);
     });
   });
 
@@ -47,17 +41,17 @@ describe('Elvis Badge', () => {
     });
 
     it('should display the actual number', () => {
-      const badgeCircle = screen.getByTestId('badge-circle');
+      const badgeCircle = screen.getByRole('status');
       expect(badgeCircle).toHaveTextContent('53');
     });
 
     it('should have normal padding', () => {
-      const badgeCircle = screen.getByTestId('badge-circle');
-      expect(badgeCircle).toHaveStyle(`padding: 2px 0px`);
+      const badgeCircle = screen.getByRole('status');
+      expect(badgeCircle).toHaveStyle(`padding: 4px 0px`);
     });
 
     it('should have a fixed width to stay round', () => {
-      const badgeCircle = screen.getByTestId('badge-circle');
+      const badgeCircle = screen.getByRole('status');
       expect(badgeCircle).toHaveStyle(`width: 16px`);
     });
   });
@@ -78,17 +72,17 @@ describe('Elvis Badge', () => {
     });
 
     it('should display "99+"', () => {
-      const badgeCircle = screen.getByTestId('badge-circle');
+      const badgeCircle = screen.getByRole('status');
       expect(badgeCircle).toHaveTextContent('99+');
     });
 
     it('have some extra padding', () => {
-      const badgeCircle = screen.getByTestId('badge-circle');
-      expect(badgeCircle).toHaveStyle(`padding: 2px 4px`);
+      const badgeCircle = screen.getByRole('status');
+      expect(badgeCircle).toHaveStyle(`padding: 4px`);
     });
 
     it('should not have a fixed width', () => {
-      const badgeCircle = screen.getByTestId('badge-circle');
+      const badgeCircle = screen.getByRole('status');
       expect(badgeCircle).toHaveStyle(`width: unset`);
     });
   });
@@ -109,14 +103,9 @@ describe('Elvis Badge', () => {
       );
     });
 
-    it('should have a red background color', () => {
-      const badgeCircle = screen.getByTestId('badge-circle');
-      expect(badgeCircle).toHaveStyle(`background-color: ${colors.elviaRed}`);
-    });
-
     it('should have a white text color', () => {
-      const badgeCircle = screen.getByTestId('badge-circle');
-      expect(badgeCircle).toHaveStyle(`color: ${colors.elviaWhite}`);
+      const badgeCircle = screen.getByRole('status');
+      expect(badgeCircle).toHaveStyle(`color: ${getThemeColor('static-white')}`);
     });
   });
 

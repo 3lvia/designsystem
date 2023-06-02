@@ -3,6 +3,7 @@ import { DocPageStatus } from '../../../shared.enum';
 import { NavbarAnchor } from '../../../shared.interface';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-component-header',
@@ -13,9 +14,9 @@ export class ComponentHeaderComponent implements AfterViewInit {
   @ViewChild('contentWrapper') content: ElementRef;
 
   @Input() componentStatus = '';
-  @Input() figmaUrl: string;
+  @Input() figmaUrl?: string;
   @Input() figmaOnly = false;
-  @Input() lastUpdated: string;
+  @Input() lastUpdated?: string;
   @Output() selectedChange = new EventEmitter();
 
   DocPageStatus = DocPageStatus;
@@ -29,13 +30,19 @@ export class ComponentHeaderComponent implements AfterViewInit {
     this.currentRoute = this.currentRoute.substring(0, this.currentRoute.indexOf('/'));
     this.backBtn = this.currentRoute.replace('-', ' ');
 
-    this.scrollService.listenAnchorAtCurrPos().subscribe((anchor: NavbarAnchor) => {
-      this.activeAnchor = anchor;
-    });
-    this.scrollService.listenAnchors().subscribe((anchors: NavbarAnchor[]) => {
-      this.navbarAnchors = anchors;
-      this.activeAnchor = this.navbarAnchors[0];
-    });
+    this.scrollService
+      .listenAnchorAtCurrPos()
+      .pipe(takeUntilDestroyed())
+      .subscribe((anchor) => {
+        this.activeAnchor = anchor;
+      });
+    this.scrollService
+      .listenAnchors()
+      .pipe(takeUntilDestroyed())
+      .subscribe((anchors) => {
+        this.navbarAnchors = anchors;
+        this.activeAnchor = this.navbarAnchors[0];
+      });
   }
 
   ngAfterViewInit(): void {

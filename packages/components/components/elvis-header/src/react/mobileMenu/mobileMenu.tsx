@@ -14,7 +14,7 @@ import {
   AppListContainer,
   TextMdStrong,
 } from './mobileMenuStyles';
-import { IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
+import { IconWrapper, TertiaryButton, useCurrentTheme } from '@elvia/elvis-toolbox';
 import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
 import removeCircleColor from '@elvia/elvis-assets-icons/dist/icons/removeCircleColor';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
@@ -43,6 +43,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
     triggerButtonRef,
     popoverRef,
   );
+  const { currentTheme } = useCurrentTheme(triggerButtonRef);
 
   useEffect(() => {
     onMenuToggle(userMenuIsOpen);
@@ -52,16 +53,14 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
     <>
       <IconButton
         onClick={() => setIsShowing(!userMenuIsOpen)}
-        type="button"
         aria-label="Åpne brukermeny"
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
+        aria-controls="ewc-header-mobile-menu"
         ref={triggerButtonRef}
-        data-testid="mobile-menu-trigger"
       >
         <IconWrapper
           icon={userMenuIsOpen ? removeCircleColor : moreMenu}
-          color="black"
           size={userMenuIsOpen ? 'md' : 'sm'}
         />
       </IconButton>
@@ -70,22 +69,23 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
           <>
             <Backdrop fadeOut={fadeOut} onClick={() => setIsShowing(false)} />
             <MenuContainer
-              data-testid="mobile-menu"
               fadeOut={fadeOut}
               onAnimationEnd={onAnimationEnd}
               ref={popoverRef}
+              role="menu"
+              id="ewc-header-mobile-menu"
             >
               {view === 'mainPage' && (
                 <>
                   <ImageContainer>
-                    <ProfilePicture />
+                    <ProfilePicture currentTheme={currentTheme} />
                   </ImageContainer>
-                  <TextSmallStrong data-testid="mobile-username">{username}</TextSmallStrong>
-                  <TextSmall data-testid="mobile-email">{email}</TextSmall>
+                  <TextSmallStrong>{username}</TextSmallStrong>
+                  <TextSmall>{email}</TextSmall>
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
                   <section>
-                    <TertiaryButton size="sm" onClick={onSignOutClick} data-testid="mobile-sign-out-trigger">
-                      <IconWrapper icon={logout} size="xs" color="black" />
+                    <TertiaryButton size="sm" onClick={onSignOutClick}>
+                      <IconWrapper icon={logout} size="xs" />
                       Logg ut
                     </TertiaryButton>
                   </section>

@@ -19,10 +19,8 @@ import {
   useSlot,
   warnDeprecatedProps,
   IconWrapper,
-  useCurrentTheme,
 } from '@elvia/elvis-toolbox';
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
-import { getThemeColor } from '@elvia/elvis-colors';
 
 const Popover: FC<PopoverProps> = function ({
   heading,
@@ -47,7 +45,6 @@ const Popover: FC<PopoverProps> = function ({
   const triggerRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
 
-  const { currentTheme } = useCurrentTheme(popoverContainerRef);
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
   const {
@@ -152,7 +149,6 @@ const Popover: FC<PopoverProps> = function ({
           <PopoverContent
             className={className}
             style={inlineStyle}
-            currentTheme={currentTheme}
             aria-modal="true"
             data-testid="popover"
             role="dialog"
@@ -162,7 +158,7 @@ const Popover: FC<PopoverProps> = function ({
             {hasCloseButton && (
               <CloseButtonContainer>
                 <IconButton size="sm" onClick={toggleVisibility} aria-label="Lukk">
-                  <IconWrapper icon={closeBold} color={getThemeColor('text-primary')} size="xs" />
+                  <IconWrapper icon={closeBold} size="xs" />
                 </IconButton>
               </CloseButtonContainer>
             )}

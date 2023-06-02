@@ -7,6 +7,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-documentation/co
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import '@elvia/elvis-icon';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
+import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
     ComponentSubsectionModule,
     WhenToUseModule,
     CopyModule,
+    ComponentChangelogModule,
   ],
   declarations: [ShadowDocComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

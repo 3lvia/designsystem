@@ -6,7 +6,11 @@ $text-line-height: 32px;
 .wrapper {
   height: 100%;
   position: relative;
+  @include breakpoints.breakpoint-up(Tablet) {
+    margin-top: -64px;
+  }
 }
+
 .navbar-phone {
   display: none;
   @include breakpoints.breakpoint-up(Tablet) {
@@ -22,18 +26,42 @@ $text-line-height: 32px;
     justify-content: center;
     max-width: 522px;
   }
+
+  .navbar-locale-toggle {
+    &-top-divider {
+      display: none;
+    }
+    margin-left: auto;
+    padding-bottom: 16px;
+    &-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      button.e-btn---active {
+        font-weight: 700;
+      }
+    }
+
+    &-divider {
+      width: 1px;
+      height: 1rem;
+      background: var(--e-grey-10);
+    }
+  }
 }
+
 .navbar {
   height: calc(100% - 64px - 48px - #{sizes.$header-height});
   top: sizes.$header-height + 64px;
   width: 18%;
   bottom: sizes.$footer-height;
   position: fixed;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 32px;
   background: transparent;
   z-index: 0;
+
+  display: flex;
+  flex-direction: column;
 
   @include breakpoints.breakpoint-up(MaxDesktop) {
     width: 13%;
@@ -43,129 +71,157 @@ $text-line-height: 32px;
   @include breakpoints.breakpoint-up(Tablet) {
     display: none;
   }
+  .navbar-scroll-container {
+    width: 100%;
+    padding-right: 32px;
 
-  &-toggle-area {
-    display: none;
-    align-items: center;
-    justify-content: flex-start;
-    @include breakpoints.breakpoint-up(Tablet) {
-      display: flex;
-      justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &-toggle-area {
+      display: none;
+      align-items: center;
+      justify-content: flex-start;
+      @include breakpoints.breakpoint-up(Tablet) {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .navbar-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 0;
+
+      .navbar-item {
+        margin-left: 4px;
+        margin-bottom: 16px;
+
+        .navbar-subpages {
+          margin-top: 16px;
+          margin-left: 16px;
+        }
+        a {
+          cursor: pointer;
+          .navbar-item-title {
+            position: relative;
+            overflow: hidden;
+            padding-left: 16px;
+
+            font-family: 'Red Hat Text', Verdana, sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0.012em;
+          }
+        }
+        a:hover,
+        a.active-route {
+          .navbar-item-title {
+            font-size: 15px;
+          }
+          .navbar-item-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: calc((#{$text-line-height} / 2) - 8px - 4px);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 2px solid var(--e-green);
+          }
+        }
+        a.active-route {
+          .navbar-item-title {
+            font-size: 14px;
+            font-weight: 600;
+          }
+          .navbar-item-title:before {
+            background-color: var(--e-green);
+          }
+        }
+        .anchors {
+          max-height: 0;
+          opacity: 0;
+          transition: max-height 0.5s cubic-bezier(0, 1.05, 0, 1),
+            opacity 0.4s cubic-bezier(0, 0.77, 0.78, 1.1);
+
+          margin-left: 28px;
+          padding-left: 16px;
+          border-left: 1px solid var(--e-grey-10);
+
+          .link {
+            width: 100%;
+            overflow: hidden;
+            a {
+              width: 100%;
+              justify-self: flex-start;
+              font-family: 'Red Hat Text', Verdana, sans-serif;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 13px;
+              line-height: 17px;
+              letter-spacing: 0.012em;
+              color: var(--e-grey-70);
+            }
+          }
+          .link:not(:last-of-type) {
+            margin-bottom: 12px;
+          }
+        }
+        .active-route + .anchors {
+          max-height: 1000px;
+          opacity: 1;
+
+          height: 100%;
+          width: 100%;
+          margin-top: 8px;
+          margin-bottom: 8px;
+
+          .link {
+            @extend %scale-down-ver-top;
+            &:nth-child(1) {
+              animation-delay: 300ms;
+            }
+            @for $i from 2 through 50 {
+              &:nth-child(#{$i}) {
+                animation-delay: 300ms + (30ms * $i);
+              }
+            }
+            a:hover {
+              font-size: 14px;
+            }
+            a.active-anchor {
+              font-size: 13px;
+              font-weight: 500;
+              color: var(--e-black);
+            }
+          }
+        }
+      }
+      position: relative;
     }
   }
 
-  .navbar-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 0;
-
-    .navbar-item {
-      margin-left: 4px;
-      margin-bottom: 16px;
-
-      .navbar-subpages {
-        margin-top: 16px;
-        margin-left: 16px;
-      }
-      a {
-        cursor: pointer;
-        .navbar-item-title {
-          position: relative;
-          overflow: hidden;
-          padding-left: 16px;
-
-          font-family: 'Red Hat Text', Verdana, sans-serif;
-          font-style: normal;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 16px;
-          letter-spacing: 0.012em;
-        }
-      }
-      a:hover,
-      a.active-route {
-        .navbar-item-title {
-          font-size: 15px;
-        }
-        .navbar-item-title::before {
-          content: '';
-          position: absolute;
-          left: 0px;
-          top: calc((#{$text-line-height} / 2) - 8px - 4px);
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          border: 2px solid var(--e-green);
-        }
-      }
-      a.active-route {
-        .navbar-item-title {
-          font-size: 14px;
-          font-weight: 600;
-        }
-        .navbar-item-title:before {
-          background-color: var(--e-green);
-        }
-      }
-      .anchors {
-        max-height: 0;
-        opacity: 0;
-        transition: max-height 0.5s cubic-bezier(0, 1.05, 0, 1), opacity 0.4s cubic-bezier(0, 0.77, 0.78, 1.1);
-
-        margin-left: 28px;
-        padding-left: 16px;
-        border-left: 1px solid var(--e-grey-10);
-
-        .link {
-          width: 100%;
-          overflow: hidden;
-          a {
-            width: 100%;
-            justify-self: flex-start;
-            font-family: 'Red Hat Text', Verdana, sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 17px;
-            letter-spacing: 0.012em;
-            color: var(--e-grey-70);
-          }
-        }
-        .link:not(:last-of-type) {
-          margin-bottom: 12px;
-        }
-      }
-      .active-route + .anchors {
-        max-height: 1000px;
-        opacity: 1;
-
-        height: 100%;
-        width: 100%;
-        margin-top: 8px;
-        margin-bottom: 8px;
-
-        .link {
-          @extend %scale-down-ver-top;
-          &:nth-child(1) {
-            animation-delay: 300ms;
-          }
-          @for $i from 2 through 50 {
-            &:nth-child(#{$i}) {
-              animation-delay: 300ms + (30ms * $i);
-            }
-          }
-          a:hover {
-            font-size: 14px;
-          }
-          a.active-anchor {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--e-black);
-          }
-        }
-      }
+  .navbar-locale-toggle {
+    .navbar-locale-toggle-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 20px;
+      margin-top: 16px;
     }
-    position: relative;
+
+    button.e-btn---active {
+      font-weight: 700;
+    }
+  }
+
+  .navbar-locale-toggle-divider {
+    width: 1px;
+    height: 1rem;
+    background: var(--e-grey-10);
   }
 }
 

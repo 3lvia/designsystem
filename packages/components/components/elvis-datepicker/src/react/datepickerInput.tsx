@@ -104,22 +104,27 @@ export const DatepickerInput: React.FC<Props> = ({
   };
 
   const validateInputValue = (day?: number, month?: number, year?: number): boolean => {
-    const date = new Date(`${year}/${month}/${day}`);
+    const newDate = new Date(`${year}/${month}/${day}`);
+
+    if (date) {
+      newDate.setHours(date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds());
+    }
 
     const noDate = !day && !month && !year;
 
     if (!required && noDate) {
+      onErrorChange(undefined);
       return true;
     } else if (required && noDate) {
       onErrorChange('required');
       return false;
-    } else if (!day || !month || !year || year < 1800 || !isValidDate(date)) {
+    } else if (!day || !month || !year || year < 1800 || !isValidDate(newDate)) {
       onErrorChange('invalidDate');
       return false;
-    } else if (minDate && date.getTime() < minDate.getTime()) {
+    } else if (minDate && newDate.getTime() < minDate.getTime()) {
       onErrorChange('beforeMinDate');
       return false;
-    } else if (maxDate && date.getTime() > maxDate.getTime()) {
+    } else if (maxDate && newDate.getTime() > maxDate.getTime()) {
       onErrorChange('afterMaxDate');
       return false;
     } else if (currentError) {
@@ -169,6 +174,13 @@ export const DatepickerInput: React.FC<Props> = ({
       validateInputValue(date?.getDate(), date ? date.getMonth() + 1 : undefined, date?.getFullYear());
     }
   }, [date]);
+
+  useEffect(() => {
+    if (touched) {
+      const [day, month, year] = inputValue.split('.');
+      validateInputValue(+day, +month, +year);
+    }
+  }, [required]);
 
   // Focus and select the text when the parent container is double clicked
   useEffect(() => {

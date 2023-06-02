@@ -5,7 +5,6 @@ import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
 
 import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
-import { AccordionGroupDocComponent } from './doc-pages/components/accordion-group-doc/accordion-group-doc.component';
 import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 import { BadgeDocComponent } from './doc-pages/components/badge-doc/badge-doc.component';
@@ -41,7 +40,6 @@ import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.compo
 import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { PaginationDocComponent } from './doc-pages/components/pagination-doc/pagination-doc.component';
 import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
-import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
 import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
 import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
@@ -57,6 +55,7 @@ import { TagDocComponent } from './doc-pages/components/tag-doc/tag-doc.componen
 import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
 import { ThumbnailDocComponent } from './doc-pages/components/thumbnail-doc/thumbnail-doc.component';
 import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
+import { ToastDocComponent } from './doc-pages/components/toast-doc/toast-doc.component';
 import { ToggleDocComponent } from './doc-pages/components/forms/toggle-doc/toggle-doc.component';
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
 import { TypographyDocComponent } from './doc-pages/other-pages/typography-doc/typography-doc.component';
@@ -65,6 +64,7 @@ import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/uti
 import { DevStartComponent } from './dev/dev-start/dev-start.component';
 import { v2PlaygroundComponent } from './dev/v2-playground/v2-playground.component';
 import { OutlineDocComponent } from './doc-pages/components/outline-doc/outline-doc.component';
+import { ColorComponent } from './doc-pages/other-pages/color/color.component';
 
 const routes: Routes = [
   {
@@ -121,6 +121,10 @@ const routes: Routes = [
             component: ColorDocComponent,
           },
           {
+            path: 'color2',
+            component: ColorComponent,
+          },
+          {
             path: 'icon',
             component: IconDocComponent,
           },
@@ -155,8 +159,9 @@ const routes: Routes = [
         component: CMSPageComponent,
         children: [
           {
-            path: Pages.AccordionGroup,
-            component: AccordionGroupDocComponent,
+            path: 'accordion-group',
+            redirectTo: Pages.Accordion,
+            pathMatch: 'full',
           },
           {
             path: Pages.Accordion,
@@ -287,10 +292,6 @@ const routes: Routes = [
             component: PopoverDocComponent,
           },
           {
-            path: Pages.PositionPicker,
-            component: PositionPickerDocComponent,
-          },
-          {
             path: Pages.Radiobutton,
             component: RadiobuttonDocComponent,
           },
@@ -325,6 +326,10 @@ const routes: Routes = [
           {
             path: Pages.Thumbnail,
             component: ThumbnailDocComponent,
+          },
+          {
+            path: Pages.Toast,
+            component: ToastDocComponent,
           },
           {
             path: Pages.Tooltip,
@@ -366,7 +371,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
