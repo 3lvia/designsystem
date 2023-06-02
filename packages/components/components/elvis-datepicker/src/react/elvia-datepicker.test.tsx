@@ -316,11 +316,13 @@ describe('Elvis Datepicker', () => {
       const isString = isValidDate('abc');
       const isBoolean = isValidDate(true);
       const isNumber = isValidDate(123);
+      const isObject = isValidDate({});
 
       expect(isDate).toBeTruthy();
       expect(isString).not.toBeTruthy();
       expect(isBoolean).not.toBeTruthy();
       expect(isNumber).not.toBeTruthy();
+      expect(isObject).not.toBeTruthy();
     });
   });
 });
