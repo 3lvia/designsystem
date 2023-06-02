@@ -1,3 +1,4 @@
+// DEPRECATED
 /* stylelint-disable */
 @use '../variables/typography.scss';
 @use './../variables/colors';
@@ -8,7 +9,6 @@
 @use '../utilities/icons.scss';
 @use './autocomplete.scss';
 
-// DEPRECATED
 .e-dropdown {
   cursor: pointer;
   max-width: 448px;
