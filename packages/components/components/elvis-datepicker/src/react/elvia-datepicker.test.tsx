@@ -2,7 +2,7 @@ import React from 'react';
 import Datepicker from './elvia-datepicker';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { formatDate } from './dateHelpers';
+import { formatDate, dateIsWithinMinMaxBoundary, isAfter, isBefore, isValidDate } from './dateHelpers';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -278,6 +278,49 @@ describe('Elvis Datepicker', () => {
       const results = await axe(datepickers);
 
       expect(results).toHaveNoViolations();
+    });
+  });
+
+  describe('dateHelpers.ts', () => {
+    const earlyDate = new Date(1, 1, 2020);
+    const middleDate = new Date(1, 1, 2021);
+    const lateDate = new Date(2, 2, 2022);
+
+    it('should give isBefore and isAfter', () => {
+      const before = isBefore(earlyDate, lateDate);
+      const notBefore = isBefore(lateDate, earlyDate);
+      const after = isAfter(lateDate, earlyDate);
+      const notAfter = isAfter(earlyDate, lateDate);
+
+      expect(before).toBeTruthy();
+      expect(notBefore).not.toBeTruthy();
+      expect(after).toBeTruthy();
+      expect(notAfter).not.toBeTruthy();
+    });
+    it('should give isBefore and isAfter true when min/max date dont exist', () => {
+      const before = isBefore(earlyDate);
+      const after = isAfter(lateDate);
+
+      expect(before).toBeTruthy();
+      expect(after).toBeTruthy();
+    });
+    it('should check if date is in min/max-boundary', () => {
+      const isBetween = dateIsWithinMinMaxBoundary(middleDate, earlyDate, lateDate);
+      const isNotBetween = dateIsWithinMinMaxBoundary(earlyDate, middleDate, lateDate);
+
+      expect(isBetween).toBeTruthy();
+      expect(isNotBetween).not.toBeTruthy();
+    });
+    it('should check if date is valid', () => {
+      const isDate = isValidDate(earlyDate);
+      const isString = isValidDate('abc');
+      const isBoolean = isValidDate(true);
+      const isNumber = isValidDate(123);
+
+      expect(isDate).toBeTruthy();
+      expect(isString).not.toBeTruthy();
+      expect(isBoolean).not.toBeTruthy();
+      expect(isNumber).not.toBeTruthy();
     });
   });
 });
