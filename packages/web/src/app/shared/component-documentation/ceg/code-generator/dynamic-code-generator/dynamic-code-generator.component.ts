@@ -87,16 +87,20 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
       .flat();
 
     if (staticProps) {
-      const staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({
+      let staticPropsArray = Object.entries(staticProps).map(([name, value]) => ({
         name,
         value,
         isStatic: true,
       }));
-      props.unshift(...(staticPropsArray as Prop[]));
+      const eventProps = staticPropsArray.filter((prop) => typeof prop.value === 'function');
+      const otherProps = staticPropsArray.filter((prop) => typeof prop.value !== 'function');
+      props.push(...(eventProps as Prop[]));
+      props.unshift(...(otherProps as Prop[]));
     }
     if (type) {
       props.unshift({ name: 'type', value: type.toLowerCase() });
     }
+    console.log(props);
     return props;
   }
 
