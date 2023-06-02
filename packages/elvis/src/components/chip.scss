@@ -1,3 +1,4 @@
+// DEPRECATED
 /* stylelint-disable */
 @use 'sass:map';
 @use '../variables/typography';
@@ -7,7 +8,6 @@
 
 $chips-padding: 5px 16px;
 
-// DEPRECATED
 .e-chip-container {
   display: flex;
   flex-direction: row;
