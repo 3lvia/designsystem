@@ -94,7 +94,7 @@ const Pagination: FC<PaginationProps> = function ({
     const start = pageIndex * elementsPerPage;
     const end = start + elementsPerPage;
     // +1 to make it 1-indexed
-    return { start: start + 1, end: Math.min(end, numberOfElements - 1) };
+    return { start: start + 1, end: Math.min(end, numberOfElements) };
   };
 
   const emitValueOnChangeEvent = (value: VisibleElements): void => {
