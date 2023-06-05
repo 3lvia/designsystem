@@ -15,6 +15,9 @@ export class CarouselCegComponent implements ComponentExample {
       type: 'Loop',
       controls: {},
       groupOrder: [''],
+      staticProps: {
+        valueOnChange: () => '',
+      },
     },
     {
       type: 'Linear',
@@ -27,6 +30,13 @@ export class CarouselCegComponent implements ComponentExample {
         },
       },
       groupOrder: ['Options'],
+      staticProps: {
+        valueOnChange: () => '',
+      },
     },
   ]);
+
+  handleOnChange(value: number): void {
+    console.log('New value:', value);
+  }
 }

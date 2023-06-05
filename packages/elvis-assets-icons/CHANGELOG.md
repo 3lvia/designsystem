@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.0.1 (02.06.2023)
+
+### Bug fix
+
+- Re-exported the `piggy_bank-color` icon to fix an issue.
+
 ## 3.0.0 (28.04.23)
 
 ### Breaking changes

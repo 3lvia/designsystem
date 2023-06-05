@@ -72,10 +72,13 @@ export class DatepickerRangeCegComponent implements ComponentExample {
         },
       },
       groupOrder: ['Size', 'Options', 'State'],
+      staticProps: {
+        valueOnChange: () => '',
+      },
     },
   ]);
 
-  handleOnChange(value: Date): void {
-    console.log('Selected dates: ', value);
+  handleOnChange(value: number): void {
+    console.log('New value:', value);
   }
 }

@@ -61,7 +61,7 @@ export const paginationData: ComponentData = {
     },
     dropdownSelectedItemIndexOnChange: {
       isRequired: false,
-      type: '(value: number) => CustomEvent',
+      type: '(value: number) => void',
       description: `Gets called every time a new value in the pagination dropdown is chosen, returns the index of the chosen value from the available dropdownItems.`,
     },
     labelOptions: {
@@ -76,7 +76,7 @@ export const paginationData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: object) => CustomEvent',
+      type: '(value: object) => void',
       description: `Gets called every time a selection range is updated and returns a value object with start and end key-value pairs.`,
     },
     className: {

@@ -1,3 +1,4 @@
+// DEPRECATED
 /* stylelint-disable */
 @use '../variables/colors';
 @use '../variables/typography';
@@ -11,7 +12,6 @@ $modal-desktop-padding: 48px;
 
 $modal-mobile-padding: 32px;
 
-// DEPRECATED
 .e-modal {
   display: flex;
   justify-content: center;

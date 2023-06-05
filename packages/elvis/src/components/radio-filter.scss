@@ -1,3 +1,4 @@
+// DEPRECATED
 /* stylelint-disable */
 @use '../utilities/outline.scss';
 @use '../utilities/helpers';
@@ -5,7 +6,6 @@
 
 $control-count: 8;
 
-// DEPRECATED
 .e-radio-filter {
   display: flex;
   flex-direction: row;

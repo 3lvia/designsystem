@@ -41,7 +41,7 @@ export const carouselData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: number) => CustomEvent',
+      type: '(value: number) => void',
       description: 'Gets called every time the value is changed.',
     },
     hasAnimation: {

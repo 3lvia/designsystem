@@ -61,12 +61,13 @@ export class DropdownCegComponent implements ComponentExample {
           { value: 'Finland', label: 'Finland' },
           { value: 'Island', label: 'Island' },
         ],
+        valueOnChange: () => '',
       },
       groupOrder: ['Size', 'Options', 'State', 'Label'],
     },
   ]);
 
-  handleOnChange(newValues: string | string[]): void {
-    console.log('Selected dropdown items:', newValues);
+  handleOnChange(value: number): void {
+    console.log('New value:', value);
   }
 }

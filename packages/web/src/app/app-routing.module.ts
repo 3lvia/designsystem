@@ -21,14 +21,12 @@ import { ColorDocComponent } from './doc-pages/other-pages/color-doc/color-doc.c
 import { ContactComponent } from './doc-pages/other-pages/contact/contact.component';
 import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
 import { ContextMenuDocComponent } from './doc-pages/components/context-menu-doc/context-menu-doc.component';
-import { ContributeComponent } from './doc-pages/other-pages/contribute/contribute.component';
 import { DatepickerDocComponent } from './doc-pages/components/forms/datepicker-doc/datepicker-doc.component';
 import { DatepickerRangeDocComponent } from './doc-pages/components/forms/datepicker-range-doc/datepicker-range-doc.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
 import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
 import { ErrorComponent } from './shared/error/error.component';
-import { FaqDocComponent } from './doc-pages/other-pages/faq-doc/faq-doc.component';
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { GetStartedDocComponent } from './doc-pages/other-pages/get-started-doc/get-started-doc.component';
 import { HeaderDocComponent } from './doc-pages/components/header-doc/header-doc.component';
@@ -92,14 +90,6 @@ const routes: Routes = [
           {
             path: 'contact',
             component: ContactComponent,
-          },
-          {
-            path: 'contribute',
-            component: ContributeComponent,
-          },
-          {
-            path: 'faq',
-            component: FaqDocComponent,
           },
           {
             path: 'get-started',

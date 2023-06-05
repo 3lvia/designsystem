@@ -1,3 +1,4 @@
+// DEPRECATED
 /* stylelint-disable */
 @use '../variables/colors.scss';
 @use '../variables/typography';
@@ -23,7 +24,6 @@ $popover-mobile-size: 300px;
   bottom: 0;
 }
 
-// DEPRECATED
 .e-popover {
   position: relative;
   display: inline-block;

@@ -9,8 +9,8 @@
     "build:production": "gulp --gulpfile build/gulpfile.ts cleanup && gulp --gulpfile build/gulpfile.ts production",
     "start": "gulp --gulpfile build/gulpfile.ts watch",
     "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
-    "test": "jest --config jest.config.js --colors",
-    "test:start": "jest --config jest.config.js --watch --colors",
+    "test": "jest --config jest.config.ts --colors",
+    "test:start": "jest --config jest.config.ts --watch --colors",
     "test:coverage": "jest --coverage --colors"
   },
   "dependencies": {
