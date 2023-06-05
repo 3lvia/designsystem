@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.05.23",
+      "version": "3.4.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Resolved an bug where Pagination failed to include the last index when on the final page.",
+            "Resolved an bug where Pagination would incorrectly select a page during initialization."
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.05.23",
       "version": "3.4.2",
       "changelog": [
