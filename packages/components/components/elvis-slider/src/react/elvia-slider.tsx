@@ -34,6 +34,7 @@ import {
   StyledSlider,
   Heading,
 } from './styledComponents';
+import { calculateThumbPosition } from './utils/calculateThumbPosition';
 
 let uniqueSliderId = 0;
 
@@ -104,28 +105,29 @@ const Slider: React.FC<SliderProps> = ({
   /* thumbWidth: Used to horizontally center the tooltip over the "thumb" of the slider. */
   const thumbWidth = inputMode === 'touch' ? 28 : 20;
 
-  /**
-   * Calculates the position of a thumb on a slider, in px from the left side of the slider.
-   * @see https://stackoverflow.com/a/61665977/14447555 by user 'ibrcic' for the original implementation.
-   */
-  const calculateThumbPosition = (side: Sides) => {
-    const { left: leftValue, right: rightValue } = sliderValues;
+  const leftThumbPosition = calculateThumbPosition({
+    side: 'left',
+    sliderValues: sliderValues,
+    min: min,
+    max: max,
+    totalSliderWidth: totalSliderWidth,
+    thumbWidth: thumbWidth,
+  });
 
-    if (side === 'left') {
-      return ((leftValue - min) / (max - min)) * (totalSliderWidth - thumbWidth) + thumbWidth / 2;
-    } else {
-      return ((rightValue - max) / (min - max)) * (totalSliderWidth - thumbWidth) + thumbWidth / 2;
-    }
-  };
+  const rightThumbPosition = calculateThumbPosition({
+    side: 'right',
+    sliderValues: sliderValues,
+    min: min,
+    max: max,
+    totalSliderWidth: totalSliderWidth,
+    thumbWidth: thumbWidth,
+  });
 
   /** The width in px of the filled track between the two thumbs */
   const getFilledMiddleTrackWidth = () => {
     if (type !== 'range' || sliderValues.right === sliderValues.left) {
       return 0;
     }
-
-    const leftThumbPosition = calculateThumbPosition('left');
-    const rightThumbPosition = calculateThumbPosition('right');
 
     return totalSliderWidth - leftThumbPosition - rightThumbPosition;
   };
@@ -512,7 +514,7 @@ const Slider: React.FC<SliderProps> = ({
           />
 
           {showTooltip.left && !isDisabled && (hasTooltip || inputMode === 'touch') && (
-            <Tooltip content={getTooltipContent('left')} position={calculateThumbPosition('left')} />
+            <Tooltip content={getTooltipContent('left')} position={leftThumbPosition} />
           )}
 
           {type === 'range' && (
@@ -533,11 +535,7 @@ const Slider: React.FC<SliderProps> = ({
               />
 
               {showTooltip.right && !isDisabled && (hasTooltip || inputMode === 'touch') && (
-                <Tooltip
-                  side={'right'}
-                  content={getTooltipContent('right')}
-                  position={calculateThumbPosition('right')}
-                />
+                <Tooltip side={'right'} content={getTooltipContent('right')} position={rightThumbPosition} />
               )}
             </>
           )}
@@ -547,7 +545,7 @@ const Slider: React.FC<SliderProps> = ({
           <SliderFilledTrack
             isDisabled={isDisabled}
             rangeTrackWidth={getFilledMiddleTrackWidth()}
-            trackWidth={calculateThumbPosition('left')}
+            trackWidth={leftThumbPosition}
             type={type}
           />
         </SliderWrapper>
