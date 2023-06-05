@@ -59,7 +59,7 @@ const Pagination: FC<PaginationProps> = function ({
     if (currentPage > totalPages) {
       setCurrentPage(totalPages);
     }
-  }, [numberOfElements]);
+  }, [numberOfElements, pageSize]);
 
   useEffect(() => {
     setSelectedDropdownItemIndex(dropdownSelectedItemIndex);
