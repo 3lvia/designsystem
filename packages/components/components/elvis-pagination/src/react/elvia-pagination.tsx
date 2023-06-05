@@ -59,7 +59,7 @@ const Pagination: FC<PaginationProps> = function ({
     if (currentPage > totalPages) {
       setCurrentPage(totalPages);
     }
-  }, [numberOfElements]);
+  }, [numberOfElements, pageSize]);
 
   useEffect(() => {
     setSelectedDropdownItemIndex(dropdownSelectedItemIndex);
@@ -94,7 +94,7 @@ const Pagination: FC<PaginationProps> = function ({
     const start = pageIndex * elementsPerPage;
     const end = start + elementsPerPage;
     // +1 to make it 1-indexed
-    return { start: start + 1, end: Math.min(end, numberOfElements - 1) };
+    return { start: start + 1, end: Math.min(end, numberOfElements) };
   };
 
   const emitValueOnChangeEvent = (value: VisibleElements): void => {
@@ -123,13 +123,13 @@ const Pagination: FC<PaginationProps> = function ({
 
     setPageSize(newSelectedDropdownValue);
 
-    //emit indexes
-    emitValueOnChangeEvent(getPaginationValue(newPageIndex, newSelectedDropdownValue));
-
     //emit dropdownSelectedItemIndex
     dropdownSelectedItemIndexOnChange?.(newIndex);
     webcomponent?.setProps({ dropdownSelectedItemIndex: newIndex }, true);
     webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', newIndex);
+
+    //emit indexes
+    emitValueOnChangeEvent(getPaginationValue(newPageIndex, newSelectedDropdownValue));
   };
 
   const handleOnPageClick = (pageIndex: number): void => {
