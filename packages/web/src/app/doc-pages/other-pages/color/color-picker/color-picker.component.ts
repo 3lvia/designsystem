@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { getThemeColor, getBaseColor, lightThemeColors, darkThemeColors } from '@elvia/elvis-colors';
-import { primaryColors } from './color-util';
+import { lightColors } from './colors-light';
 
 @Component({
   selector: 'app-color-picker',
@@ -10,13 +10,7 @@ import { primaryColors } from './color-util';
 export class ColorPickerComponent {
   toggleTheme = () => {
     document.getElementsByClassName('theme-container')[0].classList.toggle('e-theme-dark');
+    const colorList = lightColors;
+    console.log(colorList);
   };
-
-  colorList = [
-    getThemeColor('signal-success'),
-    getBaseColor('grey-70'),
-    lightThemeColors['data-colors']['violet-grape'].color,
-    darkThemeColors['data-colors']['violet-grape'].color,
-    primaryColors[1].contrastWhite,
-  ];
 }

@@ -1,4 +1,4 @@
-import { BaseColors, Theme } from '../theme';
+import { BaseColors, ColorLabel, Theme } from '../theme';
 
 export const darkThemeColors = {
   'primary-colors': {
@@ -91,6 +91,30 @@ export const darkThemeColors = {
     },
   },
 } as const satisfies BaseColors;
+
+type DarkThemeColors = typeof darkThemeColors;
+type GreyColors = DarkThemeColors['grey-colors'];
+type GreyColor = keyof GreyColors;
+export const test: GreyColor = '#242424';
+
+interface Color<T> {
+  name: T;
+  hex: string;
+  tokens: ColorLabel[];
+  contrast: {
+    white: false | 'AA' | 'AAA';
+    black: false | 'AA' | 'AAA';
+  };
+}
+
+export const GreyColors: Color<GreyColor>[] = [
+  {
+    name: 'grey-40',
+    hex: '#afasdfd',
+    tokens: ['background-1', 'border-5'],
+    contrast: { white: false, black: 'AA' },
+  },
+];
 
 export type DarkThemeColorName = typeof darkThemeColors extends Record<string, infer Category>
   ? Category extends Record<string, any>
