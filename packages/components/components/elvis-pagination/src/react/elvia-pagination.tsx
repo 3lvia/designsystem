@@ -123,13 +123,13 @@ const Pagination: FC<PaginationProps> = function ({
 
     setPageSize(newSelectedDropdownValue);
 
-    //emit indexes
-    emitValueOnChangeEvent(getPaginationValue(newPageIndex, newSelectedDropdownValue));
-
     //emit dropdownSelectedItemIndex
     dropdownSelectedItemIndexOnChange?.(newIndex);
     webcomponent?.setProps({ dropdownSelectedItemIndex: newIndex }, true);
     webcomponent?.triggerEvent('dropdownSelectedItemIndexOnChange', newIndex);
+
+    //emit indexes
+    emitValueOnChangeEvent(getPaginationValue(newPageIndex, newSelectedDropdownValue));
   };
 
   const handleOnPageClick = (pageIndex: number): void => {
