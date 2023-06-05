@@ -6,6 +6,7 @@
   "homepage": "https://design.elvia.io/components/dropdown",
   "files": [
     "web_component.js",
+    "web_component.d.ts",
     "react.js",
     "react.d.ts",
     "CHANGELOG.json",
