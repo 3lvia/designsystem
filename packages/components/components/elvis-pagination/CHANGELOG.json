@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "05.05.23",
+      "version": "3.4.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where Pagination would not emit a new value if the last page only contained a single item."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "05.05.23",
       "version": "3.4.3",
       "changelog": [
         {
