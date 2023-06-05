@@ -4,7 +4,7 @@ import { Step, Steps, StepperContainer, StepperContentWrapper } from './styledCo
 import { StepDivider } from './StepDivider';
 import { StepContent } from './StepContent';
 import { VerticalStepElement } from './VerticalStepElement';
-import { numberShouldBeVisible } from './utils';
+import { generateStatusMessage, numberShouldBeVisible } from './utils';
 
 export const StepperVertical: FC<StepperTypeProps> = function ({
   numberOfSteps,
@@ -31,21 +31,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   return (
     <StepperContainer type="vertical" className={className} style={inlineStyle} {...rest}>
       <div className="pf-screen-reader e-sr-only" aria-live="polite" role="status">
-        On step {currentStep}.{' '}
-        {currentStep > 1
-          ? 'The previous step was ' + (steps?.[currentStep - 1].isCompleted ? 'successful.' : 'incomplete.')
-          : null}{' '}
-        Step{' '}
-        {errorSteps.map((stepNumber: number, i: number) => {
-          if (i === errorSteps.length - 1) {
-            return stepNumber;
-          } else if (i === errorSteps.length - 2) {
-            return stepNumber + ' and ';
-          } else {
-            return stepNumber + ', ';
-          }
-        })}{' '}
-        was invalid.
+        {steps && generateStatusMessage(currentStep, steps, errorSteps)}
       </div>
       <Steps type="vertical">
         {stepNumbersArray.map(

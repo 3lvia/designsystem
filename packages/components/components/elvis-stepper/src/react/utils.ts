@@ -32,3 +32,27 @@ export const numberShouldBeVisible = (
 
   return false;
 };
+
+export const generateStatusMessage = (currentStep: number, steps: StepStates, errorSteps: number[]) => {
+  let statusMessage = `On step ${currentStep}. `;
+  if (currentStep > 1) {
+    statusMessage += `The previous step was ${
+      steps?.[currentStep - 1].isCompleted ? 'successful' : 'incomplete'
+    }. `;
+  }
+
+  if (errorSteps.length > 0) {
+    statusMessage += 'Step ';
+    errorSteps.forEach((stepNumber: number, i: number) => {
+      if (i === errorSteps.length - 1) {
+        statusMessage += stepNumber;
+      } else if (i === errorSteps.length - 2) {
+        statusMessage += stepNumber + ' and ';
+      } else {
+        statusMessage += stepNumber + ', ';
+      }
+    });
+    statusMessage += ' was invalid.';
+  }
+  return statusMessage;
+};
