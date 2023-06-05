@@ -11,6 +11,12 @@
             "Resolved an bug where Pagination failed to include the last index when on the final page.",
             "Resolved an bug where Pagination would incorrectly select a page during initialization."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "<code>dropdownSelectedItemIndexOnChange</code> now emits its value before <code>valueOnChange</code>."
+          ]
         }
       ]
     },
