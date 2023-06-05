@@ -62,7 +62,15 @@ describe('Elvis Stepper', () => {
 
     it('should have error state when isError is applied', async () => {
       const screenReader = screen.getByRole('status');
-      expect(screenReader).toHaveTextContent('On step 1. Step 3 and 4 was invalid.');
+      expect(screenReader).toHaveTextContent('Step 3 and 4 was invalid.');
+    });
+
+    it('should register that the previous step was complete', async () => {
+      const user = userEvent.setup();
+      const nextButton = screen.getByRole('button', { name: /neste/i });
+      await user.click(nextButton);
+      const screenReader = screen.getByRole('status');
+      expect(screenReader).toHaveTextContent('The previous step was successful.');
     });
   });
 
@@ -124,7 +132,7 @@ describe('Elvis Stepper', () => {
 
     it('should have error state when isError is applied', async () => {
       const screenReader = screen.getByRole('status');
-      expect(screenReader).toHaveTextContent('On step 1. Step 3 and 4 was invalid.');
+      expect(screenReader).toHaveTextContent('Step 3 and 4 was invalid.');
     });
   });
 });
