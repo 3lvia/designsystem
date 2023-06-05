@@ -98,7 +98,7 @@ const Pagination: FC<PaginationProps> = function ({
   };
 
   const emitValueOnChangeEvent = (value: VisibleElements): void => {
-    if (value.start != null && value.end != null && value.start <= numberOfElements - 1) {
+    if (value.start != null && value.end != null && value.start <= numberOfElements) {
       valueOnChange?.(value);
       webcomponent?.setProps({ value: value }, true);
       webcomponent?.triggerEvent('valueOnChange', value);
