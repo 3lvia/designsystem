@@ -1,3 +1,5 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
 :host {
   display: grid;
   gap: 22px;
@@ -32,7 +34,7 @@ table {
   }
 
   .title-row {
-    background-color: var(--e-grey-02);
+    background-color: var(--e-theme-light-grey-02);
   }
 
   .small-column {
@@ -62,5 +64,29 @@ table {
 
   .light-and-dark-column {
     width: 100px;
+  }
+}
+
+.desktop-table {
+  @include breakpoints.breakpoint-up(Mobile) {
+    display: none;
+  }
+}
+
+.mobile-table {
+  display: none;
+  @include breakpoints.breakpoint-up(Mobile) {
+    display: table;
+  }
+
+  .token-wrapper {
+    display: grid;
+    gap: 10px;
+
+    .color-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
   }
 }
