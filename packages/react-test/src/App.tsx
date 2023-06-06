@@ -25,13 +25,6 @@ import { Spotlight } from '@elvia/elvis-spotlight/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
-import {
-  FormFieldContainer,
-  FormFieldInput,
-  FormFieldInputContainer,
-  FormFieldInputSuffixText,
-  FormFieldLabel,
-} from '@elvia/elvis-toolbox';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -189,21 +182,7 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <FormFieldContainer size="small">
-                <FormFieldLabel>Label text</FormFieldLabel>
-                <FormFieldInputContainer>
-                  <FormFieldInput /> <FormFieldInputSuffixText>Suffix text</FormFieldInputSuffixText>
-                </FormFieldInputContainer>
-              </FormFieldContainer>
-              <br />
-              <br />
-              <br />
-              <FormFieldContainer>
-                <FormFieldLabel>Label text</FormFieldLabel>
-                <FormFieldInputContainer>
-                  <FormFieldInput /> <FormFieldInputSuffixText>Suffix text</FormFieldInputSuffixText>
-                </FormFieldInputContainer>
-              </FormFieldContainer>
+              <i className="e-icon e-icon--add_circle e-icon--sm"></i>
               <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
