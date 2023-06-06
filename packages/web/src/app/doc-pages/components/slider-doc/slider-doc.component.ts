@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
-import { sliderUnitCode } from './slider-unit-code';
 import { sliderData } from './slider-data';
 import { Title } from '@angular/platform-browser';
 
