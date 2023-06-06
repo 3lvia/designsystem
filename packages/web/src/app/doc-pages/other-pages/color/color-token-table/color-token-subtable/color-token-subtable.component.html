@@ -1,0 +1,74 @@
+<elvia-accordion
+  [isOpen]="isOpen"
+  (onOpen)="isOpen = true"
+  (onClose)="isOpen = false"
+  typography="title-sm"
+  [openLabel]="title"
+  [openDetailText]="subtitle"
+  [closeLabel]="title"
+  [closeDetailText]="subtitle"
+  spacingAboveContent="16px"
+  isFullwidth
+>
+  <div class="table-wrapper" slot="content">
+    <table>
+      <thead>
+        <tr class="e-title-xs">
+          <th class="e-text-left" [ngClass]="{ 'small-column': hasRoleColumn }">Token</th>
+          <th *ngIf="hasExampleColumn" class="small-column">Example</th>
+          <th *ngIf="hasRoleColumn" class="e-text-left">Role</th>
+          <th class="light-and-dark-column">Light</th>
+          <th class="light-and-dark-column">Dark</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let tablePart of colors">
+          <ng-container *ngIf="tablePart.type === 'colors'">
+            <tr *ngFor="let color of tablePart.colors">
+              <td class="token-font" [ngClass]="{ 'small-column': hasRoleColumn }">{{ color.token }}</td>
+              <td class="small-column" *ngIf="hasExampleColumn">
+                <div class="example-container" [innerHTML]="color.example"></div>
+              </td>
+              <td *ngIf="hasRoleColumn">
+                <div>
+                  <span class="e-text-sm">{{ color.role }}</span>
+                  <div>
+                    <a
+                      class="e-link e-link--sm e-mr-8"
+                      [routerLink]="[link.path]"
+                      *ngFor="let link of color.links"
+                    >
+                      {{ link.title }}
+                    </a>
+                  </div>
+                </div>
+              </td>
+              <td class="top-align">
+                <div class="color-circle light-and-dark-column">
+                  <app-color-token-subtable-color-circle [hex]="color.light.hex" />
+                  <span class="e-text-sm e-text-center">{{ color.light.label }}</span>
+                </div>
+              </td>
+              <td class="top-align">
+                <div class="color-circle light-and-dark-column">
+                  <app-color-token-subtable-color-circle [hex]="color.dark.hex" />
+                  <span class="e-text-sm e-text-center">{{ color.dark.label }}</span>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="tablePart.type === 'title'">
+            <tr class="title-row">
+              <td [colSpan]="3 + (hasRoleColumn ? 1 : 0) + (hasExampleColumn ? 1 : 0)">
+                <h5 class="e-title-caps e-m-0">{{ tablePart.title }}</h5>
+                <span class="e-text-sm">{{ tablePart.description }}</span>
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</elvia-accordion>
+
+<elvia-divider [inlineStyle]="{ transition: 'opacity 0.2s', opacity: isOpen ? '0' : '1' }" />
