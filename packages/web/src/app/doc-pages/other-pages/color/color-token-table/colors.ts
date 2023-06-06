@@ -387,7 +387,7 @@ export const signalColors = [
   },
   {
     token: 'signal-caution',
-    role: 'Give attention to something that the users needs to now',
+    role: 'Give attention to something that the users needs to know',
     light: { hex: getColor('signal-caution', 'light'), label: 'Yellow' },
     dark: { hex: getColor('signal-caution', 'dark'), label: 'Dark-yellow' },
   },
