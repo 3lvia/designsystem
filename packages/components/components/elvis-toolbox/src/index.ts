@@ -12,6 +12,7 @@ export {
   FormFieldContainer,
   FormFieldContainerProps,
   FormFieldInputContainer,
+  FormFieldInputSuffixText,
   FormFieldLabel,
   LabelProps,
 } from './components/form-field/formFieldStyles';

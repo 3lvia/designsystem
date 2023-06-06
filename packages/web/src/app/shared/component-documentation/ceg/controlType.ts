@@ -86,6 +86,12 @@ export interface ComponentType<T extends Record<string, any>> {
   readonly type?: string;
   readonly controls: Controls<T>;
   readonly groupOrder: string[];
+  /**
+   * Events should be added to staticProps, sent in as an empty event, to be visible in the example code.
+   *
+   * Example:
+   * ```valueOnChange: () => ''```
+   */
   readonly staticProps?: Partial<StaticProps<T>>;
   readonly hiddenSlots?: (string & keyof T)[];
   readonly disabledControls?: DisabledBy<T>;

@@ -12,13 +12,13 @@ const datepickerRangeData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: {start: Date | null, end: Date | null}) => CustomEvent',
+      type: '(value: {start: Date | null, end: Date | null}) => void',
       description:
         'Gets called every time the value is changed. Returns null if input field is empty, or Invalid Date if input is not a valid date.',
     },
     handleValueOnChangeISOString: {
       isRequired: false,
-      type: '(value: {start: string | null, end: string | null}) => CustomEvent',
+      type: '(value: {start: string | null, end: string | null}) => void',
       description: `Gets called every time the value is changed. Returns a string containing the chosen date, without time, in ISO format (e.g. '2022-06-20'), or null if no date is selected.`,
     },
     labelOptions: {
@@ -107,7 +107,7 @@ const datepickerRangeData: ComponentData = {
     },
     errorOnChange: {
       isRequired: false,
-      type: '(errors: {start?: string; end?: string}) => CustomEvent',
+      type: '(errors: {start?: string; end?: string}) => void',
       description: 'Gets called every time the internal date validation error is changed.',
     },
     className: {

@@ -22,7 +22,7 @@ $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
   }
 }
 
-// DEPRECATED (e-label)
+// DEPRECATED (e-label -> e-tag)
 .e-label,
 .e-tag {
   position: relative;

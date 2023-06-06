@@ -527,6 +527,7 @@ export const componentsDocPages: DocPage[] = [
   },
 ];
 
+// Only pages not in Contentful except the component-pages
 export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'The Design System',
@@ -545,31 +546,6 @@ export const docPagesNotFromCMS: DocPage[] = [
       </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
-    status: DocPageStatus.Done,
-  },
-  {
-    title: 'Contribute',
-    description: `To contribute, or if you have any question, contact us on Slack:
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
-        <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-      </a> or contact any of the 
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/about/${Pages.Contact}" >
-        <span class="e-link__title">team members</span>
-      </a>directly.`,
-    docUrl: Pages.Contribute,
-    absolutePath: '/about/' + Pages.Contribute,
-    status: DocPageStatus.Done,
-  },
-  {
-    title: 'FAQ',
-    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on Slack:
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
-        <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-      </a>`,
-    docUrl: Pages.Faq,
-    absolutePath: '/about/' + Pages.Faq,
     status: DocPageStatus.Done,
   },
   {
@@ -703,28 +679,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/about/' + Pages.Contact,
     status: DocPageStatus.Done,
     type: 'About',
-  },
-  {
-    title: 'Contribute',
-    description: `To contribute, or if you have any question, you can contact us on Slack:
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
-      <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-    </a>`,
-    docUrl: Pages.Contribute,
-    absolutePath: '/about/' + Pages.Contribute,
-    status: DocPageStatus.Done,
-  },
-  {
-    title: 'FAQ',
-    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on Slack:
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
-      <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-    </a>`,
-    docUrl: Pages.Faq,
-    absolutePath: '/about/' + Pages.Faq,
-    status: DocPageStatus.Done,
   },
 ];
 
