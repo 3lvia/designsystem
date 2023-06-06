@@ -5,6 +5,7 @@ import {
   FormFieldInput as FormFieldInputBase,
   FormFieldInputContainer as FormFieldInputContainerBase,
   FormFieldLabel as FormFieldLabelBase,
+  FormFieldSizes,
 } from '@elvia/elvis-toolbox';
 export { LabelProps } from '@elvia/elvis-toolbox';
 import { BothSliders, Sides, SliderType } from './elvia-slider.types';
@@ -22,32 +23,32 @@ type SliderFilledTrackProps = {
 };
 
 type SliderWrapperProps = {
-  isCompact: boolean;
+  size: FormFieldSizes;
   isLeftSliderOnTop: boolean;
 };
 
 type FormFieldInputContainerProps = {
-  isCompact: boolean;
+  size: FormFieldSizes;
   maxValueLength: number;
 };
 
 type HintValueProps = {
   hasErrorPlaceholder: boolean;
-  isCompact: boolean;
+  size: FormFieldSizes;
   isDisabled: boolean;
   side: Sides;
 };
 
 type HeadingProps = {
-  isCompact: boolean;
+  size: FormFieldSizes;
 };
 
 type MaxValueLengthMeasurementProps = {
-  isCompact: boolean;
+  size: FormFieldSizes;
 };
 
 type FormFieldLabelProps = {
-  isCompact: boolean;
+  size: FormFieldSizes;
   side: Sides;
   isFullWidth?: boolean;
 };
@@ -148,8 +149,8 @@ export const Heading = styled.p<HeadingProps>`
   margin: 0;
   padding: 0;
 
-  ${({ isCompact }) => {
-    return isCompact
+  ${({ size }) => {
+    return size === 'small'
       ? css`
           font-family: 'Red Hat Text', Verdana, sans-serif;
           font-size: 10px;
@@ -178,15 +179,15 @@ export const MaxValueLengthMeasurement = styled.span.attrs({
   white-space: pre;
   ${getTypographyCss('text-md')}
 
-  ${({ isCompact }) =>
-    isCompact &&
+  ${({ size }) =>
+    size === 'small' &&
     css`
       font-size: 0.875rem;
     `}
 `;
 
 export const FormFieldInputContainer = styled(FormFieldInputContainerBase)<FormFieldInputContainerProps>`
-  min-width: ${({ isCompact }) => (isCompact ? '56px' : '80px')};
+  min-width: ${({ size }) => (size === 'small' ? '56px' : '80px')};
   width: ${({ maxValueLength }) => (maxValueLength ? `${maxValueLength + 26}px` : 'unset')};
 `;
 
@@ -198,9 +199,9 @@ export const FormFieldInput = styled(FormFieldInputBase)<FormFieldInputProps>`
 export const FormFieldLabel = styled(FormFieldLabelBase)<FormFieldLabelProps>`
   text-align: ${({ side, isFullWidth }) => (side === 'left' || isFullWidth ? 'left' : 'right')};
 
-  ${({ isCompact, side, isFullWidth }) =>
+  ${({ size, side, isFullWidth }) =>
     !isFullWidth &&
-    isCompact &&
+    size === 'small' &&
     side === 'right' &&
     css`
       margin-right: 7px;
@@ -216,7 +217,7 @@ export const HintValue = styled.p.attrs({
   margin: 0;
   ${getTypographyCss('text-sm')}
   color: ${getColor('placeholder')};
-  height: ${({ isCompact }) => (isCompact ? '32px' : '48px')};
+  height: ${({ size }) => (size === 'small' ? '32px' : '48px')};
   margin-bottom: ${({ hasErrorPlaceholder }) => (hasErrorPlaceholder ? '1.5rem' : '0')};
   width: 100%;
   justify-content: ${({ side }) => (side === 'left' ? 'start' : 'end')};
@@ -379,8 +380,8 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
   height: 52px;
   position: relative;
 
-  ${({ isCompact }) =>
-    isCompact &&
+  ${({ size }) =>
+    size === 'small' &&
     css`
       height: 36px;
       padding: 12px 0 4px;

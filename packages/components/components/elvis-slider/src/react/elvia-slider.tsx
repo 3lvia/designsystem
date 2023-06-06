@@ -44,7 +44,7 @@ const Slider: React.FC<SliderProps> = ({
   hasPercent = false,
   hasTooltip = true,
   inlineStyle,
-  isCompact = false,
+  size = 'medium',
   isDisabled = false,
   label,
   max = 100,
@@ -435,11 +435,11 @@ const Slider: React.FC<SliderProps> = ({
         {...rest}
       >
         {heading && (
-          <Heading id={`${id}-heading`} isCompact={isCompact}>
+          <Heading id={`${id}-heading`} size={size}>
             {heading}
           </Heading>
         )}
-        <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} isCompact={isCompact}>
+        <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size}>
           {/* ↓ The actual HTML input type=range ↓*/}
           <StyledSlider
             aria-label={getAriaLabel({
@@ -510,7 +510,7 @@ const Slider: React.FC<SliderProps> = ({
         {/* ↓ The input fields  */}
         {hasInputField && (
           //hidden
-          <MaxValueLengthMeasurement ref={maxValueLengthMeasurementRef} isCompact={isCompact}>
+          <MaxValueLengthMeasurement ref={maxValueLengthMeasurementRef} size={size}>
             {max}
           </MaxValueLengthMeasurement>
         )}
@@ -525,7 +525,7 @@ const Slider: React.FC<SliderProps> = ({
           {hasHintValues && !(type === 'range' && hasInputField) && (
             <HintValue
               hasErrorPlaceholder={getHasErrorPlaceholder()}
-              isCompact={isCompact}
+              size={size}
               isDisabled={isDisabled}
               side={'left'}
             >
@@ -535,17 +535,17 @@ const Slider: React.FC<SliderProps> = ({
 
           {hasInputField && (
             <FormFieldContainer
-              isCompact={isCompact}
+              size={size}
               isDisabled={isDisabled}
               isInvalid={getErrorOptionValue('left', 'isErrorState') as boolean}
               isFullWidth={Object.values(replaceHintValueWithInput).includes(true) || fullWithRangeInputs}
               hasErrorPlaceholder={getHasErrorPlaceholder()}
               ref={leftFormFieldInputRef}
             >
-              <FormFieldLabel side={'left'} isCompact={isCompact} id={`${id}-left-label`}>
+              <FormFieldLabel side={'left'} size={size} id={`${id}-left-label`}>
                 <span ref={leftInputLabelLengthMeasurementRef}>{getLabel('left')}</span>
               </FormFieldLabel>
-              <FormFieldInputContainer isCompact={isCompact} maxValueLength={preferredInputLength}>
+              <FormFieldInputContainer size={size} maxValueLength={preferredInputLength}>
                 <FormFieldInput
                   aria-invalid={getErrorOptionValue('left', 'isErrorState') as boolean}
                   aria-disabled={isDisabled}
@@ -566,7 +566,7 @@ const Slider: React.FC<SliderProps> = ({
           {hasHintValues && !(type === 'range' && hasInputField) && (
             <HintValue
               hasErrorPlaceholder={getHasErrorPlaceholder()}
-              isCompact={isCompact}
+              size={size}
               isDisabled={isDisabled}
               side={'right'}
             >
@@ -576,7 +576,7 @@ const Slider: React.FC<SliderProps> = ({
 
           {hasInputField && type === 'range' && (
             <FormFieldContainer
-              isCompact={isCompact}
+              size={size}
               isDisabled={isDisabled}
               isInvalid={getErrorOptionValue('right', 'isErrorState') as boolean}
               hasErrorPlaceholder={getHasErrorPlaceholder()}
@@ -585,13 +585,13 @@ const Slider: React.FC<SliderProps> = ({
               <FormFieldLabel
                 side={'right'}
                 isFullWidth={fullWithRangeInputs}
-                isCompact={isCompact}
+                size={size}
                 id={`${id}-right-label`}
               >
                 <span ref={rightInputLabelLengthMeasurementRef}>{getLabel('right')}</span>
               </FormFieldLabel>
 
-              <FormFieldInputContainer isCompact={isCompact} maxValueLength={preferredInputLength}>
+              <FormFieldInputContainer size={size} maxValueLength={preferredInputLength}>
                 <FormFieldInput
                   aria-disabled={isDisabled}
                   aria-labelledby={heading ? `${id}-heading ${id}-right-label` : undefined}

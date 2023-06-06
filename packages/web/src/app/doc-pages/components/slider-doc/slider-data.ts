@@ -81,11 +81,11 @@ export const sliderData: ComponentData = {
       type: 'boolean',
     },
 
-    isCompact: {
-      default: 'false',
-      description: 'Set the slider to a smaller compact style.',
+    size: {
+      default: 'medium',
+      description: 'The size of the slider and its input field(s).',
       isRequired: false,
-      type: 'boolean',
+      type: '“medium” | “small”',
     },
 
     ariaLabel: {
