@@ -125,7 +125,6 @@ const Slider: React.FC<SliderProps> = ({
     if (type !== 'range' || sliderValues.right === sliderValues.left) {
       return 0;
     }
-
     return totalSliderWidth - leftThumbPosition - rightThumbPosition;
   };
 
@@ -178,9 +177,6 @@ const Slider: React.FC<SliderProps> = ({
     hasHintValues,
   ]);
 
-  /** Used to set the default value of the slider.
-   * If only a single number is given, give the number to the left thumb.
-   * If an Object is given, set the values to left and right. */
   useEffect(() => {
     if (value) {
       if (typeof value === 'number') {
@@ -192,7 +188,6 @@ const Slider: React.FC<SliderProps> = ({
       }
     }
 
-    /* If the user does not give a default value, set the value to the min and max. */
     setSliderValues({ left: min, right: max });
   }, [value, min, max]);
 
@@ -282,7 +277,6 @@ const Slider: React.FC<SliderProps> = ({
     const { name, value: incomingValue } = event.target as HTMLInputElement;
     let newSliderValue = +incomingValue;
 
-    //Prevents negative values from fast slider changes (bug).
     if (+incomingValue > max || +incomingValue < min) {
       return;
     }
