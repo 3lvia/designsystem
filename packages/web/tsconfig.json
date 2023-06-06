@@ -3,7 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "module": "es2020",
+    "module": "ES2020",
+    "target": "ES2022",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitThis": false, // TODO: Remove line -> fix errors
@@ -13,5 +14,16 @@
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
     "strictTemplates": true
-  }
+  },
+  "browserslist": [
+    "> .01%",
+    "not dead",
+    "last 3 Chrome versions",
+    "last 3 Firefox versions",
+    "last 3 Safari versions",
+    "last 2 Edge versions",
+    "last 1 version",
+    "Firefox ESR",
+    "not ie <= 11"
+  ]
 }
