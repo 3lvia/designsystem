@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { TooltipPopup as TooltipPopupBase } from '@elvia/elvis-toolbox';
-export { TooltipPopupProps } from '@elvia/elvis-toolbox';
 import { Sides } from '../elvia-slider.types';
 
 interface TooltipWrapperProps {

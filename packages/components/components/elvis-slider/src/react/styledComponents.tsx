@@ -7,7 +7,6 @@ import {
   FormFieldLabel as FormFieldLabelBase,
   FormFieldSizes,
 } from '@elvia/elvis-toolbox';
-export { LabelProps } from '@elvia/elvis-toolbox';
 import { BothSliders, Sides, SliderType } from './elvia-slider.types';
 
 //#region Types
