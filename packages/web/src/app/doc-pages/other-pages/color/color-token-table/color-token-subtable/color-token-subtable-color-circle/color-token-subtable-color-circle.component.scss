@@ -6,7 +6,7 @@
 }
 
 .border {
-  border: 1px solid var(--e-grey-10);
+  border: 1px solid var(--e-color-border-2);
 }
 
 .transparent {
@@ -19,13 +19,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
-    background-color: var(--e-grey-10);
+    background-color: var(--e-color-border-2);
   }
 }
 
 .black-white {
   position: relative;
-  border: 1px solid var(--e-grey-10);
+  border: 1px solid var(--e-color-border-2);
   &::before {
     content: '';
     position: absolute;
