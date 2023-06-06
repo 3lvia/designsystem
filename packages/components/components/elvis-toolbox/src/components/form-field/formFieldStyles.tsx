@@ -106,8 +106,8 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
         }
 
         ${FormFieldInputSuffixText} {
-          ${getTypographyCss('text-micro-strong')}
-          color: ${getThemeColor('text-3')};
+          ${getTypographyCss('text-sm-light')}
+          color: ${getThemeColor('color-text-2')};
           margin-right: 4px;
         }
       `;
@@ -175,8 +175,8 @@ export const FormFieldLabel = styled.div<LabelProps>`
 `;
 
 export const FormFieldInputSuffixText = styled.span`
-  ${getTypographyCss('text-sm-strong')}
-  color: ${getThemeColor('text-3')};
+  ${getTypographyCss('text-md-light')}
+  color: ${getThemeColor('color-text-2')};
   user-select: none;
   white-space: nowrap;
   margin-right: 8px;
