@@ -13,42 +13,47 @@ export class SliderCegComponent implements ComponentExample {
     {
       type: 'Simple',
       controls: {
-        hasInputField: { type: 'checkbox', group: 'Options', label: 'Input Field' },
-        hasHintValues: { type: 'checkbox', group: 'Options', label: 'Help Values' },
-        hasTooltip: { type: 'checkbox', group: 'Options', label: 'Display Tooltip', value: true },
-        hasPercent: {
-          type: 'checkbox',
-          group: 'Options',
-          label: 'Display Percentage',
-          childOf: 'hasTooltip',
+        heading: { type: 'text', group: 'Heading', label: 'Heading', placeholder: 'Add heading' },
+        size: {
+          type: 'radioGroup',
+          value: 'medium',
+          radios: [
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+          ],
+          group: 'Size',
         },
+        hasPercent: { type: 'switch', group: 'Options', label: 'Show percentage in tooltip' },
+        hasHintValues: { type: 'switch', group: 'Options', label: 'Help Values' },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
-        unit: { type: 'text', group: 'Unit', label: 'Unit' },
+        unit: { type: 'text', group: 'Unit', label: 'Unit', placeholder: 'Add unit' },
       },
       staticProps: {
         valueOnChange: () => '',
       },
-      groupOrder: ['Options', 'State', 'Unit'],
-      disabledControls: {
-        unit: ['hasPercent'],
-      },
+      groupOrder: ['Heading', 'Size', 'State', 'Options', 'Unit'],
     },
     {
       type: 'Range',
       controls: {
-        hasInputField: { type: 'checkbox', group: 'Options', label: 'Input Fields' },
-        hasHintValues: { type: 'checkbox', group: 'Options', label: 'Help Values' },
-        hasTooltip: { type: 'checkbox', group: 'Options', label: 'Display Tooltip', value: true },
+        heading: { type: 'text', group: 'Heading', label: 'Heading', placeholder: 'Add heading' },
+        size: {
+          type: 'radioGroup',
+          value: 'medium',
+          radios: [
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+          ],
+          group: 'Size',
+        },
+        hasPercent: { type: 'switch', group: 'Options', label: 'Show percentage in tooltip' },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
-        unit: { type: 'text', group: 'Unit', label: 'Unit' },
+        unit: { type: 'text', group: 'Unit', label: 'Unit', placeholder: 'Add unit' },
       },
       staticProps: {
         valueOnChange: () => '',
       },
-      groupOrder: ['Options', 'State', 'Unit'],
-      disabledControls: {
-        hasHintValues: ['hasInputField'],
-      },
+      groupOrder: ['Heading', 'Size', 'State', 'Options', 'Unit'],
     },
   ]);
 
