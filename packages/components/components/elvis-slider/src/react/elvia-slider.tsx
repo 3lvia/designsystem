@@ -6,11 +6,8 @@ import {
   IconWrapper,
   useInputModeDetection,
 } from '@elvia/elvis-toolbox';
-
 import { Tooltip } from './tooltip/tooltip';
-
 import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
-
 import {
   FormFieldInputValues,
   Sides,
@@ -19,7 +16,6 @@ import {
   ErrorOptionKeys,
   BothSliders,
 } from './elvia-slider.types';
-
 import {
   FormFieldInput,
   FormFieldInputContainer,
@@ -35,6 +31,7 @@ import {
   Heading,
 } from './styledComponents';
 import { calculateThumbPosition } from './utils/calculateThumbPosition';
+import { getAriaLabel } from './utils/getAriaLabel';
 
 let uniqueSliderId = 0;
 
@@ -375,42 +372,6 @@ const Slider: React.FC<SliderProps> = ({
     return 'Verdi';
   };
 
-  const getAriaLabel = (side: Sides): string => {
-    if (ariaLabel) {
-      return returnAriaLabelFromProp(side);
-    } else {
-      return generateAutomaticAriaLabel(side);
-    }
-  };
-
-  const returnAriaLabelFromProp = (side: Sides): string => {
-    if (typeof ariaLabel === 'object') {
-      return ariaLabel[side];
-    }
-
-    if (typeof ariaLabel === 'string') {
-      return ariaLabel;
-    }
-
-    return 'Glidebryter';
-  };
-
-  const generateAutomaticAriaLabel = (side: Sides): string => {
-    let newAriaLabel = '';
-    if (type === 'range') {
-      const prefix = side === 'left' ? 'Startverdi' : 'Sluttverdi';
-      newAriaLabel = `${prefix} ${heading ?? ''} rekkeviddeglidebryter ${
-        unit ? ' med verdi ' + sliderValues[side] + unit : ''
-      }`;
-    }
-
-    if (type === 'simple' && (heading || unit)) {
-      newAriaLabel = `${heading ?? ''} ${unit ? 'skyveknapp, ' + sliderValues.left + unit : ''}`;
-    }
-
-    return newAriaLabel ? newAriaLabel.replace(/\s+/g, ' ').trim() : 'Glidebryter';
-  };
-
   const getTooltipContent = (side: Sides) => {
     const value = side === 'left' ? sliderValues.left.toLocaleString() : sliderValues.right.toLocaleString();
 
@@ -499,7 +460,14 @@ const Slider: React.FC<SliderProps> = ({
         <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} isCompact={isCompact}>
           {/* ↓ The actual HTML input type=range ↓*/}
           <StyledSlider
-            aria-label={getAriaLabel('left')}
+            aria-label={getAriaLabel({
+              side: 'left',
+              sliderValues,
+              type,
+              ariaLabel,
+              heading,
+              unit,
+            })}
             aria-valuemax={max}
             aria-valuemin={min}
             disabled={isDisabled}
@@ -521,7 +489,14 @@ const Slider: React.FC<SliderProps> = ({
             <>
               {/* ↓ The actual HTML input type=range ↓*/}
               <StyledSlider
-                aria-label={getAriaLabel('right')}
+                aria-label={getAriaLabel({
+                  side: 'right',
+                  sliderValues,
+                  type,
+                  ariaLabel,
+                  heading,
+                  unit,
+                })}
                 aria-valuemax={max}
                 aria-valuemin={min}
                 disabled={isDisabled}
