@@ -2,6 +2,37 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.06.23",
+      "version": "3.4.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where Pagination would not emit a new value if the last page only contained a single item."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "05.06.23",
+      "version": "3.4.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Resolved an bug where Pagination failed to include the last index when on the final page.",
+            "Resolved an bug where Pagination would incorrectly select a page during initialization."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "<code>dropdownSelectedItemIndexOnChange</code> now emits its value before <code>valueOnChange</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.05.23",
       "version": "3.4.2",
       "changelog": [
