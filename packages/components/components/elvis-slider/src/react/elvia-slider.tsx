@@ -368,19 +368,7 @@ const Slider: React.FC<SliderProps> = ({
 
   const getTooltipContent = (side: Sides) => {
     const value = side === 'left' ? sliderValues.left.toLocaleString() : sliderValues.right.toLocaleString();
-
-    if (type === 'range') {
-      return `${value}${unit || ''}`;
-    }
-
-    if (type === 'simple') {
-      if (hasPercent) {
-        return `${percentValue} %`;
-      }
-      return `${value}${unit || ''}`;
-    }
-
-    return value;
+    return type === 'simple' && hasPercent ? `${percentValue} %` : `${value}${unit ?? ''}`;
   };
 
   const handleTooltip = (side?: Sides) => {
