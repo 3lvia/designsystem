@@ -20,10 +20,7 @@ export interface SliderProps extends BaseProps, HasValue<number | SliderValues> 
 export type SliderType = 'simple' | 'range';
 export type Sides = 'left' | 'right';
 
-export type BothSliders<T> = {
-  left: T;
-  right: T;
-};
+export type BothSliders<T> = Record<Sides, T>;
 
 export type SliderValues = BothSliders<number>;
 export type FormFieldInputValues = Partial<BothSliders<string>>;
