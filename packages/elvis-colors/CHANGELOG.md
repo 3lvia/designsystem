@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 2.7.1 (07.06.23)
+
+### Patch
+
+- Change dark grey-20 from #BDBDBD to #A1A1A1.
+
 ## 2.7.0 (01.06.23)
 
 ### New feature
