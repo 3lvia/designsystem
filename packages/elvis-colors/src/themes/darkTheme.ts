@@ -77,7 +77,7 @@ export const darkThemeColors = {
       contrastText: '#EDEDED',
     },
     'grey-20': {
-      color: '#BDBDBD',
+      color: '#A1A1A1',
       contrastText: '#171717',
     },
     'grey-10': {
