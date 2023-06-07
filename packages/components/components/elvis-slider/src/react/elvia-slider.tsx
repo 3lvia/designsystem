@@ -5,6 +5,7 @@ import {
   FormFieldErrorContainer,
   IconWrapper,
   useInputModeDetection,
+  warnDeprecatedProps,
 } from '@elvia/elvis-toolbox';
 import { Tooltip } from './tooltip/tooltip';
 import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
@@ -32,17 +33,17 @@ import {
 } from './styledComponents';
 import { calculateThumbPosition } from './utils/calculateThumbPosition';
 import { getAriaLabel } from './utils/getAriaLabel';
+import { config } from './config';
 
 let uniqueSliderId = 0;
 
-const Slider: React.FC<SliderProps> = ({
+const Slider: React.FC<SliderProps> = function ({
   ariaLabel,
   className,
   errorOptions,
   hasHintValues = false,
   hasInputField = false,
   hasPercent = false,
-  hasTooltip = true,
   inlineStyle,
   size = 'medium',
   isDisabled = false,
@@ -56,7 +57,9 @@ const Slider: React.FC<SliderProps> = ({
   valueOnChange,
   webcomponent,
   ...rest
-}) => {
+}) {
+  warnDeprecatedProps(config, arguments[0]);
+
   const [sliderValues, setSliderValues] = useState<SliderValues>({ left: min, right: max });
   const [formFieldInputValues, setFormFieldInputValues] = useState<FormFieldInputValues>({
     left: sliderValues.left.toString(),
@@ -463,7 +466,7 @@ const Slider: React.FC<SliderProps> = ({
             {...createHandleTooltipEvents('left')}
           />
 
-          {showTooltip.left && !isDisabled && (hasTooltip || inputMode === 'touch') && (
+          {showTooltip.left && !isDisabled && (
             <Tooltip content={getTooltipContent('left')} position={leftThumbPosition} />
           )}
 
@@ -491,7 +494,7 @@ const Slider: React.FC<SliderProps> = ({
                 {...createHandleTooltipEvents('right')}
               />
 
-              {showTooltip.right && !isDisabled && (hasTooltip || inputMode === 'touch') && (
+              {showTooltip.right && !isDisabled && (
                 <Tooltip side={'right'} content={getTooltipContent('right')} position={rightThumbPosition} />
               )}
             </>

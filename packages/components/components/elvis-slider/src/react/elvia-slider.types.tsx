@@ -5,7 +5,6 @@ export interface SliderProps extends BaseProps, HasValue<number | SliderValues> 
   hasHintValues?: boolean;
   hasInputField?: boolean;
   hasPercent?: boolean;
-  hasTooltip?: boolean;
   size?: FormFieldSizes;
   isDisabled?: boolean;
   label?: string | BothSliders<string>;
