@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["First version of the Chip component"]
+          "changes": ["First version of the Stepper component"]
         }
       ]
     }
