@@ -128,7 +128,7 @@ const disabledThumb = css`
 
 const focusOutlineThumb = css`
   outline-offset: 1px;
-  outline: 3px solid ${getColor('focus-outline')};
+  outline: 3px solid ${getBaseColor('focus-outline')};
 `;
 //#endregion
 
