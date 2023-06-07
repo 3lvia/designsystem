@@ -10,6 +10,7 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
 import { RouterModule } from '@angular/router';
 import { ColorTokenSubtableComponent } from './color-token-table/color-token-subtable/color-token-subtable.component';
 import { ColorTokenSubtableColorCircleComponent } from './color-token-table/color-token-subtable/color-token-subtable-color-circle/color-token-subtable-color-circle.component';
+import { CopyModule } from 'src/app/shared/copy/copy.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ColorTokenSubtableColorCircleComponent } from './color-token-table/colo
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
+    CopyModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
