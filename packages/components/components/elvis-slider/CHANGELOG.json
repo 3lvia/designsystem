@@ -8,16 +8,18 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "The <code>isCompact</code> prop has been replaced by the <code>size</code> prop. The default size is <code>'medium'</code>.",
+            "Slider now comes in two sizes, <code>medium</code> and <code>small</code>. The default size is <code>medium</code>.",
             "The <code>min</code> default value is now <code>0</code>.",
             "The <code>hasInputField</code> default value is now <code>true</code>.",
+            "The <code>hasHintValues</code> default value is now <code>true</code>.",
             "The <code>hasTooltip</code> prop has been removed. The tooltip is now always shown.",
             "Changes in spacing between elements."
           ],
           "fixes": [
             "Set the <code>size</code> prop to <code>'small'</code> get the the smaller size.",
             "Set the <code>min</code> prop to get a custom default value if the new one does not fit your application.",
-            "Set the <code>hasInputField</code> prop to <code>false</code> if the default value if the new one does not fit your application.",
+            "Set the <code>hasInputField</code> prop to <code>false</code> if the default value does not fit your application.",
+            "Set the <code>hasHintValues</code> prop to <code>false</code> if the default value does not fit your application.",
             "Remove the <code>hasTooltip</code> prop from your code.",
             "Ensure the slider's height still fits in your design."
           ]
@@ -25,10 +27,10 @@
         {
           "type": "new_feature",
           "changes": [
+            "Slider now comes in two sizes, <code>medium</code> and <code>small</code>.",
             "Slider now supports dark theme.",
             "Slider can get a custom heading by using the <code>heading</code> prop.",
             "Slider is now more responsive and automatically adjusts to the available space.",
-            "Slider now comes in two sizes, <code>medium</code> and <code>small</code>.",
             "Slider now uses <code>input type='text'</code> instead of <code>input type='number'</code>.",
             "You can give the inputs for a slider custom errors using the <code>errorOptions</code> prop.",
             "You can now customize the <code>aria-label</code> using the <code>ariaLabel</code> prop."
