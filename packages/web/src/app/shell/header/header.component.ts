@@ -93,4 +93,8 @@ export class HeaderComponent {
     this.searchMenu.detach(this.searchOverlay);
     this.searchMenuOpen = false;
   }
+
+  toggleTheme = () => {
+    document.body.classList.toggle('e-theme-dark');
+  };
 }

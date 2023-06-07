@@ -17,10 +17,6 @@ interface StepStates {
   styleUrls: ['./v2-playground.component.scss'],
 })
 export class v2PlaygroundComponent {
-  toggleTheme = () => {
-    document.body.classList.toggle('e-theme-dark');
-  };
-
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;

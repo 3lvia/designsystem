@@ -48,8 +48,8 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
           (prop) => !disabledControls.includes(prop.name),
         );
 
-        this.angularCode = this.createWebComponentCode(props, slots, '[', ']');
-        this.vueCode = this.createWebComponentCode(props, slots, ':');
+        this.angularCode = this.createWebComponentCode(props, slots, '[', ']', '(', ')');
+        this.vueCode = this.createWebComponentCode(props, slots, ':', '', '@');
         this.reactCode = this.createReactCode(props, slots);
 
         /**
@@ -92,7 +92,10 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         value,
         isStatic: true,
       }));
-      props.unshift(...(staticPropsArray as Prop[]));
+      const eventProps = staticPropsArray.filter((prop) => typeof prop.value === 'function');
+      const otherProps = staticPropsArray.filter((prop) => typeof prop.value !== 'function');
+      props.push(...(eventProps as Prop[]));
+      props.unshift(...(otherProps as Prop[]));
     }
     if (type) {
       props.unshift({ name: 'type', value: type.toLowerCase() });
@@ -188,6 +191,8 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     slots: string[],
     attributePrefix = '',
     attributePostfix = '',
+    eventPrefix = '',
+    eventPostfix = '',
   ): string {
     const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
     return `<elvia-${this.elementName} ${propsToInclude
@@ -196,6 +201,8 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         switch (typeof prop.value) {
           case 'string':
             return `${propName}="'${prop.value}'" `;
+          case 'function':
+            return `${eventPrefix}${prop.name}${eventPostfix}="handleOnChange($event.detail.value)" `;
           default:
             /** JSON.stringify gives us a string with double quotes for objects,
              * which we need to replace with single quotes for the web components. */
@@ -217,6 +224,8 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         switch (typeof prop.value) {
           case 'string':
             return `${prop.name}={"${prop.value}"}`;
+          case 'function':
+            return `${prop.name}={(event) => handleOnChange(event)}`;
           default:
             return `${prop.name}={${JSON.stringify(prop.value)}}`;
         }
