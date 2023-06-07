@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor, getBaseColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import {
   FormFieldInput as FormFieldInputBase,
@@ -78,9 +78,9 @@ const removeDefaultStyles = css`
 
 const defaultThumb = css`
   aspect-ratio: 1/1;
-  background-color: ${getColor('black')};
+  background-color: ${getThemeColor('color-text-1')};
   border-radius: 50%;
-  border: solid 1.5px ${getColor('white')};
+  border: solid 1.5px ${getThemeColor('color-background-1')};
   cursor: pointer;
   height: 16px;
   opacity: 1;
@@ -92,37 +92,37 @@ const defaultThumb = css`
   z-index: 3;
 
   @media (hover: none) and (pointer: coarse) {
-    border: solid 2px ${getColor('white')};
+    border: solid 2px ${getThemeColor('color-background-1')};
     height: 24px;
     width: 24px;
   }
 `;
 
 const activeThumb = css`
-  background-color: ${getColor('green')};
-  border: solid 1px ${getColor('white')};
+  background-color: ${getThemeColor('color-background-hover-1')};
+  border: solid 1px ${getThemeColor('color-background-1')};
   cursor: grabbing;
   height: 20px;
   transition: background-color 0.1s;
   width: 20px;
 
   @media (hover: none) and (pointer: coarse) {
-    border: solid 2px ${getColor('white')};
+    border: solid 2px ${getThemeColor('color-background-1')};
     height: 28px;
     width: 28px;
   }
 `;
 
 const hoverThumb = css`
-  border: solid 1px ${getColor('white')};
+  border: solid 1px ${getThemeColor('color-background-1')};
   height: 20px;
   width: 20px;
 `;
 
 const disabledThumb = css`
   opacity: 1;
-  background-color: ${getColor('grey-30')};
-  border: solid 1.5px ${getColor('white')};
+  background-color: ${getThemeColor('color-text-disabled-1')};
+  border: solid 1.5px ${getThemeColor('color-background-1')};
   cursor: not-allowed;
 `;
 
@@ -215,7 +215,7 @@ export const HintValue = styled.p.attrs({
   align-items: center;
   margin: 0;
   ${getTypographyCss('text-sm')}
-  color: ${getColor('placeholder')};
+  color: ${getThemeColor('color-text-3')};
   height: ${({ size }) => (size === 'small' ? '32px' : '48px')};
   margin-bottom: ${({ hasErrorPlaceholder }) => (hasErrorPlaceholder ? '1.5rem' : '0')};
   width: 100%;
@@ -224,7 +224,7 @@ export const HintValue = styled.p.attrs({
   ${({ isDisabled }) =>
     isDisabled &&
     css`
-      color: ${getColor('disabled')};
+      color: ${getThemeColor('color-text-disabled-1')};
       user-select: none;
     `}
 `;
@@ -396,12 +396,16 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
 `;
 
 export const SliderTrack = styled.div`
-  background-color: ${getColor('grey-20')};
+  background-color: ${getBaseColor('grey-20')};
   border-radius: 50px;
   height: 3px;
   position: absolute;
   width: 100%;
   z-index: 1;
+
+  .e-theme-dark && {
+    background-color: ${getBaseColor('grey-20', 'dark')};
+  }
 `;
 
 //`left` and `width` are as inline styles to avoid creating new classnames on every change
@@ -413,7 +417,8 @@ export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>(
     },
   }),
 )<SliderFilledTrackProps>`
-  background-color: ${({ isDisabled }) => (isDisabled ? getColor('grey-30') : getColor('black'))};
+  background-color: ${({ isDisabled }) =>
+    isDisabled ? getThemeColor('color-border-disabled-1') : getThemeColor('color-text-1')};
   border-radius: 50px;
   height: 5px;
   position: absolute;

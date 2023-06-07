@@ -1,10 +1,8 @@
 {
   "name": "@elvia/elvis-slider",
   "version": "3.0.0",
-  "description": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/slider",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",
@@ -16,7 +14,7 @@
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^2.6.1",
-    "@elvia/elvis-colors": "^1.4.3",
+    "@elvia/elvis-colors": "^2.7.1",
     "@elvia/elvis-component-wrapper": "^4.0.0",
     "@elvia/elvis-toolbox": "9.1.1",
     "@elvia/elvis-typography": "^2.3.1",
