@@ -205,6 +205,7 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   opacity: ${({ isOpenState, type }) => decideContentOpacity(isOpenState, type)};
   overflow-y: hidden;
   transition: all ${({ contentHeight }) => decideContentTransitionDuration(contentHeight)} ${bezierCurve};
+  transition-property: opacity, max-height, visibility;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
