@@ -83,7 +83,7 @@ const getTokens = (hex: string, theme?: ThemeName) => {
   }
 };
 
-export const getColorElement = (colorName: LightThemeColorName, theme?: ThemeName) =>
+export const getColorElement = (colorName: DarkThemeColorName | LightThemeColorName, theme?: ThemeName) =>
   <ColorElement>{
     name: colorName,
     hex: getBaseColor(colorName, theme),
