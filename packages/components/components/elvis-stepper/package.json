@@ -1,10 +1,8 @@
 {
   "name": "@elvia/elvis-stepper",
   "version": "1.0.0",
-  "description": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/stepper",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",
