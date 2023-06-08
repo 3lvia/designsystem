@@ -58,7 +58,7 @@ export type TableColorArray<TToken extends ColorLabel = ColorLabel> = DeepReadon
 
 export const textColorsDefault = [
   {
-    token: 'text-2',
+    token: 'text-1',
     role: 'Primary text',
     light: { hex: getColor('text-1', 'light'), label: 'Black' },
     dark: { hex: getColor('text-1', 'dark'), label: 'Dark-white' },
