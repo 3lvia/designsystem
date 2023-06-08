@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.06.23",
+      "version": "3.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where teh Date Range Picker would not show its given default value before interacting with the input."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Bumped <code>@elvia/elvis-timepicker</code> dependency."]
+        }
+      ]
+    },
+    {
       "date": "01.06.23",
       "version": "3.0.1",
       "changelog": [
