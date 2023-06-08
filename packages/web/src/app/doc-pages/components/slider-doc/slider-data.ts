@@ -12,29 +12,22 @@ export const sliderData: ComponentData = {
       type: '“simple” | “range”',
     },
     hasInputField: {
-      default: 'false',
+      default: 'true',
       description: 'Decides if the slider should have input field(s).',
       isRequired: false,
       type: 'boolean',
     },
     hasHintValues: {
-      default: 'false',
-      description:
-        'Display the minimum and maximum values at each end of the slider. Unavailable for type="range" with hasInputField="true".',
-      isRequired: false,
-      type: 'boolean',
-    },
-    hasTooltip: {
       default: 'true',
       description:
-        'Determine whether to show a tooltip when using the slider. Note: A tooltip is always displayed on touch devices.',
+        'Display the minimum and maximum values at each end of the slider. Unavailable for type="range" with hasInputField="true".',
       isRequired: false,
       type: 'boolean',
     },
     hasPercent: {
       default: 'false',
       description:
-        'Show the percentage in the tooltip, not the actual value. Only available for a type="simple".',
+        'Display the current value as a percentage of the minimum and maximum value in the tooltip. I.e., this prop gives you a visual representation of how far you are from the lowest to the highest value on the slider.',
       isRequired: false,
       type: 'boolean',
     },
