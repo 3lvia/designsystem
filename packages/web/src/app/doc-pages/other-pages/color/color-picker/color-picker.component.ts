@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getThemeColor, getBaseColor, lightThemeColors, darkThemeColors } from '@elvia/elvis-colors';
 import { lightColors } from './colors-light';
+import { darkColors } from './colors-dark';
 
 @Component({
   selector: 'app-color-picker',
@@ -8,9 +9,11 @@ import { lightColors } from './colors-light';
   styleUrls: ['./color-picker.component.scss'],
 })
 export class ColorPickerComponent {
+  isLightTheme = true;
   toggleTheme = () => {
     document.getElementsByClassName('theme-container')[0].classList.toggle('e-theme-dark');
-    const colorList = lightColors;
-    console.log(colorList);
+    this.isLightTheme = !this.isLightTheme;
   };
+
+  colorList = this.isLightTheme ? lightColors : darkColors;
 }
