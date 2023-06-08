@@ -18,13 +18,19 @@ type Colors = (TableArray | TableTitle)[];
   styleUrls: ['./color-token-subtable.component.scss'],
 })
 export class ColorTokenSubtableComponent implements OnInit {
-  @Input() colors: Colors;
-  @Input() title: string;
-  @Input() subtitle: string;
+  @Input({ required: true }) colors: Colors;
+  @Input({ required: true }) title: string;
+  @Input({ required: true }) subtitle: string;
 
+  @Input({ required: true }) set searchValue(value: string) {
+    this.updateFilter(value);
+  }
+
+  isVisible = true;
   isOpen = false;
   hasExampleColumn = false;
   hasRoleColumn = false;
+  visibleColors: Colors;
 
   ngOnInit(): void {
     this.colors.forEach((category) => {
@@ -39,5 +45,30 @@ export class ColorTokenSubtableComponent implements OnInit {
         });
       }
     });
+    this.visibleColors = this.colors;
+  }
+
+  private updateFilter(value: string) {
+    if (value) {
+      this.visibleColors = this.colors
+        .filter((entry): entry is TableArray => entry.type === 'colors')
+        .map((entry) => ({
+          type: 'colors',
+          colors: entry.colors.filter((color) =>
+            color.token.toLowerCase().includes(value.trim().toLowerCase()),
+          ),
+        }));
+      if (this.visibleColors.some((entry) => entry.type === 'colors' && entry.colors.length)) {
+        this.isOpen = true;
+        this.isVisible = true;
+      } else {
+        this.isOpen = false;
+        this.isVisible = false;
+      }
+    } else {
+      this.visibleColors = this.colors;
+      this.isVisible = true;
+      this.isOpen = false;
+    }
   }
 }
