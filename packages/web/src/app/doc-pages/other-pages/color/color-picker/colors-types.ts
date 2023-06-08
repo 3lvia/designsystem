@@ -15,5 +15,3 @@ export interface ColorsObject {
 }
 
 type ContrastType = '' | 'Large AA' | 'AA' | 'AAA';
-
-export type ThemeType = 'light' | 'dark';

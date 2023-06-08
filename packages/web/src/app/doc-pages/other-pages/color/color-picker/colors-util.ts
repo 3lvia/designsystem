@@ -2,11 +2,12 @@ import {
   ColorLabel,
   DarkThemeColorName,
   LightThemeColorName,
+  ThemeName,
   darkTheme,
   getBaseColor,
   lightTheme,
 } from '@elvia/elvis-colors';
-import { ColorElement, ThemeType } from './colors-types';
+import { ColorElement } from './colors-types';
 
 const hexToRgb = (hex: string): number[] | null => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -59,7 +60,7 @@ export const getContrastValue = (
   return '';
 };
 
-const getTokens = (hex: string, theme?: ThemeType) => {
+const getTokens = (hex: string, theme?: ThemeName) => {
   const foundLabels: ColorLabel[] = [];
   if (theme === 'dark') {
     Object.values(darkTheme).forEach((category) =>
@@ -82,7 +83,7 @@ const getTokens = (hex: string, theme?: ThemeType) => {
   }
 };
 
-export const getColorElement = (colorName: LightThemeColorName, theme?: ThemeType) =>
+export const getColorElement = (colorName: LightThemeColorName, theme?: ThemeName) =>
   <ColorElement>{
     name: colorName,
     hex: getBaseColor(colorName, theme),

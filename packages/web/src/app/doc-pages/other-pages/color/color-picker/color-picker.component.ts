@@ -12,7 +12,6 @@ export class ColorPickerComponent {
   toggleTheme = () => {
     document.getElementsByClassName('theme-container')[0].classList.toggle('e-theme-dark');
     this.isDarkTheme = !this.isDarkTheme;
-    console.log(this.isDarkTheme ? lightColors : darkColors);
   };
 
   colorList = this.isDarkTheme ? darkColors : lightColors;
