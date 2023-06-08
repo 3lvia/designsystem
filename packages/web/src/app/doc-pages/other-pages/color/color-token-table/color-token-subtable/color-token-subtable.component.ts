@@ -1,16 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TableColorArray } from '../colors';
 
-interface TableTitle {
-  type: 'title';
-  title: string;
-  description: string;
-}
-interface TableArray {
-  type: 'colors';
+type Colors = {
   colors: TableColorArray;
-}
-type Colors = (TableArray | TableTitle)[];
+  title?: string;
+  description?: string;
+}[];
 
 @Component({
   selector: 'app-color-token-subtable',
@@ -21,7 +16,6 @@ export class ColorTokenSubtableComponent implements OnInit {
   @Input({ required: true }) colors: Colors;
   @Input({ required: true }) title: string;
   @Input({ required: true }) subtitle: string;
-
   @Input({ required: true }) set searchValue(value: string) {
     this.updateFilter(value);
   }
@@ -34,31 +28,31 @@ export class ColorTokenSubtableComponent implements OnInit {
 
   ngOnInit(): void {
     this.colors.forEach((category) => {
-      if (category.type === 'colors') {
-        category.colors.forEach((color) => {
-          if (typeof color.example !== 'undefined') {
-            this.hasExampleColumn = true;
-          }
-          if (typeof color.role !== 'undefined') {
-            this.hasRoleColumn = true;
-          }
-        });
-      }
+      category.colors.forEach((color) => {
+        if (typeof color.example !== 'undefined') {
+          this.hasExampleColumn = true;
+        }
+        if (typeof color.role !== 'undefined') {
+          this.hasRoleColumn = true;
+        }
+      });
     });
     this.visibleColors = this.colors;
   }
 
   private updateFilter(value: string) {
     if (value) {
-      this.visibleColors = this.colors
-        .filter((entry): entry is TableArray => entry.type === 'colors')
-        .map((entry) => ({
-          type: 'colors',
-          colors: entry.colors.filter((color) =>
-            color.token.toLowerCase().includes(value.trim().toLowerCase()),
-          ),
-        }));
-      if (this.visibleColors.some((entry) => entry.type === 'colors' && entry.colors.length)) {
+      this.visibleColors = this.colors.map((entry) => {
+        const newColors = entry.colors.filter((color) =>
+          color.token.toLowerCase().includes(value.trim().toLowerCase()),
+        );
+        return {
+          title: newColors.length > 0 ? entry.title : undefined,
+          description: newColors.length > 0 ? entry.description : undefined,
+          colors: newColors,
+        };
+      });
+      if (this.visibleColors.some((entry) => entry.colors && entry.colors.length)) {
         this.isOpen = true;
         this.isVisible = true;
       } else {
