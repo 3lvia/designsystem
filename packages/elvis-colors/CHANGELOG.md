@@ -1,5 +1,25 @@
 # Elvia Colors Changelog
 
+## 2.7.1 (07.06.23)
+
+### Patch
+
+- Change dark grey-20 from #BDBDBD to #A1A1A1.
+
+## 2.7.0 (01.06.23)
+
+### New feature
+
+- Added new theme color label: `border-6`.
+
+## 2.6.0 (01.06.23)
+
+### New feature
+
+- `getThemeColor` and `getThemeColorContrast` now accepts labels with or without a `color-`-prefix.
+- `getThemeColor` and `getThemeColorContrast` will now throw an error if a color (or contrast) is not found,
+  instead of returning an empty string.
+
 ## 2.5.0 (26.05.23)
 
 ### New feature

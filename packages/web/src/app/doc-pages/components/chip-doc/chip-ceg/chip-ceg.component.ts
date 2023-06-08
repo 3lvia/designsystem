@@ -41,6 +41,9 @@ export class ChipCegComponent implements ComponentExample {
         },
       },
       groupOrder: ['Color', 'State', 'Text'],
+      staticProps: {
+        onDelete: () => '',
+      },
     },
     {
       type: 'Legend',
@@ -73,6 +76,9 @@ export class ChipCegComponent implements ComponentExample {
         },
       },
       groupOrder: ['Color', 'State', 'Text'],
+      staticProps: {
+        isSelectedOnChange: () => '',
+      },
     },
     {
       type: 'Choice',
@@ -86,10 +92,17 @@ export class ChipCegComponent implements ComponentExample {
         },
       },
       groupOrder: ['Text'],
+      staticProps: {
+        isSelectedOnChange: () => '',
+      },
     },
   ]);
 
   handleOnChange(value: number): void {
-    console.log('Selected value: ', value);
+    console.log('New value:', value);
+  }
+
+  handleOnDelete(value: string): void {
+    console.log('Chip should be deleted: ', value);
   }
 }

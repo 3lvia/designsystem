@@ -12,13 +12,13 @@ const datepickerData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: Date) => CustomEvent',
+      type: '(value: Date) => void',
       description:
         'Gets called every time the value is changed. Returns null if input field is empty, or Invalid Date if input is not a valid date.',
     },
     valueOnChangeISOString: {
       isRequired: false,
-      type: '(value: string | null) => CustomEvent',
+      type: '(value: string | null) => void',
       description: `Gets called every time the value is changed. Returns a string containing the chosen date, without time, in ISO format (e.g. '2022-06-20'), or null if no date is selected.`,
     },
     label: {
@@ -121,6 +121,7 @@ const datepickerData: ComponentData = {
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
       description:
         'An object that allows for custom configuration of the error handling in the date picker. Setting "text" will always show the provided error message. "hideText" hides the default validation errors. "isErrorState" allows for manually activating the visual error UI. "hasErrorPlaceholder" allows you to remove the padding below the date picker.',
+      default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
     },
     errorOnChange: {
       isRequired: false,

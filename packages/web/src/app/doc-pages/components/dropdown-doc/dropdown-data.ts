@@ -23,6 +23,7 @@ export const dropdownData: ComponentData = {
       type: 'Partial<{ text: string; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
       description:
         'An object that allows for custom configuration of the error handling in the dropdown. Setting "text" will always show the provided error message. "isErrorState" allows for manually activating the visual error UI. "hasErrorPlaceholder" allows you to remove the padding below the dropdown.',
+      default: '{ isErrorState: false, hasErrorPlaceholder: true }',
     },
     size: {
       isRequired: false,
@@ -105,12 +106,12 @@ export const dropdownData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(values: string | string[]) => CustomEvent',
+      type: '(values: string | string[]) => void',
       description: `Gets called every time an option(s) is selected and returns an array of selected objects.`,
     },
     onItemHover: {
       isRequired: false,
-      type: '(value: string | undefined) => CustomEvent',
+      type: '(value: string | undefined) => void',
       description: `Gets called every time an option is hovered and returns the hovered object.`,
     },
     hasLoadMoreItemsButton: {

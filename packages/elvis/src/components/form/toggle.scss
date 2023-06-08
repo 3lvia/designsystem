@@ -76,7 +76,8 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
     }
   }
 
-  &.e-toggle--compact {
+  &.e-toggle--compact,
+  &.e-toggle--small {
     // Compact Label
     @include typography.typography('text-small');
   }

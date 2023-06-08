@@ -40,7 +40,6 @@
               "@elvia/elvis-assets-icons/config/icons.config.js",
               "hoist-non-react-statics",
               "json5",
-              "lodash.debounce",
               "lodash.isequal",
               "lodash.throttle",
               "natural-compare-lite",
@@ -49,7 +48,11 @@
               "prettier/parser-html",
               "prettier/parser-postcss",
               "prettier/standalone",
-              "react-dom/client"
+              "react-dom/client",
+              "@elvia/elvis-toolbox",
+              "dompurify",
+              "shallowequal",
+              "lodash.uniqueid"
             ],
             "index": "src/index.html",
             "main": "src/main.ts",

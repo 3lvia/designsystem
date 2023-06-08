@@ -43,6 +43,7 @@ export type BorderLabels =
   | 'border-3'
   | 'border-4'
   | 'border-5'
+  | 'border-6'
   | 'border-disabled-1'
   | 'border-hover-1'
   | 'border-selected-1'

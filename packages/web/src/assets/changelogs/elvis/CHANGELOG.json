@@ -1,6 +1,53 @@
 {
   "content": [
     {
+      "version": "12.0.1",
+      "date": "June 02, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Re-exported the <code>piggy_bank-color</code> icon to fix an issue."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "12.0.0",
+      "date": "May 30, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "<code>e-form-field--medium</code>, <code>e-form-field--small</code> and <code>e-form-field--combined</code> (with all classes under this class) has been removed. This is because these classes were not really used and makes more sense for projects to implement themselves."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }],
+          "fixes": [
+            "New styling will have to be added to replace the positioning styling these classes provided. This can be easily done be for example <code>flex</code> to position the fields next to each other and to fix the width of the input just add the <code>width</code> css attribute and the desired width."
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": [
+            "Renamed the sizes for all input components from compact to small. E.g. <code>e-radio--compact</code> is renamed to <code>e-radio--small</code> and will need to be updated in the future."
+          ],
+          "components": [
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Radio Button", "url": "https://design.elvia.io/components/radiobutton" },
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Autocomplete", "url": "https://design.elvia.io/components/autocomplete" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fix for <code>e-form-field--full-width</code> class."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "11.6.0",
       "date": "April 28, 2023",
       "changelog": [

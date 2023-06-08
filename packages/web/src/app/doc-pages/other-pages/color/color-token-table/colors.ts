@@ -313,6 +313,13 @@ export const borderColors = [
     dark: { hex: getColor('border-5', 'dark'), label: 'Transparent' },
     links: [{ title: 'Box', path: '/components/box' }],
   },
+  {
+    token: 'border-6',
+    role: 'Border color option 6',
+    light: { hex: getColor('border-6', 'light'), label: 'Grey-60' },
+    dark: { hex: getColor('border-6', 'dark'), label: 'Dark-grey-20' },
+    links: [{ title: 'Table', path: '/components/table' }],
+  },
 ] as const satisfies TableColorArray<BorderLabels>;
 
 export const borderColorsStates = [

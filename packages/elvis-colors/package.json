@@ -1,19 +1,21 @@
 {
   "name": "@elvia/elvis-colors",
-  "version": "2.5.0",
+  "version": "2.7.1",
   "description": "Elvia colors",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "gulp && tsup",
+    "build": "gulp && tsup && yarn sourcemap",
+    "sourcemap": "tsc",
     "start": "tsup --watch"
   },
   "files": [
     "CHANGELOG.json",
     "README.md",
-    "dist/**/*"
+    "dist/**/*",
+    "!dist/**/*.d.ts.map"
   ],
   "devDependencies": {
     "@types/gulp": "^4.0.10",

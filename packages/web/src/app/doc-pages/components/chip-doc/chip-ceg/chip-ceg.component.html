@@ -1,1 +1,5 @@
-<elvia-chip [isSelected]="true" (isSelectedOnChange)="handleOnChange($any($event).detail.value)" />
+<elvia-chip
+  [isSelected]="true"
+  (isSelectedOnChange)="handleOnChange($any($event).detail.value)"
+  (onDelete)="handleOnDelete($any($event).detail.value)"
+/>

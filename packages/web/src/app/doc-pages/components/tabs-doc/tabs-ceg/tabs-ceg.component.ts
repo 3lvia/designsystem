@@ -18,11 +18,12 @@ export class TabsCegComponent implements ComponentExample {
         value: 0,
         items: ['Electric car', 'AMS-meter', 'HAN-port'],
         ariaLabel: 'Simple tab list example',
+        valueOnChange: () => '',
       },
     },
   ]);
 
-  handleOnChange(newIndex: number): void {
-    console.log('The new tab index is', newIndex);
+  handleOnChange(value: number): void {
+    console.log('New value:', value);
   }
 }

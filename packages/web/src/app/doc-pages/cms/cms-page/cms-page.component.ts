@@ -1,13 +1,14 @@
-import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest, Subscription } from 'rxjs';
+import { combineLatest } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
 import { ElvisComponentWrapper } from '../../../../../../components/components/elvis-component-wrapper/dist/elvia-component';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-cms-page',
@@ -15,9 +16,7 @@ import { ElvisComponentWrapper } from '../../../../../../components/components/e
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class CMSPageComponent implements OnDestroy {
-  routerSubscription: Subscription;
-
+export class CMSPageComponent {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;
   showContentLoader = true;
   contentHTML: SafeHtml = '';
@@ -43,27 +42,24 @@ export class CMSPageComponent implements OnDestroy {
     }
     this.checkIfPageExistsInProject();
 
-    const localizationSub = this.localizationService.listenLocalization();
-    this.routerSubscription = combineLatest([localizationSub, this.activatedRoute.url]).subscribe((value) => {
-      const firstRoute = value[1][0]?.path;
-      const secondRoute = value[1][1]?.path;
-      this.checkIfPageExistsInProject();
-      if (this.hasChecked && this.isCmsPage) {
-        if (firstRoute === 'preview' && secondRoute) {
-          this.getDocPageFromCMS(value[0], secondRoute);
-        } else if (!environment.production) {
-          this.getDocPageFromCMS(value[0]);
+    combineLatest([this.localizationService.listenLocalization(), this.activatedRoute.url])
+      .pipe(takeUntilDestroyed())
+      .subscribe((value) => {
+        const firstRoute = value[1][0]?.path;
+        const secondRoute = value[1][1]?.path;
+        this.checkIfPageExistsInProject();
+        if (this.hasChecked && this.isCmsPage) {
+          if (firstRoute === 'preview' && secondRoute) {
+            this.getDocPageFromCMS(value[0], secondRoute);
+          } else if (!environment.production) {
+            this.getDocPageFromCMS(value[0]);
+          } else {
+            this.getDocPageFromPreGeneratedList(value[0]);
+          }
         } else {
-          this.getDocPageFromPreGeneratedList(value[0]);
+          this.cmsService.contentLoadedFromCMS();
         }
-      } else {
-        this.cmsService.contentLoadedFromCMS();
-      }
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.routerSubscription && this.routerSubscription.unsubscribe();
+      });
   }
 
   /**

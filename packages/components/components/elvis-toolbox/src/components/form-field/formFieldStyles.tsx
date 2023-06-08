@@ -18,11 +18,17 @@ export const FormFieldInputContainer = styled.div`
   align-items: center;
   gap: 8px;
   padding: 0 8px 0 16px;
-  border: 1px solid ${getThemeColor('text-1')};
+  color: ${getThemeColor('text-1')};
+  border: 1px solid ${getThemeColor('border-1')};
+  background: ${getThemeColor('background-element-1')};
   height: 48px;
   border-radius: 4px;
   cursor: text;
   transition: border-color 150ms;
+  .e-table && {
+    border: 1px solid ${getThemeColor('border-6')};
+    background: transparent;
+  }
 `;
 
 export interface FormFieldContainerProps {
@@ -37,10 +43,11 @@ export interface FormFieldContainerProps {
 /**
  *
  * @example
- * <FormFieldContainer size="small" isFullWidth isActive isInvalid isDisabled>
+ * <FormFieldContainer size="small" isFullWidth isActive isInvalid isDisabled >
  *   <FormFieldLabel hasOptionalText>Label text</FormFieldLabel>
  *   <FormFieldInputContainer>
  *     <FormFieldInput />
+ *     <FormFieldInputSuffixText>Suffix text</FormFieldInputSuffixText>
  *   </FormFieldInputContainer>
  * </FormFieldContainer>
  *
@@ -85,6 +92,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
         }
 
         ${FormFieldInputContainer} {
+          gap: 4px;
           padding: 0 4px 0 8px;
           height: 32px;
         }
@@ -95,6 +103,12 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
 
         ${FormFieldError} {
           ${getTypographyCss('text-micro')}
+        }
+
+        ${FormFieldInputSuffixText} {
+          ${getTypographyCss('text-sm-light')}
+          color: ${getThemeColor('color-text-2')};
+          margin-right: 4px;
         }
       `;
     }
@@ -112,6 +126,11 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
           cursor: not-allowed;
           border-color: ${getThemeColor('border-disabled-1')};
         }
+      }
+
+      ${FormFieldInputSuffixText} {
+        color: ${getThemeColor('text-disabled-1')};
+        -webkit-text-fill-color: ${getThemeColor('text-disabled-1')};
       }
     `};
 
@@ -133,7 +152,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
     `}
 
   ${FormFieldInputContainer}:focus-within {
-    ${(props) => setActiveBorder(props.size)}
+    ${({ size }) => setActiveBorder(size)}
   }
 `;
 
@@ -145,8 +164,8 @@ export const FormFieldLabel = styled.div<LabelProps>`
   ${getTypographyCss('text-label')}
   margin-bottom: 5px;
 
-  ${(props) =>
-    props.hasOptionalText &&
+  ${({ hasOptionalText }) =>
+    hasOptionalText &&
     css`
       &::after {
         content: ' (valgfri)';
@@ -155,7 +174,15 @@ export const FormFieldLabel = styled.div<LabelProps>`
     `}
 `;
 
-export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
+export const FormFieldInputSuffixText = styled.span`
+  ${getTypographyCss('text-md-light')}
+  color: ${getThemeColor('color-text-2')};
+  user-select: none;
+  white-space: nowrap;
+  margin-right: 8px;
+`;
+
+export const FormFieldInput = styled.input`
   ${getTypographyCss('text-md')}
   min-width: 0;
   padding: 0;
@@ -166,5 +193,6 @@ export const FormFieldInput = styled.input.attrs(() => ({ type: 'text' }))`
 
   &:disabled {
     color: ${getThemeColor('text-disabled-1')};
+    -webkit-text-fill-color: ${getThemeColor('text-disabled-1')};
   }
 `;

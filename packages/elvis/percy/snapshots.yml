@@ -1,8 +1,5 @@
 baseUrl: http://localhost:3333
 snapshots:
-  - url: /components/accordion.html
-    name: Accordion
-    widths: [766, 1440]
   - url: /components/alert.html
     name: Alert
     widths: [766, 1440]

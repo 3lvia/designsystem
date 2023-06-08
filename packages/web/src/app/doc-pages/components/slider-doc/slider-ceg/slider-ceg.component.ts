@@ -25,6 +25,9 @@ export class SliderCegComponent implements ComponentExample {
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
         unit: { type: 'text', group: 'Unit', label: 'Unit' },
       },
+      staticProps: {
+        valueOnChange: () => '',
+      },
       groupOrder: ['Options', 'State', 'Unit'],
       disabledControls: {
         unit: ['hasPercent'],
@@ -39,10 +42,17 @@ export class SliderCegComponent implements ComponentExample {
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
         unit: { type: 'text', group: 'Unit', label: 'Unit' },
       },
+      staticProps: {
+        valueOnChange: () => '',
+      },
       groupOrder: ['Options', 'State', 'Unit'],
       disabledControls: {
         hasHintValues: ['hasInputField'],
       },
     },
   ]);
+
+  handleOnChange(value: number): void {
+    console.log('New value:', value);
+  }
 }

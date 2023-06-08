@@ -12,11 +12,17 @@ import {
   DisableDates,
   defaultLabelOptions,
   BothDatepickers,
+  ErrorOptions,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { isAfter, isBefore } from './dateHelpers';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
+
+const defaultErrorOptions: ErrorOptions = {
+  start: { hideText: false, text: '', hasErrorPlaceholder: true },
+  end: { hideText: false, text: '', hasErrorPlaceholder: true },
+};
 
 export const DatepickerRange: FC<DatepickerRangeProps> = ({
   value,
@@ -32,10 +38,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   hasTimepickers = false,
   timepickerInterval = '15',
   hasAutoOpenEndDatepicker,
-  errorOptions = {
-    start: { hideText: false, text: '', hasErrorPlaceholder: true },
-    end: { hideText: false, text: '', hasErrorPlaceholder: true },
-  },
+  errorOptions,
   errorOnChange,
   minDate,
   maxDate,
@@ -118,6 +121,17 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         return listCopy;
       });
     }
+  };
+
+  const mergedErrorOptions: ErrorOptions = {
+    start: {
+      ...defaultErrorOptions.start,
+      ...errorOptions?.start,
+    },
+    end: {
+      ...defaultErrorOptions.end,
+      ...errorOptions?.end,
+    },
   };
 
   /**
@@ -339,7 +353,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           disableDate={disableDatesWrapper()?.start}
           errorOptions={{
             isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
-            ...errorOptions?.start,
+            ...mergedErrorOptions?.start,
           }}
           errorOnChange={(error: string) =>
             setCurrentErrorMessages((current) => ({ ...current, start: error }))
@@ -365,7 +379,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               hideText: false,
               isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
               text: '',
-              hasErrorPlaceholder: !!errorOptions?.start?.hasErrorPlaceholder || !!errorOptions?.start?.text,
+              hasErrorPlaceholder:
+                !!mergedErrorOptions?.start?.hasErrorPlaceholder || !!mergedErrorOptions?.start?.text,
             }}
           />
         )}
@@ -392,7 +407,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           disableDate={disableDatesWrapper()?.end}
           errorOptions={{
             isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
-            ...errorOptions?.end,
+            ...mergedErrorOptions?.end,
           }}
           errorOnChange={(error: string) =>
             setCurrentErrorMessages((current) => ({ ...current, end: error }))
@@ -418,7 +433,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               hideText: false,
               isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
               text: '',
-              hasErrorPlaceholder: !!errorOptions?.end?.hasErrorPlaceholder || !!errorOptions?.end?.text,
+              hasErrorPlaceholder:
+                !!mergedErrorOptions?.end?.hasErrorPlaceholder || !!mergedErrorOptions?.end?.text,
             }}
           />
         )}

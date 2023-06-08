@@ -1,15 +1,19 @@
 {
   "name": "@elvia/elvis-toolbox",
-  "version": "9.0.0",
+  "version": "9.2.0",
   "license": "MIT",
   "main": "./dist/index.js",
   "files": [
     "CHANGELOG.json",
     "README.md",
-    "dist/**/*"
+    "dist/**/*",
+    "!dist/**/*.d.ts.map"
   ],
+  "scripts": {
+    "sourcemap": "tsc"
+  },
   "dependencies": {
-    "@elvia/elvis-colors": "^2.4.0",
+    "@elvia/elvis-colors": "^2.6.0",
     "@elvia/elvis-component-wrapper": "^4.0.0",
     "@elvia/elvis-typography": "^2.3.1",
     "styled-components": "^5.3.6",
@@ -30,5 +34,8 @@
     "react-is": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "typescript": "~5.0.4"
   }
 }

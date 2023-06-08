@@ -24,12 +24,13 @@ export class PaginationCegComponent implements ComponentExample {
       },
       staticProps: {
         numberOfElements: 25,
+        valueOnChange: () => '',
       },
       groupOrder: ['Alignment'],
     },
   ]);
 
-  printChangeEvent(data: { start: number; end: number }): void {
-    console.log('Page changed:', data);
+  handleOnChange(value: number): void {
+    console.log('New value:', value);
   }
 }

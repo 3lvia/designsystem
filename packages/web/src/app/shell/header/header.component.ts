@@ -6,6 +6,7 @@ import { SearchMenuComponent } from './search-menu/search-menu.component';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-header',
@@ -27,13 +28,16 @@ export class HeaderComponent {
     private cmsService: CMSService,
     private localizationService: LocalizationService,
   ) {
-    this.localizationService.listenLocalization().subscribe(() => {
-      // The main menu is only available in english until more pages are translated
-      this.cmsService.getMenu(Locale['en-GB']).then((data) => {
-        this.mainMenu = data;
-        this.menuContentLoader = false;
+    this.localizationService
+      .listenLocalization()
+      .pipe(takeUntilDestroyed())
+      .subscribe(() => {
+        // The main menu is only available in english until more pages are translated
+        this.cmsService.getMenu(Locale['en-GB']).then((data) => {
+          this.mainMenu = data;
+          this.menuContentLoader = false;
+        });
       });
-    });
 
     if (
       window.location.href.indexOf('localhost') > -1 ||
@@ -89,4 +93,8 @@ export class HeaderComponent {
     this.searchMenu.detach(this.searchOverlay);
     this.searchMenuOpen = false;
   }
+
+  toggleTheme = () => {
+    document.body.classList.toggle('e-theme-dark');
+  };
 }

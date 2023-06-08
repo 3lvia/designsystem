@@ -42,7 +42,7 @@ export const tabsData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: number) => CustomEvent',
+      type: '(value: number) => void',
       description:
         'Gets called every time the value is changed. Value is the index of the clicked tab in items.',
     },
