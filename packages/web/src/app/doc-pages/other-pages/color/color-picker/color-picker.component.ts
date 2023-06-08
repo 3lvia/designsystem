@@ -8,11 +8,12 @@ import { darkColors } from './colors-dark';
   styleUrls: ['./color-picker.component.scss'],
 })
 export class ColorPickerComponent {
-  isLightTheme = true;
+  isDarkTheme = false;
   toggleTheme = () => {
     document.getElementsByClassName('theme-container')[0].classList.toggle('e-theme-dark');
-    this.isLightTheme = !this.isLightTheme;
+    this.isDarkTheme = !this.isDarkTheme;
+    console.log(this.isDarkTheme ? lightColors : darkColors);
   };
 
-  colorList = this.isLightTheme ? lightColors : darkColors;
+  colorList = this.isDarkTheme ? darkColors : lightColors;
 }
