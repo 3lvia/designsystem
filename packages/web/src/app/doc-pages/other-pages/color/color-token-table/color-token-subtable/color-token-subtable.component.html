@@ -26,13 +26,19 @@
         <ng-container *ngFor="let tablePart of colors">
           <ng-container *ngIf="tablePart.type === 'colors'">
             <tr *ngFor="let color of tablePart.colors">
-              <td class="token-font" [ngClass]="{ 'small-column': hasRoleColumn }">{{ color.token }}</td>
+              <app-copy [message]="'--e-color-' + color.token">
+                <ng-container ngProjectAs="copyContent">
+                  <td class="token-font" [ngClass]="{ 'small-column': hasRoleColumn }">
+                    <p class="e-m-0">{{ color.token }}</p>
+                  </td>
+                </ng-container>
+              </app-copy>
               <td class="small-column" *ngIf="hasExampleColumn">
                 <div class="example-container" [innerHTML]="color.example"></div>
               </td>
               <td *ngIf="hasRoleColumn">
                 <div>
-                  <span class="e-text-sm">{{ color.role }}</span>
+                  <p class="e-text-sm e-m-0">{{ color.role }}</p>
                   <div>
                     <a
                       class="e-link e-link--sm e-mr-8"
