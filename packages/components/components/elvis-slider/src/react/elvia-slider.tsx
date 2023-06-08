@@ -35,7 +35,7 @@ import { calculateThumbPosition } from './utils/calculateThumbPosition';
 import { getAriaLabel } from './utils/getAriaLabel';
 import { config } from './config';
 
-let uniqueSliderId = 0;
+let uniqueId = 0;
 
 const Slider: React.FC<SliderProps> = function ({
   ariaLabel,
@@ -66,7 +66,7 @@ const Slider: React.FC<SliderProps> = function ({
     right: sliderValues.right.toString(),
   });
   const [showTooltip, setShowTooltip] = useState<BothSliders<boolean>>({ left: false, right: false });
-  const [id] = useState(`ewc-slider-${uniqueSliderId++}`);
+  const [id] = useState(`ewc-slider-${uniqueId++}`);
   const [isLeftSliderOnTop, setIsLeftSliderOnTop] = useState(false);
   const [totalSliderWidth, setTotalSliderWidth] = useState(0);
   const [preferredInputLength, setPreferredInputLength] = useState(0);
