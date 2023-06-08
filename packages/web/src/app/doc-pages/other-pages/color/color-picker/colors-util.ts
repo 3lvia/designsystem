@@ -52,6 +52,8 @@ export const getContrastValue = (
       return 'AAA';
     } else if (contrast >= 4.5) {
       return 'AA';
+    } else if (contrast >= 3) {
+      return 'Large AA';
     }
   }
   return '';
