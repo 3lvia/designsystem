@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { getThemeColor, getBaseColor, lightThemeColors, darkThemeColors } from '@elvia/elvis-colors';
 import { lightColors } from './colors-light';
 import { darkColors } from './colors-dark';
 
