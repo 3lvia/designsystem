@@ -43,7 +43,7 @@ const getContrastRatio = (colorA: number[], colorB: number[]) => {
 export const getContrastValue = (
   color1: DarkThemeColorName | LightThemeColorName,
   color2: DarkThemeColorName | LightThemeColorName,
-  theme?: 'light' | 'dark',
+  theme?: ThemeName,
 ) => {
   const colorRgb1 = hexToRgb(getBaseColor(color1, theme));
   const colorRgb2 = hexToRgb(getBaseColor(color2, theme));
