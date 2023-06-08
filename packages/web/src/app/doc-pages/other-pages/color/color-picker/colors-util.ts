@@ -33,11 +33,11 @@ const getLuminanace = (values: number[]) => {
   return Number((0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]).toFixed(3));
 };
 
-const getContrastRatio = (colorA: number[], colorB: number[]) => {
-  const lumA = getLuminanace(colorA);
-  const lumB = getLuminanace(colorB);
+const getContrastRatio = (color1: number[], color2: number[]) => {
+  const luminance1 = getLuminanace(color1);
+  const luminance2 = getLuminanace(color2);
 
-  return (Math.max(lumA, lumB) + 0.05) / (Math.min(lumA, lumB) + 0.05);
+  return (Math.max(luminance1, luminance2) + 0.05) / (Math.min(luminance1, luminance2) + 0.05);
 };
 
 export const getContrastValue = (
