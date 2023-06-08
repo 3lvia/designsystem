@@ -41,16 +41,25 @@ export class ColorTokenSubtableComponent implements OnInit {
   }
 
   private updateFilter(value: string) {
+    const parsedValue = value.trim().toLowerCase();
     if (value) {
       this.visibleColors = this.colors.map((entry) => {
-        const newColors = entry.colors.filter((color) =>
-          color.token.toLowerCase().includes(value.trim().toLowerCase()),
-        );
-        return {
-          title: newColors.length > 0 ? entry.title : undefined,
-          description: newColors.length > 0 ? entry.description : undefined,
-          colors: newColors,
-        };
+        if (entry.title?.toLowerCase().includes(parsedValue)) {
+          return entry;
+        } else {
+          const newColors = entry.colors.filter(
+            (color) =>
+              color.token.toLowerCase().includes(parsedValue) ||
+              color.role?.toLowerCase().includes(parsedValue) ||
+              color.light.label.toLowerCase().includes(parsedValue) ||
+              color.dark.label.toLowerCase().includes(parsedValue),
+          );
+          return {
+            title: newColors.length > 0 ? entry.title : undefined,
+            description: newColors.length > 0 ? entry.description : undefined,
+            colors: newColors,
+          };
+        }
       });
       if (this.visibleColors.some((entry) => entry.colors && entry.colors.length)) {
         this.isOpen = true;
