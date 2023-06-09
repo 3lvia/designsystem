@@ -15,3 +15,5 @@ export interface ColorsObject {
 }
 
 type ContrastType = '' | 'Large AA' | 'AA' | 'AAA';
+
+export type RGB = [number, number, number];

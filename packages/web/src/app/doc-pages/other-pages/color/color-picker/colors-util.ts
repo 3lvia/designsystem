@@ -7,15 +7,16 @@ import {
   getBaseColor,
   lightTheme,
 } from '@elvia/elvis-colors';
-import { ColorElement } from './colors-types';
+import { ColorElement, RGB } from './colors-types';
 
-const hexToRgb = (hex: string): number[] | null => {
+const hexToRgb = (hex: string): RGB => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   hex = makeHexValue6Length(hex);
-
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  const rgb = result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
-  return rgb;
+  if (!result) {
+    throw new Error('Cannot parse color');
+  }
+  return [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)];
 };
 
 const makeHexValue6Length = (hex: string): string => {
@@ -25,7 +26,7 @@ const makeHexValue6Length = (hex: string): string => {
   return hex.toUpperCase();
 };
 
-const getLuminanace = (values: number[]) => {
+const getLuminance = (values: number[]) => {
   const rgb = values.map((v) => {
     const val = v / 255;
     return val <= 0.03928 ? val / 12.92 : ((val + 0.055) / 1.055) ** 2.4;
@@ -34,8 +35,8 @@ const getLuminanace = (values: number[]) => {
 };
 
 const getContrastRatio = (color1: number[], color2: number[]) => {
-  const luminance1 = getLuminanace(color1);
-  const luminance2 = getLuminanace(color2);
+  const luminance1 = getLuminance(color1);
+  const luminance2 = getLuminance(color2);
 
   return (Math.max(luminance1, luminance2) + 0.05) / (Math.min(luminance1, luminance2) + 0.05);
 };
@@ -83,13 +84,15 @@ const getTokens = (hex: string, theme?: ThemeName) => {
   }
 };
 
-export const getColorElement = (colorName: DarkThemeColorName | LightThemeColorName, theme?: ThemeName) =>
-  <ColorElement>{
-    name: colorName,
-    hex: getBaseColor(colorName, theme),
-    contrast: {
-      white: getContrastValue(colorName, 'white', theme),
-      black: getContrastValue(colorName, 'black', theme),
-    },
-    token: getTokens(getBaseColor(colorName, theme), theme),
-  };
+export const getColorElement = (
+  colorName: DarkThemeColorName | LightThemeColorName,
+  theme?: ThemeName,
+): ColorElement => ({
+  name: colorName,
+  hex: getBaseColor(colorName, theme),
+  contrast: {
+    white: getContrastValue(colorName, 'white', theme),
+    black: getContrastValue(colorName, 'black', theme),
+  },
+  token: getTokens(getBaseColor(colorName, theme), theme),
+});
