@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useLayoutEffect, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import {
   FormFieldContainer,
   FormFieldError,
@@ -43,7 +43,6 @@ const Slider: React.FC<SliderProps> = function ({
   errorOptions,
   hasHintValues = true,
   hasInputField = true,
-  hasPercent = false,
   heading,
   inlineStyle,
   isDisabled = false,
@@ -93,14 +92,6 @@ const Slider: React.FC<SliderProps> = function ({
   const sliderRef = useRef<HTMLInputElement>(null);
 
   const { inputMode } = useInputModeDetection();
-
-  const percentValue = useMemo(() => {
-    if (type === 'simple' && hasPercent) {
-      const { left: currentValue } = sliderValues;
-      return Math.round(((currentValue - min) / (max - min)) * 100);
-    }
-    return undefined;
-  }, [sliderValues.left, min, max, hasPercent, type]);
 
   /* thumbWidth: Used to horizontally center the tooltip over the "thumb" of the slider. */
   const thumbWidth = inputMode === 'touch' ? 28 : 20;

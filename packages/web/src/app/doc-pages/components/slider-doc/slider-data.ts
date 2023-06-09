@@ -24,13 +24,6 @@ export const sliderData: ComponentData = {
       isRequired: false,
       type: 'boolean',
     },
-    hasPercent: {
-      default: 'false',
-      description:
-        'Display the current value as a percentage of the minimum and maximum value in the tooltip. I.e., this prop gives you a visual representation of how far you are from the lowest to the highest value on the slider.',
-      isRequired: false,
-      type: 'boolean',
-    },
     heading: {
       isRequired: false,
       type: 'string',

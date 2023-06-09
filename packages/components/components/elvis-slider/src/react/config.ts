@@ -8,7 +8,14 @@ export const config: ComponentConfig = {
     { name: 'errorOptions', type: 'object' },
     { name: 'hasHintValues', type: 'boolean' },
     { name: 'hasInputField', type: 'boolean' },
-    { name: 'hasPercent', type: 'boolean' },
+    {
+      name: 'hasPercent',
+      type: 'boolean',
+      deprecatedDetails: {
+        version: '3.0.0',
+        explanation: "'hasPercent' has been removed. No replacement needed.",
+      },
+    },
     {
       name: 'hasTooltip',
       type: 'boolean',
