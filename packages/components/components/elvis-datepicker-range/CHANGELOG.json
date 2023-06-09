@@ -8,7 +8,7 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed a bug where teh Date Range Picker would not show its given default value before interacting with the input."
+            "Fixed a bug where the Date Range Picker would not show its given default value before interacting with the input."
           ]
         },
         {
