@@ -61,7 +61,7 @@ export class ColorTokenSubtableComponent implements OnInit {
           };
         }
       });
-      if (this.visibleColors.some((entry) => entry.colors && entry.colors.length)) {
+      if (this.visibleColors.some((entry) => entry.colors.length)) {
         this.isOpen = true;
         this.isVisible = true;
       } else {
