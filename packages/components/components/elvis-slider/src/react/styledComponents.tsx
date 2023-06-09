@@ -4,7 +4,6 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import {
   FormFieldInput as FormFieldInputBase,
   FormFieldInputContainer as FormFieldInputContainerBase,
-  FormFieldLabel as FormFieldLabelBase,
   FormFieldSizes,
 } from '@elvia/elvis-toolbox';
 import { BothSliders, Sides, SliderType } from './elvia-slider.types';
@@ -44,12 +43,6 @@ type HeadingProps = {
 
 type MaxValueLengthMeasurementProps = {
   size: FormFieldSizes;
-};
-
-type FormFieldLabelProps = {
-  size: FormFieldSizes;
-  side: Sides;
-  isFullWidth?: boolean;
 };
 
 type InputFieldsContainerProps = {
@@ -193,19 +186,6 @@ export const FormFieldInputContainer = styled(FormFieldInputContainerBase)<FormF
 export const FormFieldInput = styled(FormFieldInputBase)<FormFieldInputProps>`
   width: 100%;
   text-align: ${({ side, isFullWidth }) => (side === 'left' || isFullWidth ? 'left' : 'right')};
-`;
-
-export const FormFieldLabel = styled(FormFieldLabelBase)<FormFieldLabelProps>`
-  text-align: ${({ side, isFullWidth }) => (side === 'left' || isFullWidth ? 'left' : 'right')};
-
-  ${({ size, side, isFullWidth }) =>
-    !isFullWidth &&
-    size === 'small' &&
-    side === 'right' &&
-    css`
-      margin-right: 7px;
-      right: 0;
-    `}
 `;
 
 export const HintValue = styled.p.attrs({

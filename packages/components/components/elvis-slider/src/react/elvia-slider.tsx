@@ -20,7 +20,6 @@ import {
 import {
   FormFieldInput,
   FormFieldInputContainer,
-  FormFieldLabel,
   HintValue,
   InputFieldsContainer,
   MaxValueLengthMeasurement,
@@ -46,7 +45,6 @@ const Slider: React.FC<SliderProps> = function ({
   heading,
   inlineStyle,
   isDisabled = false,
-  label,
   max = 100,
   min = 0,
   size = 'medium',
@@ -85,10 +83,8 @@ const Slider: React.FC<SliderProps> = function ({
   const inputFieldsContainerRef = useRef<HTMLDivElement>(null);
   const leftFormFieldInputRef = useRef<HTMLLabelElement>(null);
   const leftHintTextRef = useRef<HTMLParagraphElement>(null);
-  const leftInputLabelLengthMeasurementRef = useRef<HTMLSpanElement>(null);
   const maxValueLengthMeasurementRef = useRef<HTMLSpanElement>(null);
   const rightHintTextRef = useRef<HTMLParagraphElement>(null);
-  const rightInputLabelLengthMeasurementRef = useRef<HTMLSpanElement>(null);
   const sliderRef = useRef<HTMLInputElement>(null);
 
   const { inputMode } = useInputModeDetection();
@@ -153,19 +149,15 @@ const Slider: React.FC<SliderProps> = function ({
         setLeftInputFieldWidth(leftFormFieldInputRef.current.offsetWidth);
       }
 
-      const measurements = [
-        maxValueLengthMeasurementRef.current?.offsetWidth,
-        leftInputLabelLengthMeasurementRef.current?.offsetWidth,
-        rightInputLabelLengthMeasurementRef.current?.offsetWidth,
-      ].filter((measurement) => measurement !== null && measurement !== undefined) as number[];
+      const measurements = [maxValueLengthMeasurementRef.current?.offsetWidth].filter(
+        (measurement) => measurement !== null && measurement !== undefined,
+      ) as number[];
       setPreferredInputLength(Math.max(...measurements, 0));
     }
   }, [
     maxValueLengthMeasurementRef.current,
     leftHintTextRef.current,
     rightHintTextRef.current,
-    leftInputLabelLengthMeasurementRef.current,
-    rightInputLabelLengthMeasurementRef.current,
     leftFormFieldInputRef.current,
     hasInputField,
     hasHintValues,
@@ -345,21 +337,6 @@ const Slider: React.FC<SliderProps> = function ({
     updateValue({ ...sliderValues, [name]: newValue });
   };
 
-  const getLabel = (side: Sides): string => {
-    if (label) {
-      if (typeof label === 'object') {
-        return label[side];
-      }
-      if (typeof label === 'string') {
-        return label;
-      }
-    }
-    if (type === 'range') {
-      return side === 'left' ? 'Fra' : 'Til';
-    }
-    return 'Verdi';
-  };
-
   const getTooltipContent = (side: Sides) => {
     const value = side === 'left' ? sliderValues.left.toLocaleString() : sliderValues.right.toLocaleString();
     return type === 'simple' && hasPercent ? `${percentValue} %` : `${value}${unit ?? ''}`;
@@ -536,14 +513,11 @@ const Slider: React.FC<SliderProps> = function ({
               hasErrorPlaceholder={getHasErrorPlaceholder()}
               ref={leftFormFieldInputRef}
             >
-              <FormFieldLabel side={'left'} size={size} id={`${id}-left-label`}>
-                <span ref={leftInputLabelLengthMeasurementRef}>{getLabel('left')}</span>
-              </FormFieldLabel>
               <FormFieldInputContainer size={size} maxValueLength={preferredInputLength}>
                 <FormFieldInput
                   aria-invalid={getErrorOptionValue('left', 'isErrorState') as boolean}
                   aria-disabled={isDisabled}
-                  aria-labelledby={heading ? `${id}-heading ${id}-left-label` : undefined}
+                  aria-labelledby={heading ? `${id}-heading` : undefined}
                   autoComplete="off"
                   disabled={isDisabled}
                   name="left"
@@ -576,20 +550,11 @@ const Slider: React.FC<SliderProps> = function ({
               hasErrorPlaceholder={getHasErrorPlaceholder()}
               isFullWidth={fullWithRangeInputs}
             >
-              <FormFieldLabel
-                side={'right'}
-                isFullWidth={fullWithRangeInputs}
-                size={size}
-                id={`${id}-right-label`}
-              >
-                <span ref={rightInputLabelLengthMeasurementRef}>{getLabel('right')}</span>
-              </FormFieldLabel>
-
               <FormFieldInputContainer size={size} maxValueLength={preferredInputLength}>
                 <FormFieldInput
                   aria-disabled={isDisabled}
-                  aria-labelledby={heading ? `${id}-heading ${id}-right-label` : undefined}
                   aria-invalid={getErrorOptionValue('right', 'isErrorState') as boolean}
+                  aria-labelledby={heading ? `${id}-heading` : undefined}
                   aria-errormessage={`${id}-error-text`}
                   disabled={isDisabled}
                   name="right"

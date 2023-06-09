@@ -27,7 +27,14 @@ export const config: ComponentConfig = {
     { name: 'heading', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
     { name: 'isDisabled', type: 'boolean' },
-    { name: 'label', type: 'string' },
+    {
+      name: 'label',
+      type: 'string',
+      deprecatedDetails: {
+        version: '3.0.0',
+        explanation: "'label' has been removed. Use suffix instead.",
+      },
+    },
     { name: 'max', type: 'number' },
     { name: 'min', type: 'number' },
     { name: 'size', type: 'string' },
