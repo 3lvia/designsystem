@@ -66,7 +66,11 @@ export const sliderData: ComponentData = {
       isRequired: false,
       type: 'boolean',
     },
-
+    suffix: {
+      isRequired: false,
+      description: 'The suffix in the Sliders input field(s).',
+      type: 'string',
+    },
     size: {
       default: 'medium',
       description: 'The size of the slider and its input field(s).',

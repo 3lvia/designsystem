@@ -3,6 +3,7 @@ import {
   FormFieldContainer,
   FormFieldError,
   FormFieldErrorContainer,
+  FormFieldInputSuffixText,
   IconWrapper,
   useInputModeDetection,
   warnDeprecatedProps,
@@ -48,6 +49,7 @@ const Slider: React.FC<SliderProps> = function ({
   max = 100,
   min = 0,
   size = 'medium',
+  suffix,
   type = 'simple',
   unit,
   value,
@@ -527,6 +529,7 @@ const Slider: React.FC<SliderProps> = function ({
                   onChange={handleFormFieldInputValueChange}
                   value={formFieldInputValues.left}
                 />
+                {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
             </FormFieldContainer>
           )}
@@ -564,6 +567,7 @@ const Slider: React.FC<SliderProps> = function ({
                   onChange={handleFormFieldInputValueChange}
                   value={formFieldInputValues.right}
                 />
+                {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
             </FormFieldContainer>
           )}

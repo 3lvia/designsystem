@@ -38,6 +38,7 @@ export const config: ComponentConfig = {
     { name: 'max', type: 'number' },
     { name: 'min', type: 'number' },
     { name: 'size', type: 'string' },
+    { name: 'suffix', type: 'string' },
     { name: 'type', type: 'string' },
     { name: 'unit', type: 'string' },
     { name: 'value', type: 'number' },

@@ -26,11 +26,12 @@ export class SliderCegComponent implements ComponentExample {
         hasHintValues: { type: 'switch', group: 'Options', label: 'Help Values' },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
         unit: { type: 'text', group: 'Unit', label: 'Unit', placeholder: 'Add unit' },
+        suffix: { type: 'text', group: 'Suffix', label: 'Suffix', placeholder: 'Add suffix' },
       },
       staticProps: {
         valueOnChange: () => '',
       },
-      groupOrder: ['Heading', 'Size', 'State', 'Options', 'Unit'],
+      groupOrder: ['Heading', 'Size', 'State', 'Options', 'Suffix', 'Unit'],
     },
     {
       type: 'Range',
@@ -47,11 +48,12 @@ export class SliderCegComponent implements ComponentExample {
         },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
         unit: { type: 'text', group: 'Unit', label: 'Unit', placeholder: 'Add unit' },
+        suffix: { type: 'text', group: 'Suffix', label: 'Suffix', placeholder: 'Add suffix' },
       },
       staticProps: {
         valueOnChange: () => '',
       },
-      groupOrder: ['Heading', 'Size', 'State', 'Options', 'Unit'],
+      groupOrder: ['Heading', 'Size', 'State', 'Options', 'Suffix', 'Unit'],
     },
   ]);
 

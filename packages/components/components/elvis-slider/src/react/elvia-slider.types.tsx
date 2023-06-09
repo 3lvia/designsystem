@@ -12,6 +12,7 @@ export interface SliderProps extends BaseProps, HasValue<number | SliderValues> 
   type?: SliderType;
   unit?: string;
   errorOptions?: ErrorOptions;
+  suffix?: string;
 }
 
 export type SliderType = 'simple' | 'range';
