@@ -26,7 +26,7 @@ const makeHexValue6Length = (hex: string): string => {
   return hex.toUpperCase();
 };
 
-const getLuminance = (values: number[]) => {
+const getLuminance = (values: RGB) => {
   const rgb = values.map((v) => {
     const val = v / 255;
     return val <= 0.03928 ? val / 12.92 : ((val + 0.055) / 1.055) ** 2.4;
@@ -34,7 +34,7 @@ const getLuminance = (values: number[]) => {
   return Number((0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]).toFixed(3));
 };
 
-const getContrastRatio = (color1: number[], color2: number[]) => {
+const getContrastRatio = (color1: RGB, color2: RGB) => {
   const luminance1 = getLuminance(color1);
   const luminance2 = getLuminance(color2);
 
@@ -48,15 +48,13 @@ export const getContrastValue = (
 ) => {
   const colorRgb1 = hexToRgb(getBaseColor(color1, theme));
   const colorRgb2 = hexToRgb(getBaseColor(color2, theme));
-  if (colorRgb1 && colorRgb2) {
-    const contrast = getContrastRatio(colorRgb1, colorRgb2);
-    if (contrast >= 7) {
-      return 'AAA';
-    } else if (contrast >= 4.5) {
-      return 'AA';
-    } else if (contrast >= 3) {
-      return 'Large AA';
-    }
+  const contrast = getContrastRatio(colorRgb1, colorRgb2);
+  if (contrast >= 7) {
+    return 'AAA';
+  } else if (contrast >= 4.5) {
+    return 'AA';
+  } else if (contrast >= 3) {
+    return 'Large AA';
   }
   return '';
 };
