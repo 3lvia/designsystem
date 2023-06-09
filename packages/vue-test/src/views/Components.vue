@@ -231,10 +231,7 @@
       ></elvia-segmented-control>
       <elvia-segmented-control
         :type="'icon'"
-        :items="[
-          { icon: '<i class="e-icon e-icon--access_control"></i>', iconSelected: '<i class="e-icon e-icon--access_control-color"></i>', altLabel: 'Label' },
-          { icon: '<i class="e-icon e-icon--list"></i>', iconSelected: '<i class="e-icon e-icon--list-color"></i>', altLabel: 'Label' },
-        ]"
+        :items="segmentedItems"
         @value-on-change="logValue('Segmented', $event.detail.value)"
       ></elvia-segmented-control>
     </div>
@@ -308,6 +305,21 @@ const dropdownOptions = [
 
 // Modal
 const isModalShowing = false;
+
+// Segmented control
+
+const segmentedItems = [
+  {
+    icon: '<i class=" e-icon e-icon--access_control"> </i>',
+    iconSelected: '<i class="e-icon e-icon--access_control-color"></i>',
+    altLabel: 'Label',
+  },
+  {
+    icon: '<i class="e-icon e-icon--list"></i>',
+    iconSelected: '<i class="e-icon e-icon--list_color"></i>',
+    altLabel: 'Label',
+  },
+];
 
 // Spotlight
 const vPos = ref(200);
