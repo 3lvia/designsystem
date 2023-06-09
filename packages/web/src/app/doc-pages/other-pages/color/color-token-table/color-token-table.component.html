@@ -84,3 +84,13 @@
   [colors]="[{ colors: iconColors }]"
   [searchValue]="filterInput.value"
 />
+
+<div class="no-properties-found">
+  <img src="assets/no-results/no-results.svg" alt="" aria-hidden="true" />
+  <div>
+    <h3 class="e-title-sm e-mb-8">No result</h3>
+    <span class="e-text-lg">
+      Sorry, we can't find any color tokens that include "{{ filterInput.value }}".
+    </span>
+  </div>
+</div>
