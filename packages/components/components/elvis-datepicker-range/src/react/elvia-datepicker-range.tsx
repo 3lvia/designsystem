@@ -315,8 +315,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     handleEndDatepickerValueOnChange(newDate, 'time');
   };
 
-  const getDatepickerValue = (type: keyof BothDatepickers<any>): Date | null => {
-    if ((hasTimepickers && !valueIsSentAsProp && !!selectedDateRange[type]) || !isTouched(`${type}Date`)) {
+  const getDatepickerValue = (type: keyof BothDatepickers<Date | null>): Date | null => {
+    if (!valueIsSentAsProp && !!selectedDateRange[type]) {
       return null;
     }
 

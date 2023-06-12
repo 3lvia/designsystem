@@ -57,10 +57,10 @@
     ]
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "dependencies": {
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.8"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.27.1",

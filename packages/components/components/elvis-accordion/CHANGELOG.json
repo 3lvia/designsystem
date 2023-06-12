@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.06.23",
+      "version": "2.9.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that caused the accordion to apply <code>transition: all</code> to its content."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "24.05.23",
       "version": "2.9.3",
       "changelog": [

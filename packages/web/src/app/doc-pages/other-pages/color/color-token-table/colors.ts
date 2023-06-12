@@ -32,27 +32,37 @@ type DeepReadonly<T> = {
   readonly [P in keyof T]: T[P] extends Record<string, unknown> ? DeepReadonly<T[P]> : Readonly<T[P]>;
 };
 
+type ColorTableLabels = ColorLabel | 'icon-[signal-type]';
+
 interface Link {
   title: string;
   path: string;
 }
 
 interface Color<
-  TLabel extends string = `Dark-${DarkThemeColorName}` | Capitalize<LightThemeColorName> | 'Transparent',
+  TLabel extends string =
+    | `Dark-${DarkThemeColorName}`
+    | Capitalize<LightThemeColorName>
+    | 'Transparent'
+    | 'Dark-black/ dark-white'
+    | 'Dark-signal',
 > {
   hex: string;
   label: TLabel;
 }
 
-interface TableColor<TToken extends ColorLabel> {
+interface TableColor<TToken extends ColorTableLabels> {
   token: TToken;
   role?: string;
-  light: Color<Capitalize<LightThemeColorName>>;
-  dark: Color<`Dark-${DarkThemeColorName}` | 'Transparent'>;
+  light: Color<Capitalize<LightThemeColorName> | 'Black/white' | 'Signal'>;
+  dark: Color<`Dark-${DarkThemeColorName}` | 'Transparent' | 'Dark-black/ dark-white' | 'Dark-signal'>;
   links?: ReadonlyArray<Link>;
+  example?: string;
 }
 
-export type TableColorArray<TToken extends ColorLabel = ColorLabel> = DeepReadonly<TableColor<TToken>[]>;
+export type TableColorArray<TToken extends ColorTableLabels = ColorTableLabels> = DeepReadonly<
+  TableColor<TToken>[]
+>;
 
 /** Define color arrays below here */
 
@@ -377,7 +387,7 @@ export const signalColors = [
   },
   {
     token: 'signal-caution',
-    role: 'Give attention to something that the users needs to now',
+    role: 'Give attention to something that the users needs to know',
     light: { hex: getColor('signal-caution', 'light'), label: 'Yellow' },
     dark: { hex: getColor('signal-caution', 'dark'), label: 'Dark-yellow' },
   },
@@ -434,4 +444,35 @@ export const dataColors = [
   },
 ] as const satisfies TableColorArray<DataLabels>;
 
-export const iconColors = [] as const satisfies TableColorArray<IconLabels>;
+export const iconColors = [
+  {
+    token: 'icon-stroke',
+    example: '<i class="e-icon e-icon--check_circle e-icon--sm"></i>',
+    role: 'Stroke icons',
+    light: { hex: getColor('icon-stroke', 'light'), label: 'Black' },
+    dark: { hex: getColor('icon-stroke', 'dark'), label: 'Dark-white' },
+  },
+  {
+    token: 'icon-filled-background',
+    example: '<i class="e-icon e-icon--check_circle-filled e-icon--sm"></i>',
+    role: 'Background color for filled icons',
+    light: { hex: getColor('icon-filled-background', 'light'), label: 'Black' },
+    dark: { hex: getColor('icon-filled-background', 'dark'), label: 'Dark-white' },
+  },
+  {
+    token: 'icon-filled-foreground',
+    example:
+      '<i class="e-icon e-icon--check_circle-filled-color e-icon--sm"></i><i class="e-icon e-icon--check_circle-filled e-icon--sm"></i>',
+    role: 'Automatically selects the best foreground color that contrasts best with the background (either black or white)',
+    light: { hex: 'black/white', label: 'Black/white' },
+    dark: { hex: 'dark-black/dark-white', label: 'Dark-black/ dark-white' },
+  },
+  {
+    token: 'icon-[signal-type]',
+    example:
+      '<i class="e-icon e-icon--check_circle e-icon--color-green e-icon--sm"></i><i class="e-icon e-icon--check_circle-filled-color e-icon--sm"></i>',
+    role: 'Icons can use all the different signal colors. E.g. e-color-icon-success',
+    light: { hex: 'signal', label: 'Signal' },
+    dark: { hex: 'dark-signal', label: 'Dark-signal' },
+  },
+] as const satisfies TableColorArray<IconLabels | 'icon-[signal-type]'>;
