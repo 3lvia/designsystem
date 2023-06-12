@@ -62,7 +62,7 @@ describe('Elvis Stepper', () => {
 
     it('should have error state when isError is applied', async () => {
       const screenReader = screen.getByRole('status');
-      expect(screenReader).toHaveTextContent('Step 3 and 4 was invalid.');
+      expect(screenReader).toHaveTextContent('Steg 3 og 4 var ugyldig.');
     });
 
     it('should register that the previous step was complete', async () => {
@@ -70,7 +70,7 @@ describe('Elvis Stepper', () => {
       const nextButton = screen.getByRole('button', { name: /neste/i });
       await user.click(nextButton);
       const screenReader = screen.getByRole('status');
-      expect(screenReader).toHaveTextContent('The previous step was successful.');
+      expect(screenReader).toHaveTextContent('Det forrige steget var vellykket.');
     });
   });
 
@@ -132,7 +132,15 @@ describe('Elvis Stepper', () => {
 
     it('should have error state when isError is applied', async () => {
       const screenReader = screen.getByRole('status');
-      expect(screenReader).toHaveTextContent('Step 3 and 4 was invalid.');
+      expect(screenReader).toHaveTextContent('Steg 3 og 4 var ugyldig.');
+    });
+
+    it('should register that the previous step was complete', async () => {
+      const user = userEvent.setup();
+      const nextButton = screen.getByRole('button', { name: /neste/i });
+      await user.click(nextButton);
+      const screenReader = screen.getByRole('status');
+      expect(screenReader).toHaveTextContent('Det forrige steget var vellykket.');
     });
   });
 });
