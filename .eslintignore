@@ -13,5 +13,6 @@ packages/elvis/src/templates/elvis.template.js
 packages/elvis/icons.js
 packages/elvis/icons.d.ts
 packages/elvis/src/variables/typography.scss
+packages/elvis/src/utilities/colors.scss
 packages/react-test/*
 packages/vue-test/*
