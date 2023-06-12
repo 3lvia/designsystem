@@ -23,8 +23,8 @@ table {
     padding: 16px 8px;
     vertical-align: top;
 
-    &:first-of-type,
-    &:last-of-type {
+    &:first-child,
+    &:last-child {
       padding: 16px;
     }
 
