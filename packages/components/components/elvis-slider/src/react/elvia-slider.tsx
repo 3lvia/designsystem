@@ -336,12 +336,7 @@ const Slider: React.FC<SliderProps> = function ({
       return;
     }
 
-    updateValue({ ...sliderValues, [name]: newValue });
-  };
-
-  const getTooltipContent = (side: Sides) => {
-    const value = side === 'left' ? sliderValues.left.toLocaleString() : sliderValues.right.toLocaleString();
-    return type === 'simple' && hasPercent ? `${percentValue} %` : `${value}${unit ?? ''}`;
+    updateValue({ ...sliderValue, [name]: newValue });
   };
 
   const handleTooltip = (side?: Sides) => {
@@ -437,7 +432,7 @@ const Slider: React.FC<SliderProps> = function ({
           />
 
           {showTooltip.left && !isDisabled && (
-            <Tooltip content={getTooltipContent('left')} position={leftThumbPosition} />
+            <Tooltip value={sliderValue} suffix={suffix} unit={unit} position={leftThumbPosition} />
           )}
 
           {type === 'range' && (
@@ -465,7 +460,13 @@ const Slider: React.FC<SliderProps> = function ({
               />
 
               {showTooltip.right && !isDisabled && (
-                <Tooltip side={'right'} content={getTooltipContent('right')} position={rightThumbPosition} />
+                <Tooltip
+                  value={sliderValue}
+                  position={rightThumbPosition}
+                  side={'right'}
+                  suffix={suffix}
+                  unit={unit}
+                />
               )}
             </>
           )}
