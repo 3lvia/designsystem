@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 2.8.0 (??.06.23)
+
+### New feature
+
+- Building CSS variables and classes from tokens to elvis.
+
 ## 2.7.1 (07.06.23)
 
 ### Patch
