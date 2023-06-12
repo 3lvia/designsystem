@@ -4,13 +4,21 @@
     (onOpen)="isOpen = true"
     (onClose)="isOpen = false"
     typography="title-sm"
-    [openLabel]="title"
-    [openDetailText]="subtitle"
-    [closeLabel]="title"
-    [closeDetailText]="subtitle"
     spacingAboveContent="24px"
     isFullwidth
   >
+    <div slot="openLabel">
+      <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}-1</h3>
+      <p class="e-text-md e-m-0">
+        {{ subtitle }}
+      </p>
+    </div>
+    <div slot="closeLabel">
+      <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}-2</h3>
+      <p class="e-text-md e-m-0">
+        {{ subtitle }}
+      </p>
+    </div>
     <div class="table-wrapper" slot="content">
       <table class="desktop-table">
         <caption class="e-sr-only">Overview of available {{ title | lowercase }} color tokens</caption>
