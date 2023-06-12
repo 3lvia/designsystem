@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import { StepperTypeProps } from './elvia-stepper.types';
-import { Steps, StepperContainer, StepperTitle, Step, StepNumber } from './styledComponents';
+import { Steps, StepperContainer, StepperTitle, Step, StepNumber, StatusMessage } from './styledComponents';
 import { generateStatusMessage, isReachable, numberShouldBeVisible } from './utils';
 import { StepDivider } from './StepDivider';
 import { StepContent } from './StepContent';
@@ -29,10 +29,10 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   );
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
-      <div className="pf-screen-reader e-sr-only" aria-live="polite" role="status">
+      <StatusMessage aria-live="polite" role="status">
         {steps && generateStatusMessage(currentStep, steps, errorSteps)}
-      </div>
-      <Steps type="horizontal" role="tablist">
+      </StatusMessage>
+      <Steps type="horizontal" role="tablist" aria-orientation="horizontal">
         {stepNumbersArray.map(
           (stepNumber) =>
             numberShouldBeVisible(stepNumber, currentStep, numberOfSteps) && (

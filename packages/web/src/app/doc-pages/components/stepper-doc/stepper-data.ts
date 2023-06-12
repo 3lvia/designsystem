@@ -32,7 +32,7 @@ export const stepperData: ComponentData = {
       isRequired: false,
       type: 'string',
       description:
-        'The stepper uses a custom typography for the titles of each step. If you want to use any of the design system typographies, pass the name of the typography here. Example: "text-md"',
+        'The stepper uses custom typography for the titles of each step. If you want to use any of the design system typographies, pass the name of the typography here. Example: "text-md"',
     },
     content: {
       isRequired: true,

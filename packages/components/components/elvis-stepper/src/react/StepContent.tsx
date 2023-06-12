@@ -35,6 +35,7 @@ export const StepContent: FC<StepContentProps> = function ({
       <StepperActions>
         <SecondaryButton onClick={() => handleStepChange(currentStep - 1)}>Tilbake</SecondaryButton>
         <PrimaryButton
+          disabled={!isReachable(isForced, currentStep + 1, steps)}
           onClick={() =>
             handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
           }

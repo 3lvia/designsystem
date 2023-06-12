@@ -12,6 +12,19 @@ export const StepperContainer = styled.ul<StepperContainerProps>`
   padding: 0;
 `;
 
+export const StatusMessage = styled.div`
+  position: absolute !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  margin: -1px !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+`;
+
 interface StepsProps {
   type?: string;
 }
@@ -214,6 +227,7 @@ interface StepperTitleProps {
   type: string;
   isActive?: boolean;
   typography?: TypographyName;
+  isDisabled?: boolean;
 }
 export const StepperTitle = styled.div<StepperTitleProps>`
   ${(props) => getStepTitleTypography(props)}
@@ -224,7 +238,18 @@ export const StepperTitle = styled.div<StepperTitleProps>`
   ${({ type }) =>
     type === 'vertical' &&
     css`
-      margin: 0 0;
+      margin: 0;
+    `}
+
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+      }
+      &:hover {
+        cursor: not-allowed;
+      }
     `}
 `;
 

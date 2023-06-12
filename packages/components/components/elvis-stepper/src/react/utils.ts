@@ -34,25 +34,25 @@ export const numberShouldBeVisible = (
 };
 
 export const generateStatusMessage = (currentStep: number, steps: StepStates, errorSteps: number[]) => {
-  let statusMessage = `On step ${currentStep}. `;
+  let statusMessage = `På steg ${currentStep}. `;
   if (currentStep > 1) {
-    statusMessage += `The previous step was ${
-      steps?.[currentStep - 1].isCompleted ? 'successful' : 'incomplete'
+    statusMessage += `Det forrige steget var ${
+      steps?.[currentStep - 1].isCompleted ? 'vellykket' : 'ikke fullført'
     }. `;
   }
 
   if (errorSteps.length > 0) {
-    statusMessage += 'Step ';
+    statusMessage += 'Steg ';
     errorSteps.forEach((stepNumber: number, i: number) => {
       if (i === errorSteps.length - 1) {
         statusMessage += stepNumber;
       } else if (i === errorSteps.length - 2) {
-        statusMessage += stepNumber + ' and ';
+        statusMessage += stepNumber + ' og ';
       } else {
         statusMessage += stepNumber + ', ';
       }
     });
-    statusMessage += ' was invalid.';
+    statusMessage += ' var ugyldig.';
   }
   return statusMessage;
 };

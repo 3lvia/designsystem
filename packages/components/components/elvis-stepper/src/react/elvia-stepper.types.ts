@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { HasValue } from '@elvia/elvis-toolbox';
+import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 
 interface StepState {
@@ -14,7 +14,7 @@ export interface StepStates {
   [step: number]: Partial<StepState>;
 }
 
-export interface StepperTypeProps extends HasValue<number> {
+export interface StepperTypeProps extends HasValue<number>, BaseProps {
   numberOfSteps: number;
   currentStep: number;
   steps?: StepStates;
