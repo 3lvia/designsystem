@@ -51,10 +51,13 @@ Read about the
 ```css
 :root,
 .e-theme-light {
-  --e-thumbnail-color-border: var(--e-grey-10);
+  --e-thumbnail-color-text: var(--e-grey-10);
 }
 .e-theme-dark {
-  --e-thumbnail-color-border: var(--e-grey-20);
+  --e-thumbnail-color-text: var(--e-grey-20);
+}
+.e-thumbnail {
+  color: var(--e-thumbnail-color-text);
 }
 ```
 
@@ -85,8 +88,6 @@ Read about the
           "sunset": "March 2023"  // optional
       }
   ```
-
-````
 
 Glossary:
 
@@ -174,4 +175,3 @@ information on how to use them.
    their `package.json` will be automatically published to NPM. If you for some reason need to manually
    publish a version (e.g. publishing a beta-version) this can be done by navigating to `packages/elvis` and
    running the command `npm publish --otp=<OTP-code>`.
-````
