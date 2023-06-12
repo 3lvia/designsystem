@@ -9,6 +9,9 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { RouterModule } from '@angular/router';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { ColorTokenSubtableComponent } from './color-token-table/color-token-subtable/color-token-subtable.component';
+import { ColorTokenSubtableColorCircleComponent } from './color-token-table/color-token-subtable/color-token-subtable-color-circle/color-token-subtable-color-circle.component';
+import { CopyModule } from 'src/app/shared/copy/copy.module';
 
 @NgModule({
   imports: [
@@ -19,8 +22,15 @@ import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
     CegModule,
+    CopyModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [ColorComponent, ColorPickerComponent, ColorTokenTableComponent],
+  declarations: [
+    ColorComponent,
+    ColorPickerComponent,
+    ColorTokenTableComponent,
+    ColorTokenSubtableComponent,
+    ColorTokenSubtableColorCircleComponent,
+  ],
 })
 export class ColorModule {}

@@ -1,0 +1,93 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+:host {
+  display: grid;
+  gap: 22px;
+}
+
+.table-wrapper {
+  border: 1px solid var(--e-color-border-2);
+  border-radius: 8px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  tr:first-of-type,
+  tr:not(:last-of-type) {
+    border-bottom: 1px solid var(--e-color-border-2);
+  }
+
+  th,
+  td {
+    padding: 16px 8px;
+    vertical-align: top;
+
+    &:first-of-type,
+    &:last-of-type {
+      padding: 16px;
+    }
+
+    &.top-align {
+      vertical-align: top;
+    }
+  }
+
+  .title-row {
+    background-color: var(--e-theme-light-grey-02);
+  }
+
+  .small-column {
+    width: 0;
+  }
+
+  .example-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .token-font {
+    // Mono font, only available inside e-table from elvis
+    font-family: Red Hat Mono, Verdana, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 145%;
+    white-space: nowrap;
+  }
+
+  .color-circle {
+    display: grid;
+    place-items: start center;
+  }
+
+  .light-and-dark-column {
+    width: 100px;
+  }
+}
+
+.desktop-table {
+  @include breakpoints.breakpoint-up(Mobile) {
+    display: none;
+  }
+}
+
+.mobile-table {
+  display: none;
+  @include breakpoints.breakpoint-up(Mobile) {
+    display: table;
+  }
+
+  .token-wrapper {
+    display: grid;
+    gap: 10px;
+
+    .color-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+}

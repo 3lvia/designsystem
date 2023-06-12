@@ -63,6 +63,11 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
+    // Must be wrapped in a requestAnimationFrame to ensure that the children have been initialized
+    // in case a component is used in Angular outside a router/ngIf/conditional rendering.
+    window.requestAnimationFrame(() => {
+      this.storeAllSlots();
+    });
     this.storeAllSlots();
     const spanChildren = this.querySelectorAll('span');
     const hasWrapperElement =

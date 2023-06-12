@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import {
-  TableColorArray,
+  textColorsDefault,
+  textColorsState,
   backgroundColorsDefault,
   backgroundColorsElement,
   backgroundColorsOverlay,
   backgroundColorsStates,
-  textColorsDefault,
-  textColorsState,
+  borderColors,
+  borderColorsStates,
+  signalColors,
+  dataColors,
+  iconColors,
 } from './colors';
 
 @Component({
@@ -21,9 +25,9 @@ export class ColorTokenTableComponent {
   backgroundColorsElement = backgroundColorsElement;
   backgroundColorsOverlay = backgroundColorsOverlay;
   backgroundColorsState = backgroundColorsStates;
-
-  /** Hack to fix type in ng-template context, don't do this in prod (zone re-renders) */
-  asColorArray = (array: unknown): TableColorArray => {
-    return array as any;
-  };
+  borderColors = borderColors;
+  borderColorsStates = borderColorsStates;
+  signalColors = signalColors;
+  dataColors = dataColors;
+  iconColors = iconColors;
 }
