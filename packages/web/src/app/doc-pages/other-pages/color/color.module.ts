@@ -8,6 +8,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { RouterModule } from '@angular/router';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { RouterModule } from '@angular/router';
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
+    CegModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [ColorComponent, ColorPickerComponent, ColorTokenTableComponent],

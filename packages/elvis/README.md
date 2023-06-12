@@ -45,6 +45,18 @@ Read about the
 - Follow the
   [versioning guidelines](<https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10421994468/Retningslinjer+for+versjonering#Stilbiblitoeket-(Elvis)>)
   for publishing to NPM.
+- For colors always use our color tokens. If something custom is needed define a new CSS variable at root with
+  the naming convention: --e-color-componentName-purpose':
+
+```css
+:root,
+.e-theme-light {
+  --e-thumbnail-color-border: var(--e-grey-10);
+}
+.e-theme-dark {
+  --e-thumbnail-color-border: var(--e-grey-20);
+}
+```
 
 #### Good to know
 
@@ -74,15 +86,17 @@ Read about the
       }
   ```
 
-  Glossary:
+````
 
-  - `deprecateChildren`: If true, all other Elvis classes that include the name specified above will be
-    deprecated (optional).
+Glossary:
 
-  - `requiredAncestor`: If specified, the requiredAncestor class will only cause a warning if the specified
-    'requiredAncestor' class is present as an ancestor in the DOM (optional).
+- `deprecateChildren`: If true, all other Elvis classes that include the name specified above will be
+  deprecated (optional).
 
-  - `sunset`: An approximate date of when classes will be removed from Elvis (optional).
+- `requiredAncestor`: If specified, the requiredAncestor class will only cause a warning if the specified
+  'requiredAncestor' class is present as an ancestor in the DOM (optional).
+
+- `sunset`: An approximate date of when classes will be removed from Elvis (optional).
 
 #### **Step 0 - Before you begin**
 
@@ -160,3 +174,4 @@ information on how to use them.
    their `package.json` will be automatically published to NPM. If you for some reason need to manually
    publish a version (e.g. publishing a beta-version) this can be done by navigating to `packages/elvis` and
    running the command `npm publish --otp=<OTP-code>`.
+````

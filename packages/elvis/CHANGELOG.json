@@ -1,6 +1,28 @@
 {
   "content": [
     {
+      "version": "12.1.0",
+      "date": "June ??, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Deprecated all color classes that started with <code>e-bg-</code> or <code>e-text-</code>. These have been deprecated in favor of token classes like <code>e-color-text-1</code> or <code>e-color-background-1</code>",
+            "Added CSS variables for all purpose tokens and base tokens for dark theme support.",
+            "Added purpose token classes for dark theme support (replaces <code>e-bg-</code> and <code>e-text-</code>)",
+            "Dark theme support for thumbnail component"
+          ],
+          "fixes": [
+            "All <code>e-bg-</code> and <code>e-text-</code> classes need to be replaced by a token class. To find the correct token class go to the token table in the color documentation page. To read more about how to use the new token CSS variables and classes go to the implementation part of the color documentation."
+          ],
+          "pages": [
+            { "displayName": "Color", "url": "https://design.elvia.io/brand/color" },
+            { "displayName": "Thumbnail", "url": "https://design.elvia.io/components/thumbnail" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "12.0.1",
       "date": "June 02, 2023",
       "changelog": [
@@ -154,7 +176,7 @@
           "type": "breaking_changes",
           "changes": [
             "Icons are now injected as SVG elements into the DOM, instead of the previous method of injecting them as background images. This changes the internal DOM structure of the icons, however it should not affect how icons are used or displayed. This change also allows icons to be recolored using CSS-variables.",
-            "The classes to set colors of icons have been changed. Most color classes should still function the same way, but some have been renamed or removed. New color names prefer the use of semantic names. E.g.: if you have used <code>e-icon--color-grey-30</code>, you should now use <code>e-icon--color-disabled</code> instead. For a full overview of what colors are available for icons, see <a class=\"e-link\" href=\"https://design.elvia.io/brand/icon#Options\">the icon page</a>.",
+            "The classes to set color of icons have been changed. Most color classes should still function the same way, but some have been renamed or removed. New color names prefer the use of semantic names. E.g.: if you have used <code>e-icon--color-grey-30</code>, you should now use <code>e-icon--color-disabled</code> instead. For a full overview of what colors are available for icons, see <a class=\"e-link\" href=\"https://design.elvia.io/brand/icon#Options\">the icon page</a>.",
             "<code>elvis.js</code> no longer contains an object of all the Elvia colors.",
             "Updated internal <code>@elvia/elvis-typography</code> dependency to <code>2.3.2</code>. In this update, the line height for 'Text medium' typography on mobile has been adjusted to 160% from its previous value of 175%."
           ],

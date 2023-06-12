@@ -22,15 +22,18 @@ const makeDistFolder = async () => {
 };
 
 const generateElviaColorsThemeVariablesScss = async () => {
+  const purposeClasses = getPurposeColorClasses();
   const rootVariables = {
-    ...getBaseColors(lightThemeColors, 'light'),
-    ...getBaseColors(darkThemeColors, 'dark'),
+    ...getBaseColorCssVariables(lightThemeColors, 'light'),
+    ...getBaseColorCssVariables(darkThemeColors, 'dark'),
   };
-  const lightVariables = getThemedCssVariables(lightTheme);
-  const darkVariables = getThemedCssVariables(darkTheme);
+  const lightVariables = getPurposeColorCssVariables(lightTheme);
+  const darkVariables = getPurposeColorCssVariables(darkTheme);
 
   let fileContent = WARNING;
 
+  fileContent += '/* stylelint-disable */\n'
+  fileContent += purposeClasses + `\n`;
   fileContent += `:root {\n`;
   Object.entries(rootVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
@@ -45,21 +48,47 @@ const generateElviaColorsThemeVariablesScss = async () => {
   fileContent += `\tcolor: var(--e-color-text-1);\n`;
   fileContent += `}\n`;
 
-  fs.writeFileSync('./dist/themeVariables.scss', fileContent);
+  fs.writeFileSync('./../elvis/src/utilities/colors.scss', fileContent);
   return true;
 };
 
-const getBaseColors = (colors: BaseColors, theme: ThemeName): Record<string, string> => {
+const getPurposeColorClasses = (): string => {
+  let colorClasses = '';
+  Object.values(lightTheme).forEach((category: Record<string, Color>) =>
+    Object.entries(category).forEach(([label]) => {
+      if (label.includes('icon') || label.includes('signal') || label.includes('data') || label.includes('static')) {
+        return;
+      }
+      if (label.includes('background')) {
+        colorClasses += `.e-color-${label} {\n`;
+        colorClasses += `\tbackground: var(--e-color-${label}) !important;\n`;
+        colorClasses += `\tcolor: var(--e-color-${label}--contrast) !important;\n}\n`;
+      } else if (label.includes('text')) {
+        colorClasses += `.e-color-${label} {`;
+        colorClasses += `color: var(--e-color-${label}) !important;}\n`;
+      } else if (label.includes('border')) {
+        colorClasses += `.e-color-${label} {`;
+        colorClasses += `border-color: var(--e-color-${label}) !important;}\n`;
+      }
+    }),
+  );
+  return colorClasses;
+}
+
+const getBaseColorCssVariables = (colors: BaseColors, theme: ThemeName): Record<string, string> => {
   const variables: Record<string, string> = {};
-  Object.values(colors).forEach((category) =>
-    Object.keys(category).forEach(
-      (color) => (variables[`--e-theme-${theme}-${color}`] = category[color].color),
-    ),
+  Object.values(colors).forEach((category) => {
+    if (theme === 'light') {
+      Object.keys(category).forEach((color) => (variables[`--e-light-${color}`] = category[color].color))
+    } else {
+      Object.keys(category).forEach((color) => (variables[`--e-dark-${color}`] = category[color].color))
+    }
+  }
   );
   return variables;
 };
 
-const getThemedCssVariables = (theme: Theme) => {
+const getPurposeColorCssVariables = (theme: Theme) => {
   const variables: Record<string, string> = {};
   Object.values(theme).forEach((category: Record<string, Color>) =>
     Object.entries(category).forEach(([label, color]) => {
