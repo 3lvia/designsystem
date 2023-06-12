@@ -1,11 +1,12 @@
 {
   "name": "@elvia/elvis-dropdown",
-  "version": "7.0.2",
+  "version": "7.1.0",
   "main": "web_component.js",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/dropdown",
   "files": [
     "web_component.js",
+    "web_component.d.ts",
     "react.js",
     "react.d.ts",
     "CHANGELOG.json",
