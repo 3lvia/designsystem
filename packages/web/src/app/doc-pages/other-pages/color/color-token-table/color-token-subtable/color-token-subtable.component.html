@@ -3,18 +3,17 @@
     [isOpen]="isOpen"
     (onOpen)="isOpen = true"
     (onClose)="isOpen = false"
-    typography="title-sm"
     spacingAboveContent="24px"
     isFullwidth
   >
     <div slot="openLabel">
-      <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}-1</h3>
+      <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}</h3>
       <p class="e-text-md e-m-0">
         {{ subtitle }}
       </p>
     </div>
     <div slot="closeLabel">
-      <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}-2</h3>
+      <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}</h3>
       <p class="e-text-md e-m-0">
         {{ subtitle }}
       </p>
@@ -123,6 +122,6 @@
   </elvia-accordion>
 
   <elvia-divider
-    [inlineStyle]="{ marginTop: '16px', transition: 'opacity 0.2s', opacity: isOpen ? '0' : '1' }"
+    [inlineStyle]="{ marginTop: '8px', transition: 'opacity 0.2s', opacity: isOpen ? '0' : '1' }"
   />
 </div>

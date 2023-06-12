@@ -47,12 +47,8 @@ export class ColorTokenSubtableComponent implements OnInit {
         if (entry.title?.toLowerCase().includes(parsedValue)) {
           return entry;
         } else {
-          const newColors = entry.colors.filter(
-            (color) =>
-              color.token.toLowerCase().includes(parsedValue) ||
-              color.role?.toLowerCase().includes(parsedValue) ||
-              color.light.label.toLowerCase().includes(parsedValue) ||
-              color.dark.label.toLowerCase().includes(parsedValue),
+          const newColors = entry.colors.filter((color) =>
+            JSON.stringify(color).toLowerCase().includes(parsedValue),
           );
           return {
             title: newColors.length > 0 ? entry.title : undefined,
