@@ -73,13 +73,13 @@ const accordionData: ComponentData = {
     },
     openLabel: {
       isRequired: false,
-      type: `string`,
-      description: `Label for opening the accordion. Will also set the aria-label of the button opening the accordion. NB: the prop ariaLabelOpen has higher priority and will overwrite the aria-label.`,
+      type: `string | JSX.Element`,
+      description: `Label for opening the accordion. Can be slot in webcomponent. Will also set the aria-label of the button opening the accordion. NB: the prop ariaLabelOpen has higher priority and will overwrite the aria-label.`,
     },
     closeLabel: {
       isRequired: false,
-      type: `string`,
-      description: `Label for closing the accordion. Will also set the aria-label of the button closing the accordion. NB: the prop ariaLabelClose has higher priority and will overwrite the aria-label.`,
+      type: `string | JSX.Element`,
+      description: `Label for closing the accordion. Can be slot in webcomponent. Will also set the aria-label of the button closing the accordion. NB: the prop ariaLabelClose has higher priority and will overwrite the aria-label. `,
     },
     openAriaLabel: {
       isRequired: false,

@@ -59,6 +59,12 @@ const Accordion: FC<AccordionProps> = ({
     };
   }, []);
 
+  const { ref: openLabelRef } = useSlot<HTMLDivElement>('openLabel', webcomponent, {
+    useEffectDependencies: useMemo(() => [isOpenState], [isOpenState]),
+  });
+  const { ref: closeLabelRef } = useSlot<HTMLDivElement>('closeLabel', webcomponent, {
+    useEffectDependencies: useMemo(() => [isOpenState], [isOpenState]),
+  });
   const { ref: accordionContentRef } = useSlot<HTMLDivElement>('content', webcomponent, {
     callback: useCallback((foundSlot: boolean) => setHasContent(foundSlot), []),
     useEffectDependencies: useMemo(() => [type], [type]),
@@ -175,11 +181,14 @@ const Accordion: FC<AccordionProps> = ({
           )}
           <AccordionLabel
             hasLabel={type !== 'single'}
-            openLabel={openLabel ?? ''}
             isStartAligned={isStartAligned}
             isFullWidth={isFullWidth}
           >
-            <AccordionLabelText>{!isOpenState ? openLabel : closeLabel}</AccordionLabelText>
+            {isOpenState ? (
+              <AccordionLabelText ref={closeLabelRef}>{closeLabel}</AccordionLabelText>
+            ) : (
+              <AccordionLabelText ref={openLabelRef}>{openLabel}</AccordionLabelText>
+            )}
             <AccordionDetailText size={size} openDetailText={openDetailText}>
               {!isOpenState ? openDetailText : closeDetailText}
             </AccordionDetailText>
