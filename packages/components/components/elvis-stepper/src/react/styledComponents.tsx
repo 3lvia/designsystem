@@ -4,12 +4,11 @@ import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 interface StepperContainerProps {
   type?: string;
 }
-export const StepperContainer = styled.ul<StepperContainerProps>`
+export const StepperContainer = styled.div<StepperContainerProps>`
   position: relative;
   display: inline-flex;
   flex-direction: column;
   gap: ${({ type }) => (type === 'vertical' ? '4px' : 'initial')};
-  padding: ${({ type }) => (type === 'vertical' ? 'revert' : 'initial')};
 `;
 
 export const StatusMessage = styled.div`
@@ -28,18 +27,20 @@ export const StatusMessage = styled.div`
 interface StepsProps {
   type?: string;
 }
-export const Steps = styled.li<StepsProps>`
+export const Steps = styled.ul<StepsProps>`
   display: flex;
   flex-direction: ${({ type }) => (type === 'vertical' ? 'column' : 'row')};
   gap: 4px;
   align-items: ${({ type }) => (type === 'vertical' ? 'start' : 'center')};
+  justify-content: center;
+  padding: ${({ type }) => (type === 'vertical' ? 'revert' : 'initial')};
 `;
 
 interface StepProps {
   type: string;
   isActive?: boolean;
 }
-export const Step = styled.div<StepProps>`
+export const Step = styled.li<StepProps>`
   display: flex;
   flex-direction: ${({ type }) => (type === 'vertical' ? 'column' : 'row')};
   align-items: ${({ type }) => (type === 'vertical' ? 'start' : 'center')};
@@ -258,5 +259,5 @@ export const StepperActions = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 16px;
-  gap: 4px;
+  gap: 8px;
 `;
