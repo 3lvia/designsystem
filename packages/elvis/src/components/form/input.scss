@@ -178,11 +178,11 @@ $form-input-padding-compact-active: 3px 9px;
   @supports not (background: paint(something)) {
     @keyframes eInputLoadingAnimation {
       from {
-        border-color: rgba(var(--e-color-background-1), 1);
+        border-color: rgba(var(--e-color-border-selected-1), 1);
       }
 
       to {
-        border-color: rgba(var(--e-color-background-1), 0.1);
+        border-color: rgba(var(--e-color-border-selected-1), 0.1);
       }
     }
 
