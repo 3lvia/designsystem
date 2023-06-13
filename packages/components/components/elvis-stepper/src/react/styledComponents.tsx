@@ -258,4 +258,5 @@ export const StepperActions = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 16px;
+  gap: 4px;
 `;
