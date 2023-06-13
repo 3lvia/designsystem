@@ -20,10 +20,10 @@ export class ColorComponent {
 
   baseTokenExample = `:root,
 .e-theme-light {
-  --container-color-border: var(--e-light?-grey-10);
+  --container-color-border: var(--e-light-theme-grey-10);
 }
 .e-theme-dark {
-  --container-color-border: var(--e-dark-grey-20);
+  --container-color-border: var(--e-dark-theme-grey-20);
 }
 .container {
   border-color: var(--container-color-border);
