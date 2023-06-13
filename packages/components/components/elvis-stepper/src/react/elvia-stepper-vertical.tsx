@@ -30,7 +30,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   );
   return (
     <StepperContainer type="vertical" className={className} style={inlineStyle} {...rest}>
-      <StatusMessage aria-live="polite" role="status">
+      <StatusMessage aria-live="polite" role="region">
         {steps && generateStatusMessage(currentStep, steps, errorSteps)}
       </StatusMessage>
       <Steps type="vertical" role="tablist" aria-orientation="vertical">

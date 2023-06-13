@@ -29,7 +29,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   );
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
-      <StatusMessage aria-live="polite" role="status">
+      <StatusMessage aria-live="polite" role="region">
         {steps && generateStatusMessage(currentStep, steps, errorSteps)}
       </StatusMessage>
       <Steps type="horizontal" role="tablist" aria-orientation="horizontal">
