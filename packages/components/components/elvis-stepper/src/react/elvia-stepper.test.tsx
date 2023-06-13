@@ -31,8 +31,8 @@ describe('Elvis Stepper', () => {
       const user = userEvent.setup();
       const nextButton = screen.getByRole('button', { name: /neste/i });
       await user.click(nextButton);
-      const title = screen.getByLabelText('title');
-      expect(title).toHaveTextContent('Title 2');
+      const content = screen.getByRole('tabpanel');
+      expect(content).toHaveTextContent('Step 2 content');
     });
 
     it('should jump back to previous step when back button is clicked', async () => {
@@ -40,24 +40,24 @@ describe('Elvis Stepper', () => {
       const backButton = screen.getByRole('button', { name: /tilbake/i });
 
       await user.click(backButton);
-      const title = screen.getByLabelText('title');
-      expect(title).toHaveTextContent('Title 1');
+      const content = screen.getByRole('tabpanel');
+      expect(content).toHaveTextContent('Step 1 content');
     });
 
     it('should jump to the last step when number is clicked in the header', async () => {
       const user = userEvent.setup();
       const lastPage = screen.getByRole('tab', { name: /5/i });
       await user.click(lastPage);
-      const title = screen.getByLabelText('title');
-      expect(title).toHaveTextContent('Title 5');
+      const content = screen.getByRole('tabpanel');
+      expect(content).toHaveTextContent('Step 5 content');
     });
 
     it('should jump back to the first step when number is clicked in the header', async () => {
       const user = userEvent.setup();
       const lastPage = screen.getByRole('tab', { name: /1/i });
       await user.click(lastPage);
-      const title = screen.getByLabelText('title');
-      expect(title).toHaveTextContent('Title 1');
+      const content = screen.getByRole('tabpanel');
+      expect(content).toHaveTextContent('Step 1 content');
     });
 
     it('should have error state when isError is applied', async () => {

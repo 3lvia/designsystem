@@ -35,7 +35,6 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
         {stepNumber}
       </StepNumber>
       <StepperTitle
-        aria-label="title"
         type="vertical"
         isActive={stepNumber === currentStep}
         typography={typography}

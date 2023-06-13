@@ -4,6 +4,7 @@ import { Steps, StepperContainer, StepperTitle, Step, StepNumber, StatusMessage 
 import { generateStatusMessage, isReachable, numberShouldBeVisible } from './utils';
 import { StepDivider } from './StepDivider';
 import { StepContent } from './StepContent';
+import { useRovingFocus } from '@elvia/elvis-toolbox';
 
 export const StepperHorizontal: FC<StepperTypeProps> = function ({
   numberOfSteps,
@@ -27,12 +28,15 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
     () => stepNumbersArray.filter((_, i) => steps?.[i + 1].isError),
     [numberOfSteps, steps],
   );
+
+  const { ref: listContainerRef } = useRovingFocus<HTMLLIElement>({ dir: 'horizontal' });
+
   return (
     <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
       <StatusMessage aria-live="polite" role="region">
         {steps && generateStatusMessage(currentStep, steps, errorSteps)}
       </StatusMessage>
-      <Steps type="horizontal" role="tablist" aria-orientation="horizontal">
+      <Steps type="horizontal" role="tablist" aria-orientation="horizontal" ref={listContainerRef}>
         {stepNumbersArray.map(
           (stepNumber) =>
             numberShouldBeVisible(stepNumber, currentStep, numberOfSteps) && (
@@ -62,7 +66,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
             ),
         )}
       </Steps>
-      <StepperTitle aria-label="title" type="horizontal" typography={typography}>
+      <StepperTitle type="horizontal" typography={typography}>
         {steps?.[currentStep]?.title ?? ''}
       </StepperTitle>
       <StepContent
