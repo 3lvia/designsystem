@@ -9,7 +9,7 @@ export const StepperContainer = styled.ul<StepperContainerProps>`
   display: inline-flex;
   flex-direction: column;
   gap: ${({ type }) => (type === 'vertical' ? '4px' : 'initial')};
-  padding: ${({ type }) => (type === 'vertical' ? 'initial' : '0px')};
+  padding: ${({ type }) => (type === 'vertical' ? 'revert' : '0px')};
 `;
 
 export const StatusMessage = styled.div`
