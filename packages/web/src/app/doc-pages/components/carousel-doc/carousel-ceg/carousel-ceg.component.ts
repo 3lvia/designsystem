@@ -8,7 +8,7 @@ import { CarouselProps } from '@elvia/elvis-carousel/react';
   styleUrls: ['./carousel-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: CarouselCegComponent }],
 })
-export class CarouselCegComponent implements ComponentExample {
+export class CarouselCegComponent implements ComponentExample<CarouselProps> {
   elementName = 'carousel';
   cegContent = new CegControlManager<CarouselProps>([
     {
@@ -35,6 +35,23 @@ export class CarouselCegComponent implements ComponentExample {
       },
     },
   ]);
+
+  reactSlotReplacement = {
+    items: `[
+      {
+        heading: <h3 class="e-title-sm">Er strømbruddet kun hos deg?</h3>,
+        item: <img alt="" src="/assets/carousel/el1.jpeg" />
+      },
+      {
+        heading: <h3 class="e-title-sm">Har flere mistet strømmen?</h3>,
+        item: <img alt="" src="/assets/carousel/el2.jpeg" />
+      },
+      {
+        heading: <h3 class="e-title-sm">Vær forberedt på strømbrudd</h3>,
+        item: <img alt="" src="/assets/carousel/el3.jpeg" />
+      },
+    ]`,
+  };
 
   handleOnChange(value: number): void {
     console.log('New value:', value);
