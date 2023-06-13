@@ -79,9 +79,9 @@ const getBaseColorCssVariables = (colors: BaseColors, theme: ThemeName): Record<
   const variables: Record<string, string> = {};
   Object.values(colors).forEach((category) => {
     if (theme === 'light') {
-      Object.keys(category).forEach((color) => (variables[`--e-light-${color}`] = category[color].color))
+      Object.keys(category).forEach((color) => (variables[`--e-light-theme-${color}`] = category[color].color))
     } else {
-      Object.keys(category).forEach((color) => (variables[`--e-dark-${color}`] = category[color].color))
+      Object.keys(category).forEach((color) => (variables[`--e-dark-theme-${color}`] = category[color].color))
     }
   }
   );
