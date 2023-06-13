@@ -9,7 +9,6 @@
 @use '@elvia/elvis/src/main.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 @use '@elvia/elvis/src/variables/typography.scss' as typography;
-@use '@elvia/elvis/src/utilities/colors' as colors;
 
 // Prebuilt css for enabling use of overlays from @angular/cdk
 @import '@angular/cdk/overlay-prebuilt.css';

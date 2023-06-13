@@ -21,7 +21,7 @@ const makeDistFolder = async () => {
   return true;
 };
 
-const generateElviaColorsThemeVariablesScss = async () => {
+const generateElvisColorsCss = async () => {
   const purposeClasses = getPurposeColorClasses();
   const rootVariables = {
     ...getBaseColorCssVariables(lightThemeColors, 'light'),
@@ -48,7 +48,7 @@ const generateElviaColorsThemeVariablesScss = async () => {
   fileContent += `\tcolor: var(--e-color-text-1);\n`;
   fileContent += `}\n`;
 
-  fs.writeFileSync('./../elvis/src/utilities/colors.scss', fileContent);
+  fs.writeFileSync('./dist/elvisColors.scss', fileContent);
   return true;
 };
 
@@ -119,7 +119,7 @@ gulp.task(
     makeDistFolder,
     cleanup,
     generateElvisShadowMapScss,
-    generateElviaColorsThemeVariablesScss,
+    generateElvisColorsCss,
     function (done) {
       console.log('Elvis-colors - Successfully built Elvis-colors! ');
       done();
