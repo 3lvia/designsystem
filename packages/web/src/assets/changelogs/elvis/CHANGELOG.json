@@ -1,6 +1,25 @@
 {
   "content": [
     {
+      "version": "12.2.0",
+      "date": "June ??, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Dark theme support for form field / text field component",
+            "Dark theme support for search component",
+            "Dark theme support for autocomplete component"
+          ],
+          "pages": [
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Autocomplete", "url": "https://design.elvia.io/components/autocomplete" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "12.1.0",
       "date": "June ??, 2023",
       "changelog": [
