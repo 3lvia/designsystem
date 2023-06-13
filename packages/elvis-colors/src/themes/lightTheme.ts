@@ -114,8 +114,8 @@ export const lightThemeColors = {
 
 export type LightThemeColorName = typeof lightThemeColors extends Record<string, infer Category>
   ? Category extends Record<string, any>
-    ? keyof Category
-    : never
+  ? keyof Category
+  : never
   : never;
 
 export const lightTheme = {
@@ -343,6 +343,10 @@ export const lightTheme = {
     'static-black': {
       hex: lightThemeColors['primary-colors'].black.color,
       contrast: lightThemeColors['primary-colors'].black.contrastText,
+    },
+    'static-brand-accent': {
+      hex: lightThemeColors['primary-colors'].green.color,
+      contrast: lightThemeColors['primary-colors'].green.contrastText,
     },
   },
 } as const satisfies Theme;
