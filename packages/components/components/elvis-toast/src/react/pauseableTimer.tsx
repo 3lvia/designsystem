@@ -16,7 +16,7 @@ export const usePauseableTimer = (
 
   const resumeTimer = () => {
     if (timerId.current) {
-      return;
+      clearTimeout(timerId.current);
     }
 
     startTime.current = Date.now();
