@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.06.23",
+      "version": "7.1.0",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Now exporting some types for use with web component. They are available from <code>import {} from '@elvia/elvis-dropdown';</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "01.06.23",
       "version": "7.0.2",
       "changelog": [
