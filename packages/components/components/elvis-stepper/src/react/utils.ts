@@ -8,28 +8,38 @@ export const numberShouldBeVisible = (
   stepNumber: number,
   currentStep: number,
   numberOfSteps: number,
+  numberOfVisibleSteps: number,
 ): boolean => {
   // show if first or last
   if (stepNumber === 1 || stepNumber === numberOfSteps) {
     return true;
   }
+
   // show if it is currentStep or next to currentStep
-  if (Math.abs(currentStep - stepNumber) <= 1) {
+  const numberOfNeighborSteps = numberOfVisibleSteps - 3;
+  if (Math.abs(currentStep - stepNumber) <= Math.floor(numberOfNeighborSteps / 2)) {
     return true;
   }
-  // if we are at start of stepper
-  if (currentStep < 4) {
-    if (stepNumber < 5) {
-      return true;
-    }
+  if (
+    numberOfNeighborSteps % 2 !== 0 &&
+    stepNumber - currentStep === (numberOfNeighborSteps % 2) + Math.floor(numberOfNeighborSteps / 2)
+  ) {
+    return true;
   }
-  // if we are at end of stepper
-  if (currentStep >= numberOfSteps - 1) {
-    if (Math.abs(stepNumber - numberOfSteps) < 4) {
+
+  // if we are at start of stepper
+  if (currentStep <= numberOfVisibleSteps - 2) {
+    if (stepNumber <= numberOfVisibleSteps - 1) {
       return true;
     }
   }
 
+  // if we are at end of stepper
+  if (currentStep >= numberOfSteps - 1) {
+    if (Math.abs(stepNumber - numberOfSteps) <= numberOfVisibleSteps - 2) {
+      return true;
+    }
+  }
   return false;
 };
 

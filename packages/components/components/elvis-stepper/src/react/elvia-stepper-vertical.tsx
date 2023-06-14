@@ -30,7 +30,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
     [numberOfSteps, steps],
   );
 
-  const { ref: listContainerRef } = useRovingFocus<HTMLLIElement>({ dir: 'vertical' });
+  const { ref: listContainerRef } = useRovingFocus<HTMLUListElement>({ dir: 'vertical' });
 
   return (
     <StepperContainer type="vertical" className={className} style={inlineStyle} {...rest}>
@@ -40,8 +40,13 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
       <Steps type="vertical" role="tablist" aria-orientation="vertical" ref={listContainerRef}>
         {stepNumbersArray.map(
           (stepNumber) =>
-            numberShouldBeVisible(stepNumber, currentStep, numberOfSteps) && (
-              <Step type="vertical" key={stepNumber} isActive={stepNumber === currentStep}>
+            numberShouldBeVisible(stepNumber, currentStep, numberOfSteps, 5) && (
+              <Step
+                type="vertical"
+                key={stepNumber}
+                isActive={stepNumber === currentStep}
+                isLast={stepNumber === numberOfSteps}
+              >
                 <VerticalStepElement
                   currentStep={currentStep}
                   handleStepChange={handleStepChange}
@@ -53,7 +58,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                 <StepperContentWrapper>
                   {stepNumber < numberOfSteps && (
                     <StepDivider
-                      isDots={!numberShouldBeVisible(stepNumber + 1, currentStep, numberOfSteps)}
+                      isDots={!numberShouldBeVisible(stepNumber + 1, currentStep, numberOfSteps, 5)}
                       type="vertical"
                       isSelected={currentStep > stepNumber}
                       isActive={stepNumber === currentStep}

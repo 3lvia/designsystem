@@ -9,6 +9,8 @@ export const StepperContainer = styled.div<StepperContainerProps>`
   display: inline-flex;
   flex-direction: column;
   gap: ${({ type }) => (type === 'vertical' ? '4px' : 'initial')};
+  width: 100%;
+  max-width: 400px;
 `;
 
 export const StatusMessage = styled.div`
@@ -33,18 +35,21 @@ export const Steps = styled.ul<StepsProps>`
   gap: 4px;
   align-items: ${({ type }) => (type === 'vertical' ? 'start' : 'center')};
   justify-content: center;
-  padding: ${({ type }) => (type === 'vertical' ? 'revert' : 'initial')};
+  padding: unset;
 `;
 
 interface StepProps {
   type: string;
   isActive?: boolean;
+  isLast: boolean;
 }
 export const Step = styled.li<StepProps>`
   display: flex;
   flex-direction: ${({ type }) => (type === 'vertical' ? 'column' : 'row')};
   align-items: ${({ type }) => (type === 'vertical' ? 'start' : 'center')};
   gap: 4px;
+  flex: ${({ isLast }) => (isLast ? 0 : 1)};
+  width: 100%;
 `;
 
 interface StepLineProps {
@@ -55,7 +60,7 @@ interface StepLineProps {
 
 export const StepLine = styled.div<StepLineProps>`
   display: grid;
-  width: 58px;
+  flex: 1;
   height: 2px;
   border-radius: 50px;
   margin: 0;
@@ -68,6 +73,7 @@ export const StepLine = styled.div<StepLineProps>`
     css`
       height: ${isActive ? 'auto' : '12px'};
       width: 2px;
+      flex: none;
     `}
 `;
 interface StepLineDashedProps {
@@ -75,17 +81,15 @@ interface StepLineDashedProps {
 }
 export const StepLineDashed = styled.div<StepLineDashedProps>`
   display: flex;
-  height: 32px;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   gap: 6px;
-  width: 58px;
+  flex: 1;
 
   ${({ type }) =>
     type === 'vertical' &&
     css`
-      height: unset;
+      height: 30px;
       width: unset;
       flex-direction: column;
       align-items: flex-start;
@@ -94,7 +98,7 @@ export const StepLineDashed = styled.div<StepLineDashedProps>`
 
 export const LineDash = styled.div<StepLineDashedProps>`
   display: inline;
-  width: 6px;
+  flex: 1;
   height: 2px;
   margin: 0;
   border-radius: 50px;
@@ -105,7 +109,7 @@ export const LineDash = styled.div<StepLineDashedProps>`
     css`
       display: flex;
       width: 2px;
-      height: 6px;
+      height: unset;
     `}
 `;
 
@@ -202,6 +206,7 @@ interface StepperContentProps {
 export const StepperContent = styled.div<StepperContentProps>`
   display: block;
   justify-content: start;
+  flex: 1;
   ${({ type }) =>
     type === 'vertical' &&
     css`
@@ -212,6 +217,7 @@ export const StepperContent = styled.div<StepperContentProps>`
 export const StepperContentWrapper = styled.div`
   display: flex;
   margin: 0 15px;
+  width: 100%;
 `;
 
 const getStepTitleTypography = ({ type, isActive, typography }: StepperTitleProps) => {

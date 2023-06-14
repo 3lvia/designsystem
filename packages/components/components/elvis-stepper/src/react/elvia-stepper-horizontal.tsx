@@ -5,6 +5,7 @@ import { generateStatusMessage, isReachable, numberShouldBeVisible } from './uti
 import { StepDivider } from './StepDivider';
 import { StepContent } from './StepContent';
 import { useRovingFocus } from '@elvia/elvis-toolbox';
+import { useDynamicStepCount } from './useDynamicStepCount';
 
 export const StepperHorizontal: FC<StepperTypeProps> = function ({
   numberOfSteps,
@@ -20,6 +21,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   inlineStyle,
   ...rest
 }) {
+  const { numberOfVisibleSteps, stepListElement } = useDynamicStepCount(90);
   const stepNumbersArray = useMemo(
     () => Array.from({ length: numberOfSteps }, (_, i) => i + 1),
     [numberOfSteps],
@@ -29,18 +31,29 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
     [numberOfSteps, steps],
   );
 
-  const { ref: listContainerRef } = useRovingFocus<HTMLLIElement>({ dir: 'horizontal' });
+  const { ref: listContainerRef } = useRovingFocus<HTMLUListElement>({ dir: 'horizontal' });
 
   return (
-    <StepperContainer type="horizontal" className={className} style={inlineStyle} {...rest}>
+    <StepperContainer
+      type="horizontal"
+      className={className}
+      style={inlineStyle}
+      ref={stepListElement}
+      {...rest}
+    >
       <StatusMessage aria-live="polite" role="region">
         {steps && generateStatusMessage(currentStep, steps, errorSteps)}
       </StatusMessage>
       <Steps type="horizontal" role="tablist" aria-orientation="horizontal" ref={listContainerRef}>
         {stepNumbersArray.map(
           (stepNumber) =>
-            numberShouldBeVisible(stepNumber, currentStep, numberOfSteps) && (
-              <Step type="horizontal" key={stepNumber} isActive={stepNumber === currentStep}>
+            numberShouldBeVisible(stepNumber, currentStep, numberOfSteps, numberOfVisibleSteps) && (
+              <Step
+                type="horizontal"
+                key={stepNumber}
+                isActive={stepNumber === currentStep}
+                isLast={stepNumber === numberOfSteps}
+              >
                 <StepNumber
                   role="tab"
                   aria-selected={stepNumber === currentStep}
@@ -56,7 +69,9 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
                 </StepNumber>
                 {stepNumber < numberOfSteps && (
                   <StepDivider
-                    isDots={!numberShouldBeVisible(stepNumber + 1, currentStep, numberOfSteps)}
+                    isDots={
+                      !numberShouldBeVisible(stepNumber + 1, currentStep, numberOfSteps, numberOfVisibleSteps)
+                    }
                     type="horizontal"
                     isSelected={currentStep > stepNumber}
                     isActive={stepNumber === currentStep}
