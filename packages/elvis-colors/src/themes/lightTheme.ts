@@ -114,8 +114,8 @@ export const lightThemeColors = {
 
 export type LightThemeColorName = typeof lightThemeColors extends Record<string, infer Category>
   ? Category extends Record<string, any>
-  ? keyof Category
-  : never
+    ? keyof Category
+    : never
   : never;
 
 export const lightTheme = {
