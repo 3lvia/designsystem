@@ -1,4 +1,3 @@
-@use '../../variables/colors';
 @use '../../variables/animation';
 @use '../../variables/shared-sizes';
 @use '../../variables/typography';
@@ -11,7 +10,7 @@ $form-input-padding-active: 11px 15px;
 $form-input-padding-with-icon: 12px 44px 12px 16px;
 $form-input-padding-with-icon-active: 11px 43px 11px 15px;
 $form-input-border-radius: shared-sizes.$border-radius;
-$form-input-border: 1px solid colors.color('grey');
+$form-input-border: 1px solid var(--e-color-border-1);
 
 $form-input-padding-compact: 4px 10px;
 $form-input-padding-compact-active: 3px 9px;
@@ -40,8 +39,8 @@ $form-input-padding-compact-active: 3px 9px;
     border: $form-input-border;
     border-radius: $form-input-border-radius;
     margin: 0;
-    background: colors.color('elvia-on');
-    color: colors.color('font-color');
+    background: var(--e-color-background-element-1);
+    color: var(--e-color-text-1);
   }
 
   > textarea {
@@ -53,12 +52,12 @@ $form-input-padding-compact-active: 3px 9px;
 
   > input {
     @include helpers.placeholder() {
-      color: colors.color('grey-70');
+      color: var(--e-color-text-3);
     }
   }
 
   .e-input--placeholder {
-    color: colors.color('grey-70') !important;
+    color: var(--e-color-text-3) !important;
   }
 
   &.e-input--centered > input {
@@ -75,41 +74,41 @@ $form-input-padding-compact-active: 3px 9px;
   &.e-input---invalid > input,
   &.e-input---invalid > textarea {
     padding: $form-input-padding-active;
-    border: 2px solid colors.color('red');
+    border: 2px solid var(--e-color-signal-error);
   }
 
   //duplication needed as unsupported browsers fail to read the :user-invalid selector
   input:user-invalid,
   textarea:user-invalid {
     padding: $form-input-padding-active;
-    border: 2px solid colors.color('red');
+    border: 2px solid var(--e-color-signal-error);
   }
 
   &.e-input---focus > input,
   &.e-input---focus > textarea {
     @include outline.e-outline-pseudoclass();
     padding: $form-input-padding-active;
-    border: 2px solid colors.color('elvia-charge');
+    border: 2px solid var(--e-color-border-selected-1);
   }
 
   > input:focus,
   > textarea:focus {
     @include outline.e-outline();
     padding: $form-input-padding-active;
-    border: 2px solid colors.color('elvia-charge');
+    border: 2px solid var(--e-color-border-selected-1);
   }
 
   &.e-input---disabled > input,
   &.e-input---disabled > textarea,
   > input:disabled,
   > textarea:disabled {
-    border-color: colors.color('disabled');
-    color: colors.color('disabled');
+    border-color: var(--e-color-border-disabled-1);
+    color: var(--e-color-text-disabled-1);
     cursor: not-allowed;
     opacity: 1;
 
     @include helpers.placeholder() {
-      color: colors.color('grey-30');
+      color: var(--e-color-text-disabled-1);
     }
 
     &[type='number'] {
@@ -130,8 +129,8 @@ $form-input-padding-compact-active: 3px 9px;
     > input:read-only:focus {
       padding: $form-input-padding;
       border: 1px solid transparent;
-      background: colors.color('grey-02');
-      color: colors.color('text-light');
+      background: var(--e-color-background-element-2);
+      color: var(--e-color-text-2);
 
       &[type='number'] {
         appearance: textfield;
@@ -165,12 +164,12 @@ $form-input-padding-compact-active: 3px 9px;
         border-radius: $form-input-border-radius;
         animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
         background-clip: padding-box, border-box;
-        background-image: linear-gradient(colors.color('elvia-on'), colors.color('elvia-on')),
+        background-image: linear-gradient(var(--e-color-background-1), var(--e-color-background-1)),
           linear-gradient(
             var(--e-input---loading-angle),
-            colors.color('elvia-charge'),
+            var(--e-color-static-brand-accent),
             transparent 35% 65%,
-            colors.color('elvia-charge')
+            var(--e-color-static-brand-accent)
           );
         background-origin: border-box;
       }
@@ -179,11 +178,11 @@ $form-input-padding-compact-active: 3px 9px;
   @supports not (background: paint(something)) {
     @keyframes eInputLoadingAnimation {
       from {
-        border-color: rgba(colors.color('elvia-charge'), 1);
+        border-color: rgba(var(--e-color-static-brand-accent), 1);
       }
 
       to {
-        border-color: rgba(colors.color('elvia-charge'), 0.1);
+        border-color: rgba(var(--e-color-static-brand-accent), 0.1);
       }
     }
 
@@ -191,7 +190,7 @@ $form-input-padding-compact-active: 3px 9px;
       > input:not(:focus),
       > textarea:not(:focus) {
         padding: $form-input-padding-active;
-        border: solid 2px colors.color('elvia-charge');
+        border: solid 2px var(--e-color-static-brand-accent);
         animation: 1s eInputLoadingAnimation ease alternate infinite;
       }
     }
@@ -223,20 +222,20 @@ $form-input-padding-compact-active: 3px 9px;
   textarea {
     @include typography.typography('text-sm');
     padding: $form-input-padding-compact;
-    color: colors.color('font-color');
+    color: var(--e-color-text-1);
   }
 
   &.e-input---invalid input,
   &.e-input---invalid textarea {
     padding: $form-input-padding-compact-active;
-    border: 2px solid colors.color('red');
+    border: 2px solid var(--e-color-signal-error);
   }
 
   //duplication needed as unsupported browsers fail to read the :user-invalid selector
   input:user-invalid,
   textarea:user-invalid {
     padding: $form-input-padding-compact-active;
-    border: 2px solid colors.color('red');
+    border: 2px solid var(--e-color-signal-error);
   }
 
   &.e-input---focus input,
@@ -244,7 +243,7 @@ $form-input-padding-compact-active: 3px 9px;
   > input:focus,
   > textarea:focus {
     padding: $form-input-padding-compact-active;
-    border: 2px solid colors.color('elvia-charge');
+    border: 2px solid var(--e-color-border-selected-1);
   }
 
   &.e-input---readonly {
@@ -254,8 +253,8 @@ $form-input-padding-compact-active: 3px 9px;
     > input:read-only:focus {
       padding: $form-input-padding-compact-active;
       border: 1px solid transparent;
-      background: colors.color('grey-02');
-      color: colors.color('text-light');
+      background: var(--e-color-background-element-2);
+      color: var(--e-color-text-2);
     }
   }
 
