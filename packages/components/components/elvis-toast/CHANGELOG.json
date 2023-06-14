@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "15.06.23",
+      "version": "1.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Alert not starting timer in React unless hovered."]
+        }
+      ]
+    },
+    {
       "date": "08.05.23",
       "version": "1.0.2",
       "changelog": [

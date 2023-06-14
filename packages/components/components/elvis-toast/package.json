@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-toast",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/toast",
   "main": "web_component.js",
