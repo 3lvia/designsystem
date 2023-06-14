@@ -1,20 +1,8 @@
 import { FormFieldSizes, BaseProps, HasValue, HasError } from '@elvia/elvis-toolbox';
-import { DropdownItemStatus } from './statusToIconMap';
+import { DropdownItem, DropdownValue, DropdownValueType } from './sharedTypes';
+export { DropdownItem, DropdownValue, DropdownValueType } from './sharedTypes';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
-
-export type DropdownValueType = string | number;
-export type DropdownValue = DropdownValueType | DropdownValueType[] | undefined | null;
-
-export interface DropdownItem {
-  value: DropdownValueType;
-  label: string;
-  icon?: string;
-  isDisabled?: boolean;
-  status?: DropdownItemStatus;
-  tooltip?: string;
-  children?: DropdownItem[];
-}
 
 export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasError {
   /**
