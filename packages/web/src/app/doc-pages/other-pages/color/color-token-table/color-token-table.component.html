@@ -1,67 +1,96 @@
+<div class="e-form-field e-mb-32">
+  <div
+    class="e-search e-search--instant"
+    [ngClass]="{ 'e-search--searched': filterInput.value.length > 0 }"
+    style="width: 250px"
+  >
+    <div class="e-input">
+      <input aria-label="Search" type="search" placeholder="Filter tokens" #filterInput (keyup)="(0)" />
+    </div>
+    <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+    <button class="e-btn e-btn--icon" aria-label="Clear filter" (click)="filterInput.value = ''">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+</div>
+
 <app-color-token-subtable
   [title]="'Text'"
   [subtitle]="'Color for all text'"
   [colors]="[
-    { type: 'colors', colors: textColorsDefault },
-    { type: 'title', title: 'State', description: 'Colors used for different CSS states.' },
-    { type: 'colors', colors: textColorsState }
+    { colors: textColorsDefault },
+    { title: 'State', description: 'Colors used for different CSS states.', colors: textColorsState }
   ]"
+  [searchValue]="filterInput.value"
 />
 
 <app-color-token-subtable
   [title]="'Background'"
   [subtitle]="'Colors for pages, elements, and overlays'"
   [colors]="[
-    { type: 'colors', colors: backgroundColorsDefault },
+    { colors: backgroundColorsDefault },
     {
-      type: 'title',
       title: 'Element',
-      description: 'Should be used in components to differentiate the elements from page background.'
+      description: 'Should be used in components to differentiate the elements from page background.',
+      colors: backgroundColorsElement
     },
-    { type: 'colors', colors: backgroundColorsElement },
     {
-      type: 'title',
       title: 'Overlay',
-      description: 'Should be used for elements that are an additional layer on top of the interface.'
+      description: 'Should be used for elements that are an additional layer on top of the interface.',
+      colors: backgroundColorsOverlay
     },
-    { type: 'colors', colors: backgroundColorsOverlay },
     {
-      type: 'title',
       title: 'States',
-      description: 'Colors used for different CSS states'
-    },
-    { type: 'colors', colors: backgroundColorsState }
+      description: 'Colors used for different CSS states',
+      colors: backgroundColorsState
+    }
   ]"
+  [searchValue]="filterInput.value"
 />
 
 <app-color-token-subtable
   [title]="'Border'"
   [subtitle]="'Colors for components and dividers'"
   [colors]="[
-    { type: 'colors', colors: borderColors },
+    { colors: borderColors },
     {
-      type: 'title',
       title: 'States',
-      description: 'Colors used for different CSS states'
-    },
-    { type: 'colors', colors: borderColorsStates }
+      description: 'Colors used for different CSS states',
+      colors: borderColorsStates
+    }
   ]"
+  [searchValue]="filterInput.value"
 />
 
 <app-color-token-subtable
   [title]="'Signal'"
   [subtitle]="'Signals something to a user. Used on elements like icons and alerts'"
-  [colors]="[{ type: 'colors', colors: signalColors }]"
+  [colors]="[{ colors: signalColors }]"
+  [searchValue]="filterInput.value"
 />
 
 <app-color-token-subtable
   [title]="'Data'"
   [subtitle]="'Used to represent some data in visualizations, like tables or graphs'"
-  [colors]="[{ type: 'colors', colors: dataColors }]"
+  [colors]="[{ colors: dataColors }]"
+  [searchValue]="filterInput.value"
 />
 
 <app-color-token-subtable
   [title]="'Icon'"
   [subtitle]="'Only for icons or svg representing an icon'"
-  [colors]="[{ type: 'colors', colors: iconColors }]"
+  [colors]="[{ colors: iconColors }]"
+  [searchValue]="filterInput.value"
 />
+
+<div class="no-properties-found">
+  <img src="assets/no-results/no-results.svg" alt="" aria-hidden="true" />
+  <div>
+    <h3 class="e-title-sm e-mb-8">No result</h3>
+    <span class="e-text-lg">
+      Sorry, we can't find any color tokens that include "{{ filterInput.value }}".
+    </span>
+  </div>
+</div>
