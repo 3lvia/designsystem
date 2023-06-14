@@ -5,6 +5,7 @@
 ### New feature
 
 - Building CSS variables and classes from tokens to elvis.
+- Added new theme color label: `static-brand-accent`
 
 ## 2.7.1 (07.06.23)
 

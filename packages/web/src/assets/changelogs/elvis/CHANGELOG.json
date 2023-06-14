@@ -1,6 +1,29 @@
 {
   "content": [
     {
+      "version": "12.2.0",
+      "date": "June ??, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Dark theme support for list component",
+            "Dark theme support for link component",
+            "Dark theme support for content loader component",
+            "Inverted deprecated in content loader in favor of dark theme support"
+          ],
+          "fixes": [
+            "Use the <code>e-theme-dark</code> class where you want the previously inverted class to be applied."
+          ],
+          "pages": [
+            { "displayName": "List", "url": "https://design.elvia.io/components/list" },
+            { "displayName": "Link", "url": "https://design.elvia.io/components/link" },
+            { "displayName": "Content Loader", "url": "https://design.elvia.io/components/content-loader" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "12.1.0",
       "date": "June ??, 2023",
       "changelog": [
