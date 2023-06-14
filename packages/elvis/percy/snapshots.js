@@ -36,6 +36,14 @@ module.exports = [
     name: 'Content Loader',
     url: '/components/content-loader.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Drag and Drop',
@@ -77,6 +85,14 @@ module.exports = [
     name: 'List',
     url: '/components/list.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Radio Button',

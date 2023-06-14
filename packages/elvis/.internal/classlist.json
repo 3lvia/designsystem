@@ -316,7 +316,6 @@
 		},
 		"e-content-loader": {
 			"modifier": {
-				"e-content-loader--inverted": {},
 				"e-content-loader--circle": {},
 				"e-content-loader--text": {},
 				"e-content-loader--short": {}
@@ -448,7 +447,6 @@
 				"e-link--lg": {},
 				"e-link--md": {},
 				"e-link--sm": {},
-				"e-link--inverted": {},
 				"e-link--inline": {},
 				"e-link--external": {},
 				"e-link--new-tab": {},
@@ -1436,7 +1434,6 @@
 		"e-chip--green": {},
 		"e-chip---hover": {},
 		"e-content-loader": {},
-		"e-content-loader--inverted": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},
 		"e-content-loader--short": {},
@@ -1518,7 +1515,6 @@
 		"e-link--lg": {},
 		"e-link--md": {},
 		"e-link--sm": {},
-		"e-link--inverted": {},
 		"e-link---hover": {},
 		"e-link---focus": {},
 		"e-link--inline": {},

@@ -61,7 +61,7 @@ export type IconColors =
   | 'icon-filled-background'
   | 'icon-filled-foreground-colored'
   | (SignalLabels extends `signal-${infer T}` ? `icon-${T}` : never);
-export type StaticLabels = 'static-white' | 'static-black';
+export type StaticLabels = 'static-white' | 'static-black' | 'static-brand-accent';
 
 export type ColorLabel =
   | TextLabels

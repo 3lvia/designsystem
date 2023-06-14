@@ -1,3 +1,4 @@
+// DEPRECATED
 /* stylelint-disable */
 @use '../../variables/colors.scss';
 @use '../../variables/animation.scss';
@@ -9,7 +10,6 @@ $form-select-border-radius: shared-sizes.$border-radius;
 $form-select-border: input.$form-input-border;
 $form-select-icon-margin: 14px;
 
-// DEPRECATED
 .e-select {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
