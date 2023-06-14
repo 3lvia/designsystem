@@ -54,11 +54,18 @@
                   <p class="e-text-sm e-m-0">{{ color.role }}</p>
                   <div>
                     <a
-                      class="e-link e-link--sm e-mr-8"
+                      class="e-link e-link--new-tab e-link--sm e-mr-8"
+                      target="_blank"
+                      rel="noopener"
                       [routerLink]="[link.path]"
                       *ngFor="let link of color.links"
                     >
-                      {{ link.title }}
+                      <span class="e-link__title">
+                        {{ link.title }}
+                      </span>
+                      <span class="e-link__icon">
+                        <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+                      </span>
                     </a>
                   </div>
                 </div>
