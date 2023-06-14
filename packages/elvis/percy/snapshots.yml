@@ -30,6 +30,9 @@ snapshots:
   - url: /components/link.html
     name: Link
     widths: [766, 1440]
+    additionalSnapshots:
+      - suffix: ' - dark theme'
+      - execute: "document.body.classList.add('e-theme-dark')"
   - url: /components/list.html
     name: List
     widths: [766, 1440]
