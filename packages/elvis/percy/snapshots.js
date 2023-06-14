@@ -1,52 +1,52 @@
 module.exports = [
   {
     name: 'Alert',
-    url: 'http://localhost:3333/components/alert.html',
+    url: '/components/alert.html',
     widths: [766, 1440],
   },
   {
     name: 'Autocomplete',
-    url: 'http://localhost:3333/components/autocomplete.html',
+    url: '/components/autocomplete.html',
     widths: [766, 1440],
   },
   {
     name: 'Buttons',
-    url: 'http://localhost:3333/components/buttons.html',
+    url: '/components/buttons.html',
     widths: [766, 1440],
   },
   {
     name: 'Checkbox',
-    url: 'http://localhost:3333/components/checkbox.html',
+    url: '/components/checkbox.html',
     widths: [766, 1440],
   },
   {
     name: 'Colors',
-    url: 'http://localhost:3333/components/colors.html',
+    url: '/components/colors.html',
     widths: [766, 1440],
   },
   {
     name: 'Content Loader',
-    url: 'http://localhost:3333/components/content-loader.html',
+    url: '/components/content-loader.html',
     widths: [766, 1440],
   },
   {
     name: 'Drag and Drop',
-    url: 'http://localhost:3333/components/drag-and-drop.html',
+    url: '/components/drag-and-drop.html',
     widths: [766, 1440],
   },
   {
     name: 'File Upload',
-    url: 'http://localhost:3333/components/file-upload.html',
+    url: '/components/file-upload.html',
     widths: [766, 1440],
   },
   {
     name: 'Input',
-    url: 'http://localhost:3333/components/input.html',
+    url: '/components/input.html',
     widths: [766, 1440],
   },
   {
     name: 'Link',
-    url: 'http://localhost:3333/components/link.html',
+    url: '/components/link.html',
     widths: [766, 1440],
     additionalSnapshots: [
       {
@@ -59,37 +59,37 @@ module.exports = [
   },
   {
     name: 'List',
-    url: 'http://localhost:3333/components/list.html',
+    url: '/components/list.html',
     widths: [766, 1440],
   },
   {
     name: 'Radio Button',
-    url: 'http://localhost:3333/components/radiobutton.html',
+    url: '/components/radiobutton.html',
     widths: [766, 1440],
   },
   {
     name: 'Search',
-    url: 'http://localhost:3333/components/search.html',
+    url: '/components/search.html',
     widths: [766, 1440],
   },
   {
     name: 'Stepper',
-    url: 'http://localhost:3333/components/stepper.html',
+    url: '/components/stepper.html',
     widths: [766, 1440],
   },
   {
     name: 'Table',
-    url: 'http://localhost:3333/components/table.html',
+    url: '/components/table.html',
     widths: [766, 1440],
   },
   {
     name: 'Tag',
-    url: 'http://localhost:3333/components/tag.html',
+    url: '/components/tag.html',
     widths: [766, 1440],
   },
   {
     name: 'Toggle',
-    url: 'http://localhost:3333/components/toggle.html',
+    url: '/components/toggle.html',
     widths: [766, 1440],
   },
 ];
