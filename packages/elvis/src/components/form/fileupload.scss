@@ -50,12 +50,6 @@
         }
       }
 
-      // TODO: Fjerne??
-      // &:disabled {
-      //   color: colors.color('disabled');
-      //   cursor: not-allowed;
-      // }
-
       &:active {
         padding-bottom: 4.5px;
         border-bottom: 1.5px solid var(--e-color-border-hover-1);
