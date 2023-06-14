@@ -97,13 +97,12 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
 
 interface AccordionLabelProps {
   hasLabel: boolean;
-  openLabel: string;
   isStartAligned: boolean | undefined;
   isFullWidth: boolean | undefined;
 }
 
 export const AccordionLabel = styled.div<AccordionLabelProps>`
-  display: ${({ openLabel, hasLabel }) => (openLabel && hasLabel ? 'flex' : 'none')};
+  display: ${({ hasLabel }) => (hasLabel ? 'flex' : 'none')};
   flex-direction: row;
   align-items: baseline;
   margin-left: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '8px' : '0')};
