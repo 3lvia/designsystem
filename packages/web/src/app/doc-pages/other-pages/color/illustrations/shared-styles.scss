@@ -55,20 +55,19 @@ code {
     content: '';
     position: absolute;
     right: 0;
-    top: 50%;
-    translate: 0 -50%;
     height: 2px;
     width: 8px;
     transform-origin: right center;
     background-color: var(--e-color-signal-success);
+    border-radius: 99px;
   }
 
   &::before {
-    rotate: -45deg;
+    rotate: -40deg;
   }
 
   &::after {
-    rotate: 45deg;
+    rotate: 40deg;
   }
 }
 
@@ -102,11 +101,12 @@ code {
     border-radius: 99px;
   }
 
+  /** -1px to center dots on arrows vertically */
   &::before {
-    top: 0;
+    top: -1px;
   }
 
   &::after {
-    bottom: 0;
+    bottom: -1px;
   }
 }
