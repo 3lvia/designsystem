@@ -26,7 +26,11 @@
       the step indexes (starting at index 1), and the values are an object containing the title and the state
       of each step index. The value object (
       <code>StepItem</code>
-      ) is described in the Stepper configuration section.
+      ) is described in the Stepper configuration section. To update the states with the
+      <code>steps</code>
+      prop, you have to make a new object. For example if you want to update step number 3 to become completed
+      <code>{{ 'newSteps = { ...oldSteps, 3: { isCompleted: true } }' }}</code>
+      .
     </ng-container>
   </app-component-section>
 
