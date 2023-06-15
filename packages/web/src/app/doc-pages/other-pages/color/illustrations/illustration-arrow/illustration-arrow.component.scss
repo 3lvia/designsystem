@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  position: relative;
+  width: 24px;
+  background-color: var(--e-color-signal-success);
+  height: 2px;
+  border-radius: 99px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    translate: 0 -50%;
+    height: 2px;
+    width: 8px;
+    transform-origin: right center;
+    background-color: var(--e-color-signal-success);
+  }
+
+  &::before {
+    rotate: -45deg;
+  }
+
+  &::after {
+    rotate: 45deg;
+  }
+}
