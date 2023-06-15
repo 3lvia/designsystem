@@ -7,7 +7,9 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Alert not starting timer in React unless hovered."]
+          "changes": [
+            "Fixed an issue where the toast did not close unless the user moved the mouse over it (React only)"
+          ]
         }
       ]
     },
