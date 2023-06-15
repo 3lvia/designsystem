@@ -52,14 +52,13 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Light and dark theme'">
         <ng-container ngProjectAs="sectionContent">
-          <p class="e-m-0">
+          <p class="e-m-0 e-mb-40">
             Tokens adapt to light and dark themes automatically, keeping their purpose token names and roles
             the same while adjusting their values. For instance,
             <code>e-color-background-hover-1</code>
             can be a light or dark shade of green depending on the theme used.
           </p>
-          <!-- slett placeholder når du tar LEGO-2567 -->
-          <div class="e-mt-56 placeholder">"LEGO-2567: Illustrasjoner for tokens" 2 here</div>
+          <app-theme-token-illustration />
         </ng-container>
       </app-component-subsection>
       <elvia-divider className="e-mb-48" />

@@ -12,9 +12,6 @@ import { ColorTokenSubtableComponent } from './color-token-table/color-token-sub
 import { ColorTokenSubtableColorCircleComponent } from './color-token-table/color-token-subtable/color-token-subtable-color-circle/color-token-subtable-color-circle.component';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
-import { IllustrationArrowComponent } from './illustrations/illustration-arrow/illustration-arrow.component';
-import { VerticalLineComponent } from './illustrations/vertical-line/vertical-line.component';
-import { HorizontalLineComponent } from './illustrations/horizontal-line/horizontal-line.component';
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
 
 @NgModule({
@@ -35,9 +32,6 @@ import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-ill
     ColorTokenSubtableComponent,
     ColorTokenSubtableColorCircleComponent,
     PurposeTokenIllustrationComponent,
-    IllustrationArrowComponent,
-    VerticalLineComponent,
-    HorizontalLineComponent,
     ThemeTokenIllustrationComponent,
   ],
 })
