@@ -3558,7 +3558,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@^2.2.0, @elvia/elvis-colors@^2.4.0, @elvia/elvis-colors@^2.6.0, @elvia/elvis-colors@^2.7.1, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@^2.2.0, @elvia/elvis-colors@^2.6.0, @elvia/elvis-colors@^2.7.1, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -4162,30 +4162,6 @@ __metadata:
     react-is:
       optional: true
   checksum: 8ddc0617c84957d36b1d5a41c4ee18aa733e642ffa372e6a1da6c8c8b48fef45f6424018cff588fccb421ff87137b9a771bdb8b60fd09ecaa5cc5cf22e81b3c3
-  languageName: node
-  linkType: hard
-
-"@elvia/elvis-toolbox@npm:^8.0.0":
-  version: 8.0.2
-  resolution: "@elvia/elvis-toolbox@npm:8.0.2"
-  dependencies:
-    "@elvia/elvis-colors": ^2.4.0
-    "@elvia/elvis-component-wrapper": ^4.0.0
-    "@elvia/elvis-typography": ^2.3.1
-    styled-components: ^5.3.6
-    tslib: ^2.4.1
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  checksum: c02d4c24e2fc86d12a4a098cbc7d494cf4978d26789cd063d5ba499a789f096cc163d9511f04e73b404166f05a8ea9c0e43a03b82f368f640ce07a2816c29272
   languageName: node
   linkType: hard
 
