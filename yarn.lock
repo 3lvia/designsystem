@@ -3555,13 +3555,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toast@workspace:packages/components/components/elvis-toast"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
-    "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^8.0.0
-    "@elvia/elvis-typography": ^2.3.2
-    "@types/dompurify": ^3.0.0
-    dompurify: ^3.0.1
+    "@elvia/elvis-assets-icons": ^3.0.1
+    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-component-wrapper": ^4.1.3
+    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-typography": ^2.4.0
+    "@types/dompurify": ^3.0.2
+    dompurify: ^3.0.3
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -5216,6 +5216,15 @@ __metadata:
   dependencies:
     "@types/trusted-types": "*"
   checksum: a0fdd7a1df1173da0d33bc47f24d2bea09440c8126b19d1d0d01c356d444905facb45a0ae2c6c216c1af9a7f07778d90535791d148228c84e53e942a3a568350
+  languageName: node
+  linkType: hard
+
+"@types/dompurify@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@types/dompurify@npm:3.0.2"
+  dependencies:
+    "@types/trusted-types": "*"
+  checksum: dc017e16a46bcc77086af7d4dc5d2bf4102f16bf1a11b2937e90380da50e77716a2a608ff52990b1293250fefc2ad7593a1378fe07e3a7e21f200d702f0a7878
   languageName: node
   linkType: hard
 
