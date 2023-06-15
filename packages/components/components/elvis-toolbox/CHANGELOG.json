@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.06.23",
+      "version": "9.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Wrong typography on primary/secondary buttons."]
+        }
+      ]
+    },
+    {
       "date": "06.06.23",
       "version": "9.2.0",
       "changelog": [
