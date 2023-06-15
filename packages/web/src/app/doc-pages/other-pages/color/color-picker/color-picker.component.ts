@@ -23,9 +23,14 @@ export class ColorPickerComponent {
   };
 
   needsBorder = (color: ColorElement) => {
-    return (
-      !this.isDarkTheme && (color.name === 'white' || color.name === 'grey-02' || color.name === 'grey-05')
-    );
+    if (!this.isDarkTheme && (color.name === 'white' || color.name === 'grey-02' || color.name === 'grey-05'))
+      return true;
+    else if (
+      this.isDarkTheme &&
+      (color.name === 'black' || color.name === 'grey' || color.name === 'grey-70')
+    )
+      return true;
+    return false;
   };
 
   chooseColor = (color: ColorElement) => {
