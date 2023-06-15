@@ -242,11 +242,11 @@ export const StepperTitle = styled.div<StepperTitleProps>`
   display: flex;
   justify-content: center;
   margin: 32px 0;
-  cursor: pointer;
   ${({ type }) =>
     type === 'vertical' &&
     css`
       margin: 0;
+      cursor: pointer;
     `}
 
   ${({ isDisabled }) =>
