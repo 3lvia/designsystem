@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Wrong typography on primary/secondary buttons."]
+          "changes": ["Wrong typography and disabled color on primary/secondary buttons."]
         }
       ]
     },

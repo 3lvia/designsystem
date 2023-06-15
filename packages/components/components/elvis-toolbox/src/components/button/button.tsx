@@ -121,8 +121,9 @@ export const PrimaryButton = styled(ButtonBase)`
   }
 
   &:disabled {
-    border-color: ${getThemeColor('border-disabled-1')};
-    background-color: ${getThemeColor('background-disabled-1')};
+    border-color: transparent;
+    background-color: ${getThemeColor('background-disabled-2')};
+    cursor: not-allowed;
   }
 `;
 
