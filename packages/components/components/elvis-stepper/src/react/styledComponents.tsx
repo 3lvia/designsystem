@@ -148,6 +148,7 @@ export const StepNumber = styled.button<StepNumberProps>`
   border-radius: 100%;
   background-color: transparent;
   color: ${({ isDisabled }) => getThemeColor(isDisabled ? 'text-disabled-1' : 'text-1')};
+  padding: 0;
   ${({ isCompleted }) =>
     isCompleted &&
     css`
