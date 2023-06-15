@@ -22,10 +22,7 @@ export const numberShouldBeVisible = (
   }
 
   // if the number of neighbors is odd and the step is on the right of the nearest neighbor (adds one neighbor to the right)
-  if (
-    numberOfNeighborSteps % 2 !== 0 &&
-    stepNumber - currentStep === (numberOfNeighborSteps % 2) + Math.floor(numberOfNeighborSteps / 2)
-  ) {
+  if (numberOfNeighborSteps % 2 !== 0 && stepNumber === currentStep + Math.ceil(numberOfNeighborSteps / 2)) {
     return true;
   }
 

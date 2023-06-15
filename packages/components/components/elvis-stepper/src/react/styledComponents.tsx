@@ -145,7 +145,7 @@ export const StepNumber = styled.button<StepNumberProps>`
   width: 32px;
   height: 32px;
   border: 2px solid ${(props) => getStepNumberBorderColor(props)};
-  border-radius: 50%;
+  border-radius: 100%;
   background-color: transparent;
   color: ${({ isDisabled }) => getThemeColor(isDisabled ? 'text-disabled-1' : 'text-1')};
   ${({ isCompleted }) =>
