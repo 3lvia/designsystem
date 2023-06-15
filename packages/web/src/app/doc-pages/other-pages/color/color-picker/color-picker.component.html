@@ -1,8 +1,76 @@
 <div class="theme-container e-color-background-1">
-  <elvia-segmented-control
-    [type]="'text'"
-    [items]="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
-    [size]="'medium'"
-    (valueOnChange)="toggleTheme()"
-  ></elvia-segmented-control>
+  <div class="color-picker-header">
+    <elvia-segmented-control
+      [type]="'text'"
+      [items]="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
+      [size]="'large'"
+      (valueOnChange)="toggleTheme()"
+    ></elvia-segmented-control>
+  </div>
+  <div class="color-list-container">
+    <div class="color-category">
+      <ul class="color-list">
+        <li
+          class="color-circle"
+          *ngFor="let color of getColorsFromCategory('primary'); let i = index"
+          [ngClass]="{
+            border: needsBorder(color),
+            chosen: currentColor === color
+          }"
+          [style.z-index]="i"
+          [style.background-color]="color.hex"
+          (click)="chooseColor(color)"
+        ></li>
+      </ul>
+      <span class="color-category-title e-title-caps">Primary</span>
+    </div>
+    <div class="color-category">
+      <ul class="color-list">
+        <li
+          class="color-circle"
+          *ngFor="let color of getColorsFromCategory('signal'); let i = index"
+          [ngClass]="{
+            border: needsBorder(color),
+            chosen: currentColor === color
+          }"
+          [style.z-index]="i"
+          [style.background-color]="color.hex"
+          (click)="chooseColor(color)"
+        ></li>
+      </ul>
+      <span class="color-category-title e-title-caps">Signal</span>
+    </div>
+    <div class="color-category">
+      <ul class="color-list">
+        <li
+          class="color-circle"
+          *ngFor="let color of getColorsFromCategory('data'); let i = index"
+          [ngClass]="{
+            border: needsBorder(color),
+            chosen: currentColor === color
+          }"
+          [style.z-index]="i"
+          [style.background-color]="color.hex"
+          (click)="chooseColor(color)"
+        ></li>
+      </ul>
+      <span class="color-category-title e-title-caps">Data</span>
+    </div>
+    <div class="color-category">
+      <ul class="color-list">
+        <li
+          class="color-circle"
+          *ngFor="let color of getColorsFromCategory('grey'); let i = index"
+          [ngClass]="{
+            border: needsBorder(color),
+            chosen: currentColor === color
+          }"
+          [style.z-index]="i"
+          [style.background-color]="color.hex"
+          (click)="chooseColor(color)"
+        ></li>
+      </ul>
+      <span class="color-category-title e-title-caps">Grey</span>
+    </div>
+  </div>
 </div>

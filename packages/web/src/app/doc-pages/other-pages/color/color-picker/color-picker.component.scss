@@ -1,6 +1,64 @@
 .theme-container {
-  display: flex;
   border-radius: 16px;
-  padding: 32px;
+  padding: 40px;
+  margin: -40px;
   transition: background-color 500ms ease-in-out;
+  .color-list-container {
+    display: flex;
+    .color-list {
+      position: relative;
+      height: 60px;
+      display: flex;
+      align-items: flex-end;
+      list-style-type: none;
+      padding: unset;
+      margin-right: 24px;
+      margin-left: 5px;
+      .color-circle {
+        position: static;
+        margin: -5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        transition: height 200ms ease-in-out;
+        cursor: pointer;
+        &.border {
+          border: 0.5px solid var(--e-color-border-2);
+        }
+        &:hover {
+          height: 60px;
+        }
+        &.chosen {
+          height: 60px;
+          position: relative;
+          color: transparent;
+          &::before {
+            position: absolute;
+            top: 12px;
+            left: 7px;
+            width: 2px;
+            height: 8px;
+            border-radius: 15px;
+            content: '';
+            background-color: black;
+            transform: translateX(10px) rotate(-43deg);
+            transform-origin: left bottom;
+          }
+
+          &::after {
+            position: absolute;
+            top: 4px;
+            left: 6px;
+            width: 2px;
+            height: 15px;
+            border-radius: 15px;
+            content: '';
+            background-color: black;
+            transform: translateX(10px) rotate(43deg);
+            transform-origin: left bottom;
+          }
+        }
+      }
+    }
+  }
 }
