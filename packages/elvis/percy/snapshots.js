@@ -75,6 +75,7 @@ module.exports = [
         },
       },
     ],
+    waitForTimeout: 2000,
   },
   {
     name: 'Link',
