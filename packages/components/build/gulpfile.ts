@@ -239,8 +239,9 @@ function buildToolboxComponent() {
     exec('yarn sourcemap', { cwd: '../components/elvis-toolbox' });
   });
 
-  // Pass the *.js files through babel. The *.d.ts-files are generated from the 'yarn sourcemap'
+  // Pass the *.js files through babel.
   return mergeStream(
+    tsTranspiled.dts,
     tsTranspiled.js.pipe(
       babel({
         presets: [
