@@ -322,5 +322,9 @@ export const darkTheme = {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
+    'static-brand-accent': {
+      hex: darkThemeColors['primary-colors'].green.color,
+      contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
   },
 } as const satisfies Theme;

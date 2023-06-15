@@ -8,6 +8,14 @@ module.exports = [
     name: 'Autocomplete',
     url: '/components/autocomplete.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Buttons',
@@ -36,6 +44,14 @@ module.exports = [
     name: 'Content Loader',
     url: '/components/content-loader.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Drag and Drop',
@@ -51,6 +67,14 @@ module.exports = [
     name: 'Input',
     url: '/components/input.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Link',
@@ -69,6 +93,14 @@ module.exports = [
     name: 'List',
     url: '/components/list.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Radio Button',
@@ -79,6 +111,14 @@ module.exports = [
     name: 'Search',
     url: '/components/search.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Stepper',

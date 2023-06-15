@@ -7,13 +7,15 @@
         {
           "type": "new_feature",
           "changes": [
-            "Dark theme support for thumbnail component",
+            "Dark theme support for all elvis components",
+            "Inverted deprecated in all elvis components in favor of dark theme support",
             "New CSS variables for all purpose tokens.",
             "New CSS variables for all base tokens (both light and dark).",
             "New CSS classes for some purpose tokens (text, background, border) which replaces <code>e-bg-</code> and <code>e-text-</code>",
             "Deprecated all color classes that started with <code>e-bg-</code> or <code>e-text-</code>. These have been deprecated in favor of token classes like <code>e-color-text-1</code> or <code>e-color-background-1</code>"
           ],
           "fixes": [
+            "Use the <code>e-theme-dark</code> class where you want the previously inverted class to be applied.",
             "All <code>e-bg-</code> and <code>e-text-</code> classes need to be replaced by a token class. To find the correct token class go to the token table in the color documentation page. To read more about how to use the new token CSS variables and classes go to the implementation part of the color documentation."
           ],
           "pages": [

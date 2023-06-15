@@ -344,5 +344,9 @@ export const lightTheme = {
       hex: lightThemeColors['primary-colors'].black.color,
       contrast: lightThemeColors['primary-colors'].black.contrastText,
     },
+    'static-brand-accent': {
+      hex: lightThemeColors['primary-colors'].green.color,
+      contrast: lightThemeColors['primary-colors'].green.contrastText,
+    },
   },
 } as const satisfies Theme;

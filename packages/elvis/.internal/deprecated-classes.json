@@ -8,8 +8,8 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg": {
-    "deprecateChildren": false,
+  "e-bg-": {
+    "deprecateChildren": true,
     "version": "12.1.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
@@ -18,15 +18,6 @@
     }
   },
   "e-text-yellow": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-yellow": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -44,25 +35,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-orange": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-warning": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-warning": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -80,25 +53,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-red": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-error": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-error": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -116,25 +71,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-green-apple": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-violet-grape": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-violet-grape": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -152,25 +89,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-blue-berry": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-purple-plum": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-purple-plum": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -188,25 +107,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-orange-mango": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-red-tomato": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-red-tomato": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -224,25 +125,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-green": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-elvia-charge": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-elvia-charge": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -260,25 +143,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-grey-90": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-grey-80": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-grey-80": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -296,25 +161,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-font-grey": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-text-light": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-text-light": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -332,25 +179,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-grey-70": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-placeholder": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-placeholder": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -368,25 +197,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-grey-60": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-grey-50": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-grey-50": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -404,25 +215,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-grey-40": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-grey-30": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-grey-30": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -440,25 +233,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-disabled": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-light-inverted": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-light-inverted": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -476,25 +251,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-grey-20": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-grey-10": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-grey-10": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -512,25 +269,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-grey-05": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-disabled-light": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-disabled-light": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -548,25 +287,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-grey-02": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-white": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-white": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -584,25 +305,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-elvis-on": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-elvia-on": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-elvia-on": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -620,25 +323,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-font-color-light": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-elvia-inverted": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-elvia-inverted": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -656,25 +341,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-black": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-elvis-off": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-elvis-off": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -692,25 +359,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-elvia-off": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-font-color": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-font-color": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
@@ -728,15 +377,6 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-text": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-grey": {
     "deprecateChildren": false,
     "version": "12.1.0",
@@ -746,25 +386,7 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
-  "e-bg-grey": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
   "e-text-elvia-dark": {
-    "deprecateChildren": false,
-    "version": "12.1.0",
-    "replacement": {
-      "name": "CSS variables tokens and class tokens",
-      "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
-    }
-  },
-  "e-bg-elvia-dark": {
     "deprecateChildren": false,
     "version": "12.1.0",
     "replacement": {
