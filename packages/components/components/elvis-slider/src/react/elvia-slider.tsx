@@ -1,23 +1,12 @@
 import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import {
   FormFieldContainer,
-  FormFieldError,
-  FormFieldErrorContainer,
   FormFieldInputSuffixText,
-  IconWrapper,
   useInputModeDetection,
   warnDeprecatedProps,
 } from '@elvia/elvis-toolbox';
 import { Tooltip } from './tooltip/tooltip';
-import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
-import {
-  FormFieldInputValues,
-  Sides,
-  SliderProps,
-  SliderValues,
-  ErrorOptionKeys,
-  BothSliders,
-} from './elvia-slider.types';
+import { FormFieldInputValues, Sides, SliderProps, BothSliders, ErrorType } from './elvia-slider.types';
 import {
   FormFieldInput,
   FormFieldInputContainer,
@@ -34,6 +23,15 @@ import {
 import { calculateThumbPosition } from './utils/calculateThumbPosition';
 import { getAriaLabel } from './utils/getAriaLabel';
 import { config } from './config';
+import {
+  getHasErrorPlaceholder,
+  getHasErrorText,
+  getInternalErrorText,
+  getIsErrorState,
+  getShowErrorText,
+} from './utils/getError';
+import { SliderError } from './error/sliderError';
+import { isOnlyNumbers, isValidNumber } from './utils/validators';
 
 let uniqueId = 0;
 
@@ -54,17 +52,21 @@ const Slider: React.FC<SliderProps> = function ({
   unit,
   value,
   valueOnChange,
+  errorOnChange,
   webcomponent,
   ...rest
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
-  const [sliderValues, setSliderValues] = useState<SliderValues>({ left: min, right: max });
+  const [sliderValue, setSliderValue] = useState<BothSliders<number>>({ left: min, right: max });
   const [formFieldInputValues, setFormFieldInputValues] = useState<FormFieldInputValues>({
-    left: sliderValues.left.toString(),
-    right: sliderValues.right.toString(),
+    left: sliderValue.left.toString(),
+    right: sliderValue.right.toString(),
   });
   const [showTooltip, setShowTooltip] = useState<BothSliders<boolean>>({ left: false, right: false });
+
+  const [error, setError] = useState<Partial<BothSliders<ErrorType>>>();
+
   const [id] = useState(`ewc-slider-${uniqueId++}`);
   const [isLeftSliderOnTop, setIsLeftSliderOnTop] = useState(false);
   const [totalSliderWidth, setTotalSliderWidth] = useState(0);
@@ -96,25 +98,29 @@ const Slider: React.FC<SliderProps> = function ({
 
   const leftThumbPosition = calculateThumbPosition({
     side: 'left',
-    sliderValues: sliderValues,
-    min: min,
-    max: max,
-    totalSliderWidth: totalSliderWidth,
-    thumbWidth: thumbWidth,
+    sliderValue: sliderValue,
+    min,
+    max,
+    totalSliderWidth,
+    thumbWidth,
   });
 
   const rightThumbPosition = calculateThumbPosition({
     side: 'right',
-    sliderValues: sliderValues,
-    min: min,
-    max: max,
-    totalSliderWidth: totalSliderWidth,
-    thumbWidth: thumbWidth,
+    sliderValue: sliderValue,
+    min,
+    max,
+    totalSliderWidth,
+    thumbWidth,
   });
+
+  const hasErrorPlaceholder: boolean = getHasErrorPlaceholder(error, errorOptions);
+  const hasErrorText: boolean = getHasErrorText({ error: error, errorOptions: errorOptions });
+  const hasHideText: boolean = getShowErrorText(errorOptions);
 
   /** The width in px of the filled track between the two thumbs */
   const getFilledMiddleTrackWidth = () => {
-    if (type !== 'range' || sliderValues.right === sliderValues.left) {
+    if (type !== 'range' || sliderValue.right === sliderValue.left) {
       return 0;
     }
     return totalSliderWidth - leftThumbPosition - rightThumbPosition;
@@ -168,26 +174,25 @@ const Slider: React.FC<SliderProps> = function ({
   useEffect(() => {
     if (value) {
       if (typeof value === 'number') {
-        setSliderValues({ left: +value, right: +max });
+        setSliderValue({ ...sliderValue, left: value });
         return;
       } else {
-        setSliderValues({ left: +value.left, right: +value.right });
+        setSliderValue({ left: value.left, right: value.right });
         return;
       }
     }
 
-    setSliderValues({ left: min, right: max });
+    setSliderValue({ left: min, right: max });
   }, [value, min, max]);
 
   useEffect(() => {
     if (hasInputField) {
       setFormFieldInputValues({
-        ...formFieldInputValues,
-        left: sliderValues.left.toString().replace('.', ','),
-        right: sliderValues.right.toString().replace('.', ','),
+        left: sliderValue.left.toString().replace('.', ','),
+        right: sliderValue.right.toString().replace('.', ','),
       });
     }
-  }, [sliderValues]);
+  }, [sliderValue, hasInputField]);
 
   //check overflow (Simple Slider only)
   useEffect(() => {
@@ -244,13 +249,16 @@ const Slider: React.FC<SliderProps> = function ({
     }
   });
 
-  const updateValue = (newSliderValues: SliderValues) => {
+  const updateValue = (newSliderValue: BothSliders<number>) => {
     const newValue = {
-      left: newSliderValues.left,
-      right: newSliderValues.right,
+      left: newSliderValue.left,
+      right: newSliderValue.right,
     };
 
-    setSliderValues(newValue);
+    setSliderValue(newValue);
+    if (newValue.left === sliderValue.left && newValue.right === sliderValue.right) {
+      return;
+    }
 
     const newValueToEmit = type === 'simple' ? newValue.left : newValue;
     if (!webcomponent && valueOnChange) {
@@ -262,81 +270,72 @@ const Slider: React.FC<SliderProps> = function ({
   };
 
   const handleSliderValueChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const { name, value: incomingValue } = event.target as HTMLInputElement;
-    let newSliderValue = +incomingValue;
+    const { name, value } = event.target as HTMLInputElement;
+    let newValue = +value;
 
-    if (+incomingValue > max || +incomingValue < min) {
+    if (newValue > max || newValue < min) {
       return;
     }
 
-    // Thumbs can not cross, but can be alike
+    // Thumbs can't cross, but can be alike
     if (type === 'range') {
       if (name === 'left') {
-        newSliderValue = Math.min(+incomingValue, sliderValues.right);
-      }
-
-      if (name === 'right') {
-        newSliderValue = Math.max(+incomingValue, sliderValues.left);
+        newValue = Math.min(newValue, sliderValue.right);
+      } else if (name === 'right') {
+        newValue = Math.max(newValue, sliderValue.left);
       }
 
       setIsLeftSliderOnTop(name === 'left');
     }
 
-    updateValue({ ...sliderValues, [name]: newSliderValue });
+    updateValue({ ...sliderValue, [name]: newValue });
   };
 
-  const handleFormFieldInputValueChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const { name, value: incomingValue } = event.target as HTMLInputElement;
-    name === 'left' ? setIsLeftSliderOnTop(true) : setIsLeftSliderOnTop(false);
-
-    const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
-      (event.nativeEvent as InputEvent).inputType,
-    );
-
-    //only digits. optional minus sign. optional comma or period. optional digits after comma or period
-    const incomingValueWithoutSpaces = incomingValue.replace(/\s/g, '');
-    const isValidNumber = /^-?\d*(?:[.,]\d*)?$/.test(incomingValueWithoutSpaces);
-
-    if (incomingValue === '' || isModifierKey || isValidNumber) {
-      setFormFieldInputValues({ ...formFieldInputValues, [name]: incomingValueWithoutSpaces });
-    }
+  const handleFormFieldInputOnChange = (event: React.FormEvent<HTMLInputElement>, side: Sides) => {
+    const { value } = event.target as HTMLInputElement;
+    setIsLeftSliderOnTop(side === 'left');
+    setFormFieldInputValues({ ...formFieldInputValues, [side]: value.replace(/\s/g, '') });
   };
 
-  const handleFormFieldInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    const name = event.target.name as Sides;
-    const { value: incomingValue } = event.target as HTMLInputElement;
-    const newValue = Number(incomingValue.replace(',', '.').replace(/,$/g, ''));
+  const handleFormFieldInputOnBlur = (e: React.FocusEvent<HTMLInputElement>, side: Sides) => {
+    const value = e.target.value;
 
-    if (!newValue) {
-      updateValue({ ...sliderValues, [name]: name === 'left' ? min : max });
+    if (value && !validateInputValue(value, side)) {
+      console.log('value invalid');
       return;
     }
 
-    if (type === 'range') {
-      if (name === 'left') {
-        if (newValue >= sliderValues.right) {
-          updateValue({ ...sliderValues, [name]: sliderValues.right });
-          return;
-        }
-      } else {
-        if (newValue <= sliderValues.left) {
-          updateValue({ ...sliderValues, [name]: sliderValues.left });
-          return;
-        }
+    // If empty, set to min or max
+    let newValue: number;
+    if (value) {
+      newValue = Number(value.replace(',', '.'));
+    } else {
+      newValue = side === 'left' ? min : max;
+    }
+
+    if (side === 'left') {
+      if (newValue >= sliderValue.right) {
+        updateValue({ ...sliderValue, [side]: sliderValue.right });
+        return;
+      }
+    } else {
+      if (newValue <= sliderValue.left) {
+        updateValue({ ...sliderValue, [side]: sliderValue.left });
+        return;
       }
     }
 
     if (newValue > max) {
-      updateValue({ ...sliderValues, [name]: max });
+      updateValue({ ...sliderValue, [side]: max });
       return;
     }
 
     if (newValue < min) {
-      updateValue({ ...sliderValues, [name]: min });
+      updateValue({ ...sliderValue, [side]: min });
       return;
     }
 
-    updateValue({ ...sliderValue, [name]: newValue });
+    updateValue({ ...sliderValue, [side]: newValue });
   };
 
   const handleTooltip = (side?: Sides) => {
@@ -350,48 +349,28 @@ const Slider: React.FC<SliderProps> = function ({
     onPointerOver: () => handleTooltip(side),
   });
 
-  const getErrorOptionValue = (side: Sides, key: ErrorOptionKeys) => {
-    if (errorOptions) {
-      errorOptions.type = type;
+  const onError = (newError?: Partial<BothSliders<ErrorType>>) => {
+    if (newError === error) {
+      return;
+    }
+    setError(newError);
 
-      switch (errorOptions.type) {
-        case 'simple':
-          return errorOptions[key] ?? false;
-        case 'range':
-          return errorOptions[side][key] ?? false;
-      }
-    } else {
+    const errorText = getInternalErrorText(newError);
+    errorOnChange?.(errorText);
+    webcomponent?.triggerEvent('errorOnChange', errorText);
+  };
+
+  const validateInputValue = (value: string, side: Sides): boolean => {
+    if (!isOnlyNumbers(value)) {
+      onError({ ...error, [side]: 'NaN' });
       return false;
+    } else if (!isValidNumber(value)) {
+      onError({ ...error, [side]: 'invalidValue' });
+      return false;
+    } else {
+      setError(undefined);
+      return true;
     }
-  };
-
-  const getShowErrorText = () => {
-    return !getErrorOptionValue('left', 'hideText') || !getErrorOptionValue('right', 'hideText');
-  };
-
-  const getHasErrorPlaceholder = () => {
-    return (getErrorOptionValue('left', 'hasErrorPlaceholder') ||
-      getErrorOptionValue('right', 'hasErrorPlaceholder')) as boolean;
-  };
-
-  const getHasErrorText = () => {
-    return (getErrorOptionValue('left', 'text') || getErrorOptionValue('right', 'text')) as boolean;
-  };
-
-  const getErrorText = (): string => {
-    const leftText = getErrorOptionValue('left', 'text') as string;
-    const leftHideText = getErrorOptionValue('left', 'hideText');
-    if (leftText && !leftHideText) {
-      return leftText;
-    }
-
-    const rightText = getErrorOptionValue('right', 'text') as string;
-    const rightHideText = getErrorOptionValue('right', 'hideText');
-    if (rightText && !rightHideText) {
-      return rightText;
-    }
-
-    return '';
   };
 
   return (
@@ -412,7 +391,7 @@ const Slider: React.FC<SliderProps> = function ({
           <StyledSlider
             aria-label={getAriaLabel({
               side: 'left',
-              sliderValues,
+              sliderValue: sliderValue,
               type,
               ariaLabel,
               heading,
@@ -427,7 +406,7 @@ const Slider: React.FC<SliderProps> = function ({
             onChange={handleSliderValueChange}
             ref={sliderRef}
             sliderType={type}
-            value={sliderValues.left}
+            value={sliderValue.left}
             {...createHandleTooltipEvents('left')}
           />
 
@@ -437,11 +416,10 @@ const Slider: React.FC<SliderProps> = function ({
 
           {type === 'range' && (
             <>
-              {/* ↓ The actual HTML input type=range ↓*/}
               <StyledSlider
                 aria-label={getAriaLabel({
                   side: 'right',
-                  sliderValues,
+                  sliderValue: sliderValue,
                   type,
                   ariaLabel,
                   heading,
@@ -455,7 +433,7 @@ const Slider: React.FC<SliderProps> = function ({
                 name="right"
                 onChange={handleSliderValueChange}
                 sliderType={type}
-                value={sliderValues.right}
+                value={sliderValue.right}
                 {...createHandleTooltipEvents('right')}
               />
 
@@ -498,7 +476,7 @@ const Slider: React.FC<SliderProps> = function ({
         >
           {hasHintValues && !(type === 'range' && hasInputField) && (
             <HintValue
-              hasErrorPlaceholder={getHasErrorPlaceholder()}
+              hasErrorPlaceholder={hasErrorPlaceholder}
               size={size}
               isDisabled={isDisabled}
               side={'left'}
@@ -511,24 +489,29 @@ const Slider: React.FC<SliderProps> = function ({
             <FormFieldContainer
               size={size}
               isDisabled={isDisabled}
-              isInvalid={getErrorOptionValue('left', 'isErrorState') as boolean}
+              isInvalid={getIsErrorState({ side: 'left', error, errorOptions })}
               isFullWidth={Object.values(replaceHintValueWithInput).includes(true) || fullWithRangeInputs}
-              hasErrorPlaceholder={getHasErrorPlaceholder()}
+              hasErrorPlaceholder={hasErrorPlaceholder}
               ref={leftFormFieldInputRef}
             >
               <FormFieldInputContainer size={size} maxValueLength={preferredInputLength}>
                 <FormFieldInput
-                  aria-invalid={getErrorOptionValue('left', 'isErrorState') as boolean}
-                  aria-disabled={isDisabled}
+                  aria-invalid={getIsErrorState({ side: 'left', error, errorOptions })}
                   aria-labelledby={heading ? `${id}-heading` : undefined}
                   autoComplete="off"
                   disabled={isDisabled}
                   name="left"
                   side="left"
                   isFullWidth={fullWithRangeInputs}
-                  onBlur={handleFormFieldInputBlur}
-                  onChange={handleFormFieldInputValueChange}
-                  value={formFieldInputValues.left}
+                  onBlur={(e) => handleFormFieldInputOnBlur(e, 'left')}
+                  onChange={(e) => handleFormFieldInputOnChange(e, 'left')}
+                  value={formFieldInputValues.left ?? ''}
+                  style={{
+                    width:
+                      Object.values(replaceHintValueWithInput).includes(true) || fullWithRangeInputs
+                        ? 'unset'
+                        : preferredInputLength,
+                  }}
                 />
                 {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
@@ -537,10 +520,10 @@ const Slider: React.FC<SliderProps> = function ({
 
           {hasHintValues && !(type === 'range' && hasInputField) && (
             <HintValue
-              hasErrorPlaceholder={getHasErrorPlaceholder()}
-              size={size}
+              hasErrorPlaceholder={hasErrorPlaceholder}
               isDisabled={isDisabled}
               side={'right'}
+              size={size}
             >
               <span ref={rightHintTextRef}>{max.toLocaleString()}</span>
             </HintValue>
@@ -550,35 +533,31 @@ const Slider: React.FC<SliderProps> = function ({
             <FormFieldContainer
               size={size}
               isDisabled={isDisabled}
-              isInvalid={getErrorOptionValue('right', 'isErrorState') as boolean}
-              hasErrorPlaceholder={getHasErrorPlaceholder()}
+              isInvalid={getIsErrorState({ side: 'right', error, errorOptions })}
+              hasErrorPlaceholder={hasErrorPlaceholder}
               isFullWidth={fullWithRangeInputs}
             >
               <FormFieldInputContainer size={size} maxValueLength={preferredInputLength}>
                 <FormFieldInput
-                  aria-disabled={isDisabled}
-                  aria-invalid={getErrorOptionValue('right', 'isErrorState') as boolean}
                   aria-labelledby={heading ? `${id}-heading` : undefined}
+                  aria-invalid={getIsErrorState({ side: 'right', error, errorOptions })}
                   aria-errormessage={`${id}-error-text`}
                   disabled={isDisabled}
-                  name="right"
                   side="right"
                   isFullWidth={fullWithRangeInputs}
-                  onBlur={handleFormFieldInputBlur}
-                  onChange={handleFormFieldInputValueChange}
+                  onBlur={(e) => handleFormFieldInputOnBlur(e, 'right')}
+                  onChange={(e) => handleFormFieldInputOnChange(e, 'right')}
                   value={formFieldInputValues.right}
+                  style={{ width: preferredInputLength }}
                 />
                 {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
             </FormFieldContainer>
           )}
-          {hasInputField && getShowErrorText() && getHasErrorPlaceholder() && getHasErrorText() && (
-            <FormFieldErrorContainer>
-              <IconWrapper icon={removeCircle} color="error" size="xs" />
-              <FormFieldError data-testid="error" id={`${id}-error-text`}>
-                {getErrorText()}
-              </FormFieldError>
-            </FormFieldErrorContainer>
+          {hasInputField && !hasHideText && hasErrorPlaceholder && hasErrorText && (
+            <>
+              <SliderError errorOptions={errorOptions} errorType={error} />
+            </>
           )}
         </InputFieldsContainer>
       </SliderContainer>

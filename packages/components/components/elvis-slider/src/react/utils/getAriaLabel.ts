@@ -1,15 +1,15 @@
-import { BothSliders, Sides, SliderType, SliderValues } from '../elvia-slider.types';
+import { BothSliders, Sides, SliderType } from '../elvia-slider.types';
 
 export const getAriaLabel = ({
   side,
-  sliderValues,
+  sliderValue,
   type = 'simple',
   ariaLabel,
   heading,
   unit,
 }: {
   side: Sides;
-  sliderValues: SliderValues;
+  sliderValue: BothSliders<number>;
   type?: SliderType;
   ariaLabel?: string | BothSliders<string>;
   heading?: string;
@@ -18,7 +18,7 @@ export const getAriaLabel = ({
   if (ariaLabel) {
     return returnAriaLabelFromProp(side, ariaLabel);
   } else {
-    return generateAutomaticAriaLabel(side, type, sliderValues, heading, unit);
+    return generateAutomaticAriaLabel(side, type, sliderValue, heading, unit);
   }
 };
 
@@ -37,7 +37,7 @@ const returnAriaLabelFromProp = (side: Sides, ariaLabel: string | Record<Sides, 
 const generateAutomaticAriaLabel = (
   side: Sides,
   type: SliderType,
-  sliderValues: SliderValues,
+  sliderValue: BothSliders<number>,
   heading?: string,
   unit?: string,
 ): string => {
@@ -47,12 +47,12 @@ const generateAutomaticAriaLabel = (
     const prefix = side === 'left' ? 'Startverdi' : 'Sluttverdi';
 
     newAriaLabel = `${prefix} ${heading ?? ''} rekkeviddeglidebryter ${
-      unit ? ' med verdi ' + sliderValues[side] + unit : ''
+      unit ? ' med verdi ' + sliderValue[side] + unit : ''
     }`;
   }
 
   if (type === 'simple' && (heading || unit)) {
-    newAriaLabel = `${heading ?? ''} ${unit ? +sliderValues.left + unit : ''}`;
+    newAriaLabel = `${heading ?? ''} ${unit ? +sliderValue.left + unit : ''}`;
   }
 
   return newAriaLabel.replace(/\s+/g, ' ').trim();

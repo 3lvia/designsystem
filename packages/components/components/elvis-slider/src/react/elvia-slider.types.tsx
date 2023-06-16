@@ -1,18 +1,24 @@
-import { BaseProps, HasValue, ErrorOptions as ErrorOptionsBase, FormFieldSizes } from '@elvia/elvis-toolbox';
+import {
+  BaseProps,
+  HasValue,
+  ErrorOptions as SingleSliderErrorOptions,
+  FormFieldSizes,
+} from '@elvia/elvis-toolbox';
 
-export interface SliderProps extends BaseProps, HasValue<number | SliderValues> {
+export interface SliderProps extends BaseProps, HasValue<number | BothSliders<number>> {
   ariaLabel?: string | BothSliders<string>;
+  errorOnChange?: (error: string) => void;
+  errorOptions?: ErrorOptions;
   hasHintValues?: boolean;
   hasInputField?: boolean;
-  size?: FormFieldSizes;
+  heading?: string;
   isDisabled?: boolean;
   max?: number;
   min?: number;
-  heading?: string;
+  size?: FormFieldSizes;
+  suffix?: string;
   type?: SliderType;
   unit?: string;
-  errorOptions?: ErrorOptions;
-  suffix?: string;
 }
 
 export type SliderType = 'simple' | 'range';
@@ -20,17 +26,11 @@ export type Sides = 'left' | 'right';
 
 export type BothSliders<T> = Record<Sides, T>;
 
-export type SliderValues = BothSliders<number>;
 export type FormFieldInputValues = Partial<BothSliders<string>>;
 
-interface SimpleSliderErrorOptions extends Partial<ErrorOptionsBase> {
-  type?: 'simple';
-}
+export type SimpleSliderErrorOptions = Partial<SingleSliderErrorOptions>;
+export type RangeSliderErrorOptions = Partial<BothSliders<Partial<SingleSliderErrorOptions>>>;
 
-interface RangeSliderErrorOptions extends BothSliders<Partial<ErrorOptionsBase>> {
-  type?: 'range';
-}
+export type ErrorOptions = SimpleSliderErrorOptions | RangeSliderErrorOptions | undefined;
 
-export type ErrorOptions = SimpleSliderErrorOptions | RangeSliderErrorOptions;
-
-export type ErrorOptionKeys = keyof ErrorOptionsBase;
+export type ErrorType = 'invalidValue' | 'NaN' | undefined;

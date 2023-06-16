@@ -175,7 +175,7 @@ export const MaxValueLengthMeasurement = styled.span.attrs({
     size === 'small' &&
     css`
       font-size: 0.875rem;
-    `}
+    `};
 `;
 
 export const FormFieldInputContainer = styled(FormFieldInputContainerBase)<FormFieldInputContainerProps>`
