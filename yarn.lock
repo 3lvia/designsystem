@@ -17274,6 +17274,7 @@ __metadata:
     "@elvia/elvis-badge": "*"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"
+    "@elvia/elvis-card": "*"
     "@elvia/elvis-carousel": "*"
     "@elvia/elvis-chip": "*"
     "@elvia/elvis-context-menu": "*"
