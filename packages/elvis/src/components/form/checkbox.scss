@@ -43,8 +43,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     border: $checkbox-mark-border;
     border-radius: $checkbox-mark-border-radius;
     background-color: var(--e-color-background-element-1);
-    transition: background-color 0.2s animation.$transition-cubic;
-    transition: border 0.4s animation.$transition-cubic;
+    transition: background-color, border, 0.3s animation.$transition-cubic;
   }
 
   &__label {
@@ -282,6 +281,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 }
 
+// Animations
 @include helpers.keyframes(checkmarkHeight) {
   0% {
     left: -31%;
