@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react';
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 
@@ -14,19 +13,12 @@ export interface StepStates {
 
 export type StepperType = 'vertical' | 'horizontal';
 
-export interface StepperTypeProps extends HasValue<number>, BaseProps {
+export type StepperTypeProps = Omit<StepperProps, 'webcomponent' | 'type'> & {
   numberOfSteps: number;
   currentStep: number;
-  steps?: StepStates;
-  isForced?: boolean;
-  completeButtonText?: string;
-  typography?: TypographyName;
-  className?: string;
-  inlineStyle?: CSSProperties;
   handleStepChange: (step: number) => void;
   contentRef: React.RefObject<HTMLDivElement>;
-  content?: JSX.Element[];
-}
+};
 
 export interface StepperProps extends HasValue<number>, BaseProps {
   type?: StepperType;
