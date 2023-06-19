@@ -44,6 +44,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     border-radius: $checkbox-mark-border-radius;
     background-color: var(--e-color-background-element-1);
     transition: background-color 0.2s animation.$transition-cubic;
+    transition: border 0.4s animation.$transition-cubic;
   }
 
   &__label {
@@ -175,6 +176,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   position: relative;
   border: $checkbox-mark-border-checked;
   background-color: var(--e-color-background-selected-1);
+  // transition: border 0.2s animation.$transition-cubic;
 
   &::before,
   &::after {
