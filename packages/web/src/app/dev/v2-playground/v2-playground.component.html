@@ -5,353 +5,58 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <div class="e-title-sm e-mt-16">Alerts</div>
-      <div class="e-title-xs e-mt-16">Global Alert</div>
-      <div class="e-mt-16" style="width: 100%; display: flex; flex-direction: column">
-        <div>Regular</div>
-
-        <div class="e-alert e-alert--global">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort info tittel</div>
-            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-          </div>
-        </div>
-        <div>Closeable</div>
-
-        <div class="e-alert e-alert--global">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort info tittel</div>
-            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-          </div>
-          <div class="e-alert__close">
-            <button class="e-btn e-btn--icon e-btn--sm">
-              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
-            </button>
-          </div>
-        </div>
-        <div>Expandable</div>
-        <div>
-          <div class="e-alert e-alert--global e-alert--expandable">
-            <div class="e-alert__icon">
-              <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-            </div>
-            <div class="e-alert__content">
-              <div class="e-alert__title">
-                <div>Kort info tittel</div>
-                <div class="e-alert__accordion">
-                  <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-                  <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div class="e-alert__text">
-                <div>Generell informasjon til alle brukere på tvers.</div>
-                <div class="e-alert__links">
-                  <a class="e-link" href="https://design.elvia.io">Medium link</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40">
-            <div class="e-alert__icon">
-              <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-            </div>
-            <div class="e-alert__content">
-              <div class="e-alert__title">
-                <div>Kort info tittel</div>
-                <div class="e-alert__accordion">
-                  <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-                  <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div class="e-alert__text">
-                <div>Generell informasjon til alle brukere på tvers.</div>
-                <div class="e-alert__links">
-                  <a class="e-link" href="https://design.elvia.io">Medium link</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>Actions</div>
-      <div class="e-alert e-alert--global e-alert--no-title e-alert--actions">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen.</div>
-          <div class="e-alert__actions">
-            <button class="e-btn e-btn--secondary e-btn--sm">
-              <span class="e-btn__title">Secondary</span>
-            </button>
-            <button class="e-btn e-btn--sm">
-              <span class="e-btn__title">Primary</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="e-title-xs e-my-16">Local Alert</div>
-
-      <div>
-        <div class="e-alert e-alert--local">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Standard alert</div>
-            <div class="e-alert__text">
-              <div>
-                Description with a list and an
-                <a class="e-link e-link--inline">inline link.</a>
-              </div>
-              <div class="e-alert__links">
-                <a class="e-link" href="https://design.elvia.io">Link 1</a>
-                <a class="e-link" href="https://design.elvia.io">Link 2</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="e-my-16">Statuses</div>
-      <div>
-        <div class="e-alert e-alert--error e-alert--local">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--check_circle e-icon--color-red" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort Tittel</div>
-            <div class="e-alert__text">En velykket bekreftelses melding!</div>
-          </div>
-        </div>
-        <div class="e-alert e-alert e-alert--warn e-alert--local">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--check_circle e-icon--color-orange" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort Tittel</div>
-            <div class="e-alert__text">En velykket bekreftelses melding!</div>
-          </div>
-        </div>
-        <div class="e-alert e-alert e-alert--info e-alert--local">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--check_circle" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort Tittel</div>
-            <div class="e-alert__text">En velykket bekreftelses melding!</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="e-alert e-alert--global">
-      <div class="e-alert__icon">
-        <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-      </div>
-      <div class="e-alert__content">
-        <div class="e-alert__title">Kort info tittel</div>
-        <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-      </div>
-    </div>
-    <div class="e-alert e-alert--global e-alert--error">
-      <div class="e-alert__icon">
-        <i class="e-icon e-icon--information_circle e-icon--color-red" aria-hidden="true"></i>
-      </div>
-      <div class="e-alert__content">
-        <div class="e-alert__title">Kort info tittel</div>
-        <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-      </div>
-    </div>
-    <div class="e-alert e-alert--global e-alert--warn">
-      <div class="e-alert__icon">
-        <i class="e-icon e-icon--information_circle e-icon--color-orange" aria-hidden="true"></i>
-      </div>
-      <div class="e-alert__content">
-        <div class="e-alert__title">Kort info tittel</div>
-        <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-      </div>
+      <elvia-pagination
+        numberOfElements="60000"
+        [value]="defaultPaginationValue"
+        [dropdownItems]="paginationDropdownItems"
+        [dropdownSelectedItemIndex]="dropdownSelectedItemIndex"
+        [alignment]="'right'"
+        dropdownMenuPosition="top"
+        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
+      ></elvia-pagination>
     </div>
     <!--Inverted version-->
-    <div class="e-theme-dark">
-      <div class="e-title-sm e-mt-16">Alerts</div>
-      <div class="e-title-xs e-mt-16">Global Alert</div>
-      <div class="e-mt-16" style="width: 100%; display: flex; flex-direction: column">
-        <div>Regular</div>
-
-        <div class="e-alert e-alert--global">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort info tittel</div>
-            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-          </div>
-        </div>
-        <div>Closeable</div>
-
-        <div class="e-alert e-alert--global">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort info tittel</div>
-            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-          </div>
-          <div class="e-alert__close">
-            <button class="e-btn e-btn--icon e-btn--sm">
-              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
-            </button>
-          </div>
-        </div>
-        <div>Expandable</div>
-        <div>
-          <div class="e-alert e-alert--global e-alert--expandable">
-            <div class="e-alert__icon">
-              <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-            </div>
-            <div class="e-alert__content">
-              <div class="e-alert__title">
-                <div>Kort info tittel</div>
-                <div class="e-alert__accordion">
-                  <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-                  <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div class="e-alert__text">
-                <div>Generell informasjon til alle brukere på tvers.</div>
-                <div class="e-alert__links">
-                  <a class="e-link" href="https://design.elvia.io">Medium link</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40">
-            <div class="e-alert__icon">
-              <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-            </div>
-            <div class="e-alert__content">
-              <div class="e-alert__title">
-                <div>Kort info tittel</div>
-                <div class="e-alert__accordion">
-                  <i class="e-icon e-icon--expand_circle-color" aria-hidden="true"></i>
-                  <i class="e-icon e-icon--expand_circle-filled-color" aria-hidden="true"></i>
-                </div>
-              </div>
-              <div class="e-alert__text">
-                <div>Generell informasjon til alle brukere på tvers.</div>
-                <div class="e-alert__links">
-                  <a class="e-link" href="https://design.elvia.io">Medium link</a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="e-theme-dark e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32">
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Removable</div>
+        <div *ngFor="let chip of deletableChipsList">
+          <elvia-chip
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isDisabled]="chip.isDisabled"
+            (onDelete)="handleOnDelete($any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
         </div>
       </div>
-      <div>Actions</div>
-      <div class="e-alert e-alert--global e-alert--no-title e-alert--actions">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen.</div>
-          <div class="e-alert__actions">
-            <button class="e-btn e-btn--secondary e-btn--sm">
-              <span class="e-btn__title">Secondary</span>
-            </button>
-            <button class="e-btn e-btn--sm">
-              <span class="e-btn__title">Primary</span>
-            </button>
-          </div>
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Choice</div>
+        <div *ngFor="let chip of choiceChipsList">
+          <elvia-chip
+            [type]="'choice'"
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isSelected]="chip.isSelected"
+            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
         </div>
       </div>
-
-      <div class="e-title-xs e-my-16">Local Alert</div>
-
-      <div>
-        <div class="e-alert e-alert--local">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Standard alert</div>
-            <div class="e-alert__text">
-              <div>
-                Description with a list and an
-                <a class="e-link e-link--inline">inline link.</a>
-              </div>
-              <div class="e-alert__links">
-                <a class="e-link" href="https://design.elvia.io">Link 1</a>
-                <a class="e-link" href="https://design.elvia.io">Link 2</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="e-my-16">Statuses</div>
-      <div>
-        <div class="e-alert e-alert--error e-alert--local">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--check_circle e-icon--color-red" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort Tittel</div>
-            <div class="e-alert__text">En velykket bekreftelses melding!</div>
-          </div>
-        </div>
-        <div class="e-alert e-alert e-alert--warn e-alert--local">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--check_circle e-icon--color-orange" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort Tittel</div>
-            <div class="e-alert__text">En velykket bekreftelses melding!</div>
-          </div>
-        </div>
-        <div class="e-alert e-alert e-alert--info e-alert--local">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--check_circle" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Kort Tittel</div>
-            <div class="e-alert__text">En velykket bekreftelses melding!</div>
-          </div>
-        </div>
-      </div>
-      <div class="e-alert e-alert--global">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort info tittel</div>
-          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-        </div>
-      </div>
-      <div class="e-alert e-alert--global e-alert--error">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle e-icon--color-red" aria-hidden="true"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort info tittel</div>
-          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-        </div>
-      </div>
-      <div class="e-alert e-alert--global e-alert--warn">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle e-icon--color-orange" aria-hidden="true"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort info tittel</div>
-          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+      <div class="e-flex e-flex-direction-column e-align-items-center">
+        <div class="e-title-caps e-mb-16">Legend</div>
+        <div *ngFor="let chip of legendChipsList">
+          <elvia-chip
+            [type]="'legend'"
+            [value]="chip.value"
+            [color]="chip.color"
+            [ariaLabel]="'Fjern filtrering for ' + chip.value"
+            [isSelected]="chip.isSelected"
+            [isLoading]="chip.isLoading"
+            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
+            [inlineStyle]="{ margin: '8px' }"
+          ></elvia-chip>
         </div>
       </div>
     </div>
