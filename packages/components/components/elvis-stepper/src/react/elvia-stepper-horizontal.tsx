@@ -82,7 +82,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
         )}
       </Steps>
       <StepperTitle type="horizontal" typography={typography}>
-        {steps?.[currentStep]?.title ?? ''}
+        {steps?.[currentStep]?.heading ?? ''}
       </StepperTitle>
       <StepContent
         currentStep={currentStep}

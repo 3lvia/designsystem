@@ -4,7 +4,7 @@ import { openElviaToast } from '@elvia/elvis-toast';
 import { dropdownData } from './dropdown-data';
 
 interface StepState {
-  title: string;
+  heading: string;
   isError: boolean;
   isCompleted: boolean;
 }
@@ -188,17 +188,17 @@ export class v2PlaygroundComponent {
   ];
 
   stepperStates: StepStates = {
-    '1': { isCompleted: true, title: 'Title #1' },
-    '2': { title: 'Title #2' },
-    '3': { isError: true, title: 'Title #3' },
-    '4': { title: 'Title #4' },
-    '5': { title: 'Title #5' },
-    '6': { title: 'Title #6' },
-    '7': { title: 'Title #7' },
-    '8': { title: 'Title #8' },
+    '1': { isCompleted: true, heading: 'Title #1' },
+    '2': { heading: 'Title #2' },
+    '3': { isError: true, heading: 'Title #3' },
+    '4': { heading: 'Title #4' },
+    '5': { heading: 'Title #5' },
+    '6': { heading: 'Title #6' },
+    '7': { heading: 'Title #7' },
+    '8': { heading: 'Title #8' },
   };
   toggleState = () =>
-    (this.stepperStates = { ...this.stepperStates, '2': { isCompleted: true, title: 'Title #2' } });
+    (this.stepperStates = { ...this.stepperStates, '2': { isCompleted: true, heading: 'Title #2' } });
 
   // Timepicker
   timepickerValue = new Date();

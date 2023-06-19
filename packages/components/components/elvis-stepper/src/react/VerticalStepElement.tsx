@@ -41,7 +41,7 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
         isDisabled={!isReachable(isForced, stepNumber, steps)}
         onClick={() => handleStepChange(isReachable(isForced, stepNumber, steps) ? stepNumber : currentStep)}
       >
-        {steps?.[stepNumber]?.title ?? ''}
+        {steps?.[stepNumber]?.heading ?? ''}
       </StepperTitle>
     </StepHeader>
   );

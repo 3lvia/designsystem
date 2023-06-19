@@ -5,10 +5,10 @@ export const configurationProps: ComponentData = {
   changelog: changelogJson.content,
   name: 'Stepper',
   attributes: {
-    title: {
+    heading: {
       isRequired: false,
       type: 'string',
-      description: 'The title showed in the step.',
+      description: 'The heading showed in the step.',
     },
     isError: {
       isRequired: false,

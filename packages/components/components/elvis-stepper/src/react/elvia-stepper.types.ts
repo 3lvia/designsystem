@@ -3,7 +3,7 @@ import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 
 interface StepState {
-  title: string;
+  heading: string;
   isError: boolean;
   isCompleted: boolean;
 }

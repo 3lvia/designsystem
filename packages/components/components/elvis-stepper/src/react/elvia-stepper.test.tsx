@@ -10,11 +10,11 @@ describe('Elvis Stepper', () => {
         <Stepper
           type="horizontal"
           steps={{
-            1: { isCompleted: true, title: 'Title 1' },
-            2: { title: 'Title 2' },
-            3: { isError: true, title: 'Title 3' },
-            4: { isError: true, title: 'Title 4' },
-            5: { title: 'Title 5' },
+            1: { isCompleted: true, heading: 'Title 1' },
+            2: { heading: 'Title 2' },
+            3: { isError: true, heading: 'Title 3' },
+            4: { isError: true, heading: 'Title 4' },
+            5: { heading: 'Title 5' },
           }}
           content={[
             <div key={1}>Step 1 content</div>,
@@ -80,11 +80,11 @@ describe('Elvis Stepper', () => {
         <Stepper
           type="vertical"
           steps={{
-            1: { isCompleted: true, title: 'Title 1' },
-            2: { title: 'Title 2' },
-            3: { isError: true, title: 'Title 3' },
-            4: { isError: true, title: 'Title 4' },
-            5: { title: 'Title 5' },
+            1: { isCompleted: true, heading: 'Title 1' },
+            2: { heading: 'Title 2' },
+            3: { isError: true, heading: 'Title 3' },
+            4: { isError: true, heading: 'Title 4' },
+            5: { heading: 'Title 5' },
           }}
           content={[
             <div key={1}>Step 1 content</div>,
