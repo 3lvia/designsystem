@@ -103,7 +103,7 @@ $toast-max-width: 400px;
     width: 100%;
     max-width: unset;
     padding: $global-padding;
-    border-color: var(--e-color-border-1);
+    border-color: var(--e-color-signal-info);
     @include breakpoints.breakpoint-up(Mobile) {
       padding: $global-mobile-padding;
     }
