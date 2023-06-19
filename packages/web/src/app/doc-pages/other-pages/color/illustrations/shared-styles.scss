@@ -14,16 +14,11 @@
   grid-template-columns: repeat(6, auto);
   align-items: center;
   gap: 24px;
-  width: fit-content;
+  width: max-content;
   margin: 0;
 
   @include breakpoints.breakpoint-up(Tablet) {
     gap: 24px 16px;
-  }
-
-  @include breakpoints.breakpoint-up(Mobile) {
-    gap: 24px;
-    width: max-content;
   }
 }
 
@@ -61,6 +56,11 @@
 code {
   padding: 0 8px;
   width: fit-content;
+  white-space: nowrap;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    font-size: 14px;
+  }
 }
 
 .arrow {
