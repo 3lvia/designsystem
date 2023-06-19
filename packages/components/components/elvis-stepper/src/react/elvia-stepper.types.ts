@@ -1,6 +1,4 @@
 import { CSSProperties } from 'react';
-
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 
@@ -13,6 +11,8 @@ interface StepState {
 export interface StepStates {
   [step: number]: Partial<StepState>;
 }
+
+export type StepperType = 'vertical' | 'horizontal';
 
 export interface StepperTypeProps extends HasValue<number>, BaseProps {
   numberOfSteps: number;
@@ -28,14 +28,11 @@ export interface StepperTypeProps extends HasValue<number>, BaseProps {
   content?: JSX.Element[];
 }
 
-export interface StepperProps extends HasValue<number> {
-  type?: string;
+export interface StepperProps extends HasValue<number>, BaseProps {
+  type?: StepperType;
   steps?: StepStates;
   isForced?: boolean;
   completeButtonText?: string;
   typography?: TypographyName;
   content?: JSX.Element[];
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }

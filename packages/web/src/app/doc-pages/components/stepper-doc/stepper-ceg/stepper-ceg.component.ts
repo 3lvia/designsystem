@@ -19,7 +19,7 @@ interface StepStates {
 })
 export class StepperCegComponent implements ComponentExample {
   elementName = 'stepper';
-  stepperStates: StepStates = {
+  stepperStates: StepperProps['steps'] = {
     '1': { title: 'Title 1' },
     '2': { title: 'Title 2' },
     '3': { title: 'Title 3' },

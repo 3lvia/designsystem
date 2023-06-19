@@ -4,8 +4,6 @@ import { StepperVertical } from './elvia-stepper-vertical';
 import { StepperHorizontal } from './elvia-stepper-horizontal';
 
 export const Stepper: FC<StepperProps> = function ({
-  // value,
-  // valueOnChange,
   type = 'horizontal',
   steps,
   completeButtonText,
@@ -18,7 +16,7 @@ export const Stepper: FC<StepperProps> = function ({
   ...rest
 }) {
   const [numberOfSteps, setNumberOfSteps] = useState(1);
-  const [currentStep, setCurrentStep] = useState<number>(1);
+  const [currentStep, setCurrentStep] = useState(1);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -36,7 +34,9 @@ export const Stepper: FC<StepperProps> = function ({
   }, [content]);
 
   const handleStepChange = (step: number) => {
-    if (step >= 1 && step <= numberOfSteps) setCurrentStep(step);
+    if (step >= 1 && step <= numberOfSteps) {
+      setCurrentStep(step);
+    }
   };
 
   return (

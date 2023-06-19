@@ -20,7 +20,7 @@ export const stepperData: ComponentData = {
       isRequired: false,
       type: 'boolean',
       description:
-        'In a forced stepper the user has to complete a step before continuing to the next one. They can always step backwards to an earlier step. If a field is not filled and the user tries to go forward an error message should appear.',
+        'A forced stepper requires the user to complete each step before continuing to the next one. They can always go back to an earlier step. If a step is incomplete and the user tries to go forward an error message should appear.',
       default: 'false',
     },
     completeButtonText: {

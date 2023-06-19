@@ -3,7 +3,6 @@ import { ComponentConfig } from '@elvia/elvis-toolbox';
 export const config: ComponentConfig = {
   name: 'Stepper',
   attributes: [
-    { name: 'value', type: 'number' },
     { name: 'type', type: 'string' },
     { name: 'steps', type: 'object' },
     { name: 'completeButtonText', type: 'string' },
@@ -11,5 +10,6 @@ export const config: ComponentConfig = {
     { name: 'className', type: 'string' },
     { name: 'isForced', type: 'boolean' },
     { name: 'inlineStyle', type: 'object' },
+    { name: 'webcomponent', type: 'object' },
   ],
 };

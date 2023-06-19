@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StepStates } from './elvia-stepper.types';
+import { StepStates, StepperType } from './elvia-stepper.types';
 import { StepperActions, StepperContent } from './styledComponents';
 import { isReachable } from './utils';
 import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
@@ -12,7 +12,7 @@ type StepContentProps = {
   completeButtonText?: string;
   content?: JSX.Element[];
   contentRef?: React.RefObject<HTMLDivElement>;
-  type?: string;
+  type?: StepperType;
   handleStepChange: (step: number) => void;
 };
 
@@ -33,7 +33,11 @@ export const StepContent: FC<StepContentProps> = function ({
         {content?.[currentStep - 1]}
       </div>
       <StepperActions>
-        <SecondaryButton onClick={() => handleStepChange(currentStep - 1)}>Tilbake</SecondaryButton>
+        {currentStep !== 1 ? (
+          <SecondaryButton onClick={() => handleStepChange(currentStep - 1)}>Tilbake</SecondaryButton>
+        ) : (
+          <div></div>
+        )}
         <PrimaryButton
           disabled={!isReachable(isForced, currentStep + 1, steps)}
           onClick={() =>
