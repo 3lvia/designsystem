@@ -1,8 +1,7 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 :host {
-  display: grid;
-  gap: 22px;
+  display: contents;
 }
 
 .table-wrapper {
@@ -14,8 +13,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 
-  tr:first-of-type,
-  tr:not(:last-of-type) {
+  thead tr:first-of-type,
+  tbody tr:not(:last-of-type) {
     border-bottom: 1px solid var(--e-color-border-2);
   }
 
@@ -24,8 +23,8 @@ table {
     padding: 16px 8px;
     vertical-align: top;
 
-    &:first-of-type,
-    &:last-of-type {
+    &:first-child,
+    &:last-child {
       padding: 16px;
     }
 

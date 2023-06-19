@@ -78,6 +78,6 @@
     "typescript-plugin-styled-components": "^2.0.0"
   },
   "peerDependencies": {
-    "typescript": "~5.0.4"
+    "typescript": "~5.1.0"
   }
 }

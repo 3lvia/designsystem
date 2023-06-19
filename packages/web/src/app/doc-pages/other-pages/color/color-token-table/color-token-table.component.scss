@@ -1,4 +1,28 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
 :host {
   display: grid;
-  gap: 28px;
+  gap: 32px;
+}
+
+.no-properties-found {
+  display: none;
+  @supports (selector(:has(*))) {
+    display: grid;
+    :host:has(table) & {
+      display: none;
+    }
+  }
+
+  align-items: center;
+  grid-template-columns: 175px 1fr;
+  gap: 40px;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    grid-template-columns: 130px 1fr;
+  }
+
+  img {
+    width: 100%;
+  }
 }
