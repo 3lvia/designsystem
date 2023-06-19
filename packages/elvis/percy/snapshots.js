@@ -3,6 +3,14 @@ module.exports = [
     name: 'Alert',
     url: '/components/alert.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Autocomplete',

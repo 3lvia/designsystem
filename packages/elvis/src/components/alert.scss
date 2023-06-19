@@ -1,5 +1,4 @@
 @use '../variables/typography.scss';
-@use '../variables/colors';
 @use '../utilities/shadows';
 @use '../utilities/icons.scss';
 @use '../utilities/breakpoints';
@@ -22,8 +21,8 @@ $toast-max-width: 400px;
   min-width: 270px;
   box-sizing: border-box;
   flex-direction: row;
-  border: 2px solid colors.color('red');
-  background: colors.color('elvia-on');
+  border: 2px solid var(--e-color-signal-error);
+  background: var(--e-color-background-1);
   text-align: left;
 
   // Local as default
@@ -51,14 +50,14 @@ $toast-max-width: 400px;
     .e-alert__title {
       @include typography.typography('title-caps');
       margin-bottom: 2px;
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
       text-align: left;
     }
 
     .e-alert__text {
       @include typography.typography('text-md');
       max-width: 758px;
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
       text-align: left;
 
       ul {
@@ -104,7 +103,7 @@ $toast-max-width: 400px;
     width: 100%;
     max-width: unset;
     padding: $global-padding;
-    border-color: colors.color('grey');
+    border-color: var(--e-color-signal-info);
     @include breakpoints.breakpoint-up(Mobile) {
       padding: $global-mobile-padding;
     }
@@ -124,7 +123,7 @@ $toast-max-width: 400px;
 
     .e-alert__content .e-alert__title {
       @include typography.typography('title-xs');
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
     }
 
     .e-alert__content .e-alert__text {
@@ -132,11 +131,11 @@ $toast-max-width: 400px;
     }
 
     &.e-alert--warn {
-      border-color: colors.color('orange');
+      border-color: var(--e-color-signal-warning);
     }
 
     &.e-alert--error {
-      border-color: colors.color('red');
+      border-color: var(--e-color-signal-error);
     }
 
     &.e-alert--expandable {
@@ -283,7 +282,7 @@ $toast-max-width: 400px;
     .e-alert__title {
       @include typography.typography('text-md-strong');
       margin-bottom: 0;
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
 
       @include breakpoints.breakpoint-up(Mobile) {
         text-align: center;
@@ -300,11 +299,11 @@ $toast-max-width: 400px;
     /* stylelint-enable */
 
     &.e-alert--warn {
-      border-color: colors.color('orange');
+      border-color: var(--e-color-signal-warning);
     }
 
     &.e-alert--info {
-      border-color: colors.color('grey');
+      border-color: var(--e-color-signal-info);
     }
   }
 
@@ -312,7 +311,7 @@ $toast-max-width: 400px;
   &.e-alert--toast {
     max-width: $toast-max-width;
     padding: $toast-padding;
-    border-color: colors.color('elvia-charge');
+    border-color: var(--e-color-signal-success);
     border-radius: 8px;
     box-shadow: shadows.getShadow('medium');
 
@@ -329,12 +328,12 @@ $toast-max-width: 400px;
 
     .e-alert__title {
       @include typography.typography('text-sm-strong');
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
     }
 
     .e-alert__content .e-alert__text {
       @include typography.typography('text-sm');
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
     }
 
     .e-alert__close {
@@ -345,7 +344,7 @@ $toast-max-width: 400px;
     }
 
     &.e-alert--info {
-      border-color: colors.color('grey');
+      border-color: var(--e-color-border-1);
     }
   }
 
