@@ -209,7 +209,7 @@ export const StepperContent = styled.div<StepperContentProps>`
   ${({ type }) =>
     type === 'vertical' &&
     css`
-      padding: 28px 30px;
+      padding: 32px 0 48px 32px;
     `}
 `;
 
