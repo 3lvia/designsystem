@@ -116,6 +116,16 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     webcomponent?.triggerEvent('onOpen');
   };
 
+  const setDateToFirstValidDate = () => {
+    if (minDate && new Date().getTime() < minDate.getTime()) {
+      updateValue(copyDay(minDate, new Date()));
+    } else if (maxDate && new Date().getTime() > maxDate.getTime()) {
+      updateValue(copyDay(maxDate, new Date()));
+    } else {
+      updateValue(new Date());
+    }
+  };
+
   const setVisibility = (isShowing: boolean): void => {
     setIsShowing(isShowing);
 
@@ -132,13 +142,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       emitOnOpen();
 
       if (hasSelectDateOnOpen && !date) {
-        if (minDate && new Date().getTime() < minDate.getTime()) {
-          updateValue(copyDay(minDate, new Date()));
-        } else if (maxDate && new Date().getTime() > maxDate.getTime()) {
-          updateValue(copyDay(maxDate, new Date()));
-        } else {
-          updateValue(new Date());
-        }
+        setDateToFirstValidDate();
       }
 
       trapFocus(popoverRef);
