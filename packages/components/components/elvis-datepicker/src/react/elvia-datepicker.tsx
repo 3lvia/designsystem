@@ -132,8 +132,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (!isShowing) {
       openPopoverButtonRef.current?.focus();
 
-      if (isRequired && (!error || error === 'required')) {
-        setError(!date ? 'required' : undefined);
+      if (isRequired && !date) {
+        setError('required');
+      } else if (date) {
+        validateMinMax(date);
       }
 
       emitOnClose();
@@ -172,12 +174,12 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     trapFocus(popoverRef);
   };
 
-  const validateMinMax = ({ d, min, max }: { d: Date; min?: Date; max?: Date }): void => {
+  const validateMinMax = (d: Date): void => {
     if (d.getFullYear() < 1800 || !isValidDate(d)) {
       onError('invalidDate');
-    } else if (min && d.getTime() < min.getTime()) {
+    } else if (minDate && d.getTime() < minDate.getTime()) {
       onError('beforeMinDate');
-    } else if (max && d.getTime() > max.getTime()) {
+    } else if (maxDate && d.getTime() > maxDate.getTime()) {
       onError('afterMaxDate');
     } else {
       onError();
@@ -195,7 +197,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
   useEffect(() => {
     if (isInitialized && value) {
-      validateMinMax({ d: value, min: minDate, max: maxDate });
+      validateMinMax(value);
     }
   }, [value, maxDate, minDate]);
 
