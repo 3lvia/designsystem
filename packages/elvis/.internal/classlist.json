@@ -1065,6 +1065,7 @@
 			},
 			"psuedo": {
 				"e-radio---focus": {},
+				"e-radio---hover": {},
 				"e-radio---disabled-checked": {},
 				"e-radio---checked": {},
 				"e-radio---disabled": {},
@@ -2018,6 +2019,7 @@
 		"e-radio__mark": {},
 		"e-radio__label": {},
 		"e-radio---focus": {},
+		"e-radio---hover": {},
 		"e-radio--compact": {},
 		"e-radio--sm": {},
 		"e-radio--small": {},

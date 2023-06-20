@@ -52,6 +52,7 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
     margin-left: 32px;
     color: var(--e-color-text-1);
     @include typography.typography('text-option');
+    line-height: 24px;
   }
 
   // Hide default radiostyle
@@ -88,7 +89,7 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
     }
   }
 
-  &.e-checkbox---hover:not(:disabled):not(:invalid) .e-radio__mark {
+  &.e-radio---hover:not(:disabled):not(:invalid):not(:checked) .e-radio__mark {
     background-color: var(--e-color-background-hover-1);
   }
 

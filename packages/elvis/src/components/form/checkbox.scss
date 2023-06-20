@@ -49,6 +49,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     margin-left: 8px;
     color: var(--e-color-text-1);
     @include typography.typography('text-option');
+    line-height: 24px;
   }
 
   // Hides initial checkbox
