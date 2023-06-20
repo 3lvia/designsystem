@@ -56,7 +56,7 @@ export const Calendar: React.FC<Props> = ({
     return dayList;
   };
 
-  const [daysInMonth, setDaysInMonth] = useState<(Date | null)[]>(createListOfDays());
+  const [daysInMonth, setDaysInMonth] = useState<(Date | null)[]>(createListOfDays);
 
   const shuffleViewedMonth = (dir: 1 | -1): void => {
     const newDate = new Date(viewedDate);
