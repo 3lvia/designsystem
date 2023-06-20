@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { ColorTokenSubtableComponent } from './color-token-table/color-token-subtable/color-token-subtable.component';
 import { ColorTokenSubtableColorCircleComponent } from './color-token-table/color-token-subtable/color-token-subtable-color-circle/color-token-subtable-color-circle.component';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
+import { ColorPickerColorListComponent } from './color-picker/color-picker-color-list/color-picker-color-list.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
   declarations: [
     ColorComponent,
     ColorPickerComponent,
+    ColorPickerColorListComponent,
     ColorTokenTableComponent,
     ColorTokenSubtableComponent,
     ColorTokenSubtableColorCircleComponent,

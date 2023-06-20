@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { lightColors } from './colors-light';
 import { darkColors } from './colors-dark';
 import { ColorElement } from './colors-types';
+import { getColorElement } from './colors-util';
 
 @Component({
   selector: 'app-color-picker',
@@ -16,23 +17,8 @@ export class ColorPickerComponent {
     document.getElementsByClassName('theme-container')[0].classList.toggle('e-theme-dark');
     this.isDarkTheme = !this.isDarkTheme;
     this.colorList = this.isDarkTheme ? darkColors : lightColors;
+    this.currentColor = getColorElement(this.currentColor.name, this.isDarkTheme ? 'dark' : 'light') ?? null;
   };
-
-  getColorsFromCategory = (category: 'primary' | 'signal' | 'data' | 'grey') => {
-    return this.colorList?.[category];
-  };
-
-  needsBorder = (color: ColorElement) => {
-    if (!this.isDarkTheme && (color.name === 'white' || color.name === 'grey-02' || color.name === 'grey-05'))
-      return true;
-    else if (
-      this.isDarkTheme &&
-      (color.name === 'black' || color.name === 'grey' || color.name === 'grey-70')
-    )
-      return true;
-    return false;
-  };
-
   chooseColor = (color: ColorElement) => {
     this.currentColor = color;
   };

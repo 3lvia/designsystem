@@ -1,7 +1,7 @@
-import { ColorLabel } from '@elvia/elvis-colors';
+import { ColorLabel, DarkThemeColorName, LightThemeColorName } from '@elvia/elvis-colors';
 
 export interface ColorElement {
-  name: string;
+  name: DarkThemeColorName | LightThemeColorName;
   hex: string;
   contrast: { white: ContrastType; black: ContrastType };
   token: ColorLabel[];
@@ -14,6 +14,6 @@ export interface ColorsObject {
   grey: ColorElement[];
 }
 
-type ContrastType = '' | 'Large AA' | 'AA' | 'AAA';
+export type ContrastType = '' | 'Large AA' | 'AA' | 'AAA';
 
 export type RGB = [number, number, number];
