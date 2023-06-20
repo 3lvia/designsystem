@@ -61,16 +61,12 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const [isInitialized, setIsInitialized] = useState(false);
-  const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(
-    connectedElementRef,
-    popoverRef,
-    {
-      offset: 8,
-      horizontalPosition: 'right-inside',
-      verticalPosition: 'bottom',
-      alignWidths: false,
-    },
-  );
+  const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
+    offset: 8,
+    horizontalPosition: 'right-inside',
+    verticalPosition: 'bottom',
+    alignWidths: false,
+  });
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
@@ -131,8 +127,21 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       }
 
       emitOnClose();
+      releaseFocusTrap();
     } else {
       emitOnOpen();
+
+      if (hasSelectDateOnOpen && !date) {
+        if (minDate && new Date().getTime() < minDate.getTime()) {
+          updateValue(copyDay(minDate, new Date()));
+        } else if (maxDate && new Date().getTime() > maxDate.getTime()) {
+          updateValue(copyDay(maxDate, new Date()));
+        } else {
+          updateValue(new Date());
+        }
+      }
+
+      trapFocus(popoverRef);
     }
   };
 
@@ -159,60 +168,31 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     trapFocus(popoverRef);
   };
 
-  const validateDate = ({ d, min, max }: { d?: Date | null; min?: Date; max?: Date }): void => {
-    if (!isInitialized) {
-      return;
-    }
-
-    if (!d) {
-      onError(isRequired ? 'required' : undefined);
+  const validateMinMax = ({ d, min, max }: { d: Date; min?: Date; max?: Date }): void => {
+    if (d.getFullYear() < 1800 || !isValidDate(d)) {
+      onError('invalidDate');
+    } else if (min && d.getTime() < min.getTime()) {
+      onError('beforeMinDate');
+    } else if (max && d.getTime() > max.getTime()) {
+      onError('afterMaxDate');
     } else {
-      if (d.getFullYear() < 1800 || !isValidDate(d)) {
-        onError('invalidDate');
-      } else if (min && d.getTime() < min.getTime()) {
-        onError('beforeMinDate');
-      } else if (max && d.getTime() > max.getTime()) {
-        onError('afterMaxDate');
-      } else {
-        onError();
-      }
+      onError();
     }
   };
 
-  useEffect(() => {
-    if (!isShowing) {
-      return;
-    }
-
-    if (hasSelectDateOnOpen && !date) {
-      if (minDate && new Date().getTime() < minDate.getTime()) {
-        updateValue(copyDay(minDate, new Date()));
-      } else if (maxDate && new Date().getTime() > maxDate.getTime()) {
-        updateValue(copyDay(maxDate, new Date()));
-      } else {
-        updateValue(new Date());
-      }
-    }
-
-    trapFocus(popoverRef);
-
-    /** We need to update the position, because the dimensions of the
-     * overlay has changed.
-     */
-    setTimeout(() => {
-      updatePreferredPosition();
-    });
-
-    return () => releaseFocusTrap();
-  }, [isShowing]);
-
   // Needed for webcomponent -> To update the default value
   useEffect(() => {
+    if (date && !value && isRequired && isInitialized) {
+      onError('required');
+    }
+
     setDate(value);
   }, [value]);
 
   useEffect(() => {
-    validateDate({ d: value, min: minDate, max: maxDate });
+    if (isInitialized && value) {
+      validateMinMax({ d: value, min: minDate, max: maxDate });
+    }
   }, [value, maxDate, minDate]);
 
   // Allows app to open the datepicker programatically
