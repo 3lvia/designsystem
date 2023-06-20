@@ -5,19 +5,22 @@
 
 :root,
 .e-theme-light {
-  --e-radio-border-checked-color: var(--e-light-theme-black);
+  --e-radio-checked-color: var(--e-light-theme-black);
+  --e-radio-checked-background-color: var(--e-dark-theme-green);
 }
 
 .e-theme-dark {
-  --e-radio-border-checked-color: transparent;
+  --e-radio-checked-color: var(--e-dark-theme-green);
+  --e-radio-checked-background-color: var(--e-light-theme-black);
 }
 
 $radio-mark-size: 24px;
 $radio-mark-small-size: 16px;
 $radio-mark-border-radius: 14px;
 $radio-mark-color: var(--e-color-static-black);
+$radio-mark-checked-color: var(--e-radio-checked-color);
+$radio-mark-checked-background: var(--e-radio-checked-background-color);
 $radio-mark-border: 1px solid var(--e-color-border-1);
-$radio-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
 
 .e-radio {
   position: relative;
@@ -41,7 +44,7 @@ $radio-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
     border: $radio-mark-border;
     border-radius: $radio-mark-border-radius;
     background-color: var(--e-color-background-element-1);
-    transition: background-color, border, 0.3s animation.$transition-cubic;
+    transition: background-color 0.3s animation.$transition-cubic;
   }
 
   &__label {
@@ -79,7 +82,7 @@ $radio-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
 
   input {
     @include helpers.hover() {
-      &:hover:not(:disabled):not(:invalid) ~ .e-radio__mark {
+      &:hover:not(:disabled):not(:invalid):not(:checked) ~ .e-radio__mark {
         background-color: var(--e-color-background-hover-1);
       }
     }
@@ -142,14 +145,13 @@ $radio-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
 %radio-mark-checked .e-radio__mark,
 %radio-mark-checked-small .e-radio__mark {
   display: grid;
-  border: $radio-mark-border-checked;
-  background-color: var(--e-color-background-selected-1);
+  background-color: $radio-mark-checked-background;
   place-items: center;
 
   &::before {
     @include helpers.animation(fadeIn, 250ms, linear, both);
     border-radius: 50%;
-    background-color: $radio-mark-color;
+    background-color: $radio-mark-checked-color;
     content: '';
     opacity: 1;
   }
