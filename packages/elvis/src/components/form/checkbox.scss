@@ -65,60 +65,44 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     border-radius: 50%;
     margin: 0;
     opacity: 0;
+  }
 
-    // States
-    &:checked ~ {
-      @extend %checkbox-mark-checked;
-    }
+  // States
+  input:checked ~,
+  &.e-checkbox---checked {
+    @extend %checkbox-mark-checked;
+  }
 
-    &:focus ~ .e-checkbox__mark {
-      @include outline.e-outline();
-    }
+  input:focus ~ .e-checkbox__mark,
+  &.e-checkbox---focus .e-checkbox__mark {
+    @include outline.e-outline();
+  }
 
+  input {
     @include helpers.hover() {
       &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
         background-color: var(--e-color-background-hover-1);
       }
     }
-
-    &:disabled ~ {
-      @extend %checkbox-mark-disabled;
-    }
-
-    &:disabled:checked ~ {
-      @extend %checkbox-mark-disabled-checked;
-    }
-
-    &:invalid ~ .e-checkbox__mark {
-      @extend %checkbox-mark-invalid;
-    }
-  }
-
-  // States (psuedoclasses)
-  &.e-checkbox---checked {
-    @extend %checkbox-mark-checked;
-  }
-
-  &.e-checkbox---focus .e-checkbox__mark {
-    @include outline.e-outline-pseudoclass();
   }
 
   &.e-checkbox---hover:not(:disabled):not(:invalid) .e-checkbox__mark {
     background-color: var(--e-color-background-hover-1);
   }
 
+  input:disabled ~,
   &.e-checkbox---disabled {
     @extend %checkbox-mark-disabled;
   }
 
+  input:checked:disabled ~,
   &.e-checkbox---disabled-checked {
     @extend %checkbox-mark-disabled-checked;
   }
 
+  input:invalid ~,
   &.e-checkbox---invalid {
-    .e-checkbox__mark {
-      @extend %checkbox-mark-invalid;
-    }
+    @extend %checkbox-mark-invalid;
   }
 
   &.e-checkbox--indeterminate {
@@ -144,10 +128,12 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     }
 
     // States - small specific
+    input:checked ~,
     &.e-checkbox---checked {
       @extend %checkbox-mark-checked-small;
     }
 
+    input:checked:disabled ~,
     &.e-checkbox---disabled-checked {
       @extend %checkbox-mark-disabled-checked-small;
     }
@@ -155,23 +141,15 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     &.e-checkbox--indeterminate {
       @extend %checkbox-mark-indeterminate-small;
     }
-
-    input {
-      &:checked ~ {
-        @extend %checkbox-mark-checked-small;
-      }
-
-      &:checked:disabled ~ {
-        @extend %checkbox-mark-disabled-checked-small;
-      }
-    }
   }
 }
 
 // Checkbox mark styling
 // :before & :after each create a line which we put together to a checkmark.
-// Position properties top,left,right and bottom positions the lines to look like a checkmark.
-%checkbox-mark-checked-base {
+%checkbox-mark-checked .e-checkbox__mark,
+%checkbox-mark-checked-small .e-checkbox__mark,
+%checkbox-mark-indeterminate .e-checkbox__mark,
+%checkbox-mark-indeterminate-small .e-checkbox__mark {
   position: relative;
   border: $checkbox-mark-border-checked;
   background-color: var(--e-color-background-selected-1);
@@ -186,8 +164,6 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 }
 %checkbox-mark-checked .e-checkbox__mark {
-  @extend %checkbox-mark-checked-base;
-
   &::before {
     @include helpers.transform(translateX(10px) rotate(-45deg));
     top: 12px;
@@ -208,8 +184,6 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
 }
 
 %checkbox-mark-checked-small .e-checkbox__mark {
-  @extend %checkbox-mark-checked-base;
-
   &::before {
     @include helpers.transform(translateX(10px) rotate(-45deg));
     top: 50%;
@@ -256,12 +230,10 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   @extend %checkbox-mark-checked-small;
   @extend %checkbox-mark-disabled;
 }
-%checkbox-mark-invalid {
+%checkbox-mark-invalid .e-checkbox__mark {
   border-color: colors.color('red');
 }
 %checkbox-mark-indeterminate .e-checkbox__mark {
-  @extend %checkbox-mark-checked-base;
-
   &::before {
     top: calc(50% - 1px);
     left: calc(50% - 6px);
@@ -271,8 +243,6 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 }
 %checkbox-mark-indeterminate-small .e-checkbox__mark {
-  @extend %checkbox-mark-checked-base;
-
   &::before {
     top: calc(50%);
     left: calc(50% - 4px);

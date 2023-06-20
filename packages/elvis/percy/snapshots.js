@@ -25,7 +25,7 @@ module.exports = [
   {
     name: 'Checkbox',
     url: '/components/checkbox.html',
-    waitForTimeout: 2000,
+    waitForTimeout: 5000,
     widths: [766, 1440],
     additionalSnapshots: [
       {
