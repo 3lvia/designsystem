@@ -1067,7 +1067,6 @@
 				"e-radio---focus": {},
 				"e-radio---disabled-checked": {},
 				"e-radio---checked": {},
-				"e-radio---hover": {},
 				"e-radio---disabled": {},
 				"e-radio---invalid": {}
 			},
@@ -2024,7 +2023,6 @@
 		"e-radio--small": {},
 		"e-radio---disabled-checked": {},
 		"e-radio---checked": {},
-		"e-radio---hover": {},
 		"e-radio---disabled": {},
 		"e-radio---invalid": {},
 		"e-search": {},

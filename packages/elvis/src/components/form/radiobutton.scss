@@ -1,4 +1,4 @@
-@use '../../variables/colors';
+@use '../../variables/animation';
 @use '../../variables/typography';
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
@@ -12,11 +12,12 @@
   --e-radio-border-checked-color: transparent;
 }
 
-$radiobutton-mark-size: 24px;
-$radiobutton-mark-small-size: 16px;
-$radiobutton-mark-border-radius: 14px;
-$radiobutton-mark-border: 1px solid var(--e-color-border-1);
-$radiobutton-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
+$radio-mark-size: 24px;
+$radio-mark-small-size: 16px;
+$radio-mark-border-radius: 14px;
+$radio-mark-color: var(--e-color-static-black);
+$radio-mark-border: 1px solid var(--e-color-border-1);
+$radio-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
 
 .e-radio {
   position: relative;
@@ -24,43 +25,38 @@ $radiobutton-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
   width: fit-content;
   box-sizing: border-box;
   align-items: center;
-  color: colors.color('font-color');
   cursor: pointer;
-  // TODO: Typography?
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
   text-align: left;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
 
   &__mark {
     position: absolute;
     top: 0;
     display: inline-block;
-    width: $radiobutton-mark-size;
-    height: $radiobutton-mark-size;
-    border: $radiobutton-mark-border-checked;
-    border-radius: $radiobutton-mark-border-radius;
-    background: colors.color('elvia-on');
+    width: $radio-mark-size;
+    height: $radio-mark-size;
+    border: $radio-mark-border;
+    border-radius: $radio-mark-border-radius;
+    background-color: var(--e-color-background-element-1);
+    transition: background-color, border, 0.3s animation.$transition-cubic;
   }
 
   &__label {
     flex-grow: 1;
     margin-left: 32px;
-  }
-
-  // TODO: Remove?
-  &:not(:last-child) {
-    margin-bottom: 8px;
+    color: var(--e-color-text-1);
+    @include typography.typography('text-option');
   }
 
   // Hide default radiostyle
   input {
     position: absolute;
     z-index: -1;
-    width: $radiobutton-mark-size;
-    height: $radiobutton-mark-size;
+    width: $radio-mark-size;
+    height: $radio-mark-size;
     border-radius: 50%;
     margin: 0;
     opacity: 0;
@@ -81,9 +77,16 @@ $radiobutton-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
     @include outline.e-outline-pseudoclass();
   }
 
-  input:hover ~,
-  &.e-radio---hover {
-    @extend %radio-mark-hover;
+  input {
+    @include helpers.hover() {
+      &:hover:not(:disabled):not(:invalid) ~ .e-radio__mark {
+        background-color: var(--e-color-background-hover-1);
+      }
+    }
+  }
+
+  &.e-checkbox---hover:not(:disabled):not(:invalid) .e-radio__mark {
+    background-color: var(--e-color-background-hover-1);
   }
 
   input:disabled ~,
@@ -106,22 +109,19 @@ $radiobutton-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
   &.e-radio--compact,
   &.e-radio--sm,
   &.e-radio--small {
-    @include typography.typography('text-sm');
-    color: colors.color('font-color');
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
 
+    input,
     .e-radio__mark {
       top: 3px;
-      width: $radiobutton-mark-small-size;
-      height: $radiobutton-mark-small-size;
+      width: $radio-mark-small-size;
+      height: $radio-mark-small-size;
     }
 
     .e-radio__label {
       margin-left: 24px;
-    }
-
-    // TODO: Remove?
-    &:not(:last-child) {
-      margin-bottom: 0;
     }
 
     // States - small specific
@@ -142,13 +142,14 @@ $radiobutton-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
 %radio-mark-checked .e-radio__mark,
 %radio-mark-checked-small .e-radio__mark {
   display: grid;
-  background-color: colors.color('elvia-charge');
+  border: $radio-mark-border-checked;
+  background-color: var(--e-color-background-selected-1);
   place-items: center;
 
   &::before {
     @include helpers.animation(fadeIn, 250ms, linear, both);
     border-radius: 50%;
-    background-color: colors.color('elvia-off');
+    background-color: $radio-mark-color;
     content: '';
     opacity: 1;
   }
@@ -165,24 +166,21 @@ $radiobutton-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
     height: 8px;
   }
 }
-%radio-mark-hover .e-radio__mark {
-  background: colors.color('elvia-charge');
-}
 %radio-mark-disabled {
   cursor: not-allowed;
 
   .e-radio__mark {
-    border-color: colors.color('disabled');
-    background: colors.color('disabled-light');
+    border-color: var(--e-color-border-disabled-1);
+    background-color: var(--e-color-background-disabled-1);
     cursor: not-allowed;
 
     &::before {
-      background-color: colors.color('disabled');
+      background-color: var(--e-color-text-disabled-1);
     }
   }
 
   .e-radio__label {
-    color: colors.color('grey-70');
+    color: var(--e-color-text-disabled-1);
     cursor: not-allowed;
   }
 }
@@ -195,7 +193,7 @@ $radiobutton-mark-border-checked: 1px solid var(--e-radio-border-checked-color);
   @extend %radio-mark-disabled;
 }
 %radio-mark-invalid .e-radio__mark {
-  border-color: colors.color('red');
+  border-color: var(--e-color-signal-error);
 }
 
 // Animations

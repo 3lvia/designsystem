@@ -1,7 +1,5 @@
 @use '../../variables/animation';
-@use '../../variables/colors';
 @use '../../variables/typography';
-@use '../../utilities/colors' as colors2;
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 
@@ -50,10 +48,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     width: fit-content;
     margin-left: 8px;
     color: var(--e-color-text-1);
-    font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+    @include typography.typography('text-option');
   }
 
   // Hides initial checkbox
@@ -186,7 +181,6 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     animation: checkmarkWidth 150ms 150ms forwards;
   }
 }
-
 %checkbox-mark-checked-small .e-checkbox__mark {
   &::before {
     @include helpers.transform(translateX(10px) rotate(-45deg));
@@ -206,7 +200,6 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     animation: checkmarkWidthSmall 150ms 150ms forwards;
   }
 }
-
 %checkbox-mark-disabled {
   cursor: not-allowed;
 
@@ -235,7 +228,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   @extend %checkbox-mark-disabled;
 }
 %checkbox-mark-invalid .e-checkbox__mark {
-  border-color: colors.color('red');
+  border-color: var(--e-color-signal-error);
 }
 %checkbox-mark-indeterminate .e-checkbox__mark {
   &::before {
