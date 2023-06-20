@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { dateIsWithinMinMaxBoundary, isSameDay } from '../dateHelpers';
 import { DateRange } from '../elviaDatepicker.types';
 import { DateRangeDayContainer } from './dateRangeStyles';
@@ -26,19 +26,19 @@ export const DateRangeHighlighter: React.FC<Props> = ({
   onClick,
   children,
 }) => {
-  const isBetweenDates = (): boolean => {
+  const isStartDate = useMemo(() => isSameDay(dateRange?.start, date), [dateRange, date]);
+
+  const isEndDate = useMemo(() => isSameDay(dateRange?.end, date), [dateRange, date]);
+
+  const isBetweenDates = () => {
     const isBetweenSelectedDates = dateIsWithinMinMaxBoundary(date, dateRange?.start, dateRange?.end);
-    return !!dateRange?.start && !!dateRange?.end && isBetweenSelectedDates;
+    return !!date && !!dateRange?.start && !!dateRange?.end && isBetweenSelectedDates;
   };
 
-  const isOtherSelectedDate = (): boolean => {
-    return (
-      (whichPicker === 'start' && isSameDay(dateRange?.end, date)) ||
-      (whichPicker === 'end' && isSameDay(dateRange?.start, date))
-    );
-  };
+  const isOtherSelectedDate = () =>
+    (whichPicker === 'start' && isEndDate) || (whichPicker === 'end' && isStartDate);
 
-  const rangeIsValid = (): boolean => {
+  const rangeIsValid = () => {
     return (
       !!dateRange?.start &&
       !!dateRange?.end &&
@@ -48,9 +48,9 @@ export const DateRangeHighlighter: React.FC<Props> = ({
 
   return (
     <DateRangeDayContainer
-      isStartPiece={isSameDay(dateRange?.start, date)}
+      isStartPiece={isStartDate}
       isMiddlePiece={isBetweenDates()}
-      isEndPiece={isSameDay(dateRange?.end, date)}
+      isEndPiece={isEndDate}
       isOtherSelectedDate={isOtherSelectedDate()}
       isHoveredDate={isSameDay(date, hoveredDate) && !!dateRange?.start}
       rangeIsValid={rangeIsValid()}
