@@ -15,7 +15,7 @@ import {
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
-import { copyDay, isValidDate } from './dateHelpers';
+import { copyDay, isAfter, isBefore, isValidDate } from './dateHelpers';
 
 const defaultErrorOptions = {
   hideText: false,
@@ -117,10 +117,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   const setDateToFirstValidDate = () => {
-    if (minDate && new Date().getTime() < minDate.getTime()) {
-      updateValue(copyDay(minDate, new Date()));
-    } else if (maxDate && new Date().getTime() > maxDate.getTime()) {
-      updateValue(copyDay(maxDate, new Date()));
+    if (minDateWithoutTime && new Date().getTime() < minDateWithoutTime.getTime()) {
+      updateValue(copyDay(minDateWithoutTime, new Date()));
+    } else if (maxDateWithoutTime && new Date().getTime() > maxDateWithoutTime.getTime()) {
+      updateValue(copyDay(maxDateWithoutTime, new Date()));
     } else {
       updateValue(new Date());
     }
@@ -177,9 +177,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const validateMinMax = (d: Date): void => {
     if (d.getFullYear() < 1800 || !isValidDate(d)) {
       onError('invalidDate');
-    } else if (minDate && d.getTime() < minDate.getTime()) {
+    } else if (minDateWithoutTime && isBefore(d, minDateWithoutTime)) {
       onError('beforeMinDate');
-    } else if (maxDate && d.getTime() > maxDate.getTime()) {
+    } else if (maxDateWithoutTime && isAfter(d, maxDateWithoutTime)) {
       onError('afterMaxDate');
     } else {
       onError();
@@ -199,7 +199,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (isInitialized && value) {
       validateMinMax(value);
     }
-  }, [value, maxDate, minDate]);
+  }, [value, maxDateWithoutTime, minDateWithoutTime]);
 
   // Allows app to open the datepicker programatically
   useEffect(() => {
