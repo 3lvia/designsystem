@@ -946,19 +946,19 @@
 				"e-checkbox__mark": {},
 				"e-checkbox__label": {}
 			},
+			"psuedo": {
+				"e-checkbox---focus": {},
+				"e-checkbox---hover": {},
+				"e-checkbox---disabled-checked": {},
+				"e-checkbox---checked": {},
+				"e-checkbox---disabled": {},
+				"e-checkbox---invalid": {}
+			},
 			"modifier": {
 				"e-checkbox--compact": {},
 				"e-checkbox--sm": {},
 				"e-checkbox--small": {},
 				"e-checkbox--indeterminate": {}
-			},
-			"psuedo": {
-				"e-checkbox---focus": {},
-				"e-checkbox---hover": {},
-				"e-checkbox---disabled": {},
-				"e-checkbox---disabled-checked": {},
-				"e-checkbox---invalid": {},
-				"e-checkbox---checked": {}
 			}
 		},
 		"e-label": {
@@ -1982,16 +1982,16 @@
 		"e-toggle--inverted": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
+		"e-checkbox---focus": {},
+		"e-checkbox---hover": {},
 		"e-checkbox--compact": {},
 		"e-checkbox--sm": {},
 		"e-checkbox--small": {},
-		"e-checkbox--indeterminate": {},
-		"e-checkbox---focus": {},
-		"e-checkbox---hover": {},
-		"e-checkbox---disabled": {},
 		"e-checkbox---disabled-checked": {},
-		"e-checkbox---invalid": {},
 		"e-checkbox---checked": {},
+		"e-checkbox--indeterminate": {},
+		"e-checkbox---disabled": {},
+		"e-checkbox---invalid": {},
 		"e-dragdrop": {},
 		"e-dragdrop--dragover": {},
 		"e-form-field__label": {},

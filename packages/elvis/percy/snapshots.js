@@ -33,7 +33,16 @@ module.exports = [
   {
     name: 'Checkbox',
     url: '/components/checkbox.html',
+    waitForTimeout: 5000,
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Colors',
