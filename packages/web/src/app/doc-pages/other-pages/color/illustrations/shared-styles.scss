@@ -2,10 +2,38 @@
 
 :host {
   display: block;
-  width: 100%;
+  position: relative;
+
+  @include breakpoints.breakpoint-up(MinDesktop) {
+    overflow-x: auto;
+  }
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    overflow-x: auto;
+    margin-right: -84px;
+    padding-right: 24px;
+  }
 
   @include breakpoints.breakpoint-up(Mobile) {
     overflow-x: auto;
+    margin-right: -60px;
+    padding-right: 24px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: fixed;
+    inset: 0 0 0 auto;
+    background: linear-gradient(to right, rgb(255 255 255 / 0), rgb(255 255 255));
+    width: 60px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 400ms;
+  }
+
+  &.overflow-right::after {
+    opacity: 1;
   }
 }
 

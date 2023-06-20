@@ -13,6 +13,7 @@ import { ColorTokenSubtableColorCircleComponent } from './color-token-table/colo
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
+import { IllustrationBaseDirective } from './illustrations/illustration-base.directive';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-ill
     ColorTokenSubtableColorCircleComponent,
     PurposeTokenIllustrationComponent,
     ThemeTokenIllustrationComponent,
+    IllustrationBaseDirective,
   ],
 })
 export class ColorModule {}
