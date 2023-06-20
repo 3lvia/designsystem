@@ -154,6 +154,14 @@ module.exports = [
     name: 'Table',
     url: '/components/table.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Tag',
