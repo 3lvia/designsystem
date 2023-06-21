@@ -18,42 +18,45 @@ import { usePauseableTimer } from './pauseableTimer';
 interface Props extends BaseProps {
   toast: ToastWithId;
   gtMobile: boolean;
-  index: number;
+  indexInQueue: number;
   onClose: () => void;
 }
 
-export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, className, inlineStyle }) => {
+export const ToastBox: React.FC<Props> = ({
+  toast,
+  gtMobile,
+  indexInQueue,
+  onClose,
+  className,
+  inlineStyle,
+}) => {
   const [startFade, setStartFade] = useState(false);
-  const openTimeoutId = useRef(0);
   const fadeAnimationId = useRef(0);
 
   const fadeOut = () => {
     setStartFade(true);
 
     fadeAnimationId.current = window?.setTimeout(() => {
-      clearTimeout(openTimeoutId.current);
-      openTimeoutId.current = 0;
       onClose();
     }, animationDuration);
   };
 
-  const { start, resume, pause, clear } = usePauseableTimer(
+  const { startTimer, resumeTimer, pauseTimer, clearTimer } = usePauseableTimer(
     fadeOut,
     Math.max(toast.duration - animationDuration, 0),
   );
 
   useEffect(() => {
-    if (index === 0) {
-      clearTimeout(openTimeoutId.current);
+    if (indexInQueue === 0) {
       setStartFade(false);
 
-      start();
+      startTimer();
     }
-  }, [index]);
+  }, [indexInQueue]);
 
   useEffect(
     () => () => {
-      clear();
+      clearTimer();
       clearTimeout(fadeAnimationId.current);
     },
     [],
@@ -64,13 +67,13 @@ export const ToastBox: React.FC<Props> = ({ toast, gtMobile, index, onClose, cla
       className={className}
       style={inlineStyle}
       fade={startFade}
-      index={index}
+      index={indexInQueue}
       gtMobile={gtMobile}
       toastType={toast.status}
       role="status"
       data-elvia-toast-id={toast.id}
-      onMouseEnter={() => index === 0 && pause()}
-      onMouseLeave={() => index === 0 && resume()}
+      onMouseEnter={() => indexInQueue === 0 && pauseTimer()}
+      onMouseLeave={() => indexInQueue === 0 && resumeTimer()}
     >
       <IconContainer>
         <ToastIcon toast={toast} />

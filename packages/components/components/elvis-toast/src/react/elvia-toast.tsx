@@ -48,7 +48,7 @@ export const Toast: React.FC<ToastProps> = ({ className, inlineStyle }) => {
         <ToastBox
           onClose={onClose}
           toast={toast}
-          index={index}
+          indexInQueue={index}
           key={toast.id}
           gtMobile={gtMobile}
           className={className}

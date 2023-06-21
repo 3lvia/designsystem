@@ -12,11 +12,7 @@
         v-for="navItem in navItems"
       >
         <div class="e-sidenav__icon-container">
-          <elvia-icon
-            :name="isActive(navItem.url) ? navItem.iconNameActive : navItem.iconName"
-            color="black"
-            size="sm"
-          />
+          <elvia-icon :name="isActive(navItem.url) ? navItem.iconNameActive : navItem.iconName" size="sm" />
         </div>
         <div class="e-sidenav__item-text">{{ navItem.name }}</div>
       </router-link>
