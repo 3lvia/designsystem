@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ColorElement, ColorsObject } from '../colors-types';
 import { convertContrastValueToNumber, getColorElement } from '../colors-util';
 
@@ -12,7 +12,11 @@ export class ColorPickerColorListComponent {
   @Input() colorList: ColorsObject;
   @Input() category: 'primary' | 'signal' | 'data' | 'grey';
   @Input() isDarkTheme: boolean;
-  @Input() chooseColor: (color: ColorElement) => void;
+  @Output() chooseColor = new EventEmitter<ColorElement>();
+
+  chooseNewColor(color: ColorElement) {
+    this.chooseColor.emit(color);
+  }
 
   getColorsFromCategory = () => {
     return this.colorList?.[this.category];

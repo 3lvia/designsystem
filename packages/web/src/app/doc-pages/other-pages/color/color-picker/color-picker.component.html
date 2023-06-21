@@ -13,28 +13,28 @@
       [colorList]="colorList"
       category="primary"
       [isDarkTheme]="isDarkTheme"
-      [chooseColor]="chooseColor"
+      (chooseColor)="chooseColor($event)"
     />
     <app-color-picker-color-list
       [currentColor]="currentColor"
       [colorList]="colorList"
       category="signal"
       [isDarkTheme]="isDarkTheme"
-      [chooseColor]="chooseColor"
+      (chooseColor)="chooseColor($event)"
     />
     <app-color-picker-color-list
       [currentColor]="currentColor"
       [colorList]="colorList"
       category="data"
       [isDarkTheme]="isDarkTheme"
-      [chooseColor]="chooseColor"
+      (chooseColor)="chooseColor($event)"
     />
     <app-color-picker-color-list
       [currentColor]="currentColor"
       [colorList]="colorList"
       category="grey"
       [isDarkTheme]="isDarkTheme"
-      [chooseColor]="chooseColor"
+      (chooseColor)="chooseColor($event)"
     />
   </div>
 </div>
