@@ -24,7 +24,7 @@ export const SliderError: React.FC<Props> = ({ errorType, errorOptions }) => {
 
   return (
     <FormFieldErrorContainer>
-      <IconWrapper icon={removeCircle} color={'error'} size="xs" />
+      <IconWrapper icon={removeCircle} color={'signal-error'} size="xs" />
       <FormFieldError data-testid="error">{errorText}</FormFieldError>
     </FormFieldErrorContainer>
   );
