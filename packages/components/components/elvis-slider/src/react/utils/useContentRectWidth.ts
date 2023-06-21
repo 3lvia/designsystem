@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export function useContentRectWidth<T extends HTMLElement>() {
+export function useContentRectWidth<T extends HTMLElement>(): [number, React.RefObject<T>] {
   const [width, setWidth] = useState<number>(0);
 
   const ref = useRef<T | null>(null);
@@ -19,5 +19,5 @@ export function useContentRectWidth<T extends HTMLElement>() {
     return () => resizeObserver.disconnect();
   }, [ref]);
 
-  return [width, ref] as const;
+  return [width, ref];
 }
