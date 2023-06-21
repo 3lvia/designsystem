@@ -169,7 +169,10 @@ export const TimepickerInput: React.FC<Props> = ({
 
   useEffect(() => {
     setInputValue(getFormattedInputValue(time));
-    onErrorChange(undefined);
+
+    const hour = getFormattedInputValue(time).split('.')[0];
+    const minute = getFormattedInputValue(time).split('.')[1];
+    validateInputValue(hour, minute);
   }, [time]);
 
   // Focus and select the text when the parent container is double clicked

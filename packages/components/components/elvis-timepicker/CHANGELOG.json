@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.06.23",
+      "version": "3.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Resolved a bug that prevented the timepicker from accurately displaying the initial error when the user interacts with the input for the first time."
+          ]
+        }
+      ]
+    },
+    {
       "date": "01.06.23",
       "version": "3.0.1",
       "changelog": [

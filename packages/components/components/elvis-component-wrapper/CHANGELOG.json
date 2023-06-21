@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.06.23",
+      "version": "4.1.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix a bug that sometimes caused slots to not be placed correctly in Angular."]
+        }
+      ]
+    },
+    {
       "date": "28.04.23",
       "version": "4.1.2",
       "changelog": [

@@ -26,15 +26,14 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Structure'">
         <ng-container ngProjectAs="sectionContent">
-          <p class="e-m-0">
+          <p class="e-m-0 e-mb-56">
             Color tokens are labels that represent specific colors in a design system. They make it easier to
             maintain consistency in the use of colors across different design elements and provide a shared
             language for colors among designers and developers. By using color tokens, designers and
             developers can easily change the colors used in the design without having to hunt through the code
             for every instance of a particular color. This saves time and helps prevent mistakes.
           </p>
-          <!-- slett placeholder når du tar LEGO-2567 -->
-          <div class="e-mt-56 placeholder">"LEGO-2567: Illustrasjoner for tokens" 1 here</div>
+          <app-purpose-token-illustration />
           <app-component-subsubsection [sectionTitle]="'Hex color'">
             <ng-container ngProjectAs="sectionContent">All tokens are based on a hex color</ng-container>
           </app-component-subsubsection>
@@ -53,16 +52,16 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Light and dark theme'">
         <ng-container ngProjectAs="sectionContent">
-          <p class="e-m-0">
+          <p class="e-m-0 e-mb-40">
             Tokens adapt to light and dark themes automatically, keeping their purpose token names and roles
             the same while adjusting their values. For instance,
             <code>e-color-background-hover-1</code>
             can be a light or dark shade of green depending on the theme used.
           </p>
-          <!-- slett placeholder når du tar LEGO-2567 -->
-          <div class="e-mt-56 placeholder">"LEGO-2567: Illustrasjoner for tokens" 2 here</div>
+          <app-theme-token-illustration />
         </ng-container>
       </app-component-subsection>
+      <elvia-divider className="e-mb-48" />
       <app-color-token-table />
     </ng-container>
   </app-component-section>
