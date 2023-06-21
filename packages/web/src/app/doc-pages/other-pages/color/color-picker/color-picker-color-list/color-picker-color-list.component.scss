@@ -17,7 +17,7 @@
     transition: height 200ms ease-in-out;
     cursor: pointer;
     &.border {
-      border: 0.5px solid var(--e-color-border-2);
+      border: 0.5px solid var(--e-color-border-3);
     }
     &:hover {
       height: 100%;
@@ -34,6 +34,7 @@
         border-radius: 15px;
         transform: translateX(10px) rotate(-43deg);
         transform-origin: left bottom;
+        transition: height 200ms ease-in-out;
       }
 
       .checkmark-right {
@@ -45,6 +46,7 @@
         border-radius: 15px;
         transform: translateX(10px) rotate(43deg);
         transform-origin: left bottom;
+        transition: height 200ms ease-in-out;
       }
     }
   }

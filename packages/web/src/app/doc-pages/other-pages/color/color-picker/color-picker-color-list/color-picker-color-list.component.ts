@@ -19,11 +19,20 @@ export class ColorPickerColorListComponent {
   };
 
   needsBorder = (color: ColorElement) => {
-    if (!this.isDarkTheme && (color.name === 'white' || color.name === 'grey-02' || color.name === 'grey-05'))
+    if (
+      !this.isDarkTheme &&
+      (color.name === 'white' ||
+        color.name === 'grey-02' ||
+        color.name === 'grey-05' ||
+        color.name === 'grey-10')
+    )
       return true;
     else if (
       this.isDarkTheme &&
-      (color.name === 'black' || color.name === 'grey' || color.name === 'grey-70')
+      (color.name === 'black' ||
+        color.name === 'grey' ||
+        color.name === 'grey-70' ||
+        color.name === 'grey-60')
     )
       return true;
     return false;
