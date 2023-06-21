@@ -23,10 +23,10 @@ export class SliderCegComponent implements ComponentExample {
           ],
           group: 'Size',
         },
-        hasHintValues: { type: 'switch', group: 'Options', label: 'Help Values' },
+        hasHintValues: { type: 'switch', group: 'Options', label: 'Show hints', value: true },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
         unit: { type: 'text', group: 'Unit', label: 'Unit', placeholder: 'Add unit' },
-        suffix: { type: 'text', group: 'Suffix', label: 'Suffix', placeholder: 'Add suffix' },
+        suffix: { type: 'text', group: 'Suffix', label: 'Suffix', placeholder: 'e.g. kWh' },
       },
       staticProps: {
         valueOnChange: () => '',
@@ -48,12 +48,12 @@ export class SliderCegComponent implements ComponentExample {
         },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
         unit: { type: 'text', group: 'Unit', label: 'Unit', placeholder: 'Add unit' },
-        suffix: { type: 'text', group: 'Suffix', label: 'Suffix', placeholder: 'Add suffix' },
+        suffix: { type: 'text', group: 'Suffix', label: 'Suffix', placeholder: 'e.g. kWh' },
       },
       staticProps: {
         valueOnChange: () => '',
       },
-      groupOrder: ['Heading', 'Size', 'State', 'Options', 'Suffix', 'Unit'],
+      groupOrder: ['Heading', 'Size', 'State', 'Suffix', 'Unit'],
     },
   ]);
 
