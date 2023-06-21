@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useRef, CSSProperties } from 'react';
+import React, { FC, useEffect, useState, useRef } from 'react';
 import { IconWrapper, isSsr } from '@elvia/elvis-toolbox';
 import {
   TabsContainer,
@@ -8,22 +8,10 @@ import {
   TabLabel,
   ArrowButton,
 } from './styledComponents';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import throttle from 'lodash.throttle';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
-export interface TabsProps {
-  items: string[];
-  value?: number;
-  isInverted?: boolean;
-  hasManualActivation?: boolean;
-  ariaLabel?: string;
-  tabIdPrefix?: string;
-  valueOnChange?: (value: number) => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
-}
+import { TabsProps } from './elvia-tabs.types';
 
 const Tabs: FC<TabsProps> = ({
   items,
@@ -174,6 +162,7 @@ const Tabs: FC<TabsProps> = ({
         : (itemsRef.current.scrollLeft += scrollSteps);
       scrollAmount += scrollSteps;
       if (scrollAmount < lengthToScroll) {
+        console.log('Here');
         requestAnimationFrame(slideTimer);
       }
     };
