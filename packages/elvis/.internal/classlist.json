@@ -949,8 +949,8 @@
 			"psuedo": {
 				"e-checkbox---focus": {},
 				"e-checkbox---hover": {},
-				"e-checkbox---disabled-checked": {},
 				"e-checkbox---checked": {},
+				"e-checkbox---disabled-checked": {},
 				"e-checkbox---disabled": {},
 				"e-checkbox---invalid": {}
 			},
@@ -1066,8 +1066,8 @@
 			"psuedo": {
 				"e-radio---focus": {},
 				"e-radio---hover": {},
-				"e-radio---disabled-checked": {},
 				"e-radio---checked": {},
+				"e-radio---disabled-checked": {},
 				"e-radio---disabled": {},
 				"e-radio---invalid": {}
 			},
@@ -1987,8 +1987,8 @@
 		"e-checkbox--compact": {},
 		"e-checkbox--sm": {},
 		"e-checkbox--small": {},
-		"e-checkbox---disabled-checked": {},
 		"e-checkbox---checked": {},
+		"e-checkbox---disabled-checked": {},
 		"e-checkbox--indeterminate": {},
 		"e-checkbox---disabled": {},
 		"e-checkbox---invalid": {},
@@ -2023,8 +2023,8 @@
 		"e-radio--compact": {},
 		"e-radio--sm": {},
 		"e-radio--small": {},
-		"e-radio---disabled-checked": {},
 		"e-radio---checked": {},
+		"e-radio---disabled-checked": {},
 		"e-radio---disabled": {},
 		"e-radio---invalid": {},
 		"e-search": {},
