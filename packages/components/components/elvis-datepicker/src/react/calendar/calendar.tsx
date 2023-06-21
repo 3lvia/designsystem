@@ -35,13 +35,11 @@ export const Calendar: React.FC<Props> = ({
   disableDate,
   dateRangeProps,
 }) => {
-  const [dayNames, setDayNames] = useState<string[]>([]);
-  const [daysInMonth, setDaysInMonth] = useState<(Date | null)[]>([]);
   const [calendarHasFocus, setCalendarHasFocus] = useState(false);
   const [hoveredDate, setHoveredDate] = useState<Date | undefined>();
   const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
-  const createListOfDays = () => {
+  const createListOfDays = (): Date[] => {
     const lastDayOfMonth = new Date(viewedDate.getFullYear(), viewedDate.getMonth() + 1, 0).getDate();
     const weekIndexOfFirstDayInMonth = getWeekDayNames().findIndex((dayName) => {
       const firstDayOfMonth = getDayName(new Date(viewedDate.getFullYear(), viewedDate.getMonth(), 1));
@@ -54,8 +52,11 @@ export const Calendar: React.FC<Props> = ({
         return new Date(viewedDate.getFullYear(), viewedDate.getMonth(), index + 1, 0, 0, 0, 0);
       }),
     ];
-    setDaysInMonth(dayList);
+
+    return dayList;
   };
+
+  const [daysInMonth, setDaysInMonth] = useState<(Date | null)[]>(createListOfDays);
 
   const shuffleViewedMonth = (dir: 1 | -1): void => {
     const newDate = new Date(viewedDate);
@@ -121,12 +122,7 @@ export const Calendar: React.FC<Props> = ({
     return !dateIsWithinMinMaxBoundary(date, minDate, maxDate) || disableDateMethodExcludesDate;
   };
 
-  useEffect(() => {
-    setDayNames(getWeekDayNames());
-    createListOfDays();
-  }, []);
-
-  useEffect(createListOfDays, [viewedDate]);
+  useEffect(() => setDaysInMonth(createListOfDays()), [viewedDate]);
 
   // Destructure dateRangeProps for cleaner code
   useEffect(() => {
@@ -169,7 +165,7 @@ export const Calendar: React.FC<Props> = ({
         </IconButton>
       </CalendarHeader>
       <GridContainer>
-        {dayNames.map((dayName) => (
+        {getWeekDayNames().map((dayName) => (
           <DayName key={dayName}>{dayName}</DayName>
         ))}
       </GridContainer>
