@@ -182,8 +182,88 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <i className="e-icon e-icon--add_circle e-icon--sm"></i>
-              <div className="e-bg-white"></div>
+              <div className="e-bg-white">
+                <Slider
+                  unit=" dB"
+                  suffix="kWh"
+                  min={-100}
+                  errorOnChange={(error) => console.log('oisann 😜:', error)}
+                />
+
+                <Slider unit=" dB" suffix="kWh" errorOnChange={(error) => console.log('oisann 😜:', error)} />
+                <br />
+                <br />
+                <Slider heading="volum" suffix="kWh" size="small" />
+                <br />
+                <br />
+                <Slider
+                  heading="volum"
+                  unit=" dB"
+                  suffix="kWh"
+                  hasHintValues={false}
+                  errorOptions={{
+                    text: 'custom feil',
+                  }}
+                />
+                <br />
+                <br />
+                <Slider
+                  heading="volum"
+                  unit=" dB"
+                  suffix="kWh"
+                  hasHintValues={false}
+                  size="small"
+                  errorOptions={{
+                    text: 'custom feil',
+                  }}
+                />
+                <br />
+                <br />
+                <Slider
+                  type="range"
+                  heading="volum"
+                  unit=" dB"
+                  suffix="kWh"
+                  min={-100}
+                  max={200}
+                  errorOptions={{
+                    text: 'range',
+                    hasErrorPlaceholder: true,
+                    hideText: false,
+                    isErrorState: true,
+                  }}
+                />
+                <br />
+                <br />
+                <Slider type={'range'} suffix="kWh" />
+                <br />
+                <br />
+                <Slider
+                  heading="heading"
+                  max={5000}
+                  suffix="kWh"
+                  errorOptions={{
+                    text: 'Error text',
+                    hasErrorPlaceholder: true,
+                    hideText: false,
+                    isErrorState: true,
+                  }}
+                />
+                <br />
+                <br />
+                <Slider
+                  heading="volum"
+                  unit=" dB"
+                  size="small"
+                  errorOptions={{ left: { hideText: true }, right: {} }}
+                />
+                <br />
+                <br />
+                <Slider type={'range'} size="small" />
+                <br />
+                <br />
+                <Slider heading="hasPercent" max={5000} size="small" suffix="kr" />
+              </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -498,9 +578,9 @@ function App() {
             <div className="example-wrapper">
               <h3>Slider</h3>
               <h4>Simple</h4>
-              <Slider min={0} max={100} hasHintValues={true} />
+              {/* <Slider min={0} max={100} hasHintValues={true} />
               <h4>Range</h4>
-              <Slider min={0} max={100} type={'range'} hasHintValues={true} />
+              <Slider min={0} max={100} type={'range'} hasHintValues={true} /> */}
             </div>
             {/* SPOTLIGHT */}
             <div className="example-wrapper">
