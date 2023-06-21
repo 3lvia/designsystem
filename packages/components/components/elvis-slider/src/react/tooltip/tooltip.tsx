@@ -33,7 +33,7 @@ export const Tooltip: React.FC<Props> = ({ side = 'left', position, value, unit,
       }}
     >
       <TooltipPopup data-testid={`${side}-tooltip-popup`} position="top" fadeOut={false}>
-        {getTooltipContent()}
+        {getTooltipContent(side)}
       </TooltipPopup>
     </TooltipWrapper>
   );
