@@ -11,11 +11,6 @@ type SliderFilledTrackProps = {
   type: SliderType;
 };
 
-type SliderWrapperProps = {
-  size: FormFieldSizes;
-  isLeftSliderOnTop: boolean;
-};
-
 type HintValueProps = {
   hasErrorPlaceholder: boolean;
   size: FormFieldSizes;
@@ -285,7 +280,7 @@ export const StyledSlider = styled.input<{ $type: SliderType }>`
   }
 `;
 
-export const SliderWrapper = styled.div<SliderWrapperProps>`
+export const SliderWrapper = styled.div<{ size: FormFieldSizes; isLeftSliderOnTop: boolean }>`
   align-items: center;
   display: flex;
   height: 52px;
