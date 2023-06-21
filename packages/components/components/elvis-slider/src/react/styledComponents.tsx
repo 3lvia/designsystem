@@ -1,17 +1,8 @@
 import styled, { css } from 'styled-components';
 import { getThemeColor, getBaseColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import {
-  FormFieldInput as FormFieldInputBase,
-  FormFieldInputContainer as FormFieldInputContainerBase,
-  FormFieldSizes,
-} from '@elvia/elvis-toolbox';
+import { FormFieldInput as FormFieldInputBase, FormFieldSizes } from '@elvia/elvis-toolbox';
 import { BothSliders, Sides, SliderType } from './elvia-slider.types';
-
-//#region Types
-type StyledSliderProps = {
-  sliderType: SliderType;
-};
 
 type SliderFilledTrackProps = {
   isDisabled: boolean;
@@ -25,24 +16,11 @@ type SliderWrapperProps = {
   isLeftSliderOnTop: boolean;
 };
 
-type FormFieldInputContainerProps = {
-  size: FormFieldSizes;
-  maxValueLength: number;
-};
-
 type HintValueProps = {
   hasErrorPlaceholder: boolean;
   size: FormFieldSizes;
   isDisabled: boolean;
   side: Sides;
-};
-
-type HeadingProps = {
-  size: FormFieldSizes;
-};
-
-type MaxValueLengthMeasurementProps = {
-  size: FormFieldSizes;
 };
 
 type InputFieldsContainerProps = {
@@ -53,24 +31,17 @@ type InputFieldsContainerProps = {
   hasHintValues: boolean;
 };
 
-type FormFieldInputProps = {
-  side: Sides;
-  isFullWidth: boolean;
-};
-
-//#endregion
-
-//#region Slider + Slider Thumbs
 const removeDefaultStyles = css`
+  -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   appearance: none;
+  background: transparent;
   box-shadow: none;
   margin: 0;
   padding: 0;
 `;
 
 const defaultThumb = css`
-  aspect-ratio: 1/1;
   background-color: ${getThemeColor('color-text-1')};
   border-radius: 50%;
   border: solid 1.5px ${getThemeColor('color-background-1')};
@@ -123,7 +94,6 @@ const focusOutlineThumb = css`
   outline-offset: 1px;
   outline: 3px solid ${getBaseColor('focus-outline')};
 `;
-//#endregion
 
 export const SliderContainer = styled.div`
   box-sizing: border-box;
@@ -135,7 +105,7 @@ export const SliderContainer = styled.div`
   width: 100%;
 `;
 
-export const Heading = styled.p<HeadingProps>`
+export const Heading = styled.p<{ size: FormFieldSizes }>`
   align-items: center;
   display: flex;
   margin: 0;
@@ -160,46 +130,39 @@ export const Heading = styled.p<HeadingProps>`
   }}
 `;
 
-export const MaxValueLengthMeasurement = styled.span.attrs({
-  'aria-hidden': 'true',
-})<MaxValueLengthMeasurementProps>`
+export const FormFieldInput = styled(FormFieldInputBase)<{ side?: Sides; isFullWidth?: boolean }>`
+  width: 100%;
+  min-width: 16px;
+  text-align: ${({ side = 'left', isFullWidth = false }) =>
+    side === 'left' || isFullWidth ? 'left' : 'right'};
+`;
+
+export const BoundaryWidthMeasurement = styled.span<{ size: FormFieldSizes }>`
+  ${getTypographyCss('text-md')}
+  height: 0;
+  margin: 0;
+  overflow: hidden;
   padding: 0;
   position: absolute;
-  margin: 0;
-  height: 0;
-  overflow: hidden;
   white-space: pre;
-  ${getTypographyCss('text-md')}
 
   ${({ size }) =>
     size === 'small' &&
     css`
       font-size: 0.875rem;
-    `};
+    `}
 `;
 
-export const FormFieldInputContainer = styled(FormFieldInputContainerBase)<FormFieldInputContainerProps>`
-  min-width: ${({ size }) => (size === 'small' ? '56px' : '80px')};
-  width: ${({ maxValueLength }) => (maxValueLength ? `${maxValueLength + 26}px` : 'unset')};
-`;
-
-export const FormFieldInput = styled(FormFieldInputBase)<FormFieldInputProps>`
-  width: 100%;
-  text-align: ${({ side, isFullWidth }) => (side === 'left' || isFullWidth ? 'left' : 'right')};
-`;
-
-export const HintValue = styled.p.attrs({
-  'aria-hidden': 'true',
-})<HintValueProps>`
-  display: inline-flex;
-  align-items: center;
-  margin: 0;
+export const HintValue = styled.p<HintValueProps>`
   ${getTypographyCss('text-sm')}
+  align-items: center;
   color: ${getThemeColor('color-text-3')};
+  display: inline-flex;
   height: ${({ size }) => (size === 'small' ? '32px' : '48px')};
+  justify-content: ${({ side }) => (side === 'left' ? 'start' : 'end')};
+  margin: 0;
   margin-bottom: ${({ hasErrorPlaceholder }) => (hasErrorPlaceholder ? '1.5rem' : '0')};
   width: 100%;
-  justify-content: ${({ side }) => (side === 'left' ? 'start' : 'end')};
 
   ${({ isDisabled }) =>
     isDisabled &&
@@ -255,7 +218,7 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
         `;
       } else if (right) {
         return css`
-          grid-column: 3 / 4;
+          grid-column: 2 / 4;
         `;
       }
       return null;
@@ -285,70 +248,64 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }
 `;
 
-export const StyledSlider = styled.input.attrs(() => ({
-  type: 'range',
-  role: 'slider',
-}))<StyledSliderProps>`
-  ${removeDefaultStyles}
+export const StyledSlider = styled.input<{ $type: SliderType }>`
+  ${removeDefaultStyles};
 
-  ::-webkit-slider-thumb {
+  &::-webkit-slider-thumb {
     ${removeDefaultStyles}
+    ${defaultThumb}
   }
 
   height: 0;
-  pointer-events: ${({ sliderType }) => (sliderType === 'simple' ? 'auto' : 'none')};
+  pointer-events: ${({ $type }) => ($type === 'simple' ? 'auto' : 'none')};
   position: absolute;
   z-index: 3;
 
-  ::-webkit-slider-thumb {
-    ${defaultThumb};
-  }
-
-  ::-moz-range-thumb {
+  &::-moz-range-thumb {
     ${defaultThumb}
   }
 
   /***** Focus Styles *****/
-  :focus {
+  &:focus {
     outline: none;
   }
 
-  :focus-visible::-webkit-slider-thumb {
+  &:focus-visible::-webkit-slider-thumb {
     ${focusOutlineThumb}
   }
 
-  :focus-visible::-moz-range-thumb {
+  &:focus-visible::-moz-range-thumb {
     ${focusOutlineThumb}
   }
 
   /***** Hover Styles *****/
-  :hover:enabled::-webkit-slider-thumb {
+  &:hover:enabled::-webkit-slider-thumb {
     ${hoverThumb}
   }
 
-  :hover:enabled::-moz-range-thumb {
+  &:hover:enabled::-moz-range-thumb {
     ${hoverThumb}
   }
 
   /***** Disabled Styles *****/
-  :disabled::-webkit-slider-thumb {
+  &:disabled::-webkit-slider-thumb {
     ${disabledThumb}
   }
 
-  :disabled {
+  &:disabled {
     opacity: 1; // to keep the thumb opaque in Safari iOS (16) Do not move to ":disabled::-webkit-slider-thumb"
   }
 
-  :disabled::-moz-range-thumb {
+  &:disabled::-moz-range-thumb {
     ${disabledThumb}
   }
 
   /***** Active Styles *****/
-  :active:enabled::-webkit-slider-thumb {
+  &:active:enabled::-webkit-slider-thumb {
     ${activeThumb}
   }
 
-  :active:enabled::-moz-range-thumb {
+  &:active:enabled::-moz-range-thumb {
     ${activeThumb}
   }
 `;
