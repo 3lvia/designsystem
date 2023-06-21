@@ -1,27 +1,25 @@
-<div class="color-category">
-  <ul class="color-list">
-    <li
-      class="color-circle"
-      *ngFor="let color of getColorsFromCategory(); let i = index"
-      [ngClass]="{
-        border: needsBorder(color),
-        chosen: isChosen(color)
-      }"
-      [style.z-index]="i"
-      [style.background-color]="color.hex"
-      (click)="chooseColor(color)"
-    >
-      <div
-        *ngIf="isChosen(color)"
-        class="checkmark-left"
-        [style.background-color]="getHighestContrast(color).hex"
-      ></div>
-      <div
-        *ngIf="isChosen(color)"
-        class="checkmark-right"
-        [style.background-color]="getHighestContrast(color).hex"
-      ></div>
-    </li>
-  </ul>
-  <span class="color-category-title e-title-caps">{{ category }}</span>
-</div>
+<ul class="color-list">
+  <li
+    class="color-circle"
+    *ngFor="let color of getColorsFromCategory(); let i = index"
+    [ngClass]="{
+      border: needsBorder(color),
+      chosen: isChosen(color)
+    }"
+    [style.z-index]="i"
+    [style.background-color]="color.hex"
+    (click)="chooseColor(color)"
+  >
+    <div
+      *ngIf="isChosen(color)"
+      class="checkmark-left"
+      [style.background-color]="getHighestContrast(color).hex"
+    ></div>
+    <div
+      *ngIf="isChosen(color)"
+      class="checkmark-right"
+      [style.background-color]="getHighestContrast(color).hex"
+    ></div>
+  </li>
+</ul>
+<span class="color-category-title e-title-caps">{{ category }}</span>

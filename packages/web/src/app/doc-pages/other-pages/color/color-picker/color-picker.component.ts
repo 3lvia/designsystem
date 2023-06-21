@@ -14,7 +14,6 @@ export class ColorPickerComponent {
   colorList = this.isDarkTheme ? darkColors : lightColors;
   currentColor = this.colorList.primary[0];
   toggleTheme = () => {
-    document.getElementsByClassName('theme-container')[0].classList.toggle('e-theme-dark');
     this.isDarkTheme = !this.isDarkTheme;
     this.colorList = this.isDarkTheme ? darkColors : lightColors;
     this.currentColor = getColorElement(this.currentColor.name, this.isDarkTheme ? 'dark' : 'light') ?? null;

@@ -20,10 +20,10 @@
       border: 0.5px solid var(--e-color-border-2);
     }
     &:hover {
-      height: 60px;
+      height: 100%;
     }
     &.chosen {
-      height: 60px;
+      height: 100%;
       position: relative;
       .checkmark-left {
         position: absolute;
@@ -32,7 +32,6 @@
         width: 2px;
         height: 8px;
         border-radius: 15px;
-        content: '';
         transform: translateX(10px) rotate(-43deg);
         transform-origin: left bottom;
       }
@@ -44,7 +43,6 @@
         width: 2px;
         height: 15px;
         border-radius: 15px;
-        content: '';
         transform: translateX(10px) rotate(43deg);
         transform-origin: left bottom;
       }
