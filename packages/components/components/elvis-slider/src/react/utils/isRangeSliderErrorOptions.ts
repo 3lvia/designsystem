@@ -6,16 +6,12 @@ import { ErrorOptions, RangeSliderErrorOptions } from '../elvia-slider.types';
     if (isRangeSliderErrorOptions(errorOptions)) {
       //use errorOptions.left and errorOptions.right here
     } else {
-      // errorOptions.left and errorOptions.right are not defined here
+      // errorOptions.left and errorOptions.right are undefined here
     }
   };
  */
 export const isRangeSliderErrorOptions = (
   errorOptions?: ErrorOptions,
 ): errorOptions is RangeSliderErrorOptions => {
-  return !!(
-    errorOptions &&
-    ((errorOptions as RangeSliderErrorOptions).left !== undefined ||
-      (errorOptions as RangeSliderErrorOptions).right !== undefined)
-  );
+  return !!(errorOptions && ('left' in errorOptions || 'right' in errorOptions));
 };
