@@ -209,82 +209,93 @@ function App() {
                   unit=" dB"
                   suffix="kWh"
                   min={-100}
-                  errorOnChange={(error) => console.log('oisann 😜:', error)}
+                  errorOnChange={(error) => console.log('oisann:', error)}
                 />
-
-                <Slider unit=" dB" suffix="kWh" errorOnChange={(error) => console.log('oisann 😜:', error)} />
-                <br />
-                <br />
-                <Slider heading="volum" suffix="kWh" size="small" />
-                <br />
-                <br />
+                <h4>errorOptions</h4>
+                <h5>Simple</h5>
                 <Slider
-                  heading="volum"
-                  unit=" dB"
-                  suffix="kWh"
-                  hasHintValues={false}
-                  errorOptions={{
-                    text: 'custom feil',
-                  }}
+                  heading="ingen erroroptions"
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
                 <br />
                 <br />
                 <Slider
-                  heading="volum"
-                  unit=" dB"
-                  suffix="kWh"
-                  hasHintValues={false}
-                  size="small"
-                  errorOptions={{
-                    text: 'custom feil',
-                  }}
+                  heading="text"
+                  errorOptions={{ text: 'custom feil' }}
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
+                />
+                <br />
+                <br />
+                <Slider
+                  heading="text + hideText"
+                  errorOptions={{ text: 'custom feil', hideText: true }}
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
+                />
+                <br />
+                <br />
+                <Slider
+                  heading="isErrorState"
+                  errorOptions={{ isErrorState: true }}
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
+                />
+                {/* text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean; */}
+                <Slider
+                  heading="kun placeholder"
+                  errorOptions={{ hasErrorPlaceholder: true }}
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
+                />
+                <br />
+                <br />
+                <h5>Range</h5>
+                <Slider
+                  type="range"
+                  heading="ingen erroroptions"
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
                 <br />
                 <br />
                 <Slider
                   type="range"
-                  heading="volum"
-                  unit=" dB"
-                  suffix="kWh"
-                  min={-100}
-                  max={200}
+                  heading="text"
                   errorOptions={{
-                    text: 'range',
-                    hasErrorPlaceholder: true,
-                    hideText: false,
-                    isErrorState: true,
+                    left: { text: 'custom feil left 1' },
+                    right: { text: 'custom feil right 1' },
                   }}
-                />
-                <br />
-                <br />
-                <Slider type={'range'} suffix="kWh" />
-                <br />
-                <br />
-                <Slider
-                  heading="heading"
-                  max={5000}
-                  suffix="kWh"
-                  errorOptions={{
-                    text: 'Error text',
-                    hasErrorPlaceholder: true,
-                    hideText: false,
-                    isErrorState: true,
-                  }}
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
                 <br />
                 <br />
                 <Slider
-                  heading="volum"
-                  unit=" dB"
-                  size="small"
-                  errorOptions={{ left: { hideText: true }, right: {} }}
+                  type="range"
+                  heading="isErrorState: left"
+                  errorOptions={{
+                    left: { isErrorState: true, text: 'custom feil left 3' },
+                    right: { text: 'custom feil right 3' },
+                  }}
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
                 <br />
                 <br />
-                <Slider type={'range'} size="small" />
+                <Slider
+                  type="range"
+                  heading="isErrorState: right"
+                  errorOptions={{
+                    left: { text: 'custom feil left 4' },
+                    right: { isErrorState: true, text: 'custom feil right 4' },
+                  }}
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
+                />
                 <br />
                 <br />
-                <Slider heading="hasPercent" max={5000} size="small" suffix="kr" />
+                <Slider
+                  type="range"
+                  heading="hasErrorPlaceholder: true"
+                  errorOptions={{
+                    left: { hasErrorPlaceholder: true },
+                    right: { hasErrorPlaceholder: true },
+                  }}
+                  errorOnChange={(error) => console.log('errorOnChange:', error)}
+                />
               </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>

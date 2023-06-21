@@ -10,7 +10,6 @@ import { Tooltip } from './tooltip/tooltip';
 import { FormFieldInputValues, Sides, SliderProps, BothSliders, ErrorType } from './elvia-slider.types';
 import {
   FormFieldInput,
-  HintValue,
   InputFieldsContainer,
   BoundaryWidthMeasurement,
   SliderContainer,
@@ -32,6 +31,7 @@ import {
 import { SliderError } from './error/sliderError';
 import { isOnlyNumbers, isValidNumber } from './utils/validators';
 import { useContentRectWidth } from './utils/useContentRectWidth';
+import { Hint } from './hint/hint';
 import { Heading } from './heading/heading';
 
 let uniqueId = 0;
@@ -40,7 +40,7 @@ const Slider: React.FC<SliderProps> = function ({
   ariaLabel,
   className,
   errorOptions,
-  hasHintValues = true,
+  hasHints = true,
   hasInputField = true,
   heading,
   inlineStyle,
@@ -152,7 +152,7 @@ const Slider: React.FC<SliderProps> = function ({
 
       const newReplaceHintValueWithInput = { left: false, right: false };
 
-      if (isOverflowing && hasHintValues && min === 0) {
+      if (isOverflowing && hasHints && min === 0) {
         // Check if we need to replace _left_ hint value with input
         if (measurementInputRectWidth + rightHintRectWidth + 8 < inputFieldsContainerRectWidth) {
           newReplaceHintValueWithInput.left = true;
@@ -160,7 +160,7 @@ const Slider: React.FC<SliderProps> = function ({
           newReplaceHintValueWithInput.left = true;
           newReplaceHintValueWithInput.right = true;
         }
-      } else if (isOverflowing && hasHintValues && min !== 0) {
+      } else if (isOverflowing && hasHints && min !== 0) {
         // Check if we need to replace _right_ hint value with input
         if (measurementInputRectWidth + leftHintRectWidth + 8 < inputFieldsContainerRectWidth) {
           newReplaceHintValueWithInput.right = true;
@@ -177,7 +177,7 @@ const Slider: React.FC<SliderProps> = function ({
     leftHintRectWidth,
     rightHintRectWidth,
     inputFieldsContainerRectWidth,
-    hasHintValues,
+    hasHints,
     hasInputField,
   ]);
 
@@ -437,17 +437,17 @@ const Slider: React.FC<SliderProps> = function ({
           fullWithRangeInputs={isFullWidthRangeInput}
           type={type}
           hasInputField={hasInputField}
-          hasHintValues={hasHintValues}
+          hasHints={hasHints}
         >
-          {hasHintValues && !(type === 'range' && hasInputField) && (
-            <HintValue
+          {hasHints && !(type === 'range' && hasInputField) && (
+            <Hint
               hasErrorPlaceholder={hasErrorPlaceholder}
-              size={size}
               isDisabled={isDisabled}
+              ref={leftHintRectWidthRef}
               side={'left'}
-            >
-              <span ref={leftHintRectWidthRef}>{min.toLocaleString()}</span>
-            </HintValue>
+              size={size}
+              value={min}
+            />
           )}
 
           {hasInputField && (
@@ -479,15 +479,15 @@ const Slider: React.FC<SliderProps> = function ({
             </FormFieldContainer>
           )}
 
-          {hasHintValues && !(type === 'range' && hasInputField) && (
-            <HintValue
+          {hasHints && !(type === 'range' && hasInputField) && (
+            <Hint
               hasErrorPlaceholder={hasErrorPlaceholder}
               isDisabled={isDisabled}
+              ref={rightHintRectWidthRef}
               side={'right'}
               size={size}
-            >
-              <span ref={rightHintRectWidthRef}>{max.toLocaleString()}</span>
-            </HintValue>
+              value={sliderValue.right}
+            />
           )}
 
           {hasInputField && type === 'range' && (

@@ -17,7 +17,7 @@ export const sliderData: ComponentData = {
       isRequired: false,
       type: 'boolean',
     },
-    hasHintValues: {
+    hasHints: {
       default: 'true',
       description:
         'Display the minimum and maximum values at each end of the slider. Unavailable for type="range" with hasInputField="true".',

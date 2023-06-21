@@ -3,6 +3,7 @@ import { getThemeColor, getBaseColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { FormFieldInput as FormFieldInputBase, FormFieldSizes } from '@elvia/elvis-toolbox';
 import { BothSliders, Sides, SliderType } from './elvia-slider.types';
+import { Hint } from './hint/styledHint';
 
 type SliderFilledTrackProps = {
   isDisabled: boolean;
@@ -11,19 +12,12 @@ type SliderFilledTrackProps = {
   type: SliderType;
 };
 
-type HintValueProps = {
-  hasErrorPlaceholder: boolean;
-  size: FormFieldSizes;
-  isDisabled: boolean;
-  side: Sides;
-};
-
 type InputFieldsContainerProps = {
   replaceHintValueWithInput: BothSliders<boolean>;
   fullWithRangeInputs: boolean;
   hasInputField: boolean;
   type: SliderType;
-  hasHintValues: boolean;
+  hasHints: boolean;
 };
 
 const removeDefaultStyles = css`
@@ -94,7 +88,7 @@ export const SliderContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-width: 112px;
+  min-width: 80px;
   position: relative;
   row-gap: 4px;
   width: 100%;
@@ -120,25 +114,6 @@ export const BoundaryWidthMeasurement = styled.span<{ size: FormFieldSizes }>`
     size === 'small' &&
     css`
       font-size: 0.875rem;
-    `}
-`;
-
-export const HintValue = styled.p<HintValueProps>`
-  ${getTypographyCss('text-sm')}
-  align-items: center;
-  color: ${getThemeColor('color-text-3')};
-  display: inline-flex;
-  height: ${({ size }) => (size === 'small' ? '32px' : '48px')};
-  justify-content: ${({ side }) => (side === 'left' ? 'start' : 'end')};
-  margin: 0;
-  margin-bottom: ${({ hasErrorPlaceholder }) => (hasErrorPlaceholder ? '1.5rem' : '0')};
-  width: 100%;
-
-  ${({ isDisabled }) =>
-    isDisabled &&
-    css`
-      color: ${getThemeColor('color-text-disabled-1')};
-      user-select: none;
     `}
 `;
 
@@ -172,7 +147,8 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }}
 
   label:first-of-type {
-    grid-column: ${({ hasHintValues, type }) => (hasHintValues && type === 'simple' ? '2 / 3' : 'auto')};
+    grid-column: ${({ hasHints: hasHintValues, type }) =>
+      hasHintValues && type === 'simple' ? '2 / 3' : 'auto'};
     grid-row: 1 / 2;
 
     ${({ replaceHintValueWithInput = {} }) => {
@@ -195,26 +171,17 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
     }}
   }
 
-  ${HintValue}:first-of-type {
+  ${Hint}:first-of-type {
     grid-column: ${({ hasInputField, type }) => (hasInputField && type === 'simple' ? '1 / 2' : 'auto')};
     grid-row: 1 / 2;
-    ${({ replaceHintValueWithInput }) =>
-      replaceHintValueWithInput.left &&
-      css`
-        visibility: hidden;
-        width: 0;
-      `}
+    visibility: ${({ replaceHintValueWithInput }) => (replaceHintValueWithInput.left ? 'hidden' : 'initial')};
   }
 
-  ${HintValue}:last-of-type {
+  ${Hint}:last-of-type {
     grid-column: ${({ hasInputField, type }) => (hasInputField && type === 'simple' ? '3 / 4' : 'auto')};
     grid-row: 1 / 2;
-    ${({ replaceHintValueWithInput }) =>
-      replaceHintValueWithInput.right &&
-      css`
-        visibility: hidden;
-        width: 0;
-      `}
+    visibility: ${({ replaceHintValueWithInput }) =>
+      replaceHintValueWithInput.right ? 'hidden' : 'initial'};
   }
 `;
 

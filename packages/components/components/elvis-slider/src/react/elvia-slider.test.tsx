@@ -100,7 +100,7 @@ describe('Elvia Slider', () => {
 
   describe('The simple slider with the "hasHintValues" prop', () => {
     test('should display two strings equal to the min and max value', () => {
-      render(<Slider hasHintValues />);
+      render(<Slider hasHints />);
 
       const leftHintValue = screen.getByText('0');
       const rightHintValue = screen.getByText('100');
@@ -421,7 +421,7 @@ describe('Elvia Slider', () => {
           <Slider type={'range'} />
           <Slider type={'range'} hasInputField={true} />
           <Slider type={'simple'} />
-          <Slider type={'simple'} hasHintValues />
+          <Slider type={'simple'} hasHints />
           <Slider type={'simple'} isCompact />
           <Slider type={'simple'} isDisabled />
           <Slider type={'simple'} heading={'temperatur'} />

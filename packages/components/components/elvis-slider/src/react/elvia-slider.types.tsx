@@ -9,7 +9,7 @@ export interface SliderProps extends BaseProps, HasValue<number | BothSliders<nu
   ariaLabel?: string | BothSliders<string>;
   errorOnChange?: (error: string) => void;
   errorOptions?: ErrorOptions;
-  hasHintValues?: boolean;
+  hasHints?: boolean;
   hasInputField?: boolean;
   heading?: string;
   isDisabled?: boolean;
