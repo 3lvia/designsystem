@@ -18,7 +18,6 @@ import {
   SliderTrack,
   SliderWrapper,
   StyledSlider,
-  Heading,
 } from './styledComponents';
 import { calculateThumbPosition } from './utils/calculateThumbPosition';
 import { getAriaLabel } from './utils/getAriaLabel';
@@ -33,6 +32,7 @@ import {
 import { SliderError } from './error/sliderError';
 import { isOnlyNumbers, isValidNumber } from './utils/validators';
 import { useContentRectWidth } from './utils/useContentRectWidth';
+import { Heading } from './heading/heading';
 
 let uniqueId = 0;
 
@@ -320,11 +320,7 @@ const Slider: React.FC<SliderProps> = function ({
         style={{ ...inlineStyle }}
         {...rest}
       >
-        {heading && (
-          <Heading id={`${id}-heading`} size={size}>
-            {heading}
-          </Heading>
-        )}
+        {heading && <Heading id={`${id}-heading`} size={size} value={heading} />}
         <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size}>
           <StyledSlider
             type={'range'}
