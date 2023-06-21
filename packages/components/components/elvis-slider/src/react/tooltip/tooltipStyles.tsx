@@ -15,7 +15,9 @@ export const TooltipWrapper = styled.span<TooltipWrapperProps>`
 export const TooltipPopup = styled(TooltipPopupBase).attrs(() => ({
   role: 'tooltip',
 }))`
-  max-width: unset;
-  position: relative;
-  user-select: none;
+  && {
+    max-width: unset;
+    position: relative;
+    user-select: none;
+  }
 `;
