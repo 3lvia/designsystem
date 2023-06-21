@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FormFieldContainer,
+  FormFieldInputContainer,
   FormFieldInputSuffixText,
   useInputModeDetection,
   warnDeprecatedProps,
@@ -9,10 +10,9 @@ import { Tooltip } from './tooltip/tooltip';
 import { FormFieldInputValues, Sides, SliderProps, BothSliders, ErrorType } from './elvia-slider.types';
 import {
   FormFieldInput,
-  FormFieldInputContainer,
   HintValue,
   InputFieldsContainer,
-  MaxValueLengthMeasurement,
+  BoundaryWidthMeasurement,
   SliderContainer,
   SliderFilledTrack,
   SliderTrack,
@@ -32,6 +32,7 @@ import {
 } from './utils/getError';
 import { SliderError } from './error/sliderError';
 import { isOnlyNumbers, isValidNumber } from './utils/validators';
+import { useContentRectWidth } from './utils/useContentRectWidth';
 
 let uniqueId = 0;
 
@@ -57,43 +58,37 @@ const Slider: React.FC<SliderProps> = function ({
   ...rest
 }) {
   warnDeprecatedProps(config, arguments[0]);
+  const [id] = useState(`ewc-slider-${uniqueId++}`);
 
-  const [sliderValue, setSliderValue] = useState<BothSliders<number>>({ left: min, right: max });
+  const [sliderValue, setSliderValue] = useState({ left: min, right: max });
   const [formFieldInputValues, setFormFieldInputValues] = useState<FormFieldInputValues>({
     left: sliderValue.left.toString(),
     right: sliderValue.right.toString(),
   });
-  const [showTooltip, setShowTooltip] = useState<BothSliders<boolean>>({ left: false, right: false });
-
   const [error, setError] = useState<Partial<BothSliders<ErrorType>>>();
 
-  const [id] = useState(`ewc-slider-${uniqueId++}`);
+  const [showTooltip, setShowTooltip] = useState({ left: false, right: false });
   const [isLeftSliderOnTop, setIsLeftSliderOnTop] = useState(false);
-  const [totalSliderWidth, setTotalSliderWidth] = useState(0);
-  const [preferredInputLength, setPreferredInputLength] = useState(0);
 
-  const [inputFieldsContainerWidth, setInputFieldsContainerWidth] = useState(0);
-  const [leftInputFieldWidth, setLeftInputFieldWidth] = useState(0);
-  const [leftHintValueWidth, setLeftHintValueWidth] = useState(0);
-  const [rightHintValueWidth, setRightHintValueWidth] = useState(0);
+  //Responsive input fields
+  const [isFullWidthRangeInput, setIsFullWidthRangeInput] = useState(false);
+  const [minValueRectWidth, minValueRectRef] = useContentRectWidth<HTMLSpanElement>();
+  const [maxValueRectWidth, maxValueRectRef] = useContentRectWidth<HTMLSpanElement>();
+  const [measurementInputRectWidth, measurementInputRectWidthRef] = useContentRectWidth<HTMLLabelElement>();
+  const [totalSliderWidth, sliderRef] = useContentRectWidth<HTMLInputElement>();
 
-  const [replaceHintValueWithInput, setReplaceHintValueWithInput] = useState<BothSliders<boolean>>({
+  const [leftHintRectWidth, leftHintRectWidthRef] = useContentRectWidth<HTMLSpanElement>();
+  const [rightHintRectWidth, rightHintRectWidthRef] = useContentRectWidth<HTMLSpanElement>();
+  const [inputFieldsContainerRectWidth, inputFieldsContainerRectWidthRef] =
+    useContentRectWidth<HTMLDivElement>();
+  const [replaceHintValueWithInput, setReplaceHintValueWithInput] = useState({
     left: false,
     right: false,
   });
-
-  const [fullWithRangeInputs, setFullWithRangeInputs] = useState(false);
-
-  const inputFieldsContainerRef = useRef<HTMLDivElement>(null);
-  const leftFormFieldInputRef = useRef<HTMLLabelElement>(null);
-  const leftHintTextRef = useRef<HTMLParagraphElement>(null);
-  const maxValueLengthMeasurementRef = useRef<HTMLSpanElement>(null);
-  const rightHintTextRef = useRef<HTMLParagraphElement>(null);
-  const sliderRef = useRef<HTMLInputElement>(null);
+  const inputMinWidth = Math.max(minValueRectWidth, maxValueRectWidth);
+  const hintValueHasBeenReplaced = replaceHintValueWithInput.left || replaceHintValueWithInput.right;
 
   const { inputMode } = useInputModeDetection();
-
-  /* thumbWidth: Used to horizontally center the tooltip over the "thumb" of the slider. */
   const thumbWidth = inputMode === 'touch' ? 28 : 20;
 
   const leftThumbPosition = calculateThumbPosition({
@@ -126,51 +121,6 @@ const Slider: React.FC<SliderProps> = function ({
     return totalSliderWidth - leftThumbPosition - rightThumbPosition;
   };
 
-  useLayoutEffect(() => {
-    const elementsToObserve: (HTMLElement | null)[] = [sliderRef.current, inputFieldsContainerRef.current];
-
-    elementsToObserve.forEach((element) => {
-      if (element) {
-        resizeObserver.observe(element);
-      }
-    });
-
-    return function cleanup() {
-      resizeObserver.disconnect();
-    };
-  }, [sliderRef.current, inputFieldsContainerRef.current]);
-
-  //static widths
-  useLayoutEffect(() => {
-    if (hasHintValues) {
-      if (leftHintTextRef.current) {
-        setLeftHintValueWidth(leftHintTextRef.current.offsetWidth);
-      }
-
-      if (rightHintTextRef.current) {
-        setRightHintValueWidth(rightHintTextRef.current.offsetWidth);
-      }
-    }
-
-    if (hasInputField) {
-      if (leftFormFieldInputRef.current) {
-        setLeftInputFieldWidth(leftFormFieldInputRef.current.offsetWidth);
-      }
-
-      const measurements = [maxValueLengthMeasurementRef.current?.offsetWidth].filter(
-        (measurement) => measurement !== null && measurement !== undefined,
-      ) as number[];
-      setPreferredInputLength(Math.max(...measurements, 0));
-    }
-  }, [
-    maxValueLengthMeasurementRef.current,
-    leftHintTextRef.current,
-    rightHintTextRef.current,
-    leftFormFieldInputRef.current,
-    hasInputField,
-    hasHintValues,
-  ]);
-
   useEffect(() => {
     if (value) {
       if (typeof value === 'number') {
@@ -197,14 +147,14 @@ const Slider: React.FC<SliderProps> = function ({
   //check overflow (Simple Slider only)
   useEffect(() => {
     if (type === 'simple') {
-      const inputAndHintsWidth = leftInputFieldWidth + leftHintValueWidth + rightHintValueWidth + 16; //8*2 for grid gap
-      const isOverflowing = inputAndHintsWidth > inputFieldsContainerWidth;
+      const inputAndHintsWidth = measurementInputRectWidth + leftHintRectWidth + rightHintRectWidth + 16; //8*2 for grid gap
+      const isOverflowing = inputAndHintsWidth > inputFieldsContainerRectWidth;
 
       const newReplaceHintValueWithInput = { left: false, right: false };
 
       if (isOverflowing && hasHintValues && min === 0) {
         // Check if we need to replace _left_ hint value with input
-        if (leftInputFieldWidth + rightHintValueWidth + 8 < inputFieldsContainerWidth) {
+        if (measurementInputRectWidth + rightHintRectWidth + 8 < inputFieldsContainerRectWidth) {
           newReplaceHintValueWithInput.left = true;
         } else {
           newReplaceHintValueWithInput.left = true;
@@ -212,7 +162,7 @@ const Slider: React.FC<SliderProps> = function ({
         }
       } else if (isOverflowing && hasHintValues && min !== 0) {
         // Check if we need to replace _right_ hint value with input
-        if (leftInputFieldWidth + leftHintValueWidth + 8 < inputFieldsContainerWidth) {
+        if (measurementInputRectWidth + leftHintRectWidth + 8 < inputFieldsContainerRectWidth) {
           newReplaceHintValueWithInput.right = true;
         } else {
           newReplaceHintValueWithInput.left = true;
@@ -223,10 +173,10 @@ const Slider: React.FC<SliderProps> = function ({
       setReplaceHintValueWithInput(newReplaceHintValueWithInput);
     }
   }, [
-    leftInputFieldWidth,
-    leftHintValueWidth,
-    rightHintValueWidth,
-    inputFieldsContainerWidth,
+    measurementInputRectWidth,
+    leftHintRectWidth,
+    rightHintRectWidth,
+    inputFieldsContainerRectWidth,
     hasHintValues,
     hasInputField,
   ]);
@@ -234,20 +184,9 @@ const Slider: React.FC<SliderProps> = function ({
   //check overflow (Range Slider only)
   useEffect(() => {
     if (type === 'range' && hasInputField) {
-      setFullWithRangeInputs(leftInputFieldWidth * 2 + 8 > inputFieldsContainerWidth);
+      setIsFullWidthRangeInput(measurementInputRectWidth * 2 + 8 > inputFieldsContainerRectWidth);
     }
-  }, [leftInputFieldWidth, inputFieldsContainerWidth, hasHintValues, hasInputField]);
-
-  //dynamic widths
-  const resizeObserver = new ResizeObserver(() => {
-    if (sliderRef.current) {
-      setTotalSliderWidth(sliderRef.current.offsetWidth);
-    }
-
-    if (inputFieldsContainerRef.current) {
-      setInputFieldsContainerWidth(inputFieldsContainerRef.current.offsetWidth);
-    }
-  });
+  }, [measurementInputRectWidth, inputFieldsContainerRectWidth, hasInputField]);
 
   const updateValue = (newSliderValue: BothSliders<number>) => {
     const newValue = {
@@ -387,8 +326,9 @@ const Slider: React.FC<SliderProps> = function ({
           </Heading>
         )}
         <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size}>
-          {/* ↓ The actual HTML input type=range ↓*/}
           <StyledSlider
+            type={'range'}
+            role={'slider'}
             aria-label={getAriaLabel({
               side: 'left',
               sliderValue: sliderValue,
@@ -405,7 +345,7 @@ const Slider: React.FC<SliderProps> = function ({
             name="left"
             onChange={handleSliderValueChange}
             ref={sliderRef}
-            sliderType={type}
+            $type={type}
             value={sliderValue.left}
             {...createHandleTooltipEvents('left')}
           />
@@ -432,7 +372,7 @@ const Slider: React.FC<SliderProps> = function ({
                 min={min}
                 name="right"
                 onChange={handleSliderValueChange}
-                sliderType={type}
+                $type={type}
                 value={sliderValue.right}
                 {...createHandleTooltipEvents('right')}
               />
@@ -449,7 +389,6 @@ const Slider: React.FC<SliderProps> = function ({
             </>
           )}
 
-          {/* ↓ Custom styled track ↓ */}
           <SliderTrack />
           <SliderFilledTrack
             isDisabled={isDisabled}
@@ -459,17 +398,47 @@ const Slider: React.FC<SliderProps> = function ({
           />
         </SliderWrapper>
 
-        {/* ↓ The input fields  */}
         {hasInputField && (
-          //hidden
-          <MaxValueLengthMeasurement ref={maxValueLengthMeasurementRef} size={size}>
-            {max}
-          </MaxValueLengthMeasurement>
+          <>
+            {/* hidden */}
+            <BoundaryWidthMeasurement ref={minValueRectRef} size={size}>
+              {min}
+            </BoundaryWidthMeasurement>
+            <BoundaryWidthMeasurement ref={maxValueRectRef} size={size}>
+              {max}
+            </BoundaryWidthMeasurement>
+            <FormFieldContainer
+              size={size}
+              style={{
+                height: '0',
+                margin: 0,
+                overflow: 'hidden',
+                padding: 0,
+                position: 'absolute',
+                whiteSpace: 'pre',
+                visibility: 'hidden',
+              }}
+              aria-hidden={true}
+              ref={measurementInputRectWidthRef}
+            >
+              <FormFieldInputContainer>
+                <FormFieldInput
+                  disabled={true}
+                  value={formFieldInputValues.left}
+                  style={{
+                    width: inputMinWidth,
+                  }}
+                />
+                {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
+              </FormFieldInputContainer>
+            </FormFieldContainer>
+          </>
         )}
+
         <InputFieldsContainer
-          ref={inputFieldsContainerRef}
+          ref={inputFieldsContainerRectWidthRef}
           replaceHintValueWithInput={replaceHintValueWithInput}
-          fullWithRangeInputs={fullWithRangeInputs}
+          fullWithRangeInputs={isFullWidthRangeInput}
           type={type}
           hasInputField={hasInputField}
           hasHintValues={hasHintValues}
@@ -481,7 +450,7 @@ const Slider: React.FC<SliderProps> = function ({
               isDisabled={isDisabled}
               side={'left'}
             >
-              <span ref={leftHintTextRef}>{min.toLocaleString()}</span>
+              <span ref={leftHintRectWidthRef}>{min.toLocaleString()}</span>
             </HintValue>
           )}
 
@@ -490,27 +459,23 @@ const Slider: React.FC<SliderProps> = function ({
               size={size}
               isDisabled={isDisabled}
               isInvalid={getIsErrorState({ side: 'left', error, errorOptions })}
-              isFullWidth={Object.values(replaceHintValueWithInput).includes(true) || fullWithRangeInputs}
-              hasErrorPlaceholder={hasErrorPlaceholder}
-              ref={leftFormFieldInputRef}
+              isFullWidth={hintValueHasBeenReplaced || isFullWidthRangeInput}
+              hasErrorPlaceholder={hasErrorPlaceholder && !(type === 'range' && isFullWidthRangeInput)}
             >
-              <FormFieldInputContainer size={size} maxValueLength={preferredInputLength}>
+              <FormFieldInputContainer>
                 <FormFieldInput
                   aria-invalid={getIsErrorState({ side: 'left', error, errorOptions })}
-                  aria-labelledby={heading ? `${id}-heading` : undefined}
+                  aria-labelledby={heading ?? `${id}-heading`}
                   autoComplete="off"
                   disabled={isDisabled}
                   name="left"
                   side="left"
-                  isFullWidth={fullWithRangeInputs}
+                  isFullWidth={isFullWidthRangeInput}
                   onBlur={(e) => handleFormFieldInputOnBlur(e, 'left')}
                   onChange={(e) => handleFormFieldInputOnChange(e, 'left')}
-                  value={formFieldInputValues.left ?? ''}
+                  value={formFieldInputValues.left}
                   style={{
-                    width:
-                      Object.values(replaceHintValueWithInput).includes(true) || fullWithRangeInputs
-                        ? 'unset'
-                        : preferredInputLength,
+                    width: hintValueHasBeenReplaced || isFullWidthRangeInput ? '' : inputMinWidth,
                   }}
                 />
                 {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
@@ -525,7 +490,7 @@ const Slider: React.FC<SliderProps> = function ({
               side={'right'}
               size={size}
             >
-              <span ref={rightHintTextRef}>{max.toLocaleString()}</span>
+              <span ref={rightHintRectWidthRef}>{max.toLocaleString()}</span>
             </HintValue>
           )}
 
@@ -535,29 +500,29 @@ const Slider: React.FC<SliderProps> = function ({
               isDisabled={isDisabled}
               isInvalid={getIsErrorState({ side: 'right', error, errorOptions })}
               hasErrorPlaceholder={hasErrorPlaceholder}
-              isFullWidth={fullWithRangeInputs}
+              isFullWidth={isFullWidthRangeInput}
             >
-              <FormFieldInputContainer size={size} maxValueLength={preferredInputLength}>
+              <FormFieldInputContainer>
                 <FormFieldInput
-                  aria-labelledby={heading ? `${id}-heading` : undefined}
+                  aria-labelledby={heading ?? `${id}-heading`}
                   aria-invalid={getIsErrorState({ side: 'right', error, errorOptions })}
                   aria-errormessage={`${id}-error-text`}
                   disabled={isDisabled}
                   side="right"
-                  isFullWidth={fullWithRangeInputs}
+                  isFullWidth={isFullWidthRangeInput}
                   onBlur={(e) => handleFormFieldInputOnBlur(e, 'right')}
                   onChange={(e) => handleFormFieldInputOnChange(e, 'right')}
                   value={formFieldInputValues.right}
-                  style={{ width: preferredInputLength }}
+                  style={{
+                    width: hintValueHasBeenReplaced || isFullWidthRangeInput ? '' : inputMinWidth,
+                  }}
                 />
                 {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
             </FormFieldContainer>
           )}
           {hasInputField && !hasHideText && hasErrorPlaceholder && hasErrorText && (
-            <>
-              <SliderError errorOptions={errorOptions} errorType={error} />
-            </>
+            <SliderError errorOptions={errorOptions} errorType={error} />
           )}
         </InputFieldsContainer>
       </SliderContainer>
