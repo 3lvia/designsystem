@@ -263,8 +263,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             required={isRequired}
             currentError={error}
             onErrorChange={onError}
-            minDate={minDate}
-            maxDate={maxDate}
+            minDate={minDateWithoutTime}
+            maxDate={maxDateWithoutTime}
           />
           <IconButton
             disabled={isDisabled}
