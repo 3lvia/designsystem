@@ -240,7 +240,6 @@ const Slider: React.FC<SliderProps> = function ({
     const value = e.target.value;
 
     if (value && !validateInputValue(value, side)) {
-      console.log('value invalid');
       return;
     }
 
@@ -361,6 +360,8 @@ const Slider: React.FC<SliderProps> = function ({
                   heading,
                   unit,
                 })}
+                type={'range'}
+                role={'slider'}
                 aria-valuemax={max}
                 aria-valuemin={min}
                 disabled={isDisabled}
@@ -415,6 +416,7 @@ const Slider: React.FC<SliderProps> = function ({
                 visibility: 'hidden',
               }}
               aria-hidden={true}
+              role="presentation"
               ref={measurementInputRectWidthRef}
             >
               <FormFieldInputContainer>
