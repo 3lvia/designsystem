@@ -33,6 +33,7 @@ import { isOnlyNumbers, isValidNumber } from './utils/validators';
 import { useContentRectWidth } from './utils/useContentRectWidth';
 import { Hint } from './hint/hint';
 import { Heading } from './heading/heading';
+import { calculateHintReplacement } from './utils/calculateHintReplacement';
 
 let uniqueId = 0;
 
@@ -147,29 +148,14 @@ const Slider: React.FC<SliderProps> = function ({
   //check overflow (Simple Slider only)
   useEffect(() => {
     if (type === 'simple') {
-      const inputAndHintsWidth = measurementInputRectWidth + leftHintRectWidth + rightHintRectWidth + 16; //8*2 for grid gap
-      const isOverflowing = inputAndHintsWidth > inputFieldsContainerRectWidth;
-
-      const newReplaceHintValueWithInput = { left: false, right: false };
-
-      if (isOverflowing && hasHints && min === 0) {
-        // Check if we need to replace _left_ hint value with input
-        if (measurementInputRectWidth + rightHintRectWidth + 8 < inputFieldsContainerRectWidth) {
-          newReplaceHintValueWithInput.left = true;
-        } else {
-          newReplaceHintValueWithInput.left = true;
-          newReplaceHintValueWithInput.right = true;
-        }
-      } else if (isOverflowing && hasHints && min !== 0) {
-        // Check if we need to replace _right_ hint value with input
-        if (measurementInputRectWidth + leftHintRectWidth + 8 < inputFieldsContainerRectWidth) {
-          newReplaceHintValueWithInput.right = true;
-        } else {
-          newReplaceHintValueWithInput.left = true;
-          newReplaceHintValueWithInput.right = true;
-        }
-      }
-
+      const newReplaceHintValueWithInput = calculateHintReplacement({
+        inputLength: measurementInputRectWidth,
+        leftHintWidth: leftHintRectWidth,
+        rightHintWidth: rightHintRectWidth,
+        inputContainerWidth: inputFieldsContainerRectWidth,
+        hasHints: hasHints,
+        min: min,
+      });
       setReplaceHintValueWithInput(newReplaceHintValueWithInput);
     }
   }, [
