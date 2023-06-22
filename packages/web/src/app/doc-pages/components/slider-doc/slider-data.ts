@@ -36,12 +36,6 @@ export const sliderData: ComponentData = {
       type: 'string',
       default: '',
     },
-    label: {
-      isRequired: false,
-      description: 'A custom label displayed above the input(s). For example "Kilowatt hours".',
-      type: 'string | {left: string, right: string}',
-      default: '',
-    },
     max: {
       default: 100,
       description: 'The maximum allowed value within the slider. This must be higher than the "min" value.',
@@ -77,19 +71,16 @@ export const sliderData: ComponentData = {
       isRequired: false,
       type: '“medium” | “small”',
     },
-
     ariaLabel: {
       isRequired: false,
       type: 'string | {left: string, right: string}',
       description: 'Aria labels for the slider(s).',
     },
-
     errorOptions: {
       isRequired: false,
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }> | {left: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, right: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}',
       description: 'An object that allows for custom configuration of the error handling.',
     },
-
     className: {
       description: 'Custom CSS classes that can be added to the slider.',
       isRequired: false,
