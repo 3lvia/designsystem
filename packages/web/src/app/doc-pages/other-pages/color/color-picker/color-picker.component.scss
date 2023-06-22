@@ -5,7 +5,31 @@
   transition: background-color 500ms ease-in-out;
 
   .color-list-container {
-    display: flex;
-    overflow-x: auto;
+    position: relative;
+
+    .color-list {
+      position: relative;
+      padding-bottom: 8px;
+      overflow-x: scroll;
+      display: flex;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0 0 auto auto;
+      background: linear-gradient(to right, rgb(255 255 255 / 0), var(--e-color-background-1));
+      width: 60px;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 400ms;
+      z-index: 100;
+    }
+
+    &.overflow-right::after {
+      opacity: 1;
+    }
   }
 }

@@ -8,33 +8,35 @@
     ></elvia-segmented-control>
   </div>
   <div class="color-list-container">
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="primary"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-    />
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="signal"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-    />
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="data"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-    />
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="grey"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-    />
+    <div class="color-list">
+      <app-color-picker-color-list
+        [currentColor]="currentColor"
+        [colorList]="colorList"
+        category="primary"
+        [isDarkTheme]="isDarkTheme"
+        (chooseColor)="chooseColor($event)"
+      />
+      <app-color-picker-color-list
+        [currentColor]="currentColor"
+        [colorList]="colorList"
+        category="signal"
+        [isDarkTheme]="isDarkTheme"
+        (chooseColor)="chooseColor($event)"
+      />
+      <app-color-picker-color-list
+        [currentColor]="currentColor"
+        [colorList]="colorList"
+        category="data"
+        [isDarkTheme]="isDarkTheme"
+        (chooseColor)="chooseColor($event)"
+      />
+      <app-color-picker-color-list
+        [currentColor]="currentColor"
+        [colorList]="colorList"
+        category="grey"
+        [isDarkTheme]="isDarkTheme"
+        (chooseColor)="chooseColor($event)"
+      />
+    </div>
   </div>
 </div>

@@ -15,6 +15,7 @@ import { ColorPickerColorListComponent } from './color-picker/color-picker-color
 import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
 import { IllustrationBaseDirective } from './illustrations/illustration-base.directive';
+import { ColorListBaseDirective } from './color-picker/color-list-base.directive';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { IllustrationBaseDirective } from './illustrations/illustration-base.dir
     PurposeTokenIllustrationComponent,
     ThemeTokenIllustrationComponent,
     IllustrationBaseDirective,
+    ColorListBaseDirective,
   ],
 })
 export class ColorModule {}

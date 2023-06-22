@@ -43,7 +43,6 @@ export class ColorPickerColorListComponent {
   };
 
   isChosen = (color: ColorElement) => {
-    console.log(this.currentColor, this.currentColor);
     if (color.hex === this.currentColor.hex) {
       return true;
     }
