@@ -15,7 +15,7 @@ import {
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
-import { copyDay, isValidDate } from './dateHelpers';
+import { copyDay, isAfter, isBefore, isValidDate } from './dateHelpers';
 
 const defaultErrorOptions = {
   hideText: false,
@@ -61,16 +61,12 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const [isInitialized, setIsInitialized] = useState(false);
-  const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(
-    connectedElementRef,
-    popoverRef,
-    {
-      offset: 8,
-      horizontalPosition: 'right-inside',
-      verticalPosition: 'bottom',
-      alignWidths: false,
-    },
-  );
+  const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
+    offset: 8,
+    horizontalPosition: 'right-inside',
+    verticalPosition: 'bottom',
+    alignWidths: false,
+  });
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
@@ -120,19 +116,38 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     webcomponent?.triggerEvent('onOpen');
   };
 
+  const setDateToFirstValidDate = () => {
+    if (minDateWithoutTime && new Date().getTime() < minDateWithoutTime.getTime()) {
+      updateValue(copyDay(minDateWithoutTime, new Date()));
+    } else if (maxDateWithoutTime && new Date().getTime() > maxDateWithoutTime.getTime()) {
+      updateValue(copyDay(maxDateWithoutTime, new Date()));
+    } else {
+      updateValue(new Date());
+    }
+  };
+
   const setVisibility = (isShowing: boolean): void => {
     setIsShowing(isShowing);
 
     if (!isShowing) {
       openPopoverButtonRef.current?.focus();
 
-      if (isRequired && (!error || error === 'required')) {
-        setError(!date ? 'required' : undefined);
+      if (isRequired && !date) {
+        setError('required');
+      } else if (date) {
+        validateMinMax(date);
       }
 
       emitOnClose();
+      releaseFocusTrap();
     } else {
       emitOnOpen();
+
+      if (hasSelectDateOnOpen && !date) {
+        setDateToFirstValidDate();
+      }
+
+      trapFocus(popoverRef);
     }
   };
 
@@ -159,61 +174,32 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     trapFocus(popoverRef);
   };
 
-  const validateDate = ({ d, min, max }: { d?: Date | null; min?: Date; max?: Date }): void => {
-    if (!isInitialized) {
-      return;
-    }
-
-    if (!d) {
-      onError(isRequired ? 'required' : undefined);
+  const validateMinMax = (d: Date): void => {
+    if (d.getFullYear() < 1800 || !isValidDate(d)) {
+      onError('invalidDate');
+    } else if (minDateWithoutTime && isBefore(d, minDateWithoutTime)) {
+      onError('beforeMinDate');
+    } else if (maxDateWithoutTime && isAfter(d, maxDateWithoutTime)) {
+      onError('afterMaxDate');
     } else {
-      if (d.getFullYear() < 1800 || !isValidDate(d)) {
-        onError('invalidDate');
-      } else if (min && d.getTime() < min.getTime()) {
-        onError('beforeMinDate');
-      } else if (max && d.getTime() > max.getTime()) {
-        onError('afterMaxDate');
-      } else {
-        onError();
-      }
+      onError();
     }
   };
 
-  useEffect(() => {
-    if (!isShowing) {
-      return;
-    }
-
-    if (hasSelectDateOnOpen && !date) {
-      if (minDate && new Date().getTime() < minDate.getTime()) {
-        updateValue(copyDay(minDate, new Date()));
-      } else if (maxDate && new Date().getTime() > maxDate.getTime()) {
-        updateValue(copyDay(maxDate, new Date()));
-      } else {
-        updateValue(new Date());
-      }
-    }
-
-    trapFocus(popoverRef);
-
-    /** We need to update the position, because the dimensions of the
-     * overlay has changed.
-     */
-    setTimeout(() => {
-      updatePreferredPosition();
-    });
-
-    return () => releaseFocusTrap();
-  }, [isShowing]);
-
   // Needed for webcomponent -> To update the default value
   useEffect(() => {
+    if (date && !value && isRequired && isInitialized) {
+      onError('required');
+    }
+
     setDate(value);
   }, [value]);
 
   useEffect(() => {
-    validateDate({ d: value, min: minDate, max: maxDate });
-  }, [value, maxDate, minDate]);
+    if (isInitialized && value) {
+      validateMinMax(value);
+    }
+  }, [value, maxDateWithoutTime, minDateWithoutTime]);
 
   // Allows app to open the datepicker programatically
   useEffect(() => {
@@ -277,8 +263,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             required={isRequired}
             currentError={error}
             onErrorChange={onError}
-            minDate={minDate}
-            maxDate={maxDate}
+            minDate={minDateWithoutTime}
+            maxDate={maxDateWithoutTime}
           />
           <IconButton
             disabled={isDisabled}
