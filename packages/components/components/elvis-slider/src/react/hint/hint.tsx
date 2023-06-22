@@ -15,7 +15,9 @@ export const Hint = forwardRef(function Hint(props: Props, ref: React.Ref<HTMLSp
   const { hasErrorPlaceholder, size, isDisabled, side, value } = props;
   return (
     <StyledHint hasErrorPlaceholder={hasErrorPlaceholder} size={size} isDisabled={isDisabled} side={side}>
-      <span ref={ref}>{value.toLocaleString()}</span>
+      <span ref={ref} data-testid={`${side}-hint`}>
+        {value.toLocaleString()}
+      </span>
     </StyledHint>
   );
 });
