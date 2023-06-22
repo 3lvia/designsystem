@@ -6,30 +6,14 @@
 
   .color-list-container {
     position: relative;
+    mask: linear-gradient(to left, transparent 0, black 0);
+    padding-bottom: 8px;
+    overflow-x: scroll;
+    display: flex;
+    transition: mask 500ms ease-in-out;
 
-    .color-list {
-      position: relative;
-      padding-bottom: 8px;
-      overflow-x: scroll;
-      display: flex;
-    }
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      inset: 0 0 auto auto;
-      background: linear-gradient(to right, rgb(255 255 255 / 0), var(--e-color-background-1));
-      width: 60px;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 400ms;
-      z-index: 100;
-    }
-
-    &.overflow-right::after {
-      opacity: 1;
+    &.overflow-right {
+      mask: linear-gradient(to left, transparent 0, black 100px);
     }
   }
 }

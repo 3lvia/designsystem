@@ -3,14 +3,13 @@ import { lightColors } from './colors-light';
 import { darkColors } from './colors-dark';
 import { ColorElement } from './colors-types';
 import { getColorElement } from './colors-util';
-import { ColorListBaseDirective } from './color-list-base.directive';
 
 @Component({
   selector: 'app-color-picker',
   templateUrl: './color-picker.component.html',
   styleUrls: ['./color-picker.component.scss'],
 })
-export class ColorPickerComponent extends ColorListBaseDirective {
+export class ColorPickerComponent {
   isDarkTheme = false;
   colorList = this.isDarkTheme ? darkColors : lightColors;
   currentColor = this.colorList.primary[0];
@@ -21,15 +20,5 @@ export class ColorPickerComponent extends ColorListBaseDirective {
   };
   chooseColor = (color: ColorElement) => {
     this.currentColor = color;
-  };
-  getGradientColor = () => {
-    console.log(
-      `linear-gradient(to right, rgb(255 255 255 / 0), ${
-        this.isDarkTheme ? getColorElement('black', 'dark') : getColorElement('white', 'light')
-      }`,
-    );
-    return `linear-gradient(to right, rgb(255 255 255 / 0), ${
-      this.isDarkTheme ? getColorElement('grey', 'dark').hex : getColorElement('white', 'light').hex
-    }`;
   };
 }
