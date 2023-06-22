@@ -20,6 +20,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   @Input() controlManager: UnknownCegControlManager;
   @Input() elementName = '';
   @Input() componentSlots: Observable<string[]>;
+  @Input() reactSlotReplacement?: Partial<Record<string, string>>;
   @Input() typeScriptCode: Observable<string> | undefined;
   initialProps: Prop[] = [];
   angularCode = '';
@@ -169,7 +170,19 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     return code.replace(/elvia(^|-)([a-z])/g, (_match, _prefix, letter) => letter.toUpperCase());
   }
 
+  private formatReactSlotReplacement(): string {
+    return Object.entries(this.reactSlotReplacement || {})
+      .map(([key, value]) => {
+        return `${key}={${value}}`;
+      })
+      .join('\n');
+  }
+
   private getReactSlots(slots: string[]): string {
+    if (this.reactSlotReplacement) {
+      return this.formatReactSlotReplacement();
+    }
+
     const sanitizedSlots = this.getCleanSlot(slots)
       .map((slot) => {
         // Convert conventional slots to be a prop on the element.

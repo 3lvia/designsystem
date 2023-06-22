@@ -11,15 +11,15 @@
     "lint": "ng lint"
   },
   "dependencies": {
-    "@angular/animations": "^16.0.0",
-    "@angular/cdk": "^16.0.0",
-    "@angular/common": "^16.0.0",
-    "@angular/compiler": "^16.0.0",
-    "@angular/core": "^16.0.0",
-    "@angular/forms": "^16.0.0",
-    "@angular/platform-browser": "^16.0.0",
-    "@angular/platform-browser-dynamic": "^16.0.0",
-    "@angular/router": "^16.0.0",
+    "@angular/animations": "^16.1.0",
+    "@angular/cdk": "^16.1.0",
+    "@angular/common": "^16.1.0",
+    "@angular/compiler": "^16.1.0",
+    "@angular/core": "^16.1.0",
+    "@angular/forms": "^16.1.0",
+    "@angular/platform-browser": "^16.1.0",
+    "@angular/platform-browser-dynamic": "^16.1.0",
+    "@angular/router": "^16.1.0",
     "@contentful/rich-text-html-renderer": "^15.11.1",
     "@contentful/rich-text-types": "^15.11.1",
     "@elvia/elvis": "portal:../elvis",
@@ -60,7 +60,7 @@
     "html-loader": "^4.2.0",
     "lodash.debounce": "^4.0.8",
     "natural-compare-lite": "^1.4.0",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.8",
     "prismjs": "^1.24.1",
     "rxjs": "^7.8.1",
     "sass": "^1.56.0",
@@ -68,15 +68,15 @@
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^16.0.3",
+    "@angular-devkit/build-angular": "^16.1.0",
     "@angular-eslint/builder": "^16.0.3",
     "@angular-eslint/eslint-plugin": "^16.0.3",
     "@angular-eslint/eslint-plugin-template": "^16.0.3",
     "@angular-eslint/schematics": "^16.0.3",
     "@angular-eslint/template-parser": "^16.0.3",
-    "@angular/cli": "^16.0.3",
-    "@angular/compiler-cli": "^16.0.0",
-    "@angular/language-service": "^16.0.0",
+    "@angular/cli": "^16.1.0",
+    "@angular/compiler-cli": "^16.1.0",
+    "@angular/language-service": "^16.1.0",
     "@babel/core": "^7.18.10",
     "@babel/eslint-parser": "^7.11.0",
     "@types/lodash.debounce": "^4.0.6",
@@ -89,6 +89,6 @@
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^8.39.0",
     "ts-node": "^10.9.1",
-    "typescript": "~5.0.4"
+    "typescript": "~5.1.0"
   }
 }

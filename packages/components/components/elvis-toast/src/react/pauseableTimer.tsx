@@ -3,34 +3,34 @@ import { useRef } from 'react';
 export const usePauseableTimer = (
   callback: () => void,
   delay: number,
-): { pause: () => void; resume: () => void; start: () => void; clear: () => void } => {
+): { pauseTimer: () => void; resumeTimer: () => void; startTimer: () => void; clearTimer: () => void } => {
   const timerId = useRef(0);
   const startTime = useRef(0);
   const remaining = useRef(delay);
 
-  const pause = () => {
+  const pauseTimer = () => {
     clearTimeout(timerId.current);
     timerId.current = 0;
     remaining.current -= Date.now() - startTime.current;
   };
 
-  const resume = () => {
+  const resumeTimer = () => {
     if (timerId.current) {
-      return;
+      clearTimeout(timerId.current);
     }
 
     startTime.current = Date.now();
     timerId.current = window.setTimeout(callback, remaining.current);
   };
 
-  const start = () => {
+  const startTimer = () => {
     remaining.current = delay;
-    resume();
+    resumeTimer();
   };
 
-  const clear = () => {
+  const clearTimer = () => {
     clearTimeout(timerId.current);
   };
 
-  return { pause, resume, start, clear };
+  return { pauseTimer, resumeTimer, startTimer, clearTimer };
 };

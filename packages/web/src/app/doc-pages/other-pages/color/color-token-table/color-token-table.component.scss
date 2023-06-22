@@ -1,29 +1,28 @@
-.container {
-  display: grid;
-  place-items: center;
-  gap: 16px;
-  border-radius: 8px;
-  border: 2px dashed var(--e-grey-40);
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
-  width: 100%;
-  margin-top: 40px;
-  padding: 32px;
+:host {
+  display: grid;
+  gap: 32px;
 }
 
-.color {
-  display: grid;
-  width: 100%;
-  gap: 16px;
-  grid-template-columns: 1fr 2fr 1fr;
-  justify-content: space-between;
-  &:not(:last-child) {
-    border-bottom: 1px solid var(--e-grey-20);
+.no-properties-found {
+  display: none;
+  @supports (selector(:has(*))) {
+    display: grid;
+    :host:has(table) & {
+      display: none;
+    }
   }
-}
 
-.circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid var(--e-grey-20);
+  align-items: center;
+  grid-template-columns: 175px 1fr;
+  gap: 40px;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    grid-template-columns: 130px 1fr;
+  }
+
+  img {
+    width: 100%;
+  }
 }

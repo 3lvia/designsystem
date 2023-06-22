@@ -61,10 +61,14 @@ function App() {
   const [isContextMenuShowing, setIsContextMenuShowing] = useState(false);
 
   // Datepicker
-  let minDate = new Date();
-  minDate.setDate(minDate.getDate() - 5);
-  let maxDate = new Date();
-  maxDate.setDate(maxDate.getDate() - 1);
+  const dateFromToday = (diff: number): Date => {
+    const d = new Date();
+    d.setDate(d.getDate() + diff);
+    return d;
+  };
+  let minDate = dateFromToday(-5);
+  let maxDate = dateFromToday(-1);
+  const [datepickerValue, setDatepickerValue] = useState<Date | null>(null);
 
   // Dropdown
   const defaultDropdownOptions = 'norge';
@@ -177,6 +181,24 @@ function App() {
         <div className="App e-pt-40">
           <Toast />
           <h1 className="e-mt-0">React Preview</h1>
+
+          <Datepicker
+            valueOnChange={(value) => {
+              setDatepickerValue(value);
+              console.log(value);
+            }}
+            hasSelectDateOnOpen={false}
+            isRequired
+            minDate={minDate}
+            maxDate={maxDate}
+            value={datepickerValue}
+          ></Datepicker>
+          <button className="e-btn" onClick={() => setDatepickerValue(dateFromToday(-10))}>
+            Set date to before min date
+          </button>
+          <button className="e-btn" onClick={() => setDatepickerValue(dateFromToday(5))}>
+            Set date to after max date
+          </button>
           <div className="components-examples">
             {/* CURRENTLY TESTING */}
             <div className="example-wrapper">

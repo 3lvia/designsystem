@@ -11,7 +11,6 @@ import {
   DateRangeString,
   DisableDates,
   defaultLabelOptions,
-  BothDatepickers,
   ErrorOptions,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
@@ -315,14 +314,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     handleEndDatepickerValueOnChange(newDate, 'time');
   };
 
-  const getDatepickerValue = (type: keyof BothDatepickers<any>): Date | null => {
-    if ((hasTimepickers && !valueIsSentAsProp && !!selectedDateRange[type]) || !isTouched(`${type}Date`)) {
-      return null;
-    }
-
-    return selectedDateRange[type];
-  };
-
   return (
     <DatepickerRangeWrapper
       isFullWidth={isFullWidth ?? false}
@@ -336,7 +327,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <Datepicker
           {...passThroughProps}
           label={labelOptions?.start ?? defaultLabelOptions.start}
-          value={getDatepickerValue('start')}
+          value={selectedDateRange.start}
           valueOnChange={handleStartDatePickerValueOnChange}
           isRequired={isRequiredState?.start}
           onClose={openNextPicker}
@@ -389,7 +380,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <Datepicker
           {...passThroughProps}
           label={labelOptions?.end ?? defaultLabelOptions.end}
-          value={getDatepickerValue('end')}
+          value={selectedDateRange.end}
           valueOnChange={handleEndDatePickerValueOnChange}
           isRequired={isRequiredState?.end}
           onClose={openNextPicker}
