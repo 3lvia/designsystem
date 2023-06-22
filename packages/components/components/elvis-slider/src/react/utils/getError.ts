@@ -1,5 +1,37 @@
-import { BothSliders, ErrorOptions, ErrorType, Sides } from '../elvia-slider.types';
+import {
+  BothSliders,
+  ErrorOptions,
+  ErrorType,
+  Sides,
+  SimpleSliderErrorOptions,
+  SliderType,
+} from '../elvia-slider.types';
 import { isRangeSliderErrorOptions } from './isRangeSliderErrorOptions';
+
+export const getMergedErrorOptions = (type: SliderType, errorOptions: ErrorOptions): ErrorOptions => {
+  const defaultErrorOptions: SimpleSliderErrorOptions = {
+    hideText: false,
+    hasErrorPlaceholder: true,
+  };
+
+  if (type === 'range' && isRangeSliderErrorOptions(errorOptions)) {
+    return {
+      left: {
+        ...defaultErrorOptions,
+        ...errorOptions?.left,
+      },
+      right: {
+        ...defaultErrorOptions,
+        ...errorOptions?.right,
+      },
+    };
+  } else {
+    return {
+      ...defaultErrorOptions,
+      ...errorOptions,
+    };
+  }
+};
 
 export const getHasErrorPlaceholder = (
   error?: Partial<BothSliders<ErrorType>>,

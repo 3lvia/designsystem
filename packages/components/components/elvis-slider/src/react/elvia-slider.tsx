@@ -26,6 +26,7 @@ import {
   getHasErrorText,
   getInternalErrorText,
   getIsErrorState,
+  getMergedErrorOptions,
   getShowErrorText,
 } from './utils/getError';
 import { SliderError } from './error/sliderError';
@@ -86,6 +87,7 @@ const Slider: React.FC<SliderProps> = function ({
     left: false,
     right: false,
   });
+
   const inputMinWidth = Math.max(minValueRectWidth, maxValueRectWidth);
   const hintValueHasBeenReplaced = replaceHintValueWithInput.left || replaceHintValueWithInput.right;
 
@@ -110,9 +112,10 @@ const Slider: React.FC<SliderProps> = function ({
     thumbWidth,
   });
 
-  const hasErrorPlaceholder: boolean = getHasErrorPlaceholder(error, errorOptions);
-  const hasErrorText: boolean = getHasErrorText({ error: error, errorOptions: errorOptions });
-  const hasHideText: boolean = getShowErrorText(errorOptions);
+  const mergedErrorOptions = getMergedErrorOptions(type, errorOptions);
+  const hasErrorPlaceholder = getHasErrorPlaceholder(error, mergedErrorOptions);
+  const hasErrorText = getHasErrorText({ error: error, errorOptions: mergedErrorOptions });
+  const hasHideText = getShowErrorText(mergedErrorOptions);
 
   /** The width in px of the filled track between the two thumbs */
   const getFilledMiddleTrackWidth = () => {
@@ -442,14 +445,17 @@ const Slider: React.FC<SliderProps> = function ({
             <FormFieldContainer
               size={size}
               isDisabled={isDisabled}
-              isInvalid={getIsErrorState({ side: 'left', error, errorOptions })}
+              isInvalid={getIsErrorState({ side: 'left', error: error, errorOptions: mergedErrorOptions })}
               isFullWidth={hintValueHasBeenReplaced || isFullWidthRangeInput}
               hasErrorPlaceholder={hasErrorPlaceholder && !(type === 'range' && isFullWidthRangeInput)}
             >
               <FormFieldInputContainer>
                 <FormFieldInput
-                  aria-invalid={getIsErrorState({ side: 'left', error, errorOptions })}
-                  aria-labelledby={heading ?? `${id}-heading`}
+                  aria-invalid={getIsErrorState({
+                    side: 'left',
+                    error: error,
+                    errorOptions: mergedErrorOptions,
+                  })}
                   autoComplete="off"
                   disabled={isDisabled}
                   name="left"
@@ -482,7 +488,11 @@ const Slider: React.FC<SliderProps> = function ({
             <FormFieldContainer
               size={size}
               isDisabled={isDisabled}
-              isInvalid={getIsErrorState({ side: 'right', error, errorOptions })}
+              isInvalid={getIsErrorState({
+                side: 'right',
+                error: error,
+                errorOptions: mergedErrorOptions,
+              })}
               hasErrorPlaceholder={hasErrorPlaceholder}
               isFullWidth={isFullWidthRangeInput}
             >
@@ -490,6 +500,11 @@ const Slider: React.FC<SliderProps> = function ({
                 <FormFieldInput
                   aria-labelledby={heading ?? `${id}-heading`}
                   aria-invalid={getIsErrorState({ side: 'right', error, errorOptions })}
+                  aria-invalid={getIsErrorState({
+                    side: 'right',
+                    error: error,
+                    errorOptions: mergedErrorOptions,
+                  })}
                   aria-errormessage={`${id}-error-text`}
                   disabled={isDisabled}
                   side="right"
@@ -506,7 +521,7 @@ const Slider: React.FC<SliderProps> = function ({
             </FormFieldContainer>
           )}
           {hasInputField && !hasHideText && hasErrorPlaceholder && hasErrorText && (
-            <SliderError errorOptions={errorOptions} errorType={error} />
+            <SliderError errorOptions={mergedErrorOptions} errorType={error} />
           )}
         </InputFieldsContainer>
       </SliderContainer>
