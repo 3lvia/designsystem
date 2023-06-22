@@ -391,7 +391,7 @@ const Slider: React.FC<SliderProps> = function ({
             isDisabled={isDisabled}
             rangeTrackWidth={getFilledMiddleTrackWidth()}
             trackWidth={leftThumbPosition}
-            type={type}
+            $type={type}
           />
         </SliderWrapper>
 
@@ -437,7 +437,7 @@ const Slider: React.FC<SliderProps> = function ({
           ref={inputFieldsContainerRectWidthRef}
           replaceHintValueWithInput={replaceHintValueWithInput}
           fullWithRangeInputs={isFullWidthRangeInput}
-          type={type}
+          $type={type}
           hasInputField={hasInputField}
           hasHints={hasHints}
         >

@@ -9,14 +9,14 @@ type SliderFilledTrackProps = {
   isDisabled: boolean;
   rangeTrackWidth?: number;
   trackWidth: number;
-  type: SliderType;
+  $type: SliderType;
 };
 
 type InputFieldsContainerProps = {
   replaceHintValueWithInput: BothSliders<boolean>;
   fullWithRangeInputs: boolean;
   hasInputField: boolean;
-  type: SliderType;
+  $type: SliderType;
   hasHints: boolean;
 };
 
@@ -125,9 +125,9 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   grid-auto-flow: ${({ fullWithRangeInputs }) => (fullWithRangeInputs ? 'row' : 'column')};
   grid-auto-columns: ${({ fullWithRangeInputs }) => (fullWithRangeInputs ? '1fr' : 'auto')};
 
-  ${({ replaceHintValueWithInput = {}, hasInputField, type }) => {
+  ${({ replaceHintValueWithInput = {}, hasInputField, $type }) => {
     const { left, right } = replaceHintValueWithInput;
-    if (hasInputField && type === 'simple') {
+    if (hasInputField && $type === 'simple') {
       if (left && right) {
         return css`
           grid-auto-columns: 1fr;
@@ -147,8 +147,8 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }}
 
   label:first-of-type {
-    grid-column: ${({ hasHints: hasHintValues, type }) =>
-      hasHintValues && type === 'simple' ? '2 / 3' : 'auto'};
+    grid-column: ${({ hasHints: hasHintValues, $type }) =>
+      hasHintValues && $type === 'simple' ? '2 / 3' : 'auto'};
     grid-row: 1 / 2;
 
     ${({ replaceHintValueWithInput = {} }) => {
@@ -172,13 +172,13 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }
 
   ${Hint}:first-of-type {
-    grid-column: ${({ hasInputField, type }) => (hasInputField && type === 'simple' ? '1 / 2' : 'auto')};
+    grid-column: ${({ hasInputField, $type }) => (hasInputField && $type === 'simple' ? '1 / 2' : 'auto')};
     grid-row: 1 / 2;
     visibility: ${({ replaceHintValueWithInput }) => (replaceHintValueWithInput.left ? 'hidden' : 'initial')};
   }
 
   ${Hint}:last-of-type {
-    grid-column: ${({ hasInputField, type }) => (hasInputField && type === 'simple' ? '3 / 4' : 'auto')};
+    grid-column: ${({ hasInputField, $type }) => (hasInputField && $type === 'simple' ? '3 / 4' : 'auto')};
     grid-row: 1 / 2;
     visibility: ${({ replaceHintValueWithInput }) =>
       replaceHintValueWithInput.right ? 'hidden' : 'initial'};
@@ -284,10 +284,10 @@ export const SliderTrack = styled.div`
 
 //`left` and `width` are as inline styles to avoid creating new classnames on every change
 export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>(
-  ({ type, trackWidth, rangeTrackWidth }) => ({
+  ({ $type, trackWidth, rangeTrackWidth }) => ({
     style: {
-      left: type === 'range' ? `${trackWidth}px` : undefined,
-      width: type === 'simple' ? `${trackWidth}px` : `${rangeTrackWidth}px`,
+      left: $type === 'range' ? `${trackWidth}px` : undefined,
+      width: $type === 'simple' ? `${trackWidth}px` : `${rangeTrackWidth}px`,
     },
   }),
 )<SliderFilledTrackProps>`
