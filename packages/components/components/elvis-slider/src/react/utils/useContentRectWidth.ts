@@ -11,7 +11,7 @@ export function useContentRectWidth<T extends HTMLElement>(): [number, React.Ref
       return;
     }
     const resizeObserver = new ResizeObserver((entry) => {
-      setWidth(entry[0].contentRect.width);
+      setWidth(Math.round(entry[0].contentRect.width));
     });
 
     resizeObserver.observe(current);
