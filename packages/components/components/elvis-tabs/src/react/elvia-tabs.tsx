@@ -1,5 +1,5 @@
-import React, { FC, useEffect, useState } from 'react';
-import { IconWrapper, isSsr, useRovingFocus } from '@elvia/elvis-toolbox';
+import React, { FC, MouseEvent, useEffect, useState } from 'react';
+import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
 import {
   TabsContainer,
   ItemsContainer,
@@ -18,6 +18,7 @@ const Tabs: FC<TabsProps> = ({
   items,
   value = 0,
   isInverted,
+  hasManualActivation = false,
   ariaLabel,
   tabIdPrefix,
   valueOnChange,
@@ -28,7 +29,16 @@ const Tabs: FC<TabsProps> = ({
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(value);
   const uniqueId = `ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`;
-  const { ref: scrollContainerRef } = useRovingFocus<HTMLDivElement>({ dir: 'horizontal' });
+  const { ref: scrollContainerRef } = useRovingFocus<HTMLDivElement>({
+    dir: 'horizontal',
+    onKeyDown: (focusedElement, index) => {
+      focusedElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+      if (!hasManualActivation) {
+        updateValue(index);
+      }
+    },
+  });
   const scrollPosition = useScrollPositionDetection(scrollContainerRef);
 
   /** When value changes, currValue and tabInFocus should be updated */
@@ -49,12 +59,9 @@ const Tabs: FC<TabsProps> = ({
     scrollContainerRef.current?.scrollBy({ left: direction === 'right' ? 120 : -120, behavior: 'smooth' });
   };
 
-  const scrollIntoView = (elementId: string) => {
-    if (!isSsr() && scrollContainerRef.current) {
-      scrollContainerRef.current
-        .querySelector(`#${elementId}`)
-        ?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
+  const onTabClick = (tabIndex: number, event: MouseEvent): void => {
+    updateValue(tabIndex);
+    event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   };
 
   return (
@@ -76,10 +83,7 @@ const Tabs: FC<TabsProps> = ({
                 key={item}
                 aria-selected={selectedIndex === i}
                 aria-controls={uniqueId + i}
-                onClick={() => {
-                  updateValue(i);
-                  scrollIntoView(uniqueId + i);
-                }}
+                onClick={(event) => onTabClick(i, event)}
               >
                 <TabLabel isSelected={selectedIndex == i} isInverted={isInverted}>
                   {item}
