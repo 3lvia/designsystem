@@ -3,10 +3,22 @@ import { ComponentConfig } from '@elvia/elvis-toolbox';
 export const config: ComponentConfig = {
   name: 'Slider',
   attributes: [
-    { name: 'ariaLabel', type: 'string' },
+    { name: 'ariaLabel', type: 'object' },
     { name: 'className', type: 'string' },
     { name: 'errorOptions', type: 'object' },
-    { name: 'hasHintValues', type: 'boolean' },
+    {
+      name: 'hasHintValues',
+      type: 'boolean',
+      deprecatedDetails: {
+        version: '3.0.0',
+        explanation: "'hasHintValues' has been removed. Use 'hasHints' instead.",
+        isDirectReplacement: true,
+      },
+    },
+    {
+      name: 'hasHints',
+      type: 'boolean',
+    },
     { name: 'hasInputField', type: 'boolean' },
     {
       name: 'hasPercent',
