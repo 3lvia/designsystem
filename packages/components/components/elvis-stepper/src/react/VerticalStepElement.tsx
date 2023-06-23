@@ -24,8 +24,6 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
   return (
     <StepHeader>
       <StepNumber
-        role="tab"
-        aria-selected={stepNumber === currentStep}
         isActive={stepNumber === currentStep}
         isError={steps?.[stepNumber]?.isError}
         isCompleted={steps?.[stepNumber]?.isCompleted}

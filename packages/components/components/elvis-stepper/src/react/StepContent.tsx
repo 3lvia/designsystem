@@ -28,7 +28,7 @@ export const StepContent: FC<StepContentProps> = function ({
   handleStepChange,
 }) {
   return (
-    <StepperContent type={type} aria-selected>
+    <StepperContent type={type}>
       <div ref={contentRef} role="tabpanel">
         {content?.[currentStep - 1]}
       </div>

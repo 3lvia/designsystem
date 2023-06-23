@@ -1,15 +1,6 @@
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
-
-interface StepState {
-  heading: string;
-  isError: boolean;
-  isCompleted: boolean;
-}
-
-export interface StepStates {
-  [step: number]: Partial<StepState>;
-}
+import { StepStates } from './sharedTypes';
 
 export type StepperType = 'vertical' | 'horizontal';
 

@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import { StepperTypeProps } from './elvia-stepper.types';
 import { Steps, StepperContainer, StepperTitle, Step, StepNumber, StatusMessage } from './styledComponents';
 import { generateStatusMessage, isReachable, numberShouldBeVisible } from './utils';
@@ -6,6 +6,7 @@ import { StepDivider } from './StepDivider';
 import { StepContent } from './StepContent';
 import { useRovingFocus } from '@elvia/elvis-toolbox';
 import { useDynamicStepCount } from './useDynamicStepCount';
+import { useStepNumbers } from './useStepNumbers';
 
 export const StepperHorizontal: FC<StepperTypeProps> = function ({
   numberOfSteps,
@@ -22,16 +23,9 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   ...rest
 }) {
   const { numberOfVisibleSteps, stepListElement } = useDynamicStepCount(90);
-  const stepNumbersArray = useMemo(
-    () => Array.from({ length: numberOfSteps }, (_, i) => i + 1),
-    [numberOfSteps],
-  );
-  const errorSteps = useMemo(
-    () => stepNumbersArray.filter((_, i) => steps?.[i + 1].isError),
-    [numberOfSteps, steps],
-  );
+  const [stepNumbersArray, errorSteps] = useStepNumbers(numberOfSteps, steps);
 
-  const { ref: listContainerRef } = useRovingFocus<HTMLUListElement>({ dir: 'horizontal' });
+  const { ref: listContainerRef } = useRovingFocus<HTMLDivElement>({ dir: 'horizontal' });
 
   return (
     <StepperContainer
@@ -41,7 +35,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
       ref={stepListElement}
       {...rest}
     >
-      <StatusMessage aria-live="polite" role="region">
+      <StatusMessage aria-live="polite">
         {steps && generateStatusMessage(currentStep, steps, errorSteps)}
       </StatusMessage>
       <Steps type="horizontal" role="tablist" aria-orientation="horizontal" ref={listContainerRef}>
@@ -50,13 +44,13 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
             numberShouldBeVisible(stepNumber, currentStep, numberOfSteps, numberOfVisibleSteps) && (
               <Step
                 type="horizontal"
+                role="tab"
+                aria-selected={stepNumber === currentStep}
                 key={stepNumber}
                 isActive={stepNumber === currentStep}
                 isLast={stepNumber === numberOfSteps}
               >
                 <StepNumber
-                  role="tab"
-                  aria-selected={stepNumber === currentStep}
                   isActive={stepNumber === currentStep}
                   isError={steps?.[stepNumber]?.isError}
                   isCompleted={steps?.[stepNumber]?.isCompleted}

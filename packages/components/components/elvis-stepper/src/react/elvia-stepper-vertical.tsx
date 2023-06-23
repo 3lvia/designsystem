@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import { StepperTypeProps } from './elvia-stepper.types';
 import { Step, Steps, StepperContainer, StepperContentWrapper, StatusMessage } from './styledComponents';
 import { StepDivider } from './StepDivider';
@@ -6,6 +6,7 @@ import { StepContent } from './StepContent';
 import { VerticalStepElement } from './VerticalStepElement';
 import { generateStatusMessage, numberShouldBeVisible } from './utils';
 import { useRovingFocus } from '@elvia/elvis-toolbox';
+import { useStepNumbers } from './useStepNumbers';
 
 export const StepperVertical: FC<StepperTypeProps> = function ({
   numberOfSteps,
@@ -21,20 +22,13 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   inlineStyle,
   ...rest
 }) {
-  const stepNumbersArray = useMemo(
-    () => Array.from({ length: numberOfSteps }, (_, i) => i + 1),
-    [numberOfSteps],
-  );
-  const errorSteps = useMemo(
-    () => stepNumbersArray.filter((_, i) => steps?.[i + 1].isError),
-    [numberOfSteps, steps],
-  );
+  const [stepNumbersArray, errorSteps] = useStepNumbers(numberOfSteps, steps);
 
-  const { ref: listContainerRef } = useRovingFocus<HTMLUListElement>({ dir: 'vertical' });
+  const { ref: listContainerRef } = useRovingFocus<HTMLDivElement>({ dir: 'vertical' });
 
   return (
     <StepperContainer type="vertical" className={className} style={inlineStyle} {...rest}>
-      <StatusMessage aria-live="polite" role="region">
+      <StatusMessage aria-live="polite">
         {steps && generateStatusMessage(currentStep, steps, errorSteps)}
       </StatusMessage>
       <Steps type="vertical" role="tablist" aria-orientation="vertical" ref={listContainerRef}>
@@ -43,6 +37,8 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
             numberShouldBeVisible(stepNumber, currentStep, numberOfSteps, 5) && (
               <Step
                 type="vertical"
+                role="tab"
+                aria-selected={stepNumber === currentStep}
                 key={stepNumber}
                 isActive={stepNumber === currentStep}
                 isLast={stepNumber === numberOfSteps}

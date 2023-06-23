@@ -30,7 +30,7 @@ export const StatusMessage = styled.div`
 interface StepsProps {
   type?: StepperType;
 }
-export const Steps = styled.ul<StepsProps>`
+export const Steps = styled.div<StepsProps>`
   display: flex;
   flex-direction: ${({ type }) => (type === 'vertical' ? 'column' : 'row')};
   gap: 4px;
@@ -44,7 +44,7 @@ interface StepProps {
   isActive?: boolean;
   isLast: boolean;
 }
-export const Step = styled.li<StepProps>`
+export const Step = styled.div<StepProps>`
   display: flex;
   flex-direction: ${({ type }) => (type === 'vertical' ? 'column' : 'row')};
   align-items: ${({ type }) => (type === 'vertical' ? 'start' : 'center')};
