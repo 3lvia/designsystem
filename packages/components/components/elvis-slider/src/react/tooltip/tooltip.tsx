@@ -10,18 +10,9 @@ interface Props {
   suffix?: string;
   unit?: string;
   size: FormFieldSizes;
-  inputMode: string;
 }
 
-export const Tooltip: React.FC<Props> = ({
-  side = 'left',
-  position,
-  value,
-  unit,
-  suffix,
-  size,
-  inputMode,
-}) => {
+export const Tooltip: React.FC<Props> = ({ side = 'left', position, value, unit, suffix, size }) => {
   const getTooltipContent = (side: Sides = 'left') => {
     const content = side === 'left' ? value.left.toLocaleString() : value.right.toLocaleString();
 
@@ -36,9 +27,8 @@ export const Tooltip: React.FC<Props> = ({
 
   return (
     <TooltipWrapper
-      side={side}
-      size={size}
-      $inputMode={inputMode}
+      $side={side}
+      $size={size}
       style={{
         [side]: `${position}px`,
       }}

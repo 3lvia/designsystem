@@ -345,7 +345,6 @@ const Slider: React.FC<SliderProps> = function ({
               suffix={suffix}
               unit={unit}
               size={size}
-              inputMode={inputMode}
             />
           )}
 
@@ -382,7 +381,6 @@ const Slider: React.FC<SliderProps> = function ({
                   suffix={suffix}
                   unit={unit}
                   size={size}
-                  inputMode={inputMode}
                 />
               )}
             </>
@@ -480,6 +478,7 @@ const Slider: React.FC<SliderProps> = function ({
                   onBlur={(e) => handleFormFieldInputOnBlur(e, 'left')}
                   onChange={(e) => handleFormFieldInputOnChange(e, 'left')}
                   value={formFieldInputValues.left}
+                  inputMode="numeric"
                 />
                 {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
@@ -530,6 +529,7 @@ const Slider: React.FC<SliderProps> = function ({
                   onBlur={(e) => handleFormFieldInputOnBlur(e, 'right')}
                   onChange={(e) => handleFormFieldInputOnChange(e, 'right')}
                   value={formFieldInputValues.right}
+                  inputMode="numeric"
                 />
                 {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
