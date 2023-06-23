@@ -247,29 +247,28 @@
 		"e-color-border-selected-1": {},
 		"e-color-border-selected-2": {},
 		"e-btn": {
-			"psuedo": {
-				"e-btn---focus": {},
-				"e-btn---disabled": {},
-				"e-btn---hover": {},
-				"e-btn---selected": {},
-				"e-btn---active": {}
+			"element": {
+				"e-btn__title": {},
+				"e-btn__icon": {}
 			},
 			"modifier": {
-				"e-btn--inverted": {},
 				"e-btn--lg": {},
 				"e-btn--loading": {},
 				"e-btn--md": {},
 				"e-btn--sm": {},
-				"e-btn--primary": {},
-				"e-btn--secondary": {},
+				"e-btn--inverted": {},
 				"e-btn--tertiary": {},
-				"e-btn--danger": {},
 				"e-btn--icon": {},
-				"e-btn--circled": {}
+				"e-btn--circled": {},
+				"e-btn--primary": {},
+				"e-btn--secondary": {}
 			},
-			"element": {
-				"e-btn__title": {},
-				"e-btn__icon": {}
+			"psuedo": {
+				"e-btn---focus": {},
+				"e-btn---hover": {},
+				"e-btn---selected": {},
+				"e-btn---active": {},
+				"e-btn---disabled": {}
 			}
 		},
 		"e-card": {
@@ -1390,24 +1389,23 @@
 		"e-color-border-selected-1": {},
 		"e-color-border-selected-2": {},
 		"e-btn": {},
-		"e-btn---focus": {},
-		"e-btn--inverted": {},
 		"e-btn__title": {},
 		"e-btn__icon": {},
 		"e-btn--lg": {},
 		"e-btn--loading": {},
 		"e-btn--md": {},
 		"e-btn--sm": {},
-		"e-btn--primary": {},
-		"e-btn---disabled": {},
+		"e-btn---focus": {},
+		"e-btn--inverted": {},
+		"e-btn--tertiary": {},
+		"e-btn--icon": {},
+		"e-btn--circled": {},
 		"e-btn---hover": {},
 		"e-btn---selected": {},
 		"e-btn---active": {},
+		"e-btn---disabled": {},
+		"e-btn--primary": {},
 		"e-btn--secondary": {},
-		"e-btn--tertiary": {},
-		"e-btn--danger": {},
-		"e-btn--icon": {},
-		"e-btn--circled": {},
 		"e-card": {},
 		"e-card--text-only": {},
 		"e-card--shadow-soft": {},

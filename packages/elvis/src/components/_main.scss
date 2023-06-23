@@ -2,7 +2,11 @@
 @use 'alert.scss';
 @use 'autocomplete.scss';
 @use 'body.scss';
-@use 'button.scss';
+@use './button/button.scss';
+@use './button/icon.scss';
+@use './button/primary.scss';
+@use './button/secondary.scss';
+@use './button/tertiary.scss';
 @use 'card.scss';
 @use 'chip.scss';
 @use 'content-loader.scss';

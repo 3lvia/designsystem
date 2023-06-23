@@ -1,0 +1,184 @@
+@use '../../variables/colors.scss';
+@use '../../variables/shadows.scss';
+@use '../../variables/shared-sizes.scss';
+@use '../../variables/spacing';
+@use '../../utilities/animations.scss';
+@use '../../utilities/helpers.scss';
+@use '../../utilities/breakpoints.scss';
+@use '../../utilities/outline.scss';
+@use '../../utilities/icons.scss';
+
+:root,
+.e-theme-light {
+  --e-button-background: var(--e-light-theme-black);
+  --e-button-label: var(--e-light-theme-white);
+}
+
+.e-theme-dark {
+  --e-button-background: var(--e-dark-theme-white);
+  --e-button-label: var(--e-dark-theme-black);
+}
+
+$button-radius: 24px;
+$button-font-weight: 500;
+$button-border-width: 1px;
+$button-extra-border-hover: 1px;
+
+$button-lg-padding-y: 12px;
+$button-lg-padding-x: 32px;
+$button-lg-padding: $button-lg-padding-y $button-lg-padding-x;
+$button-lg-font-size: 18px;
+$button-lg-line-height: 24px;
+
+$button-md-padding-y: 10px;
+$button-md-padding-x: 24px;
+$button-md-padding: $button-md-padding-y $button-md-padding-x;
+$button-md-font-size: 16px;
+$button-md-line-height: 20px;
+
+$button-sm-padding-y: 8px;
+$button-sm-padding-x: 16px;
+$button-sm-padding: $button-sm-padding-y $button-sm-padding-x;
+$button-sm-font-size: 14px;
+$button-sm-line-height: 16px;
+
+$loading-dot-lg: 12px;
+$loading-dot-md: 10px;
+$loading-dot-sm: 8px;
+
+.e-btn {
+  @extend .e-btn--md;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-weight: $button-font-weight;
+  text-decoration: none;
+  white-space: nowrap;
+
+  // Removing default focus on firefox
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &__title + &__icon,
+  &__icon + &__title {
+    margin-left: 8px;
+  }
+
+  // Sizes
+  &.e-btn--lg {
+    padding: calc(#{$button-lg-padding-y} - 1px) calc(#{$button-lg-padding-x} - 1px);
+    font-size: $button-lg-font-size;
+    line-height: $button-lg-line-height;
+
+    .e-btn__icon {
+      @include icons.icon-size('sm');
+
+      i {
+        @include icons.icon-size('sm');
+      }
+    }
+
+    &.e-btn--loading {
+      span {
+        width: $loading-dot-lg;
+        height: $loading-dot-lg;
+      }
+    }
+  }
+
+  &.e-btn--md {
+    padding: calc(#{$button-md-padding-y} - 1px) calc(#{$button-md-padding-x} - 1px);
+    font-size: $button-md-font-size;
+    line-height: $button-md-line-height;
+
+    .e-btn__icon {
+      @include icons.icon-size('xs');
+
+      i {
+        @include icons.icon-size('xs');
+      }
+    }
+  }
+
+  &.e-btn--sm {
+    padding: calc(#{$button-sm-padding-y} - 1px) calc(#{$button-sm-padding-x} - 1px);
+    font-size: $button-sm-font-size;
+    line-height: $button-sm-line-height;
+
+    .e-btn__icon {
+      @include icons.icon-size('xs');
+
+      i {
+        @include icons.icon-size('xs');
+      }
+    }
+
+    // States
+    &.e-btn--loading {
+      span {
+        width: $loading-dot-sm;
+        height: $loading-dot-sm;
+      }
+    }
+
+    &:focus:not(:disabled) {
+      @include outline.e-outline();
+    }
+
+    &.e-btn---focus {
+      @include outline.e-outline-pseudoclass();
+
+      // DEPRECATED
+      &.e-btn--inverted {
+        border: 1px solid colors.color('elvia-on');
+        background: colors.color('elvia-on');
+        color: colors.color('font-color');
+      }
+    }
+  }
+
+  // States
+  &.e-btn--loading {
+    @extend %e-btn--loading;
+
+    span {
+      background-color: colors.color('elvia-on');
+    }
+  }
+}
+
+%e-btn--loading {
+  display: inline-block;
+  cursor: progress;
+
+  span {
+    display: inline-block;
+    width: $loading-dot-md;
+    height: $loading-dot-md;
+    border-radius: 100%;
+    animation: loading-dots 1s infinite ease-in-out both;
+  }
+
+  span:nth-of-type(1) {
+    @include helpers.animation-delay(-0.32s);
+  }
+
+  span:nth-of-type(2) {
+    @include helpers.animation-delay(-0.16s);
+  }
+}
+
+@include helpers.keyframes(loading-dots) {
+  0%,
+  80%,
+  100% {
+    @include helpers.transform(scale(0));
+  }
+
+  40% {
+    @include helpers.transform(scale(1));
+  }
+}

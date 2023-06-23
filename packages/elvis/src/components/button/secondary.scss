@@ -1,0 +1,97 @@
+@use './button.scss';
+@use '../../utilities/helpers.scss';
+@use '../../variables/colors.scss';
+
+.e-btn.e-btn--secondary {
+  border: 1px solid colors.color('elvia-off');
+  border-radius: button.$button-radius;
+  background: colors.color('elvia-on');
+  color: colors.color('font-color');
+  @include helpers.hover() {
+    &:hover:not(:disabled):not(.e-btn--loading) {
+      border-color: colors.color('elvia-charge');
+      background: colors.color('elvia-charge');
+      color: colors.color('font-color');
+
+      .e-btn__icon i {
+        visibility: visible;
+      }
+    }
+  }
+
+  .e-btn__icon i {
+    visibility: visible;
+  }
+
+  &.e-btn--loading {
+    span {
+      background-color: colors.color('elvia-off');
+    }
+  }
+
+  &.e-btn--inverted {
+    border: 1px solid colors.color('elvia-on');
+    background: colors.color('grey');
+    color: colors.color('font-color-light');
+
+    &:disabled {
+      border-color: colors.color('grey-70');
+      background: transparent;
+      color: colors.color('grey-70');
+      cursor: not-allowed;
+
+      .e-btn__icon {
+        opacity: 0.3;
+      }
+    }
+
+    .e-btn__icon {
+      i {
+        visibility: hidden;
+      }
+
+      i[class*='inverted'],
+      i[class*='color-disabled-light'],
+      i[class*='e-icon--disabled-inverted'] {
+        visibility: visible;
+      }
+    }
+
+    &.e-btn--loading {
+      span {
+        background-color: colors.color('elvia-on');
+      }
+    }
+  }
+
+  &.e-btn---disabled,
+  &:disabled {
+    border-color: colors.color('disabled');
+    background: transparent;
+    color: colors.color('disabled');
+    cursor: not-allowed;
+  }
+
+  &.e-btn---hover,
+  &.e-btn---selected,
+  &.e-btn---active,
+  &:active:not(:disabled):not(.e-btn--loading) {
+    border-color: colors.color('elvia-charge');
+    background: colors.color('elvia-charge');
+    color: colors.color('font-color');
+
+    .e-btn__icon i {
+      visibility: visible;
+    }
+  }
+
+  &.e-btn---active,
+  &:active:not(:disabled):not(.e-btn--loading) {
+    border-color: transparent;
+    background-clip: padding-box;
+
+    .e-btn__icon i {
+      visibility: visible;
+    }
+  }
+}

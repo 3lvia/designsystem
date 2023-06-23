@@ -1,0 +1,104 @@
+@use './button.scss';
+@use '../../utilities/helpers.scss';
+@use '../../variables/colors.scss';
+
+.e-btn,
+.e-btn.e-btn--primary {
+  border: 1px solid var(--e-color-border-1);
+  border-radius: button.$button-radius;
+  background: var(--e-button-background);
+  color: var(--e-button-label);
+
+  .e-btn__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      // Hiding hover ikon (only show inverted ikon)
+      visibility: hidden;
+    }
+
+    i[class*='inverted'],
+    i[class*='color-disabled-light'] {
+      visibility: visible;
+    }
+  }
+
+  // States
+  @include helpers.hover() {
+    &:hover:not(:disabled):not(.e-btn--loading) {
+      border-color: var(--e-color-border-hover-1);
+      background: var(--e-color-background-hover-1);
+      color: var(--e-color-static-black);
+
+      .e-btn__icon i[class*='inverted'] {
+        visibility: hidden;
+      }
+
+      .e-btn__icon i:not([class$='inverted']) {
+        visibility: visible;
+      }
+    }
+  }
+
+  &.e-btn---hover,
+  &.e-btn---selected,
+  &.e-btn---active,
+  &:active:not(:disabled):not(.e-btn--loading) {
+    border-color: var(--e-color-border-hover-1);
+    background: var(--e-color-background-hover-1);
+    color: var(--e-color-static-black);
+
+    .e-btn__icon i[class*='inverted'] {
+      visibility: hidden;
+    }
+
+    .e-btn__icon i:not([class$='inverted']) {
+      visibility: visible;
+    }
+  }
+
+  &.e-btn---disabled,
+  &:disabled {
+    border-color: var(--e-color-border-disabled-1);
+    background: var(--e-color-background-disabled-2);
+    color: var(--e-color-text-disabled-2);
+    cursor: not-allowed;
+  }
+
+  &.e-btn---active,
+  &:active:not(:disabled):not(.e-btn--loading) {
+    border-color: transparent;
+    background-clip: padding-box;
+  }
+
+  // DEPRECATED
+  &.e-btn--inverted {
+    border: 1px solid colors.color('elvia-on');
+    background: colors.color('elvia-on');
+    color: colors.color('font-color');
+
+    &.e-btn---disabled,
+    &:disabled {
+      border-color: colors.color('grey-70');
+      background: colors.color('grey-70');
+      color: colors.color('grey');
+      cursor: not-allowed;
+    }
+
+    .e-btn__icon {
+      i {
+        visibility: visible;
+      }
+    }
+
+    &.e-btn--loading span {
+      background-color: colors.color('elvia-off');
+    }
+  }
+}
