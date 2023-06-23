@@ -13,6 +13,7 @@
             "The <code>hasInputField</code> default value is now <code>true</code>.",
             "The <code>hasHintValues</code> default value is now <code>true</code>.",
             "The <code>hasTooltip</code> prop has been removed. The tooltip is now always shown.",
+            "The <code>hasPercent</code> prop has been removed.",
             "Changes in spacing between elements."
           ],
           "fixes": [
@@ -21,6 +22,7 @@
             "Set the <code>hasInputField</code> prop to <code>false</code> if the default value does not fit your application.",
             "Set the <code>hasHintValues</code> prop to <code>false</code> if the default value does not fit your application.",
             "Remove the <code>hasTooltip</code> prop from your code.",
+            "Remove the <code>hasPercent</code> prop from your code.",
             "Ensure the slider's height still fits in your design."
           ]
         },
@@ -30,6 +32,7 @@
             "Slider now comes in two sizes, <code>medium</code> and <code>small</code>.",
             "Slider now supports dark theme.",
             "Slider can get a custom heading by using the <code>heading</code> prop.",
+            "Slider now validates user input in the input fields.",
             "Slider is now more responsive and automatically adjusts to the available space.",
             "Slider now uses <code>input type='text'</code> instead of <code>input type='number'</code>.",
             "You can give the inputs for a slider custom errors using the <code>errorOptions</code> prop.",
