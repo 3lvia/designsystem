@@ -204,6 +204,55 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
+              {/* random number between 10 and 9999 */}
+
+              <div>
+                <Slider type={'range'} max={Math.round(Math.random() * (9999 - 10) + 10)} />
+                <Slider
+                  type={'range'}
+                  hasInputField={false}
+                  max={Math.round(Math.random() * (9999 - 10) + 10)}
+                />
+                <Slider type={'simple'} max={Math.round(Math.random() * (99999 - 10) + 10)} />
+                <Slider type={'simple'} hasHints max={Math.round(Math.random() * (9999 - 10) + 10)} />
+                <Slider type={'simple'} size="small" max={Math.round(Math.random() * (99999 - 10) + 10)} />
+                <Slider type={'simple'} isDisabled max={Math.round(Math.random() * (9999 - 10) + 10)} />
+
+                <Slider
+                  heading={'lorem ipsum'}
+                  type={'simple'}
+                  max={Math.round(Math.random() * (99999 - 10) + 10)}
+                />
+                <Slider
+                  heading={'lorem ipsum'}
+                  type={'simple'}
+                  hasHints
+                  max={Math.round(Math.random() * (9999 - 10) + 10)}
+                />
+                <Slider
+                  heading={'lorem ipsum'}
+                  type={'simple'}
+                  size="small"
+                  max={Math.round(Math.random() * (99999 - 10) + 10)}
+                />
+                <Slider
+                  heading={'lorem ipsum'}
+                  type={'simple'}
+                  isDisabled
+                  max={Math.round(Math.random() * (9999 - 10) + 10)}
+                />
+
+                <Slider
+                  type={'simple'}
+                  heading={'temperatur'}
+                  max={Math.round(Math.random() * (99999 - 10) + 10)}
+                />
+                <Slider
+                  type={'simple'}
+                  unit={' grader'}
+                  max={Math.round(Math.random() * (99999 - 10) + 10)}
+                />
+              </div>
               <div className="e-bg-white">
                 <Slider
                   unit=" dB"
@@ -289,10 +338,10 @@ function App() {
                 <br />
                 <Slider
                   type="range"
-                  heading="hasErrorPlaceholder: true"
+                  heading="hasErrorPlaceholder: false!"
                   errorOptions={{
-                    left: { hasErrorPlaceholder: true },
-                    right: { hasErrorPlaceholder: true },
+                    left: { hasErrorPlaceholder: false },
+                    right: { hasErrorPlaceholder: false },
                   }}
                   errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
