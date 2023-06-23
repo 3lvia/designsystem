@@ -254,12 +254,7 @@ function App() {
                 />
               </div>
               <div className="e-bg-white">
-                <Slider
-                  unit=" dB"
-                  suffix="kWh"
-                  min={-100}
-                  errorOnChange={(error) => console.log('oisann:', error)}
-                />
+                <Slider unit="kWh" min={-100} errorOnChange={(error) => console.log('oisann:', error)} />
                 <h4>errorOptions</h4>
                 <h5>Simple</h5>
                 <Slider
