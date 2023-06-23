@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.0.2",
+      "date": "June 26, 2023",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated letter spacing in Mono typography used i tables"],
+          "pages": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        }
+      ]
+    },
+    {
       "version": "12.0.1",
       "date": "June 02, 2023",
       "changelog": [
