@@ -113,15 +113,15 @@ export const SliderContainer = styled.div`
 
 type FormFieldInputProps = {
   $width?: number | null;
-  side?: Sides;
+  $side?: Sides;
   isFullWidth?: boolean;
 };
 
 export const FormFieldInput = styled(FormFieldInputBase)<FormFieldInputProps>`
   width: ${({ $width }) => ($width ? `${$width}px` : '100%')};
   min-width: 16px;
-  text-align: ${({ side = 'left', isFullWidth = false }) =>
-    side === 'left' || isFullWidth ? 'left' : 'right'};
+  text-align: ${({ $side = 'left', isFullWidth = false }) =>
+    $side === 'left' || isFullWidth ? 'left' : 'right'};
 `;
 
 export const FormFieldLabel = styled(FormFieldLabelBase)`
