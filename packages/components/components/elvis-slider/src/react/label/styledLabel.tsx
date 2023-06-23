@@ -3,7 +3,7 @@ import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export const Heading = styled.p<{ size: FormFieldSizes }>`
+export const Label = styled.p<{ size: FormFieldSizes }>`
   align-items: center;
   display: flex;
   margin: 0 0 -2px;

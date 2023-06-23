@@ -31,7 +31,7 @@
           "changes": [
             "Slider now comes in two sizes, <code>medium</code> and <code>small</code>.",
             "Slider now supports dark theme.",
-            "Slider can get a custom heading by using the <code>heading</code> prop.",
+            "Slider now places its label above all content instead of on each input field.",
             "Slider now validates user input in the input fields.",
             "Slider is now more responsive and automatically adjusts to the available space.",
             "Slider now uses <code>input type='text'</code> instead of <code>input type='number'</code>.",

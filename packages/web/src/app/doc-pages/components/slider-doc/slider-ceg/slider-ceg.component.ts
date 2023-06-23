@@ -13,7 +13,7 @@ export class SliderCegComponent implements ComponentExample {
     {
       type: 'Simple',
       controls: {
-        heading: { type: 'text', group: 'Heading', label: 'Heading', placeholder: 'Add heading' },
+        label: { type: 'text', group: 'Label', label: 'Label', placeholder: 'Add label' },
         size: {
           type: 'radioGroup',
           value: 'medium',
@@ -30,12 +30,12 @@ export class SliderCegComponent implements ComponentExample {
       staticProps: {
         valueOnChange: () => '',
       },
-      groupOrder: ['Heading', 'Size', 'State', 'Options', 'Unit'],
+      groupOrder: ['Label', 'Size', 'State', 'Options', 'Unit'],
     },
     {
       type: 'Range',
       controls: {
-        heading: { type: 'text', group: 'Heading', label: 'Heading', placeholder: 'Add heading' },
+        label: { type: 'text', group: 'Label', label: 'Label', placeholder: 'Add label' },
         size: {
           type: 'radioGroup',
           value: 'medium',
@@ -51,7 +51,7 @@ export class SliderCegComponent implements ComponentExample {
       staticProps: {
         valueOnChange: () => '',
       },
-      groupOrder: ['Heading', 'Size', 'State', 'Unit'],
+      groupOrder: ['Label', 'Size', 'State', 'Unit'],
     },
   ]);
 

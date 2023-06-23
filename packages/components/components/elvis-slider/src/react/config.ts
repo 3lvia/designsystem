@@ -36,17 +36,9 @@ export const config: ComponentConfig = {
         explanation: "'hasTooltip' has been removed. No replacement needed.",
       },
     },
-    { name: 'heading', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
     { name: 'isDisabled', type: 'boolean' },
-    {
-      name: 'label',
-      type: 'string',
-      deprecatedDetails: {
-        version: '3.0.0',
-        explanation: "'label' has been removed. Use unit instead.",
-      },
-    },
+    { name: 'label', type: 'string' },
     { name: 'max', type: 'number' },
     { name: 'min', type: 'number' },
     { name: 'size', type: 'string' },

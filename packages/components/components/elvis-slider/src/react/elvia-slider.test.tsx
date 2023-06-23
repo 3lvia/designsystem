@@ -156,11 +156,11 @@ describe('Elvia Slider', () => {
     });
   });
 
-  describe('The simple slider with the "heading" prop', () => {
-    test('should display a custom heading', () => {
-      render(<Slider heading={'kilovolt'} />);
+  describe('The simple slider with the "label" prop', () => {
+    test('should display a custom label', () => {
+      render(<Slider label={'kilovolt'} />);
 
-      expect(screen.getByTestId('heading')).toBeInTheDocument();
+      expect(screen.getByTestId('label')).toBeInTheDocument();
     });
   });
 
@@ -364,7 +364,7 @@ describe('Elvia Slider', () => {
           <Slider type={'simple'} hasHints />
           <Slider type={'simple'} size="small" />
           <Slider type={'simple'} isDisabled />
-          <Slider type={'simple'} heading={'temperatur'} />
+          <Slider type={'simple'} label={'temperatur'} />
           <Slider type={'simple'} unit={' grader'} />
         </div>,
       );

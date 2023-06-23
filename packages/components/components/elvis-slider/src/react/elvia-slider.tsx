@@ -35,7 +35,7 @@ import { SliderError } from './error/sliderError';
 import { isOnlyNumbers, isValidNumber } from './utils/validators';
 import { useContentRectWidth } from './utils/useContentRectWidth';
 import { Hint } from './hint/hint';
-import { Heading } from './heading/heading';
+import { Label } from './label/label';
 import { calculateHintReplacement } from './utils/calculateHintReplacement';
 
 let uniqueId = 0;
@@ -47,14 +47,14 @@ const Slider: React.FC<SliderProps> = function ({
   errorOptions,
   hasHints = true,
   hasInputField = true,
-  heading,
   inlineStyle,
   isDisabled = false,
+  label,
   max = 100,
   min = 0,
   size = 'medium',
-  unit,
   type = 'simple',
+  unit,
   value,
   valueOnChange,
   webcomponent,
@@ -313,7 +313,7 @@ const Slider: React.FC<SliderProps> = function ({
         style={{ ...inlineStyle }}
         {...rest}
       >
-        {heading && <Heading size={size} value={heading} />}
+        {label && <Label size={size} value={label} />}
         <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size}>
           <StyledSlider
             type={'range'}
@@ -323,7 +323,7 @@ const Slider: React.FC<SliderProps> = function ({
               sliderValue: sliderValue,
               type,
               ariaLabel,
-              heading,
+              label,
               unit,
             })}
             aria-valuemax={max}
@@ -351,7 +351,7 @@ const Slider: React.FC<SliderProps> = function ({
                   sliderValue: sliderValue,
                   type,
                   ariaLabel,
-                  heading,
+                  label,
                   unit,
                 })}
                 type={'range'}
@@ -450,7 +450,7 @@ const Slider: React.FC<SliderProps> = function ({
               isFullWidth={hintValueHasBeenReplaced || isFullWidthRangeInput}
               hasErrorPlaceholder={hasErrorPlaceholder && !(type === 'range' && isFullWidthRangeInput)}
             >
-              <FormFieldLabel>{heading ? heading : 'juster glidebryter'}</FormFieldLabel>
+              <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
               <FormFieldInputContainer>
                 <FormFieldInput
                   $side="left"
@@ -503,7 +503,7 @@ const Slider: React.FC<SliderProps> = function ({
               hasErrorPlaceholder={hasErrorPlaceholder}
               isFullWidth={isFullWidthRangeInput}
             >
-              <FormFieldLabel>{heading ? heading : 'juster glidebryter'}</FormFieldLabel>
+              <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
               <FormFieldInputContainer>
                 <FormFieldInput
                   $side="right"

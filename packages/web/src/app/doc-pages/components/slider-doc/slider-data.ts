@@ -24,10 +24,10 @@ export const sliderData: ComponentData = {
       isRequired: false,
       type: 'boolean',
     },
-    heading: {
+    label: {
       isRequired: false,
       type: 'string',
-      description: 'A heading above the slider.',
+      description: 'A label above the slider.',
     },
     max: {
       default: 100,

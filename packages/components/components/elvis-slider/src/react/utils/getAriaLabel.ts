@@ -5,20 +5,20 @@ export const getAriaLabel = ({
   sliderValue,
   type = 'simple',
   ariaLabel,
-  heading,
+  label,
   unit,
 }: {
   side: Sides;
   sliderValue: BothSliders<number>;
   type?: SliderType;
   ariaLabel?: string | BothSliders<string>;
-  heading?: string;
+  label?: string;
   unit?: string;
 }): string => {
   if (ariaLabel) {
     return returnAriaLabelFromProp(side, ariaLabel);
   } else {
-    return generateAutomaticAriaLabel(side, type, sliderValue, heading, unit);
+    return generateAutomaticAriaLabel(side, type, sliderValue, label, unit);
   }
 };
 
@@ -38,7 +38,7 @@ const generateAutomaticAriaLabel = (
   side: Sides,
   type: SliderType,
   sliderValue: BothSliders<number>,
-  heading?: string,
+  label?: string,
   unit?: string,
 ): string => {
   let newAriaLabel = 'Glidebryter';
@@ -46,13 +46,13 @@ const generateAutomaticAriaLabel = (
   if (type === 'range') {
     const prefix = side === 'left' ? 'Startverdi' : 'Sluttverdi';
 
-    newAriaLabel = `${prefix} ${heading ?? ''} rekkeviddeglidebryter ${
+    newAriaLabel = `${prefix} ${label ?? ''} rekkeviddeglidebryter ${
       unit ? ' med verdi ' + sliderValue[side] + unit : ''
     }`;
   }
 
-  if (type === 'simple' && (heading || unit)) {
-    newAriaLabel = `${heading ?? ''} ${unit ? +sliderValue.left + unit : ''}`;
+  if (type === 'simple' && (label || unit)) {
+    newAriaLabel = `${label ?? ''} ${unit ? +sliderValue.left + unit : ''}`;
   }
 
   return newAriaLabel.replace(/\s+/g, ' ').trim();

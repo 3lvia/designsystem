@@ -219,24 +219,24 @@ function App() {
                 <Slider type={'simple'} isDisabled max={Math.round(Math.random() * (9999 - 10) + 10)} />
 
                 <Slider
-                  heading={'lorem ipsum'}
+                  label={'lorem ipsum'}
                   type={'simple'}
                   max={Math.round(Math.random() * (99999 - 10) + 10)}
                 />
                 <Slider
-                  heading={'lorem ipsum'}
+                  label={'lorem ipsum'}
                   type={'simple'}
                   hasHints
                   max={Math.round(Math.random() * (9999 - 10) + 10)}
                 />
                 <Slider
-                  heading={'lorem ipsum'}
+                  label={'lorem ipsum'}
                   type={'simple'}
                   size="small"
                   max={Math.round(Math.random() * (99999 - 10) + 10)}
                 />
                 <Slider
-                  heading={'lorem ipsum'}
+                  label={'lorem ipsum'}
                   type={'simple'}
                   isDisabled
                   max={Math.round(Math.random() * (9999 - 10) + 10)}
@@ -244,7 +244,7 @@ function App() {
 
                 <Slider
                   type={'simple'}
-                  heading={'temperatur'}
+                  label={'temperatur'}
                   max={Math.round(Math.random() * (99999 - 10) + 10)}
                 />
                 <Slider
@@ -258,33 +258,33 @@ function App() {
                 <h4>errorOptions</h4>
                 <h5>Simple</h5>
                 <Slider
-                  heading="ingen erroroptions"
+                  label="ingen erroroptions"
                   errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
                 <br />
                 <br />
                 <Slider
-                  heading="text"
+                  label="text"
                   errorOptions={{ text: 'custom feil' }}
                   errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
                 <br />
                 <br />
                 <Slider
-                  heading="text + hideText"
+                  label="text + hideText"
                   errorOptions={{ text: 'custom feil', hideText: true }}
                   errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
                 <br />
                 <br />
                 <Slider
-                  heading="isErrorState"
+                  label="isErrorState"
                   errorOptions={{ isErrorState: true }}
                   errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
                 {/* text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean; */}
                 <Slider
-                  heading="kun placeholder"
+                  label="kun placeholder"
                   errorOptions={{ hasErrorPlaceholder: true }}
                   errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
@@ -293,14 +293,14 @@ function App() {
                 <h5>Range</h5>
                 <Slider
                   type="range"
-                  heading="ingen erroroptions"
+                  label="ingen erroroptions"
                   errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
                 <br />
                 <br />
                 <Slider
                   type="range"
-                  heading="text"
+                  label="text"
                   errorOptions={{
                     left: { text: 'custom feil left 1' },
                     right: { text: 'custom feil right 1' },
@@ -311,7 +311,7 @@ function App() {
                 <br />
                 <Slider
                   type="range"
-                  heading="isErrorState: left"
+                  label="isErrorState: left"
                   errorOptions={{
                     left: { isErrorState: true, text: 'custom feil left 3' },
                     right: { text: 'custom feil right 3' },
@@ -322,7 +322,7 @@ function App() {
                 <br />
                 <Slider
                   type="range"
-                  heading="isErrorState: right"
+                  label="isErrorState: right"
                   errorOptions={{
                     left: { text: 'custom feil left 4' },
                     right: { isErrorState: true, text: 'custom feil right 4' },
@@ -333,7 +333,7 @@ function App() {
                 <br />
                 <Slider
                   type="range"
-                  heading="hasErrorPlaceholder: false!"
+                  label="hasErrorPlaceholder: false!"
                   errorOptions={{
                     left: { hasErrorPlaceholder: false },
                     right: { hasErrorPlaceholder: false },

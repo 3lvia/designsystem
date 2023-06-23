@@ -11,13 +11,13 @@ export interface SliderProps extends BaseProps, HasValue<number | BothSliders<nu
   errorOptions?: ErrorOptions;
   hasHints?: boolean;
   hasInputField?: boolean;
-  heading?: string;
   isDisabled?: boolean;
+  label?: string;
   max?: number;
   min?: number;
   size?: FormFieldSizes;
-  unit?: string;
   type?: SliderType;
+  unit?: string;
 }
 
 export type SliderType = 'simple' | 'range';
