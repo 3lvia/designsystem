@@ -338,7 +338,15 @@ const Slider: React.FC<SliderProps> = function ({
           />
 
           {showTooltip.left && !isDisabled && (
-            <Tooltip value={sliderValue} suffix={suffix} unit={unit} position={leftThumbPosition} />
+            <Tooltip
+              value={sliderValue}
+              position={leftThumbPosition}
+              side={'left'}
+              suffix={suffix}
+              unit={unit}
+              size={size}
+              inputMode={inputMode}
+            />
           )}
 
           {type === 'range' && (
@@ -373,6 +381,8 @@ const Slider: React.FC<SliderProps> = function ({
                   side={'right'}
                   suffix={suffix}
                   unit={unit}
+                  size={size}
+                  inputMode={inputMode}
                 />
               )}
             </>
@@ -483,7 +493,7 @@ const Slider: React.FC<SliderProps> = function ({
               ref={rightHintRectWidthRef}
               side={'right'}
               size={size}
-              value={sliderValue.right}
+              value={max}
             />
           )}
 

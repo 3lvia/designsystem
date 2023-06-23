@@ -107,7 +107,6 @@ export const SliderContainer = styled.div`
   flex-direction: column;
   min-width: 80px;
   position: relative;
-  row-gap: 4px;
   width: 100%;
 `;
 
@@ -145,6 +144,7 @@ export const BoundaryWidthMeasurement = styled.span<{ size: FormFieldSizes }>`
 `;
 
 export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
+  margin-top: 8px;
   justify-content: space-between;
   align-items: end;
   gap: 8px;
@@ -274,17 +274,22 @@ export const StyledSlider = styled.input<{ $type: SliderType }>`
   }
 `;
 
-export const SliderWrapper = styled.div<{ size: FormFieldSizes; isLeftSliderOnTop: boolean }>`
+type SliderWrapperProps = {
+  size: FormFieldSizes;
+  isLeftSliderOnTop: boolean;
+};
+
+export const SliderWrapper = styled.div<SliderWrapperProps>`
   align-items: center;
   display: flex;
   height: 52px;
   position: relative;
+  padding: 12px 0 4px 0;
 
   ${({ size }) =>
     size === 'small' &&
     css`
       height: 36px;
-      padding: 12px 0 4px;
     `}
 
   ${StyledSlider} {

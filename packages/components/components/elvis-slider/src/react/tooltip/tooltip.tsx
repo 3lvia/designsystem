@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { TooltipPopup, TooltipWrapper } from './tooltipStyles';
-
 import { BothSliders, Sides } from '../elvia-slider.types';
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 
 interface Props {
   value: BothSliders<number>;
@@ -10,9 +9,19 @@ interface Props {
   side?: Sides;
   suffix?: string;
   unit?: string;
+  size: FormFieldSizes;
+  inputMode: string;
 }
 
-export const Tooltip: React.FC<Props> = ({ side = 'left', position, value, unit, suffix }) => {
+export const Tooltip: React.FC<Props> = ({
+  side = 'left',
+  position,
+  value,
+  unit,
+  suffix,
+  size,
+  inputMode,
+}) => {
   const getTooltipContent = (side: Sides = 'left') => {
     const content = side === 'left' ? value.left.toLocaleString() : value.right.toLocaleString();
 
@@ -28,6 +37,8 @@ export const Tooltip: React.FC<Props> = ({ side = 'left', position, value, unit,
   return (
     <TooltipWrapper
       side={side}
+      size={size}
+      $inputMode={inputMode}
       style={{
         [side]: `${position}px`,
       }}
