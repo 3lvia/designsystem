@@ -12,7 +12,6 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   numberOfSteps,
   currentStep,
   steps,
-  completeButtonText,
   isForced = false,
   handleStepChange,
   typography,
@@ -28,22 +27,15 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
   const { ref: listContainerRef } = useRovingFocus<HTMLDivElement>({ dir: 'horizontal' });
 
   return (
-    <StepperContainer
-      type="horizontal"
-      className={className}
-      style={inlineStyle}
-      ref={stepListElement}
-      {...rest}
-    >
+    <StepperContainer className={className} style={inlineStyle} ref={stepListElement} {...rest}>
       <StatusMessage aria-live="polite">
         {steps && generateStatusMessage(currentStep, steps, errorSteps)}
       </StatusMessage>
-      <Steps type="horizontal" role="tablist" aria-orientation="horizontal" ref={listContainerRef}>
+      <Steps role="tablist" aria-orientation="horizontal" ref={listContainerRef}>
         {stepNumbersArray.map(
           (stepNumber) =>
             numberShouldBeVisible(stepNumber, currentStep, numberOfSteps, numberOfVisibleSteps) && (
               <Step
-                type="horizontal"
                 role="tab"
                 aria-selected={stepNumber === currentStep}
                 key={stepNumber}
@@ -66,7 +58,6 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
                     isDots={
                       !numberShouldBeVisible(stepNumber + 1, currentStep, numberOfSteps, numberOfVisibleSteps)
                     }
-                    type="horizontal"
                     isSelected={currentStep > stepNumber}
                     isActive={stepNumber === currentStep}
                   />
@@ -75,19 +66,15 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
             ),
         )}
       </Steps>
-      <StepperTitle type="horizontal" typography={typography}>
-        {steps?.[currentStep]?.heading ?? ''}
-      </StepperTitle>
+      <StepperTitle typography={typography}>{steps?.[currentStep]?.heading ?? ''}</StepperTitle>
       <StepContent
         currentStep={currentStep}
         handleStepChange={handleStepChange}
         numberOfSteps={numberOfSteps}
-        completeButtonText={completeButtonText}
         content={content}
         contentRef={contentRef}
         isForced={isForced}
         steps={steps}
-        type="horizontal"
       />
     </StepperContainer>
   );

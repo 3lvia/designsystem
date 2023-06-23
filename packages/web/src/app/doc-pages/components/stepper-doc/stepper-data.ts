@@ -14,7 +14,8 @@ export const stepperData: ComponentData = {
     steps: {
       isRequired: false,
       type: '{[stepIndex: number]: StepItem}',
-      description: 'An object to define the title and/or the state of the step.',
+      description:
+        'An object to define the heading, next- and previous-button text and/or the state of the step.',
     },
     isForced: {
       isRequired: false,
@@ -22,11 +23,6 @@ export const stepperData: ComponentData = {
       description:
         'A forced stepper requires the user to complete each step before continuing to the next one. They can always go back to an earlier step. If a step is incomplete and the user tries to go forward an error message should appear.',
       default: 'false',
-    },
-    completeButtonText: {
-      isRequired: false,
-      type: 'string',
-      description: 'Text to display in the last next-button.',
     },
     typography: {
       isRequired: false,

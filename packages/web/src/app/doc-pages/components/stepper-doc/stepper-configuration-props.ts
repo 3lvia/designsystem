@@ -20,5 +20,15 @@ export const configurationProps: ComponentData = {
       type: 'boolean',
       description: 'State if the step is complete.',
     },
+    previousButtonText: {
+      isRequired: false,
+      type: 'string',
+      description: 'Text to display in the previous-button.',
+    },
+    nextButtonText: {
+      isRequired: false,
+      type: 'string',
+      description: 'Text to display in the next-button.',
+    },
   },
 };

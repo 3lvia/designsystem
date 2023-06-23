@@ -3,13 +3,13 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 import { StepperType } from './elvia-stepper.types';
 interface StepperContainerProps {
-  type?: StepperType;
+  $type?: StepperType;
 }
 export const StepperContainer = styled.div<StepperContainerProps>`
   position: relative;
   display: inline-flex;
   flex-direction: column;
-  gap: ${({ type }) => (type === 'vertical' ? '4px' : 'initial')};
+  gap: ${({ $type }) => ($type === 'vertical' ? '4px' : 'initial')};
   width: 100%;
   max-width: 400px;
 `;
@@ -28,33 +28,33 @@ export const StatusMessage = styled.div`
 `;
 
 interface StepsProps {
-  type?: StepperType;
+  $type?: StepperType;
 }
 export const Steps = styled.div<StepsProps>`
   display: flex;
-  flex-direction: ${({ type }) => (type === 'vertical' ? 'column' : 'row')};
+  flex-direction: ${({ $type }) => ($type === 'vertical' ? 'column' : 'row')};
   gap: 4px;
-  align-items: ${({ type }) => (type === 'vertical' ? 'start' : 'center')};
+  align-items: ${({ $type }) => ($type === 'vertical' ? 'start' : 'center')};
   justify-content: center;
   padding: unset;
 `;
 
 interface StepProps {
-  type: StepperType;
+  $type?: StepperType;
   isActive?: boolean;
   isLast: boolean;
 }
 export const Step = styled.div<StepProps>`
   display: flex;
-  flex-direction: ${({ type }) => (type === 'vertical' ? 'column' : 'row')};
-  align-items: ${({ type }) => (type === 'vertical' ? 'start' : 'center')};
+  flex-direction: ${({ $type }) => ($type === 'vertical' ? 'column' : 'row')};
+  align-items: ${({ $type }) => ($type === 'vertical' ? 'start' : 'center')};
   gap: 4px;
   flex: ${({ isLast }) => (isLast ? 0 : 1)};
   width: 100%;
 `;
 
 interface StepLineProps {
-  type?: StepperType;
+  $type?: StepperType;
   isSelected: boolean;
   isActive?: boolean;
 }
@@ -69,8 +69,8 @@ export const StepLine = styled.div<StepLineProps>`
     getThemeColor(isSelected ? 'border-selected-2' : 'border-disabled-1')};
   place-items: center;
 
-  ${({ type, isActive }) =>
-    type === 'vertical' &&
+  ${({ $type, isActive }) =>
+    $type === 'vertical' &&
     css`
       height: ${isActive ? 'auto' : '12px'};
       width: 2px;
@@ -78,7 +78,7 @@ export const StepLine = styled.div<StepLineProps>`
     `}
 `;
 interface StepLineDashedProps {
-  type?: StepperType;
+  $type?: StepperType;
 }
 export const StepLineDashed = styled.div<StepLineDashedProps>`
   display: flex;
@@ -87,8 +87,8 @@ export const StepLineDashed = styled.div<StepLineDashedProps>`
   gap: 6px;
   flex: 1;
 
-  ${({ type }) =>
-    type === 'vertical' &&
+  ${({ $type }) =>
+    $type === 'vertical' &&
     css`
       height: 30px;
       width: unset;
@@ -105,8 +105,8 @@ export const LineDash = styled.div<StepLineDashedProps>`
   border-radius: 50px;
   background: ${getThemeColor('border-disabled-1')};
 
-  ${({ type }) =>
-    type === 'vertical' &&
+  ${({ $type }) =>
+    $type === 'vertical' &&
     css`
       display: flex;
       width: 2px;
@@ -200,14 +200,14 @@ export const StepNumber = styled.button<StepNumberProps>`
 `;
 
 interface StepperContentProps {
-  type: StepperType;
+  $type: StepperType;
 }
 export const StepperContent = styled.div<StepperContentProps>`
   display: block;
   justify-content: start;
   flex: 1;
-  ${({ type }) =>
-    type === 'vertical' &&
+  ${({ $type }) =>
+    $type === 'vertical' &&
     css`
       padding: 32px 0 48px 32px;
     `}
@@ -219,8 +219,8 @@ export const StepperContentWrapper = styled.div`
   width: 100%;
 `;
 
-const getStepTitleTypography = ({ type, isActive, typography }: StepperTitleProps) => {
-  if (isActive || type !== 'vertical') {
+const getStepTitleTypography = ({ $type, isActive, typography }: StepperTitleProps) => {
+  if (isActive || $type !== 'vertical') {
     return getTypographyCss(typography ?? 'title-sm');
   } else {
     return getTypographyCss('text-md');
@@ -228,7 +228,7 @@ const getStepTitleTypography = ({ type, isActive, typography }: StepperTitleProp
 };
 
 interface StepperTitleProps {
-  type: StepperType;
+  $type?: StepperType;
   isActive?: boolean;
   typography?: TypographyName;
   isDisabled?: boolean;
@@ -238,8 +238,8 @@ export const StepperTitle = styled.div<StepperTitleProps>`
   display: flex;
   justify-content: center;
   margin: 32px 0;
-  ${({ type }) =>
-    type === 'vertical' &&
+  ${({ $type }) =>
+    $type === 'vertical' &&
     css`
       margin: 0;
       cursor: pointer;

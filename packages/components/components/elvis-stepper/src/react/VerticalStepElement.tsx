@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { StepStates } from './elvia-stepper.types';
 import { StepHeader, StepNumber, StepperTitle } from './styledComponents';
 import { isReachable } from './utils';
 import { TypographyName } from '@elvia/elvis-typography';
+import { StepStates } from './sharedTypes';
 
 type VerticalStepElementProps = {
   stepNumber: number;
@@ -33,7 +33,7 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
         {stepNumber}
       </StepNumber>
       <StepperTitle
-        type="vertical"
+        $type="vertical"
         isActive={stepNumber === currentStep}
         typography={typography}
         isDisabled={!isReachable(isForced, stepNumber, steps)}

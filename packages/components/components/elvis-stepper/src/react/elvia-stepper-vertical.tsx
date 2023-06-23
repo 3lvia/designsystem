@@ -12,7 +12,6 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   numberOfSteps,
   currentStep,
   steps,
-  completeButtonText,
   isForced = false,
   handleStepChange,
   typography,
@@ -27,16 +26,16 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   const { ref: listContainerRef } = useRovingFocus<HTMLDivElement>({ dir: 'vertical' });
 
   return (
-    <StepperContainer type="vertical" className={className} style={inlineStyle} {...rest}>
+    <StepperContainer $type="vertical" className={className} style={inlineStyle} {...rest}>
       <StatusMessage aria-live="polite">
         {steps && generateStatusMessage(currentStep, steps, errorSteps)}
       </StatusMessage>
-      <Steps type="vertical" role="tablist" aria-orientation="vertical" ref={listContainerRef}>
+      <Steps $type="vertical" role="tablist" aria-orientation="vertical" ref={listContainerRef}>
         {stepNumbersArray.map(
           (stepNumber) =>
             numberShouldBeVisible(stepNumber, currentStep, numberOfSteps, 5) && (
               <Step
-                type="vertical"
+                $type="vertical"
                 role="tab"
                 aria-selected={stepNumber === currentStep}
                 key={stepNumber}
@@ -65,7 +64,6 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                       currentStep={currentStep}
                       handleStepChange={handleStepChange}
                       numberOfSteps={numberOfSteps}
-                      completeButtonText={completeButtonText}
                       content={content}
                       contentRef={contentRef}
                       isForced={isForced}

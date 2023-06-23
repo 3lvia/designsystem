@@ -23,7 +23,7 @@ export class StepperCegComponent implements ComponentExample {
     '1': { heading: 'Title 1' },
     '2': { heading: 'Title 2' },
     '3': { heading: 'Title 3' },
-    '4': { heading: 'Title 4' },
+    '4': { heading: 'Title 4', nextButtonText: 'Lagre' },
   };
   cegContent = new CegControlManager<StepperProps>([
     {
@@ -35,18 +35,11 @@ export class StepperCegComponent implements ComponentExample {
           value: false,
           group: 'Options',
         },
-        completeButtonText: {
-          type: 'text',
-          value: 'Lagre',
-          label: 'CompleteButtonText',
-          group: 'Complete Button Text',
-          inputType: 'input',
-        },
       },
       staticProps: {
         steps: this.stepperStates,
       },
-      groupOrder: ['Options', 'Complete Button Text'],
+      groupOrder: ['Options'],
     },
     {
       type: 'Vertical',
@@ -57,18 +50,11 @@ export class StepperCegComponent implements ComponentExample {
           value: false,
           group: 'Options',
         },
-        completeButtonText: {
-          type: 'text',
-          value: 'Lagre',
-          label: 'CompleteButtonText',
-          group: 'Complete Button Text',
-          inputType: 'input',
-        },
       },
       staticProps: {
         steps: this.stepperStates,
       },
-      groupOrder: ['Options', 'Complete Button Text'],
+      groupOrder: ['Options'],
     },
   ]);
 }

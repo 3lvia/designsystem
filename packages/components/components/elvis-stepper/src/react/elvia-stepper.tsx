@@ -6,7 +6,6 @@ import { StepperHorizontal } from './elvia-stepper-horizontal';
 export const Stepper: FC<StepperProps> = function ({
   type = 'horizontal',
   steps,
-  completeButtonText,
   isForced = false,
   typography,
   content,
@@ -45,7 +44,6 @@ export const Stepper: FC<StepperProps> = function ({
         <StepperVertical
           numberOfSteps={numberOfSteps}
           currentStep={currentStep}
-          completeButtonText={completeButtonText}
           isForced={isForced}
           handleStepChange={handleStepChange}
           typography={typography}
@@ -60,7 +58,6 @@ export const Stepper: FC<StepperProps> = function ({
         <StepperHorizontal
           numberOfSteps={numberOfSteps}
           currentStep={currentStep}
-          completeButtonText={completeButtonText}
           isForced={isForced}
           handleStepChange={handleStepChange}
           typography={typography}

@@ -15,7 +15,6 @@ export interface StepperProps extends HasValue<number>, BaseProps {
   type?: StepperType;
   steps?: StepStates;
   isForced?: boolean;
-  completeButtonText?: string;
   typography?: TypographyName;
   content?: JSX.Element[];
 }
