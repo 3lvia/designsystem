@@ -8,4 +8,5 @@ export interface TabsProps extends BaseProps, HasValue<number> {
   hasManualActivation?: boolean;
   ariaLabel?: string;
   tabIdPrefix?: string;
+  valueOnChange?: (value: number) => void;
 }
