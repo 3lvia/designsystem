@@ -1,5 +1,4 @@
-import { HasValue } from '@elvia/elvis-toolbox';
-import { BaseProps } from '@elvia/elvis-toolbox';
+import { HasValue, BaseProps } from '@elvia/elvis-toolbox';
 
 export type ScrollPosition = 'left' | 'center' | 'right' | 'no-scroll';
 
