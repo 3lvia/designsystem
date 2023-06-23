@@ -5,7 +5,7 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-stepper type="horizontal" completeButtonText="Save" isForced [steps]="stepperStates">
+      <elvia-stepper type="horizontal" isForced [steps]="stepperStates">
         <div slot="content">
           <div>Step 1 content</div>
           <div>Step 2 content</div>
@@ -19,7 +19,6 @@
       </elvia-stepper>
       <elvia-stepper
         type="vertical"
-        completeButtonText="Submit"
         [steps]="{
           '1': { isCompleted: true, heading: 'Title #1' },
           '2': { heading: 'Title #2' },

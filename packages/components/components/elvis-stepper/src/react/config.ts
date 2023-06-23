@@ -5,7 +5,6 @@ export const config: ComponentConfig = {
   attributes: [
     { name: 'type', type: 'string' },
     { name: 'steps', type: 'object' },
-    { name: 'completeButtonText', type: 'string' },
     { name: 'typography', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'isForced', type: 'boolean' },
