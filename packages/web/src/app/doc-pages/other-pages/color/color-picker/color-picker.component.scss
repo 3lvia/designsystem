@@ -5,15 +5,18 @@
   transition: background-color 500ms ease-in-out;
 
   .color-list-container {
+    --gradient-width: 32px;
     position: relative;
-    mask: linear-gradient(to left, transparent 0, black 0);
+    mask-image: linear-gradient(to left, transparent 0, black var(--gradient-width));
+    mask-position: center;
+    transition: mask-size 400ms, mask-position 400ms;
+    mask-size: calc(100% + var(--gradient-width) * 2) 100%;
     padding-bottom: 8px;
     overflow-x: scroll;
     display: flex;
-    transition: mask 500ms ease-in-out;
 
     &.overflow-right {
-      mask: linear-gradient(to left, transparent 0, black 100px);
+      mask-position: right;
     }
   }
 }
