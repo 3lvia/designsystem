@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.1.0 (26.06.2023)
+
+### New feature
+
+- `list_icon` has been deprecated, replaced with `list-icon`
+
 ## 3.0.1 (02.06.2023)
 
 ### Bug fix

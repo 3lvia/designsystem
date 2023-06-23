@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.1.0",
+      "date": "June 26, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Deprecated <code>list_color</code>, replaced by <code>list-color</code>"],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "12.0.1",
       "date": "June 02, 2023",
       "changelog": [
