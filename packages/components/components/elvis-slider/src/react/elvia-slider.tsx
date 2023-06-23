@@ -220,15 +220,18 @@ const Slider: React.FC<SliderProps> = function ({
     updateValue({ ...sliderValue, [name]: newValue });
   };
 
-  const handleFormFieldInputOnChange = (event: React.FormEvent<HTMLInputElement>, side: Sides) => {
-    const { value } = event.target as HTMLInputElement;
+  const handleFormFieldInputOnChange = (value: string, side: Sides) => {
     setIsLeftSliderOnTop(side === 'left');
     setFormFieldInputValues({ ...formFieldInputValues, [side]: value.replace(/\s/g, '') });
   };
 
-  const handleFormFieldInputOnBlur = (e: React.FocusEvent<HTMLInputElement>, side: Sides) => {
-    const value = e.target.value;
+  const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, side: Sides) => {
+    if (e.key === 'Enter') {
+      handleFormFieldInputOnBlur(e.currentTarget.value, side);
+    }
+  };
 
+  const handleFormFieldInputOnBlur = (value: string, side: Sides) => {
     if (value && !validateInputValue(value, side)) {
       return;
     } else {
@@ -475,8 +478,9 @@ const Slider: React.FC<SliderProps> = function ({
                   autoComplete="off"
                   disabled={isDisabled}
                   isFullWidth={isFullWidthRangeInput}
-                  onBlur={(e) => handleFormFieldInputOnBlur(e, 'left')}
-                  onChange={(e) => handleFormFieldInputOnChange(e, 'left')}
+                  onBlur={(e) => handleFormFieldInputOnBlur(e.target.value, 'left')}
+                  onChange={(e) => handleFormFieldInputOnChange(e.target.value, 'left')}
+                  onKeyDown={(e) => handleOnKeyDown(e, 'left')}
                   value={formFieldInputValues.left}
                   inputMode="numeric"
                 />
@@ -526,8 +530,9 @@ const Slider: React.FC<SliderProps> = function ({
                   })}
                   disabled={isDisabled}
                   isFullWidth={isFullWidthRangeInput}
-                  onBlur={(e) => handleFormFieldInputOnBlur(e, 'right')}
-                  onChange={(e) => handleFormFieldInputOnChange(e, 'right')}
+                  onBlur={(e) => handleFormFieldInputOnBlur(e.target.value, 'right')}
+                  onChange={(e) => handleFormFieldInputOnChange(e.target.value, 'right')}
+                  onKeyDown={(e) => handleOnKeyDown(e, 'right')}
                   value={formFieldInputValues.right}
                   inputMode="numeric"
                 />
