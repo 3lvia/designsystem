@@ -44,15 +44,14 @@ export const config: ComponentConfig = {
       type: 'string',
       deprecatedDetails: {
         version: '3.0.0',
-        explanation: "'label' has been removed. Use suffix instead.",
+        explanation: "'label' has been removed. Use unit instead.",
       },
     },
     { name: 'max', type: 'number' },
     { name: 'min', type: 'number' },
     { name: 'size', type: 'string' },
-    { name: 'suffix', type: 'string' },
-    { name: 'type', type: 'string' },
     { name: 'unit', type: 'string' },
+    { name: 'type', type: 'string' },
     { name: 'value', type: 'number' },
   ],
 };

@@ -29,13 +29,6 @@ export const sliderData: ComponentData = {
       type: 'string',
       description: 'A heading above the slider.',
     },
-    unit: {
-      isRequired: false,
-      description:
-        'Show a custom unit in the tooltip, like "kWh" or "kr/mnd". This will be replaced if the "hasPercent" prop is set to true.',
-      type: 'string',
-      default: '',
-    },
     max: {
       default: 100,
       description: 'The maximum allowed value within the slider. This must be higher than the "min" value.',
@@ -60,9 +53,9 @@ export const sliderData: ComponentData = {
       isRequired: false,
       type: 'boolean',
     },
-    suffix: {
+    unit: {
       isRequired: false,
-      description: 'The suffix in the Sliders input field(s).',
+      description: 'The suffix in the Sliders input field(s) and tooltip.',
       type: 'string',
     },
     size: {

@@ -7,22 +7,15 @@ interface Props {
   value: BothSliders<number>;
   position: number;
   side?: Sides;
-  suffix?: string;
   unit?: string;
   size: FormFieldSizes;
 }
 
-export const Tooltip: React.FC<Props> = ({ side = 'left', position, value, unit, suffix, size }) => {
+export const Tooltip: React.FC<Props> = ({ side = 'left', position, value, unit, size }) => {
   const getTooltipContent = (side: Sides = 'left') => {
     const content = side === 'left' ? value.left.toLocaleString() : value.right.toLocaleString();
 
-    if (unit) {
-      return `${content}${unit}`;
-    } else if (suffix) {
-      return `${content} ${suffix}`;
-    } else {
-      return content;
-    }
+    return unit ? `${content} ${unit}` : content;
   };
 
   return (

@@ -53,9 +53,8 @@ const Slider: React.FC<SliderProps> = function ({
   max = 100,
   min = 0,
   size = 'medium',
-  suffix,
-  type = 'simple',
   unit,
+  type = 'simple',
   value,
   valueOnChange,
   webcomponent,
@@ -341,14 +340,7 @@ const Slider: React.FC<SliderProps> = function ({
           />
 
           {showTooltip.left && !isDisabled && (
-            <Tooltip
-              value={sliderValue}
-              position={leftThumbPosition}
-              side={'left'}
-              suffix={suffix}
-              unit={unit}
-              size={size}
-            />
+            <Tooltip value={sliderValue} position={leftThumbPosition} side={'left'} unit={unit} size={size} />
           )}
 
           {type === 'range' && (
@@ -381,7 +373,6 @@ const Slider: React.FC<SliderProps> = function ({
                   value={sliderValue}
                   position={rightThumbPosition}
                   side={'right'}
-                  suffix={suffix}
                   unit={unit}
                   size={size}
                 />
@@ -425,7 +416,7 @@ const Slider: React.FC<SliderProps> = function ({
             >
               <FormFieldInputContainer>
                 <FormFieldInput disabled={true} value={formFieldInputValues.left} $width={inputMinWidth} />
-                {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
+                {unit && <FormFieldInputSuffixText>{unit}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
             </FormFieldContainer>
           </>
@@ -484,7 +475,7 @@ const Slider: React.FC<SliderProps> = function ({
                   value={formFieldInputValues.left}
                   inputMode="numeric"
                 />
-                {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
+                {unit && <FormFieldInputSuffixText>{unit}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
             </FormFieldContainer>
           )}
@@ -536,7 +527,7 @@ const Slider: React.FC<SliderProps> = function ({
                   value={formFieldInputValues.right}
                   inputMode="numeric"
                 />
-                {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
+                {unit && <FormFieldInputSuffixText>{unit}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
             </FormFieldContainer>
           )}

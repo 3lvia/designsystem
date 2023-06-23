@@ -16,9 +16,8 @@ export interface SliderProps extends BaseProps, HasValue<number | BothSliders<nu
   max?: number;
   min?: number;
   size?: FormFieldSizes;
-  suffix?: string;
-  type?: SliderType;
   unit?: string;
+  type?: SliderType;
 }
 
 export type SliderType = 'simple' | 'range';
