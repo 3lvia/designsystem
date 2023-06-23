@@ -32,8 +32,8 @@ const ArrowButtonBase = styled(IconButton)<ArrowButtonProps>`
   }
 `;
 
-export const LeftArrowButton = styled(ArrowButtonBase)``;
-export const RightArrowButton = styled(ArrowButtonBase)`
+export const LeftButton = styled(ArrowButtonBase)``;
+export const RightButton = styled(ArrowButtonBase)`
   right: 0;
 `;
 
@@ -50,29 +50,11 @@ const getTabGradient = (scrollPosition: ScrollPosition): string => {
   }
 };
 
-type ItemsContainerProps = {
+interface ScrollContainerProps {
   scrollPosition: ScrollPosition;
-  isInverted?: boolean;
-};
+}
 
-export const ItemsContainer = styled.div<ItemsContainerProps>`
-  ${({ scrollPosition, isInverted }) => css`
-    position: relative;
-    mask: ${getTabGradient(scrollPosition)};
-    width: 100%;
-    ${isInverted &&
-    css`
-      &::before {
-        background-image: linear-gradient(to right, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
-      }
-      &::after {
-        background-image: linear-gradient(to left, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
-      }
-    `};
-  `}
-`;
-
-export const ScrollContainer = styled.div`
+export const ScrollContainer = styled.div<ScrollContainerProps>`
   display: flex;
   flex-direction: row;
   white-space: nowrap;
@@ -82,6 +64,10 @@ export const ScrollContainer = styled.div`
   height: ${tabsHeightWithFocus}px;
   scrollbar-width: none;
   gap: 24px;
+  position: relative;
+  mask: ${({ scrollPosition }) => getTabGradient(scrollPosition)};
+  scroll-behavior: smooth;
+
   @media screen and (max-width: 767px) {
     gap: 16px;
   }
@@ -116,10 +102,10 @@ const decideLabelTextShadow = (isSelected: boolean, isInverted?: boolean): strin
   }
 };
 
-type TabLabelProps = {
+interface TabLabelProps {
   isSelected: boolean;
   isInverted?: boolean;
-};
+}
 
 export const TabLabel = styled.span<TabLabelProps>`
   ${({ isSelected, isInverted }) => css`
