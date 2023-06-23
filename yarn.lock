@@ -3572,7 +3572,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@npm:^1.4.3, @elvia/elvis-colors@npm:^1.6.0, @elvia/elvis-colors@npm:^1.8.0":
+"@elvia/elvis-colors@npm:^1.4.2, @elvia/elvis-colors@npm:^1.4.3, @elvia/elvis-colors@npm:^1.6.0, @elvia/elvis-colors@npm:^1.8.0":
   version: 1.8.0
   resolution: "@elvia/elvis-colors@npm:1.8.0"
   checksum: 5d29f0a24915e9afc0225559d41db7803ec5b8b07e882f0ad4a46b1b7681910fee81d7138fc90e3550281fa40e91ab15b275f29ce6d5ddb7f7462e0bb350f9f0
@@ -4045,13 +4045,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^2.6.1
+    "@elvia/elvis-colors": ^1.4.2
     "@elvia/elvis-component-wrapper": ^4.1.3
     "@elvia/elvis-toolbox": ^9.2.0
     "@elvia/elvis-typography": ^2.4.0
-    "@types/lodash.throttle": ^4.1.7
-    lodash.throttle: ^4.1.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0

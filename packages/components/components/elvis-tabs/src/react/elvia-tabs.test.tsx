@@ -13,7 +13,7 @@ describe('Elvis Tabs', () => {
     });
 
     it('should have correct tabs', () => {
-      const tabs = screen.getAllByTestId('tab-button');
+      const tabs = screen.getAllByRole('tab');
       expect(tabs.length).toEqual(3);
 
       expect(tabs[0]).toHaveTextContent('Oranges');
@@ -32,7 +32,7 @@ describe('Elvis Tabs', () => {
 
     it('should update value when clicking new tab', async () => {
       const user = userEvent.setup();
-      const tabs = screen.getAllByTestId('tab-button');
+      const tabs = screen.getAllByRole('tab');
 
       await user.click(tabs[1]);
 
@@ -45,12 +45,12 @@ describe('Elvis Tabs', () => {
     });
 
     it('should have black label', () => {
-      const tabLabel = screen.getAllByTestId('tab-label');
-      expect(tabLabel[0]).toHaveStyle('color: black');
+      const tabLabel = screen.getByText('Oranges');
+      expect(tabLabel).toHaveStyle('color: black');
     });
     it('should have black text-shadow when selected', () => {
-      const tabLabel = screen.getAllByTestId('tab-label');
-      expect(tabLabel[0]).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
+      const tabLabel = screen.getByText('Oranges');
+      expect(tabLabel).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
     });
   });
 
@@ -87,12 +87,12 @@ describe('Elvis Tabs', () => {
     });
 
     it('should have white label', () => {
-      const tabLabel = screen.getAllByTestId('tab-label');
-      expect(tabLabel[0]).toHaveStyle('color: white');
+      const tabLabel = screen.getByText('Oranges');
+      expect(tabLabel).toHaveStyle('color: white');
     });
     it('should have white text-shadow when selected', () => {
-      const tabLabel = screen.getAllByTestId('tab-label');
-      expect(tabLabel[0]).toHaveStyle('text-shadow: 0 0 0 white,0 0 0.5px white');
+      const tabLabel = screen.getByText('Oranges');
+      expect(tabLabel).toHaveStyle('text-shadow: 0 0 0 white,0 0 0.5px white');
     });
   });
 

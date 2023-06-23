@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import { ScrollPosition } from './elvia-tabs.types';
+import { IconButton } from '@elvia/elvis-toolbox';
 
-const iconButtonWidth = 24;
 const tabsLineHeight = 20;
 const tabsUnderlineHeight = 4;
 const tabsLabelPaddingBottom = 8;
@@ -13,64 +14,52 @@ const tabsHeightWithFocus = tabsHeight + tabsFocusPadding * 2;
 export const TabsContainer = styled.div`
   display: flex;
   position: relative;
-  flex-direction: row;
-  align-items: center;
   overflow: hidden;
-  &,
-  * {
-    box-sizing: border-box;
+`;
+
+interface ArrowButtonProps {
+  isVisible: boolean;
+}
+
+const ArrowButtonBase = styled(IconButton)<ArrowButtonProps>`
+  position: absolute;
+  z-index: 1;
+  display: ${({ isVisible }) => (isVisible ? 'grid' : 'none')};
+
+  &:not(:disabled):hover {
+    background-color: transparent;
+    border-color: transparent;
   }
 `;
 
-type ArrowButtonProps = {
-  isVisible: boolean;
-  isLeftArrow: boolean;
-};
-
-export const ArrowButton = styled.div<ArrowButtonProps>`
-  ${({ isVisible, isLeftArrow }) => css`
-    display: ${isVisible ? 'none' : 'block'};
-    position: absolute;
-    width: 8px;
-    height: calc(${tabsHeightWithFocus}px - (16px * 2));
-    z-index: 10;
-    transition: visibility 0.5s ease-in;
-    box-sizing: content-box;
-    user-select: none;
-    padding: ${isLeftArrow ? '16px 28px 16px 8px' : '16px 8px 16px 28px'};
-    right: ${!isLeftArrow && '24px'};
-
-    &:hover {
-      cursor: pointer;
-    }
-  `}
+export const LeftArrowButton = styled(ArrowButtonBase)``;
+export const RightArrowButton = styled(ArrowButtonBase)`
+  right: 0;
 `;
 
-const decideFade = (isOnRightEnd: boolean, isOnLeftEnd: boolean): string => {
-  if (isOnRightEnd && isOnLeftEnd) {
-    return 'none';
-  } else if (!isOnRightEnd) {
-    return 'linear-gradient(to left, transparent 0%, black 50px);';
-  } else if (!isOnLeftEnd) {
-    return 'linear-gradient(to right, transparent 15px, black 50px);';
-  } else {
-    return 'linear-gradient(to right, transparent 15px, black 50px, black 90%, transparent 100%);';
+const getTabGradient = (scrollPosition: ScrollPosition): string => {
+  switch (scrollPosition) {
+    case 'left':
+      return 'linear-gradient(to left, transparent 40px, black 85px);';
+    case 'right':
+      return 'linear-gradient(to right, transparent 40px, black 85px);';
+    case 'center':
+      return 'linear-gradient(to right, transparent 40px, black 85px, black calc(100% - 85px), transparent calc(100% - 40px));';
+    default:
+      return 'none';
   }
 };
 
 type ItemsContainerProps = {
-  isOnRightEnd: boolean;
-  isOnLeftEnd: boolean;
+  scrollPosition: ScrollPosition;
   isInverted?: boolean;
 };
 
 export const ItemsContainer = styled.div<ItemsContainerProps>`
-  ${({ isOnRightEnd, isOnLeftEnd, isInverted }) => css`
+  ${({ scrollPosition, isInverted }) => css`
     position: relative;
-    display: flex;
-    user-select: none;
-    mask: ${decideFade(isOnRightEnd, isOnLeftEnd)};
-    width: ${!isOnLeftEnd || !isOnRightEnd ? `calc(100% - (2 * ${iconButtonWidth}px))` : '100%'};
+    mask: ${getTabGradient(scrollPosition)};
+    width: 100%;
     ${isInverted &&
     css`
       &::before {

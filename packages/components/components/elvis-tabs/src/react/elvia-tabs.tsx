@@ -1,23 +1,23 @@
-import React, { FC, useEffect, useState, useRef } from 'react';
-import { IconWrapper, isSsr } from '@elvia/elvis-toolbox';
+import React, { FC, useEffect, useState } from 'react';
+import { IconWrapper, isSsr, useRovingFocus } from '@elvia/elvis-toolbox';
 import {
   TabsContainer,
   ItemsContainer,
   ScrollContainer,
   Tab,
   TabLabel,
-  ArrowButton,
+  LeftArrowButton,
+  RightArrowButton,
 } from './styledComponents';
-import throttle from 'lodash.throttle';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { TabsProps } from './elvia-tabs.types';
+import { useScrollPositionDetection } from './useScrollPositionDetection';
 
 const Tabs: FC<TabsProps> = ({
   items,
   value = 0,
   isInverted,
-  hasManualActivation = false,
   ariaLabel,
   tabIdPrefix,
   valueOnChange,
@@ -26,225 +26,75 @@ const Tabs: FC<TabsProps> = ({
   webcomponent,
   ...rest
 }) => {
-  const [currValue, setCurrValue] = useState(value);
-  const [isOnRightEnd, setIsOnRightEnd] = useState(true);
-  const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
-  const [tabInFocus, setTabInFocus] = useState(value);
-  const [uniqueId, setUniqueId] = useState(`ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`);
-  const tabsRef = useRef<HTMLDivElement>(null);
-  const itemsRef = useRef<HTMLDivElement>(null);
-  const lengthToScroll = 140;
-  const scrollSteps = 12;
-
-  useEffect(() => {
-    setUniqueId(`ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`);
-  }, [tabIdPrefix]);
-
-  /**
-   * Start resize and scroll listener that updates arrow visibility
-   */
-  useEffect(() => {
-    if (!itemsRef.current) {
-      return;
-    }
-
-    const throttledResizeCount = throttle(updateArrowVisibility, 100);
-    const throttledScrollCount = throttle(updateArrowVisibility, 50);
-    window.addEventListener('resize', throttledResizeCount);
-    itemsRef.current.addEventListener('scroll', throttledScrollCount);
-
-    return () => {
-      window.removeEventListener('resize', throttledResizeCount);
-      if (itemsRef.current) {
-        itemsRef.current.removeEventListener('scroll', throttledScrollCount);
-      }
-    };
-  }, []);
-
-  /**
-   * Set arrow visibility
-   *
-   * Start listening to keydown events for updating tab-focus
-   */
-  useEffect(() => {
-    updateArrowVisibility();
-
-    if (itemsRef.current) {
-      itemsRef.current.addEventListener('keydown', updateFocusedElement);
-    }
-    return () => {
-      if (itemsRef.current) {
-        itemsRef.current.removeEventListener('keydown', updateFocusedElement);
-      }
-    };
-  });
+  const [selectedIndex, setSelectedIndex] = useState(value);
+  const uniqueId = `ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`;
+  const { ref: scrollContainerRef } = useRovingFocus<HTMLDivElement>({ dir: 'horizontal' });
+  const scrollPosition = useScrollPositionDetection(scrollContainerRef);
 
   /** When value changes, currValue and tabInFocus should be updated */
   useEffect(() => {
-    setCurrValue(value);
-    setTabInFocus(value);
+    setSelectedIndex(value);
   }, [value]);
 
   /** Updates the active tab and triggering valueOnChange events. */
-  const updateValue = (value: number): void => {
-    setCurrValue(value);
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(value);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: value }, true);
-      webcomponent.triggerEvent('valueOnChange', value);
-    }
+  const updateValue = (index: number): void => {
+    setSelectedIndex(index);
+
+    valueOnChange?.(index);
+    webcomponent?.setProps({ value: index }, true);
+    webcomponent?.triggerEvent('valueOnChange', index);
   };
 
-  /**
-   * Checks if the tabs area is showing all the tabs or if some of them are overflowing.
-   * Update variables for showing or hiding the navigational arrows.
-   */
-  const updateArrowVisibility = (): void => {
-    if (!itemsRef.current || !tabsRef.current) {
-      return;
-    }
-    const overflowing = itemsRef.current.scrollWidth - tabsRef.current.getBoundingClientRect().width;
-    if (overflowing < 1) {
-      setIsOnRightEnd(true);
-      setIsOnLeftEnd(true);
-    } else {
-      const isOnRight = itemsRef.current.scrollLeft >= overflowing;
-      const isOnLeft = itemsRef.current.scrollLeft <= 0;
-      setIsOnRightEnd(isOnRight);
-      setIsOnLeftEnd(isOnLeft);
-    }
-  };
-
-  /**
-   * If arrow right or left are used, update the focused element
-   *
-   * If hasManualActivation is false update the tab value as well (switch tab)
-   */
-  const updateFocusedElement = (e: KeyboardEvent): void => {
-    if (!itemsRef.current) {
-      return;
-    }
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-      let newTabToFocus = 0;
-      const tabsCollection = itemsRef.current.children as HTMLCollection;
-      tabsCollection[tabInFocus].setAttribute('tabIndex', '-1');
-      if (e.key === 'ArrowRight') {
-        newTabToFocus = tabInFocus + 1;
-        if (newTabToFocus >= tabsCollection.length) {
-          newTabToFocus = 0;
-        }
-      } else if (e.key === 'ArrowLeft') {
-        newTabToFocus = tabInFocus - 1;
-        if (newTabToFocus < 0) {
-          newTabToFocus = tabsCollection.length - 1;
-        }
-      }
-      setTabInFocus(newTabToFocus);
-      scrollIntoView(uniqueId + newTabToFocus);
-      tabsCollection[newTabToFocus].setAttribute('tabIndex', '0');
-      (tabsCollection[newTabToFocus] as HTMLElement).focus();
-      if (!hasManualActivation) {
-        updateValue(newTabToFocus);
-      }
-    }
-  };
-
-  /** Takes a direction (left or right) and scrolls a set amount in that direction within the tabs */
-  const scrollSideways = (direction: string): void => {
-    let scrollAmount = 0;
-    const slideTimer = () => {
-      if (!itemsRef.current) {
-        return;
-      }
-      direction === 'left'
-        ? (itemsRef.current.scrollLeft -= scrollSteps)
-        : (itemsRef.current.scrollLeft += scrollSteps);
-      scrollAmount += scrollSteps;
-      if (scrollAmount < lengthToScroll) {
-        console.log('Here');
-        requestAnimationFrame(slideTimer);
-      }
-    };
-    slideTimer();
+  const scroll = (direction: 'left' | 'right'): void => {
+    scrollContainerRef.current?.scrollBy({ left: direction === 'right' ? 120 : -120, behavior: 'smooth' });
   };
 
   const scrollIntoView = (elementId: string) => {
-    if (!isSsr()) {
-      document
-        .getElementById(elementId)
+    if (!isSsr() && scrollContainerRef.current) {
+      scrollContainerRef.current
+        .querySelector(`#${elementId}`)
         ?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   };
 
   return (
-    <TabsContainer
-      className={className}
-      style={inlineStyle}
-      ref={tabsRef}
-      data-testid="tabs-container"
-      {...rest}
-    >
-      <ArrowButton
-        isVisible={isOnRightEnd && isOnLeftEnd}
-        isLeftArrow={true}
-        onClick={() => {
-          scrollSideways('left');
-        }}
+    <TabsContainer className={className} style={inlineStyle} data-testid="tabs-container" {...rest}>
+      <LeftArrowButton
+        isVisible={['center', 'right'].includes(scrollPosition)}
+        size="md"
+        onClick={() => scroll('left')}
       >
-        <IconWrapper
-          icon={arrowLeftBold}
-          size="xxs"
-          color={isInverted ? 'white' : undefined}
-          style={{
-            position: 'absolute',
-            top: '11px',
-            visibility: isOnLeftEnd ? 'hidden' : 'visible',
-          }}
-        />
-      </ArrowButton>
-      <ItemsContainer isInverted={isInverted} isOnLeftEnd={isOnLeftEnd} isOnRightEnd={isOnRightEnd}>
-        <ScrollContainer ref={itemsRef} role="tablist" aria-label={ariaLabel}>
+        <IconWrapper icon={arrowLeftBold} size="xxs" color={isInverted ? 'white' : undefined} />
+      </LeftArrowButton>
+      <ItemsContainer isInverted={isInverted} scrollPosition={scrollPosition}>
+        <ScrollContainer ref={scrollContainerRef} role="tablist" aria-label={ariaLabel}>
           {items &&
             items.map((item, i) => (
               <Tab
                 role="tab"
                 id={uniqueId + i}
-                key={i}
-                aria-selected={currValue === i}
+                key={item}
+                aria-selected={selectedIndex === i}
                 aria-controls={uniqueId + i}
-                tabIndex={currValue === i ? 0 : -1}
                 onClick={() => {
                   updateValue(i);
                   scrollIntoView(uniqueId + i);
                 }}
-                data-testid="tab-button"
               >
-                <TabLabel isSelected={currValue == i} isInverted={isInverted} data-testid="tab-label">
+                <TabLabel isSelected={selectedIndex == i} isInverted={isInverted}>
                   {item}
                 </TabLabel>
               </Tab>
             ))}
         </ScrollContainer>
       </ItemsContainer>
-      <ArrowButton
-        isVisible={isOnRightEnd && isOnLeftEnd}
-        isLeftArrow={false}
-        onClick={() => {
-          scrollSideways('right');
-        }}
+      <RightArrowButton
+        isVisible={['left', 'center'].includes(scrollPosition)}
+        size="md"
+        onClick={() => scroll('right')}
       >
-        <IconWrapper
-          icon={arrowRightBold}
-          size="xxs"
-          color={isInverted ? 'white' : undefined}
-          style={{
-            position: 'absolute',
-            top: '11px',
-            visibility: isOnRightEnd ? 'hidden' : 'visible',
-          }}
-        />
-      </ArrowButton>
+        <IconWrapper icon={arrowRightBold} size="xxs" color={isInverted ? 'white' : undefined} />
+      </RightArrowButton>
     </TabsContainer>
   );
 };
