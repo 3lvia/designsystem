@@ -3,6 +3,7 @@ import { RefObject, useEffect, useRef } from 'react';
 interface Options<T extends HTMLElement> {
   dir: 'vertical' | 'horizontal' | 'both';
   elementRef?: RefObject<T>;
+  onKeyDown?: (focusedElement: HTMLElement, index: number) => void;
 }
 
 /**
@@ -178,6 +179,10 @@ export const useRovingFocus = <T extends HTMLElement>(
     const handleKeyDown = (event: KeyboardEvent) => {
       const newIndex = getNewIndex(event, items.length, focusedIndex.current);
       setFocusedItem(newIndex);
+
+      if (focusedItem.current) {
+        options?.onKeyDown?.(focusedItem.current, focusedIndex.current);
+      }
     };
 
     const handleClick = (event: MouseEvent) => {
