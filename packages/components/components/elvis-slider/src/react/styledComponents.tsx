@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 import { getThemeColor, getBaseColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { FormFieldInput as FormFieldInputBase, FormFieldSizes } from '@elvia/elvis-toolbox';
+import {
+  FormFieldInput as FormFieldInputBase,
+  FormFieldSizes,
+  FormFieldLabel as FormFieldLabelBase,
+} from '@elvia/elvis-toolbox';
 import { BothSliders, Sides, SliderType } from './elvia-slider.types';
 import { Hint } from './hint/styledHint';
 
@@ -84,6 +88,19 @@ const focusOutlineThumb = css`
   outline: 3px solid ${getBaseColor('focus-outline')};
 `;
 
+const srOnlyBase = css`
+  border: 0 !important;
+  clip-path: inset(50%) !important;
+  clip: rect(0 0 0 0) !important;
+  height: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 0 !important;
+`;
+
 export const SliderContainer = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -94,11 +111,21 @@ export const SliderContainer = styled.div`
   width: 100%;
 `;
 
-export const FormFieldInput = styled(FormFieldInputBase)<{ side?: Sides; isFullWidth?: boolean }>`
-  width: 100%;
+type FormFieldInputProps = {
+  $width?: number | null;
+  side?: Sides;
+  isFullWidth?: boolean;
+};
+
+export const FormFieldInput = styled(FormFieldInputBase)<FormFieldInputProps>`
+  width: ${({ $width }) => ($width ? `${$width}px` : '100%')};
   min-width: 16px;
   text-align: ${({ side = 'left', isFullWidth = false }) =>
     side === 'left' || isFullWidth ? 'left' : 'right'};
+`;
+
+export const FormFieldLabel = styled(FormFieldLabelBase)`
+  ${srOnlyBase}
 `;
 
 export const BoundaryWidthMeasurement = styled.span<{ size: FormFieldSizes }>`

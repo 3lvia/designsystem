@@ -7,14 +7,13 @@ import { render, screen, fireEvent, act } from '@testing-library/react';
 
 // Simple Slider
 describe('Elvia Slider', () => {
-  describe('The default simple slider', () => {
+  describe('The default slider', () => {
     beforeEach(() => {
       render(<Slider />);
     });
 
     test('should contain a single input type=range', () => {
       const sliderInput = screen.getByRole('slider');
-
       expect(sliderInput).toBeInTheDocument();
     });
 
@@ -42,120 +41,6 @@ describe('Elvia Slider', () => {
       expect(sliderInput).toBeEnabled();
     });
 
-    test('should not have a input field', () => {
-      const inputField = screen.queryByRole('textbox');
-
-      expect(inputField).not.toBeInTheDocument();
-    });
-
-    test('should display the tooltip containing the value on hover', async () => {
-      const user = userEvent.setup();
-      const sliderInput = screen.getByRole('slider');
-
-      await user.hover(sliderInput);
-
-      const tooltip = await screen.findByRole('tooltip');
-      expect(tooltip).toBeInTheDocument();
-      expect(tooltip).toHaveTextContent('0');
-    });
-
-    /* Using FireEvent here as type=range is not fully supported by UserEvent (?): https://github.com/testing-library/user-event/issues/871 */
-    test('should update the value when the slider is changed', async () => {
-      const sliderInput = screen.getByRole('slider');
-
-      fireEvent.change(sliderInput, { target: { value: 50 } });
-      expect(sliderInput).toHaveValue('50');
-    });
-  });
-
-  describe('The simple slider with the "hasPercent" prop', () => {
-    test('should display a tooltip containing the percentage between min and max', async () => {
-      const user = userEvent.setup();
-      render(<Slider value={10} hasPercent />);
-
-      const sliderInput = screen.getByRole('slider');
-
-      await user.hover(sliderInput);
-
-      const tooltip = screen.getByRole('tooltip');
-      expect(tooltip).toBeInTheDocument();
-      expect(tooltip).toHaveTextContent(`${10} %`);
-    });
-  });
-
-  describe('The simple slider with the "unit" prop', () => {
-    test('should display the tooltip containing a custom unit', async () => {
-      const user = userEvent.setup();
-      render(<Slider value={10} unit={' kWh'} />);
-
-      const sliderInput = screen.getByRole('slider');
-
-      await user.hover(sliderInput);
-
-      const tooltip = screen.getByRole('tooltip');
-      expect(tooltip).toBeInTheDocument();
-      expect(tooltip).toHaveTextContent(`${10} kWh`);
-    });
-  });
-
-  describe('The simple slider with the "hasHintValues" prop', () => {
-    test('should display two strings equal to the min and max value', () => {
-      render(<Slider hasHints />);
-
-      const leftHintValue = screen.getByText('0');
-      const rightHintValue = screen.getByText('100');
-
-      expect(leftHintValue).toBeInTheDocument();
-      expect(rightHintValue).toBeInTheDocument();
-    });
-  });
-
-  describe('The simple slider with the "heading" prop', () => {
-    test('should display a custom heading', () => {
-      render(<Slider heading={'kilovolt'} />);
-
-      const sliderHeading = screen.queryByText('kilovolt');
-
-      expect(sliderHeading).toBeInTheDocument();
-    });
-  });
-
-  describe('The simple slider with the "ariaLabel" prop', () => {
-    test('should contain a custom aria label', () => {
-      render(<Slider ariaLabel={'ampere'} />);
-
-      const customAriaLabel = screen.queryByLabelText('ampere');
-
-      expect(customAriaLabel).toBeInTheDocument();
-    });
-  });
-
-  describe('The simple slider with the "errorOptions" prop', () => {
-    beforeEach(() => {
-      render(
-        <Slider
-          hasInputField
-          errorOptions={{ text: 'jordfeil', isErrorState: true, hasErrorPlaceholder: true, hideText: false }}
-        />,
-      );
-    });
-
-    test('should have a custom error message', () => {
-      const customErrorText = screen.queryByText('jordfeil');
-      expect(customErrorText).toBeInTheDocument();
-    });
-
-    test('should have a invalid input type="text"', () => {
-      const inputField = screen.getByRole('textbox');
-      expect(inputField).toBeInvalid();
-    });
-  });
-
-  describe('The simple slider with a input field', () => {
-    beforeEach(() => {
-      render(<Slider hasInputField />);
-    });
-
     test('should have one enabled input type=text', () => {
       const inputField = screen.getByRole('textbox');
 
@@ -167,11 +52,6 @@ describe('Elvia Slider', () => {
       const inputField = screen.getByRole('textbox');
 
       expect(inputField).toHaveValue('0');
-    });
-
-    test('should have a label that says "Verdi"', () => {
-      const inputLabel = screen.queryByLabelText('Verdi');
-      expect(inputLabel).toBeInTheDocument();
     });
 
     test('should update the slider when the number input changes by typing', async () => {
@@ -190,31 +70,6 @@ describe('Elvia Slider', () => {
       expect(sliderInput).toHaveValue('20'); //see if the value was updated or not (it should update from 0 to 20)
     });
 
-    /* Using FireEvent here as type=range is not fully supported by UserEvent (?): https://github.com/testing-library/user-event/issues/871 */
-    test('should update the text input when the slider value changes', () => {
-      const slider = screen.getByRole('slider');
-      const inputField = screen.getByRole('textbox');
-
-      fireEvent.change(slider, { target: { value: 50 } });
-      expect(inputField).toHaveValue('50');
-    });
-
-    test('set the value to the minimum if the user inputs a number below the minimum', async () => {
-      const user = userEvent.setup();
-
-      const slider = screen.getByRole('slider');
-      const inputField = screen.getByRole('textbox');
-
-      await user.click(inputField);
-      await user.keyboard('{Backspace}');
-      await user.type(inputField, '-10');
-      act(() => {
-        inputField.blur(); //the input field needs to be blurred to trigger the onBlur event to validate the input
-      });
-
-      expect(slider).toHaveValue('0'); //default min
-    });
-
     test('set the value to the maximum if the user inputs a number above the maximum', async () => {
       const user = userEvent.setup();
 
@@ -230,14 +85,123 @@ describe('Elvia Slider', () => {
 
       expect(slider).toHaveValue('100'); //default max
     });
+
+    test('set the value to the minimum if the user inputs a number below the minimum', async () => {
+      const user = userEvent.setup();
+
+      const slider = screen.getByRole('slider');
+      const inputField = screen.getByRole('textbox');
+
+      await user.click(inputField);
+      await user.keyboard('{Backspace}');
+      await user.type(inputField, '-10000');
+      act(() => {
+        inputField.blur();
+      });
+
+      expect(slider).toHaveValue('0'); //default min
+    });
+
+    /* Using FireEvent here as type=range is not fully supported by UserEvent (?): https://github.com/testing-library/user-event/issues/871 */
+    test('should update the text input when the slider value changes', () => {
+      const slider = screen.getByRole('slider');
+      const inputField = screen.getByRole('textbox');
+
+      fireEvent.change(slider, { target: { value: 50 } });
+      expect(inputField).toHaveValue('50');
+    });
+
+    test('should display two hints equal to min and max', () => {
+      const leftHint = screen.getByTestId('left-hint');
+      const rightHint = screen.getByTestId('right-hint');
+
+      expect(leftHint).toBeInTheDocument();
+      expect(leftHint).toHaveTextContent('0');
+      expect(rightHint).toBeInTheDocument();
+      expect(rightHint).toHaveTextContent('100');
+    });
+
+    test('should display the tooltip containing the value on hover', async () => {
+      const user = userEvent.setup();
+      const sliderInput = screen.getByRole('slider');
+
+      await user.hover(sliderInput);
+
+      const tooltip = await screen.findByRole('tooltip');
+      expect(tooltip).toBeInTheDocument();
+      expect(tooltip).toHaveTextContent('0');
+    });
+
+    /* Using FireEvent here as type=range is not fully supported by UserEvent: https://github.com/testing-library/user-event/issues/871 */
+    test('should update the value when the slider is changed', async () => {
+      const sliderInput = screen.getByRole('slider');
+
+      fireEvent.change(sliderInput, { target: { value: 50 } });
+      expect(sliderInput).toHaveValue('50');
+    });
   });
 
-  describe('The simple slider with a input field and custom label', () => {
-    test('should have a label that is equal to the custom label ("kWh")', () => {
-      render(<Slider hasInputField label={'kWh'} />);
+  describe('The simple slider with the "unit" prop', () => {
+    test('should display the tooltip containing a custom unit', async () => {
+      const user = userEvent.setup();
+      render(<Slider value={10} unit={' kWh'} />);
 
-      const customInputLabel = screen.queryByLabelText('kWh');
-      expect(customInputLabel).toBeInTheDocument();
+      const sliderInput = screen.getByRole('slider');
+
+      await user.hover(sliderInput);
+
+      const tooltip = screen.getByRole('tooltip');
+      expect(tooltip).toBeInTheDocument();
+      expect(tooltip).toHaveTextContent('10 kWh');
+    });
+  });
+
+  describe('The simple slider with the "heading" prop', () => {
+    test('should display a custom heading', () => {
+      render(<Slider heading={'kilovolt'} />);
+
+      expect(screen.getByTestId('heading')).toBeInTheDocument();
+    });
+  });
+
+  describe('The simple slider with the "ariaLabel" prop', () => {
+    test('should contain a custom aria label', () => {
+      render(<Slider ariaLabel={'ampere'} />);
+
+      const customAriaLabel = screen.queryByLabelText('ampere');
+
+      expect(customAriaLabel).toBeInTheDocument();
+    });
+  });
+
+  describe('The simple slider with the "errorOptions" prop', () => {
+    beforeEach(() => {
+      render(
+        <Slider
+          errorOptions={{ text: 'jordfeil', isErrorState: true, hasErrorPlaceholder: true, hideText: false }}
+        />,
+      );
+    });
+
+    test('should have a custom error message', () => {
+      const customErrorText = screen.queryByText('jordfeil');
+      expect(customErrorText).toBeInTheDocument();
+    });
+
+    test('should have a invalid input type="text"', () => {
+      const inputField = screen.getByRole('textbox');
+      expect(inputField).toBeInvalid();
+    });
+  });
+
+  describe('The simple slider with the "value" prop', () => {
+    beforeEach(() => {
+      render(<Slider value={10} />);
+    });
+
+    test('should have a slider with a value equal to the "value" prop', () => {
+      const slider = screen.getByRole('slider');
+      expect(slider).toHaveValue('10');
     });
   });
 
@@ -252,6 +216,12 @@ describe('Elvia Slider', () => {
       expect(slider).toBeDisabled();
     });
 
+    test('should have a text input field that is disabled', () => {
+      const inputField = screen.getByRole('textbox');
+
+      expect(inputField).toBeDisabled();
+    });
+
     test('should not display the tooltip on hover', async () => {
       const user = userEvent.setup();
       const slider = screen.getByRole('slider');
@@ -264,15 +234,6 @@ describe('Elvia Slider', () => {
     });
   });
 
-  describe('The disabled simple slider with a input field', () => {
-    test('should have a input field that is disabled', () => {
-      render(<Slider isDisabled hasInputField />);
-      const inputField = screen.getByRole('textbox');
-
-      expect(inputField).toBeDisabled();
-    });
-  });
-
   // Range Slider
   describe('The default range slider', () => {
     beforeEach(() => {
@@ -281,6 +242,10 @@ describe('Elvia Slider', () => {
 
     test('should contain two inputs type=range', () => {
       expect(screen.getAllByRole('slider')).toHaveLength(2);
+    });
+
+    test('should contain two inputs type=text', () => {
+      expect(screen.getAllByRole('textbox')).toHaveLength(2);
     });
 
     test('should have a "min" attribute with the value 0 on the right slider', () => {
@@ -300,41 +265,17 @@ describe('Elvia Slider', () => {
 
       expect(rightSlider).toBeEnabled();
     });
-  });
-
-  describe('The range slider with input fields', () => {
-    beforeEach(() => {
-      render(<Slider type={'range'} hasInputField />);
-    });
-
-    test('should contain two inputs type=text', () => {
-      expect(screen.getAllByRole('textbox')).toHaveLength(2);
-    });
 
     test('should have a right input type=text with a default value loosely equal to the "max" attribute', () => {
       const rightInput = screen.getAllByRole('textbox')[1];
 
       expect(rightInput).toHaveValue('100');
     });
-
-    test('should have two type=text enabled', () => {
-      const rightInput = screen.getAllByRole('textbox')[1];
-
-      expect(rightInput).toBeEnabled();
-    });
-
-    test('should labels that say "Fra" and "Til" by default', () => {
-      const leftLabel = screen.queryByLabelText('Fra');
-      const rightLabel = screen.queryByLabelText('Til');
-
-      expect(leftLabel).toBeInTheDocument();
-      expect(rightLabel).toBeInTheDocument();
-    });
   });
 
   describe('The range slider with input fields interactions', () => {
-    test('if user sets left slider to higher value than  right slider, make the left slider equal to the right slider', async () => {
-      render(<Slider type={'range'} hasInputField value={{ left: 0, right: 80 }} />);
+    test('if user sets left slider to higher value than right slider, make the left slider equal to the right slider', async () => {
+      render(<Slider type={'range'} value={{ left: 0, right: 80 }} />);
 
       const user = userEvent.setup();
 
@@ -354,7 +295,7 @@ describe('Elvia Slider', () => {
     });
 
     test('if user sets  right slider to lower value than the left slider, make the right slider equal to the left slider', async () => {
-      render(<Slider type={'range'} hasInputField value={{ left: 20, right: 100 }} />);
+      render(<Slider type={'range'} value={{ left: 20, right: 100 }} />);
 
       const user = userEvent.setup();
 
@@ -379,9 +320,8 @@ describe('Elvia Slider', () => {
       render(
         <Slider
           type="range"
-          hasInputField
           errorOptions={{
-            left: { text: '', isErrorState: false, hasErrorPlaceholder: false, hideText: false },
+            left: { text: '', isErrorState: false, hasErrorPlaceholder: true, hideText: false },
             right: { text: 'Error message', isErrorState: true, hasErrorPlaceholder: true, hideText: false },
           }}
         />,
@@ -402,7 +342,7 @@ describe('Elvia Slider', () => {
 
   describe('Disabled range slider', () => {
     test('all components are disabled', () => {
-      render(<Slider type="range" isDisabled hasInputField />);
+      render(<Slider type="range" isDisabled />);
 
       const [leftSlider, rightSlider] = screen.getAllByRole('slider');
       const [leftInput, rightInput] = screen.getAllByRole('textbox');
@@ -419,10 +359,10 @@ describe('Elvia Slider', () => {
       render(
         <div data-testid="sliders">
           <Slider type={'range'} />
-          <Slider type={'range'} hasInputField={true} />
+          <Slider type={'range'} hasInputField={false} />
           <Slider type={'simple'} />
           <Slider type={'simple'} hasHints />
-          <Slider type={'simple'} isCompact />
+          <Slider type={'simple'} size="small" />
           <Slider type={'simple'} isDisabled />
           <Slider type={'simple'} heading={'temperatur'} />
           <Slider type={'simple'} unit={' grader'} />

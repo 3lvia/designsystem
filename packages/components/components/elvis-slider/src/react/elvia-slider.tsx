@@ -9,9 +9,10 @@ import {
 import { Tooltip } from './tooltip/tooltip';
 import { FormFieldInputValues, Sides, SliderProps, BothSliders, ErrorType } from './elvia-slider.types';
 import {
-  FormFieldInput,
-  InputFieldsContainer,
   BoundaryWidthMeasurement,
+  FormFieldInput,
+  FormFieldLabel,
+  InputFieldsContainer,
   SliderContainer,
   SliderFilledTrack,
   SliderTrack,
@@ -42,6 +43,7 @@ let uniqueId = 0;
 const Slider: React.FC<SliderProps> = function ({
   ariaLabel,
   className,
+  errorOnChange,
   errorOptions,
   hasHints = true,
   hasInputField = true,
@@ -56,7 +58,6 @@ const Slider: React.FC<SliderProps> = function ({
   unit,
   value,
   valueOnChange,
-  errorOnChange,
   webcomponent,
   ...rest
 }) {
@@ -74,16 +75,15 @@ const Slider: React.FC<SliderProps> = function ({
   const [isLeftSliderOnTop, setIsLeftSliderOnTop] = useState(false);
 
   //Responsive input fields
-  const [isFullWidthRangeInput, setIsFullWidthRangeInput] = useState(false);
-  const [minValueRectWidth, minValueRectRef] = useContentRectWidth<HTMLSpanElement>();
-  const [maxValueRectWidth, maxValueRectRef] = useContentRectWidth<HTMLSpanElement>();
-  const [measurementInputRectWidth, measurementInputRectWidthRef] = useContentRectWidth<HTMLLabelElement>();
-  const [totalSliderWidth, sliderRef] = useContentRectWidth<HTMLInputElement>();
-
-  const [leftHintRectWidth, leftHintRectWidthRef] = useContentRectWidth<HTMLSpanElement>();
-  const [rightHintRectWidth, rightHintRectWidthRef] = useContentRectWidth<HTMLSpanElement>();
   const [inputFieldsContainerRectWidth, inputFieldsContainerRectWidthRef] =
     useContentRectWidth<HTMLDivElement>();
+  const [isFullWidthRangeInput, setIsFullWidthRangeInput] = useState(false);
+  const [leftHintRectWidth, leftHintRectWidthRef] = useContentRectWidth<HTMLSpanElement>();
+  const [maxValueRectWidth, maxValueRectRef] = useContentRectWidth<HTMLSpanElement>();
+  const [measurementInputRectWidth, measurementInputRectWidthRef] = useContentRectWidth<HTMLDivElement>();
+  const [minValueRectWidth, minValueRectRef] = useContentRectWidth<HTMLSpanElement>();
+  const [rightHintRectWidth, rightHintRectWidthRef] = useContentRectWidth<HTMLSpanElement>();
+  const [totalSliderWidth, sliderRef] = useContentRectWidth<HTMLInputElement>();
   const [replaceHintValueWithInput, setReplaceHintValueWithInput] = useState({
     left: false,
     right: false,
@@ -231,6 +231,8 @@ const Slider: React.FC<SliderProps> = function ({
 
     if (value && !validateInputValue(value, side)) {
       return;
+    } else {
+      setError(undefined);
     }
 
     // If empty, set to min or max
@@ -270,7 +272,7 @@ const Slider: React.FC<SliderProps> = function ({
     setShowTooltip({ left: side === 'left', right: side === 'right' });
   };
 
-  const createHandleTooltipEvents = (side: Sides) => ({
+  const getHandleTooltipEvents = (side: Sides) => ({
     onBlur: () => handleTooltip(),
     onFocus: () => handleTooltip(side),
     onPointerLeave: () => handleTooltip(),
@@ -309,7 +311,7 @@ const Slider: React.FC<SliderProps> = function ({
         style={{ ...inlineStyle }}
         {...rest}
       >
-        {heading && <Heading id={`${id}-heading`} size={size} value={heading} />}
+        {heading && <Heading size={size} value={heading} />}
         <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size}>
           <StyledSlider
             type={'range'}
@@ -332,7 +334,7 @@ const Slider: React.FC<SliderProps> = function ({
             ref={sliderRef}
             $type={type}
             value={sliderValue.left}
-            {...createHandleTooltipEvents('left')}
+            {...getHandleTooltipEvents('left')}
           />
 
           {showTooltip.left && !isDisabled && (
@@ -361,7 +363,7 @@ const Slider: React.FC<SliderProps> = function ({
                 onChange={handleSliderValueChange}
                 $type={type}
                 value={sliderValue.right}
-                {...createHandleTooltipEvents('right')}
+                {...getHandleTooltipEvents('right')}
               />
 
               {showTooltip.right && !isDisabled && (
@@ -388,16 +390,17 @@ const Slider: React.FC<SliderProps> = function ({
         {hasInputField && (
           <>
             {/* hidden */}
-            <BoundaryWidthMeasurement ref={minValueRectRef} size={size}>
+            <BoundaryWidthMeasurement ref={minValueRectRef} size={size} role="none" aria-hidden="true">
               {min}
             </BoundaryWidthMeasurement>
-            <BoundaryWidthMeasurement ref={maxValueRectRef} size={size}>
+            <BoundaryWidthMeasurement ref={maxValueRectRef} size={size} role="none" aria-hidden="true">
               {max}
             </BoundaryWidthMeasurement>
             <FormFieldContainer
+              as="div"
               size={size}
               style={{
-                height: '0',
+                height: 0,
                 margin: 0,
                 overflow: 'hidden',
                 padding: 0,
@@ -405,18 +408,12 @@ const Slider: React.FC<SliderProps> = function ({
                 whiteSpace: 'pre',
                 visibility: 'hidden',
               }}
-              aria-hidden={true}
-              role="presentation"
+              aria-hidden="true"
+              role="none"
               ref={measurementInputRectWidthRef}
             >
               <FormFieldInputContainer>
-                <FormFieldInput
-                  disabled={true}
-                  value={formFieldInputValues.left}
-                  style={{
-                    width: inputMinWidth,
-                  }}
-                />
+                <FormFieldInput disabled={true} value={formFieldInputValues.left} $width={inputMinWidth} />
                 {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
             </FormFieldContainer>
@@ -439,6 +436,7 @@ const Slider: React.FC<SliderProps> = function ({
               side={'left'}
               size={size}
               value={min}
+              aria-hidden={true}
             />
           )}
 
@@ -450,30 +448,28 @@ const Slider: React.FC<SliderProps> = function ({
               isFullWidth={hintValueHasBeenReplaced || isFullWidthRangeInput}
               hasErrorPlaceholder={hasErrorPlaceholder && !(type === 'range' && isFullWidthRangeInput)}
             >
+              <FormFieldLabel>{heading ? heading : 'juster glidebryter'}</FormFieldLabel>
               <FormFieldInputContainer>
                 <FormFieldInput
-                  aria-invalid={getIsErrorState({
-                    side: 'left',
-                    error: error,
-                    errorOptions: mergedErrorOptions,
-                  })}
+                  $side="left"
+                  $width={hintValueHasBeenReplaced || isFullWidthRangeInput ? null : inputMinWidth}
                   aria-errormessage={getAriaErrorMessage({
                     error: error,
                     errorOptions: mergedErrorOptions,
                     id: id,
                     side: 'left',
                   })}
+                  aria-invalid={getIsErrorState({
+                    side: 'left',
+                    error: error,
+                    errorOptions: mergedErrorOptions,
+                  })}
                   autoComplete="off"
                   disabled={isDisabled}
-                  name="left"
-                  side="left"
                   isFullWidth={isFullWidthRangeInput}
                   onBlur={(e) => handleFormFieldInputOnBlur(e, 'left')}
                   onChange={(e) => handleFormFieldInputOnChange(e, 'left')}
                   value={formFieldInputValues.left}
-                  style={{
-                    width: hintValueHasBeenReplaced || isFullWidthRangeInput ? '' : inputMinWidth,
-                  }}
                 />
                 {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
@@ -503,37 +499,34 @@ const Slider: React.FC<SliderProps> = function ({
               hasErrorPlaceholder={hasErrorPlaceholder}
               isFullWidth={isFullWidthRangeInput}
             >
+              <FormFieldLabel>{heading ? heading : 'juster glidebryter'}</FormFieldLabel>
               <FormFieldInputContainer>
                 <FormFieldInput
-                  aria-labelledby={heading ?? `${id}-heading`}
-                  aria-invalid={getIsErrorState({ side: 'right', error, errorOptions })}
-                  aria-invalid={getIsErrorState({
-                    side: 'right',
-                    error: error,
-                    errorOptions: mergedErrorOptions,
-                  })}
+                  $side="right"
+                  $width={hintValueHasBeenReplaced || isFullWidthRangeInput ? null : inputMinWidth}
                   aria-errormessage={getAriaErrorMessage({
                     error: error,
                     errorOptions: mergedErrorOptions,
                     id: id,
                     side: 'right',
                   })}
+                  aria-invalid={getIsErrorState({
+                    side: 'right',
+                    error: error,
+                    errorOptions: mergedErrorOptions,
+                  })}
                   disabled={isDisabled}
-                  side="right"
                   isFullWidth={isFullWidthRangeInput}
                   onBlur={(e) => handleFormFieldInputOnBlur(e, 'right')}
                   onChange={(e) => handleFormFieldInputOnChange(e, 'right')}
                   value={formFieldInputValues.right}
-                  style={{
-                    width: hintValueHasBeenReplaced || isFullWidthRangeInput ? '' : inputMinWidth,
-                  }}
                 />
                 {suffix && <FormFieldInputSuffixText>{suffix}</FormFieldInputSuffixText>}
               </FormFieldInputContainer>
             </FormFieldContainer>
           )}
           {hasInputField && !hasHideText && hasErrorPlaceholder && hasErrorText && (
-            <SliderError errorOptions={mergedErrorOptions} errorType={error} />
+            <SliderError id={id} errorOptions={mergedErrorOptions} errorType={error} />
           )}
         </InputFieldsContainer>
       </SliderContainer>

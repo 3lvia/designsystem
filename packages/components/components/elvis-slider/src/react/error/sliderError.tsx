@@ -7,16 +7,17 @@ import { getErrorOptionsText, getInternalErrorText } from '../utils/getError';
 interface Props {
   errorType?: Partial<BothSliders<ErrorType>>;
   errorOptions?: ErrorOptions;
+  id: string;
 }
 
-export const SliderError: React.FC<Props> = ({ errorType, errorOptions }) => {
+export const SliderError: React.FC<Props> = ({ errorType, errorOptions, id }) => {
   const [errorText, setErrorText] = useState('');
 
   useEffect(() => {
-    if (errorOptions) {
-      setErrorText(getErrorOptionsText(errorOptions));
-    } else if (errorType) {
+    if (errorType) {
       setErrorText(getInternalErrorText(errorType));
+    } else if (errorOptions) {
+      setErrorText(getErrorOptionsText(errorOptions));
     } else {
       setErrorText('');
     }
@@ -25,7 +26,7 @@ export const SliderError: React.FC<Props> = ({ errorType, errorOptions }) => {
   return (
     <FormFieldErrorContainer>
       <IconWrapper icon={removeCircle} color={'signal-error'} size="xs" />
-      <FormFieldError data-testid="error">{errorText}</FormFieldError>
+      <FormFieldError id={`error-${id}`}>{errorText}</FormFieldError>
     </FormFieldErrorContainer>
   );
 };
