@@ -116,3 +116,23 @@ export const getShowErrorText = (errorOptions: ErrorOptions): boolean => {
     return !!errorOptions?.hideText;
   }
 };
+
+export const getAriaErrorMessage = ({
+  side,
+  id,
+  error,
+  errorOptions,
+}: {
+  side: Sides;
+  id: string;
+  error: Partial<BothSliders<ErrorType>> | undefined;
+  errorOptions: ErrorOptions;
+}): string | undefined => {
+  return getIsErrorState({
+    side: side,
+    error: error,
+    errorOptions: errorOptions,
+  }) && getHasErrorText({ error: error, errorOptions: errorOptions })
+    ? `error-${id}`
+    : undefined;
+};

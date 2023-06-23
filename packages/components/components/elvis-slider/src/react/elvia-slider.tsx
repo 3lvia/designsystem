@@ -22,6 +22,7 @@ import { calculateThumbPosition } from './utils/calculateThumbPosition';
 import { getAriaLabel } from './utils/getAriaLabel';
 import { config } from './config';
 import {
+  getAriaErrorMessage,
   getHasErrorPlaceholder,
   getHasErrorText,
   getInternalErrorText,
@@ -456,6 +457,12 @@ const Slider: React.FC<SliderProps> = function ({
                     error: error,
                     errorOptions: mergedErrorOptions,
                   })}
+                  aria-errormessage={getAriaErrorMessage({
+                    error: error,
+                    errorOptions: mergedErrorOptions,
+                    id: id,
+                    side: 'left',
+                  })}
                   autoComplete="off"
                   disabled={isDisabled}
                   name="left"
@@ -505,7 +512,12 @@ const Slider: React.FC<SliderProps> = function ({
                     error: error,
                     errorOptions: mergedErrorOptions,
                   })}
-                  aria-errormessage={`${id}-error-text`}
+                  aria-errormessage={getAriaErrorMessage({
+                    error: error,
+                    errorOptions: mergedErrorOptions,
+                    id: id,
+                    side: 'right',
+                  })}
                   disabled={isDisabled}
                   side="right"
                   isFullWidth={isFullWidthRangeInput}
