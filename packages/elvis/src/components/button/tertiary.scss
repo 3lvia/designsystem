@@ -10,23 +10,12 @@
   border-radius: 0;
   border-bottom: 2.5px solid transparent;
   background: none;
-  color: colors.color('font-color');
-  @include helpers.hover() {
-    &:hover:not(:disabled):not(.e-btn--loading) {
-      border-color: colors.color('elvia-charge');
-      background: none;
-
-      .e-btn__icon i {
-        visibility: visible;
-      }
-    }
-  }
+  color: var(--e-color-text-1);
 
   .e-btn__icon {
     @include icons.icon-size('sm');
 
     i {
-      @include icons.icon-size('sm');
       visibility: visible;
     }
 
@@ -37,66 +26,33 @@
     }
   }
 
-  &.e-btn--loading {
-    @extend %e-btn--loading;
+  // Sizes
+  &.e-btn--lg {
+    padding-bottom: 1.5px;
+  }
 
-    span {
-      background: colors.color('elvia-off');
+  &.e-btn--sm {
+    .e-btn__icon {
+      @include icons.icon-size('xs');
     }
   }
 
-  &.e-btn--inverted {
-    color: colors.color('elvia-on') !important;
+  // States
+  @include helpers.hover() {
+    &:hover:not(:disabled):not(.e-btn--loading),
+    &.e-btn---hover,
+    &.e-btn---selected {
+      border-color: var(--e-color-border-hover-1);
+      background: none;
+      color: var(--e-color-text-1);
 
-    @include helpers.hover() {
-      &:hover:not(:disabled):not(.e-btn--loading) {
-        border-color: colors.color('elvia-charge');
-        background: none;
-
-        .e-btn__icon {
-          i {
-            visibility: hidden;
-          }
-
-          i[class*='inverted'],
-          i[class*='color-disabled-light'],
-          i[class*='e-icon--disabled-inverted'] {
-            visibility: visible;
-          }
-        }
-      }
-    }
-
-    &.e-btn--loading {
-      span {
-        background-color: colors.color('elvia-on');
-      }
-    }
-
-    .e-btn__icon {
-      i {
-        visibility: hidden;
-      }
-
-      i[class*='inverted'],
-      i[class*='color-disabled-light'],
-      i[class*='e-icon--disabled-inverted'] {
+      .e-btn__icon i {
         visibility: visible;
       }
     }
 
-    &:disabled {
-      border-bottom: none;
-      background: none;
-      color: colors.color('grey-70') !important;
-      cursor: not-allowed;
-
-      .e-btn__icon {
-        opacity: 0.3;
-      }
-    }
-
-    &:active:not(:disabled):not(.e-btn--loading) {
+    &.e-btn---hover[class*='e-btn--inverted'],
+    &.e-btn---selected[class*='e-btn--inverted'] {
       .e-btn__icon {
         i {
           visibility: hidden;
@@ -111,70 +67,10 @@
     }
   }
 
-  &.e-btn--lg {
-    padding-bottom: 1.5px;
-
-    // &.e-btn--loading {
-    //   span {
-    //     width: button.$loading-dot-lg;
-    //     height: button.$loading-dot-lg;
-    //   }
-    // }
-  }
-
-  &.e-btn--sm {
-    .e-btn__icon {
-      @include icons.icon-size('xs');
-
-      i {
-        @include icons.icon-size('xs');
-      }
-    }
-
-    // &.e-btn--loading {
-    //   span {
-    //     width: button.$loading-dot-sm;
-    //     height: button.$loading-dot-sm;
-    //   }
-    // }
-  }
-
-  &.e-btn---disabled,
-  &:disabled {
-    color: colors.color('disabled');
-    cursor: not-allowed;
-  }
-
-  &.e-btn---hover,
-  &.e-btn---selected {
-    border-color: colors.color('elvia-charge');
-    background: none;
-
-    .e-btn__icon i {
-      visibility: visible;
-    }
-  }
-
-  &.e-btn---hover[class*='e-btn--inverted'],
-  &.e-btn---selected[class*='e-btn--inverted'] {
-    .e-btn__icon {
-      i {
-        visibility: hidden;
-      }
-
-      i[class*='inverted'],
-      i[class*='color-disabled-light'],
-      i[class*='e-icon--disabled-inverted'] {
-        visibility: visible;
-      }
-    }
-  }
-
   &.e-btn---active,
   &:active:not(:disabled):not(.e-btn--loading) {
     padding-bottom: 4.5px;
-    border-color: colors.color('elvia-charge');
-    border-bottom: 1.5px solid colors.color('elvia-charge');
+    border-bottom: 1.5px solid var(--e-color-border-hover-1);
     background: none;
 
     &.e-btn--lg {
@@ -184,5 +80,14 @@
     .e-btn__icon i {
       visibility: visible;
     }
+  }
+
+  &.e-btn---disabled,
+  &:disabled {
+    color: var(--e-color-text-disabled-1);
+  }
+
+  &.e-btn--loading span {
+    background-color: var(--e-color-text-1);
   }
 }

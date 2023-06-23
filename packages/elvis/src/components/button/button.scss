@@ -1,10 +1,4 @@
-@use '../../variables/colors.scss';
-@use '../../variables/shadows.scss';
-@use '../../variables/shared-sizes.scss';
-@use '../../variables/spacing';
-@use '../../utilities/animations.scss';
 @use '../../utilities/helpers.scss';
-@use '../../utilities/breakpoints.scss';
 @use '../../utilities/outline.scss';
 @use '../../utilities/icons.scss';
 
@@ -19,132 +13,148 @@
   --e-button-label: var(--e-dark-theme-black);
 }
 
-$button-radius: 24px;
-$button-font-weight: 500;
-$button-border-width: 1px;
-$button-extra-border-hover: 1px;
+$button-lg-padding: 11px 31px;
+$button-md-padding: 9px 23px;
+$button-sm-padding: 7px 15px;
 
-$button-lg-padding-y: 12px;
-$button-lg-padding-x: 32px;
-$button-lg-padding: $button-lg-padding-y $button-lg-padding-x;
-$button-lg-font-size: 18px;
-$button-lg-line-height: 24px;
-
-$button-md-padding-y: 10px;
-$button-md-padding-x: 24px;
-$button-md-padding: $button-md-padding-y $button-md-padding-x;
-$button-md-font-size: 16px;
-$button-md-line-height: 20px;
-
-$button-sm-padding-y: 8px;
-$button-sm-padding-x: 16px;
-$button-sm-padding: $button-sm-padding-y $button-sm-padding-x;
-$button-sm-font-size: 14px;
-$button-sm-line-height: 16px;
-
-$loading-dot-lg: 12px;
-$loading-dot-md: 10px;
-$loading-dot-sm: 8px;
-
-.e-btn {
-  @extend .e-btn--md;
+.e-btn,
+.e-btn.e-btn--primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: $button-md-padding;
+  border: 1px solid var(--e-color-border-1);
+  border-radius: 24px;
+  background: var(--e-button-background);
+  color: var(--e-button-label);
   cursor: pointer;
   font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: $button-font-weight;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
   text-decoration: none;
   white-space: nowrap;
 
-  // Removing default focus on firefox
-  &::-moz-focus-inner {
-    border: 0;
+  .e-btn__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include icons.icon-size('xs');
+
+    i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      // Hiding hover ikon (only show inverted ikon)
+      visibility: hidden;
+    }
+
+    i[class*='inverted'],
+    i[class*='color-disabled-light'] {
+      visibility: visible;
+    }
   }
 
-  &__title + &__icon,
-  &__icon + &__title {
+  .e-btn__title + .e-btn__icon,
+  .e-btn__icon + .e-btn__title {
     margin-left: 8px;
   }
 
   // Sizes
   &.e-btn--lg {
-    padding: calc(#{$button-lg-padding-y} - 1px) calc(#{$button-lg-padding-x} - 1px);
-    font-size: $button-lg-font-size;
-    line-height: $button-lg-line-height;
+    padding: $button-lg-padding;
+    font-size: 18px;
+    line-height: 24px;
 
-    .e-btn__icon,
-    .e-btn__icon i {
+    .e-btn__icon {
       @include icons.icon-size('sm');
     }
 
     &.e-btn--loading span {
-      width: $loading-dot-lg;
-      height: $loading-dot-lg;
-    }
-  }
-
-  &.e-btn--md {
-    padding: calc(#{$button-md-padding-y} - 1px) calc(#{$button-md-padding-x} - 1px);
-    font-size: $button-md-font-size;
-    line-height: $button-md-line-height;
-
-    .e-btn__icon,
-    .e-btn__icon i {
-      @include icons.icon-size('xs');
+      width: 12px;
+      height: 12px;
     }
   }
 
   &.e-btn--sm {
-    padding: calc(#{$button-sm-padding-y} - 1px) calc(#{$button-sm-padding-x} - 1px);
-    font-size: $button-sm-font-size;
-    line-height: $button-sm-line-height;
+    padding: $button-sm-padding;
+    font-size: 14px;
+    line-height: 16px;
 
-    .e-btn__icon,
-    .e-btn__icon i {
-      @include icons.icon-size('xs');
-    }
-
-    // States
     &.e-btn--loading span {
-      width: $loading-dot-sm;
-      height: $loading-dot-sm;
-    }
-
-    &:focus:not(:disabled) {
-      @include outline.e-outline();
-    }
-
-    &.e-btn---focus {
-      @include outline.e-outline-pseudoclass();
+      width: 8px;
+      height: 8px;
     }
   }
 
   // States
+  @include helpers.hover() {
+    &.e-btn---hover,
+    &.e-btn---selected,
+    &.e-btn---active,
+    &:active:not(:disabled):not(.e-btn--loading),
+    &:hover:not(:disabled):not(.e-btn--loading) {
+      border-color: var(--e-color-border-hover-1);
+      background: var(--e-color-background-hover-1);
+      color: var(--e-color-static-black);
+
+      .e-btn__icon i[class*='inverted'] {
+        visibility: hidden;
+      }
+
+      .e-btn__icon i:not([class$='inverted']) {
+        visibility: visible;
+      }
+    }
+  }
+
+  &.e-btn---active,
+  &:active:not(:disabled):not(.e-btn--loading) {
+    border-color: transparent;
+    background-clip: padding-box;
+  }
+
+  &:focus:not(:disabled) {
+    @include outline.e-outline();
+  }
+
+  &.e-btn---focus {
+    @include outline.e-outline-pseudoclass();
+  }
+  // Removing default focus on firefox
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &.e-btn---disabled,
+  &:disabled {
+    border-color: var(--e-color-border-disabled-1);
+    background: var(--e-color-background-disabled-2);
+    color: var(--e-color-text-disabled-2);
+    cursor: not-allowed;
+  }
+
   &.e-btn--loading {
-    @extend %e-btn--loading;
-  }
-}
-
-%e-btn--loading {
-  display: inline-block;
-  cursor: progress;
-
-  span {
     display: inline-block;
-    width: $loading-dot-md;
-    height: $loading-dot-md;
-    border-radius: 100%;
-    animation: loading-dots 1s infinite ease-in-out both;
-    background-color: var(--e-button-label);
-  }
+    cursor: progress;
 
-  span:nth-of-type(1) {
-    @include helpers.animation-delay(-0.32s);
-  }
+    span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      animation: loading-dots 1s infinite ease-in-out both;
+      background-color: var(--e-button-label);
+    }
 
-  span:nth-of-type(2) {
-    @include helpers.animation-delay(-0.16s);
+    span:nth-of-type(1) {
+      @include helpers.animation-delay(-0.32s);
+    }
+
+    span:nth-of-type(2) {
+      @include helpers.animation-delay(-0.16s);
+    }
   }
 }
 
@@ -158,11 +168,4 @@ $loading-dot-sm: 8px;
   40% {
     @include helpers.transform(scale(1));
   }
-}
-
-// DEPRECATED
-.e-btn.e-btn--sm.e-btn---focus.e-btn--inverted {
-  border: 1px solid colors.color('elvia-on');
-  background: colors.color('elvia-on');
-  color: colors.color('font-color');
 }

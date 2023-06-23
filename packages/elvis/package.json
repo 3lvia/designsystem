@@ -20,7 +20,7 @@
     "src/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-assets-icons": "2.14.0",
+    "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-colors": "^2.7.0",
     "@elvia/elvis-typography": "^2.3.2",
     "bootstrap": "4.6.1",

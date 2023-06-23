@@ -4,9 +4,10 @@
 @use 'body.scss';
 @use './button/button.scss';
 @use './button/icon.scss';
-@use './button/primary.scss';
 @use './button/secondary.scss';
 @use './button/tertiary.scss';
+@use './button/danger.scss';
+@use './button/deprecated.scss';
 @use 'card.scss';
 @use 'chip.scss';
 @use 'content-loader.scss';
