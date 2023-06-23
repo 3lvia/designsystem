@@ -73,19 +73,14 @@ $loading-dot-sm: 8px;
     font-size: $button-lg-font-size;
     line-height: $button-lg-line-height;
 
-    .e-btn__icon {
+    .e-btn__icon,
+    .e-btn__icon i {
       @include icons.icon-size('sm');
-
-      i {
-        @include icons.icon-size('sm');
-      }
     }
 
-    &.e-btn--loading {
-      span {
-        width: $loading-dot-lg;
-        height: $loading-dot-lg;
-      }
+    &.e-btn--loading span {
+      width: $loading-dot-lg;
+      height: $loading-dot-lg;
     }
   }
 
@@ -94,12 +89,9 @@ $loading-dot-sm: 8px;
     font-size: $button-md-font-size;
     line-height: $button-md-line-height;
 
-    .e-btn__icon {
+    .e-btn__icon,
+    .e-btn__icon i {
       @include icons.icon-size('xs');
-
-      i {
-        @include icons.icon-size('xs');
-      }
     }
   }
 
@@ -108,20 +100,15 @@ $loading-dot-sm: 8px;
     font-size: $button-sm-font-size;
     line-height: $button-sm-line-height;
 
-    .e-btn__icon {
+    .e-btn__icon,
+    .e-btn__icon i {
       @include icons.icon-size('xs');
-
-      i {
-        @include icons.icon-size('xs');
-      }
     }
 
     // States
-    &.e-btn--loading {
-      span {
-        width: $loading-dot-sm;
-        height: $loading-dot-sm;
-      }
+    &.e-btn--loading span {
+      width: $loading-dot-sm;
+      height: $loading-dot-sm;
     }
 
     &:focus:not(:disabled) {
@@ -130,23 +117,12 @@ $loading-dot-sm: 8px;
 
     &.e-btn---focus {
       @include outline.e-outline-pseudoclass();
-
-      // DEPRECATED
-      &.e-btn--inverted {
-        border: 1px solid colors.color('elvia-on');
-        background: colors.color('elvia-on');
-        color: colors.color('font-color');
-      }
     }
   }
 
   // States
   &.e-btn--loading {
     @extend %e-btn--loading;
-
-    span {
-      background-color: colors.color('elvia-on');
-    }
   }
 }
 
@@ -160,6 +136,7 @@ $loading-dot-sm: 8px;
     height: $loading-dot-md;
     border-radius: 100%;
     animation: loading-dots 1s infinite ease-in-out both;
+    background-color: var(--e-button-label);
   }
 
   span:nth-of-type(1) {
@@ -181,4 +158,11 @@ $loading-dot-sm: 8px;
   40% {
     @include helpers.transform(scale(1));
   }
+}
+
+// DEPRECATED
+.e-btn.e-btn--sm.e-btn---focus.e-btn--inverted {
+  border: 1px solid colors.color('elvia-on');
+  background: colors.color('elvia-on');
+  color: colors.color('font-color');
 }
