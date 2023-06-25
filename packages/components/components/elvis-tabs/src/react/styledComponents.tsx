@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { ScrollPosition } from './elvia-tabs.types';
-import { IconButton } from '@elvia/elvis-toolbox';
+import { IconButton, device } from '@elvia/elvis-toolbox';
 
 const tabsLineHeight = 20;
 const tabsUnderlineHeight = 4;
@@ -63,14 +63,15 @@ export const ScrollContainer = styled.div<ScrollContainerProps>`
   padding: ${tabsFocusPadding}px;
   height: ${tabsHeightWithFocus}px;
   scrollbar-width: none;
-  gap: 24px;
+  gap: 16px;
   position: relative;
   mask: ${({ scrollPosition }) => getTabGradient(scrollPosition)};
   scroll-behavior: smooth;
 
-  @media screen and (max-width: 767px) {
-    gap: 16px;
+  @media ${device.gtMobile} {
+    gap: 24px;
   }
+
   &::-webkit-scrollbar {
     display: none;
   }

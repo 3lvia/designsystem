@@ -8,7 +8,8 @@
         {
           "type": "new_feature",
           "changes": [
-            "Add optional callback to useRovingFocus when focus changes through keyboard interaction."
+            "Add optional callback to useRovingFocus when focus changes through keyboard interaction.",
+            "Add shared breakpoints for media queries."
           ]
         }
       ]
