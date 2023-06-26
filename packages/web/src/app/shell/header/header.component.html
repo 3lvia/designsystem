@@ -1,5 +1,23 @@
 <!-- Header  -->
 <header class="header" id="header">
+  <elvia-modal
+    heading="Dark theme is here!"
+    hasCloseButton="true"
+    [isShowing]="showThemeAnnouncement"
+    (onClose)="closeThemeAnnouncement()"
+  >
+    <div class="e-text-lg" slot="content">
+      <p class="e-m-0">All components now support dark theme. Choose between themes in the navigation bar.</p>
+      <br />
+      <p class="e-m-0">
+        Read more about
+        <a href="#" class="e-link e-link--lg">theming.</a>
+      </p>
+    </div>
+    <div slot="illustration">
+      <img alt="" src="/assets/new_dark.svg" />
+    </div>
+  </elvia-modal>
   <div class="logo">
     <a [ngClass]="{ show: headerLogoLoaded }" class="header-logo-link" [routerLink]="['', 'home']">
       <img
