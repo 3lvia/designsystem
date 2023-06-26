@@ -131,6 +131,14 @@ module.exports = [
     name: 'Radio Button',
     url: '/components/radiobutton.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Search',

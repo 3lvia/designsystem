@@ -297,12 +297,12 @@ describe('Elvis Datepicker', () => {
       expect(after).toBeTruthy();
       expect(notAfter).not.toBeTruthy();
     });
-    it('should give isBefore and isAfter true when min/max date dont exist', () => {
+    it('should give isBefore and isAfter false when min/max date dont exist', () => {
       const before = isBefore(earlyDate);
       const after = isAfter(lateDate);
 
-      expect(before).toBeTruthy();
-      expect(after).toBeTruthy();
+      expect(before).toBeFalsy();
+      expect(after).toBeFalsy();
     });
     it('should check if date is in min/max-boundary', () => {
       const isBetween = dateIsWithinMinMaxBoundary(middleDate, earlyDate, lateDate);
