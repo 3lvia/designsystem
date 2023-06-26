@@ -1,4 +1,4 @@
-@use './button.scss';
+@use '../../utilities/helpers.scss';
 
 .e-btn.e-btn--secondary {
   border: 1px solid var(--e-color-border-1);
@@ -7,6 +7,27 @@
 
   .e-btn__icon i {
     visibility: visible;
+  }
+
+  // States
+  @include helpers.hover() {
+    &.e-btn---hover,
+    &.e-btn---selected,
+    &.e-btn---active,
+    &:active:not(:disabled):not(.e-btn--loading),
+    &:hover:not(:disabled):not(.e-btn--loading) {
+      border-color: var(--e-color-border-hover-1);
+      background: var(--e-color-background-hover-1);
+      color: var(--e-color-static-black);
+
+      .e-btn__icon i[class*='inverted'] {
+        visibility: hidden;
+      }
+
+      .e-btn__icon i:not([class$='inverted']) {
+        visibility: visible;
+      }
+    }
   }
 
   &.e-btn---disabled,

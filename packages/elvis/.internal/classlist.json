@@ -217,27 +217,27 @@
 		"e-outline": {},
 		"e-btn": {
 			"modifier": {
+				"e-btn--inverted": {},
 				"e-btn--primary": {},
-				"e-btn--lg": {},
-				"e-btn--loading": {},
 				"e-btn--sm": {},
-				"e-btn--icon": {},
-				"e-btn--circled": {},
+				"e-btn--loading": {},
 				"e-btn--secondary": {},
 				"e-btn--tertiary": {},
 				"e-btn--danger": {},
-				"e-btn--inverted": {}
+				"e-btn--icon": {},
+				"e-btn--lg": {},
+				"e-btn--circled": {}
 			},
 			"element": {
 				"e-btn__icon": {},
 				"e-btn__title": {}
 			},
 			"psuedo": {
+				"e-btn---focus": {},
+				"e-btn---disabled": {},
 				"e-btn---hover": {},
 				"e-btn---selected": {},
-				"e-btn---active": {},
-				"e-btn---focus": {},
-				"e-btn---disabled": {}
+				"e-btn---active": {}
 			}
 		},
 		"e-card": {
@@ -1358,23 +1358,23 @@
 		"e-no-outline": {},
 		"e-outline": {},
 		"e-btn": {},
+		"e-btn--inverted": {},
 		"e-btn--primary": {},
 		"e-btn__icon": {},
-		"e-btn__title": {},
-		"e-btn--lg": {},
-		"e-btn--loading": {},
 		"e-btn--sm": {},
-		"e-btn---hover": {},
-		"e-btn---selected": {},
-		"e-btn---active": {},
 		"e-btn---focus": {},
 		"e-btn---disabled": {},
-		"e-btn--icon": {},
-		"e-btn--circled": {},
+		"e-btn--loading": {},
 		"e-btn--secondary": {},
 		"e-btn--tertiary": {},
 		"e-btn--danger": {},
-		"e-btn--inverted": {},
+		"e-btn---hover": {},
+		"e-btn---selected": {},
+		"e-btn---active": {},
+		"e-btn--icon": {},
+		"e-btn--lg": {},
+		"e-btn--circled": {},
+		"e-btn__title": {},
 		"e-card": {},
 		"e-card--text-only": {},
 		"e-card--shadow-soft": {},

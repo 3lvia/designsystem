@@ -13,7 +13,7 @@
   }
 
   // States
-  &.e-btn--sm.e-btn---focus.e-btn--inverted {
+  &.e-btn--sm.e-btn---focus {
     border: 1px solid colors.color('elvia-on');
     background: colors.color('elvia-on');
     color: colors.color('font-color');
@@ -38,6 +38,7 @@
   background: colors.color('grey');
   color: colors.color('font-color-light');
 
+  &.e-btn---disabled,
   &:disabled {
     border-color: colors.color('grey-70');
     background: transparent;

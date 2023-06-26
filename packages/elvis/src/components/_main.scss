@@ -2,12 +2,13 @@
 @use 'alert.scss';
 @use 'autocomplete.scss';
 @use 'body.scss';
-@use './button/button.scss';
+// The button import order should stay the same
+@use './button/deprecated.scss';
 @use './button/icon.scss';
 @use './button/secondary.scss';
 @use './button/tertiary.scss';
 @use './button/danger.scss';
-@use './button/deprecated.scss';
+@use './button/button.scss';
 @use 'card.scss';
 @use 'chip.scss';
 @use 'content-loader.scss';

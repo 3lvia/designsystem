@@ -36,18 +36,6 @@ module.exports = [
           document.body.classList.add('e-theme-dark');
         },
       },
-      {
-        suffix: ' - small',
-        execute() {
-          document.getElementsByClassName('e-btn').classList.add('e-btn-sm');
-        },
-      },
-      {
-        suffix: ' - large',
-        execute() {
-          document.getElementsByClassName('e-btn').classList.add('e-btn-lg');
-        },
-      },
     ],
   },
   {
