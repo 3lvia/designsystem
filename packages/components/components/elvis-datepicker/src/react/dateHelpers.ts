@@ -1,9 +1,19 @@
+/**
+ * @param d1 The original date
+ * @param d2 The date to check against
+ * @returns Whether d1 is before d2
+ */
 export const isBefore = (d1?: Date | null, d2?: Date | null): boolean => {
-  return !d2 || (!!d1 && d1.getTime() <= d2.getTime());
+  return !!d1 && !!d2 && d1.getTime() < d2.getTime();
 };
 
+/**
+ * @param d1 The original date
+ * @param d2 The date to check against
+ * @returns Whether d1 is after d2
+ */
 export const isAfter = (d1?: Date | null, d2?: Date | null): boolean => {
-  return !d2 || (!!d1 && d1.getTime() >= d2.getTime());
+  return !!d1 && !!d2 && d1.getTime() > d2.getTime();
 };
 
 export const dateIsWithinMinMaxBoundary = (
@@ -11,10 +21,10 @@ export const dateIsWithinMinMaxBoundary = (
   minDate?: Date | null,
   maxDate?: Date | null,
 ): boolean => {
-  const dateIsAfterMinDate = isAfter(date, minDate);
-  const dateIsBeforeMaxDate = isBefore(date, maxDate);
+  const dateIsBeforeMinDate = isBefore(date, minDate);
+  const dateIsAfterMaxDate = isAfter(date, maxDate);
 
-  return dateIsAfterMinDate && dateIsBeforeMaxDate;
+  return !dateIsBeforeMinDate && !dateIsAfterMaxDate;
 };
 
 export const isSameDay = (d1?: Date | null, d2?: Date | null): boolean => {

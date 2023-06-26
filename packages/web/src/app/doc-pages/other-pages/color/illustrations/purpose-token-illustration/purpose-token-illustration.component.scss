@@ -1,0 +1,12 @@
+.split-arrow-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: center;
+  width: fit-content;
+  padding: 16px 0;
+
+  .arrow {
+    grid-column: 3;
+    margin-left: 4px;
+  }
+}
