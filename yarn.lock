@@ -4200,7 +4200,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis@*, @elvia/elvis@workspace:packages/elvis":
+"@elvia/elvis@*, @elvia/elvis@workspace:*, @elvia/elvis@workspace:packages/elvis":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis@workspace:packages/elvis"
   dependencies:
@@ -4223,19 +4223,6 @@ __metadata:
     resolve: ^1.20.0
     sass: ^1.33.0
   languageName: unknown
-  linkType: soft
-
-"@elvia/elvis@portal:../elvis::locator=elvia-designsystem%40workspace%3Apackages%2Fweb":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis@portal:../elvis::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
-  dependencies:
-    "@elvia/elvis-assets-icons": "*"
-    "@elvia/elvis-colors": ^1.8.0
-    "@elvia/elvis-typography": ^2.3.2
-    bootstrap: 4.6.1
-    jquery: ^3.6.4
-    popper.js: ^1.16.1
-  languageName: node
   linkType: soft
 
 "@emotion/is-prop-valid@npm:^1.1.0":
@@ -10308,7 +10295,7 @@ __metadata:
     "@babel/eslint-parser": ^7.11.0
     "@contentful/rich-text-html-renderer": ^15.11.1
     "@contentful/rich-text-types": ^15.11.1
-    "@elvia/elvis": "portal:../elvis"
+    "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
     "@elvia/elvis-assets-icons": "workspace:*"
     "@elvia/elvis-badge": "workspace:*"
