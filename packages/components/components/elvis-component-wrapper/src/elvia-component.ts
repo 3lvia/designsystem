@@ -180,25 +180,25 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   private addSlotChangeMutationObserver(): void {
-    // const slotRemoveMO = new MutationObserver((mutated) => {
-    //   mutated.forEach((mutation) => {
-    //     mutation.removedNodes.forEach((node: HTMLElement) => {
-    //       //  TODO: Removal logic is angular-dependent
-    //       if (node.parentElement !== this && node.slot && '__ng_removed' in node) {
-    //         const slotName = node.slot;
-    //         console.log('removed slots:', mutation.removedNodes);
-    //         delete this._slots[slotName];
-    //       }
-    //     });
-    //   });
-    // });
-    // slotRemoveMO.observe(this.mountPoint, {
-    //   childList: true,
-    //   subtree: true,
-    // });
+    const slotRemoveMO = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.removedNodes.forEach((node) => {
+          //  TODO: Removal logic is angular-dependent
+          if (node instanceof HTMLElement && node.slot !== '' && '__ng_removed' in node) {
+            const slotName = node.slot;
+            console.log('removed slots:', mutation.removedNodes);
+            delete this._slots[slotName];
+          }
+        });
+      });
+    });
+    slotRemoveMO.observe(this.mountPoint, {
+      childList: true,
+      subtree: true,
+    });
 
-    const slotAddedMO = new MutationObserver((mutated) => {
-      mutated.forEach((mutation) => {
+    const slotAddedMO = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
         if (mutation.addedNodes.length > 0) {
           console.log('storing slots:', mutation.addedNodes);
           this.storeAllSlots();
