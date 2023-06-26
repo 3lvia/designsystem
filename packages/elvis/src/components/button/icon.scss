@@ -31,6 +31,7 @@
   &.e-btn--lg {
     width: 48px;
     height: 48px;
+
     .e-btn__icon {
       @include icons.icon-size('md');
     }
@@ -39,6 +40,7 @@
   &.e-btn--sm {
     width: 32px;
     height: 32px;
+
     .e-btn__icon {
       @include icons.icon-size('xs');
     }
