@@ -68,6 +68,7 @@ const Tabs: FC<TabsProps> = ({
         isVisible={['center', 'right'].includes(scrollPosition)}
         size="md"
         onClick={() => scroll('left')}
+        aria-label="Scroll mot venstre"
       >
         <IconWrapper icon={arrowLeftBold} size="xxs" color={isInverted ? 'white' : undefined} />
       </LeftButton>
@@ -97,6 +98,7 @@ const Tabs: FC<TabsProps> = ({
         isVisible={['left', 'center'].includes(scrollPosition)}
         size="md"
         onClick={() => scroll('right')}
+        aria-label="Scroll mot høyre"
       >
         <IconWrapper icon={arrowRightBold} size="xxs" color={isInverted ? 'white' : undefined} />
       </RightButton>
