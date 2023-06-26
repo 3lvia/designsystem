@@ -20,8 +20,8 @@
     "src/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-assets-icons": "^3.0.1",
-    "@elvia/elvis-colors": "^2.7.1",
+    "@elvia/elvis-assets-icons": "*",
+    "@elvia/elvis-colors": "^1.8.0",
     "@elvia/elvis-typography": "^2.4.0",
     "bootstrap": "4.6.1",
     "jquery": "^3.6.4",
