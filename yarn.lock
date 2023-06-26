@@ -8580,7 +8580,6 @@ __metadata:
     fuse.js: ^6.6.2
     glob: ^7.1.6
     html-loader: ^4.2.0
-    lodash.debounce: ^4.0.8
     natural-compare-lite: ^1.4.0
     prettier: ^2.8.8
     prismjs: ^1.24.1
