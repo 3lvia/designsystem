@@ -125,7 +125,7 @@ export const Tab = styled.button<TabLabelProps>`
       background-color: ${isSelected ? getColor('green') : 'transparent'};
 
       @media (prefers-reduced-motion: reduce) {
-        transition: opacity 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
       }
     }
 
