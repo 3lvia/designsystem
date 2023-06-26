@@ -13,6 +13,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
   private reactRoot!: Root;
+  private mutationObservers: MutationObserver[] = [];
 
   constructor(webComponent: ElviaComponent, reactComponent: FC) {
     super();
@@ -86,9 +87,11 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
     this.renderReactDOM();
     this.addDisplayStyleToCustomElement();
+    this.addSlotChangeMutationObserver();
   }
 
   disconnectedCallback(): void {
+    this.mutationObservers.forEach((observer) => observer.disconnect());
     this.throttleRenderReactDOM.cancel();
     if (this.reactRoot) {
       this.reactRoot.render(null);
@@ -138,6 +141,7 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   setSlots(slots: { [slotName: string]: Element }): void {
     this._slots = slots;
+    this.triggerSlotEvent();
   }
 
   protected addDisplayStyleToCustomElement(): void {
@@ -173,6 +177,45 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (this.reactRoot) {
       this.reactRoot.render(this.createReactElement(this.createReactData()));
     }
+  }
+
+  private addSlotChangeMutationObserver(): void {
+    // const slotRemoveMO = new MutationObserver((mutated) => {
+    //   mutated.forEach((mutation) => {
+    //     mutation.removedNodes.forEach((node: HTMLElement) => {
+    //       //  TODO: Removal logic is angular-dependent
+    //       if (node.parentElement !== this && node.slot && '__ng_removed' in node) {
+    //         const slotName = node.slot;
+    //         console.log('removed slots:', mutation.removedNodes);
+    //         delete this._slots[slotName];
+    //       }
+    //     });
+    //   });
+    // });
+    // slotRemoveMO.observe(this.mountPoint, {
+    //   childList: true,
+    //   subtree: true,
+    // });
+
+    const slotAddedMO = new MutationObserver((mutated) => {
+      mutated.forEach((mutation) => {
+        if (mutation.addedNodes.length > 0) {
+          console.log('storing slots:', mutation.addedNodes);
+          this.storeAllSlots();
+        }
+      });
+    });
+    slotAddedMO.observe(this, {
+      childList: true,
+    });
+    this.mutationObservers.push(slotAddedMO);
+  }
+
+  /**
+   * Triggers an event on the webcomponent to tell the `useSlot`-hook that an update has been made to the components slots.
+   */
+  private triggerSlotEvent(): void {
+    this.dispatchEvent(new Event('elvisSlotChange', { bubbles: false }));
   }
 
   private logErrorMessage(functionName: string, error: string): void {
@@ -223,14 +266,19 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   private storeAllSlots(): void {
+    let slotUpdated = false;
     this.querySelectorAll('[slot]').forEach((element) => {
       const slotName = element.getAttribute('slot');
       if (!slotName || element.parentElement !== this) {
         return;
       }
+      slotUpdated = true;
       this._slots[slotName] = element;
       element.remove();
     });
+    if (slotUpdated) {
+      this.triggerSlotEvent();
+    }
   }
 
   private convertString(stringToConvert: string, attrType: string, attrName: string) {
