@@ -67,8 +67,8 @@
 
   &.e-btn---disabled,
   &:disabled {
-    cursor: not-allowed;
     background: none;
+    cursor: not-allowed;
   }
 
   &.e-btn--loading {
