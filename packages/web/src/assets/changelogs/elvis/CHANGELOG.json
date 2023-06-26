@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.1.0",
+      "date": "June 26, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added <code>light_theme</code> and <code>dark_theme</code> icons."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "12.0.2",
       "date": "June 26, 2023",
       "changelog": [
