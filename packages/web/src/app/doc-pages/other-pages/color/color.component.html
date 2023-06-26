@@ -38,19 +38,21 @@
               alt="Illustrating how much of each color should be used"
             />
           </div>
-          <app-component-subsubsection [sectionTitle]="locale === 'nb-NO' ? 'Grønn' : 'Green'">
+          <app-component-subsubsection>
             <ng-container ngProjectAs="sectionContent">
               <ng-container *ngIf="locale === 'en-GB'">
-                Green shows that Elvia is ON, activated, fully charged and environmentally friendly. The green
-                color should be used intentionally and should not be used on large surfaces as a background.
-                The green color are used to display when something is active/clickable on interactions. It’s
-                also used in illustration and icons to highlight the most important or just to get a touch of
-                the green light in between all the white and black.
+                <span class="e-text-lg-strong">Green</span>
+                shows that Elvia is ON, activated, fully charged and environmentally friendly. The green color
+                should be used intentionally and should not be used on large surfaces as a background. The
+                green color are used to display when something is active/clickable on interactions. It’s also
+                used in illustration and icons to highlight the most important or just to get a touch of the
+                green light in between all the white and black.
               </ng-container>
               <ng-container *ngIf="locale === 'nb-NO'">
-                Grønn viser at Elvia er PÅ, aktivert, fulladet og miljøvennlig. Den grønne fargen bør brukes
-                bevisst og bør ikke brukes på store flater som bakgrunn. Den grønne fargen brukes til å vise
-                når noe er aktivt/klikkbart på interaksjoner. Den brukes også i illustrasjoner og ikoner for å
+                <span class="e-text-lg-strong">Grønn</span>
+                viser at Elvia er PÅ, aktivert, fulladet og miljøvennlig. Den grønne fargen bør brukes bevisst
+                og bør ikke brukes på store flater som bakgrunn. Den grønne fargen brukes til å vise når noe
+                er aktivt/klikkbart på interaksjoner. Den brukes også i illustrasjoner og ikoner for å
                 fremheve det viktigste eller bare for å få et snev av grønt lys mellom alt det hvite og
                 svarte.
               </ng-container>
@@ -65,15 +67,27 @@
             </ng-container>
           </app-component-subsubsection>
 
-          <app-component-subsubsection [sectionTitle]="locale === 'nb-NO' ? 'Hvitt' : 'White'">
+          <app-component-subsubsection>
             <ng-container ngProjectAs="sectionContent">
               <ng-container *ngIf="locale === 'en-GB'">
-                White stands for light and energy. White is used as a background colour and as a text colour
-                on darker surfaces.
+                <span class="e-text-lg-strong">White</span>
+                stands for light and energy. White is used as a background color and as a text color on darker
+                surfaces.
+                <span class="e-text-lg-strong">Black</span>
+                shows that Elvia is OFF. It’s the primary color for text and icons, but can also be used to
+                get a dark surface.
+                <span class="e-text-lg-strong">Dark</span>
+                (grey) is the preferred dark background.
               </ng-container>
               <ng-container *ngIf="locale === 'nb-NO'">
-                Hvitt står for lys og energi. Hvitt brukes som bakgrunnsfarge og som tekstfarge på mørkere
-                flater.
+                <span class="e-text-lg-strong">Hvitt</span>
+                står for lys og energi. Hvitt brukes som bakgrunnsfarge og som tekstfarge på mørkere
+                overflater.
+                <span class="e-text-lg-strong">Svart</span>
+                viser at Elvia er AV. Det er primærfargen for tekst og ikoner, men kan også brukes for å få en
+                mørk overflate.
+                <span class="e-text-lg-strong">Mørk</span>
+                (grå) er den foretrukne mørke bakgrunnen.
               </ng-container>
             </ng-container>
           </app-component-subsubsection>
