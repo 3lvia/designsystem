@@ -917,8 +917,8 @@
 			"psuedo": {
 				"e-checkbox---focus": {},
 				"e-checkbox---hover": {},
-				"e-checkbox---disabled-checked": {},
 				"e-checkbox---checked": {},
+				"e-checkbox---disabled-checked": {},
 				"e-checkbox---disabled": {},
 				"e-checkbox---invalid": {}
 			},
@@ -1058,22 +1058,22 @@
 			}
 		},
 		"e-radio": {
-			"modifier": {
-				"e-radio--compact": {},
-				"e-radio--sm": {},
-				"e-radio--small": {}
-			},
 			"element": {
 				"e-radio__mark": {},
 				"e-radio__label": {}
 			},
 			"psuedo": {
-				"e-radio---disabled-checked": {},
-				"e-radio---checked": {},
-				"e-radio---disabled": {},
 				"e-radio---focus": {},
 				"e-radio---hover": {},
+				"e-radio---checked": {},
+				"e-radio---disabled-checked": {},
+				"e-radio---disabled": {},
 				"e-radio---invalid": {}
+			},
+			"modifier": {
+				"e-radio--compact": {},
+				"e-radio--sm": {},
+				"e-radio--small": {}
 			}
 		},
 		"e-search": {
@@ -1985,8 +1985,8 @@
 		"e-checkbox--compact": {},
 		"e-checkbox--sm": {},
 		"e-checkbox--small": {},
-		"e-checkbox---disabled-checked": {},
 		"e-checkbox---checked": {},
+		"e-checkbox---disabled-checked": {},
 		"e-checkbox--indeterminate": {},
 		"e-checkbox---disabled": {},
 		"e-checkbox---invalid": {},
@@ -2014,16 +2014,16 @@
 		"e-position-picker__description": {},
 		"e-position-picker__action": {},
 		"e-radio": {},
+		"e-radio__mark": {},
+		"e-radio__label": {},
+		"e-radio---focus": {},
+		"e-radio---hover": {},
 		"e-radio--compact": {},
 		"e-radio--sm": {},
 		"e-radio--small": {},
-		"e-radio__mark": {},
-		"e-radio__label": {},
-		"e-radio---disabled-checked": {},
 		"e-radio---checked": {},
+		"e-radio---disabled-checked": {},
 		"e-radio---disabled": {},
-		"e-radio---focus": {},
-		"e-radio---hover": {},
 		"e-radio---invalid": {},
 		"e-search": {},
 		"e-search--instant": {},
