@@ -207,51 +207,20 @@ function App() {
               {/* random number between 10 and 9999 */}
 
               <div>
-                <Slider type={'range'} max={Math.round(Math.random() * (9999 - 10) + 10)} />
-                <Slider
-                  type={'range'}
-                  hasInputField={false}
-                  max={Math.round(Math.random() * (9999 - 10) + 10)}
-                />
-                <Slider type={'simple'} max={Math.round(Math.random() * (99999 - 10) + 10)} />
-                <Slider type={'simple'} hasHints max={Math.round(Math.random() * (9999 - 10) + 10)} />
-                <Slider type={'simple'} size="small" max={Math.round(Math.random() * (99999 - 10) + 10)} />
-                <Slider type={'simple'} isDisabled max={Math.round(Math.random() * (9999 - 10) + 10)} />
+                <Slider type={'range'} max={1000} />
+                <Slider type={'range'} hasInputField={false} max={10000} />
+                <Slider type={'simple'} max={100000} />
+                <Slider type={'simple'} hasHints max={10000000} />
+                <Slider type={'simple'} size="small" />
+                <Slider type={'simple'} isDisabled max={88888} />
 
-                <Slider
-                  label={'lorem ipsum'}
-                  type={'simple'}
-                  max={Math.round(Math.random() * (99999 - 10) + 10)}
-                />
-                <Slider
-                  label={'lorem ipsum'}
-                  type={'simple'}
-                  hasHints
-                  max={Math.round(Math.random() * (9999 - 10) + 10)}
-                />
-                <Slider
-                  label={'lorem ipsum'}
-                  type={'simple'}
-                  size="small"
-                  max={Math.round(Math.random() * (99999 - 10) + 10)}
-                />
-                <Slider
-                  label={'lorem ipsum'}
-                  type={'simple'}
-                  isDisabled
-                  max={Math.round(Math.random() * (9999 - 10) + 10)}
-                />
+                <Slider label={'lorem ipsum'} type={'simple'} />
+                <Slider label={'lorem ipsum'} type={'simple'} hasHints />
+                <Slider label={'lorem ipsum'} type={'simple'} size="small" />
+                <Slider label={'lorem ipsum'} type={'simple'} isDisabled />
 
-                <Slider
-                  type={'simple'}
-                  label={'temperatur'}
-                  max={Math.round(Math.random() * (99999 - 10) + 10)}
-                />
-                <Slider
-                  type={'simple'}
-                  unit={' grader'}
-                  max={Math.round(Math.random() * (99999 - 10) + 10)}
-                />
+                <Slider type={'simple'} label={'temperatur'} />
+                <Slider type={'simple'} unit={' grader'} />
               </div>
               <div className="e-bg-white">
                 <Slider unit="kWh" min={-100} errorOnChange={(error) => console.log('oisann:', error)} />
@@ -282,7 +251,7 @@ function App() {
                   errorOptions={{ isErrorState: true }}
                   errorOnChange={(error) => console.log('errorOnChange:', error)}
                 />
-                {/* text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean; */}
+
                 <Slider
                   label="kun placeholder"
                   errorOptions={{ hasErrorPlaceholder: true }}
