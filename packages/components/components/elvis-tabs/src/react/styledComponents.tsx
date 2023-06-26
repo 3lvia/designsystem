@@ -1,120 +1,76 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-
-const iconButtonWidth = 24;
-const tabsLineHeight = 20;
-const tabsUnderlineHeight = 4;
-const tabsLabelPaddingBottom = 8;
-const tabsFocusPadding = 4;
-const tabsHeight = tabsLineHeight + tabsLabelPaddingBottom + tabsUnderlineHeight;
-const tabsHeightWithFocus = tabsHeight + tabsFocusPadding * 2;
+import { ScrollPosition } from './elvia-tabs.types';
+import { IconButton, device } from '@elvia/elvis-toolbox';
 
 export const TabsContainer = styled.div`
   display: flex;
   position: relative;
-  flex-direction: row;
-  align-items: center;
   overflow: hidden;
-  &,
-  * {
-    box-sizing: border-box;
-  }
 `;
 
-type ArrowButtonProps = {
+interface ArrowButtonProps {
   isVisible: boolean;
-  isLeftArrow: boolean;
-};
+}
 
-export const ArrowButton = styled.div<ArrowButtonProps>`
-  ${({ isVisible, isLeftArrow }) => css`
-    display: ${isVisible ? 'none' : 'block'};
-    position: absolute;
-    width: 8px;
-    height: calc(${tabsHeightWithFocus}px - (16px * 2));
-    z-index: 10;
-    transition: visibility 0.5s ease-in;
-    box-sizing: content-box;
-    user-select: none;
-    padding: ${isLeftArrow ? '16px 28px 16px 8px' : '16px 8px 16px 28px'};
-    right: ${!isLeftArrow && '24px'};
+const ArrowButtonBase = styled(IconButton)<ArrowButtonProps>`
+  position: absolute;
+  z-index: 1;
+  display: ${({ isVisible }) => (isVisible ? 'grid' : 'none')};
 
-    &:hover {
-      cursor: pointer;
-    }
-  `}
+  &:not(:disabled):hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
 `;
 
-const decideFade = (isOnRightEnd: boolean, isOnLeftEnd: boolean): string => {
-  if (isOnRightEnd && isOnLeftEnd) {
-    return 'none';
-  } else if (!isOnRightEnd) {
-    return 'linear-gradient(to left, transparent 0%, black 50px);';
-  } else if (!isOnLeftEnd) {
-    return 'linear-gradient(to right, transparent 15px, black 50px);';
-  } else {
-    return 'linear-gradient(to right, transparent 15px, black 50px, black 90%, transparent 100%);';
+export const LeftButton = styled(ArrowButtonBase)``;
+export const RightButton = styled(ArrowButtonBase)`
+  right: 0;
+`;
+
+const getTabGradient = (scrollPosition: ScrollPosition): string => {
+  switch (scrollPosition) {
+    case 'left':
+      return 'linear-gradient(to left, transparent 40px, black 85px);';
+    case 'right':
+      return 'linear-gradient(to right, transparent 40px, black 85px);';
+    case 'center':
+      return 'linear-gradient(to right, transparent 40px, black 85px, black calc(100% - 85px), transparent calc(100% - 40px));';
+    default:
+      return 'none';
   }
 };
 
-type ItemsContainerProps = {
-  isOnRightEnd: boolean;
-  isOnLeftEnd: boolean;
-  isInverted?: boolean;
-};
+interface ScrollContainerProps {
+  scrollPosition: ScrollPosition;
+}
 
-export const ItemsContainer = styled.div<ItemsContainerProps>`
-  ${({ isOnRightEnd, isOnLeftEnd, isInverted }) => css`
-    position: relative;
-    display: flex;
-    user-select: none;
-    mask: ${decideFade(isOnRightEnd, isOnLeftEnd)};
-    width: ${!isOnLeftEnd || !isOnRightEnd ? `calc(100% - (2 * ${iconButtonWidth}px))` : '100%'};
-    ${isInverted &&
-    css`
-      &::before {
-        background-image: linear-gradient(to right, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
-      }
-      &::after {
-        background-image: linear-gradient(to left, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
-      }
-    `};
-  `}
-`;
-
-export const ScrollContainer = styled.div`
+export const ScrollContainer = styled.div<ScrollContainerProps>`
   display: flex;
   flex-direction: row;
   white-space: nowrap;
   width: 100%;
   overflow-x: auto;
-  padding: ${tabsFocusPadding}px;
-  height: ${tabsHeightWithFocus}px;
+  padding: 4px;
   scrollbar-width: none;
-  gap: 24px;
-  @media screen and (max-width: 767px) {
-    gap: 16px;
+  gap: 16px;
+  position: relative;
+  mask: ${({ scrollPosition }) => getTabGradient(scrollPosition)};
+  scroll-behavior: smooth;
+
+  @media ${device.gtMobile} {
+    gap: 24px;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
-`;
-
-export const Tab = styled.button`
-  border: 0;
-  padding: 0;
-  background: transparent;
-`;
-
-const Underline = css`
-  content: '';
-  position: absolute;
-  height: 4px;
-  bottom: 0;
-  top: ${tabsLineHeight}px + ${tabsLabelPaddingBottom}px;
-  left: 0;
-  border-radius: 50px;
 `;
 
 const decideLabelTextShadow = (isSelected: boolean, isInverted?: boolean): string => {
@@ -127,46 +83,55 @@ const decideLabelTextShadow = (isSelected: boolean, isInverted?: boolean): strin
   }
 };
 
-type TabLabelProps = {
+interface TabLabelProps {
   isSelected: boolean;
   isInverted?: boolean;
-};
+}
 
-export const TabLabel = styled.span<TabLabelProps>`
+export const Tab = styled.button<TabLabelProps>`
   ${({ isSelected, isInverted }) => css`
     ${getTypographyCss('title-caps')}
-    line-height: ${tabsLineHeight}px;
+    line-height: 20px;
     font-weight: normal;
     color: ${isInverted ? 'white' : 'black'};
     text-shadow: ${decideLabelTextShadow(isSelected, isInverted)};
 
-    display: block;
+    display: flex;
+    align-items: flex-start;
     position: relative;
     border: none;
     padding: 0 8px;
     background: transparent;
-    height: ${tabsHeight}px;
+    height: 32px;
+    cursor: pointer;
+
+    ::before,
+    ::after {
+      content: '';
+      position: absolute;
+      height: 4px;
+      inset: auto auto 0 0;
+      border-radius: 50px;
+    }
 
     &::before {
-      ${Underline}
       width: 100%;
       background-color: ${isInverted ? getColor('grey-80') : getColor('grey-10')};
     }
 
     &::after {
-      ${Underline}
-      display: block;
-      width: ${isSelected || (isInverted && isSelected) ? '100%' : '0'};
+      width: ${isSelected ? '100%' : '0'};
       transition: all 0.3s ease-in-out;
-      background-color: ${isSelected || (isInverted && isSelected) ? getColor('green') : 'transparent'};
+      background-color: ${isSelected ? getColor('green') : 'transparent'};
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: background-color 0.3s ease-in-out;
+      }
     }
 
-    &:hover {
-      cursor: pointer;
-      &::after {
-        background-color: ${getColor('green')};
-        width: 100%;
-      }
+    &:hover::after {
+      background-color: ${getColor('green')};
+      width: 100%;
     }
   `}
 `;
