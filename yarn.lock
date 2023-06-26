@@ -3383,7 +3383,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^3.0.0, @elvia/elvis-assets-icons@^3.0.1, @elvia/elvis-assets-icons@workspace:*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@^3.0.0, @elvia/elvis-assets-icons@^3.0.1, @elvia/elvis-assets-icons@workspace:*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
@@ -4204,8 +4204,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis@workspace:packages/elvis"
   dependencies:
-    "@elvia/elvis-assets-icons": "*"
-    "@elvia/elvis-colors": ^1.8.0
+    "@elvia/elvis-assets-icons": ^3.0.1
+    "@elvia/elvis-colors": ^2.7.1
     "@elvia/elvis-typography": ^2.4.0
     bootstrap: 4.6.1
     del: ^6.0.0
@@ -4229,8 +4229,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis@portal:../elvis::locator=elvia-designsystem%40workspace%3Apackages%2Fweb"
   dependencies:
-    "@elvia/elvis-assets-icons": "*"
-    "@elvia/elvis-colors": ^1.8.0
+    "@elvia/elvis-assets-icons": ^3.0.1
+    "@elvia/elvis-colors": ^2.7.1
     "@elvia/elvis-typography": ^2.4.0
     bootstrap: 4.6.1
     jquery: ^3.6.4
