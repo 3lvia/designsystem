@@ -93,7 +93,7 @@
           </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Dark Theme'">
+      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Mørkt tema' : 'Dark Theme'">
         <ng-container ngProjectAs="sectionContent">
           <ng-container *ngIf="locale === 'en-GB'">
             We offer a dark theme for internal applications. We have created a separate palette for the dark
