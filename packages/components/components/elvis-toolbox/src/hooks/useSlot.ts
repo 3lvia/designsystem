@@ -63,7 +63,7 @@ export const useSlot = <
     updateSlotContent();
 
     webcomponent?.addEventListener('elvisSlotChange', updateSlotContent);
-    () => {
+    return () => {
       webcomponent?.removeEventListener('elvisSlotChange', updateSlotContent);
     };
   }, [ref, slot, webcomponent, options?.callback, options?.useEffectDependencies]);

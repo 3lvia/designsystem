@@ -1,3 +1,4 @@
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { useSlot } from './useSlot';
 import { renderHook } from '@testing-library/react';
 import React from 'react';
@@ -17,13 +18,15 @@ describe('useSlot', () => {
     const webcomponent = {
       getSlot: jest.fn((slotName: string) => {
         if (slotName !== existingSlotName) {
-          return undefined as any;
+          return undefined;
         }
         const div = document.createElement('div');
         div.innerHTML = `slot content ${slotName}`;
         return div;
       }),
-    };
+      addEventListener: jest.fn,
+      removeEventListener: jest.fn,
+    } as any as ElvisComponentWrapper;
 
     it('should render hook and update ref content', () => {
       const { result } = renderHook(() => useSlot(existingSlotName, webcomponent));

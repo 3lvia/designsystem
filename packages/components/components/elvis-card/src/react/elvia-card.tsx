@@ -77,24 +77,10 @@ const Card: FC<CardProps> = function ({
     };
     updateSlots();
     webcomponent?.addEventListener('elvisSlotChange', updateSlots);
-    () => {
+    return () => {
       webcomponent?.removeEventListener('elvisSlotChange', updateSlots);
     };
   }, [isShowingHoverIcon, webcomponent, type]);
-
-  /** Change icon on hover if iconHover slot is used */
-  // useEffect(() => {
-  //   if (!webcomponent) {
-  //     return;
-  //   }
-  //   if (isShowingHoverIcon && iconRef.current && webcomponent.getSlot('iconHover')) {
-  //     iconRef.current.innerHTML = '';
-  //     iconRef.current.appendChild(webcomponent.getSlot('iconHover'));
-  //   } else if (!isShowingHoverIcon && iconRef.current && webcomponent.getSlot('icon')) {
-  //     iconRef.current.innerHTML = '';
-  //     iconRef.current.appendChild(webcomponent.getSlot('icon'));
-  //   }
-  // }, [isShowingHoverIcon, webcomponent]);
 
   /** Handle setting hover icon when animation is done */
   useEffect(() => {
