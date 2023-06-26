@@ -24,11 +24,13 @@ export const configurationProps: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Text to display in the previous-button.',
+      default: '"Forrige"',
     },
     nextButtonText: {
       isRequired: false,
       type: 'string',
       description: 'Text to display in the next-button.',
+      default: '"Neste"',
     },
   },
 };
