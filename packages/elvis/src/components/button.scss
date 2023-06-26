@@ -36,13 +36,13 @@ $loading-dot-md: 10px;
 $loading-dot-sm: 8px;
 
 .e-btn {
-  background-color: yellow !important;
   // .e-btn--primary .e-btn--md is the default for any e-button
   @extend .e-btn--primary;
   @extend .e-btn--md;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  background-color: #ff0 !important;
   cursor: pointer;
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: $button-font-weight;
