@@ -6,8 +6,6 @@ import { config } from './config';
 
 const Box: FC<BoxProps> = function ({
   heading,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  title,
   content,
   isColored = false,
   className,
@@ -17,11 +15,14 @@ const Box: FC<BoxProps> = function ({
 }) {
   warnDeprecatedProps(config, arguments[0]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { title, ...restWithoutTitle } = rest;
+
   const { ref: boxContent } = useSlot<HTMLDivElement>('content', webcomponent);
   const { ref: boxHeading } = useSlot<HTMLDivElement>('heading', webcomponent);
 
   return (
-    <BoxArea className={className} style={inlineStyle} {...rest} data-testid="box-area">
+    <BoxArea className={className} style={inlineStyle} {...restWithoutTitle} data-testid="box-area">
       <BoxHeading ref={boxHeading}>{heading}</BoxHeading>
       <BoxContent data-testid="box-content">
         {isColored && <BoxColoredLine data-testid="box-colored-line"></BoxColoredLine>}
