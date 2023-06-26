@@ -36,6 +36,7 @@ $loading-dot-md: 10px;
 $loading-dot-sm: 8px;
 
 .e-btn {
+  background-color: yellow !important;
   // .e-btn--primary .e-btn--md is the default for any e-button
   @extend .e-btn--primary;
   @extend .e-btn--md;
