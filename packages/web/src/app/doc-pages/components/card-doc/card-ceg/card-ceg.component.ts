@@ -45,6 +45,7 @@ export class CardCegComponent implements ComponentExample {
         },
       },
       groupOrder: ['Border Color', 'Options', 'Heading', 'Description'],
+      hiddenSlots: ['cornerIcon'],
     },
     {
       type: 'Detail',
@@ -70,8 +71,13 @@ export class CardCegComponent implements ComponentExample {
           value: 'Tag',
           inputType: 'input',
         },
+        cornerIcon: {
+          type: 'slotToggle',
+          label: 'Corner Icon',
+          group: 'Options',
+        },
       },
-      groupOrder: ['Heading', 'Description', 'Tag'],
+      groupOrder: ['Heading', 'Description', 'Tag', 'Options'],
       hiddenSlots: ['icon', 'iconHover'],
     },
   ]);

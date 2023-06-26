@@ -54,32 +54,47 @@ const Card: FC<CardProps> = function ({
 
   /** Get all slots and place them correctly */
   useEffect(() => {
-    if (!webcomponent) {
-      return;
-    }
-    if (iconRef.current && webcomponent.getSlot('icon')) {
-      iconRef.current.innerHTML = '';
-      iconRef.current.appendChild(webcomponent.getSlot('icon'));
-    }
-    if (cornerIconRef.current && webcomponent.getSlot('cornerIcon')) {
-      cornerIconRef.current.innerHTML = '';
-      cornerIconRef.current.appendChild(webcomponent.getSlot('cornerIcon'));
-    }
-  }, [webcomponent, type]);
+    const updateSlots = () => {
+      if (!webcomponent) {
+        return;
+      }
+      if (iconRef.current) {
+        if (isShowingHoverIcon && webcomponent.getSlot('iconHover')) {
+          iconRef.current.innerHTML = '';
+          iconRef.current.appendChild(webcomponent.getSlot('iconHover'));
+        } else if (!isShowingHoverIcon && webcomponent.getSlot('icon')) {
+          iconRef.current.innerHTML = '';
+          iconRef.current.appendChild(webcomponent.getSlot('icon'));
+        }
+      }
+      if (cornerIconRef.current) {
+        cornerIconRef.current.innerHTML = '';
+        const slotContent = webcomponent.getSlot('cornerIcon');
+        if (slotContent) {
+          cornerIconRef.current.appendChild(slotContent);
+        }
+      }
+    };
+    updateSlots();
+    webcomponent?.addEventListener('elvisSlotChange', updateSlots);
+    () => {
+      webcomponent?.removeEventListener('elvisSlotChange', updateSlots);
+    };
+  }, [isShowingHoverIcon, webcomponent, type]);
 
   /** Change icon on hover if iconHover slot is used */
-  useEffect(() => {
-    if (!webcomponent) {
-      return;
-    }
-    if (isShowingHoverIcon && iconRef.current && webcomponent.getSlot('iconHover')) {
-      iconRef.current.innerHTML = '';
-      iconRef.current.appendChild(webcomponent.getSlot('iconHover'));
-    } else if (!isShowingHoverIcon && iconRef.current && webcomponent.getSlot('icon')) {
-      iconRef.current.innerHTML = '';
-      iconRef.current.appendChild(webcomponent.getSlot('icon'));
-    }
-  }, [isShowingHoverIcon, webcomponent]);
+  // useEffect(() => {
+  //   if (!webcomponent) {
+  //     return;
+  //   }
+  //   if (isShowingHoverIcon && iconRef.current && webcomponent.getSlot('iconHover')) {
+  //     iconRef.current.innerHTML = '';
+  //     iconRef.current.appendChild(webcomponent.getSlot('iconHover'));
+  //   } else if (!isShowingHoverIcon && iconRef.current && webcomponent.getSlot('icon')) {
+  //     iconRef.current.innerHTML = '';
+  //     iconRef.current.appendChild(webcomponent.getSlot('icon'));
+  //   }
+  // }, [isShowingHoverIcon, webcomponent]);
 
   /** Handle setting hover icon when animation is done */
   useEffect(() => {
