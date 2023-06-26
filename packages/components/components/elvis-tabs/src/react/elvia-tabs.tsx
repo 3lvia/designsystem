@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent, useEffect, useState } from 'react';
 import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
-import { TabsContainer, ScrollContainer, Tab, TabLabel, LeftButton, RightButton } from './styledComponents';
+import { TabsContainer, ScrollContainer, Tab, LeftButton, RightButton } from './styledComponents';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { TabsProps } from './elvia-tabs.types';
@@ -23,6 +23,7 @@ const Tabs: FC<TabsProps> = ({
   const uniqueId = `ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`;
   const { ref: scrollContainerRef } = useRovingFocus<HTMLDivElement>({
     dir: 'horizontal',
+    observableAttributes: ['aria-hidden'],
     onKeyDown: (focusedElement, index) => {
       scrollTo(focusedElement);
 
@@ -85,10 +86,10 @@ const Tabs: FC<TabsProps> = ({
               aria-selected={selectedIndex === i}
               aria-controls={uniqueId + i}
               onClick={(event) => onTabClick(i, event)}
+              isSelected={selectedIndex == i}
+              isInverted={isInverted}
             >
-              <TabLabel isSelected={selectedIndex == i} isInverted={isInverted}>
-                {item}
-              </TabLabel>
+              {item}
             </Tab>
           ))}
       </ScrollContainer>

@@ -4,13 +4,6 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import { ScrollPosition } from './elvia-tabs.types';
 import { IconButton, device } from '@elvia/elvis-toolbox';
 
-const tabsLineHeight = 20;
-const tabsUnderlineHeight = 4;
-const tabsLabelPaddingBottom = 8;
-const tabsFocusPadding = 4;
-const tabsHeight = tabsLineHeight + tabsLabelPaddingBottom + tabsUnderlineHeight;
-const tabsHeightWithFocus = tabsHeight + tabsFocusPadding * 2;
-
 export const TabsContainer = styled.div`
   display: flex;
   position: relative;
@@ -60,8 +53,7 @@ export const ScrollContainer = styled.div<ScrollContainerProps>`
   white-space: nowrap;
   width: 100%;
   overflow-x: auto;
-  padding: ${tabsFocusPadding}px;
-  height: ${tabsHeightWithFocus}px;
+  padding: 4px;
   scrollbar-width: none;
   gap: 16px;
   position: relative;
@@ -75,22 +67,6 @@ export const ScrollContainer = styled.div<ScrollContainerProps>`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
-
-export const Tab = styled.button`
-  border: 0;
-  padding: 0;
-  background: transparent;
-`;
-
-const Underline = css`
-  content: '';
-  position: absolute;
-  height: 4px;
-  bottom: 0;
-  top: ${tabsLineHeight}px + ${tabsLabelPaddingBottom}px;
-  left: 0;
-  border-radius: 50px;
 `;
 
 const decideLabelTextShadow = (isSelected: boolean, isInverted?: boolean): string => {
@@ -108,41 +84,46 @@ interface TabLabelProps {
   isInverted?: boolean;
 }
 
-export const TabLabel = styled.span<TabLabelProps>`
+export const Tab = styled.button<TabLabelProps>`
   ${({ isSelected, isInverted }) => css`
     ${getTypographyCss('title-caps')}
-    line-height: ${tabsLineHeight}px;
+    line-height: 20px;
     font-weight: normal;
     color: ${isInverted ? 'white' : 'black'};
     text-shadow: ${decideLabelTextShadow(isSelected, isInverted)};
 
-    display: block;
+    display: flex;
+    align-items: flex-start;
     position: relative;
     border: none;
     padding: 0 8px;
     background: transparent;
-    height: ${tabsHeight}px;
+    height: 32px;
+    cursor: pointer;
+
+    ::before,
+    ::after {
+      content: '';
+      position: absolute;
+      height: 4px;
+      inset: auto auto 0 0;
+      border-radius: 50px;
+    }
 
     &::before {
-      ${Underline}
       width: 100%;
       background-color: ${isInverted ? getColor('grey-80') : getColor('grey-10')};
     }
 
     &::after {
-      ${Underline}
-      display: block;
-      width: ${isSelected || (isInverted && isSelected) ? '100%' : '0'};
+      width: ${isSelected ? '100%' : '0'};
       transition: all 0.3s ease-in-out;
-      background-color: ${isSelected || (isInverted && isSelected) ? getColor('green') : 'transparent'};
+      background-color: ${isSelected ? getColor('green') : 'transparent'};
     }
 
-    &:hover {
-      cursor: pointer;
-      &::after {
-        background-color: ${getColor('green')};
-        width: 100%;
-      }
+    &:hover::after {
+      background-color: ${getColor('green')};
+      width: 100%;
     }
   `}
 `;
