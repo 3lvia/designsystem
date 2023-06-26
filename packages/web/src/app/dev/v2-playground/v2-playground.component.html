@@ -4,63 +4,20 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <elvia-pagination
-        numberOfElements="60000"
-        [value]="defaultPaginationValue"
-        [dropdownItems]="paginationDropdownItems"
-        [dropdownSelectedItemIndex]="dropdownSelectedItemIndex"
-        [alignment]="'right'"
-        dropdownMenuPosition="top"
-        (valueOnChange)="logValue('Pagination', $any($event).detail.value)"
-      ></elvia-pagination>
-    </div>
-    <!--Inverted version-->
-    <div class="e-theme-dark e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32">
-      <div class="e-flex e-flex-direction-column e-align-items-center">
-        <div class="e-title-caps e-mb-16">Removable</div>
-        <div *ngFor="let chip of deletableChipsList">
-          <elvia-chip
-            [value]="chip.value"
-            [color]="chip.color"
-            [ariaLabel]="'Fjern filtrering for ' + chip.value"
-            [isDisabled]="chip.isDisabled"
-            (onDelete)="handleOnDelete($any($event).detail.value)"
-            [inlineStyle]="{ margin: '8px' }"
-          ></elvia-chip>
-        </div>
+    <div>
+      <div class="e-flex e-flex-direction-column e-gap-16">
+        <button class="e-btn e-w-50" (click)="showSlot = !showSlot">Toggle content</button>
+        <button class="e-btn e-w-50" (click)="showTitle = !showTitle">Toggle title</button>
+        Show content: {{ showSlot }}. Show title: {{ showTitle }}.
       </div>
-      <div class="e-flex e-flex-direction-column e-align-items-center">
-        <div class="e-title-caps e-mb-16">Choice</div>
-        <div *ngFor="let chip of choiceChipsList">
-          <elvia-chip
-            [type]="'choice'"
-            [value]="chip.value"
-            [color]="chip.color"
-            [ariaLabel]="'Fjern filtrering for ' + chip.value"
-            [isSelected]="chip.isSelected"
-            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
-            [inlineStyle]="{ margin: '8px' }"
-          ></elvia-chip>
-        </div>
-      </div>
-      <div class="e-flex e-flex-direction-column e-align-items-center">
-        <div class="e-title-caps e-mb-16">Legend</div>
-        <div *ngFor="let chip of legendChipsList">
-          <elvia-chip
-            [type]="'legend'"
-            [value]="chip.value"
-            [color]="chip.color"
-            [ariaLabel]="'Fjern filtrering for ' + chip.value"
-            [isSelected]="chip.isSelected"
-            [isLoading]="chip.isLoading"
-            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
-            [inlineStyle]="{ margin: '8px' }"
-          ></elvia-chip>
-        </div>
-      </div>
+      <elvia-box id="ebox">
+        <h3 *ngIf="showTitle" slot="title">Title</h3>
+        <div *ngIf="showSlot" slot="content">Webcomponentent content for the box component</div>
+      </elvia-box>
     </div>
   </div>
+  <!--Inverted version-->
+  <div class="e-theme-dark"></div>
 
   <!--Accordion-->
   <div class="example-wrapper">
@@ -131,10 +88,10 @@
   <div class="example-wrapper">
     <h3>Box</h3>
     <div style="padding: 8px">
-      <elvia-box>
+      <!-- <elvia-box>
         <h3 slot="title">Title</h3>
         <div slot="content">Webcomponentent content for the box component</div>
-      </elvia-box>
+      </elvia-box> -->
     </div>
   </div>
 

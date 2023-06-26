@@ -36,9 +36,11 @@
     <!--Box-->
     <div class="example-wrapper">
       <h3>Box</h3>
+      <button @click="showTitle = !showTitle" class="e-btn">Toggle title</button>
+      <button @click="showContent = !showContent" class="e-btn">Toggle content</button>
       <elvia-box :isColored="true">
-        <div slot="title"><h1>Title for the box component</h1></div>
-        <div slot="content">Webcomponentent content for the Box component</div>
+        <div v-if="showTitle" slot="title"><h1>Title for the box component</h1></div>
+        <div v-if="showContent" slot="content">Webcomponentent content for the Box component</div>
       </elvia-box>
     </div>
 
@@ -361,4 +363,7 @@ const showToast = () => {
     customIcon: '<i class="e-icon e-icon--crane"></i>',
   });
 };
+
+const showTitle = ref(true);
+const showContent = ref(true);
 </script>

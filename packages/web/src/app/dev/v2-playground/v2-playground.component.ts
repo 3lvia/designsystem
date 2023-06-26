@@ -251,6 +251,9 @@ export class v2PlaygroundComponent {
     console.log('Popover closed');
   };
 
+  showSlot = true;
+  showTitle = true;
+
   constructor(private titleService: Title) {
     this.titleService.setTitle('DEV-playground | Elvia design system');
   }
