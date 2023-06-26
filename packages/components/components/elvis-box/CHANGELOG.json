@@ -2,8 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.06.23",
+      "version": "2.0.0 ",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["The title prop/slot has been replaced with a heading prop/slot."],
+          "fixes": ["Replace your <code>title</code> prop/slot with <code>heading</code>."]
+        }
+      ]
+    },
+    {
       "date": "15.06.23",
-      "version": "1.6.2 ",
+      "version": "1.6.2",
       "changelog": [
         {
           "type": "patch",
