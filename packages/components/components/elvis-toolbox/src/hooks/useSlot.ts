@@ -22,9 +22,9 @@ import React, { useEffect, useRef } from 'react';
  */
 export const useSlot = <
   TRefElement extends HTMLElement,
-  TWebcomponent extends { getSlot: (slotName: string) => Element } = {
+  TWebcomponent extends { getSlot: (slotName: string) => Element } & HTMLElement = {
     getSlot: (slotName: string) => Element;
-  },
+  } & HTMLElement,
 >(
   slot: string,
   webcomponent: TWebcomponent | undefined,
@@ -45,25 +45,27 @@ export const useSlot = <
   const defaultRef = useRef<TRefElement>(null);
   const ref = options?.ref ?? defaultRef;
   useEffect(() => {
-    if (!webcomponent) {
-      options?.callback?.(false);
-      return;
-    }
-    // Get slotted items from web component
-    if (ref.current && webcomponent.getSlot(slot)) {
+    const updateSlotContent = () => {
+      if (!webcomponent || !ref.current) {
+        options?.callback?.(false);
+        return;
+      }
+
+      const slotContent = webcomponent.getSlot(slot);
+      if (!slotContent) {
+        options?.callback?.(false);
+        return;
+      }
+      ref.current.innerHTML = ''; // TODO: Remove even if no slot content, if not set as a prop?
       options?.callback?.(true);
-      ref.current.innerHTML = '';
-      ref.current.appendChild(webcomponent.getSlot(slot));
-    } else {
-      options?.callback?.(false);
-    }
-  }, [
-    ref,
-    slot,
-    webcomponent,
-    webcomponent?.getSlot(slot),
-    options?.callback,
-    options?.useEffectDependencies,
-  ]);
+      ref.current.appendChild(slotContent);
+    };
+    updateSlotContent();
+
+    webcomponent?.addEventListener('elvisSlotChange', updateSlotContent);
+    () => {
+      webcomponent?.removeEventListener('elvisSlotChange', updateSlotContent);
+    };
+  }, [ref, slot, webcomponent, options?.callback, options?.useEffectDependencies]);
   return { ref };
 };
