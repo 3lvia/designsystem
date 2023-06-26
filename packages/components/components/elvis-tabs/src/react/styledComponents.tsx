@@ -64,6 +64,10 @@ export const ScrollContainer = styled.div<ScrollContainerProps>`
     gap: 24px;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -119,6 +123,10 @@ export const Tab = styled.button<TabLabelProps>`
       width: ${isSelected ? '100%' : '0'};
       transition: all 0.3s ease-in-out;
       background-color: ${isSelected ? getColor('green') : 'transparent'};
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: opacity 0.3s ease-in-out;
+      }
     }
 
     &:hover::after {
