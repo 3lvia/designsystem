@@ -5,7 +5,12 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
-      <elvia-stepper type="horizontal" isForced [steps]="stepperStates">
+      <elvia-stepper
+        type="horizontal"
+        [value]="3"
+        [steps]="stepperStates"
+        (valueOnChange)="logValue('Stepper', $any($event).detail.value)"
+      >
         <div slot="content">
           <div>Step 1 content</div>
           <div>Step 2 content</div>

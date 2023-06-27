@@ -9,5 +9,6 @@ export const config: ComponentConfig = {
     { name: 'className', type: 'string' },
     { name: 'isForced', type: 'boolean' },
     { name: 'inlineStyle', type: 'object' },
+    { name: 'value', type: 'object' },
   ],
 };

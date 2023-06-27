@@ -9,6 +9,8 @@ export const Stepper: FC<StepperProps> = function ({
   isForced = false,
   typography,
   content,
+  value,
+  valueOnChange,
   className,
   inlineStyle,
   webcomponent,
@@ -32,9 +34,31 @@ export const Stepper: FC<StepperProps> = function ({
     }
   }, [content]);
 
-  const handleStepChange = (step: number) => {
-    if (step >= 1 && step <= numberOfSteps) {
-      setCurrentStep(step);
+  useEffect(() => {
+    if (value) {
+      setCurrentStep(value);
+    }
+  }, [value]);
+
+  // const updateValue = (updateCurrentStep: number): void => {
+  //   setCurrentStep(updateCurrentStep);
+  //   if (!webcomponent && valueOnChange) {
+  //     valueOnChange(updateCurrentStep);
+  //   } else if (webcomponent) {
+  //     webcomponent.setProps({ value: updateCurrentStep }, true);
+  //     webcomponent.triggerEvent('valueOnChange', updateCurrentStep);
+  //   }
+  // };
+
+  const handleStepChange = (updateCurrentStep: number) => {
+    if (updateCurrentStep >= 1 && updateCurrentStep <= numberOfSteps) {
+      setCurrentStep(updateCurrentStep);
+      if (!webcomponent && valueOnChange) {
+        valueOnChange(updateCurrentStep);
+      } else if (webcomponent) {
+        webcomponent.setProps({ value: updateCurrentStep }, true);
+        webcomponent.triggerEvent('valueOnChange', updateCurrentStep);
+      }
     }
   };
 
