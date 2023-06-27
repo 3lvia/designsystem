@@ -46,7 +46,7 @@ export const generateStatusMessage = (currentStep: number, steps: StepStates, er
   let statusMessage = `På steg ${currentStep}. `;
   if (currentStep > 1) {
     statusMessage += `Det forrige steget var ${
-      steps?.[currentStep - 1].isCompleted ? 'vellykket' : 'ikke fullført'
+      steps?.[currentStep - 1]?.isCompleted ? 'vellykket' : 'ikke fullført'
     }. `;
   }
 
