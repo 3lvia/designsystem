@@ -28,7 +28,7 @@ export const Email = styled.div`
 `;
 
 export const MenuHr = styled(Hr)`
-  margin: 24px 0 16px;
+  margin-bottom: 16px;
 `;
 
 export const Footer = styled.div`
