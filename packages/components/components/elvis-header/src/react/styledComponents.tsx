@@ -2,46 +2,12 @@ import styled, { css } from 'styled-components';
 
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { TertiaryButton } from '@elvia/elvis-toolbox';
+import { TertiaryButton, device } from '@elvia/elvis-toolbox';
 
 export const toolbarHeight = '64px';
 export const headerZIndex = 109;
 export const sidebarMaxWidth = '280px';
 export const sidebarAnimation = '400ms cubic-bezier(0.71, 0, 0.31, 1)';
-
-export const StyledHeader = styled.header<{ isGtMobile: boolean; menuIsOpen: boolean }>`
-  background-color: ${getThemeColor('background-overlay-3')};
-  height: ${toolbarHeight};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: ${headerZIndex};
-
-  ${({ isGtMobile }) =>
-    isGtMobile &&
-    css`
-      border-bottom: 1px solid ${getThemeColor('border-5')};
-
-      ${LogoContainer} {
-        width: unset;
-        padding: 19px 16px 19px 19px;
-      }
-
-      ${PageTitle} {
-        margin: 0 auto 0 0;
-      }
-    `};
-
-  ${({ menuIsOpen }) =>
-    menuIsOpen &&
-    css`
-      z-index: 999999;
-    `};
-`;
 
 export const SquareContainer = styled.div`
   width: 58px;
@@ -65,6 +31,38 @@ export const PageTitle = styled.h1<{ isInvisible: boolean }>`
     isInvisible &&
     css`
       opacity: 0;
+    `};
+`;
+
+export const StyledHeader = styled.header<{ menuIsOpen: boolean }>`
+  background-color: ${getThemeColor('background-overlay-3')};
+  height: ${toolbarHeight};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: ${headerZIndex};
+
+  @media ${device.gtMobile} {
+    border-bottom: 1px solid ${getThemeColor('border-5')};
+
+    ${LogoContainer} {
+      width: unset;
+      padding: 19px 16px 19px 19px;
+    }
+
+    ${PageTitle} {
+      margin: 0 auto 0 0;
+    }
+  }
+
+  ${({ menuIsOpen }) =>
+    menuIsOpen &&
+    css`
+      z-index: 999999;
     `};
 `;
 
@@ -123,19 +121,22 @@ export const IconButton = styled.button`
 
 export interface HrProps {
   direction: 'horizontal' | 'vertical';
-  isGtTablet: boolean;
 }
 
 export const Hr = styled.hr<Partial<HrProps>>`
   border: 0 solid ${getThemeColor('border-2')};
 
-  ${({ direction, isGtTablet }) => {
+  ${({ direction }) => {
     if (direction === 'vertical') {
       return css`
         height: 100%;
         border-right-width: 1px;
-        margin: 0 ${isGtTablet ? '32px' : '24px'};
+        margin: 0 24px;
         height: 20px;
+
+        @media ${device.gtTablet} {
+          margin: 0 32px;
+        }
       `;
     } else {
       return css`
@@ -149,26 +150,40 @@ export const Hr = styled.hr<Partial<HrProps>>`
 
 interface AppContentProps {
   sidenavPadding: boolean;
-  initialized: boolean;
   isExpanded: boolean;
-  isGtMobile: boolean;
 }
 
 export const AppContent = styled.main<AppContentProps>`
   padding-top: ${toolbarHeight};
   transition: padding-left ${sidebarAnimation};
-  transition-duration: ${({ initialized }) => (initialized ? '400ms' : '0ms')};
+  transition-duration: 400ms;
 
-  ${({ isGtMobile, sidenavPadding, isExpanded }) => {
-    if (isGtMobile && sidenavPadding) {
-      return css`
-        padding-left: ${isExpanded ? sidebarMaxWidth : toolbarHeight};
-      `;
-    } else if (!isGtMobile && sidenavPadding) {
+  ${({ sidenavPadding, isExpanded }) => {
+    if (sidenavPadding) {
       return css`
         padding-bottom: ${toolbarHeight};
+
+        @media ${device.gtMobile} {
+          padding-left: ${isExpanded ? sidebarMaxWidth : toolbarHeight};
+        }
       `;
     }
     return css``;
   }}
+`;
+
+export const GtMobile = styled.div`
+  display: none;
+
+  @media ${device.gtMobile} {
+    display: contents;
+  }
+`;
+
+export const MobileOnly = styled.div`
+  display: contents;
+
+  @media ${device.gtMobile} {
+    display: none;
+  }
 `;
