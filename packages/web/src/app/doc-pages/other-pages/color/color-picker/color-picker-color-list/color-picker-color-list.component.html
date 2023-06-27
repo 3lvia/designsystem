@@ -10,12 +10,7 @@
     [style.background-color]="color.hex"
     (click)="chooseNewColor(color)"
   >
-    <input
-      type="radio"
-      [name]="color.name"
-      (keyup.enter)="chooseNewColor(color)"
-      [checked]="isChosen(color)"
-    />
+    <input type="radio" />
     <div
       *ngIf="isChosen(color)"
       class="checkmark-left"
