@@ -4,6 +4,7 @@ export { warnDeprecatedProps } from './warnDeprecatedProps';
 export { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './componentConfig.types';
 
 export { device } from './breakpoints';
+export { MobileOnly, GtMobile, GtTablet, GtDesktop } from './components/breakpoints/breakpoints';
 export { Backdrop } from './components/backdrop/backdrop';
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { IconButton } from './components/button/iconButton';
