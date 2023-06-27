@@ -1,7 +1,7 @@
 import { StepStates } from './sharedTypes';
 
-export const isReachable = (forced: boolean, i: number, steps?: StepStates): boolean => {
-  return !(forced && i !== 1 && !steps?.[i - 1]?.isCompleted);
+export const isReachable = (forced: boolean, stepNumber: number, steps?: StepStates): boolean => {
+  return !(forced && stepNumber !== 1 && !steps?.[stepNumber - 1]?.isCompleted);
 };
 
 export const numberShouldBeVisible = (

@@ -11,7 +11,7 @@ export const useStepNumbers = (
   );
   const errorSteps = useMemo(
     () => stepNumbersArray.filter((_, i) => steps?.[i + 1]?.isError),
-    [numberOfSteps, steps],
+    [stepNumbersArray, steps],
   );
 
   return [stepNumbersArray, errorSteps];
