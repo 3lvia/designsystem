@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HeaderProps } from './elviaHeader.types';
-import { useSlot } from '@elvia/elvis-toolbox';
+import { GtMobile, MobileOnly, useSlot } from '@elvia/elvis-toolbox';
 import { getThemeColor } from '@elvia/elvis-colors';
 import {
   AppContent,
@@ -10,8 +10,6 @@ import {
   LogoContainer,
   PageTitle,
   SquareContainer,
-  GtMobile,
-  MobileOnly,
 } from './styledComponents';
 import { MobileMenu } from './mobileMenu/mobileMenu';
 import { DesktopMenu } from './desktopMenu/desktopMenu';

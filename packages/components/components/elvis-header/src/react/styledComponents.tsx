@@ -171,19 +171,3 @@ export const AppContent = styled.main<AppContentProps>`
     return css``;
   }}
 `;
-
-export const GtMobile = styled.div`
-  display: none;
-
-  @media ${device.gtMobile} {
-    display: contents;
-  }
-`;
-
-export const MobileOnly = styled.div`
-  display: contents;
-
-  @media ${device.gtMobile} {
-    display: none;
-  }
-`;
