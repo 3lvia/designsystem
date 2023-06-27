@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { UserMenuProps } from '../elviaHeader.types';
 import { IconButton } from '../styledComponents';
@@ -45,14 +45,15 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
   );
   const { currentTheme } = useCurrentTheme(triggerButtonRef);
 
-  useEffect(() => {
-    onMenuToggle(userMenuIsOpen);
-  }, [userMenuIsOpen]);
+  const onMobileMenuToggle = (isShowing: boolean) => {
+    setIsShowing(isShowing);
+    onMenuToggle(isShowing);
+  };
 
   return (
     <>
       <IconButton
-        onClick={() => setIsShowing(!userMenuIsOpen)}
+        onClick={() => onMobileMenuToggle(!userMenuIsOpen)}
         aria-label="Åpne brukermeny"
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
@@ -67,7 +68,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
       {userMenuIsOpen &&
         createPortal(
           <>
-            <Backdrop fadeOut={fadeOut} onClick={() => setIsShowing(false)} />
+            <Backdrop fadeOut={fadeOut} onClick={() => onMobileMenuToggle(false)} />
             <MenuContainer
               fadeOut={fadeOut}
               onAnimationEnd={onAnimationEnd}
