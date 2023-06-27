@@ -2,12 +2,25 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "26.06.23",
-      "version": "9.2.1",
+      "date": "27.06.23",
+      "version": "9.3.1",
       "changelog": [
         {
           "type": "bug_fix",
           "changes": ["Fixed the typography and disabled color on primary/secondary buttons."]
+        }
+      ]
+    },
+    {
+      "date": "26.06.23",
+      "version": "9.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add optional callback to useRovingFocus when focus changes through keyboard interaction.",
+            "Add shared breakpoints for media queries."
+          ]
         }
       ]
     },

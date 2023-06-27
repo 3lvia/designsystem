@@ -22,7 +22,7 @@
     "@angular/router": "^16.1.0",
     "@contentful/rich-text-html-renderer": "^15.11.1",
     "@contentful/rich-text-types": "^15.11.1",
-    "@elvia/elvis": "portal:../elvis",
+    "@elvia/elvis": "workspace:*",
     "@elvia/elvis-accordion": "workspace:*",
     "@elvia/elvis-assets-icons": "workspace:*",
     "@elvia/elvis-badge": "workspace:*",

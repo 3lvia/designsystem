@@ -20,7 +20,7 @@ export const BoxColoredLine = styled.div`
   background: ${getThemeColor('border-selected-1')};
 `;
 
-export const BoxTitle = styled.div`
+export const BoxHeading = styled.div`
   ${getTypographyCss('title-caps')}
   font-style: normal;
   color: ${getThemeColor('text-1')};
