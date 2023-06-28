@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-tooltip/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-tooltip/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const tooltipData: ComponentData = {

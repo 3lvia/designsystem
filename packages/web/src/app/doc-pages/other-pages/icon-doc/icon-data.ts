@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-icon/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-icon/CHANGELOG.json';
 import ComponentData from '../../components/component-data.interface';
 
 const elvisIconData: ComponentData = {

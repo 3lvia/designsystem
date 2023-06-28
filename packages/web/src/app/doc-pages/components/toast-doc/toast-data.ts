@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-toast/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-toast/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const toastData: ComponentData = {

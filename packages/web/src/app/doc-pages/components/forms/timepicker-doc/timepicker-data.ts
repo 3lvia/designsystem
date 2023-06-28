@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-timepicker/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-timepicker/CHANGELOG.json';
 import ComponentData from '../../component-data.interface';
 
 export const timepickerData: ComponentData = {
