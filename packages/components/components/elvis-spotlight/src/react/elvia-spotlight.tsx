@@ -22,7 +22,7 @@ const Spotlight: FC<SpotlightProps> = ({
   useLockBodyScroll(hasLockBodyScroll);
 
   return hasPosition ? (
-    <div className={`${className ? className : ''}`} style={inlineStyle} {...rest} ref={spotlightDivRef}>
+    <div className={className} style={inlineStyle} {...rest} ref={spotlightDivRef}>
       <SpotlightArea>
         <defs>
           <mask id="hole">

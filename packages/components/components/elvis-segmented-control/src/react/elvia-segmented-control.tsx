@@ -22,6 +22,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   className,
   inlineStyle,
   webcomponent,
+  ...rest
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(value);
   const segmentedControlId = uniqueId('ewc-segmented-control-');
@@ -56,8 +57,9 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       numberOfControls={items?.length}
       role="radiogroup"
       className={className ?? ''}
-      style={{ ...inlineStyle }}
+      style={inlineStyle}
       data-testid="segmented-control-container"
+      {...rest}
     >
       {items?.map((control, index) => (
         <SegmentedControlLabel
