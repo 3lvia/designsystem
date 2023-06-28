@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
+import changelogJson from '@elvia/elvis/CHANGELOG.json';
 
 @Component({
   selector: 'app-changelog',

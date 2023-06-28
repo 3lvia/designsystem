@@ -7,13 +7,6 @@ const gulp = require('gulp');
 const terser = require('gulp-terser');
 const tap = require('gulp-tap');
 
-// Copies changelog to web dictionary
-function copyChangelogs() {
-  const elvisSrc = 'CHANGELOG.json';
-
-  return gulp.src(elvisSrc).pipe(gulp.dest('../web/src/assets/changelogs/elvis'));
-}
-
 function copyElvisToElvisFull() {
   const elvisSrc = 'elvis.js';
   const elvisFull = 'elvis.full.js';
@@ -47,7 +40,6 @@ gulp.task(
     classList.createClassListOverview,
     icons.generateIcons,
     classList.injectDeprecatedElvisClasses,
-    copyChangelogs,
     copyElvisToElvisFull,
     minifyElvisJs,
     function (done) {
@@ -66,7 +58,6 @@ gulp.task('watch', function () {
       './src/templates/**.*',
       './src/config/**.*',
       '!./src/config/icons.config.js',
-      './CHANGELOG.json',
     ],
     gulp.series('default'),
   );

@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-carousel/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-carousel/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const carouselData: ComponentData = {

@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-slider/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-slider/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const sliderData: ComponentData = {

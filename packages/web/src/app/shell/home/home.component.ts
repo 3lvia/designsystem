@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { LOCALE_CODE } from 'contentful/types';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
-import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
+import changelogJson from '@elvia/elvis/CHANGELOG.json';
 
 @Component({
   selector: 'app-home',
