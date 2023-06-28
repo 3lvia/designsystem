@@ -1,10 +1,11 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
-export interface BoxProps extends BaseProps {
+export interface BoxProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
   /**
    * @deprecated Deprecated in version 2.0.0. Use the `heading` prop instead.
    */
-  title?: string | JSX.Element;
+  title?: string;
   content: string | JSX.Element;
   isColored?: boolean;
   /**

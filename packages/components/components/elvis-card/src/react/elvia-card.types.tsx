@@ -1,4 +1,5 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type CardType = 'simple' | 'detail';
 export type BorderColor = 'none' | 'green' | 'blue-berry' | 'blueBerry' | 'blue' | 'red' | 'orange';
@@ -34,7 +35,7 @@ export interface CardColoredLineProps {
   borderColor?: BorderColor;
 }
 
-export interface CardProps extends BaseProps {
+export interface CardProps extends ComponentPropsWithoutRef<'article'>, BaseProps {
   icon?: string | JSX.Element;
   iconHover?: string | JSX.Element;
   /**

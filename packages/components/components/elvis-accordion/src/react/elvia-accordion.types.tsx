@@ -1,13 +1,13 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { BaseProps } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
-import { CSSProperties } from 'react';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type AccordionLabelPosition = 'left' | 'center' | 'right';
 export type AccordionSize = 'small' | 'medium' | 'large';
 export type AccordionType = 'normal' | 'overflow' | 'single';
 export type AccordionSpacingContent = '8px' | '16px' | '24px';
 
-export interface AccordionProps {
+export interface AccordionProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
   content?: string | JSX.Element;
   isOpen?: boolean;
   isHovering?: boolean;
@@ -29,7 +29,4 @@ export interface AccordionProps {
   typography?: TypographyName;
   onOpen?: () => void;
   onClose?: () => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }
