@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.2.0 (26.06.23)
+
+### New feature
+
+- `hand_pointer` added
+
 ## 3.1.0 (26.06.23)
 
 ### New feature

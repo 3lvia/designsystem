@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-spotlight/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-spotlight/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const spotlightData: ComponentData = {

@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-dropdown/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-dropdown/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const dropdownData: ComponentData = {

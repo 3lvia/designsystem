@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-radio-filter/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-radio-filter/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const radioFilterData: ComponentData = {

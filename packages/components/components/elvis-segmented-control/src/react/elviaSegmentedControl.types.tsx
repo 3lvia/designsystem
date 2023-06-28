@@ -1,4 +1,5 @@
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type Type = 'text' | 'icon';
 export type Size = 'large' | 'medium' | 'small';
@@ -12,7 +13,7 @@ export interface IconSegmentedControl {
   ariaLabel: string;
 }
 
-export interface SegmentedControlProps extends BaseProps, HasValue<number> {
+export interface SegmentedControlProps extends ComponentPropsWithoutRef<'div'>, BaseProps, HasValue<number> {
   items: TextSegmentedControl[] | IconSegmentedControl[];
   type?: Type;
   size?: Size;

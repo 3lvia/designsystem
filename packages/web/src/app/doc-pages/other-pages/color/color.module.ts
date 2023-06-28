@@ -14,6 +14,8 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
 import { IllustrationBaseDirective } from './illustrations/illustration-base.directive';
+import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
+import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import { IllustrationBaseDirective } from './illustrations/illustration-base.dir
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
     CopyModule,
+    DoDontModule,
+    DoDontTextModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [

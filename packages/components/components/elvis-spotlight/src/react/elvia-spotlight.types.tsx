@@ -1,4 +1,5 @@
 import { BaseProps, HasTransitionDuration } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type SpotlightShape = 'circle' | 'rectangle';
 
@@ -13,7 +14,7 @@ export interface SpotlightRectangleProps {
   borderRadius?: number;
 }
 
-export interface SpotlightProps extends BaseProps, HasTransitionDuration {
+export interface SpotlightProps extends ComponentPropsWithoutRef<'div'>, BaseProps, HasTransitionDuration {
   position?: SpotlightPosition;
   shape?: SpotlightShape;
   radius?: number;
