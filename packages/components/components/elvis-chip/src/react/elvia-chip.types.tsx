@@ -1,11 +1,10 @@
-import { CSSProperties } from 'react';
-
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { ComponentPropsWithoutRef } from 'react';
+import { BaseProps } from '@elvia/elvis-toolbox';
 
 export type ChipType = 'removable' | 'legend' | 'choice';
 export type ColorType = 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'violet';
 
-export interface ChipProps {
+export interface ChipProps extends Omit<ComponentPropsWithoutRef<'button'>, 'type'>, BaseProps {
   ariaLabel?: string;
   color?: ColorType;
   /**
@@ -27,7 +26,4 @@ export interface ChipProps {
    */
   valueOnChange?: (event: { value: string; isSelected: boolean }) => void;
   isSelectedOnChange?: (isSelected: NonNullable<ChipProps['isSelected']>) => void;
-  className?: string;
-  inlineStyle?: CSSProperties;
-  webcomponent?: ElvisComponentWrapper;
 }

@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-progress-linear/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-progress-linear/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const progressbarData: ComponentData = {

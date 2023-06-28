@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-divider/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-divider/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const dividerData: ComponentData = {

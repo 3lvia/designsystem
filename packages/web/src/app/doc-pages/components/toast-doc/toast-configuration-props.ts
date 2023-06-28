@@ -1,8 +1,6 @@
-import changelogJson from 'src/assets/changelogs/elvis-toast/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const configurationProps: ComponentData = {
-  changelog: changelogJson.content,
   name: 'Toast',
   attributes: {
     title: {

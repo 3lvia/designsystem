@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-context-menu/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-context-menu/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const contextMenuData: ComponentData = {

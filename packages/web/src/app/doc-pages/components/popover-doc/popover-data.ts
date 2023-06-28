@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-popover/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-popover/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const popoverData: ComponentData = {

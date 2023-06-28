@@ -391,7 +391,7 @@ function App() {
               <h3>Box</h3>
               <Box
                 isColored={true}
-                title={<h1>Title for the box component</h1>}
+                heading={<h1>Title for the box component</h1>}
                 content={<div>Heisann dette er en box component sendt med som node i react</div>}
               ></Box>
             </div>
