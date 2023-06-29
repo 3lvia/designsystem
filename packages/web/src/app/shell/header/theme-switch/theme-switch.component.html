@@ -1,0 +1,24 @@
+<div>
+  <div class="e-flex e-gap-24 e-mb-24 e-justify-content-center">
+    <div class="e-flex e-flex-direction-column e-align-items-center e-gap-8" *ngFor="let theme of themes">
+      <button
+        class="e-thumbnail"
+        [ngClass]="{ 'e-thumbnail---selected': preferredTheme === theme }"
+        (click)="setPreferredTheme(theme)"
+      >
+        <img src="assets/header/theme-switch/theme_switch_{{ theme }}.svg" alt="{{ theme }} theme" />
+      </button>
+      <span class="e-text-micro e-capitalize">{{ theme }}</span>
+    </div>
+  </div>
+
+  <div class="e-flex e-justify-content-end read-more-link">
+    <a class="e-link e-link--action e-link--sm" href="#">
+      <span class="e-link__title">Read about theming</span>
+      <span class="e-link__icon">
+        <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+        <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+      </span>
+    </a>
+  </div>
+</div>
