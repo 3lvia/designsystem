@@ -58,7 +58,7 @@ export const Measurement: React.FC<Props> = ({ min, max, size, unit, setWidth })
         ref={measurementInputRectWidthRef}
       >
         <FormFieldInputContainer>
-          <FormFieldInput disabled $width={inputMinWidth} />
+          <FormFieldInput disabled $width={inputMinWidth} role="none" />
           {unit && <FormFieldInputSuffixText>{unit}</FormFieldInputSuffixText>}
         </FormFieldInputContainer>
       </FormFieldContainer>
