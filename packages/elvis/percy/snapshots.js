@@ -175,6 +175,14 @@ module.exports = [
     name: 'Tag',
     url: '/components/tag.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Toggle',
