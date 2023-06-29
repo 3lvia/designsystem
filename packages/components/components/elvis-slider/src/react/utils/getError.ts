@@ -1,12 +1,14 @@
 import {
   BothSliders,
-  ErrorOptions,
   ErrorType,
   Sides,
   SimpleSliderErrorOptions,
+  SliderProps,
   SliderType,
 } from '../elvia-slider.types';
 import { isRangeSliderErrorOptions } from './isRangeSliderErrorOptions';
+
+type ErrorOptions = SliderProps['errorOptions'];
 
 export const getMergedErrorOptions = (type: SliderType, errorOptions: ErrorOptions): ErrorOptions => {
   const defaultErrorOptions: SimpleSliderErrorOptions = {
@@ -40,11 +42,11 @@ export const getHasErrorPlaceholder = (
   if (error?.left || error?.right) {
     return true;
   } else if (isRangeSliderErrorOptions(errorOptions)) {
-    return (
-      !!errorOptions?.left?.hasErrorPlaceholder ||
-      !!errorOptions?.right?.hasErrorPlaceholder ||
-      !!errorOptions?.left?.text ||
-      !!errorOptions?.right?.text
+    return !!(
+      errorOptions?.left?.hasErrorPlaceholder ||
+      errorOptions?.right?.hasErrorPlaceholder ||
+      errorOptions?.left?.text ||
+      errorOptions?.right?.text
     );
   } else {
     return !!errorOptions?.hasErrorPlaceholder || !!errorOptions?.text;
@@ -103,7 +105,7 @@ export const getHasErrorText = ({
   if (error?.left || error?.right) {
     return true;
   } else if (isRangeSliderErrorOptions(errorOptions)) {
-    return !!errorOptions?.left?.text || !!errorOptions?.right?.text;
+    return !!(errorOptions?.left?.text || errorOptions?.right?.text);
   } else {
     return !!errorOptions?.text;
   }

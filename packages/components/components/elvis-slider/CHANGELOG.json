@@ -11,7 +11,7 @@
             "Slider now comes in two sizes, <code>medium</code> and <code>small</code>. The default size is <code>medium</code>.",
             "The <code>min</code> default value is now <code>0</code>.",
             "The <code>hasInputField</code> default value is now <code>true</code>.",
-            "The <code>hasHintValues</code> default value is now <code>true</code>.",
+            "The <code>hasHints</code> default value is now <code>true</code>.",
             "The <code>hasTooltip</code> prop has been removed. The tooltip is now always shown.",
             "The <code>hasPercent</code> prop has been removed.",
             "Changes in spacing between elements."

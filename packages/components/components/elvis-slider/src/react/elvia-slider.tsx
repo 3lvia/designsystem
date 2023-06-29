@@ -9,7 +9,6 @@ import {
 import { Tooltip } from './tooltip/tooltip';
 import { FormFieldInputValues, Sides, SliderProps, BothSliders, ErrorType } from './elvia-slider.types';
 import {
-  BoundaryWidthMeasurement,
   FormFieldInput,
   FormFieldLabel,
   InputFieldsContainer,
@@ -37,8 +36,9 @@ import { useContentRectWidth } from './utils/useContentRectWidth';
 import { Hint } from './hint/hint';
 import { Label } from './label/label';
 import { calculateHintReplacement } from './utils/calculateHintReplacement';
+import { Measurement } from './measurement/measurement';
 
-let uniqueId = 0;
+let elvisSliderUniqueId = 0;
 
 const Slider: React.FC<SliderProps> = function ({
   ariaLabel,
@@ -61,7 +61,7 @@ const Slider: React.FC<SliderProps> = function ({
   ...rest
 }) {
   warnDeprecatedProps(config, arguments[0]);
-  const [id] = useState(`ewc-slider-${uniqueId++}`);
+  const [id] = useState(`ewc-slider-${elvisSliderUniqueId++}`);
 
   const [sliderValue, setSliderValue] = useState({ left: min, right: max });
   const [formFieldInputValues, setFormFieldInputValues] = useState<FormFieldInputValues>({
@@ -78,17 +78,15 @@ const Slider: React.FC<SliderProps> = function ({
     useContentRectWidth<HTMLDivElement>();
   const [isFullWidthRangeInput, setIsFullWidthRangeInput] = useState(false);
   const [leftHintRectWidth, leftHintRectWidthRef] = useContentRectWidth<HTMLSpanElement>();
-  const [maxValueRectWidth, maxValueRectRef] = useContentRectWidth<HTMLSpanElement>();
-  const [measurementInputRectWidth, measurementInputRectWidthRef] = useContentRectWidth<HTMLDivElement>();
-  const [minValueRectWidth, minValueRectRef] = useContentRectWidth<HTMLSpanElement>();
   const [rightHintRectWidth, rightHintRectWidthRef] = useContentRectWidth<HTMLSpanElement>();
+
   const [totalSliderWidth, sliderRef] = useContentRectWidth<HTMLInputElement>();
+  const [optimalInputWidth, setOptimalInputWidth] = useState(0);
   const [replaceHintValueWithInput, setReplaceHintValueWithInput] = useState({
     left: false,
     right: false,
   });
 
-  const inputMinWidth = Math.max(minValueRectWidth, maxValueRectWidth);
   const hintValueHasBeenReplaced = replaceHintValueWithInput.left || replaceHintValueWithInput.right;
 
   const { inputMode } = useInputModeDetection();
@@ -150,9 +148,9 @@ const Slider: React.FC<SliderProps> = function ({
 
   //check overflow (Simple Slider only)
   useEffect(() => {
-    if (type === 'simple') {
+    if (type === 'simple' && hasInputField) {
       const newReplaceHintValueWithInput = calculateHintReplacement({
-        inputLength: measurementInputRectWidth,
+        inputLength: optimalInputWidth,
         leftHintWidth: leftHintRectWidth,
         rightHintWidth: rightHintRectWidth,
         inputContainerWidth: inputFieldsContainerRectWidth,
@@ -162,7 +160,7 @@ const Slider: React.FC<SliderProps> = function ({
       setReplaceHintValueWithInput(newReplaceHintValueWithInput);
     }
   }, [
-    measurementInputRectWidth,
+    optimalInputWidth,
     leftHintRectWidth,
     rightHintRectWidth,
     inputFieldsContainerRectWidth,
@@ -173,9 +171,9 @@ const Slider: React.FC<SliderProps> = function ({
   //check overflow (Range Slider only)
   useEffect(() => {
     if (type === 'range' && hasInputField) {
-      setIsFullWidthRangeInput(measurementInputRectWidth * 2 + 8 > inputFieldsContainerRectWidth);
+      setIsFullWidthRangeInput(optimalInputWidth * 2 + 8 > inputFieldsContainerRectWidth);
     }
-  }, [measurementInputRectWidth, inputFieldsContainerRectWidth, hasInputField]);
+  }, [optimalInputWidth, inputFieldsContainerRectWidth, hasInputField]);
 
   const updateValue = (newSliderValue: BothSliders<number>) => {
     const newValue = {
@@ -188,13 +186,18 @@ const Slider: React.FC<SliderProps> = function ({
       return;
     }
 
-    const newValueToEmit = type === 'simple' ? newValue.left : newValue;
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(newValueToEmit);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: newValueToEmit }, true);
-      webcomponent.triggerEvent('valueOnChange', newValueToEmit);
+    const isSimpleSlider = (
+      valueOnChange: SliderProps['valueOnChange'],
+    ): valueOnChange is (val: number) => void => type === 'simple';
+
+    if (isSimpleSlider(valueOnChange)) {
+      valueOnChange?.(newValue.left);
+    } else {
+      valueOnChange?.(newValue);
     }
+    const newValueToEmit = type === 'simple' ? newValue.left : newValue;
+    webcomponent?.setProps({ value: newValueToEmit }, true);
+    webcomponent?.triggerEvent('valueOnChange', newValueToEmit);
   };
 
   const handleSliderValueChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -306,237 +309,214 @@ const Slider: React.FC<SliderProps> = function ({
   };
 
   return (
-    <>
-      <SliderContainer
-        aria-disabled={isDisabled}
-        className={className ?? ''}
-        style={{ ...inlineStyle }}
-        {...rest}
-      >
-        {label && <Label size={size} value={label} />}
-        <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size}>
-          <StyledSlider
-            type={'range'}
-            role={'slider'}
-            aria-label={getAriaLabel({
-              side: 'left',
-              sliderValue: sliderValue,
-              type,
-              ariaLabel,
-              label,
-              unit,
-            })}
-            aria-valuemax={max}
-            aria-valuemin={min}
-            disabled={isDisabled}
-            max={max}
-            min={min}
-            name="left"
-            onChange={handleSliderValueChange}
-            ref={sliderRef}
-            $type={type}
-            value={sliderValue.left}
-            {...getHandleTooltipEvents('left')}
-          />
+    <SliderContainer
+      aria-disabled={isDisabled}
+      className={className ?? ''}
+      style={{ ...inlineStyle }}
+      {...rest}
+    >
+      {label && <Label size={size} value={label} />}
+      <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size}>
+        <StyledSlider
+          type={'range'}
+          role={'slider'}
+          aria-label={getAriaLabel({
+            side: 'left',
+            sliderValue: sliderValue,
+            type,
+            ariaLabel,
+            label,
+            unit,
+          })}
+          aria-valuemax={max}
+          aria-valuemin={min}
+          disabled={isDisabled}
+          max={max}
+          min={min}
+          name="left"
+          onChange={handleSliderValueChange}
+          ref={sliderRef}
+          $type={type}
+          value={sliderValue.left}
+          {...getHandleTooltipEvents('left')}
+        />
 
-          {showTooltip.left && !isDisabled && (
-            <Tooltip value={sliderValue} position={leftThumbPosition} side={'left'} unit={unit} size={size} />
-          )}
+        {showTooltip.left && !isDisabled && (
+          <Tooltip value={sliderValue} position={leftThumbPosition} side={'left'} unit={unit} size={size} />
+        )}
 
-          {type === 'range' && (
-            <>
-              <StyledSlider
-                aria-label={getAriaLabel({
-                  side: 'right',
-                  sliderValue: sliderValue,
-                  type,
-                  ariaLabel,
-                  label,
-                  unit,
-                })}
-                type={'range'}
-                role={'slider'}
-                aria-valuemax={max}
-                aria-valuemin={min}
-                disabled={isDisabled}
-                max={max}
-                min={min}
-                name="right"
-                onChange={handleSliderValueChange}
-                $type={type}
-                value={sliderValue.right}
-                {...getHandleTooltipEvents('right')}
-              />
-
-              {showTooltip.right && !isDisabled && (
-                <Tooltip
-                  value={sliderValue}
-                  position={rightThumbPosition}
-                  side={'right'}
-                  unit={unit}
-                  size={size}
-                />
-              )}
-            </>
-          )}
-
-          <SliderTrack />
-          <SliderFilledTrack
-            isDisabled={isDisabled}
-            rangeTrackWidth={getFilledMiddleTrackWidth()}
-            trackWidth={leftThumbPosition}
-            $type={type}
-          />
-        </SliderWrapper>
-
-        {hasInputField && (
+        {type === 'range' && (
           <>
-            {/* hidden */}
-            <BoundaryWidthMeasurement ref={minValueRectRef} size={size} role="none" aria-hidden="true">
-              {min}
-            </BoundaryWidthMeasurement>
-            <BoundaryWidthMeasurement ref={maxValueRectRef} size={size} role="none" aria-hidden="true">
-              {max}
-            </BoundaryWidthMeasurement>
-            <FormFieldContainer
-              as="div"
-              size={size}
-              style={{
-                height: 0,
-                margin: 0,
-                overflow: 'hidden',
-                padding: 0,
-                position: 'absolute',
-                whiteSpace: 'pre',
-                visibility: 'hidden',
-              }}
-              aria-hidden="true"
-              role="none"
-              ref={measurementInputRectWidthRef}
-            >
-              <FormFieldInputContainer>
-                <FormFieldInput disabled={true} value={formFieldInputValues.left} $width={inputMinWidth} />
-                {unit && <FormFieldInputSuffixText>{unit}</FormFieldInputSuffixText>}
-              </FormFieldInputContainer>
-            </FormFieldContainer>
+            <StyledSlider
+              aria-label={getAriaLabel({
+                side: 'right',
+                sliderValue: sliderValue,
+                type,
+                ariaLabel,
+                label,
+                unit,
+              })}
+              type={'range'}
+              role={'slider'}
+              aria-valuemax={max}
+              aria-valuemin={min}
+              disabled={isDisabled}
+              max={max}
+              min={min}
+              name="right"
+              onChange={handleSliderValueChange}
+              $type={type}
+              value={sliderValue.right}
+              {...getHandleTooltipEvents('right')}
+            />
+
+            {showTooltip.right && !isDisabled && (
+              <Tooltip
+                value={sliderValue}
+                position={rightThumbPosition}
+                side={'right'}
+                unit={unit}
+                size={size}
+              />
+            )}
           </>
         )}
 
-        <InputFieldsContainer
-          ref={inputFieldsContainerRectWidthRef}
-          replaceHintValueWithInput={replaceHintValueWithInput}
-          fullWithRangeInputs={isFullWidthRangeInput}
+        <SliderTrack />
+        <SliderFilledTrack
+          isDisabled={isDisabled}
+          rangeTrackWidth={getFilledMiddleTrackWidth()}
+          trackWidth={leftThumbPosition}
           $type={type}
-          hasInputField={hasInputField}
-          hasHints={hasHints}
-        >
-          {hasHints && !(type === 'range' && hasInputField) && (
-            <Hint
-              hasErrorPlaceholder={hasErrorPlaceholder}
-              isDisabled={isDisabled}
-              ref={leftHintRectWidthRef}
-              side={'left'}
-              size={size}
-              value={min}
-              aria-hidden={true}
-            />
-          )}
+        />
+      </SliderWrapper>
 
-          {hasInputField && (
-            <FormFieldContainer
-              size={size}
-              isDisabled={isDisabled}
-              isInvalid={getIsErrorState({ side: 'left', error: error, errorOptions: mergedErrorOptions })}
-              isFullWidth={hintValueHasBeenReplaced || isFullWidthRangeInput}
-              hasErrorPlaceholder={hasErrorPlaceholder && !(type === 'range' && isFullWidthRangeInput)}
+      {hasInputField && (
+        <Measurement min={min} max={max} unit={unit} size={size} setWidth={setOptimalInputWidth} />
+      )}
+
+      <InputFieldsContainer
+        ref={inputFieldsContainerRectWidthRef}
+        replaceHintValueWithInput={replaceHintValueWithInput}
+        fullWithRangeInputs={isFullWidthRangeInput}
+        $type={type}
+        hasInputField={hasInputField}
+        hasHints={hasHints}
+      >
+        {hasHints && !(type === 'range' && hasInputField) && (
+          <Hint
+            hasErrorPlaceholder={hasErrorPlaceholder}
+            isDisabled={isDisabled}
+            ref={leftHintRectWidthRef}
+            side={'left'}
+            size={size}
+            value={min}
+            aria-hidden={true}
+          />
+        )}
+
+        {hasInputField && (
+          <FormFieldContainer
+            size={size}
+            isDisabled={isDisabled}
+            isInvalid={getIsErrorState({ side: 'left', error: error, errorOptions: mergedErrorOptions })}
+            isFullWidth={hintValueHasBeenReplaced || isFullWidthRangeInput}
+            hasErrorPlaceholder={hasErrorPlaceholder && !(type === 'range' && isFullWidthRangeInput)}
+          >
+            <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
+            <FormFieldInputContainer
+              style={{
+                width:
+                  hintValueHasBeenReplaced || isFullWidthRangeInput ? 'initial' : `${optimalInputWidth}px`,
+              }}
             >
-              <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
-              <FormFieldInputContainer>
-                <FormFieldInput
-                  $side="left"
-                  $width={hintValueHasBeenReplaced || isFullWidthRangeInput ? null : inputMinWidth}
-                  aria-errormessage={getAriaErrorMessage({
-                    error: error,
-                    errorOptions: mergedErrorOptions,
-                    id: id,
-                    side: 'left',
-                  })}
-                  aria-invalid={getIsErrorState({
-                    side: 'left',
-                    error: error,
-                    errorOptions: mergedErrorOptions,
-                  })}
-                  autoComplete="off"
-                  disabled={isDisabled}
-                  isFullWidth={isFullWidthRangeInput}
-                  onBlur={(e) => handleFormFieldInputOnBlur(e.target.value, 'left')}
-                  onChange={(e) => handleFormFieldInputOnChange(e.target.value, 'left')}
-                  onKeyDown={(e) => handleOnKeyDown(e, 'left')}
-                  value={formFieldInputValues.left}
-                  inputMode="numeric"
-                />
-                {unit && <FormFieldInputSuffixText>{unit}</FormFieldInputSuffixText>}
-              </FormFieldInputContainer>
-            </FormFieldContainer>
-          )}
+              <FormFieldInput
+                $side="left"
+                aria-errormessage={getAriaErrorMessage({
+                  error: error,
+                  errorOptions: mergedErrorOptions,
+                  id: id,
+                  side: 'left',
+                })}
+                aria-invalid={getIsErrorState({
+                  side: 'left',
+                  error: error,
+                  errorOptions: mergedErrorOptions,
+                })}
+                autoComplete="off"
+                disabled={isDisabled}
+                $isFullWidth={isFullWidthRangeInput}
+                onBlur={(e) => handleFormFieldInputOnBlur(e.target.value, 'left')}
+                onChange={(e) => handleFormFieldInputOnChange(e.target.value, 'left')}
+                onKeyDown={(e) => handleOnKeyDown(e, 'left')}
+                value={formFieldInputValues.left}
+                inputMode="numeric"
+              />
+              {unit && <FormFieldInputSuffixText>{unit}</FormFieldInputSuffixText>}
+            </FormFieldInputContainer>
+          </FormFieldContainer>
+        )}
 
-          {hasHints && !(type === 'range' && hasInputField) && (
-            <Hint
-              hasErrorPlaceholder={hasErrorPlaceholder}
-              isDisabled={isDisabled}
-              ref={rightHintRectWidthRef}
-              side={'right'}
-              size={size}
-              value={max}
-            />
-          )}
+        {hasHints && !(type === 'range' && hasInputField) && (
+          <Hint
+            hasErrorPlaceholder={hasErrorPlaceholder}
+            isDisabled={isDisabled}
+            ref={rightHintRectWidthRef}
+            side={'right'}
+            size={size}
+            value={max}
+          />
+        )}
 
-          {hasInputField && type === 'range' && (
-            <FormFieldContainer
-              size={size}
-              isDisabled={isDisabled}
-              isInvalid={getIsErrorState({
-                side: 'right',
-                error: error,
-                errorOptions: mergedErrorOptions,
-              })}
-              hasErrorPlaceholder={hasErrorPlaceholder}
-              isFullWidth={isFullWidthRangeInput}
+        {hasInputField && type === 'range' && (
+          <FormFieldContainer
+            size={size}
+            isDisabled={isDisabled}
+            isInvalid={getIsErrorState({
+              side: 'right',
+              error: error,
+              errorOptions: mergedErrorOptions,
+            })}
+            hasErrorPlaceholder={hasErrorPlaceholder}
+            isFullWidth={isFullWidthRangeInput}
+          >
+            <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
+            <FormFieldInputContainer
+              style={{
+                width:
+                  hintValueHasBeenReplaced || isFullWidthRangeInput ? 'initial' : `${optimalInputWidth}px`,
+              }}
             >
-              <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
-              <FormFieldInputContainer>
-                <FormFieldInput
-                  $side="right"
-                  $width={hintValueHasBeenReplaced || isFullWidthRangeInput ? null : inputMinWidth}
-                  aria-errormessage={getAriaErrorMessage({
-                    error: error,
-                    errorOptions: mergedErrorOptions,
-                    id: id,
-                    side: 'right',
-                  })}
-                  aria-invalid={getIsErrorState({
-                    side: 'right',
-                    error: error,
-                    errorOptions: mergedErrorOptions,
-                  })}
-                  disabled={isDisabled}
-                  isFullWidth={isFullWidthRangeInput}
-                  onBlur={(e) => handleFormFieldInputOnBlur(e.target.value, 'right')}
-                  onChange={(e) => handleFormFieldInputOnChange(e.target.value, 'right')}
-                  onKeyDown={(e) => handleOnKeyDown(e, 'right')}
-                  value={formFieldInputValues.right}
-                  inputMode="numeric"
-                />
-                {unit && <FormFieldInputSuffixText>{unit}</FormFieldInputSuffixText>}
-              </FormFieldInputContainer>
-            </FormFieldContainer>
-          )}
-          {hasInputField && !hasHideText && hasErrorPlaceholder && hasErrorText && (
-            <SliderError id={id} errorOptions={mergedErrorOptions} errorType={error} />
-          )}
-        </InputFieldsContainer>
-      </SliderContainer>
-    </>
+              <FormFieldInput
+                $side="right"
+                aria-errormessage={getAriaErrorMessage({
+                  error: error,
+                  errorOptions: mergedErrorOptions,
+                  id: id,
+                  side: 'right',
+                })}
+                aria-invalid={getIsErrorState({
+                  side: 'right',
+                  error: error,
+                  errorOptions: mergedErrorOptions,
+                })}
+                disabled={isDisabled}
+                $isFullWidth={isFullWidthRangeInput}
+                onBlur={(e) => handleFormFieldInputOnBlur(e.target.value, 'right')}
+                onChange={(e) => handleFormFieldInputOnChange(e.target.value, 'right')}
+                onKeyDown={(e) => handleOnKeyDown(e, 'right')}
+                value={formFieldInputValues.right}
+                inputMode="numeric"
+              />
+              {unit && <FormFieldInputSuffixText>{unit}</FormFieldInputSuffixText>}
+            </FormFieldInputContainer>
+          </FormFieldContainer>
+        )}
+        {hasInputField && !hasHideText && hasErrorPlaceholder && hasErrorText && (
+          <SliderError id={id} errorOptions={mergedErrorOptions} errorType={error} />
+        )}
+      </InputFieldsContainer>
+    </SliderContainer>
   );
 };
 

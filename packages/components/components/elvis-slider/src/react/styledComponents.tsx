@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { getThemeColor, getBaseColor } from '@elvia/elvis-colors';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import {
   FormFieldInput as FormFieldInputBase,
   FormFieldSizes,
@@ -113,34 +112,18 @@ export const SliderContainer = styled.div`
 type FormFieldInputProps = {
   $width?: number | null;
   $side?: Sides;
-  isFullWidth?: boolean;
+  $isFullWidth?: boolean;
 };
 
 export const FormFieldInput = styled(FormFieldInputBase)<FormFieldInputProps>`
   width: ${({ $width }) => ($width ? `${$width}px` : '100%')};
   min-width: 16px;
-  text-align: ${({ $side = 'left', isFullWidth = false }) =>
-    $side === 'left' || isFullWidth ? 'left' : 'right'};
+  text-align: ${({ $side = 'left', $isFullWidth = false }) =>
+    $side === 'left' || $isFullWidth ? 'left' : 'right'};
 `;
 
 export const FormFieldLabel = styled(FormFieldLabelBase)`
   ${srOnlyBase}
-`;
-
-export const BoundaryWidthMeasurement = styled.span<{ size: FormFieldSizes }>`
-  ${getTypographyCss('text-md')}
-  height: 0;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: pre;
-
-  ${({ size }) =>
-    size === 'small' &&
-    css`
-      font-size: 0.875rem;
-    `}
 `;
 
 export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`

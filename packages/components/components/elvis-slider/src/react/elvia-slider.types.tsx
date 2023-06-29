@@ -1,3 +1,4 @@
+import { ComponentPropsWithoutRef } from 'react';
 import {
   BaseProps,
   HasValue,
@@ -5,10 +6,9 @@ import {
   FormFieldSizes,
 } from '@elvia/elvis-toolbox';
 
-export interface SliderProps extends BaseProps, HasValue<number | BothSliders<number>> {
+export type SliderProps = {
   ariaLabel?: string | BothSliders<string>;
   errorOnChange?: (error: string) => void;
-  errorOptions?: ErrorOptions;
   hasHints?: boolean;
   hasInputField?: boolean;
   isDisabled?: boolean;
@@ -16,9 +16,20 @@ export interface SliderProps extends BaseProps, HasValue<number | BothSliders<nu
   max?: number;
   min?: number;
   size?: FormFieldSizes;
-  type?: SliderType;
   unit?: string;
-}
+} & BaseProps &
+  ComponentPropsWithoutRef<'div'> &
+  SliderPropsValue;
+
+type SliderPropsValue =
+  | ({
+      type?: 'simple';
+      errorOptions?: SimpleSliderErrorOptions;
+    } & HasValue<number>)
+  | ({
+      type: 'range';
+      errorOptions?: RangeSliderErrorOptions;
+    } & HasValue<BothSliders<number>>);
 
 export type SliderType = 'simple' | 'range';
 export type Sides = 'left' | 'right';
@@ -29,7 +40,5 @@ export type FormFieldInputValues = Partial<BothSliders<string>>;
 
 export type SimpleSliderErrorOptions = Partial<SingleSliderErrorOptions>;
 export type RangeSliderErrorOptions = Partial<BothSliders<Partial<SingleSliderErrorOptions>>>;
-
-export type ErrorOptions = SimpleSliderErrorOptions | RangeSliderErrorOptions | undefined;
 
 export type ErrorType = 'invalidValue' | 'NaN' | undefined;

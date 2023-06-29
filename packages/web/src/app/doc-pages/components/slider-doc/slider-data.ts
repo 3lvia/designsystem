@@ -87,7 +87,7 @@ export const sliderData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: number | object ) => void',
+      type: '(value: number | {left: number, right: number} ) => void',
       description: 'Gets called every time the value is changed. Only returns a value if the input is valid.',
     },
   },

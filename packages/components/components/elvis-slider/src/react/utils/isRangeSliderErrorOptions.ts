@@ -1,4 +1,4 @@
-import { ErrorOptions, RangeSliderErrorOptions } from '../elvia-slider.types';
+import { RangeSliderErrorOptions, SliderProps } from '../elvia-slider.types';
 /**
  * Checks if the provided error options object is an instance of RangeSliderErrorOptions.
  * @example 
@@ -11,7 +11,7 @@ import { ErrorOptions, RangeSliderErrorOptions } from '../elvia-slider.types';
   };
  */
 export const isRangeSliderErrorOptions = (
-  errorOptions?: ErrorOptions,
+  errorOptions?: SliderProps['errorOptions'],
 ): errorOptions is RangeSliderErrorOptions => {
   return !!(errorOptions && ('left' in errorOptions || 'right' in errorOptions));
 };
