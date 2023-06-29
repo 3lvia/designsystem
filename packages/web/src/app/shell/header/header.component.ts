@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
@@ -7,6 +7,7 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Theme, ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -22,12 +23,15 @@ export class HeaderComponent {
   menuContentLoader = true;
   isPrideMonth = false;
   showThemeAnnouncement = false;
+  themeMenuIsOpen = false;
+  currentTheme: Theme = 'light';
 
   constructor(
     private mobileMenu: MobileMenuService,
     private searchMenu: MobileMenuService,
     private cmsService: CMSService,
     private localizationService: LocalizationService,
+    private themeService: ThemeService,
   ) {
     this.localizationService
       .listenLocalization()
@@ -38,6 +42,14 @@ export class HeaderComponent {
           this.mainMenu = data;
           this.menuContentLoader = false;
         });
+      });
+
+    this.themeService
+      .listenTheme()
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme) => {
+        this.currentTheme = theme;
+        this.addThemeClass(this.currentTheme);
       });
 
     if (
@@ -91,14 +103,28 @@ export class HeaderComponent {
     });
   }
 
+  openThemeMenu(): void {
+    if (this.themeMenuIsOpen) {
+      return;
+    }
+
+    this.themeMenuIsOpen = true;
+  }
+
+  closeThemeMenu(): void {
+    console.log('closeThemeMenu');
+    this.themeMenuIsOpen = false;
+  }
+
+  private addThemeClass = (theme: Theme): void => {
+    document.body.classList.remove('e-theme-light', 'e-theme-dark');
+    document.body.classList.add(`e-theme-${theme}`);
+  };
+
   closeSearchMenu(): void {
     this.searchMenu.detach(this.searchOverlay);
     this.searchMenuOpen = false;
   }
-
-  toggleTheme = () => {
-    document.body.classList.toggle('e-theme-dark');
-  };
 
   getThemeAnnouncementVisibility = () => {
     this.showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
@@ -108,5 +134,12 @@ export class HeaderComponent {
   closeThemeAnnouncement = () => {
     localStorage.setItem('elvisThemeAnnouncementIsClosed', 'true');
     this.showThemeAnnouncement = false;
+  };
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize = () => {
+    if (window.innerWidth <= 1023) {
+      this.closeThemeMenu();
+    }
   };
 }
