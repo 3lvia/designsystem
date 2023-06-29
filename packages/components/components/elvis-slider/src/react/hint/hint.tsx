@@ -11,13 +11,16 @@ interface Props {
   value: number;
 }
 
-export const Hint = forwardRef(function Hint(props: Props, ref: React.Ref<HTMLSpanElement>) {
-  const { hasErrorPlaceholder, size, isDisabled, side, value } = props;
-  return (
-    <StyledHint hasErrorPlaceholder={hasErrorPlaceholder} size={size} isDisabled={isDisabled} side={side}>
-      <span ref={ref} data-testid={`${side}-hint`}>
-        {value.toLocaleString()}
-      </span>
-    </StyledHint>
-  );
-});
+export const Hint = forwardRef<HTMLSpanElement, Props>(
+  ({ hasErrorPlaceholder, size, isDisabled, side, value }, ref) => {
+    return (
+      <StyledHint hasErrorPlaceholder={hasErrorPlaceholder} size={size} isDisabled={isDisabled} side={side}>
+        <span ref={ref} data-testid={`${side}-hint`}>
+          {value.toLocaleString()}
+        </span>
+      </StyledHint>
+    );
+  },
+);
+
+Hint.displayName = 'Hint';
