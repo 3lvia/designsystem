@@ -1,54 +1,45 @@
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { CSSProperties } from 'react';
+import { ComponentPropsWithoutRef } from 'react';
+import {
+  BaseProps,
+  HasValue,
+  ErrorOptions as SingleSliderErrorOptions,
+  FormFieldSizes,
+} from '@elvia/elvis-toolbox';
 
-export type SliderType = 'simple' | 'range';
-
-export interface SliderProps {
-  className?: string;
+export type SliderProps = {
+  errorOnChange?: (error: string) => void;
+  hasHints?: boolean;
   hasInputField?: boolean;
-  hasPercent?: boolean;
-  hasTooltip?: boolean;
-  hasHintValues?: boolean;
-  inlineStyle?: CSSProperties;
   isDisabled?: boolean;
-  label?: string | LabelTextType;
+  label?: string;
   max?: number;
   min?: number;
-  type?: SliderType;
+  size?: FormFieldSizes;
   unit?: string;
-  value?: number | SliderValues;
-  valueOnChange?: (value: number | SliderValues) => void;
-  webcomponent?: ElvisComponentWrapper;
-}
+} & BaseProps &
+  ComponentPropsWithoutRef<'div'> &
+  SliderPropsValue;
 
-export type Extremum = {
-  minimum: number;
-  maximum: number;
-};
+type SliderPropsValue =
+  | ({
+      type?: 'simple';
+      errorOptions?: SimpleSliderErrorOptions;
+      ariaLabel?: string;
+    } & HasValue<number>)
+  | ({
+      type: 'range';
+      errorOptions?: RangeSliderErrorOptions;
+      ariaLabel?: BothSliders<string>;
+    } & HasValue<BothSliders<number>>);
 
-export type SliderValues = {
-  left: number;
-  right: number;
-};
+export type SliderType = 'simple' | 'range';
+export type Side = 'left' | 'right';
 
-export type TextFieldsValues = {
-  left?: number | string;
-  right?: number | string;
-};
+export type BothSliders<T> = Record<Side, T>;
 
-export type ToolTipState = {
-  left: boolean;
-  right?: boolean;
-};
+export type FormFieldInputValue = Partial<BothSliders<string>>;
 
-export type SliderErrors = {
-  leftTextfield?: string;
-  rightTextfield?: string;
-};
+export type SimpleSliderErrorOptions = Partial<SingleSliderErrorOptions>;
+export type RangeSliderErrorOptions = Partial<BothSliders<Partial<SingleSliderErrorOptions>>>;
 
-export type LabelTextType = {
-  left: string;
-  right: string;
-};
-
-export type TooltipPopupSides = 'left' | 'right';
+export type ErrorType = 'invalidValue' | 'NaN' | undefined;

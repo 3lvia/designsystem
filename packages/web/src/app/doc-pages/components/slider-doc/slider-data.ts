@@ -12,71 +12,67 @@ export const sliderData: ComponentData = {
       type: '“simple” | “range”',
     },
     hasInputField: {
-      default: 'false',
+      default: 'true',
       description: 'Decides if the slider should have input field(s).',
       isRequired: false,
       type: 'boolean',
     },
-    hasHintValues: {
-      default: 'false',
-      description:
-        'Decides if the slider should display its minimum and maximum values at each end of the slider. Not available of type="range" with hasInputField="true".',
-      isRequired: false,
-      type: 'boolean',
-    },
-    hasTooltip: {
+    hasHints: {
       default: 'true',
       description:
-        'Decides if a tooltip should be displayed when the user uses the slider. A tooltip is always displayed on devices with touch as their primary input method.',
+        'Display the minimum and maximum values at each end of the slider. Unavailable for type="range" with hasInputField="true".',
       isRequired: false,
       type: 'boolean',
-    },
-    hasPercent: {
-      default: 'false',
-      description:
-        'The tooltip should display the percentage of the distance between minimum and maximum values rather than the actual value itself. Only available on a simple slider.',
-      isRequired: false,
-      type: 'boolean',
-    },
-    unit: {
-      isRequired: false,
-      description:
-        'A custom unit displayed in the tooltip. For example "kWh", "kr/mnd". The unit will be overwritten if hasPercent is set to true.',
-      type: 'string',
-      default: '',
     },
     label: {
       isRequired: false,
-      description:
-        'A custom label displayed above the input(s). For example "Kilowatt hours". Labels can be set individually for range sliders by using a object: {left:"min", right:"max"}',
-      type: 'string | {left: string, right: string}',
-      default: '',
+      type: 'string',
+      description: 'A label above the slider.',
     },
     max: {
       default: 100,
-      description:
-        'The greatest value allowed inside the slider. This value must be greater than the value of the "min" attribute.',
+      description: 'The maximum allowed value within the slider. This must be higher than the "min" value.',
       isRequired: false,
       type: 'number',
     },
     min: {
-      default: 1,
-      description:
-        'The lowest value allowed inside the slider. This value must be less than the value of the "max" attribute.',
+      default: 0,
+      description: 'The minimum allowed value within the slider. This must be lower than the "max" value.',
       isRequired: false,
       type: 'number',
     },
     value: {
-      default: '{left: 1, right: 100}',
-      description: 'The default value of the slider. An object for range sliders.',
+      default: '{left: 0, right: 100}',
+      description: 'The default value of the slider.',
       isRequired: false,
       type: 'number | {left: number, right: number}',
     },
     isDisabled: {
       default: 'false',
-      description: 'Set the slider to a disabled state.',
+      description: 'Disable the slider.',
       isRequired: false,
       type: 'boolean',
+    },
+    unit: {
+      isRequired: false,
+      description: 'The suffix in the Sliders input field(s) and tooltip.',
+      type: 'string',
+    },
+    size: {
+      default: 'medium',
+      description: 'The size of the slider and its input field(s).',
+      isRequired: false,
+      type: '“medium” | “small”',
+    },
+    ariaLabel: {
+      isRequired: false,
+      type: 'string | {left: string, right: string}',
+      description: 'Aria labels for the slider(s).',
+    },
+    errorOptions: {
+      isRequired: false,
+      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }> | {left: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, right: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}',
+      description: 'An object that allows for custom configuration of the error handling.',
     },
     className: {
       description: 'Custom CSS classes that can be added to the slider.',
@@ -91,8 +87,13 @@ export const sliderData: ComponentData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: number | object ) => void',
+      type: '(value: number | {left: number, right: number} ) => void',
       description: 'Gets called every time the value is changed. Only returns a value if the input is valid.',
+    },
+    errorOnChange: {
+      isRequired: false,
+      type: '(value: string ) => void',
+      description: 'Gets called every time the internal error is changed.',
     },
   },
 };

@@ -151,7 +151,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Overlay not closing properly on localhost in React"]
+          "changes": ["Overlay not closing properly on localhost in React."]
         }
       ]
     },
