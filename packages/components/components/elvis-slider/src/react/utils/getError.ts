@@ -1,7 +1,7 @@
 import {
   BothSliders,
   ErrorType,
-  Sides,
+  Side,
   SimpleSliderErrorOptions,
   SliderProps,
   SliderType,
@@ -82,7 +82,7 @@ export const getIsErrorState = ({
   error,
   errorOptions,
 }: {
-  side: Sides;
+  side: Side;
   error: Partial<BothSliders<ErrorType>> | undefined;
   errorOptions: ErrorOptions;
 }): boolean => {
@@ -125,7 +125,7 @@ export const getAriaErrorMessage = ({
   error,
   errorOptions,
 }: {
-  side: Sides;
+  side: Side;
   id: string;
   error: Partial<BothSliders<ErrorType>> | undefined;
   errorOptions: ErrorOptions;

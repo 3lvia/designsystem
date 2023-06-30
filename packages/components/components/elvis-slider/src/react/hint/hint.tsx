@@ -1,13 +1,13 @@
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import React, { forwardRef } from 'react';
-import { Sides } from '../elvia-slider.types';
+import { Side } from '../elvia-slider.types';
 import { Hint as StyledHint } from './styledHint';
 
 interface Props {
   hasErrorPlaceholder: boolean;
   size: FormFieldSizes;
   isDisabled: boolean;
-  side: Sides;
+  side: Side;
   value: number;
 }
 

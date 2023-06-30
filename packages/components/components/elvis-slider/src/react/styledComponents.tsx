@@ -5,7 +5,7 @@ import {
   FormFieldSizes,
   FormFieldLabel as FormFieldLabelBase,
 } from '@elvia/elvis-toolbox';
-import { BothSliders, Sides, SliderType } from './elvia-slider.types';
+import { BothSliders, Side, SliderType } from './elvia-slider.types';
 import { Hint } from './hint/styledHint';
 
 type SliderFilledTrackProps = {
@@ -111,7 +111,7 @@ export const SliderContainer = styled.div`
 
 type FormFieldInputProps = {
   $width?: number | null;
-  $side?: Sides;
+  $side?: Side;
   $isFullWidth?: boolean;
 };
 

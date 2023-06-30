@@ -7,7 +7,7 @@ import {
   warnDeprecatedProps,
 } from '@elvia/elvis-toolbox';
 import { Tooltip } from './tooltip/tooltip';
-import { FormFieldInputValues, Sides, SliderProps, BothSliders, ErrorType } from './elvia-slider.types';
+import { FormFieldInputValue, Side, SliderProps, BothSliders, ErrorType } from './elvia-slider.types';
 import {
   FormFieldInput,
   FormFieldLabel,
@@ -64,7 +64,7 @@ const Slider: React.FC<SliderProps> = function ({
   const [id] = useState(`ewc-slider-${elvisSliderUniqueId++}`);
 
   const [sliderValue, setSliderValue] = useState({ left: min, right: max });
-  const [formFieldInputValues, setFormFieldInputValues] = useState<FormFieldInputValues>({
+  const [formFieldInputValues, setFormFieldInputValues] = useState<FormFieldInputValue>({
     left: sliderValue.left.toString(),
     right: sliderValue.right.toString(),
   });
@@ -222,18 +222,18 @@ const Slider: React.FC<SliderProps> = function ({
     updateValue({ ...sliderValue, [name]: newValue });
   };
 
-  const handleFormFieldInputOnChange = (value: string, side: Sides) => {
+  const handleFormFieldInputOnChange = (value: string, side: Side) => {
     setIsLeftSliderOnTop(side === 'left');
     setFormFieldInputValues({ ...formFieldInputValues, [side]: value.replace(/\s/g, '') });
   };
 
-  const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, side: Sides) => {
+  const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, side: Side) => {
     if (e.key === 'Enter') {
       handleFormFieldInputOnBlur(e.currentTarget.value, side);
     }
   };
 
-  const handleFormFieldInputOnBlur = (value: string, side: Sides) => {
+  const handleFormFieldInputOnBlur = (value: string, side: Side) => {
     if (value && !validateInputValue(value, side)) {
       return;
     } else {
@@ -273,11 +273,11 @@ const Slider: React.FC<SliderProps> = function ({
     updateValue({ ...sliderValue, [side]: newValue });
   };
 
-  const handleTooltip = (side?: Sides) => {
+  const handleTooltip = (side?: Side) => {
     setShowTooltip({ left: side === 'left', right: side === 'right' });
   };
 
-  const getHandleTooltipEvents = (side: Sides) => ({
+  const getHandleTooltipEvents = (side: Side) => ({
     onBlur: () => handleTooltip(),
     onFocus: () => handleTooltip(side),
     onPointerLeave: () => handleTooltip(),
@@ -295,7 +295,7 @@ const Slider: React.FC<SliderProps> = function ({
     webcomponent?.triggerEvent('errorOnChange', errorText);
   };
 
-  const validateInputValue = (value: string, side: Sides): boolean => {
+  const validateInputValue = (value: string, side: Side): boolean => {
     if (!isOnlyNumbers(value)) {
       onError({ ...error, [side]: 'NaN' });
       return false;

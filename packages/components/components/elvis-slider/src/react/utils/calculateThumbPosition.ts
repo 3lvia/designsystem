@@ -1,4 +1,4 @@
-import { BothSliders, Sides } from '../elvia-slider.types';
+import { BothSliders, Side } from '../elvia-slider.types';
 
 /**
  * Calculates the position of a thumb on a slider, in px from the left side of the slider.
@@ -12,7 +12,7 @@ export const calculateThumbPosition = ({
   totalSliderWidth,
   thumbWidth,
 }: {
-  side: Sides;
+  side: Side;
   sliderValue: BothSliders<number>;
   min: number;
   max: number;

@@ -32,11 +32,11 @@ type SliderPropsValue =
     } & HasValue<BothSliders<number>>);
 
 export type SliderType = 'simple' | 'range';
-export type Sides = 'left' | 'right';
+export type Side = 'left' | 'right';
 
-export type BothSliders<T> = Record<Sides, T>;
+export type BothSliders<T> = Record<Side, T>;
 
-export type FormFieldInputValues = Partial<BothSliders<string>>;
+export type FormFieldInputValue = Partial<BothSliders<string>>;
 
 export type SimpleSliderErrorOptions = Partial<SingleSliderErrorOptions>;
 export type RangeSliderErrorOptions = Partial<BothSliders<Partial<SingleSliderErrorOptions>>>;

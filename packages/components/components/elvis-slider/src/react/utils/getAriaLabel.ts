@@ -8,7 +8,7 @@ export const getAriaLabel = ({
   label,
   unit,
 }: {
-  side: Sides;
+  side: Side;
   sliderValue: BothSliders<number>;
   type?: SliderType;
   ariaLabel?: string | BothSliders<string>;
@@ -35,7 +35,7 @@ const returnAriaLabelFromProp = (side: Sides, ariaLabel: string | Record<Sides, 
 };
 
 const generateAutomaticAriaLabel = (
-  side: Sides,
+  side: Side,
   type: SliderType,
   sliderValue: BothSliders<number>,
   label?: string,

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
-import { Sides } from '../elvia-slider.types';
+import { Side } from '../elvia-slider.types';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
@@ -8,7 +8,7 @@ type Props = {
   hasErrorPlaceholder: boolean;
   size: FormFieldSizes;
   isDisabled: boolean;
-  side: Sides;
+  side: Side;
 };
 
 export const Hint = styled.p<Props>`
