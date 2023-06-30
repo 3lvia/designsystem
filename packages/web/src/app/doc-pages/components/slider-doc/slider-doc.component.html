@@ -47,9 +47,14 @@
         <ng-container ngProjectAs="sectionContent">
           The
           <code>unit</code>
-          prop allows you to add a custom suffix to the value displayed in the tooltip of the slider. For
-          example, if you want to display the value as a kilowatt-hour, you can add "kWh" as the unit.
-          <p>The return value will remain unchanged.</p>
+          prop allows you to add a custom suffix to the input field(s) of the slider and the value shown in
+          the tooltip of the slider. For example, if you want to display the value as a kilowatt-hour, you can
+          add "kWh" as the unit.
+          <p>
+            The return value will not include the
+            <code>unit</code>
+            -string.
+          </p>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -87,7 +92,7 @@
               Always provide an aria-label for the slider using the
               <code>ariaLabel</code>
               prop. If one is not provided, the slider will attempt to generate one using the
-              <code>heading</code>
+              <code>label</code>
               ,
               <code>unit</code>
               , and

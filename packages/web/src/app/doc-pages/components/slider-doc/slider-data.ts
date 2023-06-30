@@ -43,7 +43,7 @@ export const sliderData: ComponentData = {
     },
     value: {
       default: '{left: 0, right: 100}',
-      description: 'The default value of the slider. An object for range sliders.',
+      description: 'The default value of the slider.',
       isRequired: false,
       type: 'number | {left: number, right: number}',
     },
@@ -89,6 +89,11 @@ export const sliderData: ComponentData = {
       isRequired: false,
       type: '(value: number | {left: number, right: number} ) => void',
       description: 'Gets called every time the value is changed. Only returns a value if the input is valid.',
+    },
+    errorOnChange: {
+      isRequired: false,
+      type: '(value: string ) => void',
+      description: 'Gets called every time the internal error is changed.',
     },
   },
 };
