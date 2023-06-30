@@ -49,7 +49,7 @@ export class HeaderComponent {
       .pipe(takeUntilDestroyed())
       .subscribe((theme) => {
         this.currentTheme = theme;
-        this.addThemeClass(this.currentTheme);
+        this.addDarkThemeClass(this.currentTheme);
       });
 
     if (
@@ -115,9 +115,12 @@ export class HeaderComponent {
     this.themeMenuIsOpen = false;
   };
 
-  private addThemeClass = (theme: Theme): void => {
-    document.body.classList.remove('e-theme-light', 'e-theme-dark');
-    document.body.classList.add(`e-theme-${theme}`);
+  private addDarkThemeClass = (theme: Theme): void => {
+    if (theme === 'dark') {
+      document.body.classList.add('e-theme-dark');
+    } else {
+      document.body.classList.remove('e-theme-dark');
+    }
   };
 
   closeSearchMenu(): void {
