@@ -316,7 +316,7 @@ const Slider: React.FC<SliderProps> = function ({
       {...rest}
     >
       {label && <Label size={size} value={label} />}
-      <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size}>
+      <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size} isDisabled={isDisabled}>
         <StyledSlider
           type={'range'}
           role={'slider'}
@@ -331,6 +331,7 @@ const Slider: React.FC<SliderProps> = function ({
           aria-valuemax={max}
           aria-valuemin={min}
           disabled={isDisabled}
+          isDisabled={isDisabled}
           max={max}
           min={min}
           name="left"
@@ -361,6 +362,7 @@ const Slider: React.FC<SliderProps> = function ({
               aria-valuemax={max}
               aria-valuemin={min}
               disabled={isDisabled}
+              isDisabled={isDisabled}
               max={max}
               min={min}
               name="right"

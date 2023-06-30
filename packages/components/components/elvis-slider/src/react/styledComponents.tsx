@@ -195,7 +195,7 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }
 `;
 
-export const StyledSlider = styled.input<{ $type: SliderType }>`
+export const StyledSlider = styled.input<{ $type: SliderType; isDisabled: boolean }>`
   ${removeDefaultStyles};
 
   &::-webkit-slider-thumb {
@@ -255,11 +255,18 @@ export const StyledSlider = styled.input<{ $type: SliderType }>`
   &:active:enabled::-moz-range-thumb {
     ${activeThumb}
   }
+
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      cursor: not-allowed;
+    `}
 `;
 
 type SliderWrapperProps = {
   size: FormFieldSizes;
   isLeftSliderOnTop: boolean;
+  isDisabled: boolean;
 };
 
 export const SliderWrapper = styled.div<SliderWrapperProps>`
@@ -273,6 +280,12 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
     size === 'small' &&
     css`
       height: 36px;
+    `}
+
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      cursor: not-allowed;
     `}
 
   ${StyledSlider} {
@@ -306,12 +319,18 @@ export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>(
     },
   }),
 )<SliderFilledTrackProps>`
-  background-color: ${({ isDisabled }) =>
-    isDisabled ? getThemeColor('color-border-disabled-1') : getThemeColor('color-text-1')};
+  background-color: ${getThemeColor('color-text-1')};
   border-radius: 50px;
   height: 5px;
   position: absolute;
   z-index: 2;
+
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      background-color: ${getThemeColor('color-border-disabled-1')};
+      cursor: not-allowed;
+    `}
 `;
 
 /**
