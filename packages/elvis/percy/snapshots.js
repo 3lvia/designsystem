@@ -47,7 +47,7 @@ module.exports = [
   {
     name: 'Colors',
     url: '/components/colors.html',
-    widths: [766, 1440],
+    widths: [1440],
     additionalSnapshots: [
       {
         suffix: ' - dark theme',
