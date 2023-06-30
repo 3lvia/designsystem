@@ -1,4 +1,4 @@
-import { BothSliders, Sides, SliderType } from '../elvia-slider.types';
+import { BothSliders, Side, SliderProps, SliderType } from '../elvia-slider.types';
 
 export const getAriaLabel = ({
   side,
@@ -11,7 +11,7 @@ export const getAriaLabel = ({
   side: Side;
   sliderValue: BothSliders<number>;
   type?: SliderType;
-  ariaLabel?: string | BothSliders<string>;
+  ariaLabel?: SliderProps['ariaLabel'];
   label?: string;
   unit?: string;
 }): string => {
@@ -22,7 +22,7 @@ export const getAriaLabel = ({
   }
 };
 
-const returnAriaLabelFromProp = (side: Sides, ariaLabel: string | Record<Sides, string>): string => {
+const returnAriaLabelFromProp = (side: Side, ariaLabel: SliderProps['ariaLabel']): string => {
   if (typeof ariaLabel === 'object') {
     return ariaLabel[side];
   }

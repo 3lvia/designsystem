@@ -7,7 +7,6 @@ import {
 } from '@elvia/elvis-toolbox';
 
 export type SliderProps = {
-  ariaLabel?: string | BothSliders<string>;
   errorOnChange?: (error: string) => void;
   hasHints?: boolean;
   hasInputField?: boolean;
@@ -25,10 +24,12 @@ type SliderPropsValue =
   | ({
       type?: 'simple';
       errorOptions?: SimpleSliderErrorOptions;
+      ariaLabel?: string;
     } & HasValue<number>)
   | ({
       type: 'range';
       errorOptions?: RangeSliderErrorOptions;
+      ariaLabel?: BothSliders<string>;
     } & HasValue<BothSliders<number>>);
 
 export type SliderType = 'simple' | 'range';
