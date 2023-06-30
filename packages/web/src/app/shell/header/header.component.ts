@@ -103,18 +103,17 @@ export class HeaderComponent {
     });
   }
 
-  openThemeMenu(): void {
+  openThemeMenu = (): void => {
     if (this.themeMenuIsOpen) {
       return;
     }
 
     this.themeMenuIsOpen = true;
-  }
+  };
 
-  closeThemeMenu(): void {
-    console.log('closeThemeMenu');
+  closeThemeMenu = (): void => {
     this.themeMenuIsOpen = false;
-  }
+  };
 
   private addThemeClass = (theme: Theme): void => {
     document.body.classList.remove('e-theme-light', 'e-theme-dark');

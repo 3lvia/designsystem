@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { PreferredTheme, Theme, ThemeService } from 'src/app/core/services/theme.service';
+import { Observable } from 'rxjs';
+import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-theme-switch',
@@ -10,32 +11,15 @@ import { PreferredTheme, Theme, ThemeService } from 'src/app/core/services/theme
 export class ThemeSwitchComponent {
   @Output() preferredThemeSwitched = new EventEmitter<void>();
 
-  preferredTheme: PreferredTheme;
-  theme: Theme;
+  preferredTheme: Observable<PreferredTheme>;
   themes: PreferredTheme[] = ['system', 'light', 'dark'];
 
   constructor(private themeService: ThemeService) {
-    this.themeService
-      .listenPreferredTheme()
-      .pipe(takeUntilDestroyed())
-      .subscribe((preferredTheme) => {
-        this.preferredTheme = preferredTheme;
-      });
-
-    this.themeService
-      .listenTheme()
-      .pipe(takeUntilDestroyed())
-      .subscribe((theme) => {
-        this.theme = theme;
-      });
+    this.preferredTheme = this.themeService.listenPreferredTheme();
   }
 
-  setPreferredTheme(theme: PreferredTheme): void {
-    this.themeService.setPreferredTheme(theme);
-    this.emitThemeSwitch();
-  }
-
-  private emitThemeSwitch(): void {
+  setPreferredTheme(preferredTheme: PreferredTheme): void {
+    this.themeService.setPreferredTheme(preferredTheme);
     this.preferredThemeSwitched.emit();
   }
 }

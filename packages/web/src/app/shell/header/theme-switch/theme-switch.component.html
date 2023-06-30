@@ -2,9 +2,10 @@
   <div class="e-flex e-gap-24 e-mb-24 e-justify-content-center">
     <div class="e-flex e-flex-direction-column e-align-items-center e-gap-8" *ngFor="let theme of themes">
       <button
-        class="e-thumbnail"
-        [ngClass]="{ 'e-thumbnail---selected': preferredTheme === theme }"
         (click)="setPreferredTheme(theme)"
+        [attr.aria-label]="'set ' + theme + ' theme'"
+        [ngClass]="{ 'e-thumbnail---selected': (preferredTheme | async) === theme }"
+        class="e-thumbnail"
       >
         <img src="assets/header/theme-switch/theme_switch_{{ theme }}.svg" alt="{{ theme }} theme" />
       </button>
