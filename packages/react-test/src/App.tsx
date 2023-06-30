@@ -180,136 +180,13 @@ function App() {
         <div className="App e-pt-40">
           <Toast />
           <h1 className="e-mt-0">React Preview</h1>
-
-          <Datepicker
-            valueOnChange={(value) => {
-              setDatepickerValue(value);
-              console.log(value);
-            }}
-            hasSelectDateOnOpen={false}
-            isRequired
-            minDate={minDate}
-            maxDate={maxDate}
-            value={datepickerValue}
-          ></Datepicker>
-          <button className="e-btn" onClick={() => setDatepickerValue(dateFromToday(-10))}>
-            Set date to before min date
-          </button>
-          <button className="e-btn" onClick={() => setDatepickerValue(dateFromToday(5))}>
-            Set date to after max date
-          </button>
           <div className="components-examples">
             {/* CURRENTLY TESTING */}
             <div className="example-wrapper">
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              {/* random number between 10 and 9999 */}
-
-              <div>
-                <Slider type={'range'} max={1000} />
-                <Slider type={'range'} hasInputField={false} max={10000} />
-                <Slider type={'simple'} max={100000} />
-                <Slider type={'simple'} hasHints max={10000000} />
-                <Slider type={'simple'} size="small" />
-                <Slider type={'simple'} isDisabled max={88888} />
-
-                <Slider label={'lorem ipsum'} type={'simple'} />
-                <Slider label={'lorem ipsum'} type={'simple'} hasHints />
-                <Slider label={'lorem ipsum'} type={'simple'} size="small" />
-                <Slider label={'lorem ipsum'} type={'simple'} isDisabled />
-
-                <Slider type={'simple'} label={'temperatur'} />
-                <Slider type={'simple'} unit={' grader'} />
-              </div>
-              <div className="e-bg-white">
-                <Slider unit="kWh" min={-100} errorOnChange={(error) => console.log('oisann:', error)} />
-                <h4>errorOptions</h4>
-                <h5>Simple</h5>
-                <Slider
-                  label="ingen erroroptions"
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-                <br />
-                <br />
-                <Slider
-                  label="text"
-                  errorOptions={{ text: 'custom feil' }}
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-                <br />
-                <br />
-                <Slider
-                  label="text + hideText"
-                  errorOptions={{ text: 'custom feil', hideText: true }}
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-                <br />
-                <br />
-                <Slider
-                  label="isErrorState"
-                  errorOptions={{ isErrorState: true }}
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-
-                <Slider
-                  label="kun placeholder"
-                  errorOptions={{ hasErrorPlaceholder: true }}
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-                <br />
-                <br />
-                <h5>Range</h5>
-                <Slider
-                  type="range"
-                  label="ingen erroroptions"
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-                <br />
-                <br />
-                <Slider
-                  type="range"
-                  label="text"
-                  errorOptions={{
-                    left: { text: 'custom feil left 1' },
-                    right: { text: 'custom feil right 1' },
-                  }}
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-                <br />
-                <br />
-                <Slider
-                  type="range"
-                  label="isErrorState: left"
-                  errorOptions={{
-                    left: { isErrorState: true, text: 'custom feil left 3' },
-                    right: { text: 'custom feil right 3' },
-                  }}
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-                <br />
-                <br />
-                <Slider
-                  type="range"
-                  label="isErrorState: right"
-                  errorOptions={{
-                    left: { text: 'custom feil left 4' },
-                    right: { isErrorState: true, text: 'custom feil right 4' },
-                  }}
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-                <br />
-                <br />
-                <Slider
-                  type="range"
-                  label="hasErrorPlaceholder: false!"
-                  errorOptions={{
-                    left: { hasErrorPlaceholder: false },
-                    right: { hasErrorPlaceholder: false },
-                  }}
-                  errorOnChange={(error) => console.log('errorOnChange:', error)}
-                />
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -624,9 +501,9 @@ function App() {
             <div className="example-wrapper">
               <h3>Slider</h3>
               <h4>Simple</h4>
-              {/* <Slider min={0} max={100} hasHintValues={true} />
+              <Slider />
               <h4>Range</h4>
-              <Slider min={0} max={100} type={'range'} hasHintValues={true} /> */}
+              <Slider type={'range'} />
             </div>
             {/* SPOTLIGHT */}
             <div className="example-wrapper">
