@@ -35,7 +35,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
-    "@types/gulp": "^4.0.10",
+    "@types/gulp": "^4.0.13",
     "@types/gulp-babel": "^6.1.30",
     "@types/gulp-cached": "^0.0.32",
     "@types/gulp-filter": "^3.0.35",

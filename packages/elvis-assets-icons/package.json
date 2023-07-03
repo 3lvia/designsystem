@@ -24,7 +24,7 @@
     "@elvia/elvis-colors": "^2.2.0"
   },
   "devDependencies": {
-    "@types/gulp": "^4.0.10",
+    "@types/gulp": "^4.0.13",
     "@types/gulp-svgmin": "^1.2.2",
     "@types/node": "^18.11.18",
     "@types/sharp": "^0.30.2",
