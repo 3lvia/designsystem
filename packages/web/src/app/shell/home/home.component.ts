@@ -21,12 +21,15 @@ export class HomeComponent implements OnInit {
   isBirthday = false;
   isPride = false;
   isConstitutionDay = false;
-  currentDate = new Date();
+  private currentDate = new Date();
   currentYear = this.currentDate.getFullYear();
   locale: LOCALE_CODE;
   changelog = changelogJson.content;
 
-  screenWidth: number;
+  showShortcutGlossary = false;
+  showShortcutGlossaryButton = false;
+  private shortcutGlossaryTimeoutId: ReturnType<typeof setTimeout> | undefined;
+
   isMobileScreenWidth: boolean;
 
   constructor(localizationService: LocalizationService, private titleService: Title) {
@@ -76,6 +79,37 @@ export class HomeComponent implements OnInit {
     } else {
       this.isNonHoliday = true;
     }
+  };
+
+  openShortcutGlossary = (): void => {
+    this.showShortcutGlossary = true;
+  };
+
+  closeShortcutGlossary = (): void => {
+    this.showShortcutGlossary = false;
+  };
+
+  @HostListener('window:keypress', ['$event'])
+  handleShortcutGlossary = (event: KeyboardEvent): void => {
+    const body = document.getElementsByTagName('body')[0];
+    if (event.target !== body) {
+      return;
+    }
+
+    if (event.key.toLowerCase() === 'g') {
+      this.shortcutGlossaryTimeoutId = setTimeout(() => {
+        if (!this.showShortcutGlossary) {
+          this.openShortcutGlossary();
+        }
+      }, 1000);
+    } else {
+      clearTimeout(this.shortcutGlossaryTimeoutId);
+    }
+  };
+
+  @HostListener('window:keydown.tab', ['$event'])
+  handleShortcutGlossaryButton = (): void => {
+    this.showShortcutGlossaryButton = true;
   };
 
   @HostListener('window:resize', ['$event'])
