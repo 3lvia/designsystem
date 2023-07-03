@@ -1,7 +1,8 @@
 import React from 'react';
 import DatepickerRange from './elvia-datepicker-range';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 describe('Elvis DatepickerRange', () => {
   describe('Default', () => {
@@ -41,6 +42,36 @@ describe('Elvis DatepickerRange', () => {
     });
   });
 
+  describe('with hasAutoOpenEndDatepicker', () => {
+    beforeEach(() => {
+      render(
+        <DatepickerRange
+          hasAutoOpenEndDatepicker
+          value={{
+            start: new Date('2023-01-01'),
+            end: null,
+          }}
+        />,
+      );
+    });
+
+    it('should open the end Date Picker after the start Date Picker is closed', async () => {
+      const user = userEvent.setup();
+      const today = new Date();
+      const formattedToday = today.toLocaleString('nb-NO', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      });
+
+      await user.click(screen.getAllByRole('button', { name: /åpne datovelger/i })[0]);
+      await user.click(screen.getByRole('button', { name: /^4. januar 2023$/i }));
+
+      expect(screen.queryByTestId('popover')).toBeInTheDocument();
+      await waitFor(() => expect(screen.getByLabelText('Til dato')).toHaveValue(formattedToday));
+    });
+  });
+
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       render(<DatepickerRange className="testclass" inlineStyle={{ paddingTop: '24px' }}></DatepickerRange>);
@@ -75,7 +106,7 @@ describe('Elvis DatepickerRange', () => {
         expect(datepicker).toHaveStyle('width: 100%');
       });
     });
-    it('should have both date pickers compact', () => {
+    it('should have both date pickers size="small"', () => {
       const datePickers = screen.getAllByTestId('wrapper');
       datePickers.forEach((datepicker) => {
         expect(datepicker).toHaveStyle('padding-top: 0.5rem');
