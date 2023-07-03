@@ -135,3 +135,26 @@
   <img *ngIf="isConstitutionDay" src="assets/holidayIllustrations/ConstitutionDay.png" alt="" />
   <img *ngIf="isNonHoliday" src="assets/HomeIllustration.png" alt="" />
 </ng-template>
+
+<elvia-modal
+  (onClose)="closeShortcutGlossary()"
+  *ngIf="showShortcutGlossary"
+  hasCloseButton="true"
+  heading="Shortcuts"
+  isShowing="true"
+>
+  <app-shortcut slot="content" />
+</elvia-modal>
+
+<button
+  (click)="openShortcutGlossary()"
+  *ngIf="showShortcutGlossaryButton"
+  class="e-btn"
+  style="position: fixed; right: 16px; bottom: 16px; z-index: 9999"
+>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--shortcut" aria-hidden="true"></i>
+    <i class="e-icon e-icon--shortcut e-icon--inverted" aria-hidden="true"></i>
+  </span>
+  <span class="e-btn__title">Shortcuts</span>
+</button>
