@@ -2338,7 +2338,7 @@ __metadata:
     "@testing-library/user-event": 14.4.3
     "@types/gulp": ^4.0.13
     "@types/gulp-babel": ^6.1.30
-    "@types/gulp-cached": ^0.0.32
+    "@types/gulp-cached": ^0.0.33
     "@types/gulp-filter": ^3.0.35
     "@types/gulp-header": ^2.0.1
     "@types/gulp-rename": ^2.0.1
@@ -4229,12 +4229,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-cached@npm:^0.0.32":
-  version: 0.0.32
-  resolution: "@types/gulp-cached@npm:0.0.32"
+"@types/gulp-cached@npm:^0.0.33":
+  version: 0.0.33
+  resolution: "@types/gulp-cached@npm:0.0.33"
   dependencies:
     "@types/node": "*"
-  checksum: affbdc24eec09101743d5671ad99abb78bb1c1164c4e99c0d4df73a3e24df238f1786175cb75cfa83d06a2d56e396b664e2fe895677f27876058e0629c0add77
+  checksum: a19e6b1a849b100cf7f35e5729041d74007e9e74ce2752faf05ecddde8bd608196b31f3249106fe27ba6631bcaa0b7227efcd535771a08ee1f6bb33364b954e8
   languageName: node
   linkType: hard
 

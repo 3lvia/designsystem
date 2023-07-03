@@ -37,7 +37,7 @@
     "@testing-library/user-event": "14.4.3",
     "@types/gulp": "^4.0.13",
     "@types/gulp-babel": "^6.1.30",
-    "@types/gulp-cached": "^0.0.32",
+    "@types/gulp-cached": "^0.0.33",
     "@types/gulp-filter": "^3.0.35",
     "@types/gulp-header": "^2.0.1",
     "@types/gulp-rename": "^2.0.1",
