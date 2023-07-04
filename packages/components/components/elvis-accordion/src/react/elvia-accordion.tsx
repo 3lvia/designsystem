@@ -119,6 +119,7 @@ const Accordion: FC<AccordionProps> = ({
   };
 
   const decideButtonAriaLabel = (): string => {
+    console.log('hello i am decideButtonAriaLabel');
     if (isOpenState) {
       return closeAriaLabel ?? closeLabel ?? 'Lukk';
     } else {
