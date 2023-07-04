@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "04.07.23",
+      "version": "3.0.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the browser would mistakenly scroll to the bottom of the page when the end Date Picker was automatically opened."
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.06.23",
       "version": "3.0.4",
       "changelog": [
