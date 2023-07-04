@@ -6,9 +6,7 @@ import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core'
 export class ColorListBaseDirective {
   @HostBinding('class.overflow-right') showGradient = true;
 
-  constructor(private elementRef: ElementRef<HTMLElement>) {
-    console.log('hei', elementRef);
-  }
+  constructor(private elementRef: ElementRef<HTMLElement>) {}
 
   @HostListener('scroll')
   onScroll() {
@@ -17,8 +15,6 @@ export class ColorListBaseDirective {
 
     const hasScroll = element.clientWidth < element.scrollWidth;
     const scrollRight = element.scrollWidth - (element.clientWidth + scrollLeft);
-
-    console.log(scrollLeft, scrollRight);
 
     this.showGradient = hasScroll && scrollRight > 20;
   }
