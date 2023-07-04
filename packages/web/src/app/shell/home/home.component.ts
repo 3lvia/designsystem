@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   showShortcutGlossary = false;
   showShortcutGlossaryButton = false;
   private shortcutGlossaryTimeoutId: ReturnType<typeof setTimeout> | undefined;
+  private lastGPress: number;
 
   isMobileScreenWidth: boolean;
 
@@ -91,17 +92,22 @@ export class HomeComponent implements OnInit {
 
   @HostListener('window:keypress', ['$event'])
   handleShortcutGlossary = (event: KeyboardEvent): void => {
-    const body = document.getElementsByTagName('body')[0];
-    if (event.target !== body) {
+    const shortcutGlossary = (event.target as HTMLElement)?.closest('#elvia-shortcut-glossary-modal');
+
+    if (!shortcutGlossary && event.target !== document.body) {
       return;
     }
 
-    if (event.key.toLowerCase() === 'g') {
-      this.shortcutGlossaryTimeoutId = setTimeout(() => {
-        if (!this.showShortcutGlossary) {
-          this.openShortcutGlossary();
-        }
-      }, 1000);
+    const keyPressed = event.key.toLowerCase();
+    if (keyPressed === 'g') {
+      this.lastGPress = Date.now();
+      if (!this.showShortcutGlossary) {
+        this.shortcutGlossaryTimeoutId = setTimeout(this.openShortcutGlossary, 250);
+      }
+      //handle s-key, others are handled by navigation
+    } else if (keyPressed === 's' && Date.now() - this.lastGPress <= 1000) {
+      clearTimeout(this.shortcutGlossaryTimeoutId);
+      this.closeShortcutGlossary();
     } else {
       clearTimeout(this.shortcutGlossaryTimeoutId);
     }
