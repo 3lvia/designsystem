@@ -57,6 +57,7 @@ export class MainComponent {
       .subscribe(() => {
         this.closeShortcutGlossary();
         this.showShortcutGlossaryButton = false;
+        clearTimeout(this.shortcutGlossaryTimeoutId);
       });
   }
 
