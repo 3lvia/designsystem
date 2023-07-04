@@ -21,6 +21,7 @@ export class HeaderComponent {
   mainMenu: CMSMenu;
   menuContentLoader = true;
   isPrideMonth = false;
+  showThemeAnnouncement = false;
 
   constructor(
     private mobileMenu: MobileMenuService,
@@ -48,6 +49,7 @@ export class HeaderComponent {
     }
 
     this.checkIfPrideMonth();
+    this.getThemeAnnouncementVisibility();
   }
 
   checkIfPrideMonth(): void {
@@ -96,5 +98,15 @@ export class HeaderComponent {
 
   toggleTheme = () => {
     document.body.classList.toggle('e-theme-dark');
+  };
+
+  getThemeAnnouncementVisibility = () => {
+    this.showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
+    this.showThemeAnnouncement = false; //remove this line when dark theme is ready
+  };
+
+  closeThemeAnnouncement = () => {
+    localStorage.setItem('elvisThemeAnnouncementIsClosed', 'true');
+    this.showThemeAnnouncement = false;
   };
 }

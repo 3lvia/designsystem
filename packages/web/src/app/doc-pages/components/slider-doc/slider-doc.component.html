@@ -41,6 +41,25 @@
     </ng-container>
   </app-component-section>
 
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Unit'">
+        <ng-container ngProjectAs="sectionContent">
+          The
+          <code>unit</code>
+          prop allows you to add a custom suffix to the input field(s) of the slider and the value shown in
+          the tooltip of the slider. For example, if you want to display the value as a kilowatt-hour, you can
+          add "kWh" as the unit.
+          <p>
+            The return value will not include the
+            <code>unit</code>
+            -string.
+          </p>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--ACCESSIBILITY-->
   <app-component-section [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
@@ -48,30 +67,39 @@
         <ng-container ngProjectAs="sectionContent">
           <div class="accessibility-keyboard-navigation">
             <div>
-              <span class="keyboard-button icon" aria-label="Arrow up">
-                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow down">
-                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow left">
-                <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow right">
-                <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              to increase/decrease the value for for the slider when the thumb is selected.
-            </div>
-            <div>
-              <span class="keyboard-button icon" aria-label="Arrow up">
-                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px" aria-label="Arrow down">
-                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              to increase/decrease the value for for the slider when the number input is selected.
+              <kbd class="icon">
+                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true"></i>
+              </kbd>
+              <kbd class="icon e-ml-0">
+                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true"></i>
+              </kbd>
+              <kbd class="icon e-ml-0">
+                <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true"></i>
+              </kbd>
+              <kbd class="icon e-ml-0">
+                <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true"></i>
+              </kbd>
+              to increase/decrease the value for the slider when the thumb is selected.
             </div>
           </div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection sectionTitle="ARIA">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>Aria label:</strong>
+              Always provide an aria-label for the slider using the
+              <code>ariaLabel</code>
+              prop. If one is not provided, the slider will attempt to generate one using the
+              <code>label</code>
+              ,
+              <code>unit</code>
+              , and
+              <code>type</code>
+              props.
+            </li>
+          </ul>
         </ng-container>
       </app-component-subsection>
     </ng-container>

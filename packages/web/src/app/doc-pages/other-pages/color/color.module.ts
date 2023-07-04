@@ -16,6 +16,8 @@ import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
 import { IllustrationBaseDirective } from './illustrations/illustration-base.directive';
 import { ColorListBaseDirective } from './color-picker/color-list-base.directive';
+import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
+import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
 
 @NgModule({
   imports: [
@@ -26,6 +28,8 @@ import { ColorListBaseDirective } from './color-picker/color-list-base.directive
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
     CopyModule,
+    DoDontModule,
+    DoDontTextModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [

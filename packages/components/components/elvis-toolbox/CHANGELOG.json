@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.06.23",
+      "version": "9.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add optional callback to useRovingFocus when focus changes through keyboard interaction.",
+            "Add shared breakpoints for media queries."
+          ]
+        }
+      ]
+    },
+    {
       "date": "06.06.23",
       "version": "9.2.0",
       "changelog": [
@@ -138,7 +151,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Overlay not closing properly on localhost in React"]
+          "changes": ["Overlay not closing properly on localhost in React."]
         }
       ]
     },

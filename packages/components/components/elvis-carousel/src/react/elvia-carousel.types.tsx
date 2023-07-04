@@ -1,4 +1,5 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export interface CarouselItem {
   /**
@@ -15,7 +16,7 @@ export interface CarouselItem {
 export type SlideDirection = 'left' | 'right';
 export type AccordionType = 'linear' | 'loop';
 
-export interface CarouselProps extends BaseProps {
+export interface CarouselProps extends ComponentPropsWithoutRef<'section'>, BaseProps {
   items: CarouselItem[] | number;
   /**
    * @deprecated Deprecated in version 2.0.0. Use `items` instead.

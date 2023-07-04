@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "28.06.23",
+      "version": "2.3.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["The component prop interface now correctly accepts all native properties in React."]
+        }
+      ]
+    },
+    {
       "date": "15.06.23",
       "version": "2.3.3 ",
       "changelog": [

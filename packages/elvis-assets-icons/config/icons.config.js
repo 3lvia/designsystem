@@ -6,7 +6,7 @@ for renaming/deprecating icons add the following:
 for keeping licensing in order
 - thidpary {
   name: name of which thirdparty supplier of icons we use, f.ex "streamline" 
-  duplicate: If we modify an icon with a valid license, refernce to which icon we modified and has a valid license
+  duplicate: If we modify an icon with a valid license, reference to which icon we modified and has a valid license
 }
 
 example:
@@ -277,6 +277,7 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['cut_electricity_pillar'] },
   },
   { name: 'danger_electricity-color', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
+  { name: 'dark_theme', terms: ['theme', 'moon', 'night', 'dark'], thirdparty: { name: ['streamline'] } },
   { name: 'dashboard', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'dashboard-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['dashboard'] } },
   { name: 'decent', terms: [], thirdparty: { name: ['streamline'] } },
@@ -380,6 +381,11 @@ module.exports = [
   { name: 'hammer_wrench-color', terms: [] },
   { name: 'han', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'han-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['han'] } },
+  {
+    name: 'hand_pointer',
+    terms: ['cursor', 'select', 'choose', 'choice', 'click'],
+    thirdparty: { name: ['streamline'] },
+  },
   { name: 'health_safety_environment', terms: ['HMS'], thirdparty: { name: ['streamline'] } },
   { name: 'heating', terms: ['warm up', 'radiator'] },
   { name: 'history', terms: ['time', 'clock', 'past', 'fortid'] },
@@ -423,6 +429,7 @@ module.exports = [
   { name: 'it_systems-color', terms: ['computer'] },
   { name: 'laptop-color', terms: ['computer', 'screen', 'pc', 'mac'] },
   { name: 'layers', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'light_theme', terms: ['theme', 'sun', 'day', 'light'], thirdparty: { name: ['streamline'] } },
   { name: 'laws', terms: ['paragraph', 'paper'] },
   { name: 'laws-color', terms: ['paragraph', 'paper'] },
   { name: 'lighting', terms: ['light', 'power'] },

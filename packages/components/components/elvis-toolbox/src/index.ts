@@ -3,6 +3,7 @@ export { outlineListener } from './outlineListener';
 export { warnDeprecatedProps } from './warnDeprecatedProps';
 export { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './componentConfig.types';
 
+export { device } from './breakpoints';
 export { Backdrop } from './components/backdrop/backdrop';
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { IconButton } from './components/button/iconButton';
@@ -14,6 +15,7 @@ export {
   FormFieldInputContainer,
   FormFieldInputSuffixText,
   FormFieldLabel,
+  LabelProps,
 } from './components/form-field/formFieldStyles';
 export { FormFieldError, FormFieldErrorContainer } from './components/form-field/errorStyles';
 export { Overlay } from './components/overlay/overlay';

@@ -3,6 +3,9 @@ import { RefObject, useEffect, useRef } from 'react';
 interface Options<T extends HTMLElement> {
   dir: 'vertical' | 'horizontal' | 'both';
   elementRef?: RefObject<T>;
+  // What attributes to observe when recreating the list of observable elements.
+  observableAttributes?: string[];
+  onKeyDown?: (focusedElement: HTMLElement, index: number) => void;
 }
 
 /**
@@ -26,6 +29,7 @@ export const useRovingFocus = <T extends HTMLElement>(
 
   const opts: Options<T> = {
     dir: 'both',
+    observableAttributes: ['aria-hidden', 'style', 'class'],
     ...options,
   };
 
@@ -155,7 +159,7 @@ export const useRovingFocus = <T extends HTMLElement>(
       subtree: true,
       childList: true,
       attributes: true,
-      attributeFilter: ['aria-hidden', 'style', 'class'],
+      attributeFilter: opts.observableAttributes,
     });
 
     startRovingFocus();
@@ -166,6 +170,7 @@ export const useRovingFocus = <T extends HTMLElement>(
   const initializeKeydownHandler = (container: T, items: HTMLElement[]): (() => void) => {
     const setFocusedItem = (newIndex: number): void => {
       if (newIndex !== -1 && newIndex !== focusedIndex.current) {
+        console.log('B');
         items[focusedIndex.current].tabIndex = -1;
         items[newIndex].tabIndex = 0;
         items[newIndex]?.focus();
@@ -176,12 +181,19 @@ export const useRovingFocus = <T extends HTMLElement>(
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
+      const previousIndex = focusedIndex.current;
       const newIndex = getNewIndex(event, items.length, focusedIndex.current);
       setFocusedItem(newIndex);
+
+      if (focusedItem.current && previousIndex !== newIndex) {
+        opts.onKeyDown?.(focusedItem.current, focusedIndex.current);
+      }
     };
 
     const handleClick = (event: MouseEvent) => {
+      console.log('items: ', items, 'target: ', event.target);
       const index = items.findIndex((item) => item === (event.target as HTMLElement));
+      console.log('Index after click', index);
       setFocusedItem(index);
     };
 

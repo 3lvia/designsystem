@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-accordion/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-accordion/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const accordionData: ComponentData = {
