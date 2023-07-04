@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DocumentEventListenerService {
+  private shortcutWasTriggered = new Subject<void>();
+
   private keyboardPaths = {
     h: '',
     a: 'about',
@@ -46,11 +49,16 @@ export class DocumentEventListenerService {
         } else {
           this.router.navigate([this.keyboardPaths[keyPressed]]);
         }
+        this.shortcutWasTriggered.next();
       }
     }
   }
 
   private keyPressIsInShortcuts(keyPressed: string): keyPressed is keyof typeof this.keyboardPaths {
     return keyPressed in this.keyboardPaths;
+  }
+
+  listenShortcutTriggered(): Observable<void> {
+    return this.shortcutWasTriggered.asObservable();
   }
 }

@@ -26,11 +26,6 @@ export class HomeComponent implements OnInit {
   locale: LOCALE_CODE;
   changelog = changelogJson.content;
 
-  showShortcutGlossary = false;
-  showShortcutGlossaryButton = false;
-  private shortcutGlossaryTimeoutId: ReturnType<typeof setTimeout> | undefined;
-  private lastGPress: number;
-
   isMobileScreenWidth: boolean;
 
   constructor(localizationService: LocalizationService, private titleService: Title) {
@@ -80,42 +75,6 @@ export class HomeComponent implements OnInit {
     } else {
       this.isNonHoliday = true;
     }
-  };
-
-  openShortcutGlossary = (): void => {
-    this.showShortcutGlossary = true;
-  };
-
-  closeShortcutGlossary = (): void => {
-    this.showShortcutGlossary = false;
-  };
-
-  @HostListener('window:keypress', ['$event'])
-  handleShortcutGlossary = (event: KeyboardEvent): void => {
-    const shortcutGlossary = (event.target as HTMLElement)?.closest('#elvia-shortcut-glossary-modal');
-
-    if (!shortcutGlossary && event.target !== document.body) {
-      return;
-    }
-
-    const keyPressed = event.key.toLowerCase();
-    if (keyPressed === 'g') {
-      this.lastGPress = Date.now();
-      if (!this.showShortcutGlossary) {
-        this.shortcutGlossaryTimeoutId = setTimeout(this.openShortcutGlossary, 250);
-      }
-      //handle s-key, others are handled by navigation
-    } else if (keyPressed === 's' && Date.now() - this.lastGPress <= 1000) {
-      clearTimeout(this.shortcutGlossaryTimeoutId);
-      this.closeShortcutGlossary();
-    } else {
-      clearTimeout(this.shortcutGlossaryTimeoutId);
-    }
-  };
-
-  @HostListener('window:keydown.tab', ['$event'])
-  handleShortcutGlossaryButton = (): void => {
-    this.showShortcutGlossaryButton = true;
   };
 
   @HostListener('window:resize', ['$event'])
