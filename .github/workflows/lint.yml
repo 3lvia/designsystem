@@ -19,13 +19,13 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Get Yarn Cache
         uses: actions/setup-node@v3
         with:
-          node-version: 12
+          cache: 'yarn'
 
-      - name: Install Node.js dependencies
-        run: npm ci
+     - name: Install
+        run: yarn install --immutable
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
