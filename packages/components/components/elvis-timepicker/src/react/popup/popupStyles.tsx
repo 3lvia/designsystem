@@ -9,12 +9,12 @@ const typography = {
   numberButton: getTypographyCss('text-md'),
 };
 
-export const OverlayContainer = styled.div`
+export const OverlayContainer = styled.div<{ hasSecondPicker: boolean }>`
   background-color: ${getThemeColor('background-overlay-1')};
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   display: flex;
-  width: 120px;
+  width: ${({ hasSecondPicker }) => (hasSecondPicker ? '180px' : '120px')};
 `;
 
 export const NumberPickerContainer = styled.div`

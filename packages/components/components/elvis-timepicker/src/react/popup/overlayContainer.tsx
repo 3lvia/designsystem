@@ -9,17 +9,19 @@ interface Props {
   onClose: () => void;
   onChange: (changeType: ChangeType, newValue: number) => void;
   minuteInterval: MinuteInterval;
+  hasSecondPicker: boolean;
   currentTime?: Date | null;
 }
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
-  ({ onClose, onChange, minuteInterval, currentTime }, ref) => {
+  ({ onClose, onChange, minuteInterval, hasSecondPicker, currentTime }, ref) => {
     const hours = new Array(24).fill('').map((_, index) => index);
     const minutes = new Array(60 / +minuteInterval).fill('').map((_, index) => index * +minuteInterval);
+    const seconds = new Array(60).fill('').map((_, index) => index);
 
     return (
       <Overlay ref={ref} onClose={onClose}>
-        <Container data-testid="popover">
+        <Container hasSecondPicker={hasSecondPicker} data-testid="popover">
           <NumberPicker
             title="Time"
             currentValue={currentTime?.getHours()}
@@ -32,6 +34,14 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
               currentValue={currentTime?.getMinutes()}
               numbers={minutes}
               onSelect={(val) => onChange('minute', val)}
+            />
+          )}
+          {hasSecondPicker && (
+            <NumberPicker
+              title="Sekund"
+              currentValue={currentTime?.getSeconds()}
+              numbers={seconds}
+              onSelect={(val) => onChange('second', val)}
             />
           )}
         </Container>
