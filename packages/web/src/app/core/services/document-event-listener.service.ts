@@ -26,7 +26,9 @@ export class DocumentEventListenerService {
    */
   handleKeyboardEvent(event: KeyboardEvent): void {
     const body = document.getElementsByTagName('body')[0];
-    if (event.target !== body) {
+    const shortcutGlossary = (event.target as HTMLElement)?.closest('#elvia-shortcut-glossary-modal');
+
+    if (!shortcutGlossary && event.target !== body) {
       return;
     }
     const keyPressed = event.key.toLowerCase();
