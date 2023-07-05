@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
-import { utilityGroups } from './utility-groups';
+import { utilityGroups } from './utility-groups-data';
 
 @Component({
   selector: 'app-utilities-doc',

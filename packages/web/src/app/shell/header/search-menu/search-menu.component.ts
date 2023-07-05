@@ -1,7 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
-import { utilityGroups } from 'src/app/doc-pages/other-pages/utilities-doc/utility-groups';
+import { utilityGroups } from 'src/app/doc-pages/other-pages/utilities-doc/utility-groups-data';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
