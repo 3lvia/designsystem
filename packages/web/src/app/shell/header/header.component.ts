@@ -44,14 +44,6 @@ export class HeaderComponent {
         });
       });
 
-    this.themeService
-      .listenTheme()
-      .pipe(takeUntilDestroyed())
-      .subscribe((theme) => {
-        this.currentTheme = theme;
-        this.addDarkThemeClass(this.currentTheme);
-      });
-
     if (
       window.location.href.indexOf('localhost') > -1 ||
       window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
@@ -59,6 +51,14 @@ export class HeaderComponent {
     ) {
       this.devMode = true;
     }
+
+    this.themeService
+      .listenTheme()
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme) => {
+        this.currentTheme = this.devMode ? theme : 'light'; //todo: set to theme when dark theme is ready
+        this.addDarkThemeClass(this.currentTheme);
+      });
 
     this.checkIfPrideMonth();
     this.getThemeAnnouncementVisibility();
