@@ -133,7 +133,10 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
 
     if (isShowing && selectNowOnOpen && !time) {
       const initialTime = new Date();
-      initialTime.setSeconds(0, 0);
+      if (!hasSecondPicker) {
+        initialTime.setSeconds(0);
+      }
+      initialTime.setMilliseconds(0);
       updateValue(initialTime);
     }
 
@@ -172,6 +175,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         <FormFieldInputContainer ref={connectedElementRef}>
           <TimepickerInput
             time={time}
+            hasSecondPicker={hasSecondPicker}
             disabled={isDisabled}
             isFullWidth={isFullWidth}
             onChange={updateValue}
