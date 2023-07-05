@@ -1,6 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
+import { utilityGroups } from 'src/app/doc-pages/other-pages/utilities-doc/utility-groups-data';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
@@ -117,6 +118,19 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     this.activeResults = this.searchService.search(this.searchString);
     this.resultsToDisplay = this.searchService.searchResults
       .filter((result) => !result.matches?.every((match) => match.key === 'searchTerms'))
+      .sort((a, b) => {
+        const resultTypeA = a.item.type === 'utility class';
+        const resultTypeB = b.item.type === 'utility class';
+
+        // Move results with type "utility class" to the end, maintain original order for other results
+        if (resultTypeA && !resultTypeB) {
+          return 1;
+        } else if (!resultTypeA && resultTypeB) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
       .map((result) => result.item);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
@@ -176,6 +190,18 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
           absolutePath: docPage.absolutePath,
           fragmentPath: docPage.fragmentPath,
         };
+      }),
+      utilityGroups.flatMap((utilityGroup) => {
+        const utilityGroupTitle = utilityGroup.title;
+        return utilityGroup.classes.map((utilityClass) => {
+          return {
+            title: utilityClass.className,
+            description: `${utilityGroupTitle}: ${utilityClass.description}`,
+            absolutePath: '/tools/utility-classes',
+            fragmentPath: utilityGroupTitle,
+            type: 'utility class',
+          };
+        });
       }),
       await this.getSearchItemsFromCMS(),
     );
