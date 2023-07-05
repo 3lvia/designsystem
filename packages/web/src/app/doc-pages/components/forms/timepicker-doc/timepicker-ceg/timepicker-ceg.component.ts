@@ -41,7 +41,7 @@ export class TimepickerCegComponent implements ComponentExample {
         },
         isRequired: { type: 'checkbox', label: 'Required', group: 'Options' },
         isFullWidth: { type: 'checkbox', label: 'Full width', group: 'Options' },
-        selectNowOnOpen: { type: 'checkbox', label: 'Select Now on Open', group: 'Options', value: true },
+        selectNowOnOpen: { type: 'checkbox', label: 'Select Current Time', group: 'Options', value: true },
         isDisabled: { type: 'checkbox', label: 'Disabled', group: 'State' },
       },
       groupOrder: ['Size', 'Minute interval', 'Options', 'State'],
