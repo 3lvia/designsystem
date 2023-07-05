@@ -123,7 +123,13 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         const resultTypeB = b.item.type === 'utility class';
 
         // Move results with type "utility class" to the end, maintain original order for other results
-        return resultTypeA && !resultTypeB ? 1 : 0;
+        if (resultTypeA && !resultTypeB) {
+          return 1;
+        } else if (!resultTypeA && resultTypeB) {
+          return -1;
+        } else {
+          return 0;
+        }
       })
       .map((result) => result.item);
 
