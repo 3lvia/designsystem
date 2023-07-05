@@ -35,7 +35,7 @@ export class TimepickerCegComponent implements ComponentExample {
         },
         hasSecondPicker: {
           type: 'checkbox',
-          label: 'Second Picker',
+          label: 'Show Seconds',
           value: false,
           group: 'Options',
         },
