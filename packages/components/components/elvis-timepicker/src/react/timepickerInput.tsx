@@ -231,6 +231,11 @@ export const TimepickerInput: React.FC<Props> = ({
     };
   }, [inputElement]);
 
+  // Resets the showing/hiding of seconds in the input field
+  useEffect(() => {
+    onBlur();
+  }, [hasSecondPicker]);
+
   return (
     <Input
       ref={inputElement}
