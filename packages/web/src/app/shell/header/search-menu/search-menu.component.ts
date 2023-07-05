@@ -196,7 +196,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
         return utilityGroup.classes.map((utilityClass) => {
           return {
             title: utilityClass.className,
-            description: utilityClass.description,
+            description: `${utilityGroupTitle}: ${utilityClass.description}`,
             absolutePath: '/tools/utility-classes',
             fragmentPath: utilityGroupTitle,
             type: 'utility class',
