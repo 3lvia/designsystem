@@ -53,22 +53,25 @@ export const utilityGroups: UtilityGroup[] = [
       },
       {
         className: 'e-none-xl',
-        description: 'Display: none on element displayed MaxDesktop breakpoints.',
+        description:
+          'Remove elements from the DOM when the viewport width is within the MaxDesktop breakpoint.',
         styling: 'display: none',
       },
       {
         className: 'e-none-lg',
-        description: 'Display: none on element displayed MinDesktop breakpoints.',
+        description:
+          'Remove elements from the DOM when the viewport width is within the MinDesktop breakpoint.',
         styling: 'display: none',
       },
       {
         className: 'e-none-md',
-        description: 'Display: none on element displayed Tablet breakpoints.',
+
+        description: 'Remove elements from the DOM when the viewport width is within the Tablet breakpoint.',
         styling: 'display: none',
       },
       {
         className: 'e-none-sm',
-        description: 'Display: none on element displayed Mobile breakpoints.',
+        description: 'Remove elements from the DOM when the viewport width is within the Mobile breakpoint.',
         styling: 'display: none',
       },
     ],
@@ -93,42 +96,43 @@ export const utilityGroups: UtilityGroup[] = [
       },
       {
         className: 'e-justify-content-center',
-        description: 'Distributes space between and around content items.',
+        description: 'Distributes items on the main axis around the center.',
         styling: 'justify-content: center',
       },
       {
         className: 'e-justify-content-start',
-        description: 'Distributes space between and around content items.',
+        description: 'Distributes items on the main axis from the start.',
         styling: 'justify-content: flex-start',
       },
       {
         className: 'e-justify-content-end',
-        description: 'Distributes space between and around content items.',
+        description: 'Distributes items on the main axis from the end.',
         styling: 'justify-content: flex-end',
       },
       {
         className: 'e-justify-content-between',
-        description: 'Distributes space between and around content items.',
+        description:
+          'Distribute items evenly. The first item is flush with the start, the last is flush with the end.',
         styling: 'justify-content: space-between',
       },
       {
         className: 'e-justify-content-around',
-        description: 'Distributes space between and around content items.',
+        description: 'Distribute items evenly. Items have a half-size space on either end.',
         styling: 'justify-content: space-around',
       },
       {
         className: 'e-align-items-center',
-        description: 'Aligns the items.',
+        description: 'Aligns the items around the center.',
         styling: 'align-items: center',
       },
       {
         className: 'e-align-items-start',
-        description: 'Aligns the items.',
+        description: 'Aligns the items from the start on the cross axis.',
         styling: 'align-items: flex-start',
       },
       {
         className: 'e-align-items-end',
-        description: 'Aligns the items.',
+        description: 'Aligns the items from the end.',
         styling: 'align-items: flex-end',
       },
       {
