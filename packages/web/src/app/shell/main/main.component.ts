@@ -18,6 +18,7 @@ export class MainComponent {
   showShortcutGlossary = false;
   showShortcutGlossaryButton = false;
   private shortcutGlossaryTimeoutId: ReturnType<typeof setTimeout> | undefined;
+  private shortcutGlossaryButtonTimeoutId: ReturnType<typeof setTimeout> | undefined;
 
   constructor(
     private router: Router,
@@ -56,8 +57,9 @@ export class MainComponent {
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
         this.closeShortcutGlossary();
-        this.showShortcutGlossaryButton = false;
+        this.hideShortcutGlossaryButton();
         clearTimeout(this.shortcutGlossaryTimeoutId);
+        clearTimeout(this.shortcutGlossaryButtonTimeoutId);
       });
   }
 
@@ -67,6 +69,10 @@ export class MainComponent {
 
   closeShortcutGlossary = (): void => {
     this.showShortcutGlossary = false;
+  };
+
+  hideShortcutGlossaryButton = (): void => {
+    this.showShortcutGlossaryButton = false;
   };
 
   @HostListener('window:keypress', ['$event'])
@@ -88,7 +94,12 @@ export class MainComponent {
 
   @HostListener('window:keydown.tab', ['$event'])
   handleShortcutGlossaryButton = (): void => {
+    if (this.showShortcutGlossary) {
+      return;
+    }
+    clearTimeout(this.shortcutGlossaryButtonTimeoutId);
     this.showShortcutGlossaryButton = true;
+    this.shortcutGlossaryButtonTimeoutId = setTimeout(this.hideShortcutGlossaryButton, 7000);
   };
 
   scrollToFeedback(): void {
