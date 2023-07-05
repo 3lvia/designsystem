@@ -69,8 +69,7 @@ export const TimepickerInput: React.FC<Props> = ({
           if (caretIndex === 1) {
             setInputValue(`0${sanitizedNewInputValue}`);
           } else {
-            const newVal = `${sanitizedNewInputValue.substring(0, 3)}0${sanitizedNewInputValue.substring(3)}`;
-            setInputValue(newVal);
+            setInputValue(`${sanitizedNewInputValue.substring(0, 3)}0${sanitizedNewInputValue.substring(3)}`);
           }
         }
         break;
