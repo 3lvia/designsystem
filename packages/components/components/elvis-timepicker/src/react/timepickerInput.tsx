@@ -44,30 +44,32 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const setInputValueFromCaretIndexRules = (newInputValue: string, pressedKey: string): void => {
+    const delimiterKeys = ['.', ':'];
+    const sanitizedNewInputValue = newInputValue.replace(/\./g, ':');
     switch (caretIndex) {
       case 0:
       case 3:
       case 6:
       case 7: {
         if (isNumericValue(pressedKey)) {
-          setInputValue(newInputValue);
+          setInputValue(sanitizedNewInputValue);
         }
         break;
       }
       case 1:
       case 4: {
         if (
-          (newInputValue.length === 2 && isNumericValue(pressedKey)) ||
-          (hasSecondPicker && newInputValue.length === 5 && isNumericValue(pressedKey))
+          (sanitizedNewInputValue.length === 2 && isNumericValue(pressedKey)) ||
+          (hasSecondPicker && sanitizedNewInputValue.length === 5 && isNumericValue(pressedKey))
         ) {
-          setInputValue(`${newInputValue}.`);
+          setInputValue(`${sanitizedNewInputValue}:`);
         } else if (isNumericValue(pressedKey)) {
-          setInputValue(newInputValue);
-        } else if (pressedKey === '.') {
+          setInputValue(sanitizedNewInputValue);
+        } else if (delimiterKeys.includes(pressedKey)) {
           if (caretIndex === 1) {
-            setInputValue(`0${newInputValue}`);
+            setInputValue(`0${sanitizedNewInputValue}`);
           } else {
-            const newVal = `${newInputValue.substring(0, 3)}0${newInputValue.substring(3)}`;
+            const newVal = `${sanitizedNewInputValue.substring(0, 3)}0${sanitizedNewInputValue.substring(3)}`;
             setInputValue(newVal);
           }
         }
@@ -75,8 +77,8 @@ export const TimepickerInput: React.FC<Props> = ({
       }
       case 2:
       case 5: {
-        if (pressedKey === '.') {
-          setInputValue(newInputValue);
+        if (delimiterKeys.includes(pressedKey)) {
+          setInputValue(sanitizedNewInputValue);
         }
         break;
       }
@@ -105,7 +107,7 @@ export const TimepickerInput: React.FC<Props> = ({
     if (!time || formattedValue !== getFormattedInputValue(time)) {
       const newValue = time ? new Date(time) : new Date();
 
-      const [hour, minute, second] = formattedValue.split('.');
+      const [hour, minute, second] = formattedValue.split(':');
       newValue.setHours(+hour, +minute, +(second ?? 0), 0);
       onChange(newValue);
     }
@@ -149,7 +151,7 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const onBlur = (): void => {
-    let [hour, minute, second] = inputValue.split('.');
+    let [hour, minute, second] = inputValue.split(':');
 
     const isValid = validateInputValue(hour, minute, second);
 
@@ -180,7 +182,7 @@ export const TimepickerInput: React.FC<Props> = ({
 
     const normalizedHour = +hour === 24 ? 0 : +hour;
     const newValue =
-      `${padDigit(normalizedHour)}.${padDigit(+minute)}` + (hasSecondPicker ? `.${padDigit(+second)}` : '');
+      `${padDigit(normalizedHour)}:${padDigit(+minute)}` + (hasSecondPicker ? `:${padDigit(+second)}` : '');
 
     setInputValue(newValue);
     emitNewValue(newValue);
@@ -192,8 +194,8 @@ export const TimepickerInput: React.FC<Props> = ({
     }
 
     return (
-      `${padDigit(date.getHours())}.${padDigit(date.getMinutes())}` +
-      (hasSecondPicker ? `.${padDigit(date.getSeconds())}` : '')
+      `${padDigit(date.getHours())}:${padDigit(date.getMinutes())}` +
+      (hasSecondPicker ? `:${padDigit(date.getSeconds())}` : '')
     );
   };
 
@@ -204,7 +206,7 @@ export const TimepickerInput: React.FC<Props> = ({
 
   useEffect(() => {
     if (touched) {
-      const [hour, minute, second] = inputValue.split('.');
+      const [hour, minute, second] = inputValue.split(':');
       validateInputValue(hour, minute, second);
     }
   }, [required]);
@@ -213,7 +215,7 @@ export const TimepickerInput: React.FC<Props> = ({
     const formattedInputValue = getFormattedInputValue(time);
     setInputValue(formattedInputValue);
 
-    const [hour, minute, second] = formattedInputValue.split('.');
+    const [hour, minute, second] = formattedInputValue.split(':');
     validateInputValue(hour, minute, second);
   }, [time]);
 
@@ -242,7 +244,7 @@ export const TimepickerInput: React.FC<Props> = ({
       disabled={disabled}
       isFullWidth={isFullWidth}
       hasSecondPicker={hasSecondPicker}
-      placeholder={hasSecondPicker ? 'tt.mm.ss' : 'tt.mm'}
+      placeholder={hasSecondPicker ? 'tt:mm:ss' : 'tt:mm'}
       value={inputValue}
       onKeyDown={onKeyDown}
       onChange={parseInput}

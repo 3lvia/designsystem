@@ -10,6 +10,12 @@
           "changes": [
             "Added support for showing a second picker in addition to the hour and minute pickers. This is available through the prop <code>hasSecondPicker</code>."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Now using : instead of . for the delimiter between hours, minutes, and seconds. This follows ISO 8601."
+          ]
         }
       ]
     },
