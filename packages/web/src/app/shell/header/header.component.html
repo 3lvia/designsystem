@@ -79,33 +79,32 @@
   </nav>
 
   <div class="external-links" role="tablist">
-    <ng-container *ngIf="devMode">
-      <elvia-popover
-        (onClose)="closeThemeMenu()"
-        [isShowing]="themeMenuIsOpen"
-        hasCloseButton="false"
-        horizontalPosition="right"
-        verticalPosition="bottom"
+    <elvia-popover
+      *ngIf="devMode"
+      (onClose)="closeThemeMenu()"
+      [isShowing]="themeMenuIsOpen"
+      hasCloseButton="false"
+      horizontalPosition="right"
+      verticalPosition="bottom"
+    >
+      <div
+        class="tabs-links elvis-theme e-mr-24"
+        style="height: 64px"
+        slot="trigger"
+        (click)="openThemeMenu()"
+        [ngClass]="{ active: themeMenuIsOpen }"
       >
-        <div
-          class="tabs-links elvis-theme e-mr-24"
-          style="height: 64px"
-          slot="trigger"
-          (click)="openThemeMenu()"
-          [ngClass]="{ active: themeMenuIsOpen }"
-        >
-          <span class="elvis-theme__icon e-mr-8">
-            <i
-              class="e-icon e-icon--{{ currentTheme }}_theme e-icon--xs e-icon--inverted"
-              aria-hidden="true"
-            ></i>
-          </span>
-          <span class="elvis-theme__title">theme</span>
-        </div>
-        <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()"></app-theme-switch>
-      </elvia-popover>
-      <elvia-divider orientation="vertical" [inlineStyle]="{ maxHeight: '20px' }" />
-    </ng-container>
+        <span class="elvis-theme__icon e-mr-8">
+          <i
+            class="e-icon e-icon--{{ currentTheme }}_theme e-icon--xs e-icon--inverted"
+            aria-hidden="true"
+          ></i>
+        </span>
+        <span class="elvis-theme__title">theme</span>
+      </div>
+      <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()"></app-theme-switch>
+    </elvia-popover>
+    <elvia-divider orientation="vertical" [inlineStyle]="{ maxHeight: '20px' }" />
 
     <div class="tabs-links elvis-search e-mr-24" (click)="openSearchMenu()" id="search-button">
       <span class="elvis-search__icon e-mr-8">
