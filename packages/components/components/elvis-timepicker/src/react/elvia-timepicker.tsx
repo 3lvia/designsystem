@@ -87,8 +87,10 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       case 'second':
         newTime.setSeconds(value, 0);
         break;
-      default:
-        break;
+      default: {
+        const notReachable: never = type;
+        return notReachable;
+      }
     }
 
     updateValue(newTime);
