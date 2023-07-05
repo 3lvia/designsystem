@@ -120,19 +120,23 @@
       display: none;
     }
 
-    .elvis-search {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      .elvis-search__title {
-        color: var(--e-white);
-        font-family: 'Red Hat Display', Verdana, sans-serif;
-        font-style: normal;
-        text-transform: none;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 17px;
+    .elvis {
+      &-theme,
+      &-search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+        &__title {
+          color: var(--e-white);
+          font-family: 'Red Hat Display', Verdana, sans-serif;
+          font-style: normal;
+          text-transform: capitalize;
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 17px;
+        }
       }
     }
 
