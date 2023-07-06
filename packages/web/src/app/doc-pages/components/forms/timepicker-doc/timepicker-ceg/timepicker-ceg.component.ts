@@ -44,9 +44,28 @@ export class TimepickerCegComponent implements ComponentExample {
         selectNowOnOpen: { type: 'checkbox', label: 'Select Current Time', group: 'Options', value: true },
         isDisabled: { type: 'checkbox', label: 'Disabled', group: 'State' },
       },
+      disabledControls: {}, // Must be defined here for the hack to disable "hasSecondPicker" below
       groupOrder: ['Size', 'Picker Interval', 'Options', 'State'],
     },
   ]);
+
+  constructor() {
+    // Slightly hacky way to disable the "hasSecondPicker"-checkbox depending on the "minuteInterval"-prop.
+    this.cegContent.componentTypes.subscribe((types) => {
+      const currentType = types[0];
+      if (
+        currentType.controls.minuteInterval?.value !== '1' &&
+        !(currentType.disabledControls as any).hasSecondPicker?.includes('minuteInterval')
+      ) {
+        console.log('disable!');
+        (currentType.disabledControls as any).hasSecondPicker = ['minuteInterval']; // Disables the checkbox
+        (currentType.controls.hasSecondPicker as any).value = false; // Resets the checkbox
+        this.cegContent.setPropValue('hasSecondPicker', false); // Updates the prop on the component
+      } else {
+        (currentType.disabledControls as any).hasSecondPicker = [];
+      }
+    });
+  }
 
   handleOnChange(time: Date): void {
     console.log('Selected time: ', time);
