@@ -21,12 +21,11 @@ export class HomeComponent implements OnInit {
   isBirthday = false;
   isPride = false;
   isConstitutionDay = false;
-  currentDate = new Date();
+  private currentDate = new Date();
   currentYear = this.currentDate.getFullYear();
   locale: LOCALE_CODE;
   changelog = changelogJson.content;
 
-  screenWidth: number;
   isMobileScreenWidth: boolean;
 
   constructor(localizationService: LocalizationService, private titleService: Title) {
