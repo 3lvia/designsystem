@@ -61,8 +61,7 @@ export class TimepickerCegComponent implements ComponentExample {
         if (!(propState.disabledControls as any).hasSecondPicker?.includes('minuteInterval')) {
           (propState.disabledControls as any).hasSecondPicker = ['minuteInterval']; // Disables the checkbox
           (propState.controls.hasSecondPicker as any).value = false; // Resets the checkbox
-          this.timepicker?.nativeElement?.setProps({ hasSecondPicker: false });
-          // const updatedProp = this.cegContent.setPropValue('hasSecondPicker', false); // Updates the prop on the component
+          this.timepicker?.nativeElement?.setProps({ hasSecondPicker: false }); // Updates the prop on the component
         }
       } else {
         (propState.disabledControls as any).hasSecondPicker = [];
