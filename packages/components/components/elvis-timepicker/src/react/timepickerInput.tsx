@@ -90,10 +90,12 @@ export const TimepickerInput: React.FC<Props> = ({
     );
 
     const newInputValue = ev.target.value;
+    const inputFieldIsFull =
+      (!hasSecondPicker && inputValue.length === 5) || (hasSecondPicker && inputValue.length === 8);
     if (isModifierKey) {
       setInputValue(newInputValue);
     } else {
-      if (inputValue.length === 5 && !hasSelectedText) {
+      if (inputFieldIsFull && !hasSelectedText) {
         return;
       }
 
