@@ -76,6 +76,24 @@ export const convertContrastValueToNumber = (contrast: ContrastType) => {
   }
 };
 
+export const needsBorder = (color: ColorElement, theme: ThemeName) => {
+  if (
+    theme === 'light' &&
+    (color.name === 'white' ||
+      color.name === 'grey-02' ||
+      color.name === 'grey-05' ||
+      color.name === 'grey-10')
+  ) {
+    return true;
+  } else if (
+    theme === 'dark' &&
+    (color.name === 'black' || color.name === 'grey' || color.name === 'grey-70' || color.name === 'grey-60')
+  ) {
+    return true;
+  }
+  return false;
+};
+
 const getTokens = (hex: string, theme?: ThemeName) => {
   const foundLabels: ColorLabel[] = [];
   if (theme === 'dark') {
@@ -105,6 +123,7 @@ export const getColorElement = (
 ): ColorElement => ({
   name: colorName,
   hex: getBaseColor(colorName, theme),
+  rgb: hexToRgb(getBaseColor(colorName, theme)),
   contrast: {
     white: getContrastValue(colorName, 'white', theme),
     black: getContrastValue(colorName, 'black', theme),
