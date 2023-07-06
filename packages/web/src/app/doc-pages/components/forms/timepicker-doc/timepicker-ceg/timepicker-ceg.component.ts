@@ -25,13 +25,13 @@ export class TimepickerCegComponent implements ComponentExample {
           type: 'radioGroup',
           value: '10',
           radios: [
-            { label: '1', value: '1' },
-            { label: '5', value: '5' },
-            { label: '10', value: '10' },
-            { label: '15', value: '15' },
-            { label: '60', value: '60' },
+            { label: 'Hours', value: '60' },
+            { label: 'Minutes', value: '1' },
+            { label: 'Every 5 min', value: '5' },
+            { label: 'Every 10 min', value: '10' },
+            { label: 'Every 15 min', value: '15' },
           ],
-          group: 'Minute interval',
+          group: 'Picker Interval',
         },
         hasSecondPicker: {
           type: 'checkbox',
@@ -40,11 +40,11 @@ export class TimepickerCegComponent implements ComponentExample {
           group: 'Options',
         },
         isRequired: { type: 'checkbox', label: 'Required', group: 'Options' },
-        isFullWidth: { type: 'checkbox', label: 'Full width', group: 'Options' },
+        isFullWidth: { type: 'checkbox', label: 'Full Width', group: 'Options' },
         selectNowOnOpen: { type: 'checkbox', label: 'Select Current Time', group: 'Options', value: true },
         isDisabled: { type: 'checkbox', label: 'Disabled', group: 'State' },
       },
-      groupOrder: ['Size', 'Minute interval', 'Options', 'State'],
+      groupOrder: ['Size', 'Picker Interval', 'Options', 'State'],
     },
   ]);
 
