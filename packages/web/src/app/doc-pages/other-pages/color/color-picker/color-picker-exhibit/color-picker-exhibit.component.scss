@@ -1,0 +1,151 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+$circle-size-desktop: 256px;
+$circle-size-tablet: 176px;
+$circle-size-mobile: 152px;
+
+.color-exhibit {
+  p {
+    margin: 0;
+  }
+
+  &--container {
+    display: flex;
+    gap: 56px;
+
+    @include breakpoints.breakpoint-up(Tablet) {
+      gap: 24px;
+    }
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .circle {
+      border-radius: 50%;
+      flex-shrink: 0;
+      height: $circle-size-desktop;
+      transition: background-color 250ms linear;
+      width: $circle-size-desktop;
+
+      @include breakpoints.breakpoint-up(Tablet) {
+        height: $circle-size-tablet;
+        width: $circle-size-tablet;
+      }
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        align-self: center;
+        height: $circle-size-mobile;
+        width: $circle-size-mobile;
+      }
+
+      &.border {
+        border: 0.5px solid var(--e-color-border-3);
+      }
+
+      &.nonexistent {
+        animation: spin 180s linear infinite;
+        background-color: transparent;
+        border: 3px dashed var(--e-color-border-3);
+
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+
+    .info {
+      align-items: center;
+      display: grid;
+      gap: 16px;
+      grid-auto-rows: 128px;
+      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-rows: repeat(4, minmax(min-content, max-content));
+      justify-items: start;
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        grid-auto-rows: auto;
+        grid-template-rows: repeat(3, minmax(min-content, max-content));
+      }
+
+      &.nonexistent {
+        gap: 8px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, minmax(min-content, max-content));
+        min-height: 294px; //todo: finne fin løsning på dette
+
+        @include breakpoints.breakpoint-up(Mobile) {
+          min-height: 173px; //todo: finne fin løsning på dette også
+        }
+      }
+
+      .title {
+        grid-column: 1 / -1;
+      }
+
+      .hex,
+      .rgb {
+        letter-spacing: 0.2px;
+      }
+
+      .contrast--heading {
+        @include breakpoints.breakpoint-up(Mobile) {
+          align-self: start;
+          line-height: 22px;
+        }
+      }
+
+      .contrast--container {
+        display: flex;
+        gap: 16px;
+
+        @include breakpoints.breakpoint-up(Mobile) {
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .contrast {
+          align-items: center;
+          display: flex;
+          gap: 8px;
+
+          .contrast--value {
+            white-space: nowrap;
+          }
+        }
+      }
+
+      .tokens--heading {
+        align-self: start;
+        margin: 2px 0 0 0;
+      }
+
+      .tokens--container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        max-height: 128px;
+        align-self: start;
+
+        .no-tokens {
+          flex-shrink: 0;
+          margin: 4px 0 0 0;
+          overflow: hidden;
+        }
+      }
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        .tokens--container,
+        .tokens--heading {
+          display: none;
+        }
+      }
+    }
+  }
+}
