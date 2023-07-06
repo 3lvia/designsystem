@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { TimepickerProps } from '@elvia/elvis-timepicker/react';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-timepicker-ceg',
@@ -8,6 +10,8 @@ import { TimepickerProps } from '@elvia/elvis-timepicker/react';
   providers: [{ provide: ComponentExample, useExisting: TimepickerCegComponent }],
 })
 export class TimepickerCegComponent implements ComponentExample {
+  @ViewChild('timepicker') timepicker: ElementRef<ElvisComponentWrapper>;
+
   elementName = 'timepicker';
   cegContent = new CegControlManager<TimepickerProps>([
     {
@@ -51,16 +55,17 @@ export class TimepickerCegComponent implements ComponentExample {
 
   constructor() {
     // Slightly hacky way to disable the "hasSecondPicker"-checkbox depending on the "minuteInterval"-prop.
-    this.cegContent.componentTypes.subscribe((types) => {
-      const currentType = types[0];
-      if (currentType.controls.minuteInterval?.value !== '1') {
-        if (!(currentType.disabledControls as any).hasSecondPicker?.includes('minuteInterval')) {
-          (currentType.disabledControls as any).hasSecondPicker = ['minuteInterval']; // Disables the checkbox
-          (currentType.controls.hasSecondPicker as any).value = false; // Resets the checkbox
-          this.cegContent.setPropValue('hasSecondPicker', false); // Updates the prop on the component
+    this.cegContent.componentTypes.pipe(takeUntilDestroyed()).subscribe((types) => {
+      const propState = types[0];
+      if (propState.controls.minuteInterval?.value !== '1') {
+        if (!(propState.disabledControls as any).hasSecondPicker?.includes('minuteInterval')) {
+          (propState.disabledControls as any).hasSecondPicker = ['minuteInterval']; // Disables the checkbox
+          (propState.controls.hasSecondPicker as any).value = false; // Resets the checkbox
+          this.timepicker?.nativeElement?.setProps({ hasSecondPicker: false });
+          // const updatedProp = this.cegContent.setPropValue('hasSecondPicker', false); // Updates the prop on the component
         }
       } else {
-        (currentType.disabledControls as any).hasSecondPicker = [];
+        (propState.disabledControls as any).hasSecondPicker = [];
       }
     });
   }
