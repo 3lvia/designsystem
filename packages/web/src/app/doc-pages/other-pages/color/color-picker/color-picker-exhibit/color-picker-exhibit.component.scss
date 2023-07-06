@@ -132,6 +132,7 @@ $circle-size-mobile: 152px;
         gap: 8px;
         max-height: 128px;
         align-self: start;
+        overflow-y: auto;
 
         .no-tokens {
           flex-shrink: 0;
