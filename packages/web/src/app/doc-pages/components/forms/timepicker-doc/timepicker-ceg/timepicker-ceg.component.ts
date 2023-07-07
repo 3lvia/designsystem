@@ -45,7 +45,7 @@ export class TimepickerCegComponent implements ComponentExample {
         },
         isRequired: { type: 'checkbox', label: 'Required', group: 'Options' },
         isFullWidth: { type: 'checkbox', label: 'Full Width', group: 'Options' },
-        selectNowOnOpen: { type: 'checkbox', label: 'Select Current Time', group: 'Options', value: true },
+        selectNowOnOpen: { type: 'checkbox', label: 'Select Current Time', group: 'Options', value: false },
         isDisabled: { type: 'checkbox', label: 'Disabled', group: 'State' },
       },
       disabledControls: {}, // Must be defined here for the hack to disable "hasSecondPicker" below
@@ -57,7 +57,7 @@ export class TimepickerCegComponent implements ComponentExample {
     // Slightly hacky way to disable the "hasSecondPicker"-checkbox depending on the "minuteInterval"-prop.
     this.cegContent.componentTypes.pipe(takeUntilDestroyed()).subscribe((types) => {
       const propState = types[0];
-      if (propState.controls.minuteInterval?.value !== '1') {
+      if (propState.controls.minuteInterval?.value === '60') {
         if (!(propState.disabledControls as any).hasSecondPicker?.includes('minuteInterval')) {
           (propState.disabledControls as any).hasSecondPicker = ['minuteInterval']; // Disables the checkbox
           (propState.controls.hasSecondPicker as any).value = false; // Resets the checkbox
