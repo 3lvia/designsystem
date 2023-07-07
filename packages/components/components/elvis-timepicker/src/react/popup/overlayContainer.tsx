@@ -17,7 +17,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
   ({ onClose, onChange, minuteInterval, hasSecondPicker, currentTime }, ref) => {
     const hours = new Array(24).fill('').map((_, index) => index);
     const minutes = new Array(60 / +minuteInterval).fill('').map((_, index) => index * +minuteInterval);
-    const seconds = new Array(60).fill('').map((_, index) => index);
+    const seconds = new Array(60 / +minuteInterval).fill('').map((_, index) => index * +minuteInterval);
 
     return (
       <Overlay ref={ref} onClose={onClose}>
