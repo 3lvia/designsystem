@@ -76,22 +76,21 @@ export const convertContrastValueToNumber = (contrast: ContrastType) => {
   }
 };
 
-export const needsBorder = (color: ColorElement, theme: ThemeName) => {
+export const needsBorder = (
+  colorName: LightThemeColorName | DarkThemeColorName,
+  theme: ThemeName,
+): boolean => {
+  const lightThemeColors: LightThemeColorName[] = ['white', 'grey-02', 'grey-05', 'grey-10'];
+  const darkThemeColors: DarkThemeColorName[] = ['black', 'grey', 'grey-70', 'grey-60'];
+
   if (
-    theme === 'light' &&
-    (color.name === 'white' ||
-      color.name === 'grey-02' ||
-      color.name === 'grey-05' ||
-      color.name === 'grey-10')
+    (theme === 'light' && lightThemeColors.includes(colorName)) ||
+    (theme === 'dark' && darkThemeColors.includes(colorName as DarkThemeColorName))
   ) {
     return true;
-  } else if (
-    theme === 'dark' &&
-    (color.name === 'black' || color.name === 'grey' || color.name === 'grey-70' || color.name === 'grey-60')
-  ) {
-    return true;
+  } else {
+    return false;
   }
-  return false;
 };
 
 const getTokens = (hex: string, theme?: ThemeName) => {
