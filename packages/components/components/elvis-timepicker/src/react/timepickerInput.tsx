@@ -218,7 +218,7 @@ export const TimepickerInput: React.FC<Props> = ({
 
     const [hour, minute, second] = formattedInputValue.split(':');
     validateInputValue(hour, minute, second);
-  }, [time]);
+  }, [time, hasSecondPicker]);
 
   // Focus and select the text when the parent container is double clicked
   useEffect(() => {
@@ -233,11 +233,6 @@ export const TimepickerInput: React.FC<Props> = ({
       inputElement.current?.parentElement?.removeEventListener('dblclick', focusOnInput);
     };
   }, [inputElement]);
-
-  // Resets the showing/hiding of seconds in the input field
-  useEffect(() => {
-    onBlur();
-  }, [hasSecondPicker]);
 
   return (
     <Input
