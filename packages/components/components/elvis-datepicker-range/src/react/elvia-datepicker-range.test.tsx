@@ -37,7 +37,7 @@ describe('Elvis DatepickerRange', () => {
     });
 
     it('should display a start- and end-time picker', () => {
-      expect(screen.getAllByPlaceholderText('tt.mm').length).toBe(2);
+      expect(screen.getAllByPlaceholderText('tt:mm').length).toBe(2);
     });
   });
 

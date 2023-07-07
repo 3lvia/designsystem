@@ -34,7 +34,7 @@ describe('Elvis Timepicker', () => {
 
     it('should have a placeholder', () => {
       const input = screen.getByTestId('input') as HTMLInputElement;
-      expect(input.placeholder).toBe('tt.mm');
+      expect(input.placeholder).toBe('tt:mm');
     });
 
     it('should have a toggle button', () => {
@@ -111,7 +111,7 @@ describe('Elvis Timepicker', () => {
 
         it('the value in the input goes to the default setting', () => {
           const input = screen.getByTestId('input');
-          expect(input).toHaveValue('00.00');
+          expect(input).toHaveValue('00:00');
         });
 
         describe('and clicked again', () => {
@@ -124,7 +124,7 @@ describe('Elvis Timepicker', () => {
 
           it('the hour increases by one', () => {
             const input = screen.getByTestId('input');
-            expect(input).toHaveValue('01.00');
+            expect(input).toHaveValue('01:00');
           });
         });
 
@@ -138,7 +138,7 @@ describe('Elvis Timepicker', () => {
 
           it('the minute increases by 15', () => {
             const input = screen.getByTestId('input');
-            expect(input).toHaveValue('00.15');
+            expect(input).toHaveValue('00:15');
           });
         });
       });
@@ -151,9 +151,9 @@ describe('Elvis Timepicker', () => {
           await user.click(hourButtons[3]);
         });
 
-        it('the hour is set to 01.00', () => {
+        it('the hour is set to 01:00', () => {
           const input = screen.getByTestId('input');
-          expect(input).toHaveValue('01.00');
+          expect(input).toHaveValue('01:00');
         });
       });
     });
@@ -167,9 +167,9 @@ describe('Elvis Timepicker', () => {
         await user.tab();
       });
 
-      it('the value wraps to 00.00', () => {
+      it('the value wraps to 00:00', () => {
         const input = screen.getByTestId('input');
-        expect(input).toHaveValue('00.00');
+        expect(input).toHaveValue('00:00');
       });
     });
   });
@@ -221,7 +221,7 @@ describe('Elvis Timepicker', () => {
       it('the input receives a default value', () => {
         const now = new Date();
         const input = screen.getByTestId('input');
-        expect(input).toHaveValue(`${padDigit(now.getHours())}.${padDigit(now.getMinutes())}`);
+        expect(input).toHaveValue(`${padDigit(now.getHours())}:${padDigit(now.getMinutes())}`);
       });
     });
   });
