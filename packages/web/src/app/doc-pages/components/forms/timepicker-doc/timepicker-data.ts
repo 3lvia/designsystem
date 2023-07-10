@@ -27,6 +27,12 @@ export const timepickerData: ComponentData = {
       default: '"15"',
       description: 'The number of minute steps in list of minute options.',
     },
+    hasSecondPicker: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Add a second picker alongside the hour and minute pickers.',
+      default: false,
+    },
     isDisabled: {
       isRequired: false,
       type: 'boolean',

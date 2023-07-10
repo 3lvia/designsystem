@@ -29,6 +29,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   label = 'Velg tid',
   minuteInterval = '15',
   size = 'medium',
+  hasSecondPicker = false,
   isFullWidth = false,
   isDisabled = false,
   isRequired = false,
@@ -76,10 +77,20 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       newTime.setHours(0, 0, 0, 0);
     }
 
-    if (type === 'hour') {
-      newTime.setHours(value, newTime.getMinutes(), 0, 0);
-    } else {
-      newTime.setMinutes(value, 0, 0);
+    switch (type) {
+      case 'hour':
+        newTime.setHours(value, newTime.getMinutes(), newTime.getSeconds(), 0);
+        break;
+      case 'minute':
+        newTime.setMinutes(value, newTime.getSeconds(), 0);
+        break;
+      case 'second':
+        newTime.setSeconds(value, 0);
+        break;
+      default: {
+        const notReachable: never = type;
+        return notReachable;
+      }
     }
 
     updateValue(newTime);
@@ -124,7 +135,10 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
 
     if (isShowing && selectNowOnOpen && !time) {
       const initialTime = new Date();
-      initialTime.setSeconds(0, 0);
+      if (!hasSecondPicker) {
+        initialTime.setSeconds(0);
+      }
+      initialTime.setMilliseconds(0);
       updateValue(initialTime);
     }
 
@@ -163,6 +177,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         <FormFieldInputContainer ref={connectedElementRef}>
           <TimepickerInput
             time={time}
+            hasSecondPicker={hasSecondPicker}
             disabled={isDisabled}
             isFullWidth={isFullWidth}
             onChange={updateValue}
@@ -201,6 +216,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           onChange={(type, value) => setHourOrMinute(type, value)}
           currentTime={time}
           minuteInterval={minuteInterval}
+          hasSecondPicker={hasSecondPicker}
         />
       )}
     </>

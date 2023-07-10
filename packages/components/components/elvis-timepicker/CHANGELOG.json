@@ -2,6 +2,24 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.07.23",
+      "version": "3.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for showing a second picker in addition to the hour and minute pickers. This is available through the prop <code>hasSecondPicker</code>."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Now using : instead of . for the delimiter between hours, minutes, and seconds. This follows ISO 8601."
+          ]
+        }
+      ]
+    },
+    {
       "date": "09.06.23",
       "version": "3.0.2",
       "changelog": [
