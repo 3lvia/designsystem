@@ -1,4 +1,5 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '../color-picker-gradient.scss' as gradient;
 
 $circle-size-desktop: 256px;
 $circle-size-tablet: 176px;
@@ -149,8 +150,9 @@ $circle-size-mobile: 152px;
         max-height: 100%;
         max-width: 100%;
         overflow-y: auto;
-        padding-left: 4px;
-        margin-left: -4px;
+        padding-left: 2px;
+        margin-left: -2px;
+        @include gradient.scroll-gradient;
 
         @include breakpoints.breakpoint-up(Mobile) {
           max-height: 40px;
