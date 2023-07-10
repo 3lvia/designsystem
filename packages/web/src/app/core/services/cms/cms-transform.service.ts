@@ -518,10 +518,10 @@ export class CMSTransformService {
         ${
           fileType === 'svg'
             ? `<a role="button" id="download-content-${assetName}-png"> <button class="e-btn e-btn--tertiary ${
-                inverted ?? 'e-btn--inverted'
+                inverted ? 'e-btn--inverted' : ''
               }">
         <span class="e-btn__icon">
-          <i class="e-icon e-icon--download ${inverted ?? 'e-icon--inverted'}" aria-hidden="true"></i>
+          <i class="e-icon e-icon--download ${inverted ? 'e-icon--inverted' : ''}" aria-hidden="true"></i>
         </span>
         <span class="e-btn__title">png</span>
       </button></a>`
