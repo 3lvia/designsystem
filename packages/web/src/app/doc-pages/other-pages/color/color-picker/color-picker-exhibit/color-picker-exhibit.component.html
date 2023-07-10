@@ -47,7 +47,7 @@
     <div class="tokens--container">
       <app-copy [message]="token" *ngFor="let token of currentColor.token">
         <ng-container ngProjectAs="copyContent">
-          <div class="e-tag">
+          <div class="token e-tag e-lowercase">
             {{ token }}
           </div>
         </ng-container>

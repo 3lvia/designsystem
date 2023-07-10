@@ -2,6 +2,7 @@
 
 $circle-size-desktop: 256px;
 $circle-size-tablet: 176px;
+$circle-size-min-desktop: 200px;
 $circle-size-mobile: 152px;
 
 .color-exhibit {
@@ -12,6 +13,10 @@ $circle-size-mobile: 152px;
   &--container {
     display: flex;
     gap: 56px;
+
+    @include breakpoints.breakpoint-up(MinDesktop) {
+      gap: 32px;
+    }
 
     @include breakpoints.breakpoint-up(Tablet) {
       gap: 24px;
@@ -29,6 +34,11 @@ $circle-size-mobile: 152px;
       transition: background-color 250ms linear;
       width: $circle-size-desktop;
 
+      @include breakpoints.breakpoint-up(MinDesktop) {
+        height: $circle-size-min-desktop;
+        width: $circle-size-min-desktop;
+      }
+
       @include breakpoints.breakpoint-up(Tablet) {
         height: $circle-size-tablet;
         width: $circle-size-tablet;
@@ -41,11 +51,11 @@ $circle-size-mobile: 152px;
       }
 
       &.border {
-        border: 0.5px solid var(--e-color-border-3);
+        border: 1px solid var(--e-color-border-3);
       }
 
       &.nonexistent {
-        animation: spin 180s linear infinite;
+        animation: spin 210s linear infinite;
         background-color: transparent;
         border: 3px dashed var(--e-color-border-3);
 
@@ -64,14 +74,18 @@ $circle-size-mobile: 152px;
       align-items: center;
       display: grid;
       gap: 16px;
-      grid-auto-rows: 128px;
+      grid-auto-rows: 128px; //set height to avoid jumping when tokens are added
       grid-template-columns: auto minmax(0, 1fr);
       grid-template-rows: repeat(4, minmax(min-content, max-content));
       justify-items: start;
 
+      @include breakpoints.breakpoint-up(MinDesktop) {
+        column-gap: 8px;
+      }
+
       @include breakpoints.breakpoint-up(Mobile) {
-        grid-auto-rows: auto;
-        grid-template-rows: repeat(3, minmax(min-content, max-content));
+        gap: 16px;
+        grid-auto-rows: 48px;
       }
 
       &.nonexistent {
@@ -81,7 +95,7 @@ $circle-size-mobile: 152px;
         min-height: 294px; //todo: finne fin løsning på dette
 
         @include breakpoints.breakpoint-up(Mobile) {
-          min-height: 173px; //todo: finne fin løsning på dette også
+          min-height: 238px; //todo: finne fin løsning på dette også
         }
       }
 
@@ -129,22 +143,30 @@ $circle-size-mobile: 152px;
       .tokens--container {
         display: flex;
         flex-wrap: wrap;
+        align-content: flex-start;
         gap: 8px;
-        max-height: 128px;
-        align-self: start;
+        place-self: stretch;
+        max-height: 100%;
+        max-width: 100%;
         overflow-y: auto;
+        padding-left: 4px;
+        margin-left: -4px;
+
+        @include breakpoints.breakpoint-up(Mobile) {
+          max-height: 40px;
+          flex-direction: row;
+          overflow-x: auto;
+          flex-wrap: nowrap;
+        }
+
+        .token {
+          font-family: 'Red Hat Mono';
+        }
 
         .no-tokens {
           flex-shrink: 0;
           margin: 4px 0 0 0;
           overflow: hidden;
-        }
-      }
-
-      @include breakpoints.breakpoint-up(Mobile) {
-        .tokens--container,
-        .tokens--heading {
-          display: none;
         }
       }
     }
