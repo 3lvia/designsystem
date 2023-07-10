@@ -472,6 +472,17 @@ export class CMSTransformService {
         link.download = assetName;
       });
 
+    if (fileType === 'svg') {
+      fetch(asset + '?fm=png')
+        .then((response) => response.blob())
+        .then((blob) => {
+          const blobURL = URL.createObjectURL(blob);
+          const link = document.getElementById(`download-content-${assetName}-png`) as HTMLAnchorElement;
+          link.href = blobURL;
+          link.download = assetName;
+        });
+    }
+
     return `<div class="cms-download-content ${inGrid ? '' : 'e-my-24'}">
       <div class="cms-display-image e-mb-24">
         <picture>
@@ -493,7 +504,9 @@ export class CMSTransformService {
             '</div>'
           : ''
       }
-      <div class="cms-downloadable-asset ${inGrid ? 'centered' : ''}">
+      <div class="cms-downloadable-asset ${
+        inGrid ? 'centered' : ''
+      } e-flex e-gap-16 e-flex-direction-column e-align-items-center">
         <a role="button" id="download-content-${assetName}">
           <button class="e-btn e-btn--tertiary ${inverted ? 'e-btn--inverted' : ''}">
             <span class="e-btn__icon">
@@ -502,6 +515,18 @@ export class CMSTransformService {
             <span class="e-btn__title">${fileType}</span>
           </button>
         </a>
+        ${
+          fileType === 'svg'
+            ? `<a role="button" id="download-content-${assetName}-png"> <button class="e-btn e-btn--tertiary ${
+                inverted ?? 'e-btn--inverted'
+              }">
+        <span class="e-btn__icon">
+          <i class="e-icon e-icon--download ${inverted ?? 'e-icon--inverted'}" aria-hidden="true"></i>
+        </span>
+        <span class="e-btn__title">png</span>
+      </button></a>`
+            : ''
+        }
       </div>
     </div>`;
   }
