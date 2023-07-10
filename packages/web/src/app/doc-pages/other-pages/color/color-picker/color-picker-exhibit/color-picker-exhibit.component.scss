@@ -157,7 +157,8 @@ $circle-size-mobile: 152px;
           @include gradient.scroll-gradient;
           flex-direction: row;
           flex-wrap: nowrap;
-          max-height: 40px;
+          max-height: 48px;
+          min-height: 48px;
           overflow-x: auto;
         }
 
