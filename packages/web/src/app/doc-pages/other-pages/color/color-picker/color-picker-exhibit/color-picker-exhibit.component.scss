@@ -152,13 +152,13 @@ $circle-size-mobile: 152px;
         overflow-y: auto;
         padding-left: 2px;
         margin-left: -2px;
-        @include gradient.scroll-gradient;
 
         @include breakpoints.breakpoint-up(Mobile) {
-          max-height: 40px;
+          @include gradient.scroll-gradient;
           flex-direction: row;
-          overflow-x: auto;
           flex-wrap: nowrap;
+          max-height: 40px;
+          overflow-x: auto;
         }
 
         .token {
