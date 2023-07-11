@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   TextSegmentedControl,
   IconSegmentedControl,
@@ -48,6 +48,10 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
     }
     return newIconString;
   };
+
+  useEffect(() => {
+    setSelectedIndex(value);
+  }, [value]);
 
   return (
     <SegmentedControlContainer

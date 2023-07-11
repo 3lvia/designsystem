@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "??.06.23",
+      "version": "2.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "fixed an issue where the value-prop would not update the segmented control when changed."
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.06.23",
       "version": "2.0.2",
       "changelog": [
