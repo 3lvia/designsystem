@@ -127,6 +127,15 @@ export const appList = [
     iconLetters: 'Ms',
     url: 'msim',
   },
+  {
+    name: 'USLA',
+    icon: `<svg width="41" height="41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.991.5c10.995 0 19.991 8.985 19.991 19.966 0 10.982-8.996 19.966-19.99 19.966C8.995 40.432 0 31.448 0 20.466 0 9.485 8.996.5 19.991.5z" fill="${getThemeColor(
+      'signal-success',
+    )}"/><path d="M17.117 40.289A124.53 124.53 0 0 0 3.866 8.752c2.074-2.838 4.888-5.222 8.37-6.68 10.181-4.262 21.934.58 26.203 10.745 4.27 10.165-.522 21.862-10.704 26.125a19.927 19.927 0 0 1-10.618 1.347z" fill="#262626"/>
+    </svg>`,
+    iconLetters: 'Us',
+    url: 'sluttbrukeravbrudd',
+  },
 ] as const satisfies AppLinks;
 
 const getUrlParts = (): string[] => {
