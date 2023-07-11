@@ -55,7 +55,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
 
   return (
     <SegmentedControlContainer
-      scType={type}
+      $type={type}
       size={size}
       selectedIndex={selectedIndex}
       numberOfControls={items?.length}
@@ -67,7 +67,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
     >
       {items?.map((control, index) => (
         <SegmentedControlLabel
-          scType={type}
+          $type={type}
           size={size}
           isSelected={index === selectedIndex}
           key={index}
