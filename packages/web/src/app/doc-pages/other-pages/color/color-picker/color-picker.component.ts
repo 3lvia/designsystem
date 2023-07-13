@@ -3,6 +3,7 @@ import { lightColors } from './colors-light';
 import { darkColors } from './colors-dark';
 import { ColorElement } from './colors-types';
 import { getColorElement } from './colors-util';
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-color-picker',
@@ -19,6 +20,11 @@ export class ColorPickerComponent {
     this.isDarkTheme = !this.isDarkTheme;
     this.colorList = this.isDarkTheme ? darkColors : lightColors;
     this.currentColor = getColorElement(this.currentColor.name, this.isDarkTheme ? 'dark' : 'light') ?? null;
+  };
+  handleChangeThemeEvent = (theme: ThemeName) => {
+    this.isDarkTheme = theme === 'dark';
+    this.colorList = theme === 'dark' ? darkColors : lightColors;
+    this.currentColor = getColorElement(this.currentColor.name, theme) ?? null;
   };
 
   chooseColor = (color: ColorElement) => {

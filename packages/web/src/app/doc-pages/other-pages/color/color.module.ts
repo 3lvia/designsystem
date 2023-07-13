@@ -18,6 +18,7 @@ import { IllustrationBaseDirective } from './illustrations/illustration-base.dir
 import { ColorListBaseDirective } from './color-picker/color-list-base.directive';
 import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
 import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
+import { ColorPickerHeaderComponent } from './color-picker/color-picker-header/color-picker-header.component';
 import { ColorPickerExhibitComponent } from './color-picker/color-picker-exhibit/color-picker-exhibit.component';
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ColorPickerExhibitComponent } from './color-picker/color-picker-exhibit
     ThemeTokenIllustrationComponent,
     IllustrationBaseDirective,
     ColorListBaseDirective,
+    ColorPickerHeaderComponent,
     ColorPickerExhibitComponent,
   ],
 })
