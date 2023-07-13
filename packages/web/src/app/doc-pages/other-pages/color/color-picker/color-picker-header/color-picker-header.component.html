@@ -6,6 +6,7 @@
     size="large"
   />
   <elvia-dropdown
+    *ngIf="!isMobileScreenWidth"
     (valueOnChange)="handleDropdownChange($event)"
     [items]="dropdownItems"
     [value]="dropdownValue"
@@ -15,4 +16,3 @@
     placeholder="Find tokens"
   />
 </div>
-{{ dropdownValue }}

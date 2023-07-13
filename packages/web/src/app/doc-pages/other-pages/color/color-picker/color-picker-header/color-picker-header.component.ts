@@ -1,10 +1,17 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { ColorElement } from '../colors-types';
 import { DropdownItem } from '@elvia/elvis-dropdown';
 import { ColorLabel, ThemeName, lightTheme } from '@elvia/elvis-colors';
 import { darkColors } from '../colors-dark';
 import { lightColors } from '../colors-light';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-color-picker-header',
@@ -15,6 +22,8 @@ export class ColorPickerHeaderComponent implements OnChanges {
   @Input({ required: true }) currentColor: ColorElement;
   @Output() changeThemeEvent = new EventEmitter<ThemeName>();
   @Output() changeColorEvent = new EventEmitter<ColorElement>();
+
+  isMobileScreenWidth = window.innerWidth <= 767;
 
   segmentedControlValue = 0;
 
@@ -93,4 +102,7 @@ export class ColorPickerHeaderComponent implements OnChanges {
   private emitChangeThemeEvent = (theme: ThemeName) => {
     this.changeThemeEvent.emit(theme);
   };
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize = () => (this.isMobileScreenWidth = window.innerWidth <= 767);
 }
