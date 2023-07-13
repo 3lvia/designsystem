@@ -13,11 +13,14 @@ export class ColorPickerComponent {
   isDarkTheme = false;
   colorList = this.isDarkTheme ? darkColors : lightColors;
   currentColor = this.colorList.primary[0];
+  categories = ['primary', 'signal', 'data', 'grey'] as const;
+
   toggleTheme = () => {
     this.isDarkTheme = !this.isDarkTheme;
     this.colorList = this.isDarkTheme ? darkColors : lightColors;
     this.currentColor = getColorElement(this.currentColor.name, this.isDarkTheme ? 'dark' : 'light') ?? null;
   };
+
   chooseColor = (color: ColorElement) => {
     this.currentColor = color;
   };

@@ -1,5 +1,5 @@
 <div class="theme-container e-color-background-1" [ngClass]="{ 'e-theme-dark': isDarkTheme }">
-  <div class="color-picker-header">
+  <div class="color-picker-header e-mb-56">
     <elvia-segmented-control
       [type]="'text'"
       [items]="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
@@ -7,34 +7,18 @@
       (valueOnChange)="toggleTheme()"
     ></elvia-segmented-control>
   </div>
+
+  <app-color-picker-exhibit [currentColor]="currentColor" [theme]="isDarkTheme ? 'dark' : 'light'" />
+
   <div class="color-list-container" appColorListBase>
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="primary"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-    />
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="signal"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-    />
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="data"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-    />
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="grey"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-    />
+    <ng-container *ngFor="let category of categories">
+      <app-color-picker-color-list
+        [currentColor]="currentColor"
+        [colorList]="colorList"
+        [category]="category"
+        [isDarkTheme]="isDarkTheme"
+        (chooseColor)="chooseColor($event)"
+      />
+    </ng-container>
   </div>
 </div>
