@@ -14,6 +14,7 @@
       category="primary"
       [isDarkTheme]="isDarkTheme"
       (chooseColor)="chooseColor($event)"
+      (userChosesColor)="header.resetDropdown()"
     />
     <app-color-picker-color-list
       [currentColor]="currentColor"
@@ -21,6 +22,7 @@
       category="signal"
       [isDarkTheme]="isDarkTheme"
       (chooseColor)="chooseColor($event)"
+      (userChosesColor)="header.resetDropdown()"
     />
     <app-color-picker-color-list
       [currentColor]="currentColor"
@@ -28,6 +30,7 @@
       category="data"
       [isDarkTheme]="isDarkTheme"
       (chooseColor)="chooseColor($event)"
+      (userChosesColor)="header.resetDropdown()"
     />
     <app-color-picker-color-list
       [currentColor]="currentColor"
@@ -35,6 +38,7 @@
       category="grey"
       [isDarkTheme]="isDarkTheme"
       (chooseColor)="chooseColor($event)"
+      (userChosesColor)="header.resetDropdown()"
     />
   </div>
 </div>
