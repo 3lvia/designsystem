@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 import { getThemeColor } from '@elvia/elvis-colors';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import {
   SegmentedControlContainerProps,
   SegmentedControlLabelProps,
@@ -103,13 +102,16 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   border: ${({ isSelected, $type }) => getControlBorder($type, isSelected)};
   border-radius: 100px;
   z-index: 10;
-
-  ${getTypographyCss('text-md')}
+  color: ${({ isSelected }) => (isSelected ? getThemeColor('background-1') : getThemeColor('text-1'))};
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: ${({ size }) => getFontSize(size)};
+  font-style: 'unset';
+  font-weight: '400';
+  letter-spacing: 'unset';
   line-height: 20px;
   text-align: center;
-  color: ${({ isSelected }) => (isSelected ? getThemeColor('background-1') : getThemeColor('text-1'))};
   text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
+  text-transform: 'unset';
 
   transition: color 250ms ${controlAnimation}, border 200ms linear, text-shadow 200ms ${controlAnimation};
   &:hover {
