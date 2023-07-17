@@ -47,7 +47,15 @@ module.exports = [
   {
     name: 'Colors',
     url: '/components/colors.html',
-    widths: [766, 1440],
+    widths: [1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Content Loader',
@@ -187,6 +195,11 @@ module.exports = [
   {
     name: 'Toggle',
     url: '/components/toggle.html',
+    widths: [766, 1440],
+  },
+  {
+    name: 'Typography',
+    url: '/components/typography.html',
     widths: [766, 1440],
   },
 ];
