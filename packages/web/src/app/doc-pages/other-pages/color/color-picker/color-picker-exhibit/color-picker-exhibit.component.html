@@ -15,7 +15,7 @@
 
     <!-- HEX -->
     <p class="e-title-caps">hex</p>
-    <app-copy [message]="currentColor.hex.toUpperCase()">
+    <app-copy [message]="currentColor.hex | uppercase">
       <ng-container ngProjectAs="copyContent">
         <p class="e-text-sm e-uppercase hex">{{ currentColor.hex }}</p>
       </ng-container>
