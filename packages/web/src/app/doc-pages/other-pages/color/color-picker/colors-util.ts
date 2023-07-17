@@ -76,23 +76,6 @@ export const convertContrastValueToNumber = (contrast: ContrastType) => {
   }
 };
 
-export const needsBorder = (
-  colorName: LightThemeColorName | DarkThemeColorName,
-  theme: ThemeName,
-): boolean => {
-  const lightThemeColors: LightThemeColorName[] = ['white', 'grey-02', 'grey-05', 'grey-10'];
-  const darkThemeColors: DarkThemeColorName[] = ['black', 'grey', 'grey-70', 'grey-60'];
-
-  if (
-    (theme === 'light' && lightThemeColors.includes(colorName)) ||
-    (theme === 'dark' && darkThemeColors.includes(colorName as DarkThemeColorName))
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 const getTokens = (hex: string, theme?: ThemeName) => {
   const foundLabels: ColorLabel[] = [];
   if (theme === 'dark') {

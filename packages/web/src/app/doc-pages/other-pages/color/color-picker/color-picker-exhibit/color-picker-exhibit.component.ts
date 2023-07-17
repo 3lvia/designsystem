@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ColorElement } from '../colors-types';
-import { getColorElement, needsBorder } from '../colors-util';
+import { getColorElement } from '../colors-util';
 import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis-colors';
 
 @Component({
@@ -11,8 +11,6 @@ import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis
 export class ColorPickerExhibitComponent {
   @Input({ required: true }) currentColor: ColorElement;
   @Input({ required: true }) theme: ThemeName;
-
-  needsBorder = needsBorder;
 
   private colorExistsInTheme = (
     color: DarkThemeColorName | LightThemeColorName,

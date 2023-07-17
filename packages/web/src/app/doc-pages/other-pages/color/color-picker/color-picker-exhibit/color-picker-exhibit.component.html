@@ -5,7 +5,7 @@
       'background-color': currentColorExistsInCurrentTheme ? currentColor.hex : null
     }"
     [ngClass]="{
-      border: needsBorder(currentColor.name, theme),
+      border: currentColor.name | needsBorder : theme,
       nonexistent: !currentColorExistsInCurrentTheme
     }"
   ></div>

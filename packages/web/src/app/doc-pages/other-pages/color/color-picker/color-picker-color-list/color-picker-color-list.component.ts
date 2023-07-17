@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ColorElement, ColorsObject } from '../colors-types';
-import { convertContrastValueToNumber, getColorElement, needsBorder } from '../colors-util';
+import { convertContrastValueToNumber, getColorElement } from '../colors-util';
 
 @Component({
   selector: 'app-color-picker-color-list',
@@ -13,8 +13,6 @@ export class ColorPickerColorListComponent {
   @Input() category: 'primary' | 'signal' | 'data' | 'grey';
   @Input() isDarkTheme: boolean;
   @Output() chooseColor = new EventEmitter<ColorElement>();
-
-  needsBorder = needsBorder;
 
   chooseNewColor(color: ColorElement) {
     this.chooseColor.emit(color);
