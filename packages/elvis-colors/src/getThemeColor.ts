@@ -127,8 +127,16 @@ export const getCustomThemeColor = (
   colorNameToThemeMap: ColorNameToThemeMap,
   themeName: ThemeName,
 ): string => {
+  const colors = getBaseThemeColors(themeName);
   const label = colorNameToThemeMap[themeName];
-  const color = getColor(label, themeName);
+  const color =
+    colors['primary-colors'][label as keyof (typeof colors)['primary-colors']] ??
+    colors['signal-colors'][label as keyof (typeof colors)['signal-colors']] ??
+    colors['data-colors'][label as keyof (typeof colors)['data-colors']] ??
+    colors['grey-colors'][label as keyof (typeof colors)['grey-colors']];
+  if (!color) {
+    throw new Error(`Color '${label}' for theme '${themeName}' not found.`);
+  }
   return color.color;
 };
 
@@ -145,39 +153,8 @@ export const getCustomThemeColor = (
 export function getBaseColor(
   label: DarkThemeColorName | LightThemeColorName,
   themeName: ThemeName = 'light',
-) {
-  const color = getColor(label, themeName);
-  return color.color;
-}
-
-/**
- * Checks if a color exists in the given theme.
- * @param label Base token label
- * @param themeName The theme. Default: `'light'`.
- * @example
- * colorExistsInTheme('grey-80', 'light'); //true
- * colorExistsInTheme('grey-80', 'dark'); //false
- *
- * @since 2.8.0
- */
-export function colorExistsInTheme(
-  label: DarkThemeColorName | LightThemeColorName,
-  themeName: ThemeName = 'light',
-) {
-  return !!getColor(label, themeName);
-}
-
-/**
- * Returns the color HEX and Contrast color based on color name and theme.
- * @param label Color name
- * @param theme The theme. Default: `'light'`.
- * @example
- * const color = getColor(label, themeName); //{readonly color: "#29D305"; readonly contrastText: "#000000";}
- *
- * @since 2.8.0
- */
-function getColor(label: DarkThemeColorName | LightThemeColorName, theme: ThemeName = 'light') {
-  const colors = getBaseThemeColors(theme);
+): string {
+  const colors = getBaseThemeColors(themeName);
   const color =
     colors['primary-colors'][label as keyof (typeof colors)['primary-colors']] ??
     colors['signal-colors'][label as keyof (typeof colors)['signal-colors']] ??
@@ -185,7 +162,7 @@ function getColor(label: DarkThemeColorName | LightThemeColorName, theme: ThemeN
     colors['grey-colors'][label as keyof (typeof colors)['grey-colors']] ??
     colors['internal-colors'][label as keyof (typeof colors)['internal-colors']];
   if (!color) {
-    throw new Error(`Color '${label}' for theme '${theme}' not found.`);
+    throw new Error(`Color '${label}' for theme '${themeName}' not found.`);
   }
-  return color;
+  return color.color;
 }

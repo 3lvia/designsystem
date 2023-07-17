@@ -1,11 +1,5 @@
 # Elvia Colors Changelog
 
-## 2.8.0 (18.07.23)
-
-### New feature
-
-- Added `colorExistsInTheme()` function.
-
 ## 2.7.1 (07.06.23)
 
 ### Patch
