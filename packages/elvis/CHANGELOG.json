@@ -1,6 +1,30 @@
 {
   "content": [
     {
+      "version": "12.2.1",
+      "date": "July 04, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Re-exported the <code>shortcut</code> icon to fix an issue with the inverted version."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "12.2.0",
+      "date": "June 27, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>hand_pointer</code> icon."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "12.1.0",
       "date": "June 26, 2023",
       "changelog": [

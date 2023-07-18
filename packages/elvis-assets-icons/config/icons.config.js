@@ -381,6 +381,11 @@ module.exports = [
   { name: 'hammer_wrench-color', terms: [] },
   { name: 'han', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'han-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['han'] } },
+  {
+    name: 'hand_pointer',
+    terms: ['cursor', 'select', 'choose', 'choice', 'click'],
+    thirdparty: { name: ['streamline'] },
+  },
   { name: 'health_safety_environment', terms: ['HMS'], thirdparty: { name: ['streamline'] } },
   { name: 'heating', terms: ['warm up', 'radiator'] },
   { name: 'history', terms: ['time', 'clock', 'past', 'fortid'] },

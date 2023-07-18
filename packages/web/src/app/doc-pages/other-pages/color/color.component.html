@@ -1,24 +1,136 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="">
-  <ng-container ngProjectAs="headerTitle">Colors</ng-container>
+  <ng-container ngProjectAs="headerTitle">{{ locale === 'nb-NO' ? titleNo : title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Elvia colors are a reference for energy and light. It plays an important part to bring the concept ON/OFF
-    to life. For consistency, use the defined color palette throughout our interface. 
+    {{ locale === 'nb-NO' ? descriptionNo : description }}
   </ng-container>
 </app-component-header>
 <div class="page-body e-mt-72">
   <app-color-picker />
 
-  <app-component-section [sectionTitle]="'Usage'">
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Bruk' : 'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Color Weight'">
-        <ng-container ngProjectAs="sectionContent"></ng-container>
+      <ng-container *ngIf="locale === 'en-GB'">
+        All colors should be used in solid 100%. Don’t use a darker shade or lighter tint of a color in the
+        palette. The only shades we have are greys.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Alle farger skal brukes i heldekkende 100%. Ikke bruk en mørkere eller lysere nyanse av en farge i
+        paletten. De eneste nyansene vi har, er gråtoner.
+      </ng-container>
+      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Fargevekt' : 'Color weight'">
+        <ng-container ngProjectAs="sectionContent">
+          <ng-container *ngIf="locale === 'en-GB'">
+            Elvia is mainly white and dark grey, with some black components and a touch of green in details
+            such as icons, illustration and active states.
+          </ng-container>
+          <ng-container *ngIf="locale === 'nb-NO'">
+            Elvia er hovedsakelig hvit og mørkegrå, med noen svarte komponenter og et snev av grønt i detaljer
+            som ikoner, illustrasjoner og aktive tilstander.
+          </ng-container>
+
+          <div>
+            <img
+              style="width: calc(20% + 180px)"
+              class="e-p-24"
+              src="assets/color-doc/color-weight.svg"
+              alt="Illustrating how much of each color should be used"
+            />
+          </div>
+          <app-component-subsubsection>
+            <ng-container ngProjectAs="sectionContent">
+              <ng-container *ngIf="locale === 'en-GB'">
+                <span class="e-text-lg-strong">Green</span>
+                shows that Elvia is ON, activated, fully charged and environmentally friendly. The green color
+                should be used intentionally and should not be used on large surfaces as a background. The
+                green color are used to display when something is active/clickable on interactions. It’s also
+                used in illustration and icons to highlight the most important or just to get a touch of the
+                green light in between all the white and black.
+              </ng-container>
+              <ng-container *ngIf="locale === 'nb-NO'">
+                <span class="e-text-lg-strong">Grønn</span>
+                viser at Elvia er PÅ, aktivert, fulladet og miljøvennlig. Den grønne fargen bør brukes bevisst
+                og bør ikke brukes på store flater som bakgrunn. Den grønne fargen brukes til å vise når noe
+                er aktivt/klikkbart på interaksjoner. Den brukes også i illustrasjoner og ikoner for å
+                fremheve det viktigste eller bare for å få et snev av grønt lys mellom alt det hvite og
+                svarte.
+              </ng-container>
+              <app-do-dont-text>
+                <ng-container ngProjectAs="do">
+                  <img src="assets/color-doc/a.svg" style="max-width: 100%" alt="" />
+                </ng-container>
+                <ng-container ngProjectAs="dont">
+                  <img src="assets/color-doc/b.svg" style="max-width: 100%" alt="" />
+                </ng-container>
+              </app-do-dont-text>
+            </ng-container>
+          </app-component-subsubsection>
+
+          <app-component-subsubsection>
+            <ng-container ngProjectAs="sectionContent">
+              <ng-container *ngIf="locale === 'en-GB'">
+                <span class="e-text-lg-strong">White</span>
+                stands for light and energy. White is used as a background color and as a text color on darker
+                surfaces.
+                <span class="e-text-lg-strong">Black</span>
+                shows that Elvia is OFF. It’s the primary color for text and icons, but can also be used to
+                get a dark surface.
+                <span class="e-text-lg-strong">Dark</span>
+                (grey) is the preferred dark background.
+              </ng-container>
+              <ng-container *ngIf="locale === 'nb-NO'">
+                <span class="e-text-lg-strong">Hvitt</span>
+                står for lys og energi. Hvitt brukes som bakgrunnsfarge og som tekstfarge på mørkere
+                overflater.
+                <span class="e-text-lg-strong">Svart</span>
+                viser at Elvia er AV. Det er primærfargen for tekst og ikoner, men kan også brukes for å få en
+                mørk overflate.
+                <span class="e-text-lg-strong">Mørk</span>
+                (grå) er den foretrukne mørke bakgrunnen.
+              </ng-container>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Dark Theme'">
-        <ng-container ngProjectAs="sectionContent"></ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Light vs Dark Theme Examples'">
-        <ng-container ngProjectAs="sectionContent"></ng-container>
+      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Mørkt tema' : 'Dark Theme'">
+        <ng-container ngProjectAs="sectionContent">
+          <ng-container *ngIf="locale === 'en-GB'">
+            We offer a dark theme for internal applications. We have created a separate palette for the dark
+            theme that reflects the light theme, with some exceptions. Dark theme colors are muted and are
+            more suitable for dark backgrounds.
+          </ng-container>
+          <ng-container *ngIf="locale === 'nb-NO'">
+            Vi tilbyr et mørkt tema for interne applikasjoner. Vi har laget en egen palett for det mørke
+            temaet som gjenspeiler det lyse temaet, med noen unntak. Fargene i det mørke temaet er dempet og
+            passer bedre til mørke bakgrunner.
+          </ng-container>
+          <img
+            style="width: calc(20% + 180px)"
+            class="e-p-24"
+            src="assets/color-doc/color-weight-dark.svg"
+            alt="Illustrating how much of each color should be used in dark theme"
+          />
+          <app-component-subsubsection
+            [sectionTitle]="
+              locale === 'nb-NO' ? 'Eksempler på lyse og mørke temaer' : 'Light vs Dark Theme Examples'
+            "
+          >
+            <ng-container ngProjectAs="sectionContent">
+              <img
+                class="e-mt-8 e-mb-24"
+                src="assets/color-doc/example-light-theme.png"
+                alt="application using the light theme palette"
+                width="100%"
+              />
+              <img
+                src="assets/color-doc/example-dark-theme.png"
+                alt="application using the dark theme palette"
+                width="100%"
+              />
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>

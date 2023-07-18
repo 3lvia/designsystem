@@ -5,6 +5,7 @@ import {
   FormFieldSizes,
 } from '@elvia/elvis-toolbox';
 import { MinuteInterval } from '@elvia/elvis-timepicker/react';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type BothDatepickers<T> = {
   start: T;
@@ -35,7 +36,10 @@ export const emptyErrorMessage: CustomError = {
   end: '',
 };
 
-export interface DatepickerRangeProps extends BaseProps, HasValue<DateRange> {
+export interface DatepickerRangeProps
+  extends ComponentPropsWithoutRef<'div'>,
+    BaseProps,
+    HasValue<DateRange> {
   valueOnChangeISOString?: (value: DateRangeString) => void;
   labelOptions?: LabelOptions;
   size?: FormFieldSizes;

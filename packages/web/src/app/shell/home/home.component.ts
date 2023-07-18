@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { LOCALE_CODE } from 'contentful/types';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
-import changelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
+import changelogJson from '@elvia/elvis/CHANGELOG.json';
 
 @Component({
   selector: 'app-home',
@@ -21,12 +21,11 @@ export class HomeComponent implements OnInit {
   isBirthday = false;
   isPride = false;
   isConstitutionDay = false;
-  currentDate = new Date();
+  private currentDate = new Date();
   currentYear = this.currentDate.getFullYear();
   locale: LOCALE_CODE;
   changelog = changelogJson.content;
 
-  screenWidth: number;
   isMobileScreenWidth: boolean;
 
   constructor(localizationService: LocalizationService, private titleService: Title) {

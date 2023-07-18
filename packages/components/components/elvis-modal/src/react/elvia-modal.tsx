@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect, CSSProperties, useState } from 'react';
+import React, { FC, useRef, useEffect, useState, ComponentPropsWithoutRef } from 'react';
 import {
   ModalCloseButton,
   ModalContent,
@@ -13,12 +13,11 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { warnDeprecatedProps, useFocusTrap, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
+import { warnDeprecatedProps, useFocusTrap, useSlot, IconWrapper, BaseProps } from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { config } from './config';
 
-export interface ModalProps {
+export interface ModalProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
   isShowing: boolean;
   /**
    * @deprecated Removed in version 2.0.0. Replaced by `heading`.
@@ -29,8 +28,6 @@ export interface ModalProps {
   illustration?: JSX.Element;
   primaryButton?: JSX.Element;
   secondaryButton?: JSX.Element;
-  className?: string;
-  inlineStyle?: CSSProperties;
   /**
    * @deprecated Removed in version 2.0.0. Replaced by `hasCloseButton`.
    */
@@ -46,7 +43,6 @@ export interface ModalProps {
    */
   onHide?: () => void;
   onClose?: () => void;
-  webcomponent?: ElvisComponentWrapper;
 }
 
 export const ModalComponent: FC<ModalProps> = function ({

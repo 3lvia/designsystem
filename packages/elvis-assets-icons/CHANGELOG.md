@@ -1,5 +1,17 @@
 # Elvis-assets-icon
 
+## 3.2.1 (26.06.23)
+
+### Bug fix
+
+- Re-exported the `shortcut` icon as the inverted version was not working.
+
+## 3.2.0 (26.06.23)
+
+### New feature
+
+- `hand_pointer` added
+
 ## 3.1.0 (26.06.23)
 
 ### New feature

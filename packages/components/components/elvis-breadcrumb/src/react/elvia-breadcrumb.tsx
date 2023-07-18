@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ComponentPropsWithoutRef } from 'react';
 import {
   BreadcrumbWrapper,
   BreadcrumbDesktopWrapper,
@@ -35,7 +35,10 @@ interface DeprecatedBreadcrumbProps {
   breadcrumbsOnChange?: (value: number) => void;
 }
 
-export interface BreadcrumbProps extends BaseProps, DeprecatedBreadcrumbProps {
+export interface BreadcrumbProps
+  extends ComponentPropsWithoutRef<'nav'>,
+    BaseProps,
+    DeprecatedBreadcrumbProps {
   items: BreadcrumbLink[];
   onLinkClick?: (value: number) => void;
 }
@@ -154,7 +157,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
 
   return (
     <BreadcrumbWrapper
-      className={`${className ? className : ''}`}
+      className={className}
       style={inlineStyle}
       data-testid="breadcrumb-wrapper"
       aria-label="Breadcrumbs"

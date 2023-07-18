@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-timepicker/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-timepicker/CHANGELOG.json';
 import ComponentData from '../../component-data.interface';
 
 export const timepickerData: ComponentData = {
@@ -26,6 +26,12 @@ export const timepickerData: ComponentData = {
       type: '"1" | "5" | "10" | "15" | "60"',
       default: '"15"',
       description: 'The number of minute steps in list of minute options.',
+    },
+    hasSecondPicker: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Add a second picker alongside the hour and minute pickers.',
+      default: false,
     },
     isDisabled: {
       isRequired: false,

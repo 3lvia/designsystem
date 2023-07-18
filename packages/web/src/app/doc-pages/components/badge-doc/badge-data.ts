@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-badge/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-badge/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const badgeData: ComponentData = {

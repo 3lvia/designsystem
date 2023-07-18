@@ -1,6 +1,10 @@
 import { BaseProps, HasTransitionDuration } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
-export interface ProgressLinearProps extends BaseProps, HasTransitionDuration {
+export interface ProgressLinearProps
+  extends ComponentPropsWithoutRef<'div'>,
+    BaseProps,
+    HasTransitionDuration {
   ariaLabel?: string;
   ariaRole?: ProgressLinearRole;
   ariaValueText?: string;

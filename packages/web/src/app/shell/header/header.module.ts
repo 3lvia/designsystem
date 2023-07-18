@@ -2,9 +2,10 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
+import { ThemeSwitchModule } from './theme-switch/theme-switch.module';
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ThemeSwitchModule],
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-datepicker-range/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-datepicker-range/CHANGELOG.json';
 import ComponentData from '../../component-data.interface';
 
 const datepickerRangeData: ComponentData = {

@@ -272,6 +272,10 @@ export class v2PlaygroundComponent {
     console.log('Popover closed');
   };
 
+  sliderOnValueChange = (event: CustomEvent): void => {
+    console.log('Slider value changed: ', event.detail.value);
+  };
+
   constructor(private titleService: Title) {
     this.titleService.setTitle('DEV-playground | Elvia design system');
   }

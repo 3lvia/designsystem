@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-card/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-card/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 const cardData: ComponentData = {
