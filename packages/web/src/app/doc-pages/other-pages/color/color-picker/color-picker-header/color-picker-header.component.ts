@@ -28,38 +28,32 @@ export class ColorPickerHeaderComponent implements OnChanges {
   segmentedControlValue = 0;
 
   dropdownItems = this.generateDropdownItems();
-  dropdownValue?: string;
+  dropdownValue?: ColorLabel;
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.currentTheme) {
-      this.segmentedControlValue = changes.currentTheme.currentValue === 'light' ? 0 : 1;
+      const theme = changes.currentTheme.currentValue as ThemeName;
 
-      //If the user has selected a token, we need to update the dropdown value to reflect the current theme
+      this.segmentedControlValue = theme === 'light' ? 0 : 1;
+
+      //If the user has selected a token beforehand, we need to update the dropdown value to reflect the theme change
       if (this.dropdownValue) {
-        this.dropdownValue = `${changes.currentTheme.currentValue} ${this.dropdownValue.split(' ')[1]}`;
-
-        this.emitChangeColorEvent(
-          this.dropdownValue.split(' ')[1] as ColorLabel,
-          changes.currentTheme.currentValue,
-        );
+        this.emitChangeColorEvent(this.dropdownValue, theme);
       }
     }
   }
 
   private generateDropdownItems(): DropdownItem[] {
-    const themes: ThemeName[] = ['light', 'dark'];
-
     const items: DropdownItem[] = Object.entries(lightTheme).map(([category, tokens]) => {
-      const children: DropdownItem[] = Object.entries(tokens).flatMap(([token]) =>
-        themes.map((theme) => ({
-          label: token,
-          value: `${theme} ${token}`,
-          icon: `<i class="e-icon e-icon--${theme}_theme e-icon--sm"></i>`,
-        })),
-      );
+      const children: DropdownItem[] = Object.entries(tokens).flatMap(([token]) => {
+        return {
+          label: this.capitalizeFirstLetter(token),
+          value: token,
+        };
+      });
 
       return {
-        label: category,
+        label: this.capitalizeFirstLetter(category),
         value: category,
         children: children,
       };
@@ -74,23 +68,23 @@ export class ColorPickerHeaderComponent implements OnChanges {
   }
 
   handleDropdownChange(event: Event) {
-    const incomingValue: string = (event as CustomEvent).detail.value;
+    const incomingValue: ColorLabel = (event as CustomEvent).detail.value;
     this.dropdownValue = incomingValue;
 
-    const [theme, token] = incomingValue.split(' ') as [ThemeName, ColorLabel];
-    this.emitChangeThemeEvent(theme);
-    this.emitChangeColorEvent(token, theme);
+    this.emitChangeColorEvent(incomingValue.toLowerCase() as ColorLabel, this.currentTheme);
   }
 
   resetDropdown() {
     this.dropdownValue = undefined;
   }
 
-  private emitChangeColorEvent = (token: ColorLabel, theme: ThemeName) => {
+  private emitChangeColorEvent = (token: ColorLabel, theme: ThemeName = 'light') => {
     const colors = theme === 'dark' ? darkColors : lightColors;
 
-    for (const ColorElements of Object.values(colors)) {
-      const matchingColor = (ColorElements as ColorElement[]).find((color) => color.token.includes(token));
+    for (const colorElements of Object.values(colors)) {
+      const matchingColor = Object.values(colorElements as ColorElement[]).find((color) =>
+        color.token.includes(token),
+      );
 
       if (matchingColor) {
         this.changeColorEvent.emit(matchingColor);
@@ -98,6 +92,10 @@ export class ColorPickerHeaderComponent implements OnChanges {
       }
     }
   };
+
+  private capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   private emitChangeThemeEvent = (theme: ThemeName) => {
     this.changeThemeEvent.emit(theme);
