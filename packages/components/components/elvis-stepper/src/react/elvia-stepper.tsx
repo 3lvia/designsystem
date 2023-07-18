@@ -40,16 +40,6 @@ export const Stepper: FC<StepperProps> = function ({
     }
   }, [value]);
 
-  // const updateValue = (updateCurrentStep: number): void => {
-  //   setCurrentStep(updateCurrentStep);
-  //   if (!webcomponent && valueOnChange) {
-  //     valueOnChange(updateCurrentStep);
-  //   } else if (webcomponent) {
-  //     webcomponent.setProps({ value: updateCurrentStep }, true);
-  //     webcomponent.triggerEvent('valueOnChange', updateCurrentStep);
-  //   }
-  // };
-
   const handleStepChange = (updateCurrentStep: number) => {
     if (updateCurrentStep >= 1 && updateCurrentStep <= numberOfSteps) {
       setCurrentStep(updateCurrentStep);
