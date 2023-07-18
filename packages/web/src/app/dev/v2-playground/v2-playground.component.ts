@@ -3,6 +3,14 @@ import { Title } from '@angular/platform-browser';
 import { openElviaToast } from '@elvia/elvis-toast';
 import { dropdownData } from './dropdown-data';
 
+interface StepState {
+  heading: string;
+  isError: boolean;
+  isCompleted: boolean;
+}
+interface StepStates {
+  [step: number]: Partial<StepState>;
+}
 @Component({
   selector: 'app-v2-playground',
   templateUrl: './v2-playground.component.html',
@@ -178,6 +186,19 @@ export class v2PlaygroundComponent {
     { label: 'Druer' },
     { label: 'Kiwi', isDisabled: true },
   ];
+
+  stepperStates: StepStates = {
+    '1': { isCompleted: true, heading: 'Title #1' },
+    '2': { heading: 'Title #2' },
+    '3': { isError: true, heading: 'Title #3' },
+    '4': { heading: 'Title #4' },
+    '5': { heading: 'Title #5' },
+    '6': { heading: 'Title #6' },
+    '7': { heading: 'Title #7' },
+    '8': { heading: 'Title #8' },
+  };
+  toggleState = () =>
+    (this.stepperStates = { ...this.stepperStates, '2': { isCompleted: true, heading: 'Title #2' } });
 
   // Timepicker
   timepickerValue = new Date();

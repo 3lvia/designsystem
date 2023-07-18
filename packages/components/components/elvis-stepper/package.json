@@ -1,23 +1,24 @@
 {
-  "name": "@elvia/elvis-toolbox",
-  "version": "9.3.1",
+  "name": "@elvia/elvis-stepper",
+  "version": "1.0.0",
   "license": "MIT",
-  "main": "./dist/index.js",
+  "homepage": "https://design.elvia.io/components/stepper",
+  "main": "web_component.js",
   "files": [
+    "web_component.js",
+    "web_component.d.ts",
+    "react.js",
+    "react.d.ts",
     "CHANGELOG.json",
     "README.md",
-    "dist/**/*",
-    "!dist/**/*.d.ts.map"
+    "dist/**/*"
   ],
-  "scripts": {
-    "sourcemap": "tsc"
-  },
   "dependencies": {
-    "@elvia/elvis-colors": "^2.6.0",
-    "@elvia/elvis-component-wrapper": "^4.0.0",
-    "@elvia/elvis-typography": "^2.3.1",
-    "styled-components": "^5.3.6",
-    "tslib": "^2.4.1"
+    "@elvia/elvis-assets-icons": "^3.0.1",
+    "@elvia/elvis-colors": "^2.7.1",
+    "@elvia/elvis-component-wrapper": "^4.1.2",
+    "@elvia/elvis-toolbox": "^9.2.1",
+    "styled-components": "^5.3.3"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
@@ -34,8 +35,5 @@
     "react-is": {
       "optional": true
     }
-  },
-  "devDependencies": {
-    "typescript": "~5.1.0"
   }
 }

@@ -22,6 +22,7 @@ import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { SegmentedControl } from '@elvia/elvis-segmented-control/react';
 import { Slider } from '@elvia/elvis-slider/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
+import { Stepper } from '@elvia/elvis-stepper/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
@@ -186,7 +187,30 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white"></div>
+              <div className="e-bg-white">
+                <Stepper
+                  type="vertical"
+                  steps={{ 2: { isError: true } }}
+                  content={[
+                    <div key={1}>Step 1 content</div>,
+                    <div key={2}>Step 2 content</div>,
+                    <div key={3}>Step 3 content</div>,
+                    <div key={4}>Step 4 content</div>,
+                    <div key={5}>Step 5 content</div>,
+                  ]}
+                />
+                <Stepper
+                  type="horizontal"
+                  steps={{ 2: { isError: true } }}
+                  content={[
+                    <div key={1}>Step 1 content</div>,
+                    <div key={2}>Step 2 content</div>,
+                    <div key={3}>Step 3 content</div>,
+                    <div key={4}>Step 4 content</div>,
+                    <div key={5}>Step 5 content</div>,
+                  ]}
+                />
+              </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>

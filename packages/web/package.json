@@ -47,6 +47,7 @@
     "@elvia/elvis-segmented-control": "workspace:*",
     "@elvia/elvis-slider": "workspace:*",
     "@elvia/elvis-spotlight": "workspace:*",
+    "@elvia/elvis-stepper": "workspace:*",
     "@elvia/elvis-tabs": "workspace:*",
     "@elvia/elvis-timepicker": "workspace:*",
     "@elvia/elvis-toast": "workspace:*",

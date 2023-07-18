@@ -31,6 +31,7 @@ import '@elvia/elvis-radio-filter';
 import '@elvia/elvis-segmented-control';
 import '@elvia/elvis-slider';
 import '@elvia/elvis-spotlight';
+import '@elvia/elvis-stepper';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-timepicker';
 import '@elvia/elvis-toast';
