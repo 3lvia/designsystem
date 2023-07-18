@@ -1,22 +1,21 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { DocumentEventListenerService } from './core/services/document-event-listener.service';
 import { RouterService } from './core/services/router.service';
 import { ViewportScroller } from '@angular/common';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit, OnDestroy {
-  private unsubscriber = new Subject<void>();
-
+export class AppComponent implements OnInit {
   constructor(
     private documentEventListenerService: DocumentEventListenerService,
     private routerService: RouterService,
     private viewportScroller: ViewportScroller,
-  ) {}
+  ) {
+    this.enableScrollRestorationOnUrlPathChange();
+  }
 
   @HostListener('document:keypress', ['$event'])
   navigateOnKeyboardEvents(event: KeyboardEvent): void {
@@ -26,18 +25,12 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
     this.handleMode(darkMode.matches);
-    this.enableScrollRestorationOnUrlPathChange();
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscriber.next();
-    this.unsubscriber.complete();
   }
 
   private enableScrollRestorationOnUrlPathChange(): void {
     this.routerService
       .urlPathChange()
-      .pipe(takeUntil(this.unsubscriber))
+      .pipe(takeUntilDestroyed())
       .subscribe(() => {
         this.viewportScroller.scrollToPosition([0, 0]);
       });
