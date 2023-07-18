@@ -14,12 +14,12 @@
     <div
       *ngIf="isChosen(color)"
       class="checkmark-left"
-      [style.background-color]="getHighestContrast(color).hex"
+      [style.background-color]="getHighestContrast(color)?.hex"
     ></div>
     <div
       *ngIf="isChosen(color)"
       class="checkmark-right"
-      [style.background-color]="getHighestContrast(color).hex"
+      [style.background-color]="getHighestContrast(color)?.hex"
     ></div>
   </li>
 </ul>

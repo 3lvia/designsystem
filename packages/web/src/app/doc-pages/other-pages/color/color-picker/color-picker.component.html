@@ -11,14 +11,13 @@
   <app-color-picker-exhibit [currentColor]="currentColor" [theme]="isDarkTheme ? 'dark' : 'light'" />
 
   <div class="color-list-container" appColorListBase>
-    <ng-container *ngFor="let category of categories">
-      <app-color-picker-color-list
-        [currentColor]="currentColor"
-        [colorList]="colorList"
-        [category]="category"
-        [isDarkTheme]="isDarkTheme"
-        (chooseColor)="chooseColor($event)"
-      />
-    </ng-container>
+    <app-color-picker-color-list
+      *ngFor="let category of categories"
+      [currentColor]="currentColor"
+      [colorList]="colorList"
+      [category]="category"
+      [isDarkTheme]="isDarkTheme"
+      (chooseColor)="chooseColor($event)"
+    />
   </div>
 </div>

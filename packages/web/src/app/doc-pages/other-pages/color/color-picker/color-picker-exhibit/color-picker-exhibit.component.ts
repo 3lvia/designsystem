@@ -9,7 +9,26 @@ import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis
   styleUrls: ['./color-picker-exhibit.component.scss'],
 })
 export class ColorPickerExhibitComponent {
-  @Input({ required: true }) currentColor: ColorElement;
+  @Input({ required: true })
+  get currentColor(): ColorElement {
+    return this._currentColor;
+  }
+  set currentColor(value: ColorElement | undefined) {
+    if (value) {
+      this._currentColor = value;
+    } else {
+      this._currentColor = {
+        //empty
+        contrast: { black: '', white: '' },
+        hex: '',
+        name: '' as any,
+        rgb: [-1, -1, -1],
+        tokens: [],
+      };
+    }
+  }
+  private _currentColor: ColorElement;
+
   @Input({ required: true }) theme: ThemeName;
 
   private colorExistsInTheme = (
@@ -25,6 +44,6 @@ export class ColorPickerExhibitComponent {
   };
 
   get currentColorExistsInCurrentTheme(): boolean {
-    return this.colorExistsInTheme(this.currentColor.name, this.theme);
+    return !!(this.currentColor?.name && this.colorExistsInTheme(this.currentColor.name, this.theme));
   }
 }

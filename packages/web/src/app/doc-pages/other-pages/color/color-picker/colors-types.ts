@@ -5,7 +5,7 @@ export interface ColorElement {
   hex: string;
   rgb: RGB;
   contrast: { white: ContrastType; black: ContrastType };
-  token: ColorLabel[];
+  tokens: ColorLabel[];
 }
 
 export interface ColorsObject {

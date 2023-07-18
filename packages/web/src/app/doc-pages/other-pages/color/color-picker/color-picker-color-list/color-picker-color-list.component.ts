@@ -8,10 +8,10 @@ import { convertContrastValueToNumber, getColorElement } from '../colors-util';
   styleUrls: ['./color-picker-color-list.component.scss'],
 })
 export class ColorPickerColorListComponent {
-  @Input() currentColor: ColorElement;
-  @Input() colorList: ColorsObject;
-  @Input() category: 'primary' | 'signal' | 'data' | 'grey';
-  @Input() isDarkTheme: boolean;
+  @Input({ required: true }) currentColor: ColorElement | undefined;
+  @Input({ required: true }) colorList: ColorsObject;
+  @Input({ required: true }) category: 'primary' | 'signal' | 'data' | 'grey';
+  @Input({ required: true }) isDarkTheme: boolean;
   @Output() chooseColor = new EventEmitter<ColorElement>();
 
   chooseNewColor(color: ColorElement) {
@@ -23,10 +23,7 @@ export class ColorPickerColorListComponent {
   };
 
   isChosen = (color: ColorElement) => {
-    if (color.hex === this.currentColor.hex) {
-      return true;
-    }
-    return false;
+    return this.currentColor?.hex === color.hex;
   };
 
   getHighestContrast = (color: ColorElement) => {

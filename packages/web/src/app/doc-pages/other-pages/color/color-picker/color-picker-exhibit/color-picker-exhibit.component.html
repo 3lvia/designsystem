@@ -5,7 +5,7 @@
       'background-color': currentColorExistsInCurrentTheme ? currentColor.hex : null
     }"
     [ngClass]="{
-      border: currentColor.name | needsBorder : theme,
+      border: currentColor && currentColor.name ? (currentColor.name | needsBorder : theme) : false,
       nonexistent: !currentColorExistsInCurrentTheme
     }"
   ></div>
@@ -24,13 +24,16 @@
     <!-- RGB -->
     <p class="e-title-caps">rgb</p>
     <p class="e-text-sm e-capitalize rgb">
-      {{ currentColor.rgb[0] }} / {{ currentColor.rgb[1] }} / {{ currentColor.rgb[2] }}
+      <ng-container *ngFor="let rgbValue of currentColor?.rgb; let isLast = last">
+        {{ rgbValue }}
+        <ng-container *ngIf="!isLast">/</ng-container>
+      </ng-container>
     </p>
 
     <!-- CONTRAST -->
     <p class="e-title-caps contrast--heading">contrast</p>
     <div class="contrast--container">
-      <div *ngFor="let contrast of currentColor.contrast | keyvalue" class="contrast">
+      <div *ngFor="let contrast of currentColor?.contrast | keyvalue" class="contrast">
         <i *ngIf="contrast.value" class="e-icon e-icon--check_circle-color e-icon--xs" aria-hidden="true"></i>
         <i *ngIf="!contrast.value" class="e-icon e-icon--remove_circle e-icon--xs" aria-hidden="true"></i>
         <span class="e-capitalize e-text-sm">{{ contrast.key }}</span>
@@ -39,13 +42,13 @@
     </div>
 
     <!-- TOKENS -->
-    <p class="tokens--heading e-title-caps" [ngPlural]="currentColor.token.length">
+    <p class="tokens--heading e-title-caps" [ngPlural]="currentColor.tokens.length">
       <ng-template ngPluralCase="1">token</ng-template>
       <ng-template ngPluralCase="other">tokens</ng-template>
     </p>
 
     <div class="tokens--container" appColorListBase>
-      <app-copy [message]="token" *ngFor="let token of currentColor.token">
+      <app-copy [message]="token" *ngFor="let token of currentColor?.tokens">
         <ng-container ngProjectAs="copyContent">
           <div class="token e-tag e-lowercase">
             {{ token }}
@@ -53,7 +56,7 @@
         </ng-container>
       </app-copy>
 
-      <p *ngIf="!currentColor.token.length" class="e-text-micro-light no-tokens">No tokens available.</p>
+      <p *ngIf="!currentColor?.tokens?.length" class="e-text-micro-light no-tokens">No tokens available.</p>
     </div>
   </div>
 
