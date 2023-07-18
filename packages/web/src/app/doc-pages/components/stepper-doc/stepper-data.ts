@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-stepper/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-stepper/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const stepperData: ComponentData = {
