@@ -170,7 +170,6 @@ export const useRovingFocus = <T extends HTMLElement>(
   const initializeKeydownHandler = (container: T, items: HTMLElement[]): (() => void) => {
     const setFocusedItem = (newIndex: number): void => {
       if (newIndex !== -1 && newIndex !== focusedIndex.current) {
-        console.log('B');
         items[focusedIndex.current].tabIndex = -1;
         items[newIndex].tabIndex = 0;
         items[newIndex]?.focus();
@@ -191,9 +190,7 @@ export const useRovingFocus = <T extends HTMLElement>(
     };
 
     const handleClick = (event: MouseEvent) => {
-      console.log('items: ', items, 'target: ', event.target);
       const index = items.findIndex((item) => item === (event.target as HTMLElement));
-      console.log('Index after click', index);
       setFocusedItem(index);
     };
 
