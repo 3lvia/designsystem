@@ -3,8 +3,9 @@ import { ColorLabel, DarkThemeColorName, LightThemeColorName } from '@elvia/elvi
 export interface ColorElement {
   name: DarkThemeColorName | LightThemeColorName;
   hex: string;
+  rgb: RGB;
   contrast: { white: ContrastType; black: ContrastType };
-  token: ColorLabel[];
+  tokens: ColorLabel[];
 }
 
 export interface ColorsObject {

@@ -3,7 +3,7 @@
     *ngFor="let color of getColorsFromCategory(); let i = index"
     class="color-circle"
     [ngClass]="{
-      border: needsBorder(color),
+      border: color.name | needsBorder : (isDarkTheme ? 'dark' : 'light'),
       chosen: isChosen(color)
     }"
     [style.z-index]="i"
@@ -14,12 +14,12 @@
     <div
       *ngIf="isChosen(color)"
       class="checkmark-left"
-      [style.background-color]="getHighestContrast(color).hex"
+      [style.background-color]="getHighestContrast(color)?.hex"
     ></div>
     <div
       *ngIf="isChosen(color)"
       class="checkmark-right"
-      [style.background-color]="getHighestContrast(color).hex"
+      [style.background-color]="getHighestContrast(color)?.hex"
     ></div>
   </li>
 </ul>

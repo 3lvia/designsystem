@@ -102,12 +102,19 @@ const getTokens = (hex: string, theme?: ThemeName) => {
 export const getColorElement = (
   colorName: DarkThemeColorName | LightThemeColorName,
   theme?: ThemeName,
-): ColorElement => ({
-  name: colorName,
-  hex: getBaseColor(colorName, theme),
-  contrast: {
-    white: getContrastValue(colorName, 'white', theme),
-    black: getContrastValue(colorName, 'black', theme),
-  },
-  token: getTokens(getBaseColor(colorName, theme), theme),
-});
+): ColorElement | undefined => {
+  try {
+    return {
+      name: colorName,
+      hex: getBaseColor(colorName, theme),
+      rgb: hexToRgb(getBaseColor(colorName, theme)),
+      contrast: {
+        white: getContrastValue(colorName, 'white', theme),
+        black: getContrastValue(colorName, 'black', theme),
+      },
+      tokens: getTokens(getBaseColor(colorName, theme), theme),
+    };
+  } catch {
+    return undefined;
+  }
+};
