@@ -13,11 +13,11 @@ export class ColorPickerColorListComponent {
   @Input() category: 'primary' | 'signal' | 'data' | 'grey';
   @Input() isDarkTheme: boolean;
   @Output() chooseColor = new EventEmitter<ColorElement>();
-  @Output() userChosesColor = new EventEmitter<void>();
+  @Output() userChoosesColor = new EventEmitter<void>();
 
   chooseNewColor(color: ColorElement) {
     this.chooseColor.emit(color);
-    this.userChosesColor.emit();
+    this.userChoosesColor.emit();
   }
 
   getColorsFromCategory = () => {
