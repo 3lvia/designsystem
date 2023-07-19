@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ColorElement } from '../colors-types';
 import { getColorElement } from '../colors-util';
-import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis-colors';
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-color-picker-exhibit',
