@@ -16,6 +16,8 @@ import { ComponentExample } from './component-example';
 import { Controls, ControlValue, SlotVisibility } from './controlType';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TypescriptComponentExample } from './typescript-component-example';
+import { HttpParams } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 interface Slot {
   name: string;
@@ -58,7 +60,7 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
     );
   }
 
-  constructor(private zone: NgZone, private route: ActivatedRoute, private router: Router) {}
+  constructor(private zone: NgZone, private route: ActivatedRoute, private location: Location) {}
 
   ngAfterViewInit(): void {
     this.setCegStateFromURL();
@@ -131,14 +133,22 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
     });
   }
 
-  private async patchPropValueInUrl(propName: string, value: ControlValue, merge = true): Promise<void> {
-    await this.router.navigate([], {
-      relativeTo: this.route,
-      queryParamsHandling: merge ? 'merge' : '',
-      queryParams: { [propName]: value },
-      replaceUrl: true,
-      preserveFragment: true,
-    });
+  private patchPropValueInUrl(propName: string, value: ControlValue, merge = true): void {
+    const currentUrl = this.location.path().split('?')[0];
+    const previousParams = this.location.path().split('?')[1]?.split('#')[0]?.split('&');
+    const previousParamsObj = previousParams.reduce((params, param) => {
+      const [prop, val] = param.split('=');
+      params[prop] = val;
+      return params;
+    }, {} as Record<string, string>);
+
+    let params = new HttpParams({ fromObject: merge ? previousParamsObj : {} });
+    if (params.has(propName)) {
+      params = params.set(propName, value?.toString() ?? '');
+    } else {
+      params = params.append(propName, value?.toString() ?? '');
+    }
+    this.location.replaceState(currentUrl, params.toString());
   }
 
   private getUpdatedSlotList(slots: SlotVisibility[]): Slot[] {
