@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ColorElement } from '../colors-types';
 import { ColorLabel, ThemeName, lightTheme } from '@elvia/elvis-colors';
@@ -11,7 +11,7 @@ import { lightColors } from '../colors-light';
   selector: 'app-color-picker-header',
   templateUrl: './color-picker-header.component.html',
 })
-export class ColorPickerHeaderComponent {
+export class ColorPickerHeaderComponent implements OnChanges {
   @Input({ required: true }) readonly currentTheme: ThemeName = 'light';
   @Output() changeThemeEvent = new EventEmitter<ThemeName>();
   @Output() changeColorEvent = new EventEmitter<ColorElement>();
@@ -35,6 +35,17 @@ export class ColorPickerHeaderComponent {
       .subscribe((result) => {
         this.isMobileScreenWidth = result.matches;
       });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.currentTheme) {
+      const theme = changes.currentTheme.currentValue as ThemeName;
+
+      //If the user has selected a token beforehand during a theme change, we need to re-emit the event so that the correct color is shown
+      if (this.dropdownValue) {
+        this.emitChangeColorEvent(this.dropdownValue, theme);
+      }
+    }
   }
 
   private generateDropdownItems(): DropdownItem[] {
