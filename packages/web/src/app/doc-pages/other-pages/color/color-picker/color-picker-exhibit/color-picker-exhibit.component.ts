@@ -19,10 +19,11 @@ export class ColorPickerExhibitComponent {
       this._currentColor = value;
     } else {
       this._currentColor = {
-        //empty
+        ...this._currentColor,
+
+        //an empty color element, but keep the name for the empty state
         contrast: { black: '', white: '' },
         hex: '',
-        name: '' as any,
         rgb: [-1, -1, -1],
         tokens: [],
       };

@@ -1,20 +1,20 @@
-<div class="theme-container e-color-background-1" [ngClass]="{ 'e-theme-dark': isDarkTheme }">
+<div class="theme-container e-color-background-1" [ngClass]="{ 'e-theme-dark': theme === 'dark' }">
   <div class="header-container">
     <app-color-picker-header
       #header
       (changeColorEvent)="chooseColor($event)"
       (changeThemeEvent)="handleChangeThemeEvent($event)"
-      [currentTheme]="isDarkTheme ? 'dark' : 'light'"
+      [currentTheme]="theme"
     />
   </div>
-  <app-color-picker-exhibit [currentColor]="currentColor" [theme]="isDarkTheme ? 'dark' : 'light'" />
+  <app-color-picker-exhibit [currentColor]="currentColor" [theme]="theme" />
   <div class="color-list-container" appColorListBase>
     <app-color-picker-color-list
       *ngFor="let category of categories"
       [currentColor]="currentColor"
       [colorList]="colorList"
       [category]="category"
-      [isDarkTheme]="isDarkTheme"
+      [isDarkTheme]="theme === 'dark'"
       (chooseColor)="chooseColor($event)"
       (userChoosesColor)="header.resetDropdown()"
     />
