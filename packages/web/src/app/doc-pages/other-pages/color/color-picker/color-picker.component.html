@@ -1,41 +1,17 @@
 <div class="theme-container e-color-background-1" [ngClass]="{ 'e-theme-dark': isDarkTheme }">
-  <app-color-picker-header
+  <ren-color-picker-header
     #header
     (changeColorEvent)="chooseColor($event)"
     (changeThemeEvent)="handleChangeThemeEvent($event)"
     [currentColor]="currentColor"
     [currentTheme]="isDarkTheme ? 'dark' : 'light'"
   />
-  <p>Her skal "{{ currentColor.name }}" i {{ isDarkTheme ? 'dark' : 'light' }} theme vises...</p>
   <div class="color-list-container" appColorListBase>
     <app-color-picker-color-list
+      *ngFor="let category of categories"
       [currentColor]="currentColor"
       [colorList]="colorList"
-      category="primary"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-      (userChoosesColor)="header.resetDropdown()"
-    />
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="signal"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-      (userChoosesColor)="header.resetDropdown()"
-    />
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="data"
-      [isDarkTheme]="isDarkTheme"
-      (chooseColor)="chooseColor($event)"
-      (userChoosesColor)="header.resetDropdown()"
-    />
-    <app-color-picker-color-list
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      category="grey"
+      [category]="category"
       [isDarkTheme]="isDarkTheme"
       (chooseColor)="chooseColor($event)"
       (userChoosesColor)="header.resetDropdown()"

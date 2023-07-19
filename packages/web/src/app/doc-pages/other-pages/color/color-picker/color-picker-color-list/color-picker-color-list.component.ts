@@ -8,10 +8,10 @@ import { convertContrastValueToNumber, getColorElement } from '../colors-util';
   styleUrls: ['./color-picker-color-list.component.scss'],
 })
 export class ColorPickerColorListComponent {
-  @Input() currentColor: ColorElement;
-  @Input() colorList: ColorsObject;
-  @Input() category: 'primary' | 'signal' | 'data' | 'grey';
-  @Input() isDarkTheme: boolean;
+  @Input({ required: true }) currentColor: ColorElement | undefined;
+  @Input({ required: true }) colorList: ColorsObject;
+  @Input({ required: true }) category: 'primary' | 'signal' | 'data' | 'grey';
+  @Input({ required: true }) isDarkTheme: boolean;
   @Output() chooseColor = new EventEmitter<ColorElement>();
   @Output() userChoosesColor = new EventEmitter<void>();
 
@@ -24,31 +24,8 @@ export class ColorPickerColorListComponent {
     return this.colorList?.[this.category];
   };
 
-  needsBorder = (color: ColorElement) => {
-    if (
-      !this.isDarkTheme &&
-      (color.name === 'white' ||
-        color.name === 'grey-02' ||
-        color.name === 'grey-05' ||
-        color.name === 'grey-10')
-    )
-      return true;
-    else if (
-      this.isDarkTheme &&
-      (color.name === 'black' ||
-        color.name === 'grey' ||
-        color.name === 'grey-70' ||
-        color.name === 'grey-60')
-    )
-      return true;
-    return false;
-  };
-
   isChosen = (color: ColorElement) => {
-    if (color.hex === this.currentColor.hex) {
-      return true;
-    }
-    return false;
+    return this.currentColor?.hex === color.hex;
   };
 
   getHighestContrast = (color: ColorElement) => {

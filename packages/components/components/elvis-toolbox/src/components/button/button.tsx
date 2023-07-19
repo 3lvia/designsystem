@@ -1,5 +1,4 @@
 import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
 export type Size = 'sm' | 'small' | 'md' | 'medium' | 'lg' | 'large';
@@ -13,22 +12,30 @@ const getTypography = (size: Size) => {
     case 'small':
     case 'sm': {
       return css`
-        ${getTypographyCss('text-sm')};
-        line-height: 1.15;
+        font-family: 'Red Hat Display', Verdana, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 115%;
       `;
     }
     case 'medium':
     case 'md': {
       return css`
-        ${getTypographyCss('text-md')};
-        line-height: 1.25;
+        font-family: 'Red Hat Display', Verdana, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 125%;
       `;
     }
     default: {
       return css`
-        ${getTypographyCss('text-lg')};
-        font-size: 1.125rem;
-        line-height: 1;
+        font-family: 'Red Hat Display', Verdana, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
       `;
     }
   }
@@ -114,8 +121,9 @@ export const PrimaryButton = styled(ButtonBase)`
   }
 
   &:disabled {
-    border-color: ${getThemeColor('border-disabled-1')};
-    background-color: ${getThemeColor('background-disabled-1')};
+    border-color: transparent;
+    background-color: ${getThemeColor('background-disabled-2')};
+    cursor: not-allowed;
   }
 `;
 

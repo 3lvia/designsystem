@@ -21,8 +21,8 @@ type GreyColor = keyof GreyColors;
 const greyColors = Object.keys(lightThemeColors['grey-colors']) as GreyColor[];
 
 export const lightColors: ColorsObject = {
-  primary: primaryColors.map((colorName) => getColorElement(colorName)),
-  signal: signalColors.map((colorName) => getColorElement(colorName)),
-  data: dataColors.map((colorName) => getColorElement(colorName)),
-  grey: greyColors.map((colorName) => getColorElement(colorName)),
+  primary: primaryColors.map((colorName) => getColorElement(colorName)) as ColorsObject['primary'],
+  signal: signalColors.map((colorName) => getColorElement(colorName)) as ColorsObject['signal'],
+  data: dataColors.map((colorName) => getColorElement(colorName)) as ColorsObject['data'],
+  grey: greyColors.map((colorName) => getColorElement(colorName)) as ColorsObject['grey'],
 };

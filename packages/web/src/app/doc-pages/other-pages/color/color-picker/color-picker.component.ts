@@ -13,11 +13,22 @@ import { ThemeName } from '@elvia/elvis-colors';
 export class ColorPickerComponent {
   isDarkTheme = false;
   colorList = this.isDarkTheme ? darkColors : lightColors;
-  currentColor = this.colorList.primary[0];
+  currentColor: ColorElement | undefined = this.colorList.primary[0];
+  categories = ['primary', 'signal', 'data', 'grey'] as const;
+
   toggleTheme = () => {
     this.isDarkTheme = !this.isDarkTheme;
     this.colorList = this.isDarkTheme ? darkColors : lightColors;
-    this.currentColor = getColorElement(this.currentColor.name, this.isDarkTheme ? 'dark' : 'light') ?? null;
+    this.currentColor = getColorElement(
+      this.currentColor?.name ?? this.colorList.primary[0].name,
+      this.isDarkTheme ? 'dark' : 'light',
+    );
+  };
+
+  handleChangeThemeEvent = (theme: ThemeName) => {
+    this.isDarkTheme = theme === 'dark';
+    this.colorList = theme === 'dark' ? darkColors : lightColors;
+    this.currentColor = getColorElement(this.currentColor.name, theme) ?? null;
   };
 
   handleChangeThemeEvent = (theme: ThemeName) => {

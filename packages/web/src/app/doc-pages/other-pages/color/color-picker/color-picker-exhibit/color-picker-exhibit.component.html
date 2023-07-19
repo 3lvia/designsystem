@@ -1,0 +1,77 @@
+<div class="color-exhibit color-exhibit--container">
+  <div
+    class="circle"
+    [ngStyle]="{
+      'background-color': currentColorExistsInCurrentTheme ? currentColor.hex : null
+    }"
+    [ngClass]="{
+      border: currentColor && currentColor.name ? (currentColor.name | needsBorder : theme) : false,
+      nonexistent: !currentColorExistsInCurrentTheme
+    }"
+  ></div>
+
+  <div class="info" *ngIf="currentColorExistsInCurrentTheme; else nonExistentColor">
+    <p class="e-title-md e-capitalize title">{{ currentColor.name | replace : '-' : ' ' }}</p>
+
+    <!-- HEX -->
+    <p class="e-title-caps">hex</p>
+    <app-copy [message]="currentColor.hex | uppercase">
+      <ng-container ngProjectAs="copyContent">
+        <p class="e-text-sm e-uppercase hex">{{ currentColor.hex }}</p>
+      </ng-container>
+    </app-copy>
+
+    <!-- RGB -->
+    <p class="e-title-caps">rgb</p>
+    <p class="e-text-sm e-capitalize rgb">
+      <ng-container *ngFor="let rgbValue of currentColor?.rgb; let isLast = last">
+        {{ rgbValue }}
+        <ng-container *ngIf="!isLast">/</ng-container>
+      </ng-container>
+    </p>
+
+    <!-- CONTRAST -->
+    <p class="e-title-caps contrast--heading">contrast</p>
+    <div class="contrast--container">
+      <div *ngFor="let contrast of currentColor?.contrast | keyvalue" class="contrast">
+        <i *ngIf="contrast.value" class="e-icon e-icon--check_circle-color e-icon--xs" aria-hidden="true"></i>
+        <i *ngIf="!contrast.value" class="e-icon e-icon--remove_circle e-icon--xs" aria-hidden="true"></i>
+        <span class="e-capitalize e-text-sm">{{ contrast.key }}</span>
+        <span class="contrast--value" *ngIf="contrast.value">({{ contrast.value }})</span>
+      </div>
+    </div>
+
+    <!-- TOKENS -->
+    <p class="tokens--heading e-title-caps" [ngPlural]="currentColor.tokens.length">
+      <ng-template ngPluralCase="1">token</ng-template>
+      <ng-template ngPluralCase="other">tokens</ng-template>
+    </p>
+
+    <div class="tokens--container" appColorListBase>
+      <app-copy [message]="token" *ngFor="let token of currentColor?.tokens">
+        <ng-container ngProjectAs="copyContent">
+          <div class="token e-tag e-lowercase">
+            {{ token }}
+          </div>
+        </ng-container>
+      </app-copy>
+
+      <p *ngIf="!currentColor?.tokens?.length" class="e-text-micro-light no-tokens">No tokens available.</p>
+    </div>
+  </div>
+
+  <ng-template #nonExistentColor>
+    <div class="info nonexistent e-text-sm">
+      <p class="e-mb-8 title e-title-md e-capitalize">{{ currentColor.name | replace : '-' : ' ' }}</p>
+      <p>
+        <span class="e-capitalize">{{ currentColor.name }}</span>
+        does not exist in {{ theme }} theme.
+      </p>
+      <p>
+        Use a different color or
+        <a class="e-link e-link--inline e-link--sm" [routerLink]="['/about/contact']">contact us</a>
+        if you can't find a color that you need.
+      </p>
+    </div>
+  </ng-template>
+</div>

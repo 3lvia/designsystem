@@ -1,0 +1,10 @@
+@use '@elvia/elvis/src/variables/typography.scss' as typography;
+
+div {
+  @include typography.typography('text-caps');
+  border: 2px dashed var(--e-grey-40);
+  color: var(--e-grey-40);
+  display: grid;
+  height: 150px;
+  place-items: center;
+}
