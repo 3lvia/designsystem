@@ -5,6 +5,7 @@
     (changeThemeEvent)="handleChangeThemeEvent($event)"
     [currentTheme]="isDarkTheme ? 'dark' : 'light'"
   />
+  <app-color-picker-exhibit [currentColor]="currentColor" [theme]="isDarkTheme ? 'dark' : 'light'" />
   <div class="color-list-container" appColorListBase>
     <app-color-picker-color-list
       *ngFor="let category of categories"
