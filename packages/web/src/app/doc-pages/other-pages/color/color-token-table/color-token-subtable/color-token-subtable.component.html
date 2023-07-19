@@ -1,8 +1,8 @@
-<div *ngIf="isVisible">
+<div *ngIf="isVisible()">
   <elvia-accordion
-    [isOpen]="isOpen"
-    (onOpen)="isOpen = true"
-    (onClose)="isOpen = false"
+    [isOpen]="isOpen()"
+    (onOpen)="isOpen.set(true)"
+    (onClose)="isOpen.set(false)"
     spacingAboveContent="24px"
     isFullwidth
   >
@@ -31,9 +31,9 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let tablePart of visibleColors">
+          <ng-container *ngFor="let tablePart of visibleColors()">
             <tr *ngIf="tablePart.title" class="title-row">
-              <td [colSpan]="3 + (hasRoleColumn ? 1 : 0) + (hasExampleColumn ? 1 : 0)">
+              <td [colSpan]="3 + (hasRoleColumn() ? 1 : 0) + (hasExampleColumn() ? 1 : 0)">
                 <h5 class="e-title-caps e-m-0">{{ tablePart.title }}</h5>
                 <span class="e-text-sm">{{ tablePart.description }}</span>
               </td>
@@ -94,7 +94,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let tablePart of visibleColors">
+          <ng-container *ngFor="let tablePart of visibleColors()">
             <ng-container *ngIf="tablePart.title">
               <tr class="title-row">
                 <td>
@@ -129,6 +129,6 @@
   </elvia-accordion>
 
   <elvia-divider
-    [inlineStyle]="{ marginTop: '8px', transition: 'opacity 0.2s', opacity: isOpen ? '0' : '1' }"
+    [inlineStyle]="{ marginTop: '8px', transition: 'opacity 0.2s', opacity: isOpen() ? '0' : '1' }"
   />
 </div>
