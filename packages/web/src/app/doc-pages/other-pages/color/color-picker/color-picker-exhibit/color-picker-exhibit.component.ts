@@ -9,6 +9,7 @@ import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis
   styleUrls: ['./color-picker-exhibit.component.scss'],
 })
 export class ColorPickerExhibitComponent {
+  @Input({ required: true }) readonly theme: ThemeName;
   @Input({ required: true })
   get currentColor(): ColorElement {
     return this._currentColor;
@@ -29,21 +30,7 @@ export class ColorPickerExhibitComponent {
   }
   private _currentColor: ColorElement;
 
-  @Input({ required: true }) theme: ThemeName;
-
-  private colorExistsInTheme = (
-    color: DarkThemeColorName | LightThemeColorName,
-    theme: ThemeName,
-  ): boolean => {
-    try {
-      getColorElement(color, theme);
-      return true;
-    } catch {
-      return false;
-    }
-  };
-
   get currentColorExistsInCurrentTheme(): boolean {
-    return !!(this.currentColor?.name && this.colorExistsInTheme(this.currentColor.name, this.theme));
+    return !!getColorElement(this.currentColor?.name, this.theme);
   }
 }
