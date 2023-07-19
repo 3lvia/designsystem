@@ -19,7 +19,6 @@ import { lightColors } from '../colors-light';
 })
 export class ColorPickerHeaderComponent implements OnChanges {
   @Input({ required: true }) currentTheme: ThemeName = 'light';
-  @Input({ required: true }) currentColor: ColorElement;
   @Output() changeThemeEvent = new EventEmitter<ThemeName>();
   @Output() changeColorEvent = new EventEmitter<ColorElement>();
 

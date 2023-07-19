@@ -28,13 +28,7 @@ export class ColorPickerComponent {
   handleChangeThemeEvent = (theme: ThemeName) => {
     this.isDarkTheme = theme === 'dark';
     this.colorList = theme === 'dark' ? darkColors : lightColors;
-    this.currentColor = getColorElement(this.currentColor.name, theme) ?? null;
-  };
-
-  handleChangeThemeEvent = (theme: ThemeName) => {
-    this.isDarkTheme = theme === 'dark';
-    this.colorList = theme === 'dark' ? darkColors : lightColors;
-    this.currentColor = getColorElement(this.currentColor.name, theme) ?? null;
+    this.currentColor = getColorElement(this.currentColor.name, theme);
   };
 
   chooseColor = (color: ColorElement) => {
