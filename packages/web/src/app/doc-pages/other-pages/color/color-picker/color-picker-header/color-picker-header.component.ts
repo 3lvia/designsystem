@@ -58,23 +58,16 @@ export class ColorPickerHeaderComponent implements OnChanges {
       const tokenCategory = category as TokenCategory;
 
       //second level with "default" tokens
-      const children: DropdownItem[] = Object.entries(tokens).flatMap(([token]) => {
-        //if the "default token" includes a reserved keyword, skip it. We'll add them later
-        if (!this.tokenIncludesReservedKeyword(token)) {
-          return [
-            {
-              label: token,
-              value: token,
-            },
-          ];
-        } else {
-          return [];
-        }
-      });
+      const children: DropdownItem[] = Object.keys(tokens)
+        .filter((token) => !this.tokenIncludesReservedKeyword(token))
+        .map((token) => ({
+          label: token,
+          value: token,
+        }));
 
       //the third level with the special tokens
       for (const tokenSubCategory of Object.keys(this.tokenKeywords) as TokenSubCategory[]) {
-        const grandChildren = this.getTokenCategoryChildren(tokenSubCategory, tokenCategory);
+        const grandChildren = this.getTokenGrandchildren(tokenSubCategory, tokenCategory);
 
         if (grandChildren?.children?.length) {
           children.push(grandChildren);
@@ -92,16 +85,16 @@ export class ColorPickerHeaderComponent implements OnChanges {
     return items;
   }
 
-  private getTokenCategoryChildren(subCategory: TokenSubCategory, categoryToFilter: TokenCategory) {
+  private getTokenGrandchildren(subCategory: TokenSubCategory, categoryToFilter: TokenCategory) {
     let result: DropdownItem | undefined;
 
     Object.entries(lightTheme).forEach(([category, tokens]) => {
-      //only find the tokens that are relevant for the dropdown level 2
+      //only find the tokens that are relevant for the dropdown level 3
       if (category === categoryToFilter) {
         //ignore the "default" tokens
-        const children: ColorLabel[] = Object.entries(tokens)
-          .filter(([token]) => this.tokenKeywords[subCategory].some((keyword) => token.includes(keyword)))
-          .map(([token]) => token as ColorLabel);
+        const children = Object.keys(tokens)
+          .filter((token) => this.tokenKeywords[subCategory].some((keyword) => token.includes(keyword)))
+          .map((token) => token as ColorLabel);
 
         if (children) {
           result = {
