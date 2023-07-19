@@ -26,14 +26,14 @@ export class ColorPickerHeaderComponent implements OnChanges {
   @Output() changeThemeEvent = new EventEmitter<ThemeName>();
   @Output() changeColorEvent = new EventEmitter<ColorElement>();
 
-  isMobileScreenWidth = window.innerWidth <= 767;
-
   //keywords that are used to filter out tokens that are not relevant for the dropdown level 1
   tokenKeywords: Record<TokenSubCategory, TokenSubCategoryKeywords[]> = {
     states: ['disabled', 'hover', 'selected'],
     element: ['element'],
     overlay: ['overlay'],
   };
+
+  isMobileScreenWidth = window.innerWidth <= 767;
 
   segmentedControlValue = 0;
 
@@ -58,7 +58,7 @@ export class ColorPickerHeaderComponent implements OnChanges {
       const tokenCategory = category as TokenCategory;
 
       //second level with "default" tokens
-      const children: DropdownItem[] = Object.keys(tokens)
+      const children: DropdownItem[] = (Object.keys(tokens) as ColorLabel[])
         .filter((token) => !this.tokenIncludesReservedKeyword(token))
         .map((token) => ({
           label: token,
@@ -89,12 +89,14 @@ export class ColorPickerHeaderComponent implements OnChanges {
     let result: DropdownItem | undefined;
 
     Object.entries(lightTheme).forEach(([category, tokens]) => {
+      const tokenCategory = category as TokenCategory;
+
       //only find the tokens that are relevant for the dropdown level 3
-      if (category === categoryToFilter) {
+      if (tokenCategory === categoryToFilter) {
         //ignore the "default" tokens
-        const children = Object.keys(tokens)
-          .filter((token) => this.tokenKeywords[subCategory].some((keyword) => token.includes(keyword)))
-          .map((token) => token as ColorLabel);
+        const children = (Object.keys(tokens) as ColorLabel[]).filter((token) =>
+          this.tokenKeywords[subCategory].some((keyword) => token.includes(keyword)),
+        );
 
         if (children) {
           result = {
