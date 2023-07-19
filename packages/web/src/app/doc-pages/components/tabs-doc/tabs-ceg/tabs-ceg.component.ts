@@ -16,7 +16,7 @@ export class TabsCegComponent implements ComponentExample {
       groupOrder: [],
       staticProps: {
         value: 0,
-        items: ['Electric car', 'AMS-meter', 'HAN-port', 'Item no 4', 'Another tab', 'One final tab'],
+        items: ['Electric car', 'AMS-meter', 'HAN-port'],
         ariaLabel: 'Simple tab list example',
         valueOnChange: () => '',
       },
