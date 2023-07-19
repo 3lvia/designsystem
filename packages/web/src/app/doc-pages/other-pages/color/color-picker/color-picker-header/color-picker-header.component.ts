@@ -12,6 +12,8 @@ import { DropdownItem } from '@elvia/elvis-dropdown';
 import { ColorLabel, ThemeName, lightTheme } from '@elvia/elvis-colors';
 import { darkColors } from '../colors-dark';
 import { lightColors } from '../colors-light';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 type TokenCategory = 'text' | 'background' | 'border' | 'signal' | 'data' | 'icon';
 type TokenSubCategory = 'states' | 'element' | 'overlay';
@@ -33,12 +35,21 @@ export class ColorPickerHeaderComponent implements OnChanges {
     overlay: ['overlay'],
   };
 
-  isMobileScreenWidth = window.innerWidth <= 767;
+  isMobileScreenWidth = false;
 
   segmentedControlValue = 0;
 
   dropdownItems = this.generateDropdownItems();
   dropdownValue?: ColorLabel;
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.breakpointObserver
+      .observe(['(max-width: 768px)'])
+      .pipe(takeUntilDestroyed())
+      .subscribe((result) => {
+        this.isMobileScreenWidth = result.matches;
+      });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.currentTheme) {
@@ -155,7 +166,4 @@ export class ColorPickerHeaderComponent implements OnChanges {
   private emitChangeThemeEvent = (theme: ThemeName) => {
     this.changeThemeEvent.emit(theme);
   };
-
-  @HostListener('window:resize', ['$event'])
-  onWindowResize = () => (this.isMobileScreenWidth = window.innerWidth <= 767);
 }
