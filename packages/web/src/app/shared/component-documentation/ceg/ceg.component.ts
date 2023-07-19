@@ -14,7 +14,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { ComponentExample } from './component-example';
 import { Controls, ControlValue, SlotVisibility } from './controlType';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TypescriptComponentExample } from './typescript-component-example';
 import { HttpParams } from '@angular/common/http';
 import { Location } from '@angular/common';
