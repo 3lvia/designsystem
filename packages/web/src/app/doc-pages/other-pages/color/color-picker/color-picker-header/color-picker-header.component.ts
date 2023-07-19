@@ -118,15 +118,15 @@ export class ColorPickerHeaderComponent implements OnChanges {
   }
 
   handleSegmentedControlChange(event: Event) {
-    const incomingValue: number = (event as CustomEvent).detail.value;
-    this.emitChangeThemeEvent(incomingValue === 0 ? 'light' : 'dark');
+    const value = (event as CustomEvent<{ value: number }>).detail.value;
+    this.emitChangeThemeEvent(value === 0 ? 'light' : 'dark');
   }
 
   handleDropdownChange(event: Event) {
-    const incomingValue: ColorLabel = (event as CustomEvent).detail.value;
-    this.dropdownValue = incomingValue;
+    const value = (event as CustomEvent<{ value: ColorLabel }>).detail.value;
+    this.dropdownValue = value;
 
-    this.emitChangeColorEvent(incomingValue, this.currentTheme);
+    this.emitChangeColorEvent(value, this.currentTheme);
   }
 
   resetDropdown() {
