@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
+import '@elvia/elvis-card';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ComponentChangelogModule],
