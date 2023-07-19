@@ -10,16 +10,19 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { CegModule } from './ceg/ceg.module';
+import { RouterModule } from '@angular/router';
 
 /**
  * A shared module that includes CommonModule and all modules needed for a Elvis component documentation page.
  * @see {@link https://angular.io/guide/sharing-ngmodules}
  */
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   declarations: [],
   exports: [
     CommonModule,
+    RouterModule,
     ComponentChangelogModule,
     ComponentHeaderModule,
     ComponentInstallationModule,
@@ -28,6 +31,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
+    CegModule,
     CopyModule,
     WhenToUseModule,
   ],

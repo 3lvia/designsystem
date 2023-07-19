@@ -91,7 +91,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.scrollService
       .listenAnchorToScrollTo()
       .pipe(takeUntil(this.unsubscriber))
-      .subscribe((anchor: NavbarAnchor) => {
+      .subscribe((anchor) => {
         this.chooseAnchor(anchor.title);
       });
     this.route.fragment.pipe(takeUntil(this.unsubscriber)).subscribe((fragment) => {
