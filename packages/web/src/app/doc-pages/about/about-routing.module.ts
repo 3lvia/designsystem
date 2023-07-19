@@ -6,6 +6,7 @@ import { TheDesignSystemDocComponent } from './the-design-system-doc/the-design-
 import { ContactComponent } from './contact/contact.component';
 import { GetStartedDocComponent } from './get-started-doc/get-started-doc.component';
 import { ChangelogComponent } from './changelog/changelog.component';
+import { Pages } from 'src/app/shared/shared.enum';
 
 const routes: Routes = [
   {
@@ -13,19 +14,19 @@ const routes: Routes = [
     component: CMSPageComponent,
   },
   {
-    path: 'the-design-system',
+    path: Pages.TheDesignSystem,
     component: TheDesignSystemDocComponent,
   },
   {
-    path: 'contact',
+    path: Pages.Contact,
     component: ContactComponent,
   },
   {
-    path: 'get-started',
+    path: Pages.GetStarted,
     component: GetStartedDocComponent,
   },
   {
-    path: 'whats-new',
+    path: Pages.Changelog,
     component: ChangelogComponent,
   },
 ];

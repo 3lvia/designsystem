@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ToolsModule } from './tools.module';
 import { CMSPageComponent } from '../cms/cms-page/cms-page.component';
 import { UtilitiesDocComponent } from './utilities-doc/utilities-doc.component';
+import { Pages } from 'src/app/shared/shared.enum';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
     component: CMSPageComponent,
   },
   {
-    path: 'utility-classes',
+    path: Pages.Utilities,
     component: UtilitiesDocComponent,
   },
 ];

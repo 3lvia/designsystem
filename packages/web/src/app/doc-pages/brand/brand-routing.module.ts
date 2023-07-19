@@ -8,6 +8,7 @@ import { IconDocComponent } from './icon-doc/icon-doc.component';
 import { LayoutDocComponent } from './layout-doc/layout-doc.component';
 import { ShadowDocComponent } from './shadow-doc/shadow-doc.component';
 import { TypographyDocComponent } from './typography-doc/typography-doc.component';
+import { Pages } from 'src/app/shared/shared.enum';
 
 const routes: Routes = [
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
     component: CMSPageComponent,
   },
   {
-    path: 'color',
+    path: Pages.Color,
     component: ColorDocComponent,
   },
   {
@@ -23,19 +24,19 @@ const routes: Routes = [
     component: ColorComponent,
   },
   {
-    path: 'icon',
+    path: Pages.Icon,
     component: IconDocComponent,
   },
   {
-    path: 'layout',
+    path: Pages.Layout,
     component: LayoutDocComponent,
   },
   {
-    path: 'shadow',
+    path: Pages.Shadow,
     component: ShadowDocComponent,
   },
   {
-    path: 'typography',
+    path: Pages.Typography,
     component: TypographyDocComponent,
   },
 ];
