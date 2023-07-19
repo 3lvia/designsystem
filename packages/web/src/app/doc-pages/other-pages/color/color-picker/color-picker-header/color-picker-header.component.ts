@@ -13,6 +13,10 @@ import { ColorLabel, ThemeName, lightTheme } from '@elvia/elvis-colors';
 import { darkColors } from '../colors-dark';
 import { lightColors } from '../colors-light';
 
+type TokenCategory = 'text' | 'background' | 'border' | 'signal' | 'data' | 'icon';
+type TokenSubCategory = 'states' | 'element' | 'overlay';
+type TokenSubCategoryKeywords = 'disabled' | 'hover' | 'selected' | 'element' | 'overlay';
+
 @Component({
   selector: 'app-color-picker-header',
   templateUrl: './color-picker-header.component.html',
@@ -23,6 +27,13 @@ export class ColorPickerHeaderComponent implements OnChanges {
   @Output() changeColorEvent = new EventEmitter<ColorElement>();
 
   isMobileScreenWidth = window.innerWidth <= 767;
+
+  //keywords that are used to filter out tokens that are not relevant for the dropdown level 1
+  tokenKeywords: Record<TokenSubCategory, TokenSubCategoryKeywords[]> = {
+    states: ['disabled', 'hover', 'selected'],
+    element: ['element'],
+    overlay: ['overlay'],
+  };
 
   segmentedControlValue = 0;
 
@@ -44,21 +55,71 @@ export class ColorPickerHeaderComponent implements OnChanges {
 
   private generateDropdownItems(): DropdownItem[] {
     const items: DropdownItem[] = Object.entries(lightTheme).map(([category, tokens]) => {
+      const tokenCategory = category as TokenCategory;
+
+      //second level with "default" tokens
       const children: DropdownItem[] = Object.entries(tokens).flatMap(([token]) => {
-        return {
-          label: this.capitalizeFirstLetter(token),
-          value: token,
-        };
+        //if the "default token" includes a reserved keyword, skip it. We'll add them later
+        if (!this.tokenIncludesReservedKeyword(token)) {
+          return [
+            {
+              label: token,
+              value: token,
+            },
+          ];
+        } else {
+          return [];
+        }
       });
 
+      //the third level with the special tokens
+      for (const tokenSubCategory of Object.keys(this.tokenKeywords) as TokenSubCategory[]) {
+        const grandChildren = this.getTokenCategoryChildren(tokenSubCategory, tokenCategory);
+
+        if (grandChildren?.children?.length) {
+          children.push(grandChildren);
+        }
+      }
+
+      //top level "TokenCategory" items
       return {
-        label: this.capitalizeFirstLetter(category),
-        value: category,
+        label: this.capitalizeFirstLetter(tokenCategory),
+        value: tokenCategory,
         children: children,
       };
     });
 
     return items;
+  }
+
+  private getTokenCategoryChildren(subCategory: TokenSubCategory, categoryToFilter: TokenCategory) {
+    let result: DropdownItem | undefined;
+
+    Object.entries(lightTheme).forEach(([category, tokens]) => {
+      //only find the tokens that are relevant for the dropdown level 2
+      if (category === categoryToFilter) {
+        //ignore the "default" tokens
+        const children: ColorLabel[] = Object.entries(tokens)
+          .filter(([token]) => this.tokenKeywords[subCategory].some((keyword) => token.includes(keyword)))
+          .map(([token]) => token as ColorLabel);
+
+        if (children) {
+          result = {
+            label: this.capitalizeFirstLetter(subCategory),
+            value: subCategory,
+            children: children.map((token) => ({ label: token, value: token })),
+          };
+        } else {
+          result = undefined;
+        }
+      }
+    });
+    return result;
+  }
+
+  private tokenIncludesReservedKeyword(token: string): boolean {
+    const allTokenSubCategoryKeywords = Object.values(this.tokenKeywords).flat();
+    return allTokenSubCategoryKeywords.some((keyword) => token.includes(keyword));
   }
 
   handleSegmentedControlChange(event: Event) {
@@ -70,7 +131,7 @@ export class ColorPickerHeaderComponent implements OnChanges {
     const incomingValue: ColorLabel = (event as CustomEvent).detail.value;
     this.dropdownValue = incomingValue;
 
-    this.emitChangeColorEvent(incomingValue.toLowerCase() as ColorLabel, this.currentTheme);
+    this.emitChangeColorEvent(incomingValue, this.currentTheme);
   }
 
   resetDropdown() {
@@ -82,7 +143,7 @@ export class ColorPickerHeaderComponent implements OnChanges {
 
     for (const colorElements of Object.values(colors)) {
       const matchingColor = Object.values(colorElements as ColorElement[]).find((color) =>
-        color.token.includes(token),
+        color.tokens.includes(token),
       );
 
       if (matchingColor) {
