@@ -1,35 +1,29 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ColorElement } from '../colors-types';
-import { DropdownItem } from '@elvia/elvis-dropdown';
 import { ColorLabel, ThemeName, lightTheme } from '@elvia/elvis-colors';
+import { DropdownItem } from '@elvia/elvis-dropdown';
+import { TokenSubCategory, TokenSubCategoryKeywords, TokenCategory } from './color-picker-header-types';
 import { darkColors } from '../colors-dark';
 import { lightColors } from '../colors-light';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-
-type TokenCategory = 'text' | 'background' | 'border' | 'signal' | 'data' | 'icon';
-type TokenSubCategory = 'states' | 'element' | 'overlay';
-type TokenSubCategoryKeywords = 'disabled' | 'hover' | 'selected' | 'element' | 'overlay';
-
 @Component({
   selector: 'app-color-picker-header',
   templateUrl: './color-picker-header.component.html',
 })
-export class ColorPickerHeaderComponent implements OnChanges {
-  @Input({ required: true }) currentTheme: ThemeName = 'light';
+export class ColorPickerHeaderComponent {
+  @Input({ required: true }) readonly currentTheme: ThemeName = 'light';
   @Output() changeThemeEvent = new EventEmitter<ThemeName>();
   @Output() changeColorEvent = new EventEmitter<ColorElement>();
 
   //keywords that are used to filter out tokens that are not relevant for the dropdown level 1
-  tokenKeywords: Record<TokenSubCategory, TokenSubCategoryKeywords[]> = {
+  private readonly tokenKeywords: Readonly<Record<TokenSubCategory, readonly TokenSubCategoryKeywords[]>> = {
     states: ['disabled', 'hover', 'selected'],
     element: ['element'],
     overlay: ['overlay'],
   };
 
   isMobileScreenWidth = false;
-
-  segmentedControlValue = 0;
 
   dropdownItems = this.generateDropdownItems();
   dropdownValue?: ColorLabel;
@@ -41,19 +35,6 @@ export class ColorPickerHeaderComponent implements OnChanges {
       .subscribe((result) => {
         this.isMobileScreenWidth = result.matches;
       });
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes.currentTheme) {
-      const theme = changes.currentTheme.currentValue as ThemeName;
-
-      this.segmentedControlValue = theme === 'light' ? 0 : 1;
-
-      //If the user has selected a token beforehand, we need to update the dropdown value to reflect the theme change
-      if (this.dropdownValue) {
-        this.emitChangeColorEvent(this.dropdownValue, theme);
-      }
-    }
   }
 
   private generateDropdownItems(): DropdownItem[] {
@@ -122,7 +103,7 @@ export class ColorPickerHeaderComponent implements OnChanges {
 
   handleSegmentedControlChange(event: Event) {
     const value = (event as CustomEvent<{ value: number }>).detail.value;
-    this.emitChangeThemeEvent(value === 0 ? 'light' : 'dark');
+    this.changeThemeEvent.emit(value === 0 ? 'light' : 'dark');
   }
 
   handleDropdownChange(event: Event) {
@@ -154,8 +135,4 @@ export class ColorPickerHeaderComponent implements OnChanges {
   private capitalizeFirstLetter(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
-  private emitChangeThemeEvent = (theme: ThemeName) => {
-    this.changeThemeEvent.emit(theme);
-  };
 }

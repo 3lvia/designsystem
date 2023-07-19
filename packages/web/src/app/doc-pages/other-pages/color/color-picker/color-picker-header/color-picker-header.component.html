@@ -2,8 +2,7 @@
   <elvia-segmented-control
     (valueOnChange)="handleSegmentedControlChange($event)"
     [inlineStyle]="{ width: isMobileScreenWidth ? '100%' : 'auto' }"
-    [items]="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
-    [value]="segmentedControlValue"
+    items="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
     size="large"
   />
   <elvia-dropdown
