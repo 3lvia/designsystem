@@ -1,12 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  HostListener,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { ColorElement } from '../colors-types';
 import { DropdownItem } from '@elvia/elvis-dropdown';
 import { ColorLabel, ThemeName, lightTheme } from '@elvia/elvis-colors';
