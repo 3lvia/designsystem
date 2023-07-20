@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.07.23",
+      "version": "7.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where the text selection inside the input would be invisible."]
+        }
+      ]
+    },
+    {
       "date": "15.06.23",
       "version": "7.1.1 ",
       "changelog": [
