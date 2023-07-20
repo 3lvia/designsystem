@@ -111,13 +111,13 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
         this.componentExample.cegContent.setActiveComponentTypeName(componentType);
       }
 
-      Object.entries(this.route.snapshot.queryParams)
+      Object.entries(this.getNewestParamMap())
         .filter(([propName]) => propName !== 'type')
         .forEach(([propName, value]) => {
           const control = this.componentExample.cegContent.getControlSnapshot()?.[propName];
           const controlType = control?.type;
 
-          let parsedValue = value;
+          let parsedValue: ControlValue = value;
           if (controlType === 'counter') {
             parsedValue = +value;
           } else if (!!controlType && ['slotToggle', 'checkbox', 'switch'].includes(controlType)) {
@@ -136,9 +136,18 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   private patchPropValueInUrl(propName: string, value: ControlValue, merge = true): void {
     const currentUrl = this.location.path().split('?')[0];
     const params = new HttpParams({
-      fromObject: merge ? this.route.snapshot.queryParams : {},
+      fromObject: merge ? this.getNewestParamMap() : {},
     }).set(propName, value ?? '');
     this.location.replaceState(currentUrl, params.toString());
+  }
+
+  private getNewestParamMap() {
+    const params = new HttpParams({ fromString: this.location.path().split('?')[1] ?? '' });
+    const paramMap = params.keys().reduce((map, prop) => {
+      map[prop] = params.get(prop) ?? '';
+      return map;
+    }, {} as Record<string, string>);
+    return paramMap;
   }
 
   private getUpdatedSlotList(slots: SlotVisibility[]): Slot[] {
