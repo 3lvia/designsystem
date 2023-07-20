@@ -117,6 +117,7 @@ export const DropdownInput: React.FC<Props> = ({
         onKeyDown={onKeyDown}
         onKeyUp={() => onKeyPress(undefined)}
         readOnly={!isEditable || !dropdownIsOpen}
+        $isEditable={isEditable}
         role="combobox"
         aria-autocomplete="none"
         aria-haspopup="true"
