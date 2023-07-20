@@ -1,5 +1,5 @@
 import { DocPage } from './shared.interface';
-import { Pages, DocPageStatus } from './shared.enum';
+import { Pages, DocPageStatus, DocPageName } from './shared.enum';
 
 // Used for shortcuts at home page
 export const homeMenu: DocPage[] = [
@@ -682,9 +682,9 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
 ];
 
-export function getComponent(docUrl: string): DocPage | undefined {
+export function getComponent(docUrl: DocPageName): DocPage | undefined {
   return componentsDocPages.find((component) => component.docUrl === docUrl);
 }
-export function getDocPagesNotFromCMS(docUrl: string): DocPage | undefined {
+export function getDocPagesNotFromCMS(docUrl: DocPageName): DocPage | undefined {
   return docPagesNotFromCMS.find((component) => component.docUrl === docUrl);
 }

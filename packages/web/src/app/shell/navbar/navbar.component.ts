@@ -11,6 +11,7 @@ import { LOCALE_CODE } from 'contentful/types';
 import { takeUntil } from 'rxjs/operators';
 import { RouterService } from '../../core/services/router.service';
 import { getComponent, getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { DocPageName } from 'src/app/shared/shared.enum';
 
 @Component({
   selector: 'app-navbar',
@@ -147,7 +148,9 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       this.isCmsPage = false;
     } else if (currentPath.split('/')[2]) {
       const componentOrPage = currentPath.split('/')[2];
-      this.isCmsPage = !(getComponent(componentOrPage) || getDocPagesNotFromCMS(componentOrPage));
+      this.isCmsPage = !(
+        getComponent(componentOrPage as DocPageName) || getDocPagesNotFromCMS(componentOrPage as DocPageName)
+      );
     } else {
       this.isCmsPage = true;
     }

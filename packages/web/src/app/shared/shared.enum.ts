@@ -75,3 +75,5 @@ export enum Pages {
   DevelopmentPlayground = 'playground',
   DevelopmentStart = 'dev',
 }
+
+export type DocPageName = `${Pages}`;
