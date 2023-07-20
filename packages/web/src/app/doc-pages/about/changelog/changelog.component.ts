@@ -9,9 +9,9 @@ import changelogJson from '@elvia/elvis/CHANGELOG.json';
   styleUrls: ['./changelog.component.scss'],
 })
 export class ChangelogComponent {
-  description = getDocPagesNotFromCMS('changelog')?.description;
-  title = getDocPagesNotFromCMS('changelog')?.title;
-  externalUrl = getDocPagesNotFromCMS('changelog')?.externalUrl;
+  description = getDocPagesNotFromCMS('whats-new')?.description;
+  title = getDocPagesNotFromCMS('whats-new')?.title;
+  externalUrl = getDocPagesNotFromCMS('whats-new')?.externalUrl;
   changelog = changelogJson.content;
 
   constructor(private titleService: Title) {
