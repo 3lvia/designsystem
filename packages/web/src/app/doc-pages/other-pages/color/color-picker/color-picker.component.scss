@@ -1,6 +1,14 @@
+@use './color-picker-gradient.scss' as gradient;
+
 .theme-container {
-  display: flex;
   border-radius: 16px;
-  padding: 32px;
+  padding: 40px;
+  margin: -40px;
   transition: background-color 500ms ease-in-out;
+
+  .color-list-container {
+    display: flex;
+    padding-bottom: 8px;
+    @include gradient.scroll-gradient;
+  }
 }

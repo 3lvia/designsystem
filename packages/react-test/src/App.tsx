@@ -22,6 +22,7 @@ import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 import { SegmentedControl } from '@elvia/elvis-segmented-control/react';
 import { Slider } from '@elvia/elvis-slider/react';
 import { Spotlight } from '@elvia/elvis-spotlight/react';
+import { Stepper } from '@elvia/elvis-stepper/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
@@ -180,32 +181,36 @@ function App() {
         <div className="App e-pt-40">
           <Toast />
           <h1 className="e-mt-0">React Preview</h1>
-
-          <Datepicker
-            valueOnChange={(value) => {
-              setDatepickerValue(value);
-              console.log(value);
-            }}
-            hasSelectDateOnOpen={false}
-            isRequired
-            minDate={minDate}
-            maxDate={maxDate}
-            value={datepickerValue}
-          ></Datepicker>
-          <button className="e-btn" onClick={() => setDatepickerValue(dateFromToday(-10))}>
-            Set date to before min date
-          </button>
-          <button className="e-btn" onClick={() => setDatepickerValue(dateFromToday(5))}>
-            Set date to after max date
-          </button>
           <div className="components-examples">
             {/* CURRENTLY TESTING */}
             <div className="example-wrapper">
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <i className="e-icon e-icon--add_circle e-icon--sm"></i>
-              <div className="e-bg-white"></div>
+              <div className="e-bg-white">
+                <Stepper
+                  type="vertical"
+                  steps={{ 2: { isError: true } }}
+                  content={[
+                    <div key={1}>Step 1 content</div>,
+                    <div key={2}>Step 2 content</div>,
+                    <div key={3}>Step 3 content</div>,
+                    <div key={4}>Step 4 content</div>,
+                    <div key={5}>Step 5 content</div>,
+                  ]}
+                />
+                <Stepper
+                  type="horizontal"
+                  steps={{ 2: { isError: true } }}
+                  content={[
+                    <div key={1}>Step 1 content</div>,
+                    <div key={2}>Step 2 content</div>,
+                    <div key={3}>Step 3 content</div>,
+                    <div key={4}>Step 4 content</div>,
+                    <div key={5}>Step 5 content</div>,
+                  ]}
+                />
+              </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -287,7 +292,7 @@ function App() {
               <h3>Box</h3>
               <Box
                 isColored={true}
-                title={<h1>Title for the box component</h1>}
+                heading={<h1>Title for the box component</h1>}
                 content={<div>Heisann dette er en box component sendt med som node i react</div>}
               ></Box>
             </div>
@@ -520,9 +525,9 @@ function App() {
             <div className="example-wrapper">
               <h3>Slider</h3>
               <h4>Simple</h4>
-              <Slider min={0} max={100} hasHintValues={true} />
+              <Slider />
               <h4>Range</h4>
-              <Slider min={0} max={100} type={'range'} hasHintValues={true} />
+              <Slider type={'range'} />
             </div>
             {/* SPOTLIGHT */}
             <div className="example-wrapper">

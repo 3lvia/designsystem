@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-tabs/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-tabs/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 
 export const tabsData: ComponentData = {

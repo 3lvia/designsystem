@@ -1,4 +1,4 @@
-import changelogJson from 'src/assets/changelogs/elvis-segmented-control/CHANGELOG.json';
+import changelogJson from '@elvia/elvis-segmented-control/CHANGELOG.json';
 import ComponentData from '../../component-data.interface';
 
 export const segmentedControlData: ComponentData = {

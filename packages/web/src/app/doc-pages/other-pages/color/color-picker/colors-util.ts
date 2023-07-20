@@ -7,7 +7,7 @@ import {
   getBaseColor,
   lightTheme,
 } from '@elvia/elvis-colors';
-import { ColorElement, RGB } from './colors-types';
+import { ColorElement, ContrastType, RGB } from './colors-types';
 
 const hexToRgb = (hex: string): RGB => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -59,6 +59,23 @@ export const getContrastValue = (
   return '';
 };
 
+export const convertContrastValueToNumber = (contrast: ContrastType) => {
+  switch (contrast) {
+    case '': {
+      return 0;
+    }
+    case 'Large AA': {
+      return 1;
+    }
+    case 'AA': {
+      return 2;
+    }
+    case 'AAA': {
+      return 3;
+    }
+  }
+};
+
 const getTokens = (hex: string, theme?: ThemeName) => {
   const foundLabels: ColorLabel[] = [];
   if (theme === 'dark') {
@@ -85,12 +102,19 @@ const getTokens = (hex: string, theme?: ThemeName) => {
 export const getColorElement = (
   colorName: DarkThemeColorName | LightThemeColorName,
   theme?: ThemeName,
-): ColorElement => ({
-  name: colorName,
-  hex: getBaseColor(colorName, theme),
-  contrast: {
-    white: getContrastValue(colorName, 'white', theme),
-    black: getContrastValue(colorName, 'black', theme),
-  },
-  token: getTokens(getBaseColor(colorName, theme), theme),
-});
+): ColorElement | undefined => {
+  try {
+    return {
+      name: colorName,
+      hex: getBaseColor(colorName, theme),
+      rgb: hexToRgb(getBaseColor(colorName, theme)),
+      contrast: {
+        white: getContrastValue(colorName, 'white', theme),
+        black: getContrastValue(colorName, 'black', theme),
+      },
+      tokens: getTokens(getBaseColor(colorName, theme), theme),
+    };
+  } catch {
+    return undefined;
+  }
+};

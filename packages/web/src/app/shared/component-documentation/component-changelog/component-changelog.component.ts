@@ -4,7 +4,7 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import Fuse from 'fuse.js';
 import { SearchService } from 'src/app/core/services/search.service';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
-import elvisChangelogJson from 'src/assets/changelogs/elvis/CHANGELOG.json';
+import elvisChangelogJson from '@elvia/elvis/CHANGELOG.json';
 import { ChangelogIdPipe } from './component-changelog-id-pipe';
 import { ChangelogTypePipe } from './component-changelog-pipe';
 

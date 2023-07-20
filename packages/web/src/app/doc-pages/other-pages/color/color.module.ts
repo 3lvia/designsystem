@@ -12,9 +12,16 @@ import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module
 import { ColorTokenSubtableComponent } from './color-token-table/color-token-subtable/color-token-subtable.component';
 import { ColorTokenSubtableColorCircleComponent } from './color-token-table/color-token-subtable/color-token-subtable-color-circle/color-token-subtable-color-circle.component';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
+import { ColorPickerColorListComponent } from './color-picker/color-picker-color-list/color-picker-color-list.component';
 import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
 import { IllustrationBaseDirective } from './illustrations/illustration-base.directive';
+import { ColorListBaseDirective } from './color-picker/color-list-base.directive';
+import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
+import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
+import { ColorPickerExhibitComponent } from './color-picker/color-picker-exhibit/color-picker-exhibit.component';
+import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
+import { NeedsBorderPipe } from './color-picker/needs-border.pipe';
 
 @NgModule({
   imports: [
@@ -26,17 +33,24 @@ import { IllustrationBaseDirective } from './illustrations/illustration-base.dir
     ComponentSubsubsectionModule,
     CegModule,
     CopyModule,
+    DoDontModule,
+    DoDontTextModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     ColorComponent,
     ColorPickerComponent,
+    ColorPickerColorListComponent,
     ColorTokenTableComponent,
     ColorTokenSubtableComponent,
     ColorTokenSubtableColorCircleComponent,
     PurposeTokenIllustrationComponent,
     ThemeTokenIllustrationComponent,
     IllustrationBaseDirective,
+    ColorListBaseDirective,
+    ColorPickerExhibitComponent,
+    ReplacePipe,
+    NeedsBorderPipe,
   ],
 })
 export class ColorModule {}

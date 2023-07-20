@@ -15,6 +15,7 @@ export {
   FormFieldInputContainer,
   FormFieldInputSuffixText,
   FormFieldLabel,
+  LabelProps,
 } from './components/form-field/formFieldStyles';
 export { FormFieldError, FormFieldErrorContainer } from './components/form-field/errorStyles';
 export { Overlay } from './components/overlay/overlay';

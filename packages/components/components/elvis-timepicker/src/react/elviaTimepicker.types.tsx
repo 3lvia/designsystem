@@ -1,7 +1,7 @@
 import { BaseProps, FormFieldSizes, HasError, HasValue } from '@elvia/elvis-toolbox';
 
 export type MinuteInterval = '1' | '5' | '10' | '15' | '60';
-export type ChangeType = 'hour' | 'minute';
+export type ChangeType = 'hour' | 'minute' | 'second';
 export type ErrorType = 'invalidTime' | 'required';
 
 export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasError {
@@ -12,6 +12,7 @@ export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasEr
    */
   isCompact: boolean;
   size: FormFieldSizes;
+  hasSecondPicker: boolean;
   isFullWidth: boolean;
   isRequired: boolean;
   isOpen: boolean;

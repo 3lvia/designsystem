@@ -8,6 +8,7 @@ interface Props {
   disabled?: boolean;
   isFullWidth: boolean;
   required: boolean;
+  hasSecondPicker: boolean;
   time?: Date | null;
   onChange: (newValue: Date | null) => void;
   onFocus: () => void;
@@ -18,6 +19,7 @@ export const TimepickerInput: React.FC<Props> = ({
   disabled,
   isFullWidth,
   required,
+  hasSecondPicker,
   time,
   onChange,
   onFocus,
@@ -42,26 +44,40 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const setInputValueFromCaretIndexRules = (newInputValue: string, pressedKey: string): void => {
+    const delimiterKeys = ['.', ':'];
+    const sanitizedNewInputValue = newInputValue.replace(/\./g, ':');
     switch (caretIndex) {
       case 0:
       case 3:
-      case 4: {
+      case 6:
+      case 7: {
         if (isNumericValue(pressedKey)) {
-          setInputValue(newInputValue);
+          setInputValue(sanitizedNewInputValue);
         }
         break;
       }
-      case 1: {
-        if (newInputValue.length === 2 && isNumericValue(pressedKey)) {
-          setInputValue(`${newInputValue}.`);
+      case 1:
+      case 4: {
+        if (
+          (sanitizedNewInputValue.length === 2 && isNumericValue(pressedKey)) ||
+          (hasSecondPicker && sanitizedNewInputValue.length === 5 && isNumericValue(pressedKey))
+        ) {
+          setInputValue(`${sanitizedNewInputValue}:`);
         } else if (isNumericValue(pressedKey)) {
-          setInputValue(newInputValue);
+          setInputValue(sanitizedNewInputValue);
+        } else if (delimiterKeys.includes(pressedKey)) {
+          if (caretIndex === 1) {
+            setInputValue(`0${sanitizedNewInputValue}`);
+          } else {
+            setInputValue(`${sanitizedNewInputValue.substring(0, 3)}0${sanitizedNewInputValue.substring(3)}`);
+          }
         }
         break;
       }
-      case 2: {
-        if (pressedKey === '.') {
-          setInputValue(newInputValue);
+      case 2:
+      case 5: {
+        if (delimiterKeys.includes(pressedKey)) {
+          setInputValue(sanitizedNewInputValue);
         }
         break;
       }
@@ -74,10 +90,12 @@ export const TimepickerInput: React.FC<Props> = ({
     );
 
     const newInputValue = ev.target.value;
+    const inputFieldIsFull =
+      (!hasSecondPicker && inputValue.length === 5) || (hasSecondPicker && inputValue.length === 8);
     if (isModifierKey) {
       setInputValue(newInputValue);
     } else {
-      if (inputValue.length === 5 && !hasSelectedText) {
+      if (inputFieldIsFull && !hasSelectedText) {
         return;
       }
 
@@ -90,26 +108,41 @@ export const TimepickerInput: React.FC<Props> = ({
     if (!time || formattedValue !== getFormattedInputValue(time)) {
       const newValue = time ? new Date(time) : new Date();
 
-      const parts = formattedValue.split('.');
-      newValue.setHours(+parts[0], +parts[1], 0, 0);
+      const [hour, minute, second] = formattedValue.split(':');
+      newValue.setHours(+hour, +minute, +(second ?? 0), 0);
       onChange(newValue);
     }
   };
 
-  const validateInputValue = (hour: string, minute: string): boolean => {
+  const validateInputValue = (
+    hour: string,
+    minute: string | undefined,
+    second: string | undefined,
+  ): boolean => {
     const parsedHour = hour.length > 2 ? hour.substring(0, 2) : hour;
-    let parsedMinute = hour.length > 2 ? hour.substring(2) : '';
+    let parsedMinute = hour.length > 2 ? hour.substring(2, 4) : '';
+    let parsedSecond = hour.length > 4 ? hour.substring(4, 6) : '';
 
     if (minute) {
       // Always use parsed minute if it exists
       parsedMinute = minute;
     }
-    parsedMinute = padDigit(+parsedMinute, { mode: 'suffix' });
+    parsedMinute = padDigit(+parsedMinute);
+
+    if (second) {
+      parsedSecond = second;
+    }
+    parsedSecond = padDigit(+parsedSecond);
 
     if (!parsedHour.length && required) {
       onErrorChange('required');
       return false;
-    } else if ((+parsedHour === 24 && +parsedMinute > 0) || +parsedHour > 24 || +parsedMinute >= 60) {
+    } else if (
+      (+parsedHour === 24 && +parsedMinute > 0) ||
+      +parsedHour > 24 ||
+      +parsedMinute >= 60 ||
+      (hasSecondPicker && +parsedSecond >= 60)
+    ) {
       onErrorChange('invalidTime');
       return false;
     }
@@ -119,9 +152,9 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const onBlur = (): void => {
-    let [hour, minute] = inputValue.split('.');
+    let [hour, minute, second] = inputValue.split(':');
 
-    const isValid = validateInputValue(hour, minute);
+    const isValid = validateInputValue(hour, minute, second);
 
     // Always emit empty values
     if (!inputValue.length) {
@@ -136,13 +169,22 @@ export const TimepickerInput: React.FC<Props> = ({
     if (inputValue.length <= 2 && isNumericValue(inputValue)) {
       hour = inputValue;
       minute = '';
+      second = '';
     } else if (inputValue.length >= 3 && inputValue.length <= 4 && isNumericValue(inputValue)) {
       hour = inputValue.substring(0, 2);
       minute = inputValue.substring(2);
+      second = '';
+    } else if (inputValue.length >= 5 && inputValue.length <= 5 && isNumericValue(inputValue)) {
+      hour = inputValue.substring(0, 2);
+      minute = inputValue.substring(2, 4);
+      second = inputValue.substring(4);
     }
+    second = second ?? '00';
 
     const normalizedHour = +hour === 24 ? 0 : +hour;
-    const newValue = `${padDigit(normalizedHour)}.${padDigit(+minute, { mode: 'suffix' })}`;
+    const newValue =
+      `${padDigit(normalizedHour)}:${padDigit(+minute)}` + (hasSecondPicker ? `:${padDigit(+second)}` : '');
+
     setInputValue(newValue);
     emitNewValue(newValue);
   };
@@ -152,7 +194,10 @@ export const TimepickerInput: React.FC<Props> = ({
       return '';
     }
 
-    return `${padDigit(date.getHours())}.${padDigit(date.getMinutes())}`;
+    return (
+      `${padDigit(date.getHours())}:${padDigit(date.getMinutes())}` +
+      (hasSecondPicker ? `:${padDigit(date.getSeconds())}` : '')
+    );
   };
 
   const onInputFocus = (): void => {
@@ -162,18 +207,18 @@ export const TimepickerInput: React.FC<Props> = ({
 
   useEffect(() => {
     if (touched) {
-      const [hour, minute] = inputValue.split('.');
-      validateInputValue(hour, minute);
+      const [hour, minute, second] = inputValue.split(':');
+      validateInputValue(hour, minute, second);
     }
   }, [required]);
 
   useEffect(() => {
-    setInputValue(getFormattedInputValue(time));
+    const formattedInputValue = getFormattedInputValue(time);
+    setInputValue(formattedInputValue);
 
-    const hour = getFormattedInputValue(time).split('.')[0];
-    const minute = getFormattedInputValue(time).split('.')[1];
-    validateInputValue(hour, minute);
-  }, [time]);
+    const [hour, minute, second] = formattedInputValue.split(':');
+    validateInputValue(hour, minute, second);
+  }, [time, hasSecondPicker]);
 
   // Focus and select the text when the parent container is double clicked
   useEffect(() => {
@@ -194,7 +239,8 @@ export const TimepickerInput: React.FC<Props> = ({
       ref={inputElement}
       disabled={disabled}
       isFullWidth={isFullWidth}
-      placeholder="tt.mm"
+      hasSecondPicker={hasSecondPicker}
+      placeholder={hasSecondPicker ? 'tt:mm:ss' : 'tt:mm'}
       value={inputValue}
       onKeyDown={onKeyDown}
       onChange={parseInput}

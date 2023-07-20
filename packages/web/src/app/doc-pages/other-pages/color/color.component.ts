@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { LOCALE_CODE } from 'contentful/types';
+import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
+import { Title } from '@angular/platform-browser';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-divider';
 
@@ -7,7 +12,6 @@ import '@elvia/elvis-divider';
   templateUrl: './color.component.html',
 })
 export class ColorComponent {
-  constructor() {}
   purposeTokenExample = `.container {
   color: var(--e-color-text-1);
   background: var(--e-color-background-1);  
@@ -34,4 +38,26 @@ export class ColorComponent {
      Some kind of subtext with the e-color-text-2 color and a border with the e-color-border-1 token.
   </span>
 </div>`;
+  description = getDocPagesNotFromCMS('color')?.description;
+  descriptionNo = getDocPagesNotFromCMS('color')?.descriptionNo;
+  locale: LOCALE_CODE = 'en-GB';
+  title = getDocPagesNotFromCMS('color')?.title;
+  titleNo = getDocPagesNotFromCMS('color')?.titleNo;
+
+  constructor(private titleService: Title, private localizationService: LocalizationService) {
+    this.setTabTitle();
+    this.localizationService
+      .listenLocalization()
+      .pipe(takeUntilDestroyed())
+      .subscribe((locale) => {
+        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+        this.setTabTitle();
+      });
+  }
+
+  setTabTitle = (): void => {
+    this.titleService.setTitle(
+      (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
+    );
+  };
 }

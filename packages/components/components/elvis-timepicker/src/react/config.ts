@@ -5,6 +5,7 @@ export const config: ComponentConfig = {
   attributes: [
     { name: 'value', type: 'Date' },
     { name: 'minuteInterval', type: 'string' },
+    { name: 'hasSecondPicker', type: 'boolean' },
     { name: 'isDisabled', type: 'boolean' },
     { name: 'isFullWidth', type: 'boolean' },
     { name: 'size', type: 'string' },

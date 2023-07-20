@@ -1,8 +1,9 @@
 import { HasValue, BaseProps } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type ScrollPosition = 'left' | 'center' | 'right' | 'no-scroll';
 
-export interface TabsProps extends BaseProps, HasValue<number> {
+export interface TabsProps extends ComponentPropsWithoutRef<'div'>, BaseProps, HasValue<number> {
   items: string[];
   isInverted?: boolean;
   hasManualActivation?: boolean;

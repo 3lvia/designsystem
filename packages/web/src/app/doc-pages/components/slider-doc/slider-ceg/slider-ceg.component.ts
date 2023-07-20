@@ -13,42 +13,45 @@ export class SliderCegComponent implements ComponentExample {
     {
       type: 'Simple',
       controls: {
-        hasInputField: { type: 'checkbox', group: 'Options', label: 'Input Field' },
-        hasHintValues: { type: 'checkbox', group: 'Options', label: 'Help Values' },
-        hasTooltip: { type: 'checkbox', group: 'Options', label: 'Display Tooltip', value: true },
-        hasPercent: {
-          type: 'checkbox',
-          group: 'Options',
-          label: 'Display Percentage',
-          childOf: 'hasTooltip',
+        label: { type: 'text', group: 'Label', label: 'Label', placeholder: 'Add label' },
+        size: {
+          type: 'radioGroup',
+          value: 'medium',
+          radios: [
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+          ],
+          group: 'Size',
         },
+        hasHints: { type: 'switch', group: 'Options', label: 'Show hints', value: true },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
-        unit: { type: 'text', group: 'Unit', label: 'Unit' },
+        unit: { type: 'text', group: 'Unit', label: 'Unit', placeholder: 'e.g. kWh' },
       },
       staticProps: {
         valueOnChange: () => '',
       },
-      groupOrder: ['Options', 'State', 'Unit'],
-      disabledControls: {
-        unit: ['hasPercent'],
-      },
+      groupOrder: ['Label', 'Size', 'State', 'Options', 'Unit'],
     },
     {
       type: 'Range',
       controls: {
-        hasInputField: { type: 'checkbox', group: 'Options', label: 'Input Fields' },
-        hasHintValues: { type: 'checkbox', group: 'Options', label: 'Help Values' },
-        hasTooltip: { type: 'checkbox', group: 'Options', label: 'Display Tooltip', value: true },
+        label: { type: 'text', group: 'Label', label: 'Label', placeholder: 'Add label' },
+        size: {
+          type: 'radioGroup',
+          value: 'medium',
+          radios: [
+            { label: 'Small', value: 'small' },
+            { label: 'Medium', value: 'medium' },
+          ],
+          group: 'Size',
+        },
         isDisabled: { type: 'checkbox', group: 'State', label: 'Disabled' },
-        unit: { type: 'text', group: 'Unit', label: 'Unit' },
+        unit: { type: 'text', group: 'Unit', label: 'Unit', placeholder: 'e.g. kWh' },
       },
       staticProps: {
         valueOnChange: () => '',
       },
-      groupOrder: ['Options', 'State', 'Unit'],
-      disabledControls: {
-        hasHintValues: ['hasInputField'],
-      },
+      groupOrder: ['Label', 'Size', 'State', 'Unit'],
     },
   ]);
 

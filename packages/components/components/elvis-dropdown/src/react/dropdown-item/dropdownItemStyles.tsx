@@ -65,6 +65,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   align-items: center;
   cursor: pointer;
   height: var(--item-height);
+  user-select: none;
 
   ${({ isActive, isMulti }) =>
     isActive &&

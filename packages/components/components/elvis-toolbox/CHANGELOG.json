@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.07.23",
+      "version": "9.3.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the typography and disabled color on primary/secondary buttons."]
+        }
+      ]
+    },
+    {
       "date": "26.06.23",
       "version": "9.3.0",
       "changelog": [
@@ -151,7 +161,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Overlay not closing properly on localhost in React"]
+          "changes": ["Overlay not closing properly on localhost in React."]
         }
       ]
     },

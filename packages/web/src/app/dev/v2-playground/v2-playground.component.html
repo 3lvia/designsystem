@@ -5,6 +5,49 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-bg-white">
+      <elvia-stepper
+        type="horizontal"
+        [value]="3"
+        [steps]="stepperStates"
+        (valueOnChange)="logValue('Stepper', $any($event).detail.value)"
+      >
+        <div slot="content">
+          <div>Step 1 content</div>
+          <div>Step 2 content</div>
+          <div>Step 3 content</div>
+          <div>Step 4 content</div>
+          <div>Step 5 content</div>
+          <div>Step 6 content</div>
+          <div>Step 7 content</div>
+          <div>Step 8 content</div>
+        </div>
+      </elvia-stepper>
+      <elvia-stepper
+        type="vertical"
+        [steps]="{
+          '1': { isCompleted: true, heading: 'Title #1' },
+          '2': { heading: 'Title #2' },
+          '3': { isError: true, heading: 'Title #3' },
+          '4': { heading: 'Title #4' },
+          '5': { heading: 'Title #5' },
+          '6': { heading: 'Title #6' },
+          '7': { heading: 'Title #7' },
+          '8': { heading: 'Title #8' }
+        }"
+      >
+        <div slot="content">
+          <div>Step 1 content</div>
+          <div>Step 2 content</div>
+          <div>Step 3 content</div>
+          <div>Step 4 content</div>
+          <div>Step 5 content</div>
+          <div>Step 6 content</div>
+          <div>Step 7 content</div>
+          <div>Step 8 content</div>
+        </div>
+      </elvia-stepper>
+      <button (click)="toggleState()">Toggle</button>
+
       <elvia-pagination
         numberOfElements="60000"
         [value]="defaultPaginationValue"
@@ -16,50 +59,7 @@
       ></elvia-pagination>
     </div>
     <!--Inverted version-->
-    <div class="e-theme-dark e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32">
-      <div class="e-flex e-flex-direction-column e-align-items-center">
-        <div class="e-title-caps e-mb-16">Removable</div>
-        <div *ngFor="let chip of deletableChipsList">
-          <elvia-chip
-            [value]="chip.value"
-            [color]="chip.color"
-            [ariaLabel]="'Fjern filtrering for ' + chip.value"
-            [isDisabled]="chip.isDisabled"
-            (onDelete)="handleOnDelete($any($event).detail.value)"
-            [inlineStyle]="{ margin: '8px' }"
-          ></elvia-chip>
-        </div>
-      </div>
-      <div class="e-flex e-flex-direction-column e-align-items-center">
-        <div class="e-title-caps e-mb-16">Choice</div>
-        <div *ngFor="let chip of choiceChipsList">
-          <elvia-chip
-            [type]="'choice'"
-            [value]="chip.value"
-            [color]="chip.color"
-            [ariaLabel]="'Fjern filtrering for ' + chip.value"
-            [isSelected]="chip.isSelected"
-            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
-            [inlineStyle]="{ margin: '8px' }"
-          ></elvia-chip>
-        </div>
-      </div>
-      <div class="e-flex e-flex-direction-column e-align-items-center">
-        <div class="e-title-caps e-mb-16">Legend</div>
-        <div *ngFor="let chip of legendChipsList">
-          <elvia-chip
-            [type]="'legend'"
-            [value]="chip.value"
-            [color]="chip.color"
-            [ariaLabel]="'Fjern filtrering for ' + chip.value"
-            [isSelected]="chip.isSelected"
-            [isLoading]="chip.isLoading"
-            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
-            [inlineStyle]="{ margin: '8px' }"
-          ></elvia-chip>
-        </div>
-      </div>
-    </div>
+    <div class="e-theme-dark e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32"></div>
   </div>
 
   <!--Accordion-->
@@ -132,7 +132,7 @@
     <h3>Box</h3>
     <div style="padding: 8px">
       <elvia-box>
-        <h3 slot="title">Title</h3>
+        <h3 slot="heading">Title</h3>
         <div slot="content">Webcomponentent content for the box component</div>
       </elvia-box>
     </div>
@@ -307,7 +307,7 @@
   <div class="example-wrapper">
     <h3>Divider</h3>
     <h4>Title divider</h4>
-    <elvia-divider type="title" typography="caps">
+    <elvia-divider type="heading" typography="caps">
       <h2 slot="heading">Title with caps</h2>
     </elvia-divider>
     <h4>Vertical divider</h4>
@@ -495,80 +495,14 @@
     ></elvia-segmented-control>
   </div>
 
-  <!--Slider-->
+  Slider
   <div class="example-wrapper">
     <h3>Slider</h3>
-    <h4>Simple Slider</h4>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
-      <elvia-slider [type]="'simple'" [min]="0" [max]="100"></elvia-slider>
-      <elvia-slider [type]="'simple'" [min]="1" [max]="10000000" [hasInputField]="true"></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="1"
-        [max]="10000000"
-        [hasInputField]="true"
-        [hasHintValues]="true"
-      ></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="0"
-        [max]="100"
-        [hasInputField]="true"
-        [unit]="' kr'"
-      ></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="0"
-        [max]="100"
-        [hasInputField]="true"
-        [unit]="' kWh'"
-        [label]="'Kilowattime'"
-      ></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="50"
-        [max]="250"
-        [hasInputField]="true"
-        [hasPercent]="true"
-      ></elvia-slider>
-      <elvia-slider [type]="'simple'" [min]="0" [max]="100" [isDisabled]="true"></elvia-slider>
-      <elvia-slider
-        [type]="'simple'"
-        [min]="0"
-        [max]="100"
-        [isDisabled]="true"
-        [hasInputField]="true"
-      ></elvia-slider>
-    </div>
+    <h4>Simple</h4>
+    <elvia-slider label="I am a label" unit="kWh" />
 
-    <h4>Range Slider</h4>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
-      <elvia-slider [type]="'range'" [min]="1" [max]="100"></elvia-slider>
-      <elvia-slider [type]="'range'" [min]="1" [max]="100" [hasHintValues]="true"></elvia-slider>
-      <elvia-slider
-        [type]="'range'"
-        [min]="0"
-        [max]="100"
-        [hasInputField]="true"
-        [hasHintValues]="true"
-      ></elvia-slider>
-      <elvia-slider
-        [type]="'range'"
-        [min]="1"
-        [max]="100"
-        [hasInputField]="true"
-        [label]="{ left: 'Min', right: 'Maks' }"
-        [unit]="' kWh'"
-      ></elvia-slider>
-      <elvia-slider [type]="'range'" [min]="0" [max]="100" [isDisabled]="true"></elvia-slider>
-      <elvia-slider
-        [type]="'range'"
-        [min]="0"
-        [max]="100"
-        [isDisabled]="true"
-        [hasInputField]="true"
-      ></elvia-slider>
-    </div>
+    <h4>Range</h4>
+    <elvia-slider label="I am also a label" unit="kWh" type="range" />
   </div>
 
   <!--Spotlight-->

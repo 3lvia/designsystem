@@ -1,24 +1,32 @@
+import { removeCircle } from '@elvia/elvis-assets-icons';
+import { FormFieldError, FormFieldErrorContainer, IconWrapper } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
-import { ErrorContainer, ErrorText } from './errorStyles';
-import { IconWrapper } from '@elvia/elvis-toolbox';
-import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
+import { BothSliders, ErrorType, SliderProps } from '../elvia-slider.types';
+import { getErrorOptionsText, getInternalErrorText } from '../utils/getError';
 
-interface SliderErrorProps {
-  errorMessage: string | undefined;
-  id: string | undefined;
+interface Props {
+  errorType?: Partial<BothSliders<ErrorType>>;
+  errorOptions?: SliderProps['errorOptions'];
+  id: string;
 }
 
-export const SliderError: React.FC<SliderErrorProps> = ({ errorMessage }) => {
-  const [errorText, setErrorText] = useState(errorMessage);
+export const SliderError: React.FC<Props> = ({ errorType, errorOptions, id }) => {
+  const [errorText, setErrorText] = useState('');
 
   useEffect(() => {
-    setErrorText(errorMessage);
-  }, [errorMessage]);
+    if (errorType) {
+      setErrorText(getInternalErrorText(errorType));
+    } else if (errorOptions) {
+      setErrorText(getErrorOptionsText(errorOptions));
+    } else {
+      setErrorText('');
+    }
+  }, [errorType, errorOptions]);
 
   return (
-    <ErrorContainer>
-      <IconWrapper icon={removeCircle} color="error" size="xs" />
-      <ErrorText>{errorText}</ErrorText>
-    </ErrorContainer>
+    <FormFieldErrorContainer>
+      <IconWrapper icon={removeCircle} color={'signal-error'} size="xs" />
+      <FormFieldError id={`error-${id}`}>{errorText}</FormFieldError>
+    </FormFieldErrorContainer>
   );
 };

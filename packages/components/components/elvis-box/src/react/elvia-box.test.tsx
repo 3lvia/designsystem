@@ -9,12 +9,12 @@ const htmlCode = <div>Html content</div>;
 describe('Elvis Box', () => {
   describe('Title = Hello', () => {
     beforeEach(() => {
-      render(<Box title="Hello Box" content=""></Box>);
+      render(<Box heading="Hello Box" content=""></Box>);
     });
 
-    it('should have title containing "Hello Box"', () => {
-      const boxTitle = screen.getByTestId('box-title');
-      expect(boxTitle).toHaveTextContent('Hello Box');
+    it('should have heading containing "Hello Box"', () => {
+      const boxHeading = screen.queryByText('Hello Box');
+      expect(boxHeading).toBeInTheDocument();
     });
 
     it('should not have className undefined', () => {
@@ -66,7 +66,7 @@ describe('Elvis Box', () => {
     it('should have no axe violations', async () => {
       render(
         <div data-testid="boxes">
-          <Box title="Hello Box" content=""></Box>
+          <Box heading="Hello Box" content=""></Box>
           <Box isColored content="Some content"></Box>
         </div>,
       );

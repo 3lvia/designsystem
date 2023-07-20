@@ -146,10 +146,16 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       if (hasSelectDateOnOpen && !date) {
         setDateToFirstValidDate();
       }
-
-      trapFocus(popoverRef);
     }
   };
+
+  useEffect(() => {
+    if (isShowing && popoverRef.current) {
+      trapFocus(popoverRef);
+    }
+
+    return () => releaseFocusTrap();
+  }, [isShowing]);
 
   const onError = (newError?: ErrorType): void => {
     if (newError === error) {

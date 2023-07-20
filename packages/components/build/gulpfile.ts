@@ -274,16 +274,6 @@ function cleanup() {
   return del(['../components/**/dist/**/*', '!../components/**/node_modules/**/*'], { force: true });
 }
 
-// Copies changelogs from component dictionary to web dictionary
-function copyChangelogs() {
-  const componentSrc = ['../components/**/CHANGELOG.json'];
-
-  return gulp
-    .src(componentSrc, { base: '../components' })
-    .pipe(cache('copyChangelogs'))
-    .pipe(gulp.dest('../../web/src/assets/changelogs'));
-}
-
 gulp.task(
   'cleanup',
   gulp.series(cleanup, (done) => {
@@ -298,7 +288,6 @@ gulp.task(
     buildToolboxComponent,
     getComponentConfigs,
     TSX_to_JS,
-    copyChangelogs,
     reactTypescriptDeclarations,
     buildWebComponentsMagically,
     function (done) {

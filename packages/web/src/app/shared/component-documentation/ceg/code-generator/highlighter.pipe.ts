@@ -8,6 +8,10 @@ import { Language } from './types';
 })
 export class HighlighterPipe implements PipeTransform {
   transform(code: string, language: Language): string {
-    return Prism.highlight(code, Prism.languages[language], language);
+    if (Prism.languages[language]) {
+      return Prism.highlight(code, Prism.languages[language], language);
+    } else {
+      return Prism.util.encode(code) as string;
+    }
   }
 }

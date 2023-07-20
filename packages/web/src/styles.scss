@@ -80,7 +80,7 @@ kbd,
 .keyboard-button {
   padding: 6px 16px;
   margin-right: 8px;
-  border: 1px solid black;
+  border: 1px solid var(--e-color-border-1, black);
   border-radius: 64px;
   @include typography.typography('text-sm');
   &:not(:first-of-type) {
