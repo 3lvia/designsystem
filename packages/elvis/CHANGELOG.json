@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "12.2.2",
+      "date": "July 20, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the circled icon-buttons would have an excessively large background when in their active state."
+          ],
+          "pages": [{ "displayName": "Button", "url": "https://design.elvia.io/compomnents/button" }]
+        }
+      ]
+    },
+    {
       "version": "12.2.1",
       "date": "July 04, 2023",
       "changelog": [
