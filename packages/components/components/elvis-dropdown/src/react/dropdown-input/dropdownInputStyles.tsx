@@ -1,16 +1,20 @@
 import { FormFieldInput } from '@elvia/elvis-toolbox';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Input = styled(FormFieldInput)`
+export const Input = styled(FormFieldInput)<{ $isEditable: boolean }>`
   flex: 1;
   text-overflow: ellipsis;
 
-  ::-moz-selection {
-    /* Code for Firefox */
-    background: transparent;
-  }
+  ${({ $isEditable }) =>
+    !$isEditable &&
+    css`
+      ::-moz-selection {
+        /* Code for Firefox */
+        background: transparent;
+      }
 
-  ::selection {
-    background: transparent;
-  }
+      ::selection {
+        background: transparent;
+      }
+    `};
 `;
