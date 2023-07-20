@@ -1,0 +1,9 @@
+<div *ngFor="let changelog of changelogs | async">
+  <br />
+  <span>{{ changelog.name }}</span>
+  <br />
+  <span>{{ changelog.date }}</span>
+  <br />
+  <span>{{ changelog.version }}</span>
+  <br />
+</div>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
-import { frontPageChangelogs } from './changelogs';
+import { createChangelogs } from './changelogs';
 
 @Component({
   selector: 'app-front-page-changelog',
@@ -8,5 +7,5 @@ import { frontPageChangelogs } from './changelogs';
   styleUrls: ['./front-page-changelog.component.scss'],
 })
 export class FrontPageChangelogComponent {
-  changelogs = frontPageChangelogs;
+  changelogs = createChangelogs();
 }
