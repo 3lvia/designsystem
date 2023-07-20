@@ -7,6 +7,7 @@
         {
           "type": "new_feature",
           "changes": [
+            "Added new icons: <code>code</code>, <code>cleaning_vacuum</code>, <code>cog-color</code>, <code>cog_hand_give</code>, and <code>contract</code>.",
             "Renamed the icon <code>list_color</code> to <code>list-color</code> to follow proper naming conventions."
           ],
           "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]

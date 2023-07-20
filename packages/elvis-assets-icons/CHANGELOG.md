@@ -1,5 +1,16 @@
 # Elvis-assets-icon
 
+## 3.3.0 ()
+
+### New feature
+
+- New icons:
+  1. `code`.
+  2. `cleaning_vacuum`.
+  3. `cog-color`.
+  4. `cog_hand_give`.
+  5. `contract`.
+
 ## 3.2.1 (26.06.23)
 
 ### Bug fix
