@@ -50,6 +50,7 @@ export const createChangelogs = async () => {
     return changelogs;
     // TODO: Use better type
   }, Promise.resolve([] as { name: string; version: string; date: Date; changelog: any[] }[]));
+  console.log(changelogs);
   return changelogs
     .sort((a, b) => {
       return a.date < b.date ? 1 : -1;
