@@ -95,8 +95,6 @@ const changelogNames = [
   'tooltip',
 ];
 
-//const firstChangelogs = changelogs.map((changelog) => changelog.content[0]);
-
 export const frontPageChangelogs = changelogs.map((changelog, i) => {
   const version = changelog.content[0].version;
   const date = changelog.content[0].date;
