@@ -126,12 +126,12 @@ const getIconsToBuild = () => {
       };
     }
   });
-  const uniqueIcons = iconsToInclude.reduce((allIcons, current) => {
-    if (allIcons.find((icon) => icon.name === current.name)) {
-      return allIcons;
+  const uniqueIcons = iconsToInclude.reduce((newIconList, current) => {
+    if (newIconList.find((icon) => createCamelCase(icon.name) === createCamelCase(current.name))) {
+      return newIconList;
     }
-    return [...allIcons, current];
-  }, [] as { name: string; path: string }[]);
+    return [...newIconList, current];
+  }, [] as typeof iconsToInclude);
   return uniqueIcons;
 };
 
