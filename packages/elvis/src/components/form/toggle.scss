@@ -17,10 +17,12 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
 :root,
 .e-theme-light {
   --e-toggle-border-color: transparent;
+  --e-toggle-checked-disabled-switch: #c2ebba;
 }
 
 .e-theme-dark {
   --e-toggle-border-color: var(--e-dark-theme-white);
+  --e-toggle-checked-disabled-switch: #619655;
 }
 
 .e-toggle {
@@ -122,13 +124,23 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
     cursor: not-allowed;
 
     &.e-toggle__input::before {
-      background-color: colors.color('disabled');
+      background-color: var(--e-color-background-disabled-2);
+      border-color: transparent;
       cursor: not-allowed;
     }
 
     &.e-toggle__input::after {
-      background-color: colors.color('grey-10');
+      background-color: var(--e-color-background-disabled-1);
       cursor: not-allowed;
+    }
+  }
+
+  // Disabled checked
+  &.e-toggle---checked.e-toggle---disabled .e-toggle__input,
+  input:checked:disabled.e-toggle__input {
+    &::after {
+      @include helpers.transform(translateX(16px));
+      background: var(--e-toggle-checked-disabled-switch);
     }
   }
 }
