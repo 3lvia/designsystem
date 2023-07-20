@@ -135,20 +135,9 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
 
   private patchPropValueInUrl(propName: string, value: ControlValue, merge = true): void {
     const currentUrl = this.location.path().split('?')[0];
-    const previousParams = this.location.path().split('?')[1]?.split('#')[0]?.split('&');
-    const previousParamsObj =
-      previousParams?.reduce((params, param) => {
-        const [prop, val] = param.split('=');
-        params[prop] = val;
-        return params;
-      }, {} as Record<string, string>) ?? {};
-
-    let params = new HttpParams({ fromObject: merge ? previousParamsObj : {} });
-    if (params.has(propName)) {
-      params = params.set(propName, value?.toString() ?? '');
-    } else {
-      params = params.append(propName, value?.toString() ?? '');
-    }
+    const params = new HttpParams({
+      fromObject: merge ? this.route.snapshot.queryParams : {},
+    }).set(propName, value ?? '');
     this.location.replaceState(currentUrl, params.toString());
   }
 
