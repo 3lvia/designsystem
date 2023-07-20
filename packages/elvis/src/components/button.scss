@@ -840,7 +840,7 @@ $loading-dot-sm: 8px;
       &.e-btn---active,
       &:active:not(:disabled) {
         background: transparent;
-        // Showing hover ikon
+        // Showing hover icon
         .e-btn__icon i:not([class$='filled-color']),
         .e-btn__icon i:not([class$='disabled']) {
           visibility: hidden;
@@ -860,7 +860,7 @@ $loading-dot-sm: 8px;
     &.e-btn---hover,
     &.e-btn---selected,
     &.e-btn---active,
-    &:active:not(:disabled):not(.e-btn--loading) {
+    &:active:not(:disabled):not(.e-btn--loading, .e-btn--circled) {
       background: colors.color('elvia-charge');
 
       .e-btn__icon i[class$='inverted'] {
