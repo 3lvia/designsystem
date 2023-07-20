@@ -124,8 +124,8 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
     cursor: not-allowed;
 
     &.e-toggle__input::before {
-      background-color: var(--e-color-background-disabled-2);
       border-color: transparent;
+      background-color: var(--e-color-background-disabled-2);
       cursor: not-allowed;
     }
 
