@@ -21,6 +21,7 @@ import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.modul
 import { ColorPickerExhibitComponent } from './color-picker/color-picker-exhibit/color-picker-exhibit.component';
 import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
 import { NeedsBorderPipe } from './color-picker/needs-border.pipe';
+import { ColorPickerHeaderComponent } from './color-picker/color-picker-header/color-picker-header.component';
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import { NeedsBorderPipe } from './color-picker/needs-border.pipe';
     ColorPickerExhibitComponent,
     ReplacePipe,
     NeedsBorderPipe,
+    ColorPickerHeaderComponent,
   ],
 })
 export class ColorModule {}

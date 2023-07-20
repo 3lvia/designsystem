@@ -1,10 +1,18 @@
 @use './color-picker-gradient.scss' as gradient;
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .theme-container {
   border-radius: 16px;
   padding: 40px;
   margin: -40px;
   transition: background-color 500ms ease-in-out;
+
+  .header-container {
+    margin-bottom: 56px;
+    @include breakpoints.breakpoint-up(Mobile) {
+      margin-bottom: 40px;
+    }
+  }
 
   .color-list-container {
     display: flex;
