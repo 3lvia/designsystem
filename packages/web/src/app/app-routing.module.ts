@@ -6,6 +6,7 @@ import { HomeComponent } from './shell/home/home.component';
 
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { ErrorComponent } from './shared/error/error.component';
+import { FlagBasedPreloadingStrategy } from './flag-based.preloading-strategy';
 
 const routes: Routes = [
   {
@@ -44,6 +45,9 @@ const routes: Routes = [
         path: 'components',
         loadChildren: () =>
           import('./doc-pages/components/components-routing.module').then((m) => m.ComponentsRoutingModule),
+        data: {
+          preload: true,
+        },
       },
       // Dev section
       {
@@ -69,7 +73,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: FlagBasedPreloadingStrategy,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
