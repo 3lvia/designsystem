@@ -1,0 +1,7 @@
+// The button import order should stay the same for the classes to work correctly
+@use './deprecated.scss';
+@use './icon.scss';
+@use './secondary.scss';
+@use './tertiary.scss';
+@use './danger.scss';
+@use './button.scss';

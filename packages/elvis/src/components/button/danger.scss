@@ -1,0 +1,70 @@
+@use '../../utilities/helpers.scss';
+@use '../../variables/colors.scss';
+
+:root,
+.e-theme-light {
+  --e-button-danger-hover-background: var(--e-light-theme-black);
+  --e-button-danger-hover-text: var(--e-light-theme-white);
+}
+
+.e-theme-dark {
+  --e-button-danger-hover-background: var(--e-dark-theme-white);
+  --e-button-danger-hover-text: var(--e-dark-theme-black);
+}
+
+.e-btn.e-btn--danger {
+  border-color: var(--e-color-signal-error);
+  background: var(--e-color-signal-error);
+  color: var(--e-color-static-white);
+
+  .e-btn__icon {
+    i {
+      visibility: hidden;
+    }
+
+    i[class*='color-white'] {
+      visibility: visible;
+    }
+  }
+
+  // States
+  @include helpers.hover() {
+    &.e-btn---hover,
+    &.e-btn---selected,
+    &.e-btn---active,
+    &:active:not(:disabled):not(.e-btn--loading),
+    &:hover:not(:disabled):not(.e-btn--loading) {
+      border-color: var(--e-button-danger-hover-background);
+      background: var(--e-button-danger-hover-background);
+      color: var(--e-button-danger-hover-text);
+
+      .e-btn__icon {
+        i:not([class*='inverted']) {
+          visibility: hidden;
+        }
+
+        i[class*='color-white'] {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &.e-btn---active,
+  &:active:not(:disabled):not(.e-btn--loading) {
+    border-color: transparent;
+    background-clip: padding-box;
+  }
+
+  &.e-btn---disabled,
+  &:disabled {
+    border-color: var(--e-color-signal-error);
+    background: var(--e-color-signal-error);
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+
+  &.e-btn--loading span {
+    background-color: colors.color('elvia-on');
+  }
+}

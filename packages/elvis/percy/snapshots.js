@@ -29,6 +29,14 @@ module.exports = [
     name: 'Buttons',
     url: '/components/buttons.html',
     widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
   },
   {
     name: 'Checkbox',
