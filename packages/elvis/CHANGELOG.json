@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "12.3.0",
+      "date": "July 20, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Renamed the icon <code>list_color</code> to <code>list-color</code> to follow proper naming conventions."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "12.2.1",
       "date": "July 04, 2023",
       "changelog": [
