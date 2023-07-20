@@ -126,7 +126,13 @@ const getIconsNotDeprecated = () => {
       };
     }
   });
-  return iconsToInclude;
+  const uniqueIcons = iconsToInclude.reduce((allIcons, current) => {
+    if (allIcons.find((icon) => icon.name === current.name)) {
+      return allIcons;
+    }
+    return [...allIcons, current];
+  }, [] as { name: string; path: string }[]);
+  return uniqueIcons;
 };
 
 // Create icon module in icons.js and icons.d.ts
