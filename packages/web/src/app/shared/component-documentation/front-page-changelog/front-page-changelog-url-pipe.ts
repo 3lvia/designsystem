@@ -5,16 +5,16 @@ export class FrontPageChangelogUrlPipe implements PipeTransform {
   transform(name?: string): string {
     try {
       if (!name) {
-        return 'https://design.elvia.io/';
+        return '';
       }
       if (name === 'elvis') {
-        return 'https://design.elvia.io/about/whats-new';
+        return '/about/whats-new';
       }
-      const formattedUrl = 'https://design.elvia.io/components/' + name.split('-').slice(1).join('-');
+      const formattedUrl = '/components/' + name.split('-').slice(1).join('-');
       return formattedUrl;
     } catch (e) {
       console.warn(`"name": "${name}" in changelog is invalid. Should be "elvis-(name)" or "elvis"`);
-      return 'https://design.elvia.io/';
+      return '';
     }
   }
 }
