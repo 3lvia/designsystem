@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.07.23",
+      "version": "2.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the value-prop would not update the segmented control when changed.",
+            "Fixed an issue where the segmented control had an unexpected taller height due to excessive line height."
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.06.23",
       "version": "2.0.2",
       "changelog": [

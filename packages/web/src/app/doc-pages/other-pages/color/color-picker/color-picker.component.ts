@@ -3,6 +3,7 @@ import { lightColors } from './colors-light';
 import { darkColors } from './colors-dark';
 import { ColorElement } from './colors-types';
 import { getColorElement } from './colors-util';
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-color-picker',
@@ -10,17 +11,23 @@ import { getColorElement } from './colors-util';
   styleUrls: ['./color-picker.component.scss'],
 })
 export class ColorPickerComponent {
-  isDarkTheme = false;
-  colorList = this.isDarkTheme ? darkColors : lightColors;
+  theme: ThemeName = 'light';
+  colorList = this.theme === 'dark' ? darkColors : lightColors;
   currentColor: ColorElement | undefined = this.colorList.primary[0];
+  previousColor: ColorElement | undefined;
   categories = ['primary', 'signal', 'data', 'grey'] as const;
 
-  toggleTheme = () => {
-    this.isDarkTheme = !this.isDarkTheme;
-    this.colorList = this.isDarkTheme ? darkColors : lightColors;
+  handleChangeThemeEvent = (newTheme: ThemeName) => {
+    this.theme = newTheme;
+    this.colorList = newTheme === 'dark' ? darkColors : lightColors;
+
+    if (this.currentColor) {
+      this.previousColor = this.currentColor;
+    }
+
     this.currentColor = getColorElement(
-      this.currentColor?.name ?? this.colorList.primary[0].name,
-      this.isDarkTheme ? 'dark' : 'light',
+      this.currentColor?.name ?? (this.previousColor as ColorElement).name,
+      newTheme,
     );
   };
 

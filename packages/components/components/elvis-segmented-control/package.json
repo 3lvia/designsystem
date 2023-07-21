@@ -1,10 +1,8 @@
 {
   "name": "@elvia/elvis-segmented-control",
-  "version": "2.0.2",
-  "description": "",
+  "version": "2.0.3",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/segmented-control",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",

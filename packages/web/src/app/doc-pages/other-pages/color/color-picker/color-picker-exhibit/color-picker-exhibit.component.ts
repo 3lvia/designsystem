@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ColorElement } from '../colors-types';
 import { getColorElement } from '../colors-util';
-import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis-colors';
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-color-picker-exhibit',
@@ -9,6 +9,7 @@ import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis
   styleUrls: ['./color-picker-exhibit.component.scss'],
 })
 export class ColorPickerExhibitComponent {
+  @Input({ required: true }) readonly theme: ThemeName;
   @Input({ required: true })
   get currentColor(): ColorElement {
     return this._currentColor;
@@ -18,10 +19,11 @@ export class ColorPickerExhibitComponent {
       this._currentColor = value;
     } else {
       this._currentColor = {
-        //empty
+        ...this._currentColor,
+
+        //an empty color element, but keep the name for the empty state
         contrast: { black: '', white: '' },
         hex: '',
-        name: '' as any,
         rgb: [-1, -1, -1],
         tokens: [],
       };
@@ -29,21 +31,7 @@ export class ColorPickerExhibitComponent {
   }
   private _currentColor: ColorElement;
 
-  @Input({ required: true }) theme: ThemeName;
-
-  private colorExistsInTheme = (
-    color: DarkThemeColorName | LightThemeColorName,
-    theme: ThemeName,
-  ): boolean => {
-    try {
-      getColorElement(color, theme);
-      return true;
-    } catch {
-      return false;
-    }
-  };
-
   get currentColorExistsInCurrentTheme(): boolean {
-    return !!(this.currentColor?.name && this.colorExistsInTheme(this.currentColor.name, this.theme));
+    return !!getColorElement(this.currentColor?.name, this.theme);
   }
 }
