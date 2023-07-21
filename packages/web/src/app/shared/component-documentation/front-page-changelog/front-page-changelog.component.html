@@ -1,7 +1,6 @@
 <ng-container *ngFor="let changelog of changelogs | async; last as isLast">
   <tr class="changelog-container">
     <td class="changelog-name-and-icon">
-      <i class="e-icon e-icon--lg" aria-hidden="true"></i>
       <a class="e-link e-link--lg" [routerLink]="changelog.name | FrontPageChangelogUrlPipe">
         {{ changelog.name | FrontPageChangelogNamePipe }}
       </a>
