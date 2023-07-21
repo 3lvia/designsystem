@@ -47,12 +47,10 @@ export const createChangelogs = async () => {
     });
     changelogs.push({ ...entry, name: name, date: toDateObject(entry.date) });
     return changelogs;
-    // TODO: Use better type
   }, Promise.resolve([] as { name: string; version: string; date: Date; changelog: any[] }[]));
   console.log(changelogs);
-  return changelogs
-    .sort((a, b) => {
-      return a.date < b.date ? 1 : -1;
-    })
-    .slice(0, 5);
+  const sortedChangelogs = changelogs.sort((a, b) => {
+    return a.date < b.date ? 1 : -1;
+  });
+  return sortedChangelogs.slice(0, 5);
 };
