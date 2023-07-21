@@ -11,13 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorModule } from './shared/error/error.module';
 import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
 import { MobileHeaderModule } from './shell/header/mobile-menu/mobile-menu.module';
-import { OtherPagesModule } from './doc-pages/other-pages/other-pages.module';
 import '@elvia/elvis-outline';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    OtherPagesModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
