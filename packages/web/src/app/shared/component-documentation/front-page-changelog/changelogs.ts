@@ -27,7 +27,6 @@ const changelogNames = [
   'elvis-tabs',
   'elvis-timepicker',
   'elvis-toast',
-  'elvis-toolbox',
   'elvis-tooltip',
 ];
 
