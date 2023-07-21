@@ -1,4 +1,4 @@
-<div *ngFor="let changelog of changelogs | async; last as isLast">
+<ng-container *ngFor="let changelog of changelogs | async; last as isLast">
   <tr class="changelog-container">
     <td class="changelog-name-and-icon">
       <i class="e-icon e-icon--lg" aria-hidden="true"></i>
@@ -15,4 +15,4 @@
     </td>
   </tr>
   <div class="changelog-divider"><elvia-divider *ngIf="!isLast" /></div>
-</div>
+</ng-container>
