@@ -1,28 +1,32 @@
-.changelog-container {
+:host {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 100%;
-  width: 405px;
-  margin: auto;
-  .changelog-name-and-icon {
+  flex-direction: column;
+  gap: 16px;
+  .changelog-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    text-transform: capitalize;
-    i {
-      margin-right: 16px;
+    max-width: 100%;
+    width: 405px;
+    margin: auto;
+    .changelog-name-and-icon {
+      display: flex;
+      align-items: center;
+      text-transform: capitalize;
+      i {
+        margin-right: 16px;
+      }
+    }
+    .changelog-version-and-date {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      .front-page-changelog-date {
+        color: var(--e-color-text-2);
+      }
     }
   }
-  .changelog-version-and-date {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  .changelog-divider {
+    margin: 16px 0;
   }
-  .front-page-changelog-date {
-    display: block;
-    color: var(--e-color-text-2);
-  }
-}
-.changelog-divider {
-  margin: 16px 0;
 }
