@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 import { getThemeColor } from '@elvia/elvis-colors';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import {
   SegmentedControlContainerProps,
   SegmentedControlLabelProps,
@@ -9,21 +8,25 @@ import {
 } from './elviaSegmentedControl.types';
 
 const controlPaddingXLarge = 40;
-const controlPaddingXMedium = 24;
-const controlPaddingXSmall = 22;
 const controlPaddingYLarge = 12;
+
+const controlPaddingXMedium = 24;
 const controlPaddingYMedium = 8;
+
+const controlPaddingXSmall = 22;
 const controlPaddingYSmall = 4;
+
 const iconControlPaddingLarge = 12;
 const iconControlPaddingMedium = 12;
 const iconControlPaddingSmall = 8;
-const fontSizeLarge = '1rem';
-const fontSizeMedium = '0.875rem';
-const fontSizeSmall = '0.875rem';
+
+const fontSizeLarge = '16px';
+const fontSizeMedium = '14px';
+const fontSizeSmall = '14px';
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const getControlPadding = (size: string, scType: Type) => {
-  if (scType === 'icon') {
+const getControlPadding = (size: string, $type: Type) => {
+  if ($type === 'icon') {
     if (size === 'large') {
       return `${iconControlPaddingLarge - 1}px`;
     } else if (size === 'medium') {
@@ -52,10 +55,10 @@ const getFontSize = (size: string) => {
   }
 };
 
-const getControlBorder = (scType: Type, isSelected: boolean, isHovering?: boolean): string => {
-  if (scType === 'icon' && isSelected) {
+const getControlBorder = ($type: Type, isSelected: boolean, isHovering?: boolean): string => {
+  if ($type === 'icon' && isSelected) {
     return `1px solid ${getThemeColor('border-1')}`;
-  } else if (scType === 'icon' && isHovering) {
+  } else if ($type === 'icon' && isHovering) {
     return `1px solid ${getThemeColor('border-hover-1')}`;
   } else {
     return '1px solid transparent';
@@ -68,14 +71,14 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   grid-auto-flow: column;
   position: relative;
   width: max-content;
-  border: ${({ scType }) => (scType === 'text' ? `1px solid ${getThemeColor('border-1')}` : 'none')};
+  border: ${({ $type }) => ($type === 'text' ? `1px solid ${getThemeColor('border-1')}` : 'none')};
   border-radius: 100px;
-  gap: ${({ scType }) => (scType === 'text' ? '0' : '8px')};
-  background: ${({ scType }) => (scType === 'text' ? getThemeColor('background-1') : 'transparent')};
+  gap: ${({ $type }) => ($type === 'text' ? '0' : '8px')};
+  background: ${({ $type }) => ($type === 'text' ? getThemeColor('background-1') : 'transparent')};
 
   // Selected control background
-  ${({ scType, numberOfControls, selectedIndex }) =>
-    scType === 'text' &&
+  ${({ $type, numberOfControls, selectedIndex }) =>
+    $type === 'text' &&
     css`
       &::after {
         content: '';
@@ -95,21 +98,25 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   position: relative;
   white-space: nowrap;
   background-color: transparent;
-  padding: ${({ size, scType }) => getControlPadding(size, scType)};
-  border: ${({ isSelected, scType }) => getControlBorder(scType, isSelected)};
+  padding: ${({ size, $type }) => getControlPadding(size, $type)};
+  border: ${({ isSelected, $type }) => getControlBorder($type, isSelected)};
   border-radius: 100px;
   z-index: 10;
-
-  ${getTypographyCss('text-md')}
-  font-size: ${({ size }) => getFontSize(size)};
-  text-align: center;
   color: ${({ isSelected }) => (isSelected ? getThemeColor('background-1') : getThemeColor('text-1'))};
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-size: ${({ size }) => getFontSize(size)};
+  font-style: 'unset';
+  font-weight: '400';
+  letter-spacing: 'unset';
+  line-height: 20px;
+  text-align: center;
   text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
+  text-transform: 'unset';
 
   transition: color 250ms ${controlAnimation}, border 200ms linear, text-shadow 200ms ${controlAnimation};
   &:hover {
     text-shadow: 0 0 0 currentColor, 0 0 0.5px currentColor;
-    border: ${({ scType, isSelected }) => getControlBorder(scType, isSelected, true)};
+    border: ${({ $type, isSelected }) => getControlBorder($type, isSelected, true)};
   }
 `;
 

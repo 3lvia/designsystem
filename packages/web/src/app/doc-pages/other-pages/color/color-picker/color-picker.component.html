@@ -1,23 +1,22 @@
-<div class="theme-container e-color-background-1" [ngClass]="{ 'e-theme-dark': isDarkTheme }">
-  <div class="color-picker-header e-mb-56">
-    <elvia-segmented-control
-      [type]="'text'"
-      [items]="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
-      [size]="'large'"
-      (valueOnChange)="toggleTheme()"
-    ></elvia-segmented-control>
+<div class="theme-container e-color-background-1" [ngClass]="{ 'e-theme-dark': theme === 'dark' }">
+  <div class="header-container">
+    <app-color-picker-header
+      #header
+      (changeColorEvent)="chooseColor($event)"
+      (changeThemeEvent)="handleChangeThemeEvent($event)"
+      [currentTheme]="theme"
+    />
   </div>
-
-  <app-color-picker-exhibit [currentColor]="currentColor" [theme]="isDarkTheme ? 'dark' : 'light'" />
-
+  <app-color-picker-exhibit [currentColor]="currentColor" [theme]="theme" />
   <div class="color-list-container" appColorListBase>
     <app-color-picker-color-list
       *ngFor="let category of categories"
       [currentColor]="currentColor"
       [colorList]="colorList"
       [category]="category"
-      [isDarkTheme]="isDarkTheme"
+      [isDarkTheme]="theme === 'dark'"
       (chooseColor)="chooseColor($event)"
+      (userChoosesColor)="header.resetDropdown()"
     />
   </div>
 </div>
