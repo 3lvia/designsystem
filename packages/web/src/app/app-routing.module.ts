@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Pages } from './shared/shared.enum';
 import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
 
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { ErrorComponent } from './shared/error/error.component';
-import { FlagBasedPreloadingStrategy } from './flag-based.preloading-strategy';
 
 const routes: Routes = [
   {
@@ -75,7 +74,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: FlagBasedPreloadingStrategy,
+      preloadingStrategy: PreloadAllModules,
     }),
   ],
   exports: [RouterModule],
