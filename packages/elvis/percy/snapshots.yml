@@ -39,9 +39,6 @@ snapshots:
   - url: /components/search.html
     name: Search
     widths: [766, 1440]
-  - url: /components/stepper.html
-    name: Stepper
-    widths: [766, 1440]
   - url: /components/table.html
     name: Table
     widths: [766, 1440]

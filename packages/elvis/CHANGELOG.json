@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "12.4.0",
+      "date": "July 24, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Deprecated <code>e-stepper</code. It has been replaced by the new <code>Stepper</code> component."
+          ],
+          "pages": [{ "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }]
+        }
+      ]
+    },
+    {
       "version": "12.3.0",
       "date": "July 20, 2023",
       "changelog": [
