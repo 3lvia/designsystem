@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 100%;
+  width: 405px;
+  margin: auto;
   .changelog-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 100%;
-    width: 405px;
-    margin: auto;
+    width: 100%;
     .changelog-name-and-icon {
       display: flex;
       align-items: center;
