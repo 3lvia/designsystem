@@ -7,7 +7,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Deprecated <code>e-stepper</code> and its children. It have been deprecated in favor of the component <code>Stepper</code>"
+            "Deprecated <code>e-stepper</code. It has been replaced by the new <code>Stepper</code> component."
           ],
           "pages": [{ "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }]
         }
