@@ -44,9 +44,6 @@ const routes: Routes = [
         path: 'components',
         loadChildren: () =>
           import('./doc-pages/components/components-routing.module').then((m) => m.ComponentsRoutingModule),
-        data: {
-          preload: true,
-        },
       },
       // Dev section
       {
