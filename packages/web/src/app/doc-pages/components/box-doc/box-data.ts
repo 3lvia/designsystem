@@ -10,10 +10,10 @@ const boxData: ComponentData = {
       type: 'string | HTMLElement | JSX.Element',
       description: 'Text, images, tables or any other content (slot in webcomponent).',
     },
-    title: {
+    heading: {
       isRequired: false,
       type: `string | HTMLElement | JSX.Element`,
-      description: `Title for the box (slot in webcomponent).`,
+      description: `Heading for the box (slot in webcomponent).`,
     },
     isColored: {
       isRequired: false,
