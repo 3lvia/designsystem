@@ -24,9 +24,9 @@ export type TextLabels =
   | 'text-2'
   | 'text-3'
   | 'text-4'
-  | 'text-5'
   | 'text-disabled-1'
-  | 'text-disabled-2';
+  | 'text-disabled-2'
+  | 'text-placeholder-1';
 export type BackgroundLabels =
   | 'background-1'
   | 'background-2'
@@ -69,7 +69,7 @@ export type IconColors =
   | 'icon-filled-background'
   | 'icon-filled-foreground-colored'
   | (SignalLabels extends `signal-${infer T}` ? `icon-${T}` : never);
-export type AssortedLabels = 'white' | 'black' | 'brand-accent' | 'focus-outline';
+export type AssortedLabels = 'static-white' | 'static-black' | 'brand-accent' | 'focus-outline';
 
 export type ColorLabel =
   | TextLabels

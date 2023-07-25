@@ -52,12 +52,12 @@ $form-input-padding-compact-active: 3px 9px;
 
   > input {
     @include helpers.placeholder() {
-      color: var(--e-color-text-3);
+      color: var(--e-color-text-placeholder-1);
     }
   }
 
   .e-input--placeholder {
-    color: var(--e-color-text-3) !important;
+    color: var(--e-color-text-placeholder-1) !important;
   }
 
   &.e-input--centered > input {

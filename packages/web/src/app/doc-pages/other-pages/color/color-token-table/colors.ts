@@ -85,9 +85,26 @@ export const textColorsDefault = [
   },
   {
     token: 'text-3',
+    role: '??',
+    light: { hex: getColor('text-3', 'light'), label: 'White' },
+    dark: { hex: getColor('text-3', 'dark'), label: 'Dark-white' },
+    links: [{ title: 'Tooltip', path: '/components/tooltip' }],
+  },
+  {
+    token: 'text-4',
+    role: '??',
+    light: { hex: getColor('text-4', 'light'), label: 'White' },
+    dark: { hex: getColor('text-4', 'dark'), label: 'Dark-black' },
+    links: [
+      { title: 'Button', path: '/components/button' },
+      { title: 'Badge', path: '/components/badge' },
+    ],
+  },
+  {
+    token: 'text-placeholder-1',
     role: 'Placeholder text',
-    light: { hex: getColor('text-3', 'light'), label: 'Grey-70' },
-    dark: { hex: getColor('text-3', 'dark'), label: 'Dark-grey-20' },
+    light: { hex: getColor('text-placeholder-1', 'light'), label: 'Grey-70' },
+    dark: { hex: getColor('text-placeholder-1', 'dark'), label: 'Dark-grey-20' },
     links: [
       { title: 'Text field', path: '/components/input' },
       { title: 'Date picker', path: '/components/datepicker' },

@@ -13,7 +13,7 @@ const getTextColor = (color: BadgeColor) => {
     case 'red':
       return getThemeColorContrast('signal-error');
     default:
-      return getThemeColor('text-5');
+      return getThemeColor('text-4');
   }
 };
 

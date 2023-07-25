@@ -15,7 +15,7 @@ $button-sm-padding: 7px 15px;
   border: 1px solid var(--e-color-border-1);
   border-radius: 24px;
   background: var(--e-color-background-element-6);
-  color: var(--e-color-text-5);
+  color: var(--e-color-text-4);
   cursor: pointer;
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-size: 16px;
@@ -134,7 +134,7 @@ $button-sm-padding: 7px 15px;
       height: 10px;
       border-radius: 100%;
       animation: loading-dots 1s infinite ease-in-out both;
-      background-color: var(--e-color-text-5);
+      background-color: var(--e-color-text-4);
     }
 
     span:nth-of-type(1) {

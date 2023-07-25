@@ -30,7 +30,7 @@ export const lightThemeColors = {
     },
     red: {
       color: '#EE0701',
-      contrastText: '#000000',
+      contrastText: '#FFFFFF',
     },
   },
   'data-colors': {
@@ -129,14 +129,10 @@ export const lightTheme = {
       contrast: lightThemeColors['grey-colors']['grey-80'].contrastText,
     },
     'text-3': {
-      hex: lightThemeColors['grey-colors']['grey-70'].color,
-      contrast: lightThemeColors['grey-colors']['grey-70'].contrastText,
-    },
-    'text-4': {
       hex: lightThemeColors['primary-colors']['white'].color,
       contrast: lightThemeColors['primary-colors']['white'].contrastText,
     },
-    'text-5': {
+    'text-4': {
       hex: lightThemeColors['primary-colors']['white'].color,
       contrast: lightThemeColors['primary-colors']['white'].contrastText,
     },
@@ -147,6 +143,10 @@ export const lightTheme = {
     'text-disabled-2': {
       hex: lightThemeColors['grey-colors']['grey-05'].color,
       contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
+    },
+    'text-placeholder-1': {
+      hex: lightThemeColors['grey-colors']['grey-70'].color,
+      contrast: lightThemeColors['grey-colors']['grey-70'].contrastText,
     },
   },
   background: {
@@ -348,11 +348,11 @@ export const lightTheme = {
     },
   },
   assorted: {
-    white: {
+    'static-white': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
-    black: {
+    'static-black': {
       hex: lightThemeColors['primary-colors'].black.color,
       contrast: lightThemeColors['primary-colors'].black.contrastText,
     },

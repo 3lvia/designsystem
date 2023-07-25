@@ -5,11 +5,13 @@
 ### Breaking changes
 
 - Static category -> Assorted category (with no common prefix)
+- `text-2` -> `text-placeholder-1`
+- `signal-red` now has contrast color white instead of black
 
 ### New feature
 
 - Building CSS variables and classes from tokens to elvis.
-- Added new theme color label: `brand-accent`, `background-element-6`, `text-4`, `text-5`
+- Added new theme color label: `brand-accent`, `background-element-6`, `text-3`, `text-4`
 - Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
 
 ## 2.7.1 (07.06.23)

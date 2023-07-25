@@ -109,14 +109,10 @@ export const darkTheme = {
       contrast: darkThemeColors['grey-colors']['grey-10'].contrastText,
     },
     'text-3': {
-      hex: darkThemeColors['grey-colors']['grey-20'].color,
-      contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
-    },
-    'text-4': {
       hex: darkThemeColors['primary-colors']['white'].color,
       contrast: darkThemeColors['primary-colors']['white'].contrastText,
     },
-    'text-5': {
+    'text-4': {
       hex: darkThemeColors['primary-colors']['black'].color,
       contrast: darkThemeColors['primary-colors']['black'].contrastText,
     },
@@ -127,6 +123,10 @@ export const darkTheme = {
     'text-disabled-2': {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'text-placeholder-1': {
+      hex: darkThemeColors['grey-colors']['grey-20'].color,
+      contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
     },
   },
   background: {
@@ -326,11 +326,11 @@ export const darkTheme = {
     },
   },
   assorted: {
-    white: {
+    'static-white': {
       hex: darkThemeColors['primary-colors'].white.color,
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
-    black: {
+    'static-black': {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
