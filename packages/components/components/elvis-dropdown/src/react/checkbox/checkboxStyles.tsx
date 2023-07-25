@@ -19,7 +19,7 @@ export const IndeterminateLine = styled.div<IndeterminateLineProps>`
     display: block;
     height: 100%;
     width: 100%;
-    background-color: ${getThemeColor('black')};
+    background-color: ${getThemeColor('static-black')};
     transition: transform ${checkMarkLeaveDuration};
     transform: scaleX(0);
   }
@@ -27,7 +27,7 @@ export const IndeterminateLine = styled.div<IndeterminateLineProps>`
 
 const checkmarkLineBase = css<CheckboxProps>`
   background-color: ${({ isDisabled }) =>
-    isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('black')};
+    isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('static-black')};
   border-radius: 2px;
   content: '';
   height: 2px;
