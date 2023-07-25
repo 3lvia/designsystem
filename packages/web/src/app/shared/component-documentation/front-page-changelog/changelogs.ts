@@ -1,3 +1,7 @@
+import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
+
+type ChangelogArrayType = (Omit<ComponentChangelog, 'date'> & { name: string; date: Date })[];
+
 const changelogNames = [
   'elvis',
   'elvis-badge',
@@ -47,8 +51,7 @@ export const createChangelogs = async () => {
     });
     changelogs.push({ ...entry, name: name, date: toDateObject(entry.date) });
     return changelogs;
-  }, Promise.resolve([] as { name: string; version: string; date: Date; changelog: any[] }[]));
-  console.log(changelogs);
+  }, Promise.resolve([] as ChangelogArrayType));
   const sortedChangelogs = changelogs.sort((a, b) => {
     return a.date < b.date ? 1 : -1;
   });
