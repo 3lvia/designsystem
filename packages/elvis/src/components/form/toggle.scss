@@ -68,7 +68,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
       height: $toggle-height;
       border: 1px solid var(--e-toggle-border-color);
       border-radius: $toggle-border-radius;
-      background: var(--e-color-static-black);
+      background: var(--e-color-black);
       content: '';
       cursor: pointer;
     }
@@ -81,7 +81,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
       width: $toggle-slider-size;
       height: $toggle-slider-size;
       border-radius: 50%;
-      background: var(--e-color-static-white);
+      background: var(--e-color-white);
       content: '';
       cursor: pointer;
       transition: 0.1s;

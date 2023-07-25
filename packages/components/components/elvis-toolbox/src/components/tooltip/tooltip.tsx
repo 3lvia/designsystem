@@ -38,7 +38,7 @@ export interface TooltipPopupProps {
 export const TooltipPopup = styled.div<TooltipPopupProps>`
   ${getTypographyCss('text-sm')}
   white-space: pre-wrap;
-  color: ${getThemeColor('static-white')};
+  color: ${getThemeColor('white')};
   background: ${getThemeColor('background-overlay-2')};
   display: grid;
   place-items: center;

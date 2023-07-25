@@ -67,7 +67,7 @@ const fillVariables = {
     'icon-filled-background',
   )})"`,
   'filled-foreground-colored': `fill="var(--e-color-icon-filled-foreground-colored, ${getThemeColor(
-    'static-black',
+    'black',
   )})"`,
   success: `fill="var(--e-color-icon-success, ${getThemeColor('icon-success')})"`,
   caution: `fill="var(--e-color-icon-caution, ${getThemeColor('icon-caution')})"`,

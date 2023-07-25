@@ -44,7 +44,7 @@ export const Chip: FC<ChipProps> = function ({
     if (isDisabled) {
       return getThemeColor('text-disabled-1');
     } else if (type === 'removable' && isHovered) {
-      return getThemeColor('static-black');
+      return getThemeColor('black');
     }
     return getThemeColor('text-1');
   };

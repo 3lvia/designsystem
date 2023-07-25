@@ -2,17 +2,6 @@
 @use '../../utilities/outline.scss';
 @use '../../utilities/icons.scss';
 
-:root,
-.e-theme-light {
-  --e-button-background: var(--e-light-theme-black);
-  --e-button-label: var(--e-light-theme-white);
-}
-
-.e-theme-dark {
-  --e-button-background: var(--e-dark-theme-white);
-  --e-button-label: var(--e-dark-theme-black);
-}
-
 $button-lg-padding: 11px 31px;
 $button-md-padding: 9px 23px;
 $button-sm-padding: 7px 15px;
@@ -25,8 +14,8 @@ $button-sm-padding: 7px 15px;
   padding: $button-md-padding;
   border: 1px solid var(--e-color-border-1);
   border-radius: 24px;
-  background: var(--e-button-background);
-  color: var(--e-button-label);
+  background: var(--e-color-background-element-6);
+  color: var(--e-color-text-5);
   cursor: pointer;
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-size: 16px;
@@ -97,7 +86,7 @@ $button-sm-padding: 7px 15px;
     &:hover:not(:disabled):not(.e-btn--loading) {
       border-color: var(--e-color-border-hover-1);
       background: var(--e-color-background-hover-1);
-      color: var(--e-color-static-black);
+      color: var(--e-color-black);
 
       .e-btn__icon i[class*='inverted'] {
         visibility: hidden;
@@ -145,7 +134,7 @@ $button-sm-padding: 7px 15px;
       height: 10px;
       border-radius: 100%;
       animation: loading-dots 1s infinite ease-in-out both;
-      background-color: var(--e-button-label);
+      background-color: var(--e-color-text-5);
     }
 
     span:nth-of-type(1) {

@@ -42,7 +42,7 @@ export const IconLetters = styled.div`
   color: transparent;
 
   // Works in all browsers, despite webkit prefix
-  -webkit-text-stroke: 1px ${getThemeColor('static-white')};
+  -webkit-text-stroke: 1px ${getThemeColor('white')};
   -webkit-backface-visibility: hidden;
 
   // Fixes text jumping after scale animation completes
@@ -69,7 +69,7 @@ export const AppLink = styled.a<{ isActive: boolean }>`
 
         ${IconLetters} {
           -webkit-text-stroke-width: 0;
-          color: ${getThemeColor('static-white')};
+          color: ${getThemeColor('white')};
         }
 
         ${Icon} {

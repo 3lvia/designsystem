@@ -61,7 +61,7 @@ export const darkThemeColors = {
   },
   'grey-colors': {
     'grey-70': {
-      color: '#242424',
+      color: '#262626',
       contrastText: '#EDEDED',
     },
     'grey-60': {
@@ -112,6 +112,14 @@ export const darkTheme = {
       hex: darkThemeColors['grey-colors']['grey-20'].color,
       contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
     },
+    'text-4': {
+      hex: darkThemeColors['primary-colors']['white'].color,
+      contrast: darkThemeColors['primary-colors']['white'].contrastText,
+    },
+    'text-5': {
+      hex: darkThemeColors['primary-colors']['black'].color,
+      contrast: darkThemeColors['primary-colors']['black'].contrastText,
+    },
     'text-disabled-1': {
       hex: darkThemeColors['grey-colors']['grey-40'].color,
       contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
@@ -148,6 +156,10 @@ export const darkTheme = {
     'background-element-5': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,
       contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
+    },
+    'background-element-6': {
+      hex: darkThemeColors['primary-colors']['white'].color,
+      contrast: darkThemeColors['primary-colors']['white'].contrastText,
     },
     'background-overlay-1': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,
@@ -313,18 +325,21 @@ export const darkTheme = {
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
   },
-  static: {
-    'static-white': {
+  assorted: {
+    white: {
       hex: darkThemeColors['primary-colors'].white.color,
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
-    'static-black': {
+    black: {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
-    'static-brand-accent': {
+    'brand-accent': {
       hex: darkThemeColors['primary-colors'].green.color,
       contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
+    'focus-outline': {
+      hex: darkThemeColors['internal-colors']['focus-outline'].color,
     },
   },
 } as const satisfies Theme;

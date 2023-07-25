@@ -18,7 +18,7 @@
     &:hover:not(:disabled):not(.e-btn--loading) {
       border-color: var(--e-color-border-hover-1);
       background: var(--e-color-background-hover-1);
-      color: var(--e-color-static-black);
+      color: var(--e-color-black);
 
       .e-btn__icon i[class*='inverted'] {
         visibility: hidden;

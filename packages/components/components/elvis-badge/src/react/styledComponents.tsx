@@ -9,22 +9,22 @@ interface BadgeCircleProps {
 const getTextColor = (color: BadgeColor) => {
   switch (color) {
     case 'green':
-      return getThemeColorContrast('background-selected-1');
+      return getThemeColorContrast('signal-success');
     case 'red':
-      return getThemeColor('static-white');
+      return getThemeColorContrast('signal-error');
     default:
-      return getThemeColor('background-overlay-3');
+      return getThemeColor('text-5');
   }
 };
 
 const getBadgeColor = (color: BadgeColor) => {
   switch (color) {
     case 'green':
-      return getThemeColor('background-selected-1');
+      return getThemeColor('signal-success');
     case 'red':
       return getThemeColor('signal-error');
     default:
-      return getThemeColor('text-1');
+      return getThemeColor('background-element-6');
   }
 };
 
