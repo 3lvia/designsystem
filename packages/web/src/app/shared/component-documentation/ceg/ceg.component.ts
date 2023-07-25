@@ -8,6 +8,7 @@ import {
   NgZone,
   OnDestroy,
   ViewChild,
+  booleanAttribute,
 } from '@angular/core';
 import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
@@ -35,7 +36,7 @@ interface SlotMap {
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
 })
 export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy {
-  @Input() fullWidth = false;
+  @Input({ transform: booleanAttribute }) fullWidth = false;
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
   @ContentChild(TypescriptComponentExample, { static: true }) tsComponentExample: TypescriptComponentExample;
