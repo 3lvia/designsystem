@@ -182,9 +182,9 @@ export const componentsDocPages: DocPage[] = [
     searchTerms: ['menu', 'popup', 'more', 'actions'],
   },
   {
-    title: 'Date Picker',
+    title: 'Datepicker',
     description:
-      'Date picker is a simple way for the user to quickly select a date in a calendar dialog. It uses a text field and a visual calendar in a popover.',
+      'Datepicker is a simple way for the user to quickly select a date in a calendar dialog. It uses a text field and a visual calendar in a popover.',
     docUrl: Pages.Datepicker,
     absolutePath: '/components/' + Pages.Datepicker,
     status: DocPageStatus.Done,
@@ -193,9 +193,9 @@ export const componentsDocPages: DocPage[] = [
     searchTerms: ['calendar', 'date', 'time', 'input'],
   },
   {
-    title: 'Date Range Picker',
+    title: 'Datepicker Range',
     description:
-      'Date range picker is a simple way for the user to quickly select a date range in a calendar dialog. It uses two separate date pickers for the start and end date selection.',
+      'Datepicker range is a simple way for the user to quickly select a date range in a calendar dialog. It uses two separate date pickers for the start and end date selection.',
     docUrl: Pages.DatepickerRange,
     absolutePath: '/components/' + Pages.DatepickerRange,
     status: DocPageStatus.Done,
@@ -482,9 +482,9 @@ export const componentsDocPages: DocPage[] = [
     searchTerms: ['switch', 'on', 'off', 'option', 'state', 'radio', 'lever'],
   },
   {
-    title: 'Time Picker',
+    title: 'Timepicker',
     description:
-      'The time picker is a simple way for the user to quickly select the time through a text field and a visual dropdown. The user can input the time manually or click on the clock icon to choose the hour and if needed, a preset interval of minutes.',
+      'The timepicker is a simple way for the user to quickly select the time through a text field and a visual dropdown. The user can input the time manually or click on the clock icon to choose the hour and if needed, a preset interval of minutes.',
     docUrl: Pages.Timepicker,
     absolutePath: '/components/' + Pages.Timepicker,
     status: DocPageStatus.Done,
