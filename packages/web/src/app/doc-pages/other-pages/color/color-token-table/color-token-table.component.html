@@ -79,6 +79,15 @@
 />
 
 <app-color-token-subtable
+  [title]="'Assorted'"
+  [subtitle]="
+    'Assorted tokens that have more or less specific usecases like focus outline or component details '
+  "
+  [colors]="[{ colors: assortedColors }]"
+  [searchValue]="filterInput.value"
+/>
+
+<app-color-token-subtable
   [title]="'Icon'"
   [subtitle]="'Only for icons or svg representing an icon'"
   [colors]="[{ colors: iconColors }]"
