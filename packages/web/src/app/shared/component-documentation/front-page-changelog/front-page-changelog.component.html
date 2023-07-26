@@ -2,6 +2,7 @@
   <tr class="changelog-container">
     <td class="changelog-icon">
       <img
+        alt=""
         *ngIf="(componentIcons | async)?.[changelog.name | FrontPageChangelogNamePipe ]; else noIcon"
         [src]="(componentIcons | async)?.[changelog.name | FrontPageChangelogNamePipe ]"
       />
