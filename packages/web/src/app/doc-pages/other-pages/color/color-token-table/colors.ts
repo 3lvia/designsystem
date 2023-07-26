@@ -508,25 +508,25 @@ export const iconColors = [
 export const assortedColors = [
   {
     token: 'static-black',
-    role: '????',
+    role: 'Stays black in both themes',
     light: { hex: getColor('static-black', 'light'), label: 'Black' },
     dark: { hex: getColor('static-black', 'dark'), label: 'Dark-black' },
   },
   {
     token: 'static-white',
-    role: '????',
+    role: 'Stays white in both themes',
     light: { hex: getColor('static-white', 'light'), label: 'White' },
     dark: { hex: getColor('static-white', 'dark'), label: 'Dark-white' },
   },
   {
     token: 'brand-accent',
-    role: '????',
+    role: 'Brand color that can be used for accents like bullet points in lists',
     light: { hex: getColor('brand-accent', 'light'), label: 'Green' },
     dark: { hex: getColor('brand-accent', 'dark'), label: 'Dark-green' },
   },
   {
     token: 'focus-outline',
-    role: '????',
+    role: 'Color only used for focus outline. Should not be used elsewhere.',
     light: { hex: getColor('focus-outline', 'light'), label: 'Focus-outline' },
     dark: { hex: getColor('focus-outline', 'dark'), label: 'Dark-focus-outline' },
   },
