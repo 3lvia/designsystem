@@ -10,6 +10,7 @@ import {
   DarkThemeColorName,
   LightThemeColorName,
   getThemeColor,
+  AssortedLabels,
 } from '@elvia/elvis-colors';
 
 /**
@@ -85,30 +86,19 @@ export const textColorsDefault = [
   },
   {
     token: 'text-3',
-    role: '??',
+    role: 'Light text on dark grey background',
     light: { hex: getColor('text-3', 'light'), label: 'White' },
     dark: { hex: getColor('text-3', 'dark'), label: 'Dark-white' },
     links: [{ title: 'Tooltip', path: '/components/tooltip' }],
   },
   {
     token: 'text-4',
-    role: '??',
+    role: 'Text for dark backgrounds switching to light in dark theme',
     light: { hex: getColor('text-4', 'light'), label: 'White' },
     dark: { hex: getColor('text-4', 'dark'), label: 'Dark-black' },
     links: [
       { title: 'Button', path: '/components/button' },
       { title: 'Badge', path: '/components/badge' },
-    ],
-  },
-  {
-    token: 'text-placeholder-1',
-    role: 'Placeholder text',
-    light: { hex: getColor('text-placeholder-1', 'light'), label: 'Grey-70' },
-    dark: { hex: getColor('text-placeholder-1', 'dark'), label: 'Dark-grey-20' },
-    links: [
-      { title: 'Text field', path: '/components/input' },
-      { title: 'Date picker', path: '/components/datepicker' },
-      { title: 'Time picker', path: '/components/timepicker' },
     ],
   },
 ] as const satisfies TableColorArray<TextLabels>;
@@ -134,6 +124,17 @@ export const textColorsState = [
     links: [
       { title: 'Primary button', path: '/components/button' },
       { title: 'Danger button', path: '/components/button' },
+    ],
+  },
+  {
+    token: 'text-placeholder-1',
+    role: 'Placeholder text',
+    light: { hex: getColor('text-placeholder-1', 'light'), label: 'Grey-70' },
+    dark: { hex: getColor('text-placeholder-1', 'dark'), label: 'Dark-grey-20' },
+    links: [
+      { title: 'Text field', path: '/components/input' },
+      { title: 'Date picker', path: '/components/datepicker' },
+      { title: 'Time picker', path: '/components/timepicker' },
     ],
   },
 ] as const satisfies TableColorArray<TextLabels>;
@@ -169,7 +170,7 @@ export const backgroundColorsElement = [
   {
     token: 'background-element-2',
     role: 'Element background color option 2',
-    light: { hex: getColor('background-element-2', 'light'), label: 'Grey-05' },
+    light: { hex: getColor('background-element-2', 'light'), label: 'Grey-02' },
     dark: { hex: getColor('background-element-2', 'dark'), label: 'Dark-grey-70' },
     links: [{ title: 'Table (zebra row)', path: '/components/table' }],
   },
@@ -192,6 +193,16 @@ export const backgroundColorsElement = [
     light: { hex: getColor('background-element-5', 'light'), label: 'White' },
     dark: { hex: getColor('background-element-5', 'dark'), label: 'Dark-grey-70' },
     links: [{ title: 'Box', path: '/components/box' }],
+  },
+  {
+    token: 'background-element-6',
+    role: 'Element background color option 6',
+    light: { hex: getColor('background-element-6', 'light'), label: 'Black' },
+    dark: { hex: getColor('background-element-6', 'dark'), label: 'Dark-white' },
+    links: [
+      { title: 'Button', path: '/components/button' },
+      { title: 'Badge', path: '/components/badge' },
+    ],
   },
 ] as const satisfies TableColorArray<BackgroundLabels>;
 
@@ -493,3 +504,30 @@ export const iconColors = [
     dark: { hex: 'dark-signal', label: 'Dark-signal' },
   },
 ] as const satisfies TableColorArray<IconLabels | 'icon-[signal-type]'>;
+
+export const assortedColors = [
+  {
+    token: 'static-black',
+    role: '????',
+    light: { hex: getColor('static-black', 'light'), label: 'Black' },
+    dark: { hex: getColor('static-black', 'dark'), label: 'Dark-black' },
+  },
+  {
+    token: 'static-white',
+    role: '????',
+    light: { hex: getColor('static-white', 'light'), label: 'White' },
+    dark: { hex: getColor('static-white', 'dark'), label: 'Dark-white' },
+  },
+  {
+    token: 'brand-accent',
+    role: '????',
+    light: { hex: getColor('brand-accent', 'light'), label: 'Green' },
+    dark: { hex: getColor('brand-accent', 'dark'), label: 'Dark-green' },
+  },
+  {
+    token: 'focus-outline',
+    role: '????',
+    light: { hex: getColor('focus-outline', 'light'), label: 'Focus-outline' },
+    dark: { hex: getColor('focus-outline', 'dark'), label: 'Dark-focus-outline' },
+  },
+] as const satisfies TableColorArray<AssortedLabels>;

@@ -7,6 +7,7 @@
 - Static category -> Assorted category (with no common prefix)
 - `text-2` -> `text-placeholder-1`
 - `signal-red` now has contrast color white instead of black
+- `background-element-2` light theme color has been changed from `grey-05` to `grey-02`
 
 ### New feature
 

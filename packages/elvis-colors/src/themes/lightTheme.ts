@@ -155,8 +155,8 @@ export const lightTheme = {
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
     'background-2': {
-      hex: lightThemeColors['grey-colors']['grey-05'].color,
-      contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
+      hex: lightThemeColors['grey-colors']['grey-02'].color,
+      contrast: lightThemeColors['grey-colors']['grey-02'].contrastText,
     },
     'background-element-1': {
       hex: lightThemeColors['primary-colors'].white.color,
