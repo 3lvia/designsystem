@@ -23,6 +23,7 @@ import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arr
 import { AppList } from '../appList/appList';
 import { AppSelector } from './appSelector';
 import { ProfilePicture } from '../ProfilePicture';
+import { ThemePicker } from '../themePicker/themePicker';
 
 interface MobileUserMenuProps extends UserMenuProps {
   appTitle: string;
@@ -84,6 +85,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   <TextSmallStrong>{username}</TextSmallStrong>
                   <TextSmall>{email}</TextSmall>
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
+                  <ThemePicker />
                   <section>
                     <TertiaryButton size="sm" onClick={onSignOutClick}>
                       <IconWrapper icon={logout} size="xs" />

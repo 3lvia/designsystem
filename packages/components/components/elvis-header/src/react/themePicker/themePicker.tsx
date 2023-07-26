@@ -1,50 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ThemeButton, ThemeContainer, ThemeLabel, ThemeListContainer } from './themePickerStyles';
 import { LightThemeIcon } from './lightThemeIcon';
 import { DarkThemeIcon } from './darkThemeIcon';
 import { SystemThemeIcon } from './systemThemeIcon';
-
-type Theme = 'light' | 'dark' | 'system';
+import { getStoredActiveTheme, setThemeClassOnDocument } from '../themeUtils';
+import { Theme, themeLocalStorageKey } from '../elviaHeader.types';
 
 export const ThemePicker: React.FC = () => {
-  // TODO: Find types for these?
-  const setTheme = (theme: Theme): void => {
-    let classToRemove = 'e-theme-dark';
-    let classToAdd = 'e-theme-light';
+  const themes: Theme[] = ['light', 'dark', 'system'];
+  const [currentTheme, setCurrentTheme] = useState<Theme>(getStoredActiveTheme());
 
-    if (theme === 'dark') {
-      classToRemove = 'e-theme-light';
-      classToAdd = 'e-theme-dark';
-    }
-
-    document.body.classList.remove(classToRemove);
-    if (!document.body.classList.contains(classToAdd)) {
-      document.body.classList.add(classToAdd);
-    }
+  const changeTheme = (theme: Theme): void => {
+    setThemeClassOnDocument(theme);
+    setCurrentTheme(theme);
+    localStorage.setItem(themeLocalStorageKey, theme);
   };
 
-  const getActiveTheme = (): Theme => {
-    if (document.body.classList.contains('e-theme-dark')) {
-      return 'dark';
-    } else if (document.body.classList.contains('e-theme-system')) {
-      return 'system';
-    }
-    return 'light';
-  };
+  useEffect(() => {
+    setCurrentTheme(getStoredActiveTheme());
+
+    const onUserPreferenceChange = (change: MediaQueryListEvent): void => {
+      if (currentTheme === 'system') {
+        setThemeClassOnDocument(change.matches ? 'dark' : 'light');
+      }
+    };
+    const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    prefersColorScheme.addEventListener('change', onUserPreferenceChange);
+
+    return () => prefersColorScheme.removeEventListener('change', onUserPreferenceChange);
+  }, []);
 
   return (
     <ThemeContainer className="e-strip-fieldset">
       <ThemeLabel>Tema</ThemeLabel>
       <ThemeListContainer>
-        <ThemeButton isActive={getActiveTheme() === 'light'} onClick={() => setTheme('light')}>
-          <LightThemeIcon />
-        </ThemeButton>
-        <ThemeButton isActive={getActiveTheme() === 'dark'} onClick={() => setTheme('dark')}>
-          <DarkThemeIcon />
-        </ThemeButton>
-        <ThemeButton isActive={getActiveTheme() === 'system'} onClick={() => setTheme('system')}>
-          <SystemThemeIcon />
-        </ThemeButton>
+        {themes.map((theme) => (
+          <ThemeButton key={theme} isActive={currentTheme === theme} onClick={() => changeTheme(theme)}>
+            {theme === 'dark' && <DarkThemeIcon />}
+            {theme === 'system' && <SystemThemeIcon />}
+            {theme === 'light' && <LightThemeIcon />}
+          </ThemeButton>
+        ))}
       </ThemeListContainer>
     </ThemeContainer>
   );

@@ -136,7 +136,7 @@ export const ButtonBase = styled.button`
 export const AppSelectorTrigger = styled(ButtonBase)`
   border: 1px solid ${getThemeColor('border-2')};
   border-width: 1px 0;
-  margin: 24px 0;
+  margin: 24px 0 0;
 `;
 
 export const BackButton = styled(ButtonBase)`

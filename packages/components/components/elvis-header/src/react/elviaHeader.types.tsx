@@ -17,3 +17,7 @@ export interface HeaderProps extends BaseProps {
   pageTitle: string | JSX.Element;
   username: string;
 }
+
+export type ApplicableTheme = 'light' | 'dark';
+export type Theme = ApplicableTheme | 'system';
+export const themeLocalStorageKey = 'elviaHeaderPreferredTheme';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HeaderProps } from './elviaHeader.types';
 import { GtMobile, MobileOnly, useSlot } from '@elvia/elvis-toolbox';
 import { getThemeColor } from '@elvia/elvis-colors';
@@ -16,6 +16,7 @@ import { DesktopMenu } from './desktopMenu/desktopMenu';
 import { SideNav } from './sideNav/sideNav';
 import { AppDrawer } from './appDrawer/appDrawer';
 import { getActiveApp } from './elviaApps';
+import { getStoredActiveTheme, setThemeClassOnDocument } from './themeUtils';
 
 export const Header: React.FC<HeaderProps> = ({
   appTitle,
@@ -51,6 +52,10 @@ export const Header: React.FC<HeaderProps> = ({
     onLogoClick?.();
     webcomponent?.triggerEvent('onLogoClick');
   };
+
+  useEffect(() => {
+    setThemeClassOnDocument(getStoredActiveTheme());
+  }, []);
 
   return (
     <div className={className} style={{ ...inlineStyle }}>
