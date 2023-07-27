@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.scss';
 import { Accordion } from '@elvia/elvis-accordion/react';
+import { Autocomplete } from '@elvia/elvis-autocomplete/react';
 import { Badge } from '@elvia/elvis-badge/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
@@ -188,28 +189,7 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <div className="e-bg-white">
-                <Stepper
-                  type="vertical"
-                  steps={{ 2: { isError: true } }}
-                  content={[
-                    <div key={1}>Step 1 content</div>,
-                    <div key={2}>Step 2 content</div>,
-                    <div key={3}>Step 3 content</div>,
-                    <div key={4}>Step 4 content</div>,
-                    <div key={5}>Step 5 content</div>,
-                  ]}
-                />
-                <Stepper
-                  type="horizontal"
-                  steps={{ 2: { isError: true } }}
-                  content={[
-                    <div key={1}>Step 1 content</div>,
-                    <div key={2}>Step 2 content</div>,
-                    <div key={3}>Step 3 content</div>,
-                    <div key={4}>Step 4 content</div>,
-                    <div key={5}>Step 5 content</div>,
-                  ]}
-                />
+                <Autocomplete items={[]}></Autocomplete>
               </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>

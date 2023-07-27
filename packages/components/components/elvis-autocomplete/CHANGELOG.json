@@ -1,0 +1,15 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "content": [
+    {
+      "date": "??.??.23",
+      "version": "1.0.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["The first version of the Elvia Autocomplete component."]
+        }
+      ]
+    }
+  ]
+}
