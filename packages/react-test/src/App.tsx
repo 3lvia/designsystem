@@ -189,7 +189,16 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <div className="e-bg-white">
-                <Autocomplete items={[]}></Autocomplete>
+                <Autocomplete items={[]} label="lol"></Autocomplete>
+                <Autocomplete items={[]} size="small" hasOptionalText></Autocomplete>
+                <Autocomplete
+                  items={[]}
+                  size="small"
+                  isFullWidth
+                  valueOnChange={(value) => {
+                    console.info(value);
+                  }}
+                ></Autocomplete>
               </div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>

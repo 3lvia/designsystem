@@ -2117,7 +2117,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete":
+"@elvia/elvis-autocomplete@*, @elvia/elvis-autocomplete@workspace:*, @elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete"
   dependencies:
@@ -8561,6 +8561,7 @@ __metadata:
     "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
     "@elvia/elvis-assets-icons": "workspace:*"
+    "@elvia/elvis-autocomplete": "workspace:*"
     "@elvia/elvis-badge": "workspace:*"
     "@elvia/elvis-box": "workspace:*"
     "@elvia/elvis-breadcrumb": "workspace:*"
@@ -15740,6 +15741,7 @@ __metadata:
   dependencies:
     "@elvia/elvis": "*"
     "@elvia/elvis-accordion": "*"
+    "@elvia/elvis-autocomplete": "*"
     "@elvia/elvis-badge": "*"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"
@@ -18934,6 +18936,7 @@ __metadata:
   dependencies:
     "@elvia/elvis": "*"
     "@elvia/elvis-accordion": "*"
+    "@elvia/elvis-autocomplete": "*"
     "@elvia/elvis-badge": "*"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"
