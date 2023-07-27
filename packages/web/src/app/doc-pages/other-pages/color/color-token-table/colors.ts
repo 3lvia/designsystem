@@ -69,9 +69,10 @@ export type TableColorArray<TToken extends ColorTableLabels = ColorTableLabels> 
 export const textColorsDefault = [
   {
     token: 'text-1',
-    role: 'Primary text',
+    role: 'Primary text. E.g. titles, body text, special text',
     light: { hex: getColor('text-1', 'light'), label: 'Black' },
     dark: { hex: getColor('text-1', 'dark'), label: 'Dark-white' },
+    links: [{ title: 'Typography', path: '/brand/typography' }],
   },
   {
     token: 'text-2',
@@ -276,7 +277,7 @@ export const backgroundColorsStates = [
 export const borderColors = [
   {
     token: 'border-1',
-    role: 'Border color option 1',
+    role: 'Border color option 1 - high contrast to grab attention',
     light: { hex: getColor('border-1', 'light'), label: 'Black' },
     dark: { hex: getColor('border-1', 'dark'), label: 'Dark-white' },
     links: [
@@ -291,7 +292,7 @@ export const borderColors = [
   },
   {
     token: 'border-2',
-    role: 'Border color option 2',
+    role: 'Border color option 2 - low contrast to blend in',
     light: { hex: getColor('border-2', 'light'), label: 'Grey-10' },
     dark: { hex: getColor('border-2', 'dark'), label: 'Dark-grey-60' },
     links: [
@@ -301,7 +302,7 @@ export const borderColors = [
   },
   {
     token: 'border-3',
-    role: 'Border color option 3',
+    role: 'Border color option 3 - medium contrast for subtle distinction',
     light: { hex: getColor('border-3', 'light'), label: 'Grey-20' },
     dark: { hex: getColor('border-3', 'dark'), label: 'Dark-grey-50' },
     links: [
@@ -311,14 +312,14 @@ export const borderColors = [
   },
   {
     token: 'border-4',
-    role: 'Border color option 4',
+    role: 'Border color option 4 - extra low contrast to decorate',
     light: { hex: getColor('border-4', 'light'), label: 'Grey-05' },
     dark: { hex: getColor('border-4', 'dark'), label: 'Dark-grey-60' },
     links: [{ title: 'Card', path: '/components/card' }],
   },
   {
     token: 'border-5',
-    role: 'Border color option 5',
+    role: 'Border color option 5 - extra low contrast to decorate',
     light: { hex: getColor('border-5', 'light'), label: 'Grey-05' },
     dark: { hex: getColor('border-5', 'dark'), label: 'Transparent' },
     links: [{ title: 'Box', path: '/components/box' }],
