@@ -64,7 +64,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
         {username.replace(/\(ekstern\)/g, '').trim()}
       </ProfileButton>
       {isShowing && (
-        <Overlay ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
+        <Overlay useGlobalTheme ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
           <MenuContainer role="menu" id="ewc-header-desktop-menu">
             <UserGrid>
               <ImageContainer>
