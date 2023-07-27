@@ -7,8 +7,8 @@ exports.handler = (event) => {
     space: process.env.CONTENTFUL_SPACE,
     accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
   });
-  return client
-    .getEntry(event.queryStringParameters.id, { locale: '*', include: 10 })
+  return client.withAllLocales
+    .getEntry(event.queryStringParameters.id, { include: 10 })
     .then((entryResult) => {
       return {
         statusCode: 200,
