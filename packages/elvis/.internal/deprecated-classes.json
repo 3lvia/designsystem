@@ -395,6 +395,15 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
+  "e-stepper": {
+    "deprecateChildren": true,
+    "version": "12.4.0",
+    "replacement": {
+      "name": "Stepper",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/stepper"
+    }
+  },
   "e-form-field--combined": {
     "deprecateChildren": true,
     "version": "12.0.0"

@@ -18,14 +18,14 @@ export class BoxCegComponent implements ComponentExample {
           type: 'switch',
           label: 'Colored',
         },
-        title: {
-          group: 'Title',
+        heading: {
+          group: 'Heading',
           type: 'text',
-          label: 'Title',
-          placeholder: 'Title for the box',
+          label: 'Heading',
+          placeholder: 'Heading for the box',
         },
       },
-      groupOrder: ['Options', 'Title'],
+      groupOrder: ['Options', 'Heading'],
     },
   ]);
 }

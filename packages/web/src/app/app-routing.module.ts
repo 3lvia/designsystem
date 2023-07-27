@@ -1,68 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Pages } from './shared/shared.enum';
 import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
 
-import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
-import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
-import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
-import { BadgeDocComponent } from './doc-pages/components/badge-doc/badge-doc.component';
-import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
-import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
-import { ButtonDocComponent } from './doc-pages/components/button-doc/button-doc.component';
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
-import { CardDocComponent } from './doc-pages/components/card-doc/card-doc.component';
-import { CarouselDocComponent } from './doc-pages/components/carousel-doc/carousel-doc.component';
-import { ChangelogComponent } from './doc-pages/other-pages/changelog/changelog.component';
-import { CheckboxDocComponent } from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
-import { ChipDocComponent } from './doc-pages/components/chip-doc/chip-doc.component';
-import { ColorDocComponent } from './doc-pages/other-pages/color-doc/color-doc.component';
-import { ContactComponent } from './doc-pages/other-pages/contact/contact.component';
-import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
-import { ContextMenuDocComponent } from './doc-pages/components/context-menu-doc/context-menu-doc.component';
-import { DatepickerDocComponent } from './doc-pages/components/forms/datepicker-doc/datepicker-doc.component';
-import { DatepickerRangeDocComponent } from './doc-pages/components/forms/datepicker-range-doc/datepicker-range-doc.component';
-import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
-import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
-import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
 import { ErrorComponent } from './shared/error/error.component';
-import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
-import { GetStartedDocComponent } from './doc-pages/other-pages/get-started-doc/get-started-doc.component';
-import { HeaderDocComponent } from './doc-pages/components/header-doc/header-doc.component';
-import { IconDocComponent } from './doc-pages/other-pages/icon-doc/icon-doc.component';
-import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-doc.component';
-import { LayoutDocComponent } from './doc-pages/other-pages/layout-doc/layout-doc.component';
-import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.component';
-import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
-import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
-import { PaginationDocComponent } from './doc-pages/components/pagination-doc/pagination-doc.component';
-import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
-import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
-import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
-import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
-import { SearchDocComponent } from './doc-pages/components/forms/search-doc/search-doc.component';
-import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
-import { ShadowDocComponent } from './doc-pages/other-pages/shadow-doc/shadow-doc.component';
-import { SliderDocComponent } from './doc-pages/components/slider-doc/slider-doc.component';
-import { SpotlightDocComponent } from './doc-pages/components/spotlight-doc/spotlight-doc.component';
-import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
-import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
-import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
-import { TagDocComponent } from './doc-pages/components/tag-doc/tag-doc.component';
-import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
-import { ThumbnailDocComponent } from './doc-pages/components/thumbnail-doc/thumbnail-doc.component';
-import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
-import { ToastDocComponent } from './doc-pages/components/toast-doc/toast-doc.component';
-import { ToggleDocComponent } from './doc-pages/components/forms/toggle-doc/toggle-doc.component';
-import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
-import { TypographyDocComponent } from './doc-pages/other-pages/typography-doc/typography-doc.component';
-import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/utilities-doc.component';
-
-import { DevStartComponent } from './dev/dev-start/dev-start.component';
-import { v2PlaygroundComponent } from './dev/v2-playground/v2-playground.component';
-import { OutlineDocComponent } from './doc-pages/components/outline-doc/outline-doc.component';
-import { ColorComponent } from './doc-pages/other-pages/color/color.component';
 
 const routes: Routes = [
   {
@@ -81,266 +24,31 @@ const routes: Routes = [
       // About section
       {
         path: 'about',
-        component: CMSPageComponent,
-        children: [
-          {
-            path: 'the-design-system',
-            component: TheDesignSystemDocComponent,
-          },
-          {
-            path: 'contact',
-            component: ContactComponent,
-          },
-          {
-            path: 'get-started',
-            component: GetStartedDocComponent,
-          },
-          {
-            path: 'whats-new',
-            component: ChangelogComponent,
-          },
-        ],
+        loadChildren: () =>
+          import('./doc-pages/about/about-routing.module').then((m) => m.BrandRoutingModule),
       },
       // Brand section
       {
         path: 'brand',
-        component: CMSPageComponent,
-        children: [
-          {
-            path: 'color',
-            component: ColorDocComponent,
-          },
-          {
-            path: 'color2',
-            component: ColorComponent,
-          },
-          {
-            path: 'icon',
-            component: IconDocComponent,
-          },
-          {
-            path: 'layout',
-            component: LayoutDocComponent,
-          },
-          {
-            path: 'shadow',
-            component: ShadowDocComponent,
-          },
-          {
-            path: 'typography',
-            component: TypographyDocComponent,
-          },
-        ],
+        loadChildren: () =>
+          import('./doc-pages/brand/brand-routing.module').then((m) => m.BrandRoutingModule),
       },
       // Tools section
       {
         path: 'tools',
-        component: CMSPageComponent,
-        children: [
-          {
-            path: 'utility-classes',
-            component: UtilitiesDocComponent,
-          },
-        ],
+        loadChildren: () =>
+          import('./doc-pages/tools/tools-routing.module').then((m) => m.ToolsRoutingModule),
       },
       // Components section
       {
         path: 'components',
-        component: CMSPageComponent,
-        children: [
-          {
-            path: 'accordion-group',
-            redirectTo: Pages.Accordion,
-            pathMatch: 'full',
-          },
-          {
-            path: Pages.Accordion,
-            component: AccordionDocComponent,
-          },
-          {
-            path: Pages.Alert,
-            component: AlertMessagesComponent,
-          },
-          {
-            path: Pages.Autocomplete,
-            component: AutocompleteDocComponent,
-          },
-          {
-            path: Pages.Badge,
-            component: BadgeDocComponent,
-          },
-          {
-            path: Pages.Box,
-            component: BoxDocComponent,
-          },
-          {
-            path: Pages.Button,
-            component: ButtonDocComponent,
-          },
-          {
-            path: Pages.Breadcrumb,
-            component: BreadcrumbDocComponent,
-          },
-          {
-            path: Pages.Card,
-            component: CardDocComponent,
-          },
-          {
-            path: Pages.Carousel,
-            component: CarouselDocComponent,
-          },
-          {
-            path: Pages.Chip,
-            component: ChipDocComponent,
-          },
-          {
-            path: Pages.Checkbox,
-            component: CheckboxDocComponent,
-          },
-          {
-            path: Pages.ContentLoader,
-            component: ContentLoaderDocComponent,
-          },
-          {
-            path: Pages.ContextMenu,
-            component: ContextMenuDocComponent,
-          },
-          {
-            path: Pages.Divider,
-            component: DividerDocComponent,
-          },
-          {
-            path: Pages.Dropdown,
-            component: DropdownDocComponent,
-          },
-          {
-            path: Pages.Tabs,
-            component: TabsDocComponent,
-          },
-          {
-            path: Pages.Toggle,
-            component: ToggleDocComponent,
-          },
-          {
-            path: Pages.Datepicker,
-            component: DatepickerDocComponent,
-          },
-          {
-            path: Pages.DatepickerRange,
-            component: DatepickerRangeDocComponent,
-          },
-          {
-            path: Pages.DragAndDrop,
-            component: DraganddropDocComponent,
-          },
-          {
-            path: Pages.FileUpload,
-            component: FileUploadDocComponent,
-          },
-          {
-            path: Pages.RadioFilter,
-            component: RadioFilterDocComponent,
-          },
-          {
-            path: Pages.Header,
-            component: HeaderDocComponent,
-          },
-          {
-            path: Pages.Input,
-            component: InputDocComponent,
-          },
-          {
-            path: Pages.Tag,
-            component: TagDocComponent,
-          },
-          {
-            path: Pages.Link,
-            component: LinkDocComponent,
-          },
-          {
-            path: Pages.List,
-            component: ListDocComponent,
-          },
-          {
-            path: Pages.Modal,
-            component: ModalDocComponent,
-          },
-          {
-            path: Pages.Outline,
-            component: OutlineDocComponent,
-          },
-          {
-            path: Pages.Pagination,
-            component: PaginationDocComponent,
-          },
-          {
-            path: Pages.Progressbar,
-            component: ProgressbarDocComponent,
-          },
-          {
-            path: Pages.Popover,
-            component: PopoverDocComponent,
-          },
-          {
-            path: Pages.Radiobutton,
-            component: RadiobuttonDocComponent,
-          },
-          {
-            path: Pages.SegmentedControl,
-            component: SegmentedControlsDocComponent,
-          },
-          {
-            path: Pages.Search,
-            component: SearchDocComponent,
-          },
-          {
-            path: Pages.Slider,
-            component: SliderDocComponent,
-          },
-          {
-            path: Pages.Spotlight,
-            component: SpotlightDocComponent,
-          },
-          {
-            path: Pages.Stepper,
-            component: StepperDocComponent,
-          },
-          {
-            path: Pages.Table,
-            component: TableDocComponent,
-          },
-          {
-            path: Pages.Timepicker,
-            component: TimepickerDocComponent,
-          },
-          {
-            path: Pages.Thumbnail,
-            component: ThumbnailDocComponent,
-          },
-          {
-            path: Pages.Toast,
-            component: ToastDocComponent,
-          },
-          {
-            path: Pages.Tooltip,
-            component: TooltipDocComponent,
-          },
-        ],
+        loadChildren: () =>
+          import('./doc-pages/components/components-routing.module').then((m) => m.ComponentsRoutingModule),
       },
       // Dev section
       {
         path: Pages.DevelopmentStart,
-        component: DevStartComponent,
-        children: [
-          {
-            path: '',
-            component: v2PlaygroundComponent,
-          },
-          {
-            path: Pages.DevelopmentPlayground,
-            component: v2PlaygroundComponent,
-          },
-        ],
+        loadChildren: () => import('./dev/dev-routing.module').then((m) => m.DevRoutingModule),
       },
       { path: 'not-found', component: ErrorComponent },
       // From CMS
@@ -361,7 +69,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
