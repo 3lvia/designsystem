@@ -22,7 +22,7 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
     theme.signal[label as keyof typeof theme.signal] ??
     theme.data[label as keyof typeof theme.data] ??
     theme.icon[label as keyof typeof theme.icon] ??
-    theme.static[label as keyof typeof theme.static] ??
+    theme.assorted[label as keyof typeof theme.assorted] ??
     null;
   if (!color) {
     return null;

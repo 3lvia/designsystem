@@ -33,7 +33,7 @@ $list-border-radius: 50%;
       width: $list-dot-size;
       height: $list-dot-size;
       border-radius: $list-border-radius;
-      background-color: var(--e-color-static-brand-accent);
+      background-color: var(--e-color-brand-accent);
       content: '';
     }
   }
@@ -58,7 +58,7 @@ $list-border-radius: 50%;
         height: 30px;
         align-items: center;
         justify-content: center;
-        border: 2px solid var(--e-color-static-brand-accent);
+        border: 2px solid var(--e-color-brand-accent);
         border-radius: $list-border-radius;
         background: transparent;
         content: counter(elvis-item);

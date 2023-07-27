@@ -1,11 +1,19 @@
 # Elvia Colors Changelog
 
-## 2.8.0 (??.06.23)
+## 3.0.0 (??.06.23)
+
+### Breaking changes
+
+- Static category -> Assorted category (with no common prefix)
+- `text-3` -> `text-placeholder-1`
+- `signal-red` now has contrast color white instead of black
+- `background-element-2` light theme color has been changed from `grey-05` to `grey-02`
 
 ### New feature
 
 - Building CSS variables and classes from tokens to elvis.
-- Added new theme color label: `static-brand-accent`
+- Added new theme color label: `brand-accent`, `background-element-6`, `text-3`, `text-4`
+- Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
 
 ## 2.7.1 (07.06.23)
 

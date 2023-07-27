@@ -30,7 +30,7 @@ export const lightThemeColors = {
     },
     red: {
       color: '#EE0701',
-      contrastText: '#000000',
+      contrastText: '#FFFFFF',
     },
   },
   'data-colors': {
@@ -129,8 +129,12 @@ export const lightTheme = {
       contrast: lightThemeColors['grey-colors']['grey-80'].contrastText,
     },
     'text-3': {
-      hex: lightThemeColors['grey-colors']['grey-70'].color,
-      contrast: lightThemeColors['grey-colors']['grey-70'].contrastText,
+      hex: lightThemeColors['primary-colors']['white'].color,
+      contrast: lightThemeColors['primary-colors']['white'].contrastText,
+    },
+    'text-4': {
+      hex: lightThemeColors['primary-colors']['white'].color,
+      contrast: lightThemeColors['primary-colors']['white'].contrastText,
     },
     'text-disabled-1': {
       hex: lightThemeColors['grey-colors']['grey-30'].color,
@@ -140,6 +144,10 @@ export const lightTheme = {
       hex: lightThemeColors['grey-colors']['grey-05'].color,
       contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
     },
+    'text-placeholder-1': {
+      hex: lightThemeColors['grey-colors']['grey-70'].color,
+      contrast: lightThemeColors['grey-colors']['grey-70'].contrastText,
+    },
   },
   background: {
     'background-1': {
@@ -147,8 +155,8 @@ export const lightTheme = {
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
     'background-2': {
-      hex: lightThemeColors['grey-colors']['grey-05'].color,
-      contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
+      hex: lightThemeColors['grey-colors']['grey-02'].color,
+      contrast: lightThemeColors['grey-colors']['grey-02'].contrastText,
     },
     'background-element-1': {
       hex: lightThemeColors['primary-colors'].white.color,
@@ -169,6 +177,10 @@ export const lightTheme = {
     'background-element-5': {
       hex: lightThemeColors['primary-colors']['white'].color,
       contrast: lightThemeColors['primary-colors']['white'].contrastText,
+    },
+    'background-element-6': {
+      hex: lightThemeColors['primary-colors']['black'].color,
+      contrast: lightThemeColors['primary-colors']['black'].contrastText,
     },
     'background-overlay-1': {
       hex: lightThemeColors['primary-colors'].white.color,
@@ -335,7 +347,7 @@ export const lightTheme = {
       contrast: lightThemeColors['primary-colors'].black.contrastText,
     },
   },
-  static: {
+  assorted: {
     'static-white': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
@@ -344,9 +356,12 @@ export const lightTheme = {
       hex: lightThemeColors['primary-colors'].black.color,
       contrast: lightThemeColors['primary-colors'].black.contrastText,
     },
-    'static-brand-accent': {
+    'brand-accent': {
       hex: lightThemeColors['primary-colors'].green.color,
       contrast: lightThemeColors['primary-colors'].green.contrastText,
+    },
+    'focus-outline': {
+      hex: lightThemeColors['internal-colors']['focus-outline'].color,
     },
   },
 } as const satisfies Theme;

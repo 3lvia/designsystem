@@ -4,18 +4,16 @@
 :root,
 .e-theme-light {
   --e-button-danger-hover-background: var(--e-light-theme-black);
-  --e-button-danger-hover-text: var(--e-light-theme-white);
 }
 
 .e-theme-dark {
   --e-button-danger-hover-background: var(--e-dark-theme-white);
-  --e-button-danger-hover-text: var(--e-dark-theme-black);
 }
 
 .e-btn.e-btn--danger {
   border-color: var(--e-color-signal-error);
   background: var(--e-color-signal-error);
-  color: var(--e-color-static-white);
+  color: var(--e-color-text-3);
 
   .e-btn__icon {
     i {
@@ -36,7 +34,7 @@
     &:hover:not(:disabled):not(.e-btn--loading) {
       border-color: var(--e-button-danger-hover-background);
       background: var(--e-button-danger-hover-background);
-      color: var(--e-button-danger-hover-text);
+      color: var(--e-color-text-4);
 
       .e-btn__icon {
         i:not([class*='inverted']) {
