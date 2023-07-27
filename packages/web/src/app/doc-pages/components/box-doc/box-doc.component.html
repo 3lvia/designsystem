@@ -1,16 +1,9 @@
-<!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
+<app-component-documentation
+  [title]="title ?? ''"
+  [description]="description ?? ''"
+  [figmaUrl]="figmaUrl ?? ''"
+  [componentData]="componentData"
 >
-  <ng-container ngProjectAs="headerTitle">Box</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body e-mt-72">
   <app-ceg>
     <app-box-ceg></app-box-ceg>
   </app-ceg>
@@ -36,25 +29,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-    </ng-container>
-  </app-component-section>
-
-  <!--CHANGELOG-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

@@ -9,6 +9,7 @@ import { ThumbnailDocComponent } from './thumbnail-doc.component';
 import { ThumbnailCegComponent } from './thumbnail-ceg/thumbnail-ceg.component';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { ThumbnailSelectedCegComponent } from './thumbnail-selected-ceg/thumbnail-selected-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [ThumbnailDocComponent, ThumbnailCegComponent, ThumbnailSelectedCegComponent],
@@ -20,6 +21,7 @@ import { ThumbnailSelectedCegComponent } from './thumbnail-selected-ceg/thumbnai
     ComponentSubsectionModule,
     ComponentChangelogModule,
     CegModule,
+    SharedDocumentationModule,
   ],
 })
 export class ThumbnailDocModule {}

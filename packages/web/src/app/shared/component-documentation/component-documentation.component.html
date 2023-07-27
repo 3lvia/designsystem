@@ -1,0 +1,53 @@
+<!--HEADER-->
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="componentData && componentData.changelog && componentData.changelog[0]?.date"
+>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body e-mt-72">
+  <ng-content *ngIf="!isElvis" select="app-ceg"></ng-content>
+  <ng-content *ngIf="isElvis" select="app-static-ceg"></ng-content>
+
+  <!--CUSTOM-->
+  <ng-content></ng-content>
+
+  <!--INSTALLATION-->
+  <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+  <app-component-section
+    *ngIf="isElvis && elvisTitle"
+    [sectionTitle]="'Properties'"
+    [propertiesClass]="elvisTitle"
+  >
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="elvisTitle"></app-component-properties>
+    </ng-container>
+  </app-component-section>
+
+  <!--CHANGELOG-->
+  <app-component-section [sectionTitle]="'Changelog'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-changelog
+        *ngIf="!isElvis && componentData"
+        [changelog]="componentData.changelog"
+      ></app-component-changelog>
+      <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
+</div>
