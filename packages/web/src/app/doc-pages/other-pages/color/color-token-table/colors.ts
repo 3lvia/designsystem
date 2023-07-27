@@ -135,6 +135,7 @@ export const textColorsState = [
       { title: 'Text field', path: '/components/input' },
       { title: 'Date picker', path: '/components/datepicker' },
       { title: 'Time picker', path: '/components/timepicker' },
+      { title: 'Slider', path: '/components/slider' },
     ],
   },
 ] as const satisfies TableColorArray<TextLabels>;
