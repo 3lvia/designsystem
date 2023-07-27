@@ -1,0 +1,21 @@
+<ng-container *ngFor="let changelog of changelogs | async; last as isLast">
+  <tr class="changelog-container">
+    <td class="changelog-name-and-icon">
+      <a
+        class="e-link e-link--lg"
+        [routerLink]="changelog.name | FrontPageChangelogUrlPipe"
+        [fragment]="changelog.name !== 'elvis' ? 'Changelog' : ''"
+      >
+        {{ changelog.name | FrontPageChangelogNamePipe }}
+      </a>
+    </td>
+
+    <td class="changelog-version-and-date">
+      <span class="e-title-xs">{{ changelog.version }}</span>
+      <span class="front-page-changelog-date e-text-sm">
+        {{ changelog.date | FrontPageChangelogDatePipe }}
+      </span>
+    </td>
+  </tr>
+  <elvia-divider *ngIf="!isLast" />
+</ng-container>

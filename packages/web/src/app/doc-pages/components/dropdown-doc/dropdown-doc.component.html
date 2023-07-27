@@ -20,17 +20,18 @@
         <ng-container ngProjectAs="sectionContent">
           <div>
             It's possible to display icons in the dropdown. Simply add a key value pair of
-            <code class="code-text">icon: IconName</code>
+            <code class="code-text">icon: innerHTML</code>
             to the dropdown options to create icons aligned on the left side of the label text.
           </div>
           <div class="e-mt-16">
-            Note that to display icons, all options need to have an icon attribute. Remember to pass icon
-            names as camelcase, as under the hood we use the icon component to display icons within the
-            dropdown component,
-            <a class="e-link e-link--inline" [routerLink]="['/brand/icon']" [fragment]="'Implementation'">
-              click here
-            </a>
-            for more information on the icon component
+            Note that to display icons, all options need to have an icon attribute. The
+            <code>icon</code>
+            that you pass will be parsed as
+            <code>innerHTML</code>
+            , and icons should be 24px wide. This corresponds to
+            <code>e-icon--sm</code>
+            if you use icons from
+            <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">elvis.</a>
           </div>
           <app-static-ceg>
             <app-dropdown-icons-ceg />

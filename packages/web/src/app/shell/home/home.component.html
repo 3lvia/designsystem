@@ -107,20 +107,7 @@
       <div class="home-whats-new">
         <div class="e-title-md e-mb-56" style="display: flex; justify-content: center">What's new?</div>
         <div>
-          <app-component-changelog
-            [isFrontpage]="true"
-            [changelog]="changelog"
-            [hasAccordion]="false"
-          ></app-component-changelog>
-        </div>
-        <div style="display: flex; justify-content: center">
-          <a class="e-link e-link--action" [routerLink]="['/about/whats-new']">
-            <span class="e-link__title">View changelog</span>
-            <span class="e-link__icon">
-              <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
-              <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
-            </span>
-          </a>
+          <app-front-page-changelog />
         </div>
       </div>
     </div>

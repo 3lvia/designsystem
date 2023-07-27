@@ -1,4 +1,7 @@
-<div class="theme-container e-color-background-1" [ngClass]="{ 'e-theme-dark': theme === 'dark' }">
+<div
+  class="theme-container e-color-background-1"
+  [ngClass]="theme === 'dark' ? 'e-theme-dark' : 'e-theme-light'"
+>
   <div class="header-container">
     <app-color-picker-header
       #header
