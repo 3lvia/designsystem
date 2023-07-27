@@ -6,7 +6,6 @@ import changelogJson from '@elvia/elvis/CHANGELOG.json';
 @Component({
   selector: 'app-changelog',
   templateUrl: './changelog.component.html',
-  styleUrls: ['./changelog.component.scss'],
 })
 export class ChangelogComponent {
   description = getDocPagesNotFromCMS('whats-new')?.description;
