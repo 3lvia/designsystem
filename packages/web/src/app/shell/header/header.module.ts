@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
 import { ThemeSwitchModule } from './theme-switch/theme-switch.module';
+import '@elvia/elvis-modal';
+import '@elvia/elvis-popover';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ThemeSwitchModule],
