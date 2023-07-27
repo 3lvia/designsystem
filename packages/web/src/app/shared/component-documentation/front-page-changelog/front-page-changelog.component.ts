@@ -9,8 +9,7 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 })
 export class FrontPageChangelogComponent {
   constructor(private cmsService: CMSService) {
-    const icons = this.cmsService.getComponentIcons();
-    this.componentIcons = icons;
+    this.componentIcons = this.cmsService.getComponentIcons();
   }
   changelogs = createChangelogs();
   componentIcons: ReturnType<typeof this.cmsService.getComponentIcons>;
