@@ -9,6 +9,7 @@ interface OverlayProps {
   startFade?: boolean;
   hasBackdrop?: boolean;
   hasAnimation?: boolean;
+  useGlobalTheme?: boolean;
   children: ReactNode;
 }
 
@@ -40,7 +41,10 @@ interface OverlayProps {
  * @since 2.1.0
  */
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
-  ({ onClose, startFade = false, hasBackdrop = true, hasAnimation = true, children }, ref) => {
+  (
+    { onClose, startFade = false, hasBackdrop = true, hasAnimation = true, useGlobalTheme, children },
+    ref,
+  ) => {
     const [fadeOut, setFadeOut] = useState(false);
     const isDestroyed = useRef(false);
     const overlayDOMPositionRef = useRef<HTMLDivElement>(null);
@@ -82,7 +86,12 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
         {createPortal(
           <>
             {hasBackdrop && <Backdrop onClick={() => animateOut()} data-testid="backdrop" />}
-            <OverlayContainer ref={ref} fadeOut={fadeOut} noAnimation={!hasAnimation} className={themeClass}>
+            <OverlayContainer
+              ref={ref}
+              fadeOut={fadeOut}
+              noAnimation={!hasAnimation}
+              className={!useGlobalTheme ? themeClass : ''}
+            >
               {children}
             </OverlayContainer>
           </>,

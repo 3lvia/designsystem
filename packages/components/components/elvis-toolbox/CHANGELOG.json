@@ -7,7 +7,14 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Add styled components for showing/hiding content based on breakpoints"]
+          "changes": [
+            "Add styled components for showing/hiding content based on breakpoints",
+            "Add flag to Overlay component to use global instead of local themes"
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Tertiary button missing text color."]
         }
       ]
     },

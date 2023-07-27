@@ -144,6 +144,7 @@ export const TertiaryButton = styled(ButtonBase)`
   position: relative;
   padding: 0;
   height: ${({ size }) => (size === 'sm' || size === 'small' ? '1.5rem' : '2rem')};
+  color: ${getThemeColor('text-1')};
 
   &:after {
     content: '';
