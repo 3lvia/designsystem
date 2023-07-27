@@ -1,13 +1,12 @@
 <ng-container *ngFor="let changelog of changelogs | async; last as isLast">
   <tr class="changelog-container">
-    <td class="changelog-icon">
+    <td class="changelog-name-and-icon">
       <img
+        class="e-mr-24"
         alt=""
         *ngIf="(componentIcons | async)?.[changelog.name | FrontPageChangelogNamePipe ]; else noIcon"
         [src]="(componentIcons | async)?.[changelog.name | FrontPageChangelogNamePipe ]"
       />
-    </td>
-    <td class="changelog-name-and-icon">
       <a
         class="e-link e-link--lg"
         [routerLink]="changelog.name | FrontPageChangelogUrlPipe"
@@ -28,5 +27,5 @@
 </ng-container>
 
 <ng-template #noIcon>
-  <div class="e-content-loader" style="width: 40px; height: 40px"></div>
+  <div class="e-content-loader e-mr-24" style="width: 40px; height: 40px"></div>
 </ng-template>
