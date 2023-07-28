@@ -67,6 +67,7 @@ export const ThemeButton = styled.button<{ isActive: boolean }>`
   }
 
   svg {
+    border-radius: 8px;
     vertical-align: top;
   }
 

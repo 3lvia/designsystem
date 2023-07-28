@@ -2,25 +2,22 @@ import React from 'react';
 
 export const DarkThemeIcon: React.FC = () => {
   return (
-    <svg
-      width="56"
-      height="56"
-      viewBox="0 0 56 56"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-    >
-      <rect width="56" height="56" rx="8" fill="url(#pattern1)" />
-      <defs>
-        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
-          <use xlinkHref="#image0_4338_1520" transform="scale(0.00446429)" />
-        </pattern>
-        <image
-          id="image0_4338_1520"
-          width="224"
-          height="224"
-          xlinkHref="data:image/png;base64,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"
+    <svg width="56" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clipPath="url(#clip0_3571_54816)">
+        <path fill="#171717" d="M0 0H56V56H0z" />
+        <rect x="4" y="40" width="48" height="8" rx="4" fill="#242424" />
+        <rect x="4" y="28" width="48" height="8" rx="4" fill="#242424" />
+        <circle cx="12" cy="16" r="8" fill="#242424" />
+        <path
+          d="M23.96 20l2.88-7h1.67l2.85 7h-1.57l-.71-1.84h-2.89L25.47 20h-1.51zm2.68-3h2l-1-2.58-1 2.58zm6.884 3.09c-.373 0-.703-.067-.99-.2-.286-.14-.51-.33-.67-.57-.16-.24-.24-.517-.24-.83 0-.5.187-.887.56-1.16.38-.28.9-.42 1.56-.42.454 0 .88.07 1.28.21v-.38c0-.3-.093-.527-.28-.68-.186-.153-.46-.23-.82-.23-.22 0-.456.037-.71.11a6.08 6.08 0 0 0-.88.32l-.5-1.01a7.017 7.017 0 0 1 1.18-.42c.38-.093.76-.14 1.14-.14.7 0 1.244.17 1.63.51.394.333.59.807.59 1.42V20h-1.35v-.37c-.213.16-.443.277-.69.35-.246.073-.516.11-.81.11zm-.6-1.63c0 .2.087.36.26.48.174.113.404.17.69.17.227 0 .437-.027.63-.08a1.73 1.73 0 0 0 .52-.26v-.76a2.733 2.733 0 0 0-.52-.15 3.189 3.189 0 0 0-.58-.05c-.313 0-.56.06-.74.18a.533.533 0 0 0-.26.47z"
+          fill="#EDEDED"
         />
+        <circle cx="50" cy="6" r="2" fill="#35BB18" />
+      </g>
+      <defs>
+        <clipPath id="clip0_3571_54816">
+          <rect width="56" height="56" rx="2" fill="#fff" />
+        </clipPath>
       </defs>
     </svg>
   );
