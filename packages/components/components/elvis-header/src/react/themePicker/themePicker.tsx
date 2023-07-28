@@ -47,7 +47,7 @@ export const ThemePicker: React.FC = () => {
   }, []);
 
   return (
-    <ThemeContainer className="e-strip-fieldset">
+    <ThemeContainer>
       <ThemeLabel>Tema</ThemeLabel>
       <ThemeListContainer>
         {themes.map((pickerTheme) => (

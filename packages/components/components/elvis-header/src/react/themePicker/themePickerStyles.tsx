@@ -6,9 +6,10 @@ import styled, { css } from 'styled-components';
 const borderOffset = '8px';
 
 export const ThemeContainer = styled.fieldset`
-  margin-bottom: 32px;
-  margin-top: 24px;
+  margin: 24px 0 32px;
+  padding: 0;
   width: 100%;
+  border: none;
 
   @media ${device.gtMobile} {
     margin-top: 32px;
