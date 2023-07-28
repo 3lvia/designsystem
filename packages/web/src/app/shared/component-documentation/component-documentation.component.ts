@@ -6,7 +6,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-component-documentation',
   templateUrl: './component-documentation.component.html',
-  styleUrls: ['./component-documentation.component.scss'],
 })
 export class ComponentDocumentationComponent implements OnInit {
   @Input({ transform: booleanAttribute }) isElvis = false;
@@ -25,7 +24,6 @@ export class ComponentDocumentationComponent implements OnInit {
       this.title = getComponent(this.elvisTitle)?.title;
       this.elvisClassName = ('e-' + this.elvisTitle) as keyof typeof data.block;
     } else if (!this.isElvis && this.componentData) {
-      console.log(this.componentData.name);
       this.figmaUrl = getComponent(this.componentData.name.toLowerCase())?.figmaUrl;
       this.description = getComponent(this.componentData.name.toLowerCase())?.description;
       this.title = getComponent(this.componentData.name.toLowerCase())?.title;
