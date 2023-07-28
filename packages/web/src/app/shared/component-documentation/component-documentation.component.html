@@ -1,7 +1,7 @@
 <!--HEADER-->
 <app-component-header
   [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData && componentData.changelog && componentData.changelog[0]?.date"
+  [lastUpdated]="componentData && componentData.changelog && componentData.changelog[0].date"
 >
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
@@ -11,8 +11,7 @@
 
 <!--BODY-->
 <div class="page-body e-mt-72">
-  <ng-content *ngIf="!isElvis" select="app-ceg"></ng-content>
-  <ng-content *ngIf="isElvis" select="app-static-ceg"></ng-content>
+  <ng-content select="[ceg]"></ng-content>
 
   <!--CUSTOM-->
   <ng-content></ng-content>
@@ -31,12 +30,12 @@
     </ng-container>
   </app-component-section>
   <app-component-section
-    *ngIf="isElvis && elvisTitle"
+    *ngIf="isElvis && elvisClassName"
     [sectionTitle]="'Properties'"
-    [propertiesClass]="elvisTitle"
+    [propertiesClass]="elvisClassName"
   >
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="elvisTitle"></app-component-properties>
+      <app-component-properties [componentName]="elvisClassName"></app-component-properties>
     </ng-container>
   </app-component-section>
 
