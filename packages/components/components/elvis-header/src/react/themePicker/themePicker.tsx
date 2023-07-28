@@ -1,13 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { ThemeButton, ThemeContainer, ThemeLabel, ThemeListContainer } from './themePickerStyles';
+import {
+  ThemeButton,
+  ThemeContainer,
+  ThemeIconOutline,
+  ThemeLabel,
+  ThemeListContainer,
+} from './themePickerStyles';
 import { LightThemeIcon } from './lightThemeIcon';
 import { DarkThemeIcon } from './darkThemeIcon';
 import { SystemThemeIcon } from './systemThemeIcon';
 import { getStoredActiveTheme, setThemeClassOnDocument } from '../themeUtils';
 import { Theme, themeLocalStorageKey } from '../elviaHeader.types';
 
+interface PickerTheme {
+  theme: Theme;
+  label: string;
+}
+
 export const ThemePicker: React.FC = () => {
-  const themes: Theme[] = ['light', 'dark', 'system'];
+  const themes: PickerTheme[] = [
+    { theme: 'light', label: 'Lys' },
+    { theme: 'dark', label: 'Mørk' },
+    { theme: 'system', label: 'System' },
+  ];
   const [currentTheme, setCurrentTheme] = useState<Theme>(getStoredActiveTheme());
 
   const changeTheme = (theme: Theme): void => {
@@ -35,11 +50,18 @@ export const ThemePicker: React.FC = () => {
     <ThemeContainer className="e-strip-fieldset">
       <ThemeLabel>Tema</ThemeLabel>
       <ThemeListContainer>
-        {themes.map((theme) => (
-          <ThemeButton key={theme} isActive={currentTheme === theme} onClick={() => changeTheme(theme)}>
-            {theme === 'dark' && <DarkThemeIcon />}
-            {theme === 'system' && <SystemThemeIcon />}
-            {theme === 'light' && <LightThemeIcon />}
+        {themes.map((pickerTheme) => (
+          <ThemeButton
+            key={pickerTheme.theme}
+            isActive={currentTheme === pickerTheme.theme}
+            onClick={() => changeTheme(pickerTheme.theme)}
+          >
+            <ThemeIconOutline>
+              {pickerTheme.theme === 'dark' && <DarkThemeIcon />}
+              {pickerTheme.theme === 'system' && <SystemThemeIcon />}
+              {pickerTheme.theme === 'light' && <LightThemeIcon />}
+            </ThemeIconOutline>
+            {pickerTheme.label}
           </ThemeButton>
         ))}
       </ThemeListContainer>

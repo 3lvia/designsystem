@@ -26,13 +26,7 @@ export const ThemeListContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const ThemeButton = styled.button<{ isActive: boolean }>`
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+export const ThemeIconOutline = styled.div`
   position: relative;
 
   &::after {
@@ -51,8 +45,22 @@ export const ThemeButton = styled.button<{ isActive: boolean }>`
     transform: scale(0.9);
     transition: 0.15s all ease;
   }
+`;
 
-  &:hover::after {
+export const ThemeButton = styled.button<{ isActive: boolean }>`
+  ${getTypographyCss('text-micro')}
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  &:hover ${ThemeIconOutline}::after {
     opacity: 1;
     transform: scale(1);
   }
@@ -64,7 +72,7 @@ export const ThemeButton = styled.button<{ isActive: boolean }>`
   ${({ isActive }) =>
     isActive &&
     css`
-      &::after {
+      ${ThemeIconOutline}::after {
         border-color: ${getThemeColor('border-1')};
         opacity: 1;
         transform: scale(1);
