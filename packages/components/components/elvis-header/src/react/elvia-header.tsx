@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { HeaderProps } from './elviaHeader.types';
-import { GtMobile, MobileOnly, useSlot } from '@elvia/elvis-toolbox';
+import { useBreakpoint, useSlot } from '@elvia/elvis-toolbox';
 import { getThemeColor } from '@elvia/elvis-colors';
 import {
   AppContent,
@@ -35,6 +35,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
   const [desktopMenuIsOpen, setDesktopMenuIsOpen] = useState(false);
   const applicationTitle = appTitle ?? getActiveApp('name');
+  const isGtMobile = useBreakpoint('gt-mobile');
 
   const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
   const { ref: pageTitleRef } = useSlot<HTMLHeadingElement>('pageTitle', webcomponent);
@@ -78,36 +79,42 @@ export const Header: React.FC<HeaderProps> = ({
           </IconButton>
         </LogoContainer>
 
-        <GtMobile>
-          <AppDrawer appTitle={applicationTitle} onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)} />
-          <Hr direction="vertical" />
-        </GtMobile>
+        {isGtMobile && (
+          <>
+            <AppDrawer appTitle={applicationTitle} onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)} />
+            <Hr direction="vertical" />
+          </>
+        )}
 
         <PageTitle isInvisible={mobileMenuIsOpen} ref={pageTitleRef}>
           {pageTitle}
         </PageTitle>
 
-        <MobileOnly>
-          <SquareContainer>
-            <MobileMenu
-              appTitle={applicationTitle}
+        {!isGtMobile && (
+          <>
+            <SquareContainer>
+              <MobileMenu
+                appTitle={applicationTitle}
+                email={email}
+                username={username}
+                onSignOutClick={signOutClick}
+                onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
+              />
+            </SquareContainer>
+          </>
+        )}
+
+        {isGtMobile && (
+          <>
+            <Hr direction="vertical" />
+            <DesktopMenu
               email={email}
               username={username}
               onSignOutClick={signOutClick}
-              onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
+              onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
             />
-          </SquareContainer>
-        </MobileOnly>
-
-        <GtMobile>
-          <Hr direction="vertical" />
-          <DesktopMenu
-            email={email}
-            username={username}
-            onSignOutClick={signOutClick}
-            onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
-          />
-        </GtMobile>
+          </>
+        )}
       </StyledHeader>
       {hasNavItems && (
         <SideNav

@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Add styled components for showing/hiding content based on breakpoints",
+            "Add breakpoints to use in media queries.",
             "Add flag to Overlay component to use global instead of local themes"
           ]
         },
