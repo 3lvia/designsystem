@@ -7,6 +7,7 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
+import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { CegModule } from './ceg/ceg.module';
@@ -39,6 +40,7 @@ import { ComponentDocumentationComponent } from './component-documentation.compo
     ComponentPropertiesTableModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
+    ComponentSubsubsectionModule,
     CegModule,
     CopyModule,
     WhenToUseModule,
