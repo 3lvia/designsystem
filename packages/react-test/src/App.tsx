@@ -45,6 +45,57 @@ function App() {
   // Accordion
   const [isOpenContent, setIsOpenContent] = useState(false);
 
+  //Autocomplete
+  const autocompleteItems = [
+    { value: 'animal crossing: new horizons', label: 'Animal Crossing: New Horizons' },
+    { value: 'grand theft auto iv', label: 'Grand Theft Auto IV' },
+    { value: 'grand theft auto iv: the lost and damned', label: 'Grand Theft Auto IV: The Lost and Damned' },
+    { value: 'grand theft auto v', label: 'Grand Theft Auto V ' },
+    { value: 'grand theft auto: london 1961', label: 'Grand Theft Auto: London 1961' },
+    { value: 'grand theft auto: london 1969', label: 'Grand Theft Auto: London 1969' },
+    { value: 'grand theft auto: san andreas', label: 'Grand Theft Auto: San Andreas' },
+    { value: 'grand theft auto: the ballad of gay tony', label: 'Grand Theft Auto: The Ballad of Gay Tony' },
+    { value: 'grand theft auto: vice city', label: 'Grand Theft Auto: Vice City' },
+    { value: 'human: fall flat', label: 'Human: Fall Flat' },
+    { value: 'mario kart 8 / deluxe', label: 'Mario Kart 8 / Deluxe' },
+    { value: 'mario kart wii', label: 'Mario Kart Wii' },
+    { value: 'minecraft', label: 'Minecraft' },
+    { value: 'minecraft: education edition ', label: 'Minecraft: Education Edition ' },
+    { value: 'minecraft: ps3 edition', label: 'Minecraft: PS3 Edition' },
+    { value: 'minecraft: ps4 edition', label: 'Minecraft: PS4 Edition' },
+    { value: 'minecraft: wii u edition', label: 'Minecraft: Wii U Edition' },
+    { value: 'minecraft: xbox 360 edition', label: 'Minecraft: Xbox 360 Edition' },
+    { value: 'minecraft: xbox one edition', label: 'Minecraft: Xbox One Edition' },
+    { value: 'overwatch', label: 'Overwatch' },
+    { value: 'pac-man', label: 'Pac-Man' },
+    { value: 'pokémon red / green / blue / yellow', label: 'Pokémon Red / Green / Blue / Yellow' },
+    { value: 'pubg: battlegrounds', label: 'PUBG: Battlegrounds' },
+    { value: 'red dead redemption', label: 'Red Dead Redemption' },
+    { value: 'red dead redemption 2', label: 'Red Dead Redemption 2' },
+    { value: 'super mario bros.', label: 'Super Mario Bros.' },
+    { value: 'super smash bros. ultimate', label: 'Super Smash Bros. Ultimate' },
+    { value: 'terraria', label: 'Terraria' },
+    { value: 'tetris', label: 'Tetris (EA)' },
+    { value: 'the legend of zelda: breath of the wild', label: 'The Legend of Zelda: Breath of the Wild' },
+    { value: 'the witcher 3: wild hunt', label: 'The Witcher 3: Wild Hunt' },
+    { value: 'wii fit / plus', label: 'Wii Fit / Plus' },
+    { value: 'wii sports resort', label: 'Wii Sports Resort' },
+    { value: 'wii sports', label: 'Wii Sports' },
+    { value: 'pokémon ruby / sapphire / emerald', label: 'Pokémon Ruby / Sapphire / Emerald' },
+    { value: 'sonic the hedgehog', label: 'Sonic the Hedgehog' },
+    { value: 'mario kart ds', label: 'Mario Kart DS' },
+    { value: 'call of duty: black ops ii', label: 'Call of Duty: Black Ops II' },
+    { value: 'super mario bros. 3', label: 'Super Mario Bros. 3' },
+    { value: 'pokémon diamond / pearl / platinum', label: 'Pokémon Diamond / Pearl / Platinum' },
+    { value: 'pokémon sword / shield', label: 'Pokémon Sword / Shield' },
+    {
+      value: 'pokémon sun / moon / ultra sun / ultra moon',
+      label: 'Pokémon Sun / Moon / Ultra Sun / Ultra Moon',
+    },
+    { value: 'call of duty: modern warfare 3', label: 'Call of Duty: Modern Warfare 3' },
+    { value: 'call of duty: modern warfare', label: 'Call of Duty: Modern Warfare' },
+  ];
+
   // Breadcrumb
   const breadcrumbsNoUrl = [
     {
@@ -189,10 +240,12 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <div className="e-bg-white">
-                <Autocomplete items={[]} label="lol"></Autocomplete>
-                <Autocomplete items={[]} size="small" hasOptionalText></Autocomplete>
+                <Autocomplete items={autocompleteItems} label="lol"></Autocomplete>
+                <br></br>
+                <Autocomplete items={autocompleteItems} size="small" hasOptionalText></Autocomplete>
+                <br></br>
                 <Autocomplete
-                  items={[]}
+                  items={autocompleteItems}
                   size="small"
                   isFullWidth
                   valueOnChange={(value) => {
