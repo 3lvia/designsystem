@@ -1,21 +1,20 @@
 import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
-import React, { useState } from 'react';
+import React from 'react';
 import { AutocompleteItem } from '../elvia-autocomplete.types';
 import { AutocompletePopup } from './styledAutocompleteOverlay';
 import { AutocompletePopupItem } from '../autocomplete-item/autocompleteItem';
 
 interface AutocompleteOverlayProps {
+  fadeOut: boolean;
   filteredItems: AutocompleteItem[] | undefined;
-  size: FormFieldSizes;
   onClose: () => void;
   onItemSelect: (item: AutocompleteItem) => void;
-  value: string | null;
+  setFadeOut: (fadeOut: boolean) => void;
+  size: FormFieldSizes;
 }
 
 export const AutocompleteOverlay = React.forwardRef<HTMLDivElement, AutocompleteOverlayProps>(
-  ({ filteredItems = [], onClose, size, onItemSelect }, ref) => {
-    const [fadeOut, setFadeOut] = useState(false);
-
+  ({ filteredItems = [], onClose, size, onItemSelect, fadeOut, setFadeOut }, ref) => {
     return (
       <Overlay ref={ref} startFade={fadeOut} hasBackdrop={false} onClose={onClose}>
         <AutocompletePopup>
@@ -24,10 +23,8 @@ export const AutocompleteOverlay = React.forwardRef<HTMLDivElement, Autocomplete
               key={item.value}
               item={item}
               size={size}
-              onItemSelect={() => {
-                onItemSelect(item);
-                setFadeOut(true);
-              }}
+              onItemSelect={onItemSelect}
+              setFadeOut={setFadeOut}
             />
           ))}
         </AutocompletePopup>

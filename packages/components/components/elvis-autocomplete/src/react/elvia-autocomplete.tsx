@@ -35,6 +35,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   ...rest
 }) {
   const [currentValue, setCurrentValue] = useState<string | null>(value);
+  const [fadeOut, setFadeOut] = useState(false);
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -54,6 +55,8 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     emitValueOnChange(event.target.value);
     if (event.target.value) {
       setIsShowing(true);
+    } else {
+      setFadeOut(true);
     }
   };
 
@@ -70,6 +73,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
   const openPopup = () => {
     if (!isDisabled && currentValue) {
+      setFadeOut(false);
       setIsShowing(true);
     }
   };
@@ -103,19 +107,20 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
             disabled={isDisabled}
             onChange={handleOnChange}
             value={currentValue ?? ''}
-            onFocus={openPopup}
+            onClick={openPopup}
           />
         </FormFieldInputContainer>
         {!!mergedErrorOptions.text && <AutocompleteError errorText={mergedErrorOptions.text} />}
       </FormFieldContainer>
       {isShowing && (
         <AutocompleteOverlay
-          value={currentValue}
-          ref={popoverRef}
+          fadeOut={fadeOut}
           filteredItems={filteredItems}
-          size={size}
           onClose={closePopup}
           onItemSelect={handleOnItemSelect}
+          ref={popoverRef}
+          setFadeOut={setFadeOut}
+          size={size}
         ></AutocompleteOverlay>
       )}
     </>

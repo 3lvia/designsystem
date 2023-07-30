@@ -7,11 +7,24 @@ interface AutocompleteItemProps {
   item: AutocompleteItem;
   size: FormFieldSizes;
   onItemSelect: (item: AutocompleteItem) => void;
+  setFadeOut: (fadeOut: boolean) => void;
 }
 
-export const AutocompletePopupItem: React.FC<AutocompleteItemProps> = ({ item, size, onItemSelect }) => {
+export const AutocompletePopupItem: React.FC<AutocompleteItemProps> = ({
+  item,
+  size,
+  onItemSelect,
+  setFadeOut,
+}) => {
   return (
-    <AutocompleteItemStyles $size={size} onClick={() => onItemSelect(item)}>
+    <AutocompleteItemStyles
+      $size={size}
+      onClick={() => {
+        console.log('AutocompletePopupItem onClick');
+        setFadeOut(true);
+        onItemSelect(item);
+      }}
+    >
       {item.label}
     </AutocompleteItemStyles>
   );
