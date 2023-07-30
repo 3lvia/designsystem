@@ -27,6 +27,7 @@ import { Stepper } from '@elvia/elvis-stepper/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
+import { text } from 'express';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -94,6 +95,22 @@ function App() {
     },
     { value: 'call of duty: modern warfare 3', label: 'Call of Duty: Modern Warfare 3' },
     { value: 'call of duty: modern warfare', label: 'Call of Duty: Modern Warfare' },
+    {
+      value: 'teenage mutant ninja turtles iii: the manhattan project',
+      label: 'Teenage Mutant Ninja Turtles III: The Manhattan Project',
+    },
+    {
+      value: 'spongebob squarepants: battle for bikini bottom rehydrated',
+      label: 'SpongeBob SquarePants: Battle For Bikini Bottom Rehydrated',
+    },
+    {
+      value: 'spongebob squarepants: a day in the life of a sponge',
+      label: 'SpongeBob SquarePants: A Day in the Life of a Sponge',
+    },
+    {
+      value: 'spongebob squarepants: revenge of the flying dutchman',
+      label: 'SpongeBob SquarePants: Revenge of the Flying Dutchman',
+    },
   ];
 
   // Breadcrumb
@@ -125,7 +142,7 @@ function App() {
   // Dropdown
   const defaultDropdownOptions = 'norge';
   const dropdownOptions = [
-    { value: 'norge', label: 'Norge' },
+    { value: 'norge', label: 'Nosh dfjkhs dfkjh sdfjh sdkjfh sjkdhf skdfhjskd fksjhd fkjshd fkjrge' },
     { value: 'sverige', label: 'Sverige' },
     { value: 'danmark', label: 'Danmark' },
     {
@@ -240,7 +257,18 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <div className="e-bg-white">
-                <Autocomplete items={autocompleteItems} label="lol"></Autocomplete>
+                <Autocomplete
+                  items={autocompleteItems}
+                  label="Favorittspill"
+                  placeholder="mario..."
+                  value={'sponge'}
+                  valueOnChange={(value) => {
+                    console.info('Favorittspill:', value);
+                  }}
+                  errorOptions={{
+                    text: 'Feilmelding',
+                  }}
+                ></Autocomplete>
                 <br></br>
                 <Autocomplete items={autocompleteItems} size="small" hasOptionalText></Autocomplete>
                 <br></br>
@@ -248,6 +276,15 @@ function App() {
                   items={autocompleteItems}
                   size="small"
                   isFullWidth
+                  valueOnChange={(value) => {
+                    console.info(value);
+                  }}
+                ></Autocomplete>
+                <br></br>
+                <Autocomplete
+                  items={autocompleteItems}
+                  size="small"
+                  isDisabled
                   valueOnChange={(value) => {
                     console.info(value);
                   }}
@@ -454,9 +491,7 @@ function App() {
                 value={defaultDropdownOptions}
                 placeholder="Select country"
                 label="New dropdown"
-                isSearchable
                 items={dropdownOptions}
-                isMulti
                 isLoadingMoreItems={isLoadingMoreItems}
                 onLoadMoreItems={onLoadMoreItems}
               ></Dropdown>

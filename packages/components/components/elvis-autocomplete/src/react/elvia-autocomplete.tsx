@@ -1,14 +1,21 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { AutocompleteItem, AutocompleteProps } from './elvia-autocomplete.types';
 import {
   FormFieldContainer,
   FormFieldLabel,
   FormFieldInputContainer,
   FormFieldInput,
-  useWebComponentState,
   useConnectedOverlay,
+  ErrorOptions,
 } from '@elvia/elvis-toolbox';
 import { AutocompleteOverlay } from './autocomplete-overlay/autocompleteOverlay';
+import { filterItems } from './utils/filterItems';
+import { AutocompleteError } from './error/autocompleteError';
+
+const defaultErrorOptions = {
+  isErrorState: false,
+  hasErrorPlaceholder: true,
+} satisfies Partial<ErrorOptions>;
 
 export const Autocomplete: React.FC<AutocompleteProps> = function ({
   className,
@@ -24,11 +31,12 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   value = '',
   valueOnChange,
   webcomponent,
+  errorOptions,
   ...rest
 }) {
-  const [currentValue, setCurrentValue] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
+  const [currentValue, setCurrentValue] = useState<string | null>(value);
 
-  const connectedElementRef = useRef<HTMLLabelElement>(null);
+  const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
     offset: 8,
@@ -37,50 +45,37 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     alignWidths: true,
   });
 
-  const calculateItemRelevance = (itemLabel: string, filter: string[]): number => {
-    const normalizedItemLabel = itemLabel.toLowerCase();
+  const filteredItems = useMemo(() => filterItems(items, currentValue), [items, currentValue]);
 
-    let relevance = 0;
-    for (const filterItem of filter) {
-      const normalizedFilterItem = filterItem.toLowerCase();
+  const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
-      // Higher relevance for exact matches, then starts with, then includes
-      if (normalizedItemLabel === normalizedFilterItem) {
-        relevance += 3;
-      } else if (normalizedItemLabel.startsWith(normalizedFilterItem)) {
-        relevance += 2;
-      } else if (normalizedItemLabel.includes(normalizedFilterItem)) {
-        relevance += 1;
-      }
-    }
-    return relevance;
-  };
-
-  const filterItems = (items: AutocompleteItem[], filter: string, limit: number): AutocompleteItem[] | [] => {
-    const normalizedFilter: string[] = filter.toLowerCase().trim().split(/\s+/);
-
-    if (!filter) {
-      return [];
-    }
-
-    const scoredItems = items
-      .filter((item) => normalizedFilter.some((filterWord) => item.label.toLowerCase().includes(filterWord)))
-      .map((item) => ({
-        item,
-        relevance: calculateItemRelevance(item.label, normalizedFilter),
-      }))
-      .sort((a, b) => b.relevance - a.relevance)
-      .slice(0, limit)
-      .map((scoredItem) => scoredItem.item);
-
-    return scoredItems;
-  };
-
-  const filteredItems = useMemo(() => filterItems(items, currentValue ?? '', 6), [items, currentValue]);
-
-  const handleChange = (event: { target: { value: React.SetStateAction<string | null> } }) => {
+  const handleOnChange = (event: { target: { value: string | null } }) => {
     setCurrentValue(event.target.value);
-    setIsShowing(!!event.target.value);
+    emitValueOnChange(event.target.value);
+    if (event.target.value) {
+      setIsShowing(true);
+    }
+  };
+
+  const handleOnItemSelect = (item: AutocompleteItem) => {
+    setCurrentValue(item.label);
+    emitValueOnChange(item.value);
+  };
+
+  const emitValueOnChange = (valueToEmit: string | null) => {
+    webcomponent?.setProps({ value: valueToEmit }, true);
+    webcomponent?.triggerEvent('valueOnChange', valueToEmit);
+    valueOnChange?.(valueToEmit);
+  };
+
+  const openPopup = () => {
+    if (!isDisabled && currentValue) {
+      setIsShowing(true);
+    }
+  };
+
+  const closePopup = () => {
+    setIsShowing(false);
   };
 
   useEffect(() => {
@@ -90,34 +85,37 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   return (
     <>
       <FormFieldContainer
-        size={size}
-        isFullWidth={isFullWidth}
-        isDisabled={isDisabled}
         className={className}
-        ref={connectedElementRef}
+        hasErrorPlaceholder={!!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
+        isDisabled={isDisabled}
+        isFullWidth={isFullWidth}
+        isInvalid={!!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        size={size}
         style={{ ...inlineStyle }}
         {...rest}
       >
         {(!!label || !!hasOptionalText) && (
           <FormFieldLabel hasOptionalText={hasOptionalText}>{label}</FormFieldLabel>
         )}
-        <FormFieldInputContainer>
+        <FormFieldInputContainer ref={connectedElementRef}>
           <FormFieldInput
             placeholder={placeholder}
             disabled={isDisabled}
-            onChange={handleChange}
+            onChange={handleOnChange}
             value={currentValue ?? ''}
-            onFocus={() => currentValue && setIsShowing(true)}
+            onFocus={openPopup}
           />
         </FormFieldInputContainer>
+        {!!mergedErrorOptions.text && <AutocompleteError errorText={mergedErrorOptions.text} />}
       </FormFieldContainer>
       {isShowing && (
         <AutocompleteOverlay
+          value={currentValue}
           ref={popoverRef}
           filteredItems={filteredItems}
           size={size}
-          onClose={() => setIsShowing(false)}
-          value={currentValue}
+          onClose={closePopup}
+          onItemSelect={handleOnItemSelect}
         ></AutocompleteOverlay>
       )}
     </>
