@@ -91,17 +91,15 @@ export const Header: React.FC<HeaderProps> = ({
         </PageTitle>
 
         {!isGtMobile && (
-          <>
-            <SquareContainer>
-              <MobileMenu
-                appTitle={applicationTitle}
-                email={email}
-                username={username}
-                onSignOutClick={signOutClick}
-                onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
-              />
-            </SquareContainer>
-          </>
+          <SquareContainer>
+            <MobileMenu
+              appTitle={applicationTitle}
+              email={email}
+              username={username}
+              onSignOutClick={signOutClick}
+              onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
+            />
+          </SquareContainer>
         )}
 
         {isGtMobile && (
