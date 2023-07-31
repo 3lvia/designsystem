@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "28.06.23",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Theme support in tabs."]
+        }
+      ]
+    },
+    {
+      "date": "28.06.23",
       "version": "2.0.3",
       "changelog": [
         {

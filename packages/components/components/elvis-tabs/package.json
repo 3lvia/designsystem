@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-tabs",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/tabs",
   "main": "web_component.js",
