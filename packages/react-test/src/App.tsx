@@ -261,12 +261,21 @@ function App() {
                   items={autocompleteItems}
                   label="Favorittspill"
                   placeholder="mario..."
-                  value={'sponge'}
                   valueOnChange={(value) => {
-                    console.info('Favorittspill:', value);
+                    console.info('valueOnChange:', value);
                   }}
-                  errorOptions={{
-                    text: 'Feilmelding',
+                  isRequired={true}
+                  onOpen={() => {
+                    console.info('onOpen');
+                  }}
+                  onClose={() => {
+                    console.info('onClose');
+                  }}
+                  onFocus={() => {
+                    console.info('onFocus');
+                  }}
+                  errorOnChange={(error) => {
+                    console.error('errorOnChange:', error);
                   }}
                 ></Autocomplete>
                 <br></br>

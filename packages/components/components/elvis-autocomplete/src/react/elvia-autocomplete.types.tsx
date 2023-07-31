@@ -2,6 +2,7 @@ import { FormFieldSizes, BaseProps, HasValue, HasError } from '@elvia/elvis-tool
 import { ComponentPropsWithoutRef } from 'react';
 
 export type AutocompleteMenuPosition = 'top' | 'bottom' | 'auto';
+export type ErrorType = 'required';
 
 export interface AutocompleteItem {
   value: string | null;
@@ -17,9 +18,13 @@ export interface AutocompleteProps
   hasOptionalText?: boolean;
   isDisabled?: boolean;
   isFullWidth?: boolean;
+  isRequired?: boolean;
   items: AutocompleteItem[];
   label?: string;
   menuPosition?: AutocompleteMenuPosition;
+  onClose?: () => void;
+  onFocus?: () => void;
+  onOpen?: () => void;
   placeholder?: string;
   size?: FormFieldSizes;
 }
