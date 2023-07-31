@@ -32,7 +32,6 @@ const generateElvisColorsCss = async () => {
 
   let fileContent = WARNING;
 
-  fileContent += '/* stylelint-disable */\n'
   fileContent += purposeClasses + `\n`;
   fileContent += `:root {\n`;
   Object.entries(rootVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
@@ -40,12 +39,8 @@ const generateElvisColorsCss = async () => {
   fileContent += `.e-theme-light,\n:root {\n`;
   Object.entries(lightVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
-  fileContent += `.e-theme-light {\n\tbackground: var(--e-color-background-1);\n`;
-  fileContent += `\tcolor: var(--e-color-text-1);\n}\n`;
   fileContent += `.e-theme-dark {\n`;
   Object.entries(darkVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
-  fileContent += `\tbackground: var(--e-color-background-1);\n`;
-  fileContent += `\tcolor: var(--e-color-text-1);\n`;
   fileContent += `}\n`;
 
   fs.writeFileSync('./dist/elvisColors.scss', fileContent);
@@ -56,7 +51,12 @@ const getPurposeColorClasses = (): string => {
   let colorClasses = '';
   Object.values(lightTheme).forEach((category: Record<string, Color>) =>
     Object.entries(category).forEach(([label]) => {
-      if (label.includes('icon') || label.includes('signal') || label.includes('data') || label.includes('static')) {
+      if (
+        label.includes('icon') ||
+        label.includes('signal') ||
+        label.includes('data') ||
+        label.includes('static')
+      ) {
         return;
       }
       if (label.includes('background')) {
@@ -73,18 +73,21 @@ const getPurposeColorClasses = (): string => {
     }),
   );
   return colorClasses;
-}
+};
 
 const getBaseColorCssVariables = (colors: BaseColors, theme: ThemeName): Record<string, string> => {
   const variables: Record<string, string> = {};
   Object.values(colors).forEach((category) => {
     if (theme === 'light') {
-      Object.keys(category).forEach((color) => (variables[`--e-light-theme-${color}`] = category[color].color))
+      Object.keys(category).forEach(
+        (color) => (variables[`--e-light-theme-${color}`] = category[color].color),
+      );
     } else {
-      Object.keys(category).forEach((color) => (variables[`--e-dark-theme-${color}`] = category[color].color))
+      Object.keys(category).forEach(
+        (color) => (variables[`--e-dark-theme-${color}`] = category[color].color),
+      );
     }
-  }
-  );
+  });
   return variables;
 };
 
@@ -115,14 +118,8 @@ const generateElvisShadowMapScss = async () => {
 
 gulp.task(
   'default',
-  gulp.series(
-    makeDistFolder,
-    cleanup,
-    generateElvisShadowMapScss,
-    generateElvisColorsCss,
-    function (done) {
-      console.log('Elvis-colors - Successfully built Elvis-colors! ');
-      done();
-    },
-  ),
+  gulp.series(makeDistFolder, cleanup, generateElvisShadowMapScss, generateElvisColorsCss, function (done) {
+    console.log('Elvis-colors - Successfully built Elvis-colors! ');
+    done();
+  }),
 );
