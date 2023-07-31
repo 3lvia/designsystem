@@ -12,7 +12,7 @@ const THEME_STORAGE_KEY = 'preferredDesignElviaIoTheme';
   providedIn: 'root',
 })
 export class ThemeService {
-  private preferredThemeSubject = new BehaviorSubject<PreferredTheme>('system');
+  private preferredThemeSubject = new BehaviorSubject<PreferredTheme>('light');
 
   private themeObservable = this.preferredThemeSubject.pipe(
     map((theme) => {
