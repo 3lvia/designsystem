@@ -13,8 +13,29 @@
 <div class="page-body e-mt-72">
   <ng-content select="[ceg]"></ng-content>
 
-  <!--CUSTOM-->
-  <ng-content></ng-content>
+  <ng-content select="[structure]"></ng-content>
+
+  <ng-content select="[type]"></ng-content>
+
+  <ng-content select="[size]"></ng-content>
+
+  <ng-content select="[states]"></ng-content>
+
+  <ng-content select="[status]"></ng-content>
+
+  <ng-content select="[color]"></ng-content>
+
+  <ng-content select="[options]"></ng-content>
+
+  <ng-content select="[usage]"></ng-content>
+
+  <ng-content select="[implementation]"></ng-content>
+
+  <ng-content select="[group]"></ng-content>
+
+  <ng-content select="[accessibility]"></ng-content>
+
+  <ng-content select="[configuration]"></ng-content>
 
   <!--INSTALLATION-->
   <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Installation'">
