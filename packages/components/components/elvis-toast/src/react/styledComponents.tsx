@@ -1,14 +1,14 @@
 import { getShadow, getThemeColor } from '@elvia/elvis-colors';
-import { IconButton } from '@elvia/elvis-toolbox';
+import { IconButton, device } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
 import { ToastType } from './elviaToast.types';
 
 export const animationDuration = 200;
 
-const fadeIn = (gtMobile: boolean) => keyframes`
+const fadeIn = keyframes`
   from {
-    transform: ${gtMobile ? 'translateX(50%)' : 'translateY(50%)'};
+    transform: var(--entryAnimation);
     opacity: 0;
   }
   
@@ -17,40 +17,33 @@ const fadeIn = (gtMobile: boolean) => keyframes`
   }
   `;
 
-const fadeOut = (gtMobile: boolean) => keyframes`
+export const fadeOut = keyframes`
   from {
     opacity: 1;
   }
   
   to {
-    transform: ${gtMobile ? 'translateX(50%)' : 'translateY(50%)'};
+    transform: var(--entryAnimation);
     opacity: 0;
   }
 `;
 
-export const ToastPosition = styled.div<{ gtMobile: boolean }>`
+export const ToastPosition = styled.div`
   position: fixed;
   z-index: 99999;
+  inset: auto 16px 16px;
 
-  ${({ gtMobile }) => {
-    if (gtMobile) {
-      return css`
-        inset: 16px 16px auto auto;
-      `;
-    }
-
-    return css`
-      inset: auto 16px 16px;
-    `;
-  }};
+  @media ${device.gtMobile} {
+    inset: 16px 16px auto auto;
+  }
 `;
 
 export const ToastContainer = styled.output<{
   fade: boolean;
   toastType: ToastType;
-  gtMobile: boolean;
   index: number;
 }>`
+  --entryAnimation: translateY(50%);
   box-shadow: ${getShadow('medium')};
   position: absolute;
   display: flex;
@@ -62,10 +55,11 @@ export const ToastContainer = styled.output<{
   background: ${getThemeColor('background-1')};
   text-align: left;
   padding: 6px; // -2px because of border thickness
-  animation: ${({ gtMobile }) => fadeIn(gtMobile)} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
+  animation: ${fadeIn} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
   color: ${getThemeColor('text-1')};
   transform-origin: bottom center;
   transition: all 300ms ease;
+  width: 100%;
 
   ${({ toastType }) =>
     toastType === 'informative' &&
@@ -73,33 +67,32 @@ export const ToastContainer = styled.output<{
       border-color: ${getThemeColor('border-1')};
     `};
 
-  ${({ gtMobile }) => {
-    if (gtMobile) {
-      return css`
-        width: 350px;
-        right: 0;
-      `;
-    }
-
+  ${({ index }) => {
     return css`
-      width: 100%;
-    `;
-  }};
-
-  ${({ fade, gtMobile }) =>
-    fade &&
-    css`
-      animation: ${fadeOut(gtMobile)} ${animationDuration}ms forwards cubic-bezier(0.6, 0, 1, 0.9);
-    `};
-
-  ${({ index, gtMobile }) => {
-    return css`
-      top: ${gtMobile ? `${index * 3}px` : 'unset'};
-      bottom: ${gtMobile ? 'unset' : `${index * -3}px`};
+      bottom: ${`${index * -3}px`};
       scale: ${1 - index * 0.1};
       z-index: ${5 - index};
     `;
   }};
+
+  ${({ fade }) =>
+    fade &&
+    css`
+      animation: ${fadeOut} ${animationDuration}ms forwards cubic-bezier(0.6, 0, 1, 0.9);
+    `};
+
+  @media ${device.gtMobile} {
+    --entryAnimation: translateX(50%);
+    width: 350px;
+    right: 0;
+
+    ${({ index }) => {
+      return css`
+        top: ${`${index * 3}px`};
+        bottom: unset;
+      `;
+    }};
+  }
 `;
 
 export const TextContent = styled.div`
