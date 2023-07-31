@@ -8,7 +8,7 @@ export const animationDuration = 200;
 
 const fadeIn = keyframes`
   from {
-    transform: var(--entryAnimation);
+    transform: var(--entryPosition);
     opacity: 0;
   }
   
@@ -23,7 +23,7 @@ export const fadeOut = keyframes`
   }
   
   to {
-    transform: var(--entryAnimation);
+    transform: var(--entryPosition);
     opacity: 0;
   }
 `;
@@ -43,7 +43,7 @@ export const ToastContainer = styled.output<{
   toastType: ToastType;
   index: number;
 }>`
-  --entryAnimation: translateY(50%);
+  --entryPosition: translateY(50%);
   box-shadow: ${getShadow('medium')};
   position: absolute;
   display: flex;
@@ -82,7 +82,7 @@ export const ToastContainer = styled.output<{
     `};
 
   @media ${device.gtMobile} {
-    --entryAnimation: translateX(50%);
+    --entryPosition: translateX(50%);
     width: 350px;
     right: 0;
 
