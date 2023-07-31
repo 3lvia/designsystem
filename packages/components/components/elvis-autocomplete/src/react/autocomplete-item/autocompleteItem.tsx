@@ -20,7 +20,6 @@ export const AutocompletePopupItem: React.FC<AutocompleteItemProps> = ({
     <AutocompleteItemStyles
       $size={size}
       onClick={() => {
-        console.log('AutocompletePopupItem onClick');
         setFadeOut(true);
         onItemSelect(item);
       }}

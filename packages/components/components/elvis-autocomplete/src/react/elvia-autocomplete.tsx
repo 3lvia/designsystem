@@ -11,6 +11,7 @@ import {
 import { AutocompleteOverlay } from './autocomplete-overlay/autocompleteOverlay';
 import { filterItems } from './utils/filterItems';
 import { AutocompleteError } from './error/autocompleteError';
+import { useOutsideClickListener } from './utils/useOutsideClick';
 
 const defaultErrorOptions = {
   isErrorState: false,
@@ -46,6 +47,10 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     alignWidths: true,
   });
 
+  useOutsideClickListener([connectedElementRef, popoverRef], () => {
+    setFadeOut(isShowing);
+  });
+
   const filteredItems = useMemo(() => filterItems(items, currentValue), [items, currentValue]);
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
@@ -55,6 +60,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     emitValueOnChange(event.target.value);
     if (event.target.value) {
       setIsShowing(true);
+      setFadeOut(false);
     } else {
       setFadeOut(true);
     }
@@ -103,11 +109,12 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
         )}
         <FormFieldInputContainer ref={connectedElementRef}>
           <FormFieldInput
-            placeholder={placeholder}
+            autoComplete="off"
             disabled={isDisabled}
             onChange={handleOnChange}
-            value={currentValue ?? ''}
             onClick={openPopup}
+            placeholder={placeholder}
+            value={currentValue ?? ''}
           />
         </FormFieldInputContainer>
         {!!mergedErrorOptions.text && <AutocompleteError errorText={mergedErrorOptions.text} />}

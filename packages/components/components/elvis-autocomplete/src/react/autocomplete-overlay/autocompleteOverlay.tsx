@@ -14,7 +14,7 @@ interface AutocompleteOverlayProps {
 }
 
 export const AutocompleteOverlay = React.forwardRef<HTMLDivElement, AutocompleteOverlayProps>(
-  ({ filteredItems = [], onClose, size, onItemSelect, fadeOut, setFadeOut }, ref) => {
+  ({ filteredItems = [], size, fadeOut, setFadeOut, onClose, onItemSelect }, ref) => {
     return (
       <Overlay ref={ref} startFade={fadeOut} hasBackdrop={false} onClose={onClose}>
         <AutocompletePopup>

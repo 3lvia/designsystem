@@ -21,13 +21,15 @@ const calculateItemRelevance = (itemLabel: string, filter: string[]): number => 
   return relevance;
 };
 
+let previousFilteredItems: AutocompleteItem[] | [] = [];
+
 export const filterItems = (
   items: AutocompleteItem[],
   filter: string | null | undefined,
   limit = 6,
 ): AutocompleteItem[] | [] => {
   if (!filter) {
-    return items.slice(0, limit);
+    return previousFilteredItems;
   }
 
   const normalizedFilter: string[] = filter.toLowerCase().trim().split(/\s+/);
@@ -42,6 +44,7 @@ export const filterItems = (
     .slice(0, limit)
     .map((scoredItem) => scoredItem.item);
 
-  console.log(scoredItems);
+  previousFilteredItems = scoredItems;
+
   return scoredItems;
 };
