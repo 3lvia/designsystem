@@ -25,7 +25,7 @@ export class ThemeService {
   );
 
   constructor() {
-    const preferredTheme = localStorage.getItem(THEME_STORAGE_KEY) ?? 'system';
+    const preferredTheme = localStorage.getItem(THEME_STORAGE_KEY) ?? 'light';
 
     this.setPreferredTheme(preferredTheme as PreferredTheme);
 
