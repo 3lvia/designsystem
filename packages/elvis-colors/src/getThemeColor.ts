@@ -33,8 +33,8 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
 /**
  * Get a color from a theme by label. Will throw an error if color is not found.
  * @param label
- * @param themeName The theme name. Defaults to `'light'`. This only affects the fallback color.
- * @returns CSS-variable for label, with fallback to the color hex.
+ * @param themeName The theme name. Defaults to `'light'`.
+ * @returns CSS-variable for label, with fallback to the color hex. If themeName `'is dark'` the hex color for dark theme.
  * @throws Will throw an error if color is not found.
  * @example
  * const color = getThemeColor('background-1');
@@ -47,13 +47,13 @@ export const getThemeColor = <
 >(
   label: TLabel,
   themeName: ThemeName = 'light',
-): `var(--e-color-${TLabelWithoutPrefix}, ${string})` => {
+): string | `var(--e-color-${TLabelWithoutPrefix}, ${string})` => {
   const labelWithoutPrefix = label.replace(/^color-/, '') as TLabelWithoutPrefix;
   const color = getThemeColorObject(labelWithoutPrefix, themeName);
   if (!color) {
     throw new Error(`Color '${label}' not found.`);
   }
-  return `var(--e-color-${labelWithoutPrefix}, ${color.hex})`;
+  return themeName === 'dark' ? color.hex : `var(--e-color-${labelWithoutPrefix}, ${color.hex})`;
 };
 
 /**
