@@ -91,7 +91,7 @@ const Tabs: FC<TabsProps> = ({
               isSelected={selectedIndex == i}
               themeName={themeName}
             >
-              {item} && {themeName}
+              {item}
             </Tab>
           ))}
       </ScrollContainer>

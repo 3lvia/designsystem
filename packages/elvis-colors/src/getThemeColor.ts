@@ -34,7 +34,8 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
  * Get a color from a theme by label. Will throw an error if color is not found.
  * @param label
  * @param themeName The theme name. Defaults to `'light'`.
- * @returns CSS-variable for label, with fallback to the color hex. If themeName `'is dark'` the hex color for dark theme.
+ * @returns CSS-variable for label, with fallback to the color hex.
+ * If themeName prop `'dark'` is given the hex color for dark theme will be returned.
  * @throws Will throw an error if color is not found.
  * @example
  * const color = getThemeColor('background-1');
