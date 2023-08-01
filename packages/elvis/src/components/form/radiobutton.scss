@@ -3,15 +3,12 @@
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 
-:root,
-.e-theme-light {
+@include helpers.custom-light-theme-tokens {
   --e-radio-checked-color: var(--e-light-theme-black);
   --e-radio-checked-background-color: var(--e-light-theme-green);
 }
 
-.e-theme-dark,
-.e-color-background-element-4,
-.e-radio--inverted {
+@include helpers.custom-dark-theme-tokens('radio') {
   --e-radio-checked-color: var(--e-dark-theme-green);
   --e-radio-checked-background-color: var(--e-dark-theme-black);
 }

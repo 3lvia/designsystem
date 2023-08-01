@@ -3,14 +3,11 @@
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 
-:root,
-.e-theme-light {
+@include helpers.custom-light-theme-tokens {
   --e-checkbox-border-checked-color: var(--e-light-theme-black);
 }
 
-.e-theme-dark,
-.e-color-background-element-4,
-.e-checkbox--inverted {
+@include helpers.custom-dark-theme-tokens('checkbox') {
   --e-checkbox-border-checked-color: transparent;
 }
 
