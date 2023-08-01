@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components';
 const borderOffset = '8px';
 
 export const ThemeContainer = styled.fieldset`
-  margin: 24px 0 32px;
+  margin: 24px 0 0;
   padding: 0;
   width: 100%;
   border: none;

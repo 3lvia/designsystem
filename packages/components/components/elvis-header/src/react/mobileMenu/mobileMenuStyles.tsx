@@ -150,3 +150,7 @@ export const ButtonSpacer = styled.div`
 export const AppListContainer = styled.div`
   margin-bottom: 24px;
 `;
+
+export const MobileMenuFooter = styled.section`
+  margin-top: 32px;
+`;

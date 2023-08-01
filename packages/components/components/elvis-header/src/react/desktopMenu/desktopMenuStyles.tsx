@@ -28,6 +28,7 @@ export const Email = styled.div`
 `;
 
 export const MenuHr = styled(Hr)`
+  margin-top: 32px;
   margin-bottom: 16px;
 `;
 

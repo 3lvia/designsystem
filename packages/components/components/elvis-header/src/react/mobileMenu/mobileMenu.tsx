@@ -13,6 +13,7 @@ import {
   ButtonSpacer,
   AppListContainer,
   TextMdStrong,
+  MobileMenuFooter,
 } from './mobileMenuStyles';
 import { IconWrapper, TertiaryButton, useCurrentTheme } from '@elvia/elvis-toolbox';
 import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
@@ -85,13 +86,13 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   <TextSmallStrong>{username}</TextSmallStrong>
                   <TextSmall>{email}</TextSmall>
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
-                  <ThemePicker />
-                  <section>
+                  {false && <ThemePicker />}
+                  <MobileMenuFooter>
                     <TertiaryButton size="sm" onClick={onSignOutClick}>
                       <IconWrapper icon={logout} size="xs" />
                       Logg ut
                     </TertiaryButton>
-                  </section>
+                  </MobileMenuFooter>
                 </>
               )}
 
