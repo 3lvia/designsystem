@@ -21,7 +21,6 @@ const Tabs: FC<TabsProps> = ({
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(value);
   const uniqueId = `ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`;
-  const themeName = isInverted ? 'dark' : 'light';
   const { ref: scrollContainerRef } = useRovingFocus<HTMLDivElement>({
     dir: 'horizontal',
     observableAttributes: ['aria-hidden'],
@@ -89,7 +88,7 @@ const Tabs: FC<TabsProps> = ({
               aria-controls={uniqueId + i}
               onClick={(event) => onTabClick(i, event)}
               isSelected={selectedIndex == i}
-              themeName={themeName}
+              isInverted={isInverted ? isInverted : false}
             >
               {item}
             </Tab>
