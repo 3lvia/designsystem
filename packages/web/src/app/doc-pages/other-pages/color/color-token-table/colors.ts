@@ -17,7 +17,8 @@ import {
  * Extract the color hex (or 'transparent') from the returned value from `getThemeColor`.
  */
 const getColor = (label: ColorLabel, theme: ThemeName) => {
-  const color = getThemeColor(label, theme);
+  const isInverted = theme === 'dark';
+  const color = getThemeColor(label, { isInverted: isInverted });
   if (color.includes('transparent')) {
     return 'transparent';
   }
