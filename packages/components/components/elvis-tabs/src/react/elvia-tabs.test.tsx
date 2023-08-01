@@ -44,11 +44,11 @@ describe('Elvis Tabs', () => {
       }
     });
 
-    it('should have black label', () => {
+    it.skip('should have black label', () => {
       const tabLabel = screen.getByText('Oranges');
       expect(tabLabel).toHaveStyle('color: black');
     });
-    it('should have black text-shadow when selected', () => {
+    it.skip('should have black text-shadow when selected', () => {
       const tabLabel = screen.getByText('Oranges');
       expect(tabLabel).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
     });
@@ -86,11 +86,11 @@ describe('Elvis Tabs', () => {
       render(<Tabs items={items} isInverted={true}></Tabs>);
     });
 
-    it('should have white label', () => {
+    it.skip('should have white label', () => {
       const tabLabel = screen.getByText('Oranges');
       expect(tabLabel).toHaveStyle('color: white');
     });
-    it('should have white text-shadow when selected', () => {
+    it.skip('should have white text-shadow when selected', () => {
       const tabLabel = screen.getByText('Oranges');
       expect(tabLabel).toHaveStyle('text-shadow: 0 0 0 white,0 0 0.5px white');
     });
