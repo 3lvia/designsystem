@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { BaseProps, useBreakpoint } from '@elvia/elvis-toolbox';
+import { BaseProps } from '@elvia/elvis-toolbox';
 
 import { toastEventName, ToastWithId } from './elviaToast.types';
 import { ToastPosition } from './styledComponents';
@@ -11,7 +11,6 @@ export interface ToastProps extends BaseProps {}
 
 export const Toast: React.FC<ToastProps> = ({ className, inlineStyle }) => {
   const [toastQueue, setToastQueue] = useState<ToastWithId[]>([]);
-  const gtMobile = useBreakpoint('gt-mobile');
 
   const onClose = (): void => {
     setToastQueue((queue) => queue.slice(1));
@@ -43,14 +42,13 @@ export const Toast: React.FC<ToastProps> = ({ className, inlineStyle }) => {
   }, []);
 
   return createPortal(
-    <ToastPosition gtMobile={gtMobile} id={toastContainerId} data-elvia-toast-container>
+    <ToastPosition id={toastContainerId} data-elvia-toast-container>
       {toastQueue.slice(0, 4).map((toast, index) => (
         <ToastBox
           onClose={onClose}
           toast={toast}
           indexInQueue={index}
           key={toast.id}
-          gtMobile={gtMobile}
           className={className}
           inlineStyle={inlineStyle}
         />
