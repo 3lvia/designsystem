@@ -53,6 +53,9 @@
     &:active:not(:disabled):not(.e-btn--loading),
     &:hover:not(:disabled):not(.e-btn--loading) {
       background: var(--e-color-background-hover-1);
+      color: var(--e-color-background-hover-1--contrast);
+
+      @include icons.icon-currentcolor();
 
       .e-btn__icon i[class$='inverted'] {
         visibility: visible;

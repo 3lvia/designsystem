@@ -42,13 +42,6 @@ $button-sm-padding: 7px 15px;
       left: 0;
       display: flex;
     }
-
-    // Hide inverted icons for backwards compatibility
-    i[class*='inverted'],
-    i[class*='color-disabled-light'] {
-      display: none;
-      visibility: hidden;
-    }
   }
 
   .e-btn__title + .e-btn__icon,
