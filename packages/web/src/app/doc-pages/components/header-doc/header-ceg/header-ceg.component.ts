@@ -24,12 +24,15 @@ export class HeaderCegComponent implements ComponentExample {
   ]);
 
   toggleHeader() {
+    this.headerIsVisible = !this.headerIsVisible;
     const externalHeader = document.getElementById('header');
     externalHeader?.classList.toggle('e-none');
 
     const mainElement = document.getElementById('main-content');
-    mainElement?.classList.toggle('e-bg-grey-05');
-
-    this.headerIsVisible = !this.headerIsVisible;
+    if (mainElement && this.headerIsVisible) {
+      mainElement.style.background = 'var(--e-color-background-2)';
+    } else if (mainElement) {
+      mainElement.style.background = 'transparent';
+    }
   }
 }

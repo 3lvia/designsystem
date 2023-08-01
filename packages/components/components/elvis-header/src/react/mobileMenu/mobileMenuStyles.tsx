@@ -37,7 +37,7 @@ const backdropFadeOut = keyframes`
 
 export const MenuContainer = styled.div<{ fadeOut: boolean }>`
   position: fixed;
-  top: ${toolbarHeight};
+  inset: ${toolbarHeight} 0 auto;
   padding: 0 32px 32px;
   display: flex;
   flex-direction: column;
@@ -136,7 +136,7 @@ export const ButtonBase = styled.button`
 export const AppSelectorTrigger = styled(ButtonBase)`
   border: 1px solid ${getThemeColor('border-2')};
   border-width: 1px 0;
-  margin: 24px 0;
+  margin: 24px 0 0;
 `;
 
 export const BackButton = styled(ButtonBase)`
@@ -149,4 +149,8 @@ export const ButtonSpacer = styled.div`
 
 export const AppListContainer = styled.div`
   margin-bottom: 24px;
+`;
+
+export const MobileMenuFooter = styled.section`
+  margin-top: 32px;
 `;
