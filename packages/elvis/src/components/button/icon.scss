@@ -69,6 +69,10 @@
   &:disabled {
     background: none;
     cursor: not-allowed;
+
+    .e-btn__icon i {
+      @include icons.icon-color(var(--e-color-text-disabled-1));
+    }
   }
 
   &.e-btn--loading {

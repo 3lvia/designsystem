@@ -1,5 +1,6 @@
 @use '../../utilities/helpers.scss';
 @use '../../variables/colors.scss';
+@use '../../utilities/icons.scss';
 
 :root,
 .e-theme-light {
@@ -17,11 +18,7 @@
 
   .e-btn__icon {
     i {
-      visibility: hidden;
-    }
-
-    i[class*='color-white'] {
-      visibility: visible;
+      @include icons.icon-currentcolor(var(--e-color-text-3--contrast));
     }
   }
 
@@ -36,14 +33,8 @@
       background: var(--e-button-danger-hover-background);
       color: var(--e-color-text-4);
 
-      .e-btn__icon {
-        i:not([class*='inverted']) {
-          visibility: hidden;
-        }
-
-        i[class*='color-white'] {
-          visibility: visible;
-        }
+      .e-btn__icon i {
+        @include icons.icon-currentcolor(var(--e-button-danger-hover-background));
       }
     }
   }

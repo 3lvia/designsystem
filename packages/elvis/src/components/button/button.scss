@@ -24,6 +24,12 @@ $button-sm-padding: 7px 15px;
   text-decoration: none;
   white-space: nowrap;
 
+  &:not(.e-btn--icon):not(.e-btn--secondary):not(.e-btn--danger):not(.e-btn--tertiary) {
+    .e-btn__icon i {
+      @include icons.icon-currentcolor(var(--e-color-background-element-6));
+    }
+  }
+
   .e-btn__icon {
     position: relative;
     display: flex;
@@ -35,13 +41,13 @@ $button-sm-padding: 7px 15px;
       top: 0;
       left: 0;
       display: flex;
-      // Hiding hover ikon (only show inverted ikon)
-      visibility: hidden;
     }
 
+    // Hide inverted icons for backwards compatibility
     i[class*='inverted'],
     i[class*='color-disabled-light'] {
-      visibility: visible;
+      display: none;
+      visibility: hidden;
     }
   }
 
@@ -88,12 +94,8 @@ $button-sm-padding: 7px 15px;
       background: var(--e-color-background-hover-1);
       color: var(--e-color-background-hover-1--contrast);
 
-      .e-btn__icon i[class*='inverted'] {
-        visibility: hidden;
-      }
-
-      .e-btn__icon i:not([class$='inverted']) {
-        visibility: visible;
+      &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) .e-btn__icon i {
+        @include icons.icon-currentcolor(var(--e-color-background-element-4--contrast));
       }
     }
   }
@@ -122,6 +124,10 @@ $button-sm-padding: 7px 15px;
     background: var(--e-color-background-disabled-2);
     color: var(--e-color-text-disabled-2);
     cursor: not-allowed;
+
+    &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) .e-btn__icon i {
+      @include icons.icon-currentcolor(var(--e-color-background-disabled-2));
+    }
   }
 
   &.e-btn--loading {

@@ -20,6 +20,13 @@ $sizes: (
   @return map.get($map: $sizes, $key: $size);
 }
 
+// Use with icon maps from '@elvia/elvis-assets-icons/dist/scss/themeVariables' to generate css variables
+@mixin icon-variables($map) {
+  @each $label, $color in $map {
+    --e-color-icon-#{$label}: #{$color};
+  }
+}
+
 @mixin icon-size($icon-size) {
   $size: get-icon-size($icon-size);
   width: $size;
@@ -40,13 +47,9 @@ $default-size: 'md';
 
   line-height: 0;
 
-  &.e-icon-- {
-    @each $class, $colors in IconMap.$icon-theme-classes {
-      &#{$class} {
-        @each $label, $color in $colors {
-          --e-color-icon-#{$label}: #{$color};
-        }
-      }
+  @each $class, $colors in IconMap.$icon-theme-classes {
+    &.e-icon--#{$class} {
+      @include icon-variables($colors);
     }
   }
 }
@@ -56,4 +59,19 @@ $default-size: 'md';
   .e-icon--#{$label} {
     @include icon-size($label);
   }
+}
+
+// Set the icon (and icon foregrounds) to currentcolor
+// Foreground should be opposite of background/stroke (i.e. black/white)
+@mixin icon-currentcolor($foreground-color: 0) {
+  --e-color-icon-stroke: currentcolor;
+  --e-color-icon-filled-background: currentcolor;
+  @if $foreground-color != 0 {
+    --e-color-icon-filled-foreground: #{$foreground-color};
+    --e-color-icon-filled-foreground-colored: #{$foreground-color};
+  }
+}
+@mixin icon-color($color) {
+  --e-color-icon-stroke: #{$color};
+  --e-color-icon-filled-background: #{$color};
 }
