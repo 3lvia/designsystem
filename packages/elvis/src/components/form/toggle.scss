@@ -20,7 +20,9 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   --e-toggle-checked-disabled-switch: #c2ebba;
 }
 
-.e-theme-dark {
+.e-theme-dark,
+.e-color-background-element-4,
+.e-toggle--inverted {
   --e-toggle-border-color: var(--e-dark-theme-white);
   --e-toggle-checked-disabled-switch: #619655;
 }
@@ -32,6 +34,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: var(--e-color-text-1);
   cursor: pointer;
   gap: 8px;
 
@@ -141,34 +144,6 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
     &::after {
       @include helpers.transform(translateX(16px));
       background: var(--e-toggle-checked-disabled-switch);
-    }
-  }
-}
-
-// DEPRECATED
-.e-toggle.e-toggle--inverted {
-  color: colors.color('font-color-light');
-
-  .e-toggle__input::before {
-    width: $toggle-inverted-width;
-    height: $toggle-inverted-height;
-    box-sizing: content-box;
-    border: 1px solid colors.color('elvia-on');
-  }
-
-  .e-toggle__input::after {
-    left: $toggle-inverted-slider-padding;
-  }
-
-  &.e-toggle---disabled,
-  input:disabled {
-    &.e-toggle__input::before {
-      border: 1px solid colors.color('grey-70');
-      background-color: colors.color('grey');
-    }
-
-    &.e-toggle__input::after {
-      background-color: colors.color('grey-70');
     }
   }
 }

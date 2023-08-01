@@ -217,29 +217,30 @@
 		"e-outline": {},
 		"e-btn": {
 			"modifier": {
-				"e-btn--inverted": {},
-				"e-btn--primary": {},
-				"e-btn--sm": {},
-				"e-btn--loading": {},
-				"e-btn--secondary": {},
-				"e-btn--tertiary": {},
-				"e-btn--danger": {},
 				"e-btn--icon": {},
 				"e-btn--lg": {},
-				"e-btn--circled": {}
+				"e-btn--sm": {},
+				"e-btn--loading": {},
+				"e-btn--circled": {},
+				"e-btn--secondary": {},
+				"e-btn--tertiary": {},
+				"e-btn--inverted": {},
+				"e-btn--danger": {},
+				"e-btn--primary": {}
 			},
 			"element": {
 				"e-btn__icon": {},
 				"e-btn__title": {}
 			},
 			"psuedo": {
-				"e-btn---focus": {},
-				"e-btn---disabled": {},
 				"e-btn---hover": {},
 				"e-btn---selected": {},
-				"e-btn---active": {}
+				"e-btn---active": {},
+				"e-btn---disabled": {},
+				"e-btn---focus": {}
 			}
 		},
+		"e-color-background-element-4": {},
 		"e-card": {
 			"modifier": {
 				"e-card--text-only": {},
@@ -910,6 +911,13 @@
 		"e-table-footnote": {},
 		"e-text-mono": {},
 		"e-checkbox": {
+			"modifier": {
+				"e-checkbox--inverted": {},
+				"e-checkbox--compact": {},
+				"e-checkbox--sm": {},
+				"e-checkbox--small": {},
+				"e-checkbox--indeterminate": {}
+			},
 			"element": {
 				"e-checkbox__mark": {},
 				"e-checkbox__label": {}
@@ -921,12 +929,28 @@
 				"e-checkbox---disabled-checked": {},
 				"e-checkbox---disabled": {},
 				"e-checkbox---invalid": {}
-			},
+			}
+		},
+		"e-tag": {
 			"modifier": {
-				"e-checkbox--compact": {},
-				"e-checkbox--sm": {},
-				"e-checkbox--small": {},
-				"e-checkbox--indeterminate": {}
+				"e-tag--inverted": {},
+				"e-tag--neutral": {},
+				"e-tag--white": {},
+				"e-tag--black": {},
+				"e-tag--grey": {},
+				"e-tag--green": {},
+				"e-tag--caution": {},
+				"e-tag--yellow": {},
+				"e-tag--warning": {},
+				"e-tag--orange": {},
+				"e-tag--error": {},
+				"e-tag--red": {},
+				"e-tag--green-apple": {},
+				"e-tag--violet-grape": {},
+				"e-tag--blue-berry": {},
+				"e-tag--purple-plum": {},
+				"e-tag--orange-mango": {},
+				"e-tag--red-tomato": {}
 			}
 		},
 		"e-label": {
@@ -950,27 +974,6 @@
 				"e-label--red-tomato": {}
 			}
 		},
-		"e-tag": {
-			"modifier": {
-				"e-tag--neutral": {},
-				"e-tag--white": {},
-				"e-tag--black": {},
-				"e-tag--grey": {},
-				"e-tag--green": {},
-				"e-tag--caution": {},
-				"e-tag--yellow": {},
-				"e-tag--warning": {},
-				"e-tag--orange": {},
-				"e-tag--error": {},
-				"e-tag--red": {},
-				"e-tag--green-apple": {},
-				"e-tag--violet-grape": {},
-				"e-tag--blue-berry": {},
-				"e-tag--purple-plum": {},
-				"e-tag--orange-mango": {},
-				"e-tag--red-tomato": {}
-			}
-		},
 		"e-thumbnail": {
 			"psuedo": {
 				"e-thumbnail---selected": {},
@@ -990,13 +993,13 @@
 			}
 		},
 		"e-toggle": {
+			"modifier": {
+				"e-toggle--inverted": {},
+				"e-toggle--compact": {},
+				"e-toggle--small": {}
+			},
 			"element": {
 				"e-toggle__input": {}
-			},
-			"modifier": {
-				"e-toggle--compact": {},
-				"e-toggle--small": {},
-				"e-toggle--inverted": {}
 			},
 			"psuedo": {
 				"e-toggle---checked": {},
@@ -1035,6 +1038,12 @@
 			}
 		},
 		"e-radio": {
+			"modifier": {
+				"e-radio--inverted": {},
+				"e-radio--compact": {},
+				"e-radio--sm": {},
+				"e-radio--small": {}
+			},
 			"element": {
 				"e-radio__mark": {},
 				"e-radio__label": {}
@@ -1046,11 +1055,6 @@
 				"e-radio---disabled-checked": {},
 				"e-radio---disabled": {},
 				"e-radio---invalid": {}
-			},
-			"modifier": {
-				"e-radio--compact": {},
-				"e-radio--sm": {},
-				"e-radio--small": {}
 			}
 		},
 		"e-search": {
@@ -1085,7 +1089,6 @@
 		"e-color-background-element-1": {},
 		"e-color-background-element-2": {},
 		"e-color-background-element-3": {},
-		"e-color-background-element-4": {},
 		"e-color-background-element-5": {},
 		"e-color-background-element-6": {},
 		"e-color-background-overlay-1": {},
@@ -1369,23 +1372,24 @@
 		"e-no-outline": {},
 		"e-outline": {},
 		"e-btn": {},
-		"e-btn--inverted": {},
-		"e-btn--primary": {},
+		"e-btn--icon": {},
 		"e-btn__icon": {},
+		"e-btn--lg": {},
 		"e-btn--sm": {},
-		"e-btn---focus": {},
-		"e-btn---disabled": {},
-		"e-btn--loading": {},
-		"e-btn--secondary": {},
-		"e-btn--tertiary": {},
-		"e-btn--danger": {},
 		"e-btn---hover": {},
 		"e-btn---selected": {},
 		"e-btn---active": {},
-		"e-btn--icon": {},
-		"e-btn--lg": {},
+		"e-btn--loading": {},
+		"e-btn---disabled": {},
 		"e-btn--circled": {},
+		"e-btn--secondary": {},
+		"e-btn--tertiary": {},
+		"e-color-background-element-4": {},
+		"e-btn--inverted": {},
+		"e-btn--danger": {},
+		"e-btn--primary": {},
 		"e-btn__title": {},
+		"e-btn---focus": {},
 		"e-card": {},
 		"e-card--text-only": {},
 		"e-card--shadow-soft": {},
@@ -1913,6 +1917,7 @@
 		"e-table__sort-icon": {},
 		"e-table__sort-icon--up": {},
 		"e-table__sort-icon--inactive": {},
+		"e-tag--inverted": {},
 		"e-label": {},
 		"e-tag": {},
 		"e-label--neutral": {},
@@ -1958,6 +1963,7 @@
 		"e-tooltip__content--top": {},
 		"e-tooltip__content--left": {},
 		"e-tooltip__content--right": {},
+		"e-toggle--inverted": {},
 		"e-toggle": {},
 		"e-toggle__input": {},
 		"e-toggle--compact": {},
@@ -1965,7 +1971,7 @@
 		"e-toggle---checked": {},
 		"e-toggle---focus": {},
 		"e-toggle---disabled": {},
-		"e-toggle--inverted": {},
+		"e-checkbox--inverted": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
 		"e-checkbox---focus": {},
@@ -2001,6 +2007,7 @@
 		"e-position-picker__icon": {},
 		"e-position-picker__description": {},
 		"e-position-picker__action": {},
+		"e-radio--inverted": {},
 		"e-radio": {},
 		"e-radio__mark": {},
 		"e-radio__label": {},
@@ -2035,7 +2042,6 @@
 		"e-color-background-element-1": {},
 		"e-color-background-element-2": {},
 		"e-color-background-element-3": {},
-		"e-color-background-element-4": {},
 		"e-color-background-element-5": {},
 		"e-color-background-element-6": {},
 		"e-color-background-overlay-1": {},

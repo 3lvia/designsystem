@@ -8,7 +8,9 @@
   --e-checkbox-border-checked-color: var(--e-light-theme-black);
 }
 
-.e-theme-dark {
+.e-theme-dark,
+.e-color-background-element-4,
+.e-checkbox--inverted {
   --e-checkbox-border-checked-color: transparent;
 }
 

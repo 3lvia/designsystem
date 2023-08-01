@@ -6,7 +6,9 @@
   --e-button-danger-hover-background: var(--e-light-theme-black);
 }
 
-.e-theme-dark {
+.e-theme-dark,
+.e-color-background-element-4,
+.e-btn--inverted {
   --e-button-danger-hover-background: var(--e-dark-theme-white);
 }
 

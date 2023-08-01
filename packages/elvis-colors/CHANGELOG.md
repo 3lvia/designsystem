@@ -12,6 +12,8 @@
 ### New feature
 
 - Building CSS variables and classes from tokens to elvis.
+- Added support so that all `e-*--inverted` classes and the token `e-color-background-element-4` gives dark
+  theme.
 - Added new theme color label: `brand-accent`, `background-element-6`, `text-3`, `text-4`
 - Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
 

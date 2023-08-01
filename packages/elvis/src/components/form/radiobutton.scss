@@ -9,7 +9,9 @@
   --e-radio-checked-background-color: var(--e-light-theme-green);
 }
 
-.e-theme-dark {
+.e-theme-dark,
+.e-color-background-element-4,
+.e-radio--inverted {
   --e-radio-checked-color: var(--e-dark-theme-green);
   --e-radio-checked-background-color: var(--e-dark-theme-black);
 }
