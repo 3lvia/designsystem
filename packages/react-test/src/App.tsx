@@ -48,7 +48,8 @@ function App() {
 
   //Autocomplete
   const autocompleteItems = [
-    { value: 'animal crossing: new horizons', label: 'Animal Crossing: New Horizons' },
+    { value: 'helsearbeider', label: '🧑‍⚕️ Helsearbeider' },
+    { value: 'lærer', label: '🧑‍🏫 Lærer' },
     { value: 'grand theft auto iv', label: 'Grand Theft Auto IV' },
     { value: 'grand theft auto iv: the lost and damned', label: 'Grand Theft Auto IV: The Lost and Damned' },
     { value: 'grand theft auto v', label: 'Grand Theft Auto V ' },
@@ -273,6 +274,9 @@ function App() {
                   }}
                   onFocus={() => {
                     console.info('onFocus');
+                  }}
+                  onItemSelect={(item) => {
+                    console.info('onItemSelect:', item);
                   }}
                   errorOnChange={(error) => {
                     console.error('errorOnChange:', error);

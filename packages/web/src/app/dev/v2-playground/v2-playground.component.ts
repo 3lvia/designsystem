@@ -24,13 +24,16 @@ export class v2PlaygroundComponent {
 
   //autocomplete
   autocompleteItems = [
-    { value: 'animal crossing: new horizons', label: 'Animal Crossing: New Horizons' },
-    { value: 'grand theft auto iv', label: 'Grand Theft Auto IV' },
+    { value: 'animal crossing: new horizons', label: 'Animal Crossing: New Horizons asd asd asd' },
+    {
+      value: 'grand theft auto iv',
+      label: 'Grand Theft Auto IV ads asd asd jksdgf sdkjfhsd fjhsdkf sdhjfk sjfjsfkjdhf skdjf',
+    },
     { value: 'grand theft auto iv: the lost and damned', label: 'Grand Theft Auto IV: The Lost and Damned' },
-    { value: 'grand theft auto v', label: 'Grand Theft Auto V ' },
-    { value: 'grand theft auto: london 1961', label: 'Grand Theft Auto: London 1961' },
-    { value: 'grand theft auto: london 1969', label: 'Grand Theft Auto: London 1969' },
-    { value: 'grand theft auto: san andreas', label: 'Grand Theft Auto: San Andreas' },
+    { value: 'grand theft auto v', label: 'Grand Theft Auto V a sda sdasdasd ' },
+    { value: 'grand theft auto: london 1961', label: 'Grand Theft Auto: London 1961 aksjdhakjsdhjkas' },
+    { value: 'grand theft auto: london 1969', label: 'Grand Theft Auto: London 1969 as da sda sdas d' },
+    { value: 'grand theft auto: san andreas', label: 'Grand Theft Auto: San Andreas asda s dasdasd' },
     { value: 'grand theft auto: the ballad of gay tony', label: 'Grand Theft Auto: The Ballad of Gay Tony' },
     { value: 'grand theft auto: vice city', label: 'Grand Theft Auto: Vice City' },
     { value: 'human: fall flat', label: 'Human: Fall Flat' },
@@ -182,7 +185,6 @@ export class v2PlaygroundComponent {
     {
       value: 'finland',
       label: 'Finland  med en veldig lang tekst som kommer til å overflowe',
-      isDisabled: true,
     },
     { value: 'spania', label: 'Spania' },
     { value: 'tyskland', label: 'Tyskland' },

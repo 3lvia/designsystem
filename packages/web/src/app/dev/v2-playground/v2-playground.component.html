@@ -17,6 +17,13 @@
         [size]="'small'"
         (valueOnChange)="handleOnChange($any($event))"
       ></elvia-autocomplete>
+      <elvia-autocomplete
+        [items]="autocompleteItems"
+        [label]="'Jeg har ikke built in filter'"
+        [size]="'small'"
+        [useBuiltInFilter]="false"
+        (valueOnChange)="handleOnChange($any($event))"
+      ></elvia-autocomplete>
     </div>
     <!--Inverted version-->
     <div class="e-theme-dark e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32"></div>

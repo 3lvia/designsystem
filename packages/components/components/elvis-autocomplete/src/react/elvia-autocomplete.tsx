@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState, KeyboardEvent } from 'react';
 import { AutocompleteItem, AutocompleteProps, ErrorType } from './elvia-autocomplete.types';
 import {
   FormFieldContainer,
@@ -19,7 +19,10 @@ const defaultErrorOptions = {
   hasErrorPlaceholder: true,
 } satisfies Partial<ErrorOptions>;
 
+let [uniqueAutocompleteId, uniqueAutocompletePopupId, uniqueAutocompleteErrorId] = [0, 0, 0];
+
 export const Autocomplete: React.FC<AutocompleteProps> = function ({
+  ariaLabel,
   className,
   errorOnChange,
   errorOptions,
@@ -33,9 +36,11 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   menuPosition = 'auto',
   onClose,
   onFocus,
+  onItemSelect,
   onOpen,
   placeholder,
   size = 'medium',
+  useBuiltInFilter = true,
   value = '',
   valueOnChange,
   webcomponent,
@@ -45,6 +50,10 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   const [fadeOut, setFadeOut] = useState(false);
   const [touched, setTouched] = useState(false);
   const [error, setError] = useState<ErrorType | undefined>(undefined);
+  const [id] = useState(`ewc-autocomplete-${uniqueAutocompleteId++}`);
+  const [popupId] = useState(`ewc-autocomplete-popup-${uniqueAutocompletePopupId++}`);
+  const [errorId] = useState(`ewc-autocomplete-error-${uniqueAutocompleteErrorId++}`);
+  const [focusedItem, setFocusedItem] = useState<AutocompleteItem | undefined>(undefined);
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -59,7 +68,9 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     setFadeOut(isShowing);
   });
 
-  const filteredItems = useMemo(() => filterItems(items, currentValue), [items, currentValue]);
+  const filteredItems = useMemo(() => {
+    return useBuiltInFilter ? filterItems(items, currentValue) : items;
+  }, [filterItems, items, currentValue, useBuiltInFilter]);
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
@@ -75,7 +86,8 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
   const handleOnItemSelect = (item: AutocompleteItem) => {
     setCurrentValue(item.label);
-    emitValueOnChange(item.value);
+    emitOnItemSelect(item.value);
+    setFadeOut(true);
   };
 
   const emitValueOnChange = (valueToEmit: string | null) => {
@@ -87,6 +99,11 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   const emitOnClose = () => {
     onClose?.();
     webcomponent?.triggerEvent('onClose');
+  };
+
+  const emitOnItemSelect = (selectedValue: string | null) => {
+    onItemSelect?.(selectedValue);
+    webcomponent?.triggerEvent('onItemSelect');
   };
 
   const emitOnOpen = () => {
@@ -141,6 +158,29 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
   const handleOnBlur = () => {
     validateInputValue(currentValue);
+    setFadeOut(true);
+  };
+
+  const handleOverlayKeyboardNavigation = (ev: KeyboardEvent<HTMLInputElement>): void => {
+    if (filteredItems.length === 0) {
+      return;
+    }
+
+    const currentIndex = filteredItems.findIndex((item) => item.value === focusedItem?.value);
+
+    if (['Enter', 'Tab'].includes(ev.code)) {
+      if (focusedItem) {
+        handleOnItemSelect(focusedItem);
+      }
+    } else if (ev.code === 'ArrowUp') {
+      ev.preventDefault();
+      const newIndex = currentIndex - 1 < 0 ? filteredItems.length - 1 : currentIndex - 1;
+      setFocusedItem(filteredItems[newIndex]);
+    } else if (ev.code === 'ArrowDown') {
+      ev.preventDefault();
+      const newIndex = currentIndex + 1 > filteredItems.length - 1 ? 0 : currentIndex + 1;
+      setFocusedItem(filteredItems[newIndex]);
+    }
   };
 
   useEffect(() => {
@@ -165,22 +205,39 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
         )}
         <FormFieldInputContainer ref={connectedElementRef}>
           <FormFieldInput
+            aria-autocomplete="list"
+            aria-controls={popupId}
+            aria-expanded={isShowing}
+            aria-haspopup="listbox"
+            aria-label={ariaLabel}
+            aria-activedescendant={
+              focusedItem?.value ? `ewc-autocomplete-item-${focusedItem?.value}` : undefined
+            }
+            aria-invalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+            aria-errormessage={
+              !!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState ? errorId : undefined
+            }
             autoComplete="off"
             disabled={isDisabled}
+            id={id}
             onBlur={handleOnBlur}
-            onChange={handleOnChange}
+            onChange={(e) => handleOnChange(e)}
             onFocus={handleOnInputFocus}
+            onKeyDown={(e) => handleOverlayKeyboardNavigation(e)}
             placeholder={placeholder}
             required={isRequired}
+            role="combobox"
             value={currentValue ?? ''}
           />
         </FormFieldInputContainer>
         {((error && !mergedErrorOptions.hideText) || !!mergedErrorOptions.text) && (
-          <AutocompleteError label={label} errorType={error} errorOptions={mergedErrorOptions} id={'1'} />
+          <AutocompleteError label={label} errorType={error} errorOptions={mergedErrorOptions} id={errorId} />
         )}
       </FormFieldContainer>
       {isShowing && (
         <AutocompleteOverlay
+          id={id}
+          popupId={popupId}
           fadeOut={fadeOut}
           filteredItems={filteredItems}
           onClose={closePopup}
@@ -188,6 +245,8 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
           ref={popoverRef}
           setFadeOut={setFadeOut}
           size={size}
+          focusedItem={focusedItem}
+          setFocusedItem={setFocusedItem}
         ></AutocompleteOverlay>
       )}
     </>

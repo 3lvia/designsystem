@@ -3,7 +3,7 @@ import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export const AutocompleteItemStyles = styled.div<{ $size: FormFieldSizes }>`
+export const AutocompleteItemStyles = styled.div<{ $isFocused: boolean; $size: FormFieldSizes }>`
   color: ${getThemeColor('text-1')};
   overflow: hidden;
   text-overflow: ellipsis;
@@ -14,13 +14,15 @@ export const AutocompleteItemStyles = styled.div<{ $size: FormFieldSizes }>`
   cursor: pointer;
   user-select: none;
 
-  &:hover {
-    background-color: ${getThemeColor('background-hover-2')};
-  }
-
   &:active {
     background-color: ${getThemeColor('background-selected-2')};
   }
+
+  ${({ $isFocused }) =>
+    $isFocused &&
+    css`
+      background-color: ${getThemeColor('background-hover-2')};
+    `}
 
   ${({ $size }) => {
     if ($size === 'small') {

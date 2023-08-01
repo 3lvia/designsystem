@@ -6,8 +6,8 @@ import { ErrorOptions } from '@elvia/elvis-toolbox/src';
 import { getInternalErrorText } from '../utils/getInternalErrorText';
 
 interface Props {
-  label: string | undefined;
-  errorType: ErrorType | undefined;
+  label?: string;
+  errorType?: ErrorType;
   errorOptions?: Partial<ErrorOptions>;
   id: string;
 }
@@ -27,7 +27,7 @@ export const AutocompleteError: React.FC<Props> = ({ errorType, errorOptions, id
   return (
     <FormFieldErrorContainer>
       <IconWrapper icon={removeCircle} color="icon-error" size="xs" />
-      <FormFieldError id={`error-${id}`}>{errorText}</FormFieldError>
+      <FormFieldError id={id}>{errorText}</FormFieldError>
     </FormFieldErrorContainer>
   );
 };
