@@ -20,6 +20,7 @@ import { LinkNewTabCegComponent } from './link-new-tab-ceg/link-new-tab-ceg.comp
 import { LinkBackCegComponent } from './link-back-ceg/link-back-ceg.component';
 import { LinkAsBtnCegComponent } from './link-as-btn-ceg/link-as-btn-ceg.component';
 import { LinkSizesCegComponent } from './link-sizes-ceg/link-sizes-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { LinkSizesCegComponent } from './link-sizes-ceg/link-sizes-ceg.component
     RouterModule,
     ComponentChangelogModule,
     CegModule,
+    SharedDocumentationModule,
   ],
 })
 export class LinkDocModule {}
