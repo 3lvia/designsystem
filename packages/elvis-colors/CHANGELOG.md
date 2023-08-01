@@ -14,7 +14,7 @@
 - Building CSS variables and classes from tokens to elvis.
 - Added new theme color label: `brand-accent`, `background-element-6`, `text-3`, `text-4`
 - Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
-- `getThemeColor` now return the dark theme hex if theme = `dark`.
+- `getThemeColor` now return the inverted (dark theme) colors if `opts` `isInverted` is supplied and true.
 
 ## 2.7.1 (07.06.23)
 

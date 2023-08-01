@@ -88,7 +88,7 @@ const Tabs: FC<TabsProps> = ({
               aria-controls={uniqueId + i}
               onClick={(event) => onTabClick(i, event)}
               isSelected={selectedIndex == i}
-              isInverted={isInverted ? isInverted : false}
+              isInverted={isInverted ?? false}
             >
               {item}
             </Tab>
