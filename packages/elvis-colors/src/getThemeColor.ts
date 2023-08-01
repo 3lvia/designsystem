@@ -33,28 +33,29 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
 /**
  * Get a color from a theme by label. Will throw an error if color is not found.
  * @param label
- * @param themeName The theme name. Defaults to `'light'`. This only affects the fallback color.
- * @returns CSS-variable for label, with fallback to the color hex.
+ * @param opts isInverted will return the dark theme color hex.
+ * @returns CSS-variable for label, with fallback to the color hex or just the color hex if isInverted.
  * @throws Will throw an error if color is not found.
  * @example
  * const color = getThemeColor('background-1');
  *
  * @since 1.5.0
  */
-export const getThemeColor = <
+export function getThemeColor(label: ColorLabel, opts: { isInverted: true }): string;
+export function getThemeColor<
   TLabel extends ColorLabel | `color-${ColorLabel}`,
   TLabelWithoutPrefix extends ColorLabel = TLabel extends `color-${infer U extends ColorLabel}` ? U : TLabel,
->(
-  label: TLabel,
-  themeName: ThemeName = 'light',
-): `var(--e-color-${TLabelWithoutPrefix}, ${string})` => {
-  const labelWithoutPrefix = label.replace(/^color-/, '') as TLabelWithoutPrefix;
+>(label: TLabel, opts?: { isInverted?: boolean }): `var(--e-color-${TLabelWithoutPrefix}, ${string})`;
+export function getThemeColor(label: string, opts?: { isInverted: boolean }): string {
+  const themeName: ThemeName = opts?.isInverted ? 'dark' : 'light';
+
+  const labelWithoutPrefix = label.replace(/^color-/, '') as ColorLabel;
   const color = getThemeColorObject(labelWithoutPrefix, themeName);
   if (!color) {
     throw new Error(`Color '${label}' not found.`);
   }
-  return `var(--e-color-${labelWithoutPrefix}, ${color.hex})`;
-};
+  return opts?.isInverted ? color.hex : `var(--e-color-${labelWithoutPrefix}, ${color.hex})`;
+}
 
 /**
  * Get a contrast color from a theme by label.
