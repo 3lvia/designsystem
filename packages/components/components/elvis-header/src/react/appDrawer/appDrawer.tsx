@@ -1,5 +1,5 @@
 import { IconWrapper, useConnectedOverlay } from '@elvia/elvis-toolbox';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { TriggerButton } from '../styledComponents';
 import { SpinContainer, AppTitle } from './appDrawerStyles';
 import { AppOverlay } from './appOverlay';
@@ -20,17 +20,14 @@ export const AppDrawer: React.FC<Props> = ({ appTitle, onMenuToggle }) => {
     alignWidths: false,
   });
 
-  useEffect(() => {
-    onMenuToggle(isShowing);
-  }, [isShowing]);
+  const toggleAppDrawer = () => {
+    onMenuToggle(!isShowing);
+    setIsShowing((prevIsShowing) => !prevIsShowing);
+  };
 
   return (
     <>
-      <TriggerButton
-        isActive={isShowing}
-        ref={connectedElementRef}
-        onClick={() => setIsShowing((prevIsShowing) => !prevIsShowing)}
-      >
+      <TriggerButton isActive={isShowing} ref={connectedElementRef} onClick={() => toggleAppDrawer()}>
         <AppTitle>{appTitle}</AppTitle>
         <SpinContainer rotated={isShowing}>
           <IconWrapper size="xs" icon={arrowDown} />
@@ -39,7 +36,7 @@ export const AppDrawer: React.FC<Props> = ({ appTitle, onMenuToggle }) => {
       {isShowing && (
         <AppOverlay
           onClose={() => {
-            setIsShowing(false);
+            toggleAppDrawer();
             connectedElementRef.current?.focus();
           }}
           ref={popoverRef}

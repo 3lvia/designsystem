@@ -58,7 +58,7 @@ export enum Pages {
   Tooltip = 'tooltip',
 
   // Pages not from CMS
-  Changelog = 'changelog',
+  Changelog = 'whats-new',
   Color = 'color',
   Contact = 'contact',
   Contribute = 'contribute',
@@ -66,6 +66,7 @@ export enum Pages {
   GetStarted = 'get-started',
   Icon = 'icon',
   Shadow = 'shadow',
+  Layout = 'layout',
   TheDesignSystem = 'the-design-system',
   Typography = 'typography',
   Utilities = 'utility-classes',
@@ -74,3 +75,5 @@ export enum Pages {
   DevelopmentPlayground = 'playground',
   DevelopmentStart = 'dev',
 }
+
+export type DocPageName = `${Pages}`;

@@ -1,4 +1,5 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
+import { ThemeName } from '@elvia/elvis-colors';
 
 export interface UserMenuProps {
   onMenuToggle: (isShowing: boolean) => void;
@@ -17,3 +18,6 @@ export interface HeaderProps extends BaseProps {
   pageTitle: string | JSX.Element;
   username: string;
 }
+
+export type Theme = ThemeName | 'system';
+export const themeLocalStorageKey = 'elviaHeaderPreferredTheme';
