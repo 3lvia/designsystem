@@ -35,8 +35,6 @@
 
   <ng-content select="[accessibility]" />
 
-  <ng-content select="[configuration]" />
-
   <!--INSTALLATION-->
   <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
@@ -59,6 +57,8 @@
       <app-component-properties [componentName]="elvisClassName"></app-component-properties>
     </ng-container>
   </app-component-section>
+
+  <ng-content select="[configuration]" />
 
   <!--CHANGELOG-->
   <app-component-section [sectionTitle]="'Changelog'">
