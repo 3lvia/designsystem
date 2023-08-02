@@ -13,6 +13,7 @@ export class BoxDocComponent {
   description = getComponent('box')?.description;
   title = getComponent('box')?.title;
   does = ['Grouping content', 'To separate information from the rest of the page'];
+  relatedComponents = ['Card', 'Popover'];
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

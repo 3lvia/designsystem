@@ -1,0 +1,19 @@
+<div class="related-container" *ngIf="relatedComponents">
+  <ng-container *ngFor="let relatedComponent of relatedComponents">
+    <a [routerLink]="relatedComponent | ComponentRelatedUrlPipe">
+      <elvia-card [hasBorder]="true" [heading]="relatedComponent">
+        <div slot="icon">
+          <img
+            alt=""
+            *ngIf="(componentIcons | async)?.[relatedComponent | ComponentRelatedNamePipe ]; else noIcon"
+            [src]="(componentIcons | async)?.[relatedComponent | ComponentRelatedNamePipe ]"
+          />
+        </div>
+      </elvia-card>
+    </a>
+  </ng-container>
+</div>
+
+<ng-template #noIcon>
+  <div class="e-content-loader" style="width: 40px; height: 40px"></div>
+</ng-template>

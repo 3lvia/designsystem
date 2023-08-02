@@ -12,6 +12,7 @@ export class ComponentDocumentationComponent implements OnInit {
   @Input({ transform: booleanAttribute }) isElvis = false;
   @Input() componentData: ComponentData | undefined;
   @Input() elvisTitle: DocPageName | undefined;
+  @Input() relatedComponents: string[] | undefined;
 
   title: string | undefined;
   description: string | undefined;
