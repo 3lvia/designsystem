@@ -14,6 +14,7 @@
         {
           "type": "patch",
           "changes": [
+            "Updated internal dependencies.",
             "Minor accessibility improvements by implementing <code>aria-invalid</code> and <code>aria-errormessage</code>."
           ]
         }
