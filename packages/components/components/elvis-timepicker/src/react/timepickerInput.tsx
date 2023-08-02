@@ -13,6 +13,8 @@ interface Props {
   onChange: (newValue: Date | null) => void;
   onFocus: () => void;
   onErrorChange: (error?: ErrorType) => void;
+  isInvalid?: boolean;
+  errorId?: string;
 }
 
 export const TimepickerInput: React.FC<Props> = ({
@@ -24,6 +26,8 @@ export const TimepickerInput: React.FC<Props> = ({
   onChange,
   onFocus,
   onErrorChange,
+  isInvalid,
+  errorId,
 }) => {
   const inputElement = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState('');
@@ -134,7 +138,7 @@ export const TimepickerInput: React.FC<Props> = ({
     }
     parsedSecond = padDigit(+parsedSecond);
 
-    if (!parsedHour.length && required) {
+    if (!parsedHour.length && touched && required) {
       onErrorChange('required');
       return false;
     } else if (
@@ -246,9 +250,10 @@ export const TimepickerInput: React.FC<Props> = ({
       onChange={parseInput}
       onBlur={onBlur}
       onFocus={onInputFocus}
-      data-testid="input"
       aria-live="polite"
       required={required}
+      aria-invalid={isInvalid}
+      aria-errormessage={isInvalid ? errorId : undefined}
     />
   );
 };

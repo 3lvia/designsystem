@@ -22,6 +22,8 @@ const defaultErrorOptions = {
   hasErrorPlaceholder: true,
 } satisfies Partial<ErrorOptions>;
 
+let elvisTimePickerErrorId = 0;
+
 export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   value,
   valueOnChange,
@@ -43,6 +45,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   inlineStyle,
   webcomponent,
 }) => {
+  const [errorId] = useState(`ewc-timerpicker-error-${elvisTimePickerErrorId++}`);
   const [time, setTime] = useState<Date | undefined | null>(value);
   const [error, setError] = useState<ErrorType | undefined>();
   const connectedElementRef = useRef<HTMLDivElement>(null);
@@ -184,6 +187,8 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             onFocus={() => onFocus?.()}
             required={isRequired}
             onErrorChange={onError}
+            isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+            errorId={errorId}
           />
           <IconButton
             disabled={isDisabled}
@@ -205,9 +210,12 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             />
           </IconButton>
         </FormFieldInputContainer>
-        {((error && !mergedErrorOptions.hideText) || mergedErrorOptions.text) && (
-          <TimepickerError customText={mergedErrorOptions.text} errorType={error} />
-        )}
+
+        <div aria-live="polite">
+          {((error && !mergedErrorOptions.hideText) || mergedErrorOptions.text) && (
+            <TimepickerError customText={mergedErrorOptions.text} errorType={error} errorId={errorId} />
+          )}
+        </div>
       </FormFieldContainer>
       {isShowing && (
         <OverlayContainer

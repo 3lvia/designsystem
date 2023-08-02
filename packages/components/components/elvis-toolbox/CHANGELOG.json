@@ -2,7 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "28.08.23",
+      "date": "02.08.23",
+      "version": "9.4.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Added explicit <code>type=button</code> to button components to prevent unintended form submissions"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "01.08.23",
       "version": "9.4.0",
       "changelog": [
         {

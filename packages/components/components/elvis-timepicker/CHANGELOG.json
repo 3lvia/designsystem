@@ -2,6 +2,25 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.08.23",
+      "version": "3.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the Timerpicker would be incorrectly marked as invalid during initialization when the <code>isRequired</code> prop was used."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Updated internal dependencies.",
+            "Minor accessibility improvements by implementing <code>aria-invalid</code> and <code>aria-errormessage</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "07.07.23",
       "version": "3.1.0",
       "changelog": [
