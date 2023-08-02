@@ -41,7 +41,7 @@ const getTypography = (size: Size) => {
   }
 };
 
-const ButtonBase = styled.button<Partial<ButtonProps>>`
+const ButtonBase = styled.button.attrs({ type: 'button' })<Partial<ButtonProps>>`
   ${({ size }) => getTypography(size ?? 'md')};
   font-weight: 500;
   display: flex;
