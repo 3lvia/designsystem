@@ -7,9 +7,10 @@ import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
 interface Props {
   errorType?: ErrorType;
   customText?: string;
+  errorId?: string;
 }
 
-export const TimepickerError: React.FC<Props> = ({ errorType, customText }) => {
+export const TimepickerError: React.FC<Props> = ({ errorType, customText, errorId }) => {
   const [errorText, setErrorText] = useState('');
 
   useEffect(() => {
@@ -23,7 +24,9 @@ export const TimepickerError: React.FC<Props> = ({ errorType, customText }) => {
   return (
     <FormFieldErrorContainer>
       <IconWrapper icon={removeCircle} color={'signal-error'} size="xs" />
-      <FormFieldError data-testid="error">{errorText}</FormFieldError>
+      <FormFieldError data-testid="error" id={errorId}>
+        {errorText}
+      </FormFieldError>
     </FormFieldErrorContainer>
   );
 };
