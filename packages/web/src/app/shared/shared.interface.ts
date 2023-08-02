@@ -19,4 +19,5 @@ export interface DocPage {
   status?: string;
   type?: string;
   searchTerms?: string[];
+  relatedComponents?: string[];
 }

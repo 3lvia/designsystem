@@ -1,6 +1,6 @@
 <div class="related-container" *ngIf="relatedComponents">
   <ng-container *ngFor="let relatedComponent of relatedComponents">
-    <a [routerLink]="relatedComponent | ComponentRelatedUrlPipe">
+    <a [routerLink]="'/components/' + relatedComponent | ComponentRelatedNamePipe">
       <elvia-card [hasBorder]="true" [heading]="relatedComponent">
         <div slot="icon">
           <img
