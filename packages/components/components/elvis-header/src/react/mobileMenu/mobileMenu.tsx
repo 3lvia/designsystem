@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { UserMenuProps } from '../elviaHeader.types';
 import { IconButton } from '../styledComponents';
@@ -13,6 +13,7 @@ import {
   ButtonSpacer,
   AppListContainer,
   TextMdStrong,
+  MobileMenuFooter,
 } from './mobileMenuStyles';
 import { IconWrapper, TertiaryButton, useCurrentTheme } from '@elvia/elvis-toolbox';
 import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
@@ -23,6 +24,7 @@ import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arr
 import { AppList } from '../appList/appList';
 import { AppSelector } from './appSelector';
 import { ProfilePicture } from '../ProfilePicture';
+import { ThemePicker } from '../themePicker/themePicker';
 
 interface MobileUserMenuProps extends UserMenuProps {
   appTitle: string;
@@ -45,14 +47,15 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
   );
   const { currentTheme } = useCurrentTheme(triggerButtonRef);
 
-  useEffect(() => {
-    onMenuToggle(userMenuIsOpen);
-  }, [userMenuIsOpen]);
+  const onMobileMenuToggle = (isShowing: boolean) => {
+    setIsShowing(isShowing);
+    onMenuToggle(isShowing);
+  };
 
   return (
     <>
       <IconButton
-        onClick={() => setIsShowing(!userMenuIsOpen)}
+        onClick={() => onMobileMenuToggle(!userMenuIsOpen)}
         aria-label="Åpne brukermeny"
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
@@ -67,7 +70,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
       {userMenuIsOpen &&
         createPortal(
           <>
-            <Backdrop fadeOut={fadeOut} onClick={() => setIsShowing(false)} />
+            <Backdrop fadeOut={fadeOut} onClick={() => onMobileMenuToggle(false)} />
             <MenuContainer
               fadeOut={fadeOut}
               onAnimationEnd={onAnimationEnd}
@@ -83,12 +86,13 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   <TextSmallStrong>{username}</TextSmallStrong>
                   <TextSmall>{email}</TextSmall>
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
-                  <section>
+                  {false && <ThemePicker />}
+                  <MobileMenuFooter>
                     <TertiaryButton size="sm" onClick={onSignOutClick}>
                       <IconWrapper icon={logout} size="xs" />
                       Logg ut
                     </TertiaryButton>
-                  </section>
+                  </MobileMenuFooter>
                 </>
               )}
 

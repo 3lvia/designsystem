@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { appList, getActiveApp, getCurrentDomain } from '../elviaApps';
 import { AppListContainer, AppLink, IconContainer, Icon, IconLetters } from './appListStyles';
 
@@ -7,13 +7,8 @@ interface Props {
 }
 
 export const AppList: React.FC<Props> = ({ onLinkClick }) => {
-  const [activeUrl, setActiveUrl] = useState('');
-  const [domain, setDomain] = useState('');
-
-  useEffect(() => {
-    setActiveUrl(getActiveApp('url'));
-    setDomain(getCurrentDomain());
-  }, []);
+  const activeUrl = getActiveApp('url');
+  const domain = getCurrentDomain();
 
   return (
     <AppListContainer>

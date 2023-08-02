@@ -20,6 +20,7 @@ import {
 } from '@elvia/elvis-toolbox';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 import { ProfilePicture } from '../ProfilePicture';
+import { ThemePicker } from '../themePicker/themePicker';
 
 export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick, onMenuToggle }) => {
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
@@ -63,7 +64,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
         {username.replace(/\(ekstern\)/g, '').trim()}
       </ProfileButton>
       {isShowing && (
-        <Overlay ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
+        <Overlay useGlobalTheme ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
           <MenuContainer role="menu" id="ewc-header-desktop-menu">
             <UserGrid>
               <ImageContainer>
@@ -72,6 +73,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
               <Username>{username}</Username>
               <Email>{email}</Email>
             </UserGrid>
+            {false && <ThemePicker />}
             <MenuHr></MenuHr>
             <Footer>
               <TertiaryButton size="sm" onClick={onSignOutClick}>

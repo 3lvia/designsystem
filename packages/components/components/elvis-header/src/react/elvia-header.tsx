@@ -16,6 +16,7 @@ import { DesktopMenu } from './desktopMenu/desktopMenu';
 import { SideNav } from './sideNav/sideNav';
 import { AppDrawer } from './appDrawer/appDrawer';
 import { getActiveApp } from './elviaApps';
+import { getStoredActiveTheme, setThemeClassOnDocument } from './themeUtils';
 
 export const Header: React.FC<HeaderProps> = ({
   appTitle,
@@ -30,57 +31,38 @@ export const Header: React.FC<HeaderProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
-  const isGtMobile = useBreakpoint('gt-mobile');
-  const isGtTablet = useBreakpoint('gt-tablet');
-  const [initialized, setInitialized] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [sidenavIsExpanded, setSidenavIsExpanded] = useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
   const [desktopMenuIsOpen, setDesktopMenuIsOpen] = useState(false);
-  const [applicationTitle, setApplicationTitle] = useState('');
+  const applicationTitle = appTitle ?? getActiveApp('name');
+  const isGtMobile = useBreakpoint('gt-mobile');
 
   const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
   const { ref: pageTitleRef } = useSlot<HTMLHeadingElement>('pageTitle', webcomponent);
   const { ref: sidenavRef } = useSlot('navItems', webcomponent);
 
-  const hasNavItems = (): boolean => {
-    return !!webcomponent?.getSlot('navItems') || !!navItems;
-  };
-
-  const hasAppContent = (): boolean => {
-    return !!webcomponent?.getSlot('appContent') || !!appContent;
-  };
+  const hasNavItems = !!webcomponent?.getSlot('navItems') || !!navItems;
+  const hasAppContent = !!webcomponent?.getSlot('appContent') || !!appContent;
 
   const signOutClick = (): void => {
-    if (!webcomponent && onSignOutClick) {
-      onSignOutClick();
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('onSignOutClick');
-    }
+    onSignOutClick?.();
+    webcomponent?.triggerEvent('onSignOutClick');
+  };
+
+  const logoClick = () => {
+    onLogoClick?.();
+    webcomponent?.triggerEvent('onLogoClick');
   };
 
   useEffect(() => {
-    // This flag prevents animation of the page content padding on init
-    setTimeout(() => setInitialized(true), 1);
-  }, [isGtMobile]);
-
-  useEffect(() => {
-    setApplicationTitle(appTitle ?? getActiveApp('name'));
-  }, [appTitle]);
+    setThemeClassOnDocument(getStoredActiveTheme());
+  }, []);
 
   return (
-    <div className={className ?? ''} style={{ ...inlineStyle }}>
-      <StyledHeader isGtMobile={isGtMobile} menuIsOpen={desktopMenuIsOpen}>
+    <div className={className} style={{ ...inlineStyle }}>
+      <StyledHeader menuIsOpen={desktopMenuIsOpen}>
         <LogoContainer>
-          <IconButton
-            aria-label="logo"
-            onClick={() => {
-              if (!webcomponent && onLogoClick) {
-                onLogoClick();
-              } else if (webcomponent) {
-                webcomponent.triggerEvent('onLogoClick');
-              }
-            }}
-          >
+          <IconButton aria-label="logo" onClick={() => logoClick()}>
             <svg
               width="100%"
               height="100%"
@@ -96,12 +78,14 @@ export const Header: React.FC<HeaderProps> = ({
             </svg>
           </IconButton>
         </LogoContainer>
+
         {isGtMobile && (
           <>
             <AppDrawer appTitle={applicationTitle} onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)} />
-            <Hr direction="vertical" isGtTablet={isGtTablet} />
+            <Hr direction="vertical" />
           </>
         )}
+
         <PageTitle isInvisible={mobileMenuIsOpen} ref={pageTitleRef}>
           {pageTitle}
         </PageTitle>
@@ -117,9 +101,10 @@ export const Header: React.FC<HeaderProps> = ({
             />
           </SquareContainer>
         )}
+
         {isGtMobile && (
           <>
-            <Hr direction="vertical" isGtTablet={isGtTablet} />
+            <Hr direction="vertical" />
             <DesktopMenu
               email={email}
               username={username}
@@ -129,18 +114,20 @@ export const Header: React.FC<HeaderProps> = ({
           </>
         )}
       </StyledHeader>
-      {hasNavItems() && (
-        <SideNav ref={sidenavRef} onSideNavToggle={() => setIsExpanded(!isExpanded)} isExpanded={isExpanded}>
+      {hasNavItems && (
+        <SideNav
+          ref={sidenavRef}
+          onSideNavToggle={() => setSidenavIsExpanded(!sidenavIsExpanded)}
+          isExpanded={sidenavIsExpanded}
+        >
           {!webcomponent && navItems}
         </SideNav>
       )}
       <AppContent
         ref={pageContainerRef}
-        isGtMobile={isGtMobile}
-        initialized={initialized}
-        sidenavPadding={hasNavItems()}
-        hidden={!hasAppContent()}
-        isExpanded={isExpanded}
+        sidenavPadding={hasNavItems}
+        hidden={!hasAppContent}
+        isExpanded={sidenavIsExpanded}
       >
         {appContent}
       </AppContent>

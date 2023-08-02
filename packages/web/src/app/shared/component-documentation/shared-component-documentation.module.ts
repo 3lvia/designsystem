@@ -12,15 +12,25 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { CegModule } from './ceg/ceg.module';
 import { RouterModule } from '@angular/router';
+import { ComponentDocumentationComponent } from './component-documentation.component';
 
 /**
  * A shared module that includes CommonModule and all modules needed for a Elvis component documentation page.
  * @see {@link https://angular.io/guide/sharing-ngmodules}
  */
 @NgModule({
-  imports: [CommonModule, RouterModule],
-  declarations: [],
+  imports: [
+    CommonModule,
+    ComponentChangelogModule,
+    ComponentHeaderModule,
+    ComponentInstallationModule,
+    ComponentPropertiesModule,
+    ComponentPropertiesTableModule,
+    ComponentSectionModule,
+  ],
+  declarations: [ComponentDocumentationComponent],
   exports: [
+    ComponentDocumentationComponent,
     CommonModule,
     RouterModule,
     ComponentChangelogModule,
