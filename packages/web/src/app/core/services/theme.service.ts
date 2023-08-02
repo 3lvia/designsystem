@@ -27,7 +27,7 @@ export class ThemeService {
   constructor() {
     const preferredTheme = localStorage.getItem(THEME_STORAGE_KEY) ?? 'light';
 
-    this.setPreferredTheme(preferredTheme as PreferredTheme);
+    this.setPreferredTheme(preferredTheme as PreferredTheme, false);
 
     const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
     prefersColorScheme.addEventListener('change', () => {
@@ -46,9 +46,12 @@ export class ThemeService {
     return this.themeObservable.pipe(distinctUntilChanged());
   }
 
-  setPreferredTheme(theme: PreferredTheme): void {
-    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  setPreferredTheme(theme: PreferredTheme, persist = true): void {
     this.preferredThemeSubject.next(theme);
+
+    if (persist) {
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+    }
   }
 
   listenPreferredTheme(): Observable<PreferredTheme> {
