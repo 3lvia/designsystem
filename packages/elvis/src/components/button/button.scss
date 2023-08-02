@@ -6,7 +6,10 @@ $button-lg-padding: 11px 31px;
 $button-md-padding: 9px 23px;
 $button-sm-padding: 7px 15px;
 
-@mixin custom-icon-variables() {
+// TODO: Inverted button?
+
+@mixin custom-icon-variables {
+  // TODO: Fix selector for inverted too
   :root &,
   .e-theme-light & {
     --e-icon-color-filled-foreground-light: var(--e-light-theme-black);
@@ -16,6 +19,12 @@ $button-sm-padding: 7px 15px;
   .e-theme-dark & {
     --e-icon-color-filled-foreground-light: var(--e-dark-theme-white);
     --e-icon-color-filled-foreground-hover-light: var(--e-dark-theme-white);
+  }
+}
+
+@mixin only-primary-button {
+  &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) {
+    @content;
   }
 }
 
@@ -38,7 +47,7 @@ $button-sm-padding: 7px 15px;
   text-decoration: none;
   white-space: nowrap;
 
-  &:not(.e-btn--icon):not(.e-btn--secondary):not(.e-btn--danger):not(.e-btn--tertiary) {
+  @include only-primary-button {
     .e-btn__icon i {
       @include icons.icon-currentcolor(var(--e-icon-color-filled-foreground-light));
     }
@@ -101,8 +110,10 @@ $button-sm-padding: 7px 15px;
       background: var(--e-color-background-hover-1);
       color: var(--e-color-background-hover-1--contrast);
 
-      &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) .e-btn__icon i {
-        @include icons.icon-currentcolor(var(---e-icon-color-filled-foreground-hover-light));
+      @include only-primary-button {
+        .e-btn__icon i {
+          @include icons.icon-currentcolor(var(---e-icon-color-filled-foreground-hover-light));
+        }
       }
     }
   }
@@ -132,8 +143,10 @@ $button-sm-padding: 7px 15px;
     color: var(--e-color-text-disabled-2);
     cursor: not-allowed;
 
-    &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) .e-btn__icon i {
-      @include icons.icon-currentcolor(var(--e-color-background-disabled-2));
+    @include only-primary-button {
+      .e-btn__icon i {
+        @include icons.icon-currentcolor(var(--e-color-background-disabled-2));
+      }
     }
   }
 
