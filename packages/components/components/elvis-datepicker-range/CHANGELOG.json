@@ -3,7 +3,7 @@
   "content": [
     {
       "date": "02.08.23",
-      "version": "3.0.5",
+      "version": "3.0.6",
       "changelog": [
         {
           "type": "patch",
@@ -13,7 +13,7 @@
     },
     {
       "date": "04.07.23",
-      "version": "3.0.4",
+      "version": "3.0.5",
       "changelog": [
         {
           "type": "bug_fix",
