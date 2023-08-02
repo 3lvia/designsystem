@@ -6,8 +6,22 @@ $button-lg-padding: 11px 31px;
 $button-md-padding: 9px 23px;
 $button-sm-padding: 7px 15px;
 
+@mixin custom-icon-variables() {
+  :root &,
+  .e-theme-light & {
+    --e-icon-color-filled-foreground-light: var(--e-light-theme-black);
+    --e-icon-color-filled-foreground-hover-light: var(--e-light-theme-white);
+  }
+
+  .e-theme-dark & {
+    --e-icon-color-filled-foreground-light: var(--e-dark-theme-white);
+    --e-icon-color-filled-foreground-hover-light: var(--e-dark-theme-white);
+  }
+}
+
 .e-btn,
 .e-btn.e-btn--primary {
+  @include custom-icon-variables();
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +40,7 @@ $button-sm-padding: 7px 15px;
 
   &:not(.e-btn--icon):not(.e-btn--secondary):not(.e-btn--danger):not(.e-btn--tertiary) {
     .e-btn__icon i {
-      @include icons.icon-currentcolor(var(--e-color-background-element-6));
+      @include icons.icon-currentcolor(var(--e-icon-color-filled-foreground-light));
     }
   }
 
@@ -88,7 +102,7 @@ $button-sm-padding: 7px 15px;
       color: var(--e-color-background-hover-1--contrast);
 
       &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) .e-btn__icon i {
-        @include icons.icon-currentcolor(var(--e-color-background-element-4--contrast));
+        @include icons.icon-currentcolor(var(---e-icon-color-filled-foreground-hover-light));
       }
     }
   }
