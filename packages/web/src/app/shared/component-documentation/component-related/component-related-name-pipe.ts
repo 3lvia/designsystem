@@ -10,8 +10,9 @@ export class ComponentRelatedNamePipe implements PipeTransform {
       const formattedName = name.split(' ').join('-').toLowerCase();
       return formattedName;
     } catch (e) {
-      console.warn(`"name": "${name}" in Related section is invalid.`);
-      return name ?? '';
+      const errorMessage = `"name": "${name}" in Related section is invalid.`;
+      console.error(errorMessage);
+      return errorMessage;
     }
   }
 }
