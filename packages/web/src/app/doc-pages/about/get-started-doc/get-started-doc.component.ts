@@ -16,7 +16,6 @@ export class GetStartedDocComponent {
   linkTagCode = '';
   scriptTagCode = '';
   fullHTMLExample = '';
-  bodyScriptMessage = `<body><script src="assets/js/elvis.js"></script></body>`;
 
   constructor(private versionService: VersionService, private titleService: Title) {
     this.titleService.setTitle('Get started | Elvia design system');
