@@ -134,7 +134,7 @@ export const TimepickerInput: React.FC<Props> = ({
     }
     parsedSecond = padDigit(+parsedSecond);
 
-    if (!parsedHour.length && required) {
+    if (!parsedHour.length && touched && required) {
       onErrorChange('required');
       return false;
     } else if (
