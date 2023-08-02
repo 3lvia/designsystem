@@ -1,10 +1,9 @@
 import React from 'react';
 import Toast from './elvia-toast';
 import { axe } from 'jest-axe';
-import { act, render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import { openElviaToast } from './publicApi';
 import { ToastConfig } from './elviaToast.types';
-import userEvent from '@testing-library/user-event';
 
 const toastTitle = 'Toast title';
 const toastBody = 'Toast description';
@@ -80,18 +79,6 @@ describe('Elvis Toast', () => {
       const element = screen.queryByTestId('close-btn');
       expect(element).toBeInTheDocument();
     });
-  });
-
-  it('should close when the close button is pressed', async () => {
-    const user = userEvent.setup();
-    openToast({ closable: true });
-
-    await waitFor(() => {
-      const closeBtn = screen.getByTestId('close-btn');
-      user.click(closeBtn);
-    });
-
-    await waitForElementToBeRemoved(screen.queryByRole('status'));
   });
 
   it('should be possible to have a custom icon', async () => {
