@@ -12,13 +12,13 @@ $button-sm-padding: 7px 15px;
   // TODO: Fix selector for inverted too
   :root &,
   .e-theme-light & {
-    --e-icon-color-filled-foreground-light: var(--e-light-theme-black);
-    --e-icon-color-filled-foreground-hover-light: var(--e-light-theme-white);
+    --e-button-icon-color-filled-foreground-light: var(--e-light-theme-black);
+    --e-button-icon-color-filled-foreground-hover-light: var(--e-light-theme-white);
   }
 
   .e-theme-dark & {
-    --e-icon-color-filled-foreground-light: var(--e-dark-theme-white);
-    --e-icon-color-filled-foreground-hover-light: var(--e-dark-theme-white);
+    --e-button-icon-color-filled-foreground-light: var(--e-dark-theme-white);
+    --e-button-icon-color-filled-foreground-hover-light: var(--e-dark-theme-white);
   }
 }
 
@@ -49,7 +49,7 @@ $button-sm-padding: 7px 15px;
 
   @include only-primary-button {
     .e-btn__icon i {
-      @include icons.icon-currentcolor(var(--e-icon-color-filled-foreground-light));
+      @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-light));
     }
   }
 
@@ -112,7 +112,7 @@ $button-sm-padding: 7px 15px;
 
       @include only-primary-button {
         .e-btn__icon i {
-          @include icons.icon-currentcolor(var(---e-icon-color-filled-foreground-hover-light));
+          @include icons.icon-currentcolor(var(---e-button-icon-color-filled-foreground-hover-light));
         }
       }
     }
