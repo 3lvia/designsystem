@@ -11,8 +11,6 @@ import { Title } from '@angular/platform-browser';
 export class CardDocComponent {
   componentData = cardData;
   title = getComponent('card')?.title;
-  figmaUrl = getComponent('card')?.figmaUrl;
-  description = getComponent('card')?.description;
   doesCard = [
     'When you want a more visual representation of content than a list view.',
     'When users need to browse through options.',
