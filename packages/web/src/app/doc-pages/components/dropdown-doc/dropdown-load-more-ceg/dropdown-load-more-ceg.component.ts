@@ -23,7 +23,6 @@ export class DropdownLoadMoreCegComponent implements StaticComponentExample {
   timesLoadedMoreItems = 0;
 
   handleOnChange(newValues: string | string[]): void {
-    // eslint-disable-next-line no-console
     console.log('Selected dropdown items:', newValues);
   }
 

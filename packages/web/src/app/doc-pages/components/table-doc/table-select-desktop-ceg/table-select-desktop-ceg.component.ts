@@ -12,7 +12,6 @@ export class TableSelectDesktopCegComponent implements StaticComponentExample {
   html = template.default;
 
   navigateTo(url: string): void {
-    // eslint-disable-next-line no-console
     console.log('Implement logic to navigate to', url);
   }
 }

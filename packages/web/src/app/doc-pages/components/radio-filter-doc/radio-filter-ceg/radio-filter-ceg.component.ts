@@ -26,7 +26,6 @@ export class RadioFilterCegComponent implements ComponentExample {
   ]);
 
   handleOnChange = (value: string) => {
-    // eslint-disable-next-line no-console
     console.log('New radio filter value:', value);
   };
 }

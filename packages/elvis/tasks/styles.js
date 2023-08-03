@@ -77,9 +77,7 @@ function minifyElvisStyle() {
     .src('./css/*.css')
     .pipe(
       cleanCSS({ debug: true }, (details) => {
-        // eslint-disable-next-line no-console
         console.log(`${details.name}: ${details.stats.originalSize}`);
-        // eslint-disable-next-line no-console
         console.log(`${details.name}: ${details.stats.minifiedSize}`);
       }),
     )

@@ -12,7 +12,6 @@ export class BreadcrumbEventCegComponent implements StaticComponentExample {
   html = template.default;
 
   handleRoutingOnClick(route: string) {
-    // eslint-disable-next-line no-console
     console.log('The selected route index is:', route);
   }
 }

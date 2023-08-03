@@ -92,7 +92,6 @@ gulp.task(
     generateElvisShadowMapScss,
     generateElviaColorsThemeVariablesScss,
     function (done) {
-      // eslint-disable-next-line no-console
       console.log('Elvis-colors - Successfully built Elvis-colors! ');
       done();
     },

@@ -44,7 +44,6 @@ gulp.task(
     minifyElvisJs,
     function (done) {
       done();
-      // eslint-disable-next-line no-console
       console.log('Elvis - Successfully built Elvis!');
     },
   ),

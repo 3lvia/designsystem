@@ -70,7 +70,6 @@ export class TimepickerCegComponent implements ComponentExample {
   }
 
   handleOnChange(time: Date): void {
-    // eslint-disable-next-line no-console
     console.log('Selected time: ', time);
   }
 }
