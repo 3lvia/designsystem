@@ -30,9 +30,15 @@ export class ComponentDocumentationComponent implements OnInit {
         this.elvisClassName = 'e-fileupload';
       }
     } else if (!this.isElvis && this.componentData) {
-      this.figmaUrl = getComponent(this.componentData.name.toLowerCase() as DocPageName)?.figmaUrl;
-      this.description = getComponent(this.componentData.name.toLowerCase() as DocPageName)?.description;
-      this.title = getComponent(this.componentData.name.toLowerCase() as DocPageName)?.title;
+      this.figmaUrl = getComponent(
+        this.componentData.name.split(' ').join('-').toLowerCase() as DocPageName,
+      )?.figmaUrl;
+      this.description = getComponent(
+        this.componentData.name.split(' ').join('-').toLowerCase() as DocPageName,
+      )?.description;
+      this.title = getComponent(
+        this.componentData.name.split(' ').join('-').toLowerCase() as DocPageName,
+      )?.title;
     }
   }
 }
