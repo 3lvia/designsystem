@@ -6,17 +6,13 @@ $button-lg-padding: 11px 31px;
 $button-md-padding: 9px 23px;
 $button-sm-padding: 7px 15px;
 
-// TODO: Inverted button?
-
 @mixin custom-icon-variables {
-  // TODO: Fix selector for inverted too
-  :root &,
-  .e-theme-light & {
+  @include helpers.custom-light-theme-tokens {
     --e-button-icon-color-filled-foreground-light: var(--e-light-theme-black);
     --e-button-icon-color-filled-foreground-hover-light: var(--e-light-theme-white);
   }
 
-  .e-theme-dark & {
+  @include helpers.custom-dark-theme-tokens(button) {
     --e-button-icon-color-filled-foreground-light: var(--e-dark-theme-white);
     --e-button-icon-color-filled-foreground-hover-light: var(--e-dark-theme-white);
   }
