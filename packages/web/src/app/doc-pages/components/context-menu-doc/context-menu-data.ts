@@ -3,7 +3,7 @@ import ComponentData from '../component-data.interface';
 
 const contextMenuData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'ContextMenu',
+  name: 'Context Menu',
   attributes: {
     content: {
       isRequired: true,
