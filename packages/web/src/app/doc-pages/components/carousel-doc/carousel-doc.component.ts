@@ -13,8 +13,6 @@ export class CarouselDocComponent {
   does = carouselData.does;
   donts = carouselData.donts;
   title = getComponent('carousel')?.title;
-  figmaUrl = getComponent('carousel')?.figmaUrl;
-  description = getComponent('carousel')?.description;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
