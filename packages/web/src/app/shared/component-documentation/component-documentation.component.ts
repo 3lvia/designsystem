@@ -3,7 +3,23 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
 import data from '@elvia/elvis/.internal/classlist.json';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { DocPageName } from '../shared.enum';
-
+/**
+ * Builds a standard documentation page for a component.
+ * It uses Multi-slot content projection to select and order the different documentation sections.
+ *
+ * @example
+ * ```
+ * <app-component-documentation [componentData]="componentData">
+ *   <app-component-section size [sectionTitle]="'Size'"> //notice the size attribute here
+ *     <ng-container ngProjectAs="sectionContent">
+ *       lorem ipsum...
+ *     </ng-container>
+ *   </app-component-section>
+ * </app-component-documentation>
+ * ```
+ *
+ * @see [Angular Content Projection Guide](https://angular.io/guide/content-projection)
+ */
 @Component({
   selector: 'app-component-documentation',
   templateUrl: './component-documentation.component.html',
