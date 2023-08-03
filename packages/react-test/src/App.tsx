@@ -48,70 +48,13 @@ function App() {
 
   //Autocomplete
   const autocompleteItems = [
-    { value: 'helsearbeider', label: '🧑‍⚕️ Helsearbeider' },
-    { value: 'lærer', label: '🧑‍🏫 Lærer' },
-    { value: 'grand theft auto iv', label: 'Grand Theft Auto IV' },
-    { value: 'grand theft auto iv: the lost and damned', label: 'Grand Theft Auto IV: The Lost and Damned' },
-    { value: 'grand theft auto v', label: 'Grand Theft Auto V ' },
-    { value: 'grand theft auto: london 1961', label: 'Grand Theft Auto: London 1961' },
-    { value: 'grand theft auto: london 1969', label: 'Grand Theft Auto: London 1969' },
-    { value: 'grand theft auto: san andreas', label: 'Grand Theft Auto: San Andreas' },
-    { value: 'grand theft auto: the ballad of gay tony', label: 'Grand Theft Auto: The Ballad of Gay Tony' },
-    { value: 'grand theft auto: vice city', label: 'Grand Theft Auto: Vice City' },
-    { value: 'human: fall flat', label: 'Human: Fall Flat' },
-    { value: 'mario kart 8 / deluxe', label: 'Mario Kart 8 / Deluxe' },
-    { value: 'mario kart wii', label: 'Mario Kart Wii' },
-    { value: 'minecraft', label: 'Minecraft' },
-    { value: 'minecraft: education edition ', label: 'Minecraft: Education Edition ' },
-    { value: 'minecraft: ps3 edition', label: 'Minecraft: PS3 Edition' },
-    { value: 'minecraft: ps4 edition', label: 'Minecraft: PS4 Edition' },
-    { value: 'minecraft: wii u edition', label: 'Minecraft: Wii U Edition' },
-    { value: 'minecraft: xbox 360 edition', label: 'Minecraft: Xbox 360 Edition' },
-    { value: 'minecraft: xbox one edition', label: 'Minecraft: Xbox One Edition' },
-    { value: 'overwatch', label: 'Overwatch' },
-    { value: 'pac-man', label: 'Pac-Man' },
-    { value: 'pokémon red / green / blue / yellow', label: 'Pokémon Red / Green / Blue / Yellow' },
-    { value: 'pubg: battlegrounds', label: 'PUBG: Battlegrounds' },
-    { value: 'red dead redemption', label: 'Red Dead Redemption' },
-    { value: 'red dead redemption 2', label: 'Red Dead Redemption 2' },
-    { value: 'super mario bros.', label: 'Super Mario Bros.' },
-    { value: 'super smash bros. ultimate', label: 'Super Smash Bros. Ultimate' },
-    { value: 'terraria', label: 'Terraria' },
-    { value: 'tetris', label: 'Tetris (EA)' },
-    { value: 'the legend of zelda: breath of the wild', label: 'The Legend of Zelda: Breath of the Wild' },
-    { value: 'the witcher 3: wild hunt', label: 'The Witcher 3: Wild Hunt' },
-    { value: 'wii fit / plus', label: 'Wii Fit / Plus' },
-    { value: 'wii sports resort', label: 'Wii Sports Resort' },
-    { value: 'wii sports', label: 'Wii Sports' },
-    { value: 'pokémon ruby / sapphire / emerald', label: 'Pokémon Ruby / Sapphire / Emerald' },
-    { value: 'sonic the hedgehog', label: 'Sonic the Hedgehog' },
-    { value: 'mario kart ds', label: 'Mario Kart DS' },
-    { value: 'call of duty: black ops ii', label: 'Call of Duty: Black Ops II' },
-    { value: 'super mario bros. 3', label: 'Super Mario Bros. 3' },
-    { value: 'pokémon diamond / pearl / platinum', label: 'Pokémon Diamond / Pearl / Platinum' },
-    { value: 'pokémon sword / shield', label: 'Pokémon Sword / Shield' },
-    {
-      value: 'pokémon sun / moon / ultra sun / ultra moon',
-      label: 'Pokémon Sun / Moon / Ultra Sun / Ultra Moon',
-    },
-    { value: 'call of duty: modern warfare 3', label: 'Call of Duty: Modern Warfare 3' },
-    { value: 'call of duty: modern warfare', label: 'Call of Duty: Modern Warfare' },
-    {
-      value: 'teenage mutant ninja turtles iii: the manhattan project',
-      label: 'Teenage Mutant Ninja Turtles III: The Manhattan Project',
-    },
-    {
-      value: 'spongebob squarepants: battle for bikini bottom rehydrated',
-      label: 'SpongeBob SquarePants: Battle For Bikini Bottom Rehydrated',
-    },
-    {
-      value: 'spongebob squarepants: a day in the life of a sponge',
-      label: 'SpongeBob SquarePants: A Day in the Life of a Sponge',
-    },
-    {
-      value: 'spongebob squarepants: revenge of the flying dutchman',
-      label: 'SpongeBob SquarePants: Revenge of the Flying Dutchman',
-    },
+    { value: 'Appelsin', label: 'Appelsin' },
+    { value: 'Banan', label: 'Banan' },
+    { value: 'Eple', label: 'Eple' },
+    { value: 'Jordbær', label: 'Jordbær' },
+    { value: 'Pære', label: 'Pære' },
+    { value: 'Vannmelon', label: 'Vannmelon' },
+    { value: 'Druer', label: 'Druer' },
   ];
 
   // Breadcrumb
@@ -257,52 +200,7 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white">
-                <Autocomplete
-                  items={autocompleteItems}
-                  label="Favorittspill"
-                  placeholder="mario..."
-                  valueOnChange={(value) => {
-                    console.info('valueOnChange:', value);
-                  }}
-                  isRequired={true}
-                  onOpen={() => {
-                    console.info('onOpen');
-                  }}
-                  onClose={() => {
-                    console.info('onClose');
-                  }}
-                  onFocus={() => {
-                    console.info('onFocus');
-                  }}
-                  onSelectItem={(item) => {
-                    console.info('onSelectItem:', item);
-                  }}
-                  errorOnChange={(error) => {
-                    console.error('errorOnChange:', error);
-                  }}
-                ></Autocomplete>
-                <br></br>
-                <Autocomplete items={autocompleteItems} size="small" hasOptionalText></Autocomplete>
-                <br></br>
-                <Autocomplete
-                  items={autocompleteItems}
-                  size="small"
-                  isFullWidth
-                  valueOnChange={(value) => {
-                    console.info(value);
-                  }}
-                ></Autocomplete>
-                <br></br>
-                <Autocomplete
-                  items={autocompleteItems}
-                  size="small"
-                  isDisabled
-                  valueOnChange={(value) => {
-                    console.info(value);
-                  }}
-                ></Autocomplete>
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -322,6 +220,19 @@ function App() {
                   'It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. '
                 }
               ></Accordion>
+            </div>
+
+            {/* AUTOCOMPLETE */}
+            <div className="example-wrapper">
+              <h3>Autocomplete</h3>
+              <Autocomplete
+                items={autocompleteItems}
+                label="Skriv inn en frukt"
+                placeholder="banan..."
+                valueOnChange={(value) => {
+                  console.info('valueOnChange:', value);
+                }}
+              />
             </div>
 
             {/* BADGE */}

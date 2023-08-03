@@ -4,27 +4,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <elvia-autocomplete
-        [items]="autocompleteItems"
-        [label]="'skriv inn noe'"
-        (valueOnChange)="handleOnChange($any($event))"
-      ></elvia-autocomplete>
-      <br />
-      <elvia-autocomplete
-        [items]="autocompleteItems"
-        [label]="'skriv inn noe'"
-        [size]="'small'"
-        (valueOnChange)="handleOnChange($any($event))"
-      ></elvia-autocomplete>
-      <elvia-autocomplete
-        [items]="autocompleteItems"
-        [label]="'Jeg har ikke built in filter'"
-        [size]="'small'"
-        [useBuiltInFilter]="false"
-        (valueOnChange)="handleOnChange($any($event))"
-      ></elvia-autocomplete>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-theme-dark e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32"></div>
   </div>
@@ -58,6 +38,16 @@
         </div>
       </div>
     </elvia-accordion>
+  </div>
+
+  <!-- Autocomplete -->
+  <div class="example-wrapper">
+    <h3>Autocomplete</h3>
+    <elvia-autocomplete
+      [items]="autocompleteItems"
+      [label]="'skriv inn nen frukt'"
+      (valueOnChange)="handleOnChange($any($event))"
+    ></elvia-autocomplete>
   </div>
 
   <!-- Badge -->
