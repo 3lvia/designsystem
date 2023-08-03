@@ -8,8 +8,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
 })
 export class ButtonDocComponent {
   title = getComponent('button')?.title;
-  figmaUrl = getComponent('button')?.figmaUrl;
-  description = getComponent('button')?.description;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

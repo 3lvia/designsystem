@@ -20,6 +20,7 @@ import { ButtonTypeIconCegComponent } from './button-type-icon-ceg/button-type-i
 import { ButtonTypeIconCircledCegComponent } from './button-type-icon-circled-ceg/button-type-icon-circled-ceg.component';
 import { ButtonSizeCegComponent } from './button-size-ceg/button-size-ceg.component';
 import { ButtonLinkCegComponent } from './button-link-ceg/button-link-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { ButtonLinkCegComponent } from './button-link-ceg/button-link-ceg.compon
     DoDontTextModule,
     RouterModule,
     WhenToUseModule,
+    SharedDocumentationModule,
   ],
   declarations: [
     ButtonDocComponent,

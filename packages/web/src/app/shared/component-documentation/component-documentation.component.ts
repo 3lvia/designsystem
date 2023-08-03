@@ -24,6 +24,9 @@ export class ComponentDocumentationComponent implements OnInit {
       this.description = getComponent(this.elvisTitle)?.description;
       this.title = getComponent(this.elvisTitle)?.title;
       this.elvisClassName = ('e-' + this.elvisTitle) as keyof typeof data.block;
+      if (this.elvisTitle === 'button') {
+        this.elvisClassName = 'e-btn';
+      }
     } else if (!this.isElvis && this.componentData) {
       this.figmaUrl = getComponent(this.componentData.name.toLowerCase() as DocPageName)?.figmaUrl;
       this.description = getComponent(this.componentData.name.toLowerCase() as DocPageName)?.description;

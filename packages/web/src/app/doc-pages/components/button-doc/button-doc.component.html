@@ -1,19 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Button</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-static-ceg>
-    <app-button-ceg />
+<app-component-documentation isElvis elvisTitle="button">
+  <app-static-ceg ceg>
+    <app-button-ceg></app-button-ceg>
   </app-static-ceg>
 
   <!-- TYPE -->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section type [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Primary'">
         <ng-container ngProjectAs="sectionContent">
@@ -114,7 +105,7 @@
   </app-component-section>
 
   <!--SIZE-->
-  <app-component-section [sectionTitle]="'Size'">
+  <app-component-section size [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       <app-static-ceg>
         <app-button-size-ceg />
@@ -147,7 +138,7 @@
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Order'">
         <ng-container ngProjectAs="sectionContent">
@@ -230,7 +221,7 @@
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <app-component-section implementation [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Links with button style'">
         <ng-container ngProjectAs="sectionContent">
@@ -247,7 +238,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'ARIA'">
         <ng-container ngProjectAs="sectionContent">
@@ -278,18 +269,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-btn'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-btn'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
