@@ -8,8 +8,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./radiobutton-doc.component.scss'],
 })
 export class RadiobuttonDocComponent {
-  figmaUrl = getComponent('radiobutton')?.figmaUrl;
-  description = getComponent('radiobutton')?.description;
   title = getComponent('radiobutton')?.title;
 
   constructor(private titleService: Title) {
