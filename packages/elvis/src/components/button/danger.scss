@@ -1,16 +1,15 @@
 @use '../../utilities/helpers.scss';
 @use '../../variables/colors.scss';
 
-:root,
-.e-theme-light {
-  --e-button-danger-hover-background: var(--e-light-theme-black);
-}
-
-.e-theme-dark {
-  --e-button-danger-hover-background: var(--e-dark-theme-white);
-}
-
 .e-btn.e-btn--danger {
+  @include helpers.custom-light-theme-tokens {
+    --e-button-danger-hover-background: var(--e-light-theme-black);
+  }
+
+  @include helpers.custom-dark-theme-tokens('btn') {
+    --e-button-danger-hover-background: var(--e-dark-theme-white);
+  }
+
   border-color: var(--e-color-signal-error);
   background: var(--e-color-signal-error);
   color: var(--e-color-text-3);

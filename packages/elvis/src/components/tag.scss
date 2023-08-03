@@ -27,17 +27,6 @@ $label-padding: 4px 8px;
 $label-radius: 4px;
 $label-font-size: 11px;
 
-:root,
-.e-theme-light {
-  --e-tag-color-neutral: var(--e-light-theme-black);
-  --e-tag-color-grey: var(--e-light-theme-grey);
-}
-
-.e-theme-dark {
-  --e-tag-color-neutral: var(--e-dark-theme-white);
-  --e-tag-color-grey: var(--e-dark-theme-grey-40);
-}
-
 @mixin circle($variable) {
   padding: 4px 8px 4px 24px;
 
@@ -56,6 +45,16 @@ $label-font-size: 11px;
 // DEPRECATED (e-label -> e-tag)
 .e-label,
 .e-tag {
+  @include helpers.custom-light-theme-tokens {
+    --e-tag-color-neutral: var(--e-light-theme-black);
+    --e-tag-color-grey: var(--e-light-theme-grey);
+  }
+
+  @include helpers.custom-dark-theme-tokens('tag') {
+    --e-tag-color-neutral: var(--e-dark-theme-white);
+    --e-tag-color-grey: var(--e-dark-theme-grey-40);
+  }
+
   position: relative;
   display: inline-flex;
   align-items: center;

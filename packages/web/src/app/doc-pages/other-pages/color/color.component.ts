@@ -25,7 +25,8 @@ export class ColorComponent {
 .e-theme-light {
   --container-color-border: var(--e-light-theme-grey-10);
 }
-.e-theme-dark {
+.e-theme-dark,
+.e-color-background-element-4 {
   --container-color-border: var(--e-dark-theme-grey-20);
 }
 .container {
