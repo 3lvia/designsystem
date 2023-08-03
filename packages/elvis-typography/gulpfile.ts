@@ -130,6 +130,7 @@ gulp.task(
     generateElvisTypographyMapScss,
     generateElviaTypographyJson,
     function (done) {
+      /* eslint-disable no-console*/
       console.log('Elvis-typography - Successfully built Elvis-typography! ');
       done();
     },

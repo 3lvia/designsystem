@@ -7,6 +7,7 @@ gulp.task(
   'default',
   gulp.series(generateIcons, generateIconsScss, function (done) {
     done();
+    /* eslint-disable no-console*/
     console.log('Elvis Icons built!');
   }),
 );

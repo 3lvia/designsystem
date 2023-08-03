@@ -7,14 +7,17 @@ exports.handler = (event) => {
     space: process.env.CONTENTFUL_SPACE,
     accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
   });
-  return client
-    .getEntry(event.queryStringParameters.id, { locale: '*', include: 10 })
-    .then((entryResult) => {
-      return {
-        statusCode: 200,
-        headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true },
-        body: safeJsonStringify(entryResult),
-      };
-    })
-    .catch(console.error);
+  return (
+    client
+      .getEntry(event.queryStringParameters.id, { locale: '*', include: 10 })
+      .then((entryResult) => {
+        return {
+          statusCode: 200,
+          headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true },
+          body: safeJsonStringify(entryResult),
+        };
+      })
+      /* eslint-disable no-console*/
+      .catch(console.error)
+  );
 };
