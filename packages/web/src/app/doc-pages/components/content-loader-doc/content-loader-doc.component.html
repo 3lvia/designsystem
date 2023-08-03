@@ -1,19 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-static-ceg>
-    <app-content-loader-ceg />
+<app-component-documentation isElvis elvisTitle="content-loader">
+  <app-static-ceg ceg>
+    <app-content-loader-ceg></app-content-loader-ceg>
   </app-static-ceg>
 
   <!--TYPES -->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section type [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Box'">
         <ng-container ngProjectAs="sectionContent">
@@ -40,7 +31,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'ARIA'">
         <ng-container ngProjectAs="sectionContent">
@@ -62,18 +53,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-content-loader'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-content-loader'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
