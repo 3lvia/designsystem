@@ -9,8 +9,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./datepicker-doc.component.scss'],
 })
 export class DatepickerDocComponent {
-  figmaUrl = getComponent('datepicker')?.figmaUrl;
-  description = getComponent('datepicker')?.description;
   title = getComponent('datepicker')?.title;
 
   constructor(private titleService: Title) {

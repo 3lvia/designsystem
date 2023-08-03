@@ -1,23 +1,10 @@
-<!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
->
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <!--CEG-->
-  <app-ceg>
-    <app-datepicker-ceg />
+<app-component-documentation [componentData]="componentData">
+  <app-ceg ceg>
+    <app-datepicker-ceg></app-datepicker-ceg>
   </app-ceg>
 
   <!-- SIZE -->
-  <app-component-section [sectionTitle]="'Size'">
+  <app-component-section size [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       There are two different sizes of the date picker; normal and compact. Much like compact text fields, the
       compact date picker picker is a version of the text field that’s primarily designed for internal
@@ -26,7 +13,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Keyboard navigation'">
         <ng-container ngProjectAs="sectionContent">
@@ -57,7 +44,7 @@
   </app-component-section>
 
   <!-- Implementation -->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <app-component-section implementation [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
       The date picker component supports getting the selected date in two different ways: as a date object
       through
@@ -71,7 +58,7 @@
   </app-component-section>
 
   <!--OPTIONS-->
-  <app-component-section [sectionTitle]="'Options'">
+  <app-component-section options [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Reset time'">
         <ng-container ngProjectAs="sectionContent">
@@ -84,25 +71,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-    </ng-container>
-  </app-component-section>
-
-  <!--CHANGELOG-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
