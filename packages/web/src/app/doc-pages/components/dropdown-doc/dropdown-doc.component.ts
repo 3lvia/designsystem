@@ -9,8 +9,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class DropdownDocComponent {
   componentData = dropdownData;
-  figmaUrl = getComponent('dropdown')?.figmaUrl;
-  description = getComponent('dropdown')?.description;
   title = getComponent('dropdown')?.title;
   does = [
     'Use dropdowns sparingly - only when the user has 5-15 options and you have limited space to display all options.',
