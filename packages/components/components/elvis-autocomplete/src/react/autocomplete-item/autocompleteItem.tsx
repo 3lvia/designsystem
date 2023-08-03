@@ -7,7 +7,7 @@ import { Tooltip } from '@elvia/elvis-tooltip/react';
 interface AutocompleteItemProps {
   isFocused: boolean;
   item: AutocompleteItem;
-  onItemSelect: (item: AutocompleteItem) => void;
+  onSelectItem: (item: AutocompleteItem) => void;
   setFadeOut: (fadeOut: boolean) => void;
   setFocusedItem: (item: AutocompleteItem) => void;
   size: FormFieldSizes;
@@ -16,7 +16,7 @@ interface AutocompleteItemProps {
 export const AutocompletePopupItem: React.FC<AutocompleteItemProps> = ({
   isFocused,
   item,
-  onItemSelect,
+  onSelectItem,
   setFadeOut,
   setFocusedItem,
   size,
@@ -47,7 +47,7 @@ export const AutocompletePopupItem: React.FC<AutocompleteItemProps> = ({
           role="option"
           onClick={() => {
             setFadeOut(true);
-            onItemSelect(item);
+            onSelectItem(item);
           }}
           onMouseEnter={() => {
             onMouseOver(item);

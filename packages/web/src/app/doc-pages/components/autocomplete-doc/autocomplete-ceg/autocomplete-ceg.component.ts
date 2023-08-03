@@ -54,7 +54,7 @@ export class AutocompleteCegComponent implements ComponentExample {
     console.log('Autocomplete valueOnChange:', value);
   }
 
-  handleOnItemSelect(value: string): void {
-    console.log('Autocomplete onItemSelect:', value);
+  handleOnSelectItem(value: string): void {
+    console.log('Autocomplete onSelectItem:', value);
   }
 }

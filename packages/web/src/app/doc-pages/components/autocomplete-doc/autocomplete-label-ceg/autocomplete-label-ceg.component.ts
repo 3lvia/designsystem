@@ -15,7 +15,7 @@ export class AutocompleteLabelCegComponent implements StaticComponentExample {
     console.log('Autocomplete valueOnChange:', value);
   }
 
-  handleOnItemSelect(value: string): void {
+  handleOnSelectItem(value: string): void {
     console.log('Autocomplete selected item:', value);
   }
 }

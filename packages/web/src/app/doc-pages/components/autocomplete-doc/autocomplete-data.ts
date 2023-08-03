@@ -84,7 +84,7 @@ export const autocompleteData: ComponentData = {
       type: '() => void',
       description: 'Gets called when the autocomplete input is focused',
     },
-    onItemSelect: {
+    onSelectItem: {
       isRequired: false,
       type: '(value: string) => void',
       description: 'Gets called when the user selects an item from the autocomplete popup',

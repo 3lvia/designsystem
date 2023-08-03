@@ -36,7 +36,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   menuPosition = 'auto',
   onClose,
   onFocus,
-  onItemSelect,
+  onSelectItem,
   onOpen,
   placeholder,
   size = 'medium',
@@ -84,9 +84,9 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     }
   };
 
-  const handleOnItemSelect = (item: AutocompleteItem) => {
+  const handleOnSelectItem = (item: AutocompleteItem) => {
     setCurrentValue(item.value);
-    emitOnItemSelect(item.value);
+    emitOnSelectItem(item.value);
     setFadeOut(true);
   };
 
@@ -101,9 +101,9 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     webcomponent?.triggerEvent('onClose');
   };
 
-  const emitOnItemSelect = (selectedValue: string | null) => {
-    onItemSelect?.(selectedValue);
-    webcomponent?.triggerEvent('onItemSelect', selectedValue);
+  const emitOnSelectItem = (selectedValue: string | null) => {
+    onSelectItem?.(selectedValue);
+    webcomponent?.triggerEvent('onSelectItem', selectedValue);
   };
 
   const emitOnOpen = () => {
@@ -171,7 +171,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
     if (['Enter', 'Tab'].includes(ev.code)) {
       if (focusedItem) {
-        handleOnItemSelect(focusedItem);
+        handleOnSelectItem(focusedItem);
       }
     } else if (ev.code === 'ArrowUp') {
       ev.preventDefault();
@@ -242,7 +242,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
           fadeOut={fadeOut}
           filteredItems={filteredItems}
           onClose={closePopup}
-          onItemSelect={handleOnItemSelect}
+          onSelectItem={handleOnSelectItem}
           ref={popoverRef}
           setFadeOut={setFadeOut}
           size={size}

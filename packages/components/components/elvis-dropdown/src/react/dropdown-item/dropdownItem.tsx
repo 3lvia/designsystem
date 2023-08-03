@@ -19,7 +19,7 @@ interface DropdownItemProps {
   setFocusedItem: (item?: DropdownItemOption) => void;
   setHoveredItem: (item?: DropdownItemOption) => void;
   inputIsKeyboard: boolean;
-  onItemSelect: (value: DropdownValueType[]) => void;
+  onSelectItem: (value: DropdownValueType[]) => void;
   onClick: (item: DropdownItemOption) => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   listRef: RefObject<HTMLElement>;
@@ -37,7 +37,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   setFocusedItem,
   setHoveredItem,
   inputIsKeyboard: inputIsKeyboard,
-  onItemSelect,
+  onSelectItem,
   onClick,
   pressedKey,
   listRef,
@@ -239,7 +239,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           size={size}
           onClose={() => showChildList(false)}
           isMulti={isMulti}
-          onItemSelect={(value) => onItemSelect(value)}
+          onSelectItem={(value) => onSelectItem(value)}
           currentVal={currentVal}
           pressedKey={pressedKey}
           inputIsKeyboard={inputIsKeyboard}

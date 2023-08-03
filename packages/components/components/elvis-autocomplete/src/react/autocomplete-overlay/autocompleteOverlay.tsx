@@ -10,7 +10,7 @@ interface AutocompleteOverlayProps {
   focusedItem: AutocompleteItem | undefined;
   id?: string;
   onClose: () => void;
-  onItemSelect: (item: AutocompleteItem | undefined) => void;
+  onSelectItem: (item: AutocompleteItem | undefined) => void;
   popupId?: string;
   setFadeOut: (fadeOut: boolean) => void;
   setFocusedItem: (item: AutocompleteItem | undefined) => void;
@@ -25,7 +25,7 @@ export const AutocompleteOverlay = forwardRef<HTMLDivElement, AutocompleteOverla
       focusedItem,
       id,
       onClose,
-      onItemSelect,
+      onSelectItem,
       popupId,
       setFadeOut,
       setFocusedItem,
@@ -40,7 +40,7 @@ export const AutocompleteOverlay = forwardRef<HTMLDivElement, AutocompleteOverla
             <AutocompletePopupItem
               item={item}
               key={item.value}
-              onItemSelect={onItemSelect}
+              onSelectItem={onSelectItem}
               setFadeOut={setFadeOut}
               setFocusedItem={setFocusedItem}
               size={size}

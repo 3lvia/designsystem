@@ -24,7 +24,7 @@ export interface AutocompleteProps
   menuPosition?: AutocompleteMenuPosition;
   onClose?: () => void;
   onFocus?: () => void;
-  onItemSelect?: (value: string | null) => void;
+  onSelectItem?: (value: string | null) => void;
   onOpen?: () => void;
   placeholder?: string;
   size?: FormFieldSizes;

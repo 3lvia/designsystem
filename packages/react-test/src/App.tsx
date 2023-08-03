@@ -275,8 +275,8 @@ function App() {
                   onFocus={() => {
                     console.info('onFocus');
                   }}
-                  onItemSelect={(item) => {
-                    console.info('onItemSelect:', item);
+                  onSelectItem={(item) => {
+                    console.info('onSelectItem:', item);
                   }}
                   errorOnChange={(error) => {
                     console.error('errorOnChange:', error);
