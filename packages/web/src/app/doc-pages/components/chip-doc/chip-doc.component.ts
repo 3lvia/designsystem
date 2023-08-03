@@ -10,8 +10,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class ChipDocComponent {
   title = getComponent('chip')?.title;
-  figmaUrl = getComponent('chip')?.figmaUrl;
-  description = getComponent('chip')?.description;
   does = chipData.does;
   donts = chipData.donts;
   componentData = chipData;

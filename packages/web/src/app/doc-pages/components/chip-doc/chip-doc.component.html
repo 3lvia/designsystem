@@ -1,22 +1,10 @@
-<!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
->
-  <ng-container ngProjectAs="headerTitle">Chip</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-ceg>
-    <app-chip-ceg />
+<app-component-documentation [componentData]="componentData">
+  <app-ceg ceg>
+    <app-chip-ceg></app-chip-ceg>
   </app-ceg>
 
   <!-- TYPE -->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section type [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Removable'">
         <ng-container ngProjectAs="sectionContent">
@@ -117,7 +105,7 @@
   </app-component-section>
 
   <!-- COLOR -->
-  <app-component-section [sectionTitle]="'Color'">
+  <app-component-section color [sectionTitle]="'Color'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Default color'">
         <ng-container ngProjectAs="sectionContent">
@@ -155,14 +143,14 @@
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
     </ng-container>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Keyboard navigation'">
         <ng-container ngProjectAs="sectionContent">
@@ -194,25 +182,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-    </ng-container>
-  </app-component-section>
-
-  <!--CHANGELOG-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
