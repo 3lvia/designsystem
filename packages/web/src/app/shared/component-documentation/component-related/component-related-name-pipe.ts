@@ -11,8 +11,7 @@ export class ComponentRelatedNamePipe implements PipeTransform {
       return formattedName;
     } catch (e) {
       const errorMessage = `"name": "${name}" in Related section is invalid.`;
-      console.error(errorMessage);
-      return errorMessage;
+      throw new Error(errorMessage);
     }
   }
 }
