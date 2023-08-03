@@ -9,14 +9,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+
     .changelog-name-and-icon {
       display: flex;
       align-items: center;
       text-transform: capitalize;
-      i {
-        margin-right: 16px;
-      }
     }
     .changelog-version-and-date {
       display: flex;

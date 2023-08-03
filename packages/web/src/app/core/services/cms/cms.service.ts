@@ -4,7 +4,14 @@ import { CMSTransformService } from './cms-transform.service';
 import { Locale } from '../localization.service';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { IDocumentationPage, IEntry, IMainMenu, ISubMenu, LOCALE_CODE } from 'contentful/types';
+import {
+  IDocumentationPage,
+  IEntry,
+  ILandingPageWithCards,
+  IMainMenu,
+  ISubMenu,
+  LOCALE_CODE,
+} from 'contentful/types';
 import { CMSMenu, CMSNavbarItem, CMSSubMenu, TransformedDocPage } from './cms.interface';
 import { extractLocale } from './extractLocale';
 
@@ -164,6 +171,26 @@ export class CMSService {
   }
 
   /**
+   *
+   * @returns Object where component names (lowercase) are keys, and url to their icon are values.
+   */
+  async getComponentIcons() {
+    const overviewPageWithCards = await this.getEntry('3qbgNHF6InuWMxO1jdc9BR');
+
+    const cards = extractLocale(overviewPageWithCards.fields.overviewCard);
+    if (!cards) {
+      throw new Error('Cannot find overview page cards.');
+    }
+
+    return cards.reduce((res, card) => {
+      const title = extractLocale(card.fields.title) ?? '';
+      const url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
+      res[title.toLowerCase()] = url;
+      return res;
+    }, {} as Record<string, string>);
+  }
+
+  /**
    * Get an entry from Contentful (not locally cached).
    *
    * The entry is given the type any by default, but should be treated as a Contentful type.
@@ -223,6 +250,7 @@ export class CMSService {
    */
   private async getEntry<T extends IEntry = IEntry>(entryId: string): Promise<T>;
   private async getEntry(entryId: '4ufFZKPEou3mf9Tg05WZT3'): Promise<IMainMenu>;
+  private async getEntry(entryId: '3qbgNHF6InuWMxO1jdc9BR'): Promise<ILandingPageWithCards>;
   private async getEntry(entryId: string): Promise<IEntry>;
   private async getEntry(entryId: string): Promise<IEntry> {
     const url = `assets/contentful/dist/entries/${entryId}.json`;

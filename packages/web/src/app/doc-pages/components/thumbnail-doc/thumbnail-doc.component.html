@@ -1,18 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-<!--BODY-->
-<div class="page-body">
-  <app-static-ceg>
+<app-component-documentation isElvis elvisTitle="thumbnail">
+  <app-static-ceg ceg>
     <app-thumbnail-ceg />
   </app-static-ceg>
 
   <!--STATES-->
-  <app-component-section [sectionTitle]="'States'">
+  <app-component-section states [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
       Use
       <code>e-thumbnail---selected</code>
@@ -30,7 +22,7 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <div class="e-flex e-flex-direction-column e-gap-16">
         <img [src]="selectedImage" alt="Selected image" style="width: 248px" />
@@ -51,7 +43,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'ARIA'">
         <ng-container ngProjectAs="sectionContent">
@@ -75,18 +67,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-thumbnail'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-thumbnail'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

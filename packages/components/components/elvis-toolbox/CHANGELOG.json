@@ -2,6 +2,35 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.08.23",
+      "version": "9.4.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Added explicit <code>type=button</code> to button components to prevent unintended form submissions"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "01.08.23",
+      "version": "9.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add breakpoints to use in media queries.",
+            "Add flag to Overlay component to use global instead of local themes"
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Tertiary button missing text color."]
+        }
+      ]
+    },
+    {
       "date": "18.07.23",
       "version": "9.3.1",
       "changelog": [

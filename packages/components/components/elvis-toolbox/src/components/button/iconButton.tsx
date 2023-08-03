@@ -27,7 +27,7 @@ const getSize = (size: Size) => {
   }
 };
 
-export const IconButton = styled.button<Partial<ButtonProps>>`
+export const IconButton = styled.button.attrs({ type: 'button' })<Partial<ButtonProps>>`
   flex: none;
   display: grid;
   place-items: center;

@@ -31,6 +31,16 @@ describe('Elvia Header', () => {
   let signOutButtonHasBeenClicked = false;
   let user: UserEvent;
 
+  beforeEach(() => {
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: jest.fn(() => null),
+        setItem: jest.fn(() => null),
+      },
+      writable: true,
+    });
+  });
+
   describe('on desktop', () => {
     beforeEach(() => {
       mockMatchMedia({ isGtMobile: true });

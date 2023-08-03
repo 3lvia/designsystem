@@ -41,7 +41,7 @@ const getTypography = (size: Size) => {
   }
 };
 
-const ButtonBase = styled.button<Partial<ButtonProps>>`
+const ButtonBase = styled.button.attrs({ type: 'button' })<Partial<ButtonProps>>`
   ${({ size }) => getTypography(size ?? 'md')};
   font-weight: 500;
   display: flex;
@@ -144,6 +144,7 @@ export const TertiaryButton = styled(ButtonBase)`
   position: relative;
   padding: 0;
   height: ${({ size }) => (size === 'sm' || size === 'small' ? '1.5rem' : '2rem')};
+  color: ${getThemeColor('text-1')};
 
   &:after {
     content: '';

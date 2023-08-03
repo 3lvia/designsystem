@@ -8,6 +8,7 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Theme, ThemeService } from 'src/app/core/services/theme.service';
+import { ThemeClassName } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-header',
@@ -116,10 +117,12 @@ export class HeaderComponent {
   };
 
   private addDarkThemeClass = (theme: Theme): void => {
-    if (theme === 'dark') {
-      document.body.classList.add('e-theme-dark');
-    } else {
-      document.body.classList.remove('e-theme-dark');
+    const classToRemove: ThemeClassName = theme === 'light' ? 'e-theme-dark' : 'e-theme-light';
+    const classToAdd: ThemeClassName = theme === 'light' ? 'e-theme-light' : 'e-theme-dark';
+
+    document.body.classList.remove(classToRemove);
+    if (!document.body.classList.contains(classToAdd)) {
+      document.body.classList.add(classToAdd);
     }
   };
 

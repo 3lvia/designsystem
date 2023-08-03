@@ -140,7 +140,7 @@ const getStepNumberBorderColor = ({ isActive, isError, isDisabled }: StepNumberP
   }
 };
 
-export const StepNumber = styled.button<StepNumberProps>`
+export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProps>`
   ${getTypographyCss('title-xs')}
   display: grid;
   width: 32px;

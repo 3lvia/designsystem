@@ -28,13 +28,15 @@ describe('Elvis Timepicker', () => {
     });
 
     it('should not have a default value', () => {
-      const input = screen.getByTestId('input');
+      const input = screen.getByRole('textbox', {
+        name: /velg tid/i,
+      });
       expect(input).toHaveValue('');
     });
 
     it('should have a placeholder', () => {
-      const input = screen.getByTestId('input') as HTMLInputElement;
-      expect(input.placeholder).toBe('tt:mm');
+      const placeholder = screen.getByPlaceholderText('tt:mm');
+      expect(placeholder).toBeInTheDocument();
     });
 
     it('should have a toggle button', () => {
@@ -110,7 +112,9 @@ describe('Elvis Timepicker', () => {
         });
 
         it('the value in the input goes to the default setting', () => {
-          const input = screen.getByTestId('input');
+          const input = screen.getByRole('textbox', {
+            name: /velg tid/i,
+          });
           expect(input).toHaveValue('00:00');
         });
 
@@ -123,7 +127,9 @@ describe('Elvis Timepicker', () => {
           });
 
           it('the hour increases by one', () => {
-            const input = screen.getByTestId('input');
+            const input = screen.getByRole('textbox', {
+              name: /velg tid/i,
+            });
             expect(input).toHaveValue('01:00');
           });
         });
@@ -137,7 +143,9 @@ describe('Elvis Timepicker', () => {
           });
 
           it('the minute increases by 15', () => {
-            const input = screen.getByTestId('input');
+            const input = screen.getByRole('textbox', {
+              name: /velg tid/i,
+            });
             expect(input).toHaveValue('00:15');
           });
         });
@@ -152,7 +160,9 @@ describe('Elvis Timepicker', () => {
         });
 
         it('the hour is set to 01:00', () => {
-          const input = screen.getByTestId('input');
+          const input = screen.getByRole('textbox', {
+            name: /velg tid/i,
+          });
           expect(input).toHaveValue('01:00');
         });
       });
@@ -161,14 +171,18 @@ describe('Elvis Timepicker', () => {
     describe('When the input is changed to 24 and blurred', () => {
       beforeEach(async () => {
         const user = userEvent.setup();
-        const input = screen.getByTestId('input');
+        const input = screen.getByRole('textbox', {
+          name: /velg tid/i,
+        });
 
         await user.type(input, '24');
         await user.tab();
       });
 
       it('the value wraps to 00:00', () => {
-        const input = screen.getByTestId('input');
+        const input = screen.getByRole('textbox', {
+          name: /velg tid/i,
+        });
         expect(input).toHaveValue('00:00');
       });
     });
@@ -180,7 +194,9 @@ describe('Elvis Timepicker', () => {
     });
 
     it('should have an disabled input field', () => {
-      const input = screen.getByTestId('input');
+      const input = screen.getByRole('textbox', {
+        name: /velg tid/i,
+      });
       expect(input).toBeDisabled();
     });
 
@@ -207,7 +223,7 @@ describe('Elvis Timepicker', () => {
 
   describe('With default select on open', () => {
     beforeEach(() => {
-      render(<Timepicker selectNowOnOpen={true}></Timepicker>);
+      render(<Timepicker selectNowOnOpen />);
     });
 
     describe('When the popover trigger is clicked', () => {
@@ -220,9 +236,44 @@ describe('Elvis Timepicker', () => {
 
       it('the input receives a default value', () => {
         const now = new Date();
-        const input = screen.getByTestId('input');
+        const input = screen.getByRole('textbox', {
+          name: /velg tid/i,
+        });
         expect(input).toHaveValue(`${padDigit(now.getHours())}:${padDigit(now.getMinutes())}`);
       });
+    });
+  });
+
+  describe('With isRequired', () => {
+    beforeEach(() => {
+      render(<Timepicker isRequired />);
+    });
+
+    it('the required attribute must be present', () => {
+      const input = screen.getByRole('textbox', {
+        name: /velg tid/i,
+      });
+      expect(input).toHaveAttribute('required');
+    });
+
+    it('should not have an required error on initialization', () => {
+      const input = screen.getByRole('textbox', {
+        name: /velg tid/i,
+      });
+      expect(input).toHaveAttribute('aria-invalid', 'false');
+    });
+
+    it('should become invalid when the user focuses and blurs the input without writing anything', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('textbox', {
+        name: /velg tid/i,
+      });
+
+      await user.click(input);
+      await user.tab();
+
+      expect(input).toHaveAttribute('aria-invalid', 'true');
+      expect(screen.getByTestId('error')).toBeInTheDocument();
     });
   });
 
@@ -235,6 +286,7 @@ describe('Elvis Timepicker', () => {
         <div data-testid="timepickers">
           <Timepicker isDisabled={true} />
           <Timepicker selectNowOnOpen={false} onOpen={onOpenListener} onClose={onCloseListener} />
+          <Timepicker isRequired />
         </div>,
       );
 

@@ -2,13 +2,23 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "02.08.23",
+      "version": "7.0.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "04.07.23",
       "version": "7.0.4",
       "changelog": [
         {
           "type": "bug_fix",
           "changes": [
-            "fixed a bug where the Date Picker did not properly focus on the calendar pop-over as intended."
+            "Fixed a bug where the Date Picker did not properly focus on the calendar pop-over as intended."
           ]
         }
       ]

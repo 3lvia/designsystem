@@ -1,30 +1,17 @@
-<!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData.changelog && componentData.changelog && componentData.changelog[0].date"
->
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body e-mt-72">
-  <!--CEG-->
-  <app-ceg>
+<app-component-documentation [componentData]="componentData">
+  <app-ceg ceg>
     <app-toast-ceg></app-toast-ceg>
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
     </ng-container>
   </app-component-section>
 
   <!--STATUS-->
-  <app-component-section [sectionTitle]="'Status'">
+  <app-component-section status [sectionTitle]="'Status'">
     <ng-container ngProjectAs="sectionContent">
       The status of an alert helps to communicate the information and the severity of the toast. Each status
       consists of a defined color and an icon. It is important to use the correct status of the toast to
@@ -63,14 +50,14 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section sectionTitle="Accessibility">
+  <app-component-section accessibility sectionTitle="Accessibility">
     <ng-container ngProjectAs="sectionContent">
       A toast will automatically be read by a screen reader in an assertive way.
     </ng-container>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section sectionTitle="Implementation">
+  <app-component-section implementation sectionTitle="Implementation">
     <ng-container ngProjectAs="sectionContent">
       There are two steps necessary to use the toast component:
       <ol class="e-list e-list--numbers">
@@ -104,32 +91,11 @@
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section sectionTitle="Toast configuration">
+  <app-component-section configuration sectionTitle="Toast configuration">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties-table
         [componentData]="toastConfigurationProps"
       ></app-component-properties-table>
     </ng-container>
   </app-component-section>
-
-  <!--INSTALLATION-->
-  <app-component-section sectionTitle="Installation">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section sectionTitle="Properties">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-    </ng-container>
-  </app-component-section>
-
-  <!--CHANGELOG-->
-  <app-component-section sectionTitle="Changelog">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
