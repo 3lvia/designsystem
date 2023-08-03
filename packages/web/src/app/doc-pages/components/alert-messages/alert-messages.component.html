@@ -1,21 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Alert messages</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <app-static-ceg>
-      <app-alert-ceg />
-    </app-static-ceg>
-  </div>
+<app-component-documentation isElvis elvisTitle="alert">
+  <app-ceg ceg>
+    <app-alert-ceg></app-alert-ceg>
+  </app-ceg>
 
   <!--TYPE-->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section type [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <div class="alert-type-container">
         <div class="alert-type-item">
@@ -218,7 +207,7 @@
   </app-component-section>
 
   <!--STATUS-->
-  <app-component-section [sectionTitle]="'Status'">
+  <app-component-section status [sectionTitle]="'Status'">
     <ng-container ngProjectAs="sectionContent">
       The status of an alert helps to communicate the information and the severity of the alert. Each status
       consists of a defined color and an icon. It is important to use the correct status of the alert to
@@ -294,7 +283,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       When new alerts appear, users of assistive technologies may miss them. ARIA live regions enable
       programmatically exposing new alerts in a way that can be announced by assistive technology.
@@ -373,18 +362,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-alert'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-alert'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

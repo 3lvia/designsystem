@@ -20,6 +20,7 @@ import { AlertLocalNoTitleCegComponent } from './alert-local-no-title-ceg/alert-
 import { AlertRoleAlertCegComponent } from './alert-role-alert-ceg/alert-role-alert-ceg.component';
 import { AlertRoleStatusCegComponent } from './alert-role-status-ceg/alert-role-status-ceg.component';
 import { AlertRoleNoteCegComponent } from './alert-role-note-ceg/alert-role-note-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AlertRoleNoteCegComponent } from './alert-role-note-ceg/alert-role-note
     ComponentSubsubsectionModule,
     WhenToUseModule,
     ComponentChangelogModule,
+    SharedDocumentationModule,
   ],
 })
 export class AlertMessagesModule {}
