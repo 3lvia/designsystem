@@ -25,6 +25,5 @@ export class TabsCegComponent implements ComponentExample {
 
   handleOnChange(value: number): void {
     console.log('New value:', value);
-    console.log('New value:', value);
   }
 }

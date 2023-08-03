@@ -99,12 +99,10 @@ export class ChipCegComponent implements ComponentExample {
   ]);
 
   handleOnChange(value: number): void {
-    // eslint-disable-next-line no-console
     console.log('New value:', value);
   }
 
   handleOnDelete(value: string): void {
-    // eslint-disable-next-line no-console
     console.log('Chip should be deleted: ', value);
   }
 }

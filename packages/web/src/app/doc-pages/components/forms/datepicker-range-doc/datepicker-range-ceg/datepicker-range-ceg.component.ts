@@ -79,7 +79,6 @@ export class DatepickerRangeCegComponent implements ComponentExample {
   ]);
 
   handleOnChange(value: number): void {
-    // eslint-disable-next-line no-console
     console.log('New value:', value);
   }
 }

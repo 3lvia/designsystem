@@ -47,6 +47,7 @@ export const useEffectDebugger = (
   }, {});
 
   if (Object.keys(changedDeps as any).length) {
+    // eslint-disable-next-line no-console
     console.table(changedDeps);
   }
 
