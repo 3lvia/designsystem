@@ -28,5 +28,5 @@ export interface AutocompleteProps
   onOpen?: () => void;
   placeholder?: string;
   size?: FormFieldSizes;
-  useBuiltInFilter?: boolean;
+  hasBuiltInFilter?: boolean;
 }

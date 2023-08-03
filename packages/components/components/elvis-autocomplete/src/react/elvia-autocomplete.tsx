@@ -40,7 +40,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   onOpen,
   placeholder,
   size = 'medium',
-  useBuiltInFilter = true,
+  hasBuiltInFilter = true,
   value = '',
   valueOnChange,
   webcomponent,
@@ -69,8 +69,8 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   });
 
   const filteredItems = useMemo(() => {
-    return useBuiltInFilter ? filterItems(items, currentValue) : items;
-  }, [filterItems, items, currentValue, useBuiltInFilter]);
+    return hasBuiltInFilter ? filterItems(items, currentValue) : items;
+  }, [filterItems, items, currentValue, hasBuiltInFilter]);
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 

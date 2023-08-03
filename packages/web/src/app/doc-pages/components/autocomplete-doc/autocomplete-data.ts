@@ -94,7 +94,7 @@ export const autocompleteData: ComponentData = {
       type: 'string',
       description: 'Add an Aria label for accessibility if no explicit label is provided.',
     },
-    useBuiltInFilter: {
+    hasBuiltInFilter: {
       isRequired: false,
       type: 'boolean',
       description:

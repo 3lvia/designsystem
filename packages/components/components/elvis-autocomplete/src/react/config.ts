@@ -9,7 +9,7 @@ export const config: ComponentConfig = {
     { name: 'label', type: 'string' },
     { name: 'placeholder', type: 'string' },
     { name: 'size', type: 'string' },
-    { name: 'useBuiltInFilter', type: 'boolean' },
+    { name: 'hasBuiltInFilter', type: 'boolean' },
     { name: 'value', type: 'string' },
     { name: 'valueOnChange', type: 'function' },
     { name: 'ariaLabel', type: 'string' },
