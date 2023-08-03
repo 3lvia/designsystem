@@ -23,6 +23,7 @@ import { InputOptionsLoadingCegComponent } from './input-options-loading-ceg/inp
 import { InputSizeNormalCegComponent } from './input-size-normal-ceg/input-size-normal-ceg.component';
 import { InputSizeCompactCegComponent } from './input-size-compact-ceg/input-size-compact-ceg.component';
 import { InputValidationCegComponent } from './input-validation-ceg/input-validation-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { InputValidationCegComponent } from './input-validation-ceg/input-valida
     WhenToUseModule,
     RouterModule,
     ComponentChangelogModule,
+    SharedDocumentationModule,
   ],
 })
 export class InputDocModule {}

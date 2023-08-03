@@ -11,8 +11,6 @@ export class InputDocComponent {
   @ViewChild('validationExample') validationExample: ElementRef;
 
   showPassword = false;
-  figmaUrl = getComponent('input')?.figmaUrl;
-  description = getComponent('input')?.description;
   title = getComponent('input')?.title;
 
   constructor(private titleService: Title) {
