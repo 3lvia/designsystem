@@ -11,11 +11,11 @@ import * as template from 'html-loader!./autocomplete-label-ceg.component.html';
 export class AutocompleteLabelCegComponent implements StaticComponentExample {
   html = template.default;
 
-  handleValueOnChange(newValues: string | string[]): void {
-    console.log('Autocomplete valueOnChange:', newValues);
+  handleValueOnChange(value: string): void {
+    console.log('Autocomplete valueOnChange:', value);
   }
 
-  handleOnItemSelect(newValues: string | string[]): void {
-    console.log('Autocomplete selected item:', newValues);
+  handleOnItemSelect(value: string): void {
+    console.log('Autocomplete selected item:', value);
   }
 }

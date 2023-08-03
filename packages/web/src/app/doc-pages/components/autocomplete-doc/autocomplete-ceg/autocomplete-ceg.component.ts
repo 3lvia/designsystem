@@ -50,11 +50,11 @@ export class AutocompleteCegComponent implements ComponentExample {
     },
   ]);
 
-  handleValueOnChange(value: number): void {
+  handleValueOnChange(value: string): void {
     console.log('Autocomplete valueOnChange:', value);
   }
 
-  handleOnItemSelect(value: number): void {
+  handleOnItemSelect(value: string): void {
     console.log('Autocomplete onItemSelect:', value);
   }
 }
