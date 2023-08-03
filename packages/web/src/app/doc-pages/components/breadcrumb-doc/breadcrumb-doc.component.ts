@@ -10,8 +10,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./breadcrumb-doc.component.scss'],
 })
 export class BreadcrumbDocComponent {
-  figmaUrl = getComponent('breadcrumb')?.figmaUrl;
-  description = getComponent('breadcrumb')?.description;
   title = getComponent('breadcrumb')?.title;
   componentData = breadcrumbData;
   breadcrumbEventCode = breadcrumbEventCode;
