@@ -235,7 +235,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
           <AutocompleteError label={label} errorType={error} errorOptions={mergedErrorOptions} id={errorId} />
         )}
       </FormFieldContainer>
-      {isShowing && (
+      {isShowing && filteredItems.length > 0 && (
         <AutocompleteOverlay
           id={id}
           popupId={popupId}

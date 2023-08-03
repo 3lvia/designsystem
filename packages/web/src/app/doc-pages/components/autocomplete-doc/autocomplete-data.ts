@@ -42,6 +42,12 @@ export const autocompleteData: ComponentData = {
       description: "Set the autocomplete to fill 100% of its parent's container width.",
       default: 'false',
     },
+    isRequired: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Makes the autocomplete required.',
+      default: 'false',
+    },
     label: {
       isRequired: false,
       type: 'string',
@@ -50,8 +56,8 @@ export const autocompleteData: ComponentData = {
     menuPosition: {
       isRequired: false,
       type: 'top | bottom | auto',
-      description: `Set the position of the autocomplete menu.`,
-      default: `auto`,
+      description: 'Set the position of the autocomplete menu.',
+      default: 'auto',
     },
     placeholder: {
       isRequired: false,
@@ -61,7 +67,27 @@ export const autocompleteData: ComponentData = {
     valueOnChange: {
       isRequired: false,
       type: '(values: string) => void',
-      description: `Gets called every time the user types inside the autocomplete input`,
+      description: 'Gets called every time the user types inside the autocomplete input',
+    },
+    onClose: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Gets called when the autocomplete popup closes',
+    },
+    onOpen: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Gets called when the autocomplete popup opens',
+    },
+    onFocus: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Gets called when the autocomplete input is focused',
+    },
+    onItemSelect: {
+      isRequired: false,
+      type: '(value: string) => void',
+      description: 'Gets called when the user selects an item from the autocomplete popup',
     },
     ariaLabel: {
       isRequired: false,
