@@ -56,7 +56,7 @@ Read about the
 @include helpers.custom-dark-theme-tokens('tag') {
   --e-tag-color-neutral-background: var(--e-dark-theme-white);
 }
-:root,
+
 .e-tag {
   background: var(--e-tag-color-neutral-background);
 }
