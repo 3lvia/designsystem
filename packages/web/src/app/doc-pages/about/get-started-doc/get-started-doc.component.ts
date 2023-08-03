@@ -16,6 +16,8 @@ export class GetStartedDocComponent {
   linkTagCode = '';
   scriptTagCode = '';
   fullHTMLExample = '';
+  elvisCssImport = "@use '~@elvia/elvis/css/elvis.min.css';";
+  elvisJsImport = "import '@elvia/elvis/elvis.js';";
 
   constructor(private versionService: VersionService, private titleService: Title) {
     this.titleService.setTitle('Get started | Elvia design system');
