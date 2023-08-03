@@ -10,8 +10,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class ContextMenuDocComponent {
   componentData = contextMenuData;
-  figmaUrl = getComponent('context-menu')?.figmaUrl;
-  description = getComponent('context-menu')?.description;
   title = getComponent('context-menu')?.title;
 
   does = ['Help user perform actions when space is limited'];

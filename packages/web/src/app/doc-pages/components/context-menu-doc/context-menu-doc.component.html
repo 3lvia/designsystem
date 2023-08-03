@@ -1,23 +1,10 @@
-<!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
->
-  <ng-container ngProjectAs="headerTitle">Context menu</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body e-mt-72">
-  <!--CEG-->
-  <app-ceg>
+<app-component-documentation [componentData]="componentData">
+  <app-ceg ceg>
     <app-context-menu-ceg></app-context-menu-ceg>
   </app-ceg>
 
   <!--STRUCTURE-->
-  <app-component-section [sectionTitle]="'Structure'">
+  <app-component-section structure [sectionTitle]="'Structure'">
     <ng-container ngProjectAs="sectionContent">
       <img
         alt="Context menu structure"
@@ -45,7 +32,7 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
 
@@ -66,7 +53,7 @@
   </app-component-section>
 
   <!--OPTIONS-->
-  <app-component-section [sectionTitle]="'Options'">
+  <app-component-section options [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsubsection [sectionTitle]="'Icons'">
         <ng-container ngProjectAs="sectionContent">
@@ -107,7 +94,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Keyboard navigation'">
         <ng-container ngProjectAs="sectionContent">
@@ -160,7 +147,7 @@
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <app-component-section implementation [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Trigger'">
         <ng-container ngProjectAs="sectionContent">
@@ -171,25 +158,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-    </ng-container>
-  </app-component-section>
-
-  <!--CHANGELOG-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
