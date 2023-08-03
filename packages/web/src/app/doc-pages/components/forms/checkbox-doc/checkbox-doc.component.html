@@ -1,19 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-static-ceg>
-    <app-checkbox-ceg />
+<app-component-documentation isElvis elvisTitle="checkbox">
+  <app-static-ceg ceg>
+    <app-checkbox-ceg></app-checkbox-ceg>
   </app-static-ceg>
 
   <!-- TYPE -->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section type [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Standard'">
         <ng-container ngProjectAs="sectionContent">
@@ -45,7 +36,7 @@
   </app-component-section>
 
   <!-- SIZE -->
-  <app-component-section [sectionTitle]="'Size'">
+  <app-component-section size [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       Checkboxes come in two sizes: medium and small.
       <app-static-ceg>
@@ -55,7 +46,7 @@
   </app-component-section>
 
   <!-- STATES -->
-  <app-component-section [sectionTitle]="'States'">
+  <app-component-section states [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
       <app-static-ceg>
         <app-checkbox-states-ceg />
@@ -64,14 +55,14 @@
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
     </ng-container>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Label'">
         <ng-container ngProjectAs="sectionContent">
@@ -106,18 +97,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-checkbox'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-checkbox'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

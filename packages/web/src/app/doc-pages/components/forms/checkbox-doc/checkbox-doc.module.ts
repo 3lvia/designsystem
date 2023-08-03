@@ -15,6 +15,7 @@ import { CheckboxStandardCegComponent } from './checkbox-standard-ceg/checkbox-s
 import { CheckboxNestedCegComponent } from './checkbox-nested-ceg/checkbox-nested-ceg.component';
 import { CheckboxSizeCegComponent } from './checkbox-size-ceg/checkbox-size-ceg.component';
 import { CheckboxStatesCegComponent } from './checkbox-states-ceg/checkbox-states-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CheckboxStatesCegComponent } from './checkbox-states-ceg/checkbox-state
     RouterModule,
     ComponentChangelogModule,
     CegModule,
+    SharedDocumentationModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
