@@ -7,12 +7,14 @@ import {
   FormFieldInput,
   useConnectedOverlay,
   ErrorOptions,
+  VisuallyHidden,
 } from '@elvia/elvis-toolbox';
 import { AutocompleteOverlay } from './autocomplete-overlay/autocompleteOverlay';
 import { filterItems } from './utils/filterItems';
 import { AutocompleteError } from './error/autocompleteError';
 import { useOutsideClickListener } from './utils/useOutsideClick';
 import { getInternalErrorText } from './utils/getInternalErrorText';
+import { getStatusForScreenReader } from './utils/statusMessage';
 
 const defaultErrorOptions = {
   isErrorState: false,
@@ -158,6 +160,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   };
 
   const handleOnBlur = () => {
+    setFocusedItem(undefined);
     validateInputValue(currentValue);
     setFadeOut(true);
   };
@@ -191,6 +194,9 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
   return (
     <>
+      <VisuallyHidden role="status">
+        {getStatusForScreenReader(currentValue ? filteredItems.length : 0)}
+      </VisuallyHidden>
       <FormFieldContainer
         className={className}
         hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
@@ -208,7 +214,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
           <FormFieldInput
             aria-autocomplete="list"
             aria-controls={popupId}
-            aria-expanded={isShowing}
+            aria-expanded={isShowing && filteredItems.length > 0}
             aria-haspopup="listbox"
             aria-label={ariaLabel}
             aria-activedescendant={

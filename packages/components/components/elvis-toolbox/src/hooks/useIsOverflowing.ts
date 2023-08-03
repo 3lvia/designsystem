@@ -38,8 +38,8 @@ export const useIsOverflowing = <T extends HTMLElement>(
     if (!current) return;
 
     const updateIsOverflowing = () => {
-      const hasOverflowVertical = current.scrollHeight > current.offsetHeight;
-      const hasOverflowHorizontal = current.scrollWidth > current.offsetWidth;
+      const hasOverflowVertical = current.scrollHeight - 1 > current.clientHeight;
+      const hasOverflowHorizontal = current.scrollWidth - 1 > current.clientWidth;
       setIsOverflowing({ horizontal: hasOverflowHorizontal, vertical: hasOverflowVertical });
     };
     const resizeObserver = new ResizeObserver(updateIsOverflowing);

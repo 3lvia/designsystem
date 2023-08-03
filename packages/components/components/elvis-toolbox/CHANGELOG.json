@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "??.08.23",
+      "version": "9.5.0",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Added explicit <code>VisuallyHidden</code> component that can be used to visually hide element from the page, but still have it be read by screen readers."
+          ]
+        }
+      ]
+    },
+    {
       "date": "02.08.23",
       "version": "9.4.1",
       "changelog": [
