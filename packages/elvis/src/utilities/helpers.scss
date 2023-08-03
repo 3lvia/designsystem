@@ -39,16 +39,16 @@
 }
 
 @mixin custom-light-theme-tokens {
-  :root,
-  .e-theme-light {
+  :root &,
+  .e-theme-light & {
     @content;
   }
 }
 
 @mixin custom-dark-theme-tokens($component) {
-  .e-theme-dark,
-  .e-color-background-element-4,
-  .e-#{$component}--inverted {
+  .e-theme-dark &,
+  .e-color-background-element-4 &,
+  &.e-#{$component}--inverted {
     @content;
   }
 }

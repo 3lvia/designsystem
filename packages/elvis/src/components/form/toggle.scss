@@ -14,17 +14,17 @@ $toggle-inverted-height: 14px;
 $toggle-inverted-width: 30px;
 $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-slider-size} + 2px) / 2);
 
-@include helpers.custom-light-theme-tokens {
-  --e-toggle-border-color: transparent;
-  --e-toggle-checked-disabled-switch: #c2ebba;
-}
-
-@include helpers.custom-dark-theme-tokens('toggle') {
-  --e-toggle-border-color: var(--e-dark-theme-white);
-  --e-toggle-checked-disabled-switch: #619655;
-}
-
 .e-toggle {
+  @include helpers.custom-light-theme-tokens {
+    --e-toggle-border-color: transparent;
+    --e-toggle-checked-disabled-switch: #c2ebba;
+  }
+
+  @include helpers.custom-dark-theme-tokens('toggle') {
+    --e-toggle-border-color: var(--e-dark-theme-white);
+    --e-toggle-checked-disabled-switch: #619655;
+  }
+
   // Label
   @include typography.typography('text-medium');
   position: relative;

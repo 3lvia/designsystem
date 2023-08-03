@@ -224,8 +224,8 @@
 				"e-btn--circled": {},
 				"e-btn--secondary": {},
 				"e-btn--tertiary": {},
-				"e-btn--inverted": {},
 				"e-btn--danger": {},
+				"e-btn--inverted": {},
 				"e-btn--primary": {}
 			},
 			"element": {
@@ -931,6 +931,27 @@
 				"e-checkbox---invalid": {}
 			}
 		},
+		"e-label": {
+			"modifier": {
+				"e-label--neutral": {},
+				"e-label--white": {},
+				"e-label--black": {},
+				"e-label--grey": {},
+				"e-label--green": {},
+				"e-label--caution": {},
+				"e-label--yellow": {},
+				"e-label--warning": {},
+				"e-label--orange": {},
+				"e-label--error": {},
+				"e-label--red": {},
+				"e-label--green-apple": {},
+				"e-label--violet-grape": {},
+				"e-label--blue-berry": {},
+				"e-label--purple-plum": {},
+				"e-label--orange-mango": {},
+				"e-label--red-tomato": {}
+			}
+		},
 		"e-tag": {
 			"modifier": {
 				"e-tag--inverted": {},
@@ -951,27 +972,6 @@
 				"e-tag--purple-plum": {},
 				"e-tag--orange-mango": {},
 				"e-tag--red-tomato": {}
-			}
-		},
-		"e-label": {
-			"modifier": {
-				"e-label--neutral": {},
-				"e-label--white": {},
-				"e-label--black": {},
-				"e-label--grey": {},
-				"e-label--green": {},
-				"e-label--caution": {},
-				"e-label--yellow": {},
-				"e-label--warning": {},
-				"e-label--orange": {},
-				"e-label--error": {},
-				"e-label--red": {},
-				"e-label--green-apple": {},
-				"e-label--violet-grape": {},
-				"e-label--blue-berry": {},
-				"e-label--purple-plum": {},
-				"e-label--orange-mango": {},
-				"e-label--red-tomato": {}
 			}
 		},
 		"e-thumbnail": {
@@ -1384,9 +1384,9 @@
 		"e-btn--circled": {},
 		"e-btn--secondary": {},
 		"e-btn--tertiary": {},
+		"e-btn--danger": {},
 		"e-color-background-element-4": {},
 		"e-btn--inverted": {},
-		"e-btn--danger": {},
 		"e-btn--primary": {},
 		"e-btn__title": {},
 		"e-btn---focus": {},
@@ -1917,9 +1917,9 @@
 		"e-table__sort-icon": {},
 		"e-table__sort-icon--up": {},
 		"e-table__sort-icon--inactive": {},
-		"e-tag--inverted": {},
 		"e-label": {},
 		"e-tag": {},
+		"e-tag--inverted": {},
 		"e-label--neutral": {},
 		"e-tag--neutral": {},
 		"e-label--white": {},
@@ -1963,8 +1963,8 @@
 		"e-tooltip__content--top": {},
 		"e-tooltip__content--left": {},
 		"e-tooltip__content--right": {},
-		"e-toggle--inverted": {},
 		"e-toggle": {},
+		"e-toggle--inverted": {},
 		"e-toggle__input": {},
 		"e-toggle--compact": {},
 		"e-toggle--small": {},
@@ -2007,8 +2007,8 @@
 		"e-position-picker__icon": {},
 		"e-position-picker__description": {},
 		"e-position-picker__action": {},
-		"e-radio--inverted": {},
 		"e-radio": {},
+		"e-radio--inverted": {},
 		"e-radio__mark": {},
 		"e-radio__label": {},
 		"e-radio---focus": {},
