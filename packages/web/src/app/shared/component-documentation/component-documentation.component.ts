@@ -28,6 +28,8 @@ export class ComponentDocumentationComponent implements OnInit {
         this.elvisClassName = 'e-btn';
       } else if (this.elvisTitle === 'file-upload') {
         this.elvisClassName = 'e-fileupload';
+      } else if (this.elvisTitle === 'drag-and-drop') {
+        this.elvisClassName = 'e-dragdrop';
       }
     } else if (!this.isElvis && this.componentData) {
       this.figmaUrl = getComponent(

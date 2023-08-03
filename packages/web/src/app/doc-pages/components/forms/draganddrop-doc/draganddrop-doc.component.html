@@ -1,19 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-static-ceg>
-    <app-draganddrop-ceg />
+<app-component-documentation isElvis elvisTitle="drag-and-drop">
+  <app-static-ceg ceg>
+    <app-draganddrop-ceg></app-draganddrop-ceg>
   </app-static-ceg>
 
   <!--STATES-->
-  <app-component-section [sectionTitle]="'States'">
+  <app-component-section states [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'When dragging over'">
         <ng-container ngProjectAs="sectionContent">
@@ -27,18 +18,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-dragdrop'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-dragdrop'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
