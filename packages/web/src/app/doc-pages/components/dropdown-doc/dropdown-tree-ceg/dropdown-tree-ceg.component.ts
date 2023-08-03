@@ -12,6 +12,7 @@ export class DropdownTreeCegComponent implements StaticComponentExample {
   html = template.default;
 
   handleOnChange(newValues: string | string[]): void {
+    // eslint-disable-next-line no-console
     console.log('Selected dropdown items:', newValues);
   }
 }

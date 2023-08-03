@@ -42,6 +42,7 @@ export class DropdownIconsCegComponent implements StaticComponentExample {
   ];
 
   handleOnChange(newValues: string | string[]): void {
+    // eslint-disable-next-line no-console
     console.log('Selected dropdown items:', newValues);
   }
 }

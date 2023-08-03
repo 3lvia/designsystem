@@ -62,6 +62,7 @@ export class SegmentedControlCegComponent implements ComponentExample {
   ]);
 
   handleOnChange(value: number): void {
+    // eslint-disable-next-line no-console
     console.log('Selected value: ', value);
   }
 }

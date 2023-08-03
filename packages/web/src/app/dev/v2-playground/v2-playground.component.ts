@@ -17,6 +17,7 @@ interface StepStates {
   styleUrls: ['./v2-playground.component.scss'],
 })
 export class v2PlaygroundComponent {
+  /* eslint-disable no-console*/
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
