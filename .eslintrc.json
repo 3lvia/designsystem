@@ -2,7 +2,7 @@
   "root": true,
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "no-console": "error",
+    "no-console": ["error", { "allow": ["warn", "clear", "info", "error", "dir", "trace", "table"] }],
     "func-names": "off"
   },
   "settings": {
