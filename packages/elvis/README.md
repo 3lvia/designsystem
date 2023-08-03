@@ -46,18 +46,19 @@ Read about the
   [versioning guidelines](<https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10421994468/Retningslinjer+for+versjonering#Stilbiblitoeket-(Elvis)>)
   for publishing to NPM.
 - For colors always use our color tokens. If something custom is needed define a new CSS variable at root with
-  the naming convention: --e-color-componentName-purpose':
+  the naming convention: --e-componentName-color-purpose':
 
 ```css
-:root,
-.e-theme-light {
-  --e-thumbnail-color-text: var(--e-grey-10);
+@include helpers.custom-light-theme-tokens {
+  --e-tag-color-neutral-background: var(--e-light-theme-black);
 }
-.e-theme-dark {
-  --e-thumbnail-color-text: var(--e-grey-20);
+
+@include helpers.custom-dark-theme-tokens('tag') {
+  --e-tag-color-neutral-background: var(--e-dark-theme-white);
 }
-.e-thumbnail {
-  color: var(--e-thumbnail-color-text);
+
+.e-tag {
+  background: var(--e-tag-color-neutral-background);
 }
 ```
 

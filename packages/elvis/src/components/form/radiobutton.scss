@@ -3,17 +3,6 @@
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 
-:root,
-.e-theme-light {
-  --e-radio-checked-color: var(--e-light-theme-black);
-  --e-radio-checked-background-color: var(--e-light-theme-green);
-}
-
-.e-theme-dark {
-  --e-radio-checked-color: var(--e-dark-theme-green);
-  --e-radio-checked-background-color: var(--e-dark-theme-black);
-}
-
 $radio-mark-size: 24px;
 $radio-mark-small-size: 16px;
 $radio-mark-border-radius: 14px;
@@ -23,6 +12,16 @@ $radio-mark-checked-background: var(--e-radio-checked-background-color);
 $radio-mark-border: 1px solid var(--e-color-border-1);
 
 .e-radio {
+  @include helpers.custom-light-theme-tokens {
+    --e-radio-checked-color: var(--e-light-theme-black);
+    --e-radio-checked-background-color: var(--e-light-theme-green);
+  }
+
+  @include helpers.custom-dark-theme-tokens('radio') {
+    --e-radio-checked-color: var(--e-dark-theme-green);
+    --e-radio-checked-background-color: var(--e-dark-theme-black);
+  }
+
   position: relative;
   display: flex;
   width: fit-content;

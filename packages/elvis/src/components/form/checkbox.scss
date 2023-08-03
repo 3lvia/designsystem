@@ -3,15 +3,6 @@
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 
-:root,
-.e-theme-light {
-  --e-checkbox-border-checked-color: var(--e-light-theme-black);
-}
-
-.e-theme-dark {
-  --e-checkbox-border-checked-color: transparent;
-}
-
 $checkbox-mark-size: 24px;
 $checkbox-mark-size-small: 16px;
 $checkbox-mark-border-radius: 3px;
@@ -20,6 +11,14 @@ $checkbox-mark-border: 1px solid var(--e-color-border-1);
 $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
 
 .e-checkbox {
+  @include helpers.custom-light-theme-tokens {
+    --e-checkbox-border-checked-color: var(--e-light-theme-black);
+  }
+
+  @include helpers.custom-dark-theme-tokens('checkbox') {
+    --e-checkbox-border-checked-color: transparent;
+  }
+
   display: flex;
   width: fit-content;
   box-sizing: border-box;
