@@ -1,6 +1,21 @@
 {
   "content": [
     {
+      "version": "12.5.0",
+      "date": "August ??, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Deprecated <code>e-autocomplete</code>. It has been replaced by the new <code>Autocomplete</code> component."
+          ],
+          "pages": [
+            { "displayName": "Autocomplete", "url": "https://design.elvia.io/components/autocomplete" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "12.4.0",
       "date": "July 24, 2023",
       "changelog": [
