@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
+import { autocompleteData } from './autocomplete-data';
 
 @Component({
   selector: 'app-autocomplete-doc',
@@ -14,5 +15,6 @@ export class AutocompleteDocComponent {
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');
   }
-  does = ['When you have many options in a list and the input must be validated'];
+
+  componentData = autocompleteData;
 }

@@ -63,13 +63,13 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Autocomplete',
     description:
-      ' Autocomplete is a text input that predicts the rest of a word a user is typing. When you would have a long drop-down list and have to scroll a lot, you can use autocomplete to filter down the options, an example of this is filling in countries. If the user enters something that cannot match the options, errors will be displayed.',
+      'Autocomplete is a text input that gives suggestions while the user is typing. When you would have a long drop-down list and have to scroll a lot, you can use autocomplete to filter down the options. The suggestions are intended to help the user in finding a value, but it is not mandatory for the value to be selected from that list.',
     docUrl: Pages.Autocomplete,
     absolutePath: '/components/' + Pages.Autocomplete,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2742%3A0',
     type: 'Component',
-    searchTerms: ['predictive', 'word completion'],
+    searchTerms: ['predictive', 'word completion', 'combobox', 'suggest', 'filter'],
   },
   {
     title: 'Badge',

@@ -85,7 +85,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   };
 
   const handleOnItemSelect = (item: AutocompleteItem) => {
-    setCurrentValue(item.label);
+    setCurrentValue(item.value);
     emitOnItemSelect(item.value);
     setFadeOut(true);
   };
@@ -103,7 +103,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
   const emitOnItemSelect = (selectedValue: string | null) => {
     onItemSelect?.(selectedValue);
-    webcomponent?.triggerEvent('onItemSelect');
+    webcomponent?.triggerEvent('onItemSelect', selectedValue);
   };
 
   const emitOnOpen = () => {
@@ -130,6 +130,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
       setIsShowing(true);
       emitOnOpen();
     }
+    setFadeOut(false);
   };
 
   const closePopup = () => {
