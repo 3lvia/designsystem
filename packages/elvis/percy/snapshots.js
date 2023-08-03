@@ -7,7 +7,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -20,7 +20,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -33,7 +33,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -47,7 +47,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -60,7 +60,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -73,7 +73,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -86,7 +86,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -99,7 +99,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -112,7 +112,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -125,7 +125,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -138,7 +138,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -151,7 +151,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -164,7 +164,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -182,7 +182,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -195,7 +195,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
@@ -208,7 +208,7 @@ module.exports = [
       {
         suffix: ' - dark theme',
         execute() {
-          document.body.classList.add('e-theme-dark');
+          document.body.classList.add('e-color-background-element-4');
         },
       },
     ],
