@@ -1,23 +1,10 @@
-<!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
->
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body e-mt-72">
-  <!--CEG-->
-  <app-ceg>
-    <app-accordion-ceg />
+<app-component-documentation [componentData]="componentData">
+  <app-ceg ceg>
+    <app-accordion-ceg></app-accordion-ceg>
   </app-ceg>
 
   <!--Type-->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section type [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
@@ -41,21 +28,21 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="doesAccordion" [whenNots]="dontsAccordion"></app-when-to-use>
     </ng-container>
   </app-component-section>
 
   <!--GROUP-->
-  <app-component-section [sectionTitle]="'Group'">
+  <app-component-section group [sectionTitle]="'Group'">
     <ng-container ngProjectAs="sectionContent">
       Group multiple accordions to make it easy for users to find relevant content faster. Let users know what
       to expect by making sure the accordion labels are descriptive. Think of the usefulness of a
       well-structured FAQ (Frequently Asked Questions). Read more on group patterns at our
       <a [routerLink]="['/patterns/groups']" class="e-link e-link--inline">group documentation page</a>
       .
-      <app-component-subsection [sectionTitle]="'Implementation'">
+      <app-component-subsection implementation [sectionTitle]="'Implementation'">
         <ng-container ngProjectAs="sectionContent">
           To create an accordion group, use multiple accordions with
           <code>isFullWidth=true</code>
@@ -76,7 +63,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Keyboard navigation'">
         <ng-container ngProjectAs="sectionContent">
@@ -106,25 +93,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-    </ng-container>
-  </app-component-section>
-
-  <!--CHANGELOG-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
