@@ -1,25 +1,10 @@
-<!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
->
-  <ng-container ngProjectAs="headerTitle">Divider</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <!--CEG-->
-  <app-ceg>
-    <app-divider-ceg />
+<app-component-documentation [componentData]="componentData">
+  <app-ceg ceg>
+    <app-divider-ceg></app-divider-ceg>
   </app-ceg>
-  <!-- Hack for making divider loaded in from beginning in CEG - works fine outside CEG -->
-  <div style="display: none"><elvia-divider></elvia-divider></div>
 
   <!-- TYPE -->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section type [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Simple'">
         <ng-container ngProjectAs="sectionContent">
@@ -45,32 +30,11 @@
   </app-component-section>
 
   <!-- IMPLEMENTATION -->
-  <app-component-section [sectionTitle]="'Implementation'">
+  <app-component-section implementation [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
       Pair the divider with our
       <a class="e-link e-link--inline" [routerLink]="['/brand/layout']" fragment="Spacing">margin classes</a>
       to get the desired spacing.
     </ng-container>
   </app-component-section>
-
-  <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-    </ng-container>
-  </app-component-section>
-
-  <!--CHANGELOG-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

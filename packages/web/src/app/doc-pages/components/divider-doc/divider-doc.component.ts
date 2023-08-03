@@ -8,8 +8,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./divider-doc.component.scss'],
 })
 export class DividerDocComponent {
-  figmaUrl = getComponent('divider')?.figmaUrl;
-  description = getComponent('divider')?.description;
   title = getComponent('divider')?.title;
   componentData = dividerData;
 
