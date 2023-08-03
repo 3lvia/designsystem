@@ -8,8 +8,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./file-upload-doc.component.scss'],
 })
 export class FileUploadDocComponent {
-  figmaUrl = getComponent('file-upload')?.figmaUrl;
-  description = getComponent('file-upload')?.description;
   title = getComponent('file-upload')?.title;
 
   constructor(private titleService: Title) {

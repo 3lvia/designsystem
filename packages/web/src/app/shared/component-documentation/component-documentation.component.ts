@@ -26,6 +26,8 @@ export class ComponentDocumentationComponent implements OnInit {
       this.elvisClassName = ('e-' + this.elvisTitle) as keyof typeof data.block;
       if (this.elvisTitle === 'button') {
         this.elvisClassName = 'e-btn';
+      } else if (this.elvisTitle === 'file-upload') {
+        this.elvisClassName = 'e-fileupload';
       }
     } else if (!this.isElvis && this.componentData) {
       this.figmaUrl = getComponent(this.componentData.name.toLowerCase() as DocPageName)?.figmaUrl;

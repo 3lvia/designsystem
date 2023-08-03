@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { FileUploadCegComponent } from './file-upload-ceg/file-upload-ceg.component';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { FileUploadDragoverCegComponent } from './file-upload-dragover-ceg/file-upload-dragover-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FileUploadDragoverCegComponent } from './file-upload-dragover-ceg/file-
     RouterModule,
     ComponentChangelogModule,
     CegModule,
+    SharedDocumentationModule,
   ],
 })
 export class FileUploadDocModule {}
