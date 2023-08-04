@@ -203,16 +203,12 @@ describe('Elvis Autocomplete', () => {
   });
 
   describe('Events', () => {
-    let onCloseEvent: jest.Mock;
-    let onFocusEvent: jest.Mock;
     let onOpenEvent: jest.Mock;
     let onSelectItemEvent: jest.Mock;
     let valueOnChangeEvent: jest.Mock;
     let errorOnChangeEvent: jest.Mock;
 
     beforeEach(() => {
-      onCloseEvent = jest.fn();
-      onFocusEvent = jest.fn();
       onOpenEvent = jest.fn();
       onSelectItemEvent = jest.fn();
       valueOnChangeEvent = jest.fn();
@@ -221,8 +217,6 @@ describe('Elvis Autocomplete', () => {
       render(
         <Autocomplete
           items={items}
-          onClose={onCloseEvent}
-          onFocus={onFocusEvent}
           onOpen={onOpenEvent}
           onSelectItem={onSelectItemEvent}
           valueOnChange={valueOnChangeEvent}
@@ -232,16 +226,6 @@ describe('Elvis Autocomplete', () => {
       );
     });
 
-    it('onFocusEvent: should emit the focus event when focused', async () => {
-      const user = userEvent.setup();
-
-      const input = screen.getByRole('combobox');
-      await user.click(input);
-
-      await waitFor(() => expect(onFocusEvent).toHaveBeenCalled());
-      await waitFor(() => expect(onOpenEvent).not.toHaveBeenCalled());
-    });
-
     it('onOpenEvent: should emit the open event when the user starts typing', async () => {
       const user = userEvent.setup();
 
@@ -249,28 +233,6 @@ describe('Elvis Autocomplete', () => {
       await user.type(input, 'a');
 
       await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
-    });
-
-    it('onCloseEvent: should emit the close event when the user clicks outside the component', async () => {
-      const user = userEvent.setup();
-
-      const input = screen.getByRole('combobox');
-      await user.type(input, 'a');
-
-      await user.click(document.body);
-
-      await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
-    });
-
-    it('onCloseEvent: should _not_ emit the close event when the user clicks inside the combobox while open', async () => {
-      const user = userEvent.setup();
-
-      const input = screen.getByRole('combobox');
-      await user.type(input, 'a');
-
-      await user.click(input);
-
-      await waitFor(() => expect(onCloseEvent).not.toHaveBeenCalled());
     });
 
     it('onSelectItemEvent: should emit the select item event when the user selects an item', async () => {

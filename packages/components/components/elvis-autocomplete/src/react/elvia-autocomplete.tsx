@@ -37,8 +37,6 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   items = [],
   label,
   menuPosition = 'auto',
-  onClose,
-  onFocus,
   onSelectItem,
   onOpen,
   placeholder,
@@ -99,11 +97,6 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     valueOnChange?.(valueToEmit);
   };
 
-  const emitOnClose = () => {
-    onClose?.();
-    webcomponent?.triggerEvent('onClose');
-  };
-
   const emitOnSelectItem = (selectedValue: string | null) => {
     onSelectItem?.(selectedValue);
     webcomponent?.triggerEvent('onSelectItem', selectedValue);
@@ -114,17 +107,11 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     webcomponent?.triggerEvent('onOpen');
   };
 
-  const emitOnFocus = () => {
-    onFocus?.();
-    webcomponent?.triggerEvent('onFocus');
-  };
-
   const handleOnInputFocus = () => {
     if (currentValue && filteredItems.length > 0) {
       openPopup();
     }
     setTouched(true);
-    emitOnFocus();
   };
 
   const openPopup = () => {
@@ -137,7 +124,6 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
   const closePopup = () => {
     setIsShowing(false);
-    emitOnClose();
   };
 
   const validateInputValue = (value: string | null) => {
