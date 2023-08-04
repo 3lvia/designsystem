@@ -13,11 +13,11 @@ export const filterItems = (
 
   const normalizedFilter = filter.toLowerCase().trim();
 
-  const scoredItems = items
+  const filteredItems = items
     .filter(({ label }) => label.toLowerCase().includes(normalizedFilter))
     .slice(0, limit);
 
-  previousFilteredItems = scoredItems;
+  previousFilteredItems = filteredItems;
 
-  return scoredItems;
+  return filteredItems;
 };
