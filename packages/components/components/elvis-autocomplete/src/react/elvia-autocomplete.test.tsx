@@ -2,7 +2,7 @@ import React from 'react';
 import Autocomplete from './elvia-autocomplete';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { AutocompleteItem } from './elvia-autocomplete.types';
 
 const items: AutocompleteItem[] = [
@@ -24,6 +24,11 @@ describe('Elvis Autocomplete', () => {
     it('should not have a default value', () => {
       const input = screen.getByRole('combobox');
       expect(input).toHaveValue('');
+    });
+
+    it('should not have a default placeholder', () => {
+      const input = screen.getByRole('combobox');
+      expect(input).not.toHaveAttribute('placeholder');
     });
 
     it('should not have a popover visible by default', () => {
@@ -107,7 +112,7 @@ describe('Elvis Autocomplete', () => {
     });
   });
 
-  describe('ariaLabel', () => {
+  describe('ariaLabel prop', () => {
     beforeEach(() => {
       render(<Autocomplete items={items} ariaLabel={'Velg en frukt'} />);
     });
@@ -119,7 +124,7 @@ describe('Elvis Autocomplete', () => {
     });
   });
 
-  describe('isDisabled', () => {
+  describe('isDisabled prop', () => {
     beforeEach(() => {
       render(<Autocomplete isDisabled={true} items={items} />);
     });
@@ -140,7 +145,7 @@ describe('Elvis Autocomplete', () => {
     });
   });
 
-  describe('isRequired', () => {
+  describe('isRequired prop', () => {
     beforeEach(() => {
       render(<Autocomplete isRequired={true} items={items} />);
     });
@@ -160,7 +165,7 @@ describe('Elvis Autocomplete', () => {
     });
   });
 
-  describe('label', () => {
+  describe('label prop', () => {
     beforeEach(() => {
       render(<Autocomplete isDisabled={true} items={items} label={'frukter'} />);
     });
@@ -171,7 +176,7 @@ describe('Elvis Autocomplete', () => {
     });
   });
 
-  describe('placeholder', () => {
+  describe('placeholder prop', () => {
     beforeEach(() => {
       render(
         <Autocomplete isDisabled={true} items={items} label={'frukter'} placeholder={'velg en frukt'} />,
@@ -184,7 +189,124 @@ describe('Elvis Autocomplete', () => {
     });
   });
 
-  describe('the accessibility', () => {
+  describe('errorOptions prop', () => {
+    beforeEach(() => {
+      render(<Autocomplete items={items} errorOptions={{ text: 'error text' }} />);
+    });
+
+    it('should have an error message if provided', () => {
+      const errorMessage = screen.queryByText('error text');
+      expect(errorMessage).toBeInTheDocument();
+    });
+  });
+
+  describe('Events', () => {
+    let onCloseEvent: jest.Mock;
+    let onFocusEvent: jest.Mock;
+    let onOpenEvent: jest.Mock;
+    let onSelectItemEvent: jest.Mock;
+    let valueOnChangeEvent: jest.Mock;
+    let errorOnChangeEvent: jest.Mock;
+
+    beforeEach(() => {
+      onCloseEvent = jest.fn();
+      onFocusEvent = jest.fn();
+      onOpenEvent = jest.fn();
+      onSelectItemEvent = jest.fn();
+      valueOnChangeEvent = jest.fn();
+      errorOnChangeEvent = jest.fn();
+
+      render(
+        <Autocomplete
+          items={items}
+          onClose={onCloseEvent}
+          onFocus={onFocusEvent}
+          onOpen={onOpenEvent}
+          onSelectItem={onSelectItemEvent}
+          valueOnChange={valueOnChangeEvent}
+          errorOnChange={errorOnChangeEvent}
+          isRequired={true}
+        />,
+      );
+    });
+
+    it('onFocusEvent: should emit the focus event when focused', async () => {
+      const user = userEvent.setup();
+
+      const input = screen.getByRole('combobox');
+      await user.click(input);
+
+      await waitFor(() => expect(onFocusEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onOpenEvent).not.toHaveBeenCalled());
+    });
+
+    it('onOpenEvent: should emit the open event when the user starts typing', async () => {
+      const user = userEvent.setup();
+
+      const input = screen.getByRole('combobox');
+      await user.type(input, 'a');
+
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
+    });
+
+    it('onCloseEvent: should emit the close event when the user clicks outside the component', async () => {
+      const user = userEvent.setup();
+
+      const input = screen.getByRole('combobox');
+      await user.type(input, 'a');
+
+      await user.click(document.body);
+
+      await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
+    });
+
+    it('onCloseEvent: should _not_ emit the close event when the user clicks inside the combobox while open', async () => {
+      const user = userEvent.setup();
+
+      const input = screen.getByRole('combobox');
+      await user.type(input, 'a');
+
+      await user.click(input);
+
+      await waitFor(() => expect(onCloseEvent).not.toHaveBeenCalled());
+    });
+
+    it('onSelectItemEvent: should emit the select item event when the user selects an item', async () => {
+      const user = userEvent.setup();
+
+      const input = screen.getByRole('combobox');
+      await user.type(input, 'a');
+
+      const listItems = screen.getAllByRole('option');
+      await user.click(listItems[0]);
+
+      expect(onSelectItemEvent).toHaveBeenCalled();
+    });
+
+    it('valueOnChangeEvent: should emit the value change event when the user types', async () => {
+      const user = userEvent.setup();
+
+      const input = screen.getByRole('combobox');
+      await user.type(input, 'b');
+      await user.type(input, 'a');
+      await user.type(input, 'n');
+
+      expect(valueOnChangeEvent).toHaveBeenCalledTimes(3);
+    });
+
+    it('errorOnChangeEvent: should emit the error change event when component becomes invalid', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('combobox');
+
+      await user.click(input);
+      await user.tab();
+
+      //required error
+      expect(errorOnChangeEvent).toHaveBeenCalled();
+    });
+  });
+
+  describe('Accessibility', () => {
     it('should have no axe violations', async () => {
       render(
         <div data-testid="autocompletes">
