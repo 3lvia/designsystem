@@ -414,7 +414,9 @@ function App() {
                 value={defaultDropdownOptions}
                 placeholder="Select country"
                 label="New dropdown"
+                isSearchable
                 items={dropdownOptions}
+                isMulti
                 isLoadingMoreItems={isLoadingMoreItems}
                 onLoadMoreItems={onLoadMoreItems}
               ></Dropdown>
