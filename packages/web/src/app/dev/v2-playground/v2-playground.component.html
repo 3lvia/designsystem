@@ -44,9 +44,9 @@
   <div class="example-wrapper">
     <h3>Autocomplete</h3>
     <elvia-autocomplete
-      [items]="autocompleteItems"
-      [label]="'skriv inn nen frukt'"
       (valueOnChange)="handleOnChange($any($event))"
+      [items]="autocompleteItems"
+      label="'skriv inn en frukt'"
     ></elvia-autocomplete>
   </div>
 
