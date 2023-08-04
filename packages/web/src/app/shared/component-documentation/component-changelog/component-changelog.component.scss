@@ -1,5 +1,11 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
+:host {
+  p {
+    margin: 0;
+  }
+}
+
 .e-list {
   .prop-element-title {
     font-size: 14px;
