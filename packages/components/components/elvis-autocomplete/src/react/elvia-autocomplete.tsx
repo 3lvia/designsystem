@@ -17,6 +17,7 @@ import { getInternalErrorText } from './utils/getInternalErrorText';
 import { getStatusForScreenReader } from './utils/statusMessage';
 
 const defaultErrorOptions = {
+  hideText: false,
   isErrorState: false,
   hasErrorPlaceholder: true,
 } satisfies Partial<ErrorOptions>;
