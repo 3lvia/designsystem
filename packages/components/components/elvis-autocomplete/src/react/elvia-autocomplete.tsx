@@ -191,6 +191,10 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     validateInputValue(value);
   }, [value]);
 
+  useEffect(() => {
+    validateInputValue(currentValue);
+  }, [isRequired]);
+
   return (
     <>
       <VisuallyHidden role="status">

@@ -27,6 +27,7 @@ export class AutocompleteCegComponent implements ComponentExample {
           label: 'Full Width',
           value: false,
         },
+        isRequired: { type: 'checkbox', label: 'Required', group: 'Options' },
         isDisabled: {
           group: 'State',
           type: 'checkbox',
