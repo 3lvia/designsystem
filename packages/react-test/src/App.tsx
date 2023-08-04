@@ -27,7 +27,6 @@ import { Stepper } from '@elvia/elvis-stepper/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
-import { text } from 'express';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -86,7 +85,7 @@ function App() {
   // Dropdown
   const defaultDropdownOptions = 'norge';
   const dropdownOptions = [
-    { value: 'norge', label: 'Nosh dfjkhs dfkjh sdfjh sdkjfh sjkdhf skdfhjskd fksjhd fkjshd fkjrge' },
+    { value: 'norge', label: 'Norge' },
     { value: 'sverige', label: 'Sverige' },
     { value: 'danmark', label: 'Danmark' },
     {
