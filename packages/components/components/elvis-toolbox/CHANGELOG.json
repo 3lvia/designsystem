@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added explicit <code>VisuallyHidden</code> component that can be used to visually hide element from the page, but still have it be read by screen readers."
+            "Added <code>VisuallyHidden</code> component that can be used to visually hide element from the page, but still have it be read by screen readers."
           ]
         }
       ]
