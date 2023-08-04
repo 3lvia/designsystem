@@ -208,7 +208,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           isGtMobile={isGtMobile}
           noItemsText={noOptionsMessage}
           isMulti={isMulti}
-          onSelectItem={setSelectedItem}
+          onItemSelect={setSelectedItem}
           size={size}
           onClose={() => setIsShowing(false)}
           filteredItems={filteredItems}

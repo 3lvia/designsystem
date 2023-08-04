@@ -29,7 +29,7 @@ interface DropdownOverlayProps {
   onClose: () => void;
   noItemsText?: string;
   currentVal?: DropdownValue;
-  onSelectItem: (value: DropdownValueType[]) => void;
+  onItemSelect: (value: DropdownValueType[]) => void;
   pressedKey?: KeyboardEvent<HTMLInputElement>;
   selectAllOption?: string;
   hasLoadMoreItemsButton?: boolean;
@@ -59,7 +59,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       onClose,
       noItemsText,
       currentVal,
-      onSelectItem,
+      onItemSelect,
       pressedKey,
       selectAllOption,
       hasLoadMoreItemsButton,
@@ -127,14 +127,14 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
         if (isMulti && item.children) {
           const children = getSelectableChildren(item.children);
           if (!children.every(currentValIncludesItem)) {
-            onSelectItem(
+            onItemSelect(
               children.filter((item) => !currentValIncludesItem(item)).map((child) => child.value),
             );
           } else {
-            onSelectItem(children.map((child) => child.value));
+            onItemSelect(children.map((child) => child.value));
           }
         } else if (!item.children) {
-          onSelectItem([item.value]);
+          onItemSelect([item.value]);
 
           if (!isMulti) {
             setFadeOut(true);
@@ -187,10 +187,10 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       const allValues = getSelectableChildren(filteredItems);
       const selectedValues = getValueAsList(currentVal);
       if (allValues.length === selectedValues.length) {
-        onSelectItem(allValues.map((item) => item.value));
+        onItemSelect(allValues.map((item) => item.value));
       } else {
         const unselectedItems = allValues.filter((value) => !currentValIncludesItem(value));
-        onSelectItem(unselectedItems.map((item) => item.value));
+        onItemSelect(unselectedItems.map((item) => item.value));
       }
     };
 
@@ -288,8 +288,8 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   isMulti={isMulti}
                   inputIsKeyboard={inputIsKeyboard}
                   currentVal={currentVal}
-                  onSelectItem={(item) => {
-                    onSelectItem(item);
+                  onItemSelect={(item) => {
+                    onItemSelect(item);
                     if (!isMulti) {
                       setFadeOut(true);
                     }
