@@ -28,7 +28,7 @@ export class AutocompleteFilterCegComponent implements StaticComponentExample {
     this.valueChangesSubject
       .pipe(
         takeUntilDestroyed(),
-        debounceTime(250),
+        debounceTime(150),
         switchMap((value) => this.fetchData(value)),
       )
       .subscribe({
@@ -50,7 +50,7 @@ export class AutocompleteFilterCegComponent implements StaticComponentExample {
 
   private fetchData(value: string): Observable<{ drinks: Drink[] }> {
     if (!value) {
-      return from([]);
+      return from(Promise.resolve({ drinks: [] }));
     }
 
     return this.http.get<{ drinks: Drink[] }>(DEMO_API_URL + value);
@@ -61,6 +61,6 @@ export class AutocompleteFilterCegComponent implements StaticComponentExample {
   }
 
   handleOnSelectItem(value: string): void {
-    console.log('Autocomplete selected item:', value);
+    console.log('Autocomplete selected drink:', value);
   }
 }
