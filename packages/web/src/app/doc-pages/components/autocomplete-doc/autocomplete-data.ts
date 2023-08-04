@@ -119,8 +119,4 @@ export const autocompleteData: ComponentData = {
         "Custom CSS style object that can be added to the autocomplete. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-  does: [
-    'When you have a list with optional options, and the input is not restricted to selecting from a predefined list.',
-  ],
-  donts: ['When the user must select one or more options from a predefined list.'],
 };

@@ -17,4 +17,9 @@ export class AutocompleteDocComponent {
   }
 
   componentData = autocompleteData;
+
+  does = [
+    'When you have a list with optional options, and the input is not restricted to selecting from a predefined list.',
+  ];
+  donts = ['When the user must select one or more options from a predefined list.'];
 }
