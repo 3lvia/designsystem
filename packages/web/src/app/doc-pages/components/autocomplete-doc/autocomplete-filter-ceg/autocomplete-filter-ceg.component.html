@@ -1,0 +1,7 @@
+<elvia-autocomplete
+  (onSelectItem)="handleOnSelectItem($any($event).detail.value)"
+  (valueOnChange)="handleValueOnChange($any($event).detail.value)"
+  [items]="autocompleteItems"
+  hasBuiltInFilter="false"
+  label="Drinks"
+></elvia-autocomplete>

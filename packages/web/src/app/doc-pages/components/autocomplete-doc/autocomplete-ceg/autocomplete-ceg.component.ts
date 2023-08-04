@@ -21,6 +21,12 @@ export class AutocompleteCegComponent implements ComponentExample {
             { label: 'Medium', value: 'medium' },
           ],
         },
+        isFullWidth: {
+          group: 'Options',
+          type: 'checkbox',
+          label: 'Full Width',
+          value: false,
+        },
         isDisabled: {
           group: 'State',
           type: 'checkbox',
@@ -46,7 +52,7 @@ export class AutocompleteCegComponent implements ComponentExample {
         placeholder: 'Placeholder text...',
         valueOnChange: () => '',
       },
-      groupOrder: ['Size', 'State', 'Label'],
+      groupOrder: ['Size', 'Options', 'State', 'Label'],
     },
   ]);
 

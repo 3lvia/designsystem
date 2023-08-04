@@ -1,5 +1,4 @@
 export const getStatusForScreenReader = (numberOfSuggestions: number): string => {
-  console.log(numberOfSuggestions);
   switch (numberOfSuggestions) {
     case 0:
       return '';

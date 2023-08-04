@@ -72,7 +72,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
   const filteredItems = useMemo(() => {
     return hasBuiltInFilter ? filterItems(items, currentValue) : items;
-  }, [filterItems, items, currentValue, hasBuiltInFilter]);
+  }, [items, currentValue, hasBuiltInFilter]);
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
@@ -119,7 +119,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   };
 
   const handleOnInputFocus = () => {
-    if (currentValue) {
+    if (currentValue && filteredItems.length > 0) {
       openPopup();
     }
     setTouched(true);
@@ -128,7 +128,6 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
   const openPopup = () => {
     if (!isDisabled && !isShowing) {
-      setFadeOut(false);
       setIsShowing(true);
       emitOnOpen();
     }
@@ -254,7 +253,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
           size={size}
           focusedItem={focusedItem}
           setFocusedItem={setFocusedItem}
-        ></AutocompleteOverlay>
+        />
       )}
     </>
   );
