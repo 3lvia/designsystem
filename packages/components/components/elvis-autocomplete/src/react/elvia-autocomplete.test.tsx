@@ -143,6 +143,7 @@ describe('Elvis Autocomplete', () => {
 
       const popover = screen.queryByRole('listbox');
       expect(popover).not.toBeInTheDocument();
+      expect(input).toHaveAttribute('aria-expanded', 'false');
     });
   });
 
