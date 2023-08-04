@@ -1,7 +1,7 @@
 export const getStatusForScreenReader = (numberOfSuggestions: number): string => {
   switch (numberOfSuggestions) {
     case 0:
-      return '';
+      return 'Ingen forslag.';
     case 1:
       return 'Ett forslag.';
     default:
