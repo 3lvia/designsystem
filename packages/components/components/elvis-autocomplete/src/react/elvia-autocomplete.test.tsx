@@ -106,9 +106,10 @@ describe('Elvis Autocomplete', () => {
 
       const popover = screen.queryByRole('listbox');
       expect(popover).not.toBeInTheDocument();
+      expect(input).toHaveAttribute('aria-expanded', 'false');
 
       const listItems = screen.queryAllByRole('option');
-      expect(listItems).toHaveLength(0); //no fruit includes with zzz
+      expect(listItems).toHaveLength(0); //no fruit includes 'zzz'
     });
   });
 
