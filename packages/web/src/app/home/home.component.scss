@@ -1,7 +1,7 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 @use '@elvia/elvis/src/utilities/helpers' as helpers;
-@use '../../shared/shared-sizes';
-@use '../../shared/shared-animations.scss';
+@use '../shared/shared-sizes';
+@use '../shared/shared-animations.scss';
 
 .home-container {
   overflow: hidden;

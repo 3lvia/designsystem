@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Pages } from './shared/shared.enum';
 import { MainComponent } from './shell/main/main.component';
-import { HomeComponent } from './shell/home/home.component';
 
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { ErrorComponent } from './shared/error/error.component';
@@ -15,7 +14,7 @@ const routes: Routes = [
       {
         path: Pages.Index,
         pathMatch: 'full',
-        component: HomeComponent,
+        loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
       },
       {
         path: Pages.Home,
