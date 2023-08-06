@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShellModule } from './shell/shell.module';
 import { RouterModule } from '@angular/router';
-import { OverlayModule } from '@angular/cdk/overlay';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorModule } from './shared/error/error.module';
 import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
@@ -21,7 +20,6 @@ import '@elvia/elvis-outline';
     AppRoutingModule,
     RouterModule,
     ShellModule,
-    OverlayModule,
     HttpClientModule,
     ErrorModule,
     CMSPageModule,

@@ -8,5 +8,6 @@ import { SearchMenuModule } from './header/search-menu/search-menu.module';
 
 @NgModule({
   imports: [HeaderModule, SearchMenuModule, HomeModule, MainModule, NavbarModule, FooterModule],
+  exports: [HeaderModule, FooterModule],
 })
 export class ShellModule {}
