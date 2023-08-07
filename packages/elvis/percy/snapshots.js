@@ -13,19 +13,6 @@ module.exports = [
     ],
   },
   {
-    name: 'Autocomplete',
-    url: '/components/autocomplete.html',
-    widths: [766, 1440],
-    additionalSnapshots: [
-      {
-        suffix: ' - dark theme',
-        execute() {
-          document.body.classList.add('e-theme-dark');
-        },
-      },
-    ],
-  },
-  {
     name: 'Buttons',
     url: '/components/buttons.html',
     widths: [766, 1440],
@@ -168,11 +155,6 @@ module.exports = [
         },
       },
     ],
-  },
-  {
-    name: 'Stepper',
-    url: '/components/stepper.html',
-    widths: [766, 1440],
   },
   {
     name: 'Table',

@@ -150,8 +150,8 @@ export const darkTheme = {
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
     'background-element-4': {
-      hex: darkThemeColors['primary-colors']['grey'].color,
-      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-70'].color,
+      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
     },
     'background-element-5': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,
