@@ -9,4 +9,5 @@ app.use(express.static('percy/'));
 app.use('/css/elvis.min.css', express.static(__dirname + '/../css/elvis.min.css'));
 app.use('/elvis.js', express.static(__dirname + '/../elvis.js'));
 server.listen(port);
+/* eslint-disable-next-line no-console*/
 console.log('Listening on port ' + port);

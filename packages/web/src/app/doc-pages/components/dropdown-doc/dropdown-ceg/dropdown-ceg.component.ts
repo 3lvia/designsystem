@@ -27,6 +27,12 @@ export class DropdownCegComponent implements ComponentExample {
           label: 'Searchable',
           value: false,
         },
+        isFullWidth: {
+          group: 'Options',
+          type: 'checkbox',
+          label: 'Full Width',
+          value: false,
+        },
         isMulti: {
           group: 'Options',
           type: 'checkbox',

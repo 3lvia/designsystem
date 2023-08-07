@@ -119,6 +119,7 @@ const generateElvisShadowMapScss = async () => {
 gulp.task(
   'default',
   gulp.series(makeDistFolder, cleanup, generateElvisShadowMapScss, generateElvisColorsCss, function (done) {
+    /* eslint-disable-next-line no-console*/
     console.log('Elvis-colors - Successfully built Elvis-colors! ');
     done();
   }),
