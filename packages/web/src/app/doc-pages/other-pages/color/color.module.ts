@@ -23,6 +23,9 @@ import { ColorPickerExhibitComponent } from './color-picker/color-picker-exhibit
 import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
 import { NeedsBorderPipe } from './color-picker/needs-border.pipe';
 import { ColorPickerHeaderComponent } from './color-picker/color-picker-header/color-picker-header.component';
+import '@elvia/elvis-accordion';
+import '@elvia/elvis-divider';
+import '@elvia/elvis-tabs';
 
 @NgModule({
   imports: [
