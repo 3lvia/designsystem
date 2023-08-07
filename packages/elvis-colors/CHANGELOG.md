@@ -8,6 +8,8 @@
 - `text-3` -> `text-placeholder-1`
 - `signal-red` now has contrast color white instead of black
 - `background-element-2` light theme color has been changed from `grey-05` to `grey-02`
+- Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
+- `background-element-4` uses dark `grey-70` instead of dark `grey`.
 
 ### New feature
 
@@ -15,7 +17,6 @@
 - Added support so that all `e-*--inverted` classes and the token `e-color-background-element-4` gives dark
   theme.
 - Added new theme color label: `brand-accent`, `background-element-6`, `text-3`, `text-4`
-- Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
 - `getThemeColor` now return the inverted (dark theme) colors if `opts` `isInverted` is supplied and true.
 
 ## 2.7.1 (07.06.23)
