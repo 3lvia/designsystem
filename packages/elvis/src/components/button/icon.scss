@@ -53,6 +53,9 @@
     &:active:not(:disabled):not(.e-btn--loading),
     &:hover:not(:disabled):not(.e-btn--loading) {
       background: var(--e-color-background-hover-1);
+      color: var(--e-color-background-hover-1--contrast);
+
+      @include icons.icon-currentcolor();
 
       .e-btn__icon i[class$='inverted'] {
         visibility: visible;
@@ -69,6 +72,10 @@
   &:disabled {
     background: none;
     cursor: not-allowed;
+
+    .e-btn__icon i {
+      @include icons.icon-color(var(--e-color-text-disabled-1));
+    }
   }
 
   &.e-btn--loading {
@@ -96,7 +103,7 @@
       content: '';
     }
 
-    // Hiding hover ikon
+    // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
     .e-btn__icon i[class*='filled-color'] {
       visibility: hidden;
     }

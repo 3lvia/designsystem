@@ -4,8 +4,6 @@ import { LocalizationService, Locale } from 'src/app/core/services/localization.
 import { Title } from '@angular/platform-browser';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import '@elvia/elvis-accordion';
-import '@elvia/elvis-divider';
 
 @Component({
   selector: 'app-color',
