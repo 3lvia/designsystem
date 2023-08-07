@@ -1,6 +1,6 @@
 // The button import order should stay the same for the classes to work correctly
+@use './button.scss';
 @use './icon.scss';
 @use './secondary.scss';
 @use './tertiary.scss';
 @use './danger.scss';
-@use './button.scss';
