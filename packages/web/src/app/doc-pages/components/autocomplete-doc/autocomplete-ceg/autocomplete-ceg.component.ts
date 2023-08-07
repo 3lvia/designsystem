@@ -49,7 +49,6 @@ export class AutocompleteCegComponent implements ComponentExample {
           { value: 'Norge', label: 'Norge' },
           { value: 'Sverige', label: 'Sverige' },
         ],
-
         placeholder: 'Placeholder text...',
         valueOnChange: () => '',
       },
