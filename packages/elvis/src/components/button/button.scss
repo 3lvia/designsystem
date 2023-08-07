@@ -6,8 +6,23 @@ $button-lg-padding: 11px 31px;
 $button-md-padding: 9px 23px;
 $button-sm-padding: 7px 15px;
 
+@mixin only-primary-button {
+  &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) {
+    @content;
+  }
+}
+
 .e-btn,
 .e-btn.e-btn--primary {
+  @include helpers.custom-light-theme-tokens {
+    --e-button-icon-color-filled-foreground-light: var(--e-light-theme-black);
+    --e-button-icon-color-filled-foreground-hover-light: var(--e-light-theme-white);
+  }
+
+  @include helpers.custom-dark-theme-tokens(button) {
+    --e-button-icon-color-filled-foreground-light: var(--e-dark-theme-white);
+    --e-button-icon-color-filled-foreground-hover-light: var(--e-dark-theme-white);
+  }
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -24,6 +39,12 @@ $button-sm-padding: 7px 15px;
   text-decoration: none;
   white-space: nowrap;
 
+  @include only-primary-button {
+    .e-btn__icon i {
+      @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-light));
+    }
+  }
+
   .e-btn__icon {
     position: relative;
     display: flex;
@@ -35,13 +56,6 @@ $button-sm-padding: 7px 15px;
       top: 0;
       left: 0;
       display: flex;
-      // Hiding hover ikon (only show inverted ikon)
-      visibility: hidden;
-    }
-
-    i[class*='inverted'],
-    i[class*='color-disabled-light'] {
-      visibility: visible;
     }
   }
 
@@ -88,12 +102,10 @@ $button-sm-padding: 7px 15px;
       background: var(--e-color-background-hover-1);
       color: var(--e-color-background-hover-1--contrast);
 
-      .e-btn__icon i[class*='inverted'] {
-        visibility: hidden;
-      }
-
-      .e-btn__icon i:not([class$='inverted']) {
-        visibility: visible;
+      @include only-primary-button {
+        .e-btn__icon i {
+          @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
+        }
       }
     }
   }
@@ -122,6 +134,12 @@ $button-sm-padding: 7px 15px;
     background: var(--e-color-background-disabled-2);
     color: var(--e-color-text-disabled-2);
     cursor: not-allowed;
+
+    @include only-primary-button {
+      .e-btn__icon i {
+        @include icons.icon-currentcolor(var(--e-color-background-disabled-2));
+      }
+    }
   }
 
   &.e-btn--loading {
