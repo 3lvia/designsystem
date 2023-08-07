@@ -58,15 +58,19 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
 
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
-    offset: 8,
-    horizontalPosition: 'center',
-    verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
-    alignWidths: true,
-  });
+  const { isShowing, setIsShowing, updatePreferredPosition } = useConnectedOverlay(
+    connectedElementRef,
+    popoverRef,
+    {
+      offset: 8,
+      horizontalPosition: 'center',
+      verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
+      alignWidths: true,
+    },
+  );
 
   useOutsideClickListener([connectedElementRef, popoverRef], () => {
-    setFadeOut(isShowing);
+    setFadeOut(true);
   });
 
   const filteredItems = useMemo(() => {
@@ -181,6 +185,12 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   useEffect(() => {
     validateInputValue(currentValue);
   }, [isRequired]);
+
+  useEffect(() => {
+    if (isShowing) {
+      updatePreferredPosition();
+    }
+  }, [filteredItems]);
 
   return (
     <>
