@@ -502,7 +502,7 @@
         <div class="display-card" *ngFor="let item of spacingItems">
           <app-copy [message]="item.className">
             <ng-container ngProjectAs="copyContent">
-              <div class="display-card-square ExampleSquare" [ngClass]="item.className"></div>
+              <div class="display-card-square example-square" [ngClass]="item.className"></div>
             </ng-container>
           </app-copy>
           <div class="display-card-title e-title-caps e-mt-8">{{ item.title }}</div>
@@ -650,60 +650,18 @@
           <div class="e-flex e-gap-16 e-align-items-end">
             <elvia-box>
               <div slot="content">
-                <div
-                  class="e-text-md"
-                  style="
-                    width: 100%;
-                    height: 80px;
-                    border: 1px grey dashed;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: grey;
-                    font-size: 10px;
-                  "
-                >
-                  CONTENT
-                </div>
+                <div class="e-text-md box-example">CONTENT</div>
               </div>
             </elvia-box>
             <elvia-box>
               <h2 slot="heading">Heading</h2>
               <div slot="content">
-                <div
-                  class="e-text-md"
-                  style="
-                    width: 100%;
-                    height: 80px;
-                    border: 1px grey dashed;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: grey;
-                    font-size: 10px;
-                  "
-                >
-                  CONTENT
-                </div>
+                <div class="e-text-md box-example">CONTENT</div>
               </div>
             </elvia-box>
             <elvia-box [isColored]="true">
               <div slot="content">
-                <div
-                  class="e-text-md"
-                  style="
-                    width: 100%;
-                    height: 80px;
-                    border: 1px grey dashed;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: grey;
-                    font-size: 10px;
-                  "
-                >
-                  CONTENT
-                </div>
+                <div class="e-text-md box-example">CONTENT</div>
               </div>
             </elvia-box>
           </div>

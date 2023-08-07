@@ -1,5 +1,5 @@
 <!-- Header  -->
-<header class="header" id="header">
+<header class="header e-color-background-element-4" id="header">
   <elvia-modal
     heading="Dark theme is here!"
     hasCloseButton="true"
@@ -33,17 +33,13 @@
         (load)="hideContentLoader($event)"
       />
     </a>
-    <div
-      *ngIf="!headerLogoLoaded"
-      class="e-content-loader e-content-loader--inverted"
-      style="width: 86px; height: 32px"
-    ></div>
+    <div *ngIf="!headerLogoLoaded" class="e-content-loader" style="width: 86px; height: 32px"></div>
   </div>
 
   <div>
     <div
       *ngIf="menuContentLoader"
-      class="content-loader-header-titles e-content-loader e-content-loader--inverted e-ml-48 e-mt-16"
+      class="content-loader-header-titles e-content-loader e-ml-48 e-mt-16"
       style="width: 500px; height: 32px"
     ></div>
   </div>

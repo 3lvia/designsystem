@@ -1,5 +1,6 @@
 @use '../../shared/shared-sizes.scss' as sizes;
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '@elvia/elvis/src/utilities/helpers.scss' as helpers;
 
 .footer {
   position: relative;
@@ -9,26 +10,16 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  background-color: var(--e-grey);
-  color: var(--e-white);
+  background-color: var(--e-color-background-element-4);
   @include breakpoints.breakpoint-up(Mobile) {
     height: calc(#{sizes.$footer-height} + 25px);
-  }
-
-  @media screen and (-ms-high-contrast: none) {
-    border-top: solid 1.5px var(--e-white);
-  }
-  &.not-found {
-    &::before {
-      background-color: var(--e-grey-90);
-    }
   }
 
   &::before {
     content: '';
     border-radius: 100%;
     position: absolute;
-    background-color: var(--e-white);
+    background-color: var(--e-color-background-1);
     z-index: -1;
     width: 685vw;
     height: 685vw;
@@ -81,13 +72,9 @@
       }
     }
 
-    .e-text-sm {
-      color: var(--e-white);
-    }
-
     .links {
+      background: var(--e-dark-theme-grey); // custom token
       position: relative;
-      background: var(--e-grey-90);
       height: 32px;
       width: 32px;
       border-radius: 50%;
@@ -98,7 +85,7 @@
       justify-content: center;
 
       &:hover {
-        background: var(--e-green);
+        background: var(--e-color-background-hover-1);
 
         .default-img {
           display: none;
