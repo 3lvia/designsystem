@@ -103,7 +103,7 @@
       content: '';
     }
 
-    // Hiding hover ikon
+    // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
     .e-btn__icon i[class*='filled-color'] {
       visibility: hidden;
     }

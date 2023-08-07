@@ -241,6 +241,11 @@
 			}
 		},
 		"e-color-background-element-4": {},
+		"e-button": {
+			"modifier": {
+				"e-button--inverted": {}
+			}
+		},
 		"e-card": {
 			"modifier": {
 				"e-card--text-only": {},
@@ -1373,6 +1378,8 @@
 		"e-outline": {},
 		"e-btn": {},
 		"e-btn--primary": {},
+		"e-color-background-element-4": {},
+		"e-button--inverted": {},
 		"e-btn--secondary": {},
 		"e-btn--tertiary": {},
 		"e-btn--danger": {},
@@ -1388,7 +1395,6 @@
 		"e-btn---focus": {},
 		"e-btn---disabled": {},
 		"e-btn--circled": {},
-		"e-color-background-element-4": {},
 		"e-btn--inverted": {},
 		"e-card": {},
 		"e-card--text-only": {},
