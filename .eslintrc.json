@@ -2,7 +2,7 @@
   "root": true,
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "no-console": "off",
+    "no-console": ["error", { "allow": ["warn", "clear", "info", "error", "dir", "trace", "table"] }],
     "func-names": "off"
   },
   "settings": {
@@ -43,7 +43,7 @@
         "plugin:react/recommended"
       ],
       "rules": {
-        "no-console": "off",
+        "no-console": ["error", { "allow": ["warn", "clear", "info", "error", "dir", "trace", "table"] }],
         "func-names": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-unused-vars": "error",
