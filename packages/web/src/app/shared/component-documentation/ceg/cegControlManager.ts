@@ -130,7 +130,6 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
 
     const typeIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._componentTypes.value);
-    console.log('cloned', listClone);
 
     const prop = listClone[typeIndex].controls[propName];
     if (prop) {
