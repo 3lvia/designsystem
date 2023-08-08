@@ -14,8 +14,7 @@
   flex-direction: row;
   justify-content: space-between;
 
-  .elvis-search__title,
-  .version {
+  .elvis-search__title {
     color: var(--e-color-background-overlay-1--contrast) !important;
     text-transform: lowercase;
   }
