@@ -11,6 +11,7 @@ import { ErrorModule } from './shared/error/error.module';
 import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
 import { MobileHeaderModule } from './shell/header/mobile-menu/mobile-menu.module';
 import '@elvia/elvis-outline';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import '@elvia/elvis-outline';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HomeModule,
     RouterModule,
     ShellModule,
     HttpClientModule,

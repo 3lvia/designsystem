@@ -5,6 +5,7 @@ import { MainComponent } from './shell/main/main.component';
 
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { ErrorComponent } from './shared/error/error.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
       {
         path: Pages.Index,
         pathMatch: 'full',
-        loadChildren: () => import('./home/home-routing.module').then((m) => m.HomeRoutingModule),
+        component: HomeComponent,
       },
       {
         path: Pages.Home,

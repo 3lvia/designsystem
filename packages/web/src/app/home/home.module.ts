@@ -8,6 +8,7 @@ import '@elvia/elvis-card';
 @NgModule({
   imports: [CommonModule, RouterModule, FrontPageChangelogModule],
   declarations: [HomeComponent],
+  exports: [HomeComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule {}
