@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Pages } from './shared/shared.enum';
 import { MainComponent } from './shell/main/main.component';
-import { HomeComponent } from './shell/home/home.component';
 
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { ErrorComponent } from './shared/error/error.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
