@@ -57,7 +57,7 @@
       margin-right: 0px;
     }
     &:hover {
-      border-color: #29d305;
+      border-color: var(--e-color-border-hover-1);
       cursor: pointer;
     }
     .feedback-text {
@@ -71,7 +71,6 @@
 
 .main-content {
   min-height: calc(100vh - 40px + 104px - #{sizes.$footer-height});
-  border: 8px solid white;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -122,7 +121,5 @@
   &.not-found {
     display: flex;
     justify-content: center;
-    background-color: var(--e-grey-90);
-    border-color: var(--e-grey-90);
   }
 }

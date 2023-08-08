@@ -48,7 +48,7 @@
   display: none;
   margin-top: 40px;
   padding-left: 16px;
-  border-left: 1px solid var(--e-grey-10);
+  border-left: 1px solid var(--e-color-border-2);
 
   .link {
     @extend %scale-down-ver-top;
@@ -69,11 +69,11 @@
       font-size: 13px;
       line-height: 17px;
       letter-spacing: 0.012em;
-      color: var(--e-grey-70);
+      color: var(--e-color-text-2);
     }
     .anchor.active-anchor {
       font-weight: 500;
-      color: var(--e-black);
+      color: var(--e-color-text-1);
       width: 100%;
     }
   }

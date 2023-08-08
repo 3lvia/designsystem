@@ -27,6 +27,10 @@ $text-line-height: 32px;
     max-width: 522px;
   }
 
+  .border-bottom {
+    border-bottom: 1px solid var(--e-color-border-2);
+  }
+
   .navbar-locale-toggle {
     &-top-divider {
       display: none;
@@ -46,7 +50,7 @@ $text-line-height: 32px;
     &-divider {
       width: 1px;
       height: 1rem;
-      background: var(--e-grey-10);
+      background: var(--e-color-border-2);
     }
   }
 }
@@ -129,7 +133,7 @@ $text-line-height: 32px;
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            border: 2px solid var(--e-green);
+            border: 2px solid var(--e-color-border-selected-1);
           }
         }
         a.active-route {
@@ -138,7 +142,7 @@ $text-line-height: 32px;
             font-weight: 600;
           }
           .navbar-item-title:before {
-            background-color: var(--e-green);
+            background-color: var(--e-color-border-selected-1);
           }
         }
         .anchors {
@@ -149,7 +153,7 @@ $text-line-height: 32px;
 
           margin-left: 28px;
           padding-left: 16px;
-          border-left: 1px solid var(--e-grey-10);
+          border-left: 1px solid var(--e-color-border-2);
 
           .link {
             width: 100%;
@@ -163,7 +167,7 @@ $text-line-height: 32px;
               font-size: 13px;
               line-height: 17px;
               letter-spacing: 0.012em;
-              color: var(--e-grey-70);
+              color: var(--e-color-text-2);
             }
           }
           .link:not(:last-of-type) {
@@ -195,7 +199,7 @@ $text-line-height: 32px;
             a.active-anchor {
               font-size: 13px;
               font-weight: 500;
-              color: var(--e-black);
+              color: var(--e-color-text-1);
             }
           }
         }
@@ -221,7 +225,7 @@ $text-line-height: 32px;
   .navbar-locale-toggle-divider {
     width: 1px;
     height: 1rem;
-    background: var(--e-grey-10);
+    background: var(--e-color-border-2);
   }
 }
 

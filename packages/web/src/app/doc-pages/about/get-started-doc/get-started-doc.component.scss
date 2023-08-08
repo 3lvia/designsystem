@@ -79,10 +79,8 @@
 .principles-text {
   white-space: nowrap;
   margin-right: 24px;
-  color: black;
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  color: var(--e-color-text-1);
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
 }
 .principle {
   position: relative;
@@ -95,6 +93,6 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--e-green);
+    background: var(--e-color-brand-accent);
   }
 }

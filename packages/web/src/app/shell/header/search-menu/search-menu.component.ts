@@ -355,7 +355,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   private addHighlightBackground(str: string) {
-    return `<span style='background: ${getThemeColor('background-selected-1')}'>${str}</span>`;
+    return `<span style='color: var(--e-color-background-selected-1--contrast); background: ${getThemeColor(
+      'background-selected-1',
+    )}'>${str}</span>`;
   }
 
   /** Filters activeResults and assigns the resulting array to synonymComponents.

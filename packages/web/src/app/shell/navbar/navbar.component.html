@@ -55,11 +55,7 @@
         [ngTemplateOutletContext]="{ divider: false }"
       />
     </div>
-    <div
-      class="navbar-phone-box e-w-100 e-mx-40"
-      style="border-bottom: 1px solid #e9e9e9"
-      *ngFor="let navbarItem of navbarList"
-    >
+    <div class="navbar-phone-box border-bottom e-w-100 e-mx-40" *ngFor="let navbarItem of navbarList">
       <a
         class="e-link e-link--action e-w-100 e-py-24"
         [routerLink]="['/' + this.subMenuRoute + '/' + navbarItem.docUrl]"
