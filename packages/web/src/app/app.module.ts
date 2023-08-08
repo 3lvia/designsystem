@@ -12,6 +12,7 @@ import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
 import { MobileHeaderModule } from './shell/header/mobile-menu/mobile-menu.module';
 import '@elvia/elvis-outline';
 import { HomeModule } from './home/home.module';
+import { ShortcutModule } from './shell/shortcut/shortcut.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { HomeModule } from './home/home.module';
     ErrorModule,
     CMSPageModule,
     MobileHeaderModule,
+    ShortcutModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],

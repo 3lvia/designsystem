@@ -6,11 +6,10 @@ import { HeaderModule } from '../header/header.module';
 import { NavbarModule } from '../navbar/navbar.module';
 import { FooterModule } from '../footer/footer.module';
 import { FeedbackModule } from 'src/app/shared/feedback/feedback.module';
-import { ShortcutComponent } from './shortcut/shortcut.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, HeaderModule, NavbarModule, FooterModule, FeedbackModule],
-  declarations: [MainComponent, ShortcutComponent],
+  declarations: [MainComponent],
   exports: [MainComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
