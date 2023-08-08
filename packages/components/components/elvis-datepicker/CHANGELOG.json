@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.08.23",
+      "version": "7.0.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Corrected a bug that caused the datepicker to show an error when <code>minDate</code> or <code>maxDate</code> were changed and the <code>value</code> was simultaneously set to <code>null</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "02.08.23",
       "version": "7.0.5",
       "changelog": [
