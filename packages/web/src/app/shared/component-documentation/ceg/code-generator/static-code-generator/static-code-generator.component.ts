@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-static-code-generator',
@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StaticCodeGeneratorComponent implements OnInit {
   @Input() staticContent = '';
-  @Input() hideReact: boolean;
+  @Input({ transform: booleanAttribute }) hideReact: boolean;
   @Input() comment?: string;
 
   angularCode = '';

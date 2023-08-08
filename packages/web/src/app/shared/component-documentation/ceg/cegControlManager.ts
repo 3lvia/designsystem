@@ -130,6 +130,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
 
     const typeIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._componentTypes.value);
+    console.log('cloned', listClone);
 
     const prop = listClone[typeIndex].controls[propName];
     if (prop) {
@@ -164,7 +165,33 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     );
   }
 
+  // Recursively clone objects and arrays manually.
+  // This cannot be done using JSON.parse(JSON.stringify(controls)) because
+  // some properties of controls can be functions.
   private clone = <T>(controls: T): T => {
-    return JSON.parse(JSON.stringify(controls));
+    function deep<T>(value: T): T {
+      if (typeof value !== 'object' || value === null) {
+        return value;
+      }
+      if (Array.isArray(value)) {
+        return deepArray(value);
+      }
+      return deepObject(value);
+    }
+    function deepObject<T extends object>(source: T) {
+      const result = {} as T;
+      Object.keys(source).forEach((key) => {
+        const value = source[key as keyof T];
+        result[key as keyof T] = deep(value);
+      }, {});
+      return result as T;
+    }
+    function deepArray<T extends any[]>(collection: T): any {
+      return collection.map((value) => {
+        return deep(value);
+      });
+    }
+
+    return deep(controls);
   };
 }
