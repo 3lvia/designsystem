@@ -23,6 +23,10 @@
     cursor: pointer;
     margin-left: 32px;
 
+    @include breakpoints.breakpoint-up(Tablet) {
+      margin-left: 24px;
+    }
+
     @include breakpoints.breakpoint-up(Mobile) {
       margin-left: 16px;
     }

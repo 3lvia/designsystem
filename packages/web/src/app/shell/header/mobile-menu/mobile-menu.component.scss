@@ -18,7 +18,11 @@
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
-    margin-left: 32px;
+    margin-left: 24px;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      margin-left: 16px;
+    }
 
     img {
       height: 26px;
