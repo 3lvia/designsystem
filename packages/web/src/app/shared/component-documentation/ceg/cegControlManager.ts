@@ -183,7 +183,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
         const value = source[key as keyof T];
         result[key as keyof T] = deep(value);
       }, {});
-      return result as T;
+      return result;
     }
     function deepArray<T extends any[]>(collection: T): any {
       return collection.map((value) => {
