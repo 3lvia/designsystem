@@ -28,46 +28,6 @@
     width: calc(100% - 108px);
   }
 }
-.feedback-link {
-  display: none;
-  justify-content: flex-end;
-  &.desktop {
-    display: flex;
-    position: fixed;
-    right: 16px;
-    margin-top: -24px;
-  }
-  @include breakpoints.breakpoint-up(Tablet) {
-    display: flex;
-    position: relative;
-    &.desktop {
-      display: none;
-    }
-  }
-  @include breakpoints.breakpoint-up(Tablet) {
-    z-index: 1;
-  }
-  .link {
-    display: flex;
-    border-bottom: 2px solid transparent;
-    padding-bottom: 3px;
-    @include breakpoints.breakpoint-up(Tablet) {
-      position: absolute;
-      margin-top: 4px;
-      margin-right: 0px;
-    }
-    &:hover {
-      border-color: #29d305;
-      cursor: pointer;
-    }
-    .feedback-text {
-      font-family: 'Red Hat Display', Verdana, sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 16px;
-    }
-  }
-}
 
 .main-content {
   min-height: calc(100vh - 40px + 104px - #{sizes.$footer-height});

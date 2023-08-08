@@ -9,12 +9,17 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
+  isLandingPage = false;
+  isHomePage = false;
+  isNotFound = false;
+
   constructor(
     private documentEventListenerService: DocumentEventListenerService,
     private routerService: RouterService,
     private viewportScroller: ViewportScroller,
   ) {
     this.enableScrollRestorationOnUrlPathChange();
+    this.listenForCurrentPage();
   }
 
   @HostListener('document:keypress', ['$event'])
@@ -25,6 +30,19 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
     this.handleMode(darkMode.matches);
+  }
+
+  private listenForCurrentPage(): void {
+    this.routerService
+      .urlPathChange()
+      .pipe(takeUntilDestroyed())
+      .subscribe((currentPath) => {
+        this.isNotFound = currentPath === '/not-found';
+
+        this.isHomePage = currentPath === '/' || currentPath.includes('/#') || currentPath === '/home';
+
+        this.isLandingPage = !currentPath.split('/')[2];
+      });
   }
 
   private enableScrollRestorationOnUrlPathChange(): void {

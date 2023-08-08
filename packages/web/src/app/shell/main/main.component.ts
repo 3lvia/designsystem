@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
-import { ScrollService } from 'src/app/core/services/scroll.service';
 
 @Component({
   selector: 'app-main',
@@ -13,7 +12,7 @@ export class MainComponent {
   isHomePage = false;
   isNotFound = false;
 
-  constructor(private router: Router, private scrollService: ScrollService) {
+  constructor(private router: Router) {
     // subscribe to router navigation
     this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       // filter `NavigationEnd` events
@@ -28,10 +27,5 @@ export class MainComponent {
         this.isLandingPage = !eventUrl.split('/')[2];
       }
     });
-  }
-
-  scrollToFeedback(): void {
-    const offsetTop = document.body.scrollHeight;
-    this.scrollService.scrollToElement(offsetTop);
   }
 }

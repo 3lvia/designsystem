@@ -1,33 +1,25 @@
-<main id="main-content" class="main-content" style="overflow: hidden" [ngClass]="{ 'not-found': isNotFound }">
-  <div [ngClass]="{ 'e-grid': !isHomePage }">
-    <div [ngClass]="{ row: !isHomePage, 'row-reverse': isLandingPage }">
-      <nav class="main-navbar" aria-label="main navigation" [ngClass]="{ hide: isHomePage }">
-        <app-navbar></app-navbar>
-      </nav>
-      <div [ngClass]="{ 'feedback-link desktop': !isHomePage }" *ngIf="!isLandingPage">
-        <div class="link" (click)="scrollToFeedback()">
-          <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />
-          <span class="e-ml-8 feedback-text">Give feedback</span>
-        </div>
-      </div>
-      <div
-        [ngClass]="{
-          'page-body': !isHomePage,
-          'not-landing-page': !isLandingPage,
-          'overview-content': !isHomePage && !isNotFound
-        }"
-      >
-        <div class="feedback-link" *ngIf="!isLandingPage">
-          <div class="link" (click)="scrollToFeedback()">
-            <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />
-            <span class="e-ml-8 feedback-text">Give feedback</span>
-          </div>
-        </div>
-        <div>
-          <router-outlet></router-outlet>
-        </div>
-        <app-feedback id="feedback-component" *ngIf="!isLandingPage"></app-feedback>
-      </div>
-    </div>
+<main
+  id="main-content"
+  class="main-content"
+  style="overflow: hidden"
+  [ngClass]="{
+    'not-found': isNotFound,
+    'e-grid': !isHomePage,
+    row: !isHomePage,
+    'row-reverse': isLandingPage
+  }"
+>
+  <nav class="main-navbar" [ngClass]="{ hide: isHomePage }">
+    <app-navbar></app-navbar>
+  </nav>
+  <div
+    [ngClass]="{
+      'page-body': !isHomePage,
+      'not-landing-page': !isLandingPage,
+      'overview-content': !isHomePage && !isNotFound
+    }"
+  >
+    <router-outlet></router-outlet>
+    <app-feedback *ngIf="!isLandingPage"></app-feedback>
   </div>
 </main>

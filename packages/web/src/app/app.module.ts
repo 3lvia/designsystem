@@ -13,6 +13,7 @@ import { MobileHeaderModule } from './shell/header/mobile-menu/mobile-menu.modul
 import '@elvia/elvis-outline';
 import { HomeModule } from './home/home.module';
 import { ShortcutModule } from './shell/shortcut/shortcut.module';
+import { FeedbackModule } from './shared/feedback/feedback.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { ShortcutModule } from './shell/shortcut/shortcut.module';
     CMSPageModule,
     MobileHeaderModule,
     ShortcutModule,
+    FeedbackModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
