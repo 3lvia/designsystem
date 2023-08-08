@@ -20,6 +20,10 @@
     cursor: pointer;
     margin-left: 24px;
 
+    @include breakpoints.breakpoint-up(Mobile) {
+      margin-left: 16px;
+    }
+
     img {
       height: 26px;
     }
