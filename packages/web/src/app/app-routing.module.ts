@@ -14,7 +14,7 @@ const routes: Routes = [
       {
         path: Pages.Index,
         pathMatch: 'full',
-        loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+        loadChildren: () => import('./home/home-routing.module').then((m) => m.HomeRoutingModule),
       },
       {
         path: Pages.Home,
