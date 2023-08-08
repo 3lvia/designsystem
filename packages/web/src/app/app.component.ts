@@ -4,14 +4,15 @@ import { RouterService } from './core/services/router.service';
 import { ViewportScroller } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
+type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  isLandingPage = false;
-  isHomePage = false;
-  isNotFound = false;
+  currentRoute: PageLayout = 'standalonePage';
 
   constructor(
     private documentEventListenerService: DocumentEventListenerService,
@@ -36,12 +37,14 @@ export class AppComponent implements OnInit {
     this.routerService
       .urlPathChange()
       .pipe(takeUntilDestroyed())
-      .subscribe((currentPath) => {
-        this.isNotFound = currentPath === '/not-found';
-
-        this.isHomePage = currentPath === '/' || currentPath.includes('/#') || currentPath === '/home';
-
-        this.isLandingPage = !currentPath.split('/')[2];
+      .subscribe((url) => {
+        if (url === '/not-found') {
+          this.currentRoute = 'notFound';
+        } else if (url === '/' || url.includes('/#') || url === '/home') {
+          this.currentRoute = 'standalonePage';
+        } else {
+          this.currentRoute = 'pageWithSidenav';
+        }
       });
   }
 

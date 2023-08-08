@@ -1,0 +1,13 @@
+<div class="page-container">
+  <nav>
+    <app-navbar></app-navbar>
+  </nav>
+  <div>
+    <ng-content></ng-content>
+
+    <ng-container *ngIf="!isLandingPage">
+      <app-feedback-link />
+      <app-feedback />
+    </ng-container>
+  </div>
+</div>

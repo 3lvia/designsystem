@@ -28,7 +28,7 @@ export class HeaderCegComponent implements ComponentExample {
     const externalHeader = document.getElementById('header');
     externalHeader?.classList.toggle('e-none');
 
-    const mainElement = document.getElementById('main-content');
+    const mainElement = document.body;
     if (mainElement && this.headerIsVisible) {
       mainElement.style.background = 'var(--e-color-background-2)';
     } else if (mainElement) {

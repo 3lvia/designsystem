@@ -1,6 +1,17 @@
 <app-header></app-header>
-<app-feedback-link *ngIf="!isLandingPage" />
-<router-outlet></router-outlet>
+
+<main class="e-mb-104" [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
+  <ng-container *ngIf="currentRoute !== 'pageWithSidenav'; else pageWithSidenav">
+    <router-outlet></router-outlet>
+  </ng-container>
+
+  <ng-template #pageWithSidenav>
+    <app-page-with-sidenav class="e-mt-64">
+      <router-outlet></router-outlet>
+    </app-page-with-sidenav>
+  </ng-template>
+</main>
+
 <app-footer></app-footer>
 
 <elvia-outline></elvia-outline>

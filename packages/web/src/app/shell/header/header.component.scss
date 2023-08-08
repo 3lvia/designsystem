@@ -2,10 +2,10 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .header {
-  position: fixed;
+  position: sticky;
   height: 64px;
   width: 100%;
-  top: 0px;
+  inset: 0 0 auto;
   margin: 0;
   padding: 0;
   z-index: 109;
