@@ -10,8 +10,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class ModalDocComponent {
   componentData = modalData;
-  figmaUrl = getComponent('modal')?.figmaUrl;
-  description = getComponent('modal')?.description;
   title = getComponent('modal')?.title;
   does = [
     'Where we need the user to make an active choice before continuing, or when a wrong decision can be critical.',
