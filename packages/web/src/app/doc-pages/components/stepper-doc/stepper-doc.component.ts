@@ -11,7 +11,7 @@ import { configurationProps } from './stepper-configuration-props';
 })
 export class StepperDocComponent {
   title = getComponent('stepper')?.title;
-  componentData = stepperData.changelog;
+  componentData = stepperData;
   stepperConfigurationProps = configurationProps;
   does = stepperData.does;
   donts = stepperData.donts;
