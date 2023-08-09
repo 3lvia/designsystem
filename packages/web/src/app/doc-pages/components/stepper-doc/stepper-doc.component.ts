@@ -10,10 +10,8 @@ import { configurationProps } from './stepper-configuration-props';
   styleUrls: ['./stepper-doc.component.scss'],
 })
 export class StepperDocComponent {
-  figmaUrl = getComponent('stepper')?.figmaUrl;
-  description = getComponent('stepper')?.description;
   title = getComponent('stepper')?.title;
-  componentData = stepperData;
+  componentData = stepperData.changelog;
   stepperConfigurationProps = configurationProps;
   does = stepperData.does;
   donts = stepperData.donts;
