@@ -9,8 +9,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./progressbar-doc.component.scss'],
 })
 export class ProgressbarDocComponent {
-  figmaUrl = getComponent('progressbar')?.figmaUrl;
-  description = getComponent('progressbar')?.description;
   title = getComponent('progressbar')?.title;
   componentData = progressbarData;
 
