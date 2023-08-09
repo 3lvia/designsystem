@@ -36,6 +36,7 @@ import { TableValidationCellCegComponent } from './table-validation-cell-ceg/tab
 import '@elvia/elvis-tooltip';
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-divider';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import '@elvia/elvis-divider';
     RouterModule,
     ComponentChangelogModule,
     CegModule,
+    SharedDocumentationModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

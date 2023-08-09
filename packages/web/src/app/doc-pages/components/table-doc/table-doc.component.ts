@@ -8,8 +8,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./table-doc.component.scss'],
 })
 export class TableDocComponent {
-  figmaUrl = getComponent('table')?.figmaUrl;
-  description = getComponent('table')?.description;
   title = getComponent('table')?.title;
 
   constructor(private titleService: Title) {

@@ -1,22 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <app-static-ceg>
-      <app-table-ceg />
-    </app-static-ceg>
-  </div>
+<app-component-documentation isElvis elvisTitle="table">
+  <app-static-ceg ceg>
+    <app-table-ceg></app-table-ceg>
+  </app-static-ceg>
 
   <!--SIZE-->
-  <app-component-section [sectionTitle]="'Size'">
+  <app-component-section size [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       Tables are available in two levels of density. When using tables, make sure to always use the same type
       of density and style on all tables throughout the page.
@@ -74,7 +62,7 @@
   </app-component-section>
 
   <!--OPTIONS-->
-  <app-component-section [sectionTitle]="'Options'">
+  <app-component-section options [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
       <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
         <elvia-accordion openLabel="Accordion" closeLabel="Accordion" isFullWidth="true" size="large">
@@ -405,14 +393,14 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
     </ng-container>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Caption'">
         <ng-container ngProjectAs="sectionContent">
@@ -452,18 +440,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-table'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-table'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
