@@ -10,8 +10,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class TabsDocComponent {
   componentData = tabsData;
-  figmaUrl = getComponent('tabs')?.figmaUrl;
-  description = getComponent('tabs')?.description;
   title = getComponent('tabs')?.title;
 
   constructor(private titleService: Title) {
