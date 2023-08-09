@@ -9,8 +9,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./outline-doc.component.scss'],
 })
 export class OutlineDocComponent {
-  figmaUrl = getComponent('outline')?.figmaUrl;
-  description = getComponent('outline')?.description;
   title = getComponent('outline')?.title;
   componentData = outlineData;
 
