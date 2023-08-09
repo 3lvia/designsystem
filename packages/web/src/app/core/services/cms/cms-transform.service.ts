@@ -422,7 +422,9 @@ export class CMSTransformService {
             align-${imgAlignment}
             ${imgSize === 'original' ? 'original-margin' : ''} 
           '
-          style='${hasInlineText ? `display: inline; width: ${imgSize}` : 'max-width: 100%'}'
+          style='background: var(--e-dark-theme-white); padding: 16px; border-radius: 8px; ${
+            hasInlineText ? `display: inline; width: ${imgSize}` : 'max-width: 100%'
+          }'
           src="${srcUrl}"
           ${altText?.toLocaleLowerCase() !== 'decorative' ? 'alt="' + altText + '"' : 'alt=""'}
         />
