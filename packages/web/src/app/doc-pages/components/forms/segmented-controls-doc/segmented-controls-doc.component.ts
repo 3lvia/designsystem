@@ -10,8 +10,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class SegmentedControlsDocComponent {
   componentData = segmentedControlData;
-  figmaUrl = getComponent('segmented-control')?.figmaUrl;
-  description = getComponent('segmented-control')?.description;
   title = getComponent('segmented-control')?.title;
   does = ['To display different views.'];
   donts = [

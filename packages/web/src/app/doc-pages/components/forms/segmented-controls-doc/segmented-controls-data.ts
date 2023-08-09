@@ -3,7 +3,7 @@ import ComponentData from '../../component-data.interface';
 
 export const segmentedControlData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'SegmentedControl',
+  name: 'Segmented Control',
   attributes: {
     items: {
       isRequired: true,
