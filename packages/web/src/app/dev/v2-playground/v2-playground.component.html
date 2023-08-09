@@ -294,20 +294,19 @@
       </div>
       Value deleted: {{ deleteValue }}
 
-      <div class="e-bg-white">
-        <h3>Clickable chips</h3>
-        <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
-        <div style="display: flex; flex-direction: row">
-          <div *ngFor="let chip of filteredKeys">
-            <elvia-chip
-              [value]="chip"
-              [isSelected]="filteredValues[chip]"
-              color="orange"
-              type="legend"
-              (isSelectedOnChange)="handleOnChange($any($event))"
-            ></elvia-chip>
-          </div>
+      <h3>Clickable chips</h3>
+      <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
+      <div style="display: flex; flex-direction: row">
+        <div *ngFor="let chip of filteredKeys">
+          <elvia-chip
+            [value]="chip"
+            [isSelected]="filteredValues[chip]"
+            color="orange"
+            type="legend"
+            (isSelectedOnChange)="handleOnChange($any($event))"
+          ></elvia-chip>
         </div>
+
         Selected values:
         <span *ngFor="let key of filteredKeys">
           <span *ngIf="filteredValues[key]">{{ key }},</span>

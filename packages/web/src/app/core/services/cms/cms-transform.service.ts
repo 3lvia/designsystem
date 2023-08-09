@@ -497,7 +497,7 @@ export class CMSTransformService {
         <a role="button" id="download-content-${assetName}">
           <button class="e-btn e-btn--tertiary ${inverted ? 'e-btn--inverted' : ''}">
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--download ${inverted ? 'e-icon--inverted' : ''}" aria-hidden="true"></i>
+              <i class="e-icon e-icon--download" aria-hidden="true"></i>
             </span>
             <span class="e-btn__title">${fileType}</span>
           </button>
@@ -567,9 +567,13 @@ export class CMSTransformService {
         returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, true) + '</div>';
       });
     }
-    return `<div class="e-grid e-px-24 e-br-8 ${
-      background === 'Dark' ? 'e-bg-grey' : background === 'Grey' ? 'e-bg-grey-05' : ''
-    } " style="margin-top: 12px; margin-bottom: 12px">
+    return `<div class="e-grid e-px-24 e-br-8 ${background === 'Dark' ? '' : 'e-theme-light'}" style="${
+      background === 'Dark'
+        ? 'background: var(--e-light-theme-grey); color: var(--e-light-theme-grey--contrast);'
+        : background === 'Grey'
+        ? 'background: var(--e-light-theme-grey-05); color: var(--e-light-theme-grey-05--contrast);'
+        : 'background: var(--e-light-theme-white); color: var(--e-light-theme-white--contrast);'
+    } margin-top: 12px; margin-bottom: 12px">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       ${returnString}
     </div>

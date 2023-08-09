@@ -26,13 +26,23 @@ export const utilityGroups: UtilityGroup[] = [
     path: '/brand/color',
     classes: [
       {
-        className: 'e-bg-name',
+        className: 'e-color-background-token',
         description:
-          'Sets the background to an available color in Elvis. Also sets text to contrast color of background-color.',
+          'Sets the background based on available tokens.. Also sets text to contrast color of background-color.',
         styling: 'background-color: #colorname',
       },
       {
-        className: 'e-text-name',
+        className: 'e-color-text-token',
+        description: 'Sets the text based on available tokens.',
+        styling: 'color: #colorname',
+      },
+      {
+        className: 'e-color-border-token',
+        description: 'Sets the border-color based on available tokens.',
+        styling: 'color: #colorname',
+      },
+      {
+        className: 'e-color-text-token',
         description: 'Sets the text to an available color in Elvis',
         styling: 'color: #colorname',
       },

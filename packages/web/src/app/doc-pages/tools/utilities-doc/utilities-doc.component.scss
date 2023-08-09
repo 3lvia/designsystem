@@ -27,6 +27,7 @@
   height: 1px;
   width: 130%;
   margin-right: -30%;
+  background-color: var(--e-color-border-2);
   @include breakpoints.breakpoint-up(MinDesktop) {
     width: 120%;
     margin-right: -20%;

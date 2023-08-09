@@ -18,6 +18,12 @@
     @include breakpoints.breakpoint-up(Mobile) {
       margin-right: 0px;
     }
+    .status-positive {
+      background-color: var(--e-color-signal-success);
+    }
+    .status-informative {
+      background-color: var(--e-color-signal-info);
+    }
   }
   .title {
     display: flex;
