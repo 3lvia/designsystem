@@ -8,8 +8,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./list-doc.component.scss'],
 })
 export class ListDocComponent {
-  figmaUrl = getComponent('list')?.figmaUrl;
-  description = getComponent('list')?.description;
   title = getComponent('list')?.title;
 
   constructor(private titleService: Title) {
