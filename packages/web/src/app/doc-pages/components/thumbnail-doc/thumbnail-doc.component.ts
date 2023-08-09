@@ -7,8 +7,6 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './thumbnail-doc.component.html',
 })
 export class ThumbnailDocComponent {
-  figmaUrl = getComponent('thumbnail')?.figmaUrl;
-  description = getComponent('thumbnail')?.description;
   title = getComponent('thumbnail')?.title;
 
   constructor(private titleService: Title) {
