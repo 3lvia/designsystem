@@ -11,6 +11,8 @@ import { Language } from './types';
 export class FormatCodePipe implements PipeTransform {
   transform(code: string, language: Language): string {
     const codeWithClosedTags = this.addClosingTagsToVoidElements(code);
+    const codeWithCommentsFixed =
+      language === 'jsx' ? this.transformCommentsForReact(codeWithClosedTags) : codeWithClosedTags;
 
     let parser = 'babel';
     if (language === 'css') {
@@ -19,7 +21,7 @@ export class FormatCodePipe implements PipeTransform {
       parser = 'html';
     }
 
-    let formattedCode = Prettier.format(codeWithClosedTags, {
+    let formattedCode = Prettier.format(codeWithCommentsFixed, {
       parser: parser,
       plugins: [parserHtml, parserBabel, parserPostCss],
       printWidth: 80,
@@ -52,6 +54,22 @@ export class FormatCodePipe implements PipeTransform {
       });
     }
 
+    return code;
+  };
+
+  /**
+   * Transform comments from HTML to JSX style for React.
+   */
+  private transformCommentsForReact = (code: string): string => {
+    const commentRegExp = new RegExp(/<!--([\S\s]*?)-->/);
+    const comments = code.match(new RegExp(commentRegExp, 'g'));
+
+    if (comments) {
+      comments.forEach((comment) => {
+        const commentAsReact = comment.replace(commentRegExp, `{/* $1 */}`);
+        code = code.replace(comment, commentAsReact);
+      });
+    }
     return code;
   };
 }
