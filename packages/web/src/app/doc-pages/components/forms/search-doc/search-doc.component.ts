@@ -7,8 +7,6 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './search-doc.component.html',
 })
 export class SearchDocComponent {
-  figmaUrl = getComponent('search')?.figmaUrl;
-  description = getComponent('search')?.description;
   title = getComponent('search')?.title;
 
   constructor(private titleService: Title) {

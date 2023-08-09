@@ -17,6 +17,7 @@ import { SearchOnSubmitSearchedCegComponent } from './search-on-submit-searched-
 import { SearchFullwidthCegComponent } from './search-fullwidth-ceg/search-fullwidth-ceg.component';
 import { SearchSizeNormalCegComponent } from './search-size-normal-ceg/search-size-normal-ceg.component';
 import { SearchSizeCompactCegComponent } from './search-size-compact-ceg/search-size-compact-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SearchSizeCompactCegComponent } from './search-size-compact-ceg/search-
     WhenToUseModule,
     RouterModule,
     ComponentChangelogModule,
+    SharedDocumentationModule,
   ],
 })
 export class SearchDocModule {}
