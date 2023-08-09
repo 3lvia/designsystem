@@ -1,13 +1,11 @@
 <div class="page-container">
-  <nav>
-    <app-navbar></app-navbar>
-  </nav>
-  <div>
-    <ng-content></ng-content>
+  <app-navbar class="hide-up-to-tablet" />
 
-    <ng-container *ngIf="!isLandingPage">
-      <app-feedback-link />
-      <app-feedback />
-    </ng-container>
+  <div class="page-content">
+    <app-feedback-link *ngIf="!isLandingPage" />
+
+    <ng-content />
+
+    <app-feedback *ngIf="!isLandingPage" />
   </div>
 </div>

@@ -3,8 +3,8 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 $text-line-height: 32px;
-.wrapper {
-  height: 100%;
+:host {
+  display: block;
   position: relative;
   @include breakpoints.breakpoint-up(Tablet) {
     margin-top: -64px;
@@ -68,9 +68,6 @@ $text-line-height: 32px;
     max-width: 250px;
   }
 
-  @include breakpoints.breakpoint-up(Tablet) {
-    display: none;
-  }
   .navbar-scroll-container {
     width: 100%;
     padding-right: 32px;

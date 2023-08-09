@@ -21,3 +21,15 @@
     margin: 0 16px 16px;
   }
 }
+
+.hide-up-to-tablet {
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: none;
+  }
+}
+
+.page-content {
+  @include breakpoints.breakpoint-up(Tablet) {
+    grid-column: 1 / -1;
+  }
+}

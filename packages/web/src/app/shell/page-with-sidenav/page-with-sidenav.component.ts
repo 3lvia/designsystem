@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { RouterService } from '../../core/services/router.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-page-with-sidenav',
@@ -8,12 +6,5 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./page-with-sidenav.component.scss'],
 })
 export class PageWithSidenavComponent {
-  isLandingPage = false;
-
-  constructor(private urlService: RouterService) {
-    this.urlService.urlPathChange().subscribe((url) => {
-      console.log(url);
-      this.isLandingPage = !url.split('/')[2];
-    });
-  }
+  @Input() isLandingPage = false;
 }

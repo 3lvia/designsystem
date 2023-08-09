@@ -4,7 +4,7 @@
   position: fixed;
   inset: 88px 48px auto auto;
 
-  @include breakpoints.breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(Tablet) {
     position: relative;
     inset: auto;
   }

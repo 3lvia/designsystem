@@ -13,6 +13,7 @@ type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
 })
 export class AppComponent implements OnInit {
   currentRoute: PageLayout = 'standalonePage';
+  isLandingPage = false;
 
   constructor(
     private documentEventListenerService: DocumentEventListenerService,
@@ -38,6 +39,8 @@ export class AppComponent implements OnInit {
       .urlPathChange()
       .pipe(takeUntilDestroyed())
       .subscribe((url) => {
+        this.isLandingPage = !url.split('/')[2];
+
         if (url === '/not-found') {
           this.currentRoute = 'notFound';
         } else if (url === '/' || url.includes('/#') || url === '/home') {

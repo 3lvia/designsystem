@@ -1,12 +1,12 @@
 <app-header></app-header>
 
-<main class="e-mb-104" [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
+<main class="e-pb-104" [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
   <ng-container *ngIf="currentRoute !== 'pageWithSidenav'; else pageWithSidenav">
     <router-outlet></router-outlet>
   </ng-container>
 
   <ng-template #pageWithSidenav>
-    <app-page-with-sidenav class="e-mt-64">
+    <app-page-with-sidenav class="e-mt-64" [isLandingPage]="isLandingPage">
       <router-outlet></router-outlet>
     </app-page-with-sidenav>
   </ng-template>
