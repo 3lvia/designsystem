@@ -10,8 +10,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class RadioFilterDocComponent {
   componentData = radioFilterData;
-  figmaUrl = getComponent('radio-filter')?.figmaUrl;
-  description = getComponent('radio-filter')?.description;
   title = getComponent('radio-filter')?.title;
 
   whens = [

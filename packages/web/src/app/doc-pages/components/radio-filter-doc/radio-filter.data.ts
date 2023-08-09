@@ -3,7 +3,7 @@ import ComponentData from '../component-data.interface';
 
 const radioFilterData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'RadioFilter',
+  name: 'Radio Filter',
   attributes: {
     items: {
       isRequired: true,
