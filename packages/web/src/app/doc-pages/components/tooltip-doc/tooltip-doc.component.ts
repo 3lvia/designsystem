@@ -9,8 +9,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class TooltipDocComponent {
   componentData = tooltipData;
-  figmaUrl = getComponent('tooltip')?.figmaUrl;
-  description = getComponent('tooltip')?.description;
   title = getComponent('tooltip')?.title;
 
   constructor(private titleService: Title) {
