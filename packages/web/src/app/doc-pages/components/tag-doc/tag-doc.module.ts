@@ -10,6 +10,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { TagCegComponent } from './tag-ceg/tag-ceg.component';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { TagColoredCegComponent } from './tag-colored-ceg/tag-colored-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [TagDocComponent, TagCegComponent, TagColoredCegComponent],
@@ -22,6 +23,7 @@ import { TagColoredCegComponent } from './tag-colored-ceg/tag-colored-ceg.compon
     WhenToUseModule,
     ComponentChangelogModule,
     CegModule,
+    SharedDocumentationModule,
   ],
 })
 export class TagDocModule {}
