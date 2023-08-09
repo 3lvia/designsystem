@@ -11,8 +11,6 @@ import { Title } from '@angular/platform-browser';
 export class PopoverDocComponent {
   componentData = popoverData;
   loadedPopoverStructure = false;
-  figmaUrl = getComponent('popover')?.figmaUrl;
-  description = getComponent('popover')?.description;
   title = getComponent('popover')?.title;
   does = [
     'To provide additional information',
