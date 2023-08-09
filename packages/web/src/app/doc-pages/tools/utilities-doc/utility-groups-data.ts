@@ -28,7 +28,7 @@ export const utilityGroups: UtilityGroup[] = [
       {
         className: 'e-color-background-token',
         description:
-          'Sets the background based on available tokens.. Also sets text to contrast color of background-color.',
+          'Sets the background based on available tokens. Also sets the text to contrast color of background-color.',
         styling: 'background-color: #colorname',
       },
       {
