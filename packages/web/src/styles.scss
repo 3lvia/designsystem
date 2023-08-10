@@ -2,7 +2,6 @@
 @use 'prismjs/plugins/toolbar/prism-toolbar';
 @use 'prismjs/themes/prism-okaidia';
 
-@use 'app/shared/shared-sizes' as sizes;
 @use 'app/shared/shared-animations' as animation;
 
 /* Elvia Styleguide */
@@ -22,14 +21,21 @@
   color: var(--e-black);
 }
 
-body {
-  margin: 0;
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-}
-
 html {
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
 }
 
 a {

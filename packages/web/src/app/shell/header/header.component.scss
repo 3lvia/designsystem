@@ -1,14 +1,17 @@
 @use '../../shared/shared-sizes.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
-.header {
+:host {
   position: sticky;
+  inset: 0 0 auto;
+  z-index: 109;
+}
+
+.header {
   height: 64px;
   width: 100%;
-  inset: 0 0 auto;
   margin: 0;
   padding: 0;
-  z-index: 109;
   box-sizing: border-box;
 
   overflow: hidden;
