@@ -67,6 +67,8 @@
 }
 
 .page-content {
+  overflow: auto;
+
   @include breakpoints.breakpoint-up(Tablet) {
     grid-column: 1 / -1;
   }

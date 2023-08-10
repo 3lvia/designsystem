@@ -6,6 +6,7 @@ $text-line-height: 32px;
 :host {
   display: block;
   position: relative;
+
   @include breakpoints.breakpoint-up(Tablet) {
     margin-top: -64px;
   }
@@ -17,14 +18,15 @@ $text-line-height: 32px;
     &.show-block {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      margin: 0 48px;
+      width: 100%;
+      max-width: 522px;
+      margin: 0 auto;
     }
   }
+
   &-box {
     display: flex;
     justify-content: center;
-    max-width: 522px;
   }
 
   .navbar-locale-toggle {
@@ -62,6 +64,10 @@ $text-line-height: 32px;
 
   display: flex;
   flex-direction: column;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: none;
+  }
 
   @include breakpoints.breakpoint-up(MaxDesktop) {
     width: 13%;

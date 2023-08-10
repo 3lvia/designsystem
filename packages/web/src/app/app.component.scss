@@ -1,6 +1,16 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
 .not-found {
   display: flex;
   justify-content: center;
   background-color: var(--e-grey-90);
   padding-top: 64px;
+}
+
+.page-with-sidenav {
+  margin-top: 64px;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    margin-top: 32px;
+  }
 }

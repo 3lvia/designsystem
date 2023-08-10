@@ -48,11 +48,11 @@
 </div>
 
 <nav class="navbar-phone" [ngClass]="{ 'show-block': isLandingPage }" *ngIf="isLoaded">
-  <div class="navbar-phone-box e-w-100 e-mx-40">
+  <div class="navbar-phone-box e-w-100">
     <ng-container [ngTemplateOutlet]="localeToggleTemplate" [ngTemplateOutletContext]="{ divider: false }" />
   </div>
   <div
-    class="navbar-phone-box e-w-100 e-mx-40"
+    class="navbar-phone-box e-w-100"
     style="border-bottom: 1px solid #e9e9e9"
     *ngFor="let navbarItem of navbarList"
   >
