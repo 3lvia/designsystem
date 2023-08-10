@@ -22,7 +22,7 @@ export class ComponentSectionComponent {
     setTimeout(() => {
       anchorTitleElement.classList.remove('anchor-copied');
     }, 800);
-    const modifiedAnchor = this.sectionTitle.replace(' ', '-');
+    const modifiedAnchor = this.sectionTitle.replace(/ /g, '-');
     let anchorUrl = 'https://design.elvia.io';
     if (this.router.url.includes('#')) {
       anchorUrl =
