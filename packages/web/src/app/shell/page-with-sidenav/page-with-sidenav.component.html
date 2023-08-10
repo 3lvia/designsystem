@@ -2,9 +2,16 @@
   <app-navbar class="hide-up-to-tablet" />
 
   <div class="page-content">
-    <app-feedback-link *ngIf="!isLandingPage" />
+    <div class="page-content-header page-body" *ngIf="!isLandingPage">
+      <a class="mobile-and-tablet-only e-link e-link--sm" [routerLink]="'/' + currentRoute">
+        <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold" aria-hidden="true"></i></span>
+        <span class="e-link__title">{{ backBtn | titlecase }}</span>
+      </a>
+      <app-feedback-link class="feedback-link" />
+    </div>
 
     <ng-content />
+    <app-navbar class="mobile-and-tablet-only" *ngIf="isLandingPage" />
 
     <app-feedback *ngIf="!isLandingPage" />
   </div>

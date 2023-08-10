@@ -6,25 +6,63 @@
   margin-right: auto;
 }
 
+.page-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    margin-bottom: 24px;
+  }
+}
+
+.mobile-and-tablet-only {
+  display: none;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: flex;
+  }
+}
+
 .page-container {
   display: grid;
   margin: 0 128px;
-  padding-right: 80px;
+  padding-right: min(80px, 4vw); // This shifts the content to the right to make it feel more centered
   grid-template-columns: 250px 1fr;
   gap: 32px;
 
   @include breakpoints.breakpoint-up(Tablet) {
-    margin: 0 32px 32px;
+    grid-template-columns: 1fr;
+    padding-right: 0;
+    margin: 0 64px 32px;
   }
 
   @include breakpoints.breakpoint-up(Mobile) {
-    margin: 0 16px 16px;
+    margin: 0 40px 16px;
+  }
+}
+
+.feedback-link {
+  position: fixed;
+  inset: 88px 48px auto auto;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    position: relative;
+    inset: auto;
   }
 }
 
 .hide-up-to-tablet {
   @include breakpoints.breakpoint-up(Tablet) {
     display: none;
+  }
+}
+
+.tablet-and-mobile-only {
+  display: none;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: block;
   }
 }
 
