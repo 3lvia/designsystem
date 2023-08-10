@@ -8,8 +8,8 @@
     { value: 'Vannmelon', label: '🍉 Vannmelon' },
     { value: 'Druer', label: '🍇 Druer' }
   ]"
-  label="Frukt"
-  placeholder="Placeholder text..."
+  [label]="'Frukt'"
+  [placeholder]="'Navn på frukt...'"
   (valueOnChange)="handleValueOnChange($any($event).detail.value)"
   (onSelectItem)="handleOnSelectItem($any($event).detail.value)"
 ></elvia-autocomplete>

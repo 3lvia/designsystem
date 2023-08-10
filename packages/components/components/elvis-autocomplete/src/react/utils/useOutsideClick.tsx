@@ -1,8 +1,8 @@
 import { useEffect, RefObject } from 'react';
 
 /**
- * Custom hook to execute a callback function when clicking outside of a list of given refs.
- * @param refs - Array of React refs, representing elements to check if clicked inside.
+ * Custom hook to execute a callback function when clicking _outside_ of a list of given refs.
+ * @param refs - Array of React refs, representing elements to check if clicked outside.
  * @param callback - Callback function to execute when clicking outside the provided refs.
  *
  * @example
@@ -11,7 +11,7 @@ import { useEffect, RefObject } from 'react';
 export const useOutsideClickListener = (refs: RefObject<HTMLElement>[], callback: () => void): void => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (!refs.some((ref) => ref.current?.contains(event.target as Node))) {
+      if (refs.every((ref) => ref.current && !ref.current.contains(event.target as Node))) {
         callback();
       }
     };

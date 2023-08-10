@@ -77,6 +77,10 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     return hasBuiltInFilter ? filterItems(items, currentValue) : items;
   }, [items, currentValue, hasBuiltInFilter]);
 
+  const valueIsEqualOnlyItem =
+    filteredItems.length === 1 &&
+    filteredItems[0].value?.toLowerCase() === currentValue?.toLowerCase().trim();
+
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
   const handleOnChange = (event: { target: { value: string | null } }) => {
@@ -112,14 +116,14 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   };
 
   const handleOnInputFocus = () => {
-    if (currentValue && filteredItems.length > 0) {
+    if (currentValue) {
       openPopup();
     }
     setTouched(true);
   };
 
   const openPopup = () => {
-    if (!isDisabled && !isShowing) {
+    if (!isDisabled && !isShowing && !valueIsEqualOnlyItem) {
       setIsShowing(true);
       emitOnOpen();
     }
@@ -150,9 +154,10 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   };
 
   const handleOnBlur = () => {
-    setFocusedItem(undefined);
-    validateInputValue(currentValue);
     setFadeOut(true);
+    setFocusedItem(undefined);
+    setIsShowing(false);
+    validateInputValue(currentValue);
   };
 
   const handleOverlayKeyboardNavigation = (ev: KeyboardEvent<HTMLInputElement>): void => {
@@ -203,6 +208,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
         isDisabled={isDisabled}
         isFullWidth={isFullWidth}
         isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        isActive={isShowing}
         size={size}
         style={{ ...inlineStyle }}
         {...rest}
@@ -241,7 +247,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
           <AutocompleteError label={label} errorType={error} errorOptions={mergedErrorOptions} id={errorId} />
         )}
       </FormFieldContainer>
-      {isShowing && filteredItems.length > 0 && (
+      {isShowing && !valueIsEqualOnlyItem && (
         <AutocompleteOverlay
           id={id}
           popupId={popupId}

@@ -63,7 +63,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Autocomplete',
     description:
-      'Autocomplete gives suggestions while the user is typing. When you would have a long drop-down list and have to scroll a lot, you can use autocomplete to filter down the options. The suggestions are intended to help the user in finding a value, but it is not mandatory for the value to be selected from that list.',
+      'Autocomplete gives filtered suggestions when the user starts to type. Use it when there are too many options, and it is not helpful for the user to see all options at the beginning. Autocomplete guides the user by giving suggestions, but the user doesn’t necessarily have to choose one of the suggestions.',
     docUrl: Pages.Autocomplete,
     absolutePath: '/components/' + Pages.Autocomplete,
     status: DocPageStatus.Done,

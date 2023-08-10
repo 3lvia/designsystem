@@ -1,7 +1,7 @@
 import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
 import React, { forwardRef } from 'react';
 import { AutocompleteItem } from '../elvia-autocomplete.types';
-import { AutocompletePopup } from './styledAutocompleteOverlay';
+import { AutocompletePopup, NoItemsMessage } from './styledAutocompleteOverlay';
 import { AutocompletePopupItem } from '../autocomplete-item/autocompleteItem';
 
 interface AutocompleteOverlayProps {
@@ -35,7 +35,13 @@ export const AutocompleteOverlay = forwardRef<HTMLDivElement, AutocompleteOverla
   ) => {
     return (
       <Overlay ref={ref} startFade={fadeOut} hasBackdrop={false} onClose={onClose}>
-        <AutocompletePopup aria-labelledby={id} id={popupId} onMouseLeave={() => setFocusedItem(undefined)}>
+        <AutocompletePopup
+          aria-labelledby={id}
+          id={popupId}
+          onMouseDown={(e) => e.preventDefault()}
+          onMouseLeave={() => setFocusedItem(undefined)}
+        >
+          {!filteredItems.length && <NoItemsMessage $size={size}>{'Ingen forslag.'}</NoItemsMessage>}
           {filteredItems.map((item) => (
             <AutocompletePopupItem
               item={item}

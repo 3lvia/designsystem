@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AutocompleteProps } from '@elvia/elvis-autocomplete/react';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { data } from './autocomplete-items-data';
 
 @Component({
   selector: 'app-autocomplete-ceg',
@@ -8,6 +9,9 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   providers: [{ provide: ComponentExample, useExisting: AutocompleteCegComponent }],
 })
 export class AutocompleteCegComponent implements ComponentExample {
+  data = data;
+  autocompleteItems = this.getAutoCompleteItems();
+
   elementName = 'autocomplete';
   cegContent = new CegControlManager<AutocompleteProps>([
     {
@@ -42,13 +46,7 @@ export class AutocompleteCegComponent implements ComponentExample {
         },
       },
       staticProps: {
-        items: [
-          { value: 'Danmark', label: 'Danmark' },
-          { value: 'Finland', label: 'Finland' },
-          { value: 'Island', label: 'Island' },
-          { value: 'Norge', label: 'Norge' },
-          { value: 'Sverige', label: 'Sverige' },
-        ],
+        items: this.autocompleteItems,
         placeholder: 'Placeholder text...',
         valueOnChange: () => '',
       },
@@ -62,5 +60,17 @@ export class AutocompleteCegComponent implements ComponentExample {
 
   handleOnSelectItem(value: string): void {
     console.log('Autocomplete onSelectItem:', value);
+  }
+
+  getAutoCompleteItems(): { value: string; label: string }[] {
+    return this.data.map((item) => {
+      const postal = `${item.zipCode.padStart(4, '0')} ${
+        item.city.charAt(0).toUpperCase() + item.city.slice(1)
+      }`;
+      return {
+        value: postal,
+        label: postal,
+      };
+    });
   }
 }
