@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<main class="e-pb-104" [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
+<main class="e-pb-80" [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
   <ng-container *ngIf="currentRoute !== 'pageWithSidenav'; else pageWithSidenav">
     <router-outlet></router-outlet>
   </ng-container>
