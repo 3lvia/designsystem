@@ -220,7 +220,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
           <FormFieldInput
             aria-autocomplete="list"
             aria-controls={popupId}
-            aria-expanded={isShowing && filteredItems.length > 0}
+            aria-expanded={isShowing && !valueIsEqualOnlyItem}
             aria-haspopup="listbox"
             aria-label={ariaLabel}
             aria-activedescendant={

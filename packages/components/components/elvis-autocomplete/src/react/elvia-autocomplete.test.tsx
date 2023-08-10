@@ -2,7 +2,7 @@ import React from 'react';
 import Autocomplete from './elvia-autocomplete';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import { AutocompleteItem } from './elvia-autocomplete.types';
 
 const items: AutocompleteItem[] = [
@@ -98,18 +98,31 @@ describe('Elvis Autocomplete', () => {
       expect(input).toHaveValue('Vannmelon');
     });
 
-    it('should not show a popover when the user starts typing and there are no suggestion to give', async () => {
+    it('should show a "no suggestions" popover when the user starts typing and there are no suggestion to give', async () => {
       const user = userEvent.setup();
       const input = screen.getByRole('combobox');
 
       await user.type(input, 'zzz');
 
       const popover = screen.queryByRole('listbox');
-      expect(popover).not.toBeInTheDocument();
-      expect(input).toHaveAttribute('aria-expanded', 'false');
+      expect(popover).toBeInTheDocument();
+      expect(input).toHaveAttribute('aria-expanded', 'true');
+
+      const noSuggestionsText = within(popover as HTMLElement).queryByText(/ingen forslag/i);
+      expect(noSuggestionsText).toBeInTheDocument();
 
       const listItems = screen.queryAllByRole('option');
-      expect(listItems).toHaveLength(0); //no fruit includes 'zzz'
+      expect(listItems).toHaveLength(0);
+    });
+
+    it('it should not show a suggestion if the input is equal the only suggestion', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('combobox');
+
+      await user.type(input, 'eple');
+
+      const popover = screen.queryByRole('listbox');
+      expect(popover).not.toBeInTheDocument();
     });
   });
 

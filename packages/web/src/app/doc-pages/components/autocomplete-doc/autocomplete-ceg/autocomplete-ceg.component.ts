@@ -42,7 +42,7 @@ export class AutocompleteCegComponent implements ComponentExample {
           group: 'Label',
           type: 'text',
           label: 'Label',
-          value: 'Nordiske land',
+          value: 'Postnummer og sted',
         },
       },
       staticProps: {
