@@ -68,6 +68,15 @@
 
 .page-content {
   overflow: auto;
+  /**
+  * This is an ugly hack that is needed to add
+  * a safe zone around the content to prevent clipping
+  * due to overflow: auto. We need auto overflow to prevent
+  * e.g. CEGs or other wide content to respect the width of the
+  * page.
+  ***/
+  margin: -3px;
+  padding: 3px;
 
   @include breakpoints.breakpoint-up(Tablet) {
     grid-column: 1 / -1;
