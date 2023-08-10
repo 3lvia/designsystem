@@ -39,7 +39,7 @@ export class AutocompleteFilterCegComponent implements StaticComponentExample {
                   value: drink.strDrink,
                   label: drink.strDrink,
                 }))
-                .slice(0, 6)
+                .slice(0, 9)
             : [];
         },
         error: (error) => {
@@ -58,6 +58,7 @@ export class AutocompleteFilterCegComponent implements StaticComponentExample {
 
   handleValueOnChange(value: string): void {
     this.valueChangesSubject.next(value);
+    console.log('Autocomplete value:', value);
   }
 
   handleOnSelectItem(value: string): void {

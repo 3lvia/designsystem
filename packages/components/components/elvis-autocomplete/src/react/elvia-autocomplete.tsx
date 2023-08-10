@@ -156,7 +156,6 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   const handleOnBlur = () => {
     setFadeOut(true);
     setFocusedItem(undefined);
-    setIsShowing(false);
     validateInputValue(currentValue);
   };
 
@@ -195,7 +194,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     if (isShowing) {
       updatePreferredPosition();
     }
-  }, [filteredItems]);
+  }, [filteredItems, valueIsEqualOnlyItem]);
 
   return (
     <>

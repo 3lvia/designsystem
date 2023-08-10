@@ -36,6 +36,7 @@ export const AutocompleteOverlay = forwardRef<HTMLDivElement, AutocompleteOverla
     return (
       <Overlay ref={ref} startFade={fadeOut} hasBackdrop={false} onClose={onClose}>
         <AutocompletePopup
+          $size={size}
           aria-labelledby={id}
           id={popupId}
           onMouseDown={(e) => e.preventDefault()}

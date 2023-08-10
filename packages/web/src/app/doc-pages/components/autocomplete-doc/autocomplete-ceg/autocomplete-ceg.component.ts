@@ -47,7 +47,7 @@ export class AutocompleteCegComponent implements ComponentExample {
       },
       staticProps: {
         items: this.autocompleteItems,
-        placeholder: 'Placeholder text...',
+        placeholder: 'Et postnummer...',
         valueOnChange: () => '',
       },
       groupOrder: ['Size', 'Options', 'State', 'Label'],
@@ -63,14 +63,16 @@ export class AutocompleteCegComponent implements ComponentExample {
   }
 
   getAutoCompleteItems(): { value: string; label: string }[] {
-    return this.data.map((item) => {
-      const postal = `${item.zipCode.padStart(4, '0')} ${
-        item.city.charAt(0).toUpperCase() + item.city.slice(1)
-      }`;
-      return {
-        value: postal,
-        label: postal,
-      };
-    });
+    return this.data
+      .map((item) => {
+        const postal = `${item.zipCode.padStart(4, '0')} ${
+          item.city.charAt(0).toUpperCase() + item.city.slice(1)
+        }`;
+        return {
+          value: postal,
+          label: postal,
+        };
+      })
+      .sort((a, b) => a.label.localeCompare(b.label));
   }
 }
