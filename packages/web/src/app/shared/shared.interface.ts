@@ -1,3 +1,4 @@
+import data from '@elvia/elvis/.internal/classlist.json';
 export interface NavbarAnchor {
   title: string;
   top: number;
@@ -19,4 +20,5 @@ export interface DocPage {
   status?: string;
   type?: string;
   searchTerms?: string[];
+  elvisClassName?: keyof typeof data.block;
 }

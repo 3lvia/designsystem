@@ -103,6 +103,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=0%3A1',
     type: 'Component',
     searchTerms: ['cta', 'call to action', 'click'],
+    elvisClassName: 'e-btn',
   },
   {
     title: 'Breadcrumb',
@@ -212,6 +213,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1811%3A1080',
     type: 'Component',
     searchTerms: ['file', 'upload'],
+    elvisClassName: 'e-dragdrop',
   },
   {
     title: 'Divider',
@@ -243,6 +245,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
     type: 'Component',
     searchTerms: ['file', 'upload'],
+    elvisClassName: 'e-fileupload',
   },
   {
     title: 'Header',
@@ -381,6 +384,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A517',
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'toggle'],
+    elvisClassName: 'e-radio',
   },
   {
     title: 'Radio Filter',

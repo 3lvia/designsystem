@@ -23,15 +23,9 @@ export class ComponentDocumentationComponent implements OnInit {
       this.figmaUrl = getComponent(this.elvisTitle)?.figmaUrl;
       this.description = getComponent(this.elvisTitle)?.description;
       this.title = getComponent(this.elvisTitle)?.title;
-      this.elvisClassName = ('e-' + this.elvisTitle) as keyof typeof data.block;
-      if (this.elvisTitle === 'button') {
-        this.elvisClassName = 'e-btn';
-      } else if (this.elvisTitle === 'file-upload') {
-        this.elvisClassName = 'e-fileupload';
-      } else if (this.elvisTitle === 'drag-and-drop') {
-        this.elvisClassName = 'e-dragdrop';
-      } else if (this.elvisTitle === 'radiobutton') {
-        this.elvisClassName = 'e-radio';
+      this.elvisClassName = getComponent(this.elvisTitle)?.elvisClassName;
+      if (!this.elvisClassName) {
+        this.elvisClassName = ('e-' + this.elvisTitle) as keyof typeof data.block;
       }
     } else if (!this.isElvis && this.componentData) {
       this.figmaUrl = getComponent(
