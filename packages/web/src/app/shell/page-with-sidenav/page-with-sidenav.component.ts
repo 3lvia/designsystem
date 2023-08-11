@@ -30,6 +30,5 @@ export class PageWithSidenavComponent {
   private setCurrentRoute(url: string): void {
     this.currentRoute = url.split('/')[1];
     this.backBtn = this.currentRoute.replace('-', ' ');
-    console.log(this.currentRoute);
   }
 }

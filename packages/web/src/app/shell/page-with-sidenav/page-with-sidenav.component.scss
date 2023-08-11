@@ -16,20 +16,12 @@
   }
 }
 
-.mobile-and-tablet-only {
-  display: none;
-
-  @include breakpoints.breakpoint-up(Tablet) {
-    display: flex;
-  }
-}
-
 .page-container {
   display: grid;
-  margin: 0 128px;
+  margin: 0 104px;
   padding-right: min(80px, 4vw); // This shifts the content to the right to make it feel more centered
-  grid-template-columns: 250px 1fr;
-  gap: 32px;
+  grid-template-columns: min(250px, 22%) minmax(0, 1fr); // minmax(0, 1fr) prevents CEGs from overflowing
+  gap: min(64px, 4%);
 
   @include breakpoints.breakpoint-up(Tablet) {
     grid-template-columns: 1fr;
@@ -52,32 +44,7 @@
   }
 }
 
-.hide-up-to-tablet {
-  @include breakpoints.breakpoint-up(Tablet) {
-    display: none;
-  }
-}
-
-.tablet-and-mobile-only {
-  display: none;
-
-  @include breakpoints.breakpoint-up(Tablet) {
-    display: block;
-  }
-}
-
 .page-content {
-  overflow: auto;
-  /**
-  * This is an ugly hack that is needed to add
-  * a safe zone around the content to prevent clipping
-  * due to overflow: auto. We need auto overflow to prevent
-  * e.g. CEGs or other wide content to respect the width of the
-  * page.
-  ***/
-  margin: -3px;
-  padding: 3px;
-
   @include breakpoints.breakpoint-up(Tablet) {
     grid-column: 1 / -1;
   }

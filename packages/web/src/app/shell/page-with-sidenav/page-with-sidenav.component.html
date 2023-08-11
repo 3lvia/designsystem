@@ -1,9 +1,9 @@
 <div class="page-container">
-  <app-navbar class="hide-up-to-tablet" />
+  <app-navbar class="e-none-sm e-none-md" />
 
   <div class="page-content">
     <div class="page-content-header page-body" *ngIf="!isLandingPage">
-      <a class="mobile-and-tablet-only e-link e-link--sm" [routerLink]="'/' + currentRoute">
+      <a class="e-none-lg e-none-xl e-link e-link--sm" [routerLink]="'/' + currentRoute">
         <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold" aria-hidden="true"></i></span>
         <span class="e-link__title">{{ backBtn | titlecase }}</span>
       </a>
@@ -11,7 +11,7 @@
     </div>
 
     <ng-content />
-    <app-navbar class="mobile-and-tablet-only" *ngIf="isLandingPage" />
+    <app-navbar class="e-none-lg e-none-xl" *ngIf="isLandingPage" />
 
     <app-feedback *ngIf="!isLandingPage" />
   </div>
