@@ -47,7 +47,7 @@ export class AutocompleteCegComponent implements ComponentExample {
       },
       staticProps: {
         items: this.autocompleteItems,
-        placeholder: 'Et postnummer...',
+        placeholder: 'Ditt postnummer...',
         valueOnChange: () => '',
       },
       groupOrder: ['Size', 'Options', 'State', 'Label'],
