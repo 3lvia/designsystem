@@ -20,7 +20,9 @@
   display: grid;
   margin: 0 104px;
   padding-right: min(80px, 4vw); // This shifts the content to the right to make it feel more centered
-  grid-template-columns: min(250px, 22%) minmax(0, 1fr); // minmax(0, 1fr) prevents CEGs from overflowing
+
+  // minmax(0, 1fr) prevents CEGs from overflowing: https://css-tricks.com/preventing-a-grid-blowout/
+  grid-template-columns: min(250px, 22%) minmax(0, 1fr);
   gap: min(64px, 4%);
 
   @include breakpoints.breakpoint-up(Tablet) {
