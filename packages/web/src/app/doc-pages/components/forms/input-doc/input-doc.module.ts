@@ -1,15 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
-import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
-import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
-import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
-import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
-import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { InputDocComponent } from './input-doc.component';
-import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
-import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { InputCegComponent } from './input-ceg/input-ceg.component';
 import { InputTypeNormalCegComponent } from './input-type-normal-ceg/input-type-normal-ceg.component';
 import { InputTypeCombinedInlinedCegComponent } from './input-type-combined-inlined-ceg/input-type-combined-inlined-ceg.component';
@@ -42,18 +32,6 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     InputSizeCompactCegComponent,
     InputValidationCegComponent,
   ],
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    CegModule,
-    ComponentPropertiesModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    ComponentSubsubsectionModule,
-    WhenToUseModule,
-    RouterModule,
-    ComponentChangelogModule,
-    SharedDocumentationModule,
-  ],
+  imports: [SharedDocumentationModule],
 })
 export class InputDocModule {}

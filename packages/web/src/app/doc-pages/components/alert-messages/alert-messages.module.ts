@@ -1,15 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AlertMessagesComponent } from './alert-messages.component';
-import { ComponentChangelogModule } from '../../../shared/component-documentation/component-changelog/component-changelog.module';
-import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
-import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
-import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
-import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
-import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
-import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { AlertCegComponent } from './alert-ceg/alert-ceg.component';
-import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { AlertGlobalCegComponent } from './alert-global-ceg/alert-global-ceg.component';
 import { AlertGlobalClosableCegComponent } from './alert-global-closable-ceg/alert-global-closable-ceg.component';
 import { AlertGlobalExpandableCegComponent } from './alert-global-expandable-ceg/alert-global-expandable-ceg.component';
@@ -37,17 +28,6 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     AlertRoleStatusCegComponent,
     AlertRoleNoteCegComponent,
   ],
-  imports: [
-    CommonModule,
-    CegModule,
-    ComponentHeaderModule,
-    ComponentPropertiesModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    ComponentSubsubsectionModule,
-    WhenToUseModule,
-    ComponentChangelogModule,
-    SharedDocumentationModule,
-  ],
+  imports: [SharedDocumentationModule],
 })
 export class AlertMessagesModule {}

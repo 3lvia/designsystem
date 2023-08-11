@@ -1,14 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
-import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
-import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
-import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
-import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { SearchDocComponent } from './search-doc.component';
-import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
-import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { SearchCegComponent } from './search-ceg/search-ceg.component';
 import { SearchInstantCegComponent } from './search-instant-ceg/search-instant-ceg.component';
 import { SearchInstantSearchedCegComponent } from './search-instant-searched-ceg/search-instant-searched-ceg.component';
@@ -31,17 +22,6 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     SearchSizeNormalCegComponent,
     SearchSizeCompactCegComponent,
   ],
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    CegModule,
-    ComponentPropertiesModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    WhenToUseModule,
-    RouterModule,
-    ComponentChangelogModule,
-    SharedDocumentationModule,
-  ],
+  imports: [SharedDocumentationModule],
 })
 export class SearchDocModule {}
