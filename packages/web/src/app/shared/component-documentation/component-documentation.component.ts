@@ -9,7 +9,7 @@ import { DocPageName } from '../shared.enum';
   templateUrl: './component-documentation.component.html',
 })
 export class ComponentDocumentationComponent implements OnInit {
-  @Input() docUrl: DocPageName;
+  @Input({ required: true }) docUrl: DocPageName;
   @Input({ transform: booleanAttribute }) isElvis = false;
   @Input() componentData: ComponentData | undefined;
 
