@@ -2,7 +2,7 @@ import React from 'react';
 import Autocomplete from './elvia-autocomplete';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen, waitFor, within } from '@testing-library/react';
+import { render, screen, waitFor, waitForElementToBeRemoved, within } from '@testing-library/react';
 import { AutocompleteItem } from './elvia-autocomplete.types';
 
 const items: AutocompleteItem[] = [
@@ -93,9 +93,10 @@ describe('Elvis Autocomplete', () => {
       await user.type(input, '{arrowdown}');
       await user.type(input, '{arrowdown}');
       await user.type(input, '{arrowdown}');
+      await user.type(input, '{arrowup}');
       await user.type(input, '{enter}');
 
-      expect(input).toHaveValue('Vannmelon');
+      expect(input).toHaveValue('Banan');
     });
 
     it('should show a "no suggestions" popover when the user starts typing and there are no suggestion to give', async () => {
@@ -115,7 +116,7 @@ describe('Elvis Autocomplete', () => {
       expect(listItems).toHaveLength(0);
     });
 
-    it('it should not show a suggestion if the input is equal the only suggestion', async () => {
+    it('should _not_ show a suggestion if the input is equal the only suggestion', async () => {
       const user = userEvent.setup();
       const input = screen.getByRole('combobox');
 
@@ -123,6 +124,45 @@ describe('Elvis Autocomplete', () => {
 
       const popover = screen.queryByRole('listbox');
       expect(popover).not.toBeInTheDocument();
+    });
+
+    it('should _not_ show a suggestion if the user starts typing and then deletes it again', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('combobox');
+
+      await user.type(input, 'a');
+      await user.type(input, '{backspace}');
+
+      const popover = screen.queryByRole('listbox');
+
+      await waitForElementToBeRemoved(popover);
+    });
+
+    it('should close the popup if the user clicks outside from the component', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('combobox');
+
+      await user.type(input, 'a');
+
+      const popover = screen.queryByRole('listbox');
+      expect(popover).toBeInTheDocument();
+
+      await user.click(document.body);
+
+      await waitForElementToBeRemoved(popover);
+    });
+
+    it('should open the popup if the input has a value beforehand and the user focuses the input', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('combobox');
+
+      await user.type(input, 'a');
+      await user.click(document.body);
+      await waitForElementToBeRemoved(screen.queryByRole('listbox'));
+
+      await user.click(input);
+      const popover = screen.queryByRole('listbox');
+      expect(popover).toBeInTheDocument();
     });
   });
 
@@ -280,6 +320,18 @@ describe('Elvis Autocomplete', () => {
 
       //required error
       expect(errorOnChangeEvent).toHaveBeenCalled();
+    });
+  });
+
+  describe('should pass className and inlineStyle to the wrapper', () => {
+    beforeEach(() => {
+      render(<Autocomplete items={items} className="test-class" inlineStyle={{ margin: '24px' }} />);
+    });
+
+    it('should have className and inlineStyle', () => {
+      const autocomplete = screen.getByTestId('autocomplete-wrapper');
+      expect(autocomplete).toHaveStyle('margin: 24px');
+      expect(autocomplete).toHaveClass('test-class');
     });
   });
 

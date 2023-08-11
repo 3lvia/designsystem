@@ -202,6 +202,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
         {getStatusForScreenReader(currentValue ? filteredItems.length : 0)}
       </VisuallyHidden>
       <FormFieldContainer
+        data-testid="autocomplete-wrapper"
         className={className}
         hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
         isDisabled={isDisabled}
