@@ -3,7 +3,7 @@ import ComponentData from '../component-data.interface';
 
 export const progressbarData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'Progressbar',
+  name: 'ProgressLinear',
   attributes: {
     value: {
       isRequired: false,

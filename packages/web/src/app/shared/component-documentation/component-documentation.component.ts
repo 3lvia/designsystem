@@ -9,9 +9,9 @@ import { DocPageName } from '../shared.enum';
   templateUrl: './component-documentation.component.html',
 })
 export class ComponentDocumentationComponent implements OnInit {
+  @Input() docUrl: DocPageName;
   @Input({ transform: booleanAttribute }) isElvis = false;
   @Input() componentData: ComponentData | undefined;
-  @Input() elvisTitle: DocPageName | undefined;
 
   title: string | undefined;
   description: string | undefined;
@@ -19,24 +19,14 @@ export class ComponentDocumentationComponent implements OnInit {
   elvisClassName: keyof typeof data.block | undefined;
 
   ngOnInit() {
-    if (this.isElvis && this.elvisTitle) {
-      this.figmaUrl = getComponent(this.elvisTitle)?.figmaUrl;
-      this.description = getComponent(this.elvisTitle)?.description;
-      this.title = getComponent(this.elvisTitle)?.title;
-      this.elvisClassName = getComponent(this.elvisTitle)?.elvisClassName;
+    this.title = getComponent(this.docUrl)?.title;
+    this.description = getComponent(this.docUrl)?.description;
+    this.figmaUrl = getComponent(this.docUrl)?.figmaUrl;
+    if (this.isElvis) {
+      this.elvisClassName = getComponent(this.docUrl)?.elvisClassName;
       if (!this.elvisClassName) {
-        this.elvisClassName = ('e-' + this.elvisTitle) as keyof typeof data.block;
+        this.elvisClassName = ('e-' + this.docUrl) as keyof typeof data.block;
       }
-    } else if (!this.isElvis && this.componentData) {
-      this.figmaUrl = getComponent(
-        this.componentData.name.split(' ').join('-').toLowerCase() as DocPageName,
-      )?.figmaUrl;
-      this.description = getComponent(
-        this.componentData.name.split(' ').join('-').toLowerCase() as DocPageName,
-      )?.description;
-      this.title = getComponent(
-        this.componentData.name.split(' ').join('-').toLowerCase() as DocPageName,
-      )?.title;
     }
   }
 }

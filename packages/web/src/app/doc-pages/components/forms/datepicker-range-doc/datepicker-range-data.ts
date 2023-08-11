@@ -3,7 +3,7 @@ import ComponentData from '../../component-data.interface';
 
 const datepickerRangeData: ComponentData = {
   changelog: changelogJson.content,
-  name: 'Datepicker Range',
+  name: 'DatepickerRange',
   attributes: {
     value: {
       isRequired: false,
