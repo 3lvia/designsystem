@@ -5,6 +5,7 @@ import { CMSNavbarItem } from '../../core/services/cms/cms.interface';
 import { CMSService } from '../../core/services/cms/cms.service';
 import { Locale, LocalizationService } from '../../core/services/localization.service';
 import { RouterService } from '../../core/services/router.service';
+import { combineLatest, startWith } from 'rxjs';
 
 /**
  * This class serves to reduce code duplication that is shared between the
@@ -25,15 +26,17 @@ export class NavbarBase {
     private routerService: RouterService,
   ) {
     this.currentLandingPage = routerService.getCurrentUrlPath().split('/')[1];
-    this.listenForLocaleChanges();
+    this.getNavItemsOnLocaleOrUrlChange();
     this.listenForCurrentLandingPage();
   }
 
-  private listenForLocaleChanges(): void {
-    this.localeService
-      .listenLocalization()
+  private getNavItemsOnLocaleOrUrlChange(): void {
+    combineLatest([
+      this.localeService.listenLocalization(),
+      this.routerService.urlPathChange().pipe(startWith(null)),
+    ])
       .pipe(takeUntilDestroyed())
-      .subscribe((locale) => {
+      .subscribe(([locale]) => {
         this.getNavbarList(locale);
       });
   }
