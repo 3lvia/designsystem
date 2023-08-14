@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, Component, HostBinding, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { NavbarAnchor } from 'src/app/shared/shared.interface';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -19,6 +19,7 @@ import { DocPageName } from 'src/app/shared/shared.enum';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
+  @HostBinding('attr.role') readOnly = 'navigation';
   private unsubscriber = new Subject<void>();
   private listenOnScrollSubscription: Subscription;
   private scrollEventTimeout: ReturnType<typeof setTimeout>;

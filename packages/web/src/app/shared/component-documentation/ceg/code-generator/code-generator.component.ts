@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
 
 import { Tab } from './types';
 
@@ -12,7 +12,7 @@ export class CodeGeneratorComponent implements OnInit {
   @Input() angularCode = '';
   @Input() reactCode = '';
   @Input() vueCode = '';
-  @Input() hideReact: boolean;
+  @Input({ transform: booleanAttribute }) hideReact: boolean;
 
   private _typeScriptCode = '';
   @Input()

@@ -24,8 +24,11 @@
     align-items: center;
     border-bottom: 1px solid var(--e-color-border-1);
 
-    &:hover .icons .normal-img {
-      display: block;
+    &:hover,
+    &:focus-within {
+      .icons .normal-img {
+        display: block;
+      }
     }
 
     .icons {
@@ -40,11 +43,13 @@
         padding-right: 12px;
       }
     }
-    &.anchor-copied .icons .green-img {
-      display: block;
-    }
-    &.anchor-copied .icons .normal-img {
-      display: none;
+    &.anchor-copied .icons {
+      .green-img {
+        display: block;
+      }
+      .normal-img {
+        display: none;
+      }
     }
   }
 }

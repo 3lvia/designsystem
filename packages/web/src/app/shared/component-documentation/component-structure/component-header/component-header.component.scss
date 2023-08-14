@@ -5,12 +5,6 @@
   &-header {
     margin-bottom: var(--e-spacing-16);
 
-    .back-link {
-      display: none;
-      @include breakpoints.breakpoint-up(Tablet) {
-        display: flex;
-      }
-    }
     &__title {
       .title-text {
         display: flex;
@@ -42,6 +36,10 @@
       }
     }
   }
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
 
 .anchors {
