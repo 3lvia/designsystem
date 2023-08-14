@@ -1,0 +1,21 @@
+<ul class="scroll-container" [ngClass]="{ 'bottom-gradient': listOverflows }" #scrollContainer>
+  <ng-container *ngIf="navbarList.length; else contentLoader">
+    <ng-container *ngFor="let navbarItem of navbarList; let i = index">
+      <li>
+        <a
+          [routerLink]="currentLandingPage + '/' + navbarItem.docUrl"
+          routerLinkActive="active"
+          class="navbar-item__link"
+        >
+          <div class="navbar-item__link-text e-text-sm-strong">{{ navbarItem.title }}</div>
+        </a>
+        <app-sub-menu class="e-ml-24 e-mt-8" *ngIf="navbarItem.docUrl === activeRoute" />
+      </li>
+      <hr class="divider" *ngIf="navbarItem.isMainPage && !navbarList[i + 1].isMainPage" />
+    </ng-container>
+  </ng-container>
+
+  <ng-template #contentLoader>
+    <span class="e-content-loader content-loader"></span>
+  </ng-template>
+</ul>
