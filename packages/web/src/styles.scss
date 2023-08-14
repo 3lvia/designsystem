@@ -2,7 +2,6 @@
 @use 'prismjs/plugins/toolbar/prism-toolbar';
 @use 'prismjs/themes/prism-okaidia';
 
-@use 'app/shared/shared-sizes' as sizes;
 @use 'app/shared/shared-animations' as animation;
 
 /* Elvia Styleguide */
@@ -19,14 +18,21 @@
   color: var(--e-color-brand-accent--contrast);
 }
 
-body {
-  margin: 0;
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-}
-
 html {
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
 }
 
 a {
@@ -130,16 +136,11 @@ kbd,
     width: 100%;
     padding: 0px;
     max-width: 522px;
-    margin-left: -8px;
     margin-bottom: 20px;
-  }
-  @media (max-width: 414px) {
-    padding-left: 24px;
   }
 }
 
-.components-overview-cards,
-.overview-action-link {
+.components-overview-cards {
   display: grid;
   column-gap: 32px;
   row-gap: 48px;
@@ -153,87 +154,6 @@ kbd,
 
   @include breakpoints.breakpoint-up(Tablet) {
     display: none;
-  }
-}
-
-.overview-page {
-  .illustration-placement {
-    margin: -24px 0;
-    @media (min-width: 1600px) {
-      margin-top: 0px;
-      margin-bottom: 40px;
-    }
-    @include breakpoints.breakpoint-up(MinDesktop) {
-      margin: 0;
-    }
-  }
-  .illustration-container {
-    display: grid;
-    place-items: center;
-
-    @include breakpoints.breakpoint-up(Mobile) {
-      display: none;
-    }
-
-    .content-loader-padding {
-      width: 100%;
-      padding-bottom: 42.363%;
-      position: relative;
-      @include breakpoints.breakpoint-up(MinDesktop) {
-        padding-bottom: 45.863%;
-      }
-    }
-    .illustration {
-      width: 60.5%;
-      transition: width ease-in 250ms;
-
-      @include breakpoints.breakpoint-up(MinDesktop) {
-        width: 65.5%;
-        transition: width ease-in 250ms;
-      }
-    }
-
-    .e-content-loader {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      margin: auto;
-      padding: 56px;
-      padding-top: 72px;
-      @include breakpoints.breakpoint-up(MinDesktop) {
-        padding: 16px;
-        padding-top: 54px;
-      }
-    }
-  }
-  .overview-description {
-    text-align: center;
-    font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 160%;
-    @media (min-width: 1450px) {
-      font-size: 24px;
-      line-height: 160%;
-    }
-    @include breakpoints.breakpoint-up(Tablet) {
-      display: none;
-    }
-  }
-  .phone-overview {
-    display: none;
-    @include breakpoints.breakpoint-up(Tablet) {
-      display: block;
-    }
-  }
-  .desktop-overview {
-    @include breakpoints.breakpoint-up(Tablet) {
-      display: none;
-    }
   }
 }
 
