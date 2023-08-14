@@ -1,4 +1,3 @@
-@use '../../../shared-animations.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .component {
@@ -40,48 +39,4 @@
 
 .no-wrap {
   white-space: nowrap;
-}
-
-.anchors {
-  display: none;
-  margin-top: 40px;
-  padding-left: 16px;
-  border-left: 1px solid var(--e-grey-10);
-
-  .link {
-    @extend %scale-down-ver-top;
-
-    @for $i from 1 through 50 {
-      &:nth-child(#{$i}) {
-        animation-delay: 90ms * $i;
-      }
-    }
-    a {
-      width: 93.5%;
-      cursor: pointer;
-      display: inline-flex;
-      justify-self: flex-start;
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 13px;
-      line-height: 17px;
-      letter-spacing: 0.012em;
-      color: var(--e-grey-70);
-    }
-    .anchor.active-anchor {
-      font-weight: 500;
-      color: var(--e-black);
-      width: 100%;
-    }
-  }
-  .link:not(:last-of-type) {
-    margin-bottom: 12px;
-  }
-}
-
-@include breakpoints.breakpoint-up(Tablet) {
-  .anchors {
-    display: block;
-  }
 }

@@ -1,9 +1,3 @@
-export interface NavbarAnchor {
-  title: string;
-  top: number;
-  height: number;
-}
-
 export interface DocPage {
   title: string;
   titleNo?: string;

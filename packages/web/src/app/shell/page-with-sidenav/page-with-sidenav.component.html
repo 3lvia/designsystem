@@ -1,5 +1,5 @@
 <div class="page-container">
-  <app-navbar class="e-none-sm e-none-md" />
+  <app-desktop-navbar class="e-none-sm e-none-md" />
 
   <div class="page-content">
     <div class="page-content-header page-body" *ngIf="!isLandingPage">
@@ -11,7 +11,7 @@
     </div>
 
     <ng-content />
-    <app-navbar class="e-none-lg e-none-xl" *ngIf="isLandingPage" />
+    <app-mobile-navbar class="e-none-lg e-none-xl" *ngIf="isLandingPage" />
 
     <app-feedback *ngIf="!isLandingPage" />
   </div>

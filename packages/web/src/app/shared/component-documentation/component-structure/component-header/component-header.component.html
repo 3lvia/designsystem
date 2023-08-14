@@ -22,18 +22,7 @@
           <ng-content select="headerDescription"></ng-content>
         </span>
       </div>
-      <div class="anchors e-mb-16" *ngIf="navbarAnchors.length !== 0">
-        <div class="link" *ngFor="let anchor of navbarAnchors">
-          <a
-            (click)="scrollToElement(anchor)"
-            class="anchor"
-            [ngClass]="{ 'active-anchor': isActive(anchor) }"
-            id="navbar-{{ anchor.title }}"
-          >
-            {{ anchor.title }}
-          </a>
-        </div>
-      </div>
+      <app-sub-menu class="e-none-lg e-none-xl e-mt-40 e-mb-16" />
     </div>
   </div>
 </div>

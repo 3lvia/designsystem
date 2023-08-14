@@ -1,1 +1,13 @@
-<p>mobile-navbar works!</p>
+<div class="list-container">
+  <a
+    class="e-link e-link--action e-flex e-justify-content-between e-py-24 bottom-border"
+    *ngFor="let link of navbarList"
+    [routerLink]="currentLandingPage + '/' + link.docUrl"
+  >
+    <span class="e-link__title">{{ link.title }}</span>
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+      <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+    </span>
+  </a>
+</div>

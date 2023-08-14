@@ -1,9 +1,9 @@
 import { Component, NgZone } from '@angular/core';
-import { first, fromEvent } from 'rxjs';
+import { fromEvent, take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Location } from '@angular/common';
-import { ScrollService } from '../../../core/services/scroll.service';
-import { NavbarAnchor } from '../../../shared/shared.interface';
+import { AnchorService } from './anchor.service';
+import { NavbarAnchor } from '../types';
 import { trigger, transition, stagger, animate, style, query } from '@angular/animations';
 
 @Component({
@@ -17,7 +17,7 @@ import { trigger, transition, stagger, animate, style, query } from '@angular/an
           ':enter',
           [
             style({ opacity: 0, translate: '0 -2px' }),
-            stagger(50, [animate('0.2s', style({ opacity: 1, translate: 0 }))]),
+            stagger(70, [animate('0.2s', style({ opacity: 1, translate: 0 }))]),
           ],
           {
             optional: true,
@@ -32,10 +32,10 @@ export class SubMenuComponent {
   currentPage = '';
   activeAnchorPos = 0;
 
-  constructor(private scrollService: ScrollService, zone: NgZone, private location: Location) {
-    zone.onStable.pipe(takeUntilDestroyed(), first()).subscribe(() => {
+  constructor(private anchorService: AnchorService, zone: NgZone, private location: Location) {
+    zone.onStable.pipe(take(1)).subscribe(() => {
       // We reverse the list to find active anchor, searching last to first
-      this.anchors = this.scrollService.getVisibleAnchors()?.slice().reverse() || [];
+      this.anchors = this.anchorService.getVisibleAnchors().slice().reverse() || [];
       this.setActiveAnchorFromUrl(location.path(true));
     });
     this.currentPage = location.path();

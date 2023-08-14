@@ -8,7 +8,7 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { Subject, first, fromEvent, merge, takeUntil } from 'rxjs';
+import { Subject, fromEvent, merge, take, takeUntil } from 'rxjs';
 import { RouterService } from '../../../core/services/router.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Location } from '@angular/common';
@@ -44,9 +44,7 @@ export class DesktopNavbarComponent extends NavbarBase implements OnChanges, Aft
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.items) {
-      this.ngZone.onStable
-        .pipe(takeUntil(this.unsubscriber), first())
-        .subscribe(() => this.setListOverflow());
+      this.ngZone.onStable.pipe(take(1)).subscribe(() => this.setListOverflow());
     }
   }
 

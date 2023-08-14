@@ -6,8 +6,13 @@ import { CMSService } from '../../core/services/cms/cms.service';
 import { Locale, LocalizationService } from '../../core/services/localization.service';
 import { RouterService } from '../../core/services/router.service';
 
+/**
+ * This class serves to reduce code duplication that is shared between the
+ * desktop navbar and the mobile navbar. It is not used as an directive,
+ * but needs to be registered as one to use Angular features. This is why
+ * the eslint rule for directive names is disabled for this class.
+ */
 @Directive({ selector: '[appNavbarBase]' })
-// Since this class is not used as an actual directive, the name has been simplified
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class NavbarBase {
   @HostBinding('attr.role') readOnly = 'navigation';
