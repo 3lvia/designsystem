@@ -352,6 +352,9 @@ $pageIndentedMargin: 72px;
 
   .error-message-title {
     margin-top: 62px;
+    .accent-dot {
+      color: var(--e-color-brand-accent);
+    }
   }
 
   .error-message {

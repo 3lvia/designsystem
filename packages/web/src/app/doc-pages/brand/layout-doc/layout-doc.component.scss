@@ -85,6 +85,17 @@
       justify-content: center;
       margin-right: 16px;
       @include typography.typography('title-caps');
+      &.gutter-color {
+        background: var(--e-color-data-3);
+        color: var(--e-color-data-3--contrast);
+      }
+      &.margin-color {
+        background: var(--e-color-data-5);
+        color: var(--e-color-data-5--contrast);
+      }
+      &.column-color {
+        background: var(--e-light-theme-grey-20);
+      }
     }
   }
 }
