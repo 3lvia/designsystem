@@ -14,6 +14,9 @@ import {
 } from 'contentful/types';
 import { CMSMenu, CMSNavbarItem, CMSSubMenu, TransformedDocPage } from './cms.interface';
 import { extractLocale } from './extractLocale';
+import { ThemeService } from '../theme.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Injectable({
   providedIn: 'root',
@@ -23,12 +26,21 @@ export class CMSService {
   private entriesToSync: string[] = [];
   private subjectAnchorsNew = new Subject<void>();
   private getMenuCache = new Map<Locale, CMSMenu>();
+  private currentTheme: ThemeName = 'light';
 
   constructor(
     private http: HttpClient,
     private cmsTransformService: CMSTransformService,
     private router: Router,
-  ) {}
+    private themeService: ThemeService,
+  ) {
+    this.themeService
+      .listenTheme()
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme) => {
+        this.currentTheme = theme;
+      });
+  }
 
   listenContentLoadedFromCMS(): Observable<void> {
     return this.subjectAnchorsNew.asObservable();
@@ -178,13 +190,17 @@ export class CMSService {
     const overviewPageWithCards = await this.getEntry('3qbgNHF6InuWMxO1jdc9BR');
 
     const cards = extractLocale(overviewPageWithCards.fields.overviewCard);
+    console.log(cards);
     if (!cards) {
       throw new Error('Cannot find overview page cards.');
     }
 
     return cards.reduce((res, card) => {
       const title = extractLocale(card.fields.title) ?? '';
-      const url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
+      let url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
+      if (this.currentTheme === 'dark' && card.fields.pageIconDarkTheme) {
+        url = `https:${extractLocale(extractLocale(card.fields.pageIconDarkTheme)!.fields.file)?.url}`;
+      }
       res[title.toLowerCase()] = url;
       return res;
     }, {} as Record<string, string>);

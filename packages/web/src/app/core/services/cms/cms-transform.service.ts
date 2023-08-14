@@ -19,6 +19,9 @@ import {
 import { CMSSubMenu, TransformedDocPage } from './cms.interface';
 import { CMSTransformErrorsService } from './cms-transform-errors.service';
 import { extractLocale } from './extractLocale';
+import { ThemeService } from '../theme.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeName } from '@elvia/elvis-colors';
 
 /**
  * This class transforms an entry from Contentful to an object containing all the needed information to be shown on design.elvia.io by the Angular cms-page.component.
@@ -32,6 +35,7 @@ import { extractLocale } from './extractLocale';
 })
 export class CMSTransformService {
   private locale: LOCALE_CODE = 'en-GB'; // Fallback
+  private currentTheme: ThemeName = 'light';
   private subMenu: CMSSubMenu[];
   private options: Options = {
     renderMark: {
@@ -56,7 +60,18 @@ export class CMSTransformService {
   private extractLocale = <T extends Parameters<typeof extractLocale>[0]>(data: T) =>
     extractLocale(data, this.locale);
 
-  constructor(private router: Router, private cmsTransformErrorsService: CMSTransformErrorsService) {}
+  constructor(
+    private router: Router,
+    private cmsTransformErrorsService: CMSTransformErrorsService,
+    private themeService: ThemeService,
+  ) {
+    this.themeService
+      .listenTheme()
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme) => {
+        this.currentTheme = theme;
+      });
+  }
 
   /**
    * Transforms a documentation page entry from Contentful to an object containing all the needed information to be shown on design.elvia.io by the Angular cms-page.component.
@@ -661,8 +676,12 @@ export class CMSTransformService {
           `The card "${card.fields.title}" is missing page URL reference.`,
         );
       }
-      const iconUrl =
+      let iconUrl =
         'https:' + this.extractLocale(this.extractLocale(card.fields.pageIcon!)!.fields.file)?.url;
+      if (this.currentTheme === 'dark' && card.fields.pageIconDarkTheme) {
+        iconUrl =
+          'https:' + this.extractLocale(this.extractLocale(card.fields.pageIconDarkTheme!)!.fields.file)?.url;
+      }
       const cardTitle = this.extractLocale(card.fields.title);
       returnString += `<div>
       <a href="${fullPath}">
