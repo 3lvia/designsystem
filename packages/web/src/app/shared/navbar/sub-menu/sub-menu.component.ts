@@ -53,7 +53,6 @@ export class SubMenuComponent {
       .subscribe(() => {
         // We reverse the list to find active anchor, searching last to first
         this.anchors = anchorService.getVisibleAnchors().slice().reverse() || [];
-        console.log(this.anchors);
         this.setActiveAnchorFromUrl(location.path(true));
       });
     this.currentPage = location.path();
