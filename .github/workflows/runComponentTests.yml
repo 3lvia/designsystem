@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'packages/components/components/**'
+      - 'yarn.lock'
 jobs:
   runComponentTests:
     runs-on: ubuntu-latest
