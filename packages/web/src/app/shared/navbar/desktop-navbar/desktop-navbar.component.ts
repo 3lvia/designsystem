@@ -6,11 +6,13 @@ import { Location } from '@angular/common';
 import { NavbarBase } from '../navbar-base';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
+import { FlexibleFullHeightDirective } from './flexible-full-height.directive';
 
 @Component({
   selector: 'app-desktop-navbar',
   templateUrl: './desktop-navbar.component.html',
   styleUrls: ['./desktop-navbar.component.scss'],
+  hostDirectives: [FlexibleFullHeightDirective],
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit, OnDestroy {
   private unsubscriber = new Subject<void>();
