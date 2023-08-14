@@ -2,7 +2,7 @@
   --offset-top: 128px;
   --offset-bottom: 32px;
   display: flex;
-  height: calc(100dvh - var(--offset-top) - var(--offset-bottom));
+  max-height: calc(100dvh - var(--offset-top) - var(--offset-bottom));
   position: sticky;
   top: 128px;
 }
@@ -71,14 +71,4 @@
   overflow: hidden;
   line-height: 16px;
   letter-spacing: 0.012em;
-}
-
-.divider {
-  height: 1px;
-  border: none;
-  background-color: var(--e-color-border-2);
-  width: calc(100% - 64px);
-  margin: 0;
-  flex: none;
-  margin-left: 16px;
 }
