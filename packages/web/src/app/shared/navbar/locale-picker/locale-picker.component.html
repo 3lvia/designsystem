@@ -1,0 +1,17 @@
+<div class="navbar-locale-toggle-buttons">
+  <button
+    class="e-btn e-btn--tertiary"
+    (click)="setLocale('en-GB')"
+    [ngClass]="{ 'e-btn---active active-locale': selectedLocale === 'en-GB' }"
+  >
+    English
+  </button>
+  <div class="navbar-locale-toggle-divider"></div>
+  <button
+    class="e-btn e-btn--tertiary"
+    (click)="setLocale('nb-NO')"
+    [ngClass]="{ 'e-btn---active active-locale': selectedLocale === 'nb-NO' }"
+  >
+    Norsk
+  </button>
+</div>
