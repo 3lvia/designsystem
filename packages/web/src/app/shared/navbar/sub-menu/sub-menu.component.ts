@@ -69,7 +69,7 @@ export class SubMenuComponent {
 
     if (fragment) {
       this.activeAnchorPos =
-        this.anchors.find((a) => a.title.toLowerCase() === fragment.toLowerCase())?.top || 0;
+        this.anchors.find((a) => a.title.toLowerCase() === fragment.toLowerCase())?.top ?? 0;
     }
   }
 

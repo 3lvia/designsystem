@@ -14,13 +14,10 @@ export class AnchorService {
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((localization) => {
-        switch (localization) {
-          case Locale['nb-NO']:
-            this.localizedOverview = 'Oversikt';
-            break;
-          default:
-            this.localizedOverview = 'Overview';
-            break;
+        if (localization === Locale['nb-NO']) {
+          this.localizedOverview = 'Oversikt';
+        } else {
+          this.localizedOverview = 'Overview';
         }
       });
   }
