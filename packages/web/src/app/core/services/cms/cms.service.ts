@@ -190,7 +190,6 @@ export class CMSService {
     const overviewPageWithCards = await this.getEntry('3qbgNHF6InuWMxO1jdc9BR');
 
     const cards = extractLocale(overviewPageWithCards.fields.overviewCard);
-    console.log(cards);
     if (!cards) {
       throw new Error('Cannot find overview page cards.');
     }
