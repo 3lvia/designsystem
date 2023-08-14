@@ -45,6 +45,11 @@ p {
 }
 
 // Shared classes
+.theme-image-padding {
+  background: var(--e-light-theme-white);
+  padding: 16px;
+  border-radius: 8px;
+}
 .component-preview-temp {
   width: 100%;
   display: flex;
