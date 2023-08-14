@@ -37,8 +37,9 @@
 }
 
 .feedback-link {
+  --feedback-inset: 48px;
   position: fixed;
-  inset: 88px 48px auto auto;
+  inset: calc(64px + var(--feedback-inset)) var(--feedback-inset) auto auto;
 
   @include breakpoints.breakpoint-up(Tablet) {
     position: relative;
