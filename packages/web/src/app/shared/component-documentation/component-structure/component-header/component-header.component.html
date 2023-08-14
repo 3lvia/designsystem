@@ -1,11 +1,5 @@
 <div class="component page-body">
   <div class="component-header">
-    <div class="back-link e-mb-24">
-      <a class="e-link e-link--sm" [routerLink]="'/' + [currentRoute]">
-        <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold" aria-hidden="true"></i></span>
-        <span class="e-link__title">{{ backBtn | titlecase }}</span>
-      </a>
-    </div>
     <div class="component-header__title">
       <div class="title-text e-mb-32 e-w-100">
         <h1 class="big-header e-mb-0 e-w-100">
@@ -19,7 +13,7 @@
         <div *ngIf="figmaOnly">
           <label class="e-tag e-tag--orange">Figma only</label>
         </div>
-        <div *ngIf="!figmaOnly && lastUpdated" class="doc-page-heading__date e-text-micro-light">
+        <div *ngIf="!figmaOnly && lastUpdated" class="no-wrap e-text-micro-light">
           Last updated {{ lastUpdated | DocumentationDatePipe }}
         </div>
       </div>

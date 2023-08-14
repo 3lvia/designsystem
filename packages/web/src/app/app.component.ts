@@ -4,17 +4,24 @@ import { RouterService } from './core/services/router.service';
 import { ViewportScroller } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
+type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  currentRoute: PageLayout = 'standalonePage';
+  isLandingPage = false;
+
   constructor(
     private documentEventListenerService: DocumentEventListenerService,
     private routerService: RouterService,
     private viewportScroller: ViewportScroller,
   ) {
     this.enableScrollRestorationOnUrlPathChange();
+    this.listenForCurrentPage();
   }
 
   @HostListener('document:keypress', ['$event'])
@@ -25,6 +32,23 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
     this.handleMode(darkMode.matches);
+  }
+
+  private listenForCurrentPage(): void {
+    this.routerService
+      .urlPathChange()
+      .pipe(takeUntilDestroyed())
+      .subscribe((url) => {
+        this.isLandingPage = !url.split('/')[2];
+
+        if (url === '/not-found') {
+          this.currentRoute = 'notFound';
+        } else if (url === '/' || url === '/home') {
+          this.currentRoute = 'standalonePage';
+        } else {
+          this.currentRoute = 'pageWithSidenav';
+        }
+      });
   }
 
   private enableScrollRestorationOnUrlPathChange(): void {

@@ -23,12 +23,10 @@ export class ComponentHeaderComponent implements AfterViewInit {
   navbarAnchors: NavbarAnchor[] = [];
   activeAnchor: NavbarAnchor;
   currentRoute: string;
-  backBtn: string;
 
   constructor(private scrollService: ScrollService, private router: Router) {
     this.currentRoute = this.router.url.substring(1);
     this.currentRoute = this.currentRoute.substring(0, this.currentRoute.indexOf('/'));
-    this.backBtn = this.currentRoute.replace('-', ' ');
 
     this.scrollService
       .listenAnchorAtCurrPos()
