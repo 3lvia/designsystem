@@ -17,7 +17,7 @@ export class ComponentDocumentationComponent implements OnInit {
   description: string | undefined;
   figmaUrl: string | undefined;
   elvisClassName: keyof typeof data.block | undefined;
-  relatedComponents: string[] | undefined;
+  relatedComponents: DocPageName[] | undefined;
 
   ngOnInit() {
     if (this.isElvis && this.elvisTitle) {

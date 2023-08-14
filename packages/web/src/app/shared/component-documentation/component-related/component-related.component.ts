@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { DocPageName } from '../../shared.enum';
+import { getComponent } from '../../doc-pages';
 
 @Component({
   selector: 'app-component-related',
@@ -7,11 +9,15 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
   styleUrls: ['./component-related.component.scss'],
 })
 export class ComponentRelatedComponent {
-  @Input() relatedComponents: string[];
+  @Input() relatedComponents: DocPageName[];
 
   constructor(private cmsService: CMSService) {
     this.componentIcons = this.cmsService.getComponentIcons();
   }
 
   componentIcons: ReturnType<typeof this.cmsService.getComponentIcons>;
+
+  getComponentTitle = (docUrl: DocPageName) => {
+    return getComponent(docUrl)?.title;
+  };
 }

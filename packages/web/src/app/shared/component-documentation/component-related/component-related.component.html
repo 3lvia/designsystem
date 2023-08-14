@@ -1,12 +1,12 @@
 <div class="related-container" *ngIf="relatedComponents">
   <ng-container *ngFor="let relatedComponent of relatedComponents">
-    <a [routerLink]="'/components/' + relatedComponent | ComponentRelatedNamePipe">
-      <elvia-card [heading]="relatedComponent">
+    <a [routerLink]="'/components/' + relatedComponent">
+      <elvia-card [heading]="getComponentTitle(relatedComponent)">
         <div slot="icon">
           <img
             alt=""
-            *ngIf="(componentIcons | async)?.[relatedComponent | ComponentRelatedNamePipe ]; else noIcon"
-            [src]="(componentIcons | async)?.[relatedComponent | ComponentRelatedNamePipe ]"
+            *ngIf="(componentIcons | async)?.[relatedComponent]; else noIcon"
+            [src]="(componentIcons | async)?.[relatedComponent]"
           />
         </div>
       </elvia-card>

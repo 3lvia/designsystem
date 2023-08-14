@@ -92,7 +92,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Box?node-id=288%3A0',
     type: 'Component',
     searchTerms: ['tile'],
-    relatedComponents: ['Card', 'Popover'],
+    relatedComponents: ['card', 'popover'],
   },
   {
     title: 'Button',
@@ -287,7 +287,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links?node-id=1%3A10',
     type: 'Component',
     searchTerms: ['anchor', 'url', 'href', 'navigate', 'navigation', 'click'],
-    relatedComponents: ['Breadcrumb', 'Card', 'Header'],
+    relatedComponents: ['breadcrumb', 'card', 'header'],
   },
   {
     title: 'List',
