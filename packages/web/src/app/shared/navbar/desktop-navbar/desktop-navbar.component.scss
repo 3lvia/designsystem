@@ -23,7 +23,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 100%;
+
   mask-image: linear-gradient(to top, transparent 5px, black var(--gradient-height));
   mask-position: center;
   mask-size: 100% calc(100% + var(--gradient-height) * 2);

@@ -107,7 +107,7 @@ export class CMSService {
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
-  async getSubMenu(localization: Locale): Promise<CMSSubMenu[]> {
+  private async getSubMenu(localization: Locale): Promise<CMSSubMenu[]> {
     const mainMenu = await this.getMenu(localization);
     return mainMenu.pages;
   }
@@ -115,29 +115,29 @@ export class CMSService {
   async getSubMenuList(localization: Locale): Promise<CMSNavbarItem[]> {
     const mainMenu = await this.getMenu(localization);
     const subMenuRoute = this.router.url.split('/')[1];
-    const subMenuList: CMSNavbarItem[] = [];
-    mainMenu.pages.forEach((element) => {
-      if (element.path === subMenuRoute) {
-        if (element.entry.fields.pages === undefined || element.entry.fields.pages === null) {
-          return;
-        }
-        const localeKey = (Object.keys(element.entry.fields.pages)[localization] ?? 'en-GB') as LOCALE_CODE;
-        const cmsPages = element.entry.fields.pages[localeKey];
-        cmsPages?.forEach((cmsPage) => {
-          const innerLocaleKey = (Object.keys(cmsPage.fields.title)[localization] ?? 'en-GB') as LOCALE_CODE;
-          const navbarItem: CMSNavbarItem = {
-            title: cmsPage.fields.title && extractLocale(cmsPage.fields.title, innerLocaleKey)!,
-            isMainPage: !!(
-              cmsPage.fields.isMainPage && extractLocale(cmsPage.fields.isMainPage, innerLocaleKey)
-            ),
-            docUrl: cmsPage.fields.path && extractLocale(cmsPage.fields.path)!,
-            fullPath: subMenuRoute + extractLocale(cmsPage.fields.path),
-          };
-          subMenuList.push(navbarItem);
-        });
-      }
+    const page = mainMenu.pages.find((page) => page.path === subMenuRoute);
+
+    if (!page || page.entry.fields.pages === undefined || page.entry.fields.pages === null) {
+      return [];
+    }
+
+    const localeKey = (Object.keys(page.entry.fields.pages)[localization] ?? 'en-GB') as LOCALE_CODE;
+    const cmsPages = page.entry.fields.pages[localeKey];
+
+    if (!cmsPages) {
+      return [];
+    }
+
+    return cmsPages?.map((cmsPage) => {
+      const innerLocaleKey = (Object.keys(cmsPage.fields.title)[localization] ?? 'en-GB') as LOCALE_CODE;
+      const navbarItem: CMSNavbarItem = {
+        title: cmsPage.fields.title && extractLocale(cmsPage.fields.title, innerLocaleKey)!,
+        isMainPage: !!(cmsPage.fields.isMainPage && extractLocale(cmsPage.fields.isMainPage, innerLocaleKey)),
+        fullPath: `/${subMenuRoute}/${extractLocale(cmsPage.fields.path)}`,
+      };
+
+      return navbarItem;
     });
-    return subMenuList;
   }
 
   async getMenu(localization: Locale): Promise<CMSMenu> {

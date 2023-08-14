@@ -2,7 +2,7 @@
   <a
     class="e-link e-link--action e-flex e-justify-content-between e-py-24 bottom-border"
     *ngFor="let link of navbarList"
-    [routerLink]="currentLandingPage + '/' + link.docUrl"
+    [routerLink]="link.fullPath"
   >
     <span class="e-link__title">{{ link.title }}</span>
     <span class="e-link__icon">

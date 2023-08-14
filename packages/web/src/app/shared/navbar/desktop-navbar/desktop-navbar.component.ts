@@ -1,27 +1,18 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  NgZone,
-  OnChanges,
-  OnDestroy,
-  SimpleChanges,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { Subject, fromEvent, merge, take, takeUntil } from 'rxjs';
-import { RouterService } from '../../../core/services/router.service';
+import { RouterService } from 'src/app/core/services/router.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Location } from '@angular/common';
 import { NavbarBase } from '../navbar-base';
-import { CMSService } from '../../../core/services/cms/cms.service';
-import { LocalizationService } from '../../../core/services/localization.service';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { LocalizationService } from 'src/app/core/services/localization.service';
 
 @Component({
   selector: 'app-desktop-navbar',
   templateUrl: './desktop-navbar.component.html',
   styleUrls: ['./desktop-navbar.component.scss'],
 })
-export class DesktopNavbarComponent extends NavbarBase implements OnChanges, AfterViewInit, OnDestroy {
+export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit, OnDestroy {
   private unsubscriber = new Subject<void>();
   @ViewChild('scrollContainer') scrollContainer: ElementRef<HTMLDivElement>;
   listOverflows = false;
@@ -35,17 +26,15 @@ export class DesktopNavbarComponent extends NavbarBase implements OnChanges, Aft
     location: Location,
   ) {
     super(cmsService, localeService, routerService);
-    this.setActiveRoute(location.path());
+    this.activeRoute = location.path();
     routerService
       .urlPathChange()
       .pipe(takeUntilDestroyed())
-      .subscribe(() => this.setActiveRoute(location.path()));
-  }
+      .subscribe(() => (this.activeRoute = location.path()));
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.items) {
-      this.ngZone.onStable.pipe(take(1)).subscribe(() => this.setListOverflow());
-    }
+    this.navbarListChange
+      .pipe(takeUntilDestroyed())
+      .subscribe(() => this.ngZone.onStable.pipe(take(1)).subscribe(() => this.setListOverflow()));
   }
 
   ngAfterViewInit(): void {
@@ -57,10 +46,6 @@ export class DesktopNavbarComponent extends NavbarBase implements OnChanges, Aft
   ngOnDestroy(): void {
     this.unsubscriber.next();
     this.unsubscriber.complete();
-  }
-
-  private setActiveRoute(url: string): void {
-    this.activeRoute = url.split('/')[2];
   }
 
   private setListOverflow(): void {
