@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
 import { LinkDocComponent } from './link-doc.component';
 import { LinkCegComponent } from './link-ceg/link-ceg.component';
 import { LinkActionCegComponent } from './link-action-ceg/link-action-ceg.component';
@@ -21,6 +20,6 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     LinkAsBtnCegComponent,
     LinkSizesCegComponent,
   ],
-  imports: [DoDontTextModule, SharedDocumentationModule],
+  imports: [SharedDocumentationModule],
 })
 export class LinkDocModule {}

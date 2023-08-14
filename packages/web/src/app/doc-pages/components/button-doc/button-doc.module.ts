@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { ButtonDocComponent } from './button-doc.component';
-import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
 import { ButtonCegComponent } from './button-ceg/button-ceg.component';
 import { ButtonTypePrimaryCegComponent } from './button-type-primary-ceg/button-type-primary-ceg.component';
 import { ButtonTypeSecondaryCegComponent } from './button-type-secondary-ceg/button-type-secondary-ceg.component';
@@ -13,7 +12,7 @@ import { ButtonLinkCegComponent } from './button-link-ceg/button-link-ceg.compon
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  imports: [DoDontTextModule, SharedDocumentationModule],
+  imports: [SharedDocumentationModule],
   declarations: [
     ButtonDocComponent,
     ButtonCegComponent,

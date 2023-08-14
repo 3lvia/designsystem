@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
 import { tooltipData } from './tooltip-data';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tooltip-doc',
@@ -9,11 +7,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class TooltipDocComponent {
   componentData = tooltipData;
-  title = getComponent('tooltip')?.title;
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
-  }
 
   does = ['Explain the function of an user interactive element.', 'Showing full version of shortened text.'];
   donts = [

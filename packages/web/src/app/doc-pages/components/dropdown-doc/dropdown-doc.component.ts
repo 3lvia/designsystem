@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
 import { dropdownData } from './dropdown-data';
-import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-dropdown-doc',
   templateUrl: './dropdown-doc.component.html',
@@ -9,7 +7,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class DropdownDocComponent {
   componentData = dropdownData;
-  title = getComponent('dropdown')?.title;
   does = [
     'Use dropdowns sparingly - only when the user has 5-15 options and you have limited space to display all options.',
   ];
@@ -17,8 +14,4 @@ export class DropdownDocComponent {
     'Fewer than 5 options (consider radio filter or radio buttons)',
     'More than 15 options (consider autocomplete)',
   ];
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
-  }
 }

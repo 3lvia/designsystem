@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
 import { carouselData } from './carousel-data';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-carousel-doc',
@@ -12,9 +10,4 @@ export class CarouselDocComponent {
   componentData = carouselData;
   does = carouselData.does;
   donts = carouselData.donts;
-  title = getComponent('carousel')?.title;
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
-  }
 }

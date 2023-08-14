@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
 import { tabsData } from './tabs-data';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tabs-doc',
@@ -10,11 +8,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class TabsDocComponent {
   componentData = tabsData;
-  title = getComponent('tabs')?.title;
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
-  }
 
   does = ['If you have sub-sections of a page and can not display everything at once'];
   donts = [
