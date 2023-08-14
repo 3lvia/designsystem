@@ -21,7 +21,7 @@ import { extractLocale } from './extractLocale';
 export class CMSService {
   private entries: Record<string, IEntry> = {};
   private entriesToSync: string[] = [];
-  private subjectAnchorsNew = new Subject<void>();
+  private cmsPageLoaded = new Subject<void>();
   private getMenuCache = new Map<Locale, CMSMenu>();
 
   constructor(
@@ -31,11 +31,11 @@ export class CMSService {
   ) {}
 
   listenContentLoadedFromCMS(): Observable<void> {
-    return this.subjectAnchorsNew.asObservable();
+    return this.cmsPageLoaded.asObservable();
   }
 
   contentLoadedFromCMS(): void {
-    this.subjectAnchorsNew.next();
+    this.cmsPageLoaded.next();
   }
 
   /**
