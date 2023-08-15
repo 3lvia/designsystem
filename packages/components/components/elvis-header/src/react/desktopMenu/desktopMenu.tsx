@@ -79,7 +79,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
               <Username>{username}</Username>
               <Email>{email}</Email>
             </UserGrid>
-            {<ThemePicker onThemeChange={onThemeChange} />}
+            {false && <ThemePicker onThemeChange={onThemeChange} />}
             <MenuHr></MenuHr>
             <Footer>
               <TertiaryButton size="sm" onClick={onSignOutClick}>
