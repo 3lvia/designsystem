@@ -17,7 +17,7 @@ import { Subject, combineLatest, startWith } from 'rxjs';
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class NavbarBase {
   private navbarListChangedSubject = new Subject<void>();
-  @HostBinding('attr.role') readOnly = 'navigation';
+  @HostBinding('attr.role') hostRole = 'navigation';
   navbarList: CMSNavbarItem[] = [];
   navbarListChange = this.navbarListChangedSubject.asObservable();
 

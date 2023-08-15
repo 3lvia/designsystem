@@ -21,16 +21,21 @@ export class FlexibleFullHeightDirective {
   }
 
   constructor() {
-    this.setHostHeightOnScroll();
+    this.setDistanceFromBottom();
+    this.setDistanceFromBottomOnScroll();
   }
 
-  private setHostHeightOnScroll(): void {
+  private setDistanceFromBottomOnScroll(): void {
     fromEvent(window, 'scroll')
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
-        const scrollBottom = document.body.scrollHeight - (window.innerHeight + window.scrollY);
-        const minOffsetBottom = 32;
-        this.distanceFromBottom = `${Math.max(minOffsetBottom, this.footerHeight - scrollBottom)}px`;
+        this.setDistanceFromBottom();
       });
+  }
+
+  private setDistanceFromBottom(): void {
+    const scrollBottom = document.body.scrollHeight - (window.innerHeight + window.scrollY);
+    const minOffsetBottom = 32;
+    this.distanceFromBottom = `${Math.max(minOffsetBottom, this.footerHeight - scrollBottom)}px`;
   }
 }

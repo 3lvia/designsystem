@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, NgZone, OnDestroy, ViewChild } from '@angular/core';
-import { Subject, fromEvent, merge, take, takeUntil } from 'rxjs';
+import { Subject, fromEvent, merge, switchMap, take, takeUntil } from 'rxjs';
 import { RouterService } from 'src/app/core/services/router.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Location } from '@angular/common';
@@ -35,8 +35,11 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit,
       .subscribe(() => (this.activeRoute = location.path()));
 
     this.navbarListChange
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => this.ngZone.onStable.pipe(take(1)).subscribe(() => this.setListOverflow()));
+      .pipe(
+        takeUntilDestroyed(),
+        switchMap(() => this.ngZone.onStable.pipe(take(1))),
+      )
+      .subscribe(() => this.setListOverflow());
   }
 
   ngAfterViewInit(): void {
