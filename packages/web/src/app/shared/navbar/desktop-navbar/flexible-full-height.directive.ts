@@ -17,7 +17,7 @@ export class FlexibleFullHeightDirective {
 
   @HostBinding('style.max-height')
   get maxHeight() {
-    return `calc(100dvh - ${this.offsetTop} - ${this.distanceFromBottom})`;
+    return `calc(100vh - ${this.offsetTop} - ${this.distanceFromBottom})`;
   }
 
   constructor() {
