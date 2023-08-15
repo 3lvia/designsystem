@@ -33,7 +33,6 @@ export class IconDocComponent implements OnInit {
   descriptionNo = getDocPagesNotFromCMS('icon')?.descriptionNo;
   title = getDocPagesNotFromCMS('icon')?.title;
   titleNo = getDocPagesNotFromCMS('icon')?.titleNo;
-  inverted = false;
   private latestIcon = '';
   copied = false;
   locale: LOCALE_CODE = 'en-GB';
@@ -79,10 +78,6 @@ export class IconDocComponent implements OnInit {
       (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
     );
   };
-
-  invert(): void {
-    this.inverted = !this.inverted;
-  }
 
   removeSearch(): void {
     this.term = '';
