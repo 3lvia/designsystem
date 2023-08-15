@@ -5,6 +5,8 @@ import { LOCALE_CODE } from 'contentful/types';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
+import { ThemeService } from '../core/services/theme.service';
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-home',
@@ -24,11 +26,16 @@ export class HomeComponent implements OnInit {
   private currentDate = new Date();
   currentYear = this.currentDate.getFullYear();
   locale: LOCALE_CODE;
+  currentTheme: ThemeName = 'light';
   changelog = changelogJson.content;
 
   isMobileScreenWidth: boolean;
 
-  constructor(localizationService: LocalizationService, private titleService: Title) {
+  constructor(
+    localizationService: LocalizationService,
+    private titleService: Title,
+    private themeService: ThemeService,
+  ) {
     localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
@@ -40,6 +47,12 @@ export class HomeComponent implements OnInit {
           this.overviewTitle = 'Elvia designsystem';
           this.locale = 'nb-NO';
         }
+      });
+    this.themeService
+      .listenTheme()
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme) => {
+        this.currentTheme = theme;
       });
   }
 
