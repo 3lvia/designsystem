@@ -45,7 +45,7 @@ export const useRovingFocus = <T extends HTMLElement>(
 
     return Array.from(
       container.querySelectorAll(
-        'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex=“-1”]',
+        'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex=“-1”])',
       ),
     ).filter((element) => {
       return !element.hasAttribute('disabled') && element.getAttribute('aria-hidden') !== 'true';

@@ -14,6 +14,7 @@ import { CegModule } from './ceg/ceg.module';
 import { RouterModule } from '@angular/router';
 import { ComponentDocumentationComponent } from './component-documentation.component';
 import { DoDontTextModule } from '../do-dont-text/do-dont-text.module';
+import { ComponentRelatedModule } from './component-related/component-related.module';
 
 /**
  * A shared module that includes CommonModule and all modules needed for a Elvis component documentation page.
@@ -28,6 +29,7 @@ import { DoDontTextModule } from '../do-dont-text/do-dont-text.module';
     ComponentPropertiesModule,
     ComponentPropertiesTableModule,
     ComponentSectionModule,
+    ComponentRelatedModule,
   ],
   declarations: [ComponentDocumentationComponent],
   exports: [
@@ -42,6 +44,7 @@ import { DoDontTextModule } from '../do-dont-text/do-dont-text.module';
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
+    ComponentRelatedModule,
     CegModule,
     CopyModule,
     WhenToUseModule,

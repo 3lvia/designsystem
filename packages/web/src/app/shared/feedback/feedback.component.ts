@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RoutesRecognized } from '@angular/router';
+import { ScrollNotifierService } from './scroll-notifier.service';
 
 @Component({
   selector: 'app-feedback',
@@ -9,6 +10,7 @@ import { Router, RoutesRecognized } from '@angular/router';
   styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent {
+  @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;
   webHook = 'https://hooks.slack.com/services/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';
 
   isEmoji = true;
@@ -16,11 +18,19 @@ export class FeedbackComponent {
   isSent = false;
   currentEmoji: string;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private scrollNotifierService: ScrollNotifierService,
+  ) {
     this.router.events.pipe(takeUntilDestroyed()).subscribe((data) => {
       if (data instanceof RoutesRecognized) {
         this.resetFeedback();
       }
+    });
+
+    this.scrollNotifierService.onScroll.pipe(takeUntilDestroyed()).subscribe(() => {
+      this.feedbackContainer.nativeElement.scrollIntoView({ behavior: 'smooth' });
     });
   }
 
