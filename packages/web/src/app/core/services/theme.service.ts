@@ -6,7 +6,7 @@ export { ThemeName as Theme } from '@elvia/elvis-colors';
 
 export type PreferredTheme = Theme | 'system';
 
-const THEME_STORAGE_KEY = 'preferredDesignElviaIoTheme';
+const THEME_STORAGE_KEY = 'elviaHeaderPreferredTheme';
 
 @Injectable({
   providedIn: 'root',
