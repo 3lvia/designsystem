@@ -25,6 +25,32 @@
     </ng-container>
   </app-component-section>
 
+  <!--ACCESSIBILITY-->
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="accessibility-keyboard-navigation">
+            <div>
+              <kbd>ArrowLeft/ArrowRight</kbd>
+              to navigate through the steps.
+            </div>
+            <div>
+              <kbd>Tab</kbd>
+              to navigate to the back/next buttons.
+            </div>
+            <div>
+              <kbd>Space</kbd>
+              or
+              <kbd>Enter</kbd>
+              to select a step or button.
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--CONFIGURATION-->
   <app-component-section configuration sectionTitle="Stepper configuration">
     <ng-container ngProjectAs="sectionContent">
