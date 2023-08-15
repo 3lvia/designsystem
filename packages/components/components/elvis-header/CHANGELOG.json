@@ -6,7 +6,7 @@
       "version": "1.4.2",
       "changelog": [
         {
-          "type": "patch",
+          "type": "bug_fix",
           "changes": ["Local storage theme bug fix"]
         }
       ]
