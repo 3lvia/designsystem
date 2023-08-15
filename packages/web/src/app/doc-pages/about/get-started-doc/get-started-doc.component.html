@@ -94,18 +94,20 @@
                     </app-copy>
                   </li>
                   <li>
-                    <strong class="e-mr-16">Import src/main.scss or elvis.min.css in your stylesheet:</strong>
-                    <app-copy [message]="'@use \'~@elvia/elvis/src/main.scss\';'">
+                    <strong class="e-mr-16">
+                      Import css/elvis.min.css or src/main.scss in your stylesheet:
+                    </strong>
+                    <app-copy [message]="elvisCssImport">
                       <ng-container ngProjectAs="copyContent">
-                        <code class="code-text">@use '~@elvia/elvis/src/main.scss';</code>
+                        <code class="code-text">{{ elvisCssImport }}</code>
                       </ng-container>
                     </app-copy>
                   </li>
                   <li>
                     <strong class="e-mr-16">Import elvis.js from the NPM package in your app:</strong>
-                    <app-copy [message]="bodyScriptMessage">
+                    <app-copy [message]="elvisJsImport">
                       <ng-container ngProjectAs="copyContent">
-                        <code class="code-text">import '@elvia/elvis/elvis.js';</code>
+                        <code class="code-text">{{ elvisJsImport }}</code>
                       </ng-container>
                     </app-copy>
                     <p>

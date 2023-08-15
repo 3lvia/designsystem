@@ -155,7 +155,8 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Checkbox,
     absolutePath: '/components/' + Pages.Checkbox,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A452',
+    figmaUrl:
+      'https://www.figma.com/file/JtShiDWQ0ytG8vdQRpyOES/Checkbox?type=design&node-id=0%3A1&mode=design&t=zafwsYy1PwOe4Eks-1',
     type: 'Component',
     searchTerms: ['tick', 'select', 'option', 'selection', 'multiselect'],
   },
@@ -177,7 +178,8 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.ContextMenu,
     absolutePath: '/components/' + Pages.ContextMenu,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=2191%3A5482',
+    figmaUrl:
+      'https://www.figma.com/file/GIl5R2y3TWNwlyknvgwTZF/Context-menu?type=design&node-id=1%3A8&mode=design&t=WbrogSojhhPTUfBq-1',
     type: 'Component',
     searchTerms: ['menu', 'popup', 'more', 'actions'],
   },
@@ -357,7 +359,8 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Progressbar,
     absolutePath: '/components/' + Pages.Progressbar,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-scroll?node-id=73%3A9',
+    figmaUrl:
+      'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-progressbar?type=design&node-id=1%3A2&mode=design&t=KjDad1dKaKmUmwj4-1',
     type: 'Component',
     searchTerms: [
       'spinner',
@@ -378,7 +381,8 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Radiobutton,
     absolutePath: '/components/' + Pages.Radiobutton,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A517',
+    figmaUrl:
+      'https://www.figma.com/file/Z7TZlvhDrcRDx1bcH441E0/Radio-button?type=design&node-id=0%3A1&mode=design&t=36kEpOhRdqzP1OX3-1',
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'toggle'],
   },
@@ -389,7 +393,8 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.RadioFilter,
     absolutePath: '/components/' + Pages.RadioFilter,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=813%3A821',
+    figmaUrl:
+      'https://www.figma.com/file/8OZU7mSBLPpEzwtV0QRDoG/Radio-filter?type=design&node-id=0%3A1&mode=design&t=JASWYeK1lpA2hl1D-1',
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'filter'],
   },
@@ -477,7 +482,8 @@ export const componentsDocPages: DocPage[] = [
     docUrl: Pages.Toggle,
     absolutePath: '/components/' + Pages.Toggle,
     status: DocPageStatus.Done,
-    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A49',
+    figmaUrl:
+      'https://www.figma.com/file/8c1uZpEVnz2FHsCeQM3fVV/Toggle?type=design&node-id=0%3A1&mode=design&t=YPjADCj8T64UhBbq-1',
     type: 'Component',
     searchTerms: ['switch', 'on', 'off', 'option', 'state', 'radio', 'lever'],
   },

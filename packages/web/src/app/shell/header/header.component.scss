@@ -1,14 +1,16 @@
-@use '../../shared/shared-sizes.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
+:host {
+  position: sticky;
+  inset: 0 0 auto;
+  z-index: 109;
+}
+
 .header {
-  position: fixed;
   height: 64px;
   width: 100%;
-  top: 0px;
   margin: 0;
   padding: 0;
-  z-index: 109;
   box-sizing: border-box;
 
   overflow: hidden;
@@ -22,6 +24,10 @@
     align-items: center;
     cursor: pointer;
     margin-left: 32px;
+
+    @include breakpoints.breakpoint-up(Tablet) {
+      margin-left: 24px;
+    }
 
     @include breakpoints.breakpoint-up(Mobile) {
       margin-left: 16px;

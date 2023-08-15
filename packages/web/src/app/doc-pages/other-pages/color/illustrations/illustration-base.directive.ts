@@ -8,6 +8,7 @@ export class IllustrationBaseDirective {
 
   constructor(private elementRef: ElementRef<HTMLElement>) {}
 
+  @HostListener('window:resize')
   @HostListener('scroll')
   onScroll() {
     const scrollLeft = this.elementRef.nativeElement.scrollLeft;

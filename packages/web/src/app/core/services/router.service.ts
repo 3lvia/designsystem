@@ -28,4 +28,8 @@ export class RouterService {
       map(([_, newPath]) => newPath!),
     );
   }
+
+  getCurrentUrlPath(): string {
+    return this.router.url.split('?')[0];
+  }
 }

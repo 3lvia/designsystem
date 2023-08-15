@@ -32,7 +32,7 @@ export const useFocusTrap = (): {
       }
       const focusableItems = Array.from(
         focusTrapContainer.current.querySelectorAll(
-          'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex="-1"]',
+          'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex="-1"])',
         ),
       ).filter((element) => {
         return (

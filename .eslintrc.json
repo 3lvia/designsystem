@@ -2,7 +2,7 @@
   "root": true,
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "no-console": "off",
+    "no-console": ["error", { "allow": ["warn", "clear", "info", "error", "dir", "trace", "table"] }],
     "func-names": "off"
   },
   "settings": {
@@ -32,18 +32,19 @@
       },
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
-        "ecmaVersion": 6,
+        "ecmaVersion": 2019,
         "sourceType": "module"
       },
       "plugins": ["react", "@typescript-eslint"],
       "extends": [
         "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/stylistic",
         "plugin:react/recommended"
       ],
       "rules": {
-        "no-console": "off",
+        "no-console": ["error", { "allow": ["warn", "clear", "info", "error", "dir", "trace", "table"] }],
         "func-names": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-unused-vars": "error",
@@ -51,6 +52,8 @@
         "@typescript-eslint/member-ordering": "error",
         "@typescript-eslint/type-annotation-spacing": "error",
         "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/consistent-indexed-object-style": "off",
+        "@typescript-eslint/consistent-type-definitions": "off",
         "react/prop-types": "off",
         "prefer-rest-params": "off"
       }

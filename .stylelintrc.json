@@ -6,7 +6,6 @@
   ],
   "plugins": ["stylelint-selector-bem-pattern"],
   "rules": {
-    "indentation": 2,
     "declaration-property-value-disallowed-list": null,
     "max-nesting-depth": null,
     "number-leading-zero": null,

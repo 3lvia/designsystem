@@ -77,8 +77,10 @@ function minifyElvisStyle() {
     .src('./css/*.css')
     .pipe(
       cleanCSS({ debug: true }, (details) => {
+        /* eslint-disable no-console*/
         console.log(`${details.name}: ${details.stats.originalSize}`);
         console.log(`${details.name}: ${details.stats.minifiedSize}`);
+        /* eslint-enable */
       }),
     )
     .pipe(

@@ -1,11 +1,11 @@
 @use '../../shared/shared-animations';
-@use '../../shared/shared-sizes.scss' as sizes;
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 $text-line-height: 32px;
-.wrapper {
-  height: 100%;
+:host {
+  display: block;
   position: relative;
+
   @include breakpoints.breakpoint-up(Tablet) {
     margin-top: -64px;
   }
@@ -17,14 +17,15 @@ $text-line-height: 32px;
     &.show-block {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      margin: 0 48px;
+      width: 100%;
+      max-width: 522px;
+      margin: 0 auto;
     }
   }
+
   &-box {
     display: flex;
     justify-content: center;
-    max-width: 522px;
   }
 
   .navbar-locale-toggle {
@@ -52,10 +53,10 @@ $text-line-height: 32px;
 }
 
 .navbar {
-  height: calc(100% - 64px - 48px - #{sizes.$header-height});
-  top: sizes.$header-height + 64px;
+  height: calc(100% - 64px - 48px - 64px);
+  top: 64px + 64px;
   width: 18%;
-  bottom: sizes.$footer-height;
+  bottom: 200px; // Footer height
   position: fixed;
   background: transparent;
   z-index: 0;
@@ -63,14 +64,15 @@ $text-line-height: 32px;
   display: flex;
   flex-direction: column;
 
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: none;
+  }
+
   @include breakpoints.breakpoint-up(MaxDesktop) {
     width: 13%;
     max-width: 250px;
   }
 
-  @include breakpoints.breakpoint-up(Tablet) {
-    display: none;
-  }
   .navbar-scroll-container {
     width: 100%;
     padding-right: 32px;
