@@ -41,15 +41,6 @@ a {
 }
 
 // Shared classes
-.component-preview-temp {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 56px;
-}
-
 .accessibility-keyboard-navigation {
   line-height: 34px;
   margin-top: 28px;
@@ -168,11 +159,6 @@ a {
 }
 
 // Page Animations - Fade in
-// Components
-.component-preview-animation {
-  @include animation.ease-in-opacity(0.2s, 0.2s);
-}
-
 .documentation-section-animation {
   @include animation.ease-in-opacity(0.3s, 0.2s);
 }
