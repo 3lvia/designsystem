@@ -3,6 +3,7 @@ import { ThemeName } from '@elvia/elvis-colors';
 
 export interface UserMenuProps {
   onMenuToggle: (isShowing: boolean) => void;
+  onThemeChange: () => void;
   onSignOutClick?: () => void;
   username: string;
   email: string;
@@ -13,6 +14,7 @@ export interface HeaderProps extends BaseProps {
   appTitle?: string;
   email: string;
   navItems?: JSX.Element;
+  onThemeChange: () => void;
   onLogoClick?: () => void;
   onSignOutClick?: () => void;
   pageTitle: string | JSX.Element;

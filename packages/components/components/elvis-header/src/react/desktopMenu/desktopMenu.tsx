@@ -22,7 +22,13 @@ import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 import { ProfilePicture } from '../ProfilePicture';
 import { ThemePicker } from '../themePicker/themePicker';
 
-export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOutClick, onMenuToggle }) => {
+export const DesktopMenu: React.FC<UserMenuProps> = ({
+  username,
+  email,
+  onSignOutClick,
+  onMenuToggle,
+  onThemeChange,
+}) => {
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const connectedElementRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
@@ -73,7 +79,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({ username, email, onSignOu
               <Username>{username}</Username>
               <Email>{email}</Email>
             </UserGrid>
-            {false && <ThemePicker />}
+            {<ThemePicker onThemeChange={onThemeChange} />}
             <MenuHr></MenuHr>
             <Footer>
               <TertiaryButton size="sm" onClick={onSignOutClick}>
