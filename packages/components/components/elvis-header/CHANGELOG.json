@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "15.08.23",
+      "version": "1.4.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Local storage theme bug fix"]
+        }
+      ]
+    },
+    {
       "date": "02.08.23",
       "version": "1.4.1",
       "changelog": [
