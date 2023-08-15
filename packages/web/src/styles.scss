@@ -8,9 +8,7 @@
 @use '@elvia/elvis/src/main.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 @use '@elvia/elvis/src/variables/typography.scss' as typography;
-
-// TODO: This will be moved to elvis
-@use '@elvia/elvis-colors/dist/themeVariables' as ThemeVariables;
+@use './typography-utils.scss';
 
 // Prebuilt css for enabling use of overlays from @angular/cdk
 @import '@angular/cdk/overlay-prebuilt.css';
@@ -28,7 +26,6 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Red Hat Text', Verdana, sans-serif;
   min-height: 100vh;
 }
 
@@ -43,10 +40,6 @@ a {
   text-decoration: none;
 }
 
-p {
-  margin: 40px 0;
-}
-
 // Shared classes
 .component-preview-temp {
   width: 100%;
@@ -55,49 +48,6 @@ p {
   align-items: center;
   justify-content: center;
   margin-top: 56px;
-  &.v2 {
-    align-items: flex-start;
-    .component-preview-temp-example {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 80%;
-      height: 340px;
-      max-width: 788px;
-      padding: 40px;
-      border: 1px solid var(--e-grey-10);
-      border-radius: 8px;
-    }
-  }
-}
-
-code,
-.code-text {
-  font-family: 'Red Hat Mono', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: inherit;
-  overflow: auto;
-
-  background: var(--e-grey-05);
-  border-radius: 4px;
-  padding: 0 2px;
-}
-
-kbd,
-.keyboard-button {
-  padding: 6px 16px;
-  margin-right: 8px;
-  border: 1px solid var(--e-color-border-1, black);
-  border-radius: 64px;
-  @include typography.typography('text-sm');
-  &:not(:first-of-type) {
-    margin: 0 8px;
-  }
-  &.icon {
-    padding: 9px 16px 4px 16px;
-  }
 }
 
 .accessibility-keyboard-navigation {
@@ -121,103 +71,6 @@ kbd,
   }
   @include breakpoints.breakpoint-up(MinDesktop) {
     margin: 0 auto;
-  }
-}
-
-.overview-page-title-container {
-  @include breakpoints.breakpoint-up(Tablet) {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-}
-
-.overview-page-title-size {
-  @include breakpoints.breakpoint-up(Tablet) {
-    display: flex;
-    width: 100%;
-    padding: 0px;
-    max-width: 522px;
-    margin-bottom: 20px;
-  }
-}
-
-.components-overview-cards {
-  display: grid;
-  column-gap: 32px;
-  row-gap: 48px;
-  grid-template-columns: repeat(auto-fit, minmax(154px, 1fr));
-  grid-template-rows: auto;
-
-  @include breakpoints.breakpoint-up(MaxDesktop) {
-    column-gap: 24px;
-    row-gap: 40px;
-  }
-
-  @include breakpoints.breakpoint-up(Tablet) {
-    display: none;
-  }
-}
-
-// Changelog
-.changelog-row {
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 32px;
-  display: flex;
-  flex-direction: row;
-  padding: 40px 0;
-  column-gap: 24px;
-  @include breakpoints.breakpoint-up(Mobile) {
-    flex-direction: column;
-    row-gap: 16px;
-  }
-  &:not(:last-of-type) {
-    border-bottom: 1px solid var(--e-grey-10);
-  }
-  &--skipped {
-    padding: 0;
-  }
-}
-
-.changelog-date {
-  min-width: 150px;
-  display: flex;
-  flex-direction: column;
-  .changelog-date-span {
-    white-space: nowrap;
-    color: var(--e-grey-80);
-  }
-  @-moz-document url-prefix() {
-    .changelog-date-span {
-      margin-top: 0;
-    }
-  }
-  @include breakpoints.breakpoint-up(Mobile) {
-    width: 100%;
-  }
-}
-
-.changelog-content {
-  display: flex;
-  row-gap: 24px;
-  flex-direction: column;
-  word-wrap: anywhere;
-
-  @include breakpoints.breakpoint-up(Mobile) {
-    width: 100%;
-  }
-
-  .changelog-section-title {
-    font-weight: 500;
-  }
-  .changelog-section-margin {
-    margin-left: 16px;
-  }
-  .changelog-code {
-    font-size: 14px !important;
-    line-height: 21px !important;
   }
 }
 
@@ -316,34 +169,32 @@ kbd,
 
 // Page Animations - Fade in
 // Components
-.component-header-description-animation {
-  @include animation.ease-in-opacity(0.2s, 0.1s);
-}
 .component-preview-animation {
   @include animation.ease-in-opacity(0.2s, 0.2s);
 }
+
 .documentation-section-animation {
   @include animation.ease-in-opacity(0.3s, 0.2s);
 }
-// Overview pages
-.components-overview-cards-animation {
+
+// Landing page
+.components-overview-cards {
   @include animation.ease-in-out-opacity(0.4s, 0.2s);
-}
-.overview-illustration-animation {
-  @include animation.ease-in-out-opacity(0.4s, 0.2s);
-}
-.overview-description-animation {
-  @include animation.ease-in-out-opacity(0.4s, 0.4s);
-}
-// Home page
-.home-image-animation {
-  @include animation.ease-in-out-opacity(0.6s, 0.28s);
-}
-.home-text-animation {
-  @include animation.ease-in-out-opacity(0.6s, 0.6s);
-}
-.home-card-links-animation {
-  @include animation.ease-in-out-opacity(0.6s, 0.8s);
+
+  display: grid;
+  column-gap: 32px;
+  row-gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(154px, 1fr));
+  grid-template-rows: auto;
+
+  @include breakpoints.breakpoint-up(MaxDesktop) {
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: none;
+  }
 }
 
 // Typography - specific for doc
@@ -356,8 +207,4 @@ kbd,
   @include breakpoints.breakpoint-up(Mobile) {
     font-size: 32px;
   }
-}
-
-hr {
-  border: 1px solid black;
 }
