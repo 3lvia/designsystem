@@ -417,6 +417,7 @@ export class CMSTransformService {
       <div>
         <img
           class='
+            theme-image-padding
             ${inGrid ? 'e-br-8' : ''}
             ${hasInlineText ? 'cms-image-inline' : ''} 
             align-${imgAlignment}
