@@ -24,6 +24,7 @@
   margin: 0;
   text-align: left;
   cursor: pointer;
+  transition: font-size 0.1s ease;
 
   &.active {
     color: var(--e-color-text-1);

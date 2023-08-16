@@ -2,7 +2,7 @@
   <div class="component-header">
     <div class="component-header__title">
       <div class="title-text e-mb-32 e-w-100">
-        <h1 class="big-header e-mb-0 e-w-100">
+        <h1 class="big-header e-mb-0 e-w-100" data-url-fragment>
           <ng-content select="headerTitle"></ng-content>
           <div class="e-pl-16">
             <a *ngIf="figmaUrl" [href]="figmaUrl" target="_blank" rel="noopener">
@@ -22,7 +22,7 @@
           <ng-content select="headerDescription"></ng-content>
         </span>
       </div>
-      <app-sub-menu class="e-none-lg e-none-xl e-mt-40 e-mb-16" />
+      <app-sub-menu *ifViewportSize="['sm', 'md']" class="e-mt-40 e-mb-16" />
     </div>
   </div>
 </div>

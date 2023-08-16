@@ -1,12 +1,12 @@
 import { Component, NgZone } from '@angular/core';
 import { fromEvent, merge, switchMap, take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Location } from '@angular/common';
-import { AnchorService } from './anchor.service';
-import { NavbarAnchor } from '../types';
+import { Anchor, AnchorService } from './anchor.service';
 import { trigger, transition, stagger, animate, style, query } from '@angular/animations';
 import { LocalizationService } from 'src/app/core/services/localization.service';
-import { CMSService } from '../../../core/services/cms/cms.service';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sub-menu',
@@ -30,17 +30,19 @@ import { CMSService } from '../../../core/services/cms/cms.service';
   ],
 })
 export class SubMenuComponent {
-  anchors: NavbarAnchor[] = [];
-  currentPage = '';
-  activeAnchorPos = 0;
+  anchors: Anchor[] = [];
+  activeAnchor = '';
 
   constructor(
+    private router: Router,
     private location: Location,
     anchorService: AnchorService,
     localization: LocalizationService,
     cmsService: CMSService,
     zone: NgZone,
   ) {
+    this.setActiveAnchorOnScroll();
+
     /**
      * Fetch sub items from the DOM both when localization has changed,
      * and when content has been fetched from the CMS.
@@ -51,40 +53,32 @@ export class SubMenuComponent {
         switchMap(() => zone.onStable.pipe(take(1))),
       )
       .subscribe(() => {
-        // We reverse the list to find active anchor, searching last to first
-        this.anchors = anchorService.getVisibleAnchors().slice().reverse() || [];
-        this.setActiveAnchorFromUrl(location.path(true));
+        this.anchors = anchorService.getAnchors(localization.getCurrentLocalization());
+        this.activeAnchor = this.anchors[0]?.name;
       });
-    this.currentPage = location.path();
-    this.setActiveAnchor();
   }
 
-  scrollTo(anchor: NavbarAnchor): void {
-    this.location.replaceState(`${this.currentPage}#${anchor.title}`);
-    window.scrollTo({ top: anchor.top, behavior: 'smooth' });
+  goToFragment(id: string): void {
+    this.router.navigateByUrl(this.location.path() + '#' + id, {
+      replaceUrl: true,
+    });
   }
 
-  private setActiveAnchorFromUrl(url: string): void {
-    const fragment = url.split('#')[1];
-
-    if (fragment) {
-      this.activeAnchorPos =
-        this.anchors.find((a) => a.title.toLowerCase() === fragment.toLowerCase())?.top ?? 0;
-    }
-  }
-
-  private setActiveAnchor(): void {
+  private setActiveAnchorOnScroll(): void {
     fromEvent(window, 'scroll')
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
         // This extra padding triggers the anchor activation
         // before the title is at the absolute top of the page.
-        const extraAnchorPadding = 100;
-        const activeAnchor = this.anchors.find((a) => a.top - extraAnchorPadding < window.scrollY);
+        const extraAnchorPadding = 128;
+        const activeAnchor = this.anchors
+          .slice()
+          .reverse()
+          .find((a) => a.top - extraAnchorPadding <= window.scrollY);
 
-        if (activeAnchor && activeAnchor.top !== this.activeAnchorPos) {
-          this.activeAnchorPos = activeAnchor.top || 0;
-          this.location.replaceState(`${this.currentPage}#${activeAnchor.title}`);
+        if (activeAnchor && activeAnchor.name !== this.activeAnchor) {
+          this.activeAnchor = activeAnchor.name;
+          this.location.replaceState(`${this.location.path()}#${activeAnchor.name}`);
         }
       });
   }

@@ -1,10 +1,10 @@
 <div class="list-container" [@listAnimation]="anchors.length">
   <button
     class="link e-text-sm"
-    (click)="scrollTo(anchor)"
-    [ngClass]="{ active: anchor.top === activeAnchorPos }"
-    *ngFor="let anchor of anchors | reverse"
+    (click)="goToFragment(anchor.name)"
+    *ngFor="let anchor of anchors"
+    [ngClass]="{ active: anchor.name === activeAnchor }"
   >
-    {{ anchor.title }}
+    {{ anchor.name }}
   </button>
 </div>

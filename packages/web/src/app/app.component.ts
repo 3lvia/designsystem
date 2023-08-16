@@ -1,7 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { DocumentEventListenerService } from './core/services/document-event-listener.service';
 import { RouterService } from './core/services/router.service';
-import { ViewportScroller } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
@@ -18,10 +17,8 @@ export class AppComponent implements OnInit {
   constructor(
     private documentEventListenerService: DocumentEventListenerService,
     private routerService: RouterService,
-    private viewportScroller: ViewportScroller,
   ) {
-    this.enableScrollRestorationOnUrlPathChange();
-    this.listenForCurrentPage();
+    this.listenForCurrentPageLayout();
   }
 
   @HostListener('document:keypress', ['$event'])
@@ -34,7 +31,7 @@ export class AppComponent implements OnInit {
     this.handleMode(darkMode.matches);
   }
 
-  private listenForCurrentPage(): void {
+  private listenForCurrentPageLayout(): void {
     this.routerService
       .urlPathChange()
       .pipe(takeUntilDestroyed())
@@ -48,15 +45,6 @@ export class AppComponent implements OnInit {
         } else {
           this.currentRoute = 'pageWithSidenav';
         }
-      });
-  }
-
-  private enableScrollRestorationOnUrlPathChange(): void {
-    this.routerService
-      .urlPathChange()
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => {
-        this.viewportScroller.scrollToPosition([0, 0]);
       });
   }
 

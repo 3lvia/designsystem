@@ -1,38 +1,27 @@
 import { Injectable } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavbarAnchor } from '../types';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { Locale } from 'src/app/core/services/localization.service';
+
+export interface Anchor {
+  name: string;
+  top: number;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class AnchorService {
-  private localizedOverview = 'Overview';
+  getAnchors(locale: Locale): Anchor[] {
+    const overviewTitle = locale === Locale['nb-NO'] ? 'Oversikt' : 'Overview';
+    const elements = document.querySelectorAll<HTMLElement>('[data-url-fragment]');
 
-  constructor(private localizationService: LocalizationService) {
-    this.localizationService
-      .listenLocalization()
-      .pipe(takeUntilDestroyed())
-      .subscribe((localization) => {
-        if (localization === Locale['nb-NO']) {
-          this.localizedOverview = 'Oversikt';
-        } else {
-          this.localizedOverview = 'Overview';
-        }
+    if (elements.length) {
+      elements.forEach((anchor, index) => {
+        anchor.setAttribute('id', index === 0 ? overviewTitle : anchor.innerText);
       });
-  }
-
-  getVisibleAnchors(): NavbarAnchor[] {
-    const elements = document.querySelectorAll('.elvis-anchor');
-    const elementTitles = document.querySelectorAll('.elvis-anchor-title');
-
-    if (elements.length && elementTitles.length) {
-      const anchors: NavbarAnchor[] = [{ title: this.localizedOverview, top: 0 }].concat(
-        Array.from(elements).map((element, index) => ({
-          title: (elementTitles.item(index) as HTMLElement).innerText,
-          top: (element as HTMLElement).offsetTop - 60,
-        })),
-      );
+      const anchors: Anchor[] = Array.from(elements).map((element, index) => ({
+        name: index === 0 ? overviewTitle : element.innerText,
+        top: element.offsetTop,
+      }));
 
       return anchors;
     }

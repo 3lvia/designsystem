@@ -585,8 +585,8 @@ export class CMSTransformService {
   }
 
   private getHeading1(heading: string): string {
-    return `<div class="cms-heading1 elvis-anchor">
-    <div class="cms-heading1__title" id="${heading.replace(/ /g, '-')}">
+    return `<div class="cms-heading1">
+    <div class="cms-heading1__title">
       <span style="position: absolute; height: 24px; left: -36px; width: 36px;"">
         <elvia-tooltip id="elvia-tooltip-${heading.replace(
           / /g,
@@ -598,7 +598,7 @@ export class CMSTransformService {
           </span>
         </elvia-tooltip>
       </span>
-      <h2 class="e-title-md elvis-anchor-title e-mb-24" style="display: flex;">
+      <h2 class="e-title-md e-mb-24" style="display: flex;" data-url-fragment>
         ${heading}
         <ng-content select="headerIcon"></ng-content>
       </h2>

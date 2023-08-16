@@ -39,6 +39,10 @@ export class LocalizationService {
     return this.localizationSubject.asObservable().pipe(distinctUntilChanged());
   }
 
+  getCurrentLocalization(): Locale {
+    return this.localizationSubject.value;
+  }
+
   setLocalization(locale: Locale): void {
     this.localizationSubject.next(locale);
   }

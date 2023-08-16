@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { DesktopNavbarComponent } from './desktop-navbar/desktop-navbar.component';
 import { MobileNavbarComponent } from './mobile-navbar/mobile-navbar.component';
 import { SubMenuComponent } from './sub-menu/sub-menu.component';
-import { ReversePipe } from './sub-menu/reverse.pipe';
 import { NavbarBase } from './navbar-base';
 import { LocalePickerComponent } from './locale-picker/locale-picker.component';
 
@@ -14,7 +13,6 @@ import { LocalePickerComponent } from './locale-picker/locale-picker.component';
     DesktopNavbarComponent,
     MobileNavbarComponent,
     SubMenuComponent,
-    ReversePipe,
     NavbarBase,
     LocalePickerComponent,
   ],
