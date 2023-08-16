@@ -33,17 +33,22 @@ export class ComponentDocumentationComponent implements OnInit {
   description: string | undefined;
   figmaUrl: string | undefined;
   elvisClassName: keyof typeof data.block | undefined;
+  relatedComponents: DocPageName[] | undefined;
 
   ngOnInit() {
     if (this.isElvis && this.elvisTitle) {
       this.figmaUrl = getComponent(this.elvisTitle)?.figmaUrl;
       this.description = getComponent(this.elvisTitle)?.description;
       this.title = getComponent(this.elvisTitle)?.title;
+      this.relatedComponents = getComponent(this.elvisTitle)?.relatedComponents;
       this.elvisClassName = ('e-' + this.elvisTitle) as keyof typeof data.block;
     } else if (!this.isElvis && this.componentData) {
       this.figmaUrl = getComponent(this.componentData.name.toLowerCase() as DocPageName)?.figmaUrl;
       this.description = getComponent(this.componentData.name.toLowerCase() as DocPageName)?.description;
       this.title = getComponent(this.componentData.name.toLowerCase() as DocPageName)?.title;
+      this.relatedComponents = getComponent(
+        this.componentData.name.toLowerCase() as DocPageName,
+      )?.relatedComponents;
     }
   }
 }

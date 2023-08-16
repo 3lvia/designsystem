@@ -17,7 +17,11 @@ interface PickerTheme {
   label: string;
 }
 
-export const ThemePicker: React.FC = () => {
+interface ThemePickerProps {
+  onThemeChange: (() => void) | undefined;
+}
+
+export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
   const themes: PickerTheme[] = [
     { theme: 'light', label: 'Lys' },
     { theme: 'dark', label: 'Mørk' },
@@ -29,6 +33,7 @@ export const ThemePicker: React.FC = () => {
     setThemeClassOnDocument(theme);
     setCurrentTheme(theme);
     localStorage.setItem(themeLocalStorageKey, theme);
+    onThemeChange?.();
   };
 
   useEffect(() => {

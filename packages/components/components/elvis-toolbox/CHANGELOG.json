@@ -14,6 +14,18 @@
       ]
     },
     {
+      "date": "16.08.23",
+      "version": "9.4.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Added explicit <code>line-height</code> to the <code>formFieldStyle</code> to avoid inheriting it from the parent."
+          ]
+        }
+      ]
+    },
+    {
       "date": "14.08.23",
       "version": "9.4.2",
       "changelog": [
