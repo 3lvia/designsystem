@@ -1,19 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-static-ceg>
-    <app-file-upload-ceg />
+<app-component-documentation docUrl="file-upload" isElvis>
+  <app-static-ceg ceg>
+    <app-file-upload-ceg></app-file-upload-ceg>
   </app-static-ceg>
 
-  <!--STATUS-->
-  <app-component-section [sectionTitle]="'States'">
+  <!--STATES-->
+  <app-component-section states [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'On dragover'">
         <ng-container ngProjectAs="sectionContent">
@@ -65,18 +56,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-fileupload'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-fileupload'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

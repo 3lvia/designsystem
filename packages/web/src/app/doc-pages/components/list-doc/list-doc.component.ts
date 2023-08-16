@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-doc',
@@ -8,14 +6,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./list-doc.component.scss'],
 })
 export class ListDocComponent {
-  figmaUrl = getComponent('list')?.figmaUrl;
-  description = getComponent('list')?.description;
-  title = getComponent('list')?.title;
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
-  }
-
   doesExample1 = ['Items that are in no required order.'];
   doesExample3 = [
     'When you need to have a priority or hierarchy between list items',

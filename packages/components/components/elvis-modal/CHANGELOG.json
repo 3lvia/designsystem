@@ -2,6 +2,21 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.08.23",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Removed the default 'text large' styles that were applied to the Modal's content. This changes the visual appearance of the content inside the Modal."
+          ],
+          "fixes": [
+            "Apply the 'text large' styles to the content inside the Modal manually. If you want to maintain the previous visual appearance, you can use the <code>e-text-lg</code> class from Elvis."
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.06.23",
       "version": "2.3.3",
       "changelog": [

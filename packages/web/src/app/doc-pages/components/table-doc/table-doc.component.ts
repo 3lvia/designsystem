@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-table-doc',
@@ -8,14 +6,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./table-doc.component.scss'],
 })
 export class TableDocComponent {
-  figmaUrl = getComponent('table')?.figmaUrl;
-  description = getComponent('table')?.description;
-  title = getComponent('table')?.title;
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
-  }
-
   does = ['Tables should be used when displaying large amounts of data to the user.'];
   donts = [
     'Don’t use a table when you can use a data visualization.',

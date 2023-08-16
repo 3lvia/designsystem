@@ -1,26 +1,17 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-ceg>
-    <app-stepper-ceg />
+<app-component-documentation docUrl="stepper" [componentData]="componentData">
+  <app-ceg ceg>
+    <app-stepper-ceg></app-stepper-ceg>
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
     </ng-container>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section sectionTitle="Implementation">
+  <app-component-section implementation sectionTitle="Implementation">
     <ng-container ngProjectAs="sectionContent">
       An object describing the heading and state of the steps should be configured. The keys of the object are
       the step indexes (starting at index 1), and the values are an object containing the heading and the
@@ -34,8 +25,34 @@
     </ng-container>
   </app-component-section>
 
-  <!--PROPERTIES-->
-  <app-component-section sectionTitle="Stepper configuration">
+  <!--ACCESSIBILITY-->
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="accessibility-keyboard-navigation">
+            <div>
+              <kbd>ArrowLeft/ArrowRight</kbd>
+              to navigate through the steps.
+            </div>
+            <div>
+              <kbd>Tab</kbd>
+              to navigate to the back/next buttons.
+            </div>
+            <div>
+              <kbd>Space</kbd>
+              or
+              <kbd>Enter</kbd>
+              to select a step or button.
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--CONFIGURATION-->
+  <app-component-section configuration sectionTitle="Stepper configuration">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection sectionTitle="">
         <ng-container ngProjectAs="sectionContent"></ng-container>
@@ -49,25 +66,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
