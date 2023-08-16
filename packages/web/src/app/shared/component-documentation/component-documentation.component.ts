@@ -38,7 +38,7 @@ export class ComponentDocumentationComponent implements OnInit {
     this.titleService.setTitle(this.title + ' | Elvia design system');
   }
 
-  getLastUpdatedDate(): string {
+  get lastUpdatedDate(): string {
     if (this.isElvis && this.title) {
       return createElvisFilteredChangelog(this.title)[0].date;
     } else if (this.componentData && this.componentData.changelog) {
