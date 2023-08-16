@@ -59,7 +59,7 @@
   &::before {
     width: 24px;
     aspect-ratio: 1 / 1;
-    background-color: var(--e-color-signal-success);
+    background-color: var(--e-color-brand-accent);
     border-radius: 50%;
     content: '';
     display: inline-block;
@@ -80,7 +80,7 @@ code {
   display: block;
   position: relative;
   width: 24px;
-  background-color: var(--e-color-signal-success);
+  background-color: var(--e-color-brand-accent);
   height: 2px;
   border-radius: 99px;
 
@@ -92,7 +92,7 @@ code {
     height: 2px;
     width: 8px;
     transform-origin: right center;
-    background-color: var(--e-color-signal-success);
+    background-color: var(--e-color-brand-accent);
     border-radius: 99px;
   }
 
@@ -109,7 +109,7 @@ code {
   width: 24px;
   height: 2px;
   border-radius: 99px;
-  background-color: var(--e-color-signal-success);
+  background-color: var(--e-color-brand-accent);
 }
 
 .vertical-line-container {
@@ -118,7 +118,7 @@ code {
   position: relative;
 
   .vertical-line {
-    background-color: var(--e-color-signal-success);
+    background-color: var(--e-color-brand-accent);
     height: 68px;
     border-radius: 99px;
   }
@@ -131,7 +131,7 @@ code {
     translate: -50% 0;
     height: 4px;
     width: 4px;
-    background-color: var(--e-color-signal-success);
+    background-color: var(--e-color-brand-accent);
     border-radius: 99px;
   }
 

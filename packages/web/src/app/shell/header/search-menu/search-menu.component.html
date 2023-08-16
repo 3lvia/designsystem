@@ -11,7 +11,7 @@
     <a
       *ngFor="let menuItem of mainMenu.pages"
       class="tabs-links"
-      style="color: black"
+      style="color: var(--e-color-text-1)"
       [routerLink]="['/' + menuItem.path]"
       routerLinkActive="active"
       role="tab"

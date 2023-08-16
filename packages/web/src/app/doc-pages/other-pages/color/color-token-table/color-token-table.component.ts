@@ -11,6 +11,7 @@ import {
   signalColors,
   dataColors,
   iconColors,
+  assortedColors,
 } from './colors';
 
 @Component({
@@ -29,5 +30,6 @@ export class ColorTokenTableComponent {
   borderColorsStates = borderColorsStates;
   signalColors = signalColors;
   dataColors = dataColors;
+  assortedColors = assortedColors;
   iconColors = iconColors;
 }

@@ -61,7 +61,7 @@ const iconClassToThemeColor = {
     stroke: 'text-disabled-2',
     'filled-background': 'text-disabled-2',
   },
-  placeholder: { stroke: 'text-3', 'filled-background': 'text-3' },
+  placeholder: { stroke: 'text-placeholder-1', 'filled-background': 'text-placeholder-1' },
   currentColor: {
     stroke: 'currentColor',
     'filled-background': 'currentColor',

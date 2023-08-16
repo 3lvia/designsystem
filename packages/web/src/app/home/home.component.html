@@ -1,6 +1,6 @@
 <div class="home-container">
   <div class="e-grid">
-    <div class="row no-gutters e-bg-grey">
+    <div class="row no-gutters e-color-background-element-4">
       <div class="home-top-desktop">
         <div class="col-lg-6 desktop-col">
           <div class="home-header home-text-animation">
@@ -93,9 +93,13 @@
           <div *ngIf="!fontLoaded" class="e-content-loader" style="width: 100%; height: 100%"></div>
           <a *ngIf="page.absolutePath && fontLoaded" [routerLink]="[page.absolutePath]">
             <elvia-card [description]="!isMobileScreenWidth ? page.description : null" [heading]="page.title">
-              <img slot="icon" src="{{ page.imageUrl }}" alt="" />
+              <img
+                slot="icon"
+                src="{{ currentTheme === 'dark' ? page.imageUrlDark : page.imageUrl }}"
+                alt=""
+              />
               <div slot="iconHover">
-                <img src="{{ page.imageUrlOn }}" alt="" />
+                <img src="{{ currentTheme === 'dark' ? page.imageUrlOnDark : page.imageUrlOn }}" alt="" />
               </div>
             </elvia-card>
           </a>

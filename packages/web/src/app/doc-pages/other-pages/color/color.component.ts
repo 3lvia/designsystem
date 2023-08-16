@@ -4,14 +4,39 @@ import { LocalizationService, Locale } from 'src/app/core/services/localization.
 import { Title } from '@angular/platform-browser';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import '@elvia/elvis-accordion';
-import '@elvia/elvis-divider';
 
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
 })
 export class ColorComponent {
+  purposeTokenExample = `.container {
+  color: var(--e-color-text-1);
+  background: var(--e-color-background-1);  
+  border-color: var(--e-color-border-1);  
+  &::hover {
+    background: var(--e-color-background-hover-1);
+  }
+}`;
+
+  baseTokenExample = `:root,
+.e-theme-light {
+  --container-color-border: var(--e-light-theme-grey-10);
+}
+.e-theme-dark,
+.e-color-background-element-4 {
+  --container-color-border: var(--e-dark-theme-grey-20);
+}
+.container {
+  border-color: var(--container-color-border);
+}`;
+
+  classTokenExample = `<div class='e-color-background-1'>
+  A container with text that follow the background-1 color contrast.   
+  <span class='e-color-text-2 e-color-border-1'>
+     Some kind of subtext with the e-color-text-2 color and a border with the e-color-border-1 token.
+  </span>
+</div>`;
   description = getDocPagesNotFromCMS('color')?.description;
   descriptionNo = getDocPagesNotFromCMS('color')?.descriptionNo;
   locale: LOCALE_CODE = 'en-GB';

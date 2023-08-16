@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { getColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { ScrollPosition } from './elvia-tabs.types';
 import { IconButton, device } from '@elvia/elvis-toolbox';
@@ -73,19 +73,21 @@ export const ScrollContainer = styled.div<ScrollContainerProps>`
   }
 `;
 
-const decideLabelTextShadow = (isSelected: boolean, isInverted?: boolean): string => {
-  if (isSelected && !isInverted) {
-    return '0 0 0 black, 0 0 0.5px black';
-  } else if (isInverted && isSelected) {
-    return '0 0 0 white, 0 0 0.5px white';
-  } else {
-    return 'none';
+const decideLabelTextShadow = (isSelected: boolean, isInverted: boolean): string => {
+  if (isSelected) {
+    return (
+      '0 0 0 ' +
+      getThemeColor('text-1', { isInverted }) +
+      ', 0 0 0.5px ' +
+      getThemeColor('text-1', { isInverted })
+    );
   }
+  return 'none';
 };
 
 interface TabLabelProps {
   isSelected: boolean;
-  isInverted?: boolean;
+  isInverted: boolean;
 }
 
 export const Tab = styled.button<TabLabelProps>`
@@ -93,7 +95,7 @@ export const Tab = styled.button<TabLabelProps>`
     ${getTypographyCss('title-caps')}
     line-height: 20px;
     font-weight: normal;
-    color: ${isInverted ? 'white' : 'black'};
+    color: ${getThemeColor('text-1', { isInverted })};
     text-shadow: ${decideLabelTextShadow(isSelected, isInverted)};
 
     display: flex;
@@ -116,13 +118,13 @@ export const Tab = styled.button<TabLabelProps>`
 
     &::before {
       width: 100%;
-      background-color: ${isInverted ? getColor('grey-80') : getColor('grey-10')};
+      background-color: ${getThemeColor('border-2', { isInverted })};
     }
 
     &::after {
       width: ${isSelected ? '100%' : '0'};
       transition: all 0.3s ease-in-out;
-      background-color: ${isSelected ? getColor('green') : 'transparent'};
+      background-color: ${isSelected ? getThemeColor('border-selected-1', { isInverted }) : 'transparent'};
 
       @media (prefers-reduced-motion: reduce) {
         transition: background-color 0.3s ease-in-out;
@@ -130,7 +132,7 @@ export const Tab = styled.button<TabLabelProps>`
     }
 
     &:hover::after {
-      background-color: ${getColor('green')};
+      background-color: ${getThemeColor('border-hover-1', { isInverted })};
       width: 100%;
     }
   `}

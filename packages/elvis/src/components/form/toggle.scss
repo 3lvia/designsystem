@@ -15,12 +15,23 @@ $toggle-inverted-width: 30px;
 $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-slider-size} + 2px) / 2);
 
 .e-toggle {
+  @include helpers.custom-light-theme-tokens {
+    --e-toggle-border-color: transparent;
+    --e-toggle-checked-disabled-switch: #c2ebba;
+  }
+
+  @include helpers.custom-dark-theme-tokens('toggle') {
+    --e-toggle-border-color: var(--e-dark-theme-white);
+    --e-toggle-checked-disabled-switch: #619655;
+  }
+
   // Label
   @include typography.typography('text-medium');
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: var(--e-color-text-1);
   cursor: pointer;
   gap: 8px;
 
@@ -41,7 +52,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   &__input {
     position: relative;
     width: $toggle-width;
-    height: 16px;
+    height: $toggle-height;
     flex: none;
     border-radius: 50px;
     margin: 0;
@@ -55,8 +66,9 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
       left: 0;
       width: $toggle-width;
       height: $toggle-height;
+      border: 1px solid var(--e-toggle-border-color);
       border-radius: $toggle-border-radius;
-      background: colors.color('black');
+      background: var(--e-color-static-black);
       content: '';
       cursor: pointer;
     }
@@ -69,7 +81,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
       width: $toggle-slider-size;
       height: $toggle-slider-size;
       border-radius: 50%;
-      background: colors.color('white');
+      background: var(--e-color-static-white);
       content: '';
       cursor: pointer;
       transition: 0.1s;
@@ -86,7 +98,7 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
   &.e-toggle---checked .e-toggle__input::after,
   input:checked.e-toggle__input::after {
     @include helpers.transform(translateX(16px));
-    background: colors.color('elvia-charge');
+    background: var(--e-color-background-selected-1);
   }
 
   // Focus
@@ -112,41 +124,23 @@ $toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-sl
     cursor: not-allowed;
 
     &.e-toggle__input::before {
-      background-color: colors.color('disabled');
+      border-color: transparent;
+      background-color: var(--e-color-background-disabled-2);
       cursor: not-allowed;
     }
 
     &.e-toggle__input::after {
-      background-color: colors.color('grey-10');
+      background-color: var(--e-color-background-disabled-1);
       cursor: not-allowed;
     }
   }
 
-  // Inverted
-  &.e-toggle--inverted {
-    color: colors.color('font-color-light');
-
-    .e-toggle__input::before {
-      width: $toggle-inverted-width;
-      height: $toggle-inverted-height;
-      box-sizing: content-box;
-      border: 1px solid colors.color('elvia-on');
-    }
-
-    .e-toggle__input::after {
-      left: $toggle-inverted-slider-padding;
-    }
-
-    &.e-toggle---disabled,
-    input:disabled {
-      &.e-toggle__input::before {
-        border: 1px solid colors.color('grey-70');
-        background-color: colors.color('grey');
-      }
-
-      &.e-toggle__input::after {
-        background-color: colors.color('grey-70');
-      }
+  // Disabled checked
+  &.e-toggle---checked.e-toggle---disabled .e-toggle__input,
+  input:checked:disabled.e-toggle__input {
+    &::after {
+      @include helpers.transform(translateX(16px));
+      background: var(--e-toggle-checked-disabled-switch);
     }
   }
 }

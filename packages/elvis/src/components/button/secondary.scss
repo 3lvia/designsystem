@@ -1,0 +1,50 @@
+@use '../../utilities/helpers.scss';
+@use '../../utilities/icons.scss';
+
+.e-btn.e-btn--secondary {
+  border: 1px solid var(--e-color-border-1);
+  background: var(--e-color-background-element-1);
+  color: var(--e-color-text-1);
+
+  .e-btn__icon i {
+    @include icons.icon-currentcolor(var(--e-color-text-1--contrast));
+  }
+
+  // States
+  @include helpers.hover() {
+    &.e-btn---hover,
+    &.e-btn---selected,
+    &.e-btn---active,
+    &:active:not(:disabled):not(.e-btn--loading),
+    &:hover:not(:disabled):not(.e-btn--loading) {
+      border-color: var(--e-color-border-hover-1);
+      background: var(--e-color-background-hover-1);
+      color: var(--e-color-background-hover-1--contrast);
+
+      .e-btn__icon i {
+        @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
+      }
+    }
+  }
+
+  &.e-btn---disabled,
+  &:disabled {
+    border-color: var(--e-color-border-disabled-1);
+    background: transparent;
+    color: var(--e-color-text-disabled-1);
+  }
+
+  &.e-btn---active,
+  &:active:not(:disabled):not(.e-btn--loading) {
+    border-color: transparent;
+    background-clip: padding-box;
+
+    .e-btn__icon i {
+      visibility: visible;
+    }
+  }
+
+  &.e-btn--loading span {
+    background-color: var(--e-color-text-1);
+  }
+}

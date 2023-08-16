@@ -1,13 +1,33 @@
-@use '../variables/colors';
+@use 'sass:map';
+
 @use '../utilities/breakpoints';
 @use '../utilities/helpers';
+
+$tag-colors: (
+  'neutral': --e-tag-color-neutral,
+  'white': --e-color-static-white,
+  'black': --e-color-static-black,
+  'grey': --e-tag-color-grey,
+  'green': --e-color-brand-accent,
+  'caution': --e-color-signal-caution,
+  'yellow': --e-color-signal-caution,
+  'warning': --e-color-signal-warning,
+  'orange': --e-color-signal-warning,
+  'error': --e-color-signal-error,
+  'red': --e-color-signal-error,
+  'green-apple': --e-color-data-1,
+  'violet-grape': --e-color-data-2,
+  'blue-berry': --e-color-data-3,
+  'purple-plum': --e-color-data-4,
+  'orange-mango': --e-color-data-5,
+  'red-tomato': --e-color-data-6,
+);
 
 $label-padding: 4px 8px;
 $label-radius: 4px;
 $label-font-size: 11px;
-$label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
 
-@mixin circle($color) {
+@mixin circle($variable) {
   padding: 4px 8px 4px 24px;
 
   &::before {
@@ -17,7 +37,7 @@ $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: colors.color($color);
+    background-color: var($variable);
     content: ' ';
   }
 }
@@ -25,13 +45,23 @@ $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
 // DEPRECATED (e-label -> e-tag)
 .e-label,
 .e-tag {
+  @include helpers.custom-light-theme-tokens {
+    --e-tag-color-neutral: var(--e-light-theme-black);
+    --e-tag-color-grey: var(--e-light-theme-grey);
+  }
+
+  @include helpers.custom-dark-theme-tokens('tag') {
+    --e-tag-color-neutral: var(--e-dark-theme-white);
+    --e-tag-color-grey: var(--e-dark-theme-grey-40);
+  }
+
   position: relative;
   display: inline-flex;
   align-items: center;
   padding: $label-padding;
   border-radius: $label-radius;
-  background: colors.color('grey-10');
-  color: colors.color('font-color');
+  background: var(--e-color-background-element-3);
+  color: var(--e-color-text-1);
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: $label-font-size;
   font-weight: 400;
@@ -40,15 +70,10 @@ $label-colors: map-merge(colors.$just-colors, colors.$primary-colors);
   text-transform: uppercase;
   white-space: nowrap;
 
-  @each $colorName, $map in $label-colors {
-    $color: colors.color($colorName);
-    $labels: ($colorName);
-
-    @each $name in $labels {
-      &.e-label--#{$name},
-      &.e-tag--#{$name} {
-        @include circle($name);
-      }
+  @each $name, $variable in $tag-colors {
+    &.e-label--#{$name},
+    &.e-tag--#{$name} {
+      @include circle($variable);
     }
   }
 }

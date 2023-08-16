@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
     <script src="../../elvis.js"></script>
   </head>
-  <body>
+  <body class="e-color-background-1">
     <div class="e-title-sm e-mt-16">Checkboxes</div>
     <label class="e-checkbox">
       <input type="checkbox" />
@@ -28,7 +28,13 @@
     </form>
     <form>
       <div class="e-title-xs e-my-16">Checkbox States</div>
+
       <label class="e-checkbox e-checkbox---checked">
+        <input type="checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Checked</span>
+      </label>
+      <label class="e-checkbox e-checkbox--small e-checkbox---checked">
         <input type="checkbox" />
         <span class="e-checkbox__mark"></span>
         <span class="e-checkbox__label">Checked</span>
@@ -39,8 +45,18 @@
         <span class="e-checkbox__mark"></span>
         <span class="e-checkbox__label">Focus</span>
       </label>
+      <label class="e-checkbox e-checkbox--small e-checkbox---focus">
+        <input type="checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Focus</span>
+      </label>
 
       <label class="e-checkbox e-checkbox---hover">
+        <input type="checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Hover</span>
+      </label>
+      <label class="e-checkbox e-checkbox--small e-checkbox---hover">
         <input type="checkbox" />
         <span class="e-checkbox__mark"></span>
         <span class="e-checkbox__label">Hover</span>
@@ -51,11 +67,21 @@
         <span class="e-checkbox__mark"></span>
         <span class="e-checkbox__label">Disabled</span>
       </label>
+      <label class="e-checkbox e-checkbox--small e-checkbox---disabled">
+        <input type="checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Disabled</span>
+      </label>
 
       <label class="e-checkbox e-checkbox---disabled-checked">
         <input type="checkbox" />
         <span class="e-checkbox__mark"></span>
-        <span class="e-checkbox__label">Disabled</span>
+        <span class="e-checkbox__label">Disabled checked</span>
+      </label>
+      <label class="e-checkbox e-checkbox--small e-checkbox---disabled-checked">
+        <input type="checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Disabled checked</span>
       </label>
 
       <label class="e-checkbox e-checkbox---invalid">
@@ -63,6 +89,48 @@
         <span class="e-checkbox__mark"></span>
         <span class="e-checkbox__label">Invalid</span>
       </label>
+      <label class="e-checkbox e-checkbox--small e-checkbox---invalid">
+        <input type="checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Invalid</span>
+      </label>
+
+      <label class="e-form-field__label">Indeterminate medium</label>
+      <label class="e-checkbox e-checkbox--indeterminate">
+        <input type="checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Indeterminate</span>
+      </label>
+      <div class="e-form-field__nested">
+        <label class="e-checkbox">
+          <input type="checkbox" checked />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Checked</span>
+        </label>
+        <label class="e-checkbox">
+          <input type="checkbox" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Not checked</span>
+        </label>
+      </div>
+      <label class="e-form-field__label">Indeterminate small</label>
+      <label class="e-checkbox e-checkbox--small e-checkbox--indeterminate">
+        <input type="checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Indeterminate</span>
+      </label>
+      <div class="e-form-field__nested e-form-field__nested--small">
+        <label class="e-checkbox e-checkbox--small">
+          <input type="checkbox" checked />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Checked</span>
+        </label>
+        <label class="e-checkbox e-checkbox--small">
+          <input type="checkbox" />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">Not checked</span>
+        </label>
+      </div>
     </form>
   </body>
 </html>

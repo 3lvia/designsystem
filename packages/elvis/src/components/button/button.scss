@@ -1,0 +1,178 @@
+@use '../../utilities/helpers.scss';
+@use '../../utilities/outline.scss';
+@use '../../utilities/icons.scss';
+
+$button-lg-padding: 11px 31px;
+$button-md-padding: 9px 23px;
+$button-sm-padding: 7px 15px;
+
+@mixin only-primary-button {
+  &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) {
+    @content;
+  }
+}
+
+.e-btn,
+.e-btn.e-btn--primary {
+  @include helpers.custom-light-theme-tokens {
+    --e-button-icon-color-filled-foreground-light: var(--e-light-theme-black);
+    --e-button-icon-color-filled-foreground-hover-light: var(--e-light-theme-white);
+  }
+
+  @include helpers.custom-dark-theme-tokens(button) {
+    --e-button-icon-color-filled-foreground-light: var(--e-dark-theme-white);
+    --e-button-icon-color-filled-foreground-hover-light: var(--e-dark-theme-white);
+  }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $button-md-padding;
+  border: 1px solid var(--e-color-border-1);
+  border-radius: 24px;
+  background: var(--e-color-background-element-6);
+  color: var(--e-color-text-4);
+  cursor: pointer;
+  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  @include only-primary-button {
+    .e-btn__icon i {
+      @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-light));
+    }
+  }
+
+  .e-btn__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include icons.icon-size('xs');
+
+    i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+    }
+  }
+
+  .e-btn__title + .e-btn__icon,
+  .e-btn__icon + .e-btn__title {
+    margin-left: 8px;
+  }
+
+  // Sizes
+  &.e-btn--lg {
+    padding: $button-lg-padding;
+    font-size: 18px;
+    line-height: 24px;
+
+    .e-btn__icon {
+      @include icons.icon-size('sm');
+    }
+
+    &.e-btn--loading span {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &.e-btn--sm {
+    padding: $button-sm-padding;
+    font-size: 14px;
+    line-height: 16px;
+
+    &.e-btn--loading span {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  // States
+  @include helpers.hover() {
+    &.e-btn---hover,
+    &.e-btn---selected,
+    &.e-btn---active,
+    &:active:not(:disabled):not(.e-btn--loading),
+    &:hover:not(:disabled):not(.e-btn--loading) {
+      border-color: var(--e-color-border-hover-1);
+      background: var(--e-color-background-hover-1);
+      color: var(--e-color-background-hover-1--contrast);
+
+      @include only-primary-button {
+        .e-btn__icon i {
+          @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
+        }
+      }
+    }
+  }
+
+  &.e-btn---active,
+  &:active:not(:disabled):not(.e-btn--loading) {
+    border-color: transparent;
+    background-clip: padding-box;
+  }
+
+  &:focus:not(:disabled) {
+    @include outline.e-outline();
+  }
+
+  &.e-btn---focus {
+    @include outline.e-outline-pseudoclass();
+  }
+  // Removing default focus on firefox
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &.e-btn---disabled,
+  &:disabled {
+    border-color: var(--e-color-border-disabled-1);
+    background: var(--e-color-background-disabled-2);
+    color: var(--e-color-text-disabled-2);
+    cursor: not-allowed;
+
+    @include only-primary-button {
+      .e-btn__icon i {
+        @include icons.icon-currentcolor(var(--e-color-background-disabled-2));
+      }
+    }
+  }
+
+  &.e-btn--loading {
+    display: inline-block;
+    cursor: progress;
+
+    span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      animation: loading-dots 1s infinite ease-in-out both;
+      background-color: var(--e-color-text-4);
+    }
+
+    span:nth-of-type(1) {
+      @include helpers.animation-delay(-0.32s);
+    }
+
+    span:nth-of-type(2) {
+      @include helpers.animation-delay(-0.16s);
+    }
+  }
+}
+
+@include helpers.keyframes(loading-dots) {
+  0%,
+  80%,
+  100% {
+    @include helpers.transform(scale(0));
+  }
+
+  40% {
+    @include helpers.transform(scale(1));
+  }
+}

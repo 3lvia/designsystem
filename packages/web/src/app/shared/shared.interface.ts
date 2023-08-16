@@ -14,6 +14,8 @@ export interface DocPage {
   descriptionNo?: string;
   imageUrl?: string;
   imageUrlOn?: string;
+  imageUrlDark?: string;
+  imageUrlOnDark?: string;
   absolutePath?: string;
   fragmentPath?: string;
   docUrl?: string;

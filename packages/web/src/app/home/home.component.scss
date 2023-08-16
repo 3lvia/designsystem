@@ -20,7 +20,7 @@
     left: -40%;
     border-radius: 50%;
     position: absolute;
-    background-color: var(--e-grey);
+    background-color: var(--e-color-background-element-4);
     width: 180vw;
     height: 565px;
     z-index: -1;
@@ -105,7 +105,7 @@
     left: -40%;
     border-radius: 50%;
     position: absolute;
-    background-color: var(--e-grey);
+    background-color: var(--e-color-background-element-4);
     width: 180vw;
     z-index: -1;
   }
@@ -203,7 +203,7 @@
         margin-left: 5px;
         margin-bottom: -1px;
         border-radius: 50%;
-        background: var(--e-green);
+        background: var(--e-color-brand-accent);
       }
     }
     .content-loader-text {
@@ -239,21 +239,8 @@
         padding-right: 20px;
       }
     }
-    .e-text-lead {
-      color: white;
-    }
     .e-btn {
       width: 160px;
-      color: black;
-      background: var(--e-white);
-      border-color: var(--e-white);
-      &:hover {
-        background: var(--e-green);
-        border-color: var(--e-green);
-      }
-      &:active {
-        border-color: var(--e-grey);
-      }
     }
   }
 }
@@ -271,17 +258,11 @@
       align-items: center;
       text-align: center;
       margin: 0 13%;
-      .big-header {
-        color: black;
-      }
       .e-text-lead {
         margin-top: 32px;
       }
       .e-btn {
         margin-top: 24px;
-        &:hover {
-          border-color: var(--e-white);
-        }
       }
     }
   }

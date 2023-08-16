@@ -30,7 +30,7 @@
     position: absolute;
     height: 100%;
     width: 50%;
-    background-color: var(--e-theme-light-black);
+    background-color: var(--e-light-theme-black);
     border-radius: 9999px 0 0 9999px;
   }
   &::after {
@@ -39,16 +39,16 @@
     left: 50%;
     height: 100%;
     width: 50%;
-    background-color: var(--e-theme-light-white);
+    background-color: var(--e-light-theme-white);
     border-radius: 0 9999px 9999px 0;
   }
   &.dark {
     border: 0;
     &::before {
-      background-color: var(--e-theme-dark-black);
+      background-color: var(--e-dark-theme-black);
     }
     &::after {
-      background-color: var(--e-theme-dark-white);
+      background-color: var(--e-dark-theme-white);
     }
   }
 }

@@ -179,8 +179,54 @@
   </app-component-section>
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Using CSS variables'">
+        <ng-container ngProjectAs="sectionContent">
+          <p class="e-m-0">
+            All colors can be used through a CSS-variables. By using our purpose tokens we ensure cohesive
+            design and theme support everywhere. Both base and purpose tokens have their own variable. The
+            base tokens should only be used where custom colors are needed as the purpose tokens should be
+            able to cover most cases. The purpose tokens can be viewed in the tables above. Under are some
+            examples of use.
+          </p>
+          <app-component-subsubsection [sectionTitle]="'Purpose tokens'">
+            <ng-container ngProjectAs="sectionContent">
+              <p class="e-mb-24">Purpose tokens should be used everywhere as long as possible.</p>
+              <app-code-viewer [tabs]="['CSS']" [activeCode]="purposeTokenExample" />
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection
+            [sectionTitle]="'Base tokens (only for when no purpose tokens are useable)'"
+          >
+            <ng-container ngProjectAs="sectionContent">
+              <p class="e-mb-24">Should only be used for when no purpose tokens fit the needs.</p>
+              <app-code-viewer [tabs]="['CSS']" [activeCode]="baseTokenExample" />
+              <p class="e-mt-24">
+                Base tokens are not prefixed with “color” and refers directly to a hex value. Theme support
+                therefore has to be added manually. The light themed base tokens are all prefixed with
+                “e-light” while the dark themed base tokens are all prefixed with “e-dark”. In light theme and
+                dark theme only the corresponding theme tokens should be used.
+              </p>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Using Classes'">
-        <ng-container ngProjectAs="sectionContent"></ng-container>
+        <ng-container ngProjectAs="sectionContent">
+          Some color tokens can be used through a set of classes as well as CSS-variables. These classes
+          includes:
+          <ul class="e-list e-mt-24">
+            <li><code>e-color-text-token</code></li>
+            <li><code>e-color-background-token</code></li>
+            <li><code>e-color-border-token</code></li>
+          </ul>
+          <p class="e-mt-24">Here is an examples of use:</p>
+          <app-code-viewer [activeCode]="classTokenExample" />
+          <p class="e-mt-24">
+            All background-classes sets the text-color to the contrast-color of the background. It is
+            therefore not necessary to use both the bg and the text class on the same element, exceptions can
+            of course occur and then the text class is available.
+          </p>
+        </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>

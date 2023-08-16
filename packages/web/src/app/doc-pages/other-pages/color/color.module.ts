@@ -8,6 +8,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { RouterModule } from '@angular/router';
+import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { ColorTokenSubtableComponent } from './color-token-table/color-token-subtable/color-token-subtable.component';
 import { ColorTokenSubtableColorCircleComponent } from './color-token-table/color-token-subtable/color-token-subtable-color-circle/color-token-subtable-color-circle.component';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
@@ -22,6 +23,9 @@ import { ColorPickerExhibitComponent } from './color-picker/color-picker-exhibit
 import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
 import { NeedsBorderPipe } from './color-picker/needs-border.pipe';
 import { ColorPickerHeaderComponent } from './color-picker/color-picker-header/color-picker-header.component';
+import '@elvia/elvis-accordion';
+import '@elvia/elvis-divider';
+import '@elvia/elvis-tabs';
 
 @NgModule({
   imports: [
@@ -31,6 +35,7 @@ import { ColorPickerHeaderComponent } from './color-picker/color-picker-header/c
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
+    CegModule,
     CopyModule,
     DoDontModule,
     DoDontTextModule,

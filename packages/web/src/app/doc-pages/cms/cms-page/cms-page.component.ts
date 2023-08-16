@@ -9,6 +9,7 @@ import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/c
 import { IDocumentationPage } from 'contentful/types';
 import { ElvisComponentWrapper } from '../../../../../../components/components/elvis-component-wrapper/dist/elvia-component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-cms-page',
@@ -36,13 +37,18 @@ export class CMSPageComponent {
     private router: Router,
     private elementRef: ElementRef,
     private titleService: Title,
+    private themeService: ThemeService,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
     }
     this.checkIfPageExistsInProject();
 
-    combineLatest([this.localizationService.listenLocalization(), this.activatedRoute.url])
+    combineLatest([
+      this.localizationService.listenLocalization(),
+      this.activatedRoute.url,
+      themeService.listenTheme(),
+    ])
       .pipe(takeUntilDestroyed())
       .subscribe((value) => {
         const firstRoute = value[1][0]?.path;

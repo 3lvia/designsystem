@@ -87,10 +87,8 @@ $pageIndentedMargin: 72px;
   text-align: center;
 
   .brand-text {
-    color: black;
-    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    color: var(--e-color-text-1);
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
   }
 }
 
@@ -131,7 +129,7 @@ $pageIndentedMargin: 72px;
     position: relative;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--e-black);
+    border-bottom: 1px solid var(--e-color-border-1);
 
     &:hover .icons .normal-img {
       display: block;
@@ -195,7 +193,7 @@ $pageIndentedMargin: 72px;
     font-size: 16px;
     line-height: inherit;
 
-    background: var(--e-grey-05);
+    background: var(--e-color-background-element-3);
     border-radius: 4px;
     padding: 0 2px;
   }
@@ -354,6 +352,9 @@ $pageIndentedMargin: 72px;
 
   .error-message-title {
     margin-top: 62px;
+    .accent-dot {
+      color: var(--e-color-brand-accent);
+    }
   }
 
   .error-message {

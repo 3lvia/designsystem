@@ -14,7 +14,7 @@ type Props = {
 export const Hint = styled.p<Props>`
   ${getTypographyCss('text-sm')}
   align-items: center;
-  color: ${getThemeColor('color-text-3')};
+  color: ${getThemeColor('color-text-placeholder-1')};
   display: inline-flex;
   height: ${({ size }) => (size === 'small' ? '32px' : '48px')};
   justify-content: ${({ side }) => (side === 'left' ? 'start' : 'end')};

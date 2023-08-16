@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.0.0",
-    "@elvia/elvis-colors": "^2.2.0",
+    "@elvia/elvis-colors": "^3.0.0",
     "@elvia/elvis-component-wrapper": "^4.1.2",
     "@elvia/elvis-toolbox": "^9.4.3",
     "@elvia/elvis-typography": "^2.3.2",
