@@ -19,7 +19,6 @@ import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module
 import { IconCegComponent } from './icon-ceg/icon-ceg.component';
 import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
 import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
-import { IconInvertedDisabledCegComponent } from './icon-inverted-disabled-ceg/icon-inverted-disabled-ceg.component';
 
 @NgModule({
   imports: [
@@ -44,7 +43,6 @@ import { IconInvertedDisabledCegComponent } from './icon-inverted-disabled-ceg/i
     IconCegComponent,
     IconSizesCegComponent,
     IconColorsCegComponent,
-    IconInvertedDisabledCegComponent,
   ],
 })
 export class IconDocModule {}

@@ -17,12 +17,6 @@
       @include icons.icon-currentcolor(var(--e-color-text-1--contrast));
       visibility: visible;
     }
-
-    i[class*='inverted'],
-    i[class*='color-disabled-light'],
-    i[class*='e-icon--disabled-inverted'] {
-      visibility: hidden;
-    }
   }
 
   // Sizes

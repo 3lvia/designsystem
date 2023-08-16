@@ -10,10 +10,6 @@ $toggle-width: 32px;
 $toggle-slider-size: 10px;
 $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
 
-$toggle-inverted-height: 14px;
-$toggle-inverted-width: 30px;
-$toggle-inverted-slider-padding: calc((#{$toggle-inverted-height} - #{$toggle-slider-size} + 2px) / 2);
-
 .e-toggle {
   @include helpers.custom-light-theme-tokens {
     --e-toggle-border-color: transparent;
