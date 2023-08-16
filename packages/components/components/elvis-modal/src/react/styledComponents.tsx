@@ -213,7 +213,6 @@ export const ModalHeading = styled.h2<HeadingProps>`
 `;
 
 export const ModalText = styled.div`
-  ${getTypographyCss('text-lg')}
   position: relative;
   overflow-y: auto;
   height: 100%;
