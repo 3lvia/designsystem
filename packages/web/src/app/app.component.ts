@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
     private documentEventListenerService: DocumentEventListenerService,
     private routerService: RouterService,
   ) {
+    this.setCurrentRouteFromUrl(location.pathname);
     this.listenForCurrentPageLayout();
   }
 
@@ -37,15 +38,18 @@ export class AppComponent implements OnInit {
       .pipe(takeUntilDestroyed())
       .subscribe((url) => {
         this.isLandingPage = !url.split('/')[2];
-
-        if (url === '/not-found') {
-          this.currentRoute = 'notFound';
-        } else if (url === '/' || url === '/home') {
-          this.currentRoute = 'standalonePage';
-        } else {
-          this.currentRoute = 'pageWithSidenav';
-        }
+        this.setCurrentRouteFromUrl(url);
       });
+  }
+
+  private setCurrentRouteFromUrl(url: string): void {
+    if (url === '/not-found') {
+      this.currentRoute = 'notFound';
+    } else if (url === '/' || url === '/home') {
+      this.currentRoute = 'standalonePage';
+    } else {
+      this.currentRoute = 'pageWithSidenav';
+    }
   }
 
   private handleMode(darkMode: boolean): void {

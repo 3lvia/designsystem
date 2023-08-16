@@ -44,17 +44,17 @@ export class CMSPageComponent {
 
     combineLatest([this.localizationService.listenLocalization(), this.activatedRoute.url])
       .pipe(takeUntilDestroyed())
-      .subscribe((value) => {
-        const firstRoute = value[1][0]?.path;
-        const secondRoute = value[1][1]?.path;
+      .subscribe(([locale, url]) => {
+        const firstRoute = url[0]?.path;
+        const secondRoute = url[1]?.path;
         this.checkIfPageExistsInProject();
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
-            this.getDocPageFromCMS(value[0], secondRoute);
+            this.getDocPageFromCMS(locale, secondRoute);
           } else if (!environment.production) {
-            this.getDocPageFromCMS(value[0]);
+            this.getDocPageFromCMS(locale);
           } else {
-            this.getDocPageFromPreGeneratedList(value[0]);
+            this.getDocPageFromPreGeneratedList(locale);
           }
         } else {
           this.cmsService.contentLoadedFromCMS();
