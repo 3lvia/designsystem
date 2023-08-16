@@ -1,23 +1,10 @@
-<!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData.changelog && componentData.changelog[0].date"
->
-  <ng-container ngProjectAs="headerTitle">Radio Filter</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <!--CEG-->
-  <app-ceg [fullWidth]="true">
-    <app-radio-filter-ceg />
+<app-component-documentation docUrl="radio-filter" [componentData]="componentData">
+  <app-ceg ceg fullWidth>
+    <app-radio-filter-ceg></app-radio-filter-ceg>
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="whens" [whenNots]="whenNots"></app-when-to-use>
       <app-component-subsection [sectionTitle]="'Lack of space'">
@@ -48,7 +35,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Keyboard navigation'">
         <ng-container ngProjectAs="sectionContent">
@@ -81,25 +68,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-    </ng-container>
-  </app-component-section>
-
-  <!--CHANGELOG-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [changelog]="componentData.changelog"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

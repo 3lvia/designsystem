@@ -12,6 +12,7 @@ import { BulletListCegComponent } from './list-bullet-ceg/list-bullet-ceg.compon
 import { NumberedListCegComponent } from './list-numbered-ceg/list-numbered-ceg.component';
 import { IconListCegComponent } from './list-icon-ceg/list-icon-ceg.component';
 import { ListCegComponent } from './list-ceg/list-ceg.component';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ListCegComponent } from './list-ceg/list-ceg.component';
     WhenToUseModule,
     ComponentChangelogModule,
     CegModule,
+    SharedDocumentationModule,
   ],
 })
 export class ListDocModule {}
