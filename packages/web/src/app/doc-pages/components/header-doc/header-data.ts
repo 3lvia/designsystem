@@ -48,6 +48,11 @@ export const headerData: ComponentData = {
       type: '() => void',
       description: 'An event that is triggered when the sign out button is clicked.',
     },
+    onThemeChange: {
+      isRequired: false,
+      type: '() => void',
+      description: 'An event that is triggered when the theme is switched',
+    },
     className: {
       isRequired: false,
       type: 'string',

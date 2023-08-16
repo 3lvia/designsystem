@@ -1,3 +1,5 @@
+import { DocPageName } from './shared.enum';
+
 export interface NavbarAnchor {
   title: string;
   top: number;
@@ -21,4 +23,5 @@ export interface DocPage {
   status?: string;
   type?: string;
   searchTerms?: string[];
+  relatedComponents?: DocPageName[];
 }
