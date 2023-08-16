@@ -1,8 +1,5 @@
 <!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData && componentData.changelog && componentData.changelog[0].date"
->
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="getLastUpdatedDate()">
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
