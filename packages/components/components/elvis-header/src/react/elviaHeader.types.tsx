@@ -7,7 +7,7 @@ export interface UserMenuProps {
   onThemeChange?: (themeName: Theme) => void;
   username: string;
   email: string;
-  hideThemeSwitch: boolean;
+  hideThemeSwitch?: boolean;
 }
 
 export interface HeaderProps extends BaseProps {
@@ -20,7 +20,7 @@ export interface HeaderProps extends BaseProps {
   onThemeChange?: (themeName: Theme) => void;
   pageTitle: string | JSX.Element;
   username: string;
-  hideThemeSwitch: boolean;
+  hideThemeSwitch?: boolean;
 }
 
 export type Theme = ThemeName | 'system';
