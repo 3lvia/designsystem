@@ -10,17 +10,16 @@
 }
 
 .transparent {
-  position: relative;
-  &::before {
-    content: '';
-    position: absolute;
-    width: 32px;
-    height: 1px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    background-color: var(--e-color-border-2);
-  }
+  border: none;
+  background: conic-gradient(
+    var(--e-color-background-element-3) 90deg,
+    var(--e-color-static-white) 90deg 180deg,
+    var(--e-color-background-element-3) 180deg 270deg,
+    var(--e-color-static-white) 270deg
+  );
+  background-repeat: repeat;
+  background-size: 16px 16px;
+  background-position: top left;
 }
 
 .black-white {

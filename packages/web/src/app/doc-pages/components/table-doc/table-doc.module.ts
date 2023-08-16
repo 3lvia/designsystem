@@ -1,16 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
-import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
-import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
-import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
-import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
-import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { TableDocComponent } from './table-doc.component';
-import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { TableCegComponent } from './table-ceg/table-ceg.component';
-import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { TableSizeNormalDesktopCegComponent } from './table-size-normal-desktop-ceg/table-size-normal-desktop-ceg.component';
 import { TableSizeNormalMobileCegComponent } from './table-size-normal-mobile-ceg/table-size-normal-mobile-ceg.component';
 import { TableSizeCompactDesktopCegComponent } from './table-size-compact-desktop-ceg/table-size-compact-desktop-ceg.component';
@@ -36,6 +26,7 @@ import { TableValidationCellCegComponent } from './table-validation-cell-ceg/tab
 import '@elvia/elvis-tooltip';
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-divider';
+import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
   declarations: [
@@ -64,18 +55,7 @@ import '@elvia/elvis-divider';
     TableValidationRowCegComponent,
     TableValidationCellCegComponent,
   ],
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    ComponentPropertiesModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    ComponentSubsubsectionModule,
-    WhenToUseModule,
-    RouterModule,
-    ComponentChangelogModule,
-    CegModule,
-  ],
+  imports: [SharedDocumentationModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TableDocModule {}
