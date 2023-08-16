@@ -1,19 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-static-ceg>
-    <app-tag-ceg />
+<app-component-documentation docUrl="tag" isElvis>
+  <app-static-ceg ceg>
+    <app-tag-ceg></app-tag-ceg>
   </app-static-ceg>
 
   <!--TYPE-->
-  <app-component-section [sectionTitle]="'Options'">
+  <app-component-section type [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Colored'">
         <ng-container ngProjectAs="sectionContent">
@@ -26,7 +17,7 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="headerDoes" [whenNots]="headerDonts"></app-when-to-use>
       <app-component-subsection [sectionTitle]="'Keep it short'">
@@ -43,18 +34,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-tag'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-tag'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>
