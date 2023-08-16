@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ElementRef, NgZone, OnDestroy, ViewChild } fr
 import { Subject, fromEvent, merge, switchMap, take, takeUntil } from 'rxjs';
 import { RouterService } from 'src/app/core/services/router.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Location } from '@angular/common';
 import { NavbarBase } from '../navbar-base';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
@@ -20,19 +19,18 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit,
   listOverflows = false;
   activeRoute = '';
 
+  get activeLandingPage(): string {
+    return this.activeRoute.split('/')[1];
+  }
+
   constructor(
     private ngZone: NgZone,
+    routerService: RouterService,
     cmsService: CMSService,
     localeService: LocalizationService,
-    routerService: RouterService,
-    location: Location,
   ) {
     super(cmsService, localeService, routerService);
-    this.activeRoute = location.path();
-    routerService
-      .urlPathChange()
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => (this.activeRoute = location.path()));
+    this.setActiveRoute();
 
     this.navbarListChange
       .pipe(
@@ -51,6 +49,14 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit,
   ngOnDestroy(): void {
     this.unsubscriber.next();
     this.unsubscriber.complete();
+  }
+
+  private setActiveRoute(): void {
+    this.activeRoute = this.routerService.getCurrentUrlPath();
+    this.routerService
+      .urlPathChange()
+      .pipe(takeUntilDestroyed())
+      .subscribe(() => (this.activeRoute = this.routerService.getCurrentUrlPath()));
   }
 
   private setListOverflow(): void {

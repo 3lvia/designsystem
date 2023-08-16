@@ -1,11 +1,5 @@
 <div class="page-container">
-  <div class="e-none-sm e-none-md">
-    <app-desktop-navbar />
-    <ng-container *ngIf="currentRoute === 'brand'">
-      <elvia-divider className="e-my-16" />
-      <app-locale-picker class="e-pl-16" />
-    </ng-container>
-  </div>
+  <app-desktop-navbar *ifViewportSize="['lg', 'xl']" />
 
   <div class="page-content">
     <div class="page-content-header page-body" *ngIf="!isLandingPage">

@@ -14,6 +14,11 @@
   </ng-container>
 </ul>
 
+<ng-container *ngIf="activeLandingPage === 'brand'">
+  <elvia-divider className="e-my-16" />
+  <app-locale-picker class="e-pl-16" />
+</ng-container>
+
 <ng-template #contentLoader>
   <span class="e-content-loader content-loader"></span>
 </ng-template>

@@ -2,6 +2,7 @@
   --offset-top: 128px;
   --offset-bottom: 32px;
   display: flex;
+  flex-direction: column;
   position: sticky;
   top: 128px;
 }
@@ -70,4 +71,5 @@
   overflow: hidden;
   line-height: 16px;
   letter-spacing: 0.012em;
+  transition: font-size 0.1s ease;
 }
