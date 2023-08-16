@@ -4,9 +4,10 @@ import { ThemeName } from '@elvia/elvis-colors';
 export interface UserMenuProps {
   onMenuToggle: (isShowing: boolean) => void;
   onSignOutClick?: () => void;
-  onThemeChange?: () => void;
+  onThemeChange?: (themeName: Theme) => void;
   username: string;
   email: string;
+  hideThemeSwitch: boolean;
 }
 
 export interface HeaderProps extends BaseProps {
@@ -16,9 +17,10 @@ export interface HeaderProps extends BaseProps {
   navItems?: JSX.Element;
   onLogoClick?: () => void;
   onSignOutClick?: () => void;
-  onThemeChange?: () => void;
+  onThemeChange?: (themeName: Theme) => void;
   pageTitle: string | JSX.Element;
   username: string;
+  hideThemeSwitch: boolean;
 }
 
 export type Theme = ThemeName | 'system';

@@ -18,7 +18,7 @@ interface PickerTheme {
 }
 
 interface ThemePickerProps {
-  onThemeChange: (() => void) | undefined;
+  onThemeChange: ((theme: Theme) => void) | undefined;
 }
 
 export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
@@ -33,7 +33,7 @@ export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
     setThemeClassOnDocument(theme);
     setCurrentTheme(theme);
     localStorage.setItem(themeLocalStorageKey, theme);
-    onThemeChange?.();
+    onThemeChange?.(theme);
   };
 
   useEffect(() => {
