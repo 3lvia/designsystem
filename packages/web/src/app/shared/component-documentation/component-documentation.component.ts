@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
-import ComponentData, { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import data from '@elvia/elvis/.internal/classlist.json';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { DocPageName } from '../shared.enum';
