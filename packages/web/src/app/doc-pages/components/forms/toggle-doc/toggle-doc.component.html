@@ -1,19 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-static-ceg>
-    <app-toggle-ceg />
+<app-component-documentation docUrl="toggle" isElvis>
+  <app-static-ceg ceg>
+    <app-toggle-ceg></app-toggle-ceg>
   </app-static-ceg>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
 
@@ -28,7 +19,7 @@
   </app-component-section>
 
   <!--STATES-->
-  <app-component-section [sectionTitle]="'States'">
+  <app-component-section states [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
       <app-static-ceg>
         <app-toggle-states-ceg />
@@ -37,7 +28,7 @@
   </app-component-section>
 
   <!-- OPTIONS -->
-  <app-component-section [sectionTitle]="'Options'">
+  <app-component-section options [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Label position'">
         <ng-container ngProjectAs="sectionContent">
@@ -51,7 +42,7 @@
   </app-component-section>
 
   <!-- SIZE -->
-  <app-component-section [sectionTitle]="'Size'">
+  <app-component-section size [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       The toggles come in two sizes. Regardless of the size you choose, you should never combine the two and
       always use the same size of toggle throughout the page.
@@ -75,7 +66,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Changing the aria-checked attribute'">
         <ng-container ngProjectAs="sectionContent">
@@ -102,18 +93,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-toggle'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-toggle'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

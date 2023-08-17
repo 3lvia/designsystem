@@ -2,6 +2,30 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.08.23",
+      "version": "9.4.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Added explicit <code>line-height</code> to the <code>formFieldStyle</code> to avoid inheriting it from the parent."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.08.23",
+      "version": "9.4.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an incorrect selector in <code>useFocusTrap</code> and <code>useRovingFocus</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "02.08.23",
       "version": "9.4.1",
       "changelog": [

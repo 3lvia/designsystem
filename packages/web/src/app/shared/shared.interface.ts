@@ -1,3 +1,6 @@
+import data from '@elvia/elvis/.internal/classlist.json';
+import { DocPageName } from './shared.enum';
+
 export interface DocPage {
   title: string;
   titleNo?: string;
@@ -13,4 +16,6 @@ export interface DocPage {
   status?: string;
   type?: string;
   searchTerms?: string[];
+  elvisClassName?: keyof typeof data.block;
+  relatedComponents?: DocPageName[];
 }
