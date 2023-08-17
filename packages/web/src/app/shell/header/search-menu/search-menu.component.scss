@@ -55,7 +55,6 @@
     bottom: -22%;
     @include breakpoints.breakpoint-up(Mobile) {
       top: 0;
-      overflow: hidden;
       width: 685vw;
       height: 685vw;
     }
@@ -67,6 +66,7 @@
 
   &.long-result.content-result::before {
     @include breakpoints.breakpoint-up(Mobile) {
+      overflow: hidden;
       height: 1100px;
     }
   }
