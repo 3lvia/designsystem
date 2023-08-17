@@ -3,6 +3,10 @@
 @use '@elvia/elvis/src/variables/typography.scss';
 @use '@elvia/elvis/src/variables/colors';
 
+:host {
+  width: 100%;
+}
+
 .header {
   position: fixed;
   height: 64px;
@@ -29,7 +33,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
+  position: absolute;
   width: 100%;
   background-color: var(--e-white);
   box-sizing: border-box;
@@ -50,13 +54,11 @@
     position: absolute;
     background-color: var(--e-white);
     z-index: -1;
-    width: 200vw;
-    height: calc(100% + 54px);
+    width: 685vw;
+    height: 685vw;
     bottom: -22%;
     @include breakpoints.breakpoint-up(Mobile) {
       top: 0;
-      width: 685vw;
-      height: 685vw;
     }
   }
 
