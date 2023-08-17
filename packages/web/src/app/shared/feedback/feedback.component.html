@@ -11,20 +11,20 @@
       </div>
       <div class="emojis">
         <div class="section" (click)="chooseEmoji('bad')">
-          <button class="emoji e-mb-16">
-            <img src="./../../../assets/feedback/smiley-drop 1.svg" alt="Feedback emoji - sad" />
+          <button class="emoji e-mb-16" aria-label="bad">
+            <app-emoji-bad />
           </button>
           <div class="e-text-sm">Bad</div>
         </div>
         <div class="section" (click)="chooseEmoji('neutral')">
-          <button class="emoji e-mb-16">
-            <img src="./../../../assets/feedback/smiley-eyes-only 1.svg" alt="Feedback emoji - neutral" />
+          <button class="emoji e-mb-16" aria-label="neutral">
+            <app-emoji-neutral />
           </button>
           <div class="e-text-sm">Neutral</div>
         </div>
         <div class="section" (click)="chooseEmoji('good')">
-          <button class="emoji e-mb-16">
-            <img src="./../../../assets/feedback/smiley-in-love 1.svg" alt="Feedback emoji - happy" />
+          <button class="emoji e-mb-16" aria-label="good">
+            <app-emoji-good />
           </button>
           <div class="e-text-sm">Good</div>
         </div>
@@ -43,27 +43,15 @@
         </div>
         <div class="center">
           <div class="emoji-chosen" *ngIf="currentEmoji === 'good'">
-            <img
-              src="./../../../assets/feedback/smiley-in-love 1.svg"
-              class="emoji"
-              alt="Feedback emoji - happy"
-            />
+            <app-emoji-good />
             <div class="e-text-lg e-ml-8" style="font-weight: 500">Good</div>
           </div>
           <div class="emoji-chosen" *ngIf="currentEmoji === 'neutral'">
-            <img
-              src="./../../../assets/feedback/smiley-eyes-only 1.svg"
-              class="emoji"
-              alt="Feedback emoji - neutral"
-            />
+            <app-emoji-neutral />
             <div class="e-text-lg e-ml-8" style="font-weight: 500">Neutral</div>
           </div>
           <div class="emoji-chosen" *ngIf="currentEmoji === 'bad'">
-            <img
-              src="./../../../assets/feedback/smiley-drop 1.svg"
-              class="emoji"
-              alt="Feedback emoji - sad"
-            />
+            <app-emoji-bad />
             <div class="e-text-lg e-ml-8" style="font-weight: 500">Bad</div>
           </div>
         </div>

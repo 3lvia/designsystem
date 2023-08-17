@@ -45,7 +45,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin: 0px 16px;
+      margin: 0 16px;
       .emoji {
         border: none;
         background: transparent;
@@ -53,6 +53,7 @@
       &:hover {
         .emoji {
           transform: scale(1.08);
+          transition: all 200ms ease;
           cursor: pointer;
         }
         cursor: pointer;
@@ -60,7 +61,7 @@
       &:last-of-type {
         margin-right: 0;
         @include breakpoints.breakpoint-up(Mobile) {
-          margin: 0px 16px;
+          margin: 0 16px;
         }
       }
     }
@@ -92,7 +93,7 @@
       border-left: none;
       border-right: none;
       background: transparent;
-      padding: 0px;
+      padding: 0;
     }
     .emoji-chosen {
       display: flex;
