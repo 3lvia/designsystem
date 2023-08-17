@@ -34,6 +34,7 @@
         @include breakpoints.breakpoint-up(Mobile) {
           flex-direction: column;
           align-items: flex-start;
+          row-gap: 8px;
         }
       }
     }
