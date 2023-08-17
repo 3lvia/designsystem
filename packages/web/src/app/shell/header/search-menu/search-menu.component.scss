@@ -66,8 +66,8 @@
 
   &.long-result.content-result::before {
     @include breakpoints.breakpoint-up(Mobile) {
-      overflow: hidden;
       height: 1100px;
+      overflow: hidden;
     }
   }
 
