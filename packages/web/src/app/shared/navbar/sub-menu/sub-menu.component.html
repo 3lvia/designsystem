@@ -1,4 +1,4 @@
-<div class="list-container" [@listAnimation]="anchors.length">
+<div class="list-container" [@listAnimation]="anchors.length" [ngClass]="{ 'e-mt-8': anchors.length }">
   <button
     class="link e-text-sm"
     (click)="goToFragment(anchor.name)"

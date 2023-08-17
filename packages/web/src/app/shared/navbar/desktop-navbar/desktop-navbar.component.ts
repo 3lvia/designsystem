@@ -17,7 +17,7 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit,
   private unsubscriber = new Subject<void>();
   @ViewChild('scrollContainer') scrollContainer: ElementRef<HTMLDivElement>;
   listOverflows = false;
-  activeRoute = '';
+  activeRoute = location.pathname;
 
   get activeLandingPage(): string {
     return this.activeRoute.split('/')[1];
@@ -52,7 +52,6 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit,
   }
 
   private setActiveRoute(): void {
-    this.activeRoute = this.routerService.getCurrentUrlPath();
     this.routerService
       .urlPathChange()
       .pipe(takeUntilDestroyed())

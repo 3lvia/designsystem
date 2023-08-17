@@ -6,6 +6,7 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { RouterService } from 'src/app/core/services/router.service';
 
 export interface Anchor {
   name: string;
@@ -40,12 +41,14 @@ export class SubMenuComponent {
   constructor(
     private router: Router,
     private location: Location,
+    private routerService: RouterService,
     changeDetectorRef: ChangeDetectorRef,
     localization: LocalizationService,
     cmsService: CMSService,
     zone: NgZone,
   ) {
     this.setActiveAnchorOnScroll();
+    this.scrollToCorrectAnchorOnPageLoad();
 
     /**
      * Fetch sub items from the DOM both when localization has changed,
@@ -67,6 +70,14 @@ export class SubMenuComponent {
     this.router.navigateByUrl(`${this.location.path()}#${id}`, {
       replaceUrl: true,
     });
+  }
+
+  private scrollToCorrectAnchorOnPageLoad() {
+    const fragment = this.routerService.getCurrentFragment();
+
+    if (fragment) {
+      this.goToFragment(fragment);
+    }
   }
 
   private setActiveAnchorOnScroll(): void {
@@ -96,9 +107,10 @@ export class SubMenuComponent {
       elements.forEach((anchor, index) => {
         anchor.setAttribute('id', index === 0 ? overviewTitle : anchor.innerText);
       });
+
       const anchors: Anchor[] = Array.from(elements).map((element, index) => ({
         name: index === 0 ? overviewTitle : element.innerText,
-        top: element.offsetTop,
+        top: (element.offsetParent as HTMLElement)?.offsetTop,
       }));
 
       return anchors;

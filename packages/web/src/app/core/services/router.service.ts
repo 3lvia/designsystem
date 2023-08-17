@@ -36,4 +36,8 @@ export class RouterService {
   getCurrentQueryParams(): Record<string, string | number> {
     return this.activatedRoute.snapshot.queryParams;
   }
+
+  getCurrentFragment(): string {
+    return location.hash.substring(1);
+  }
 }
