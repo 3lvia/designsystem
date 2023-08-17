@@ -1,6 +1,7 @@
-import { Directive, HostBinding } from '@angular/core';
+import { Directive, HostBinding, NgZone } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { fromEvent } from 'rxjs';
+import { first, fromEvent, switchMap } from 'rxjs';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
 
 /**
  * This directive ensure that the desktop navbar never is too
@@ -20,8 +21,20 @@ export class FlexibleFullHeightDirective {
     return `calc(100vh - ${this.offsetTop} - ${this.distanceFromBottom})`;
   }
 
-  constructor() {
-    this.setDistanceFromBottom();
+  constructor(cmsService: CMSService, zone: NgZone) {
+    /**
+     * Update after the CMS content loads and the DOM is stable
+     */
+    cmsService
+      .listenContentLoadedFromCMS()
+      .pipe(
+        takeUntilDestroyed(),
+        switchMap(() => zone.onStable.pipe(first())),
+      )
+      .subscribe(() => this.setDistanceFromBottom());
+
+    zone.onStable.pipe(first()).subscribe(() => this.setDistanceFromBottom());
+
     this.setDistanceFromBottomOnScroll();
   }
 
