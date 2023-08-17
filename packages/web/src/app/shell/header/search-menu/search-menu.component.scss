@@ -239,7 +239,7 @@
         background-color: colors.color('grey-05');
       }
 
-      .result-title {
+      .result-heading {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -255,6 +255,10 @@
       .result-content {
         @include typography.typography('text-md');
       }
+    }
+
+    .e-content-loader {
+      pointer-events: none;
     }
   }
 }

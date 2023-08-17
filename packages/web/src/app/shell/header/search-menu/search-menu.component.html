@@ -48,9 +48,9 @@
 <div
   class="content"
   [ngClass]="{
-    'content-result': showResults,
-    'content-no-result': searchString.length !== 0 && this.resultsToDisplay.length === 0,
-    'long-result': this.resultsToDisplay.length > 2
+    'content-no-result': resultStatus === 'no-result',
+    'content-result': (resultStatus === 'show' || resultStatus === 'loading'),
+    'long-result': resultsToDisplay.length > 2,
   }"
 >
   <div class="inner-content">
@@ -92,7 +92,7 @@
             </span>
           </button>
         </div>
-        <p class="component-suggestions" *ngIf="showResults && synonymComponents.length > 0">
+        <p class="component-suggestions" *ngIf="resultStatus === 'show' && synonymComponents.length > 0">
           Looking for the
           <ng-container *ngFor="let component of synonymComponents; let last = last; let first = first">
             <span *ngIf="!last && !first">,&nbsp;</span>
@@ -106,33 +106,50 @@
       </div>
     </div>
 
-    <div class="no-results" *ngIf="searchString.length !== 0 && this.resultsToDisplay.length === 0">
-      <div>Oh snap 😕</div>
-      <div>We can’t find what you are looking for</div>
-    </div>
+    <ng-container [ngSwitch]="resultStatus">
+      <!-- Fake results loading -->
+      <div *ngSwitchCase="'loading'">
+        <div *ngIf="searchString" class="results">
+          <ng-container *ngFor="let result of [1, 2, 3]; let last = last">
+            <div class="e-content-loader result-item e-w-100"></div>
+            <elvia-divider *ngIf="!last" />
+          </ng-container>
+        </div>
+      </div>
 
-    <div class="results" *ngIf="showResults">
-      <ng-container *ngFor="let result of resultsToDisplay; let last = last">
-        <article>
-          <a
-            class="result-item"
-            [routerLink]="[result.absolutePath]"
-            [fragment]="result.fragmentPath"
-            (click)="closeSearch()"
-          >
-            <div class="result-title">
-              <div class="title item-title" [id]="'search_' + result.title">{{ result.title }}</div>
-              <div class="e-tag" *ngIf="result.type">{{ result.type }}</div>
-            </div>
-            <div class="result-content" *ngIf="result.description">
-              <div class="description-item" [id]="encodeHTML(result.description)"></div>
-            </div>
-          </a>
-        </article>
-        <ng-container *ngIf="!last">
-          <elvia-divider></elvia-divider>
+      <!-- Actual no results -->
+      <div class="no-results e-text-center" *ngSwitchCase="'no-result'">
+        <p class="e-m-0">
+          Oh snap 😕
+          <br />
+          We can’t find what you are looking for
+        </p>
+      </div>
+
+      <!-- Results -->
+      <div class="results" *ngSwitchCase="'show'">
+        <ng-container *ngFor="let result of resultsToDisplay; let last = last">
+          <article>
+            <a
+              class="result-item"
+              [routerLink]="[result.absolutePath]"
+              [fragment]="result.fragmentPath"
+              (click)="closeSearch()"
+            >
+              <div class="result-heading">
+                <p class="e-m-0 title" [id]="'search_' + result.title">{{ result.title }}</p>
+                <div class="e-tag" *ngIf="result.type">{{ result.type }}</div>
+              </div>
+              <p
+                class="result-content e-m-0"
+                *ngIf="result.description"
+                [id]="encodeHTML(result.description)"
+              ></p>
+            </a>
+          </article>
+          <elvia-divider *ngIf="!last" />
         </ng-container>
-      </ng-container>
-    </div>
+      </div>
+    </ng-container>
   </div>
 </div>

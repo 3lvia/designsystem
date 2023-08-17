@@ -1,5 +1,5 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
 import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -7,7 +7,7 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { SearchItem } from './search-menu.interface';
+import { ResultsStatus, SearchItem } from './search-menu.interface';
 import { SearchService } from '../../../core/services/search.service';
 import Fuse from 'fuse.js';
 import { getThemeColor } from '@elvia/elvis-colors';
@@ -20,9 +20,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./search-menu.component.scss'],
   providers: [SearchService],
 })
-export class SearchMenuComponent implements OnInit, OnDestroy {
+export class SearchMenuComponent implements OnInit {
   mainMenu: CMSMenu;
-  showResults = false;
+  resultStatus: ResultsStatus = 'loading';
   resultOfMoreThanTwo = false;
   searchString = '';
   searchItems: SearchItem[] = [];
@@ -34,7 +34,6 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   private onDestroy = new Subject<void>();
   private onDestroy$ = this.onDestroy.asObservable();
 
-  private subscriptions: Subscription = new Subscription();
   private locale: Locale;
 
   constructor(
@@ -80,10 +79,6 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     this.closeSearch();
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
-  }
-
   ngOnInit(): void {
     const search = document.getElementById('search-field');
     search?.focus();
@@ -110,12 +105,14 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   /**
    * Gets called every time the content of the search field is changed. If the search is not yet initialized, return without performing any search.
    */
-  onSearch(): void {
+  async onSearch(): Promise<void> {
+    this.resultStatus = 'loading';
+
     if (!this.searchService.isInitialized) {
       return;
     }
 
-    this.activeResults = this.searchService.search(this.searchString);
+    this.activeResults = await this.searchService.search(this.searchString);
     this.resultsToDisplay = this.searchService.searchResults
       .filter((result) => !result.matches?.every((match) => match.key === 'searchTerms'))
       .sort((a, b) => {
@@ -133,14 +130,17 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       })
       .map((result) => result.item);
 
-    if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
-      this.showResults = true;
+    if (!this.searchString.length) {
+      this.resultStatus = 'empty';
+    } else if (this.resultsToDisplay.length && this.searchString.length) {
+      this.resultStatus = 'show';
+
       this.getComponentsWithSynonym();
       setTimeout(() => {
         this.highlightSearchMatches();
       });
     } else {
-      this.showResults = false;
+      this.resultStatus = 'no-result';
     }
   }
 

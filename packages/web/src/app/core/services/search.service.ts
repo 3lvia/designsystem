@@ -39,9 +39,12 @@ export class SearchService<T> {
    * @param searchString
    * @returns List containing search results, sorted by fuzzy score (best matches first).
    */
-  search(searchString: string): T[] {
-    this.searchResults = this.fuse.search(searchString);
-    return this.searchResults.map((result) => result.item);
+  search(searchString: string): Promise<T[]> {
+    return new Promise((resolve) => {
+      this.searchResults = this.fuse.search(searchString);
+      const items = this.searchResults.map((result) => result.item);
+      resolve(items);
+    });
   }
 
   /**
