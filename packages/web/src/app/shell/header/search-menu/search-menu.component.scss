@@ -50,12 +50,14 @@
     position: absolute;
     background-color: var(--e-white);
     z-index: -1;
-    width: 685vw;
-    height: 685vw;
+    width: 200vw;
+    height: calc(100% + 54px);
     bottom: -22%;
     @include breakpoints.breakpoint-up(Mobile) {
-      bottom: -650px;
+      top: 0;
       overflow: hidden;
+      width: 685vw;
+      height: 685vw;
     }
   }
 
@@ -64,12 +66,8 @@
   }
 
   &.long-result.content-result::before {
-    left: -50%;
-    width: 200vw;
-    height: calc(100% + 54px);
     @include breakpoints.breakpoint-up(Mobile) {
       height: 1100px;
-      overflow: hidden;
     }
   }
 
