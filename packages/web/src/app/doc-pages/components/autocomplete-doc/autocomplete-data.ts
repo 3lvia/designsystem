@@ -15,7 +15,6 @@ export const autocompleteData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Set a default value to the autocomplete.',
-      default: 'undefined',
     },
     errorOptions: {
       isRequired: false,
