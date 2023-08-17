@@ -15,10 +15,10 @@ export const AutocompleteError: React.FC<Props> = ({ errorType, errorOptions, id
   const [errorText, setErrorText] = useState('');
 
   useEffect(() => {
-    if (errorType) {
-      setErrorText(getInternalErrorText(errorType, label));
-    } else if (errorOptions?.text) {
+    if (errorOptions?.text) {
       setErrorText(errorOptions.text);
+    } else if (errorType) {
+      setErrorText(getInternalErrorText(errorType, label));
     } else {
       setErrorText('');
     }

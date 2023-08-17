@@ -46,9 +46,21 @@
     <elvia-autocomplete
       (valueOnChange)="handleOnChange($any($event))"
       [items]="autocompleteItems"
+      isRequired="true"
       label="Frukt"
       placeholder="Jordbær..."
-    ></elvia-autocomplete>
+    />
+    <br />
+    <elvia-autocomplete
+      (valueOnChange)="handleOnChange($any($event))"
+      errorOptions="{ text: 'Skriv inn noe godt' }"
+      label="Lunch"
+      [items]="[
+        { value: 'lange', label: 'Lange' },
+        { value: 'torsk', label: 'Torsk' },
+        { value: 'sjampinjong', label: 'sjampinjong' }
+      ]"
+    />
   </div>
 
   <!-- Badge -->
