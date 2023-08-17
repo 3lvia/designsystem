@@ -58,6 +58,8 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   position: relative;
   box-sizing: border-box;
   text-align: left;
+  line-height: 1;
+  font-size: 16px;
 
   ${({ hasErrorPlaceholder }) =>
     hasErrorPlaceholder &&
@@ -88,7 +90,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
           top: 0;
           padding: 0 3px;
           z-index: 1;
-          line-height: 100%;
+          line-height: 1;
         }
 
         ${FormFieldInputContainer} {

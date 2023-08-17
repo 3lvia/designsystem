@@ -1,9 +1,10 @@
-@use '../../shared/shared-sizes.scss' as sizes;
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 .footer {
+  --footer-height: 200px;
+
   position: relative;
-  height: sizes.$footer-height;
+  height: var(--footer-height);
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -12,7 +13,7 @@
   background-color: var(--e-grey);
   color: var(--e-white);
   @include breakpoints.breakpoint-up(Mobile) {
-    height: calc(#{sizes.$footer-height} + 25px);
+    height: calc(var(--footer-height) + 25px);
   }
 
   @media screen and (-ms-high-contrast: none) {

@@ -5,6 +5,7 @@
     <app-copy
       tabindex="0"
       (click)="copyAnchor()"
+      (keydown.enter)="copyAnchor()"
       style="position: absolute; height: 24px; left: -36px; width: 36px"
     >
       <ng-container ngProjectAs="copyContent">
