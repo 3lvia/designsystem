@@ -83,14 +83,7 @@ $link-jumbo-phone-width: 287px;
 
   &:active {
     border-bottom-width: 1px;
-
-    &::after {
-      display: block;
-      width: 100%;
-      height: 100%;
-      margin-bottom: 1px;
-      content: '';
-    }
+    padding-bottom: 1px;
   }
 
   &.e-link---focus {
