@@ -206,78 +206,78 @@ export const utilityGroups: UtilityGroup[] = [
     classes: [
       {
         className: 'e-p-number',
-        description: 'Set padding in all directions, from 0-72 following 8px multiplication.',
+        description: 'Set padding in all directions, from 0-112 following 8px multiplication.',
         styling: 'padding: {number}px',
       },
       {
         className: 'e-pl-number',
-        description: 'Set padding left, from 0-72 following 8px multiplication.',
+        description: 'Set padding left, from 0-112 following 8px multiplication.',
         styling: 'padding-left: {number}px',
       },
       {
         className: 'e-pr-number',
-        description: 'Set padding right, from 0-72 following 8px multiplication.',
+        description: 'Set padding right, from 0-112 following 8px multiplication.',
         styling: 'padding-right: {number}px',
       },
       {
         className: 'e-pt-number',
-        description: 'Set padding top, from 0-72 following 8px multiplication.',
+        description: 'Set padding top, from 0-112 following 8px multiplication.',
         styling: 'padding-top: {number}px',
       },
       {
         className: 'e-pb-number',
-        description: 'Set padding bottom, from 0-72 following 8px multiplication.',
+        description: 'Set padding bottom, from 0-112 following 8px multiplication.',
         styling: 'padding-bottom: {number}px',
       },
       {
         className: 'e-px-number',
-        description: 'Set padding left and right, from 0-72 following 8px multiplication.',
+        description: 'Set padding left and right, from 0-112 following 8px multiplication.',
         styling: 'padding-left: {number}px; padding-right: {number}px;',
       },
       {
         className: 'e-py-number',
-        description: 'Set padding top and bottom, from 0-72 following 8px multiplication.',
+        description: 'Set padding top and bottom, from 0-112 following 8px multiplication.',
         styling: 'padding-top: {number}px; padding-bottom: {number}px;',
       },
       {
         className: 'e-m-number',
-        description: 'Set margin in all directions, from 0-72 following 8px multiplication.',
+        description: 'Set margin in all directions, from 0-112 following 8px multiplication.',
         styling: 'margin: {number}px',
       },
       {
         className: 'e-ml-number',
-        description: 'Set margin left, from 0-72 following 8px multiplication.',
+        description: 'Set margin left, from 0-112 following 8px multiplication.',
         styling: 'margin-left: {number}px',
       },
       {
         className: 'e-mr-number',
-        description: 'Set margin right, from 0-72 following 8px multiplication.',
+        description: 'Set margin right, from 0-112 following 8px multiplication.',
         styling: 'margin-right: {number}px',
       },
       {
         className: 'e-mt-number',
-        description: 'Set margin top, from 0-72 following 8px multiplication.',
+        description: 'Set margin top, from 0-112 following 8px multiplication.',
         styling: 'margin-top: {number}px',
       },
       {
         className: 'e-mb-number',
-        description: 'Set margin bottom, from 0-72 following 8px multiplication.',
+        description: 'Set margin bottom, from 0-112 following 8px multiplication.',
         styling: 'margin-bottom: {number}px',
       },
       {
         className: 'e-mx-number',
-        description: 'Set margin left and right, from 0-72 following 8px multiplication.',
+        description: 'Set margin left and right, from 0-112 following 8px multiplication.',
         styling: 'margin-left: {number}px; margin-right: {number}px;',
       },
       {
         className: 'e-my-number',
-        description: 'Set margin top and bottom, from 0-72 following 8px multiplication.',
+        description: 'Set margin top and bottom, from 0-112 following 8px multiplication.',
         styling: 'margin-top: {number}px; margin-bottom: {number}px;',
       },
       {
         className: 'e-m-nnumber',
         description:
-          'Set margin negative, from 0-72 following 8px multiplication. All margin classes can be used e.g. e-mr-n8',
+          'Set margin negative, from 0-112 following 8px multiplication. All margin classes can be used e.g. e-mr-n8',
         styling: 'margin-right: -number',
       },
     ],
