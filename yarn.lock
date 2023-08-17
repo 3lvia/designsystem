@@ -2147,6 +2147,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-autocomplete@*, @elvia/elvis-autocomplete@workspace:*, @elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete"
+  dependencies:
+    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-component-wrapper": ^4.1.3
+    "@elvia/elvis-toolbox": ^9.5.0
+    "@elvia/elvis-tooltip": ^1.2.3
+    "@elvia/elvis-typography": ^2.4.0
+    styled-components: ^5.3.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-is:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-badge@*, @elvia/elvis-badge@workspace:*, @elvia/elvis-badge@workspace:packages/components/components/elvis-badge":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-badge@workspace:packages/components/components/elvis-badge"
@@ -2307,6 +2331,13 @@ __metadata:
   version: 1.8.0
   resolution: "@elvia/elvis-colors@npm:1.8.0"
   checksum: 5d29f0a24915e9afc0225559d41db7803ec5b8b07e882f0ad4a46b1b7681910fee81d7138fc90e3550281fa40e91ab15b275f29ce6d5ddb7f7462e0bb350f9f0
+  languageName: node
+  linkType: hard
+
+"@elvia/elvis-colors@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "@elvia/elvis-colors@npm:2.7.1"
+  checksum: 07fe5d4027871924037d2295a88d89a25f4454bfb47f5c6fec0f70848145ea5d28dff761646b57062ce88650addd4f879ffaea803abfae7fb763d6ef98897305
   languageName: node
   linkType: hard
 
@@ -2868,7 +2899,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@*, @elvia/elvis-toolbox@^9.2.0, @elvia/elvis-toolbox@^9.3.0, @elvia/elvis-toolbox@^9.4.1, @elvia/elvis-toolbox@^9.4.3, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@*, @elvia/elvis-toolbox@^9.2.0, @elvia/elvis-toolbox@^9.3.0, @elvia/elvis-toolbox@^9.4.1, @elvia/elvis-toolbox@^9.4.3, @elvia/elvis-toolbox@^9.5.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
@@ -8973,6 +9004,7 @@ __metadata:
     "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
     "@elvia/elvis-assets-icons": "workspace:*"
+    "@elvia/elvis-autocomplete": "workspace:*"
     "@elvia/elvis-badge": "workspace:*"
     "@elvia/elvis-box": "workspace:*"
     "@elvia/elvis-breadcrumb": "workspace:*"
@@ -16454,6 +16486,7 @@ __metadata:
   dependencies:
     "@elvia/elvis": "*"
     "@elvia/elvis-accordion": "*"
+    "@elvia/elvis-autocomplete": "*"
     "@elvia/elvis-badge": "*"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"
@@ -19703,6 +19736,7 @@ __metadata:
   dependencies:
     "@elvia/elvis": "*"
     "@elvia/elvis-accordion": "*"
+    "@elvia/elvis-autocomplete": "*"
     "@elvia/elvis-badge": "*"
     "@elvia/elvis-box": "*"
     "@elvia/elvis-breadcrumb": "*"

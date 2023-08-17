@@ -180,8 +180,10 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     trapFocus(popoverRef);
   };
 
-  const validateMinMax = (d: Date): void => {
-    if (d.getFullYear() < 1800 || !isValidDate(d)) {
+  const validateMinMax = (d?: Date | null): void => {
+    if (!d) {
+      onError();
+    } else if (d.getFullYear() < 1800 || !isValidDate(d)) {
       onError('invalidDate');
     } else if (minDateWithoutTime && isBefore(d, minDateWithoutTime)) {
       onError('beforeMinDate');
@@ -197,12 +199,11 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (date && !value && isRequired && isInitialized) {
       onError('required');
     }
-
     setDate(value);
   }, [value]);
 
   useEffect(() => {
-    if (isInitialized && value) {
+    if (isInitialized) {
       validateMinMax(value);
     }
   }, [value, maxDateWithoutTime, minDateWithoutTime]);
