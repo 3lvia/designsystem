@@ -208,7 +208,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
         isDisabled={isDisabled}
         isFullWidth={isFullWidth}
         isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
-        isActive={isShowing}
+        isActive={isShowing && !valueIsEqualOnlyItem}
         size={size}
         style={{ ...inlineStyle }}
         {...rest}
