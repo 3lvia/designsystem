@@ -1,12 +1,16 @@
-import { Component, NgZone } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
 import { fromEvent, merge, switchMap, take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Anchor, AnchorService } from './anchor.service';
 import { trigger, transition, stagger, animate, style, query } from '@angular/animations';
-import { LocalizationService } from 'src/app/core/services/localization.service';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+
+export interface Anchor {
+  name: string;
+  top: number;
+}
 
 @Component({
   selector: 'app-sub-menu',
@@ -36,7 +40,7 @@ export class SubMenuComponent {
   constructor(
     private router: Router,
     private location: Location,
-    anchorService: AnchorService,
+    changeDetectorRef: ChangeDetectorRef,
     localization: LocalizationService,
     cmsService: CMSService,
     zone: NgZone,
@@ -53,13 +57,14 @@ export class SubMenuComponent {
         switchMap(() => zone.onStable.pipe(take(1))),
       )
       .subscribe(() => {
-        this.anchors = anchorService.getAnchors(localization.getCurrentLocalization());
+        this.anchors = this.getAnchors(localization.getCurrentLocalization());
         this.activeAnchor = this.anchors[0]?.name;
+        changeDetectorRef.detectChanges();
       });
   }
 
   goToFragment(id: string): void {
-    this.router.navigateByUrl(this.location.path() + '#' + id, {
+    this.router.navigateByUrl(`${this.location.path()}#${id}`, {
       replaceUrl: true,
     });
   }
@@ -81,5 +86,24 @@ export class SubMenuComponent {
           this.location.replaceState(`${this.location.path()}#${activeAnchor.name}`);
         }
       });
+  }
+
+  private getAnchors(locale: Locale): Anchor[] {
+    const overviewTitle = locale === Locale['nb-NO'] ? 'Oversikt' : 'Overview';
+    const elements = document.querySelectorAll<HTMLElement>('[data-url-fragment]');
+
+    if (elements.length > 1) {
+      elements.forEach((anchor, index) => {
+        anchor.setAttribute('id', index === 0 ? overviewTitle : anchor.innerText);
+      });
+      const anchors: Anchor[] = Array.from(elements).map((element, index) => ({
+        name: index === 0 ? overviewTitle : element.innerText,
+        top: element.offsetTop,
+      }));
+
+      return anchors;
+    }
+
+    return [];
   }
 }
