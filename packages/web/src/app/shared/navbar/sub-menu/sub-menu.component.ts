@@ -1,12 +1,11 @@
 import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
-import { fromEvent, merge, switchMap, take } from 'rxjs';
+import { Observable, first, fromEvent, of, switchMap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { trigger, transition, stagger, animate, style, query } from '@angular/animations';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { RouterService } from 'src/app/core/services/router.service';
 
 export interface Anchor {
   name: string;
@@ -41,23 +40,26 @@ export class SubMenuComponent {
   constructor(
     private router: Router,
     private location: Location,
-    private routerService: RouterService,
+    private cmsService: CMSService,
     changeDetectorRef: ChangeDetectorRef,
     localization: LocalizationService,
-    cmsService: CMSService,
     zone: NgZone,
   ) {
     this.setActiveAnchorOnScroll();
     this.scrollToCorrectAnchorOnPageLoad();
 
     /**
-     * Fetch sub items from the DOM both when localization has changed,
-     * and when content has been fetched from the CMS.
+     * A couple of async steps is required to safely retrieve sub menu items:
+     *  1. If the page comes from the CMS, wait for it to be loaded. If
+     *     the page is client side only, proceed immediately to the next step.
+     *  2. Switch the observable to listen for localization changes
+     *  3. When localization changes, wait for the DOM to stabilize
+     *     before retrieving the anchor elements from the DOM.
      **/
-    merge(localization.listenLocalization(), cmsService.listenContentLoadedFromCMS())
+    this.getFetchAnchorsTrigger()
       .pipe(
-        takeUntilDestroyed(),
-        switchMap(() => zone.onStable.pipe(take(1))),
+        switchMap(() => localization.listenLocalization()),
+        switchMap(() => zone.onStable.pipe(first())),
       )
       .subscribe(() => {
         this.anchors = this.getAnchors(localization.getCurrentLocalization());
@@ -72,8 +74,19 @@ export class SubMenuComponent {
     });
   }
 
+  private getFetchAnchorsTrigger(): Observable<void> {
+    return this.cmsService.listenCurrentRouteIsCms().pipe(
+      switchMap((isCms) => {
+        if (isCms) {
+          return this.cmsService.listenContentLoadedFromCMS();
+        }
+        return of(undefined);
+      }),
+    );
+  }
+
   private scrollToCorrectAnchorOnPageLoad() {
-    const fragment = this.routerService.getCurrentFragment();
+    const fragment = location.hash.substring(1);
 
     if (fragment) {
       this.goToFragment(fragment);

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CMSTransformService } from './cms-transform.service';
 import { Locale } from '../localization.service';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, distinctUntilChanged } from 'rxjs';
 import { Router } from '@angular/router';
 import {
   IDocumentationPage,
@@ -23,6 +23,7 @@ export class CMSService {
   private entriesToSync: string[] = [];
   private cmsPageLoaded = new Subject<void>();
   private getMenuCache = new Map<Locale, CMSMenu>();
+  private currentRouteIsCms = new BehaviorSubject(false);
 
   constructor(
     private http: HttpClient,
@@ -32,6 +33,14 @@ export class CMSService {
 
   listenContentLoadedFromCMS(): Observable<void> {
     return this.cmsPageLoaded.asObservable();
+  }
+
+  listenCurrentRouteIsCms(): Observable<boolean> {
+    return this.currentRouteIsCms.asObservable().pipe(distinctUntilChanged());
+  }
+
+  setCurrentRouteIsCms(isCmsPage: boolean) {
+    this.currentRouteIsCms.next(isCmsPage);
   }
 
   contentLoadedFromCMS(): void {

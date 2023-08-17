@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -16,7 +16,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class CMSPageComponent {
+export class CMSPageComponent implements OnDestroy {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;
   showContentLoader = true;
   contentHTML: SafeHtml = '';
@@ -60,6 +60,10 @@ export class CMSPageComponent {
           this.cmsService.contentLoadedFromCMS();
         }
       });
+  }
+
+  ngOnDestroy(): void {
+    this.cmsService.setCurrentRouteIsCms(false);
   }
 
   /**
@@ -145,16 +149,17 @@ export class CMSPageComponent {
     const urlWithoutAnchor = this.router.url.split('#')[0];
     const currentPath = urlWithoutAnchor.split('?')[0];
     if (currentPath.split('/')[2]) {
-      this.router.config[0].children?.forEach((subRoute) => {
-        if (subRoute.path === currentPath.split('/')[1]) {
-          this.isCmsPage = !subRoute.children?.some(
-            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPath,
+      this.router.config.forEach((route) => {
+        if (route.path === currentPath.split('/')[1]) {
+          this.isCmsPage = !route.children?.some(
+            (childRoute) => '/' + route.path + '/' + childRoute.path === currentPath,
           );
         }
       });
     } else {
       this.isCmsPage = true;
     }
+    this.cmsService.setCurrentRouteIsCms(this.isCmsPage);
     this.hasChecked = true;
   }
 

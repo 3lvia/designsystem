@@ -33,10 +33,7 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit,
     this.setActiveRoute();
 
     this.navbarListChange
-      .pipe(
-        takeUntilDestroyed(),
-        switchMap(() => this.ngZone.onStable.pipe(take(1))),
-      )
+      .pipe(switchMap(() => this.ngZone.onStable.pipe(take(1))))
       .subscribe(() => this.setListOverflow());
   }
 

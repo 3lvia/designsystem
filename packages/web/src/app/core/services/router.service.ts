@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter, startWith, pairwise, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RouterService {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   /**
    * Only emit routing events when the path (URL without query params) has changed.
@@ -31,13 +31,5 @@ export class RouterService {
 
   getCurrentUrlPath(): string {
     return this.router.url.split('#')[0].split('?')[0];
-  }
-
-  getCurrentQueryParams(): Record<string, string | number> {
-    return this.activatedRoute.snapshot.queryParams;
-  }
-
-  getCurrentFragment(): string {
-    return location.hash.substring(1);
   }
 }
