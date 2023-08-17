@@ -25,6 +25,7 @@ import { ThemePicker } from '../themePicker/themePicker';
 export const DesktopMenu: React.FC<UserMenuProps> = ({
   username,
   email,
+  hideThemeSwitch,
   onSignOutClick,
   onMenuToggle,
   onThemeChange,
@@ -79,7 +80,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
               <Username>{username}</Username>
               <Email>{email}</Email>
             </UserGrid>
-            {false && <ThemePicker onThemeChange={onThemeChange} />}
+            {!hideThemeSwitch && <ThemePicker onThemeChange={onThemeChange} />}
             <MenuHr></MenuHr>
             <Footer>
               <TertiaryButton size="sm" onClick={onSignOutClick}>

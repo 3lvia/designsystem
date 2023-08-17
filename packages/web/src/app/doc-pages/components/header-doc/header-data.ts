@@ -38,6 +38,12 @@ export const headerData: ComponentData = {
       default: 'undefined',
       description: 'The page content. Usually a div, wrapping a router outlet.',
     },
+    hideThemeSwitch: {
+      isRequired: false,
+      type: 'boolean',
+      default: 'false',
+      description: 'Hides the theme switch in the profile menu if set to true.',
+    },
     onLogoClick: {
       isRequired: false,
       type: '() => void',
@@ -50,8 +56,8 @@ export const headerData: ComponentData = {
     },
     onThemeChange: {
       isRequired: false,
-      type: '() => void',
-      description: 'An event that is triggered when the theme is switched',
+      type: '(theme: Theme) => void',
+      description: 'An event that is triggered when the theme is switched.',
     },
     className: {
       isRequired: false,
