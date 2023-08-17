@@ -477,18 +477,18 @@ export const dataColors = [
 
 export const iconColors = [
   {
-    token: 'icon-stroke',
+    token: 'icon-stroke-1',
     example: '<i class="e-icon e-icon--check_circle e-icon--sm"></i>',
     role: 'Stroke icons',
-    light: { hex: getColor('icon-stroke', 'light'), label: 'Black' },
-    dark: { hex: getColor('icon-stroke', 'dark'), label: 'Dark-white' },
+    light: { hex: getColor('icon-stroke-1', 'light'), label: 'Black' },
+    dark: { hex: getColor('icon-stroke-1', 'dark'), label: 'Dark-white' },
   },
   {
-    token: 'icon-filled-background',
+    token: 'icon-filled-background-1',
     example: '<i class="e-icon e-icon--check_circle-filled e-icon--sm"></i>',
     role: 'Background color for filled icons',
-    light: { hex: getColor('icon-filled-background', 'light'), label: 'Black' },
-    dark: { hex: getColor('icon-filled-background', 'dark'), label: 'Dark-white' },
+    light: { hex: getColor('icon-filled-background-1', 'light'), label: 'Black' },
+    dark: { hex: getColor('icon-filled-background-1', 'dark'), label: 'Dark-white' },
   },
   {
     token: 'icon-filled-foreground',

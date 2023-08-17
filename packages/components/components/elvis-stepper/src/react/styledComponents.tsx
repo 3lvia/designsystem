@@ -136,7 +136,7 @@ const getStepNumberBorderColor = ({ isActive, isError, isDisabled }: StepNumberP
   } else if (isDisabled) {
     return getThemeColor('border-disabled-1');
   } else {
-    return getThemeColor('icon-stroke');
+    return getThemeColor('icon-stroke-1');
   }
 };
 
@@ -153,7 +153,7 @@ export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProp
   ${({ isCompleted }) =>
     isCompleted &&
     css`
-      background-color: ${getThemeColor('icon-filled-background')};
+      background-color: ${getThemeColor('icon-filled-background-1')};
       position: relative;
       color: transparent;
       &::before {

@@ -288,7 +288,7 @@ export const darkTheme = {
     },
   },
   icon: {
-    'icon-stroke': {
+    'icon-stroke-1': {
       hex: darkThemeColors['primary-colors'].white.color,
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
@@ -296,13 +296,9 @@ export const darkTheme = {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
-    'icon-filled-background': {
+    'icon-filled-background-1': {
       hex: darkThemeColors['primary-colors'].white.color,
       contrast: darkThemeColors['primary-colors'].white.contrastText,
-    },
-    'icon-filled-foreground-colored': {
-      hex: darkThemeColors['primary-colors'].black.color,
-      contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
     'icon-success': {
       hex: darkThemeColors['primary-colors'].green.color,
