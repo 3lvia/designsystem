@@ -58,7 +58,8 @@
     height: 685vw;
     bottom: -22%;
     @include breakpoints.breakpoint-up(Mobile) {
-      top: 0;
+      bottom: -650px;
+      overflow: hidden;
     }
   }
 
