@@ -17,6 +17,20 @@ interface StepStates {
   styleUrls: ['./v2-playground.component.scss'],
 })
 export class v2PlaygroundComponent {
+  //her
+  endMinDate = new Date(2023, 9, 10);
+  endTimeValue: Date | null = new Date(2023, 9, 10);
+
+  testDate = () => {
+    this.endMinDate = new Date(2023, 9, 12);
+    this.endTimeValue = null;
+  };
+
+  resetDate = () => {
+    this.endMinDate = new Date(2023, 9, 10);
+    this.endTimeValue = new Date(2023, 9, 10);
+  };
+
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
