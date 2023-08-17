@@ -1,0 +1,15 @@
+<elvia-autocomplete
+  [items]="[
+    { value: 'Appelsin', label: '🍊 Appelsin' },
+    { value: 'Banan', label: '🍌 Banan' },
+    { value: 'Eple', label: '🍏 Eple' },
+    { value: 'Jordbær', label: '🍓 Jordbær' },
+    { value: 'Pære', label: '🍐 Pære' },
+    { value: 'Vannmelon', label: '🍉 Vannmelon' },
+    { value: 'Druer', label: '🍇 Druer' }
+  ]"
+  [label]="'Frukt'"
+  [placeholder]="'Navn på frukt...'"
+  (valueOnChange)="handleValueOnChange($any($event).detail.value)"
+  (onSelectItem)="handleOnSelectItem($any($event).detail.value)"
+></elvia-autocomplete>

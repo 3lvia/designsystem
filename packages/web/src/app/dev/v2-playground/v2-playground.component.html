@@ -4,13 +4,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-bg-white">
-      <elvia-datepicker [minDate]="endMinDate" [value]="endTimeValue"></elvia-datepicker>
-
-      <br />
-      <button (click)="testDate()">test dato</button>
-      <button (click)="resetDate()">reset dato</button>
-    </div>
+    <div class="e-bg-white"></div>
     <!--Inverted version-->
     <div class="e-theme-dark e-p-16 e-flex e-flex-direction-row e-justify-content-center e-gap-32"></div>
   </div>
@@ -44,6 +38,29 @@
         </div>
       </div>
     </elvia-accordion>
+  </div>
+
+  <!-- Autocomplete -->
+  <div class="example-wrapper">
+    <h3>Autocomplete</h3>
+    <elvia-autocomplete
+      (valueOnChange)="handleOnChange($any($event))"
+      [items]="autocompleteItems"
+      isRequired="true"
+      label="Frukt"
+      placeholder="Jordbær..."
+    />
+    <br />
+    <elvia-autocomplete
+      (valueOnChange)="handleOnChange($any($event))"
+      errorOptions="{ text: 'Skriv inn noe godt' }"
+      label="Lunch"
+      [items]="[
+        { value: 'lange', label: 'Lange' },
+        { value: 'torsk', label: 'Torsk' },
+        { value: 'sjampinjong', label: 'sjampinjong' }
+      ]"
+    />
   </div>
 
   <!-- Badge -->

@@ -36,6 +36,17 @@ export class v2PlaygroundComponent {
   accordionHtmlContent = `<div>HTML content<div>`;
   isOpen = false;
 
+  //autocomplete
+  autocompleteItems = [
+    { value: 'Appelsin', label: 'Appelsin' },
+    { value: 'Banan', label: 'Banan' },
+    { value: 'Eple', label: 'Eple' },
+    { value: 'Jordbær', label: 'Jordbær' },
+    { value: 'Pære', label: 'Pære' },
+    { value: 'Vannmelon', label: 'Vannmelon' },
+    { value: 'Druer', label: 'Druer' },
+  ];
+
   // Breadcrumb
   breadcrumbsTestNoUrl = [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }];
 
@@ -129,7 +140,6 @@ export class v2PlaygroundComponent {
     {
       value: 'finland',
       label: 'Finland  med en veldig lang tekst som kommer til å overflowe',
-      isDisabled: true,
     },
     { value: 'spania', label: 'Spania' },
     { value: 'tyskland', label: 'Tyskland' },

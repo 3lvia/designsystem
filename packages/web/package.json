@@ -25,6 +25,7 @@
     "@elvia/elvis": "workspace:*",
     "@elvia/elvis-accordion": "workspace:*",
     "@elvia/elvis-assets-icons": "workspace:*",
+    "@elvia/elvis-autocomplete": "workspace:*",
     "@elvia/elvis-badge": "workspace:*",
     "@elvia/elvis-box": "workspace:*",
     "@elvia/elvis-breadcrumb": "workspace:*",
