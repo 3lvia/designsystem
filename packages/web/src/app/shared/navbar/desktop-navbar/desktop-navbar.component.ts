@@ -6,12 +6,22 @@ import { NavbarBase } from '../navbar-base';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { FlexibleFullHeightDirective } from './flexible-full-height.directive';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
+const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
 @Component({
   selector: 'app-desktop-navbar',
   templateUrl: './desktop-navbar.component.html',
   styleUrls: ['./desktop-navbar.component.scss'],
   hostDirectives: [FlexibleFullHeightDirective],
+  animations: [
+    trigger('animateHeightOnItemEnter', [
+      state('true', style({ height: '*' })),
+      state('false', style({ height: '0px' })),
+      transition('false <=> true', animate(animationMotion)),
+      transition(':leave', [animate(animationMotion, style({ height: 0 }))]),
+    ]),
+  ],
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit, OnDestroy {
   private unsubscriber = new Subject<void>();

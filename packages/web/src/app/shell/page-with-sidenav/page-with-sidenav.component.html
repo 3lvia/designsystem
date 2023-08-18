@@ -11,10 +11,12 @@
     </div>
 
     <ng-content />
-    <div class="e-none-lg e-none-xl mobile-navbar" *ngIf="isLandingPage">
-      <app-locale-picker class="e-mb-16 e-justify-content-end" *ngIf="currentRoute === 'brand'" />
-      <app-mobile-navbar />
-    </div>
+    <ng-container *ifViewportSize="['sm', 'md']">
+      <div class="mobile-navbar" *ngIf="isLandingPage">
+        <app-locale-picker class="e-mb-16 e-justify-content-end" *ngIf="currentRoute === 'brand'" />
+        <app-mobile-navbar />
+      </div>
+    </ng-container>
 
     <app-feedback *ngIf="!isLandingPage" />
   </div>
