@@ -5,15 +5,4 @@
     items="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
     size="large"
   />
-  <elvia-dropdown
-    *ngIf="!isMobileScreenWidth"
-    (valueOnChange)="handleDropdownChange($event)"
-    [items]="dropdownItems"
-    [value]="dropdownValue"
-    inlineStyle="{ maxWidth: '256px'}"
-    isSearchable="true"
-    label=""
-    placeholder="Find color tokens"
-    errorOptions="{ hasErrorPlaceholder: false }"
-  />
 </div>
