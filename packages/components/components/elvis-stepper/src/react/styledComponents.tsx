@@ -164,7 +164,7 @@ export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProp
         height: 8px;
         border-radius: 15px;
         content: '';
-        background-color: ${getThemeColor('icon-filled-foreground')};
+        background-color: ${getThemeColor('icon-filled-foreground-1')};
         transform: translateX(10px) rotate(-43deg);
         transform-origin: left bottom;
       }
@@ -177,7 +177,7 @@ export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProp
         height: 15px;
         border-radius: 15px;
         content: '';
-        background-color: ${getThemeColor('icon-filled-foreground')};
+        background-color: ${getThemeColor('icon-filled-foreground-1')};
         transform: translateX(10px) rotate(43deg);
         transform-origin: left bottom;
       }
