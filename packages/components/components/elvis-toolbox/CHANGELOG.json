@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.08.23",
+      "version": "9.5.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the cursor hover on disabled icon button."]
+        }
+      ]
+    },
+    {
       "date": "17.08.23",
       "version": "9.5.0",
       "changelog": [
