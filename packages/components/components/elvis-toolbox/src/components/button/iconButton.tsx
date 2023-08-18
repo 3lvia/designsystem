@@ -39,7 +39,7 @@ export const IconButton = styled.button.attrs({ type: 'button' })<Partial<Button
   margin: 0;
 
   &:disabled {
-    cursor: default;
+    cursor: not-allowed;
   }
 
   &:not(:disabled) {

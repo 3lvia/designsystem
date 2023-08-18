@@ -3,6 +3,7 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
 import data from '@elvia/elvis/.internal/classlist.json';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { DocPageName } from '../shared.enum';
+import { createElvisFilteredChangelog } from './component-changelog/createElvisFilteredChangelog';
 import { Title } from '@angular/platform-browser';
 
 /**
@@ -52,5 +53,15 @@ export class ComponentDocumentationComponent implements OnInit {
     }
 
     this.titleService.setTitle(this.title + ' | Elvia design system');
+  }
+
+  get lastUpdatedDate(): string {
+    if (this.isElvis && this.title) {
+      return createElvisFilteredChangelog(this.title)[0].date;
+    } else if (this.componentData && this.componentData.changelog) {
+      return this.componentData.changelog[0].date;
+    } else {
+      return '';
+    }
   }
 }
