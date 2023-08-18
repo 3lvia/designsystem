@@ -111,7 +111,9 @@
       <div *ngSwitchCase="'loading'">
         <div *ngIf="searchString" class="results">
           <ng-container *ngFor="let result of [1, 2, 3]; let last = last">
-            <div class="e-content-loader result-item e-w-100"></div>
+            <div class="result-item loading">
+              <div class="e-content-loader e-w-100"></div>
+            </div>
             <elvia-divider *ngIf="!last" />
           </ng-container>
         </div>
