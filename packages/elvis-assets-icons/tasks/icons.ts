@@ -82,7 +82,7 @@ function getIconWithCssVariables(icon: string, iconName: string) {
     .replace(/fill="#FFA000"/g, fillVariables.warning)
     .replace(/fill="#EE0701"/g, fillVariables.error);
   if (iconName.includes('-filled-color')) {
-    return newIcon; // .replace(/fill="#000"/g, fillVariables['filled-foreground-colored']);
+    return newIcon;
   } else if (iconName.includes('-filled')) {
     return newIcon
       .replace(/fill="#fff"/g, fillVariables['filled-foreground-1'])
