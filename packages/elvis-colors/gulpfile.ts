@@ -55,7 +55,8 @@ const getPurposeColorClasses = (): string => {
         label.includes('icon') ||
         label.includes('signal') ||
         label.includes('data') ||
-        label.includes('static')
+        label.includes('static') ||
+        label.includes('border')
       ) {
         return;
       }
@@ -66,9 +67,6 @@ const getPurposeColorClasses = (): string => {
       } else if (label.includes('text')) {
         colorClasses += `.e-color-${label} {`;
         colorClasses += `color: var(--e-color-${label}) !important;}\n`;
-      } else if (label.includes('border')) {
-        colorClasses += `.e-color-${label} {`;
-        colorClasses += `border-color: var(--e-color-${label}) !important;}\n`;
       }
     }),
   );

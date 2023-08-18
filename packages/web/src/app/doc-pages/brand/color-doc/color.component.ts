@@ -34,8 +34,8 @@ export class ColorComponent {
 
   classTokenExample = `<div class='e-color-background-1'>
   A container with text that follow the background-1 color contrast.   
-  <span class='e-color-text-2 e-color-border-1'>
-     Some kind of subtext with the e-color-text-2 color and a border with the e-color-border-1 token.
+  <span class='e-color-text-2'>
+     Some kind of subtext with the e-color-text-2 color.
   </span>
 </div>`;
   description = getDocPagesNotFromCMS('color')?.description;
