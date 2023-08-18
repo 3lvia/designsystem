@@ -7,7 +7,6 @@
 - Static category -> Assorted category (with no common prefix)
 - `text-3` -> `text-placeholder-1`
 - `signal-red` now has contrast color white instead of black
-- `background-element-2` light theme color has been changed from `grey-05` to `grey-02`
 - Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
 - `background-element-4` uses dark `grey-70` instead of dark `grey`.
 - Reworked icon tokens.
@@ -25,6 +24,7 @@
 ### Patch
 
 - Change dark grey-20 from #BDBDBD to #A1A1A1.
+- `background-2` and `background-element-2` light theme color has been changed from `grey-05` to `grey-02`
 
 ## 2.7.0 (01.06.23)
 
