@@ -3,7 +3,6 @@
 		"e-icon": {
 			"modifier": {
 				"e-icon--inverted": {},
-				"e-icon--color-default": {},
 				"e-icon--color-disabled": {},
 				"e-icon--color-disabled-light": {},
 				"e-icon--color-placeholder": {},
@@ -1212,7 +1211,6 @@
 	"flat": {
 		"e-icon": {},
 		"e-icon--inverted": {},
-		"e-icon--color-default": {},
 		"e-icon--color-disabled": {},
 		"e-icon--color-disabled-light": {},
 		"e-icon--color-placeholder": {},

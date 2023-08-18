@@ -310,19 +310,15 @@ export const lightTheme = {
     },
   },
   icon: {
-    'icon-stroke': {
+    'icon-stroke-1': {
       hex: lightThemeColors['primary-colors'].black.color,
       contrast: lightThemeColors['primary-colors'].black.contrastText,
     },
-    'icon-filled-foreground': {
+    'icon-filled-foreground-1': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
-    'icon-filled-background': {
-      hex: lightThemeColors['primary-colors'].black.color,
-      contrast: lightThemeColors['primary-colors'].black.contrastText,
-    },
-    'icon-filled-foreground-colored': {
+    'icon-filled-background-1': {
       hex: lightThemeColors['primary-colors'].black.color,
       contrast: lightThemeColors['primary-colors'].black.contrastText,
     },

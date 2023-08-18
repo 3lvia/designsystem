@@ -64,14 +64,13 @@ $default-size: 'md';
 // Set the icon (and icon foregrounds) to currentcolor
 // Foreground should be opposite of background/stroke (i.e. black/white)
 @mixin icon-currentcolor($foreground-color: 0) {
-  --e-color-icon-stroke: currentcolor;
-  --e-color-icon-filled-background: currentcolor;
+  --e-color-icon-stroke-1: currentcolor;
+  --e-color-icon-filled-background-1: currentcolor;
   @if $foreground-color != 0 {
-    --e-color-icon-filled-foreground: #{$foreground-color};
-    --e-color-icon-filled-foreground-colored: #{$foreground-color};
+    --e-color-icon-filled-foreground-1: #{$foreground-color};
   }
 }
 @mixin icon-color($color) {
-  --e-color-icon-stroke: #{$color};
-  --e-color-icon-filled-background: #{$color};
+  --e-color-icon-stroke-1: #{$color};
+  --e-color-icon-filled-background-1: #{$color};
 }
