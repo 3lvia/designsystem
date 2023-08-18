@@ -65,7 +65,7 @@ export type SignalLabels =
 export type DataLabels = 'data-1' | 'data-2' | 'data-3' | 'data-4' | 'data-5' | 'data-6';
 export type IconColors =
   | 'icon-stroke-1'
-  | 'icon-filled-foreground'
+  | 'icon-filled-foreground-1'
   | 'icon-filled-background-1'
   | (SignalLabels extends `signal-${infer T}` ? `icon-${T}` : never);
 export type AssortedLabels = 'static-white' | 'static-black' | 'brand-accent' | 'focus-outline';

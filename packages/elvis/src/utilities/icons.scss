@@ -67,7 +67,7 @@ $default-size: 'md';
   --e-color-icon-stroke-1: currentcolor;
   --e-color-icon-filled-background-1: currentcolor;
   @if $foreground-color != 0 {
-    --e-color-icon-filled-foreground: #{$foreground-color};
+    --e-color-icon-filled-foreground-1: #{$foreground-color};
   }
 }
 @mixin icon-color($color) {

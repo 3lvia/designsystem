@@ -60,8 +60,8 @@ export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
  */
 const fillVariables = {
   'stroke-1': `fill="var(--e-color-icon-stroke-1, ${getThemeColor('icon-stroke-1')})"`,
-  'filled-foreground': `fill="var(--e-color-icon-filled-foreground, ${getThemeColor(
-    'icon-filled-foreground',
+  'filled-foreground-1': `fill="var(--e-color-icon-filled-foreground-1, ${getThemeColor(
+    'icon-filled-foreground-1',
   )})"`,
   'filled-background-1': `fill="var(--e-color-icon-filled-background-1, ${getThemeColor(
     'icon-filled-background-1',
@@ -85,7 +85,7 @@ function getIconWithCssVariables(icon: string, iconName: string) {
     return newIcon; // .replace(/fill="#000"/g, fillVariables['filled-foreground-colored']);
   } else if (iconName.includes('-filled')) {
     return newIcon
-      .replace(/fill="#fff"/g, fillVariables['filled-foreground'])
+      .replace(/fill="#fff"/g, fillVariables['filled-foreground-1'])
       .replace(/fill="#000"/g, fillVariables['filled-background-1']);
   } else {
     return newIcon.replace(/fill="#000"/g, fillVariables['stroke-1']);

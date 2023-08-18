@@ -491,7 +491,7 @@ export const iconColors = [
     dark: { hex: getColor('icon-filled-background-1', 'dark'), label: 'Dark-white' },
   },
   {
-    token: 'icon-filled-foreground',
+    token: 'icon-filled-foreground-1',
     example:
       '<i class="e-icon e-icon--check_circle-filled-color e-icon--sm"></i><i class="e-icon e-icon--check_circle-filled e-icon--sm"></i>',
     role: 'Automatically selects the best foreground color that contrasts best with the background (either black or white)',

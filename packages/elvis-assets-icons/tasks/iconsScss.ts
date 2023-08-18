@@ -5,7 +5,7 @@ import { getThemeColorContrast, getThemeColor, ColorLabel } from '@elvia/elvis-c
 /** All the possible labels that can be used as css variables for icon colors. */
 export type IconLabels =
   | 'stroke-1'
-  | 'filled-foreground'
+  | 'filled-foreground-1'
   | 'filled-background-1'
   | 'success'
   | 'caution'
@@ -21,13 +21,13 @@ type IconClassToThemeColor = {
 /**
  * Used to set all the color css variables in an icon to the colors they should have.
  *
- * Stoke and 'filled-background' are set to the same color as the label, and the
- * 'filled-foreground' is set to the corresponding contrast color.
+ * Stoke and 'filled-background-1' are set to the same color as the label, and the
+ * 'filled-foreground-1' is set to the corresponding contrast color.
  */
 const defaultLabeledIconWithContrast = (newClassName: ColorLabel): IconClassToThemeColor[string] => ({
   'stroke-1': newClassName,
   'filled-background-1': newClassName,
-  'filled-foreground': `${newClassName}--contrast`,
+  'filled-foreground-1': `${newClassName}--contrast`,
 });
 
 /**
@@ -40,7 +40,7 @@ const iconClassToThemeColor = {
   inverted: {
     'stroke-1': 'static-white',
     'filled-background-1': 'static-white',
-    'filled-foreground': 'static-black',
+    'filled-foreground-1': 'static-black',
   },
   disabled: {
     'stroke-1': 'text-disabled-1',

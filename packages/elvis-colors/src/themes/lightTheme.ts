@@ -314,7 +314,7 @@ export const lightTheme = {
       hex: lightThemeColors['primary-colors'].black.color,
       contrast: lightThemeColors['primary-colors'].black.contrastText,
     },
-    'icon-filled-foreground': {
+    'icon-filled-foreground-1': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
     },
