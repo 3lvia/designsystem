@@ -226,7 +226,7 @@ $sidebar-mobile-z-index: -2;
     @extend %area-menu;
   }
   &__line {
-    border: 1px solid var(--e-grey-10);
+    border: 1px solid var(--e-color-border-1);
     height: 22px;
   }
   &__user {

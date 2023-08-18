@@ -51,7 +51,7 @@ function optimizeSVG() {
   return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgmin()).pipe(gulp.dest('icons/svg/dist'));
 }
 
-// The following is used to change hard-coded icon colors to use css variables for theming support.
+// The following is used to change hard-coded icon colors to use css variables for theme support.
 type FillVariablesUnion = `fill="var(--e-color-icon-${IconLabels}, ${ReturnType<typeof getThemeColor>})"`;
 export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
 

@@ -116,7 +116,7 @@
 ### New feature
 
 - Added theme functionality. This introduces new functions `getThemeColor()` and `getCustomThemeColor()` along
-  with several new Typescript types related to theming.
+  with several new Typescript types related to theme.
 - Deprecated the function `getColor()`.
 
 ## 1.4.3 (01.12.22)

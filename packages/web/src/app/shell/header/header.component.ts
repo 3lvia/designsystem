@@ -57,7 +57,7 @@ export class HeaderComponent {
       .listenTheme()
       .pipe(takeUntilDestroyed())
       .subscribe((theme) => {
-        this.currentTheme = this.devMode ? theme : 'light'; //todo: set to theme when dark theme is ready
+        this.currentTheme = theme;
         this.addDarkThemeClass(this.currentTheme);
       });
 
@@ -133,7 +133,6 @@ export class HeaderComponent {
 
   getThemeAnnouncementVisibility = () => {
     this.showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
-    this.showThemeAnnouncement = false; //remove this line when dark theme is ready
   };
 
   closeThemeAnnouncement = () => {
