@@ -24,7 +24,7 @@
 ### Patch
 
 - Change dark grey-20 from #BDBDBD to #A1A1A1.
-- `background-2` and `background-element-2` light theme color has been changed from `grey-05` to `grey-02`
+- `background-2` and `background-element-2` light theme colors have been changed from `grey-05` to `grey-02`
 
 ## 2.7.0 (01.06.23)
 
