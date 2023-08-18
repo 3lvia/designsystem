@@ -4,10 +4,9 @@ import { getThemeColorContrast, getThemeColor, ColorLabel } from '@elvia/elvis-c
 
 /** All the possible labels that can be used as css variables for icon colors. */
 export type IconLabels =
-  | 'stroke'
-  | 'filled-foreground'
-  | 'filled-background'
-  | 'filled-foreground-colored'
+  | 'stroke-1'
+  | 'filled-foreground-1'
+  | 'filled-background-1'
   | 'success'
   | 'caution'
   | 'warning'
@@ -22,13 +21,13 @@ type IconClassToThemeColor = {
 /**
  * Used to set all the color css variables in an icon to the colors they should have.
  *
- * Stoke and 'filled-background' are set to the same color as the label, and the
- * 'filled-foreground' is set to the corresponding contrast color.
+ * Stoke and 'filled-background-1' are set to the same color as the label, and the
+ * 'filled-foreground-1' is set to the corresponding contrast color.
  */
 const defaultLabeledIconWithContrast = (newClassName: ColorLabel): IconClassToThemeColor[string] => ({
-  stroke: newClassName,
-  'filled-background': newClassName,
-  'filled-foreground': `${newClassName}--contrast`,
+  'stroke-1': newClassName,
+  'filled-background-1': newClassName,
+  'filled-foreground-1': `${newClassName}--contrast`,
 });
 
 /**
@@ -39,32 +38,22 @@ const defaultLabeledIconWithContrast = (newClassName: ColorLabel): IconClassToTh
  */
 const iconClassToThemeColor = {
   inverted: {
-    stroke: 'static-white',
-    'filled-background': 'static-white',
-    'filled-foreground': 'static-black',
-  },
-  default: {
-    stroke: 'icon-stroke',
-    'filled-background': 'icon-filled-background',
-    'filled-foreground': 'icon-filled-foreground',
-    'filled-foreground-colored': 'icon-filled-foreground-colored',
-    success: 'icon-success',
-    caution: 'icon-caution',
-    warning: 'icon-warning',
-    error: 'icon-error',
+    'stroke-1': 'static-white',
+    'filled-background-1': 'static-white',
+    'filled-foreground-1': 'static-black',
   },
   disabled: {
-    stroke: 'text-disabled-1',
-    'filled-background': 'text-disabled-1',
+    'stroke-1': 'text-disabled-1',
+    'filled-background-1': 'text-disabled-1',
   },
   'disabled-light': {
-    stroke: 'text-disabled-2',
-    'filled-background': 'text-disabled-2',
+    'stroke-1': 'text-disabled-2',
+    'filled-background-1': 'text-disabled-2',
   },
-  placeholder: { stroke: 'text-placeholder-1', 'filled-background': 'text-placeholder-1' },
+  placeholder: { 'stroke-1': 'text-placeholder-1', 'filled-background-1': 'text-placeholder-1' },
   currentColor: {
-    stroke: 'currentColor',
-    'filled-background': 'currentColor',
+    'stroke-1': 'currentColor',
+    'filled-background-1': 'currentColor',
   },
   on: defaultLabeledIconWithContrast('icon-success'),
   success: defaultLabeledIconWithContrast('icon-success'),

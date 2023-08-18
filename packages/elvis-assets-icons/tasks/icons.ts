@@ -59,15 +59,12 @@ export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
  * These are the string-values that are inserted into the SVGs as replacements for the hard-coded colors.
  */
 const fillVariables = {
-  stroke: `fill="var(--e-color-icon-stroke, ${getThemeColor('icon-stroke')})"`,
-  'filled-foreground': `fill="var(--e-color-icon-filled-foreground, ${getThemeColor(
-    'icon-filled-foreground',
+  'stroke-1': `fill="var(--e-color-icon-stroke-1, ${getThemeColor('icon-stroke-1')})"`,
+  'filled-foreground-1': `fill="var(--e-color-icon-filled-foreground-1, ${getThemeColor(
+    'icon-filled-foreground-1',
   )})"`,
-  'filled-background': `fill="var(--e-color-icon-filled-background, ${getThemeColor(
-    'icon-filled-background',
-  )})"`,
-  'filled-foreground-colored': `fill="var(--e-color-icon-filled-foreground-colored, ${getThemeColor(
-    'static-black',
+  'filled-background-1': `fill="var(--e-color-icon-filled-background-1, ${getThemeColor(
+    'icon-filled-background-1',
   )})"`,
   success: `fill="var(--e-color-icon-success, ${getThemeColor('icon-success')})"`,
   caution: `fill="var(--e-color-icon-caution, ${getThemeColor('icon-caution')})"`,
@@ -85,13 +82,13 @@ function getIconWithCssVariables(icon: string, iconName: string) {
     .replace(/fill="#FFA000"/g, fillVariables.warning)
     .replace(/fill="#EE0701"/g, fillVariables.error);
   if (iconName.includes('-filled-color')) {
-    return newIcon.replace(/fill="#000"/g, fillVariables['filled-foreground-colored']);
+    return newIcon;
   } else if (iconName.includes('-filled')) {
     return newIcon
-      .replace(/fill="#fff"/g, fillVariables['filled-foreground'])
-      .replace(/fill="#000"/g, fillVariables['filled-background']);
+      .replace(/fill="#fff"/g, fillVariables['filled-foreground-1'])
+      .replace(/fill="#000"/g, fillVariables['filled-background-1']);
   } else {
-    return newIcon.replace(/fill="#000"/g, fillVariables.stroke);
+    return newIcon.replace(/fill="#000"/g, fillVariables['stroke-1']);
   }
 }
 
@@ -106,9 +103,9 @@ function createIconFileContent(icon: string, iconName: string) {
       return icon;
     }
     if (!color.startsWith('#') && !color.startsWith('var(--')) {
-      return icon.replaceAll('${fillVariables.stroke}', 'fill="' + getThemeColor(color) + '"').replaceAll('${fillVariables['filled-background']}', 'fill="' + getThemeColor(color) + '"');
+      return icon.replaceAll('${fillVariables['stroke-1']}', 'fill="' + getThemeColor(color) + '"').replaceAll('${fillVariables['filled-background-1']}', 'fill="' + getThemeColor(color) + '"');
     }
-    return icon.replaceAll('${fillVariables.stroke}', 'fill="' + color + '"').replaceAll('${fillVariables['filled-background']}', 'fill="' + color + '"');
+    return icon.replaceAll('${fillVariables['stroke-1']}', 'fill="' + color + '"').replaceAll('${fillVariables['filled-background-1']}', 'fill="' + color + '"');
   }`;
 }
 

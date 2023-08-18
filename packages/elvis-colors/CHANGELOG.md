@@ -10,6 +10,7 @@
 - `background-element-2` light theme color has been changed from `grey-05` to `grey-02`
 - Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
 - `background-element-4` uses dark `grey-70` instead of dark `grey`.
+- Reworked icon tokens.
 
 ### New feature
 
