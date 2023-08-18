@@ -190,7 +190,11 @@
           </p>
           <app-component-subsubsection [sectionTitle]="'Purpose tokens'">
             <ng-container ngProjectAs="sectionContent">
-              <p class="e-mb-24">Purpose tokens should be used everywhere as long as possible.</p>
+              <p class="e-mt-0">Purpose tokens should be used everywhere as long as possible.</p>
+              <p class="e-mt-24">
+                All background tokens have a associated contrast tokens that can be used to set the text color
+                etc. The contrast colors will always meet the WCAG standards for contrast.
+              </p>
               <app-code-viewer [tabs]="['CSS']" [activeCode]="purposeTokenExample" />
             </ng-container>
           </app-component-subsubsection>

@@ -16,6 +16,7 @@ export class ColorComponent {
   border-color: var(--e-color-border-1);  
   &::hover {
     background: var(--e-color-background-hover-1);
+    color: var(--e-color-background-hover-1--contrast)
   }
 }`;
 
