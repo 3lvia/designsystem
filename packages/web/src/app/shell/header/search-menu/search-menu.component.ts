@@ -131,16 +131,16 @@ export class SearchMenuComponent implements OnInit {
       .map((result) => result.item);
 
     if (!this.searchString.length) {
-      this.resultStatus = 'empty';
+      /*  this.resultStatus = 'empty'; */
     } else if (this.resultsToDisplay.length && this.searchString.length) {
-      this.resultStatus = 'show';
+      /*   this.resultStatus = 'show'; */
 
       this.getComponentsWithSynonym();
       setTimeout(() => {
         this.highlightSearchMatches();
       });
     } else {
-      this.resultStatus = 'no-result';
+      /*  this.resultStatus = 'no-result'; */
     }
   }
 
