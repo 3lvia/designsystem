@@ -10,6 +10,7 @@
   "dependencies": {
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-autocomplete": "*",
     "@elvia/elvis-badge": "*",
     "@elvia/elvis-box": "*",
     "@elvia/elvis-breadcrumb": "*",

@@ -3,9 +3,6 @@ snapshots:
   - url: /components/alert.html
     name: Alert
     widths: [766, 1440]
-  - url: /components/autocomplete.html
-    name: Autocomplete
-    widths: [766, 1440]
   - url: /components/buttons.html
     name: Buttons
     widths: [766, 1440]

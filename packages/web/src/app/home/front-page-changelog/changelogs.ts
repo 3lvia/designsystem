@@ -4,8 +4,9 @@ type ChangelogArrayType = (Omit<ComponentChangelog, 'date'> & { name: string; da
 
 const changelogNames = [
   'elvis',
-  'elvis-badge',
   'elvis-accordion',
+  'elvis-autocomplete',
+  'elvis-badge',
   'elvis-box',
   'elvis-breadcrumb',
   'elvis-card',

@@ -147,7 +147,7 @@ one test project for each framework; Angular, Vue and React. When running `yarn 
    import '@elvia/elvis-divider';
    ```
 
-   **Vue** - in `main.js`
+   **Vue** - in `main.ts`
 
    ```
    import '@elvia/elvis-divider';
@@ -212,7 +212,7 @@ Example of an update
 
 #### Step 7 - Deprecating old classes
 
-If the component you have created is a replacement for an component that allready existed in elvis (the style
+If the component you have created is a replacement for an component that already existed in elvis (the style
 library), this class needs to be deprecated.
 
 - To deprecate the class read the guidelines in the

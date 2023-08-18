@@ -4,6 +4,7 @@ import router from './router';
 
 import './styles.scss';
 import '@elvia/elvis-accordion';
+import '@elvia/elvis-autocomplete';
 import '@elvia/elvis-badge';
 import '@elvia/elvis-box';
 import '@elvia/elvis-breadcrumb';

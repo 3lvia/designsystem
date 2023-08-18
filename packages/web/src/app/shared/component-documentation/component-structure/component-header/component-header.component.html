@@ -1,9 +1,9 @@
 <div class="component page-body">
   <div class="component-header">
     <div class="component-header__title">
-      <div class="title-text e-mb-32 e-w-100">
+      <div class="title-container e-mb-32 e-w-100">
         <h1 class="big-header e-mb-0 e-w-100">
-          <ng-content select="headerTitle"></ng-content>
+          <span class="title-text"><ng-content select="headerTitle"></ng-content></span>
           <div class="e-pl-16">
             <a *ngIf="figmaUrl" href="{{ figmaUrl }}" target="_blank" rel="noopener">
               <img src="../../../assets/icons/figma.svg" alt="Figma icon" />

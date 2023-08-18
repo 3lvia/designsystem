@@ -4,16 +4,10 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import Fuse from 'fuse.js';
 import { SearchService } from 'src/app/core/services/search.service';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
-import elvisChangelogJson from '@elvia/elvis/CHANGELOG.json';
 import { ChangelogIdPipe } from './component-changelog-id-pipe';
 import { ChangelogTypePipe } from './component-changelog-pipe';
-
-// Extend the ComponentChangelog interface with a skipped property to be able to
-// show changelog entries that have been skipped in the elvis changelog
-type ChangelogEntry = ComponentChangelog & { skipped?: number };
-type Changelog = ChangelogEntry[];
-type ChangelogRadioFilter = ComponentChangelog['changelog'][0]['type'] | 'all';
-type ChangelogLinks = { displayName: string; url: string }[];
+import { createElvisFilteredChangelog } from './createElvisFilteredChangelog';
+import { Changelog, ChangelogEntry, ChangelogRadioFilter } from './changelogTypes';
 
 @Component({
   selector: 'app-component-changelog',
@@ -62,7 +56,7 @@ export class ComponentChangelogComponent implements OnInit {
 
   ngOnInit() {
     if (this.elvisComponentToFilter) {
-      this.changelog = this.createElvisFilteredChangelog(this.elvisComponentToFilter);
+      this.changelog = createElvisFilteredChangelog(this.elvisComponentToFilter);
     }
     this.filteredChangelog = this.changelog;
     this.initializeSearchService();
@@ -283,42 +277,5 @@ export class ComponentChangelogComponent implements OnInit {
         },
       ],
     });
-  }
-
-  /**
-   * Filters the the Elvis changelog for a specific Elvis component.
-   * Counts the number of releases between each mention of the component it filters
-   */
-  private createElvisFilteredChangelog(elvisComponentToFilter: string): Changelog {
-    const filteredElvisChangelog: Changelog = [];
-    let numberOfReleasesSkipped = 0;
-    elvisChangelogJson.content.forEach((elvisChangelogEntry) => {
-      let wasSkipped = true;
-      elvisChangelogEntry.changelog.forEach((version: (typeof elvisChangelogEntry.changelog)[number]) => {
-        let allEntries: ChangelogLinks = [];
-        if ('components' in version) {
-          allEntries = allEntries.concat(version['components'] as ChangelogLinks);
-        }
-        if ('pages' in version) {
-          allEntries = allEntries.concat(version['pages'] as ChangelogLinks);
-        }
-        if (allEntries.length === 0) return;
-        allEntries.some(({ displayName }) => {
-          if (
-            displayName.toLowerCase() === elvisComponentToFilter.toLowerCase() &&
-            !filteredElvisChangelog.includes(elvisChangelogEntry)
-          ) {
-            wasSkipped = false;
-            if (filteredElvisChangelog.length !== 0 && numberOfReleasesSkipped > 0) {
-              filteredElvisChangelog.push({ skipped: numberOfReleasesSkipped } as ChangelogEntry);
-            }
-            filteredElvisChangelog.push(elvisChangelogEntry);
-            numberOfReleasesSkipped = 0;
-          }
-        });
-      });
-      if (wasSkipped) numberOfReleasesSkipped++;
-    });
-    return filteredElvisChangelog;
   }
 }

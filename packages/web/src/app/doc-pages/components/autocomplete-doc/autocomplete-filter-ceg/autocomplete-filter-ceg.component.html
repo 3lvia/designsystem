@@ -1,0 +1,8 @@
+<elvia-autocomplete
+  [hasBuiltInFilter]="false"
+  [items]="autocompleteItems"
+  label="Favorite drink"
+  placeholder="Navn på drink..."
+  (onSelectItem)="handleOnSelectItem($any($event).detail.value)"
+  (valueOnChange)="handleValueOnChange($any($event).detail.value)"
+></elvia-autocomplete>
