@@ -171,375 +171,543 @@
       </div>
       Value deleted: {{ deleteValue }}
 
-      <h3>Clickable chips</h3>
-      <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
-      <div style="display: flex; flex-direction: row">
-        <div *ngFor="let chip of filteredKeys">
-          <elvia-chip
-            [value]="chip"
-            [isSelected]="filteredValues[chip]"
-            color="orange"
-            type="legend"
-            (isSelectedOnChange)="handleOnChange($any($event))"
-          ></elvia-chip>
+      <<<<<<< HEAD =======
+      <!-- Autocomplete -->
+      <div class="example-wrapper">
+        <h3>Autocomplete</h3>
+        <elvia-autocomplete
+          (valueOnChange)="handleOnChange($any($event))"
+          [items]="autocompleteItems"
+          isRequired="true"
+          label="Frukt"
+          placeholder="Jordbær..."
+        />
+        <br />
+        <elvia-autocomplete
+          (valueOnChange)="handleOnChange($any($event))"
+          errorOptions="{ text: 'Skriv inn noe godt' }"
+          label="Lunch"
+          [items]="[
+            { value: 'lange', label: 'Lange' },
+            { value: 'torsk', label: 'Torsk' },
+            { value: 'sjampinjong', label: 'sjampinjong' }
+          ]"
+        />
+      </div>
+
+      <!-- Badge -->
+      <div class="example-wrapper">
+        <h3>Badge</h3>
+        <div style="display: flex; gap: 1rem">
+          <elvia-badge [count]="10">
+            <button
+              class="e-thumbnail"
+              aria-label="Thumbnail button that opens the image in a larger view"
+              slot="content"
+            >
+              <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+            </button>
+          </elvia-badge>
+          <elvia-badge [count]="10" [badgeColor]="'red'">
+            <button
+              class="e-thumbnail"
+              aria-label="Thumbnail button that opens the image in a larger view"
+              slot="content"
+            >
+              <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+            </button>
+          </elvia-badge>
+          <elvia-badge [count]="101" [badgeColor]="'neutral'">
+            <button
+              class="e-thumbnail"
+              aria-label="Thumbnail button that opens the image in a larger view"
+              slot="content"
+            >
+              <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+            </button>
+          </elvia-badge>
+        </div>
+      </div>
+
+      <!--Box-->
+      <div class="example-wrapper">
+        <h3>Box</h3>
+        <div style="padding: 8px">
+          <elvia-box>
+            <h3 slot="heading">Title</h3>
+            <div slot="content">Webcomponentent content for the box component</div>
+          </elvia-box>
+        </div>
+      </div>
+
+      <!--Breadcrumb-->
+      <div class="example-wrapper">
+        <h3>Breadcrumbs</h3>
+        <elvia-breadcrumb [items]="breadcrumbsTestNoUrl"></elvia-breadcrumb>
+      </div>
+
+      <!--Card-->
+      <div class="example-wrapper">
+        <h3>Card</h3>
+        <div class="e-gap-32" style="display: grid; grid-template-columns: 1fr 1fr">
+          <elvia-card [heading]="'Hover!'" [borderColor]="'red'">
+            <i slot="icon" class="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>
+            <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>
+          </elvia-card>
+          <elvia-card
+            [heading]="'Title3 is longer and overflows'"
+            [description]="'description3'"
+            [icon]="'3'"
+            [borderColor]="'green'"
+          ></elvia-card>
+        </div>
+        <div class="e-mt-32 e-gap-16" style="display: grid; grid-template-columns: 1fr 1fr">
+          <elvia-card
+            [heading]="'Heading long that overflows and becomes truncated'"
+            [description]="
+              'It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.'
+            "
+            [type]="'detail'"
+          >
+            <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
+          </elvia-card>
+          <elvia-card
+            [heading]="'Heading 6'"
+            [description]="
+              'It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.'
+            "
+            [type]="'detail'"
+            [tag]="'Detail Tag'"
+          ></elvia-card>
+        </div>
+      </div>
+
+      <!--Carousel-->
+      <div class="example-wrapper">
+        <h3>Carousel</h3>
+        <elvia-carousel [hasConfirmationCheckmark]="true">
+          <div slot="title-1">
+            <h3 class="e-title-sm">title 1</h3>
+          </div>
+          <div slot="item-1">
+            <img
+              alt="Carousel example image"
+              src="../../../../assets/carousel/el1.jpeg"
+              style="width: 100%; min-width: 278px; border-radius: 8px"
+            />
+          </div>
+          <div slot="title-2">
+            <h3 class="e-title-sm">title 2</h3>
+          </div>
+          <div slot="item-2">
+            <img
+              alt="Carousel example image"
+              src="../../../../assets/carousel/el2.jpeg"
+              style="width: 100%; min-width: 278px; border-radius: 8px"
+            />
+          </div>
+        </elvia-carousel>
+      </div>
+
+      <!--Chip-->
+      <div class="example-wrapper">
+        <h3>Deletable chips</h3>
+        <div style="display: flex; flex-direction: row">
+          <div *ngFor="let chip of deletableChipsList">
+            <elvia-chip
+              [value]="chip.value"
+              [color]="chip.color"
+              [ariaLabel]="'Fjern filtrering for ' + chip.value"
+              [isDisabled]="chip.isDisabled"
+              (onDelete)="handleOnDelete($any($event).detail.value)"
+              (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
+              [inlineStyle]="{ margin: '8px' }"
+            ></elvia-chip>
+          </div>
+        </div>
+        Value deleted: {{ deleteValue }}
+
+        <div class="e-bg-white">
+          >>>>>>> origin
+          <h3>Clickable chips</h3>
+          <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
+          <div style="display: flex; flex-direction: row">
+            <div *ngFor="let chip of filteredKeys">
+              <elvia-chip
+                [value]="chip"
+                [isSelected]="filteredValues[chip]"
+                color="orange"
+                type="legend"
+                (isSelectedOnChange)="handleOnChange($any($event))"
+              ></elvia-chip>
+            </div>
+
+            Selected values:
+            <span *ngFor="let key of filteredKeys">
+              <span *ngIf="filteredValues[key]">{{ key }},</span>
+            </span>
+          </div>
         </div>
 
-        Selected values:
-        <span *ngFor="let key of filteredKeys">
-          <span *ngIf="filteredValues[key]">{{ key }},</span>
-        </span>
-      </div>
-    </div>
-
-    <!-- Context menu -->
-    <div class="example-wrapper">
-      <h3>Context menu</h3>
-      <elvia-context-menu (onOpen)="isContextMenuShowing = true" (onClose)="isContextMenuShowing = false">
-        <button
-          slot="trigger"
-          class="e-btn e-btn--icon"
-          [ngClass]="{ 'e-btn---selected': isContextMenuShowing }"
-          aria-label="More menu"
-          aria-haspopup="menu"
-        >
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
-          </span>
-        </button>
-
-        <div slot="content">
-          <div class="ewc-context-menu__list-group">
-            <button role="menuitem">
-              <elvia-icon name="edit" size="xs"></elvia-icon>
-              <span>Oppdater og valider på nytt</span>
+        <!-- Context menu -->
+        <div class="example-wrapper">
+          <h3>Context menu</h3>
+          <elvia-context-menu (onOpen)="isContextMenuShowing = true" (onClose)="isContextMenuShowing = false">
+            <button
+              slot="trigger"
+              class="e-btn e-btn--icon"
+              [ngClass]="{ 'e-btn---selected': isContextMenuShowing }"
+              aria-label="More menu"
+              aria-haspopup="menu"
+            >
+              <span class="e-btn__icon">
+                <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
+              </span>
             </button>
-            <button role="menuitem">
-              <elvia-icon name="bin" size="xs"></elvia-icon>
-              <span>Slett</span>
-            </button>
-          </div>
-          <div class="ewc-context-menu__list-group">
-            <a href="#" role="menuitem">
-              <span>Endre passord</span>
-            </a>
-          </div>
+
+            <div slot="content">
+              <div class="ewc-context-menu__list-group">
+                <button role="menuitem">
+                  <elvia-icon name="edit" size="xs"></elvia-icon>
+                  <span>Oppdater og valider på nytt</span>
+                </button>
+                <button role="menuitem">
+                  <elvia-icon name="bin" size="xs"></elvia-icon>
+                  <span>Slett</span>
+                </button>
+              </div>
+              <div class="ewc-context-menu__list-group">
+                <a href="#" role="menuitem">
+                  <span>Endre passord</span>
+                </a>
+              </div>
+            </div>
+          </elvia-context-menu>
         </div>
-      </elvia-context-menu>
-    </div>
 
-    <!--Datepicker-->
-    <div class="example-wrapper">
-      <h3>DatePicker</h3>
-      <elvia-datepicker
-        [value]="date"
-        (valueOnChange)="writeDate($any($event).detail.value)"
-      ></elvia-datepicker>
-    </div>
+        <!--Datepicker-->
+        <div class="example-wrapper">
+          <h3>DatePicker</h3>
+          <elvia-datepicker
+            [value]="date"
+            (valueOnChange)="writeDate($any($event).detail.value)"
+          ></elvia-datepicker>
+        </div>
 
-    <!--Date range picker-->
-    <div class="example-wrapper">
-      <h3>Date range picker</h3>
-      <elvia-datepicker-range></elvia-datepicker-range>
-      <elvia-datepicker-range
-        hasTimepickers
-        [minDate]="minDateRange"
-        [maxDate]="maxDateRange"
-      ></elvia-datepicker-range>
-    </div>
+        <!--Date range picker-->
+        <div class="example-wrapper">
+          <h3>Date range picker</h3>
+          <elvia-datepicker-range></elvia-datepicker-range>
+          <elvia-datepicker-range
+            hasTimepickers
+            [minDate]="minDateRange"
+            [maxDate]="maxDateRange"
+          ></elvia-datepicker-range>
+        </div>
 
-    <!--Divider-->
-    <div class="example-wrapper">
-      <h3>Divider</h3>
-      <h4>Title divider</h4>
-      <elvia-divider type="heading" typography="caps">
-        <h2 slot="heading">Title with caps</h2>
-      </elvia-divider>
-      <h4>Vertical divider</h4>
-      <div style="height: 100px">
-        <elvia-divider type="simple" orientation="vertical"></elvia-divider>
-      </div>
-      <h4>Curved divider</h4>
-      <elvia-divider type="curved"></elvia-divider>
-    </div>
+        <!--Divider-->
+        <div class="example-wrapper">
+          <h3>Divider</h3>
+          <h4>Title divider</h4>
+          <elvia-divider type="heading" typography="caps">
+            <h2 slot="heading">Title with caps</h2>
+          </elvia-divider>
+          <h4>Vertical divider</h4>
+          <div style="height: 100px">
+            <elvia-divider type="simple" orientation="vertical"></elvia-divider>
+          </div>
+          <h4>Curved divider</h4>
+          <elvia-divider type="curved"></elvia-divider>
+        </div>
 
-    <!--Dropdown-->
-    <div class="example-wrapper">
-      <h3>Dropdown</h3>
-      <elvia-dropdown
-        [items]="dropdownItems"
-        label="Select location"
-        (valueOnChange)="onDropdownSelect($any($event).detail.value)"
-      ></elvia-dropdown>
-      <h3>Dropdown</h3>
-      <elvia-dropdown
-        [items]="dropdownItems"
-        label="Select location"
-        (valueOnChange)="onDropdownSelect($any($event).detail.value)"
-        [errorOptions]="errorOptions"
-      ></elvia-dropdown>
-    </div>
+        <!--Dropdown-->
+        <div class="example-wrapper">
+          <h3>Dropdown</h3>
+          <elvia-dropdown
+            [items]="dropdownItems"
+            label="Select location"
+            (valueOnChange)="onDropdownSelect($any($event).detail.value)"
+          ></elvia-dropdown>
+          <h3>Dropdown</h3>
+          <elvia-dropdown
+            [items]="dropdownItems"
+            label="Select location"
+            (valueOnChange)="onDropdownSelect($any($event).detail.value)"
+            [errorOptions]="errorOptions"
+          ></elvia-dropdown>
+        </div>
 
-    <!--Icon-->
-    <div class="example-wrapper">
-      <h3>Icon</h3>
-      <elvia-icon name="arrowRightBold"></elvia-icon>
-      <elvia-icon name="arrowLeftBold"></elvia-icon>
-    </div>
+        <!--Icon-->
+        <div class="example-wrapper">
+          <h3>Icon</h3>
+          <elvia-icon name="arrowRightBold"></elvia-icon>
+          <elvia-icon name="arrowLeftBold"></elvia-icon>
+        </div>
 
-    <!--Modal-->
-    <div class="example-wrapper">
-      <h3>Modal</h3>
-      <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
-      <elvia-modal
-        (onClose)="isModalShowing = !isModalShowing"
-        [isShowing]="isModalShowing"
-        [heading]="'Redigere bidragsytere'"
-        [disableClose]="false"
-      >
-        <div slot="content">Content</div>
-        <button
-          slot="secondaryButton"
-          class="e-btn e-btn--secondary e-btn--lg"
-          (click)="isModalShowing = false"
-        >
-          Avbryt
-        </button>
-        <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">
-          Lagre
-        </button>
-      </elvia-modal>
-      <h4>Illustration</h4>
-      <button (click)="isIllustrationModalShowing = true" class="e-btn">Show illustration modal</button>
-      <div>
-        <elvia-modal
-          [hasCloseButton]="true"
-          (onClose)="isIllustrationModalShowing = false"
-          [isShowing]="isIllustrationModalShowing"
-          [heading]="'Title of content'"
-        >
-          <div slot="content">
-            <div>
-              Body text comes here and can go over several lines. It looks like this when it is two lines.
+        <!--Modal-->
+        <div class="example-wrapper">
+          <h3>Modal</h3>
+          <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
+          <elvia-modal
+            (onClose)="isModalShowing = !isModalShowing"
+            [isShowing]="isModalShowing"
+            [heading]="'Redigere bidragsytere'"
+            [disableClose]="false"
+          >
+            <div slot="content">Content</div>
+            <button
+              slot="secondaryButton"
+              class="e-btn e-btn--secondary e-btn--lg"
+              (click)="isModalShowing = false"
+            >
+              Avbryt
+            </button>
+            <button
+              slot="primaryButton"
+              class="e-btn e-btn--primary e-btn--lg"
+              (click)="isModalShowing = false"
+            >
+              Lagre
+            </button>
+          </elvia-modal>
+          <h4>Illustration</h4>
+          <button (click)="isIllustrationModalShowing = true" class="e-btn">Show illustration modal</button>
+          <div>
+            <elvia-modal
+              [hasCloseButton]="true"
+              (onClose)="isIllustrationModalShowing = false"
+              [isShowing]="isIllustrationModalShowing"
+              [heading]="'Title of content'"
+            >
+              <div slot="content">
+                <div>
+                  Body text comes here and can go over several lines. It looks like this when it is two lines.
+                </div>
+              </div>
+              <button
+                slot="secondaryButton"
+                class="e-btn e-btn--secondary e-btn--lg"
+                (click)="isIllustrationModalShowing = false"
+              >
+                Cancel
+              </button>
+              <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
+              <div slot="illustration">
+                <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png" />
+              </div>
+            </elvia-modal>
+          </div>
+          <h4>Multiple pages</h4>
+          <button (click)="isMultiPageModalShowing = true" class="e-btn">Show multi-page modal</button>
+          <elvia-modal
+            (onClose)="isMultiPageModalShowing = false"
+            [isShowing]="isMultiPageModalShowing"
+            [heading]="'Title of content'"
+            [hasCloseButton]="true"
+          >
+            <div
+              slot="content"
+              style="display: flex; flex-direction: column; justify-content: space-between; height: 100%"
+            >
+              <div>
+                Body text comes here and can go over several lines. It looks like this when it is two lines.
+              </div>
+              <elvia-carousel items="3">
+                <!-- Carousel contents not shown here for brevity -->
+              </elvia-carousel>
+            </div>
+            <div slot="illustration">
+              <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png" />
+            </div>
+          </elvia-modal>
+        </div>
+
+        <!--Paginator-->
+        <div class="example-wrapper">
+          <h3>Paginator</h3>
+        </div>
+
+        <!--Popover-->
+        <div class="example-wrapper">
+          <h3>Popover</h3>
+          <elvia-popover
+            [isShowing]="isPopoverShowing"
+            (onOpen)="isPopoverShowing = true"
+            (onClose)="isPopoverShowing = false"
+            heading="BankID"
+            horizontalPosition="left"
+            verticalPosition="top"
+            width="200"
+          >
+            <button slot="trigger" class="e-btn">Show popover</button>
+            <div slot="content">
+              <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
+              <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+            </div>
+          </elvia-popover>
+        </div>
+
+        <!--Progress linear-->
+        <div class="example-wrapper">
+          <h3>Progress linear</h3>
+          <elvia-progress-linear
+            [isIndeterminate]="indeterminate"
+            [value]="progressValue"
+            [isError]="progressError"
+          ></elvia-progress-linear>
+          <div style="margin-bottom: 32px; display: flex">
+            <div style="display: flex; width: 100%; justify-content: space-between">
+              <button class="e-btn" (click)="progressValue = progressValue + 10">Increase Progress</button>
+              <button class="e-btn" (click)="progressValue = progressValue - 10">Decrease Progress</button>
+              <button class="e-btn" (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
+              <button class="e-btn" (click)="progressError = !progressError">Toggle error</button>
             </div>
           </div>
-          <button
-            slot="secondaryButton"
-            class="e-btn e-btn--secondary e-btn--lg"
-            (click)="isIllustrationModalShowing = false"
-          >
-            Cancel
+        </div>
+
+        <!--Radio filter-->
+        <div class="example-wrapper">
+          <h3>Radio filter</h3>
+          <elvia-radio-filter
+            [items]="radioFilterValues"
+            [value]="'read'"
+            [name]="'readRadioFilters'"
+            [ariaLabel]="'{value} filtrering valgt'"
+          ></elvia-radio-filter>
+        </div>
+
+        <!--Segmented control-->
+        <div class="example-wrapper">
+          <h3>Segmented control</h3>
+          <elvia-segmented-control
+            [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
+            (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
+          ></elvia-segmented-control>
+          <elvia-segmented-control
+            [type]="'icon'"
+            [items]="[
+              {
+                icon: '<i class=\'e-icon e-icon--thumbnail\'></i>',
+                iconSelected: '<i class=\'e-icon e-icon--thumbnail-color\'></i>',
+                ariaLabel: 'Segmented control example label'
+              },
+              {
+                icon: '<i class=\'e-icon e-icon--list\'></i>',
+                iconSelected: '<i class=\'e-icon e-icon--list_color\'></i>',
+                ariaLabel: 'Segmented control example label'
+              }
+            ]"
+            (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
+          ></elvia-segmented-control>
+        </div>
+
+        Slider
+        <div class="example-wrapper">
+          <h3>Slider</h3>
+          <h4>Simple</h4>
+          <elvia-slider label="I am a label" unit="kWh" />
+
+          <h4>Range</h4>
+          <elvia-slider label="I am also a label" unit="kWh" type="range" />
+        </div>
+
+        <!--Spotlight-->
+        <div class="example-wrapper">
+          <h3>Spotlight</h3>
+          <elvia-spotlight
+            *ngIf="showSpotlight"
+            [position]="{ horizontal: 450, vertical: 300 }"
+            [radius]="150"
+          ></elvia-spotlight>
+          <button class="e-btn" style="position: relative; z-index: 999999" (click)="toggleSpotlight()">
+            Toggle spotlight
           </button>
-          <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
-          <div slot="illustration">
-            <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png" />
+        </div>
+
+        <!--Tabs-->
+        <div class="example-wrapper">
+          <h3>Tabs</h3>
+          <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
+        </div>
+
+        <!--Timepicker-->
+        <div class="example-wrapper">
+          <h3>Timepicker</h3>
+          <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
+            <elvia-timepicker></elvia-timepicker>
+
+            <elvia-timepicker [errorOptions]="errorOptions"></elvia-timepicker>
+
+            <elvia-timepicker label="Custom label"></elvia-timepicker>
+
+            <elvia-timepicker label=""></elvia-timepicker>
+
+            <elvia-timepicker size="small"></elvia-timepicker>
+
+            <elvia-timepicker
+              label="Only hours"
+              [value]="timepickerValue"
+              minuteInterval="60"
+            ></elvia-timepicker>
+
+            <elvia-timepicker isDisabled="true"></elvia-timepicker>
+
+            <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
           </div>
-        </elvia-modal>
-      </div>
-      <h4>Multiple pages</h4>
-      <button (click)="isMultiPageModalShowing = true" class="e-btn">Show multi-page modal</button>
-      <elvia-modal
-        (onClose)="isMultiPageModalShowing = false"
-        [isShowing]="isMultiPageModalShowing"
-        [heading]="'Title of content'"
-        [hasCloseButton]="true"
-      >
-        <div
-          slot="content"
-          style="display: flex; flex-direction: column; justify-content: space-between; height: 100%"
-        >
-          <div>
-            Body text comes here and can go over several lines. It looks like this when it is two lines.
+        </div>
+
+        <!--Toast-->
+        <div class="example-wrapper">
+          <h3>Toast</h3>
+          <elvia-toast></elvia-toast>
+          <button (click)="showToast()">Show toast</button>
+        </div>
+
+        <!--Tooltip-->
+        <div class="example-wrapper">
+          <h3>Tooltip</h3>
+
+          <div class="e-flex e-flex-direction-row e-gap-16">
+            <p class="e-text-md">
+              This is a text to test out the new
+              <elvia-tooltip
+                content="This is a tooltip! The content is pretty long."
+                trigger="tooltip!"
+              ></elvia-tooltip>
+            </p>
+
+            <elvia-tooltip
+              content="This tooltip has a trigger through a slot. Click the button to toggle the tooltip position."
+              [position]="tooltipPosition"
+            >
+              <button
+                slot="trigger"
+                (click)="shuffleTooltipPosition()"
+                class="e-btn e-btn--icon e-btn--lg"
+                aria-label="Vis tooltip"
+              >
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--star" aria-hidden="true"></i>
+                </span>
+              </button>
+            </elvia-tooltip>
+
+            <elvia-tooltip isDisabled="true" content="This should not be visible">
+              <span slot="trigger">Disabled tooltip</span>
+            </elvia-tooltip>
+
+            <elvia-tooltip>
+              <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
+                <i
+                  class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8"
+                  aria-hidden="true"
+                ></i>
+                This is custom content!
+              </p>
+              <div slot="trigger">Tooltip trigger with custom content</div>
+            </elvia-tooltip>
           </div>
-          <elvia-carousel items="3">
-            <!-- Carousel contents not shown here for brevity -->
-          </elvia-carousel>
         </div>
-        <div slot="illustration">
-          <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png" />
-        </div>
-      </elvia-modal>
-    </div>
-
-    <!--Paginator-->
-    <div class="example-wrapper">
-      <h3>Paginator</h3>
-    </div>
-
-    <!--Popover-->
-    <div class="example-wrapper">
-      <h3>Popover</h3>
-      <elvia-popover
-        [isShowing]="isPopoverShowing"
-        (onOpen)="isPopoverShowing = true"
-        (onClose)="isPopoverShowing = false"
-        heading="BankID"
-        horizontalPosition="left"
-        verticalPosition="top"
-        width="200"
-      >
-        <button slot="trigger" class="e-btn">Show popover</button>
-        <div slot="content">
-          <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
-          <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
-        </div>
-      </elvia-popover>
-    </div>
-
-    <!--Progress linear-->
-    <div class="example-wrapper">
-      <h3>Progress linear</h3>
-      <elvia-progress-linear
-        [isIndeterminate]="indeterminate"
-        [value]="progressValue"
-        [isError]="progressError"
-      ></elvia-progress-linear>
-      <div style="margin-bottom: 32px; display: flex">
-        <div style="display: flex; width: 100%; justify-content: space-between">
-          <button class="e-btn" (click)="progressValue = progressValue + 10">Increase Progress</button>
-          <button class="e-btn" (click)="progressValue = progressValue - 10">Decrease Progress</button>
-          <button class="e-btn" (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
-          <button class="e-btn" (click)="progressError = !progressError">Toggle error</button>
-        </div>
-      </div>
-    </div>
-
-    <!--Radio filter-->
-    <div class="example-wrapper">
-      <h3>Radio filter</h3>
-      <elvia-radio-filter
-        [items]="radioFilterValues"
-        [value]="'read'"
-        [name]="'readRadioFilters'"
-        [ariaLabel]="'{value} filtrering valgt'"
-      ></elvia-radio-filter>
-    </div>
-
-    <!--Segmented control-->
-    <div class="example-wrapper">
-      <h3>Segmented control</h3>
-      <elvia-segmented-control
-        [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
-        (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
-      ></elvia-segmented-control>
-      <elvia-segmented-control
-        [type]="'icon'"
-        [items]="[
-          {
-            icon: '<i class=\'e-icon e-icon--thumbnail\'></i>',
-            iconSelected: '<i class=\'e-icon e-icon--thumbnail-color\'></i>',
-            ariaLabel: 'Segmented control example label'
-          },
-          {
-            icon: '<i class=\'e-icon e-icon--list\'></i>',
-            iconSelected: '<i class=\'e-icon e-icon--list_color\'></i>',
-            ariaLabel: 'Segmented control example label'
-          }
-        ]"
-        (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
-      ></elvia-segmented-control>
-    </div>
-
-    Slider
-    <div class="example-wrapper">
-      <h3>Slider</h3>
-      <h4>Simple</h4>
-      <elvia-slider label="I am a label" unit="kWh" />
-
-      <h4>Range</h4>
-      <elvia-slider label="I am also a label" unit="kWh" type="range" />
-    </div>
-
-    <!--Spotlight-->
-    <div class="example-wrapper">
-      <h3>Spotlight</h3>
-      <elvia-spotlight
-        *ngIf="showSpotlight"
-        [position]="{ horizontal: 450, vertical: 300 }"
-        [radius]="150"
-      ></elvia-spotlight>
-      <button class="e-btn" style="position: relative; z-index: 999999" (click)="toggleSpotlight()">
-        Toggle spotlight
-      </button>
-    </div>
-
-    <!--Tabs-->
-    <div class="example-wrapper">
-      <h3>Tabs</h3>
-      <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
-    </div>
-
-    <!--Timepicker-->
-    <div class="example-wrapper">
-      <h3>Timepicker</h3>
-      <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
-        <elvia-timepicker></elvia-timepicker>
-
-        <elvia-timepicker [errorOptions]="errorOptions"></elvia-timepicker>
-
-        <elvia-timepicker label="Custom label"></elvia-timepicker>
-
-        <elvia-timepicker label=""></elvia-timepicker>
-
-        <elvia-timepicker size="small"></elvia-timepicker>
-
-        <elvia-timepicker label="Only hours" [value]="timepickerValue" minuteInterval="60"></elvia-timepicker>
-
-        <elvia-timepicker isDisabled="true"></elvia-timepicker>
-
-        <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
-      </div>
-    </div>
-
-    <!--Toast-->
-    <div class="example-wrapper">
-      <h3>Toast</h3>
-      <elvia-toast></elvia-toast>
-      <button (click)="showToast()">Show toast</button>
-    </div>
-
-    <!--Tooltip-->
-    <div class="example-wrapper">
-      <h3>Tooltip</h3>
-
-      <div class="e-flex e-flex-direction-row e-gap-16">
-        <p class="e-text-md">
-          This is a text to test out the new
-          <elvia-tooltip
-            content="This is a tooltip! The content is pretty long."
-            trigger="tooltip!"
-          ></elvia-tooltip>
-        </p>
-
-        <elvia-tooltip
-          content="This tooltip has a trigger through a slot. Click the button to toggle the tooltip position."
-          [position]="tooltipPosition"
-        >
-          <button
-            slot="trigger"
-            (click)="shuffleTooltipPosition()"
-            class="e-btn e-btn--icon e-btn--lg"
-            aria-label="Vis tooltip"
-          >
-            <span class="e-btn__icon">
-              <i class="e-icon e-icon--star" aria-hidden="true"></i>
-            </span>
-          </button>
-        </elvia-tooltip>
-
-        <elvia-tooltip isDisabled="true" content="This should not be visible">
-          <span slot="trigger">Disabled tooltip</span>
-        </elvia-tooltip>
-
-        <elvia-tooltip>
-          <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
-            <i
-              class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8"
-              aria-hidden="true"
-            ></i>
-            This is custom content!
-          </p>
-          <div slot="trigger">Tooltip trigger with custom content</div>
-        </elvia-tooltip>
       </div>
     </div>
   </div>

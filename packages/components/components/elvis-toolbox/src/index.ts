@@ -6,6 +6,7 @@ export { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './compon
 export { device } from './breakpoints';
 export { Backdrop } from './components/backdrop/backdrop';
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
+export { VisuallyHidden } from './components/visually-hidden/visuallyHidden';
 export { IconButton } from './components/button/iconButton';
 export {
   FormFieldSizes,

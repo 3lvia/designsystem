@@ -100,6 +100,9 @@ Glossary:
 
 - `sunset`: An approximate date of when classes will be removed from Elvis (optional).
 
+  Lastly, remember to remove any Percy tests for the deprecated class. They can be found in
+  `packages/elvis/percy`.
+
 #### **Step 0 - Before you begin**
 
 1. Make sure you have done the

@@ -395,6 +395,15 @@
       "documentation": "https://design.elvia.io/brand/colors"
     }
   },
+  "e-autocomplete": {
+    "deprecateChildren": true,
+    "version": "12.5.0",
+    "replacement": {
+      "name": "Autocomplete",
+      "type": "component",
+      "documentation": "https://design.elvia.io/components/autocomplete"
+    }
+  },
   "e-stepper": {
     "deprecateChildren": true,
     "version": "12.4.0",
