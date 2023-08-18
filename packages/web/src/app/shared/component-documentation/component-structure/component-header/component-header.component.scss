@@ -18,13 +18,6 @@
           @include breakpoints.breakpoint-up(Tablet) {
             margin-bottom: 24px;
           }
-
-          .title-text {
-            width: min-content;
-            @include breakpoints.breakpoint-up(Mobile) {
-              width: initial;
-            }
-          }
         }
         h1,
         .e-tag {
