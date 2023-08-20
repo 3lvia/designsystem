@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.scss';
 import { Accordion } from '@elvia/elvis-accordion/react';
+import { Autocomplete } from '@elvia/elvis-autocomplete/react';
 import { Badge } from '@elvia/elvis-badge/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
@@ -43,6 +44,17 @@ function App() {
 
   // Accordion
   const [isOpenContent, setIsOpenContent] = useState(false);
+
+  //Autocomplete
+  const autocompleteItems = [
+    { value: 'Appelsin', label: 'Appelsin' },
+    { value: 'Banan', label: 'Banan' },
+    { value: 'Eple', label: 'Eple' },
+    { value: 'Jordbær', label: 'Jordbær' },
+    { value: 'Pære', label: 'Pære' },
+    { value: 'Vannmelon', label: 'Vannmelon' },
+    { value: 'Druer', label: 'Druer' },
+  ];
 
   // Breadcrumb
   const breadcrumbsNoUrl = [
@@ -187,30 +199,7 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white">
-                <Stepper
-                  type="vertical"
-                  steps={{ 2: { isError: true } }}
-                  content={[
-                    <div key={1}>Step 1 content</div>,
-                    <div key={2}>Step 2 content</div>,
-                    <div key={3}>Step 3 content</div>,
-                    <div key={4}>Step 4 content</div>,
-                    <div key={5}>Step 5 content</div>,
-                  ]}
-                />
-                <Stepper
-                  type="horizontal"
-                  steps={{ 2: { isError: true } }}
-                  content={[
-                    <div key={1}>Step 1 content</div>,
-                    <div key={2}>Step 2 content</div>,
-                    <div key={3}>Step 3 content</div>,
-                    <div key={4}>Step 4 content</div>,
-                    <div key={5}>Step 5 content</div>,
-                  ]}
-                />
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -230,6 +219,19 @@ function App() {
                   'It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. '
                 }
               ></Accordion>
+            </div>
+
+            {/* AUTOCOMPLETE */}
+            <div className="example-wrapper">
+              <h3>Autocomplete</h3>
+              <Autocomplete
+                items={autocompleteItems}
+                label="Skriv inn en frukt"
+                placeholder="banan..."
+                valueOnChange={(value) => {
+                  console.info('valueOnChange:', value);
+                }}
+              />
             </div>
 
             {/* BADGE */}

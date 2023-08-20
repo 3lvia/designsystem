@@ -1,0 +1,39 @@
+{
+  "name": "@elvia/elvis-autocomplete",
+  "version": "1.0.0",
+  "license": "MIT",
+  "homepage": "https://design.elvia.io/components/autocomplete",
+  "main": "web_component.js",
+  "files": [
+    "web_component.js",
+    "react.js",
+    "react.d.ts",
+    "CHANGELOG.json",
+    "README.md",
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "@elvia/elvis-colors": "^2.7.1",
+    "@elvia/elvis-component-wrapper": "^4.1.3",
+    "@elvia/elvis-toolbox": "^9.5.0",
+    "@elvia/elvis-tooltip": "^1.2.3",
+    "@elvia/elvis-typography": "^2.4.0",
+    "styled-components": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-is": {
+      "optional": true
+    }
+  }
+}

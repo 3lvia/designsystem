@@ -9,6 +9,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 
 import '@elvia/elvis-accordion';
+import '@elvia/elvis-autocomplete';
 import '@elvia/elvis-badge';
 import '@elvia/elvis-box';
 import '@elvia/elvis-breadcrumb';

@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-toolbox",
-  "version": "9.4.3",
+  "version": "9.5.1",
   "license": "MIT",
   "main": "./dist/index.js",
   "files": [

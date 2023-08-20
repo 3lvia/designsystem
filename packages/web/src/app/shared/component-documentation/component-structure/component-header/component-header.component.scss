@@ -5,7 +5,7 @@
     margin-bottom: var(--e-spacing-16);
 
     &__title {
-      .title-text {
+      .title-container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -26,6 +26,7 @@
         @include breakpoints.breakpoint-up(Mobile) {
           flex-direction: column;
           align-items: flex-start;
+          row-gap: 8px;
         }
       }
     }
