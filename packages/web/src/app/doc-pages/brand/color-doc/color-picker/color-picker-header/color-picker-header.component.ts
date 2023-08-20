@@ -1,7 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ColorElement } from '../colors-types';
 import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
@@ -11,7 +10,6 @@ import { ThemeName } from '@elvia/elvis-colors';
 export class ColorPickerHeaderComponent implements OnChanges {
   @Input({ required: true }) readonly currentTheme: ThemeName = 'light';
   @Output() changeThemeEvent = new EventEmitter<ThemeName>();
-  @Output() changeColorEvent = new EventEmitter<ColorElement>();
 
   isMobileScreenWidth = false;
 
