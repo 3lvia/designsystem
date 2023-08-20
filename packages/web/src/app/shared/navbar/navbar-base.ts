@@ -5,7 +5,7 @@ import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { RouterService } from 'src/app/core/services/router.service';
-import { Subject, distinctUntilChanged, map, switchMap } from 'rxjs';
+import { Subject, combineLatest, distinctUntilChanged, map } from 'rxjs';
 
 /**
  * This class serves to reduce code duplication that is shared between the
@@ -30,15 +30,15 @@ export class NavbarBase {
   }
 
   private getNavItemsOnLocaleOrUrlChange(): void {
-    this.routerService
-      .urlPathChange()
-      .pipe(
-        takeUntilDestroyed(),
+    combineLatest([
+      this.localeService.listenLocalization(),
+      this.routerService.urlPathChange().pipe(
         map((path) => path.split('/')[1]), // Only get new items when root path changes
         distinctUntilChanged(),
-        switchMap(() => this.localeService.listenLocalization()),
-      )
-      .subscribe((locale) => this.getNavbarList(locale));
+      ),
+    ])
+      .pipe(takeUntilDestroyed())
+      .subscribe(([locale]) => this.getNavbarList(locale));
   }
 
   private getNavbarList(locale: Locale): void {

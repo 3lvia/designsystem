@@ -1,7 +1,6 @@
-import { Directive, HostBinding, NgZone } from '@angular/core';
+import { Directive, HostBinding, OnDestroy } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { first, fromEvent, switchMap } from 'rxjs';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { fromEvent } from 'rxjs';
 
 /**
  * This directive ensure that the desktop navbar never is too
@@ -11,7 +10,8 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
   selector: '[appFlexibleFullHeight]',
   standalone: true,
 })
-export class FlexibleFullHeightDirective {
+export class FlexibleFullHeightDirective implements OnDestroy {
+  private observer: MutationObserver | undefined;
   private footerHeight = document.querySelector('app-footer')?.clientHeight ?? 0;
   private offsetTop = '128px';
   private distanceFromBottom = '0px';
@@ -21,21 +21,18 @@ export class FlexibleFullHeightDirective {
     return `calc(100vh - ${this.offsetTop} - ${this.distanceFromBottom})`;
   }
 
-  constructor(cmsService: CMSService, zone: NgZone) {
-    /**
-     * Update after the CMS content loads and the DOM is stable
-     */
-    cmsService
-      .listenContentLoadedFromCMS()
-      .pipe(
-        takeUntilDestroyed(),
-        switchMap(() => zone.onStable.pipe(first())),
-      )
-      .subscribe(() => this.setDistanceFromBottom());
-
-    zone.onStable.pipe(first()).subscribe(() => this.setDistanceFromBottom());
+  constructor() {
+    this.observer = new MutationObserver(() => this.setDistanceFromBottom());
+    const pageContent = document.querySelector('[data-page-content]');
+    if (pageContent) {
+      this.observer.observe(pageContent, { subtree: true, childList: true });
+    }
 
     this.setDistanceFromBottomOnScroll();
+  }
+
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
   }
 
   private setDistanceFromBottomOnScroll(): void {
