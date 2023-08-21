@@ -1,4 +1,5 @@
 @use '@elvia/elvis/src/variables/typography.scss' as typography;
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 a {
   color: inherit;
