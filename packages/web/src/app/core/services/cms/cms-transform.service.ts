@@ -673,7 +673,7 @@ export class CMSTransformService {
     `;
     });
     return (
-      `<div style="margin-top: 48px;"><div class="components-overview-cards components-overview-cards-animation">
+      `<div style="margin-top: 48px;"><div class="components-overview-cards">
       ` +
       returnString +
       '</div></div>'
