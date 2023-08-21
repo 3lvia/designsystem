@@ -1,5 +1,5 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
 import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -7,7 +7,7 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { SearchItem } from './search-menu.interface';
+import { SearchStatus, SearchItem } from './search-menu.interface';
 import { SearchService } from '../../../core/services/search.service';
 import Fuse from 'fuse.js';
 import { getThemeColor } from '@elvia/elvis-colors';
@@ -20,8 +20,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./search-menu.component.scss'],
   providers: [SearchService],
 })
-export class SearchMenuComponent implements OnInit, OnDestroy {
+export class SearchMenuComponent implements OnInit {
   mainMenu: CMSMenu;
+  searchStatus: SearchStatus = 'loading';
   showResults = false;
   resultOfMoreThanTwo = false;
   searchString = '';
@@ -34,7 +35,6 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   private onDestroy = new Subject<void>();
   private onDestroy$ = this.onDestroy.asObservable();
 
-  private subscriptions: Subscription = new Subscription();
   private locale: Locale;
 
   constructor(
@@ -80,10 +80,6 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     this.closeSearch();
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
-  }
-
   ngOnInit(): void {
     const search = document.getElementById('search-field');
     search?.focus();
@@ -101,6 +97,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
             { name: 'searchTerms', weight: 0.066 },
           ],
         });
+        this.searchStatus = 'ready';
       })
       // Call search once after initialized in case someone started typing before the search was initialized.
       .then(() => this.onSearch());

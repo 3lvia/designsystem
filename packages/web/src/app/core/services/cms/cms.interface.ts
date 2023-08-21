@@ -32,6 +32,5 @@ export interface CMSMenu {
 export interface CMSNavbarItem {
   title: string;
   isMainPage: boolean;
-  docUrl: string;
   fullPath: string;
 }

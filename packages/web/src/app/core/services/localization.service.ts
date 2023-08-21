@@ -15,7 +15,7 @@ const LOCALIZATION_STORAGE_KEY = 'preferredDesignElviaIoLocale';
 })
 export class LocalizationService {
   readonly defaultLocale = Locale['en-GB'];
-  private localizationSubject = new BehaviorSubject<Locale>(this.defaultLocale);
+  private localizationSubject = new BehaviorSubject<Locale>(this.getInitialStreamValue());
 
   constructor(private routerService: RouterService) {
     // Set localization to english on route change outside of brand
@@ -39,12 +39,25 @@ export class LocalizationService {
     return this.localizationSubject.asObservable().pipe(distinctUntilChanged());
   }
 
+  getCurrentLocalization(): Locale {
+    return this.localizationSubject.value;
+  }
+
   setLocalization(locale: Locale): void {
     this.localizationSubject.next(locale);
   }
 
   setPreferredLocalization(locale: Locale): void {
     localStorage.setItem(LOCALIZATION_STORAGE_KEY, Locale[locale]);
+  }
+
+  private getInitialStreamValue(): Locale {
+    const preferredLocale = localStorage.getItem(LOCALIZATION_STORAGE_KEY);
+    if (this.isKeyofLocale(preferredLocale)) {
+      return Locale[preferredLocale];
+    }
+
+    return this.defaultLocale;
   }
 
   private isKeyofLocale(key: unknown): key is keyof typeof Locale {

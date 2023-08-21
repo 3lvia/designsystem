@@ -2005,7 +2005,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "The <code class=\"changelog-code\">e-btn--loading</code> modifier for <code class=\"changelog-code\">e-btn</code> has been updated, and can now also be applied to an icon button"
+            "The <code>e-btn--loading</code> modifier for <code>e-btn</code> has been updated, and can now also be applied to an icon button"
           ],
           "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
         }
@@ -2021,8 +2021,8 @@
             "The header structure has changed so that the title is left aligned on desktop and tablet instead of center aligned.This requires that the top menu grid changes a little and that the title is added to the first column as well."
           ],
           "fixes": [
-            "The changes only affect the 'LOGO + APP' section. The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this: <div class=\"code-text changelog-code\">&lt;div class=\"col-xs-2 col-sm-3 col-md-7 col-lg-8\"&gt;</div>",
-            "Then add these two lines at the bottom inside of the same div: <div class=\"code-text changelog-code\">&lt;span class=\"e-header__top-bar-desktop__line e-mx-32\"&gt;&lt;/span&gt;<br />&lt;div class=\"e-header__top-bar-desktop__title\">TITLE&lt;/div&gt;</div>",
+            "The changes only affect the 'LOGO + APP' section. The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this: <div class=\"code-text\">&lt;div class=\"col-xs-2 col-sm-3 col-md-7 col-lg-8\"&gt;</div>",
+            "Then add these two lines at the bottom inside of the same div: <div class=\"code-text\">&lt;span class=\"e-header__top-bar-desktop__line e-mx-32\"&gt;&lt;/span&gt;<br />&lt;div class=\"e-header__top-bar-desktop__title\">TITLE&lt;/div&gt;</div>",
             "The other way is to replace the entire 'LOGO + APP' section with the examples showed in the documentation, and then add the information back where you lost it."
           ],
           "components": [{ "displayName": "Header", "url": "https://design.elvia.io/components/header" }]
@@ -2039,18 +2039,18 @@
             "The <code>e-popover</code> alignments classes for left and right positions have been renamed and refactored."
           ],
           "fixes": [
-            "<code class=\"changelog-code\">e-popover--top--left</code> to <code class=\"changelog-code\">e-popover--left</code>",
-            "<code class=\"changelog-code\">e-popover--bottom--left</code> to <code class=\"changelog-code\">e-popover--bottom e-popover--left</code>",
-            "<code class=\"changelog-code\">e-popover--top--right</code> to <code class=\"changelog-code\">e-popover--right</code>",
-            "<code class=\"changelog-code\">e-popover--bottom--right</code> to <code class=\"changelog-code\">e-popover--bottom e-popover--right</code>"
+            "<code>e-popover--top--left</code> to <code>e-popover--left</code>",
+            "<code>e-popover--bottom--left</code> to <code>e-popover--bottom e-popover--left</code>",
+            "<code>e-popover--top--right</code> to <code>e-popover--right</code>",
+            "<code>e-popover--bottom--right</code> to <code>e-popover--bottom e-popover--right</code>"
           ],
           "components": [{ "displayName": "Popover", "url": "https://design.elvia.io/components/popover" }]
         },
         {
           "type": "new_feature",
           "changes": [
-            "Classes for aligning 50% to the left or right from the middle.<ul class=\"e-list\"><li sdsd><code class=\"changelog-code\">e-popover--left-50</code></li sdsd><li sdsd><code class=\"changelog-code\">e-popover--right-50</code></li sdsd></ul class=\"test\">",
-            "Classes for sizing popover smaller when is has limited space.<ul class=\"e-list\"><li ddfdf><code class=\"changelog-code\">e-popover--w-200</code></li sdsd><li dfdfdf><code class=\"changelog-code\">e-popover--w-220</code></li sdsd><li dfdfdfd><code class=\"changelog-code\">e-popover--w-240</code></li sdsd><li dfdfdf><code class=\"changelog-code\">e-popover--w-260</code></li sdsd></ul sdsd>"
+            "Classes for aligning 50% to the left or right from the middle.<ul class=\"e-list\"><li sdsd><code>e-popover--left-50</code></li sdsd><li sdsd><code>e-popover--right-50</code></li sdsd></ul class=\"test\">",
+            "Classes for sizing popover smaller when is has limited space.<ul class=\"e-list\"><li ddfdf><code>e-popover--w-200</code></li sdsd><li dfdfdf><code>e-popover--w-220</code></li sdsd><li dfdfdfd><code>e-popover--w-240</code></li sdsd><li dfdfdf><code>e-popover--w-260</code></li sdsd></ul sdsd>"
           ],
           "components": [{ "displayName": "Popover", "url": "https://design.elvia.io/components/popover" }]
         }
@@ -2064,12 +2064,12 @@
           "type": "breaking_changes",
           "changes": [
             "The e-accordion__label has now been renamed to <code>e-accordion__title</code>. The <code>e-accordion__label</code> class is still available, but only in combination with the <code>e-accordion--group</code> modifier, and <code>e-accordion__label</code> is the container class for <code>e-accordion__title</code> and <code>e-accordion__icon</code> in a group accordion.",
-            "<code class=\"changelog-code\">e-header</code> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile e.g. <code class=\"changelog-code\">e-header__top-bar-desktop__link</code>.<div class=\"e-mt-8\">",
+            "<code>e-header</code> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile e.g. <code>e-header__top-bar-desktop__link</code>.<div class=\"e-mt-8\">",
             "The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added."
           ],
           "fixes": [
-            "The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.<ul class=\"e-list\"><li ddfdf><code class=\"changelog-code\">e-top-bar</code> to <code class=\"changelog-code\">e-header__top-bar</code></li sdsd><li dfdfdf><code class=\"changelog-code\">e-sidebar</code> to <code class=\"changelog-code\">e-header__sidebar</code></li sdsd><li dfdfdfd><code class=\"changelog-code\">top-bar__</code> to <code class=\"changelog-code\">top-bar-desktop__</span></li sdsd></ul sdsd>",
-            "Add an element with the <code class=\"changelog-code\">e-table-container</code> class outside the element with the <code class=\"changelog-code\">e-table</code> class.<ul class=\"e-list\"><li ddfdf><code class=\"changelog-code\">e-table</code> to <code class=\"changelog-code\">e-table-container e-table</code></li sdsdsd></ul>"
+            "The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.<ul class=\"e-list\"><li ddfdf><code>e-top-bar</code> to <code>e-header__top-bar</code></li sdsd><li dfdfdf><code>e-sidebar</code> to <code>e-header__sidebar</code></li sdsd><li dfdfdfd><code>top-bar__</code> to <code>top-bar-desktop__</span></li sdsd></ul sdsd>",
+            "Add an element with the <code>e-table-container</code> class outside the element with the <code>e-table</code> class.<ul class=\"e-list\"><li ddfdf><code>e-table</code> to <code>e-table-container e-table</code></li sdsdsd></ul>"
           ],
           "components": [
             { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
@@ -2080,7 +2080,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "A class for adding footnotes to the table has been created: <code class=\"changelog-code\">e-table-footnote</code>."
+            "A class for adding footnotes to the table has been created: <code>e-table-footnote</code>."
           ],
 
           "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
@@ -2105,9 +2105,7 @@
         },
         {
           "type": "new_feature",
-          "changes": [
-            "A new smaller title has been added: <code class=\"changelog-code\">e-title-xs</code>."
-          ],
+          "changes": ["A new smaller title has been added: <code>e-title-xs</code>."],
           "components": [
             { "displayName": "Typography", "url": "https://design.elvia.io/components/typography" }
           ]
@@ -2121,10 +2119,10 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "All <code class=\"changelog-code\">---visible</code> classes for Modal and Popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the Modal or Popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.<div class=\"e-mt-8\"></div>"
+            "All <code>---visible</code> classes for Modal and Popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the Modal or Popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.<div class=\"e-mt-8\"></div>"
           ],
           "fixes": [
-            "Add the <code class=\"changelog-code\">e-none</code> or <code class=\"changelog-code\">e-invisble</code> utility classes to toggle the components.<ul><li><code class=\"changelog-code\">e-component---visible</code> to <code class=\"changelog-code\">e-none</span> & <code class=\"changelog-code\">e-invisible</code></li></ul>"
+            "Add the <code>e-none</code> or <code>e-invisble</code> utility classes to toggle the components.<ul><li><code>e-component---visible</code> to <code>e-none</span> & <code>e-invisible</code></li></ul>"
           ],
           "components": [
             { "displayName": "Modal", "url": "https://design.elvia.io/components/modal" },
@@ -2145,7 +2143,7 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:<ul sdsd><li sdsd><code class=\"changelog-code\">e-grid-margin</code> to <code class=\"changelog-code\">e-grid-margin-ext</code> + <code class=\"changelog-code\">e-grid-margin-int</code></li ssdsd><li sds><code class=\"changelog-code\">e-custom-gutters</code> to <code class=\"changelog-code\">e-grid-gutters-ext</code> +<code class=\"changelog-code\">e-grid-gutters-int</code> + <code class=\"changelog-code\">e-grid-gutters-vertical</code></li sdd></ul sdsd>"
+            "If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:<ul sdsd><li sdsd><code>e-grid-margin</code> to <code>e-grid-margin-ext</code> + <code>e-grid-margin-int</code></li ssdsd><li sds><code>e-custom-gutters</code> to <code>e-grid-gutters-ext</code> +<code>e-grid-gutters-int</code> + <code>e-grid-gutters-vertical</code></li sdd></ul sdsd>"
           ],
           "pages": [{ "displayName": "Grid", "url": "https://design.elvia.io/brand/grid" }]
         },
@@ -2215,7 +2213,7 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "In this update icons are injected as background-images again on the 'i' tags with <code class=\"changelog-code\">e-icon</code> classes. We do not think this will have a large impact on how to use icons."
+            "In this update icons are injected as background-images again on the 'i' tags with <code>e-icon</code> classes. We do not think this will have a large impact on how to use icons."
           ],
           "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
         }
