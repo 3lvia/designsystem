@@ -1,11 +1,11 @@
 import { Directive, HostBinding } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Subject, distinctUntilChanged, map, startWith, switchMap } from 'rxjs';
 
 import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { LocalizationService } from 'src/app/core/services/localization.service';
 import { RouterService } from 'src/app/core/services/router.service';
-import { Subject, distinctUntilChanged, map, startWith, switchMap } from 'rxjs';
 
 /**
  * This class serves to reduce code duplication that is shared between the
@@ -38,14 +38,11 @@ export class NavbarBase {
         distinctUntilChanged(),
         startWith(''), // Start with empty to ensure that we get navbar items on initial render
         switchMap(() => this.localeService.listenLocalization()),
+        switchMap((locale) => this.cmsService.getSubMenuList(locale)),
       )
-      .subscribe((locale) => this.getNavbarList(locale));
-  }
-
-  private getNavbarList(locale: Locale): void {
-    this.cmsService.getSubMenuList(locale).then((navbarList) => {
-      this.navbarList = navbarList;
-      this.navbarListChangedSubject.next();
-    });
+      .subscribe((navbarItems) => {
+        this.navbarList = navbarItems;
+        this.navbarListChangedSubject.next();
+      });
   }
 }
