@@ -48,9 +48,12 @@ export const createChangelogs = async () => {
   const changelogs = await changelogNames.reduce(async (changelogPromise, name) => {
     const changelogs = await changelogPromise;
     const entry = await import(`@elvia/${name}/CHANGELOG.json`).then((changelog) => {
-      return changelog.content[0];
+      const filteredChangelogs = changelog.content.filter((changelog: any) =>
+        changelog.version.endsWith('.0'),
+      );
+      return filteredChangelogs[0];
     });
-    changelogs.push({ ...entry, name: name, date: toDateObject(entry.date) });
+    entry && changelogs.push({ ...entry, name: name, date: toDateObject(entry.date) });
     return changelogs;
   }, Promise.resolve([] as ChangelogArrayType));
   const sortedChangelogs = changelogs.sort((a, b) => {

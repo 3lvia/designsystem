@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
-import { Observable, first, fromEvent, of, switchMap } from 'rxjs';
+import { first, fromEvent, of, switchMap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { trigger, transition, stagger, animate, style, query } from '@angular/animations';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -49,16 +49,24 @@ export class SubMenuComponent {
     this.scrollToCorrectAnchorOnPageLoad();
 
     /**
-     * A couple of async steps is required to safely retrieve sub menu items:
+     * A couple of steps is required to safely retrieve sub menu items:
      *  1. If the page comes from the CMS, wait for it to be loaded. If
      *     the page is client side only, proceed immediately to the next step.
      *  2. Switch the observable to listen for localization changes
      *  3. When localization changes, wait for the DOM to stabilize
      *     before retrieving the anchor elements from the DOM.
      **/
-    this.getFetchAnchorsTrigger()
+    this.cmsService
+      .listenCurrentRouteIsCms()
       .pipe(
+        switchMap((isCms) => {
+          if (isCms) {
+            return this.cmsService.listenContentLoadedFromCMS();
+          }
+          return of(undefined);
+        }),
         switchMap(() => localization.listenLocalization()),
+        takeUntilDestroyed(),
         switchMap(() => zone.onStable.pipe(first())),
       )
       .subscribe(() => {
@@ -72,17 +80,6 @@ export class SubMenuComponent {
     this.router.navigateByUrl(`${this.location.path()}#${id}`, {
       replaceUrl: true,
     });
-  }
-
-  private getFetchAnchorsTrigger(): Observable<void> {
-    return this.cmsService.listenCurrentRouteIsCms().pipe(
-      switchMap((isCms) => {
-        if (isCms) {
-          return this.cmsService.listenContentLoadedFromCMS();
-        }
-        return of(undefined);
-      }),
-    );
   }
 
   private scrollToCorrectAnchorOnPageLoad() {

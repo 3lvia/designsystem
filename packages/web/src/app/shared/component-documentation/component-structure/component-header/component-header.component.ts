@@ -34,7 +34,7 @@ export class ComponentHeaderComponent implements AfterViewInit {
     return txt;
   }
 
-  private createHTMLElement(txt: string): any {
+  private createHTMLElement(txt: string): HTMLElement {
     const div = document.createElement('div');
     div.innerHTML = txt;
     return div;

@@ -1,7 +1,7 @@
 <div class="component page-body">
   <div class="component-header">
     <div class="component-header__title">
-      <div class="title-text e-mb-32 e-w-100">
+      <div class="title-container e-mb-32 e-w-100">
         <h1 class="big-header e-mb-0 e-w-100" data-url-fragment>
           <ng-content select="headerTitle"></ng-content>
           <div class="e-pl-16">
@@ -13,7 +13,7 @@
         <div *ngIf="figmaOnly">
           <label class="e-tag e-tag--orange">Figma only</label>
         </div>
-        <div *ngIf="!figmaOnly && lastUpdated" class="no-wrap e-text-micro-light">
+        <div *ngIf="!figmaOnly && lastUpdated" class="no-wrap e-text-micro-light e-mb-8">
           Last updated {{ lastUpdated | DocumentationDatePipe }}
         </div>
       </div>

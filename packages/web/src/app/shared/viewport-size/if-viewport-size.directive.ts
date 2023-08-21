@@ -2,7 +2,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Directive, OnDestroy, Input, ViewContainerRef, TemplateRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-type Size = 'sm' | 'md' | 'lg' | 'xl';
+type Size = keyof typeof config;
 
 const config = {
   sm: '(max-width: 767px)',
