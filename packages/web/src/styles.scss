@@ -24,6 +24,7 @@
 html {
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -356,8 +357,4 @@ kbd,
   @include breakpoints.breakpoint-up(Mobile) {
     font-size: 32px;
   }
-}
-
-hr {
-  border: 1px solid black;
 }
