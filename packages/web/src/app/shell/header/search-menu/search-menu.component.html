@@ -108,8 +108,8 @@
 
     <ng-container [ngSwitch]="resultStatus">
       <!-- Fake results loading -->
-      <div *ngSwitchCase="'loading'">
-        <div *ngIf="searchString" class="results">
+      <div *ngSwitchCase="'loading'" class="results">
+        <div *ngIf="searchString">
           <ng-container *ngFor="let result of [1, 2, 3]; let last = last">
             <div class="result-item loading">
               <div class="e-content-loader e-w-100"></div>
