@@ -1,60 +1,153 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <div class="e-my-48">
-    <app-static-ceg [hideReact]="true">
-      <app-autocomplete-ceg />
-    </app-static-ceg>
-  </div>
-
-  <!-- SIZES -->
-  <app-component-section [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Medium'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-autocomplete-normal-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Small'">
-        <ng-container ngProjectAs="sectionContent">
-          Much like small text fields, the small autocomplete is a version of the text field that’s primarily
-          designed for internal systems, and shouldn’t be mixed with the other input styles.
-          <app-static-ceg>
-            <app-autocomplete-compact-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
+<app-component-documentation docUrl="autocomplete" [componentData]="componentData">
+  <app-ceg ceg>
+    <app-autocomplete-ceg />
+  </app-ceg>
 
   <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does"></app-when-to-use>
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
     </ng-container>
   </app-component-section>
 
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-autocomplete'">
+  <!-- SIZE -->
+  <app-component-section size [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-autocomplete'"></app-component-properties>
+      There are two different sizes of the autocomplete; medium and small. Much like small text fields, the
+      compact autocomplete is a version of the text field that’s primarily designed for internal systems, and
+      shouldn’t be mixed with the other input style.
     </ng-container>
   </app-component-section>
 
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
+  <!-- IMPLEMENTATION -->
+  <app-component-section implementation [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
+      You can disable the basic filtering in the autocomplete by setting the
+      <code>hasBuiltInFilter</code>
+      prop to
+      <code>false</code>
+      . Then, implement your custom filtering logic.
+      <p>Here's what you can to do:</p>
+      <ol class="e-list e-list--numbers">
+        <li>
+          <strong>React to changes.</strong>
+          Use the
+          <code>valueOnChange</code>
+          event to create a function that takes the current value as a parameter and returns a new set of
+          matching items.
+        </li>
+        <li>
+          <strong>Filter and sort the items.</strong>
+          Filter and sort the generated items using your preferred methods.
+        </li>
+        <li>
+          <strong>Update the autocomplete component.</strong>
+          Update the autocomplete component's
+          <code>items</code>
+          prop with your filtered and sorted items to apply your custom filtering and sorting to the
+          autocomplete suggestions.
+        </li>
+      </ol>
+      <p>
+        In the example below, the autocomplete suggests drinks from the
+        <a
+          class="e-link e-link--new-tab"
+          href="https://www.thecocktaildb.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">TheCocktailDB</span>
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+          </span>
+        </a>
+        when you type.
+      </p>
+      <div class="e-alert e-alert--info" role="note" style="max-width: unset">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Remember</div>
+          <div class="e-alert__text">
+            <div>
+              The suggestions are intended to help the user in finding a value, but it is not mandatory for
+              the value to be selected from that list.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-static-ceg>
+        <app-autocomplete-filter-ceg />
+      </app-static-ceg>
     </ng-container>
   </app-component-section>
-</div>
+
+  <!-- OPTIONS -->
+  <app-component-section options [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Items'">
+        <ng-container ngProjectAs="sectionContent">
+          Use the
+          <code>label</code>
+          in the
+          <code>items</code>
+          array to display an alternative string rather than the actual value as the visible option. The label
+          serves solely for display purposes. When an option is selected, it is the
+          <code>value</code>
+          that will be sent back.
+          <app-static-ceg>
+            <app-autocomplete-label-ceg />
+          </app-static-ceg>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="accessibility-keyboard-navigation">
+            <div class="e-mb-16">
+              Use the
+              <span class="keyboard-button icon">
+                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+              </span>
+              <span class="keyboard-button icon" style="margin-left: 0px">
+                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+              </span>
+              keys to navigate through the autocomplete suggestions.
+            </div>
+            <div class="e-mb-16">
+              Press
+              <kbd>Enter</kbd>
+              or
+              <kbd>TAB</kbd>
+              to select a autocomplete suggestion when it is highlighted.
+            </div>
+            <div>
+              Press the
+              <kbd>Esc</kbd>
+              key to close the autocomplete suggestion popup.
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'ARIA'">
+        <ng-container ngProjectAs="sectionContent">
+          <ul class="e-list">
+            <li>
+              <strong>aria-label:</strong>
+              Use the
+              <code>ariaLabel</code>
+              prop to give the autocomplete an accessible name if no explicit label is provided.
+            </li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+</app-component-documentation>

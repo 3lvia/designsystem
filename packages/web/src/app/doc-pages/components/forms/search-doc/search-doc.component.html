@@ -1,19 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <app-static-ceg>
-    <app-search-ceg />
+<app-component-documentation docUrl="search" isElvis>
+  <app-static-ceg ceg>
+    <app-search-ceg></app-search-ceg>
   </app-static-ceg>
 
   <!--TYPE-->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section type [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       We have two types of search: instant and on submit. These are typically used in connection to a data
       table or list. Instant search is typically used when filtering among content, while search on submit is
@@ -58,7 +49,7 @@
   </app-component-section>
 
   <!-- OPTIONS -->
-  <app-component-section [sectionTitle]="'Options'">
+  <app-component-section options [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Full width'">
         <ng-container ngProjectAs="sectionContent">
@@ -74,7 +65,7 @@
   </app-component-section>
 
   <!--SIZE-->
-  <app-component-section [sectionTitle]="'Size'">
+  <app-component-section size [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Medium'">
         <ng-container ngProjectAs="sectionContent">
@@ -94,7 +85,7 @@
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section usage [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
       <app-component-subsection [sectionTitle]="'Placeholder'">
@@ -106,7 +97,7 @@
   </app-component-section>
 
   <!-- ACCESSIBILITY -->
-  <app-component-section [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'aria-label'">
         <ng-container ngProjectAs="sectionContent">
@@ -117,18 +108,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-search'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-search'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

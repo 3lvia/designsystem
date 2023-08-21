@@ -27,6 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
   appContent,
   onLogoClick,
   onSignOutClick,
+  onThemeChange,
   className,
   inlineStyle,
   webcomponent,
@@ -52,6 +53,11 @@ export const Header: React.FC<HeaderProps> = ({
   const logoClick = () => {
     onLogoClick?.();
     webcomponent?.triggerEvent('onLogoClick');
+  };
+
+  const themeChange = () => {
+    onThemeChange?.();
+    webcomponent?.triggerEvent('onThemeChange');
   };
 
   useEffect(() => {
@@ -97,6 +103,7 @@ export const Header: React.FC<HeaderProps> = ({
               email={email}
               username={username}
               onSignOutClick={signOutClick}
+              onThemeChange={themeChange}
               onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
             />
           </SquareContainer>
@@ -109,6 +116,7 @@ export const Header: React.FC<HeaderProps> = ({
               email={email}
               username={username}
               onSignOutClick={signOutClick}
+              onThemeChange={themeChange}
               onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
             />
           </>

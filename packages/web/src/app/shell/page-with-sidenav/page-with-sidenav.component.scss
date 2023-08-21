@@ -22,7 +22,7 @@
   padding-right: min(80px, 4vw); // This shifts the content to the right to make it feel more centered
 
   // minmax(0, 1fr) prevents CEGs from overflowing: https://css-tricks.com/preventing-a-grid-blowout/
-  grid-template-columns: min(250px, 22%) minmax(0, 1fr);
+  grid-template-columns: min(220px, 22%) minmax(0, 1fr);
   gap: min(64px, 4%);
 
   @include breakpoints.breakpoint-up(Tablet) {
@@ -51,4 +51,9 @@
   @include breakpoints.breakpoint-up(Tablet) {
     grid-column: 1 / -1;
   }
+}
+
+.mobile-navbar {
+  max-width: 522px;
+  margin: 0 auto;
 }

@@ -1,21 +1,10 @@
-<!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
-<!--BODY-->
-<div class="page-body">
-  <div class="e-my-48">
-    <app-static-ceg>
-      <app-list-ceg />
-    </app-static-ceg>
-  </div>
+<app-component-documentation docUrl="list" isElvis>
+  <app-static-ceg ceg>
+    <app-list-ceg></app-list-ceg>
+  </app-static-ceg>
 
   <!--TYPE-->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section type [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Bullet list'">
         <ng-container ngProjectAs="sectionContent">
@@ -48,18 +37,4 @@
       </app-component-subsection>
     </ng-container>
   </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-list'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-list'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
-
-  <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="title"></app-component-changelog>
-    </ng-container>
-  </app-component-section>
-</div>
+</app-component-documentation>

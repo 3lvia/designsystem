@@ -17,10 +17,35 @@ interface StepStates {
   styleUrls: ['./v2-playground.component.scss'],
 })
 export class v2PlaygroundComponent {
+  //her
+  endMinDate = new Date(2023, 9, 10);
+  endTimeValue: Date | null = new Date(2023, 9, 10);
+
+  testDate = () => {
+    this.endMinDate = new Date(2023, 9, 12);
+    this.endTimeValue = null;
+  };
+
+  resetDate = () => {
+    this.endMinDate = new Date(2023, 9, 10);
+    this.endTimeValue = new Date(2023, 9, 10);
+  };
+
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
   isOpen = false;
+
+  //autocomplete
+  autocompleteItems = [
+    { value: 'Appelsin', label: 'Appelsin' },
+    { value: 'Banan', label: 'Banan' },
+    { value: 'Eple', label: 'Eple' },
+    { value: 'Jordbær', label: 'Jordbær' },
+    { value: 'Pære', label: 'Pære' },
+    { value: 'Vannmelon', label: 'Vannmelon' },
+    { value: 'Druer', label: 'Druer' },
+  ];
 
   // Breadcrumb
   breadcrumbsTestNoUrl = [{ text: 'Elvia.no' }, { text: 'Nettleie' }, { text: 'Elvias leveringsplikt' }];
@@ -115,7 +140,6 @@ export class v2PlaygroundComponent {
     {
       value: 'finland',
       label: 'Finland  med en veldig lang tekst som kommer til å overflowe',
-      isDisabled: true,
     },
     { value: 'spania', label: 'Spania' },
     { value: 'tyskland', label: 'Tyskland' },

@@ -1,6 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
-import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-alert-messages',
   templateUrl: './alert-messages.component.html',
@@ -9,19 +7,11 @@ import { Title } from '@angular/platform-browser';
 export class AlertMessagesComponent {
   @ViewChild('alertAccordionExample') alertAccordionExample: ElementRef;
 
-  figmaUrl = getComponent('alert')?.figmaUrl;
-  description = getComponent('alert')?.description;
-  title = getComponent('alert')?.title;
-
   doesAlertDefault = [
     'Message related to the content of the page.',
     'To correct a problem.',
     'After a user operation.',
   ];
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
-  }
 
   doesToastDefault = ['Confirmation message after an user action', 'Notification message'];
   dontsToastDefault = ['Error messages'];

@@ -1,7 +1,7 @@
 <div class="page-container">
-  <app-navbar class="e-none-sm e-none-md" />
+  <app-desktop-navbar *ifViewportSize="['lg', 'xl']" />
 
-  <div class="page-content">
+  <div class="page-content" data-page-content>
     <div class="page-content-header page-body" *ngIf="!isLandingPage">
       <a class="e-none-lg e-none-xl e-link e-link--sm" [routerLink]="'/' + currentRoute">
         <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold" aria-hidden="true"></i></span>
@@ -11,7 +11,12 @@
     </div>
 
     <ng-content />
-    <app-navbar class="e-none-lg e-none-xl" *ngIf="isLandingPage" />
+    <ng-container *ifViewportSize="['sm', 'md']">
+      <div class="mobile-navbar" *ngIf="isLandingPage">
+        <app-locale-picker class="e-mb-16 e-justify-content-end" *ngIf="currentRoute === 'brand'" />
+        <app-mobile-navbar />
+      </div>
+    </ng-container>
 
     <app-feedback *ngIf="!isLandingPage" />
   </div>

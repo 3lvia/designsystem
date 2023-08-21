@@ -63,13 +63,13 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Autocomplete',
     description:
-      ' Autocomplete is a text input that predicts the rest of a word a user is typing. When you would have a long drop-down list and have to scroll a lot, you can use autocomplete to filter down the options, an example of this is filling in countries. If the user enters something that cannot match the options, errors will be displayed.',
+      'Autocomplete gives filtered suggestions when the user starts to type. Use it when there are too many options, and it is not helpful for the user to see all options at the beginning. Autocomplete guides the user by giving suggestions, but the user doesn’t necessarily have to choose one of the suggestions.',
     docUrl: Pages.Autocomplete,
     absolutePath: '/components/' + Pages.Autocomplete,
     status: DocPageStatus.Done,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2742%3A0',
     type: 'Component',
-    searchTerms: ['predictive', 'word completion'],
+    searchTerms: ['predictive', 'word completion', 'combobox', 'suggest', 'filter'],
   },
   {
     title: 'Badge',
@@ -92,6 +92,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Box?node-id=288%3A0',
     type: 'Component',
     searchTerms: ['tile'],
+    relatedComponents: ['card', 'popover'],
   },
   {
     title: 'Button',
@@ -103,6 +104,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=0%3A1',
     type: 'Component',
     searchTerms: ['cta', 'call to action', 'click'],
+    elvisClassName: 'e-btn',
   },
   {
     title: 'Breadcrumb',
@@ -214,6 +216,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1811%3A1080',
     type: 'Component',
     searchTerms: ['file', 'upload'],
+    elvisClassName: 'e-dragdrop',
   },
   {
     title: 'Divider',
@@ -245,6 +248,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
     type: 'Component',
     searchTerms: ['file', 'upload'],
+    elvisClassName: 'e-fileupload',
   },
   {
     title: 'Header',
@@ -288,6 +292,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links?node-id=1%3A10',
     type: 'Component',
     searchTerms: ['anchor', 'url', 'href', 'navigate', 'navigation', 'click'],
+    relatedComponents: ['breadcrumb', 'card', 'header'],
   },
   {
     title: 'List',
@@ -385,6 +390,7 @@ export const componentsDocPages: DocPage[] = [
       'https://www.figma.com/file/Z7TZlvhDrcRDx1bcH441E0/Radio-button?type=design&node-id=0%3A1&mode=design&t=36kEpOhRdqzP1OX3-1',
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'toggle'],
+    elvisClassName: 'e-radio',
   },
   {
     title: 'Radio Filter',

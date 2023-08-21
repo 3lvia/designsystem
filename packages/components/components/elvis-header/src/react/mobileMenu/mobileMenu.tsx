@@ -36,6 +36,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
   username,
   onSignOutClick,
   onMenuToggle,
+  onThemeChange,
 }) => {
   const [view, setView] = useState<'mainPage' | 'appSelector' | 'themeSelector'>('mainPage');
   const [backButtonIsHovered, setBackButtonIsHovered] = useState(false);
@@ -86,7 +87,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   <TextSmallStrong>{username}</TextSmallStrong>
                   <TextSmall>{email}</TextSmall>
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
-                  {false && <ThemePicker />}
+                  {false && <ThemePicker onThemeChange={onThemeChange} />}
                   <MobileMenuFooter>
                     <TertiaryButton size="sm" onClick={onSignOutClick}>
                       <IconWrapper icon={logout} size="xs" />

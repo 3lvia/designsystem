@@ -1,8 +1,5 @@
 <!--HEADER-->
-<app-component-header
-  [figmaUrl]="figmaUrl"
-  [lastUpdated]="componentData && componentData.changelog && componentData.changelog[0].date"
->
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="lastUpdatedDate">
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -12,6 +9,8 @@
 <!--BODY-->
 <div class="page-body e-mt-72">
   <ng-content select="[ceg]" />
+
+  <ng-content select="[usage]" />
 
   <ng-content select="[structure]" />
 
@@ -26,8 +25,6 @@
   <ng-content select="[color]" />
 
   <ng-content select="[options]" />
-
-  <ng-content select="[usage]" />
 
   <ng-content select="[implementation]" />
 
@@ -68,6 +65,13 @@
         [changelog]="componentData.changelog"
       ></app-component-changelog>
       <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title"></app-component-changelog>
+    </ng-container>
+  </app-component-section>
+
+  <!--RELATED COMPONENTS-->
+  <app-component-section *ngIf="relatedComponents" [sectionTitle]="'Related'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-related [relatedComponents]="relatedComponents"></app-component-related>
     </ng-container>
   </app-component-section>
 </div>

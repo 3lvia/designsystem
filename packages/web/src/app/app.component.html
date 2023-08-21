@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<main class="e-pb-80" [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
+<main [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
   <ng-container *ngIf="currentRoute !== 'pageWithSidenav'; else pageWithSidenav">
     <router-outlet></router-outlet>
   </ng-container>
@@ -12,7 +12,7 @@
   </ng-template>
 </main>
 
-<app-footer></app-footer>
+<app-footer class="e-pt-80"></app-footer>
 
 <elvia-outline></elvia-outline>
 <app-shortcut />

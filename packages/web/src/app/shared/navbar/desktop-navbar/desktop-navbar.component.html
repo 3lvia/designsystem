@@ -1,0 +1,29 @@
+<ul class="scroll-container" [ngClass]="{ 'bottom-gradient': listOverflows }" #scrollContainer>
+  <ng-container *ngIf="navbarList.length; else contentLoader">
+    <ng-container *ngFor="let navbarItem of navbarList; let i = index">
+      <li>
+        <a [routerLink]="navbarItem.fullPath" routerLinkActive="active" class="navbar-item__link">
+          <div class="navbar-item__link-text e-text-sm-strong">{{ navbarItem.title }}</div>
+        </a>
+        <app-sub-menu
+          class="e-ml-24 overflow-hidden"
+          #subMenu
+          [@animateHeightOnItemEnter]="subMenu.anchors.length > 0 ? 'true' : 'false'"
+          *ngIf="navbarItem.fullPath === activeRoute"
+        />
+      </li>
+      <div class="e-ml-16 e-mr-64" *ngIf="navbarItem.isMainPage && !navbarList[i + 1].isMainPage">
+        <elvia-divider />
+      </div>
+    </ng-container>
+  </ng-container>
+</ul>
+
+<ng-container *ngIf="activeLandingPage === 'brand'">
+  <elvia-divider className="e-my-16" />
+  <app-locale-picker class="e-pl-16" />
+</ng-container>
+
+<ng-template #contentLoader>
+  <span class="e-content-loader content-loader"></span>
+</ng-template>

@@ -1,0 +1,10 @@
+<div class="list-container" [@listAnimation]="anchors.length" [ngClass]="{ 'e-mt-8': anchors.length }">
+  <button
+    class="link e-text-sm"
+    (click)="goToFragment(anchor.name)"
+    *ngFor="let anchor of anchors"
+    [ngClass]="{ active: anchor.name === activeAnchor }"
+  >
+    {{ anchor.name }}
+  </button>
+</div>
