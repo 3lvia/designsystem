@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeName } from '@elvia/elvis-colors';
 
@@ -7,8 +7,7 @@ import { ThemeName } from '@elvia/elvis-colors';
   selector: 'app-color-picker-header',
   templateUrl: './color-picker-header.component.html',
 })
-export class ColorPickerHeaderComponent implements OnChanges {
-  @Input({ required: true }) readonly currentTheme: ThemeName = 'light';
+export class ColorPickerHeaderComponent {
   @Output() changeThemeEvent = new EventEmitter<ThemeName>();
 
   isMobileScreenWidth = false;
@@ -20,12 +19,6 @@ export class ColorPickerHeaderComponent implements OnChanges {
       .subscribe((result) => {
         this.isMobileScreenWidth = result.matches;
       });
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes.currentTheme) {
-      const theme = changes.currentTheme.currentValue as ThemeName;
-    }
   }
 
   handleSegmentedControlChange(event: Event) {
