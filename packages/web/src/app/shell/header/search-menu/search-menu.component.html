@@ -123,7 +123,7 @@
     <ng-container *ngIf="searchStatus === 'ready'">
       <div
         class="no-results e-text-center"
-        *ngIf="resultsToDisplay.length === 0 && searchString.length !== 0"
+        *ngIf="searchString.length !== 0 && this.resultsToDisplay.length === 0"
       >
         <p class="e-m-0">
           Oh snap 😕
