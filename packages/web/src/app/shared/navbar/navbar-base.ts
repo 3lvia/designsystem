@@ -41,8 +41,25 @@ export class NavbarBase {
         switchMap((locale) => this.cmsService.getSubMenuList(locale)),
       )
       .subscribe((navbarItems) => {
-        this.navbarList = navbarItems;
-        this.navbarListChangedSubject.next();
+        if (this.localeChangedForExistingNavItems(navbarItems)) {
+          this.navbarList.forEach(
+            (item) =>
+              (item.title =
+                navbarItems.find((newItem) => newItem.fullPath === item.fullPath)?.title ?? item.title),
+          );
+        } else {
+          this.navbarList = navbarItems;
+          this.navbarListChangedSubject.next();
+        }
       });
+  }
+
+  private localeChangedForExistingNavItems(newItems: CMSNavbarItem[]): boolean {
+    return (
+      this.navbarList.length > 0 &&
+      this.navbarList.every((existingItem) =>
+        newItems.find((newItem) => newItem.fullPath === existingItem.fullPath),
+      )
+    );
   }
 }
