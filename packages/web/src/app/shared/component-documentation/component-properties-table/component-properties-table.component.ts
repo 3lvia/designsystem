@@ -41,7 +41,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
     });
   }
 
-  searchProps() {
+  searchProps(): void {
     if (!this.searchService.isInitialized) {
       return;
     }
