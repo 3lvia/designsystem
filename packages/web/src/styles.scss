@@ -7,6 +7,8 @@
 /* Elvia Styleguide */
 @use '@elvia/elvis/src/main.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+// TODO: This will be moved to elvis
+@use '@elvia/elvis-colors/dist/themeVariables' as ThemeVariables;
 
 @use './typography.scss';
 
