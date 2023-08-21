@@ -52,7 +52,9 @@ export class SubMenuComponent {
      * A couple of steps is required to safely retrieve sub menu items:
      *  1. If the page comes from the CMS, wait for it to be loaded. If
      *     the page is client side only, proceed immediately to the next step.
-     *  2. Wait for the DOM to stabilize before retrieving the anchor elements from the DOM.
+     *  2. Switch the observable to listen for localization changes
+     *  3. When localization changes, wait for the DOM to stabilize
+     *     before retrieving the anchor elements from the DOM.
      **/
     this.cmsService
       .listenCurrentRouteIsCms()
@@ -63,6 +65,7 @@ export class SubMenuComponent {
           }
           return of(undefined);
         }),
+        switchMap(() => localization.listenLocalization()),
         takeUntilDestroyed(),
         switchMap(() => zone.onStable.pipe(first())),
       )
