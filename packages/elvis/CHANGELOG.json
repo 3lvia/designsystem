@@ -20,6 +20,11 @@
             { "displayName": "Color", "url": "https://design.elvia.io/brand/color" },
             { "displayName": "Thumbnail", "url": "https://design.elvia.io/components/thumbnail" }
           ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the hover and active states of links."],
+          "components": [{ "displayName": "Link", "url": "https://design.elvia.io/components/link" }]
         }
       ]
     },
