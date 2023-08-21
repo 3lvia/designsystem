@@ -107,7 +107,7 @@ export class SearchMenuComponent implements OnInit {
   /**
    * Gets called every time the content of the search field is changed. If the search is not yet initialized, return without performing any search.
    */
-  onSearch() {
+  onSearch(): void {
     if (!this.searchService.isInitialized) {
       return;
     }
