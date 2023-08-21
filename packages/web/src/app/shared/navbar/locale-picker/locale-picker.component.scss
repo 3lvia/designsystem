@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+}
+
+.navbar-locale-toggle-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.active-locale {
+  font-weight: 700;
+}
