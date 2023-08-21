@@ -7,4 +7,4 @@ export interface SearchItem {
   searchTerms?: string[];
 }
 
-export type ResultsStatus = 'loading' | 'show' | 'empty' | 'no-result';
+export type SearchStatus = 'loading' | 'ready';

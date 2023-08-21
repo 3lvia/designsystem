@@ -69,7 +69,7 @@ export class ComponentChangelogComponent implements OnInit {
     });
   }
 
-  async searchChangelog() {
+  searchChangelog() {
     const minSearchValueLength = 1;
     this.accordionIsOpen = true;
     if (!this.searchService.isInitialized) {
@@ -77,7 +77,7 @@ export class ComponentChangelogComponent implements OnInit {
     }
     this.filteredChangelog =
       this.searchValue.length > minSearchValueLength
-        ? await this.searchService.search(this.searchValue.trim())
+        ? this.searchService.search(this.searchValue.trim())
         : this.changelog;
     if (this.radioFilterValue !== 'all') {
       this.filteredChangelog = this.filteredChangelog?.filter((change) => {

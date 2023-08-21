@@ -48,9 +48,9 @@
 <div
   class="content"
   [ngClass]="{
-    'content-no-result': resultStatus === 'no-result',
-    'content-result': (resultStatus === 'show' || resultStatus === 'loading'),
-    'long-result': resultsToDisplay.length > 2,
+    'content-result': showResults,
+    'content-no-result': searchString.length !== 0 && this.resultsToDisplay.length === 0,
+    'long-result': this.resultsToDisplay.length > 2
   }"
 >
   <div class="inner-content">
@@ -92,7 +92,7 @@
             </span>
           </button>
         </div>
-        <p class="component-suggestions" *ngIf="resultStatus === 'show' && synonymComponents.length > 0">
+        <p class="component-suggestions" *ngIf="searchStatus === 'ready' && synonymComponents.length > 0">
           Looking for the
           <ng-container *ngFor="let component of synonymComponents; let last = last; let first = first">
             <span *ngIf="!last && !first">,&nbsp;</span>
@@ -106,9 +106,9 @@
       </div>
     </div>
 
-    <ng-container [ngSwitch]="resultStatus">
+    <ng-container *ngIf="searchStatus === 'loading'">
       <!-- Fake results loading -->
-      <div *ngSwitchCase="'loading'" class="results">
+      <div class="results">
         <div *ngIf="searchString">
           <ng-container *ngFor="let result of [1, 2, 3]; let last = last">
             <div class="result-item loading">
@@ -118,9 +118,13 @@
           </ng-container>
         </div>
       </div>
+    </ng-container>
 
-      <!-- Actual no results -->
-      <div class="no-results e-text-center" *ngSwitchCase="'no-result'">
+    <ng-container *ngIf="searchStatus === 'ready'">
+      <div
+        class="no-results e-text-center"
+        *ngIf="resultsToDisplay.length === 0 && searchString.length !== 0"
+      >
         <p class="e-m-0">
           Oh snap 😕
           <br />
@@ -128,8 +132,7 @@
         </p>
       </div>
 
-      <!-- Results -->
-      <div class="results" *ngSwitchCase="'show'">
+      <div class="results">
         <ng-container *ngFor="let result of resultsToDisplay; let last = last">
           <article>
             <a

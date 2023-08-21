@@ -7,7 +7,7 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { ResultsStatus, SearchItem } from './search-menu.interface';
+import { SearchStatus, SearchItem } from './search-menu.interface';
 import { SearchService } from '../../../core/services/search.service';
 import Fuse from 'fuse.js';
 import { getThemeColor } from '@elvia/elvis-colors';
@@ -22,7 +22,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class SearchMenuComponent implements OnInit {
   mainMenu: CMSMenu;
-  resultStatus: ResultsStatus = 'loading';
+  searchStatus: SearchStatus = 'loading';
+  showResults = false;
   resultOfMoreThanTwo = false;
   searchString = '';
   searchItems: SearchItem[] = [];
@@ -96,6 +97,7 @@ export class SearchMenuComponent implements OnInit {
             { name: 'searchTerms', weight: 0.066 },
           ],
         });
+        this.searchStatus = 'ready';
       })
       // Call search once after initialized in case someone started typing before the search was initialized.
       .then(() => this.onSearch());
@@ -105,14 +107,12 @@ export class SearchMenuComponent implements OnInit {
   /**
    * Gets called every time the content of the search field is changed. If the search is not yet initialized, return without performing any search.
    */
-  async onSearch(): Promise<void> {
-    this.resultStatus = 'loading';
-
+  onSearch() {
     if (!this.searchService.isInitialized) {
       return;
     }
 
-    this.activeResults = await this.searchService.search(this.searchString);
+    this.activeResults = this.searchService.search(this.searchString);
     this.resultsToDisplay = this.searchService.searchResults
       .filter((result) => !result.matches?.every((match) => match.key === 'searchTerms'))
       .sort((a, b) => {
@@ -130,17 +130,14 @@ export class SearchMenuComponent implements OnInit {
       })
       .map((result) => result.item);
 
-    if (!this.searchString.length) {
-      /*  this.resultStatus = 'empty'; */
-    } else if (this.resultsToDisplay.length && this.searchString.length) {
-      /*   this.resultStatus = 'show'; */
-
+    if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
+      this.showResults = true;
       this.getComponentsWithSynonym();
       setTimeout(() => {
         this.highlightSearchMatches();
       });
     } else {
-      /*  this.resultStatus = 'no-result'; */
+      this.showResults = false;
     }
   }
 

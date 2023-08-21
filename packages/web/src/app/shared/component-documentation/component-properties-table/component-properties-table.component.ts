@@ -41,12 +41,12 @@ export class ComponentPropertiesTableComponent implements OnInit {
     });
   }
 
-  async searchProps(): Promise<void> {
+  searchProps() {
     if (!this.searchService.isInitialized) {
       return;
     }
     if (this.searchTerm !== '') {
-      this.filteredComponentProps = await this.searchService.search(this.searchTerm);
+      this.filteredComponentProps = this.searchService.search(this.searchTerm);
     } else {
       this.searchService.search(this.searchTerm);
       this.filteredComponentProps = this.componentProps;
