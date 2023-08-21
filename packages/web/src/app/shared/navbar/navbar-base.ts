@@ -41,6 +41,9 @@ export class NavbarBase {
         switchMap((locale) => this.cmsService.getSubMenuList(locale)),
       )
       .subscribe((navbarItems) => {
+        /**
+         * Just map over the new titles, if the navbar just changed locale.
+         */
         if (this.localeChangedForExistingNavItems(navbarItems)) {
           this.navbarList.forEach(
             (item) =>
