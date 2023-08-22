@@ -18,10 +18,6 @@
   gap: 40px;
   justify-content: space-between;
 
-  @include breakpoints.breakpoint-up(Mobile) {
-    gap: 32px;
-  }
-
   @include breakpoints.breakpoint-up(Tablet) {
     gap: 16px;
   }
