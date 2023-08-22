@@ -18,7 +18,7 @@
         <div class="color-example" [ngClass]="shadow.className"></div>
         <ng-container *ngIf="activeTheme === 'light'">
           <h3 class="e-title-md e-mb-16">{{ shadow.title }}</h3>
-          <table class="shadow-table">
+          <table class="shadow-table" aria-describedby="Shadow details">
             <tbody>
               <tr>
                 <th class="e-title-caps">Blur</th>
