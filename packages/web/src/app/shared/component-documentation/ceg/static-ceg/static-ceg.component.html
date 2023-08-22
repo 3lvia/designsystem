@@ -1,5 +1,9 @@
 <div class="ceg-container e-mt-16">
-  <div class="component-example-container" #componentContainer [ngClass]="{ 'e-bg-grey': inverted }">
+  <div
+    class="component-example-container"
+    #componentContainer
+    [ngClass]="{ 'e-bg-grey': inverted, 'ceg-non-interactive': nonInteractive }"
+  >
     <app-phone-shell *ngIf="phoneExample; else desktopExample">
       <ng-container *ngTemplateOutlet="content"></ng-container>
     </app-phone-shell>
@@ -10,7 +14,6 @@
 
     <ng-template #content>
       <ng-content></ng-content>
-      <div *ngIf="nonInteractive" class="ceg-non-interactive"></div>
     </ng-template>
   </div>
 
