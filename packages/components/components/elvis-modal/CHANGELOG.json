@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fixed the hover state on the close button inside a modal on mobile screen widths."]
+          "changes": ["Fixed the hover state on the close button on mobile screen widths."]
         }
       ]
     },
