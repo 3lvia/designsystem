@@ -26,6 +26,7 @@ import { ColorPickerHeaderComponent } from './color-picker/color-picker-header/c
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-divider';
 import '@elvia/elvis-tabs';
+import '@elvia/elvis-segmented-control';
 
 @NgModule({
   imports: [

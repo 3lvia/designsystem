@@ -6,3 +6,5 @@ export interface SearchItem {
   fragmentPath?: string;
   searchTerms?: string[];
 }
+
+export type SearchStatus = 'loading' | 'ready';

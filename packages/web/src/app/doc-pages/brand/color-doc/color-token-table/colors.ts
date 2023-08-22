@@ -152,7 +152,7 @@ export const backgroundColorsDefault = [
   {
     token: 'background-2',
     role: 'Main background for the interface option 2',
-    light: { hex: getColor('background-2', 'light'), label: 'Grey-05' },
+    light: { hex: getColor('background-2', 'light'), label: 'Grey-02' },
     dark: { hex: getColor('background-2', 'dark'), label: 'Dark-grey' },
   },
 ] as const satisfies TableColorArray<BackgroundLabels>;

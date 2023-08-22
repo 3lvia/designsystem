@@ -39,6 +39,25 @@ $pageIndentedMargin: 72px;
     }
   }
 }
+
+.overview-page-title-container {
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.overview-page-title-size {
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    max-width: 522px;
+    margin-bottom: 20px;
+  }
+}
+
 .doc-page-heading {
   display: flex;
   flex-direction: row;

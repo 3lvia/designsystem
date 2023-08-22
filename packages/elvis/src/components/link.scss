@@ -81,6 +81,11 @@ $link-jumbo-phone-width: 287px;
     border-bottom-color: var(--e-color-border-hover-1);
   }
 
+  &:active {
+    padding-bottom: 1px;
+    border-bottom-width: 1px;
+  }
+
   &.e-link---focus {
     @include outline.e-outline-pseudoclass();
   }

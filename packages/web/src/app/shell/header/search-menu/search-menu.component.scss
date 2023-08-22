@@ -233,13 +233,13 @@
       gap: 8px;
       flex-direction: column;
       cursor: pointer;
-      padding: 32px 16px 32px 16px;
+      padding: 32px 16px;
 
       &:hover {
         background-color: var(--e-color-background-hover-2);
       }
 
-      .result-title {
+      .result-heading {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -254,6 +254,16 @@
 
       .result-content {
         @include typography.typography('text-md');
+      }
+
+      &.loading {
+        max-height: calc((414px - 3px) / 3); //parent height - number of borders / number of items
+        pointer-events: none;
+
+        //safari fix (16.6)
+        .e-content-loader::after {
+          height: unset;
+        }
       }
     }
   }

@@ -1,0 +1,50 @@
+@use '@elvia/elvis/src/variables/typography.scss' as typography;
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+code,
+.code-text {
+  font-family: 'Red Hat Mono', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: inherit;
+  overflow: auto;
+
+  background: var(--e-grey-05);
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+kbd,
+.keyboard-button {
+  @include typography.typography('text-sm');
+  padding: 6px 16px;
+  margin-right: 8px;
+  border: 1px solid var(--e-color-border-1, black);
+  border-radius: 64px;
+
+  &:not(:first-of-type) {
+    margin: 0 8px;
+  }
+
+  &.icon {
+    padding: 9px 16px 4px 16px;
+  }
+}
+
+.big-header {
+  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 120%;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    font-size: 32px;
+  }
+}

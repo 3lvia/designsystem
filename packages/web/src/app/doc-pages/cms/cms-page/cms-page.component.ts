@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -17,7 +17,7 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class CMSPageComponent {
+export class CMSPageComponent implements OnDestroy {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;
   showContentLoader = true;
   contentHTML: SafeHtml = '';
@@ -50,22 +50,26 @@ export class CMSPageComponent {
       themeService.listenTheme(),
     ])
       .pipe(takeUntilDestroyed())
-      .subscribe((value) => {
-        const firstRoute = value[1][0]?.path;
-        const secondRoute = value[1][1]?.path;
+      .subscribe(([locale, url]) => {
+        const firstRoute = url[0]?.path;
+        const secondRoute = url[1]?.path;
         this.checkIfPageExistsInProject();
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
-            this.getDocPageFromCMS(value[0], secondRoute);
+            this.getDocPageFromCMS(locale, secondRoute);
           } else if (!environment.production) {
-            this.getDocPageFromCMS(value[0]);
+            this.getDocPageFromCMS(locale);
           } else {
-            this.getDocPageFromPreGeneratedList(value[0]);
+            this.getDocPageFromPreGeneratedList(locale);
           }
         } else {
           this.cmsService.contentLoadedFromCMS();
         }
       });
+  }
+
+  ngOnDestroy(): void {
+    this.cmsService.setCurrentRouteIsCms(false);
   }
 
   /**
@@ -151,16 +155,17 @@ export class CMSPageComponent {
     const urlWithoutAnchor = this.router.url.split('#')[0];
     const currentPath = urlWithoutAnchor.split('?')[0];
     if (currentPath.split('/')[2]) {
-      this.router.config[0].children?.forEach((subRoute) => {
-        if (subRoute.path === currentPath.split('/')[1]) {
-          this.isCmsPage = !subRoute.children?.some(
-            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPath,
+      this.router.config.forEach((route) => {
+        if (route.path === currentPath.split('/')[1]) {
+          this.isCmsPage = !route.children?.some(
+            (childRoute) => '/' + route.path + '/' + childRoute.path === currentPath,
           );
         }
       });
     } else {
       this.isCmsPage = true;
     }
+    this.cmsService.setCurrentRouteIsCms(this.isCmsPage);
     this.hasChecked = true;
   }
 

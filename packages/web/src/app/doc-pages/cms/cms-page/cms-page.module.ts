@@ -5,7 +5,6 @@ import { ComponentHeaderModule } from 'src/app/shared/component-documentation/co
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { RouterModule } from '@angular/router';
-import { NavbarModule } from 'src/app/shell/navbar/navbar.module';
 import { HttpClientModule } from '@angular/common/http';
 import '@elvia/elvis-tooltip';
 
@@ -16,7 +15,6 @@ import '@elvia/elvis-tooltip';
     ComponentSectionModule,
     ComponentSubsectionModule,
     RouterModule,
-    NavbarModule,
     HttpClientModule,
   ],
   declarations: [CMSPageComponent],

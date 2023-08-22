@@ -1,9 +1,6 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { DocPageStatus } from '../../../shared.enum';
-import { NavbarAnchor } from '../../../shared.interface';
-import { ScrollService } from 'src/app/core/services/scroll.service';
 import { Router } from '@angular/router';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-component-header',
@@ -20,55 +17,30 @@ export class ComponentHeaderComponent implements AfterViewInit {
   @Output() selectedChange = new EventEmitter();
 
   DocPageStatus = DocPageStatus;
-  navbarAnchors: NavbarAnchor[] = [];
-  activeAnchor: NavbarAnchor;
   currentRoute: string;
 
-  constructor(private scrollService: ScrollService, private router: Router) {
+  constructor(private router: Router) {
     this.currentRoute = this.router.url.substring(1);
     this.currentRoute = this.currentRoute.substring(0, this.currentRoute.indexOf('/'));
-
-    this.scrollService
-      .listenAnchorAtCurrPos()
-      .pipe(takeUntilDestroyed())
-      .subscribe((anchor) => {
-        this.activeAnchor = anchor;
-      });
-    this.scrollService
-      .listenAnchors()
-      .pipe(takeUntilDestroyed())
-      .subscribe((anchors) => {
-        this.navbarAnchors = anchors;
-        this.activeAnchor = this.navbarAnchors[0];
-      });
   }
 
   ngAfterViewInit(): void {
     this.getNewInnerHTML();
   }
 
-  scrollToElement(anchor: NavbarAnchor): void {
-    this.activeAnchor = anchor;
-    this.scrollService.newAnchorToScrollTo(anchor);
-  }
-
-  isActive(anchor: NavbarAnchor): boolean {
-    return anchor === this.activeAnchor;
-  }
-
-  decodeHTML(txt: string): string {
+  private decodeHTML(txt: string): string {
     txt = txt.replace(/&lt;/g, '<');
     txt = txt.replace(/&gt;/g, '>');
     return txt;
   }
 
-  createHTMLElement(txt: string): any {
+  private createHTMLElement(txt: string): HTMLElement {
     const div = document.createElement('div');
     div.innerHTML = txt;
     return div;
   }
 
-  getNewInnerHTML(): void {
+  private getNewInnerHTML(): void {
     const element = this.content.nativeElement;
     // Not necessary to replace content with decoded HTML if it does not contain any encoded HTML
     if (element.innerHTML.indexOf('&lt;') > -1) {

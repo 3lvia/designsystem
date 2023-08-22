@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-border {
+  border-bottom: 1px solid var(--e-color-border-2);
+}

@@ -7,14 +7,13 @@
 - Static category -> Assorted category (with no common prefix)
 - `text-3` -> `text-placeholder-1`
 - `signal-red` now has contrast color white instead of black
-- `background-element-2` light theme color has been changed from `grey-05` to `grey-02`
 - Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
 - `background-element-4` uses dark `grey-70` instead of dark `grey`.
 - Reworked icon tokens.
 
 ### New feature
 
-- Building CSS variables and classes from tokens to elvis.
+- Building CSS variables and classes for tokens.
 - Added support so that all `e-*--inverted` classes and the token `e-color-background-element-4` gives dark
   theme.
 - Added new theme color label: `brand-accent`, `background-element-6`, `text-3`, `text-4`
@@ -25,6 +24,7 @@
 ### Patch
 
 - Change dark grey-20 from #BDBDBD to #A1A1A1.
+- `background-2` and `background-element-2` light theme colors have been changed from `grey-05` to `grey-02`
 
 ## 2.7.0 (01.06.23)
 
