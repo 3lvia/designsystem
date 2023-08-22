@@ -7,7 +7,7 @@ import { SearchOnSubmitCegComponent } from './search-on-submit-ceg/search-on-sub
 import { SearchOnSubmitSearchedCegComponent } from './search-on-submit-searched-ceg/search-on-submit-searched-ceg.component';
 import { SearchFullwidthCegComponent } from './search-fullwidth-ceg/search-fullwidth-ceg.component';
 import { SearchSizeNormalCegComponent } from './search-size-normal-ceg/search-size-normal-ceg.component';
-import { SearchSizeCompactCegComponent } from './search-size-compact-ceg/search-size-compact-ceg.component';
+import { SearchSizeSmallCegComponent } from './search-size-small-ceg/search-size-small-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
@@ -20,7 +20,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     SearchOnSubmitSearchedCegComponent,
     SearchFullwidthCegComponent,
     SearchSizeNormalCegComponent,
-    SearchSizeCompactCegComponent,
+    SearchSizeSmallCegComponent,
   ],
   imports: [SharedDocumentationModule],
 })
