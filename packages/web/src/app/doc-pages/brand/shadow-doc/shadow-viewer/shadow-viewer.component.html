@@ -1,0 +1,58 @@
+<div class="shadow-viewer-container" [ngClass]="{ 'e-theme-dark': activeTheme === 'dark' }">
+  <elvia-segmented-control
+    (valueOnChange)="setTheme($any($event).detail.value)"
+    items="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
+    [inlineStyle]="(isMobile | async) ? { width: '100%' } : {}"
+    size="large"
+  />
+
+  <div class="shadow-list e-mt-56">
+    <ng-container *ngIf="(isMobile | async) && activeTheme === 'dark'; else shadowList">
+      <div class="color">
+        <div class="color-example"></div>
+      </div>
+    </ng-container>
+
+    <ng-template #shadowList>
+      <div class="color" *ngFor="let shadow of shadows">
+        <div class="color-example" [ngClass]="shadow.className"></div>
+        <ng-container *ngIf="activeTheme === 'light'">
+          <h3 class="e-title-md e-mb-16">{{ shadow.title }}</h3>
+          <table class="shadow-table">
+            <tbody>
+              <tr>
+                <th class="e-title-caps">Blur</th>
+                <td class="e-text-sm">{{ shadow.blur }}</td>
+              </tr>
+              <tr>
+                <th class="e-title-caps">Opacity</th>
+                <td class="e-text-sm">{{ shadow.opacity }}%</td>
+              </tr>
+              <tr>
+                <th class="e-title-caps">Token</th>
+                <td>
+                  <app-copy [message]="shadow.token">
+                    <ng-container ngProjectAs="copyContent">
+                      <div class="e-tag e-lowercase">
+                        {{ shadow.token }}
+                      </div>
+                    </ng-container>
+                  </app-copy>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="no-shadow-dark-theme-container" *ngIf="activeTheme === 'dark'">
+    <h3 class="e-title-md e-m-0 e-mb-16">Not in dark theme</h3>
+    <p class="e-text-sm e-m-0 e-mb-8">Shadows does not exist in dark theme.</p>
+    <p class="e-text-sm e-m-0">
+      Instead use lighter elements on top of darker elements, or use border to create depth.
+    </p>
+    <div class="dark-theme-layer-illustration"></div>
+  </div>
+</div>

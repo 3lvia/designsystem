@@ -7,8 +7,10 @@ import { ComponentHeaderModule } from 'src/app/shared/component-documentation/co
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
+import { ShadowViewerComponent } from './shadow-viewer/shadow-viewer.component';
 import { OldIllustrationComponent } from './old-illustration/old-illustration.component';
 import '@elvia/elvis-icon';
+import '@elvia/elvis-segmented-control';
 
 @NgModule({
   imports: [
@@ -20,7 +22,7 @@ import '@elvia/elvis-icon';
     CopyModule,
     ComponentChangelogModule,
   ],
-  declarations: [ShadowDocComponent, OldIllustrationComponent],
+  declarations: [ShadowDocComponent, ShadowViewerComponent, OldIllustrationComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShadowDocModule {}

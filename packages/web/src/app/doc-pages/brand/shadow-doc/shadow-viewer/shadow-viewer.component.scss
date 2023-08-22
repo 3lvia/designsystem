@@ -1,0 +1,120 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+.shadow-viewer-container {
+  --padding: 40px;
+  padding: var(--padding);
+  background: var(--e-color-background-1);
+  border-radius: 16px;
+  margin: 0 calc(var(--padding) * -1);
+  transition: background-color 400ms ease;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    --padding: 16px;
+  }
+}
+
+.shadow-list {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    gap: 32px;
+  }
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    gap: 16px;
+  }
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.color {
+  flex: 1;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    width: 50vw;
+  }
+}
+
+.color-example {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  width: 100%;
+  min-width: 140px;
+  margin-bottom: 40px;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    margin-bottom: 16px;
+  }
+}
+
+.e-theme-dark {
+  .color-example {
+    border: 1px dashed var(--e-color-border-disabled-1);
+  }
+}
+
+.shadow-table {
+  th,
+  td {
+    text-align: start;
+    height: 32px;
+  }
+
+  th {
+    padding-right: 24px;
+  }
+}
+
+code {
+  padding: 2px 8px;
+}
+
+.no-shadow-dark-theme-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  gap: 0 16px;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: auto;
+  }
+}
+
+.dark-theme-layer-illustration {
+  display: inline-flex;
+  gap: 16px;
+  border-radius: 8px;
+  background-color: var(--e-color-background-element-2);
+  padding: 16px;
+  grid-row: 1 / -1;
+  place-self: end start;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 48px;
+    height: 58px;
+    border-radius: 8px;
+  }
+
+  &::before {
+    background-color: var(--e-color-background-element-3);
+  }
+
+  &::after {
+    border: 2px solid var(--e-color-background-element-3);
+  }
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    margin: 40px 0 0;
+    grid-row: auto;
+  }
+}
