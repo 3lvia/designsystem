@@ -74,7 +74,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   border: ${({ $type }) => ($type === 'text' ? `1px solid ${getThemeColor('border-1')}` : 'none')};
   border-radius: 100px;
   gap: ${({ $type }) => ($type === 'text' ? '0' : '8px')};
-  background: ${({ $type }) => ($type === 'text' ? getThemeColor('background-1') : 'transparent')};
+  background: ${({ $type }) => ($type === 'text' ? getThemeColor('background-element-1') : 'transparent')};
 
   // Selected control background
   ${({ $type, numberOfControls, selectedIndex }) =>
@@ -102,7 +102,7 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   border: ${({ isSelected, $type }) => getControlBorder($type, isSelected)};
   border-radius: 100px;
   z-index: 10;
-  color: ${({ isSelected }) => (isSelected ? getThemeColor('background-1') : getThemeColor('text-1'))};
+  color: ${({ isSelected }) => (isSelected ? getThemeColor('text-4') : getThemeColor('text-1'))};
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: ${({ size }) => getFontSize(size)};
   font-style: 'unset';
