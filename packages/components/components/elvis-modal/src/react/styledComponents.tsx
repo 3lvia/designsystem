@@ -261,13 +261,11 @@ export const ModalCloseButton = styled.button`
   z-index: 2;
   background: none;
   border: none;
-  border-radius: 200px;
+  border-radius: 999999px;
   padding: 8px;
   cursor: pointer;
 
   @media (max-width: ${mobileMax}) {
-    width: 32px;
-    height: 32px;
     top: 16px;
     right: 16px;
   }
