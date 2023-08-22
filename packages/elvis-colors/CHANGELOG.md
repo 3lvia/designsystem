@@ -10,6 +10,8 @@
 - Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
 - `background-element-4` uses dark `grey-70` instead of dark `grey`.
 - Reworked icon tokens.
+- Renamed `signal-success` -> `signal-positive`
+- Renamed `signal-error` -> `signal-danger`
 
 ### New feature
 
