@@ -50,7 +50,7 @@ export const ToastContainer = styled.output<{
   align-items: center;
   box-sizing: border-box;
   gap: 8px;
-  border: 2px solid ${getThemeColor('border-selected-1')};
+  border: 2px solid ${getThemeColor('signal-positive')};
   border-radius: 8px;
   background: ${getThemeColor('background-1')};
   text-align: left;

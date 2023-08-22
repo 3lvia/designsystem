@@ -111,7 +111,7 @@ export const PrimaryButton = styled(ButtonBase)`
     &:hover {
       background-color: ${getThemeColor('background-hover-1')};
       border-color: ${getThemeColor('border-hover-1')};
-      color: ${getThemeColor('text-1')};
+      color: ${getThemeColorContrast('background-hover-1')};
     }
 
     &:active {
@@ -124,6 +124,7 @@ export const PrimaryButton = styled(ButtonBase)`
     border-color: transparent;
     background-color: ${getThemeColor('background-disabled-2')};
     cursor: not-allowed;
+    color: ${getThemeColor('text-disabled-2')};
   }
 `;
 
