@@ -8,44 +8,24 @@
 
 <!--BODY-->
 <div class="page-body">
-  <div class="display-container e-mt-40">
-    <div class="display-card" style="min-width: 200px" *ngFor="let item of shadows">
-      <app-copy [message]="item.className">
-        <ng-container ngProjectAs="copyContent">
-          <div
-            [ngClass]="[item.className]"
-            style="text-align: center; padding: 14px"
-            class="display-card-circle primary"
-          >
-            <div class="e-title-caps">{{ item.title }}</div>
-          </div>
-        </ng-container>
-      </app-copy>
-      <div class="display-text-content">
-        <div class="display-card-sub-title e-text-sm">
-          <div class="sub-title e-title-caps">Class</div>
-          <div class="sub-content">
-            {{ item.className }}
-          </div>
-        </div>
-        <div class="display-card-sub-title e-text-sm">
-          <div class="sub-title e-title-caps">Blur</div>
-          <div class="sub-content">{{ item.blur }}</div>
-        </div>
-        <div class="display-card-sub-title e-text-sm">
-          <div class="sub-title e-title-caps">Opacity</div>
-          <div class="sub-content">{{ item.opacity }}</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-old-illustration />
 
-  <app-component-section [sectionTitle]="'Usage'">
+  <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Style' : 'Stil'">
+    <ng-container ngProjectAs="sectionContent">
+      <p class="e-text-lg e-mb-40">{{ styleText[locale].description }}</p>
+      <ng-container *ngFor="let shadow of styleText[locale].shadows">
+        <h3 class="e-title-sm e-mb-16">{{ shadow.title }}</h3>
+        <h3 class="e-text-lg e-mb-48">{{ shadow.description }}</h3>
+      </ng-container>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Usage' : 'Bruk'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use
         [locale]="locale"
-        [whens]="locale === 'nb-NO' ? doesNo : does"
-        [whenNots]="locale === 'nb-NO' ? dontsNo : donts"
+        [whens]="doDontText[locale].do"
+        [whenNots]="doDontText[locale].dont"
       ></app-when-to-use>
     </ng-container>
   </app-component-section>

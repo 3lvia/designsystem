@@ -1,0 +1,31 @@
+<div class="display-container e-mt-40">
+  <div class="display-card" style="min-width: 200px" *ngFor="let item of shadows">
+    <app-copy [message]="item.className">
+      <ng-container ngProjectAs="copyContent">
+        <div
+          [ngClass]="[item.className]"
+          style="text-align: center; padding: 14px"
+          class="display-card-circle primary"
+        >
+          <div class="e-title-caps">{{ item.title }}</div>
+        </div>
+      </ng-container>
+    </app-copy>
+    <div class="display-text-content">
+      <div class="display-card-sub-title e-text-sm">
+        <div class="sub-title e-title-caps">Class</div>
+        <div class="sub-content">
+          {{ item.className }}
+        </div>
+      </div>
+      <div class="display-card-sub-title e-text-sm">
+        <div class="sub-title e-title-caps">Blur</div>
+        <div class="sub-content">{{ item.blur }}</div>
+      </div>
+      <div class="display-card-sub-title e-text-sm">
+        <div class="sub-title e-title-caps">Opacity</div>
+        <div class="sub-content">{{ item.opacity }}</div>
+      </div>
+    </div>
+  </div>
+</div>
