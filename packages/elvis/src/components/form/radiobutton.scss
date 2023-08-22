@@ -201,7 +201,7 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
   @extend %radio-mark-disabled;
 }
 %radio-mark-invalid {
-  border-color: var(--e-color-signal-error);
+  border-color: var(--e-color-signal-danger);
 }
 
 // Animations

@@ -232,7 +232,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 }
 %checkbox-mark-invalid {
-  border-color: var(--e-color-signal-error);
+  border-color: var(--e-color-signal-danger);
 }
 %checkbox-mark-indeterminate {
   &::before {

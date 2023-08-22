@@ -204,8 +204,8 @@ export const darkTheme = {
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
     'border-2': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
     'border-3': {
       hex: darkThemeColors['grey-colors']['grey-50'].color,
@@ -240,7 +240,7 @@ export const darkTheme = {
     },
   },
   signal: {
-    'signal-success': {
+    'signal-positive': {
       hex: darkThemeColors['primary-colors'].green.color,
       contrast: darkThemeColors['primary-colors'].green.contrastText,
     },
@@ -252,7 +252,7 @@ export const darkTheme = {
       hex: darkThemeColors['signal-colors'].orange.color,
       contrast: darkThemeColors['signal-colors'].orange.contrastText,
     },
-    'signal-error': {
+    'signal-danger': {
       hex: darkThemeColors['signal-colors'].red.color,
       contrast: darkThemeColors['signal-colors'].red.contrastText,
     },
@@ -300,7 +300,7 @@ export const darkTheme = {
       hex: darkThemeColors['primary-colors'].white.color,
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
-    'icon-success': {
+    'icon-positive': {
       hex: darkThemeColors['primary-colors'].green.color,
       contrast: darkThemeColors['primary-colors'].green.contrastText,
     },
@@ -312,7 +312,7 @@ export const darkTheme = {
       hex: darkThemeColors['signal-colors'].orange.color,
       contrast: darkThemeColors['signal-colors'].orange.contrastText,
     },
-    'icon-error': {
+    'icon-danger': {
       hex: darkThemeColors['signal-colors'].red.color,
       contrast: darkThemeColors['signal-colors'].red.contrastText,
     },

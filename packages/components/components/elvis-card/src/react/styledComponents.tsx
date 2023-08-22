@@ -13,11 +13,11 @@ import {
 
 const borderColors: BorderColors = {
   none: 'transparent',
-  green: getThemeColor('signal-success'),
+  green: getThemeColor('signal-positive'),
   'blue-berry': getThemeColor('data-3'),
   blueBerry: getThemeColor('data-3'),
   blue: getThemeColor('data-3'),
-  red: getThemeColor('signal-error'),
+  red: getThemeColor('signal-danger'),
   orange: getThemeColor('signal-warning'),
 };
 
