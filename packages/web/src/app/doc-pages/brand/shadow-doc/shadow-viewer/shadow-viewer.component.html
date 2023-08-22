@@ -15,7 +15,7 @@
 
     <ng-template #shadowList>
       <div class="color" *ngFor="let shadow of shadows">
-        <div class="color-example" [ngClass]="shadow.className"></div>
+        <div class="color-example" [ngClass]="shadow.token"></div>
         <ng-container *ngIf="activeTheme === 'light'">
           <h3 class="e-title-md e-mb-16">{{ shadow.title }}</h3>
           <table class="shadow-table" aria-describedby="Shadow details">

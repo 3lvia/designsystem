@@ -6,10 +6,9 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 interface Shadow {
   title: string;
-  className: string;
+  token: string;
   blur: number;
   opacity: number;
-  token: string;
 }
 
 @Component({
@@ -21,9 +20,9 @@ export class ShadowViewerComponent {
   activeTheme: ThemeName = 'light';
   isMobile: Observable<boolean>;
   shadows: Shadow[] = [
-    { title: 'Soft', className: 'e-shadow-soft', blur: 50, opacity: 3, token: 'e-shadow-3' },
-    { title: 'Medium', className: 'e-shadow-medium', blur: 40, opacity: 6, token: 'e-shadow-6' },
-    { title: 'Hard', className: 'e-shadow-hard', blur: 30, opacity: 8, token: 'e-shadow-8' },
+    { title: 'Soft', token: 'e-shadow-soft', blur: 50, opacity: 3 },
+    { title: 'Medium', token: 'e-shadow-medium', blur: 40, opacity: 6 },
+    { title: 'Hard', token: 'e-shadow-hard', blur: 30, opacity: 8 },
   ];
 
   constructor(breakpointService: BreakpointService) {

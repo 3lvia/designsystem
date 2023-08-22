@@ -14,28 +14,17 @@
 }
 
 .shadow-list {
-  display: flex;
+  display: grid;
   gap: 40px;
-  justify-content: space-between;
-
-  @include breakpoints.breakpoint-up(MinDesktop) {
-    gap: 3%;
-  }
-
-  @include breakpoints.breakpoint-up(Tablet) {
-    gap: 16px;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
   @include breakpoints.breakpoint-up(Mobile) {
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
+    grid-template-columns: 1fr;
+    place-items: center;
   }
 }
 
 .color {
-  flex: 1;
-
   @include breakpoints.breakpoint-up(Mobile) {
     width: 50vw;
   }
@@ -68,14 +57,6 @@
 
   th {
     padding-right: 24px;
-
-    @include breakpoints.breakpoint-up(MinDesktop) {
-      padding-right: 4px;
-    }
-
-    @include breakpoints.breakpoint-up(Tablet) {
-      padding-right: 24px;
-    }
   }
 }
 
