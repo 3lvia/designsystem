@@ -11,7 +11,7 @@ import { InputOptionsFullWidthCegComponent } from './input-options-full-width-ce
 import { InputOptionsReadonlyCegComponent } from './input-options-readonly-ceg/input-options-readonly-ceg.component';
 import { InputOptionsLoadingCegComponent } from './input-options-loading-ceg/input-options-loading-ceg.component';
 import { InputSizeMediumCegComponent } from './input-size-medium-ceg/input-size-medium-ceg.component';
-import { InputSizeCompactCegComponent } from './input-size-compact-ceg/input-size-compact-ceg.component';
+import { InputSizeSmallCegComponent } from './input-size-small-ceg/input-size-small-ceg.component';
 import { InputValidationCegComponent } from './input-validation-ceg/input-validation-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
@@ -29,7 +29,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     InputOptionsReadonlyCegComponent,
     InputOptionsLoadingCegComponent,
     InputSizeMediumCegComponent,
-    InputSizeCompactCegComponent,
+    InputSizeSmallCegComponent,
     InputValidationCegComponent,
   ],
   imports: [SharedDocumentationModule],
