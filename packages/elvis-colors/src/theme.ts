@@ -57,10 +57,10 @@ export type BorderLabels =
   | 'border-selected-1'
   | 'border-selected-2';
 export type SignalLabels =
-  | 'signal-success'
+  | 'signal-positive'
   | 'signal-caution'
   | 'signal-warning'
-  | 'signal-error'
+  | 'signal-danger'
   | 'signal-info';
 export type DataLabels = 'data-1' | 'data-2' | 'data-3' | 'data-4' | 'data-5' | 'data-6';
 export type IconColors =

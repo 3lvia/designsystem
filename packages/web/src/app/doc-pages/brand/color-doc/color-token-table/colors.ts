@@ -324,7 +324,7 @@ export const borderColors = [
     token: 'border-2',
     role: 'Border color option 2 - low contrast to blend in',
     light: { hex: getColor('border-2', 'light'), label: 'Grey-10' },
-    dark: { hex: getColor('border-2', 'dark'), label: 'Dark-grey-60' },
+    dark: { hex: getColor('border-2', 'dark'), label: 'Dark-grey-50' },
     links: [
       { title: 'Table', path: '/components/table' },
       { title: 'Divider', path: '/components/divider' },
@@ -411,10 +411,10 @@ export const borderColorsStates = [
 
 export const signalColors = [
   {
-    token: 'signal-success',
+    token: 'signal-positive',
     role: 'Provide a positive response to users like confirmation or success',
-    light: { hex: getColor('signal-success', 'light'), label: 'Green' },
-    dark: { hex: getColor('signal-success', 'dark'), label: 'Dark-green' },
+    light: { hex: getColor('signal-positive', 'light'), label: 'Green' },
+    dark: { hex: getColor('signal-positive', 'dark'), label: 'Dark-green' },
   },
   {
     token: 'signal-caution',
@@ -429,10 +429,10 @@ export const signalColors = [
     dark: { hex: getColor('signal-warning', 'dark'), label: 'Dark-orange' },
   },
   {
-    token: 'signal-error',
+    token: 'signal-danger',
     role: 'Something goes wrong',
-    light: { hex: getColor('signal-error', 'light'), label: 'Red' },
-    dark: { hex: getColor('signal-error', 'dark'), label: 'Dark-red' },
+    light: { hex: getColor('signal-danger', 'light'), label: 'Red' },
+    dark: { hex: getColor('signal-danger', 'dark'), label: 'Dark-red' },
   },
   {
     token: 'signal-info',
@@ -502,7 +502,7 @@ export const iconColors = [
     token: 'icon-[signal-type]',
     example:
       '<i class="e-icon e-icon--check_circle e-icon--color-green e-icon--sm"></i><i class="e-icon e-icon--check_circle-filled-color e-icon--sm"></i>',
-    role: 'Icons can use all the different signal colors. E.g. e-color-icon-success',
+    role: 'Icons can use all the different signal colors. E.g. e-color-icon-positive',
     light: { hex: 'signal', label: 'Signal' },
     dark: { hex: 'dark-signal', label: 'Dark-signal' },
   },

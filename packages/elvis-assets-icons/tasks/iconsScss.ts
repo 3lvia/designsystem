@@ -7,10 +7,10 @@ export type IconLabels =
   | 'stroke-1'
   | 'filled-foreground-1'
   | 'filled-background-1'
-  | 'success'
+  | 'positive'
   | 'caution'
   | 'warning'
-  | 'error';
+  | 'danger';
 type ColorLabelContrast = `${ColorLabel}--contrast`;
 type ColorLabelOrContrast = ColorLabel | ColorLabelContrast;
 type ColorLabelOrContrastOrCurrentColor = ColorLabelOrContrast | 'currentColor';
@@ -55,16 +55,17 @@ const iconClassToThemeColor = {
     'stroke-1': 'currentColor',
     'filled-background-1': 'currentColor',
   },
-  on: defaultLabeledIconWithContrast('icon-success'),
-  success: defaultLabeledIconWithContrast('icon-success'),
-  green: defaultLabeledIconWithContrast('icon-success'),
+  on: defaultLabeledIconWithContrast('icon-positive'),
+  success: defaultLabeledIconWithContrast('icon-positive'),
+  green: defaultLabeledIconWithContrast('icon-positive'),
+  positive: defaultLabeledIconWithContrast('icon-positive'),
   caution: defaultLabeledIconWithContrast('icon-caution'),
   yellow: defaultLabeledIconWithContrast('icon-caution'),
   warning: defaultLabeledIconWithContrast('icon-warning'),
   orange: defaultLabeledIconWithContrast('icon-warning'),
-  error: defaultLabeledIconWithContrast('icon-error'),
-  danger: defaultLabeledIconWithContrast('icon-error'),
-  red: defaultLabeledIconWithContrast('icon-error'),
+  error: defaultLabeledIconWithContrast('icon-danger'),
+  danger: defaultLabeledIconWithContrast('icon-danger'),
+  red: defaultLabeledIconWithContrast('icon-danger'),
   white: defaultLabeledIconWithContrast('static-white'),
   black: defaultLabeledIconWithContrast('static-black'),
 } as const satisfies IconClassToThemeColor;

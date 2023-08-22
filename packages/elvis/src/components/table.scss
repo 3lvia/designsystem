@@ -9,7 +9,7 @@ $table-phone-padding: 6px 8px;
 $table-border-radius: 8px;
 $table-header-height: 56px;
 $table-header-compact-height: 40px;
-$table-invalid-border: 2px solid var(--e-color-signal-error);
+$table-invalid-border: 2px solid var(--e-color-signal-danger);
 $table-invalid-padding: 8px 16px;
 
 %header-style {

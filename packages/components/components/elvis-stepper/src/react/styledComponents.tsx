@@ -132,7 +132,7 @@ const getStepNumberBorderColor = ({ isActive, isError, isDisabled }: StepNumberP
   if (isActive) {
     return getThemeColor('border-selected-1');
   } else if (isError) {
-    return getThemeColor('signal-error');
+    return getThemeColor('signal-danger');
   } else if (isDisabled) {
     return getThemeColor('border-disabled-1');
   } else {

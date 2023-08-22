@@ -11,8 +11,8 @@
     --e-button-danger-hover-background: var(--e-dark-theme-white);
   }
 
-  border-color: var(--e-color-signal-error);
-  background: var(--e-color-signal-error);
+  border-color: var(--e-color-signal-danger);
+  background: var(--e-color-signal-danger);
   color: var(--e-color-text-3);
 
   .e-btn__icon {
@@ -46,8 +46,8 @@
 
   &.e-btn---disabled,
   &:disabled {
-    border-color: var(--e-color-signal-error);
-    background: var(--e-color-signal-error);
+    border-color: var(--e-color-signal-danger);
+    background: var(--e-color-signal-danger);
     cursor: not-allowed;
     opacity: 0.3;
   }

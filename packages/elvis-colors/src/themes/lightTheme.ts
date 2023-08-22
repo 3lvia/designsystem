@@ -262,7 +262,7 @@ export const lightTheme = {
     },
   },
   signal: {
-    'signal-success': {
+    'signal-positive': {
       hex: lightThemeColors['primary-colors'].green.color,
       contrast: lightThemeColors['primary-colors'].green.contrastText,
     },
@@ -274,7 +274,7 @@ export const lightTheme = {
       hex: lightThemeColors['signal-colors'].orange.color,
       contrast: lightThemeColors['signal-colors'].orange.contrastText,
     },
-    'signal-error': {
+    'signal-danger': {
       hex: lightThemeColors['signal-colors'].red.color,
       contrast: lightThemeColors['signal-colors'].red.contrastText,
     },
@@ -322,7 +322,7 @@ export const lightTheme = {
       hex: lightThemeColors['primary-colors'].black.color,
       contrast: lightThemeColors['primary-colors'].black.contrastText,
     },
-    'icon-success': {
+    'icon-positive': {
       hex: lightThemeColors['primary-colors'].green.color,
       contrast: lightThemeColors['primary-colors'].green.contrastText,
     },
@@ -334,7 +334,7 @@ export const lightTheme = {
       hex: lightThemeColors['signal-colors'].orange.color,
       contrast: lightThemeColors['signal-colors'].orange.contrastText,
     },
-    'icon-error': {
+    'icon-danger': {
       hex: lightThemeColors['signal-colors'].red.color,
       contrast: lightThemeColors['signal-colors'].red.contrastText,
     },

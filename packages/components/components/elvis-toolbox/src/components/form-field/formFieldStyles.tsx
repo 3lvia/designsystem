@@ -141,7 +141,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
     css`
       ${FormFieldInputContainer} {
         ${setActiveBorder(size)};
-        border-color: ${getThemeColor('signal-error')};
+        border-color: ${getThemeColor('signal-danger')};
       }
     `};
 

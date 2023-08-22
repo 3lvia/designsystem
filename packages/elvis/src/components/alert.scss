@@ -21,7 +21,7 @@ $toast-max-width: 400px;
   min-width: 270px;
   box-sizing: border-box;
   flex-direction: row;
-  border: 2px solid var(--e-color-signal-error);
+  border: 2px solid var(--e-color-signal-danger);
   background: var(--e-color-background-1);
   text-align: left;
 
@@ -135,7 +135,7 @@ $toast-max-width: 400px;
     }
 
     &.e-alert--error {
-      border-color: var(--e-color-signal-error);
+      border-color: var(--e-color-signal-danger);
     }
 
     &.e-alert--expandable {
@@ -311,7 +311,7 @@ $toast-max-width: 400px;
   &.e-alert--toast {
     max-width: $toast-max-width;
     padding: $toast-padding;
-    border-color: var(--e-color-signal-success);
+    border-color: var(--e-color-signal-positive);
     border-radius: 8px;
     box-shadow: shadows.getShadow('medium');
 

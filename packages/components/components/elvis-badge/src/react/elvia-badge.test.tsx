@@ -105,7 +105,7 @@ describe('Elvis Badge', () => {
 
     it('should have a red contrast text color', () => {
       const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`color: ${getThemeColorContrast('signal-error')}`);
+      expect(badgeCircle).toHaveStyle(`color: ${getThemeColorContrast('signal-danger')}`);
     });
   });
 

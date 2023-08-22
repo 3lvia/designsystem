@@ -66,10 +66,10 @@ const fillVariables = {
   'filled-background-1': `fill="var(--e-color-icon-filled-background-1, ${getThemeColor(
     'icon-filled-background-1',
   )})"`,
-  success: `fill="var(--e-color-icon-success, ${getThemeColor('icon-success')})"`,
+  positive: `fill="var(--e-color-icon-positive, ${getThemeColor('icon-positive')})"`,
   caution: `fill="var(--e-color-icon-caution, ${getThemeColor('icon-caution')})"`,
   warning: `fill="var(--e-color-icon-warning, ${getThemeColor('icon-warning')})"`,
-  error: `fill="var(--e-color-icon-error, ${getThemeColor('icon-error')})"`,
+  danger: `fill="var(--e-color-icon-danger, ${getThemeColor('icon-danger')})"`,
 } as const satisfies FillVariables;
 
 /**
@@ -77,10 +77,10 @@ const fillVariables = {
  */
 function getIconWithCssVariables(icon: string, iconName: string) {
   const newIcon = icon
-    .replace(/fill="#29D305"/g, fillVariables.success)
+    .replace(/fill="#29D305"/g, fillVariables.positive)
     .replace(/fill="#FFFF00"/g, fillVariables.caution)
     .replace(/fill="#FFA000"/g, fillVariables.warning)
-    .replace(/fill="#EE0701"/g, fillVariables.error);
+    .replace(/fill="#EE0701"/g, fillVariables.danger);
   if (iconName.includes('-filled-color')) {
     return newIcon;
   } else if (iconName.includes('-filled')) {

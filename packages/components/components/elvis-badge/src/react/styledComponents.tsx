@@ -9,9 +9,9 @@ interface BadgeCircleProps {
 const getTextColor = (color: BadgeColor) => {
   switch (color) {
     case 'green':
-      return getThemeColorContrast('signal-success');
+      return getThemeColorContrast('signal-positive');
     case 'red':
-      return getThemeColorContrast('signal-error');
+      return getThemeColorContrast('signal-danger');
     default:
       return getThemeColor('text-4');
   }
@@ -20,9 +20,9 @@ const getTextColor = (color: BadgeColor) => {
 const getBadgeColor = (color: BadgeColor) => {
   switch (color) {
     case 'green':
-      return getThemeColor('signal-success');
+      return getThemeColor('signal-positive');
     case 'red':
-      return getThemeColor('signal-error');
+      return getThemeColor('signal-danger');
     default:
       return getThemeColor('background-element-6');
   }
