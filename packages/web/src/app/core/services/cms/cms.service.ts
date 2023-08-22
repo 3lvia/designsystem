@@ -172,22 +172,58 @@ export class CMSService {
 
   /**
    *
-   * @returns Object where component names (lowercase) are keys, and url to their icon are values.
+   * @returns Object where document url names are keys, and url to their icon are values.
    */
-  async getComponentIcons() {
-    const overviewPageWithCards = await this.getEntry('3qbgNHF6InuWMxO1jdc9BR');
+  async getIcons() {
+    const changeName = (oldName: string) => {
+      switch (oldName) {
+        case 'text-field':
+          return 'input';
+        case 'radio-button':
+          return 'radiobutton';
+        case 'illustrations':
+          return 'illustration';
+        case 'icons':
+          return 'icon';
+        case 'colors':
+          return 'color';
 
-    const cards = extractLocale(overviewPageWithCards.fields.overviewCard);
-    if (!cards) {
+        default:
+          return oldName;
+      }
+    };
+
+    const overviewPageWithCardsComponents = await this.getEntry('3qbgNHF6InuWMxO1jdc9BR');
+    const overviewPageWithCardsBrand = await this.getEntry('69x76GUs7dsCwA3IsfxLMG');
+
+    const cardsComponents = extractLocale(overviewPageWithCardsComponents.fields.overviewCard);
+    if (!cardsComponents) {
       throw new Error('Cannot find overview page cards.');
     }
 
-    return cards.reduce((res, card) => {
+    const cardsBrand = extractLocale(overviewPageWithCardsBrand.fields.overviewCard);
+    if (!cardsBrand) {
+      throw new Error('Cannot find overview page cards.');
+    }
+
+    const componentIcons = cardsComponents.reduce((res, card) => {
       const title = extractLocale(card.fields.title) ?? '';
       const url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
-      res[title.toLowerCase()] = url;
+      const docName = changeName(title.toLowerCase().replace(/ /g, '-'));
+      res[docName] = url;
       return res;
     }, {} as Record<string, string>);
+
+    const test = cardsBrand.reduce((res, card) => {
+      const title = extractLocale(card.fields.title) ?? '';
+      const url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
+      const docName = changeName(title.toLowerCase().replace(/ /g, '-'));
+      res[docName] = url;
+      return res;
+    }, componentIcons);
+
+    console.log(test);
+    return test;
   }
 
   /**
@@ -251,6 +287,7 @@ export class CMSService {
   private async getEntry<T extends IEntry = IEntry>(entryId: string): Promise<T>;
   private async getEntry(entryId: '4ufFZKPEou3mf9Tg05WZT3'): Promise<IMainMenu>;
   private async getEntry(entryId: '3qbgNHF6InuWMxO1jdc9BR'): Promise<ILandingPageWithCards>;
+  private async getEntry(entryId: '69x76GUs7dsCwA3IsfxLMG'): Promise<ILandingPageWithCards>;
   private async getEntry(entryId: string): Promise<IEntry>;
   private async getEntry(entryId: string): Promise<IEntry> {
     const url = `assets/contentful/dist/entries/${entryId}.json`;

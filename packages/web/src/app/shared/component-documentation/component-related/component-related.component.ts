@@ -12,10 +12,10 @@ export class ComponentRelatedComponent {
   @Input() relatedComponents: DocPageName[];
 
   constructor(private cmsService: CMSService) {
-    this.componentIcons = this.cmsService.getComponentIcons();
+    this.componentIcons = this.cmsService.getIcons();
   }
 
-  componentIcons: ReturnType<typeof this.cmsService.getComponentIcons>;
+  componentIcons: ReturnType<typeof this.cmsService.getIcons>;
 
   getRelatedTitle = (docUrl: DocPageName) => {
     return getDocPage(docUrl)?.title;
