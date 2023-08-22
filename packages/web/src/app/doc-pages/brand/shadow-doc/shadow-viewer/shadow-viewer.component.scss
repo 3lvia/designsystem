@@ -64,27 +64,12 @@ code {
   padding: 2px 8px;
 }
 
-.no-shadow-dark-theme-container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: repeat(3, auto);
-  grid-auto-flow: column;
-  gap: 0 16px;
-
-  @include breakpoints.breakpoint-up(Mobile) {
-    grid-template-rows: repeat(4, auto);
-    grid-template-columns: auto;
-  }
-}
-
 .dark-theme-layer-illustration {
   display: inline-flex;
   gap: 16px;
   border-radius: 8px;
   background-color: var(--e-color-background-element-2);
   padding: 16px;
-  grid-row: 1 / -1;
-  place-self: end start;
 
   &::before,
   &::after {
@@ -100,10 +85,5 @@ code {
 
   &::after {
     border: 2px solid var(--e-color-background-element-3);
-  }
-
-  @include breakpoints.breakpoint-up(Mobile) {
-    margin: 40px 0 0;
-    grid-row: auto;
   }
 }

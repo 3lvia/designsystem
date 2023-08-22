@@ -50,12 +50,10 @@
     </ng-template>
   </div>
 
-  <div class="no-shadow-dark-theme-container" *ngIf="activeTheme === 'dark'">
+  <ng-container *ngIf="activeTheme === 'dark'">
     <h3 class="e-title-md e-m-0 e-mb-16">{{ noShadowOnDarkThemeTexts.title[currentLocale] }}</h3>
-    <p class="e-text-sm e-m-0 e-mb-8">{{ noShadowOnDarkThemeTexts.text1[currentLocale] }}</p>
-    <p class="e-text-sm e-m-0">
-      {{ noShadowOnDarkThemeTexts.text2[currentLocale] }}
-    </p>
+    <p class="e-text-sm e-m-0 e-mb-24">{{ noShadowOnDarkThemeTexts.body[currentLocale] }}</p>
+    <h4 class="e-title-caps e-mb-8">{{ noShadowOnDarkThemeTexts.exampleTitle[currentLocale] }}</h4>
     <div class="dark-theme-layer-illustration"></div>
-  </div>
+  </ng-container>
 </div>

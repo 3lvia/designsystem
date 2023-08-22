@@ -33,14 +33,15 @@ export class ShadowViewerComponent {
       'en-GB': 'Not in dark mode',
       'nb-NO': 'Ingen skygger i mørkt tema',
     },
-    text1: {
-      'en-GB': 'Shadows do not exist in dark theme.',
-      'nb-NO': 'Skygger skal ikke brukes i mørkt tema.',
-    },
-    text2: {
-      'en-GB': 'To create depth, use lighter elements on top of darker elements, or use a border.',
+    body: {
+      'en-GB':
+        'Shadows do not exist in dark theme. To create depth, use lighter elements on top of darker elements, or use a border.',
       'nb-NO':
-        'For å skape dybde kan man bruke en lysere bakgrunn eller ramme på toppen av et mørkt element.',
+        'Skygger skal ikke brukes i mørkt tema. For å skape dybde kan man bruke en lysere bakgrunn eller ramme på toppen av et mørkt element.',
+    },
+    exampleTitle: {
+      'en-GB': 'Example',
+      'nb-NO': 'Eksempel',
     },
   };
 
