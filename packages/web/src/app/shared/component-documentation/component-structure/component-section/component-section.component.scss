@@ -1,4 +1,5 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '@elvia/elvis/src/utilities/icons.scss' as icons;
 
 .component-section {
   margin-top: 72px;
@@ -24,32 +25,30 @@
     align-items: center;
     border-bottom: 1px solid var(--e-color-border-1);
 
+    .copy-container {
+      position: absolute;
+      left: -36px;
+
+      .icon {
+        display: none;
+      }
+    }
+
     &:hover,
     &:focus-within {
-      .icons .normal-img {
+      .copy-container .icon {
         display: block;
       }
     }
 
-    .icons {
-      display: inline-block;
-      cursor: pointer;
-      position: relative;
-      height: 24px;
-      width: 36px;
-      .component-section__img {
-        display: none;
-        position: absolute;
-        padding-right: 12px;
-      }
-    }
-    &.anchor-copied .icons {
-      .green-img {
-        display: block;
-      }
-      .normal-img {
-        display: none;
-      }
+    // Extend hover area for link copy
+    &::before {
+      $hover-area-width: 40px;
+      content: '';
+      position: absolute;
+      left: -$hover-area-width;
+      width: $hover-area-width;
+      height: 100%;
     }
   }
 }
