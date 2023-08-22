@@ -1,7 +1,10 @@
 <div class="shadow-viewer-container" [ngClass]="activeTheme === 'dark' ? 'e-theme-dark' : 'e-theme-light'">
   <elvia-segmented-control
     (valueOnChange)="setTheme($any($event).detail.value)"
-    items="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
+    [items]="[
+      { label: currentLocale === 'en-GB' ? 'Light theme' : 'Lyst tema' },
+      { label: currentLocale === 'en-GB' ? 'Dark theme' : 'Mørkt tema' }
+    ]"
     [inlineStyle]="(isMobile | async) ? { width: '100%' } : {}"
     size="large"
   />
@@ -48,10 +51,10 @@
   </div>
 
   <div class="no-shadow-dark-theme-container" *ngIf="activeTheme === 'dark'">
-    <h3 class="e-title-md e-m-0 e-mb-16">Not in dark theme</h3>
-    <p class="e-text-sm e-m-0 e-mb-8">Shadows do not exist in dark theme.</p>
+    <h3 class="e-title-md e-m-0 e-mb-16">{{ noShadowOnDarkThemeTexts.title[currentLocale] }}</h3>
+    <p class="e-text-sm e-m-0 e-mb-8">{{ noShadowOnDarkThemeTexts.text1[currentLocale] }}</p>
     <p class="e-text-sm e-m-0">
-      To create depth, use lighter elements on top of darker elements, or use a border.
+      {{ noShadowOnDarkThemeTexts.text2[currentLocale] }}
     </p>
     <div class="dark-theme-layer-illustration"></div>
   </div>
