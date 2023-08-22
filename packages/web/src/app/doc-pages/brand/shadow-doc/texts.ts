@@ -11,15 +11,15 @@ export const styleText: Record<LOCALE_CODE, StyleText> = {
     shadows: [
       {
         title: 'Soft',
-        description: 'Soft are mostly used on grey background.',
+        description: 'Soft is mostly used on grey backgrounds.',
       },
       {
         title: 'Medium',
-        description: 'Should be used on white background.',
+        description: 'Should be used on white backgrounds.',
       },
       {
         title: 'Hard',
-        description: 'Should be used on white background.',
+        description: 'Should be used on white backgrounds.',
       },
     ],
   },
@@ -29,7 +29,7 @@ export const styleText: Record<LOCALE_CODE, StyleText> = {
     shadows: [
       {
         title: 'Myk',
-        description: 'Myke gradienter er stort sett brukt på grå bakgrunn.',
+        description: 'Myke skygger er stort sett brukt på grå bakgrunn.',
       },
       {
         title: 'Medium',
@@ -51,7 +51,7 @@ export const doAndDont: Record<LOCALE_CODE, DoDontText> = {
   'en-GB': {
     do: ['Behind a solid surface (for example together with cards).'],
     dont: [
-      'Should not be applied to typography ot icons.',
+      'Should not be applied to typography or icons.',
       "Don't use a lot of shadows on the same surface, since we want our visual profile to have a more flat expression.",
     ],
   },

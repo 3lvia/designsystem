@@ -14,16 +14,6 @@
     <app-shadow-viewer />
   </ng-template>
 
-  <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Style' : 'Stil'">
-    <ng-container ngProjectAs="sectionContent">
-      <p class="e-text-lg e-mb-40">{{ styleText[locale].description }}</p>
-      <ng-container *ngFor="let shadow of styleText[locale].shadows">
-        <h3 class="e-title-sm e-mb-16">{{ shadow.title }}</h3>
-        <h3 class="e-text-lg e-mb-48">{{ shadow.description }}</h3>
-      </ng-container>
-    </ng-container>
-  </app-component-section>
-
   <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Usage' : 'Bruk'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use
@@ -31,6 +21,16 @@
         [whens]="doDontText[locale].do"
         [whenNots]="doDontText[locale].dont"
       ></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Style' : 'Stil'">
+    <ng-container ngProjectAs="sectionContent">
+      <p class="e-text-lg e-mb-40">{{ styleText[locale].description }}</p>
+      <ng-container *ngFor="let shadow of styleText[locale].shadows">
+        <h3 class="e-title-sm e-mb-16">{{ shadow.title }}</h3>
+        <h3 class="e-text-lg e-mb-48">{{ shadow.description }}</h3>
+      </ng-container>
     </ng-container>
   </app-component-section>
 
