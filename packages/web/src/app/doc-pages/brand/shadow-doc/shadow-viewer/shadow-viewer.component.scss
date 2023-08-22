@@ -18,6 +18,10 @@
   gap: 40px;
   justify-content: space-between;
 
+  @include breakpoints.breakpoint-up(MinDesktop) {
+    gap: 3%;
+  }
+
   @include breakpoints.breakpoint-up(Tablet) {
     gap: 16px;
   }
@@ -64,6 +68,12 @@
 
   th {
     padding-right: 24px;
+  }
+
+  @include breakpoints.breakpoint-up(MinDesktop) {
+    th {
+      padding-right: 4px;
+    }
   }
 }
 
