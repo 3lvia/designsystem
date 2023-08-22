@@ -1,10 +1,19 @@
 :host {
   display: block;
   width: 100%;
+  position: relative;
 }
 
 .ceg-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.ceg-non-interactive {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  opacity: 0;
+  user-select: none;
 }

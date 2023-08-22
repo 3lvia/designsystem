@@ -11,4 +11,5 @@ export class StaticCegComponent {
   @Input({ transform: booleanAttribute }) hideReact: boolean;
   @Input({ transform: booleanAttribute }) phoneExample: boolean;
   @Input({ transform: booleanAttribute }) inverted: boolean;
+  @Input({ transform: booleanAttribute }) nonInteractive: boolean;
 }

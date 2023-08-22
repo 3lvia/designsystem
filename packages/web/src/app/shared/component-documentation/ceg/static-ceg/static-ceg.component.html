@@ -8,7 +8,10 @@
       <ng-container *ngTemplateOutlet="content"></ng-container>
     </ng-template>
 
-    <ng-template #content><ng-content></ng-content></ng-template>
+    <ng-template #content>
+      <ng-content></ng-content>
+      <div *ngIf="nonInteractive" class="ceg-non-interactive"></div>
+    </ng-template>
   </div>
 
   <app-static-code-generator
