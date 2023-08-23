@@ -9,7 +9,7 @@ import { getDocPage } from '../../doc-pages';
   styleUrls: ['./component-related.component.scss'],
 })
 export class ComponentRelatedComponent {
-  @Input() relatedComponents: DocPageName[];
+  @Input() relatedPages: DocPageName[];
 
   constructor(private cmsService: CMSService) {
     this.componentIcons = this.cmsService.getIcons();

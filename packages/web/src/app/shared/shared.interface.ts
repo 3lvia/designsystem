@@ -23,5 +23,5 @@ export interface DocPage {
   type?: string;
   searchTerms?: string[];
   elvisClassName?: keyof typeof data.block;
-  relatedComponents?: DocPageName[];
+  relatedPages?: DocPageName[];
 }

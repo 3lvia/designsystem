@@ -69,9 +69,9 @@
   </app-component-section>
 
   <!--RELATED COMPONENTS-->
-  <app-component-section *ngIf="relatedComponents" [sectionTitle]="'Related'">
+  <app-component-section *ngIf="relatedPages" [sectionTitle]="'Related'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-related [relatedComponents]="relatedComponents"></app-component-related>
+      <app-component-related [relatedPages]="relatedPages"></app-component-related>
     </ng-container>
   </app-component-section>
 </div>
