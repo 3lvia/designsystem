@@ -1,4 +1,3 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, Input, OnInit } from '@angular/core';
 import { getThemeColor } from '@elvia/elvis-colors';
 import Fuse from 'fuse.js';
@@ -8,6 +7,8 @@ import { ChangelogIdPipe } from './component-changelog-id-pipe';
 import { ChangelogTypePipe } from './component-changelog-pipe';
 import { createElvisFilteredChangelog } from './createElvisFilteredChangelog';
 import { Changelog, ChangelogEntry, ChangelogRadioFilter } from './changelogTypes';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-component-changelog',
@@ -51,8 +52,18 @@ export class ComponentChangelogComponent implements OnInit {
 
   constructor(
     private searchService: SearchService<ChangelogEntry>,
-    private breakpointObserver: BreakpointObserver,
-  ) {}
+    private breakpointService: BreakpointService,
+  ) {
+    // Reset search value and filter when the screen is resized to mobile
+    this.breakpointService
+      .matches(['sm'])
+      .pipe(takeUntilDestroyed())
+      .subscribe((isMobile) => {
+        if (isMobile) {
+          this.clearSearch();
+        }
+      });
+  }
 
   ngOnInit() {
     if (this.elvisComponentToFilter) {
@@ -60,13 +71,6 @@ export class ComponentChangelogComponent implements OnInit {
     }
     this.filteredChangelog = this.changelog;
     this.initializeSearchService();
-
-    // Reset search value and filter when the screen is resized to mobile
-    this.breakpointObserver.observe('(max-width: 767px)').subscribe((result) => {
-      if (result.matches) {
-        this.clearSearch();
-      }
-    });
   }
 
   searchChangelog() {

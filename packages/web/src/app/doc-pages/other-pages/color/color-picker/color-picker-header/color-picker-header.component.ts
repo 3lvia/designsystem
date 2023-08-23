@@ -1,4 +1,3 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ColorElement } from '../colors-types';
@@ -7,6 +6,7 @@ import { DropdownItem } from '@elvia/elvis-dropdown';
 import { TokenSubCategory, TokenSubCategoryKeywords, TokenCategory } from './color-picker-header-types';
 import { darkColors } from '../colors-dark';
 import { lightColors } from '../colors-light';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 @Component({
   selector: 'app-color-picker-header',
   templateUrl: './color-picker-header.component.html',
@@ -28,12 +28,12 @@ export class ColorPickerHeaderComponent implements OnChanges {
   dropdownItems = this.generateDropdownItems();
   dropdownValue?: ColorLabel;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver
-      .observe(['(max-width: 768px)'])
+  constructor(private breakpointService: BreakpointService) {
+    this.breakpointService
+      .matches(['sm'])
       .pipe(takeUntilDestroyed())
-      .subscribe((result) => {
-        this.isMobileScreenWidth = result.matches;
+      .subscribe((matches) => {
+        this.isMobileScreenWidth = matches;
       });
   }
 

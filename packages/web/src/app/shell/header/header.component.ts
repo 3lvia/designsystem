@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
@@ -9,6 +9,7 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Theme, ThemeService } from 'src/app/core/services/theme.service';
 import { ThemeClassName } from '@elvia/elvis-colors';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-header',
@@ -33,7 +34,10 @@ export class HeaderComponent {
     private cmsService: CMSService,
     private localizationService: LocalizationService,
     private themeService: ThemeService,
+    private breakpointService: BreakpointService,
   ) {
+    this.closeThemeMenuOnMobile();
+
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
@@ -141,10 +145,14 @@ export class HeaderComponent {
     this.showThemeAnnouncement = false;
   };
 
-  @HostListener('window:resize', ['$event'])
-  onWindowResize = () => {
-    if (window.innerWidth <= 1023) {
-      this.closeThemeMenu();
-    }
-  };
+  private closeThemeMenuOnMobile(): void {
+    this.breakpointService
+      .matches(['sm', 'md'])
+      .pipe(takeUntilDestroyed())
+      .subscribe((isMobileOrTablet) => {
+        if (this.themeMenuIsOpen && isMobileOrTablet) {
+          this.closeThemeMenu();
+        }
+      });
+  }
 }

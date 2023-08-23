@@ -62,6 +62,8 @@ app-root {
   }
 }
 
+// TODO: This can be moved to layout-doc.component.scss when the old color doc and old shadow doc has been removed
+// Some of the classes can also be removed.
 .display-container {
   display: flex;
   align-items: baseline;
