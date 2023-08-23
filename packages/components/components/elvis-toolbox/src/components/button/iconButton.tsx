@@ -1,4 +1,4 @@
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import styled, { css } from 'styled-components';
 import { ButtonProps, Size } from './button';
 
@@ -37,6 +37,12 @@ export const IconButton = styled.button.attrs({ type: 'button' })<Partial<Button
   border-radius: 99px;
   padding: 0;
   margin: 0;
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      --e-color-icon-stroke-1: ${getThemeColorContrast('background-hover-1')};
+      --e-color-icon-filled-background-1: ${getThemeColorContrast('background-hover-1')};
+    `}
 
   &:disabled {
     cursor: not-allowed;
@@ -48,11 +54,15 @@ export const IconButton = styled.button.attrs({ type: 'button' })<Partial<Button
     &:hover {
       background-color: ${getThemeColor('background-hover-1')};
       border-color: ${getThemeColor('border-hover-1')};
+      --e-color-icon-stroke-1: ${getThemeColorContrast('background-hover-1')};
+      --e-color-icon-filled-background-1: ${getThemeColorContrast('background-hover-1')};
     }
 
     &:active {
       border-color: transparent;
       background-clip: padding-box;
+      --e-color-icon-stroke-1: ${getThemeColorContrast('background-hover-1')};
+      --e-color-icon-filled-background-1: ${getThemeColorContrast('background-hover-1')};
     }
   }
 `;
