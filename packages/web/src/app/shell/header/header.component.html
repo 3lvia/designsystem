@@ -1,34 +1,35 @@
-<!-- Header  -->
+<elvia-modal
+  heading="Dark theme is here!"
+  hasCloseButton="true"
+  [isShowing]="showThemeAnnouncement"
+  (onClose)="closeThemeAnnouncement()"
+>
+  <div class="e-text-lg" slot="content">
+    <p class="e-m-0">
+      All components now support dark theme. Choose between light and dark theme in the navigation bar.
+    </p>
+    <br />
+    <p class="e-m-0">
+      Read more about
+      <a href="/brand/theme" class="e-link e-link--lg" (click)="closeThemeAnnouncement()">theme.</a>
+    </p>
+  </div>
+  <div slot="illustration">
+    <img alt="" src="assets/new_dark.svg" />
+  </div>
+</elvia-modal>
 <header class="header e-color-background-element-4" id="header">
-  <elvia-modal
-    heading="Dark theme is here!"
-    hasCloseButton="true"
-    [isShowing]="showThemeAnnouncement"
-    (onClose)="closeThemeAnnouncement()"
-  >
-    <div class="e-text-lg" slot="content">
-      <p class="e-m-0">All components now support dark theme. Choose between themes in the navigation bar.</p>
-      <br />
-      <p class="e-m-0">
-        Read more about
-        <a href="/brand/theme" class="e-link e-link--lg" (click)="closeThemeAnnouncement()">theme.</a>
-      </p>
-    </div>
-    <div slot="illustration">
-      <img alt="" src="/assets/new_dark.svg" />
-    </div>
-  </elvia-modal>
   <div class="logo">
     <a [ngClass]="{ show: headerLogoLoaded }" class="header-logo-link" [routerLink]="['', 'home']">
       <img
         *ngIf="!isPrideMonth"
-        src="./../../../assets/logo/elvia_negative_1.svg"
+        src="assets/logo/elvia_negative_1.svg"
         alt="Elvia Logo"
         (load)="hideContentLoader($event)"
       />
       <img
         *ngIf="isPrideMonth"
-        src="./../../../assets/logo/elvia_pride_rgb.svg"
+        src="assets/logo/elvia_pride_rgb.svg"
         alt="Elvia Logo"
         (load)="hideContentLoader($event)"
       />
@@ -113,7 +114,7 @@
       </span>
     </div>
     <button class="menu-button" (click)="openMobileMenu()">
-      <img src="../../../assets/icons/hamburger-menu.svg" alt="Mobile Menu Icon" />
+      <img src="assets/icons/hamburger-menu.svg" alt="Mobile Menu Icon" />
     </button>
   </div>
 </header>
