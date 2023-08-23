@@ -1,7 +1,7 @@
 <div class="related-container" *ngIf="relatedComponents">
   <ng-container *ngFor="let relatedComponent of relatedComponents">
     <a [routerLink]="getRelatedPath(relatedComponent)">
-      <elvia-card [heading]="getRelatedTitle(relatedComponent)">
+      <elvia-card [heading]="getRelatedTitle(relatedComponent)" [maxHeadingLines]="2">
         <div slot="icon">
           <img
             alt=""
