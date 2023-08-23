@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { getThemeColor, getShadow } from '@elvia/elvis-colors';
+import { getThemeColor, getShadow, getBaseColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 const mobileMax = '767px';
@@ -162,14 +162,18 @@ export const ModalIllustration = styled.div.attrs(() => ({
     content: '';
     background: ${getThemeColor('background-overlay-1')};
     border-radius: 100%;
+    z-index: 0;
     position: absolute;
     height: calc(550px * 6.85);
-    width: calc(550px * 6.85);
+    width: calc(550px * 6);
     right: calc(100% - 2.7vw);
     @media (min-width: ${desktopMin}) {
       right: calc(100% - 1.7vw);
     }
-    z-index: 0;
+  }
+
+  .e-theme-dark && ::after {
+    border: 2px solid ${getBaseColor('grey-60', 'dark')};
   }
 
   @media (max-width: ${desktopMin}) {
