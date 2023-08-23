@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
 import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -8,11 +8,12 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchStatus, SearchItem } from './search-menu.interface';
-import { SearchService } from '../../../core/services/search.service';
+import { SearchService } from 'src/app/core/services/search.service';
 import Fuse from 'fuse.js';
-import { getThemeColor } from '@elvia/elvis-colors';
+import { ThemeName, getThemeColor } from '@elvia/elvis-colors';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-search-menu',
@@ -31,6 +32,7 @@ export class SearchMenuComponent implements OnInit {
   resultsToDisplay: SearchItem[] = [];
   synonymComponents: SearchItem[] = [];
   isPrideMonth = false;
+  currentTheme: Observable<ThemeName>;
 
   private onDestroy = new Subject<void>();
   onDestroy$ = this.onDestroy.asObservable();
@@ -42,7 +44,9 @@ export class SearchMenuComponent implements OnInit {
     private localizationService: LocalizationService,
     private searchService: SearchService<SearchItem>,
     private router: Router,
+    themeService: ThemeService,
   ) {
+    this.currentTheme = themeService.listenTheme();
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
