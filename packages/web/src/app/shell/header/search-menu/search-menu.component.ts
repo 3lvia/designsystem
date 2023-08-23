@@ -33,7 +33,7 @@ export class SearchMenuComponent implements OnInit {
   isPrideMonth = false;
 
   private onDestroy = new Subject<void>();
-  private onDestroy$ = this.onDestroy.asObservable();
+  onDestroy$ = this.onDestroy.asObservable();
 
   private locale: Locale;
 
