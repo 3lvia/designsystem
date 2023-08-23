@@ -18,16 +18,23 @@ import { Subject, merge, takeUntil } from 'rxjs';
 })
 export class HeaderComponent implements OnDestroy {
   private unsubscriber = new Subject<void>();
-  searchMenuOpen = false;
-  searchOverlay: OverlayRef;
+  private searchMenuOpen = false;
+  private searchOverlay: OverlayRef;
   headerLogoLoaded = false;
-  devMode = false;
   mainMenu: CMSMenu;
   menuContentLoader = true;
   isPrideMonth = false;
-  showThemeAnnouncement = false;
+  showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
   themeMenuIsOpen = false;
   currentTheme: Theme = 'light';
+
+  get devMode(): boolean {
+    return (
+      window.location.href.indexOf('localhost') > -1 ||
+      window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
+      window.location.href.indexOf('#dev') > -1
+    );
+  }
 
   constructor(
     private mobileMenu: MobileMenuService,
@@ -47,14 +54,6 @@ export class HeaderComponent implements OnDestroy {
         });
       });
 
-    if (
-      window.location.href.indexOf('localhost') > -1 ||
-      window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
-      window.location.href.indexOf('#dev') > -1
-    ) {
-      this.devMode = true;
-    }
-
     this.themeService
       .listenTheme()
       .pipe(takeUntilDestroyed())
@@ -64,19 +63,11 @@ export class HeaderComponent implements OnDestroy {
       });
 
     this.checkIfPrideMonth();
-    this.getThemeAnnouncementVisibility();
   }
 
   ngOnDestroy(): void {
     this.unsubscriber.next();
     this.unsubscriber.complete();
-  }
-
-  checkIfPrideMonth(): void {
-    const currentMonth = new Date().getMonth();
-    if (currentMonth === 5) {
-      this.isPrideMonth = true;
-    }
   }
 
   hideContentLoader(evt: Event): void {
@@ -122,6 +113,18 @@ export class HeaderComponent implements OnDestroy {
     this.themeMenuIsOpen = false;
   };
 
+  closeThemeAnnouncement = () => {
+    localStorage.setItem('elvisThemeAnnouncementIsClosed', 'true');
+    this.showThemeAnnouncement = false;
+  };
+
+  private checkIfPrideMonth(): void {
+    const currentMonth = new Date().getMonth();
+    if (currentMonth === 5) {
+      this.isPrideMonth = true;
+    }
+  }
+
   private addDarkThemeClass = (theme: Theme): void => {
     const classToRemove: ThemeClassName = theme === 'light' ? 'e-theme-dark' : 'e-theme-light';
     const classToAdd: ThemeClassName = theme === 'light' ? 'e-theme-light' : 'e-theme-dark';
@@ -132,19 +135,10 @@ export class HeaderComponent implements OnDestroy {
     }
   };
 
-  closeSearchMenu(): void {
+  private closeSearchMenu(): void {
     this.searchMenu.detach(this.searchOverlay);
     this.searchMenuOpen = false;
   }
-
-  getThemeAnnouncementVisibility = () => {
-    this.showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
-  };
-
-  closeThemeAnnouncement = () => {
-    localStorage.setItem('elvisThemeAnnouncementIsClosed', 'true');
-    this.showThemeAnnouncement = false;
-  };
 
   @HostListener('window:resize', ['$event'])
   onWindowResize = () => {
