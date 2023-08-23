@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeName } from '@elvia/elvis-colors';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-mobile-menu',
@@ -14,6 +16,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class MobileMenuComponent {
   mainMenu: CMSMenu;
   isLoaded = false;
+  currentTheme: Observable<ThemeName>;
 
   get devMode(): boolean {
     return (
@@ -30,7 +33,10 @@ export class MobileMenuComponent {
     private router: Router,
     private cmsService: CMSService,
     private localizationService: LocalizationService,
+    themeService: ThemeService,
   ) {
+    this.currentTheme = themeService.listenTheme();
+
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
