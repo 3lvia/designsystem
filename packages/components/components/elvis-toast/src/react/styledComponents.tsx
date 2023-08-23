@@ -1,4 +1,4 @@
-import { getShadow, getThemeColor } from '@elvia/elvis-colors';
+import { getBaseColor, getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { IconButton, device } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
@@ -52,7 +52,7 @@ export const ToastContainer = styled.output<{
   gap: 8px;
   border: 2px solid ${getThemeColor('signal-positive')};
   border-radius: 8px;
-  background: ${getThemeColor('background-1')};
+  background: ${getBaseColor('white')};
   text-align: left;
   padding: 6px; // -2px because of border thickness
   animation: ${fadeIn} ${animationDuration}ms cubic-bezier(0, 0.57, 0.31, 1);
@@ -60,6 +60,10 @@ export const ToastContainer = styled.output<{
   transform-origin: bottom center;
   transition: all 300ms ease;
   width: 100%;
+
+  .e-theme-dark && {
+    background: ${getBaseColor('grey', 'dark')};
+  }
 
   ${({ toastType }) =>
     toastType === 'informative' &&
