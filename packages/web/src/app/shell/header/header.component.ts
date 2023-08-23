@@ -22,7 +22,7 @@ export class HeaderComponent {
   mainMenu: CMSMenu;
   menuContentLoader = true;
   isPrideMonth = false;
-  showThemeAnnouncement = false; // Use !localStorage.getItem('elvisThemeAnnouncementIsClosed'); when dark theme is ready.
+  showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
   themeMenuIsOpen = false;
   currentTheme: Theme = 'light';
 
