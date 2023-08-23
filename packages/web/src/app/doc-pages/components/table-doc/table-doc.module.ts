@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { TableDocComponent } from './table-doc.component';
 import { TableCegComponent } from './table-ceg/table-ceg.component';
-import { TableSizeNormalDesktopCegComponent } from './table-size-normal-desktop-ceg/table-size-normal-desktop-ceg.component';
+import { TableSizeMediumDesktopCegComponent } from './table-size-medium-desktop-ceg/table-size-medium-desktop-ceg.component';
 import { TableSizeMediumMobileCegComponent } from './table-size-medium-mobile-ceg/table-size-medium-mobile-ceg.component';
 import { TableSizeCompactDesktopCegComponent } from './table-size-compact-desktop-ceg/table-size-compact-desktop-ceg.component';
 import { TableSizeCompactMobileCegComponent } from './table-size-compact-mobile-ceg/table-size-compact-mobile-ceg.component';
@@ -32,7 +32,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
   declarations: [
     TableDocComponent,
     TableCegComponent,
-    TableSizeNormalDesktopCegComponent,
+    TableSizeMediumDesktopCegComponent,
     TableSizeMediumMobileCegComponent,
     TableSizeCompactDesktopCegComponent,
     TableSizeCompactMobileCegComponent,
