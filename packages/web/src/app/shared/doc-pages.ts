@@ -674,11 +674,13 @@ export const docPagesPattern: DocPage[] = [
 ];
 
 // Accessibility
-export const docPageAccessibility: DocPage = {
-  title: 'Accessibility',
-  docUrl: Pages.Accessibility,
-  absolutePath: '/tools/' + Pages.Accessibility,
-};
+export const docPageAccessibility: DocPage[] = [
+  {
+    title: 'Accessibility',
+    docUrl: Pages.Accessibility,
+    absolutePath: '/tools/' + Pages.Accessibility,
+  },
+];
 
 // Only pages not in Contentful except the component-pages
 export const docPagesNotFromCMS: DocPage[] = [
@@ -842,7 +844,11 @@ export function getDocPagesNotFromCMS(docUrl: DocPageName): DocPage | undefined 
   return docPagesNotFromCMS.find((component) => component.docUrl === docUrl);
 }
 export function getDocPage(docUrl: DocPageName): DocPage | undefined {
-  const concatenatedDocArray: DocPage[] = componentsDocPages.concat(docPagesBrand).concat(docPagesPattern);
-  concatenatedDocArray.push(docPageAccessibility);
-  return concatenatedDocArray.find((component) => component.docUrl === docUrl);
+  const allDocPages: DocPage[] = [
+    ...componentsDocPages,
+    ...docPagesBrand,
+    ...docPagesPattern,
+    ...docPageAccessibility,
+  ];
+  return allDocPages.find((component) => component.docUrl === docUrl);
 }
