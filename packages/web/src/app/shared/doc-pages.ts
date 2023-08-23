@@ -547,7 +547,7 @@ export const docPagesNotFromCMS: DocPage[] = [
       'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
     docUrl: Pages.TheDesignSystem,
     status: DocPageStatus.Done,
-    absolutePath: '/get-started/' + Pages.TheDesignSystem,
+    absolutePath: '/about/' + Pages.TheDesignSystem,
   },
   {
     title: 'Contact',
