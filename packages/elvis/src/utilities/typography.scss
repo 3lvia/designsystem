@@ -45,6 +45,11 @@
       .e-#{$label} strong {
         font-weight: 500;
       }
+
+      .e-#{$label} em,
+      .e-#{$label} i {
+        font-style: italic;
+      }
     }
   }
 }
