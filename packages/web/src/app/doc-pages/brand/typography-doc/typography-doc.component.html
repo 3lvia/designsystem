@@ -10,14 +10,14 @@
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
       <div class="e-mt-72 e-mb-24">
-        <div style="display: flex; justify-content: center; width: 100%" *ngIf="!loadedImg">
+        <div class="e-flex e-justify-content-center e-w-100" *ngIf="!loadedImg">
           <div class="e-content-loader" style="width: 80%"></div>
         </div>
         <img
           class="header-img"
           [ngClass]="!loadedImg ? 'e-none' : ''"
-          src="../../../../assets/doc-page-icons/pages-icons/RedHat.jpeg"
-          alt="Confirmation page illustration"
+          src="/assets/doc-page-icons/pages-icons/RedHat.jpeg"
+          alt="Red Hat typography anatomy"
           (load)="hideContentLoader($event)"
         />
       </div>
