@@ -6,8 +6,7 @@ interface StyleText {
 }
 export const styleText: Record<LOCALE_CODE, StyleText> = {
   'en-GB': {
-    description:
-      'We have three different shadows; soft, medium and hard. The naming convention reflects the percentage of opacity on the base color of shadows.',
+    description: 'We have three different shadows; soft, medium and hard.',
     shadows: [
       {
         title: 'Soft',
@@ -24,8 +23,7 @@ export const styleText: Record<LOCALE_CODE, StyleText> = {
     ],
   },
   'nb-NO': {
-    description:
-      'Vi har tre forskjellige skygger; myk, medium og hard. Navnekonvensjonen gjenspeiler hvor gjennomsiktig skyggen er.',
+    description: 'Vi har tre forskjellige skygger; myk, medium og hard.',
     shadows: [
       {
         title: 'Myk',
