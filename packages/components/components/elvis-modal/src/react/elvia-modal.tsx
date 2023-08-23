@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect, useState, ComponentPropsWithoutRef } from 'react';
 import {
-  ModalCloseButton,
+  CloseButtonContainer,
   ModalContent,
   ModalIllustration,
   Modal,
@@ -13,7 +13,14 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
-import { warnDeprecatedProps, useFocusTrap, useSlot, IconWrapper, BaseProps } from '@elvia/elvis-toolbox';
+import {
+  warnDeprecatedProps,
+  useFocusTrap,
+  useSlot,
+  IconWrapper,
+  BaseProps,
+  IconButton,
+} from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { config } from './config';
 
@@ -146,19 +153,21 @@ export const ModalComponent: FC<ModalProps> = function ({
         {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
         {!illustration && hasIllustration && <ModalIllustration ref={modalIllustration}></ModalIllustration>}
         {hasCloseButton && (
-          <ModalCloseButton
-            onClick={() => handleOnClose()}
-            onMouseEnter={() => setIsHoveringCloseButton(true)}
-            onMouseLeave={() => setIsHoveringCloseButton(false)}
-            aria-label="Lukk modal"
-            name="Lukk modal"
-          >
-            <IconWrapper
-              icon={close}
-              color={hasIllustration ? getThemeColor('static-white') : undefined}
-              style={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
-            />
-          </ModalCloseButton>
+          <CloseButtonContainer>
+            <IconButton
+              onClick={() => handleOnClose()}
+              onMouseEnter={() => setIsHoveringCloseButton(true)}
+              onMouseLeave={() => setIsHoveringCloseButton(false)}
+              aria-label="Lukk modal"
+              name="Lukk modal"
+            >
+              <IconWrapper
+                icon={close}
+                color={hasIllustration ? getThemeColor('static-white') : undefined}
+                style={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
+              />
+            </IconButton>
+          </CloseButtonContainer>
         )}
 
         <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>

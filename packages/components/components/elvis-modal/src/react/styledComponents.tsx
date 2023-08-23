@@ -252,26 +252,13 @@ export const ModalActions = styled.div`
   }
 `;
 
-export const ModalCloseButton = styled.button`
+export const CloseButtonContainer = styled.div`
   position: absolute;
   top: 24px;
   right: 24px;
-  width: 40px;
-  height: 40px;
   z-index: 2;
-  background: none;
-  border: none;
-  border-radius: 999999px;
-  padding: 8px;
-  cursor: pointer;
-
   @media (max-width: ${mobileMax}) {
     top: 16px;
     right: 16px;
-  }
-
-  :hover {
-    background-color: ${getThemeColor('background-hover-1')};
-    border-color: ${getThemeColor('border-hover-1')};
   }
 `;
