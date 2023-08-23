@@ -3,7 +3,7 @@ import { TableDocComponent } from './table-doc.component';
 import { TableCegComponent } from './table-ceg/table-ceg.component';
 import { TableSizeMediumDesktopCegComponent } from './table-size-medium-desktop-ceg/table-size-medium-desktop-ceg.component';
 import { TableSizeMediumMobileCegComponent } from './table-size-medium-mobile-ceg/table-size-medium-mobile-ceg.component';
-import { TableSizeCompactDesktopCegComponent } from './table-size-compact-desktop-ceg/table-size-compact-desktop-ceg.component';
+import { TableSizeSmallDesktopCegComponent } from './table-size-small-desktop-ceg/table-size-small-desktop-ceg.component';
 import { TableSizeCompactMobileCegComponent } from './table-size-compact-mobile-ceg/table-size-compact-mobile-ceg.component';
 import { TableAlignmentCegComponent } from './table-alignment-ceg/table-alignment-ceg.component';
 import { TableButtonDesktopCegComponent } from './table-button-desktop-ceg/table-button-desktop-ceg.component';
@@ -34,7 +34,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     TableCegComponent,
     TableSizeMediumDesktopCegComponent,
     TableSizeMediumMobileCegComponent,
-    TableSizeCompactDesktopCegComponent,
+    TableSizeSmallDesktopCegComponent,
     TableSizeCompactMobileCegComponent,
     TableAlignmentCegComponent,
     TableButtonDesktopCegComponent,
