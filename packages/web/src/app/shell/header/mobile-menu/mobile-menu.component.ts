@@ -50,6 +50,7 @@ export class MobileMenuComponent {
 
   onClose(): void {
     this.onDestroy.next();
+    this.onDestroy.complete();
   }
 
   navigate(path?: string): void {

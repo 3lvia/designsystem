@@ -147,6 +147,7 @@ export class SearchMenuComponent implements OnInit {
 
   closeSearch(): void {
     this.onDestroy.next();
+    this.onDestroy.complete();
   }
 
   clearSearch(): void {
