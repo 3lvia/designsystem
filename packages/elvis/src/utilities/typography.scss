@@ -42,13 +42,13 @@
     }
     @if (str-index($label, 'text-')) {
       .e-#{$label} {
-        & b,
-        & strong {
+        b,
+        strong {
           font-weight: 500;
         }
 
-        & em,
-        & i {
+        em,
+        i {
           font-style: italic;
         }
       }
