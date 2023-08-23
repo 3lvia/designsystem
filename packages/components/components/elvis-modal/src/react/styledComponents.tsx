@@ -257,4 +257,8 @@ export const CloseButtonContainer = styled.div`
   top: 24px;
   right: 24px;
   z-index: 2;
+  @media (max-width: ${mobileMax}) {
+    top: 16px;
+    right: 16px;
+  }
 `;
