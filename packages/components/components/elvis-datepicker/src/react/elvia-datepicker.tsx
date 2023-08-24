@@ -185,7 +185,11 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       onError();
     } else if (d.getFullYear() < 1800 || !isValidDate(d)) {
       onError('invalidDate');
+    } else if (dateRangeProps?.showTimeInError && minDate && isBefore(d, minDate)) {
+      onError('beforeMinDate');
     } else if (minDateWithoutTime && isBefore(d, minDateWithoutTime)) {
+      onError('beforeMinDate');
+    } else if (dateRangeProps?.showTimeInError && maxDate && isAfter(d, maxDate)) {
       onError('beforeMinDate');
     } else if (maxDateWithoutTime && isAfter(d, maxDateWithoutTime)) {
       onError('afterMaxDate');
