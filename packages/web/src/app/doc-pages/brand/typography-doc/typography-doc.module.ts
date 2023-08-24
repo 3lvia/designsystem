@@ -11,6 +11,8 @@ import { TypographyAlignmentCegComponent } from './typography-alignment-ceg/typo
 import { TypographyBodyCegComponent } from './typography-body-ceg/typography-body-ceg.component';
 import { TypographySpecialCegComponent } from './typography-special-ceg/typography-special-ceg.component';
 import { TypographyTitlesCegComponent } from './typography-titles-ceg/typography-titles-ceg.component';
+import { TypographyEmphasisCegComponent } from './typography-emphasis-ceg/typography-emphasis-ceg.component';
+import '@elvia/elvis-tabs';
 
 @NgModule({
   imports: [
@@ -25,6 +27,7 @@ import { TypographyTitlesCegComponent } from './typography-titles-ceg/typography
   declarations: [
     TypographyDocComponent,
     TypographyAlignmentCegComponent,
+    TypographyEmphasisCegComponent,
     TypographyBodyCegComponent,
     TypographySpecialCegComponent,
     TypographyTitlesCegComponent,

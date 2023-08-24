@@ -1,7 +1,7 @@
 {
   "content": [
     {
-      "version": "12.6.0",
+      "version": "12.7.0",
       "date": "August 24, 2023",
       "changelog": [
         {
@@ -25,6 +25,19 @@
           "type": "bug_fix",
           "changes": ["Fixed the hover and active states of links."],
           "components": [{ "displayName": "Link", "url": "https://design.elvia.io/components/link" }]
+        }
+      ]
+    },
+    {
+      "version": "12.6.0",
+      "date": "August 24, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Using <code>i</code> and <code>em</code> elements inside our text-classes, will now give <code>font-style: italic</code>, to make it easier to use italic versions of our typography."
+          ],
+          "pages": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
         }
       ]
     },
