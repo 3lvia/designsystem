@@ -9,7 +9,6 @@ import {
   IEntry,
   ILandingPageWithCards,
   IMainMenu,
-  IOverviewCard,
   ISubMenu,
   LOCALE_CODE,
 } from 'contentful/types';
