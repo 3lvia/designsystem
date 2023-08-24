@@ -68,6 +68,13 @@
                       </span>
                     </a>
                   </div>
+                  <div class="e-text-micro e-mt-16 e-flex e-align-items-center" *ngIf="color.warning">
+                    <i
+                      class="e-icon e-icon--warning_circle e-icon--color-warning e-mr-16"
+                      aria-hidden="true"
+                    ></i>
+                    <div>NB! {{ color.warning }}</div>
+                  </div>
                 </div>
               </td>
               <td class="top-align">

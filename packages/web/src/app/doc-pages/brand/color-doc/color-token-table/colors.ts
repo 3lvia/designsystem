@@ -56,6 +56,7 @@ interface Color<
 interface TableColor<TToken extends ColorTableLabels> {
   token: TToken;
   role?: string;
+  warning?: string;
   light: Color<Capitalize<LightThemeColorName> | 'Black/white' | 'Signal'>;
   dark: Color<`Dark-${DarkThemeColorName}` | 'Transparent' | 'Dark-black/ dark-white' | 'Dark-signal'>;
   links?: ReadonlyArray<Link>;
@@ -157,7 +158,8 @@ export const backgroundColorsDefault = [
   },
   {
     token: 'background-3',
-    role: `Large dark surface background (e.g. the Elvia curve and footer). NB! This background also inverts all components inside the element (in light theme) to function as desired on the dark background.`,
+    role: `Large dark surface background (e.g. the Elvia curve and footer).`,
+    warning: `This background also inverts all components inside the element (in light theme) to function as desired on the dark background.`,
     light: { hex: getColor('background-3', 'light'), label: 'Grey' },
     dark: { hex: getColor('background-3', 'dark'), label: 'Dark-grey-70' },
   },
