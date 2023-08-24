@@ -32,7 +32,7 @@
     border-radius: 50%;
     position: absolute;
     background-color: var(--home-background-color);
-    border: 2px solid var(--home-border-color);
+    border-bottom: 2px solid var(--home-border-color);
     width: 180vw;
     height: 565px;
     z-index: -1;
@@ -113,13 +113,15 @@
   flex-direction: column;
   width: 100%;
   position: relative;
+  background-color: var(--home-background-color);
+
   &::before {
     content: '';
     left: -40%;
     border-radius: 50%;
     position: absolute;
     background-color: var(--home-background-color);
-    border: 2px solid var(--home-border-color);
+    border-bottom: 2px solid var(--home-border-color);
     width: 180vw;
     z-index: -1;
   }
