@@ -23,7 +23,8 @@ export class HeaderComponent {
   mainMenu: CMSMenu;
   menuContentLoader = true;
   isPrideMonth = false;
-  showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
+  showThemeAnnouncement = false;
+  // showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
   themeMenuIsOpen = false;
   currentTheme: Theme = 'light';
 
