@@ -46,7 +46,7 @@ export const CardArea = styled.article<CardAreaProps>`
   align-items: center;
   justify-content: ${({ type }) => (type === 'simple' ? 'center' : 'flex-start')};
   position: relative;
-  background: ${getThemeColor('background-1')};
+  background: ${getThemeColor('background-element-1')};
   box-sizing: border-box;
 
   padding: 22px;

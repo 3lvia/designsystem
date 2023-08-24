@@ -113,7 +113,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: ${({ selected }) => (selected ? `1px solid ${getThemeColor('border-1')}` : 'none')};
+  border: ${({ selected }) => (selected ? `1px solid ${getThemeColor('border-selected-2')}` : 'none')};
   border-radius: 50%;
   min-width: 36px;
   ${({ pageNumber }) => pageNumber.toString().length < 4 && 'width: 36px'};
