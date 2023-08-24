@@ -18,6 +18,7 @@ import { StaticCodeGeneratorComponent } from './code-generator/static-code-gener
 import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
 import { PhoneShellComponent } from './phone-shell/phone-shell.component';
 import { CodeViewerComponent } from './code-generator/code-viewer/code-viewer.component';
+import '@elvia/elvis-tabs';
 
 @NgModule({
   declarations: [
