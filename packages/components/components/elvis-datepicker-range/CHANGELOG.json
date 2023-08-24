@@ -8,7 +8,8 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed a bug where the <code>errorOption</code>-prop values were not passed down correctly to the Date Picker Range with Time Pickers."
+            "Fixed a bug where the <code>errorOption</code>-prop values were not passed down correctly to the Date Picker Range with Time Pickers.",
+            "Fixed a bug where the Date Picker Range would not show a error message if the new value was out of bounds when changing the Time Picker only."
           ]
         },
         {
