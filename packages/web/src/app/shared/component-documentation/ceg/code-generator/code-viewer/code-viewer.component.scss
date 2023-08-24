@@ -29,13 +29,15 @@
   }
 }
 
-.active-code {
-  font-size: 0.875rem;
+.ceg-code {
   font-family: 'Red Hat Mono', Verdana, sans-serif;
-  color: var(--e-color-text-3);
+  font-size: 0.875rem;
   background: unset;
+  color: var(--e-color-text-3);
   border-radius: unset;
   padding: inherit;
+  line-height: inherit;
+  width: fit-content;
 }
 
 .overflow-container {
