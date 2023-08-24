@@ -1,10 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { LOCALE_CODE } from 'contentful/types';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
+import { Observable } from 'rxjs';
+import { BreakpointService } from '../core/services/breakpoint.service';
 import { ThemeService } from '../core/services/theme.service';
 import { ThemeName } from '@elvia/elvis-colors';
 
@@ -28,14 +30,16 @@ export class HomeComponent implements OnInit {
   locale: LOCALE_CODE;
   currentTheme: ThemeName = 'light';
   changelog = changelogJson.content;
-
-  isMobileScreenWidth: boolean;
+  isMobileScreenWidth: Observable<boolean>;
 
   constructor(
     localizationService: LocalizationService,
-    private titleService: Title,
+    breakpointService: BreakpointService,
     private themeService: ThemeService,
+    private titleService: Title,
   ) {
+    this.isMobileScreenWidth = breakpointService.matches(['xs']);
+
     localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
@@ -62,7 +66,6 @@ export class HomeComponent implements OnInit {
       this.fontLoaded = true;
     });
     this.titleService.setTitle('Elvia design system');
-    this.isMobileScreenWidth = window.innerWidth <= 430;
   }
 
   setHoliday = (): void => {
@@ -89,7 +92,4 @@ export class HomeComponent implements OnInit {
       this.isNonHoliday = true;
     }
   };
-
-  @HostListener('window:resize', ['$event'])
-  onWindowResize = () => (this.isMobileScreenWidth = window.innerWidth <= 430);
 }
