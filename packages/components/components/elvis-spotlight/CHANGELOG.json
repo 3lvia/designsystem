@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "24.08.23",
+      "version": "1.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Dark theme support."]
+        }
+      ]
+    },
+    {
+      "date": "24.08.23",
       "version": "1.5.4",
       "changelog": [
         {

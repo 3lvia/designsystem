@@ -1,6 +1,6 @@
 # Elvis-assets-icon
 
-## 3.3.1 (xx.xx.23)
+## 3.3.1 (24.08.23)
 
 ### Patch
 

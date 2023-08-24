@@ -1,16 +1,16 @@
 {
   "content": [
     {
-      "version": "12.6.0",
-      "date": "***",
+      "version": "12.7.0",
+      "date": "August 24, 2023",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
-            "Dark theme support for all elvis components",
+            "Dark theme support for all Elvis components",
             "New CSS variables for all purpose tokens.",
             "New CSS variables for all base tokens (both light and dark).",
-            "New CSS classes for some purpose tokens (text, background, border) which replaces <code>e-bg-</code> and <code>e-text-</code>",
+            "New CSS classes for some purpose tokens (text, background) which replaces <code>e-bg-</code> and <code>e-text-</code>",
             "Deprecated all color classes that started with <code>e-bg-</code> or <code>e-text-</code>. These have been deprecated in favor of token classes like <code>e-color-text-1</code> or <code>e-color-background-1</code>"
           ],
           "fixes": [
