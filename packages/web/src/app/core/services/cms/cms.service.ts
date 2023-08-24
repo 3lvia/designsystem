@@ -9,6 +9,7 @@ import {
   IEntry,
   ILandingPageWithCards,
   IMainMenu,
+  IOverviewCard,
   ISubMenu,
   LOCALE_CODE,
 } from 'contentful/types';
@@ -193,37 +194,29 @@ export class CMSService {
       }
     };
 
-    const overviewPageWithCardsComponents = await this.getEntry('3qbgNHF6InuWMxO1jdc9BR');
-    const overviewPageWithCardsBrand = await this.getEntry('69x76GUs7dsCwA3IsfxLMG');
+    const getIconsFromCards = async (overviewPageWithCards: ILandingPageWithCards) => {
+      const cards = extractLocale(overviewPageWithCards.fields.overviewCard);
 
-    const cardsComponents = extractLocale(overviewPageWithCardsComponents.fields.overviewCard);
-    if (!cardsComponents) {
-      throw new Error('Cannot find overview page cards.');
-    }
+      if (!cards) {
+        throw new Error('Cannot find overview page cards.');
+      }
 
-    const cardsBrand = extractLocale(overviewPageWithCardsBrand.fields.overviewCard);
-    if (!cardsBrand) {
-      throw new Error('Cannot find overview page cards.');
-    }
+      const icons = cards.reduce((res, card) => {
+        const title = extractLocale(card.fields.title) ?? '';
+        const url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
+        const docName = changeName(title.toLowerCase().replace(/ /g, '-'));
+        res[docName] = url;
+        return res;
+      }, {} as Record<string, string>);
 
-    const componentIcons = cardsComponents.reduce((res, card) => {
-      const title = extractLocale(card.fields.title) ?? '';
-      const url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
-      const docName = changeName(title.toLowerCase().replace(/ /g, '-'));
-      res[docName] = url;
-      return res;
-    }, {} as Record<string, string>);
+      return icons;
+    };
 
-    const test = cardsBrand.reduce((res, card) => {
-      const title = extractLocale(card.fields.title) ?? '';
-      const url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
-      const docName = changeName(title.toLowerCase().replace(/ /g, '-'));
-      res[docName] = url;
-      return res;
-    }, componentIcons);
+    const componentIcons = await getIconsFromCards(await this.getEntry('3qbgNHF6InuWMxO1jdc9BR'));
+    const brandIcons = await getIconsFromCards(await this.getEntry('69x76GUs7dsCwA3IsfxLMG'));
 
-    console.log(test);
-    return test;
+    const pageIcons = { ...componentIcons, ...brandIcons };
+    return pageIcons;
   }
 
   /**
