@@ -192,14 +192,14 @@ export const backgroundColorsElement = [
   },
   {
     token: 'background-element-4',
-    role: 'Element background color option 5',
+    role: 'Element background color option 4',
     light: { hex: getColor('background-element-4', 'light'), label: 'White' },
     dark: { hex: getColor('background-element-4', 'dark'), label: 'Dark-grey-70' },
     links: [{ title: 'Box', path: '/components/box' }],
   },
   {
     token: 'background-element-5',
-    role: 'Element background color option 6',
+    role: 'Element background color option 5',
     light: { hex: getColor('background-element-5', 'light'), label: 'Black' },
     dark: { hex: getColor('background-element-5', 'dark'), label: 'Dark-white' },
     links: [
