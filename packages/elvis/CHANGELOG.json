@@ -7,7 +7,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Dark theme support for all elvis components",
+            "Dark theme support for all Elvis components",
             "New CSS variables for all purpose tokens.",
             "New CSS variables for all base tokens (both light and dark).",
             "New CSS classes for some purpose tokens (text, background) which replaces <code>e-bg-</code> and <code>e-text-</code>",
