@@ -35,6 +35,23 @@ app-root {
   min-height: inherit;
 }
 
+code:not(.ceg-code) {
+  font-family: 'Red Hat Mono', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: inherit;
+
+  padding: 0 8px;
+  width: fit-content;
+  background: var(--e-color-background-element-3);
+  color: var(--e-color-text-1);
+  border-radius: 4px;
+  @include breakpoints.breakpoint-up(Tablet) {
+    font-size: 14px;
+  }
+}
+
 .theme-image-padding {
   background: var(--e-light-theme-white);
   padding: 16px;

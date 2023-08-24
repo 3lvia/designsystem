@@ -66,18 +66,6 @@
   }
 }
 
-code {
-  padding: 0 8px;
-  width: fit-content;
-  white-space: nowrap;
-  color: var(--e-color-text-1);
-  background: var(--e-color-background-element-3);
-
-  @include breakpoints.breakpoint-up(Tablet) {
-    font-size: 14px;
-  }
-}
-
 .arrow {
   display: block;
   position: relative;

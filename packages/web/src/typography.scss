@@ -6,21 +6,6 @@ a {
   text-decoration: none;
 }
 
-code,
-.code-text {
-  font-family: 'Red Hat Mono', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: inherit;
-  overflow: auto;
-
-  color: var(--e-color-text-1);
-  background: var(--e-color-background-element-3);
-  border-radius: 4px;
-  padding: 0 2px;
-}
-
 kbd,
 .keyboard-button {
   @include typography.typography('text-sm');
