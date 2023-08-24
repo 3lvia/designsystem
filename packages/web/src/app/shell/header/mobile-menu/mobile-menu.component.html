@@ -1,7 +1,14 @@
 <header class="header">
   <div class="logo">
-    <a class="header-top_logo" (click)="navigate('')">
-      <img src="../../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" />
+    <a (click)="navigate('')">
+      <img
+        [src]="
+          (currentTheme | async) === 'dark'
+            ? 'assets/logo/elvia_negative_1.svg'
+            : 'assets/logo/elvia_positive_1.svg'
+        "
+        alt="Elvia Logo"
+      />
     </a>
   </div>
   <div class="closing">

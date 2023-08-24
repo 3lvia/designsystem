@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnDestroy } from '@angular/core';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
@@ -9,13 +9,15 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Theme, ThemeService } from 'src/app/core/services/theme.service';
 import { ThemeClassName } from '@elvia/elvis-colors';
+import { Subject, merge, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnDestroy {
+  private unsubscriber = new Subject<void>();
   private searchMenuOpen = false;
   private searchOverlay: OverlayRef;
   headerLogoLoaded = false;
@@ -63,6 +65,11 @@ export class HeaderComponent {
     this.checkIfPrideMonth();
   }
 
+  ngOnDestroy(): void {
+    this.unsubscriber.next();
+    this.unsubscriber.complete();
+  }
+
   hideContentLoader(evt: Event): void {
     if (evt && evt.target) {
       this.headerLogoLoaded = true;
@@ -72,12 +79,11 @@ export class HeaderComponent {
   openMobileMenu(): void {
     const overlayRef: OverlayRef = this.mobileMenu.setupOverlay();
     const compInstance = this.mobileMenu.openOverlay(overlayRef, MobileMenuComponent);
-    overlayRef.backdropClick().subscribe(() => {
-      this.mobileMenu.detach(overlayRef);
-    });
-    compInstance.onDestroy$.subscribe(() => {
-      this.mobileMenu.detach(overlayRef);
-    });
+    merge(overlayRef.backdropClick(), compInstance.onDestroy$)
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(() => {
+        this.mobileMenu.detach(overlayRef);
+      });
   }
 
   openSearchMenu(): void {
@@ -87,12 +93,12 @@ export class HeaderComponent {
     this.searchMenuOpen = true;
     this.searchOverlay = this.searchMenu.setupOverlay();
     const compInstance = this.searchMenu.openOverlay(this.searchOverlay, SearchMenuComponent);
-    this.searchOverlay.backdropClick().subscribe(() => {
-      this.closeSearchMenu();
-    });
-    compInstance.onDestroy$.subscribe(() => {
-      this.closeSearchMenu();
-    });
+
+    merge(this.searchOverlay.backdropClick(), compInstance.onDestroy$)
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe(() => {
+        this.closeSearchMenu();
+      });
   }
 
   openThemeMenu = (): void => {

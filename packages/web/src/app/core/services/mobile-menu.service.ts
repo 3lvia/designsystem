@@ -1,4 +1,4 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
 
@@ -6,7 +6,7 @@ import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
   providedIn: 'root',
 })
 export class MobileMenuService {
-  constructor(private overlay: Overlay, private injector: Injector) {}
+  constructor(private overlay: Overlay) {}
 
   setupOverlay(): OverlayRef {
     return this.overlay.create({
@@ -17,7 +17,7 @@ export class MobileMenuService {
     });
   }
 
-  openOverlay<mobileMenuComp>(overlayRef: OverlayRef, overlayComponent: ComponentType<mobileMenuComp>): any {
+  openOverlay<ComponentT>(overlayRef: OverlayRef, overlayComponent: ComponentType<ComponentT>): ComponentT {
     const portal = new ComponentPortal(overlayComponent, null);
     const componentRef = overlayRef.attach(portal);
     return componentRef.instance;
