@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
@@ -9,15 +9,14 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Theme, ThemeService } from 'src/app/core/services/theme.service';
 import { ThemeClassName } from '@elvia/elvis-colors';
-import { Subject, merge, takeUntil } from 'rxjs';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnDestroy {
-  private unsubscriber = new Subject<void>();
+export class HeaderComponent {
   private searchMenuOpen = false;
   private searchOverlay: OverlayRef;
   headerLogoLoaded = false;
@@ -42,7 +41,10 @@ export class HeaderComponent implements OnDestroy {
     private cmsService: CMSService,
     private localizationService: LocalizationService,
     private themeService: ThemeService,
+    private breakpointService: BreakpointService,
   ) {
+    this.closeThemeMenuOnMobile();
+
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
@@ -65,11 +67,6 @@ export class HeaderComponent implements OnDestroy {
     this.checkIfPrideMonth();
   }
 
-  ngOnDestroy(): void {
-    this.unsubscriber.next();
-    this.unsubscriber.complete();
-  }
-
   hideContentLoader(evt: Event): void {
     if (evt && evt.target) {
       this.headerLogoLoaded = true;
@@ -79,11 +76,12 @@ export class HeaderComponent implements OnDestroy {
   openMobileMenu(): void {
     const overlayRef: OverlayRef = this.mobileMenu.setupOverlay();
     const compInstance = this.mobileMenu.openOverlay(overlayRef, MobileMenuComponent);
-    merge(overlayRef.backdropClick(), compInstance.onDestroy$)
-      .pipe(takeUntil(this.unsubscriber))
-      .subscribe(() => {
-        this.mobileMenu.detach(overlayRef);
-      });
+    overlayRef.backdropClick().subscribe(() => {
+      this.mobileMenu.detach(overlayRef);
+    });
+    compInstance.onDestroy$.subscribe(() => {
+      this.mobileMenu.detach(overlayRef);
+    });
   }
 
   openSearchMenu(): void {
@@ -93,12 +91,12 @@ export class HeaderComponent implements OnDestroy {
     this.searchMenuOpen = true;
     this.searchOverlay = this.searchMenu.setupOverlay();
     const compInstance = this.searchMenu.openOverlay(this.searchOverlay, SearchMenuComponent);
-
-    merge(this.searchOverlay.backdropClick(), compInstance.onDestroy$)
-      .pipe(takeUntil(this.unsubscriber))
-      .subscribe(() => {
-        this.closeSearchMenu();
-      });
+    this.searchOverlay.backdropClick().subscribe(() => {
+      this.closeSearchMenu();
+    });
+    compInstance.onDestroy$.subscribe(() => {
+      this.closeSearchMenu();
+    });
   }
 
   openThemeMenu = (): void => {
@@ -111,11 +109,6 @@ export class HeaderComponent implements OnDestroy {
 
   closeThemeMenu = (): void => {
     this.themeMenuIsOpen = false;
-  };
-
-  closeThemeAnnouncement = () => {
-    localStorage.setItem('elvisThemeAnnouncementIsClosed', 'true');
-    this.showThemeAnnouncement = false;
   };
 
   private checkIfPrideMonth(): void {
@@ -140,10 +133,23 @@ export class HeaderComponent implements OnDestroy {
     this.searchMenuOpen = false;
   }
 
-  @HostListener('window:resize', ['$event'])
-  onWindowResize = () => {
-    if (window.innerWidth <= 1023) {
-      this.closeThemeMenu();
-    }
+  getThemeAnnouncementVisibility = () => {
+    this.showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
   };
+
+  closeThemeAnnouncement = () => {
+    localStorage.setItem('elvisThemeAnnouncementIsClosed', 'true');
+    this.showThemeAnnouncement = false;
+  };
+
+  private closeThemeMenuOnMobile(): void {
+    this.breakpointService
+      .matches(['sm', 'md'])
+      .pipe(takeUntilDestroyed())
+      .subscribe((isMobileOrTablet) => {
+        if (this.themeMenuIsOpen && isMobileOrTablet) {
+          this.closeThemeMenu();
+        }
+      });
+  }
 }

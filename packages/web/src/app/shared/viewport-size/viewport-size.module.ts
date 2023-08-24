@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutModule } from '@angular/cdk/layout';
 import { IfViewportSizeDirective } from './if-viewport-size.directive';
 
 @NgModule({
   declarations: [IfViewportSizeDirective],
-  imports: [CommonModule, LayoutModule],
+  imports: [CommonModule],
   exports: [IfViewportSizeDirective],
 })
 export class ViewportSizeModule {}

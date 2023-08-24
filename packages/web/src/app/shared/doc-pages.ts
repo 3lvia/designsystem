@@ -555,7 +555,7 @@ export const docPagesNotFromCMS: DocPage[] = [
       'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
     docUrl: Pages.TheDesignSystem,
     status: DocPageStatus.Done,
-    absolutePath: '/get-started/' + Pages.TheDesignSystem,
+    absolutePath: '/about/' + Pages.TheDesignSystem,
   },
   {
     title: 'Contact',
@@ -587,9 +587,9 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'Shadow',
     titleNo: 'Skygge',
     description:
-      'Shadow is used to make an element stand out from the surface to create depth. Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent. Elvia have a flat design, so shadow should be used carefully and only on overlays.',
+      'Shadow is used to make an element stand out from the surface to create depth. Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent.',
     descriptionNo:
-      'Skygge brukes til å få et element til å skille seg ut fra overflaten for å skape dybde. Valg av skygge er opp til hvert scenario – men skyggen skal "oppleves" og bør ikke være fremtredende. Elvia har et flatt design, så skygge bør brukes forsiktig og bare på overlays.',
+      'Skygge brukes til å få et element til å skille seg ut fra overflaten for å skape dybde. Valg av skygge er opp til hvert scenario – men skyggen skal "oppleves" og bør ikke være fremtredende.',
     docUrl: Pages.Shadow,
     absolutePath: '/brand/' + Pages.Shadow,
     status: DocPageStatus.Done,

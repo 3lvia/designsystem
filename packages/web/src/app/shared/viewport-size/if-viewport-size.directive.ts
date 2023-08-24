@@ -1,15 +1,6 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Directive, OnDestroy, Input, ViewContainerRef, TemplateRef } from '@angular/core';
 import { Subscription } from 'rxjs';
-
-type Size = keyof typeof config;
-
-const config = {
-  sm: '(max-width: 767px)',
-  md: '(min-width: 768px) and (max-width: 1023px)',
-  lg: '(min-width: 1024px) and (max-width: 1439px)',
-  xl: '(min-width: 1440px)',
-};
+import { BreakpointService, ScreenSize } from 'src/app/core/services/breakpoint.service';
 
 /**
  * This directive is intended for use cases where it is not sufficient
@@ -26,20 +17,18 @@ const config = {
 export class IfViewportSizeDirective implements OnDestroy {
   private subscription = new Subscription();
 
-  @Input('ifViewportSize') set size(values: Size[]) {
+  @Input('ifViewportSize') set size(values: ScreenSize[]) {
     this.subscription.unsubscribe();
-    this.subscription = this.observer
-      .observe(values.map((value) => config[value]))
-      .subscribe(this.updateView);
+    this.subscription = this.breakpointService.matches(values).subscribe(this.updateView);
   }
 
   constructor(
-    private observer: BreakpointObserver,
+    private breakpointService: BreakpointService,
     private vcRef: ViewContainerRef,
     private templateRef: TemplateRef<any>,
   ) {}
 
-  updateView = ({ matches }: BreakpointState) => {
+  updateView = (matches: boolean) => {
     if (matches && !this.vcRef.length) {
       this.vcRef.createEmbeddedView(this.templateRef);
     } else if (!matches && this.vcRef.length) {
