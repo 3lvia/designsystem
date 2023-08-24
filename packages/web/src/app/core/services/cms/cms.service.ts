@@ -219,9 +219,7 @@ export class CMSService {
     const brandIcons = getIconsFromCards(await this.getEntry('69x76GUs7dsCwA3IsfxLMG'));
     const patternIcons = getIconsFromCards(await this.getEntry('QrmvWlsXBXEwIBZUaJLcg'));
 
-    const pageIcons = { ...componentIcons, ...brandIcons, ...patternIcons };
-    console.log(pageIcons);
-    return pageIcons;
+    return { ...componentIcons, ...brandIcons, ...patternIcons };
   }
 
   /**
