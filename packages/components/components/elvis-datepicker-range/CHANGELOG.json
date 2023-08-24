@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "24.08.23",
+      "version": "3.0.7",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the <code>errorOption</code>-prop values were not passed down correctly to the Date Picker Range with Time Pickers."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "02.08.23",
       "version": "3.0.6",
       "changelog": [
