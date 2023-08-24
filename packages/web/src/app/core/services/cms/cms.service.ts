@@ -213,8 +213,9 @@ export class CMSService {
 
     const componentIcons = getIconsFromCards(await this.getEntry('3qbgNHF6InuWMxO1jdc9BR'));
     const brandIcons = getIconsFromCards(await this.getEntry('69x76GUs7dsCwA3IsfxLMG'));
+    const patternIcons = getIconsFromCards(await this.getEntry('QrmvWlsXBXEwIBZUaJLcg'));
 
-    const pageIcons = { ...componentIcons, ...brandIcons };
+    const pageIcons = { ...componentIcons, ...brandIcons, ...patternIcons };
     return pageIcons;
   }
 
@@ -278,8 +279,6 @@ export class CMSService {
    */
   private async getEntry<T extends IEntry = IEntry>(entryId: string): Promise<T>;
   private async getEntry(entryId: '4ufFZKPEou3mf9Tg05WZT3'): Promise<IMainMenu>;
-  private async getEntry(entryId: '3qbgNHF6InuWMxO1jdc9BR'): Promise<ILandingPageWithCards>;
-  private async getEntry(entryId: '69x76GUs7dsCwA3IsfxLMG'): Promise<ILandingPageWithCards>;
   private async getEntry(entryId: string): Promise<IEntry>;
   private async getEntry(entryId: string): Promise<IEntry> {
     const url = `assets/contentful/dist/entries/${entryId}.json`;

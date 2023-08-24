@@ -48,7 +48,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=72%3A491',
     type: 'Component',
     searchTerms: ['expandable', 'disclosure', 'pocket', 'collapse'],
-    relatedPages: ['button'], // todo 'groups'
+    relatedPages: ['button', 'groups'],
   },
   {
     title: 'Alert',
@@ -60,7 +60,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-messages?node-id=165%3A0',
     type: 'Component',
     searchTerms: ['notifications', 'feedback', 'banner', 'flag', 'snackbar', 'message', 'confirmation'],
-    relatedPages: ['toast', 'badge'], // todo 'cookies', 'validations'
+    relatedPages: ['toast', 'badge', 'cookies', 'validations'],
   },
   {
     title: 'Autocomplete',
@@ -72,7 +72,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2742%3A0',
     type: 'Component',
     searchTerms: ['predictive', 'word completion', 'combobox', 'suggest', 'filter'],
-    relatedPages: ['input', 'dropdown', 'search'], // todo 'filters'
+    relatedPages: ['input', 'dropdown', 'search', 'filters'],
   },
   {
     title: 'Badge',
@@ -133,7 +133,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/w0gte3tPfAypBQpdynPMcU/Card?node-id=1%3A8',
     type: 'Component',
     searchTerms: ['collection', 'tile'],
-    relatedPages: ['link', 'box'], // todo 'groups'
+    relatedPages: ['link', 'box', 'groups'],
   },
   {
     title: 'Carousel',
@@ -157,7 +157,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/dPti8DhGm7C2Rjx4IZSQFw/Chip?node-id=1%3A237',
     type: 'Component',
     searchTerms: ['legend', 'pills', 'filter'],
-    relatedPages: ['badge', 'radio-filter', 'tag'], // todo 'filters'
+    relatedPages: ['badge', 'radio-filter', 'tag', 'filters'],
   },
   {
     title: 'Checkbox',
@@ -170,7 +170,7 @@ export const componentsDocPages: DocPage[] = [
       'https://www.figma.com/file/JtShiDWQ0ytG8vdQRpyOES/Checkbox?type=design&node-id=0%3A1&mode=design&t=zafwsYy1PwOe4Eks-1',
     type: 'Component',
     searchTerms: ['tick', 'select', 'option', 'selection', 'multiselect'],
-    relatedPages: ['radiobutton', 'toggle'], // todo 'filters', 'forms'
+    relatedPages: ['radiobutton', 'toggle', 'filters', 'forms'],
   },
   {
     title: 'Content Loader',
@@ -182,7 +182,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-scroll?node-id=9%3A0',
     type: 'Component',
     searchTerms: ['placeholder', 'skeleton', 'loading', 'shimmer', 'loader'],
-    relatedPages: ['progressbar', 'illustration'], // todo 'empty-states'
+    relatedPages: ['progressbar', 'illustration', 'empty-states'],
   },
   {
     title: 'Context Menu',
@@ -207,7 +207,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
     searchTerms: ['calendar', 'date', 'time', 'input'],
-    relatedPages: ['datepicker-range', 'timepicker'], // todo 'forms', 'filters'
+    relatedPages: ['datepicker-range', 'timepicker', 'forms', 'filters'],
   },
   {
     title: 'Datepicker Range',
@@ -219,7 +219,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
     searchTerms: ['calendar', 'date', 'time', 'input'],
-    relatedPages: ['timepicker', 'datepicker'], // todo 'forms', 'filters'
+    relatedPages: ['timepicker', 'datepicker', 'forms', 'filters'],
   },
   {
     title: 'Drag & Drop',
@@ -231,7 +231,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['file', 'upload'],
     elvisClassName: 'e-dragdrop',
-    relatedPages: ['file-upload', 'forms'], // todo 'groups'
+    relatedPages: ['file-upload', 'forms', 'groups'],
   },
   {
     title: 'Divider',
@@ -242,7 +242,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/F4ycCcM9cGf9T12EhzbN3F/Dividers?node-id=1%3A2',
     type: 'Component',
     searchTerms: ['line', 'separator', 'section', 'hr', 'br'],
-    relatedPages: ['layout'], // todo 'groups'
+    relatedPages: ['layout', 'groups'],
   },
   {
     title: 'Dropdown',
@@ -254,7 +254,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1285%3A842',
     type: 'Component',
     searchTerms: ['select', 'option', 'multiselect', 'pull-down', 'combobox'],
-    relatedPages: ['autocomplete', 'radiobutton'], // todo 'forms'
+    relatedPages: ['autocomplete', 'radiobutton', 'forms'],
   },
   {
     title: 'File Upload',
@@ -266,7 +266,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['file', 'upload'],
     elvisClassName: 'e-fileupload',
-    relatedPages: ['drag-and-drop', 'thumbnail'], // todo 'groups', 'forms'
+    relatedPages: ['drag-and-drop', 'thumbnail', 'forms', 'groups'],
   },
   {
     title: 'Header',
@@ -278,7 +278,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/QRhfgr0sd9MPmACos1xDNT/Header?node-id=230%3A604',
     type: 'Component',
     searchTerms: ['navigation', 'menu', 'top', 'bar', 'logo', 'title', 'toolbar', 'sidebar', 'topbar'],
-    relatedPages: ['breadcrumb', 'link'], // todo 'onboarding'
+    relatedPages: ['breadcrumb', 'link', 'onboarding'],
   },
   {
     title: 'Text Field',
@@ -289,7 +289,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1262%3A486',
     type: 'Component',
     searchTerms: ['input', 'text', 'number', 'email', 'password', 'textarea'],
-    relatedPages: ['dropdown', 'autocomplete'], // todo 'forms', 'comments'
+    relatedPages: ['dropdown', 'autocomplete', 'comments', 'forms'],
   },
   {
     title: 'Tag',
@@ -301,7 +301,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=136%3A1738',
     type: 'Component',
     searchTerms: ['label', 'lozenge', 'status', 'ribbon', 'category', 'categorize', 'organize'],
-    relatedPages: ['chip', 'badge'], // // todo 'graph'
+    relatedPages: ['chip', 'badge'], // todo 'graph'
   },
   {
     title: 'Link',
@@ -313,7 +313,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links?node-id=1%3A10',
     type: 'Component',
     searchTerms: ['anchor', 'url', 'href', 'navigate', 'navigation', 'click'],
-    relatedPages: ['breadcrumb', 'card', 'header'], // todo 'groups'
+    relatedPages: ['breadcrumb', 'card', 'header', 'groups'],
   },
   {
     title: 'List',
@@ -325,7 +325,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Lists?node-id=353%3A0',
     type: 'Component',
     searchTerms: ['bullet', 'numbered', 'unordered', 'ordered', 'ul', 'ol', 'li'],
-    relatedPages: ['icon'], // todo 'groups'
+    relatedPages: ['icon', 'groups'],
   },
   {
     title: 'Modal',
@@ -404,7 +404,7 @@ export const componentsDocPages: DocPage[] = [
       'status',
       'meter',
     ],
-    relatedPages: ['content-loader', 'file-upload'], // todo 'empty-states'
+    relatedPages: ['content-loader', 'file-upload', 'empty-states'],
   },
   {
     title: 'Radio Button',
@@ -418,7 +418,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'toggle'],
     elvisClassName: 'e-radio',
-    relatedPages: ['checkbox', 'dropdown'], // todo 'forms', 'filters'
+    relatedPages: ['checkbox', 'dropdown', 'forms', 'filters'],
   },
   {
     title: 'Radio Filter',
@@ -431,7 +431,7 @@ export const componentsDocPages: DocPage[] = [
       'https://www.figma.com/file/8OZU7mSBLPpEzwtV0QRDoG/Radio-filter?type=design&node-id=0%3A1&mode=design&t=JASWYeK1lpA2hl1D-1',
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'filter'],
-    relatedPages: ['segmented-control', 'chip'], // todo 'forms', 'filters'
+    relatedPages: ['segmented-control', 'chip', 'forms', 'filters'],
   },
   {
     title: 'Search',
@@ -443,7 +443,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/Yz09cKdXxOvfP0KP7AkTI7/Search?node-id=1%3A2',
     type: 'Component',
     searchTerms: ['find', 'filter'],
-    relatedPages: ['autocomplete'], // todo 'forms', 'filters', 'empty-states'
+    relatedPages: ['autocomplete', 'forms', 'filters', 'empty-states'],
   },
   {
     title: 'Segmented Control',
@@ -455,7 +455,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A436',
     type: 'Component',
     searchTerms: ['content switch', 'choice', 'option', 'select', 'filter'],
-    relatedPages: ['radio-filter', 'tabs', 'radiobutton'], // todo 'filters'
+    relatedPages: ['radio-filter', 'tabs', 'radiobutton', 'filters'],
   },
   {
     title: 'Slider',
@@ -467,7 +467,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/Bpc4gmpy4T4eeWm51X5UmJ/Slider?node-id=0%3A1',
     type: 'Component',
     searchTerms: ['range', 'input', 'adjust', 'value', 'number', 'handle', 'track'],
-    relatedPages: ['input', 'radiobutton'], // todo 'forms'
+    relatedPages: ['input', 'radiobutton', 'forms'],
   },
   {
     title: 'Spotlight',
@@ -479,7 +479,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/rpflFlBIv4c5TNKLXJLktG/?node-id=2%3A8',
     type: 'Component',
     searchTerms: ['highlight', 'focus'],
-    relatedPages: ['box', 'illustration'], // todo 'onboarding'
+    relatedPages: ['box', 'onboarding', 'illustration'],
   },
   {
     title: 'Stepper',
@@ -491,7 +491,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/x8ae3TPZemAkxtjSS2JI7x/Stepper?node-id=0-1&t=0oTWvsI5AMzfMr8Q-0',
     type: 'Component',
     searchTerms: ['steps', 'progress', 'process'],
-    relatedPages: ['carousel', 'pagination', 'tabs'], // todo 'forms'
+    relatedPages: ['carousel', 'pagination', 'tabs', 'forms'],
   },
   {
     title: 'Tabs',
@@ -515,7 +515,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=3%3A292',
     type: 'Component',
     searchTerms: ['data', 'row', 'column', 'th', 'td', 'tr', 'tbody', 'thead', 'tfoot'],
-    relatedPages: ['pagination', 'chip', 'filters'], // todo 'graph', 'filters'
+    relatedPages: ['pagination', 'chip', 'filters'], // todo 'graph'
   },
   {
     title: 'Toggle',
@@ -528,7 +528,7 @@ export const componentsDocPages: DocPage[] = [
       'https://www.figma.com/file/8c1uZpEVnz2FHsCeQM3fVV/Toggle?type=design&node-id=0%3A1&mode=design&t=YPjADCj8T64UhBbq-1',
     type: 'Component',
     searchTerms: ['switch', 'on', 'off', 'option', 'state', 'radio', 'lever'],
-    relatedPages: ['checkbox', 'radiobutton', 'segmented-control'], // todo 'forms'
+    relatedPages: ['checkbox', 'radiobutton', 'segmented-control', 'forms'],
   },
   {
     title: 'Timepicker',
@@ -540,7 +540,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
     searchTerms: ['clock', 'hour', 'minute', 'interval', 'duration', 'period', 'input'],
-    relatedPages: ['datepicker', 'datepicker-range', 'popover'], // todo 'forms'
+    relatedPages: ['datepicker', 'datepicker-range', 'popover', 'forms'],
   },
   {
     title: 'Thumbnail',
