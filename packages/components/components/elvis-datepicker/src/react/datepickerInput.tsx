@@ -5,29 +5,31 @@ import { ErrorType } from './elviaDatepicker.types';
 import { Input } from './styledComponents';
 
 interface Props {
-  disabled?: boolean;
-  required: boolean;
-  date?: Date | null;
-  minDate?: Date;
-  maxDate?: Date;
-  placeholder?: string;
-  onChange: (newValue: Date | null) => void;
-  onFocus: () => void;
   currentError?: ErrorType;
+  date?: Date | null;
+  disabled?: boolean;
+  invalid?: boolean;
+  maxDate?: Date;
+  minDate?: Date;
+  onChange: (newValue: Date | null) => void;
   onErrorChange: (error?: ErrorType) => void;
+  onFocus: () => void;
+  placeholder?: string;
+  required: boolean;
 }
 
 export const DatepickerInput: React.FC<Props> = ({
-  disabled,
-  required,
-  date,
-  minDate,
-  maxDate,
-  placeholder,
-  onChange,
-  onFocus,
   currentError,
+  date,
+  disabled,
+  invalid,
+  maxDate,
+  minDate,
+  onChange,
   onErrorChange,
+  onFocus,
+  placeholder,
+  required,
 }) => {
   const inputElement = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState('');
@@ -199,16 +201,17 @@ export const DatepickerInput: React.FC<Props> = ({
   return (
     <Input
       ref={inputElement}
-      disabled={disabled}
-      placeholder={placeholder}
-      value={inputValue}
-      onKeyDown={onKeyDown}
-      onChange={parseInput}
-      onBlur={onBlur}
-      onFocus={onInputFocus}
-      data-testid="input"
+      aria-invalid={invalid}
       aria-live="polite"
+      data-testid="input"
+      disabled={disabled}
+      onBlur={onBlur}
+      onChange={parseInput}
+      onFocus={onInputFocus}
+      onKeyDown={onKeyDown}
+      placeholder={placeholder}
       required={required}
+      value={inputValue}
     />
   );
 };

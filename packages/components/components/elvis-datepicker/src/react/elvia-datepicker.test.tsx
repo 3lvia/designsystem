@@ -160,10 +160,12 @@ describe('Elvis Datepicker', () => {
 
     it('should have an error when clicked and blurred ', async () => {
       const user = userEvent.setup();
+      const input = screen.getByRole('textbox');
 
-      await user.click(screen.getByTestId('input'));
+      await user.click(input);
       await user.tab();
 
+      expect(input).toHaveAttribute('aria-invalid', 'true');
       expect(screen.getByTestId('error')).toHaveTextContent('Velg dato');
     });
   });

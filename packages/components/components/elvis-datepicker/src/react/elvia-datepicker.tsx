@@ -242,6 +242,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   // run validation on init.
   useEffect(() => setIsInitialized(true), []);
 
+  const isInvalid = !!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState;
+
   return (
     <>
       <FormFieldContainer
@@ -252,7 +254,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         isDisabled={isDisabled}
         hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
         isActive={isShowing}
-        isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        isInvalid={isInvalid}
         data-testid="wrapper"
       >
         {!!label && (
@@ -262,6 +264,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         )}
         <FormFieldInputContainer ref={connectedElementRef} data-testid="input-container">
           <DatepickerInput
+            invalid={isInvalid}
             date={date}
             disabled={isDisabled}
             placeholder={placeholder}
