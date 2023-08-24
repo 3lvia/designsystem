@@ -52,9 +52,9 @@ function optimizeSVG() {
 }
 
 // The following is used to change hard-coded icon colors to use css variables for theme support.
-type FillVariablesUnion = `fill="var(--e-color-icon-${IconLabels}, ${ReturnType<typeof getThemeColor>})"`;
-type FillVariablesUnionBrand = `fill="var(--e-color-brand-accent, ${ReturnType<typeof getThemeColor>})"`;
-export type FillVariables = { [label in IconLabels]: FillVariablesUnion | FillVariablesUnionBrand };
+type Variables = `icon-${IconLabels}` | 'brand-accent';
+type FillVariablesUnion = `fill="var(--e-color-${Variables}, ${ReturnType<typeof getThemeColor>})"`;
+export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
 
 /**
  * These are the string-values that are inserted into the SVGs as replacements for the hard-coded colors.
@@ -67,7 +67,7 @@ const fillVariables = {
   'filled-background-1': `fill="var(--e-color-icon-filled-background-1, ${getThemeColor(
     'icon-filled-background-1',
   )})"`,
-  ['brand-accent']: `fill="var(--e-color-brand-accent, ${getThemeColor('brand-accent')})"`,
+  'brand-accent': `fill="var(--e-color-brand-accent, ${getThemeColor('brand-accent')})"`,
   positive: `fill="var(--e-color-icon-positive, ${getThemeColor('icon-positive')})"`,
   caution: `fill="var(--e-color-icon-caution, ${getThemeColor('icon-caution')})"`,
   warning: `fill="var(--e-color-icon-warning, ${getThemeColor('icon-warning')})"`,
