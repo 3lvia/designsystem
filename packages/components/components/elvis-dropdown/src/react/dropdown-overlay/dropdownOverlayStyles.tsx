@@ -1,4 +1,4 @@
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { FormFieldSizes, IconButton, TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
@@ -35,7 +35,7 @@ export const DropdownPopupContainer = styled.div<{ size: FormFieldSizes }>`
 
 export const DropdownPopup = styled.div.attrs({ role: 'listbox' })<{ isInvisible: boolean }>`
   background-color: ${getThemeColor('background-overlay-1')};
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: ${getShadow('hard')};
   position: relative;
   border-radius: 4px;
   overflow: hidden;

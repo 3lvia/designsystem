@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 import { listButtonHeight } from './buttonHeight';
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 
 const typography = {
   numberPickerTitle: getTypographyCss('text-sm'),
@@ -12,7 +12,7 @@ const typography = {
 export const OverlayContainer = styled.div<{ hasSecondPicker: boolean }>`
   background-color: ${getThemeColor('background-overlay-1')};
   border-radius: 4px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+  box-shadow: ${getShadow('medium')};
   display: flex;
   width: ${({ hasSecondPicker }) => (hasSecondPicker ? '180px' : '120px')};
 `;
