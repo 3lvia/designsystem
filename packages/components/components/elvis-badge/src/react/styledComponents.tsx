@@ -24,7 +24,7 @@ const getBadgeColor = (color: BadgeColor) => {
     case 'red':
       return getThemeColor('signal-danger');
     default:
-      return getThemeColor('background-element-6');
+      return getThemeColor('background-element-5');
   }
 };
 

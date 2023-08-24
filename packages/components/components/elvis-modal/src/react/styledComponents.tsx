@@ -148,7 +148,7 @@ export const ModalContent = styled.div<ContentProps>`
 export const ModalIllustration = styled.div.attrs(() => ({
   role: 'presentation',
 }))`
-  background: ${getThemeColor('background-element-4')};
+  background: ${getThemeColor('background-3')};
   display: flex;
   align-items: center;
   justify-content: center;

@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  background-color: var(--e-color-background-element-4);
+  background-color: var(--e-color-background-3);
   @include breakpoints.breakpoint-up(Mobile) {
     height: calc(var(--footer-height) + 25px);
   }

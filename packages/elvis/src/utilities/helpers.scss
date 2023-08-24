@@ -47,7 +47,7 @@
 
 @mixin custom-dark-theme-tokens($component) {
   .e-theme-dark &,
-  .e-color-background-element-4 &,
+  .e-color-background-3 &,
   &.e-#{$component}--inverted {
     @content;
   }

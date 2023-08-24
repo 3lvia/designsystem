@@ -88,7 +88,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
         top: 0;
         left: ${(100 / numberOfControls) * selectedIndex}%;
         border-radius: 100px;
-        background-color: ${getThemeColor('background-element-6')};
+        background-color: ${getThemeColor('background-element-5')};
         transition: left 250ms ${controlAnimation};
       }
     `}
