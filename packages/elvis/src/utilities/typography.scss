@@ -41,9 +41,16 @@
       }
     }
     @if (str-index($label, 'text-')) {
-      .e-#{$label} b,
-      .e-#{$label} strong {
-        font-weight: 500;
+      .e-#{$label} {
+        b,
+        strong {
+          font-weight: 500;
+        }
+
+        em,
+        i {
+          font-style: italic;
+        }
       }
     }
   }
