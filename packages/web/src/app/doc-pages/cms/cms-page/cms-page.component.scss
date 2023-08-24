@@ -204,21 +204,6 @@ $pageIndentedMargin: 72px;
   }
 }
 
-.cms-paragraph {
-  code {
-    font-family: 'Red Hat Mono', Verdana, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: inherit;
-
-    background: var(--e-color-background-element-3);
-    color: var(--e-color-text-1);
-    border-radius: 4px;
-    padding: 0 2px;
-  }
-}
-
 .cms-landing-page {
   text-align: center;
   &__img {
