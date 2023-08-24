@@ -41,6 +41,33 @@ describe('Elvis DatepickerRange', () => {
     });
   });
 
+  describe('with time picker + errorOptions', () => {
+    beforeEach(() => {
+      render(
+        <DatepickerRange
+          hasTimepickers
+          errorOptions={{
+            start: {
+              text: 'error start',
+              isErrorState: true,
+            },
+            end: {
+              text: 'error end',
+              isErrorState: true,
+            },
+          }}
+        />,
+      );
+    });
+
+    it('the date pickers _and_ time pickers should all become invalid', () => {
+      const pickers = screen.getAllByRole('textbox');
+      pickers.forEach((picker) => {
+        expect(picker).toHaveAttribute('aria-invalid', 'true');
+      });
+    });
+  });
+
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       render(<DatepickerRange className="testclass" inlineStyle={{ paddingTop: '24px' }}></DatepickerRange>);
