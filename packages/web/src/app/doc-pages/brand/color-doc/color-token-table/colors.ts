@@ -157,7 +157,7 @@ export const backgroundColorsDefault = [
   },
   {
     token: 'background-3',
-    role: `Background color option 3 (Large dark surface background - e.g. the Elvia curve). NB! This background also inverts all components inside the element (in light theme) to function as desired on the dark background.`,
+    role: `Large dark surface background (e.g. the Elvia curve and footer). NB! This background also inverts all components inside the element (in light theme) to function as desired on the dark background.`,
     light: { hex: getColor('background-3', 'light'), label: 'Grey' },
     dark: { hex: getColor('background-3', 'dark'), label: 'Dark-grey' },
   },
