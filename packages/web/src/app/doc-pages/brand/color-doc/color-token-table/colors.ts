@@ -56,6 +56,7 @@ interface Color<
 interface TableColor<TToken extends ColorTableLabels> {
   token: TToken;
   role?: string;
+  warning?: string;
   light: Color<Capitalize<LightThemeColorName> | 'Black/white' | 'Signal'>;
   dark: Color<`Dark-${DarkThemeColorName}` | 'Transparent' | 'Dark-black/ dark-white' | 'Dark-signal'>;
   links?: ReadonlyArray<Link>;
@@ -155,6 +156,13 @@ export const backgroundColorsDefault = [
     light: { hex: getColor('background-2', 'light'), label: 'Grey-02' },
     dark: { hex: getColor('background-2', 'dark'), label: 'Dark-grey' },
   },
+  {
+    token: 'background-3',
+    role: `Large dark surface background (e.g. the Elvia curve and footer).`,
+    warning: `The background class also inverts all components inside the element (in light theme) to function as desired on the dark background.`,
+    light: { hex: getColor('background-3', 'light'), label: 'Grey' },
+    dark: { hex: getColor('background-3', 'dark'), label: 'Dark-grey-70' },
+  },
 ] as const satisfies TableColorArray<BackgroundLabels>;
 
 export const backgroundColorsElement = [
@@ -186,22 +194,16 @@ export const backgroundColorsElement = [
   },
   {
     token: 'background-element-4',
-    role: 'Element background color option 4 (Large surface background - e.g. the Elvia curve',
-    light: { hex: getColor('background-element-4', 'light'), label: 'Grey' },
-    dark: { hex: getColor('background-element-4', 'dark'), label: 'Dark-grey' },
+    role: 'Element background color option 4',
+    light: { hex: getColor('background-element-4', 'light'), label: 'White' },
+    dark: { hex: getColor('background-element-4', 'dark'), label: 'Dark-grey-70' },
+    links: [{ title: 'Box', path: '/components/box' }],
   },
   {
     token: 'background-element-5',
     role: 'Element background color option 5',
-    light: { hex: getColor('background-element-5', 'light'), label: 'White' },
-    dark: { hex: getColor('background-element-5', 'dark'), label: 'Dark-grey-70' },
-    links: [{ title: 'Box', path: '/components/box' }],
-  },
-  {
-    token: 'background-element-6',
-    role: 'Element background color option 6',
-    light: { hex: getColor('background-element-6', 'light'), label: 'Black' },
-    dark: { hex: getColor('background-element-6', 'dark'), label: 'Dark-white' },
+    light: { hex: getColor('background-element-5', 'light'), label: 'Black' },
+    dark: { hex: getColor('background-element-5', 'dark'), label: 'Dark-white' },
     links: [
       { title: 'Button', path: '/components/button' },
       { title: 'Badge', path: '/components/badge' },

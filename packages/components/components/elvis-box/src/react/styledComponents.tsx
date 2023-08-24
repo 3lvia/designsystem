@@ -42,7 +42,7 @@ export const BoxContent = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   border: 2px solid ${getThemeColor('border-5')};
-  background: ${getThemeColor('background-element-5')};
+  background: ${getThemeColor('background-element-4')};
   text-align: left;
   color: ${getThemeColor('text-1')};
   padding: 40px;

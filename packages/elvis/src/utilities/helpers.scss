@@ -45,10 +45,14 @@
   }
 }
 
-@mixin custom-dark-theme-tokens($component) {
+@mixin custom-dark-theme-tokens($component: -1) {
   .e-theme-dark &,
-  .e-color-background-element-4 &,
-  &.e-#{$component}--inverted {
+  .e-color-background-3 & {
     @content;
+  }
+  @if $component != -1 {
+    &.e-#{$component}--inverted {
+      @content;
+    }
   }
 }

@@ -158,6 +158,10 @@ export const lightTheme = {
       hex: lightThemeColors['grey-colors']['grey-02'].color,
       contrast: lightThemeColors['grey-colors']['grey-02'].contrastText,
     },
+    'background-3': {
+      hex: lightThemeColors['primary-colors']['grey'].color,
+      contrast: lightThemeColors['primary-colors']['grey'].contrastText,
+    },
     'background-element-1': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,
@@ -171,14 +175,10 @@ export const lightTheme = {
       contrast: lightThemeColors['grey-colors']['grey-10'].contrastText,
     },
     'background-element-4': {
-      hex: lightThemeColors['primary-colors']['grey'].color,
-      contrast: lightThemeColors['primary-colors']['grey'].contrastText,
-    },
-    'background-element-5': {
       hex: lightThemeColors['primary-colors']['white'].color,
       contrast: lightThemeColors['primary-colors']['white'].contrastText,
     },
-    'background-element-6': {
+    'background-element-5': {
       hex: lightThemeColors['primary-colors']['black'].color,
       contrast: lightThemeColors['primary-colors']['black'].contrastText,
     },

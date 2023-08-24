@@ -138,6 +138,10 @@ export const darkTheme = {
       hex: darkThemeColors['primary-colors']['grey'].color,
       contrast: darkThemeColors['primary-colors']['grey'].contrastText,
     },
+    'background-3': {
+      hex: darkThemeColors['grey-colors']['grey-70'].color,
+      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
+    },
     'background-element-1': {
       hex: 'transparent',
     },
@@ -154,10 +158,6 @@ export const darkTheme = {
       contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
     },
     'background-element-5': {
-      hex: darkThemeColors['grey-colors']['grey-70'].color,
-      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
-    },
-    'background-element-6': {
       hex: darkThemeColors['primary-colors']['white'].color,
       contrast: darkThemeColors['primary-colors']['white'].contrastText,
     },

@@ -185,7 +185,7 @@ export const CardHoverArrow = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: ${getThemeColor('background-element-5')};
+  background: ${getThemeColor('background-element-4')};
   opacity: 0;
   ${CardArea}:hover & {
     animation: ${CardHoverArrowHoverKeyframe} 300ms ease forwards;

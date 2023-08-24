@@ -39,7 +39,7 @@ const generateElvisColorsCss = async () => {
   fileContent += `.e-theme-light,\n:root {\n`;
   Object.entries(lightVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
-  fileContent += `.e-theme-dark, .e-color-background-element-4, [class*='e-'][class*="--inverted"] {\n`;
+  fileContent += `.e-theme-dark, .e-color-background-3, [class*='e-'][class*="--inverted"] {\n`;
   Object.entries(darkVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
 

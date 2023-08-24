@@ -34,7 +34,7 @@ const removeDefaultStyles = css`
 `;
 
 const defaultThumb = css`
-  background-color: ${getThemeColor('color-background-element-6')};
+  background-color: ${getThemeColor('color-background-element-5')};
   border-radius: 50%;
   border: solid 1.5px ${getThemeColor('color-border-1')};
   cursor: pointer;

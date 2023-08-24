@@ -242,7 +242,7 @@
 				"e-btn---disabled": {}
 			}
 		},
-		"e-color-background-element-4": {},
+		"e-color-background-3": {},
 		"e-button": {
 			"modifier": {
 				"e-button--inverted": {}
@@ -1102,8 +1102,8 @@
 		"e-color-background-element-1": {},
 		"e-color-background-element-2": {},
 		"e-color-background-element-3": {},
+		"e-color-background-element-4": {},
 		"e-color-background-element-5": {},
-		"e-color-background-element-6": {},
 		"e-color-background-overlay-1": {},
 		"e-color-background-overlay-2": {},
 		"e-color-background-overlay-3": {},
@@ -1378,7 +1378,7 @@
 		"e-outline": {},
 		"e-btn": {},
 		"e-btn--primary": {},
-		"e-color-background-element-4": {},
+		"e-color-background-3": {},
 		"e-button--inverted": {},
 		"e-btn--secondary": {},
 		"e-btn--tertiary": {},
@@ -2054,8 +2054,8 @@
 		"e-color-background-element-1": {},
 		"e-color-background-element-2": {},
 		"e-color-background-element-3": {},
+		"e-color-background-element-4": {},
 		"e-color-background-element-5": {},
-		"e-color-background-element-6": {},
 		"e-color-background-overlay-1": {},
 		"e-color-background-overlay-2": {},
 		"e-color-background-overlay-3": {},

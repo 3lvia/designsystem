@@ -8,7 +8,7 @@
 - `text-3` -> `text-placeholder-1`
 - `signal-red` now has contrast color white instead of black
 - Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
-- `background-element-4` uses dark `grey-70` instead of dark `grey`.
+- `background-3` uses dark `grey-70` instead of dark `grey`.
 - Reworked icon tokens.
 - Renamed `signal-success` -> `signal-positive`
 - Renamed `signal-error` -> `signal-danger`
@@ -16,9 +16,8 @@
 ### New feature
 
 - Building CSS variables and classes for tokens.
-- Added support so that all `e-*--inverted` classes and the token `e-color-background-element-4` gives dark
-  theme.
-- Added new theme color label: `brand-accent`, `background-element-6`, `text-3`, `text-4`
+- Added support so that all `e-*--inverted` classes and the token `e-color-background-3` gives dark theme.
+- Added new theme color label: `brand-accent`, `background-element-5`, `text-3`, `text-4`
 - `getThemeColor` now return the inverted (dark theme) colors if `opts` `isInverted` is supplied and true.
 
 ## 2.7.1 (07.06.23)
@@ -70,7 +69,7 @@
 
 ### New feature
 
-- Added new theme color label: `background-element-5`.
+- Added new theme color label: `background-element-4`.
 
 ## 2.0.0 (25.04.23)
 

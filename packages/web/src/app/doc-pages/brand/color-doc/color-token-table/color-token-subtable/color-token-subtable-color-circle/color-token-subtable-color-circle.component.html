@@ -1,8 +1,7 @@
 <div
   *ngIf="colorType === 'default'"
-  class="circle"
+  class="circle border"
   [ngClass]="{
-    border: this.hex === '#FFFFFF' || this.hex === 'transparent',
     transparent: this.hex === 'transparent'
   }"
   [style]="{ backgroundColor: this.hex }"
