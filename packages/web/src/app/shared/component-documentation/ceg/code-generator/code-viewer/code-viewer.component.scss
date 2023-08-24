@@ -33,8 +33,12 @@
   font-family: 'Red Hat Mono', Verdana, sans-serif;
   font-size: 0.875rem;
   background: unset;
+  color: var(--e-color-text-3);
   border-radius: unset;
   padding: inherit;
+  width: unset;
+  line-height: inherit;
+  width: fit-content;
 }
 
 .overflow-container {
