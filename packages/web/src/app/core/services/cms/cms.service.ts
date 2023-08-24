@@ -187,6 +187,10 @@ export class CMSService {
           return 'icon';
         case 'colors':
           return 'color';
+        case 'tab':
+          return 'tabs';
+        case 'drag-&-drop':
+          return 'drag-and-drop';
 
         default:
           return oldName;
@@ -216,6 +220,7 @@ export class CMSService {
     const patternIcons = getIconsFromCards(await this.getEntry('QrmvWlsXBXEwIBZUaJLcg'));
 
     const pageIcons = { ...componentIcons, ...brandIcons, ...patternIcons };
+    console.log(pageIcons);
     return pageIcons;
   }
 
