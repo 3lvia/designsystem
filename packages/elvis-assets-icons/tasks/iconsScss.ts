@@ -47,7 +47,7 @@ const iconClassToThemeColor = {
     'stroke-1': 'text-disabled-1',
     'filled-background-1': 'text-disabled-1',
   },
-  ['disabled-1']: {
+  'disabled-1': {
     'stroke-1': 'text-disabled-1',
     'filled-background-1': 'text-disabled-1',
   },
@@ -55,7 +55,7 @@ const iconClassToThemeColor = {
     'stroke-1': 'text-disabled-2',
     'filled-background-1': 'text-disabled-2',
   },
-  ['disabled-2']: {
+  'disabled-2': {
     'stroke-1': 'text-disabled-2',
     'filled-background-1': 'text-disabled-2',
   },
