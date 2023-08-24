@@ -10,7 +10,7 @@ type StatusToIconMap = {
 };
 
 export const statusToIconMap: StatusToIconMap = {
-  error: { icon: removeCircle, color: 'icon-error' },
+  error: { icon: removeCircle, color: 'icon-danger' },
   warning: { icon: warningCircle, color: 'icon-warning' },
   info: { icon: informationCircle },
   informative: { icon: informationCircle }, // Make it possible to set status as either 'info' or 'informative'

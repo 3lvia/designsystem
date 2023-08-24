@@ -1,4 +1,3 @@
-@use '../variables/colors';
 @use '../utilities/helpers';
 
 .e-content-loader {
@@ -21,14 +20,8 @@
     height: 100%;
     border-radius: 16px;
     animation: wave 1s infinite alternate;
-    background: colors.color('grey-10');
+    background-color: var(--e-color-background-element-3);
     content: '';
-  }
-
-  &.e-content-loader--inverted {
-    &::after {
-      background: colors.color('grey-90');
-    }
   }
 
   &.e-content-loader--circle {

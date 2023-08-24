@@ -41,7 +41,6 @@ export const ImageContainer = styled.div<{ thumbnail?: boolean }>`
   flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
-  background-color: ${getThemeColor('background-element-2')};
   grid-column: 1 / 1;
   grid-row: 1 / -1;
   aspect-ratio: 1;

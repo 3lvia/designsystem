@@ -2,7 +2,7 @@
   <div
     class="component-example-container"
     #componentContainer
-    [ngClass]="{ 'e-bg-grey': inverted, 'ceg-non-interactive': nonInteractive }"
+    [ngClass]="{ 'ceg-non-interactive': nonInteractive }"
   >
     <app-phone-shell *ngIf="phoneExample; else desktopExample">
       <ng-container *ngTemplateOutlet="content"></ng-container>

@@ -11,5 +11,6 @@ export const config: ComponentConfig = {
     { name: 'navItems', type: 'string' },
     { name: 'pageTitle', type: 'string' },
     { name: 'username', type: 'string' },
+    { name: 'hideThemeSwitch', type: 'boolean' },
   ],
 };

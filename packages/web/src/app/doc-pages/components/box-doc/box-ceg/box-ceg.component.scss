@@ -2,8 +2,8 @@
 
 div {
   @include typography.typography('text-caps');
-  border: 2px dashed var(--e-grey-40);
-  color: var(--e-grey-40);
+  border: 2px dashed var(--e-color-border-3);
+  color: var(--e-color-text-2);
   display: grid;
   min-height: 100px;
   min-width: 100px;

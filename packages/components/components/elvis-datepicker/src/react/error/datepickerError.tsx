@@ -21,7 +21,7 @@ export const DatepickerError: React.FC<Props> = ({ errorText, customText }) => {
 
   return (
     <FormFieldErrorContainer>
-      <IconWrapper icon={removeCircle} color="icon-error" size="xs" />
+      <IconWrapper icon={removeCircle} color="icon-danger" size="xs" />
       <FormFieldError data-testid="error">{text}</FormFieldError>
     </FormFieldErrorContainer>
   );

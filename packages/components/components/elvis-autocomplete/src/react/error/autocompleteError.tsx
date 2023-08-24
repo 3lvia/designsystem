@@ -26,7 +26,7 @@ export const AutocompleteError: React.FC<Props> = ({ errorType, errorOptions, id
 
   return (
     <FormFieldErrorContainer>
-      <IconWrapper icon={removeCircle} color="icon-error" size="xs" />
+      <IconWrapper icon={removeCircle} color="icon-danger" size="xs" />
       <FormFieldError id={id}>{errorText}</FormFieldError>
     </FormFieldErrorContainer>
   );

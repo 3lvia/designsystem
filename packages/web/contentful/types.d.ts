@@ -294,6 +294,9 @@ export interface IOverviewCardFields {
   /** Page icon */
   pageIcon: LocalizedField<Asset>;
 
+  /** Page icon (dark theme) */
+  pageIconDarkTheme?: LocalizedField<Asset> | undefined;
+
   /** Title */
   title: LocalizedField<string>;
 

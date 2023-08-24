@@ -1,6 +1,5 @@
-import React, { FC, useRef } from 'react';
-import { SpotlightArea, SpotlightCircle, SpotlightRect } from './styledComponents';
-import { useCurrentTheme } from '@elvia/elvis-toolbox';
+import React, { FC } from 'react';
+import { SpotlightArea, SpotlightCircle, SpotlightMask, SpotlightRect } from './styledComponents';
 
 import { useLockBodyScroll } from './useLockBodyScroll';
 import { SpotlightProps } from './elvia-spotlight.types';
@@ -17,12 +16,10 @@ const Spotlight: FC<SpotlightProps> = ({
   ...rest
 }) => {
   const hasPosition = position && position.horizontal !== undefined && position.vertical !== undefined;
-  const spotlightDivRef = useRef<HTMLDivElement>(null);
-  const { currentTheme } = useCurrentTheme(spotlightDivRef);
   useLockBodyScroll(hasLockBodyScroll);
 
   return hasPosition ? (
-    <div className={className} style={inlineStyle} {...rest} ref={spotlightDivRef}>
+    <div className={className} style={inlineStyle} {...rest}>
       <SpotlightArea>
         <defs>
           <mask id="hole">
@@ -49,12 +46,7 @@ const Spotlight: FC<SpotlightProps> = ({
             )}
           </mask>
         </defs>
-        <rect
-          fill={`rgba(0,0,0,${currentTheme === 'light' ? 0.25 : 0.5})`}
-          width="100%"
-          height="100%"
-          mask="url(#hole)"
-        />
+        <SpotlightMask mask="url(#hole)" />
       </SpotlightArea>
     </div>
   ) : (

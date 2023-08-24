@@ -144,7 +144,7 @@ export const CarouselDot = styled.button<CarouselDotProps>`
 
   border-radius: 50%;
   background-color: ${({ isSelected }) =>
-    getThemeColor(isSelected ? 'background-selected-1' : 'background-1')};
+    getThemeColor(isSelected ? 'background-selected-1' : 'background-element-1')};
   margin: ${({ isSelected }) => (isSelected ? '7.5px' : '8px')};
   cursor: pointer;
   padding: 0;

@@ -21,45 +21,77 @@ const makeDistFolder = async () => {
   return true;
 };
 
-const generateElviaColorsThemeVariablesScss = async () => {
+const generateElvisColorsCss = async () => {
+  const purposeClasses = getPurposeColorClasses();
   const rootVariables = {
-    ...getBaseColors(lightThemeColors, 'light'),
-    ...getBaseColors(darkThemeColors, 'dark'),
+    ...getBaseColorCssVariables(lightThemeColors, 'light'),
+    ...getBaseColorCssVariables(darkThemeColors, 'dark'),
   };
-  const lightVariables = getThemedCssVariables(lightTheme);
-  const darkVariables = getThemedCssVariables(darkTheme);
+  const lightVariables = getPurposeColorCssVariables(lightTheme);
+  const darkVariables = getPurposeColorCssVariables(darkTheme);
 
   let fileContent = WARNING;
 
+  fileContent += purposeClasses + `\n`;
   fileContent += `:root {\n`;
   Object.entries(rootVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
   fileContent += `.e-theme-light,\n:root {\n`;
   Object.entries(lightVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
-  fileContent += `.e-theme-light {\n\tbackground: var(--e-color-background-1);\n`;
-  fileContent += `\tcolor: var(--e-color-text-1);\n}\n`;
-  fileContent += `.e-theme-dark {\n`;
+  fileContent += `.e-theme-dark, .e-color-background-3, [class*='e-'][class*="--inverted"] {\n`;
   Object.entries(darkVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
-  fileContent += `\tbackground: var(--e-color-background-1);\n`;
-  fileContent += `\tcolor: var(--e-color-text-1);\n`;
   fileContent += `}\n`;
 
-  fs.writeFileSync('./dist/themeVariables.scss', fileContent);
+  fs.writeFileSync('./dist/elvisColors.scss', fileContent);
   return true;
 };
 
-const getBaseColors = (colors: BaseColors, theme: ThemeName): Record<string, string> => {
-  const variables: Record<string, string> = {};
-  Object.values(colors).forEach((category) =>
-    Object.keys(category).forEach(
-      (color) => (variables[`--e-theme-${theme}-${color}`] = category[color].color),
-    ),
+const getPurposeColorClasses = (): string => {
+  let colorClasses = '';
+  Object.values(lightTheme).forEach((category: Record<string, Color>) =>
+    Object.entries(category).forEach(([label]) => {
+      if (
+        label.includes('icon') ||
+        label.includes('signal') ||
+        label.includes('data') ||
+        label.includes('static') ||
+        label.includes('border')
+      ) {
+        return;
+      }
+      if (label.includes('background')) {
+        colorClasses += `.e-color-${label} {\n`;
+        colorClasses += `\tbackground: var(--e-color-${label}) !important;\n`;
+        colorClasses += `\tcolor: var(--e-color-${label}--contrast) !important;\n}\n`;
+      } else if (label.includes('text')) {
+        colorClasses += `.e-color-${label} {`;
+        colorClasses += `color: var(--e-color-${label}) !important;}\n`;
+      }
+    }),
   );
+  return colorClasses;
+};
+
+const getBaseColorCssVariables = (colors: BaseColors, theme: ThemeName): Record<string, string> => {
+  const variables: Record<string, string> = {};
+  Object.values(colors).forEach((category) => {
+    if (theme === 'light') {
+      Object.keys(category).forEach((color) => {
+        variables[`--e-light-theme-${color}`] = category[color].color;
+        variables[`--e-light-theme-${color}--contrast`] = category[color].contrastText;
+      });
+    } else {
+      Object.keys(category).forEach((color) => {
+        variables[`--e-dark-theme-${color}`] = category[color].color;
+        variables[`--e-dark-theme-${color}--contrast`] = category[color].contrastText;
+      });
+    }
+  });
   return variables;
 };
 
-const getThemedCssVariables = (theme: Theme) => {
+const getPurposeColorCssVariables = (theme: Theme) => {
   const variables: Record<string, string> = {};
   Object.values(theme).forEach((category: Record<string, Color>) =>
     Object.entries(category).forEach(([label, color]) => {
@@ -86,15 +118,9 @@ const generateElvisShadowMapScss = async () => {
 
 gulp.task(
   'default',
-  gulp.series(
-    makeDistFolder,
-    cleanup,
-    generateElvisShadowMapScss,
-    generateElviaColorsThemeVariablesScss,
-    function (done) {
-      /* eslint-disable-next-line no-console*/
-      console.log('Elvis-colors - Successfully built Elvis-colors! ');
-      done();
-    },
-  ),
+  gulp.series(makeDistFolder, cleanup, generateElvisShadowMapScss, generateElvisColorsCss, function (done) {
+    /* eslint-disable-next-line no-console*/
+    console.log('Elvis-colors - Successfully built Elvis-colors! ');
+    done();
+  }),
 );

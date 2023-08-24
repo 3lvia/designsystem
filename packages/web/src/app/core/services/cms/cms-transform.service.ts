@@ -19,6 +19,9 @@ import {
 import { CMSSubMenu, TransformedDocPage } from './cms.interface';
 import { CMSTransformErrorsService } from './cms-transform-errors.service';
 import { extractLocale } from './extractLocale';
+import { ThemeService } from '../theme.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeName } from '@elvia/elvis-colors';
 
 /**
  * This class transforms an entry from Contentful to an object containing all the needed information to be shown on design.elvia.io by the Angular cms-page.component.
@@ -32,6 +35,7 @@ import { extractLocale } from './extractLocale';
 })
 export class CMSTransformService {
   private locale: LOCALE_CODE = 'en-GB'; // Fallback
+  private currentTheme: ThemeName = 'light';
   private subMenu: CMSSubMenu[];
   private options: Options = {
     renderMark: {
@@ -56,7 +60,18 @@ export class CMSTransformService {
   private extractLocale = <T extends Parameters<typeof extractLocale>[0]>(data: T) =>
     extractLocale(data, this.locale);
 
-  constructor(private router: Router, private cmsTransformErrorsService: CMSTransformErrorsService) {}
+  constructor(
+    private router: Router,
+    private cmsTransformErrorsService: CMSTransformErrorsService,
+    private themeService: ThemeService,
+  ) {
+    this.themeService
+      .listenTheme()
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme) => {
+        this.currentTheme = theme;
+      });
+  }
 
   /**
    * Transforms a documentation page entry from Contentful to an object containing all the needed information to be shown on design.elvia.io by the Angular cms-page.component.
@@ -417,6 +432,7 @@ export class CMSTransformService {
       <div>
         <img
           class='
+            theme-image-padding
             ${inGrid ? 'e-br-8' : ''}
             ${hasInlineText ? 'cms-image-inline' : ''} 
             align-${imgAlignment}
@@ -497,7 +513,7 @@ export class CMSTransformService {
         <a role="button" id="download-content-${assetName}">
           <button class="e-btn e-btn--tertiary ${inverted ? 'e-btn--inverted' : ''}">
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--download ${inverted ? 'e-icon--inverted' : ''}" aria-hidden="true"></i>
+              <i class="e-icon e-icon--download" aria-hidden="true"></i>
             </span>
             <span class="e-btn__title">${fileType}</span>
           </button>
@@ -567,9 +583,13 @@ export class CMSTransformService {
         returnString += '<div class="col-sm-6 col-md-4">' + this.getImage(element, true) + '</div>';
       });
     }
-    return `<div class="e-grid e-px-24 e-br-8 ${
-      background === 'Dark' ? 'e-bg-grey' : background === 'Grey' ? 'e-bg-grey-05' : ''
-    } " style="margin-top: 12px; margin-bottom: 12px">
+    return `<div class="e-grid e-px-24 e-br-8 ${background === 'Dark' ? '' : 'e-theme-light'}" style="${
+      background === 'Dark'
+        ? 'background: var(--e-light-theme-grey); color: var(--e-light-theme-grey--contrast);'
+        : background === 'Grey'
+        ? 'background: var(--e-light-theme-grey-05); color: var(--e-light-theme-grey-05--contrast);'
+        : 'background: var(--e-light-theme-white); color: var(--e-light-theme-white--contrast);'
+    } margin-top: 12px; margin-bottom: 12px">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       ${returnString}
     </div>
@@ -657,8 +677,12 @@ export class CMSTransformService {
           `The card "${card.fields.title}" is missing page URL reference.`,
         );
       }
-      const iconUrl =
+      let iconUrl =
         'https:' + this.extractLocale(this.extractLocale(card.fields.pageIcon!)!.fields.file)?.url;
+      if (this.currentTheme === 'dark' && card.fields.pageIconDarkTheme) {
+        iconUrl =
+          'https:' + this.extractLocale(this.extractLocale(card.fields.pageIconDarkTheme!)!.fields.file)?.url;
+      }
       const cardTitle = this.extractLocale(card.fields.title);
       returnString += `<div>
       <a href="${fullPath}">

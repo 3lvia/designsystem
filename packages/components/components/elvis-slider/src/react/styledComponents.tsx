@@ -34,9 +34,9 @@ const removeDefaultStyles = css`
 `;
 
 const defaultThumb = css`
-  background-color: ${getThemeColor('color-text-1')};
+  background-color: ${getThemeColor('color-background-element-5')};
   border-radius: 50%;
-  border: solid 1.5px ${getThemeColor('color-background-1')};
+  border: solid 1.5px ${getThemeColor('color-border-1')};
   cursor: pointer;
   height: 16px;
   opacity: 1;
@@ -48,7 +48,7 @@ const defaultThumb = css`
   z-index: 3;
 
   @media (hover: none) and (pointer: coarse) {
-    border: solid 2px ${getThemeColor('color-background-1')};
+    border: solid 2px ${getThemeColor('color-border-1')};
     height: 24px;
     width: 24px;
   }
@@ -77,8 +77,8 @@ const hoverThumb = css`
 
 const disabledThumb = css`
   opacity: 1;
-  background-color: ${getThemeColor('color-text-disabled-1')};
-  border: solid 1.5px ${getThemeColor('color-background-1')};
+  background-color: ${getThemeColor('color-background-disabled-2')};
+  border: solid 1.5px ${getThemeColor('color-border-disabled-1')};
   cursor: not-allowed;
 `;
 
@@ -269,6 +269,10 @@ type SliderWrapperProps = {
   isDisabled: boolean;
 };
 
+type SliderTrackProps = {
+  isDisabled: boolean;
+};
+
 export const SliderWrapper = styled.div<SliderWrapperProps>`
   align-items: center;
   display: flex;
@@ -297,8 +301,9 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
   }
 `;
 
-export const SliderTrack = styled.div`
-  background-color: ${getBaseColor('grey-20')};
+export const SliderTrack = styled.div<SliderTrackProps>`
+  background-color: ${({ isDisabled }) =>
+    isDisabled ? getThemeColor('color-border-disabled-1') : getBaseColor('grey-20')};
   border-radius: 50px;
   height: 3px;
   position: absolute;
@@ -306,7 +311,8 @@ export const SliderTrack = styled.div`
   z-index: 1;
 
   .e-theme-dark && {
-    background-color: ${getBaseColor('grey-20', 'dark')};
+    background-color: ${({ isDisabled }) =>
+      isDisabled ? getThemeColor('color-border-disabled-1') : getBaseColor('grey-20', 'dark')};
   }
 `;
 

@@ -17,6 +17,6 @@ export const ToastIcon: React.FC<Props> = ({ toast }) => {
   } else if (toast.status === 'informative') {
     return <IconWrapper icon={informationCircle} color={'text-1'} size="sm" />;
   } else {
-    return <IconWrapper icon={checkCircle} color={'icon-success'} size="sm" />;
+    return <IconWrapper icon={checkCircle} color={'icon-positive'} size="sm" />;
   }
 };

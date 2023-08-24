@@ -52,7 +52,7 @@ $maxIconContainerMobile: 450px;
     margin-top: 24px;
     padding: 8px;
     border-radius: 8px;
-    border: 1px solid var(--e-grey-10);
+    border: 1px solid var(--e-color-border-2);
     @include breakpoints.breakpoint-up(Mobile) {
       min-height: $maxIconContainerMobile;
       max-height: $maxIconContainerMobile;
@@ -63,11 +63,7 @@ $maxIconContainerMobile: 450px;
       width: 100%;
       height: 35px;
       background-color: transparent;
-      box-shadow: inset 0px -20px 35px 0px var(--e-white);
-
-      &.bottom-blur--inverted {
-        box-shadow: inset 0px -20px 35px 0px var(--e-grey);
-      }
+      box-shadow: inset 0px -20px 35px 0px var(--e-color-background-1);
     }
 
     .desktop-copy {
@@ -136,7 +132,7 @@ $maxIconContainerMobile: 450px;
         transform: scale(1.15);
       }
       &.selected {
-        border: 1px solid var(--e-green);
+        border: 1px solid var(--e-color-border-selected-1);
       }
     }
   }
@@ -164,7 +160,7 @@ $maxIconContainerMobile: 450px;
     }
     .e-alert {
       box-shadow: var(--e-shadow-3);
-      border: 1px solid #000000;
+      border: 1px solid var(--e-color-border-1);
       &__icon {
         justify-content: center;
         align-items: center;
@@ -248,7 +244,7 @@ $maxIconContainerMobile: 450px;
 .doDontDivider {
   height: auto;
   width: 2px;
-  background: var(--e-grey-10);
+  background: var(--e-color-border-2);
   margin: 0 52px;
   border-radius: 25px;
   @include breakpoints.breakpoint-up(MinDesktop) {

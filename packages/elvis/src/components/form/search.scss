@@ -1,4 +1,3 @@
-@use '../../variables/colors';
 @use '../../utilities/icons';
 @use '../../variables/typography.scss';
 
@@ -212,7 +211,7 @@
         }
 
         input:disabled::placeholder {
-          color: colors.color('grey-30') !important; //override ".e-input > input::placeholder"
+          color: var(--e-color-text-disabled-1) !important; //override ".e-input > input::placeholder"
         }
       }
     }

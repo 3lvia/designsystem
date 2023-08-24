@@ -132,11 +132,11 @@ const getStepNumberBorderColor = ({ isActive, isError, isDisabled }: StepNumberP
   if (isActive) {
     return getThemeColor('border-selected-1');
   } else if (isError) {
-    return getThemeColor('signal-error');
+    return getThemeColor('signal-danger');
   } else if (isDisabled) {
     return getThemeColor('border-disabled-1');
   } else {
-    return getThemeColor('icon-stroke');
+    return getThemeColor('icon-stroke-1');
   }
 };
 
@@ -153,7 +153,7 @@ export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProp
   ${({ isCompleted }) =>
     isCompleted &&
     css`
-      background-color: ${getThemeColor('icon-filled-background')};
+      background-color: ${getThemeColor('icon-filled-background-1')};
       position: relative;
       color: transparent;
       &::before {
@@ -164,7 +164,7 @@ export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProp
         height: 8px;
         border-radius: 15px;
         content: '';
-        background-color: ${getThemeColor('icon-filled-foreground')};
+        background-color: ${getThemeColor('icon-filled-foreground-1')};
         transform: translateX(10px) rotate(-43deg);
         transform-origin: left bottom;
       }
@@ -177,7 +177,7 @@ export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProp
         height: 15px;
         border-radius: 15px;
         content: '';
-        background-color: ${getThemeColor('icon-filled-foreground')};
+        background-color: ${getThemeColor('icon-filled-foreground-1')};
         transform: translateX(10px) rotate(43deg);
         transform-origin: left bottom;
       }

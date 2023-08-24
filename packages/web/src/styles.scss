@@ -7,9 +7,6 @@
 /* Elvia Styleguide */
 @use '@elvia/elvis/src/main.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
-// TODO: This will be moved to elvis
-@use '@elvia/elvis-colors/dist/themeVariables' as ThemeVariables;
-
 @use './typography.scss';
 
 // Prebuilt css for enabling use of overlays from @angular/cdk
@@ -17,8 +14,8 @@
 
 // Normalizer for website
 ::selection {
-  background: var(--e-green);
-  color: var(--e-black);
+  background: var(--e-color-brand-accent);
+  color: var(--e-color-brand-accent--contrast);
 }
 
 html {
@@ -36,6 +33,12 @@ app-root {
   display: flex;
   flex-direction: column;
   min-height: inherit;
+}
+
+.theme-image-padding {
+  background: var(--e-light-theme-white);
+  padding: 16px;
+  border-radius: 8px;
 }
 
 .accessibility-keyboard-navigation {
@@ -84,11 +87,11 @@ app-root {
 
     .sub-title {
       width: 50%;
-      color: black;
+      color: var(--e-color-text-1);
     }
     .sub-content {
       width: 50%;
-      color: #000;
+      color: var(--e-color-text-1);
     }
 
     &-circle {
@@ -126,7 +129,7 @@ app-root {
     }
 
     &-sub-title {
-      color: var(--e-grey-80);
+      color: var(--e-color-text-2);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -135,7 +138,7 @@ app-root {
         padding-top: 26px;
       }
       width: 100%;
-      border-bottom: 1px solid var(--e-grey-10);
+      border-bottom: 1px solid var(--e-color-border-2);
     }
 
     &-variable {

@@ -1,7 +1,7 @@
 import Badge from './elvia-badge';
 import React from 'react';
 import { axe } from 'jest-axe';
-import { getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
 
 describe('Elvis Badge', () => {
@@ -103,9 +103,9 @@ describe('Elvis Badge', () => {
       );
     });
 
-    it('should have a white text color', () => {
+    it('should have a red contrast text color', () => {
       const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`color: ${getThemeColor('static-white')}`);
+      expect(badgeCircle).toHaveStyle(`color: ${getThemeColorContrast('signal-danger')}`);
     });
   });
 
