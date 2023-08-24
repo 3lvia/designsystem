@@ -193,7 +193,7 @@ export class CMSService {
       }
     };
 
-    const getIconsFromCards = async (overviewPageWithCards: ILandingPageWithCards) => {
+    const getIconsFromCards = (overviewPageWithCards: ILandingPageWithCards) => {
       const cards = extractLocale(overviewPageWithCards.fields.overviewCard);
 
       if (!cards) {
@@ -211,8 +211,8 @@ export class CMSService {
       return icons;
     };
 
-    const componentIcons = await getIconsFromCards(await this.getEntry('3qbgNHF6InuWMxO1jdc9BR'));
-    const brandIcons = await getIconsFromCards(await this.getEntry('69x76GUs7dsCwA3IsfxLMG'));
+    const componentIcons = getIconsFromCards(await this.getEntry('3qbgNHF6InuWMxO1jdc9BR'));
+    const brandIcons = getIconsFromCards(await this.getEntry('69x76GUs7dsCwA3IsfxLMG'));
 
     const pageIcons = { ...componentIcons, ...brandIcons };
     return pageIcons;
