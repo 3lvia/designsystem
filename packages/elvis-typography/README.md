@@ -21,8 +21,8 @@ Remember to also import the correct typographies from the Google font api. If yo
 package you don't have to do this, because they are already imported there.
 
 ```scss
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,500i,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500,500i,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap');
 ```
 

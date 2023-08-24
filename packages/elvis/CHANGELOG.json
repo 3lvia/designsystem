@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "12.6.0",
+      "date": "August 24, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Using <code>i</code> and <code>em</code> elements inside our text-classes, will now give <code>font-style: italic</code>, to make it easier to use italic versions of our typography."
+          ],
+          "pages": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "12.5.0",
       "date": "August 17, 2023",
       "changelog": [
