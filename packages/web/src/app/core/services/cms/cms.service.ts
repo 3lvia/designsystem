@@ -174,7 +174,7 @@ export class CMSService {
    *
    * @returns Object where document url names are keys, and url to their icon are values.
    */
-  async getIcons() {
+  async getPageIcons() {
     const changeName = (oldName: string) => {
       switch (oldName) {
         case 'text-field':
