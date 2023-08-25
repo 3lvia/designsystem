@@ -687,11 +687,51 @@ export const docPagesPattern: DocPage[] = [
 ];
 
 // Accessibility
-export const docPageAccessibility: DocPage[] = [
+export const docPagesTools: DocPage[] = [
   {
     title: 'Accessibility',
     docUrl: Pages.Accessibility,
     absolutePath: '/tools/' + Pages.Accessibility,
+  },
+  {
+    title: 'Design Process',
+    docUrl: Pages.DesignProcess,
+    absolutePath: '/tools/' + Pages.DesignProcess,
+  },
+  {
+    title: 'Evaluation',
+    docUrl: Pages.Evaluation,
+    absolutePath: '/tools/' + Pages.Evaluation,
+  },
+  {
+    title: 'Icebreakers',
+    docUrl: Pages.Icebreakers,
+    absolutePath: '/tools/' + Pages.Icebreakers,
+  },
+  {
+    title: 'Ideation',
+    docUrl: Pages.Ideation,
+    absolutePath: '/tools/' + Pages.Ideation,
+  },
+  {
+    title: 'Personas',
+    docUrl: Pages.Personas,
+    absolutePath: '/tools/' + Pages.Personas,
+  },
+  {
+    title: 'Templates',
+    docUrl: Pages.Templates,
+    absolutePath: '/tools/' + Pages.Templates,
+  },
+  {
+    title: 'User Feedback',
+    docUrl: Pages.UserFeedback,
+    absolutePath: '/tools/' + Pages.UserFeedback,
+  },
+  {
+    title: 'Utility Classes',
+    docUrl: Pages.UtilityClasses,
+    absolutePath: '/tools/' + Pages.UtilityClasses,
   },
 ];
 
@@ -861,7 +901,7 @@ export function getDocPage(docUrl: DocPageName): DocPage | undefined {
     ...componentsDocPages,
     ...docPagesBrand,
     ...docPagesPattern,
-    ...docPageAccessibility,
+    ...docPagesTools,
   ];
   return allDocPages.find((component) => component.docUrl === docUrl);
 }

@@ -89,7 +89,16 @@ export enum Pages {
   Onboarding = 'onboarding',
   Validations = 'validations',
 
+  // Tool pages
   Accessibility = 'accessibility',
+  DesignProcess = 'design-process',
+  Evaluation = 'evaluation',
+  Icebreakers = 'icebreakers',
+  Ideation = 'ideation',
+  Personas = 'personas',
+  Templates = 'templates',
+  UserFeedback = 'user-feedback',
+  UtilityClasses = 'utility-classes',
 
   // Dev
   DevelopmentPlayground = 'playground',
