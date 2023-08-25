@@ -3,25 +3,14 @@
 
 .example-content {
   padding: 16px;
-  border: 1px solid var(--e-black);
-  background: var(--e-white);
+  border: 1px solid var(--e-color-border-1);
+  background: var(--e-color-background-element-1);
 }
 
-.ExampleSquare {
+.example-square {
   box-sizing: border-box;
-  border: 1px solid #262626;
+  border: 1px solid var(--e-color-border-1);
   border-radius: 8%;
-}
-
-.listContainer {
-  display: flex;
-  flex-direction: row;
-
-  .listExample {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
 }
 
 .display-card {
@@ -42,99 +31,6 @@
 
 .padding-example {
   width: 100%;
-}
-
-.exampleContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: flex-start;
-
-  .number {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 20px;
-    color: black;
-  }
-  .square {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-
-    &.relElem1 {
-      background: rgb(185, 2, 2, 0.32);
-      height: 8px;
-      width: 8px;
-    }
-    &.relElem2 {
-      background: rgb(185, 2, 2, 0.24);
-      height: 16px;
-      width: 16px;
-    }
-    &.relElem3 {
-      background: rgb(185, 2, 2, 0.16);
-      height: 24px;
-      width: 24px;
-    }
-    &.relElem4 {
-      background: rgb(185, 2, 2, 0.08);
-      height: 32px;
-      width: 32px;
-    }
-    &.UnElem1 {
-      background: rgb(0, 109, 219, 0.4);
-      height: 40px;
-      width: 40px;
-    }
-    &.UnElem2 {
-      background: rgb(0, 109, 219, 0.32);
-      height: 48px;
-      width: 48px;
-    }
-    &.UnElem3 {
-      background: rgb(0, 109, 219, 0.24);
-      height: 56px;
-      width: 56px;
-    }
-    &.UnElem4 {
-      background: rgb(0, 109, 219, 0.16);
-      height: 64px;
-      width: 64px;
-    }
-    &.UnElem5 {
-      background: rgb(0, 109, 219, 0.08);
-      height: 72px;
-      width: 72px;
-    }
-    &.UnSect1 {
-      background: rgb(33, 172, 4, 0.4);
-      height: 80px;
-      width: 80px;
-    }
-    &.UnSect2 {
-      background: rgb(33, 172, 4, 0.36);
-      height: 88px;
-      width: 88px;
-    }
-    &.UnSect3 {
-      background: rgb(33, 172, 4, 0.24);
-      height: 96px;
-      width: 96px;
-    }
-    &.UnSect4 {
-      background: rgb(33, 172, 4, 0.16);
-      height: 104px;
-      width: 104px;
-    }
-    &.UnSect5 {
-      background: rgb(33, 172, 4, 0.08);
-      height: 112px;
-      width: 112px;
-    }
-  }
 }
 
 @include breakpoints.breakpoint-up(Mobile) {
@@ -189,6 +85,28 @@
       justify-content: center;
       margin-right: 16px;
       @include typography.typography('title-caps');
+      &.gutter-color {
+        background: var(--e-color-data-3);
+        color: var(--e-color-data-3--contrast);
+      }
+      &.margin-color {
+        background: var(--e-color-data-5);
+        color: var(--e-color-data-5--contrast);
+      }
+      &.column-color {
+        background: var(--e-light-theme-grey-20);
+      }
     }
   }
+}
+
+.box-example {
+  width: 100%;
+  height: 80px;
+  border: 1px var(--e-color-border-3) dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--e-color-text-2);
+  font-size: 10px;
 }

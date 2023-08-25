@@ -1,12 +1,6 @@
 import data from '@elvia/elvis/.internal/classlist.json';
 import { DocPageName } from './shared.enum';
 
-export interface NavbarAnchor {
-  title: string;
-  top: number;
-  height: number;
-}
-
 export interface DocPage {
   title: string;
   titleNo?: string;
@@ -14,6 +8,8 @@ export interface DocPage {
   descriptionNo?: string;
   imageUrl?: string;
   imageUrlOn?: string;
+  imageUrlDark?: string;
+  imageUrlOnDark?: string;
   absolutePath?: string;
   fragmentPath?: string;
   docUrl?: string;

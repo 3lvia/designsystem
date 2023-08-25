@@ -35,7 +35,7 @@ export const ProgressLinearProgress = styled.div<ProgressLinearProgressProps>`
   height: ${({ currSize }) => (currSize === 'medium' ? '16px' : '8px')};
   margin-left: 0;
   background-color: ${({ isError }) =>
-    isError ? getThemeColor('signal-error') : getThemeColor('signal-success')};
+    isError ? getThemeColor('signal-danger') : getThemeColor('brand-accent')};
   transition: ${({ isIndeterminate, transitionDuration }) =>
     isIndeterminate ? 'none' : `width ${transitionDuration} ease-in;`};
   ${({ isIndeterminate, isError }) => decideProgressValue(isIndeterminate, isError)};

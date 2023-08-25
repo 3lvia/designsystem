@@ -4,7 +4,6 @@
     <elvia-tooltip content="Im a tooltip!" position="bottom">
       <router-link to="/" slot="trigger" class="e-btn e-btn--icon e-btn--sm" aria-label="Se mer info">
         <span class="e-btn__icon">
-          <i class="e-icon e-icon--cog e-icon--inverted" aria-hidden="true"></i>
           <i class="e-icon e-icon--cog" aria-hidden="true"></i>
         </span>
       </router-link>

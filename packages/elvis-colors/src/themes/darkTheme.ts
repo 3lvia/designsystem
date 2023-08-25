@@ -61,7 +61,7 @@ export const darkThemeColors = {
   },
   'grey-colors': {
     'grey-70': {
-      color: '#242424',
+      color: '#262626',
       contrastText: '#EDEDED',
     },
     'grey-60': {
@@ -109,8 +109,12 @@ export const darkTheme = {
       contrast: darkThemeColors['grey-colors']['grey-10'].contrastText,
     },
     'text-3': {
-      hex: darkThemeColors['grey-colors']['grey-20'].color,
-      contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
+      hex: darkThemeColors['primary-colors']['white'].color,
+      contrast: darkThemeColors['primary-colors']['white'].contrastText,
+    },
+    'text-4': {
+      hex: darkThemeColors['primary-colors']['black'].color,
+      contrast: darkThemeColors['primary-colors']['black'].contrastText,
     },
     'text-disabled-1': {
       hex: darkThemeColors['grey-colors']['grey-40'].color,
@@ -119,6 +123,10 @@ export const darkTheme = {
     'text-disabled-2': {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'text-placeholder-1': {
+      hex: darkThemeColors['grey-colors']['grey-20'].color,
+      contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
     },
   },
   background: {
@@ -129,6 +137,10 @@ export const darkTheme = {
     'background-2': {
       hex: darkThemeColors['primary-colors']['grey'].color,
       contrast: darkThemeColors['primary-colors']['grey'].contrastText,
+    },
+    'background-3': {
+      hex: darkThemeColors['grey-colors']['grey-70'].color,
+      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
     },
     'background-element-1': {
       hex: 'transparent',
@@ -142,12 +154,12 @@ export const darkTheme = {
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
     },
     'background-element-4': {
-      hex: darkThemeColors['primary-colors']['grey'].color,
-      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
-    },
-    'background-element-5': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,
       contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
+    },
+    'background-element-5': {
+      hex: darkThemeColors['primary-colors']['white'].color,
+      contrast: darkThemeColors['primary-colors']['white'].contrastText,
     },
     'background-overlay-1': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,
@@ -192,8 +204,8 @@ export const darkTheme = {
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
     'border-2': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
     'border-3': {
       hex: darkThemeColors['grey-colors']['grey-50'].color,
@@ -228,7 +240,7 @@ export const darkTheme = {
     },
   },
   signal: {
-    'signal-success': {
+    'signal-positive': {
       hex: darkThemeColors['primary-colors'].green.color,
       contrast: darkThemeColors['primary-colors'].green.contrastText,
     },
@@ -240,7 +252,7 @@ export const darkTheme = {
       hex: darkThemeColors['signal-colors'].orange.color,
       contrast: darkThemeColors['signal-colors'].orange.contrastText,
     },
-    'signal-error': {
+    'signal-danger': {
       hex: darkThemeColors['signal-colors'].red.color,
       contrast: darkThemeColors['signal-colors'].red.contrastText,
     },
@@ -276,23 +288,19 @@ export const darkTheme = {
     },
   },
   icon: {
-    'icon-stroke': {
+    'icon-stroke-1': {
       hex: darkThemeColors['primary-colors'].white.color,
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
-    'icon-filled-foreground': {
+    'icon-filled-foreground-1': {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
-    'icon-filled-background': {
+    'icon-filled-background-1': {
       hex: darkThemeColors['primary-colors'].white.color,
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
-    'icon-filled-foreground-colored': {
-      hex: darkThemeColors['primary-colors'].black.color,
-      contrast: darkThemeColors['primary-colors'].black.contrastText,
-    },
-    'icon-success': {
+    'icon-positive': {
       hex: darkThemeColors['primary-colors'].green.color,
       contrast: darkThemeColors['primary-colors'].green.contrastText,
     },
@@ -304,7 +312,7 @@ export const darkTheme = {
       hex: darkThemeColors['signal-colors'].orange.color,
       contrast: darkThemeColors['signal-colors'].orange.contrastText,
     },
-    'icon-error': {
+    'icon-danger': {
       hex: darkThemeColors['signal-colors'].red.color,
       contrast: darkThemeColors['signal-colors'].red.contrastText,
     },
@@ -313,7 +321,7 @@ export const darkTheme = {
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
   },
-  static: {
+  assorted: {
     'static-white': {
       hex: darkThemeColors['primary-colors'].white.color,
       contrast: darkThemeColors['primary-colors'].white.contrastText,
@@ -321,6 +329,13 @@ export const darkTheme = {
     'static-black': {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
+    },
+    'brand-accent': {
+      hex: darkThemeColors['primary-colors'].green.color,
+      contrast: darkThemeColors['primary-colors'].green.contrastText,
+    },
+    'focus-outline': {
+      hex: darkThemeColors['internal-colors']['focus-outline'].color,
     },
   },
 } as const satisfies Theme;

@@ -20,13 +20,14 @@ export const RadioFilterLabel = styled.label<RadioFilterLabelProps>`
   place-items: center;
   border-radius: 32px;
   padding: 4px 12px;
-  border: ${({ isSelected }) => `1px solid ${isSelected ? getThemeColor('border-1') : 'transparent'}`};
+  border: ${({ isSelected }) =>
+    `1px solid ${isSelected ? getThemeColor('border-selected-2') : 'transparent'}`};
   cursor: pointer;
   position: relative;
 
   &:hover:not(:disabled) {
     border-color: ${({ isSelected }) =>
-      `${isSelected ? getThemeColor('border-1') : getThemeColor('border-hover-1')}`};
+      `${isSelected ? getThemeColor('border-selected-2') : getThemeColor('border-hover-1')}`};
   }
   white-space: nowrap;
   margin: 0;

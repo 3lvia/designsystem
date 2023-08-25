@@ -2,8 +2,16 @@
 <header class="header">
   <div class="logo">
     <a class="header-top_logo" [routerLink]="['', 'home']">
-      <img src="./../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" *ngIf="!isPrideMonth" />
-      <img src="./../../../assets/logo/elvia_pride_rgb.svg" alt="Elvia Logo" *ngIf="isPrideMonth" />
+      <img
+        [src]="
+          (currentTheme | async) === 'dark'
+            ? 'assets/logo/elvia_negative_1.svg'
+            : isPrideMonth
+            ? 'assets/logo/elvia_pride_rgb.svg'
+            : 'assets/logo/elvia_positive_1.svg'
+        "
+        alt="Elvia Logo"
+      />
     </a>
   </div>
 
@@ -11,7 +19,7 @@
     <a
       *ngFor="let menuItem of mainMenu.pages"
       class="tabs-links"
-      style="color: black"
+      style="color: var(--e-color-text-1)"
       [routerLink]="['/' + menuItem.path]"
       routerLinkActive="active"
       role="tab"
@@ -92,7 +100,7 @@
             </span>
           </button>
         </div>
-        <p class="component-suggestions" *ngIf="showResults && synonymComponents.length > 0">
+        <p class="component-suggestions" *ngIf="searchStatus === 'ready' && synonymComponents.length > 0">
           Looking for the
           <ng-container *ngFor="let component of synonymComponents; let last = last; let first = first">
             <span *ngIf="!last && !first">,&nbsp;</span>
@@ -106,33 +114,55 @@
       </div>
     </div>
 
-    <div class="no-results" *ngIf="searchString.length !== 0 && this.resultsToDisplay.length === 0">
-      <div>Oh snap 😕</div>
-      <div>We can’t find what you are looking for</div>
-    </div>
+    <ng-container *ngIf="searchStatus === 'loading'">
+      <!-- Fake results loading -->
+      <div class="results">
+        <div *ngIf="searchString">
+          <ng-container *ngFor="let result of [1, 2, 3]; let last = last">
+            <div class="result-item loading">
+              <div class="e-content-loader e-w-100"></div>
+            </div>
+            <elvia-divider *ngIf="!last" />
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
 
-    <div class="results" *ngIf="showResults">
-      <ng-container *ngFor="let result of resultsToDisplay; let last = last">
-        <article>
-          <a
-            class="result-item"
-            [routerLink]="[result.absolutePath]"
-            [fragment]="result.fragmentPath"
-            (click)="closeSearch()"
-          >
-            <div class="result-title">
-              <div class="title item-title" [id]="'search_' + result.title">{{ result.title }}</div>
-              <div class="e-tag" *ngIf="result.type">{{ result.type }}</div>
-            </div>
-            <div class="result-content" *ngIf="result.description">
-              <div class="description-item" [id]="encodeHTML(result.description)"></div>
-            </div>
-          </a>
-        </article>
-        <ng-container *ngIf="!last">
-          <elvia-divider></elvia-divider>
+    <ng-container *ngIf="searchStatus === 'ready'">
+      <div
+        class="no-results e-text-center"
+        *ngIf="searchString.length !== 0 && this.resultsToDisplay.length === 0"
+      >
+        <p class="e-m-0">
+          Oh snap 😕
+          <br />
+          We can’t find what you are looking for
+        </p>
+      </div>
+
+      <div class="results">
+        <ng-container *ngFor="let result of resultsToDisplay; let last = last">
+          <article>
+            <a
+              class="result-item"
+              [routerLink]="[result.absolutePath]"
+              [fragment]="result.fragmentPath"
+              (click)="closeSearch()"
+            >
+              <div class="result-heading">
+                <p class="e-m-0 title" [id]="'search_' + result.title">{{ result.title }}</p>
+                <div class="e-tag" *ngIf="result.type">{{ result.type }}</div>
+              </div>
+              <p
+                class="result-content e-m-0"
+                *ngIf="result.description"
+                [id]="encodeHTML(result.description)"
+              ></p>
+            </a>
+          </article>
+          <elvia-divider *ngIf="!last" />
         </ng-container>
-      </ng-container>
-    </div>
+      </div>
+    </ng-container>
   </div>
 </div>

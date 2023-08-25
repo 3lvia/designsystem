@@ -1,31 +1,42 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeName } from '@elvia/elvis-colors';
+import { ThemeService } from 'src/app/core/services/theme.service';
+
 @Component({
   selector: 'app-mobile-menu',
   templateUrl: './mobile-menu.component.html',
   styleUrls: ['./mobile-menu.component.scss'],
 })
-export class MobileMenuComponent implements OnDestroy {
+export class MobileMenuComponent {
   mainMenu: CMSMenu;
-  devMode = false;
   isLoaded = false;
+  currentTheme: Observable<ThemeName>;
+
+  get devMode(): boolean {
+    return (
+      window.location.href.indexOf('localhost') > -1 ||
+      window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
+      window.location.href.indexOf('#dev') > -1
+    );
+  }
 
   private onDestroy = new Subject<void>();
-
-  private onDestroy$ = this.onDestroy.asObservable();
-
-  private subscriptions: Subscription = new Subscription();
+  onDestroy$ = this.onDestroy.asObservable();
 
   constructor(
     private router: Router,
     private cmsService: CMSService,
     private localizationService: LocalizationService,
+    themeService: ThemeService,
   ) {
+    this.currentTheme = themeService.listenTheme();
+
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
@@ -35,22 +46,11 @@ export class MobileMenuComponent implements OnDestroy {
           this.isLoaded = true;
         });
       });
-
-    if (
-      window.location.href.indexOf('localhost') > -1 ||
-      window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
-      window.location.href.indexOf('#dev') > -1
-    ) {
-      this.devMode = true;
-    }
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
   }
 
   onClose(): void {
     this.onDestroy.next();
+    this.onDestroy.complete();
   }
 
   navigate(path?: string): void {

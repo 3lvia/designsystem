@@ -51,28 +51,27 @@ function optimizeSVG() {
   return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgmin()).pipe(gulp.dest('icons/svg/dist'));
 }
 
-// The following is used to change hard-coded icon colors to use css variables for theming support.
-type FillVariablesUnion = `fill="var(--e-color-icon-${IconLabels}, ${ReturnType<typeof getThemeColor>})"`;
+// The following is used to change hard-coded icon colors to use css variables for theme support.
+type Variables = `icon-${IconLabels}` | 'brand-accent';
+type FillVariablesUnion = `fill="var(--e-color-${Variables}, ${ReturnType<typeof getThemeColor>})"`;
 export type FillVariables = { [label in IconLabels]: FillVariablesUnion };
 
 /**
  * These are the string-values that are inserted into the SVGs as replacements for the hard-coded colors.
  */
 const fillVariables = {
-  stroke: `fill="var(--e-color-icon-stroke, ${getThemeColor('icon-stroke')})"`,
-  'filled-foreground': `fill="var(--e-color-icon-filled-foreground, ${getThemeColor(
-    'icon-filled-foreground',
+  'stroke-1': `fill="var(--e-color-icon-stroke-1, ${getThemeColor('icon-stroke-1')})"`,
+  'filled-foreground-1': `fill="var(--e-color-icon-filled-foreground-1, ${getThemeColor(
+    'icon-filled-foreground-1',
   )})"`,
-  'filled-background': `fill="var(--e-color-icon-filled-background, ${getThemeColor(
-    'icon-filled-background',
+  'filled-background-1': `fill="var(--e-color-icon-filled-background-1, ${getThemeColor(
+    'icon-filled-background-1',
   )})"`,
-  'filled-foreground-colored': `fill="var(--e-color-icon-filled-foreground-colored, ${getThemeColor(
-    'static-black',
-  )})"`,
-  success: `fill="var(--e-color-icon-success, ${getThemeColor('icon-success')})"`,
+  'brand-accent': `fill="var(--e-color-brand-accent, ${getThemeColor('brand-accent')})"`,
+  positive: `fill="var(--e-color-icon-positive, ${getThemeColor('icon-positive')})"`,
   caution: `fill="var(--e-color-icon-caution, ${getThemeColor('icon-caution')})"`,
   warning: `fill="var(--e-color-icon-warning, ${getThemeColor('icon-warning')})"`,
-  error: `fill="var(--e-color-icon-error, ${getThemeColor('icon-error')})"`,
+  danger: `fill="var(--e-color-icon-danger, ${getThemeColor('icon-danger')})"`,
 } as const satisfies FillVariables;
 
 /**
@@ -80,18 +79,18 @@ const fillVariables = {
  */
 function getIconWithCssVariables(icon: string, iconName: string) {
   const newIcon = icon
-    .replace(/fill="#29D305"/g, fillVariables.success)
+    .replace(/fill="#29D305"/g, fillVariables['brand-accent'])
     .replace(/fill="#FFFF00"/g, fillVariables.caution)
     .replace(/fill="#FFA000"/g, fillVariables.warning)
-    .replace(/fill="#EE0701"/g, fillVariables.error);
+    .replace(/fill="#EE0701"/g, fillVariables.danger);
   if (iconName.includes('-filled-color')) {
-    return newIcon.replace(/fill="#000"/g, fillVariables['filled-foreground-colored']);
+    return newIcon;
   } else if (iconName.includes('-filled')) {
     return newIcon
-      .replace(/fill="#fff"/g, fillVariables['filled-foreground'])
-      .replace(/fill="#000"/g, fillVariables['filled-background']);
+      .replace(/fill="#fff"/g, fillVariables['filled-foreground-1'])
+      .replace(/fill="#000"/g, fillVariables['filled-background-1']);
   } else {
-    return newIcon.replace(/fill="#000"/g, fillVariables.stroke);
+    return newIcon.replace(/fill="#000"/g, fillVariables['stroke-1']);
   }
 }
 
@@ -106,9 +105,9 @@ function createIconFileContent(icon: string, iconName: string) {
       return icon;
     }
     if (!color.startsWith('#') && !color.startsWith('var(--')) {
-      return icon.replaceAll('${fillVariables.stroke}', 'fill="' + getThemeColor(color) + '"').replaceAll('${fillVariables['filled-background']}', 'fill="' + getThemeColor(color) + '"');
+      return icon.replaceAll('${fillVariables['stroke-1']}', 'fill="' + getThemeColor(color) + '"').replaceAll('${fillVariables['filled-background-1']}', 'fill="' + getThemeColor(color) + '"');
     }
-    return icon.replaceAll('${fillVariables.stroke}', 'fill="' + color + '"').replaceAll('${fillVariables['filled-background']}', 'fill="' + color + '"');
+    return icon.replaceAll('${fillVariables['stroke-1']}', 'fill="' + color + '"').replaceAll('${fillVariables['filled-background-1']}', 'fill="' + color + '"');
   }`;
 }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { createChangelogs } from './changelogs';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-front-page-changelog',
@@ -8,8 +9,10 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
   styleUrls: ['./front-page-changelog.component.scss'],
 })
 export class FrontPageChangelogComponent {
-  constructor(private cmsService: CMSService) {
-    this.componentIcons = this.cmsService.getPageIcons();
+  constructor(private cmsService: CMSService, private themeService: ThemeService) {
+    this.themeService.listenTheme().subscribe(() => {
+      this.componentIcons = this.cmsService.getPageIcons();
+    });
   }
   changelogs = createChangelogs();
   componentIcons: ReturnType<typeof this.cmsService.getPageIcons>;

@@ -33,7 +33,7 @@ $border-radius: 8px;
     width: calc(100% + var(--offset));
     height: calc(100% + var(--offset));
     box-sizing: border-box;
-    border: 2px solid colors.color('elvia-charge');
+    border: 2px solid var(--e-color-border-hover-1);
     border-radius: calc($border-radius + var(--offset) / 2);
     content: '';
     opacity: 0;
@@ -43,7 +43,7 @@ $border-radius: 8px;
 
   &.e-thumbnail---selected {
     &::after {
-      border: 2px solid colors.color('black');
+      border: 2px solid var(--e-color-border-selected-2);
       opacity: 1;
       transform: scale(1);
     }

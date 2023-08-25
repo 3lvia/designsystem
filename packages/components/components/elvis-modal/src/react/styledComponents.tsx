@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { getThemeColor, getShadow } from '@elvia/elvis-colors';
+import { getThemeColor, getShadow, getBaseColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 const mobileMax = '767px';
@@ -148,7 +148,7 @@ export const ModalContent = styled.div<ContentProps>`
 export const ModalIllustration = styled.div.attrs(() => ({
   role: 'presentation',
 }))`
-  background: ${getThemeColor('background-element-4')};
+  background: ${getThemeColor('background-3')};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,14 +162,18 @@ export const ModalIllustration = styled.div.attrs(() => ({
     content: '';
     background: ${getThemeColor('background-overlay-1')};
     border-radius: 100%;
+    z-index: 0;
     position: absolute;
     height: calc(550px * 6.85);
-    width: calc(550px * 6.85);
+    width: calc(550px * 6);
     right: calc(100% - 2.7vw);
     @media (min-width: ${desktopMin}) {
       right: calc(100% - 1.7vw);
     }
-    z-index: 0;
+  }
+
+  .e-theme-dark && ::after {
+    border: 2px solid ${getBaseColor('grey-60', 'dark')};
   }
 
   @media (max-width: ${desktopMin}) {
@@ -252,28 +256,13 @@ export const ModalActions = styled.div`
   }
 `;
 
-export const ModalCloseButton = styled.button`
+export const CloseButtonContainer = styled.div`
   position: absolute;
   top: 24px;
   right: 24px;
-  width: 40px;
-  height: 40px;
   z-index: 2;
-  background: none;
-  border: none;
-  border-radius: 200px;
-  padding: 8px;
-  cursor: pointer;
-
   @media (max-width: ${mobileMax}) {
-    width: 32px;
-    height: 32px;
     top: 16px;
     right: 16px;
-  }
-
-  :hover {
-    background-color: ${getThemeColor('background-hover-1')};
-    border-color: ${getThemeColor('border-hover-1')};
   }
 `;

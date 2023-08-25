@@ -39,6 +39,25 @@ $pageIndentedMargin: 72px;
     }
   }
 }
+
+.overview-page-title-container {
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.overview-page-title-size {
+  @include breakpoints.breakpoint-up(Tablet) {
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    max-width: 522px;
+    margin-bottom: 20px;
+  }
+}
+
 .doc-page-heading {
   display: flex;
   flex-direction: row;
@@ -87,10 +106,8 @@ $pageIndentedMargin: 72px;
   text-align: center;
 
   .brand-text {
-    color: black;
-    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    color: var(--e-color-text-1);
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
   }
 }
 
@@ -131,7 +148,7 @@ $pageIndentedMargin: 72px;
     position: relative;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--e-black);
+    border-bottom: 1px solid var(--e-color-border-1);
 
     &:hover .icons .normal-img {
       display: block;
@@ -184,20 +201,6 @@ $pageIndentedMargin: 72px;
 .component-header__description {
   .cms-paragraph {
     margin-left: 0px;
-  }
-}
-
-.cms-paragraph {
-  code {
-    font-family: 'Red Hat Mono', Verdana, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: inherit;
-
-    background: var(--e-grey-05);
-    border-radius: 4px;
-    padding: 0 2px;
   }
 }
 
@@ -354,6 +357,9 @@ $pageIndentedMargin: 72px;
 
   .error-message-title {
     margin-top: 62px;
+    .accent-dot {
+      color: var(--e-color-brand-accent);
+    }
   }
 
   .error-message {

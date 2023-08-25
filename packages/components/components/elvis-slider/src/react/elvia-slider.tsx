@@ -384,7 +384,7 @@ const Slider: React.FC<SliderProps> = function ({
           </>
         )}
 
-        <SliderTrack />
+        <SliderTrack isDisabled={isDisabled} />
         <SliderFilledTrack
           isDisabled={isDisabled}
           rangeTrackWidth={getFilledMiddleTrackWidth()}

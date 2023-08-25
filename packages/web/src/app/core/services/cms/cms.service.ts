@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CMSTransformService } from './cms-transform.service';
 import { Locale } from '../localization.service';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, distinctUntilChanged } from 'rxjs';
 import { Router } from '@angular/router';
 import {
   IDocumentationPage,
@@ -14,6 +14,9 @@ import {
 } from 'contentful/types';
 import { CMSMenu, CMSNavbarItem, CMSSubMenu, TransformedDocPage } from './cms.interface';
 import { extractLocale } from './extractLocale';
+import { ThemeService } from '../theme.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Injectable({
   providedIn: 'root',
@@ -21,21 +24,39 @@ import { extractLocale } from './extractLocale';
 export class CMSService {
   private entries: Record<string, IEntry> = {};
   private entriesToSync: string[] = [];
-  private subjectAnchorsNew = new Subject<void>();
+  private cmsPageLoaded = new Subject<void>();
   private getMenuCache = new Map<Locale, CMSMenu>();
+  private currentTheme: ThemeName = 'light';
+  private currentRouteIsCms = new BehaviorSubject(false);
 
   constructor(
     private http: HttpClient,
     private cmsTransformService: CMSTransformService,
     private router: Router,
-  ) {}
+    private themeService: ThemeService,
+  ) {
+    this.themeService
+      .listenTheme()
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme) => {
+        this.currentTheme = theme;
+      });
+  }
 
   listenContentLoadedFromCMS(): Observable<void> {
-    return this.subjectAnchorsNew.asObservable();
+    return this.cmsPageLoaded.asObservable();
+  }
+
+  listenCurrentRouteIsCms(): Observable<boolean> {
+    return this.currentRouteIsCms.asObservable().pipe(distinctUntilChanged());
+  }
+
+  setCurrentRouteIsCms(isCmsPage: boolean) {
+    this.currentRouteIsCms.next(isCmsPage);
   }
 
   contentLoadedFromCMS(): void {
-    this.subjectAnchorsNew.next();
+    this.cmsPageLoaded.next();
   }
 
   /**
@@ -107,7 +128,7 @@ export class CMSService {
     return this.cmsTransformService.transformEntryToDocPage(cmsData, subMenu, localization);
   }
 
-  async getSubMenu(localization: Locale): Promise<CMSSubMenu[]> {
+  private async getSubMenu(localization: Locale): Promise<CMSSubMenu[]> {
     const mainMenu = await this.getMenu(localization);
     return mainMenu.pages;
   }
@@ -115,29 +136,29 @@ export class CMSService {
   async getSubMenuList(localization: Locale): Promise<CMSNavbarItem[]> {
     const mainMenu = await this.getMenu(localization);
     const subMenuRoute = this.router.url.split('/')[1];
-    const subMenuList: CMSNavbarItem[] = [];
-    mainMenu.pages.forEach((element) => {
-      if (element.path === subMenuRoute) {
-        if (element.entry.fields.pages === undefined || element.entry.fields.pages === null) {
-          return;
-        }
-        const localeKey = (Object.keys(element.entry.fields.pages)[localization] ?? 'en-GB') as LOCALE_CODE;
-        const cmsPages = element.entry.fields.pages[localeKey];
-        cmsPages?.forEach((cmsPage) => {
-          const innerLocaleKey = (Object.keys(cmsPage.fields.title)[localization] ?? 'en-GB') as LOCALE_CODE;
-          const navbarItem: CMSNavbarItem = {
-            title: cmsPage.fields.title && extractLocale(cmsPage.fields.title, innerLocaleKey)!,
-            isMainPage: !!(
-              cmsPage.fields.isMainPage && extractLocale(cmsPage.fields.isMainPage, innerLocaleKey)
-            ),
-            docUrl: cmsPage.fields.path && extractLocale(cmsPage.fields.path)!,
-            fullPath: subMenuRoute + extractLocale(cmsPage.fields.path),
-          };
-          subMenuList.push(navbarItem);
-        });
-      }
+    const page = mainMenu.pages.find((page) => page.path === subMenuRoute);
+
+    if (!page || page.entry.fields.pages === undefined || page.entry.fields.pages === null) {
+      return [];
+    }
+
+    const localeKey = (Object.keys(page.entry.fields.pages)[localization] ?? 'en-GB') as LOCALE_CODE;
+    const cmsPages = page.entry.fields.pages[localeKey];
+
+    if (!cmsPages) {
+      return [];
+    }
+
+    return cmsPages?.map((cmsPage) => {
+      const innerLocaleKey = (Object.keys(cmsPage.fields.title)[localization] ?? 'en-GB') as LOCALE_CODE;
+      const navbarItem: CMSNavbarItem = {
+        title: cmsPage.fields.title && extractLocale(cmsPage.fields.title, innerLocaleKey)!,
+        isMainPage: !!(cmsPage.fields.isMainPage && extractLocale(cmsPage.fields.isMainPage, innerLocaleKey)),
+        fullPath: `/${subMenuRoute}/${extractLocale(cmsPage.fields.path)}`,
+      };
+
+      return navbarItem;
     });
-    return subMenuList;
   }
 
   async getMenu(localization: Locale): Promise<CMSMenu> {
@@ -206,7 +227,10 @@ export class CMSService {
 
       const icons = cards.reduce((res, card) => {
         const title = extractLocale(card.fields.title) ?? '';
-        const url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
+        let url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
+        if (this.currentTheme === 'dark' && card.fields.pageIconDarkTheme) {
+          url = `https:${extractLocale(extractLocale(card.fields.pageIconDarkTheme)!.fields.file)?.url}`;
+        }
         const docName = changeName(title.toLowerCase().replace(/ /g, '-'));
         res[docName] = url;
         return res;

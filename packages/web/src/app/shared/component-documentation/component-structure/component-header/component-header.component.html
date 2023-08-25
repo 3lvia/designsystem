@@ -2,18 +2,18 @@
   <div class="component-header">
     <div class="component-header__title">
       <div class="title-container e-mb-32 e-w-100">
-        <h1 class="big-header e-mb-0 e-w-100">
+        <h1 class="big-header e-mb-0 e-w-100" data-url-fragment>
           <ng-content select="headerTitle"></ng-content>
           <div class="e-pl-16">
-            <a *ngIf="figmaUrl" href="{{ figmaUrl }}" target="_blank" rel="noopener">
-              <img src="../../../assets/icons/figma.svg" alt="Figma icon" />
+            <a *ngIf="figmaUrl" [href]="figmaUrl" target="_blank" rel="noopener">
+              <img src="assets/icons/figma.svg" alt="Figma icon" />
             </a>
           </div>
         </h1>
         <div *ngIf="figmaOnly">
           <label class="e-tag e-tag--orange">Figma only</label>
         </div>
-        <div *ngIf="!figmaOnly && lastUpdated" class="no-wrap e-text-micro-light e-mb-8">
+        <div *ngIf="!figmaOnly && lastUpdated" class="no-wrap e-text-micro e-color-text-2 e-mb-8">
           Last updated {{ lastUpdated | DocumentationDatePipe }}
         </div>
       </div>
@@ -22,18 +22,7 @@
           <ng-content select="headerDescription"></ng-content>
         </span>
       </div>
-      <div class="anchors e-mb-16" *ngIf="navbarAnchors.length !== 0">
-        <div class="link" *ngFor="let anchor of navbarAnchors">
-          <a
-            (click)="scrollToElement(anchor)"
-            class="anchor"
-            [ngClass]="{ 'active-anchor': isActive(anchor) }"
-            id="navbar-{{ anchor.title }}"
-          >
-            {{ anchor.title }}
-          </a>
-        </div>
-      </div>
+      <app-sub-menu *ifViewportSize="['sm', 'md']" class="e-mt-40 e-mb-16" />
     </div>
   </div>
 </div>

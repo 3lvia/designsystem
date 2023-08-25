@@ -2,6 +2,26 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "24.08.23",
+      "version": "3.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Dark theme support."]
+        }
+      ]
+    },
+    {
+      "date": "22.08.23",
+      "version": "3.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the hover state on the close button on mobile screen widths."]
+        }
+      ]
+    },
+    {
       "date": "16.08.23",
       "version": "3.0.0",
       "changelog": [

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
@@ -9,6 +9,7 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Theme, ThemeService } from 'src/app/core/services/theme.service';
 import { ThemeClassName } from '@elvia/elvis-colors';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-header',
@@ -16,16 +17,24 @@ import { ThemeClassName } from '@elvia/elvis-colors';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  searchMenuOpen = false;
-  searchOverlay: OverlayRef;
+  private searchMenuOpen = false;
+  private searchOverlay: OverlayRef;
   headerLogoLoaded = false;
-  devMode = false;
   mainMenu: CMSMenu;
   menuContentLoader = true;
   isPrideMonth = false;
   showThemeAnnouncement = false;
+  // showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
   themeMenuIsOpen = false;
   currentTheme: Theme = 'light';
+
+  get devMode(): boolean {
+    return (
+      window.location.href.indexOf('localhost') > -1 ||
+      window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
+      window.location.href.indexOf('#dev') > -1
+    );
+  }
 
   constructor(
     private mobileMenu: MobileMenuService,
@@ -33,7 +42,10 @@ export class HeaderComponent {
     private cmsService: CMSService,
     private localizationService: LocalizationService,
     private themeService: ThemeService,
+    private breakpointService: BreakpointService,
   ) {
+    this.closeThemeMenuOnMobile();
+
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
@@ -45,31 +57,15 @@ export class HeaderComponent {
         });
       });
 
-    if (
-      window.location.href.indexOf('localhost') > -1 ||
-      window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
-      window.location.href.indexOf('#dev') > -1
-    ) {
-      this.devMode = true;
-    }
-
     this.themeService
       .listenTheme()
       .pipe(takeUntilDestroyed())
       .subscribe((theme) => {
-        this.currentTheme = this.devMode ? theme : 'light'; //todo: set to theme when dark theme is ready
+        this.currentTheme = theme;
         this.addDarkThemeClass(this.currentTheme);
       });
 
     this.checkIfPrideMonth();
-    this.getThemeAnnouncementVisibility();
-  }
-
-  checkIfPrideMonth(): void {
-    const currentMonth = new Date().getMonth();
-    if (currentMonth === 5) {
-      this.isPrideMonth = true;
-    }
   }
 
   hideContentLoader(evt: Event): void {
@@ -116,6 +112,13 @@ export class HeaderComponent {
     this.themeMenuIsOpen = false;
   };
 
+  private checkIfPrideMonth(): void {
+    const currentMonth = new Date().getMonth();
+    if (currentMonth === 5) {
+      this.isPrideMonth = true;
+    }
+  }
+
   private addDarkThemeClass = (theme: Theme): void => {
     const classToRemove: ThemeClassName = theme === 'light' ? 'e-theme-dark' : 'e-theme-light';
     const classToAdd: ThemeClassName = theme === 'light' ? 'e-theme-light' : 'e-theme-dark';
@@ -126,14 +129,13 @@ export class HeaderComponent {
     }
   };
 
-  closeSearchMenu(): void {
+  private closeSearchMenu(): void {
     this.searchMenu.detach(this.searchOverlay);
     this.searchMenuOpen = false;
   }
 
   getThemeAnnouncementVisibility = () => {
     this.showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
-    this.showThemeAnnouncement = false; //remove this line when dark theme is ready
   };
 
   closeThemeAnnouncement = () => {
@@ -141,10 +143,14 @@ export class HeaderComponent {
     this.showThemeAnnouncement = false;
   };
 
-  @HostListener('window:resize', ['$event'])
-  onWindowResize = () => {
-    if (window.innerWidth <= 1023) {
-      this.closeThemeMenu();
-    }
-  };
+  private closeThemeMenuOnMobile(): void {
+    this.breakpointService
+      .matches(['sm', 'md'])
+      .pipe(takeUntilDestroyed())
+      .subscribe((isMobileOrTablet) => {
+        if (this.themeMenuIsOpen && isMobileOrTablet) {
+          this.closeThemeMenu();
+        }
+      });
+  }
 }

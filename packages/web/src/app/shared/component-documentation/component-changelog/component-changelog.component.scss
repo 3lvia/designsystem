@@ -1,11 +1,5 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
-:host {
-  p {
-    margin: 0;
-  }
-}
-
 .e-list {
   .prop-element-title {
     font-size: 14px;
@@ -40,5 +34,50 @@
 
   img {
     width: 75px;
+  }
+}
+
+.changelog-row {
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 32px;
+  display: flex;
+  flex-direction: row;
+  padding: 40px 0;
+  column-gap: 24px;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid var(--e-color-border-2);
+  }
+
+  &--skipped {
+    padding: 0;
+  }
+}
+
+.changelog-date {
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+
+  .changelog-date-span {
+    white-space: nowrap;
+    color: var(--e-color-text-2);
+  }
+
+  @-moz-document url-prefix() {
+    .changelog-date-span {
+      margin-top: 0;
+    }
+  }
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    width: 100%;
   }
 }

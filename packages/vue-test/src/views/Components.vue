@@ -246,11 +246,7 @@
     <!--Tabs-->
     <div class="example-wrapper">
       <h3>Tabs</h3>
-      <elvia-tabs
-        :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
-        :value="1"
-        :isInverted="false"
-      ></elvia-tabs>
+      <elvia-tabs :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" :value="1"></elvia-tabs>
     </div>
 
     <!--Timepicker-->

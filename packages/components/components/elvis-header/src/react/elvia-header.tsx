@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HeaderProps } from './elviaHeader.types';
+import { HeaderProps, Theme } from './elviaHeader.types';
 import { useBreakpoint, useSlot } from '@elvia/elvis-toolbox';
 import { getThemeColor } from '@elvia/elvis-colors';
 import {
@@ -25,6 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
   pageTitle,
   navItems,
   appContent,
+  hideThemeSwitch,
   onLogoClick,
   onSignOutClick,
   onThemeChange,
@@ -55,9 +56,9 @@ export const Header: React.FC<HeaderProps> = ({
     webcomponent?.triggerEvent('onLogoClick');
   };
 
-  const themeChange = () => {
-    onThemeChange?.();
-    webcomponent?.triggerEvent('onThemeChange');
+  const themeChange = (theme: Theme) => {
+    onThemeChange?.(theme);
+    webcomponent?.triggerEvent('onThemeChange', theme);
   };
 
   useEffect(() => {
@@ -102,8 +103,9 @@ export const Header: React.FC<HeaderProps> = ({
               appTitle={applicationTitle}
               email={email}
               username={username}
+              hideThemeSwitch={hideThemeSwitch}
               onSignOutClick={signOutClick}
-              onThemeChange={themeChange}
+              onThemeChange={(themeName) => themeChange(themeName)}
               onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
             />
           </SquareContainer>
@@ -115,6 +117,7 @@ export const Header: React.FC<HeaderProps> = ({
             <DesktopMenu
               email={email}
               username={username}
+              hideThemeSwitch={hideThemeSwitch}
               onSignOutClick={signOutClick}
               onThemeChange={themeChange}
               onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}

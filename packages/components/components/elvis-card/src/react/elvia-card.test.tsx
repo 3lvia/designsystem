@@ -89,7 +89,7 @@ describe('Elvis Card', () => {
 
     it('should have top border with color', () => {
       const coloredLine = screen.getByTestId('card-colored-line');
-      expect(coloredLine).toHaveStyle(`border-top: 4px solid ${getThemeColor('signal-error')}`);
+      expect(coloredLine).toHaveStyle(`border-top: 4px solid ${getThemeColor('signal-danger')}`);
     });
 
     it('should have a set width', () => {

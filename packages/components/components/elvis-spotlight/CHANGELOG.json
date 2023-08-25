@@ -2,6 +2,26 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "24.08.23",
+      "version": "1.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Dark theme support."]
+        }
+      ]
+    },
+    {
+      "date": "24.08.23",
+      "version": "1.5.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Spotlight now correctly supports dark theme."]
+        }
+      ]
+    },
+    {
       "date": "28.06.23",
       "version": "1.5.3",
       "changelog": [
