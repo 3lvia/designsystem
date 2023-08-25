@@ -120,7 +120,7 @@ export class SubMenuComponent {
 
       const anchors: Anchor[] = Array.from(elements).map((element, index) => ({
         name: index === 0 ? overviewTitle : element.innerText,
-        top: (element.offsetParent as HTMLElement)?.offsetTop,
+        top: (element.parentElement as HTMLElement)?.offsetTop,
       }));
 
       return anchors;
