@@ -1,17 +1,9 @@
 {
   "content": [
     {
-      "version": "13.0.0",
+      "version": "12.8.0",
       "date": "August 25, 2023",
       "changelog": [
-        {
-          "type": "breaking_changes",
-          "changes": [
-            "Lists now explicitly require use <code>text-large</code> and <code>text-large-strong</code> styles. This changes the total height of lists."
-          ],
-          "fixes": ["Adjust your design to accommodate for the new list height."],
-          "components": [{ "displayName": "List", "url": "https://design.elvia.io/components/list" }]
-        },
         {
           "type": "new_feature",
           "changes": ["Added the <code>compass</code> and <code>ruler</code> icons."],
@@ -19,7 +11,11 @@
         },
         {
           "type": "bug_fix",
-          "changes": ["updated the versions in the deprecated warning for dark theme-related deprecations."]
+          "changes": [
+            "Fixed a bug where the list typography would not be Red Hat Text.",
+            "updated the versions in the deprecated warning for dark theme-related deprecations."
+          ],
+          "components": [{ "displayName": "List", "url": "https://design.elvia.io/components/list" }]
         }
       ]
     },
