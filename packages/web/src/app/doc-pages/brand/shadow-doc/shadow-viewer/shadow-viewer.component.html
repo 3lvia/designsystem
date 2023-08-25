@@ -1,4 +1,7 @@
-<div class="shadow-viewer-container" [ngClass]="activeTheme === 'dark' ? 'e-theme-dark' : 'e-theme-light'">
+<div
+  class="shadow-viewer-container e-color-text-1"
+  [ngClass]="activeTheme === 'dark' ? 'e-theme-dark' : 'e-theme-light'"
+>
   <elvia-segmented-control
     (valueOnChange)="setTheme($any($event).detail.value)"
     [items]="[
