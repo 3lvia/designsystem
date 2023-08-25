@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.8.0",
+      "date": "August 25, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>compass</code> and <code>ruler</code> icons."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "12.7.0",
       "date": "August 24, 2023",
       "changelog": [
