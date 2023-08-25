@@ -6,6 +6,7 @@ $list-dot-size: 8px;
 $list-border-radius: 50%;
 
 .e-list {
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   $this: &;
   box-sizing: border-box;
   // remove browser margin and padding
