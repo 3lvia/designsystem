@@ -13,7 +13,7 @@
           "type": "bug_fix",
           "changes": [
             "Fixed a bug where the list typography would not be Red Hat Text.",
-            "updated the versions in the deprecated warning for dark theme-related deprecations."
+            "Updated the versions in the deprecated warning for dark theme-related deprecations."
           ],
           "components": [{ "displayName": "List", "url": "https://design.elvia.io/components/list" }]
         }
