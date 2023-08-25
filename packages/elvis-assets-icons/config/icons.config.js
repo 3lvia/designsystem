@@ -250,6 +250,10 @@ module.exports = [
   },
   { name: 'community', terms: [], thirdparty: { name: ['streamline'] } },
   {
+    name: 'compass',
+    terms: ['direction', 'gps', 'turning', 'rotate', 'world', 'north', 'south', 'west', 'east', 'navigation'],
+  },
+  {
     name: 'configurations',
     terms: ['toggle', 'edit', 'adjust', 'switch'],
     thirdparty: { name: ['streamline'] },
@@ -716,6 +720,11 @@ module.exports = [
   {
     name: 'rss-bold',
     terms: ['feed', 'connection', 'internet', 'online'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
+    name: 'ruler',
+    terms: ['meter', 'measure', 'cm', 'mm', 'long', 'short'],
     thirdparty: { name: ['streamline'] },
   },
   {

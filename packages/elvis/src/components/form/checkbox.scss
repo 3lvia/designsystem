@@ -1,27 +1,30 @@
 @use '../../variables/animation';
-@use '../../variables/colors';
 @use '../../variables/typography';
-@use '../../utilities/colors' as colors2;
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 
 $checkbox-mark-size: 24px;
-$checkbox-mark-compact-size: 16px;
+$checkbox-mark-size-small: 16px;
 $checkbox-mark-border-radius: 3px;
-$checkbox-mark-border: 1px solid colors.color('elvia-off');
+$checkbox-mark-color: var(--e-color-static-black);
+$checkbox-mark-border: 1px solid var(--e-color-border-1);
+$checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
 
 .e-checkbox {
+  @include helpers.custom-light-theme-tokens {
+    --e-checkbox-border-checked-color: var(--e-light-theme-black);
+  }
+
+  @include helpers.custom-dark-theme-tokens('checkbox') {
+    --e-checkbox-border-checked-color: transparent;
+  }
+
   display: flex;
   width: fit-content;
   box-sizing: border-box;
   align-items: center;
   cursor: pointer;
   text-align: left;
-
-  // IE specific
-  @media screen and (-ms-high-contrast: none) {
-    width: 100%;
-  }
 
   &:not(:last-child) {
     margin-bottom: 12px;
@@ -36,158 +39,19 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     align-self: flex-start;
     border: $checkbox-mark-border;
     border-radius: $checkbox-mark-border-radius;
-    background: colors.color('elvia-on');
-    transition: background 0.2s animation.$transition-cubic;
+    background-color: var(--e-color-background-element-1);
+    transition: background-color, border, 0.3s animation.$transition-cubic;
   }
 
   &__label {
     width: fit-content;
     margin-left: 8px;
-    color: colors.color('font-color');
-    font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
+    color: var(--e-color-text-1);
+    @include typography.typography('text-option');
     line-height: 24px;
   }
 
-  &.e-checkbox--compact,
-  &.e-checkbox--sm,
-  &.e-checkbox--small {
-    .e-checkbox__mark {
-      min-width: $checkbox-mark-compact-size;
-      max-width: $checkbox-mark-compact-size;
-      min-height: $checkbox-mark-compact-size;
-      max-height: $checkbox-mark-compact-size;
-    }
-
-    .e-checkbox__label {
-      @include typography.typography('text-sm');
-      color: colors.color('font-color');
-      line-height: 16px;
-    }
-
-    input {
-      position: absolute;
-      z-index: -1;
-      width: $checkbox-mark-compact-size;
-      height: $checkbox-mark-compact-size;
-      opacity: 0;
-
-      &:checked ~ .e-checkbox__mark {
-        @extend %checkbox-mark-compact;
-      }
-
-      &:disabled:checked ~ .e-checkbox__mark {
-        border-color: colors.color('disabled');
-        background-color: colors.color('disabled-light');
-        cursor: not-allowed;
-
-        &::after,
-        &::before {
-          background-color: colors.color('disabled');
-        }
-      }
-    }
-  }
-
-  &.e-checkbox--indeterminate {
-    .e-checkbox__mark {
-      position: relative;
-      background: colors.color('elvia-charge');
-
-      &::before {
-        position: absolute;
-        top: calc(50% - 1px);
-        left: calc(50% - 6px);
-        width: 12px;
-        height: 2px;
-        border-radius: 1px;
-        background: colors.color('elvia-off');
-        content: '';
-      }
-    }
-
-    &.e-checkbox--compact,
-    &.e-checkbox--sm,
-    &.e-checkbox--small {
-      .e-checkbox__mark::before {
-        top: calc(50%);
-        left: calc(50% - 4px);
-        width: 8px;
-        height: 1px;
-      }
-    }
-  }
-
-  // pseudo classes to emulate state.
-  &.e-checkbox---checked &__mark {
-    @extend %checkbox-mark;
-  }
-  // extends correct checkbox mark on compact checkboxes in pseudo class
-  &.e-checkbox--compact[class$='e-checkbox---checked'] &__mark,
-  &.e-checkbox--sm[class$='e-checkbox---checked'] &__mark,
-  &.e-checkbox--small[class$='e-checkbox---checked'] &__mark {
-    @extend %checkbox-mark-compact;
-  }
-
-  &.e-checkbox---focus {
-    .e-checkbox__mark {
-      @include outline.e-outline-pseudoclass();
-    }
-  }
-
-  &:active,
-  &.e-checkbox---hover:not(:disabled):not(:invalid) {
-    .e-checkbox__mark {
-      border-color: colors.color('elvia-off');
-      background-color: colors.color('elvia-charge');
-    }
-  }
-
-  &.e-checkbox---disabled {
-    .e-checkbox__mark {
-      border-color: colors.color('disabled');
-      background-color: colors.color('disabled-light');
-      cursor: not-allowed;
-    }
-
-    .e-checkbox__label {
-      cursor: not-allowed;
-    }
-  }
-
-  &.e-checkbox---disabled-checked {
-    .e-checkbox__mark {
-      @extend %checkbox-mark;
-      border-color: colors.color('disabled') !important;
-      background-color: colors.color('disabled-light') !important;
-      cursor: not-allowed;
-
-      &::after,
-      &::before {
-        background-color: colors.color('disabled') !important;
-      }
-    }
-
-    .e-checkbox__label {
-      color: colors.color('grey-70');
-      cursor: not-allowed;
-    }
-  }
-  // extends correct checkbox mark on compact checkboxes in pseudo class
-  &.e-checkbox--compact[class$='disabled-checked'] &__mark,
-  &.e-checkbox--sm[class$='disabled-checked'] &__mark,
-  &.e-checkbox--small[class$='disabled-checked'] &__mark {
-    @extend %checkbox-mark-compact;
-  }
-
-  &.e-checkbox---invalid {
-    .e-checkbox__mark {
-      border-color: colors.color('red');
-    }
-  }
-
-  // hides initial checkbox and gives placeholder style according to state
+  // Hides initial checkbox
   input {
     position: absolute;
     z-index: -1;
@@ -196,124 +60,199 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     border-radius: 50%;
     margin: 0;
     opacity: 0;
+  }
 
+  // States
+  input:checked ~ .e-checkbox__mark,
+  &.e-checkbox---checked .e-checkbox__mark {
+    @extend %checkbox-mark-checked;
+  }
+
+  input:focus ~ .e-checkbox__mark {
+    @include outline.e-outline();
+  }
+
+  &.e-checkbox---focus .e-checkbox__mark {
+    @include outline.e-outline-pseudoclass();
+  }
+
+  input {
     @include helpers.hover() {
       &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
-        border-color: colors.color('elvia-off');
-        background-color: colors.color('elvia-charge');
+        background-color: var(--e-color-background-hover-1);
       }
-    }
-
-    &:checked ~ .e-checkbox__mark {
-      @extend %checkbox-mark;
-      border-color: colors.color('elvia-off');
-    }
-
-    &:focus ~ .e-checkbox__mark {
-      @include outline.e-outline();
-    }
-
-    &:disabled ~ .e-checkbox__mark {
-      border-color: colors.color('disabled');
-      background-color: colors.color('disabled-light');
-      cursor: not-allowed;
-    }
-
-    &:disabled ~ .e-checkbox__label {
-      color: colors.color('grey-70');
-    }
-
-    &:disabled:checked ~ .e-checkbox__mark {
-      border-color: colors.color('disabled');
-      background-color: colors.color('disabled-light');
-      cursor: not-allowed;
-
-      &::after,
-      &::before {
-        background-color: colors.color('disabled');
-      }
-    }
-
-    &:disabled ~ .e-checkbox__label {
-      color: colors.color('grey-70');
-      cursor: not-allowed;
-    }
-
-    &:invalid ~ .e-checkbox__mark {
-      border-color: colors.color('red');
     }
   }
 
-  // Creating a placeholder to inject a checkbox mark into the checkbox
-  // :before & :after each create a line which we put together to a checkmark.
-  // Position properties top,left,right and bottom positions the lines to look like a checkmark.
-  %checkbox-mark {
-    position: relative;
-    background-color: colors.color('elvia-charge');
-
-    &::before {
-      @include helpers.transform(translateX(10px) rotate(-45deg));
-      @include helpers.transform-origin(left bottom);
-      position: absolute;
-      top: 12px;
-      left: -2px;
-      width: 2px;
-      height: 30%;
-      border-radius: 15px;
-      animation: checkmarkHeight 150ms;
-      background-color: colors.color('elvia-off');
-      content: '';
-    }
-
-    &::after {
-      @include helpers.transform(translateX(10px) rotate(-55deg));
-      @include helpers.transform-origin(left bottom);
-      position: absolute;
-      bottom: 3px;
-      left: -1px;
-      width: 0%;
-      height: 2px;
-      border-radius: 15px;
-      animation: checkmarkWidth 150ms 150ms forwards;
-      background-color: colors.color('elvia-off');
-      content: '';
-    }
+  &.e-checkbox---hover:not(:disabled):not(:invalid) .e-checkbox__mark {
+    background-color: var(--e-color-background-hover-1);
   }
 
-  %checkbox-mark-compact {
-    position: relative;
-    background-color: colors.color('elvia-charge');
+  input:disabled,
+  &.e-checkbox---disabled {
+    @extend %checkbox-mark-disabled;
+  }
 
-    &::before {
-      @include helpers.transform(translateX(10px) rotate(-45deg));
-      @include helpers.transform-origin(left bottom);
-      position: absolute;
-      top: 50%;
-      left: -28%;
-      width: 1px;
-      height: 39%;
-      border-radius: 15px;
-      animation: checkmarkHeightCompact 150ms;
-      background-color: colors.color('elvia-off');
-      content: '';
+  input:checked:disabled,
+  &.e-checkbox---disabled-checked {
+    ~ .e-checkbox__mark,
+    .e-checkbox__mark {
+      @extend %checkbox-mark-checked;
     }
 
-    &::after {
-      @include helpers.transform(translateX(10px) rotate(-55deg));
-      @include helpers.transform-origin(left bottom);
-      position: absolute;
-      bottom: 15%;
-      left: -28%;
-      width: 0%;
-      height: 1px;
-      border-radius: 15px;
-      animation: checkmarkWidthCompact 150ms 150ms forwards;
-      background-color: colors.color('elvia-off');
-      content: '';
+    @extend %checkbox-mark-disabled;
+  }
+
+  input:invalid ~ .e-checkbox__mark,
+  &.e-checkbox---invalid .e-checkbox__mark {
+    @extend %checkbox-mark-invalid;
+  }
+
+  &.e-checkbox--indeterminate .e-checkbox__mark {
+    @extend %checkbox-mark-indeterminate;
+  }
+
+  // Small
+  // DEPRECATED (compact, sm) -> small
+  &.e-checkbox--compact,
+  &.e-checkbox--sm,
+  &.e-checkbox--small {
+    input,
+    .e-checkbox__mark {
+      min-width: $checkbox-mark-size-small;
+      max-width: $checkbox-mark-size-small;
+      min-height: $checkbox-mark-size-small;
+      max-height: $checkbox-mark-size-small;
+    }
+
+    .e-checkbox__label {
+      @include typography.typography('text-sm');
+      color: var(--e-color-text-1);
+      line-height: 16px;
+    }
+
+    // States - small specific
+    input:checked ~ .e-checkbox__mark,
+    &.e-checkbox---checked .e-checkbox__mark {
+      @extend %checkbox-mark-checked-small;
+    }
+
+    input:checked:disabled,
+    &.e-checkbox---disabled-checked {
+      ~ .e-checkbox__mark,
+      .e-checkbox__mark {
+        @extend %checkbox-mark-checked-small;
+      }
+
+      @extend %checkbox-mark-disabled;
+    }
+
+    &.e-checkbox--indeterminate .e-checkbox__mark {
+      @extend %checkbox-mark-indeterminate-small;
     }
   }
 }
 
+// Checkbox mark styling
+// :before & :after each create a line which we put together to a checkmark.
+%checkbox-mark-checked,
+%checkbox-mark-checked-small,
+%checkbox-mark-indeterminate,
+%checkbox-mark-indeterminate-small {
+  position: relative;
+  border: $checkbox-mark-border-checked;
+  background-color: var(--e-color-background-selected-1);
+
+  &::before,
+  &::after {
+    @include helpers.transform-origin(left bottom);
+    position: absolute;
+    border-radius: 15px;
+    background-color: $checkbox-mark-color;
+    content: '';
+  }
+}
+%checkbox-mark-checked {
+  &::before {
+    @include helpers.transform(translateX(10px) rotate(-45deg));
+    top: 12px;
+    left: -2px;
+    width: 2px;
+    height: 30%;
+    animation: checkmarkHeight 150ms;
+  }
+
+  &::after {
+    @include helpers.transform(translateX(10px) rotate(-55deg));
+    bottom: 3px;
+    left: -1px;
+    width: 0%;
+    height: 2px;
+    animation: checkmarkWidth 150ms 150ms forwards;
+  }
+}
+%checkbox-mark-checked-small {
+  &::before {
+    @include helpers.transform(translateX(10px) rotate(-45deg));
+    top: 50%;
+    left: -28%;
+    width: 1px;
+    height: 39%;
+    animation: checkmarkHeightSmall 150ms;
+  }
+
+  &::after {
+    @include helpers.transform(translateX(10px) rotate(-55deg));
+    bottom: 15%;
+    left: -28%;
+    width: 0%;
+    height: 1px;
+    animation: checkmarkWidthSmall 150ms 150ms forwards;
+  }
+}
+%checkbox-mark-disabled {
+  cursor: not-allowed;
+
+  ~ .e-checkbox__label,
+  .e-checkbox__label {
+    color: var(--e-color-text-disabled-1);
+    cursor: not-allowed;
+  }
+
+  ~ .e-checkbox__mark,
+  .e-checkbox__mark {
+    border-color: var(--e-color-border-disabled-1);
+    background-color: var(--e-color-background-disabled-1);
+    cursor: not-allowed;
+
+    &::after,
+    &::before {
+      background-color: var(--e-color-text-disabled-1);
+    }
+  }
+}
+%checkbox-mark-invalid {
+  border-color: var(--e-color-signal-danger);
+}
+%checkbox-mark-indeterminate {
+  &::before {
+    top: calc(50% - 1px);
+    left: calc(50% - 6px);
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+  }
+}
+%checkbox-mark-indeterminate-small {
+  &::before {
+    top: calc(50%);
+    left: calc(50% - 4px);
+    width: 8px;
+    height: 1px;
+  }
+}
+
+// Animations
 @include helpers.keyframes(checkmarkHeight) {
   0% {
     left: -31%;
@@ -336,7 +275,7 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
   }
 }
 
-@include helpers.keyframes(checkmarkHeightCompact) {
+@include helpers.keyframes(checkmarkHeightSmall) {
   0% {
     left: -55%;
     height: 0%;
@@ -348,7 +287,7 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
   }
 }
 
-@include helpers.keyframes(checkmarkWidthCompact) {
+@include helpers.keyframes(checkmarkWidthSmall) {
   0% {
     width: 0%;
   }

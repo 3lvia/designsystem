@@ -1,4 +1,3 @@
-@use '../variables/colors';
 @use '../variables/typography';
 @use '../utilities/icons';
 @use '../utilities/helpers';
@@ -10,18 +9,17 @@ $table-phone-padding: 6px 8px;
 $table-border-radius: 8px;
 $table-header-height: 56px;
 $table-header-compact-height: 40px;
-$table-invalid-border: 2px solid colors.color('red');
+$table-invalid-border: 2px solid var(--e-color-signal-danger);
 $table-invalid-padding: 8px 16px;
-
-$grey10: colors.color('grey-10');
 
 %header-style {
   width: 100%;
-  background: colors.color('white');
+  background: var(--e-color-background-element-1);
 
   th {
-    border-bottom: 1px solid colors.color('grey-10');
-    color: colors.color('font-color');
+    border-bottom: 1px solid var(--e-color-border-2);
+    background: var(--e-color-background-element-1);
+    color: var(--e-color-text-1);
     font-weight: 700;
   }
 }
@@ -36,7 +34,7 @@ $grey10: colors.color('grey-10');
     width: 4px;
     height: 100%;
     border-radius: 4px 0 0 4px;
-    background: colors.color('green');
+    background: var(--e-color-background-selected-1);
     content: '';
   }
 }
@@ -44,7 +42,7 @@ $grey10: colors.color('grey-10');
 .e-table-container {
   overflow: auto;
   width: 100%;
-  border: 1px solid colors.color('grey-10');
+  border: 1px solid var(--e-color-border-2);
   border-radius: $table-border-radius;
 }
 
@@ -89,7 +87,7 @@ $grey10: colors.color('grey-10');
 
     th,
     td {
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
       text-align: left;
     }
   }
@@ -99,7 +97,7 @@ $grey10: colors.color('grey-10');
     @include typography.typography('text-md');
 
     padding: $table-padding;
-    background: colors.color('white');
+    background: var(--e-color-background-element-1);
     text-align: left;
 
     @include breakpoints.breakpoint-up(Mobile) {
@@ -133,7 +131,15 @@ $grey10: colors.color('grey-10');
 
   tbody {
     tr {
-      background: colors.color('white');
+      background: var(--e-color-background-element-1);
+      // Select the 1st column in a sticky vertical header, and make the background
+      // non-transparent in dark theme so that it covers rest of row when scrolled
+      .e-theme-dark &:nth-of-type(even) {
+        th:first-of-type,
+        th[scope='row'] {
+          background: var(--e-dark-theme-grey);
+        }
+      }
 
       &.e-table__row--invalid {
         td {
@@ -153,12 +159,12 @@ $grey10: colors.color('grey-10');
     }
 
     tr:nth-of-type(odd) {
-      background: colors.color('grey-05');
+      background: var(--e-color-background-element-2);
     }
 
     tr:nth-of-type(odd) th,
     tr:nth-of-type(odd) td {
-      background: colors.color('grey-05');
+      background: var(--e-color-background-element-2);
     }
 
     tr:last-child {
@@ -180,7 +186,7 @@ $grey10: colors.color('grey-10');
       tr,
       tr:nth-of-type(odd) th,
       tr:nth-of-type(odd) td {
-        background: colors.color('white');
+        background: var(--e-color-background-element-1);
       }
     }
   }
@@ -199,7 +205,7 @@ $grey10: colors.color('grey-10');
     th {
       @include typography.typography('text-sm');
       padding: $table-compact-padding;
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
       line-height: 21px;
     }
   }
@@ -218,7 +224,7 @@ $grey10: colors.color('grey-10');
       position: sticky;
       z-index: 1;
       left: 0;
-      border-right: 1px solid colors.color('grey-10');
+      border-right: 1px solid var(--e-color-border-2);
     }
   }
 }
@@ -234,9 +240,9 @@ $grey10: colors.color('grey-10');
   overflow: hidden;
   width: 100%;
   border-radius: $table-border-radius;
-  background: colors.color('elvia-on');
+  background: var(--e-color-background-element-1);
   border-spacing: 0;
-  box-shadow: 0 0 0 1px $grey10;
+  box-shadow: 0 0 0 1px var(--e-color-border-2);
   table-layout: auto;
 
   thead {
@@ -248,13 +254,13 @@ $grey10: colors.color('grey-10');
 
     th,
     td {
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
       text-align: left;
     }
 
     th {
       @include typography.typography('title-xs');
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
     }
   }
 
@@ -262,7 +268,7 @@ $grey10: colors.color('grey-10');
   td {
     @include typography.typography('text-md');
     padding: $table-padding;
-    color: colors.color('font-color');
+    color: var(--e-color-text-1);
     line-height: 27px;
     text-align: left;
 
@@ -277,17 +283,17 @@ $grey10: colors.color('grey-10');
 
   tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
   tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) th {
-    border-bottom: 1px solid colors.color('grey-10');
+    border-bottom: 1px solid var(--e-color-border-2);
   }
 
   tbody:last-of-type tr:not(:last-of-type) td,
   tbody:last-of-type tr:not(:first-of-type):not(:last-of-type) th {
-    border-bottom: 1px solid colors.color('grey-10');
+    border-bottom: 1px solid var(--e-color-border-2);
   }
 
   tbody tr:first-of-type th {
     @include typography.typography('text-md-strong');
-    background: colors.color('grey-05');
+    background: var(--e-color-background-element-2);
   }
 
   tbody th,
@@ -323,13 +329,13 @@ $grey10: colors.color('grey-10');
     th {
       @include typography.typography('text-sm');
       padding: $table-compact-padding;
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
       line-height: 21px;
     }
 
     tbody tr:first-of-type th {
       @include typography.typography('text-sm-strong');
-      color: colors.color('font-color');
+      color: var(--e-color-text-1);
     }
   }
 
@@ -363,7 +369,7 @@ $grey10: colors.color('grey-10');
 
   .e-input {
     input {
-      border-color: colors.color('grey-60');
+      border-color: var(--e-color-border-6);
       background: transparent;
     }
 
@@ -371,7 +377,7 @@ $grey10: colors.color('grey-10');
     .e-input---focus > textarea,
     > input:focus,
     > textarea:focus {
-      border-color: colors.color('elvia-charge');
+      border-color: var(--e-color-background-hover-1);
     }
   }
 }
@@ -473,7 +479,7 @@ $grey10: colors.color('grey-10');
         width: 4px;
         height: 100%;
         border-radius: 0 4px 4px 0;
-        background: colors.color('green');
+        background: var(--e-color-background-hover-1);
         content: '';
       }
     }

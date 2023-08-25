@@ -1,4 +1,4 @@
-@use '../variables/colors';
+@use '../variables/colors'; // TODO: Remove when deprecated classes are removed
 @use '../variables/typography';
 @use '../utilities/breakpoints';
 @use '../utilities/outline';
@@ -24,16 +24,14 @@ $link-jumbo-desktop-width: 545px;
 $link-jumbo-phone-padding: 30px 24px;
 $link-jumbo-phone-width: 287px;
 
-$grey-ten: colors.color('grey-10');
-
 .e-link {
   // Default for links is md
   @extend .e-link--md;
   position: relative;
   display: inline;
   box-sizing: border-box;
-  border-bottom: 2px solid colors.color('elvia-off');
-  color: colors.color('font-color');
+  border-bottom: 2px solid var(--e-color-border-1);
+  color: var(--e-color-text-1);
   cursor: pointer;
 
   font-family: 'Red Hat Display', Verdana, sans-serif;
@@ -42,7 +40,7 @@ $grey-ten: colors.color('grey-10');
   text-decoration: none;
   @include helpers.hover() {
     &:hover {
-      border-bottom-color: colors.color('elvia-charge');
+      border-bottom-color: var(--e-color-border-hover-1);
     }
   }
 
@@ -64,7 +62,6 @@ $grey-ten: colors.color('grey-10');
   }
 
   &.e-link--lg {
-    border-bottom: 2.5px solid colors.color('elvia-off');
     font-size: $link-lg-font-size;
     line-height: $link-lg-line-height;
   }
@@ -79,14 +76,14 @@ $grey-ten: colors.color('grey-10');
     line-height: $link-sm-line-height;
   }
 
-  &.e-link--inverted {
-    border-color: colors.color('elvia-on');
-    color: colors.color('font-color-light');
-  }
-
   &:active,
   &.e-link---hover {
-    border-bottom-color: colors.color('elvia-charge');
+    border-bottom-color: var(--e-color-border-hover-1);
+  }
+
+  &:active {
+    padding-bottom: 1px;
+    border-bottom-width: 1px;
   }
 
   &.e-link---focus {
@@ -285,7 +282,7 @@ $grey-ten: colors.color('grey-10');
     background: colors.color('elvia-on');
     box-sizing: border-box;
     border: none;
-    box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
+    box-shadow: 0 0 0 1px transparent, 0 0 0 1px colors.color('grey-10');
     border-radius: 8px;
     text-align: center;
     position: relative;

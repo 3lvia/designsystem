@@ -1,7 +1,9 @@
+// TODO: All or most of the code below can be removed once all components uses the new css tokens
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
-@use '@elvia/elvis-colors/dist/colorMap.scss' as ColorMap;
+@use './colorMap.scss' as ColorMap;
+
 @function color-map($name, $color-set: $colors) {
   $color-map: null;
 
@@ -61,3 +63,39 @@ $grey-primary: map-merge($greys, $primary-colors);
 $colors: map-merge($just-colors, $grey-primary);
 
 $internal-colors: ColorMap.$internal-colors;
+
+// TODO: Every class below is deprecated - Remove classes after they have been deprecated for a while
+.e-text {
+  color: color('font-color');
+}
+
+.e-bg {
+  background: color('elvia-on');
+}
+
+@each $label, $map in $colors {
+  $color: color($label);
+  $contrast-text: map.get($map, contrastText);
+
+  $alt-labels: map.get($map, alt-labels);
+  $labels: ($label);
+
+  @if $alt-labels {
+    @each $label in $alt-labels {
+      $labels: list.append($labels, $label);
+    }
+  }
+
+  @each $label in $labels {
+    :root {
+      --e-#{$label}: #{$color};
+    }
+    .e-text-#{$label} {
+      color: $color !important;
+    }
+    .e-bg-#{$label} {
+      background: $color !important;
+      color: $contrast-text !important;
+    }
+  }
+}

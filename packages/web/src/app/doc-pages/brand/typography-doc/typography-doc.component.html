@@ -10,14 +10,14 @@
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
       <div class="e-mt-72 e-mb-24">
-        <div style="display: flex; justify-content: center; width: 100%" *ngIf="!loadedImg">
+        <div class="e-flex e-justify-content-center e-w-100" *ngIf="!loadedImg">
           <div class="e-content-loader" style="width: 80%"></div>
         </div>
         <img
           class="header-img"
           [ngClass]="!loadedImg ? 'e-none' : ''"
-          src="../../../../assets/doc-page-icons/pages-icons/RedHat.jpeg"
-          alt="Confirmation page illustration"
+          src="/assets/doc-page-icons/pages-icons/RedHat.jpeg"
+          alt="Red Hat typography anatomy"
           (load)="hideContentLoader($event)"
         />
       </div>
@@ -40,7 +40,7 @@
 
       <div width="100%" style="width: 100; overflow-x: auto">
         <iframe
-          style="border: 1px solid rgba(0, 0, 0, 0.1)"
+          style="border: 1px solid var(--e-color-border-2)"
           width="100%"
           height="500"
           src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FhvQucRpSHYZtSiIKM7NgBo%2FTypography%3Fnode-id%3D1854%253A2747"
@@ -234,13 +234,21 @@
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Text alignment'">
+      <app-component-subsubsection [sectionTitle]="'Text alignment'">
         <ng-container ngProjectAs="sectionContent">
           <app-static-ceg>
             <app-typography-alignment-ceg />
           </app-static-ceg>
         </ng-container>
-      </app-component-subsection>
+      </app-component-subsubsection>
+
+      <app-component-subsubsection [sectionTitle]="'Text emphasis'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-static-ceg>
+            <app-typography-emphasis-ceg />
+          </app-static-ceg>
+        </ng-container>
+      </app-component-subsubsection>
     </ng-container>
   </app-component-section>
 

@@ -39,7 +39,7 @@
                   <li>
                     <strong>Put the following in &lt;head></strong>
                     <div *ngIf="linkTagCode">
-                      <div class="code-text">{{ linkTagCode }}</div>
+                      <code>{{ linkTagCode }}</code>
                     </div>
                     <div
                       *ngIf="!linkTagCode"
@@ -50,7 +50,7 @@
                   <li>
                     <strong>Put the following at the bottom of &lt;body></strong>
                     <div *ngIf="scriptTagCode">
-                      <div class="code-text">{{ scriptTagCode }}</div>
+                      <code>{{ scriptTagCode }}</code>
                     </div>
                     <div
                       *ngIf="!scriptTagCode"
@@ -339,7 +339,11 @@
                 or active. There’s a bit more tips to help you with color usage in our
                 <a class="e-link e-link--inline" [routerLink]="['/brand/color']">color guidelines.</a>
               </div>
-              <img class="color-img" src="../../../../assets/get-started-designers/COLOR.svg" alt="" />
+              <img
+                class="color-img theme-image-padding"
+                src="../../../../assets/get-started-designers/COLOR.svg"
+                alt=""
+              />
             </div>
 
             <div class="e-mt-24">
@@ -380,7 +384,11 @@
           size="large"
         >
           <div slot="content" class="e-text-lg e-mt-16">
-            <img class="e-w-100" src="../../../../assets/get-started-designers/GRID.svg" alt="" />
+            <img
+              class="e-w-100 theme-image-padding"
+              src="../../../../assets/get-started-designers/GRID.svg"
+              alt=""
+            />
 
             <div class="e-mt-24">
               In Elvia, we follow the 8 point grid. If you haven’t worked with it before we recommend you to

@@ -43,7 +43,7 @@ export const GridContainer = styled.div`
 
 export const DayName = styled.div`
   ${getTypographyCss('text-sm')};
-  color: ${getThemeColor('text-3')};
+  color: ${getThemeColor('text-placeholder-1')};
   text-align: center;
 `;
 

@@ -13,11 +13,11 @@ import {
 
 const borderColors: BorderColors = {
   none: 'transparent',
-  green: getThemeColor('signal-success'),
+  green: getThemeColor('signal-positive'),
   'blue-berry': getThemeColor('data-3'),
   blueBerry: getThemeColor('data-3'),
   blue: getThemeColor('data-3'),
-  red: getThemeColor('signal-error'),
+  red: getThemeColor('signal-danger'),
   orange: getThemeColor('signal-warning'),
 };
 
@@ -46,7 +46,7 @@ export const CardArea = styled.article<CardAreaProps>`
   align-items: center;
   justify-content: ${({ type }) => (type === 'simple' ? 'center' : 'flex-start')};
   position: relative;
-  background: ${getThemeColor('background-1')};
+  background: ${getThemeColor('background-element-1')};
   box-sizing: border-box;
 
   padding: 22px;
@@ -185,7 +185,7 @@ export const CardHoverArrow = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: ${getThemeColor('background-element-5')};
+  background: ${getThemeColor('background-element-4')};
   opacity: 0;
   ${CardArea}:hover & {
     animation: ${CardHoverArrowHoverKeyframe} 300ms ease forwards;

@@ -45,6 +45,22 @@ Read about the
 - Follow the
   [versioning guidelines](<https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10421994468/Retningslinjer+for+versjonering#Stilbiblitoeket-(Elvis)>)
   for publishing to NPM.
+- For colors always use our color tokens. If something custom is needed define a new CSS variable at root with
+  the naming convention: --e-componentName-color-purpose':
+
+```css
+@include helpers.custom-light-theme-tokens {
+  --e-tag-color-neutral-background: var(--e-light-theme-black);
+}
+
+@include helpers.custom-dark-theme-tokens('tag') {
+  --e-tag-color-neutral-background: var(--e-dark-theme-white);
+}
+
+.e-tag {
+  background: var(--e-tag-color-neutral-background);
+}
+```
 
 #### Good to know
 
@@ -74,15 +90,15 @@ Read about the
       }
   ```
 
-  Glossary:
+Glossary:
 
-  - `deprecateChildren`: If true, all other Elvis classes that include the name specified above will be
-    deprecated (optional).
+- `deprecateChildren`: If true, all other Elvis classes that include the name specified above will be
+  deprecated (optional).
 
-  - `requiredAncestor`: If specified, the requiredAncestor class will only cause a warning if the specified
-    'requiredAncestor' class is present as an ancestor in the DOM (optional).
+- `requiredAncestor`: If specified, the requiredAncestor class will only cause a warning if the specified
+  'requiredAncestor' class is present as an ancestor in the DOM (optional).
 
-  - `sunset`: An approximate date of when classes will be removed from Elvis (optional).
+- `sunset`: An approximate date of when classes will be removed from Elvis (optional).
 
   Lastly, remember to remove any Percy tests for the deprecated class. They can be found in
   `packages/elvis/percy`.

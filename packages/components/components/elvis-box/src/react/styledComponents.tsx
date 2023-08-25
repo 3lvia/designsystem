@@ -17,7 +17,7 @@ export const BoxColoredLine = styled.div`
   height: 4px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background: ${getThemeColor('border-selected-1')};
+  background: ${getThemeColor('brand-accent')};
 `;
 
 export const BoxHeading = styled.div`
@@ -42,7 +42,7 @@ export const BoxContent = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   border: 2px solid ${getThemeColor('border-5')};
-  background: ${getThemeColor('background-element-5')};
+  background: ${getThemeColor('background-element-4')};
   text-align: left;
   color: ${getThemeColor('text-1')};
   padding: 40px;

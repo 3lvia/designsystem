@@ -1,18 +1,25 @@
-<div class="error-overivew e-bg-grey-90 e-mt-64">
+<div class="error-overivew e-mt-64">
   <div class="error-illustration">
     <img
+      *ngIf="currentTheme === 'light'"
       class="error-illustration"
-      src="../../../assets/not-found/not-found.svg"
-      alt="Page not found illustration"
+      src="assets/not-found/NoResults.svg"
+      alt=""
+    />
+    <img
+      *ngIf="currentTheme === 'dark'"
+      class="error-illustration"
+      src="assets/not-found/NoResultsDark.svg"
+      alt=""
     />
   </div>
   <div class="e-title-lg e-mt-56">
     <div>Oh no!</div>
-    We were unable to connect you 👀
+    We were unable to find this page 👀
   </div>
   <div class="e-text-lg e-mt-24">Page does not exist, please try again in the menu</div>
 
   <div class="e-mt-24 e-mt-64" style="text-align: initial">
-    <a class="e-link e-link--inverted" [routerLink]="['/']">Back to home</a>
+    <a class="e-link" [routerLink]="['/']">Back to home</a>
   </div>
 </div>

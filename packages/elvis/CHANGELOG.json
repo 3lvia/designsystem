@@ -1,6 +1,66 @@
 {
   "content": [
     {
+      "version": "12.8.0",
+      "date": "August 25, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>compass</code> and <code>ruler</code> icons."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the list typography would not be Red Hat Text.",
+            "Updated the versions in the deprecated warning for dark theme-related deprecations."
+          ],
+          "components": [{ "displayName": "List", "url": "https://design.elvia.io/components/list" }]
+        }
+      ]
+    },
+    {
+      "version": "12.7.0",
+      "date": "August 24, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Dark theme support for all Elvis components",
+            "New CSS variables for all purpose tokens.",
+            "New CSS variables for all base tokens (both light and dark).",
+            "New CSS classes for some purpose tokens (text, background) which replaces <code>e-bg-</code> and <code>e-text-</code>",
+            "Deprecated all color classes that started with <code>e-bg-</code> or <code>e-text-</code>. These have been deprecated in favor of token classes like <code>e-color-text-1</code> or <code>e-color-background-1</code>"
+          ],
+          "fixes": [
+            "All <code>e-bg-</code> and <code>e-text-</code> classes need to be replaced by a token class. To find the correct token class go to the token table in the color documentation page. To read more about how to use the new token CSS variables and classes go to the implementation part of the color documentation."
+          ],
+          "pages": [
+            { "displayName": "Color", "url": "https://design.elvia.io/brand/color" },
+            { "displayName": "Thumbnail", "url": "https://design.elvia.io/components/thumbnail" }
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the hover and active states of links."],
+          "components": [{ "displayName": "Link", "url": "https://design.elvia.io/components/link" }]
+        }
+      ]
+    },
+    {
+      "version": "12.6.0",
+      "date": "August 24, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Using <code>i</code> and <code>em</code> elements inside our text-classes, will now give <code>font-style: italic</code>, to make it easier to use italic versions of our typography."
+          ],
+          "pages": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "12.5.0",
       "date": "August 17, 2023",
       "changelog": [

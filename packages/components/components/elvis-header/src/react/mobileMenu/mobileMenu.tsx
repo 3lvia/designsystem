@@ -34,6 +34,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
   appTitle,
   email,
   username,
+  hideThemeSwitch,
   onSignOutClick,
   onMenuToggle,
   onThemeChange,
@@ -87,7 +88,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   <TextSmallStrong>{username}</TextSmallStrong>
                   <TextSmall>{email}</TextSmall>
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
-                  {false && <ThemePicker onThemeChange={onThemeChange} />}
+                  {!hideThemeSwitch && <ThemePicker onThemeChange={onThemeChange} />}
                   <MobileMenuFooter>
                     <TertiaryButton size="sm" onClick={onSignOutClick}>
                       <IconWrapper icon={logout} size="xs" />

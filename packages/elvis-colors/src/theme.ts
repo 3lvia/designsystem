@@ -19,13 +19,21 @@ export interface Color {
   contrast?: string;
 }
 
-export type TextLabels = 'text-1' | 'text-2' | 'text-3' | 'text-disabled-1' | 'text-disabled-2';
+export type TextLabels =
+  | 'text-1'
+  | 'text-2'
+  | 'text-3'
+  | 'text-4'
+  | 'text-disabled-1'
+  | 'text-disabled-2'
+  | 'text-placeholder-1';
 export type BackgroundLabels =
   | 'background-1'
   | 'background-2'
   | 'background-element-1'
   | 'background-element-2'
   | 'background-element-3'
+  | 'background-3'
   | 'background-element-4'
   | 'background-element-5'
   | 'background-overlay-1'
@@ -49,19 +57,18 @@ export type BorderLabels =
   | 'border-selected-1'
   | 'border-selected-2';
 export type SignalLabels =
-  | 'signal-success'
+  | 'signal-positive'
   | 'signal-caution'
   | 'signal-warning'
-  | 'signal-error'
+  | 'signal-danger'
   | 'signal-info';
 export type DataLabels = 'data-1' | 'data-2' | 'data-3' | 'data-4' | 'data-5' | 'data-6';
 export type IconColors =
-  | 'icon-stroke'
-  | 'icon-filled-foreground'
-  | 'icon-filled-background'
-  | 'icon-filled-foreground-colored'
+  | 'icon-stroke-1'
+  | 'icon-filled-foreground-1'
+  | 'icon-filled-background-1'
   | (SignalLabels extends `signal-${infer T}` ? `icon-${T}` : never);
-export type StaticLabels = 'static-white' | 'static-black';
+export type AssortedLabels = 'static-white' | 'static-black' | 'brand-accent' | 'focus-outline';
 
 export type ColorLabel =
   | TextLabels
@@ -70,7 +77,7 @@ export type ColorLabel =
   | SignalLabels
   | DataLabels
   | IconColors
-  | StaticLabels;
+  | AssortedLabels;
 
 export interface Theme {
   text: { [label in TextLabels]: Color };
@@ -79,7 +86,7 @@ export interface Theme {
   signal: { [label in SignalLabels]: Color };
   data: { [label in DataLabels]: Color };
   icon: { [label in IconColors]: Color };
-  static: { [label in StaticLabels]: Color };
+  assorted: { [label in AssortedLabels]: Color };
 }
 
 export type ThemeName = 'light' | 'dark';

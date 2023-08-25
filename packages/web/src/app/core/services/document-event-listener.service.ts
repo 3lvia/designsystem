@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { ThemeService } from './theme.service';
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +10,7 @@ import { Observable, Subject } from 'rxjs';
 export class DocumentEventListenerService {
   private shortcutWasTriggered = new Subject<void>();
 
-  private keyboardPaths = {
+  private goKeyboardPaths = {
     h: '',
     a: 'about',
     b: 'brand',
@@ -18,8 +20,15 @@ export class DocumentEventListenerService {
     d: 'dev',
     s: '',
   };
+  private switchKeyboardPaths = {
+    t: '',
+  };
   private lastGPress: number;
-  constructor(private router: Router) {}
+  private lastSPress: number;
+  private currentTheme: ThemeName;
+  constructor(private router: Router, private themeService: ThemeService) {
+    themeService.listenTheme().subscribe((theme) => (this.currentTheme = theme));
+  }
 
   /**
    * Handles navigating the page on keyboard events.
@@ -38,7 +47,15 @@ export class DocumentEventListenerService {
     if (keyPressed === 'g') {
       this.lastGPress = new Date().getTime();
     }
-    if (this.keyPressIsInShortcuts(keyPressed)) {
+    if (keyPressed === 's') {
+      this.lastSPress = new Date().getTime();
+    }
+    if (this.keyPressIsInSwitchShortcuts(keyPressed)) {
+      if (keyPressed === 't') {
+        this.themeService.setPreferredTheme(this.currentTheme === 'dark' ? 'light' : 'dark');
+      }
+    }
+    if (this.keyPressIsInGoShortcuts(keyPressed)) {
       const now = new Date().getTime();
       if (now - this.lastGPress <= 1000) {
         if (keyPressed === 's') {
@@ -47,15 +64,21 @@ export class DocumentEventListenerService {
             searchButton?.click();
           });
         } else {
-          this.router.navigate([this.keyboardPaths[keyPressed]]);
+          this.router.navigate([this.goKeyboardPaths[keyPressed]]);
         }
         this.shortcutWasTriggered.next();
       }
     }
   }
 
-  private keyPressIsInShortcuts(keyPressed: string): keyPressed is keyof typeof this.keyboardPaths {
-    return keyPressed in this.keyboardPaths;
+  private keyPressIsInGoShortcuts(keyPressed: string): keyPressed is keyof typeof this.goKeyboardPaths {
+    return keyPressed in this.goKeyboardPaths;
+  }
+
+  private keyPressIsInSwitchShortcuts(
+    keyPressed: string,
+  ): keyPressed is keyof typeof this.switchKeyboardPaths {
+    return keyPressed in this.switchKeyboardPaths;
   }
 
   listenShortcutTriggered(): Observable<void> {

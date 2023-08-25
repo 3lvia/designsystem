@@ -14,7 +14,7 @@ export const outlineData: ComponentData = {
       isRequired: false,
       type: '{[cssProperty: string]: string}',
       description:
-        "Custom CSS style object that can be added to the outline. Example: {borderColor: 'black'}",
+        "Custom CSS style object that can be added to the outline. Example: {borderColor: 'var(--e-color-border-1)'}",
     },
   },
 };

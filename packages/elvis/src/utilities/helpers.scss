@@ -37,3 +37,22 @@
     @content;
   }
 }
+
+@mixin custom-light-theme-tokens {
+  :root &,
+  .e-theme-light & {
+    @content;
+  }
+}
+
+@mixin custom-dark-theme-tokens($component: -1) {
+  .e-theme-dark &,
+  .e-color-background-3 & {
+    @content;
+  }
+  @if $component != -1 {
+    &.e-#{$component}--inverted {
+      @content;
+    }
+  }
+}

@@ -11,19 +11,17 @@ export class ComponentSectionComponent {
   @Input() propertiesClass = '';
   @Input() figmaOnly = false;
 
+  titleIsCopied = false;
+
   constructor(private router: Router) {}
 
   copyAnchor(): void {
-    const anchorTitleElement = document.getElementById(this.sectionTitle);
-    if (!anchorTitleElement) {
-      return;
-    }
-    anchorTitleElement.classList.add('anchor-copied');
+    this.titleIsCopied = true;
     setTimeout(() => {
-      anchorTitleElement.classList.remove('anchor-copied');
+      this.titleIsCopied = false;
     }, 800);
     const modifiedAnchor = this.sectionTitle.replace(/ /g, '-');
-    let anchorUrl = 'https://design.elvia.io';
+    let anchorUrl = location?.origin ?? 'https://design.elvia.io';
     if (this.router.url.includes('#')) {
       anchorUrl =
         anchorUrl + this.router.url.slice(0, this.router.url.lastIndexOf('#')) + '#' + modifiedAnchor;

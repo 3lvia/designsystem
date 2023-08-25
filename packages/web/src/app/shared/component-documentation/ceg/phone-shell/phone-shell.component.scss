@@ -3,7 +3,7 @@
   margin: auto;
   padding: 64px 24px;
   border-radius: 50px;
-  border: 12px solid var(--e-grey-80);
+  border: 12px solid var(--e-color-border-2);
   width: 400px;
   height: 630px;
 
@@ -22,7 +22,7 @@
     left: 22%;
     width: 56%;
     height: 27px;
-    background-color: var(--e-grey-80);
+    background-color: var(--e-color-border-2);
     border-radius: 0px 0px 20px 20px;
     display: flex;
     justify-content: center;
@@ -32,7 +32,7 @@
       width: 25%;
       height: 7px;
       margin-right: 5px;
-      background-color: var(--e-grey);
+      background-color: var(--e-color-static-black);
     }
   }
 
@@ -43,7 +43,7 @@
     width: 8px;
     height: 8px;
     border-radius: 100%;
-    background-color: var(--e-grey);
+    background-color: var(--e-color-static-black);
   }
 
   &__elvia,

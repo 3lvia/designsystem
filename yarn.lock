@@ -2094,10 +2094,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2114,11 +2114,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^3.0.0, @elvia/elvis-assets-icons@^3.0.1, @elvia/elvis-assets-icons@^3.1.0, @elvia/elvis-assets-icons@^3.2.0, @elvia/elvis-assets-icons@workspace:*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@*, @elvia/elvis-assets-icons@^3.0.0, @elvia/elvis-assets-icons@^3.3.1, @elvia/elvis-assets-icons@workspace:*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
-    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-colors": ^3.0.0
     "@types/gulp": ^4.0.13
     "@types/gulp-svgmin": ^1.2.2
     "@types/node": ^18.11.18
@@ -2132,15 +2132,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-assets-icons@npm:^2.6.1":
-  version: 2.13.0
-  resolution: "@elvia/elvis-assets-icons@npm:2.13.0"
-  dependencies:
-    "@elvia/elvis-colors": ^1.8.0
-  checksum: 2d083052b7e4a31684fb9069cdaaf845892612c382f835f18660956f18372b28864d8fc54d9df2720c12f385cd1b9e831cff6b3da1f3f71c94519f392741ff36
-  languageName: node
-  linkType: hard
-
 "@elvia/elvis-assets-trademark@workspace:packages/elvis-assets-trademark":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-trademark@workspace:packages/elvis-assets-trademark"
@@ -2151,9 +2142,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete"
   dependencies:
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.5.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-tooltip": ^1.2.3
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
@@ -2175,9 +2166,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-badge@workspace:packages/components/components/elvis-badge"
   dependencies:
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2197,9 +2188,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-box@workspace:packages/components/components/elvis-box"
   dependencies:
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2220,10 +2211,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-breadcrumb@workspace:packages/components/components/elvis-breadcrumb"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2244,10 +2235,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-card@workspace:packages/components/components/elvis-card"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-tooltip": ^1.2.3
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
@@ -2269,10 +2260,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-carousel@workspace:packages/components/components/elvis-carousel"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2293,10 +2284,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-chip@workspace:packages/components/components/elvis-chip"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@react-aria/interactions": ^3.8.4
     styled-components: ^5.3.3
   peerDependencies:
@@ -2313,7 +2304,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@^2.2.0, @elvia/elvis-colors@^2.6.0, @elvia/elvis-colors@^2.7.1, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@^3.0.0, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -2326,13 +2317,6 @@ __metadata:
     typescript: ~5.1.0
   languageName: unknown
   linkType: soft
-
-"@elvia/elvis-colors@npm:^1.4.2, @elvia/elvis-colors@npm:^1.8.0":
-  version: 1.8.0
-  resolution: "@elvia/elvis-colors@npm:1.8.0"
-  checksum: 5d29f0a24915e9afc0225559d41db7803ec5b8b07e882f0ad4a46b1b7681910fee81d7138fc90e3550281fa40e91ab15b275f29ce6d5ddb7f7462e0bb350f9f0
-  languageName: node
-  linkType: hard
 
 "@elvia/elvis-component-wrapper@*, @elvia/elvis-component-wrapper@^4.0.0, @elvia/elvis-component-wrapper@^4.1.2, @elvia/elvis-component-wrapper@^4.1.3, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
@@ -2423,9 +2407,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu"
   dependencies:
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2447,9 +2431,9 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-datepicker": ^7.0.8
+    "@elvia/elvis-datepicker": ^7.1.1
     "@elvia/elvis-timepicker": ^3.1.3
-    "@elvia/elvis-toolbox": ^9.5.1
+    "@elvia/elvis-toolbox": ^9.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2465,14 +2449,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^7.0.8, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^7.1.1, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.4.3
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2493,9 +2477,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-divider@workspace:packages/components/components/elvis-divider"
   dependencies:
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2516,10 +2500,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.4.3
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-tooltip": ^1.2.3
     "@elvia/elvis-typography": ^2.4.0
     dompurify: ^3.0.3
@@ -2542,10 +2526,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-header@workspace:packages/components/components/elvis-header"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.1.0
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.4.1
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2566,9 +2550,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-icon@workspace:packages/components/components/elvis-icon"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.2.0
+    "@elvia/elvis-assets-icons": ^3.3.1
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.3.0
+    "@elvia/elvis-toolbox": ^9.6.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2587,10 +2571,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.2.0
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2611,9 +2595,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-outline@workspace:packages/components/components/elvis-outline"
   dependencies:
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     styled-components: ^5.3.6
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2633,11 +2617,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-pagination@workspace:packages/components/components/elvis-pagination"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.2.0
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
     "@elvia/elvis-dropdown": ^7.1.1
-    "@elvia/elvis-toolbox": ^9.3.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2658,10 +2642,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-popover@workspace:packages/components/components/elvis-popover"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.2.0
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.4.1
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2682,9 +2666,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-progress-linear@workspace:packages/components/components/elvis-progress-linear"
   dependencies:
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.3.0
+    "@elvia/elvis-toolbox": ^9.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2704,9 +2688,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-radio-filter@workspace:packages/components/components/elvis-radio-filter"
   dependencies:
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.3.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@types/dompurify": ^3.0.0
     dompurify: ^3.0.1
     styled-components: ^5.3.3
@@ -2728,9 +2712,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-segmented-control@workspace:packages/components/components/elvis-segmented-control"
   dependencies:
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.3.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     "@types/lodash.uniqueid": ^4.0.7
     dompurify: ^3.0.3
@@ -2754,10 +2738,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-slider@workspace:packages/components/components/elvis-slider"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.4.3
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2779,7 +2763,7 @@ __metadata:
   resolution: "@elvia/elvis-spotlight@workspace:packages/components/components/elvis-spotlight"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2799,10 +2783,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-stepper@workspace:packages/components/components/elvis-stepper"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^9.4.1
+    "@elvia/elvis-toolbox": ^9.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2822,10 +2806,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tabs@workspace:packages/components/components/elvis-tabs"
   dependencies:
-    "@elvia/elvis-assets-icons": ^2.6.1
-    "@elvia/elvis-colors": ^1.4.2
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.3.0
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2847,9 +2831,9 @@ __metadata:
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:
     "@elvia/elvis-assets-icons": ^3.0.0
-    "@elvia/elvis-colors": ^2.2.0
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^9.5.1
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.3.2
     styled-components: ^5.3.3
   peerDependencies:
@@ -2870,10 +2854,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toast@workspace:packages/components/components/elvis-toast"
   dependencies:
-    "@elvia/elvis-assets-icons": ^3.0.1
-    "@elvia/elvis-colors": ^2.7.1
+    "@elvia/elvis-assets-icons": ^3.3.1
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.4.1
+    "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
     "@types/dompurify": ^3.0.2
     dompurify: ^3.0.3
@@ -2892,11 +2876,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@*, @elvia/elvis-toolbox@^9.2.0, @elvia/elvis-toolbox@^9.3.0, @elvia/elvis-toolbox@^9.4.1, @elvia/elvis-toolbox@^9.4.3, @elvia/elvis-toolbox@^9.5.0, @elvia/elvis-toolbox@^9.5.1, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@*, @elvia/elvis-toolbox@^9.6.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
-    "@elvia/elvis-colors": ^2.6.0
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.0.0
     "@elvia/elvis-typography": ^2.3.1
     styled-components: ^5.3.6
@@ -2921,7 +2905,7 @@ __metadata:
   resolution: "@elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^9.2.0
+    "@elvia/elvis-toolbox": ^9.6.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2956,7 +2940,7 @@ __metadata:
   resolution: "@elvia/elvis@workspace:packages/elvis"
   dependencies:
     "@elvia/elvis-assets-icons": "*"
-    "@elvia/elvis-colors": ^1.8.0
+    "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-typography": ^2.3.2
     bootstrap: 4.6.1
     del: ^6.0.0

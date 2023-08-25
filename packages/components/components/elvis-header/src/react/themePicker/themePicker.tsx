@@ -10,7 +10,7 @@ import { LightThemeIcon } from './lightThemeIcon';
 import { DarkThemeIcon } from './darkThemeIcon';
 import { SystemThemeIcon } from './systemThemeIcon';
 import { getStoredActiveTheme, setThemeClassOnDocument } from '../themeUtils';
-import { Theme, themeLocalStorageKey } from '../elviaHeader.types';
+import { Theme, ThemeEvent, themeLocalStorageKey } from '../elviaHeader.types';
 
 interface PickerTheme {
   theme: Theme;
@@ -18,7 +18,7 @@ interface PickerTheme {
 }
 
 interface ThemePickerProps {
-  onThemeChange: (() => void) | undefined;
+  onThemeChange: ThemeEvent | undefined;
 }
 
 export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
@@ -33,7 +33,7 @@ export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
     setThemeClassOnDocument(theme);
     setCurrentTheme(theme);
     localStorage.setItem(themeLocalStorageKey, theme);
-    onThemeChange?.();
+    onThemeChange?.(theme);
   };
 
   useEffect(() => {

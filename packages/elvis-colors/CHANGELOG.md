@@ -1,10 +1,31 @@
 # Elvia Colors Changelog
 
+## 3.0.0 (??.06.23)
+
+### Breaking changes
+
+- Static category -> Assorted category (with no common prefix)
+- `text-3` -> `text-placeholder-1`
+- `signal-red` now has contrast color white instead of black
+- Dark `grey-70` has gone from `#242424` to `#262626` to match `grey` in light theme.
+- `background-3` uses dark `grey-70` instead of dark `grey`.
+- Reworked icon tokens.
+- Renamed `signal-success` -> `signal-positive`
+- Renamed `signal-error` -> `signal-danger`
+
+### New feature
+
+- Building CSS variables and classes for tokens.
+- Added support so that all `e-*--inverted` classes and the token `e-color-background-3` gives dark theme.
+- Added new theme color label: `brand-accent`, `background-element-5`, `text-3`, `text-4`
+- `getThemeColor` now return the inverted (dark theme) colors if `opts` `isInverted` is supplied and true.
+
 ## 2.7.1 (07.06.23)
 
 ### Patch
 
 - Change dark grey-20 from #BDBDBD to #A1A1A1.
+- `background-2` and `background-element-2` light theme colors have been changed from `grey-05` to `grey-02`
 
 ## 2.7.0 (01.06.23)
 
@@ -48,7 +69,7 @@
 
 ### New feature
 
-- Added new theme color label: `background-element-5`.
+- Added new theme color label: `background-element-4`.
 
 ## 2.0.0 (25.04.23)
 
@@ -96,7 +117,7 @@
 ### New feature
 
 - Added theme functionality. This introduces new functions `getThemeColor()` and `getCustomThemeColor()` along
-  with several new Typescript types related to theming.
+  with several new Typescript types related to theme.
 - Deprecated the function `getColor()`.
 
 ## 1.4.3 (01.12.22)
