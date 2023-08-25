@@ -165,6 +165,7 @@ export const AppContent = styled.main<AppContentProps>`
 
         @media ${device.gtMobile} {
           padding-left: ${isExpanded ? sidebarMaxWidth : toolbarHeight};
+          padding-bottom: 0;
         }
       `;
     }
