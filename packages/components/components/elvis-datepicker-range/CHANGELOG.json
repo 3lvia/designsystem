@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Compact input label missing background color."]
+          "changes": ["Small input label missing background color."]
         }
       ]
     },
