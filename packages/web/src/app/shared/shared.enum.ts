@@ -56,7 +56,6 @@ export enum Pages {
   Toast = 'toast',
   Toggle = 'toggle',
   Tooltip = 'tooltip',
-  Graph = 'graph',
 
   // Pages not from CMS
   Changelog = 'whats-new',
@@ -88,6 +87,7 @@ export enum Pages {
   Groups = 'groups',
   Onboarding = 'onboarding',
   Validations = 'validations',
+  Graph = 'graph',
 
   // Tool pages
   Accessibility = 'accessibility',

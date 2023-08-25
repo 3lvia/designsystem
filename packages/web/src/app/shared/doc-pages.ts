@@ -586,11 +586,6 @@ export const componentsDocPages: DocPage[] = [
     searchTerms: ['info', 'infotip', 'help', 'hint', 'popup'],
     relatedPages: ['popover', 'icon', 'button'],
   },
-  {
-    title: 'Graph',
-    docUrl: Pages.Graph,
-    absolutePath: '/components/' + Pages.Graph,
-  },
 ];
 
 // Brand pages
@@ -683,6 +678,11 @@ export const docPagesPattern: DocPage[] = [
     title: 'Validations',
     docUrl: Pages.Validations,
     absolutePath: '/patterns/' + Pages.Validations,
+  },
+  {
+    title: 'Graph',
+    docUrl: Pages.Graph,
+    absolutePath: '/patterns/' + Pages.Graph,
   },
 ];
 
