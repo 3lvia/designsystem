@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "25.08.23",
+      "version": "1.5.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix profile picture swap on theme switch."]
+        }
+      ]
+    },
+    {
+      "date": "25.08.23",
       "version": "1.5.1",
       "changelog": [
         {
