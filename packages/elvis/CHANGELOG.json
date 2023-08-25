@@ -1,6 +1,25 @@
 {
   "content": [
     {
+      "version": "12.8.0",
+      "date": "August 25, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>compass</code> and <code>ruler</code> icons."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the list typography would not be Red Hat Text.",
+            "Updated the versions in the deprecated warning for dark theme-related deprecations."
+          ],
+          "components": [{ "displayName": "List", "url": "https://design.elvia.io/components/list" }]
+        }
+      ]
+    },
+    {
       "version": "12.7.0",
       "date": "August 24, 2023",
       "changelog": [
