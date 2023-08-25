@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "25.08.23",
+      "version": "7.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Compact input label missing background color."]
+        }
+      ]
+    },
+    {
       "date": "24.08.23",
       "version": "7.2.0",
       "changelog": [
