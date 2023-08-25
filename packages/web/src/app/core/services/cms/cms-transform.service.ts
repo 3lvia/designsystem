@@ -409,6 +409,7 @@ export class CMSTransformService {
     const hasInlineText = data.fields.inlineText !== undefined;
     const imgSize = this.extractLocale(data.fields.size);
     const imgAlignment = data.fields.alignment ? this.extractLocale(data.fields.alignment) : undefined;
+    const shouldHaveThemeBackground = !data.fields.transparentBackground;
     const description = data.fields.description ? this.extractLocale(data.fields.description) : undefined;
     const altText = data.fields.altText ? this.extractLocale(data.fields.altText) : undefined;
     const srcUrl = 'https:' + this.extractLocale(this.extractLocale(data.fields.image)!.fields.file)?.url;
@@ -432,7 +433,7 @@ export class CMSTransformService {
       <div>
         <img
           class='
-            theme-image-padding
+            ${shouldHaveThemeBackground && 'theme-image-background'}
             ${inGrid ? 'e-br-8' : ''}
             ${hasInlineText ? 'cms-image-inline' : ''} 
             align-${imgAlignment}

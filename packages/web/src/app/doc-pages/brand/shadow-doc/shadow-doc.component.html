@@ -8,11 +8,7 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-old-illustration *ngIf="true; else newIllustration" />
-
-  <ng-template #newIllustration>
-    <app-shadow-viewer />
-  </ng-template>
+  <app-shadow-viewer />
 
   <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Usage' : 'Bruk'">
     <ng-container ngProjectAs="sectionContent">

@@ -151,6 +151,9 @@ export interface IImageFields {
 
   /** Content next to image */
   inlineText?: LocalizedField<Document> | undefined;
+
+  /** Transparent background */
+  transparentBackground?: LocalizedField<boolean> | undefined;
 }
 
 export interface IImage extends Entry<IImageFields> {
