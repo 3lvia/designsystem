@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.4.0 (25.08.23)
+
+### New feature
+
+- Added the `compass` and `ruler` icons.
+
 ## 3.3.1 (24.08.23)
 
 ### Patch
