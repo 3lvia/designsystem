@@ -309,7 +309,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=136%3A1738',
     type: 'Component',
     searchTerms: ['label', 'lozenge', 'status', 'ribbon', 'category', 'categorize', 'organize'],
-    relatedPages: ['chip', 'badge'], // todo 'graph'
+    relatedPages: ['chip', 'badge', 'graph'],
   },
   {
     title: 'Link',
@@ -523,7 +523,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=3%3A292',
     type: 'Component',
     searchTerms: ['data', 'row', 'column', 'th', 'td', 'tr', 'tbody', 'thead', 'tfoot'],
-    relatedPages: ['pagination', 'chip', 'filters'], // todo 'graph'
+    relatedPages: ['pagination', 'chip', 'filters', 'graph'],
   },
   {
     title: 'Toggle',
@@ -585,6 +585,11 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['info', 'infotip', 'help', 'hint', 'popup'],
     relatedPages: ['popover', 'icon', 'button'],
+  },
+  {
+    title: 'Graph',
+    docUrl: Pages.Graph,
+    absolutePath: '/components/' + Pages.Graph,
   },
 ];
 
