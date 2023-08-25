@@ -30,9 +30,7 @@
             <div class="tableRow" *ngFor="let class of group.classes">
               <span class="class">
                 <app-copy [message]="class.className">
-                  <ng-container ngProjectAs="copyContent">
-                    <code class="code-text">{{ class.className }}</code>
-                  </ng-container>
+                  <code class="code-text">{{ class.className }}</code>
                 </app-copy>
               </span>
               <span class="description">{{ class.description }}</span>

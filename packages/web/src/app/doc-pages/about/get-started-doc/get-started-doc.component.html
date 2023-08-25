@@ -40,9 +40,7 @@
                     <strong>Put the following in &lt;head></strong>
                     <div class="overflow-scroll" *ngIf="scriptTagCode">
                       <app-copy [message]="linkTagCode">
-                        <ng-container ngProjectAs="copyContent">
-                          <code>{{ linkTagCode }}</code>
-                        </ng-container>
+                        <code>{{ linkTagCode }}</code>
                       </app-copy>
                     </div>
                     <div
@@ -55,9 +53,7 @@
                     <strong>Put the following at the bottom of &lt;body></strong>
                     <div class="overflow-scroll" *ngIf="scriptTagCode">
                       <app-copy [message]="scriptTagCode">
-                        <ng-container ngProjectAs="copyContent">
-                          <code>{{ scriptTagCode }}</code>
-                        </ng-container>
+                        <code>{{ scriptTagCode }}</code>
                       </app-copy>
                     </div>
                     <div
@@ -96,9 +92,7 @@
                   <li>
                     <strong class="e-mr-16">Install the package:</strong>
                     <app-copy [message]="'npm i @elvia/elvis'">
-                      <ng-container ngProjectAs="copyContent">
-                        <code class="code-text">npm i @elvia/elvis</code>
-                      </ng-container>
+                      <code class="code-text">npm i @elvia/elvis</code>
                     </app-copy>
                   </li>
                   <li>
@@ -106,17 +100,13 @@
                       Import css/elvis.min.css or src/main.scss in your stylesheet:
                     </strong>
                     <app-copy [message]="elvisCssImport">
-                      <ng-container ngProjectAs="copyContent">
-                        <code class="code-text">{{ elvisCssImport }}</code>
-                      </ng-container>
+                      <code class="code-text">{{ elvisCssImport }}</code>
                     </app-copy>
                   </li>
                   <li>
                     <strong class="e-mr-16">Import elvis.js from the NPM package in your app:</strong>
                     <app-copy [message]="elvisJsImport">
-                      <ng-container ngProjectAs="copyContent">
-                        <code class="code-text">{{ elvisJsImport }}</code>
-                      </ng-container>
+                      <code class="code-text">{{ elvisJsImport }}</code>
                     </app-copy>
                     <p>
                       Note that elvis.js should be imported only once, somewhere at the base-level of your

@@ -8,9 +8,7 @@
     </span>
     <span *ngIf="sectionClass !== ''" class="e-ml-16 component-section__class">
       <app-copy [message]="sectionClass">
-        <ng-container ngProjectAs="copyContent">
-          <span class="code-text">{{ sectionClass }}</span>
-        </ng-container>
+        <span class="code-text">{{ sectionClass }}</span>
       </app-copy>
     </span>
   </h3>

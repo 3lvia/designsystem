@@ -6,9 +6,7 @@
     <ul class="e-list">
       <li>
         <app-copy [message]="container">
-          <ng-container ngProjectAs="copyContent">
-            <span class="prop-element-title code-text">{{ container }}</span>
-          </ng-container>
+          <span class="prop-element-title code-text">{{ container }}</span>
         </app-copy>
       </li>
     </ul>
@@ -20,9 +18,7 @@
       <div *ngFor="let el of elements">
         <li *ngIf="el.name">
           <app-copy [message]="el.name">
-            <ng-container ngProjectAs="copyContent">
-              <span class="prop-element-title code-text">{{ el.name }}</span>
-            </ng-container>
+            <span class="prop-element-title code-text">{{ el.name }}</span>
           </app-copy>
         </li>
       </div>
@@ -35,9 +31,7 @@
       <div *ngFor="let elMod of allElementModifiers" class="prop-element">
         <li>
           <app-copy [message]="elMod">
-            <ng-container ngProjectAs="copyContent">
-              <span class="prop-element-title code-text">{{ elMod }}</span>
-            </ng-container>
+            <span class="prop-element-title code-text">{{ elMod }}</span>
           </app-copy>
         </li>
       </div>
@@ -50,9 +44,7 @@
       <div *ngFor="let mod of modifiers" class="prop-element">
         <li>
           <app-copy [message]="mod">
-            <ng-container ngProjectAs="copyContent">
-              <span class="prop-element-title code-text">{{ mod }}</span>
-            </ng-container>
+            <span class="prop-element-title code-text">{{ mod }}</span>
           </app-copy>
         </li>
       </div>
@@ -65,9 +57,7 @@
       <div *ngFor="let psu of pseudos" class="prop-element">
         <li>
           <app-copy [message]="psu">
-            <ng-container ngProjectAs="copyContent">
-              <span class="prop-element-title code-text">{{ psu }}</span>
-            </ng-container>
+            <span class="prop-element-title code-text">{{ psu }}</span>
           </app-copy>
         </li>
       </div>
