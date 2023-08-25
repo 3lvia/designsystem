@@ -146,23 +146,21 @@
             </div>
             <div class="mobile-copy">
               <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--sm'">
-                <ng-container ngProjectAs="copyContent">
-                  <div
-                    *ngIf="icon !== -1"
-                    class="icon-card"
-                    (click)="openCopyAlert(icon.title)"
-                    [id]="icon.title + '_container'"
-                  >
-                    <div>
-                      <div class="icon-icon">
-                        <i [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" aria-hidden="true"></i>
-                      </div>
-                      <div class="e-text-sm e-text-center">
-                        {{ icon.pretty }}
-                      </div>
+                <div
+                  *ngIf="icon !== -1"
+                  class="icon-card"
+                  (click)="openCopyAlert(icon.title)"
+                  [id]="icon.title + '_container'"
+                >
+                  <div>
+                    <div class="icon-icon">
+                      <i [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" aria-hidden="true"></i>
+                    </div>
+                    <div class="e-text-sm e-text-center">
+                      {{ icon.pretty }}
                     </div>
                   </div>
-                </ng-container>
+                </div>
               </app-copy>
             </div>
           </div>
@@ -258,51 +256,37 @@
             <ul class="e-list">
               <li>
                 <app-copy [message]="'e-icon--xxl'">
-                  <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--xxl - 56px</span>
-                  </ng-container>
+                  <span class="e-text-lg-strong">e-icon--xxl - 56px</span>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--xl'">
-                  <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--xl - 48px</span>
-                  </ng-container>
+                  <span class="e-text-lg-strong">e-icon--xl - 48px</span>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--lg'">
-                  <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--lg - 40px</span>
-                  </ng-container>
+                  <span class="e-text-lg-strong">e-icon--lg - 40px</span>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--md'">
-                  <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--md - 32px</span>
-                  </ng-container>
+                  <span class="e-text-lg-strong">e-icon--md - 32px</span>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--sm'">
-                  <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--sm - 24px</span>
-                  </ng-container>
+                  <span class="e-text-lg-strong">e-icon--sm - 24px</span>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--xs'">
-                  <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--xs - 16px</span>
-                  </ng-container>
+                  <span class="e-text-lg-strong">e-icon--xs - 16px</span>
                 </app-copy>
               </li>
               <li>
                 <app-copy [message]="'e-icon--xxs'">
-                  <ng-container ngProjectAs="copyContent">
-                    <span class="e-text-lg-strong">e-icon--xxs - 8px</span>
-                  </ng-container>
+                  <span class="e-text-lg-strong">e-icon--xxs - 8px</span>
                 </app-copy>
               </li>
             </ul>

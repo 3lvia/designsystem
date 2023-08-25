@@ -3,6 +3,6 @@
     (valueOnChange)="handleSegmentedControlChange($event)"
     [inlineStyle]="{ width: isMobileScreenWidth ? '100%' : 'auto' }"
     [items]="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
-    size="large"
+    [size]="isMobileScreenWidth ? 'medium' : 'large'"
   />
 </div>
