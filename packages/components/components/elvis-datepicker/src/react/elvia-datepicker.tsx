@@ -183,19 +183,27 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const validateMinMax = (d?: Date | null): void => {
     if (!d) {
       onError();
-    } else if (d.getFullYear() < 1800 || !isValidDate(d)) {
-      onError('invalidDate');
-    } else if (dateRangeProps?.showTimeInError && minDate && isBefore(d, minDate)) {
-      onError('beforeMinDate');
-    } else if (minDateWithoutTime && isBefore(d, minDateWithoutTime)) {
-      onError('beforeMinDate');
-    } else if (dateRangeProps?.showTimeInError && maxDate && isAfter(d, maxDate)) {
-      onError('beforeMinDate');
-    } else if (maxDateWithoutTime && isAfter(d, maxDateWithoutTime)) {
-      onError('afterMaxDate');
-    } else {
-      onError();
+      return;
     }
+
+    if (d.getFullYear() < 1800 || !isValidDate(d)) {
+      onError('invalidDate');
+      return;
+    }
+
+    const checkMinDate = dateRangeProps?.showTimeInError ? minDate : minDateWithoutTime;
+    if (minDate && isBefore(d, checkMinDate)) {
+      onError('beforeMinDate');
+      return;
+    }
+
+    const checkMaxDate = dateRangeProps?.showTimeInError ? maxDate : maxDateWithoutTime;
+    if (checkMaxDate && isAfter(d, checkMaxDate)) {
+      onError('afterMaxDate');
+      return;
+    }
+
+    onError();
   };
 
   // Needed for webcomponent -> To update the default value
