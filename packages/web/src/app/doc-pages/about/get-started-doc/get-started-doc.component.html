@@ -38,8 +38,12 @@
                 <ol class="e-list e-list--numbers">
                   <li>
                     <strong>Put the following in &lt;head></strong>
-                    <div *ngIf="linkTagCode">
-                      <code>{{ linkTagCode }}</code>
+                    <div class="overflow-scroll" *ngIf="scriptTagCode">
+                      <app-copy [message]="linkTagCode">
+                        <ng-container ngProjectAs="copyContent">
+                          <code>{{ linkTagCode }}</code>
+                        </ng-container>
+                      </app-copy>
                     </div>
                     <div
                       *ngIf="!linkTagCode"
@@ -49,8 +53,12 @@
                   </li>
                   <li>
                     <strong>Put the following at the bottom of &lt;body></strong>
-                    <div *ngIf="scriptTagCode">
-                      <code>{{ scriptTagCode }}</code>
+                    <div class="overflow-scroll" *ngIf="scriptTagCode">
+                      <app-copy [message]="scriptTagCode">
+                        <ng-container ngProjectAs="copyContent">
+                          <code>{{ scriptTagCode }}</code>
+                        </ng-container>
+                      </app-copy>
                     </div>
                     <div
                       *ngIf="!scriptTagCode"
