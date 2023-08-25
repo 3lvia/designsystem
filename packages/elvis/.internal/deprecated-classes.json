@@ -1,7 +1,7 @@
 {
   "e-text": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -10,7 +10,7 @@
   },
   "e-bg-": {
     "deprecateChildren": true,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -19,7 +19,7 @@
   },
   "e-text-yellow": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -28,7 +28,7 @@
   },
   "e-text-orange": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -37,7 +37,7 @@
   },
   "e-text-warning": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -46,7 +46,7 @@
   },
   "e-text-red": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -55,7 +55,7 @@
   },
   "e-text-error": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -64,7 +64,7 @@
   },
   "e-text-green-apple": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -73,7 +73,7 @@
   },
   "e-text-violet-grape": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -82,7 +82,7 @@
   },
   "e-text-blue-berry": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -91,7 +91,7 @@
   },
   "e-text-purple-plum": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -100,7 +100,7 @@
   },
   "e-text-orange-mango": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -109,7 +109,7 @@
   },
   "e-text-red-tomato": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -118,7 +118,7 @@
   },
   "e-text-green": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -127,7 +127,7 @@
   },
   "e-text-elvia-charge": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -136,7 +136,7 @@
   },
   "e-text-grey-90": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -145,7 +145,7 @@
   },
   "e-text-grey-80": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -154,7 +154,7 @@
   },
   "e-text-font-grey": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -163,7 +163,7 @@
   },
   "e-text-text-light": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -172,7 +172,7 @@
   },
   "e-text-grey-70": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -181,7 +181,7 @@
   },
   "e-text-placeholder": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -190,7 +190,7 @@
   },
   "e-text-grey-60": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -199,7 +199,7 @@
   },
   "e-text-grey-50": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -208,7 +208,7 @@
   },
   "e-text-grey-40": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -217,7 +217,7 @@
   },
   "e-text-grey-30": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -226,7 +226,7 @@
   },
   "e-text-disabled": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -235,7 +235,7 @@
   },
   "e-text-light-inverted": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -244,7 +244,7 @@
   },
   "e-text-grey-20": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -253,7 +253,7 @@
   },
   "e-text-grey-10": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -262,7 +262,7 @@
   },
   "e-text-grey-05": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -271,7 +271,7 @@
   },
   "e-text-disabled-light": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -280,7 +280,7 @@
   },
   "e-text-grey-02": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -289,7 +289,7 @@
   },
   "e-text-white": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -298,7 +298,7 @@
   },
   "e-text-elvis-on": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -307,7 +307,7 @@
   },
   "e-text-elvia-on": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -316,7 +316,7 @@
   },
   "e-text-font-color-light": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -325,7 +325,7 @@
   },
   "e-text-elvia-inverted": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -334,7 +334,7 @@
   },
   "e-text-black": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -343,7 +343,7 @@
   },
   "e-text-elvis-off": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -352,7 +352,7 @@
   },
   "e-text-elvia-off": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -361,7 +361,7 @@
   },
   "e-text-font-color": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -370,7 +370,7 @@
   },
   "e-text-text": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -379,7 +379,7 @@
   },
   "e-text-grey": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -388,7 +388,7 @@
   },
   "e-text-elvia-dark": {
     "deprecateChildren": false,
-    "version": "12.1.0",
+    "version": "12.7.0",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
