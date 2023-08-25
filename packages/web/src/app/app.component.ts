@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   private setCurrentRouteFromUrl(url: string): void {
     if (url === '/not-found') {
       this.currentRoute = 'notFound';
-    } else if (url === '/' || url === '/home') {
+    } else if (url === '/' || url === '/home' || url === '/dev') {
       this.currentRoute = 'standalonePage';
     } else {
       this.currentRoute = 'pageWithSidenav';
