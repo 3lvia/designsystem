@@ -8,6 +8,11 @@
           "type": "new_feature",
           "changes": ["Added the <code>compass</code> and <code>ruler</code> icons."],
           "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where the list typography would not be Red Hat Text."],
+          "components": [{ "displayName": "List", "url": "https://design.elvia.io/components/list" }]
         }
       ]
     },
