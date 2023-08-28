@@ -62,8 +62,6 @@ export default interface ComponentData<TComponentProps extends Record<string, an
   name: `${string}`;
   /**
    * All the component's attributes should be in this object.
-   * Some attributes will need more information depending on whether they should be displayed in the CEG or not,
-   * however 3 attributes are required for all components: `'isRequired'`, `'type'` and `'description'`.
    */
   attributes: ComponentProps<TComponentProps>;
 
