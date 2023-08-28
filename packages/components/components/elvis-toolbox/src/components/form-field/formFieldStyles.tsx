@@ -84,7 +84,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
 
         ${FormFieldLabel} {
           font-size: 0.625rem;
-          background-color: ${getThemeColor('background-element-1')};
+          background-color: ${getThemeColor('background-1')};
           position: absolute;
           margin-left: 7px;
           top: 0;
