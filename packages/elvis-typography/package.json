@@ -18,9 +18,6 @@
     "dist/**/*",
     "!dist/**/*.d.ts.map"
   ],
-  "dependencies": {
-    "@elvia/elvis-colors": "^3.0.0"
-  },
   "devDependencies": {
     "@types/gulp": "^4.0.13",
     "@types/node": "^18.11.18",

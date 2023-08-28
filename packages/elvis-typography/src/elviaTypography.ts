@@ -1,5 +1,3 @@
-import { getThemeColor } from '@elvia/elvis-colors';
-
 export const ElviaTypography = {
   'title-lg': {
     altLabels: ['title-large'],
@@ -120,7 +118,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: getThemeColor('text-2'),
+    color: 'var(--e-color-text-2), #515151',
   },
 
   'text-md': {
@@ -155,7 +153,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: getThemeColor('text-2'),
+    color: 'var(--e-color-text-2), #515151',
   },
 
   'text-sm': {
@@ -189,7 +187,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: getThemeColor('text-2'),
+    color: 'var(--e-color-text-2), #515151',
   },
 
   'text-micro': {
@@ -222,7 +220,7 @@ export const ElviaTypography = {
     letterSpacing: '0.2px',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: getThemeColor('text-2'),
+    color: 'var(--e-color-text-2), #515151',
   },
 
   'text-quote': {
