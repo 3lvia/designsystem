@@ -43,14 +43,14 @@ export interface ComponentChangelogChange {
   components?: { displayName: string; url: string }[];
 }
 
-export type ComponentProps<T> = {
-  [attribute in keyof T]: AttributeType;
+export type ComponentProps<TComponentProps> = {
+  [attribute in keyof TComponentProps]: AttributeType;
 };
 
 /**
  * Interface for component data for documentation pages.
  */
-export default interface ComponentData<T extends Record<string, any> = Record<string, any>> {
+export default interface ComponentData<TComponentProps extends Record<string, any> = Record<string, any>> {
   /**
    * Component name.
    * @example 'SegmentedControl'
@@ -61,7 +61,7 @@ export default interface ComponentData<T extends Record<string, any> = Record<st
    * Some attributes will need more information depending on whether they should be displayed in the CEG or not,
    * however 3 attributes are required for all components: `'isRequired'`, `'type'` and `'description'`.
    */
-  attributes: ComponentProps<T>;
+  attributes: ComponentProps<TComponentProps>;
 
   /**
    * Changes for component
