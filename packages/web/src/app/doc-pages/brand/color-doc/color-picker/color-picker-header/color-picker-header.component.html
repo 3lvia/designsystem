@@ -5,14 +5,15 @@
     [items]="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
     [size]="(isMobileScreenWidth | async) ? 'medium' : 'large'"
   />
-  <button
+  <a
     class="e-btn e-btn--tertiary"
-    (click)="scrollToTokens()"
+    [routerLink]="['/brand/color']"
+    fragment="Tokens"
     *ngIf="(isMobileScreenWidth | async) === false"
   >
     <span class="e-btn__title">Go to tokens</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--sorting_descending-bold" aria-hidden="true"></i>
     </span>
-  </button>
+  </a>
 </div>

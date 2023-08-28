@@ -14,7 +14,6 @@ import {
   assortedColors,
 } from './colors';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ScrollColorsService } from '../scroll-colors.service';
 
 @Component({
   selector: 'app-color-token-table',
@@ -22,8 +21,6 @@ import { ScrollColorsService } from '../scroll-colors.service';
   styleUrls: ['./color-token-table.component.scss'],
 })
 export class ColorTokenTableComponent {
-  @ViewChild('colorTokenTable') colorTokenTable: ElementRef<HTMLDivElement>;
-
   textColorsDefault = textColorsDefault;
   textColorsState = textColorsState;
   backgroundColorsDefault = backgroundColorsDefault;
@@ -36,10 +33,4 @@ export class ColorTokenTableComponent {
   dataColors = dataColors;
   assortedColors = assortedColors;
   iconColors = iconColors;
-
-  constructor(private scrollService: ScrollColorsService) {
-    this.scrollService.onScroll.pipe(takeUntilDestroyed()).subscribe(() => {
-      this.colorTokenTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
 }
