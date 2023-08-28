@@ -2925,6 +2925,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
+    "@elvia/elvis-colors": ^3.0.0
     "@types/gulp": ^4.0.13
     "@types/node": ^18.11.18
     del: ^6.0.0
