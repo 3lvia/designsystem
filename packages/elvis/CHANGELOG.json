@@ -1,8 +1,8 @@
 {
   "content": [
     {
-      "version": "12.8.0",
-      "date": "August 25, 2023",
+      "version": "12.8.1",
+      "date": "August 29, 2023",
       "changelog": [
         {
           "type": "bug_fix",
