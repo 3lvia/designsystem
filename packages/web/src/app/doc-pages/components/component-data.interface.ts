@@ -1,3 +1,6 @@
+import { BaseProps } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
+
 export interface AttributeType {
   /**
    * Indicates whether a prop is required for the component.
@@ -43,9 +46,10 @@ export interface ComponentChangelogChange {
   components?: { displayName: string; url: string }[];
 }
 
-export type ComponentProps<TComponentProps> = {
-  [attribute in keyof TComponentProps]: AttributeType;
-};
+export type ComponentProps<TComponentProps> = Record<
+  keyof Omit<TComponentProps, keyof ComponentPropsWithoutRef<'div'>> & BaseProps,
+  AttributeType
+>;
 
 /**
  * Interface for component data for documentation pages.
