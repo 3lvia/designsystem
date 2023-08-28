@@ -1,7 +1,8 @@
 import changelogJson from '@elvia/elvis-accordion/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { AccordionProps } from '@elvia/elvis-accordion/react';
 
-const accordionData: ComponentData = {
+const accordionData: ComponentData<AccordionProps> = {
   changelog: changelogJson.content,
   name: 'Accordion',
   attributes: {
