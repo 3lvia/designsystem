@@ -5,7 +5,7 @@
     [items]="[{ label: 'Light theme' }, { label: 'Dark theme' }]"
     [size]="isMobileScreenWidth ? 'medium' : 'large'"
   />
-  <button class="e-btn e-btn--tertiary" (click)="scrollToTokens()">
+  <button class="e-btn e-btn--tertiary" (click)="scrollToTokens()" *ngIf="!isMobileScreenWidth">
     <span class="e-btn__title">Go to tokens</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--sorting_descending-bold" aria-hidden="true"></i>
