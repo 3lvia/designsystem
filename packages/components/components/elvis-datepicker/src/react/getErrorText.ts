@@ -1,12 +1,7 @@
 import { formatDate } from './dateHelpers';
 import { ErrorType } from './elviaDatepicker.types';
 
-export const getErrorText = (
-  error?: ErrorType,
-  minDate?: Date,
-  maxDate?: Date,
-  withTime?: boolean,
-): string => {
+export const getErrorText = (error?: ErrorType, minDate?: Date, maxDate?: Date): string => {
   switch (error) {
     case 'invalidDate': {
       return 'Ugyldig dato';
@@ -15,10 +10,10 @@ export const getErrorText = (
       return 'Velg dato';
     }
     case 'beforeMinDate': {
-      return `Kan ikke være før ${getFormattedDate(minDate, withTime)}`;
+      return `Kan ikke være før ${getFormattedDate(minDate)}`;
     }
     case 'afterMaxDate': {
-      return `Kan ikke være etter ${getFormattedDate(maxDate, withTime)}`;
+      return `Kan ikke være etter ${getFormattedDate(maxDate)}`;
     }
     default: {
       return '';
@@ -26,13 +21,11 @@ export const getErrorText = (
   }
 };
 
-const getFormattedDate = (d?: Date, withTime?: boolean) => {
+const getFormattedDate = (d?: Date) => {
   const date = formatDate(d, {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
   });
-
-  const time = `${formatDate(d, { hour: '2-digit', minute: '2-digit' })}`;
-  return withTime ? `${date} kl. ${time}` : date;
+  return date;
 };

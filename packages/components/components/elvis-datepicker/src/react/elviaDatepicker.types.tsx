@@ -14,7 +14,6 @@ export interface DateRange {
 export interface DatepickerRangeProps {
   selectedDateRange?: DateRange;
   whichRangePicker?: 'start' | 'end';
-  showTimeInError?: boolean;
 }
 
 export interface DatepickerProps extends BaseProps, HasValue<Date | null>, HasError {
