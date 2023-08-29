@@ -2921,7 +2921,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-typography@*, @elvia/elvis-typography@^2.3.1, @elvia/elvis-typography@^2.3.2, @elvia/elvis-typography@^2.4.0, @elvia/elvis-typography@workspace:*, @elvia/elvis-typography@workspace:packages/elvis-typography":
+"@elvia/elvis-typography@*, @elvia/elvis-typography@^2.3.1, @elvia/elvis-typography@^2.3.2, @elvia/elvis-typography@^2.4.0, @elvia/elvis-typography@^2.5.0, @elvia/elvis-typography@workspace:*, @elvia/elvis-typography@workspace:packages/elvis-typography":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
@@ -2941,7 +2941,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-assets-icons": "*"
     "@elvia/elvis-colors": ^3.0.0
-    "@elvia/elvis-typography": ^2.3.2
+    "@elvia/elvis-typography": ^2.5.0
     bootstrap: 4.6.1
     del: ^6.0.0
     doiuse: ^4.4.0

@@ -19,6 +19,7 @@ export const setThemeClassOnDocument = (theme: Theme): void => {
   const classToRemove: ThemeClassName = applicableTheme === 'light' ? 'e-theme-dark' : 'e-theme-light';
   const classToAdd: ThemeClassName = applicableTheme === 'light' ? 'e-theme-light' : 'e-theme-dark';
 
+  document.body.style.colorScheme = applicableTheme;
   document.body.classList.remove(classToRemove);
   if (!document.body.classList.contains(classToAdd)) {
     document.body.classList.add(classToAdd);

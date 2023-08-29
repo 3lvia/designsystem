@@ -15,7 +15,7 @@ import {
   TextMdStrong,
   MobileMenuFooter,
 } from './mobileMenuStyles';
-import { IconWrapper, TertiaryButton, useCurrentTheme } from '@elvia/elvis-toolbox';
+import { IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
 import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
 import removeCircleColor from '@elvia/elvis-assets-icons/dist/icons/removeCircleColor';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
@@ -47,7 +47,6 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
     triggerButtonRef,
     popoverRef,
   );
-  const { currentTheme } = useCurrentTheme(triggerButtonRef);
 
   const onMobileMenuToggle = (isShowing: boolean) => {
     setIsShowing(isShowing);
@@ -83,7 +82,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
               {view === 'mainPage' && (
                 <>
                   <ImageContainer>
-                    <ProfilePicture currentTheme={currentTheme} />
+                    <ProfilePicture />
                   </ImageContainer>
                   <TextSmallStrong>{username}</TextSmallStrong>
                   <TextSmall>{email}</TextSmall>

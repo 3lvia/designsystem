@@ -9,7 +9,7 @@ import {
 import { LightThemeIcon } from './lightThemeIcon';
 import { DarkThemeIcon } from './darkThemeIcon';
 import { SystemThemeIcon } from './systemThemeIcon';
-import { getStoredActiveTheme, setThemeClassOnDocument } from '../themeUtils';
+import { getApplicableTheme, getStoredActiveTheme, setThemeClassOnDocument } from '../themeUtils';
 import { Theme, ThemeEvent, themeLocalStorageKey } from '../elviaHeader.types';
 
 interface PickerTheme {
@@ -33,7 +33,7 @@ export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
     setThemeClassOnDocument(theme);
     setCurrentTheme(theme);
     localStorage.setItem(themeLocalStorageKey, theme);
-    onThemeChange?.(theme);
+    onThemeChange?.(getApplicableTheme(theme));
   };
 
   useEffect(() => {
@@ -42,6 +42,7 @@ export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
     const onUserPreferenceChange = (change: MediaQueryListEvent): void => {
       if (currentTheme === 'system') {
         setThemeClassOnDocument(change.matches ? 'dark' : 'light');
+        onThemeChange?.(change.matches ? 'dark' : 'light');
       }
     };
     const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');

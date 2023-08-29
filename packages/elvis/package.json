@@ -22,7 +22,7 @@
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-colors": "^3.0.0",
-    "@elvia/elvis-typography": "^2.3.2",
+    "@elvia/elvis-typography": "^2.5.0",
     "bootstrap": "4.6.1",
     "jquery": "^3.6.4",
     "popper.js": "^1.16.1"

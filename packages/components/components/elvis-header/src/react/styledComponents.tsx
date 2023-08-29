@@ -172,3 +172,16 @@ export const AppContent = styled.main<AppContentProps>`
     return css``;
   }}
 `;
+
+export const ShowIfLightTheme = styled.div`
+  display: contents;
+  .e-theme-dark && {
+    display: none;
+  }
+`;
+export const ShowIfDarkTheme = styled.div`
+  display: none;
+  .e-theme-dark && {
+    display: contents;
+  }
+`;
