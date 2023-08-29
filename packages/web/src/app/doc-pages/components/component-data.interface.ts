@@ -6,7 +6,7 @@ export interface AttributeType {
    * Indicates whether a prop is required for the component.
    * An asterisk will be shown in the properties table if set to true.
    */
-  isRequired: boolean;
+  isRequired?: boolean;
   /**
    * The accepted type(s) of the prop, as a string in typescript format. Will be shown in the properties table.
    *
@@ -46,8 +46,9 @@ export interface ComponentChangelogChange {
   components?: { displayName: string; url: string }[];
 }
 
+type ReactPropsWithoutElvisBaseProps = Omit<ComponentPropsWithoutRef<'div'>, keyof BaseProps>;
 export type ComponentProps<TComponentProps> = Record<
-  keyof Omit<TComponentProps, keyof ComponentPropsWithoutRef<'div'>> & BaseProps,
+  keyof Omit<TComponentProps, keyof ReactPropsWithoutElvisBaseProps | 'webcomponent'>,
   AttributeType
 >;
 
