@@ -233,6 +233,9 @@ export class CMSService {
           url = `https:${extractLocale(extractLocale(card.fields.pageIconDarkTheme)!.fields.file)?.url}`;
         }
         const docName = changeName(title.toLowerCase().replace(/ /g, '-'));
+        if (docName === 'logo') {
+          res['elvis'] = url;
+        }
         res[docName] = url;
         return res;
       }, {} as Record<string, string>);
@@ -244,6 +247,7 @@ export class CMSService {
     const brandIcons = getIconsFromCards(await this.getEntry('69x76GUs7dsCwA3IsfxLMG'));
     const patternIcons = getIconsFromCards(await this.getEntry('QrmvWlsXBXEwIBZUaJLcg'));
 
+    // todo replace this with tools icons (the same as component, brand and patters)
     const accessibilityIcon = {} as Record<string, string>;
     const accessibilityCard = await this.getEntry<IOverviewCard>('1Xz4n9usk2Z1VeugbnfsI5');
     let accessibilityUrl = `https:${
