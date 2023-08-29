@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   textColorsDefault,
   textColorsState,
@@ -13,7 +13,6 @@ import {
   iconColors,
   assortedColors,
 } from './colors';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-color-token-table',
