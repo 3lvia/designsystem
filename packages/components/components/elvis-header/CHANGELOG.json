@@ -9,7 +9,8 @@
           "type": "bug_fix",
           "changes": [
             "<code>onThemeChange</code> now only returns <code>light</code> or <code>dark</code> and not <code>system</code>",
-            "Added 'color-scheme: dark' to fix scrollbar colors"
+            "Added 'color-scheme: dark' to fix scrollbar colors",
+            "Fix profile picture swap on theme switch."
           ]
         }
       ]
