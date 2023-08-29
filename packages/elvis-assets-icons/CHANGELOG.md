@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.5.0 (29.08.23)
+
+### New feature
+
+- Added the `arrow_long_down` and `arrow_long_up` icons.
+
 ## 3.4.0 (25.08.23)
 
 ### New feature
