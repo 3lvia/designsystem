@@ -10,7 +10,8 @@ import { LightThemeIcon } from './lightThemeIcon';
 import { DarkThemeIcon } from './darkThemeIcon';
 import { SystemThemeIcon } from './systemThemeIcon';
 import { getApplicableTheme, getStoredActiveTheme, setThemeClassOnDocument } from '../themeUtils';
-import { Theme, ThemeEvent, themeLocalStorageKey } from '../elviaHeader.types';
+import { ThemeEvent } from '../elviaHeader.types';
+import { Theme, themeLocalStorageKey } from '../elviaHeader.shared.types';
 
 interface PickerTheme {
   theme: Theme;
