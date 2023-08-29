@@ -59,17 +59,46 @@ export enum Pages {
 
   // Pages not from CMS
   Changelog = 'whats-new',
-  Color = 'color',
   Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq',
   GetStarted = 'get-started',
-  Icon = 'icon',
   Shadow = 'shadow',
-  Layout = 'layout',
   TheDesignSystem = 'the-design-system',
-  Typography = 'typography',
   Utilities = 'utility-classes',
+
+  // Brand pages
+  TheConcept = 'the-concept',
+  Color = 'color',
+  Icon = 'icon',
+  Images = 'images',
+  Layout = 'layout',
+  Logo = 'logo',
+  ToneOfVoice = 'tone-of-voice',
+  Typography = 'typography',
+  Illustration = 'illustration',
+
+  // Pattern pages
+  Comments = 'comments',
+  Cookies = 'cookies',
+  EmptyStates = 'empty-states',
+  Filters = 'filters',
+  Forms = 'forms',
+  Groups = 'groups',
+  Onboarding = 'onboarding',
+  Validations = 'validations',
+  Graph = 'graph',
+
+  // Tool pages
+  Accessibility = 'accessibility',
+  DesignProcess = 'design-process',
+  Evaluation = 'evaluation',
+  Icebreakers = 'icebreakers',
+  Ideation = 'ideation',
+  Personas = 'personas',
+  Templates = 'templates',
+  UserFeedback = 'user-feedback',
+  UtilityClasses = 'utility-classes',
 
   // Dev
   DevelopmentPlayground = 'playground',
