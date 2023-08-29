@@ -110,13 +110,17 @@ module.exports = [
   },
   { name: 'arrow_left', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'arrow_left-bold', terms: [], thirdparty: { name: ['streamline'], duplicate: ['arrow_left'] } },
-  { name: 'arrow_long_left', terms: ['back', 'backward', 'previous'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'arrow_long_left',
+    terms: ['back', 'backward', 'previous', 'direction'],
+    thirdparty: { name: ['streamline'] },
+  },
   {
     name: 'arrow_long_left-bold',
     terms: ['back', 'backward', 'previous'],
     thirdparty: { name: ['streamline'], duplicate: ['arrow_long_left'] },
   },
-  { name: 'arrow_long_right', terms: ['next', 'forward'], thirdparty: { name: ['streamline'] } },
+  { name: 'arrow_long_right', terms: ['next', 'forward', 'direction'], thirdparty: { name: ['streamline'] } },
   { name: 'arrow_long', deprecated: '6.2.0', newIconName: 'arrow_long_right' },
   {
     name: 'arrow_long_right-bold',
@@ -124,6 +128,8 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['arrow_long_right'] },
   },
   { name: 'arrow_long-bold', deprecated: '6.2.0', newIconName: 'arrow_long_right-bold' },
+  { name: 'arrow_long_down', terms: ['scroll', 'go to', 'direction'] },
+  { name: 'arrow_long_up', terms: ['scroll', 'go to', 'direction'] },
   { name: 'arrow_right', terms: ['open'], thirdparty: { name: ['streamline'] } },
   {
     name: 'arrow_right-bold',
