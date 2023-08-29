@@ -209,6 +209,16 @@ export const backgroundColorsElement = [
       { title: 'Badge', path: '/components/badge' },
     ],
   },
+  {
+    token: 'background-element-6',
+    role: 'Element background color option 6',
+    light: { hex: getColor('background-element-6', 'light'), label: 'White' },
+    dark: { hex: getColor('background-element-6', 'dark'), label: 'Dark-black' },
+    links: [
+      { title: 'Header', path: '/components/header' },
+      { title: 'Table (header)', path: '/components/table' },
+    ],
+  },
 ] as const satisfies TableColorArray<BackgroundLabels>;
 
 export const backgroundColorsOverlay = [
@@ -235,7 +245,7 @@ export const backgroundColorsOverlay = [
     role: 'Overlay background color',
     light: { hex: getColor('background-overlay-3', 'light'), label: 'White' },
     dark: { hex: getColor('background-overlay-3', 'dark'), label: 'Dark-black' },
-    links: [{ title: 'Header', path: '/components/header' }],
+    links: [{ title: 'Header (overlays)', path: '/components/header' }],
   },
 ] as const satisfies TableColorArray<BackgroundLabels>;
 
