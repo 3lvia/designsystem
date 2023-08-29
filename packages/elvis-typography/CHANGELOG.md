@@ -1,5 +1,11 @@
 # Elvia Typography Changelog
 
+## 2.5.0 (29.08.23)
+
+### New feature
+
+- Dark theme support.
+
 ## 2.4.0 (26.05.23)
 
 ### New feature

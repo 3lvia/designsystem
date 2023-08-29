@@ -118,7 +118,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: '#515151',
+    color: 'var(--e-color-text-2)',
   },
 
   'text-md': {
@@ -153,7 +153,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: '#515151',
+    color: 'var(--e-color-text-2)',
   },
 
   'text-sm': {
@@ -187,7 +187,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: '#515151',
+    color: 'var(--e-color-text-2)',
   },
 
   'text-micro': {
@@ -220,7 +220,7 @@ export const ElviaTypography = {
     letterSpacing: '0.2px',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: '#515151',
+    color: 'var(--e-color-text-2)',
   },
 
   'text-quote': {

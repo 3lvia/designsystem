@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.8.1",
+      "date": "August 29, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Dark theme support for <code>-light</code> typographies."],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "12.8.0",
       "date": "August 25, 2023",
       "changelog": [
