@@ -39,7 +39,7 @@
               </td>
             </tr>
             <tr *ngFor="let color of tablePart.colors">
-              <app-copy [message]="'e-color-' + color.token">
+              <app-copy [message]="'--e-color-' + color.token">
                 <td class="token-font" [ngClass]="{ 'small-column': hasRoleColumn }">
                   <p class="e-m-0">{{ color.token }}</p>
                 </td>
