@@ -1,12 +1,12 @@
-<div class="related-container" *ngIf="relatedComponents">
-  <ng-container *ngFor="let relatedComponent of relatedComponents">
-    <a [routerLink]="'/components/' + relatedComponent">
-      <elvia-card [heading]="getComponentTitle(relatedComponent)">
+<div class="related-container" *ngIf="relatedPages">
+  <ng-container *ngFor="let relatedPage of relatedPages">
+    <a [routerLink]="getRelatedPath(relatedPage)">
+      <elvia-card [heading]="getRelatedTitle(relatedPage)" [maxHeadingLines]="2">
         <div slot="icon">
           <img
             alt=""
-            *ngIf="(componentIcons | async)?.[relatedComponent]; else noIcon"
-            [src]="(componentIcons | async)?.[relatedComponent]"
+            *ngIf="(componentIcons | async)?.[relatedPage]; else noIcon"
+            [src]="(componentIcons | async)?.[relatedPage]"
           />
         </div>
       </elvia-card>

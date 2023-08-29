@@ -36,7 +36,7 @@ export class ComponentDocumentationComponent implements OnInit {
   description: string | undefined;
   figmaUrl: string | undefined;
   elvisClassName: keyof typeof data.block | undefined;
-  relatedComponents: DocPageName[] | undefined;
+  relatedPages: DocPageName[] | undefined;
 
   constructor(private titleService: Title) {}
 
@@ -44,7 +44,7 @@ export class ComponentDocumentationComponent implements OnInit {
     this.title = getComponent(this.docUrl)?.title;
     this.description = getComponent(this.docUrl)?.description;
     this.figmaUrl = getComponent(this.docUrl)?.figmaUrl;
-    this.relatedComponents = getComponent(this.docUrl)?.relatedComponents;
+    this.relatedPages = getComponent(this.docUrl)?.relatedPages;
     if (this.isElvis) {
       this.elvisClassName = getComponent(this.docUrl)?.elvisClassName;
       if (!this.elvisClassName) {
