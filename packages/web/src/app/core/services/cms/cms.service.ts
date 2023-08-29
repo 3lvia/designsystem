@@ -9,6 +9,7 @@ import {
   IEntry,
   ILandingPageWithCards,
   IMainMenu,
+  IOverviewCard,
   ISubMenu,
   LOCALE_CODE,
 } from 'contentful/types';
@@ -243,7 +244,19 @@ export class CMSService {
     const brandIcons = getIconsFromCards(await this.getEntry('69x76GUs7dsCwA3IsfxLMG'));
     const patternIcons = getIconsFromCards(await this.getEntry('QrmvWlsXBXEwIBZUaJLcg'));
 
-    return { ...componentIcons, ...brandIcons, ...patternIcons };
+    const accessibilityIcon = {} as Record<string, string>;
+    const accessibilityCard = await this.getEntry<IOverviewCard>('1Xz4n9usk2Z1VeugbnfsI5');
+    let accessibilityUrl = `https:${
+      extractLocale(extractLocale(accessibilityCard.fields.pageIcon)!.fields.file)?.url
+    }`;
+    if (this.currentTheme === 'dark' && accessibilityCard.fields.pageIconDarkTheme) {
+      accessibilityUrl = `https:${
+        extractLocale(extractLocale(accessibilityCard.fields.pageIconDarkTheme)!.fields.file)?.url
+      }`;
+    }
+    accessibilityIcon['accessibility'] = accessibilityUrl;
+
+    return { ...componentIcons, ...brandIcons, ...patternIcons, ...accessibilityIcon };
   }
 
   /**

@@ -356,7 +356,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     type: 'Component',
     searchTerms: ['keyboard', 'focus', 'accessibility', 'a11y', 'outline', 'focus-visible'],
-    // todo relatedPages: ['accessibility'],
+    relatedPages: ['accessibility'],
   },
   {
     title: 'Pagination',
