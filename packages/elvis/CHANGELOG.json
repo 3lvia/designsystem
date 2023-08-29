@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.9.0",
+      "date": "August 29, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>arrow_long_down</code> and <code>arrow_long_up</code> icons."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "12.8.1",
       "date": "August 29, 2023",
       "changelog": [

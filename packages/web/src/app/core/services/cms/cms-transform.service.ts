@@ -430,9 +430,9 @@ export class CMSTransformService {
         ${imgSize === '25%' ? 'cms-image-small' : 'cms-image-normal'}
       '
     >
-      <div>
+      <div class="e-my-16">
         <img
-          class='
+          class=' 
             ${shouldHaveThemeBackground && 'theme-image-background'}
             ${inGrid ? 'e-br-8' : ''}
             ${hasInlineText ? 'cms-image-inline' : ''} 

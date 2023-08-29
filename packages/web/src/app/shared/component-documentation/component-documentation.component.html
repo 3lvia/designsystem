@@ -35,14 +35,14 @@
   <!--INSTALLATION-->
   <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData"></app-component-installation>
+      <app-component-installation [componentData]="componentData" />
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
   <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+      <app-component-properties-table [componentData]="componentData" />
     </ng-container>
   </app-component-section>
   <app-component-section
@@ -51,7 +51,7 @@
     [propertiesClass]="elvisClassName"
   >
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="elvisClassName"></app-component-properties>
+      <app-component-properties [componentName]="elvisClassName" />
     </ng-container>
   </app-component-section>
 
@@ -60,18 +60,15 @@
   <!--CHANGELOG-->
   <app-component-section [sectionTitle]="'Changelog'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog
-        *ngIf="!isElvis && componentData"
-        [changelog]="componentData.changelog"
-      ></app-component-changelog>
-      <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title"></app-component-changelog>
+      <app-component-changelog *ngIf="!isElvis && componentData" [changelog]="componentData.changelog" />
+      <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title" />
     </ng-container>
   </app-component-section>
 
   <!--RELATED COMPONENTS-->
-  <app-component-section *ngIf="relatedComponents" [sectionTitle]="'Related'">
+  <app-component-section *ngIf="relatedPages" [sectionTitle]="'Related'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-related [relatedComponents]="relatedComponents"></app-component-related>
+      <app-component-related [relatedPages]="relatedPages" />
     </ng-container>
   </app-component-section>
 </div>

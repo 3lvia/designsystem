@@ -56,6 +56,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=72%3A491',
     type: 'Component',
     searchTerms: ['expandable', 'disclosure', 'pocket', 'collapse'],
+    relatedPages: ['button', 'groups'],
   },
   {
     title: 'Alert',
@@ -67,6 +68,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-messages?node-id=165%3A0',
     type: 'Component',
     searchTerms: ['notifications', 'feedback', 'banner', 'flag', 'snackbar', 'message', 'confirmation'],
+    relatedPages: ['toast', 'badge', 'cookies', 'validations'],
   },
   {
     title: 'Autocomplete',
@@ -78,6 +80,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2742%3A0',
     type: 'Component',
     searchTerms: ['predictive', 'word completion', 'combobox', 'suggest', 'filter'],
+    relatedPages: ['input', 'dropdown', 'search', 'filters'],
   },
   {
     title: 'Badge',
@@ -89,6 +92,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/RDqaOx4hfYvZyQXtaqdkgA/Badge',
     type: 'Component',
     searchTerms: ['notification', 'mark', 'counter'],
+    relatedPages: ['tag', 'chip', 'alert'],
   },
   {
     title: 'Box',
@@ -100,7 +104,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Box?node-id=288%3A0',
     type: 'Component',
     searchTerms: ['tile'],
-    relatedComponents: ['card', 'popover'],
+    relatedPages: ['card', 'popover', 'layout'],
   },
   {
     title: 'Button',
@@ -113,6 +117,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['cta', 'call to action', 'click'],
     elvisClassName: 'e-btn',
+    relatedPages: ['context-menu', 'toggle', 'link', 'icon'],
   },
   {
     title: 'Breadcrumb',
@@ -124,6 +129,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/JNbQmeFGfn7QOybUKbSvks/Breadcrumb?node-id=3%3A2',
     type: 'Component',
     searchTerms: ['navigation', 'path'],
+    relatedPages: ['link', 'header'],
   },
   {
     title: 'Card',
@@ -135,6 +141,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/w0gte3tPfAypBQpdynPMcU/Card?node-id=1%3A8',
     type: 'Component',
     searchTerms: ['collection', 'tile'],
+    relatedPages: ['link', 'box', 'groups'],
   },
   {
     title: 'Carousel',
@@ -146,6 +153,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/Um5AotNfUftDorJHGbIy99/Navigational-controls?node-id=1023%3A15726',
     type: 'Component',
     searchTerms: ['horizontal', 'scroll', 'viewer', 'gallery'],
+    relatedPages: ['button', 'stepper', 'thumbnail', 'images'],
   },
   {
     title: 'Chip',
@@ -157,6 +165,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/dPti8DhGm7C2Rjx4IZSQFw/Chip?node-id=1%3A237',
     type: 'Component',
     searchTerms: ['legend', 'pills', 'filter'],
+    relatedPages: ['badge', 'radio-filter', 'tag', 'filters'],
   },
   {
     title: 'Checkbox',
@@ -169,6 +178,7 @@ export const componentsDocPages: DocPage[] = [
       'https://www.figma.com/file/JtShiDWQ0ytG8vdQRpyOES/Checkbox?type=design&node-id=0%3A1&mode=design&t=zafwsYy1PwOe4Eks-1',
     type: 'Component',
     searchTerms: ['tick', 'select', 'option', 'selection', 'multiselect'],
+    relatedPages: ['radiobutton', 'toggle', 'filters', 'forms'],
   },
   {
     title: 'Content Loader',
@@ -180,6 +190,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-scroll?node-id=9%3A0',
     type: 'Component',
     searchTerms: ['placeholder', 'skeleton', 'loading', 'shimmer', 'loader'],
+    relatedPages: ['progressbar', 'illustration', 'empty-states'],
   },
   {
     title: 'Context Menu',
@@ -192,6 +203,7 @@ export const componentsDocPages: DocPage[] = [
       'https://www.figma.com/file/GIl5R2y3TWNwlyknvgwTZF/Context-menu?type=design&node-id=1%3A8&mode=design&t=WbrogSojhhPTUfBq-1',
     type: 'Component',
     searchTerms: ['menu', 'popup', 'more', 'actions'],
+    relatedPages: ['button', 'popover'],
   },
   {
     title: 'Datepicker',
@@ -203,6 +215,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
     searchTerms: ['calendar', 'date', 'time', 'input'],
+    relatedPages: ['datepicker-range', 'timepicker', 'forms', 'filters'],
   },
   {
     title: 'Datepicker Range',
@@ -214,6 +227,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
     searchTerms: ['calendar', 'date', 'time', 'input'],
+    relatedPages: ['timepicker', 'datepicker', 'forms', 'filters'],
   },
   {
     title: 'Drag & Drop',
@@ -225,6 +239,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['file', 'upload'],
     elvisClassName: 'e-dragdrop',
+    relatedPages: ['file-upload', 'forms', 'groups'],
   },
   {
     title: 'Divider',
@@ -235,6 +250,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/F4ycCcM9cGf9T12EhzbN3F/Dividers?node-id=1%3A2',
     type: 'Component',
     searchTerms: ['line', 'separator', 'section', 'hr', 'br'],
+    relatedPages: ['layout', 'groups'],
   },
   {
     title: 'Dropdown',
@@ -246,6 +262,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1285%3A842',
     type: 'Component',
     searchTerms: ['select', 'option', 'multiselect', 'pull-down', 'combobox'],
+    relatedPages: ['autocomplete', 'radiobutton', 'forms'],
   },
   {
     title: 'File Upload',
@@ -257,6 +274,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['file', 'upload'],
     elvisClassName: 'e-fileupload',
+    relatedPages: ['drag-and-drop', 'thumbnail', 'forms', 'groups'],
   },
   {
     title: 'Header',
@@ -268,6 +286,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/QRhfgr0sd9MPmACos1xDNT/Header?node-id=230%3A604',
     type: 'Component',
     searchTerms: ['navigation', 'menu', 'top', 'bar', 'logo', 'title', 'toolbar', 'sidebar', 'topbar'],
+    relatedPages: ['breadcrumb', 'link', 'onboarding'],
   },
   {
     title: 'Text Field',
@@ -278,6 +297,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1262%3A486',
     type: 'Component',
     searchTerms: ['input', 'text', 'number', 'email', 'password', 'textarea'],
+    relatedPages: ['dropdown', 'autocomplete', 'comments', 'forms'],
   },
   {
     title: 'Tag',
@@ -289,6 +309,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=136%3A1738',
     type: 'Component',
     searchTerms: ['label', 'lozenge', 'status', 'ribbon', 'category', 'categorize', 'organize'],
+    relatedPages: ['chip', 'badge', 'graph'],
   },
   {
     title: 'Link',
@@ -300,7 +321,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links?node-id=1%3A10',
     type: 'Component',
     searchTerms: ['anchor', 'url', 'href', 'navigate', 'navigation', 'click'],
-    relatedComponents: ['breadcrumb', 'card', 'header'],
+    relatedPages: ['breadcrumb', 'card', 'header', 'groups'],
   },
   {
     title: 'List',
@@ -312,6 +333,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Lists?node-id=353%3A0',
     type: 'Component',
     searchTerms: ['bullet', 'numbered', 'unordered', 'ordered', 'ul', 'ol', 'li'],
+    relatedPages: ['icon', 'groups'],
   },
   {
     title: 'Modal',
@@ -323,6 +345,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/unlDZ5F7svra9dPNKYdTK9/Modal?node-id=2%3A0',
     type: 'Component',
     searchTerms: ['dialog', 'popup', 'confirm', 'prompt', 'window', 'layer', 'overlay'],
+    relatedPages: ['popover', 'context-menu', 'tooltip'],
   },
   {
     title: 'Outline',
@@ -333,6 +356,7 @@ export const componentsDocPages: DocPage[] = [
     status: DocPageStatus.Done,
     type: 'Component',
     searchTerms: ['keyboard', 'focus', 'accessibility', 'a11y', 'outline', 'focus-visible'],
+    relatedPages: ['accessibility'],
   },
   {
     title: 'Pagination',
@@ -344,6 +368,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/XCqUxqWe47Tu0x52JYEbsX/Pagination?node-id=0%3A1',
     type: 'Component',
     searchTerms: ['page', 'navigation', 'next', 'previous'],
+    relatedPages: ['table', 'stepper', 'accordion'],
   },
   {
     title: 'Popover',
@@ -365,6 +390,7 @@ export const componentsDocPages: DocPage[] = [
       'overflow',
       'callout',
     ],
+    relatedPages: ['modal', 'context-menu', 'tooltip'],
   },
   {
     title: 'Progressbar',
@@ -386,6 +412,7 @@ export const componentsDocPages: DocPage[] = [
       'status',
       'meter',
     ],
+    relatedPages: ['content-loader', 'file-upload', 'empty-states'],
   },
   {
     title: 'Radio Button',
@@ -399,6 +426,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'toggle'],
     elvisClassName: 'e-radio',
+    relatedPages: ['checkbox', 'dropdown', 'forms', 'filters'],
   },
   {
     title: 'Radio Filter',
@@ -411,6 +439,7 @@ export const componentsDocPages: DocPage[] = [
       'https://www.figma.com/file/8OZU7mSBLPpEzwtV0QRDoG/Radio-filter?type=design&node-id=0%3A1&mode=design&t=JASWYeK1lpA2hl1D-1',
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'filter'],
+    relatedPages: ['segmented-control', 'chip', 'forms', 'filters'],
   },
   {
     title: 'Search',
@@ -422,6 +451,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/Yz09cKdXxOvfP0KP7AkTI7/Search?node-id=1%3A2',
     type: 'Component',
     searchTerms: ['find', 'filter'],
+    relatedPages: ['autocomplete', 'forms', 'filters', 'empty-states'],
   },
   {
     title: 'Segmented Control',
@@ -433,6 +463,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A436',
     type: 'Component',
     searchTerms: ['content switch', 'choice', 'option', 'select', 'filter'],
+    relatedPages: ['radio-filter', 'tabs', 'radiobutton', 'filters'],
   },
   {
     title: 'Slider',
@@ -444,6 +475,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/Bpc4gmpy4T4eeWm51X5UmJ/Slider?node-id=0%3A1',
     type: 'Component',
     searchTerms: ['range', 'input', 'adjust', 'value', 'number', 'handle', 'track'],
+    relatedPages: ['input', 'radiobutton', 'forms'],
   },
   {
     title: 'Spotlight',
@@ -455,6 +487,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/rpflFlBIv4c5TNKLXJLktG/?node-id=2%3A8',
     type: 'Component',
     searchTerms: ['highlight', 'focus'],
+    relatedPages: ['box', 'onboarding', 'illustration'],
   },
   {
     title: 'Stepper',
@@ -466,6 +499,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/x8ae3TPZemAkxtjSS2JI7x/Stepper?node-id=0-1&t=0oTWvsI5AMzfMr8Q-0',
     type: 'Component',
     searchTerms: ['steps', 'progress', 'process'],
+    relatedPages: ['carousel', 'pagination', 'tabs', 'forms'],
   },
   {
     title: 'Tabs',
@@ -477,6 +511,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/v0KlQT8eAWiNN1ORHsmNjt/Tabs?node-id=1%3A72',
     type: 'Component',
     searchTerms: ['pivot', 'choice', 'option', 'view', 'filter'],
+    relatedPages: ['segmented-control', 'radio-filter', 'stepper'],
   },
   {
     title: 'Table',
@@ -488,6 +523,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=3%3A292',
     type: 'Component',
     searchTerms: ['data', 'row', 'column', 'th', 'td', 'tr', 'tbody', 'thead', 'tfoot'],
+    relatedPages: ['pagination', 'chip', 'filters', 'graph'],
   },
   {
     title: 'Toggle',
@@ -500,6 +536,7 @@ export const componentsDocPages: DocPage[] = [
       'https://www.figma.com/file/8c1uZpEVnz2FHsCeQM3fVV/Toggle?type=design&node-id=0%3A1&mode=design&t=YPjADCj8T64UhBbq-1',
     type: 'Component',
     searchTerms: ['switch', 'on', 'off', 'option', 'state', 'radio', 'lever'],
+    relatedPages: ['checkbox', 'radiobutton', 'segmented-control', 'forms'],
   },
   {
     title: 'Timepicker',
@@ -511,6 +548,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
     searchTerms: ['clock', 'hour', 'minute', 'interval', 'duration', 'period', 'input'],
+    relatedPages: ['datepicker', 'datepicker-range', 'popover', 'forms'],
   },
   {
     title: 'Thumbnail',
@@ -522,6 +560,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/cIyfnYdCJ6Nlj5fLVi245M/Thumbnail?node-id=11%3A30',
     type: 'Component',
     searchTerms: ['image', 'preview', 'picture', 'photo', 'gallery'],
+    relatedPages: ['carousel', 'file-upload', 'images'],
   },
   {
     title: 'Toast',
@@ -533,6 +572,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-message?t=lWHxCnNZBJatqKnV-0',
     type: 'Component',
     searchTerms: ['notifications', 'feedback', 'flag', 'snackbar', 'message', 'confirmation'],
+    relatedPages: ['alert', 'popover'],
   },
   {
     title: 'Tooltip',
@@ -544,6 +584,154 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/kisdszIRwlezU3B4ZYRjfG/Tooltip?node-id=1%3A10',
     type: 'Component',
     searchTerms: ['info', 'infotip', 'help', 'hint', 'popup'],
+    relatedPages: ['popover', 'icon', 'button'],
+  },
+];
+
+// Brand pages
+export const docPagesBrand: DocPage[] = [
+  {
+    title: 'The Concept',
+    docUrl: Pages.TheConcept,
+    absolutePath: '/brand/' + Pages.TheConcept,
+  },
+  {
+    title: 'Colors',
+    docUrl: Pages.Color,
+    absolutePath: '/brand/' + Pages.Color,
+  },
+  {
+    title: 'Icons',
+    docUrl: Pages.Icon,
+    absolutePath: '/brand/' + Pages.Icon,
+  },
+  {
+    title: 'Images',
+    docUrl: Pages.Images,
+    absolutePath: '/brand/' + Pages.Images,
+  },
+  {
+    title: 'Layout',
+    docUrl: Pages.Layout,
+    absolutePath: '/brand/' + Pages.Layout,
+  },
+  {
+    title: 'Logo',
+    docUrl: Pages.Logo,
+    absolutePath: '/brand/' + Pages.Logo,
+  },
+  {
+    title: 'Tone of Voice',
+    docUrl: Pages.ToneOfVoice,
+    absolutePath: '/brand/' + Pages.ToneOfVoice,
+  },
+  {
+    title: 'Typography',
+    docUrl: Pages.Typography,
+    absolutePath: '/brand/' + Pages.Typography,
+  },
+  {
+    title: 'Illustrations',
+    docUrl: Pages.Illustration,
+    absolutePath: '/brand/' + Pages.Illustration,
+  },
+];
+
+// Pattern pages
+export const docPagesPattern: DocPage[] = [
+  {
+    title: 'Comments',
+    docUrl: Pages.Comments,
+    absolutePath: '/patterns/' + Pages.Comments,
+  },
+  {
+    title: 'Cookies',
+    docUrl: Pages.Cookies,
+    absolutePath: '/patterns/' + Pages.Cookies,
+  },
+  {
+    title: 'Empty States',
+    docUrl: Pages.EmptyStates,
+    absolutePath: '/patterns/' + Pages.EmptyStates,
+  },
+  {
+    title: 'Filters',
+    docUrl: Pages.Filters,
+    absolutePath: '/patterns/' + Pages.Filters,
+  },
+  {
+    title: 'Forms',
+    docUrl: Pages.Forms,
+    absolutePath: '/patterns/' + Pages.Forms,
+  },
+  {
+    title: 'Groups',
+    docUrl: Pages.Groups,
+    absolutePath: '/patterns/' + Pages.Groups,
+  },
+  {
+    title: 'Onboarding',
+    docUrl: Pages.Onboarding,
+    absolutePath: '/patterns/' + Pages.Onboarding,
+  },
+  {
+    title: 'Validations',
+    docUrl: Pages.Validations,
+    absolutePath: '/patterns/' + Pages.Validations,
+  },
+  {
+    title: 'Graph',
+    docUrl: Pages.Graph,
+    absolutePath: '/patterns/' + Pages.Graph,
+  },
+];
+
+// Accessibility
+export const docPagesTools: DocPage[] = [
+  {
+    title: 'Accessibility',
+    docUrl: Pages.Accessibility,
+    absolutePath: '/tools/' + Pages.Accessibility,
+  },
+  {
+    title: 'Design Process',
+    docUrl: Pages.DesignProcess,
+    absolutePath: '/tools/' + Pages.DesignProcess,
+  },
+  {
+    title: 'Evaluation',
+    docUrl: Pages.Evaluation,
+    absolutePath: '/tools/' + Pages.Evaluation,
+  },
+  {
+    title: 'Icebreakers',
+    docUrl: Pages.Icebreakers,
+    absolutePath: '/tools/' + Pages.Icebreakers,
+  },
+  {
+    title: 'Ideation',
+    docUrl: Pages.Ideation,
+    absolutePath: '/tools/' + Pages.Ideation,
+  },
+  {
+    title: 'Personas',
+    docUrl: Pages.Personas,
+    absolutePath: '/tools/' + Pages.Personas,
+  },
+  {
+    title: 'Templates',
+    docUrl: Pages.Templates,
+    absolutePath: '/tools/' + Pages.Templates,
+  },
+  {
+    title: 'User Feedback',
+    docUrl: Pages.UserFeedback,
+    absolutePath: '/tools/' + Pages.UserFeedback,
+  },
+  {
+    title: 'Utility Classes',
+    docUrl: Pages.UtilityClasses,
+    absolutePath: '/tools/' + Pages.UtilityClasses,
   },
 ];
 
@@ -707,4 +895,13 @@ export function getComponent(docUrl: DocPageName): DocPage | undefined {
 }
 export function getDocPagesNotFromCMS(docUrl: DocPageName): DocPage | undefined {
   return docPagesNotFromCMS.find((component) => component.docUrl === docUrl);
+}
+export function getDocPage(docUrl: DocPageName): DocPage | undefined {
+  const allDocPages: DocPage[] = [
+    ...componentsDocPages,
+    ...docPagesBrand,
+    ...docPagesPattern,
+    ...docPagesTools,
+  ];
+  return allDocPages.find((component) => component.docUrl === docUrl);
 }

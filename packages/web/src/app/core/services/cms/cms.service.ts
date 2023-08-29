@@ -9,6 +9,7 @@ import {
   IEntry,
   ILandingPageWithCards,
   IMainMenu,
+  IOverviewCard,
   ISubMenu,
   LOCALE_CODE,
 } from 'contentful/types';
@@ -193,25 +194,73 @@ export class CMSService {
 
   /**
    *
-   * @returns Object where component names (lowercase) are keys, and url to their icon are values.
+   * @returns Object where document url names are keys, and url to their icon are values.
    */
-  async getComponentIcons() {
-    const overviewPageWithCards = await this.getEntry('3qbgNHF6InuWMxO1jdc9BR');
+  async getPageIcons() {
+    const changeName = (oldName: string) => {
+      switch (oldName) {
+        case 'text-field':
+          return 'input';
+        case 'radio-button':
+          return 'radiobutton';
+        case 'illustrations':
+          return 'illustration';
+        case 'icons':
+          return 'icon';
+        case 'colors':
+          return 'color';
+        case 'tab':
+          return 'tabs';
+        case 'drag-&-drop':
+          return 'drag-and-drop';
 
-    const cards = extractLocale(overviewPageWithCards.fields.overviewCard);
-    if (!cards) {
-      throw new Error('Cannot find overview page cards.');
-    }
-
-    return cards.reduce((res, card) => {
-      const title = extractLocale(card.fields.title) ?? '';
-      let url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
-      if (this.currentTheme === 'dark' && card.fields.pageIconDarkTheme) {
-        url = `https:${extractLocale(extractLocale(card.fields.pageIconDarkTheme)!.fields.file)?.url}`;
+        default:
+          return oldName;
       }
-      res[title.toLowerCase()] = url;
-      return res;
-    }, {} as Record<string, string>);
+    };
+
+    const getIconsFromCards = (overviewPageWithCards: ILandingPageWithCards) => {
+      const cards = extractLocale(overviewPageWithCards.fields.overviewCard);
+
+      if (!cards) {
+        throw new Error('Cannot find overview page cards.');
+      }
+
+      const icons = cards.reduce((res, card) => {
+        const title = extractLocale(card.fields.title) ?? '';
+        let url = `https:${extractLocale(extractLocale(card.fields.pageIcon)!.fields.file)?.url}`;
+        if (this.currentTheme === 'dark' && card.fields.pageIconDarkTheme) {
+          url = `https:${extractLocale(extractLocale(card.fields.pageIconDarkTheme)!.fields.file)?.url}`;
+        }
+        const docName = changeName(title.toLowerCase().replace(/ /g, '-'));
+        if (docName === 'logo') {
+          res['elvis'] = url;
+        }
+        res[docName] = url;
+        return res;
+      }, {} as Record<string, string>);
+
+      return icons;
+    };
+
+    const componentIcons = getIconsFromCards(await this.getEntry('3qbgNHF6InuWMxO1jdc9BR'));
+    const brandIcons = getIconsFromCards(await this.getEntry('69x76GUs7dsCwA3IsfxLMG'));
+    const patternIcons = getIconsFromCards(await this.getEntry('QrmvWlsXBXEwIBZUaJLcg'));
+
+    // todo replace this with tools icons (the same as component, brand and patters)
+    const accessibilityIcon = {} as Record<string, string>;
+    const accessibilityCard = await this.getEntry<IOverviewCard>('1Xz4n9usk2Z1VeugbnfsI5');
+    let accessibilityUrl = `https:${
+      extractLocale(extractLocale(accessibilityCard.fields.pageIcon)!.fields.file)?.url
+    }`;
+    if (this.currentTheme === 'dark' && accessibilityCard.fields.pageIconDarkTheme) {
+      accessibilityUrl = `https:${
+        extractLocale(extractLocale(accessibilityCard.fields.pageIconDarkTheme)!.fields.file)?.url
+      }`;
+    }
+    accessibilityIcon['accessibility'] = accessibilityUrl;
+
+    return { ...componentIcons, ...brandIcons, ...patternIcons, ...accessibilityIcon };
   }
 
   /**
@@ -274,7 +323,6 @@ export class CMSService {
    */
   private async getEntry<T extends IEntry = IEntry>(entryId: string): Promise<T>;
   private async getEntry(entryId: '4ufFZKPEou3mf9Tg05WZT3'): Promise<IMainMenu>;
-  private async getEntry(entryId: '3qbgNHF6InuWMxO1jdc9BR'): Promise<ILandingPageWithCards>;
   private async getEntry(entryId: string): Promise<IEntry>;
   private async getEntry(entryId: string): Promise<IEntry> {
     const url = `assets/contentful/dist/entries/${entryId}.json`;
