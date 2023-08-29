@@ -1,6 +1,16 @@
 {
   "content": [
     {
+      "version": "12.8.2",
+      "date": "August 29, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Table theme bug fix"]
+        }
+      ]
+    },
+    {
       "version": "12.8.1",
       "date": "August 29, 2023",
       "changelog": [

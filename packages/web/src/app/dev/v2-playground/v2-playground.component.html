@@ -4,7 +4,54 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-p-16 e-mb-24"></div>
+    <div class="e-p-16 e-mb-24">
+      <elvia-box>
+        <h3 slot="heading">Title</h3>
+        <div slot="content">
+          <table aria-label="AMS avbrudd" class="e-table e-table--small">
+            <thead>
+              <tr>
+                <th id="amsavbruddnummer">#</th>
+                <th id="amsavbruddtype">Type</th>
+                <th id="amsavbruddfra">Avbrudd fra</th>
+                <th id="amsavbruddtil">Avbrudd til</th>
+                <th id="amsavbruddvargihet">Varighet</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th id="amsavbruddnummer">1</th>
+                <td></td>
+                <td>13/10-19 19:12:38</td>
+                <td>13/10-19 19:12:39</td>
+                <td>0 dager, 0 timer, 0 minutter</td>
+              </tr>
+              <tr>
+                <th id="amsavbruddnummer">2</th>
+                <td></td>
+                <td>13/10-19 19:12:40</td>
+                <td>13/10-19 19:12:58</td>
+                <td>0 dager, 0 timer, 0 minutter</td>
+              </tr>
+              <tr>
+                <th id="amsavbruddnummer">3</th>
+                <td></td>
+                <td>13/10-19 19:12:59</td>
+                <td>13/10-19 19:22:08</td>
+                <td>0 dager, 0 timer, 9 minutter</td>
+              </tr>
+              <tr>
+                <th id="amsavbruddnummer">4</th>
+                <td></td>
+                <td>13/10-19 19:22:08</td>
+                <td>14/10-19 13:24:14</td>
+                <td>0 dager, 18 timer, 2 minutter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </elvia-box>
+    </div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark e-p-16"></div>
 

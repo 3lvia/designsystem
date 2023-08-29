@@ -1,6 +1,12 @@
 # Elvia Colors Changelog
 
-## 3.0.0 (??.06.23)
+## 3.1.0 (29.06.23)
+
+### New feature
+
+- `background-element-6` added, used for headers
+
+## 3.0.0 (25.06.23)
 
 ### Breaking changes
 

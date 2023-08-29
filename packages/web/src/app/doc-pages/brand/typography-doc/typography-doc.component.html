@@ -24,8 +24,8 @@
     </ng-container>
   </app-component-subsection>
 
-  <!--TEXT STYLES-->
-  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Tekststiler' : 'Text styles'">
+  <!--Types-->
+  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Typer' : 'Types'">
     <ng-container ngProjectAs="sectionContent">
       <div class="e-text-lg e-mb-72">
         <ng-container *ngIf="locale === 'en-GB'">
@@ -70,6 +70,7 @@
           </ng-container>
         </ng-container>
       </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Alternativ font' : 'Alternative font'">
         <ng-container ngProjectAs="sectionContent">
           <ng-container *ngIf="locale === 'en-GB'">
@@ -194,6 +195,23 @@
               brukes som en liten beskrivende tekst f.eks. datoer og verdier. Bør ikke brukes på lange
               avsnitt, da den er veldig liten.
             </div>
+          </ng-container>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Colors'">
+        <ng-container ngProjectAs="sectionContent">
+          <ng-container *ngIf="locale === 'en-GB'">
+            The typographies can be used togheter with our color tokens. The available text colors are listed
+            under the text category in the
+            <a class="e-link" [routerLink]="'/about/color'" fragment="Tokens">tokens overview</a>
+            .
+          </ng-container>
+          <ng-container *ngIf="locale === 'nb-NO'">
+            <strong>Red Hat Display</strong>
+            har tettere bokstavrom og større x-høyde og egner seg på store størrelser, for eksempel i titler.
+            <strong>Red Hat Text</strong>
+            har litt mindre x-høyde, mer plass og er designet for god lesbarhet i mindre størrelser.
           </ng-container>
         </ng-container>
       </app-component-subsection>

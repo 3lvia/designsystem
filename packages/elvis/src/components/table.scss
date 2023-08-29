@@ -62,6 +62,14 @@ $table-invalid-padding: 8px 16px;
 }
 
 .e-table {
+  @include helpers.custom-light-theme-tokens {
+    --e-table-row-background: var(--e-light-theme-white);
+  }
+
+  @include helpers.custom-dark-theme-tokens('table') {
+    --e-table-row-background: var(--e-dark-theme-grey);
+  }
+
   position: relative;
   display: table;
   overflow: auto;
@@ -97,7 +105,7 @@ $table-invalid-padding: 8px 16px;
     @include typography.typography('text-md');
 
     padding: $table-padding;
-    background: var(--e-color-background-element-1);
+    background: var(--e-table-row-background);
     text-align: left;
 
     @include breakpoints.breakpoint-up(Mobile) {
@@ -131,13 +139,13 @@ $table-invalid-padding: 8px 16px;
 
   tbody {
     tr {
-      background: var(--e-color-background-element-1);
+      background: var(--e-table-row-background);
       // Select the 1st column in a sticky vertical header, and make the background
       // non-transparent in dark theme so that it covers rest of row when scrolled
-      .e-theme-dark &:nth-of-type(even) {
+      &:nth-of-type(even) {
         th:first-of-type,
         th[scope='row'] {
-          background: var(--e-dark-theme-grey);
+          background: var(--e-table-row-background);
         }
       }
 
