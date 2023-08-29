@@ -116,10 +116,11 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
       cursor: not-allowed;
     `};
 
-  ${({ isIndeterminate, isChecked, currentTheme }) =>
+  ${({ isIndeterminate, isChecked }) =>
     (isChecked || isIndeterminate) &&
-    currentTheme === 'dark' &&
     css`
-      border: none;
+      .e-theme-dark && {
+        border-color: transparent;
+      }
     `};
 `;
