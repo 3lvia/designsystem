@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HeaderProps, Theme } from './elviaHeader.types';
+import { HeaderProps } from './elviaHeader.types';
 import { useBreakpoint, useSlot } from '@elvia/elvis-toolbox';
 import { getThemeColor } from '@elvia/elvis-colors';
 import {
@@ -17,6 +17,7 @@ import { SideNav } from './sideNav/sideNav';
 import { AppDrawer } from './appDrawer/appDrawer';
 import { getActiveApp } from './elviaApps';
 import { getStoredActiveTheme, setThemeClassOnDocument } from './themeUtils';
+import { Theme } from './elviaHeader.shared.types';
 
 export const Header: React.FC<HeaderProps> = ({
   appTitle,
