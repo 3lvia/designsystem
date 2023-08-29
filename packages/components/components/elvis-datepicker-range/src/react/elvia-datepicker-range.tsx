@@ -386,7 +386,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               setCurrentTimepickerErrorMessages((current) => ({ ...current, start: error }))
             }
             errorOptions={{
-              hideText: currentErrorMessages.start !== null,
+              hideText: !(currentErrorMessages.start === undefined || currentErrorMessages.start === ''),
               isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
               text: '',
               hasErrorPlaceholder:
@@ -443,7 +443,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               setCurrentTimepickerErrorMessages((current) => ({ ...current, end: error }))
             }
             errorOptions={{
-              hideText: false,
+              hideText: !(currentErrorMessages.start === undefined || currentErrorMessages.start === ''),
               isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
               text: '',
               hasErrorPlaceholder:
