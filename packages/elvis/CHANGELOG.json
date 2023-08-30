@@ -6,7 +6,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added the <code>cursor: wait;</code> styles to the loading input."],
+          "changes": ["Added the <code>cursor: wait;</code> styles to the loading text field."],
           "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         },
         {
