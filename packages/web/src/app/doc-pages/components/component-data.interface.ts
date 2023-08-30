@@ -1,14 +1,12 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
-export interface AttributeType {
-  /**
-   * Indicates whether a prop is required for the component.
-   * An asterisk will be shown in the properties table if set to true.
-   */
+interface AttributeBase {
+  // Indicates whether a prop is required for the component.
   isRequired?: boolean;
+
   /**
-   * The accepted type(s) of the prop, as a string in typescript format. Will be shown in the properties table.
+   * The accepted type(s) of the prop, as a string in typescript format.
    *
    * @example
    * 'string'
@@ -16,15 +14,37 @@ export interface AttributeType {
    * '"left" | "center" | "right"'
    */
   type: string;
-  /**
-   * Description of the prop. Will be shown in the properties table.
-   */
+
+  // Description of the prop.
   description: string;
-  /**
-   * Default value of the prop, if any. Will be shown in the properties table.
-   */
+
+  // Default value of the prop, if any.
   default?: string | number | boolean;
 }
+
+/**
+ * Represents props that are of object type. These props have child props
+ * that needs to be described as well.
+ */
+interface ObjectProp<TObjectProp> extends AttributeBase {
+  type: 'object' | 'array<object>';
+  children: {
+    [TProp in keyof TObjectProp]: TObjectProp[TProp] extends PrimitiveType
+      ? PrimitiveProp
+      : ObjectProp<TObjectProp[TProp]>;
+  };
+}
+
+type PrimitiveType = string | number | boolean | number[] | string[] | ((...args: any) => any);
+
+/**
+ * Represents props that are "primitive", which means that they have no child props.
+ */
+interface PrimitiveProp extends AttributeBase {
+  type: 'string' | 'number' | 'boolean' | 'array<number>' | 'array<string>' | (string & {});
+}
+
+export type PropType = PrimitiveProp;
 
 /**
  * Definition for an object/a single update in the changelog
@@ -47,15 +67,25 @@ export interface ComponentChangelogChange {
 }
 
 type ReactPropsWithoutElvisBaseProps = Omit<ComponentPropsWithoutRef<'div'>, keyof BaseProps>;
-export type ComponentProps<TComponentProps> = Record<
-  keyof Omit<TComponentProps, keyof ReactPropsWithoutElvisBaseProps | 'webcomponent'>,
-  AttributeType
+type FilteredComponentProps<TComponentProps> = Omit<
+  TComponentProps,
+  keyof ReactPropsWithoutElvisBaseProps | 'webcomponent'
 >;
+
+export type ComponentProps<TComponentProps> = {
+  [PropName in keyof FilteredComponentProps<Required<TComponentProps>>]: NonNullable<
+    TComponentProps[PropName]
+  > extends infer T // This infer is a "hack" to allow us to check if props with union types extends _some_ of our primitive types
+    ? T extends PrimitiveType
+      ? PrimitiveProp
+      : ObjectProp<TComponentProps[PropName]>
+    : never;
+};
 
 /**
  * Interface for component data for documentation pages.
  */
-export default interface ComponentData<TComponentProps extends Record<string, any> = Record<string, any>> {
+export default interface ComponentData<TComponentProps = Record<string, any>> {
   /**
    * Component name.
    * @example 'SegmentedControl'
