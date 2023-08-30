@@ -172,6 +172,7 @@ $form-input-padding-compact-active: 3px 9px;
             var(--e-color-brand-accent)
           );
         background-origin: border-box;
+        cursor: wait;
       }
     }
   }
@@ -192,6 +193,7 @@ $form-input-padding-compact-active: 3px 9px;
         padding: $form-input-padding-active;
         border: solid 2px var(--e-color-brand-accent);
         animation: 1s eInputLoadingAnimation ease alternate infinite;
+        cursor: wait;
       }
     }
   }
