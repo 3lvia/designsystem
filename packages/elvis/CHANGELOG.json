@@ -1,6 +1,16 @@
 {
   "content": [
     {
+      "version": "12.9.2",
+      "date": "August 30, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Internal token fix"]
+        }
+      ]
+    },
+    {
       "version": "12.9.1",
       "date": "August 29, 2023",
       "changelog": [

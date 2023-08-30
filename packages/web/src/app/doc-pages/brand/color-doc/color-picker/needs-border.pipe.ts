@@ -7,7 +7,7 @@ import { LightThemeColorName, DarkThemeColorName, ThemeName } from '@elvia/elvis
 export class NeedsBorderPipe implements PipeTransform {
   transform(colorName: LightThemeColorName | DarkThemeColorName, theme: ThemeName): boolean {
     const lightThemeColors: LightThemeColorName[] = ['white', 'grey-02', 'grey-05', 'grey-10'];
-    const darkThemeColors: DarkThemeColorName[] = ['black', 'grey', 'grey-70', 'grey-60'];
+    const darkThemeColors: DarkThemeColorName[] = ['black', 'grey', 'grey-70', 'grey-60', 'grey-50'];
 
     return (
       (theme === 'light' && lightThemeColors.includes(colorName)) ||
