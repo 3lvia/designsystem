@@ -8,7 +8,13 @@
         {
           "type": "new_feature",
           "changes": ["Expose the <code>getCurrentTheme</code> function to get the current theme."]
-        },
+        }
+      ]
+    },
+    {
+      "date": "30.08.23",
+      "version": "1.5.4",
+      "changelog": [
         {
           "type": "bug_fix",
           "changes": ["Dark theme fix."]
