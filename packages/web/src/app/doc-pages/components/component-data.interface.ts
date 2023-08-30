@@ -1,14 +1,12 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
-export interface AttributeType {
-  /**
-   * Indicates whether a prop is required for the component.
-   * An asterisk will be shown in the properties table if set to true.
-   */
+interface PropBase {
+  // Indicates whether a prop is required for the component.
   isRequired?: boolean;
+
   /**
-   * The accepted type(s) of the prop, as a string in typescript format. Will be shown in the properties table.
+   * The accepted type(s) of the prop, as a string in typescript format.
    *
    * @example
    * 'string'
@@ -16,14 +14,34 @@ export interface AttributeType {
    * '"left" | "center" | "right"'
    */
   type: string;
-  /**
-   * Description of the prop. Will be shown in the properties table.
-   */
+}
+
+type PrimitiveType = string | number | boolean | number[] | string[] | ((...args: any) => any) | JSX.Element;
+
+/**
+ * Represents props that are "primitive", which means that they have no child props.
+ */
+export interface PrimitiveProp extends PropBase {
+  type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | (string & {});
+
   description: string;
-  /**
-   * Default value of the prop, if any. Will be shown in the properties table.
-   */
+
+  // Default value of the prop, if any.
   default?: string | number | boolean;
+}
+
+/**
+ * Represents props that are nested.
+ */
+export interface NestedProp<TObjectProp> extends PropBase {
+  type: 'object' | 'object[]';
+  // Description of the prop.
+  description?: string;
+  children: {
+    [TProp in keyof TObjectProp]: TObjectProp[TProp] extends PrimitiveType
+      ? PrimitiveProp
+      : NestedProp<TObjectProp[TProp]>;
+  };
 }
 
 /**
@@ -47,15 +65,23 @@ export interface ComponentChangelogChange {
 }
 
 type ReactPropsWithoutElvisBaseProps = Omit<ComponentPropsWithoutRef<'div'>, keyof BaseProps>;
-export type ComponentProps<TComponentProps> = Record<
-  keyof Omit<TComponentProps, keyof ReactPropsWithoutElvisBaseProps | 'webcomponent'>,
-  AttributeType
+type FilteredComponentProps<TComponentProps> = Omit<
+  TComponentProps,
+  keyof ReactPropsWithoutElvisBaseProps | 'webcomponent'
 >;
+
+export type ComponentProps<TComponentProps> = {
+  [PropName in keyof FilteredComponentProps<Required<TComponentProps>>]: NonNullable<
+    TComponentProps[PropName]
+  > extends PrimitiveType
+    ? PrimitiveProp
+    : NestedProp<TComponentProps[PropName]>;
+};
 
 /**
  * Interface for component data for documentation pages.
  */
-export default interface ComponentData<TComponentProps extends Record<string, any> = Record<string, any>> {
+export default interface ComponentData<TComponentProps = Record<string, any>> {
   /**
    * Component name.
    * @example 'SegmentedControl'

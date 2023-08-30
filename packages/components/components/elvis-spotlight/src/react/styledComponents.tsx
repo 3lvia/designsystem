@@ -26,6 +26,7 @@ export const SpotlightRect = styled.rect<SpotlightRectProps>`
 
 export const SpotlightMask = styled.rect`
   --ewc-spotlight-mask-fill: 0.25;
+  .e-color-background-3 &&,
   .e-theme-dark &&,
   .e-color-background-3 && {
     --ewc-spotlight-mask-fill: 0.5;

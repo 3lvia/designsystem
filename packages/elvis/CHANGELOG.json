@@ -1,6 +1,25 @@
 {
   "content": [
     {
+      "version": "12.10.0",
+      "date": "August 30, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>cursor: wait;</code> styles to the loading text field."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Internal token fix",
+            "Resolved an issue where the loading text field does not display the correct animation in specific browsers."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "12.9.1",
       "date": "August 29, 2023",
       "changelog": [

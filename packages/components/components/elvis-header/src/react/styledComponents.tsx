@@ -175,12 +175,14 @@ export const AppContent = styled.main<AppContentProps>`
 
 export const ShowIfLightTheme = styled.div`
   display: contents;
+  .e-color-background-3 &&,
   .e-theme-dark && {
     display: none;
   }
 `;
 export const ShowIfDarkTheme = styled.div`
   display: none;
+  .e-color-background-3 &&,
   .e-theme-dark && {
     display: contents;
   }

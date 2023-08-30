@@ -1,5 +1,15 @@
 # Elvia Colors Changelog
 
+## 4.0.0 (30.08.23)
+
+### New feature
+
+- New `dark-grey-60`with new hex value
+- `dark-grey-60` -> `dark-grey-50`
+- `dark-grey-50` -> `dark-grey-40`
+- `dark-grey-40` -> `dark-grey-30`
+- `background-overlay-1` now uses `dark-grey-60` instead of `dark-grey-70`
+
 ## 3.1.0 (29.08.23)
 
 ### New feature

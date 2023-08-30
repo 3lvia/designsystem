@@ -3,13 +3,27 @@
   "content": [
     {
       "date": "30.08.23",
-      "version": "1.5.3",
+      "version": "1.6.0",
       "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Expose the <code>getCurrentTheme</code> function to get the current theme."]
+        },
         {
           "type": "bug_fix",
           "changes": [
             "Fixed a bug where the header would give an error when the username was sent in asynchronously."
           ]
+        }
+      ]
+    },
+    {
+      "date": "30.08.23",
+      "version": "1.5.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Dark theme fix."]
         }
       ]
     },

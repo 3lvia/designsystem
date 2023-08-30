@@ -1,5 +1,5 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
-import { ThemeName } from '@elvia/elvis-colors';
+import { Theme } from './elviaHeader.shared.types';
 
 export type ThemeEvent = (themeName: Theme) => void;
 
@@ -24,6 +24,3 @@ export interface HeaderProps extends BaseProps {
   username: string;
   hideThemeSwitch?: boolean;
 }
-
-export type Theme = ThemeName | 'system';
-export const themeLocalStorageKey = 'elviaHeaderPreferredTheme';
