@@ -178,11 +178,15 @@ $form-input-padding-compact-active: 3px 9px;
   }
   @supports not (background: paint(something)) {
     @keyframes eInputLoadingAnimation {
-      from {
+      0% {
         border-color: var(--e-color-brand-accent);
       }
 
-      to {
+      40% {
+        border-color: var(--e-color-brand-accent);
+      }
+
+      100% {
         border-color: color-mix(in srgb, var(--e-color-brand-accent) 20%, transparent);
       }
     }
