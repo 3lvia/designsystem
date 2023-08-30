@@ -7,7 +7,7 @@ import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdown
 import { Checkbox } from '../checkbox/checkbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { statusToIconMap } from '../statusToIconMap';
-import { ThemeName, getThemeColor } from '@elvia/elvis-colors';
+import { getThemeColor } from '@elvia/elvis-colors';
 import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRight';
 
 interface DropdownItemProps {
@@ -25,7 +25,6 @@ interface DropdownItemProps {
   listRef: RefObject<HTMLElement>;
   isGtMobile: boolean;
   children: React.ReactNode;
-  currentTheme: ThemeName;
 }
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({
@@ -43,7 +42,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   listRef,
   isGtMobile,
   children,
-  currentTheme,
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -190,7 +188,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
             isChecked={selfOrAllChildrenAreSelected}
             size={size}
             isDisabled={item.isDisabled}
-            currentTheme={currentTheme}
           />
         )}
         {children}
@@ -247,7 +244,6 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           setFocusedItem={setFocusedItem}
           setHoveredItem={setHoveredItem}
           parentItem={item}
-          currentTheme={currentTheme}
         />
       )}
     </>
