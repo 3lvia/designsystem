@@ -8,6 +8,10 @@
         {
           "type": "new_feature",
           "changes": ["Expose the <code>getCurrentTheme</code> function to get the current theme."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Dark theme fix."]
         }
       ]
     },

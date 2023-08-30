@@ -123,6 +123,7 @@ export const ChipComponent = styled.button<ChipComponentProps>`
   white-space: nowrap;
   cursor: ${({ isDisabled, isLoading }) => getCursor(isDisabled, isLoading)};
 
+  .e-color-background-3 &&,
   .e-theme-dark && {
     border: solid 1px
       ${({ color, isSelected, isDisabled, isHovering, isLoading, chipType }) =>

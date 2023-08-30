@@ -111,7 +111,7 @@ export const textColorsState = [
     token: 'text-disabled-1',
     role: 'Primary disabled text color',
     light: { hex: getColor('text-disabled-1', 'light'), label: 'Grey-30' },
-    dark: { hex: getColor('text-disabled-1', 'dark'), label: 'Dark-grey-40' },
+    dark: { hex: getColor('text-disabled-1', 'dark'), label: 'Dark-grey-30' },
     links: [
       { title: 'Radio button', path: '/components/radiobutton' },
       { title: 'Checkbox', path: '/components/checkbox' },
@@ -123,7 +123,7 @@ export const textColorsState = [
     token: 'text-disabled-2',
     role: 'Disabled text color',
     light: { hex: getColor('text-disabled-2', 'light'), label: 'Grey-05' },
-    dark: { hex: getColor('text-disabled-2', 'dark'), label: 'Dark-grey-60' },
+    dark: { hex: getColor('text-disabled-2', 'dark'), label: 'Dark-grey-50' },
     links: [
       { title: 'Primary button', path: '/components/button' },
       { title: 'Danger button', path: '/components/button' },
@@ -189,7 +189,7 @@ export const backgroundColorsElement = [
     token: 'background-element-3',
     role: 'Element background color option 3',
     light: { hex: getColor('background-element-3', 'light'), label: 'Grey-10' },
-    dark: { hex: getColor('background-element-3', 'dark'), label: 'Dark-grey-60' },
+    dark: { hex: getColor('background-element-3', 'dark'), label: 'Dark-grey-50' },
     links: [{ title: 'Tag', path: '/components/tag' }],
   },
   {
@@ -226,7 +226,7 @@ export const backgroundColorsOverlay = [
     token: 'background-overlay-1',
     role: 'Overlay background color',
     light: { hex: getColor('background-overlay-1', 'light'), label: 'White' },
-    dark: { hex: getColor('background-overlay-1', 'dark'), label: 'Dark-grey-70' },
+    dark: { hex: getColor('background-overlay-1', 'dark'), label: 'Dark-grey-60' },
     links: [
       { title: 'Popover', path: '/components/popover' },
       { title: 'Modal', path: '/components/modal' },
@@ -237,7 +237,7 @@ export const backgroundColorsOverlay = [
     token: 'background-overlay-2',
     role: 'Stronger overlay background color',
     light: { hex: getColor('background-overlay-2', 'light'), label: 'Grey-80' },
-    dark: { hex: getColor('background-overlay-2', 'dark'), label: 'Dark-grey-60' },
+    dark: { hex: getColor('background-overlay-2', 'dark'), label: 'Dark-grey-50' },
     links: [{ title: 'Tooltip', path: '/components/tooltip' }],
   },
   {
@@ -254,7 +254,7 @@ export const backgroundColorsStates = [
     token: 'background-disabled-1',
     role: 'Disabled color for backgrounds',
     light: { hex: getColor('background-disabled-1', 'light'), label: 'Grey-05' },
-    dark: { hex: getColor('background-disabled-1', 'dark'), label: 'Dark-grey-60' },
+    dark: { hex: getColor('background-disabled-1', 'dark'), label: 'Dark-grey-50' },
     links: [
       { title: 'Radio button', path: '/components/radiobutton' },
       { title: 'Checkbox', path: '/components/checkbox' },
@@ -264,7 +264,7 @@ export const backgroundColorsStates = [
     token: 'background-disabled-2',
     role: 'Stronger disabled color for backgrounds',
     light: { hex: getColor('background-disabled-2', 'light'), label: 'Grey-30' },
-    dark: { hex: getColor('background-disabled-2', 'dark'), label: 'Dark-grey-40' },
+    dark: { hex: getColor('background-disabled-2', 'dark'), label: 'Dark-grey-30' },
     links: [
       { title: 'Primary button', path: '/components/button' },
       { title: 'Toggle', path: '/components/toggle' },
@@ -285,7 +285,7 @@ export const backgroundColorsStates = [
     token: 'background-hover-2',
     role: 'Hover color for backgrounds',
     light: { hex: getColor('background-hover-2', 'light'), label: 'Grey-05' },
-    dark: { hex: getColor('background-hover-2', 'dark'), label: 'Dark-grey-60' },
+    dark: { hex: getColor('background-hover-2', 'dark'), label: 'Dark-grey-50' },
     links: [
       { title: 'Dropdown', path: '/components/dropdown' },
       { title: 'Time picker', path: '/components/timepicker' },
@@ -307,7 +307,7 @@ export const backgroundColorsStates = [
     token: 'background-selected-2',
     role: 'Selected color for backgrounds',
     light: { hex: getColor('background-selected-2', 'light'), label: 'Grey-10' },
-    dark: { hex: getColor('background-selected-2', 'dark'), label: 'Dark-grey-50' },
+    dark: { hex: getColor('background-selected-2', 'dark'), label: 'Dark-grey-40' },
     links: [
       { title: 'Dropdown', path: '/components/dropdown' },
       { title: 'Time picker', path: '/components/timepicker' },
@@ -336,7 +336,7 @@ export const borderColors = [
     token: 'border-2',
     role: 'Border color option 2 - low contrast to blend in',
     light: { hex: getColor('border-2', 'light'), label: 'Grey-10' },
-    dark: { hex: getColor('border-2', 'dark'), label: 'Dark-grey-50' },
+    dark: { hex: getColor('border-2', 'dark'), label: 'Dark-grey-40' },
     links: [
       { title: 'Table', path: '/components/table' },
       { title: 'Divider', path: '/components/divider' },
@@ -346,7 +346,7 @@ export const borderColors = [
     token: 'border-3',
     role: 'Border color option 3 - medium contrast for subtle distinction',
     light: { hex: getColor('border-3', 'light'), label: 'Grey-20' },
-    dark: { hex: getColor('border-3', 'dark'), label: 'Dark-grey-50' },
+    dark: { hex: getColor('border-3', 'dark'), label: 'Dark-grey-40' },
     links: [
       { title: 'Divider', path: '/components/divider' },
       { title: 'Slider', path: '/components/slider' },
@@ -356,7 +356,7 @@ export const borderColors = [
     token: 'border-4',
     role: 'Border color option 4 - extra low contrast to decorate',
     light: { hex: getColor('border-4', 'light'), label: 'Grey-05' },
-    dark: { hex: getColor('border-4', 'dark'), label: 'Dark-grey-60' },
+    dark: { hex: getColor('border-4', 'dark'), label: 'Dark-grey-50' },
     links: [{ title: 'Card', path: '/components/card' }],
   },
   {
@@ -380,7 +380,7 @@ export const borderColorsStates = [
     token: 'border-disabled-1',
     role: 'Disabled border color',
     light: { hex: getColor('border-disabled-1', 'light'), label: 'Grey-30' },
-    dark: { hex: getColor('border-disabled-1', 'dark'), label: 'Dark-grey-40' },
+    dark: { hex: getColor('border-disabled-1', 'dark'), label: 'Dark-grey-30' },
     links: [
       { title: 'Input', path: '/components/input' },
       { title: 'Radio button', path: '/components/radiobutton' },

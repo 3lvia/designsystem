@@ -172,6 +172,7 @@ export const ModalIllustration = styled.div.attrs(() => ({
     }
   }
 
+  .e-color-background-3 && ::after,
   .e-theme-dark && ::after {
     border: 2px solid ${getBaseColor('grey-60', 'dark')};
   }

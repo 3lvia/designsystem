@@ -310,6 +310,7 @@ export const SliderTrack = styled.div<SliderTrackProps>`
   width: 100%;
   z-index: 1;
 
+  .e-color-background-3 &&,
   .e-theme-dark && {
     background-color: ${({ isDisabled }) =>
       isDisabled ? getThemeColor('color-border-disabled-1') : getBaseColor('grey-20', 'dark')};
