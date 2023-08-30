@@ -871,6 +871,7 @@
 			"modifier": {
 				"e-table--compact": {},
 				"e-table--small": {},
+				"e-table--inverted": {},
 				"e-table--no-stripes": {},
 				"e-table--sticky-header": {},
 				"e-table--sticky-column-header": {}
@@ -1901,6 +1902,7 @@
 		"e-table__footnote": {},
 		"e-table__footnote--compact": {},
 		"e-table__footnote--small": {},
+		"e-table--inverted": {},
 		"e-table__cell--invalid": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},

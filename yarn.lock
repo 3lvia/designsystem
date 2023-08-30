@@ -6,9 +6,9 @@ __metadata:
   cacheKey: 8
 
 "@adobe/css-tools@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@adobe/css-tools@npm:4.0.1"
-  checksum: 80226e2229024c21da9ffa6b5cd4a34b931f071e06f45aba4777ade071d7a6c94605cf73b13718b0c4b34e8b124c65c607b82eaa53a326d3eb73d9682a04a593
+  version: 4.3.1
+  resolution: "@adobe/css-tools@npm:4.3.1"
+  checksum: ad43456379ff391132aff687ece190cb23ea69395e23c9b96690eeabe2468da89a4aaf266e4f8b6eaab53db3d1064107ce0f63c3a974e864f4a04affc768da3f
   languageName: node
   linkType: hard
 
@@ -2304,7 +2304,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@^3.0.0, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@^3.0.0, @elvia/elvis-colors@^3.1.0, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -2527,7 +2527,7 @@ __metadata:
   resolution: "@elvia/elvis-header@workspace:packages/components/components/elvis-header"
   dependencies:
     "@elvia/elvis-assets-icons": ^3.3.1
-    "@elvia/elvis-colors": ^3.0.0
+    "@elvia/elvis-colors": ^3.1.0
     "@elvia/elvis-component-wrapper": ^4.1.3
     "@elvia/elvis-toolbox": ^9.6.0
     "@elvia/elvis-typography": ^2.4.0
@@ -2940,7 +2940,7 @@ __metadata:
   resolution: "@elvia/elvis@workspace:packages/elvis"
   dependencies:
     "@elvia/elvis-assets-icons": "*"
-    "@elvia/elvis-colors": ^3.0.0
+    "@elvia/elvis-colors": ^3.1.0
     "@elvia/elvis-typography": ^2.5.0
     bootstrap: 4.6.1
     del: ^6.0.0
