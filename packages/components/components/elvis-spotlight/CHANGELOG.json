@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "30.08.23",
+      "version": "1.6.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Dark theme fix."]
+        }
+      ]
+    },
+    {
       "date": "24.08.23",
       "version": "1.6.0",
       "changelog": [
