@@ -1,5 +1,5 @@
 import { ThemeClassName, ThemeName } from '@elvia/elvis-colors';
-import { Theme, themeLocalStorageKey } from './elviaHeader.types';
+import { Theme, themeLocalStorageKey } from './elviaHeader.shared.types';
 
 export const getStoredActiveTheme = (): Theme => {
   return (window?.localStorage?.getItem(themeLocalStorageKey) as Theme) || 'light';
