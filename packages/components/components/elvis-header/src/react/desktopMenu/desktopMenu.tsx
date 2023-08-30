@@ -66,7 +66,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
         <ImageContainer thumbnail>
           <ProfilePicture />
         </ImageContainer>
-        {username.replace(/\(ekstern\)/g, '').trim()}
+        {username?.replace(/\(ekstern\)/gi, '').trim()}
       </ProfileButton>
       {isShowing && (
         <Overlay useGlobalTheme ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
