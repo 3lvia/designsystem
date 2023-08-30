@@ -172,17 +172,22 @@ $form-input-padding-compact-active: 3px 9px;
             var(--e-color-brand-accent)
           );
         background-origin: border-box;
+        cursor: wait;
       }
     }
   }
   @supports not (background: paint(something)) {
     @keyframes eInputLoadingAnimation {
-      from {
-        border-color: rgba(var(--e-color-brand-accent), 1);
+      0% {
+        border-color: var(--e-color-brand-accent);
       }
 
-      to {
-        border-color: rgba(var(--e-color-brand-accent), 0.1);
+      40% {
+        border-color: var(--e-color-brand-accent);
+      }
+
+      100% {
+        border-color: color-mix(in srgb, var(--e-color-brand-accent) 20%, transparent);
       }
     }
 
@@ -192,6 +197,7 @@ $form-input-padding-compact-active: 3px 9px;
         padding: $form-input-padding-active;
         border: solid 2px var(--e-color-brand-accent);
         animation: 1s eInputLoadingAnimation ease alternate infinite;
+        cursor: wait;
       }
     }
   }
