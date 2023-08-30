@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "31.08.23",
+      "version": "4.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Change label size and position for the small datepicker and timepicker."],
+          "fixes": [
+            "The small datepicker and timepicker will be taller. You may therefore want to check that the page layout is not severely affected by this."
+          ]
+        }
+      ]
+    },
+    {
       "date": "25.08.23",
       "version": "3.1.1",
       "changelog": [
