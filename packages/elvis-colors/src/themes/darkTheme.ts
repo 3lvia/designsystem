@@ -65,14 +65,18 @@ export const darkThemeColors = {
       contrastText: '#EDEDED',
     },
     'grey-60': {
-      color: '#333333',
+      color: '#2B2B2B',
       contrastText: '#EDEDED',
     },
     'grey-50': {
-      color: '#424242',
+      color: '#333333',
       contrastText: '#EDEDED',
     },
     'grey-40': {
+      color: '#424242',
+      contrastText: '#EDEDED',
+    },
+    'grey-30': {
       color: '#5E5E5E',
       contrastText: '#EDEDED',
     },
@@ -117,12 +121,12 @@ export const darkTheme = {
       contrast: darkThemeColors['primary-colors']['black'].contrastText,
     },
     'text-disabled-1': {
-      hex: darkThemeColors['grey-colors']['grey-40'].color,
-      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-30'].color,
+      contrast: darkThemeColors['grey-colors']['grey-30'].contrastText,
     },
     'text-disabled-2': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
     'text-placeholder-1': {
       hex: darkThemeColors['grey-colors']['grey-20'].color,
@@ -150,8 +154,8 @@ export const darkTheme = {
       contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
     },
     'background-element-3': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
     'background-element-4': {
       hex: darkThemeColors['grey-colors']['grey-70'].color,
@@ -166,40 +170,40 @@ export const darkTheme = {
       contrast: darkThemeColors['primary-colors']['black'].contrastText,
     },
     'background-overlay-1': {
-      hex: darkThemeColors['grey-colors']['grey-70'].color,
-      contrast: darkThemeColors['grey-colors']['grey-70'].contrastText,
-    },
-    'background-overlay-2': {
       hex: darkThemeColors['grey-colors']['grey-60'].color,
       contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
+    'background-overlay-2': {
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
     'background-overlay-3': {
       hex: darkThemeColors['primary-colors'].black.color,
       contrast: darkThemeColors['primary-colors'].black.contrastText,
     },
     'background-disabled-1': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
     'background-disabled-2': {
-      hex: darkThemeColors['grey-colors']['grey-40'].color,
-      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-30'].color,
+      contrast: darkThemeColors['grey-colors']['grey-30'].contrastText,
     },
     'background-hover-1': {
       hex: darkThemeColors['primary-colors']['green'].color,
       contrast: darkThemeColors['primary-colors']['green'].contrastText,
     },
     'background-hover-2': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
     'background-selected-1': {
       hex: darkThemeColors['primary-colors']['green'].color,
       contrast: darkThemeColors['primary-colors']['green'].contrastText,
     },
     'background-selected-2': {
-      hex: darkThemeColors['grey-colors']['grey-50'].color,
-      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
     },
   },
   border: {
@@ -208,16 +212,16 @@ export const darkTheme = {
       contrast: darkThemeColors['primary-colors'].white.contrastText,
     },
     'border-2': {
-      hex: darkThemeColors['grey-colors']['grey-50'].color,
-      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
     },
     'border-3': {
-      hex: darkThemeColors['grey-colors']['grey-50'].color,
-      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
     },
     'border-4': {
-      hex: darkThemeColors['grey-colors']['grey-60'].color,
-      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
     'border-5': {
       hex: 'transparent',
@@ -227,8 +231,8 @@ export const darkTheme = {
       contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
     },
     'border-disabled-1': {
-      hex: darkThemeColors['grey-colors']['grey-40'].color,
-      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-30'].color,
+      contrast: darkThemeColors['grey-colors']['grey-30'].contrastText,
     },
     'border-hover-1': {
       hex: darkThemeColors['primary-colors'].green.color,
