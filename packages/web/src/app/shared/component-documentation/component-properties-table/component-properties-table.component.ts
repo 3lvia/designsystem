@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { getThemeColor } from '@elvia/elvis-colors';
 import Fuse from 'fuse.js';
 import { SearchService } from 'src/app/core/services/search.service';
-import ComponentData, { PropType } from 'src/app/doc-pages/components/component-data.interface';
+import ComponentData, { PrimitiveProp } from 'src/app/doc-pages/components/component-data.interface';
 
-interface ComponentProp extends PropType {
+interface ComponentProp extends PrimitiveProp {
   attribute: string;
 }
 

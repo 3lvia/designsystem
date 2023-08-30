@@ -1,7 +1,7 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
-interface AttributeBase {
+interface PropBase {
   // Indicates whether a prop is required for the component.
   isRequired?: boolean;
 
@@ -22,11 +22,20 @@ interface AttributeBase {
   default?: string | number | boolean;
 }
 
+type PrimitiveType = string | number | boolean | number[] | string[] | ((...args: any) => any);
+
+/**
+ * Represents props that are "primitive", which means that they have no child props.
+ */
+export interface PrimitiveProp extends PropBase {
+  type: 'string' | 'number' | 'boolean' | 'array<number>' | 'array<string>' | (string & {});
+}
+
 /**
  * Represents props that are of object type. These props have child props
  * that needs to be described as well.
  */
-interface ObjectProp<TObjectProp> extends AttributeBase {
+export interface ObjectProp<TObjectProp> extends PropBase {
   type: 'object' | 'array<object>';
   children: {
     [TProp in keyof TObjectProp]: TObjectProp[TProp] extends PrimitiveType
@@ -34,17 +43,6 @@ interface ObjectProp<TObjectProp> extends AttributeBase {
       : ObjectProp<TObjectProp[TProp]>;
   };
 }
-
-type PrimitiveType = string | number | boolean | number[] | string[] | ((...args: any) => any);
-
-/**
- * Represents props that are "primitive", which means that they have no child props.
- */
-interface PrimitiveProp extends AttributeBase {
-  type: 'string' | 'number' | 'boolean' | 'array<number>' | 'array<string>' | (string & {});
-}
-
-export type PropType = PrimitiveProp;
 
 /**
  * Definition for an object/a single update in the changelog
