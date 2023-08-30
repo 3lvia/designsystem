@@ -175,15 +175,16 @@ export class CMSPageComponent implements OnDestroy {
    */
   copyAnchor(id: string): void {
     const anchorTitleElement = document.getElementById(id);
-    const tooltipElement = document.getElementById(`elvia-tooltip-${id}`) as ElvisComponentWrapper;
+    const tooltipElement = document.getElementById(
+      `elvia-tooltip-${id.replace('anchor-heading-', '')}`,
+    ) as ElvisComponentWrapper;
     tooltipElement.setProps({ content: 'Copied!' });
 
     anchorTitleElement?.classList.add('anchor-copied');
-
     setTimeout(() => {
       anchorTitleElement?.classList.remove('anchor-copied');
       tooltipElement.setProps({ content: 'Copy' });
-    }, 800);
+    }, 1400);
     const modifiedAnchor = id;
     let anchorUrl = 'https://design.elvia.io';
     if (this.router.url.includes('#')) {
