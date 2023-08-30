@@ -32,10 +32,12 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   createPropArray(): void {
-    Object.keys(this.componentData.attributes).forEach((attribute) => {
+    Object.keys(this.componentData.attributes).forEach((prop) => {
+      const propData = this.componentData.attributes[prop];
       const componentProp: ComponentProp = {
-        attribute,
-        ...this.componentData.attributes[attribute],
+        attribute: prop,
+        ...propData,
+        description: propData.description ?? '',
       };
       this.componentProps.push(componentProp);
     });

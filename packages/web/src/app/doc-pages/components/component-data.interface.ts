@@ -14,33 +14,33 @@ interface PropBase {
    * '"left" | "center" | "right"'
    */
   type: string;
+}
 
-  // Description of the prop.
+type PrimitiveType = string | number | boolean | number[] | string[] | ((...args: any) => any) | JSX.Element;
+
+/**
+ * Represents props that are "primitive", which means that they have no child props.
+ */
+export interface PrimitiveProp extends PropBase {
+  type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | (string & {});
+
   description: string;
 
   // Default value of the prop, if any.
   default?: string | number | boolean;
 }
 
-type PrimitiveType = string | number | boolean | number[] | string[] | ((...args: any) => any);
-
 /**
- * Represents props that are "primitive", which means that they have no child props.
+ * Represents props that are nested.
  */
-export interface PrimitiveProp extends PropBase {
-  type: 'string' | 'number' | 'boolean' | 'array<number>' | 'array<string>' | (string & {});
-}
-
-/**
- * Represents props that are of object type. These props have child props
- * that needs to be described as well.
- */
-export interface ObjectProp<TObjectProp> extends PropBase {
-  type: 'object' | 'array<object>';
+export interface NestedProp<TObjectProp> extends PropBase {
+  type: 'object' | 'object[]';
+  // Description of the prop.
+  description?: string;
   children: {
     [TProp in keyof TObjectProp]: TObjectProp[TProp] extends PrimitiveType
       ? PrimitiveProp
-      : ObjectProp<TObjectProp[TProp]>;
+      : NestedProp<TObjectProp[TProp]>;
   };
 }
 
@@ -73,11 +73,9 @@ type FilteredComponentProps<TComponentProps> = Omit<
 export type ComponentProps<TComponentProps> = {
   [PropName in keyof FilteredComponentProps<Required<TComponentProps>>]: NonNullable<
     TComponentProps[PropName]
-  > extends infer T // This infer is a "hack" to allow us to check if props with union types extends _some_ of our primitive types
-    ? T extends PrimitiveType
-      ? PrimitiveProp
-      : ObjectProp<TComponentProps[PropName]>
-    : never;
+  > extends PrimitiveType
+    ? PrimitiveProp
+    : NestedProp<TComponentProps[PropName]>;
 };
 
 /**
