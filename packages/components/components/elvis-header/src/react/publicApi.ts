@@ -1,5 +1,5 @@
-import { Theme } from './elviaHeader.shared.types';
-import { getStoredActiveTheme } from './themeUtils';
+import { ThemeName } from '@elvia/elvis-colors';
+import { getApplicableTheme, getStoredActiveTheme } from './themeUtils';
 
 /**
  * Retrieves the current Elvia theme.
@@ -10,6 +10,6 @@ import { getStoredActiveTheme } from './themeUtils';
  * const currentTheme = getCurrentTheme();
  *
  */
-export const getCurrentTheme = (): Theme => {
-  return getStoredActiveTheme();
+export const getCurrentTheme = (): ThemeName => {
+  return getApplicableTheme(getStoredActiveTheme());
 };

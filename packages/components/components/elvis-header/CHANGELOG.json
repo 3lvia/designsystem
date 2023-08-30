@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Expose function to get the current theme."]
+          "changes": ["Expose the <code>getCurrentTheme</code> function to get the current theme."]
         }
       ]
     },
