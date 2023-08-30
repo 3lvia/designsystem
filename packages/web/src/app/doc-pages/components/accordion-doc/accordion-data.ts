@@ -109,7 +109,7 @@ const accordionData: ComponentData<AccordionProps> = {
       type: '{[cssProperty: string]: string}',
       description:
         "Custom CSS style object that can be added to the accordion. Example: {marginTop: '8px', width: '100%'}",
-    },
+    } as any, // Temporary hack so that we don't have to document every prop in the inlineStyles object.
   },
 };
 
