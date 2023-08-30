@@ -120,6 +120,7 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
     (isChecked || isIndeterminate) &&
     css`
       //ignore border-color for dark theme when hovering parent
+      .e-color-background-3 &&,
       .e-theme-dark && {
         border-color: transparent !important;
       }
