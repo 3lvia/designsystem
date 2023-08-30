@@ -14,7 +14,6 @@ import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
 import { ItemValue } from '../dropdown-item/itemValue';
 import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
-import { ThemeName } from '@elvia/elvis-colors';
 import DOMPurify from 'dompurify';
 import { DropdownIconContainer } from '../styledComponents';
 
@@ -41,7 +40,6 @@ interface DropdownOverlayProps {
   parentItem?: DropdownItemOption;
   isSearchMode?: boolean;
   id?: string;
-  currentTheme: ThemeName;
 }
 
 let uniqueId = 0;
@@ -71,7 +69,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       parentItem,
       isSearchMode,
       id,
-      currentTheme,
     },
     ref,
   ) => {
@@ -266,7 +263,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   selectedItems={currentVal}
                   onClick={toggleAllSelection}
                   onHover={(item) => setFocusedItem(item)}
-                  currentTheme={currentTheme}
                 />
               )}
               {filteredItems.map((item) => (
@@ -298,7 +294,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   pressedKey={pressedKey}
                   listRef={listRef}
                   isGtMobile={isGtMobile}
-                  currentTheme={currentTheme}
                 >
                   {item.icon && !isMulti && allItemsHaveIcons && (
                     <DropdownIconContainer

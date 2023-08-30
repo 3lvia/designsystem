@@ -115,7 +115,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
 
         ${StyledCheckbox} {
           background-color: ${getThemeColor('background-hover-1')};
-          border-color: ${getThemeColor('text-1')};
+          border-color: ${getThemeColor('border-1')};
         }
       }
     `;

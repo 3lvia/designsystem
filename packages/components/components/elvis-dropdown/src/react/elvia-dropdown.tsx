@@ -10,7 +10,6 @@ import {
   useBreakpoint,
   useWebComponentState,
   IconWrapper,
-  useCurrentTheme,
   ErrorOptions,
 } from '@elvia/elvis-toolbox';
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
@@ -84,8 +83,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
     alignWidths: true,
   });
-
-  const { currentTheme } = useCurrentTheme(connectedElementRef);
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
@@ -224,7 +221,6 @@ const Dropdown: React.FC<DropdownProps> = ({
           setFocusedItem={updateFocusedItem}
           setHoveredItem={emitHoveredItem}
           isSearchMode={!!filter}
-          currentTheme={currentTheme}
         />
       )}
     </>
