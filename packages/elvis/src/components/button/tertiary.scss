@@ -1,15 +1,18 @@
+@use './helpers.scss' as buttonHelper;
 @use '../../utilities/helpers.scss';
 @use '../../variables/colors.scss';
 @use '../../utilities/icons.scss';
 
 .e-btn.e-btn--tertiary {
-  padding: 0 0 3.5px;
+  height: fit-content;
+  padding: 0 0 5px;
   border: none;
   border-radius: 0;
-  border-bottom: 2.5px solid transparent;
+  border-bottom: 3px solid transparent;
   background: none;
   color: var(--e-color-text-1);
 
+  // Icons
   .e-btn__icon {
     @include icons.icon-size('sm');
 
@@ -21,7 +24,7 @@
 
   // Sizes
   &.e-btn--lg {
-    padding-bottom: 1.5px;
+    padding-bottom: 3px;
   }
 
   &.e-btn--sm {
@@ -31,29 +34,24 @@
   }
 
   // States
-  @include helpers.hover() {
-    &:hover:not(:disabled):not(.e-btn--loading),
-    &.e-btn---hover,
-    &.e-btn---selected {
-      border-color: var(--e-color-border-hover-1);
-      background: none;
-      color: var(--e-color-text-1);
+  @include buttonHelper.hover() {
+    border-color: var(--e-color-border-hover-1);
+    background: none;
+    color: var(--e-color-text-1);
 
-      .e-btn__icon i {
-        visibility: visible;
-      }
+    .e-btn__icon i {
+      visibility: visible;
     }
   }
 
-  &.e-btn---active,
-  &:active:not(:disabled):not(.e-btn--loading) {
-    padding-bottom: 4.5px;
-    border-bottom: 1.5px solid var(--e-color-border-hover-1);
+  @include buttonHelper.active() {
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--e-color-border-hover-1);
     background: none;
     color: var(--e-color-text-1);
 
     &.e-btn--lg {
-      padding-bottom: 2.5px;
+      padding-bottom: 4px;
     }
 
     .e-btn__icon i {

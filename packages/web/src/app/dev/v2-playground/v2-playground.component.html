@@ -4,7 +4,52 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-p-16 e-mb-24"></div>
+    <div class="e-p-16 e-mb-24">
+      <div style="display: flex; flex-direction: row; gap: 16px; flex-wrap: wrap">
+        <button class="e-btn e-btn--tertiary">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+          <span class="e-btn__title">Tertiary</span>
+        </button>
+        <button
+          class="e-btn e-btn--tertiary e-btn--loading"
+          aria-label="Loading button"
+          aria-live="polite"
+          aria-busy="true"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button class="e-btn e-btn--tertiary" disabled>
+          <span class="e-btn__title">Disabled</span>
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div style="display: flex; flex-direction: row; gap: 16px; flex-wrap: wrap">
+        <button class="e-btn e-btn--tertiary e-btn--lg">
+          <span class="e-btn__title">Tertiary</span>
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+        </button>
+        <button class="e-btn e-btn--tertiary">
+          <span class="e-btn__title">Tertiary</span>
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+        </button>
+        <button class="e-btn e-btn--tertiary e-btn--sm">
+          <span class="e-btn__title">Tertiary</span>
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+    </div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark e-p-16"></div>
 

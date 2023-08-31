@@ -1,16 +1,6 @@
+@use './helpers.scss' as buttonHelper;
 @use '../../utilities/helpers.scss';
-@use '../../utilities/outline.scss';
 @use '../../utilities/icons.scss';
-
-$button-lg-padding: 11px 31px;
-$button-md-padding: 9px 23px;
-$button-sm-padding: 7px 15px;
-
-@mixin only-primary-button {
-  &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) {
-    @content;
-  }
-}
 
 .e-btn,
 .e-btn.e-btn--primary {
@@ -26,7 +16,7 @@ $button-sm-padding: 7px 15px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $button-md-padding;
+  padding: 9px 23px;
   border: 1px solid var(--e-color-border-1);
   border-radius: 24px;
   background: var(--e-color-background-element-5);
@@ -39,24 +29,11 @@ $button-sm-padding: 7px 15px;
   text-decoration: none;
   white-space: nowrap;
 
-  @include only-primary-button {
-    .e-btn__icon i {
-      @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-light));
-    }
-  }
-
+  // Icons
   .e-btn__icon {
-    position: relative;
     display: flex;
     align-items: center;
     @include icons.icon-size('xs');
-
-    i {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: flex;
-    }
   }
 
   .e-btn__title + .e-btn__icon,
@@ -64,9 +41,15 @@ $button-sm-padding: 7px 15px;
     margin-left: 8px;
   }
 
+  @include buttonHelper.only-primary-button {
+    .e-btn__icon i {
+      @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-light));
+    }
+  }
+
   // Sizes
   &.e-btn--lg {
-    padding: $button-lg-padding;
+    padding: 11px 31px;
     font-size: 18px;
     line-height: 24px;
 
@@ -81,7 +64,7 @@ $button-sm-padding: 7px 15px;
   }
 
   &.e-btn--sm {
-    padding: $button-sm-padding;
+    padding: 7px 15px;
     font-size: 14px;
     line-height: 16px;
 
@@ -92,50 +75,32 @@ $button-sm-padding: 7px 15px;
   }
 
   // States
-  @include helpers.hover() {
-    &.e-btn---hover,
-    &.e-btn---selected,
-    &.e-btn---active,
-    &:active:not(:disabled):not(.e-btn--loading),
-    &:hover:not(:disabled):not(.e-btn--loading) {
-      border-color: var(--e-color-border-hover-1);
-      background: var(--e-color-background-hover-1);
-      color: var(--e-color-background-hover-1--contrast);
+  @include buttonHelper.hover() {
+    border-color: var(--e-color-border-hover-1);
+    background: var(--e-color-background-hover-1);
+    color: var(--e-color-background-hover-1--contrast);
 
-      @include only-primary-button {
-        .e-btn__icon i {
-          @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
-        }
+    @include buttonHelper.only-primary-button {
+      .e-btn__icon i {
+        @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
       }
     }
   }
 
-  &.e-btn---active,
-  &:active:not(:disabled):not(.e-btn--loading) {
+  @include buttonHelper.active() {
     border-color: transparent;
     background-clip: padding-box;
   }
 
-  &:focus:not(:disabled) {
-    @include outline.e-outline();
-  }
+  @include buttonHelper.focus('btn');
 
-  &.e-btn---focus {
-    @include outline.e-outline-pseudoclass();
-  }
-  // Removing default focus on firefox
-  &::-moz-focus-inner {
-    border: 0;
-  }
-
-  &.e-btn---disabled,
-  &:disabled {
+  @include buttonHelper.disabled() {
     border-color: var(--e-color-border-disabled-1);
     background: var(--e-color-background-disabled-2);
     color: var(--e-color-text-disabled-2);
     cursor: not-allowed;
 
-    @include only-primary-button {
+    @include buttonHelper.only-primary-button {
       .e-btn__icon i {
         @include icons.icon-currentcolor(var(--e-color-background-disabled-2));
       }
@@ -151,8 +116,8 @@ $button-sm-padding: 7px 15px;
       width: 10px;
       height: 10px;
       border-radius: 100%;
-      animation: loading-dots 1s infinite ease-in-out both;
       background-color: var(--e-color-text-4);
+      @include buttonHelper.loading-animation();
     }
 
     span:nth-of-type(1) {
@@ -162,17 +127,5 @@ $button-sm-padding: 7px 15px;
     span:nth-of-type(2) {
       @include helpers.animation-delay(-0.16s);
     }
-  }
-}
-
-@include helpers.keyframes(loading-dots) {
-  0%,
-  80%,
-  100% {
-    @include helpers.transform(scale(0));
-  }
-
-  40% {
-    @include helpers.transform(scale(1));
   }
 }

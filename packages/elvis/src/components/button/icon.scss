@@ -1,3 +1,4 @@
+@use './helpers.scss' as buttonHelper;
 @use '../../utilities/helpers.scss';
 @use '../../variables/colors.scss';
 @use '../../utilities/icons.scss';
@@ -14,6 +15,7 @@
   background: none;
   color: var(--e-color-text-1);
 
+  // Icons
   .e-btn__icon {
     justify-content: center;
     @include icons.icon-size('sm');
@@ -48,26 +50,18 @@
   }
 
   // States
-  @include helpers.hover() {
-    &.e-btn---hover,
-    &.e-btn---selected,
-    &.e-btn---active,
-    &:active:not(:disabled):not(.e-btn--loading),
-    &:hover:not(:disabled):not(.e-btn--loading) {
-      background: var(--e-color-background-hover-1);
-      color: var(--e-color-background-hover-1--contrast);
+  @include buttonHelper.hover() {
+    background: var(--e-color-background-hover-1);
+    color: var(--e-color-background-hover-1--contrast);
 
-      @include icons.icon-currentcolor();
-    }
+    @include icons.icon-currentcolor();
   }
 
-  &.e-btn---active,
-  &:active:not(:disabled):not(.e-btn--loading) {
+  @include buttonHelper.active() {
     @include helpers.transform(scale(0.95));
   }
 
-  &.e-btn---disabled,
-  &:disabled {
+  @include buttonHelper.disabled() {
     background: none;
     cursor: not-allowed;
 
@@ -99,6 +93,12 @@
       content: '';
     }
 
+    // Icons
+    i {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
     // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
     .e-btn__icon i[class*='filled-color'] {
       visibility: hidden;
@@ -120,22 +120,15 @@
     }
 
     // States
-    @include helpers.hover() {
-      &.e-btn---hover,
-      &.e-btn---selected,
-      &.e-btn---active,
-      &:active:not(:disabled),
-      &:hover:not(:disabled) {
-        background: transparent;
-        // Showing hover ikon
-        .e-btn__icon i:not([class$='filled-color']),
-        .e-btn__icon i:not([class$='disabled']) {
-          visibility: hidden;
-        }
-
-        .e-btn__icon i[class*='filled-color'] {
-          visibility: visible;
-        }
+    @include buttonHelper.hover() {
+      background: transparent;
+      // Hiding original icon
+      .e-btn__icon i:not([class*='filled-color']) {
+        visibility: hidden;
+      }
+      // Showing hover icon
+      .e-btn__icon i[class*='filled-color'] {
+        visibility: visible;
       }
     }
   }

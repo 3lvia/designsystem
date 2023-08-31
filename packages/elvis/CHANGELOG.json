@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.10.1",
+      "date": "August 31, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Tertiary button border and size fix"],
+          "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
+        }
+      ]
+    },
+    {
       "version": "12.10.0",
       "date": "August 30, 2023",
       "changelog": [
