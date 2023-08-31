@@ -2439,7 +2439,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.1.3
     "@elvia/elvis-datepicker": ^7.1.3
-    "@elvia/elvis-timepicker": ^3.2.2
+    "@elvia/elvis-timepicker": ^3.2.3
     "@elvia/elvis-toolbox": ^9.6.1
     styled-components: ^5.3.3
   peerDependencies:
@@ -2833,7 +2833,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^3.2.2, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
+"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^3.2.3, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:
