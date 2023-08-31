@@ -95,8 +95,6 @@
     // Larger click surface
     &::after {
       position: absolute;
-      top: -4px;
-      left: -4px;
       padding: 16px;
       content: '';
     }
@@ -107,8 +105,18 @@
     }
 
     // Sizes
-    &.e-btn--lg::after {
-      content: none;
+    &.e-btn--sm {
+      width: 16px;
+      height: 16px;
+    }
+
+    &.e-btn--lg {
+      width: 32px;
+      height: 32px;
+
+      &::after {
+        content: none;
+      }
     }
 
     // States
