@@ -14,8 +14,6 @@
   // States
   @include buttonHelper.hover() {
     border-color: var(--e-color-border-hover-1);
-    background: var(--e-color-background-hover-1);
-    color: var(--e-color-background-hover-1--contrast);
 
     .e-btn__icon i {
       @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
@@ -31,10 +29,6 @@
   @include buttonHelper.active() {
     border-color: transparent;
     background-clip: padding-box;
-
-    .e-btn__icon i {
-      visibility: visible;
-    }
   }
 
   &.e-btn--loading span {

@@ -3,11 +3,8 @@
 @use '../../utilities/icons.scss';
 
 .e-btn.e-btn--icon {
-  display: inline-flex;
   width: 40px;
   height: 40px;
-  align-items: center;
-  justify-content: center;
   padding: 8px;
   border: none;
   border-radius: 50px;
@@ -16,7 +13,6 @@
 
   // Icons
   .e-btn__icon {
-    justify-content: center;
     @include icons.icon-size('sm');
 
     i {
@@ -50,9 +46,6 @@
 
   // States
   @include buttonHelper.hover() {
-    background: var(--e-color-background-hover-1);
-    color: var(--e-color-background-hover-1--contrast);
-
     @include icons.icon-currentcolor();
   }
 
@@ -62,7 +55,6 @@
 
   @include buttonHelper.disabled() {
     background: none;
-    cursor: not-allowed;
 
     .e-btn__icon i {
       @include icons.icon-color(var(--e-color-text-disabled-1));
@@ -98,9 +90,9 @@
       top: 0;
       left: 0;
     }
-    // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
+
     .e-btn__icon i[class*='filled-color'] {
-      visibility: hidden;
+      visibility: hidden; // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
     }
 
     // Sizes
@@ -121,13 +113,13 @@
     // States
     @include buttonHelper.hover() {
       background: transparent;
-      // Hiding original icon
+
       .e-btn__icon i:not([class*='filled-color']) {
-        visibility: hidden;
+        visibility: hidden; // Hiding original icon
       }
-      // Showing hover icon
+
       .e-btn__icon i[class*='filled-color'] {
-        visibility: visible;
+        visibility: visible; // Showing hover icon
       }
     }
   }
