@@ -119,15 +119,11 @@ describe('Elvis Datepicker', () => {
     });
   });
 
-  describe('Compact, Full width', () => {
+  describe('Full width', () => {
     beforeEach(() => {
-      render(<Datepicker size="small" isFullWidth></Datepicker>);
+      render(<Datepicker isFullWidth></Datepicker>);
     });
 
-    it('should have compact class', () => {
-      const datepickerWrapper = screen.getByTestId('wrapper');
-      expect(datepickerWrapper).toHaveStyle('padding-top: 0.5rem');
-    });
     it('should have full width class', () => {
       const datepickerWrapper = screen.getByTestId('wrapper');
       expect(datepickerWrapper).toHaveStyle('width: 100%');

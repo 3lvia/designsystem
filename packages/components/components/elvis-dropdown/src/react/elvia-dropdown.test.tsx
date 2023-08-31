@@ -43,7 +43,7 @@ describe('Elvis Dropdown', () => {
       });
 
       it('should have label', () => {
-        const dropdownLabel = screen.getByText('Label');
+        const dropdownLabel = screen.getByTestId('wrapper').firstElementChild;
         expect(dropdownLabel).toHaveTextContent('Label');
       });
 
@@ -68,9 +68,9 @@ describe('Elvis Dropdown', () => {
       });
     });
 
-    describe('when disabled and compact', () => {
+    describe('when disabled', () => {
       beforeEach(() => {
-        render(<Dropdown isDisabled size="small" items={[]}></Dropdown>);
+        render(<Dropdown isDisabled items={[]}></Dropdown>);
       });
 
       it('should be disabled', () => {
@@ -78,15 +78,10 @@ describe('Elvis Dropdown', () => {
         expect(input).toBeDisabled();
       });
 
-      it('should be small', () => {
-        const dropdownLabel = screen.getByTestId('wrapper');
-        expect(dropdownLabel).toHaveStyle(`padding-top: 0.5rem`);
-      });
-
       it('should not be possible to open', async () => {
         const user = userEvent.setup();
-        const dropdown = screen.getByRole('combobox');
-        await user.click(dropdown);
+        const input = screen.getByRole('combobox');
+        await user.click(input);
 
         expect(screen.queryByTestId('popover')).not.toBeInTheDocument();
       });
