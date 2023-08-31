@@ -1,7 +1,7 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeName } from '@elvia/elvis-colors';
+import { Observable } from 'rxjs';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-color-picker-header',
@@ -10,15 +10,10 @@ import { ThemeName } from '@elvia/elvis-colors';
 export class ColorPickerHeaderComponent {
   @Output() changeThemeEvent = new EventEmitter<ThemeName>();
 
-  isMobileScreenWidth = false;
+  isMobileScreenWidth: Observable<boolean>;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver
-      .observe(['(max-width: 768px)'])
-      .pipe(takeUntilDestroyed())
-      .subscribe((result) => {
-        this.isMobileScreenWidth = result.matches;
-      });
+  constructor(breakpointService: BreakpointService) {
+    this.isMobileScreenWidth = breakpointService.matches(['sm']);
   }
 
   handleSegmentedControlChange(event: Event) {

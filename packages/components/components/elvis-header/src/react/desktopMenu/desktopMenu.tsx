@@ -16,7 +16,6 @@ import {
   TertiaryButton,
   useConnectedOverlay,
   useFocusTrap,
-  useCurrentTheme,
 } from '@elvia/elvis-toolbox';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 import { ProfilePicture } from '../ProfilePicture';
@@ -39,7 +38,6 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
     verticalPosition: 'bottom',
     alignWidths: false,
   });
-  const { currentTheme } = useCurrentTheme(connectedElementRef);
 
   const togglePopupVisibility = (isShowing: boolean): void => {
     setIsShowing(isShowing);
@@ -66,16 +64,16 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
         ref={connectedElementRef}
       >
         <ImageContainer thumbnail>
-          <ProfilePicture currentTheme={currentTheme} />
+          <ProfilePicture />
         </ImageContainer>
-        {username.replace(/\(ekstern\)/g, '').trim()}
+        {username?.replace(/\(ekstern\)/gi, '').trim()}
       </ProfileButton>
       {isShowing && (
         <Overlay useGlobalTheme ref={popoverRef} onClose={() => togglePopupVisibility(false)}>
           <MenuContainer role="menu" id="ewc-header-desktop-menu">
             <UserGrid>
               <ImageContainer>
-                <ProfilePicture currentTheme={currentTheme} />
+                <ProfilePicture />
               </ImageContainer>
               <Username>{username}</Username>
               <Email>{email}</Email>

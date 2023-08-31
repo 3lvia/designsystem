@@ -182,6 +182,10 @@ export const lightTheme = {
       hex: lightThemeColors['primary-colors']['black'].color,
       contrast: lightThemeColors['primary-colors']['black'].contrastText,
     },
+    'background-element-6': {
+      hex: lightThemeColors['primary-colors']['white'].color,
+      contrast: lightThemeColors['primary-colors']['white'].contrastText,
+    },
     'background-overlay-1': {
       hex: lightThemeColors['primary-colors'].white.color,
       contrast: lightThemeColors['primary-colors'].white.contrastText,

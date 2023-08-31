@@ -3,8 +3,7 @@
     <app-header-ceg></app-header-ceg>
   </app-ceg>
 
-  <!-- Implementation -->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
+  <app-component-section implementation sectionTitle="Implementation">
     <ng-container ngProjectAs="sectionContent">
       The header contains a general top menu and a side navigation section. The navigation bar on the side
       contain app-specific tabs, while the top menu gathers general navigation, such as the app switch and any
@@ -69,6 +68,21 @@
           You can include additional content besides the page title in the Header by using the
           <code>pageTitle</code>
           as a slot rather than just a string. For instance, you can add an icon button or a status message.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection sectionTitle="Utilities">
+        <ng-container ngProjectAs="sectionContent">
+          Sometimes you may need to know the current theme. A function
+          <code>getCurrentTheme</code>
+          is therefore exposed by the header package. Simply import it from
+          <code>@elvia/elvis-header</code>
+          (or
+          <code>@elvia/elvis-header/react</code>
+          for React) and call it to get either
+          <code>'light'</code>
+          or
+          <code>'dark'</code>
+          in return.
         </ng-container>
       </app-component-subsection>
     </ng-container>

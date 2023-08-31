@@ -3,7 +3,7 @@
   "content": [
     {
       "date": "31.08.23",
-      "version": "3.1.1",
+      "version": "3.1.2",
       "changelog": [
         {
           "type": "bug_fix",
@@ -11,6 +11,16 @@
             "Fixed a bug where the Datepicker Range would show errors on top of each other when both Datepicker and Timepicker had errors.",
             "Fixed a bug where the Datepicker Range would not show a error message if the new value was out of bounds when changing the Timepicker only."
           ]
+        }
+      ]
+    },
+    {
+      "date": "25.08.23",
+      "version": "3.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Small input label missing background color."]
         }
       ]
     },

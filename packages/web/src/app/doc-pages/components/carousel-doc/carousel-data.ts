@@ -10,7 +10,6 @@ export const carouselData: ComponentData = {
       type: 'CarouselItem[] | number | slot',
       description:
         'A collection of related items that should be displayed in a carousel. If not React, send the items in by slots. Name the slots "item-1", "heading-1", "item-2", "heading-2" and so on.',
-      cegDisplayName: 'No content',
     },
     type: {
       isRequired: false,

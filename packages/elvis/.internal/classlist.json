@@ -871,6 +871,7 @@
 			"modifier": {
 				"e-table--compact": {},
 				"e-table--small": {},
+				"e-table--inverted": {},
 				"e-table--no-stripes": {},
 				"e-table--sticky-header": {},
 				"e-table--sticky-column-header": {}
@@ -1104,6 +1105,7 @@
 		"e-color-background-element-3": {},
 		"e-color-background-element-4": {},
 		"e-color-background-element-5": {},
+		"e-color-background-element-6": {},
 		"e-color-background-overlay-1": {},
 		"e-color-background-overlay-2": {},
 		"e-color-background-overlay-3": {},
@@ -1900,6 +1902,7 @@
 		"e-table__footnote": {},
 		"e-table__footnote--compact": {},
 		"e-table__footnote--small": {},
+		"e-table--inverted": {},
 		"e-table__cell--invalid": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
@@ -2056,6 +2059,7 @@
 		"e-color-background-element-3": {},
 		"e-color-background-element-4": {},
 		"e-color-background-element-5": {},
+		"e-color-background-element-6": {},
 		"e-color-background-overlay-1": {},
 		"e-color-background-overlay-2": {},
 		"e-color-background-overlay-3": {},

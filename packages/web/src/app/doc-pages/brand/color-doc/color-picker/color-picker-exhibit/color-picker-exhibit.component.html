@@ -16,9 +16,7 @@
     <!-- HEX -->
     <p class="e-title-caps">hex</p>
     <app-copy [message]="currentColor.hex | uppercase">
-      <ng-container ngProjectAs="copyContent">
-        <p class="e-text-sm e-uppercase hex">{{ currentColor.hex }}</p>
-      </ng-container>
+      <p class="e-text-sm e-uppercase hex">{{ currentColor.hex }}</p>
     </app-copy>
 
     <!-- RGB -->
@@ -49,11 +47,9 @@
 
     <div class="tokens--container" appColorListBase>
       <app-copy [message]="token" *ngFor="let token of currentColor?.tokens">
-        <ng-container ngProjectAs="copyContent">
-          <div class="token e-tag e-lowercase">
-            {{ token }}
-          </div>
-        </ng-container>
+        <div class="token e-tag e-lowercase">
+          {{ token }}
+        </div>
       </app-copy>
 
       <p *ngIf="!currentColor?.tokens?.length" class="e-text-micro-light no-tokens">No tokens available.</p>

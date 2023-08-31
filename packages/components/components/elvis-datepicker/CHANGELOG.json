@@ -3,11 +3,21 @@
   "content": [
     {
       "date": "31.08.23",
-      "version": "7.1.1",
+      "version": "7.1.2",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "25.08.23",
+      "version": "7.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Small input label missing background color."]
         }
       ]
     },

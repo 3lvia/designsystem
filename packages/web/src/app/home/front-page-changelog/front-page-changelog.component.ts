@@ -11,9 +11,9 @@ import { ThemeService } from 'src/app/core/services/theme.service';
 export class FrontPageChangelogComponent {
   constructor(private cmsService: CMSService, private themeService: ThemeService) {
     this.themeService.listenTheme().subscribe(() => {
-      this.componentIcons = this.cmsService.getComponentIcons();
+      this.componentIcons = this.cmsService.getPageIcons();
     });
   }
   changelogs = createChangelogs();
-  componentIcons: ReturnType<typeof this.cmsService.getComponentIcons>;
+  componentIcons: ReturnType<typeof this.cmsService.getPageIcons>;
 }

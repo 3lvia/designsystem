@@ -4,7 +4,6 @@ import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
 import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
 import { DropdownItem, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
 import { Divider } from './dropdownOverlayStyles';
-import { ThemeName } from '@elvia/elvis-colors';
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
 
 interface SelectAllOptionProps {
@@ -13,7 +12,6 @@ interface SelectAllOptionProps {
   size?: FormFieldSizes;
   items: DropdownItem[];
   selectedItems: DropdownValue;
-  currentTheme: ThemeName;
   onClick: () => void;
   onHover: (item: DropdownItem) => void;
 }
@@ -26,7 +24,6 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
   size,
   items,
   selectedItems,
-  currentTheme,
   onClick,
   onHover,
 }) => {
@@ -67,7 +64,6 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
           isChecked={checkboxState === 'checked'}
           isIndeterminate={checkboxState === 'indeterminate'}
           isFocused={focusedValue === item.value}
-          currentTheme={currentTheme}
         />
         {item.label}
       </DropdownItemStyles>

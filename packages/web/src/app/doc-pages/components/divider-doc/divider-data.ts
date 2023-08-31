@@ -41,6 +41,4 @@ export const dividerData: ComponentData = {
         "Custom CSS style object that can be added to the divider. Example: {marginTop: '8px', width: '100%'}",
     },
   },
-
-  codeNativeScript: ``,
 };

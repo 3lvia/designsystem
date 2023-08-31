@@ -8,7 +8,6 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { ShadowViewerComponent } from './shadow-viewer/shadow-viewer.component';
-import { OldIllustrationComponent } from './old-illustration/old-illustration.component';
 import '@elvia/elvis-icon';
 import '@elvia/elvis-segmented-control';
 
@@ -22,7 +21,7 @@ import '@elvia/elvis-segmented-control';
     CopyModule,
     ComponentChangelogModule,
   ],
-  declarations: [ShadowDocComponent, ShadowViewerComponent, OldIllustrationComponent],
+  declarations: [ShadowDocComponent, ShadowViewerComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShadowDocModule {}

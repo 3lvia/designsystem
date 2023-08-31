@@ -54,9 +54,4 @@ export const tooltipData: ComponentData = {
         "Custom CSS style object that can be added to the tooltip. Example: {marginTop: '8px', width: '100%'}. NB: This applies to the content, not the trigger.",
     },
   },
-  codeReact: ``,
-  codeAngular: ``,
-  codeVue: ``,
-  codeNativeHTML: ``,
-  codeNativeScript: ``,
 };

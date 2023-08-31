@@ -55,7 +55,7 @@ $label-font-size: 11px;
 
   @include helpers.custom-dark-theme-tokens('tag') {
     --e-tag-color-neutral: var(--e-dark-theme-white);
-    --e-tag-color-grey: var(--e-dark-theme-grey-40);
+    --e-tag-color-grey: var(--e-dark-theme-grey-30);
   }
 
   position: relative;

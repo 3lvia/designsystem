@@ -1,6 +1,57 @@
 {
   "content": [
     {
+      "version": "12.10.0",
+      "date": "August 30, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>cursor: wait;</code> styles to the loading text field."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Internal token fix",
+            "Resolved an issue where the loading text field does not display the correct animation in specific browsers."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
+      "version": "12.9.1",
+      "date": "August 29, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Table theme bug fix"]
+        }
+      ]
+    },
+    {
+      "version": "12.9.0",
+      "date": "August 29, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>arrow_long_down</code> and <code>arrow_long_up</code> icons."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "12.8.1",
+      "date": "August 29, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Dark theme support for <code>-light</code> typographies."],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "12.8.0",
       "date": "August 25, 2023",
       "changelog": [
@@ -37,7 +88,7 @@
           ],
           "pages": [
             { "displayName": "Color", "url": "https://design.elvia.io/brand/color" },
-            { "displayName": "Thumbnail", "url": "https://design.elvia.io/components/thumbnail" }
+            { "displayName": "Theme", "url": "https://design.elvia.io/brand/theme" }
           ]
         },
         {

@@ -35,7 +35,7 @@ export const PageTitle = styled.h1<{ isInvisible: boolean }>`
 `;
 
 export const StyledHeader = styled.header<{ menuIsOpen: boolean }>`
-  background-color: ${getThemeColor('background-overlay-3')};
+  background-color: ${getThemeColor('background-element-6')};
   height: ${toolbarHeight};
   display: flex;
   align-items: center;
@@ -171,4 +171,19 @@ export const AppContent = styled.main<AppContentProps>`
     }
     return css``;
   }}
+`;
+
+export const ShowIfLightTheme = styled.div`
+  display: contents;
+  .e-color-background-3 &&,
+  .e-theme-dark && {
+    display: none;
+  }
+`;
+export const ShowIfDarkTheme = styled.div`
+  display: none;
+  .e-color-background-3 &&,
+  .e-theme-dark && {
+    display: contents;
+  }
 `;

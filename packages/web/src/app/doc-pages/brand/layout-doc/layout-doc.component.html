@@ -375,7 +375,7 @@
                       src="/assets/grid/standardLayout.svg"
                       alt="Internal grid mobile"
                       style="max-width: 100%; margin-top: 32px"
-                      class="theme-image-padding"
+                      class="theme-image-background"
                     />
                   </ng-container>
                 </app-component-subsubsection>
@@ -502,9 +502,7 @@
       <div class="display-container centered-content e-mt-24">
         <div class="display-card" *ngFor="let item of spacingItems">
           <app-copy [message]="item.className">
-            <ng-container ngProjectAs="copyContent">
-              <div class="display-card-square example-square" [ngClass]="item.className"></div>
-            </ng-container>
+            <div class="display-card-square example-square" [ngClass]="item.className"></div>
           </app-copy>
           <div class="display-card-title e-title-caps e-mt-8">{{ item.title }}</div>
           <div class="display-card-variable e-text-md">{{ item.size }}</div>

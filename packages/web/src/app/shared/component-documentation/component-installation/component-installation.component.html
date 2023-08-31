@@ -26,9 +26,7 @@
     <div class="e-text-md e-mt-8">or</div>
     <div class="code-text e-mt-8">
       <app-copy message="yarn add @elvia/{{ packageName }}">
-        <ng-container ngProjectAs="copyContent">
-          <span class="code-text" style="line-height: 26px">yarn add @elvia/{{ packageName }}</span>
-        </ng-container>
+        <span class="code-text" style="line-height: 26px">yarn add @elvia/{{ packageName }}</span>
       </app-copy>
     </div>
   </li>
@@ -37,20 +35,16 @@
     <h4 class="e-title-caps e-mt-24 e-mb-8">Web component</h4>
     <div class="code-text">
       <app-copy message="import '@elvia/{{ packageName }}';">
-        <ng-container ngProjectAs="copyContent">
-          <span class="code-text" style="line-height: 26px">import '@elvia/{{ packageName }}';</span>
-        </ng-container>
+        <span class="code-text" style="line-height: 26px">import '@elvia/{{ packageName }}';</span>
       </app-copy>
     </div>
     <div class="e-text-md">(Angular - Should be imported in module.ts not component.ts)</div>
     <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
     <div class="code-text">
       <app-copy message="import &#123; {{ reactElementName }} &#125; from '@elvia/{{ packageName }}/react';">
-        <ng-container ngProjectAs="copyContent">
-          <span class="code-text" style="line-height: 26px">
-            import &#123; {{ reactElementName }} &#125; from '@elvia/{{ packageName }}/react';
-          </span>
-        </ng-container>
+        <span class="code-text" style="line-height: 26px">
+          import &#123; {{ reactElementName }} &#125; from '@elvia/{{ packageName }}/react';
+        </span>
       </app-copy>
     </div>
   </li>
@@ -62,11 +56,9 @@
         <app-copy
           message="import &#123; {{ reactElementName }}Props &#125; from '@elvia/{{ packageName }}/react';"
         >
-          <ng-container ngProjectAs="copyContent">
-            <span class="code-text" style="line-height: 26px">
-              import &#123; {{ reactElementName }}Props &#125; from '@elvia/{{ packageName }}/react';
-            </span>
-          </ng-container>
+          <span class="code-text" style="line-height: 26px">
+            import &#123; {{ reactElementName }}Props &#125; from '@elvia/{{ packageName }}/react';
+          </span>
         </app-copy>
       </div>
       <div class="e-text-md">Typescript interfaces for the component properties are available.</div>

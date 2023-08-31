@@ -409,6 +409,7 @@ export class CMSTransformService {
     const hasInlineText = data.fields.inlineText !== undefined;
     const imgSize = this.extractLocale(data.fields.size);
     const imgAlignment = data.fields.alignment ? this.extractLocale(data.fields.alignment) : undefined;
+    const shouldHaveThemeBackground = !data.fields.transparentBackground;
     const description = data.fields.description ? this.extractLocale(data.fields.description) : undefined;
     const altText = data.fields.altText ? this.extractLocale(data.fields.altText) : undefined;
     const srcUrl = 'https:' + this.extractLocale(this.extractLocale(data.fields.image)!.fields.file)?.url;
@@ -429,10 +430,10 @@ export class CMSTransformService {
         ${imgSize === '25%' ? 'cms-image-small' : 'cms-image-normal'}
       '
     >
-      <div>
+      <div class="e-my-16">
         <img
-          class='
-            theme-image-padding
+          class=' 
+            ${shouldHaveThemeBackground && 'theme-image-background'}
             ${inGrid ? 'e-br-8' : ''}
             ${hasInlineText ? 'cms-image-inline' : ''} 
             align-${imgAlignment}
@@ -606,15 +607,16 @@ export class CMSTransformService {
 
   private getHeading1(heading: string): string {
     return `<div class="cms-heading1">
-    <div class="cms-heading1__title">
-      <span style="position: absolute; height: 24px; left: -36px; width: 36px;"">
-        <elvia-tooltip id="elvia-tooltip-${heading.replace(
-          / /g,
-          '-',
-        )}" content="Copy" showDelay="400" display="relative">
-          <span class="icons" slot="trigger">
-            <img class="cms-section__img normal-img" alt="Copy anchor button" src="assets/hyperlink-3.svg" />
-            <img class="cms-section__img green-img" alt="Copy anchor button" src="assets/hyperlink-3-green.svg" />
+    <div class="cms-heading1__title" id="anchor-heading-${heading}">
+      <span style="position: absolute; left: -36px; margin-top: 2px;">
+        <elvia-tooltip class="cms-anchor-title" content="Copy" showDelay="400" display="relative" id="elvia-tooltip-${heading}">
+          <span class="icons" slot="trigger" id="anchor-icons">
+            <i
+              class="cms-section__img normal-img icon e-icon e-icon--link e-icon--sm"
+            ></i>
+            <i
+              class="cms-section__img green-img icon e-icon e-icon--link e-icon--sm e-icon--color-positive"
+            ></i>
           </span>
         </elvia-tooltip>
       </span>
