@@ -35,16 +35,16 @@
 
 // TODO: Bruke denne flere steder?
 @mixin focus($component) {
-  .e-#{$component}:focus:not(:disabled) {
+  &:focus:not(:disabled) {
     @include outline.e-outline();
   }
 
-  .e-#{$component}.e-#{$component}---focus {
+  &.e-#{$component}---focus {
     @include outline.e-outline-pseudoclass();
   }
 
   // Removing default focus on firefox
-  .e-#{$component}::-moz-focus-inner {
+  &::-moz-focus-inner {
     border: 0;
   }
 }
