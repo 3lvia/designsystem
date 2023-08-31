@@ -83,7 +83,7 @@ export class CMSPageComponent implements OnDestroy {
 
     const id = await this.cmsService.getPageSysId(locale);
     const docPage = await this.cmsService.getTransformedDocPageByEntryId(id, locale);
-    this.setInnerHTMLToCMSContent(docPage);
+    this.setInnerHTMLToCMSContent(docPage, locale);
     this.titleService.setTitle(docPage.title + ' | Elvia design system');
   }
 
@@ -100,7 +100,7 @@ export class CMSPageComponent implements OnDestroy {
     const id = pageId ?? (await this.cmsService.getPageSysId(locale));
     const entry = (await this.cmsService.getEntryFromCMS(id)) as IDocumentationPage;
     const docPage = await this.cmsService.getTransformedDocPageByEntry(entry, locale);
-    this.setInnerHTMLToCMSContent(docPage);
+    this.setInnerHTMLToCMSContent(docPage, locale);
     this.titleService.setTitle(docPage.title + ' | ' + 'Elvia design system');
   }
 
@@ -111,7 +111,7 @@ export class CMSPageComponent implements OnDestroy {
    * These errors typically come from how content is implemented in Contentful.
    * @param docPage
    */
-  setInnerHTMLToCMSContent(docPage: TransformedDocPage): void {
+  setInnerHTMLToCMSContent(docPage: TransformedDocPage, locale: Locale): void {
     if (docPage.errorMessages.length > 0) {
       this.errorMessages = docPage.errorMessages;
     }
@@ -119,7 +119,13 @@ export class CMSPageComponent implements OnDestroy {
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
     const cmsLastUpdatedDate = new Date(this.cmsContent.lastUpdated);
-    this.lastUpdated = cmsLastUpdatedDate.toLocaleDateString('en-GB').replace('/', '.');
+    const lastUpdatedFormattedDate = cmsLastUpdatedDate.toLocaleString(locale === 0 ? 'en-GB' : 'nb-NO', {
+      month: 'long',
+      year: 'numeric',
+      day: 'numeric',
+    });
+
+    this.lastUpdated = (locale === 0 ? 'Last updated ' : 'Sist oppdatert ') + lastUpdatedFormattedDate;
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
     this.addClickEventListenersForCopyPath();
