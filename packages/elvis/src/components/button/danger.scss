@@ -1,6 +1,5 @@
 @use './helpers.scss' as buttonHelper;
 @use '../../utilities/helpers.scss';
-@use '../../variables/colors.scss';
 @use '../../utilities/icons.scss';
 
 .e-btn.e-btn--danger {
@@ -47,6 +46,6 @@
   }
 
   &.e-btn--loading span {
-    background-color: colors.color('elvia-on');
+    background-color: var(--e-color-static-white);
   }
 }
