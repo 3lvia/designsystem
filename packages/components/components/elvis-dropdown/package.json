@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-dropdown",
-  "version": "7.2.2",
+  "version": "7.2.3",
   "main": "web_component.js",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/dropdown",
@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",
-    "@elvia/elvis-colors": "^3.0.0",
+    "@elvia/elvis-colors": "^4.0.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
     "@elvia/elvis-toolbox": "^9.6.1",
     "@elvia/elvis-tooltip": "^1.2.3",
