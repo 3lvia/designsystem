@@ -2,7 +2,6 @@
 @use '../../utilities/icons.scss';
 
 .e-btn.e-btn--tertiary {
-  height: fit-content;
   padding: 0 0 5px;
   border: none;
   border-radius: 0;
@@ -26,6 +25,7 @@
   }
 
   &.e-btn--sm {
+    height: fit-content;
     .e-btn__icon {
       @include icons.icon-size('xs');
     }
