@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-popover",
-  "version": "7.2.0",
+  "version": "7.2.1",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/popover",
   "main": "web_component.js",
@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",
-    "@elvia/elvis-colors": "^3.0.0",
+    "@elvia/elvis-colors": "^4.0.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
     "@elvia/elvis-toolbox": "^9.6.0",
     "@elvia/elvis-typography": "^2.4.0",

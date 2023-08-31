@@ -8,6 +8,12 @@
         {
           "type": "new_feature",
           "changes": ["Expose the <code>getCurrentTheme</code> function to get the current theme."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the header would give an error when the username was sent in asynchronously."
+          ]
         }
       ]
     },

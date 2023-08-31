@@ -13,7 +13,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-colors": "^3.0.0",
+    "@elvia/elvis-colors": "^4.0.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
     "@elvia/elvis-toolbox": "^9.7.0",
     "@elvia/elvis-tooltip": "^1.2.3",
