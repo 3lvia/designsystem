@@ -208,7 +208,7 @@ describe('Elvis Datepicker', () => {
       await user.type(screen.getByTestId('input'), '01.05.2076');
       await user.tab();
 
-      expect(screen.queryByTestId('error')).toHaveTextContent('Må være etter 01.05.2077');
+      expect(screen.queryByTestId('error')).toHaveTextContent('Tidligste dato er 01.05.2077');
     });
   });
 
@@ -229,7 +229,7 @@ describe('Elvis Datepicker', () => {
       await user.type(screen.getByTestId('input'), '01.05.2023');
       await user.tab();
 
-      expect(screen.queryByTestId('error')).toHaveTextContent('Må være før 01.05.2022');
+      expect(screen.queryByTestId('error')).toHaveTextContent('Seneste dato er 01.05.2022');
     });
   });
 
