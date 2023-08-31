@@ -26,6 +26,7 @@
 
   &.e-btn--sm {
     height: fit-content;
+
     .e-btn__icon {
       @include icons.icon-size('xs');
     }
