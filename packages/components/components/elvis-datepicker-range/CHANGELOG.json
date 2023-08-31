@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "31.08.23",
+      "version": "3.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the Datepicker Range would show errors on top of each other when both Datepicker and Timepicker had errors.",
+            "Fixed a bug where the Datepicker Range would not show a error message if the new value was out of bounds when changing the Timepicker only."
+          ]
+        }
+      ]
+    },
+    {
       "date": "24.08.23",
       "version": "3.1.0",
       "changelog": [
