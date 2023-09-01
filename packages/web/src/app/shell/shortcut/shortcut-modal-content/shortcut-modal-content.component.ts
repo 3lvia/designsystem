@@ -40,9 +40,5 @@ export class ShortcutModalContentComponent {
       keys: ['g', 's'],
       description: 'open search',
     },
-    {
-      keys: ['s', 't'],
-      description: 'switch theme',
-    },
   ];
 }

@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
-import { DocumentEventListenerService } from '../../core/services/document-event-listener.service';
+import { ShortcutService } from './shortcut.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter, fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-shortcut',
@@ -13,8 +14,17 @@ export class ShortcutComponent {
   private shortcutGlossaryTimeoutId: number | undefined;
   private shortcutGlossaryButtonTimeoutId: number | undefined;
 
-  constructor(private documentEventListenerService: DocumentEventListenerService) {
-    this.documentEventListenerService
+  constructor(private shortcutService: ShortcutService) {
+    fromEvent(document, 'keypress')
+      .pipe(
+        takeUntilDestroyed(),
+        filter((e): e is KeyboardEvent => e instanceof KeyboardEvent),
+      )
+      .subscribe((event: KeyboardEvent) => {
+        this.shortcutService.handleKeyboardEvent(event);
+      });
+
+    this.shortcutService
       .listenShortcutTriggered()
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
