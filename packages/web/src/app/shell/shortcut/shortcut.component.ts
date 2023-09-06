@@ -77,14 +77,13 @@ export class ShortcutComponent {
     return fromEvent<KeyboardEvent>(document, 'keyup').pipe(
       takeUntilDestroyed(),
       filter((event) => !(event.target instanceof HTMLInputElement)),
-      map((event) => event.key),
-      tap((key) => {
-        if (triggeringKeys.has(key)) {
+      tap((event) => {
+        if (triggeringKeys.has(event.key)) {
           this.lastTriggerTimestamp = Date.now();
         }
       }),
-      map((key) => {
-        return shortcuts.find((s) => s.shortcut[1] === key);
+      map((event) => {
+        return shortcuts.find((s) => s.shortcut[1] === event.key);
       }),
       filter((shortcut): shortcut is Shortcut => {
         const now = new Date().getTime();
