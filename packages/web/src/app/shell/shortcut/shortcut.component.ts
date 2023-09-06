@@ -1,7 +1,8 @@
 import { Component, HostListener } from '@angular/core';
-import { ShortcutService } from './shortcut.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { filter, fromEvent } from 'rxjs';
+import { Router } from '@angular/router';
+import { Shortcut, shortcuts } from './keys';
+import { Observable, filter, fromEvent, map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-shortcut',
@@ -11,28 +12,24 @@ import { filter, fromEvent } from 'rxjs';
 export class ShortcutComponent {
   showShortcutGlossary = false;
   showShortcutGlossaryButton = false;
+  private lastTriggerTimestamp: number;
   private shortcutGlossaryTimeoutId: number | undefined;
   private shortcutGlossaryButtonTimeoutId: number | undefined;
+  private shortcuts = shortcuts;
 
-  constructor(private shortcutService: ShortcutService) {
-    fromEvent(document, 'keypress')
-      .pipe(
-        takeUntilDestroyed(),
-        filter((e): e is KeyboardEvent => e instanceof KeyboardEvent),
-      )
-      .subscribe((event: KeyboardEvent) => {
-        this.shortcutService.handleKeyboardEvent(event);
-      });
+  constructor(router: Router) {
+    this.listenForShortcut(this.shortcuts).subscribe((triggeredShortcut) => {
+      this.closeShortcutGlossary();
+      this.hideShortcutGlossaryButton();
+      clearTimeout(this.shortcutGlossaryTimeoutId);
+      clearTimeout(this.shortcutGlossaryButtonTimeoutId);
 
-    this.shortcutService
-      .listenShortcutTriggered()
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => {
-        this.closeShortcutGlossary();
-        this.hideShortcutGlossaryButton();
-        clearTimeout(this.shortcutGlossaryTimeoutId);
-        clearTimeout(this.shortcutGlossaryButtonTimeoutId);
-      });
+      if (triggeredShortcut.type === 'action') {
+        triggeredShortcut.action();
+      } else {
+        router.navigate([triggeredShortcut.url]);
+      }
+    });
   }
 
   openShortcutGlossary = (): void => {
@@ -73,4 +70,25 @@ export class ShortcutComponent {
     this.showShortcutGlossaryButton = true;
     this.shortcutGlossaryButtonTimeoutId = window.setTimeout(this.hideShortcutGlossaryButton, 7000);
   };
+
+  private listenForShortcut(shortcuts: Shortcut[]): Observable<Shortcut> {
+    const triggeringKeys = new Set(shortcuts.map((s) => s.shortcut[0]));
+
+    return fromEvent<KeyboardEvent>(document, 'keyup').pipe(
+      takeUntilDestroyed(),
+      map((event) => event.key),
+      tap((key) => {
+        if (triggeringKeys.has(key)) {
+          this.lastTriggerTimestamp = Date.now();
+        }
+      }),
+      map((key) => {
+        return shortcuts.find((s) => s.shortcut[1] === key);
+      }),
+      filter((shortcut): shortcut is Shortcut => {
+        const now = new Date().getTime();
+        return !!shortcut && now - this.lastTriggerTimestamp <= 1000;
+      }),
+    );
+  }
 }
