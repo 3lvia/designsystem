@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { getThemeColor, getShadow, getBaseColor } from '@elvia/elvis-colors';
+import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 const mobileMax = '767px';
@@ -78,7 +78,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
     maxWidth ? maxWidth : hasIllustration ? '1090px' : modalMaxWidth};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
-  background: ${getThemeColor('background-overlay-1')};
+  background: ${getThemeColor('background-3')};
   box-shadow: ${getShadow('soft')};
 
   ${({ hasIllustration }) =>
@@ -160,11 +160,11 @@ export const ModalIllustration = styled.div.attrs(() => ({
 
   ::after {
     content: '';
-    background: ${getThemeColor('background-overlay-1')};
+    background: ${getThemeColor('background-element-4')};
     border-radius: 100%;
     z-index: 0;
     position: absolute;
-    height: calc(550px * 6.85);
+    height: calc(550px * 4);
     width: calc(550px * 6);
     right: calc(100% - 2.7vw);
     @media (min-width: ${desktopMin}) {
@@ -174,7 +174,7 @@ export const ModalIllustration = styled.div.attrs(() => ({
 
   .e-color-background-3 && ::after,
   .e-theme-dark && ::after {
-    border: 2px solid ${getBaseColor('grey-60', 'dark')};
+    border: 2px solid ${getThemeColor('border-2')};
   }
 
   @media (max-width: ${desktopMin}) {
@@ -185,9 +185,9 @@ export const ModalIllustration = styled.div.attrs(() => ({
 
     ::after {
       right: unset;
-      top: calc(100% - 3.7vw);
-      height: calc(100vw * 6.85);
-      width: calc(100vw * 6.85);
+      top: calc(93% - 3vw);
+      height: calc(100vw * 4);
+      width: calc(100vw * 4);
     }
   }
   @media (max-width: ${mobileMax}) {
