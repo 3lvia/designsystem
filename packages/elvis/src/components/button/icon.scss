@@ -43,6 +43,9 @@
 
   // States
   @include buttonHelper.hover() {
+    background: var(--e-color-background-hover-1);
+    color: var(--e-color-background-hover-1--contrast);
+
     @include icons.icon-currentcolor();
   }
 
