@@ -2,7 +2,7 @@
 @use '../../utilities/outline.scss';
 
 @mixin only-primary-button {
-  &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) {
+  &:not(.e-btn--secondary, .e-btn--tertiary, .e-btn--danger, .e-btn--icon) {
     @content;
   }
 }
@@ -12,8 +12,8 @@
     &.e-btn---hover,
     &.e-btn---selected,
     &.e-btn---active,
-    &:active:not(:disabled):not(.e-btn--loading),
-    &:hover:not(:disabled):not(.e-btn--loading) {
+    &:active:not(:disabled, .e-btn--loading),
+    &:hover:not(:disabled, .e-btn--loading) {
       @content;
     }
   }
@@ -28,7 +28,7 @@
 
 @mixin active() {
   &.e-btn---active,
-  &:active:not(:disabled):not(.e-btn--loading) {
+  &:active:not(:disabled, .e-btn--loading) {
     @content;
   }
 }

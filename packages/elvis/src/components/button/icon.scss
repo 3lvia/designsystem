@@ -9,16 +9,13 @@
   border: none;
   border-radius: 50px;
   background: none;
-  color: var(--e-color-text-1);
+  color: var(--e-color-icon-stroke-1);
 
   // Icons
   .e-btn__icon {
     @include icons.icon-size('sm');
 
     i {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       visibility: visible;
 
       @include icons.icon-currentcolor();
@@ -69,58 +66,58 @@
       background-color: var(--e-color-text-1);
     }
   }
+}
 
-  // Circled
-  &.e-btn--circled {
-    position: relative;
-    width: 24px;
-    height: 24px;
-    padding: 0;
+// Circled
+.e-btn.e-btn--icon.e-btn--circled {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 0;
 
-    // Larger click surface
+  // Larger click surface
+  &::after {
+    position: absolute;
+    padding: 16px;
+    content: '';
+  }
+
+  // Icons
+  i {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .e-btn__icon i[class*='filled-color'] {
+    visibility: hidden; // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
+  }
+
+  // Sizes
+  &.e-btn--sm {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.e-btn--lg {
+    width: 32px;
+    height: 32px;
+
     &::after {
-      position: absolute;
-      padding: 16px;
-      content: '';
+      content: none;
     }
+  }
 
-    // Icons
-    i {
-      position: absolute;
-      top: 0;
-      left: 0;
+  // States
+  @include buttonHelper.hover() {
+    background: transparent;
+
+    .e-btn__icon i:not([class*='filled-color']) {
+      visibility: hidden; // Hiding original icon
     }
 
     .e-btn__icon i[class*='filled-color'] {
-      visibility: hidden; // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
-    }
-
-    // Sizes
-    &.e-btn--sm {
-      width: 16px;
-      height: 16px;
-    }
-
-    &.e-btn--lg {
-      width: 32px;
-      height: 32px;
-
-      &::after {
-        content: none;
-      }
-    }
-
-    // States
-    @include buttonHelper.hover() {
-      background: transparent;
-
-      .e-btn__icon i:not([class*='filled-color']) {
-        visibility: hidden; // Hiding original icon
-      }
-
-      .e-btn__icon i[class*='filled-color'] {
-        visibility: visible; // Showing hover icon
-      }
+      visibility: visible; // Showing hover icon
     }
   }
 }
