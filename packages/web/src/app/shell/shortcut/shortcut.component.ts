@@ -72,7 +72,7 @@ export class ShortcutComponent {
   };
 
   private listenForShortcut(shortcuts: Shortcut[]): Observable<Shortcut> {
-    const triggeringKeys = new Set(shortcuts.map((s) => s.shortcut[0]));
+    const triggeringKeys = new Set(shortcuts.map((s) => s.keys[0]));
 
     return fromEvent<KeyboardEvent>(document, 'keyup').pipe(
       takeUntilDestroyed(),
@@ -83,7 +83,7 @@ export class ShortcutComponent {
         }
       }),
       map((event) => {
-        return shortcuts.find((s) => s.shortcut[1] === event.key);
+        return shortcuts.find((s) => s.keys[1] === event.key);
       }),
       filter((shortcut): shortcut is Shortcut => {
         const now = new Date().getTime();
