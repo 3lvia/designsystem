@@ -11,6 +11,13 @@
           "fixes": [
             "The small text-field will be taller. You may therefore want to check that the page layout is not severely affected by this."
           ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Small radio button font-size fix (from 16px -> 14px)"],
+          "components": [
+            { "displayName": "Radio Button", "url": "https://design.elvia.io/components/radiobutton" }
+          ]
         }
       ]
     },
