@@ -3,6 +3,19 @@
   "content": [
     {
       "date": "31.08.23",
+      "version": "8.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Change label size and position for the small dropdown."],
+          "fixes": [
+            "The small dropdown will be taller. You may therefore want to check that the page layout is not severely affected by this."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "31.08.23",
       "version": "7.2.3",
       "changelog": [
         {
