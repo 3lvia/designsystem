@@ -43,8 +43,8 @@ describe('Elvis Dropdown', () => {
       });
 
       it('should have label', () => {
-        const dropdownLabel = screen.getByTestId('wrapper').firstElementChild;
-        expect(dropdownLabel).toHaveTextContent('Label');
+        const dropdownLabel = screen.getByText('Label');
+        expect(dropdownLabel).toBeInTheDocument();
       });
 
       it('should not be disabled', () => {
