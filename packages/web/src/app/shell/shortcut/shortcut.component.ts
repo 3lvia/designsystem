@@ -76,6 +76,7 @@ export class ShortcutComponent {
 
     return fromEvent<KeyboardEvent>(document, 'keyup').pipe(
       takeUntilDestroyed(),
+      filter((event) => !(event.target instanceof HTMLInputElement)),
       map((event) => event.key),
       tap((key) => {
         if (triggeringKeys.has(key)) {
