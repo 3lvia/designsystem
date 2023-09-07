@@ -33,7 +33,6 @@
   }
 }
 
-// TODO: Bruke denne flere steder?
 @mixin focus($component) {
   &:focus:not(:disabled) {
     @include outline.e-outline();
