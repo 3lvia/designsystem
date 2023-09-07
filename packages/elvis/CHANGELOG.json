@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.11.0",
+      "date": "September 7, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Read only textarea support"],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "12.10.1",
       "date": "September 7, 2023",
       "changelog": [
