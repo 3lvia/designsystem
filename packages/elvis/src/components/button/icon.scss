@@ -1,27 +1,21 @@
+@use './button-helpers.scss' as buttonHelper;
 @use '../../utilities/helpers.scss';
-@use '../../variables/colors.scss';
 @use '../../utilities/icons.scss';
 
 .e-btn.e-btn--icon {
-  display: inline-flex;
   width: 40px;
   height: 40px;
-  align-items: center;
-  justify-content: center;
   padding: 8px;
   border: none;
   border-radius: 50px;
   background: none;
-  color: var(--e-color-text-1);
+  color: var(--e-color-icon-stroke-1);
 
+  // Icons
   .e-btn__icon {
-    justify-content: center;
     @include icons.icon-size('sm');
 
     i {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       visibility: visible;
 
       @include icons.icon-currentcolor();
@@ -48,28 +42,19 @@
   }
 
   // States
-  @include helpers.hover() {
-    &.e-btn---hover,
-    &.e-btn---selected,
-    &.e-btn---active,
-    &:active:not(:disabled):not(.e-btn--loading),
-    &:hover:not(:disabled):not(.e-btn--loading) {
-      background: var(--e-color-background-hover-1);
-      color: var(--e-color-background-hover-1--contrast);
+  @include buttonHelper.hover() {
+    background: var(--e-color-background-hover-1);
+    color: var(--e-color-background-hover-1--contrast);
 
-      @include icons.icon-currentcolor();
-    }
+    @include icons.icon-currentcolor();
   }
 
-  &.e-btn---active,
-  &:active:not(:disabled):not(.e-btn--loading) {
+  @include buttonHelper.active() {
     @include helpers.transform(scale(0.95));
   }
 
-  &.e-btn---disabled,
-  &:disabled {
+  @include buttonHelper.disabled() {
     background: none;
-    cursor: not-allowed;
 
     .e-btn__icon i {
       @include icons.icon-color(var(--e-color-text-disabled-1));
@@ -81,62 +66,61 @@
     padding-left: 0;
 
     span {
-      background-color: var(--e-color-text-1);
+      background-color: var(--e-color-icon-stroke-1);
+    }
+  }
+}
+
+// Circled
+.e-btn.e-btn--icon.e-btn--circled {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+
+  // Larger click surface
+  &::after {
+    position: absolute;
+    padding: 16px;
+    content: '';
+  }
+
+  // Icons
+  i {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .e-btn__icon i[class*='filled-color'] {
+    visibility: hidden; // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
+  }
+
+  // Sizes
+  &.e-btn--sm {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.e-btn--lg {
+    width: 32px;
+    height: 32px;
+
+    &::after {
+      content: none;
     }
   }
 
-  // Circled
-  &.e-btn--circled {
-    position: relative;
-    width: 24px;
-    height: 24px;
-    padding: 0;
+  // States
+  @include buttonHelper.hover() {
+    background: transparent;
 
-    // Larger click surface
-    &::after {
-      position: absolute;
-      padding: 16px;
-      content: '';
+    .e-btn__icon i:not([class*='filled-color']) {
+      visibility: hidden; // Hiding original icon
     }
 
-    // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
     .e-btn__icon i[class*='filled-color'] {
-      visibility: hidden;
-    }
-
-    // Sizes
-    &.e-btn--sm {
-      width: 16px;
-      height: 16px;
-    }
-
-    &.e-btn--lg {
-      width: 32px;
-      height: 32px;
-
-      &::after {
-        content: none;
-      }
-    }
-
-    // States
-    @include helpers.hover() {
-      &.e-btn---hover,
-      &.e-btn---selected,
-      &.e-btn---active,
-      &:active:not(:disabled),
-      &:hover:not(:disabled) {
-        background: transparent;
-        // Showing hover ikon
-        .e-btn__icon i:not([class$='filled-color']),
-        .e-btn__icon i:not([class$='disabled']) {
-          visibility: hidden;
-        }
-
-        .e-btn__icon i[class*='filled-color'] {
-          visibility: visible;
-        }
-      }
+      visibility: visible; // Showing hover icon
     }
   }
 }
