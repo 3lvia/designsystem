@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { PropertySearchInputComponent } from './property-search-input/property-search-input.component';
 import { PropertyTableDesktopComponent } from './property-table-desktop/property-table-desktop.component';
 import { PropertyTableMobileComponent } from './property-table-mobile/property-table-mobile.component';
+
 @NgModule({
   imports: [CommonModule, FormsModule],
   declarations: [

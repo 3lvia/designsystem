@@ -1,5 +1,5 @@
 <table
-  class="e-table e-table--sticky-column-header e-table--sticky-header e-table--small"
+  class="e-table e-table--no-stripes e-table--sticky-column-header e-table--sticky-header e-table--small"
   *ngIf="props.length > 0"
   aria-label="Property details and descriptions"
 >
@@ -12,23 +12,56 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let prop of props">
-      <th scope="row" class="table-code-text">
-        <span [id]="'property-row-' + prop.attribute + '-attribute'">{{ prop.attribute }}</span>
-        <span *ngIf="prop.isRequired">*</span>
-      </th>
-      <td
-        class="table-code-text e-table__cell--multiline-small"
-        [id]="'property-row-' + prop.attribute + '-type'"
-      >
-        {{ prop.type }}
-      </td>
-      <td class="e-table__cell--multiline-small" [id]="'property-row-' + prop.attribute + '-description'">
-        {{ prop.description }}
-      </td>
-      <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-default'">
-        {{ prop.default ? prop.default : '-' }}
-      </td>
-    </tr>
+    <ng-container *ngFor="let group of groupedProps">
+      <tr>
+        <th colspan="4">
+          <div class="group-title">
+            <h2 class="e-title-xs">{{ group.title }}</h2>
+            <button
+              class="e-btn e-btn--icon e-btn--circled"
+              [attr.aria-label]="group.expanded ? 'Collapse prop group' : 'Expand prop group'"
+              (click)="group.expanded = !group.expanded"
+            >
+              <span class="e-btn__icon">
+                <i
+                  class="e-icon"
+                  [ngClass]="group.expanded ? 'e-icon--collapse_circle-color' : 'e-icon--expand_circle-color'"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  class="e-icon"
+                  [ngClass]="
+                    group.expanded
+                      ? 'e-icon--collapse_circle-filled-color'
+                      : 'e-icon--expand_circle-filled-color'
+                  "
+                  aria-hidden="true"
+                ></i>
+              </span>
+            </button>
+          </div>
+        </th>
+      </tr>
+      <ng-container *ngIf="group.expanded">
+        <tr *ngFor="let prop of group.rows">
+          <th scope="row" class="table-code-text">
+            <span [id]="'property-row-' + prop.attribute + '-attribute'">{{ prop.attribute }}</span>
+            <span *ngIf="prop.isRequired">*</span>
+          </th>
+          <td
+            class="table-code-text e-table__cell--multiline-small"
+            [id]="'property-row-' + prop.attribute + '-type'"
+          >
+            {{ prop.type }}
+          </td>
+          <td class="e-table__cell--multiline-small" [id]="'property-row-' + prop.attribute + '-description'">
+            {{ prop.description }}
+          </td>
+          <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-default'">
+            {{ prop.default ? prop.default : '-' }}
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
   </tbody>
 </table>

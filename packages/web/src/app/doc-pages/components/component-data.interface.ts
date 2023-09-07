@@ -16,17 +16,16 @@ interface PropBase {
   type: string;
 }
 
-type PrimitiveType = string | number | boolean | number[] | string[] | ((...args: any) => any) | JSX.Element;
+export type PrimitiveType = string | number | boolean | number[] | string[] | JSX.Element;
+export type EventType = (...args: any) => any;
+type ChildlessType = PrimitiveType | EventType;
 
 /**
  * Represents props that are "primitive", which means that they have no child props.
  */
 export interface PrimitiveProp extends PropBase {
   type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | (string & {});
-
   description: string;
-
-  // Default value of the prop, if any.
   default?: string | number | boolean;
 }
 
@@ -35,10 +34,9 @@ export interface PrimitiveProp extends PropBase {
  */
 export interface NestedProp<TObjectProp> extends PropBase {
   type: 'object' | 'object[]';
-  // Description of the prop.
   description?: string;
   children: {
-    [TProp in keyof TObjectProp]: TObjectProp[TProp] extends PrimitiveType
+    [TProp in keyof TObjectProp]: TObjectProp[TProp] extends ChildlessType
       ? PrimitiveProp
       : NestedProp<TObjectProp[TProp]>;
   };
@@ -73,7 +71,7 @@ type FilteredComponentProps<TComponentProps> = Omit<
 export type ComponentProps<TComponentProps> = {
   [PropName in keyof FilteredComponentProps<Required<TComponentProps>>]: NonNullable<
     TComponentProps[PropName]
-  > extends PrimitiveType
+  > extends ChildlessType
     ? PrimitiveProp
     : NestedProp<TComponentProps[PropName]>;
 };

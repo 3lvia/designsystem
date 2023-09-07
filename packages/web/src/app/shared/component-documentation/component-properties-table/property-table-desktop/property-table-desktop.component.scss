@@ -2,3 +2,17 @@ th.table-code-text,
 td.table-code-text {
   font-family: 'Red Hat Mono', Verdana, sans-serif;
 }
+
+.group-title {
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.e-table th:has(.group-title) {
+  background-color: var(--e-color-background-element-2);
+  padding-block: 12px;
+}
