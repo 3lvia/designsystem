@@ -1,0 +1,34 @@
+<table
+  class="e-table e-table--sticky-column-header e-table--sticky-header e-table--small"
+  *ngIf="props.length > 0"
+  aria-label="Property details and descriptions"
+>
+  <thead>
+    <tr>
+      <th scope="col">Prop</th>
+      <th scope="col">Type</th>
+      <th scope="col">Description</th>
+      <th scope="col">Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prop of props">
+      <th scope="row" class="table-code-text">
+        <span [id]="'property-row-' + prop.attribute + '-attribute'">{{ prop.attribute }}</span>
+        <span *ngIf="prop.isRequired">*</span>
+      </th>
+      <td
+        class="table-code-text e-table__cell--multiline-small"
+        [id]="'property-row-' + prop.attribute + '-type'"
+      >
+        {{ prop.type }}
+      </td>
+      <td class="e-table__cell--multiline-small" [id]="'property-row-' + prop.attribute + '-description'">
+        {{ prop.description }}
+      </td>
+      <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-default'">
+        {{ prop.default ? prop.default : '-' }}
+      </td>
+    </tr>
+  </tbody>
+</table>

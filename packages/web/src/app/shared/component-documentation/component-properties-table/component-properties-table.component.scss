@@ -11,31 +11,12 @@
   }
 }
 
-.e-table.e-table--compact td.table-code-text,
-.e-table.e-table--small th.table-code-text {
-  font-family: 'Red Hat Mono', Verdana, sans-serif;
-}
-
-.e-table-container.desktop {
-  display: block;
+.e-table-container {
   max-height: 80vh;
 
   @include breakpoints.breakpoint-up(Mobile) {
-    display: none;
+    max-height: 500px;
   }
-}
-
-.e-table-container.mobile {
-  display: none;
-
-  @include breakpoints.breakpoint-up(Mobile) {
-    display: block;
-  }
-}
-
-.properties-mobile {
-  max-height: 500px;
-  overflow-y: scroll;
 }
 
 .no-properties-found {
