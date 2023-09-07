@@ -1,0 +1,17 @@
+<div class="e-form-field properties-filter">
+  <div class="e-search e-search--instant" [ngClass]="{ 'e-search--searched': searchTerm !== '' }">
+    <div class="e-input">
+      <input
+        aria-label="Search properties table"
+        type="search"
+        placeholder="Search"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="emitSearch()"
+      />
+    </div>
+    <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+    <button class="e-btn e-btn--icon e-btn--lg" (click)="clearSearchField()" aria-label="Clear search field">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
+    </button>
+  </div>
+</div>

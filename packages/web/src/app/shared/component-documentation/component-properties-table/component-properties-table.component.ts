@@ -18,14 +18,13 @@ export class ComponentPropertiesTableComponent implements OnInit {
   @Input() componentData: ComponentData;
   componentProps: ComponentProp[] = [];
   filteredComponentProps: ComponentProp[] = [];
-  searchTerm = '';
 
   constructor(private searchService: SearchService<ComponentProp>) {}
 
   ngOnInit(): void {
     this.createPropArray();
     this.initializeSearchService();
-    this.searchProps();
+    this.searchProps('');
     setTimeout(() => {
       this.highlightSearchMatches();
     });
@@ -43,24 +42,19 @@ export class ComponentPropertiesTableComponent implements OnInit {
     });
   }
 
-  searchProps(): void {
+  searchProps(searchTerm: string): void {
     if (!this.searchService.isInitialized) {
       return;
     }
-    if (this.searchTerm !== '') {
-      this.filteredComponentProps = this.searchService.search(this.searchTerm);
+    if (searchTerm !== '') {
+      this.filteredComponentProps = this.searchService.search(searchTerm);
     } else {
-      this.searchService.search(this.searchTerm);
+      this.searchService.search(searchTerm);
       this.filteredComponentProps = this.componentProps;
     }
     setTimeout(() => {
       this.highlightSearchMatches();
     });
-  }
-
-  clearSearchField(): void {
-    this.searchTerm = '';
-    this.searchProps();
   }
 
   private highlightSearchMatches(): void {
