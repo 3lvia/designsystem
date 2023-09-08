@@ -1,11 +1,11 @@
 <table
-  class="e-table e-table--no-stripes e-table--sticky-column-header e-table--sticky-header e-table--small"
+  class="e-table e-table--no-stripes e-table--sticky-header e-table--small"
   *ngIf="props.length > 0"
   aria-label="Property details and descriptions"
 >
   <thead>
     <tr>
-      <th scope="col">Prop</th>
+      <th scope="col"></th>
       <th scope="col">Type</th>
       <th scope="col">Description</th>
       <th scope="col">Default</th>
@@ -44,9 +44,10 @@
       </tr>
       <ng-container *ngIf="group.expanded">
         <tr *ngFor="let prop of group.rows">
-          <th scope="row" class="table-code-text">
-            <span [id]="'property-row-' + prop.attribute + '-attribute'">{{ prop.attribute }}</span>
-            <span *ngIf="prop.isRequired">*</span>
+          <th scope="row" class="table-code-text bold">
+            <span [id]="'property-row-' + prop.attribute + '-attribute'">
+              {{ prop.attribute }}{{ prop.isRequired ? '*' : '' }}
+            </span>
           </th>
           <td
             class="table-code-text e-table__cell--multiline-small"

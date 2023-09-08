@@ -1,6 +1,10 @@
 th.table-code-text,
 td.table-code-text {
   font-family: 'Red Hat Mono', Verdana, sans-serif;
+
+  &.bold {
+    font-weight: 500;
+  }
 }
 
 .group-title {
