@@ -8,18 +8,17 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchStatus, SearchItem } from './search-menu.interface';
-import { SearchService } from 'src/app/core/services/search.service';
 import Fuse from 'fuse.js';
-import { ThemeName, getThemeColor } from '@elvia/elvis-colors';
+import { ThemeName } from '@elvia/elvis-colors';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeService } from 'src/app/core/services/theme.service';
+import { Searcher } from 'src/app/shared/searcher';
 
 @Component({
   selector: 'app-search-menu',
   templateUrl: './search-menu.component.html',
   styleUrls: ['./search-menu.component.scss'],
-  providers: [SearchService],
 })
 export class SearchMenuComponent implements OnInit {
   mainMenu: CMSMenu;
@@ -38,11 +37,11 @@ export class SearchMenuComponent implements OnInit {
   onDestroy$ = this.onDestroy.asObservable();
 
   private locale: Locale;
+  private searcher: Searcher<SearchItem>;
 
   constructor(
     private cmsService: CMSService,
     private localizationService: LocalizationService,
-    private searchService: SearchService<SearchItem>,
     private router: Router,
     themeService: ThemeService,
   ) {
@@ -90,7 +89,7 @@ export class SearchMenuComponent implements OnInit {
 
     this.initializeSearchItems()
       .then(() => {
-        this.searchService.initializeSearch(this.searchItems, {
+        this.searcher = new Searcher(this.searchItems, {
           includeScore: true,
           includeMatches: true,
           threshold: 0.35,
@@ -112,12 +111,12 @@ export class SearchMenuComponent implements OnInit {
    * Gets called every time the content of the search field is changed. If the search is not yet initialized, return without performing any search.
    */
   onSearch(): void {
-    if (!this.searchService.isInitialized) {
+    if (!this.searcher?.isInitialized) {
       return;
     }
 
-    this.activeResults = this.searchService.search(this.searchString);
-    this.resultsToDisplay = this.searchService.searchResults
+    this.activeResults = this.searcher.search(this.searchString);
+    this.resultsToDisplay = this.searcher.searchResults
       .filter((result) => !result.matches?.every((match) => match.key === 'searchTerms'))
       .sort((a, b) => {
         const resultTypeA = a.item.type === 'utility class';
@@ -258,7 +257,7 @@ export class SearchMenuComponent implements OnInit {
   }
 
   private highlightSearchMatches(): void {
-    this.searchService.searchResults.forEach((resultItem) => {
+    this.searcher.searchResults.forEach((resultItem) => {
       resultItem.matches?.forEach((match) => {
         if (match.key === 'title') {
           const titleElement = document.getElementById('search_' + resultItem.item.title);
@@ -303,7 +302,9 @@ export class SearchMenuComponent implements OnInit {
     let newTitleString = title.substring(0, match.indices[0][0]);
     // match.indices holds two values: the start and end indices of the match.
     match.indices.forEach((matchIndices, index, items) => {
-      newTitleString += this.addHighlightBackground(title.substring(matchIndices[0], matchIndices[1] + 1));
+      newTitleString += this.searcher.addHighlightBackground(
+        title.substring(matchIndices[0], matchIndices[1] + 1),
+      );
 
       if (index !== match.indices.length - 1) {
         newTitleString += title.substring(matchIndices[1] + 1, items[index + 1][0]);
@@ -321,7 +322,7 @@ export class SearchMenuComponent implements OnInit {
     match.indices.forEach((matchIndices, index, items) => {
       // Only highlight in description if more than one character
       if (matchIndices[1] - matchIndices[0] > 0) {
-        newDescriptionString += this.addHighlightBackground(
+        newDescriptionString += this.searcher.addHighlightBackground(
           description.substring(matchIndices[0], matchIndices[1] + 1),
         );
       } else {
@@ -345,7 +346,7 @@ export class SearchMenuComponent implements OnInit {
       const startIndex = Math.max(match.indices[0][0] - descriptionPadding, 0);
       const endIndex = Math.max(
         match.indices[match.indices.length - 1][1] +
-          match.indices.length * this.addHighlightBackground('').length +
+          match.indices.length * this.searcher.addHighlightBackground('').length +
           descriptionPadding,
         startIndex + 165,
       );
@@ -354,12 +355,6 @@ export class SearchMenuComponent implements OnInit {
       newDescriptionString = prefix + newDescriptionString.substring(startIndex, endIndex) + postfix;
     }
     return newDescriptionString;
-  }
-
-  private addHighlightBackground(str: string) {
-    return `<span style='color: var(--e-color-background-selected-1--contrast); background: ${getThemeColor(
-      'background-selected-1',
-    )}'>${str}</span>`;
   }
 
   /** Filters activeResults and assigns the resulting array to synonymComponents.
