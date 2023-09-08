@@ -16,3 +16,9 @@ td.table-code-text {
   background-color: var(--e-color-background-element-2);
   padding-block: 12px;
 }
+
+.e-table tr:has(.group-title) {
+  position: sticky;
+  top: 40px;
+  z-index: 2;
+}
