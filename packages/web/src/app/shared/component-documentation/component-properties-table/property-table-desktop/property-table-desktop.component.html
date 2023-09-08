@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <ng-container *ngFor="let group of groupedProps">
-      <tr>
+      <tr *ngIf="group.rows.length > 0">
         <th colspan="4" scope="rowgroup">
           <div class="group-title">
             <h2 class="e-title-xs">{{ group.title }}</h2>

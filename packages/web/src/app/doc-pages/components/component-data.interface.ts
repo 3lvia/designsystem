@@ -24,6 +24,7 @@ type ChildlessType = PrimitiveType | EventType;
  * Represents props that are "primitive", which means that they have no child props.
  */
 export interface PrimitiveProp extends PropBase {
+  isEvent?: boolean;
   type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | (string & {});
   description: string;
   default?: string | number | boolean;

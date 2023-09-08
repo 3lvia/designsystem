@@ -28,14 +28,10 @@ export class PropertyTableBaseDirective implements OnChanges {
   }
 
   getEventProps(props: ComponentProp[]): EventProp[] {
-    return props.filter((prop) => this.propIsEvent(prop));
+    return props.filter((prop) => prop.isEvent);
   }
 
   getInputProps(props: ComponentProp[]): InputProp[] {
-    return props.filter((prop) => !this.propIsEvent(prop));
-  }
-
-  private propIsEvent(prop: ComponentProp): prop is InputProp {
-    return prop.type.includes('=>');
+    return props.filter((prop) => !prop.isEvent);
   }
 }
