@@ -10,7 +10,10 @@
             "Table header theme background color fix",
             "Removed <code>e-form-field--small</code> class from deprecated list. Should not have been deprecated."
           ],
-          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+          "components": [
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
+          ]
         }
       ]
     },
