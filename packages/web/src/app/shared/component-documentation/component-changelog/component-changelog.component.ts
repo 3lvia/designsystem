@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { getThemeColor } from '@elvia/elvis-colors';
 import Fuse from 'fuse.js';
-import { SearchService } from 'src/app/core/services/search.service';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 import { ChangelogIdPipe } from './component-changelog-id-pipe';
 import { ChangelogTypePipe } from './component-changelog-pipe';
@@ -9,12 +7,12 @@ import { createElvisFilteredChangelog } from './createElvisFilteredChangelog';
 import { Changelog, ChangelogEntry, ChangelogRadioFilter } from './changelogTypes';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Searcher } from '../../searcher';
 
 @Component({
   selector: 'app-component-changelog',
   templateUrl: './component-changelog.component.html',
   styleUrls: ['./component-changelog.component.scss'],
-  providers: [SearchService],
 })
 export class ComponentChangelogComponent implements OnInit {
   @Input() changelog?: Changelog;
@@ -50,10 +48,9 @@ export class ComponentChangelogComponent implements OnInit {
   changelogIdPipe = new ChangelogIdPipe();
   changelogTypePipe = new ChangelogTypePipe();
 
-  constructor(
-    private searchService: SearchService<ChangelogEntry>,
-    private breakpointService: BreakpointService,
-  ) {
+  private searcher: Searcher<ChangelogEntry>;
+
+  constructor(private breakpointService: BreakpointService) {
     // Reset search value and filter when the screen is resized to mobile
     this.breakpointService
       .matches(['sm'])
@@ -70,18 +67,18 @@ export class ComponentChangelogComponent implements OnInit {
       this.changelog = createElvisFilteredChangelog(this.elvisComponentToFilter);
     }
     this.filteredChangelog = this.changelog;
-    this.initializeSearchService();
+    this.initializeSearch();
   }
 
   searchChangelog() {
     const minSearchValueLength = 1;
     this.accordionIsOpen = true;
-    if (!this.searchService.isInitialized) {
+    if (!this.searcher?.isInitialized) {
       return;
     }
     this.filteredChangelog =
       this.searchValue.length > minSearchValueLength
-        ? this.searchService.search(this.searchValue.trim())
+        ? this.searcher.search(this.searchValue.trim())
         : this.changelog;
     if (this.radioFilterValue !== 'all') {
       this.filteredChangelog = this.filteredChangelog?.filter((change) => {
@@ -109,7 +106,7 @@ export class ComponentChangelogComponent implements OnInit {
 
   private highlightSearchMatches(): void {
     this.resetHighlighting();
-    this.searchService.searchResults?.forEach((resultItem) => {
+    this.searcher?.searchResults?.forEach((resultItem) => {
       resultItem.matches?.forEach((match) => {
         switch (match.key) {
           case 'changelog.changes': {
@@ -186,7 +183,7 @@ export class ComponentChangelogComponent implements OnInit {
         matchEnd - matchStart >= lengthOfLongestMatch / 2 &&
         !this.isSubstringPartOfHtmlTag(value, matchStart)
       ) {
-        highlightedValue += this.addHighlightBackground(value.substring(matchStart, matchEnd + 1));
+        highlightedValue += this.searcher.addHighlightBackground(value.substring(matchStart, matchEnd + 1));
       } else {
         highlightedValue += value.substring(matchStart, matchEnd + 1);
       }
@@ -242,10 +239,6 @@ export class ComponentChangelogComponent implements OnInit {
     });
   }
 
-  private addHighlightBackground(str: string): string {
-    return `<span style='background: ${getThemeColor('background-selected-1')}'>${str}</span>`;
-  }
-
   /**
    * Check if the substring is part of an HTML tag by counting the number of opening and closing tags before the substring.
    * If the number of opening and closing tags are not equal, the substring is part of an HTML tag.
@@ -259,11 +252,11 @@ export class ComponentChangelogComponent implements OnInit {
     return numberOfOpeningTagsBeforeMatch !== numberOfClosingTagsBeforeMatch;
   }
 
-  private initializeSearchService(): void {
+  private initializeSearch(): void {
     if (!this.changelog) {
       return;
     }
-    this.searchService.initializeSearch(this.changelog, {
+    this.searcher = new Searcher(this.changelog, {
       threshold: 0.2,
       includeMatches: true,
       shouldSort: false,
@@ -275,7 +268,7 @@ export class ComponentChangelogComponent implements OnInit {
         {
           name: 'changelog.type',
           weight: 1,
-          getFn: (obj: ComponentChangelog) =>
+          getFn: (obj) =>
             // Map the changelog type to the display name so that it can be searched
             obj.changelog?.map((change) => this.changelogTypePipe.transform(change.type)),
         },

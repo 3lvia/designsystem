@@ -126,10 +126,12 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     start: {
       ...defaultErrorOptions.start,
       ...errorOptions?.start,
+      text: currentErrorMessages.start,
     },
     end: {
       ...defaultErrorOptions.end,
       ...errorOptions?.end,
+      text: currentErrorMessages.end,
     },
   };
 
@@ -367,11 +369,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             onClose={openNextPicker}
             isOpen={openPicker === 'startTime'}
             errorOptions={{
-              hideText: false,
+              hideText: true,
               isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
               text: '',
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.start?.hasErrorPlaceholder || !!mergedErrorOptions?.start?.text,
+            }}
+            errorOnChange={(error: string) => {
+              setCurrentErrorMessages((current) => ({ ...current, start: error }));
             }}
           />
         )}
@@ -421,11 +426,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             onClose={openNextPicker}
             isOpen={openPicker === 'endTime'}
             errorOptions={{
-              hideText: false,
+              hideText: true,
               isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
               text: '',
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.end?.hasErrorPlaceholder || !!mergedErrorOptions?.end?.text,
+            }}
+            errorOnChange={(error: string) => {
+              setCurrentErrorMessages((current) => ({ ...current, end: error }));
             }}
           />
         )}

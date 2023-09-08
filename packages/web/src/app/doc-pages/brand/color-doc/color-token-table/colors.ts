@@ -197,7 +197,10 @@ export const backgroundColorsElement = [
     role: 'Element background color option 4',
     light: { hex: getColor('background-element-4', 'light'), label: 'White' },
     dark: { hex: getColor('background-element-4', 'dark'), label: 'Dark-grey-70' },
-    links: [{ title: 'Box', path: '/components/box' }],
+    links: [
+      { title: 'Box', path: '/components/box' },
+      { title: 'Modal', path: '/components/modal' },
+    ],
   },
   {
     token: 'background-element-5',
@@ -229,7 +232,6 @@ export const backgroundColorsOverlay = [
     dark: { hex: getColor('background-overlay-1', 'dark'), label: 'Dark-grey-60' },
     links: [
       { title: 'Popover', path: '/components/popover' },
-      { title: 'Modal', path: '/components/modal' },
       { title: 'Toast', path: '/components/toast' },
     ],
   },

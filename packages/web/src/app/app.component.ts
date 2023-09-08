@@ -1,5 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { DocumentEventListenerService } from './core/services/document-event-listener.service';
+import { Component, OnInit } from '@angular/core';
 import { RouterService } from './core/services/router.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
@@ -14,17 +13,9 @@ export class AppComponent implements OnInit {
   currentRoute: PageLayout = 'standalonePage';
   isLandingPage = false;
 
-  constructor(
-    private documentEventListenerService: DocumentEventListenerService,
-    private routerService: RouterService,
-  ) {
+  constructor(private routerService: RouterService) {
     this.setCurrentRouteFromUrl(location.pathname);
     this.listenForCurrentPageLayout();
-  }
-
-  @HostListener('document:keypress', ['$event'])
-  navigateOnKeyboardEvents(event: KeyboardEvent): void {
-    this.documentEventListenerService.handleKeyboardEvent(event);
   }
 
   ngOnInit(): void {

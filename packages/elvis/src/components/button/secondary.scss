@@ -1,4 +1,4 @@
-@use '../../utilities/helpers.scss';
+@use './button-helpers.scss' as buttonHelper;
 @use '../../utilities/icons.scss';
 
 .e-btn.e-btn--secondary {
@@ -6,42 +6,31 @@
   background: var(--e-color-background-element-1);
   color: var(--e-color-text-1);
 
+  // Icons
   .e-btn__icon i {
     @include icons.icon-currentcolor(var(--e-color-text-1--contrast));
   }
 
   // States
-  @include helpers.hover() {
-    &.e-btn---hover,
-    &.e-btn---selected,
-    &.e-btn---active,
-    &:active:not(:disabled):not(.e-btn--loading),
-    &:hover:not(:disabled):not(.e-btn--loading) {
-      border-color: var(--e-color-border-hover-1);
-      background: var(--e-color-background-hover-1);
-      color: var(--e-color-background-hover-1--contrast);
+  @include buttonHelper.hover() {
+    border-color: var(--e-color-border-hover-1);
+    background: var(--e-color-background-hover-1);
+    color: var(--e-color-background-hover-1--contrast);
 
-      .e-btn__icon i {
-        @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
-      }
+    .e-btn__icon i {
+      @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
     }
   }
 
-  &.e-btn---disabled,
-  &:disabled {
+  @include buttonHelper.disabled() {
     border-color: var(--e-color-border-disabled-1);
     background: transparent;
     color: var(--e-color-text-disabled-1);
   }
 
-  &.e-btn---active,
-  &:active:not(:disabled):not(.e-btn--loading) {
+  @include buttonHelper.active() {
     border-color: transparent;
     background-clip: padding-box;
-
-    .e-btn__icon i {
-      visibility: visible;
-    }
   }
 
   &.e-btn--loading span {

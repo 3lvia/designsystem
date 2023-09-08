@@ -2,7 +2,7 @@
   "content": [
     {
       "version": "13.0.0",
-      "date": "August 31, 2023",
+      "date": "September 8, 2023",
       "changelog": [
         {
           "type": "breaking_changes",
@@ -11,6 +11,30 @@
           "fixes": [
             "The small text-field will be taller. You may therefore want to check that the page layout is not severely affected by this."
           ]
+        }
+      ]
+    },
+    {
+      "version": "12.11.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Read only textarea support"],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
+      "version": "12.10.1",
+      "date": "September 7, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Increased the underline thickness of the tertiary button from 2px to 3px.",
+            "Fixed a bug where the tertiary button had the wrong height. It is now 32px or 24px depending on button size."
+          ],
+          "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
         }
       ]
     },
