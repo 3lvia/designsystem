@@ -1,6 +1,20 @@
 {
   "content": [
     {
+      "version": "12.10.1",
+      "date": "September 7, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Increased the underline thickness of the tertiary button from 2px to 3px.",
+            "Fixed a bug where the tertiary button had the wrong height. It is now 32px or 24px depending on button size."
+          ],
+          "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
+        }
+      ]
+    },
+    {
       "version": "12.10.0",
       "date": "August 30, 2023",
       "changelog": [

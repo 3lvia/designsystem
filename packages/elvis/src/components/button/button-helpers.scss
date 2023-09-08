@@ -1,0 +1,64 @@
+@use '../../utilities/helpers.scss';
+@use '../../utilities/outline.scss';
+
+@mixin only-primary-button {
+  &:not(.e-btn--secondary):not(.e-btn--tertiary):not(.e-btn--danger):not(.e-btn--icon) {
+    @content;
+  }
+}
+
+@mixin hover() {
+  @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    &.e-btn---hover,
+    &.e-btn---selected,
+    &.e-btn---active,
+    &:active:not(:disabled):not(.e-btn--loading),
+    &:hover:not(:disabled):not(.e-btn--loading) {
+      @content;
+    }
+  }
+}
+
+@mixin disabled() {
+  &.e-btn---disabled,
+  &:disabled {
+    @content;
+  }
+}
+
+@mixin active() {
+  &.e-btn---active,
+  &:active:not(:disabled):not(.e-btn--loading) {
+    @content;
+  }
+}
+
+@mixin focus($component) {
+  &:focus:not(:disabled) {
+    @include outline.e-outline();
+  }
+
+  &.e-#{$component}---focus {
+    @include outline.e-outline-pseudoclass();
+  }
+
+  // Removing default focus on firefox
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+@mixin loading-animation() {
+  animation: loading-animation 1s infinite ease-in-out both;
+  @include helpers.keyframes(loading-animation) {
+    0%,
+    80%,
+    100% {
+      @include helpers.transform(scale(0));
+    }
+
+    40% {
+      @include helpers.transform(scale(1));
+    }
+  }
+}

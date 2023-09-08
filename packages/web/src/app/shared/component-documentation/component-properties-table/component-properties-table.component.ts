@@ -1,26 +1,24 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { getThemeColor } from '@elvia/elvis-colors';
 import Fuse from 'fuse.js';
-import { SearchService } from 'src/app/core/services/search.service';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import { ComponentProp } from './types';
+import { Searcher } from '../../searcher';
 
 @Component({
   selector: 'app-component-properties-table',
   templateUrl: './component-properties-table.component.html',
   styleUrls: ['./component-properties-table.component.scss'],
-  providers: [SearchService],
 })
 export class ComponentPropertiesTableComponent implements OnInit {
   @Input() componentData: ComponentData;
   componentProps: ComponentProp[] = [];
   filteredComponentProps: ComponentProp[] = [];
 
-  constructor(private searchService: SearchService<ComponentProp>) {}
+  private searcher: Searcher<ComponentProp>;
 
   ngOnInit(): void {
     this.createPropArray();
-    this.initializeSearchService();
+    this.initializeSearch();
     this.searchProps('');
     setTimeout(() => {
       this.highlightSearchMatches();
@@ -40,13 +38,13 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   searchProps(searchTerm: string): void {
-    if (!this.searchService.isInitialized) {
+    if (!this.searcher.isInitialized) {
       return;
     }
     if (searchTerm !== '') {
-      this.filteredComponentProps = this.searchService.search(searchTerm);
+      this.filteredComponentProps = this.searcher.search(searchTerm);
     } else {
-      this.searchService.search(searchTerm);
+      this.searcher.search(searchTerm);
       this.filteredComponentProps = this.componentProps;
     }
     setTimeout(() => {
@@ -56,7 +54,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
 
   private highlightSearchMatches(): void {
     this.resetHighlightedHTML();
-    this.searchService.searchResults.forEach((resultItem) => {
+    this.searcher.searchResults.forEach((resultItem) => {
       resultItem.matches?.forEach((match) => {
         try {
           const element = document.getElementById(`property-row-${resultItem.item.attribute}-${match.key}`);
@@ -102,7 +100,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
         const [matchStart, matchEnd] = matchIndices;
         // Only highlight in description if more than one character
         if (matchEnd - matchStart > 0) {
-          highlightedValue += this.addHighlightBackground(
+          highlightedValue += this.searcher.addHighlightBackground(
             this.encodeHTML(value.substring(matchStart, matchEnd + 1)),
           );
         } else {
@@ -119,10 +117,6 @@ export class ComponentPropertiesTableComponent implements OnInit {
       value.substring(match.indices[match.indices.length - 1][1] + 1, value.length),
     );
     return highlightedValue;
-  }
-
-  private addHighlightBackground(str: string): string {
-    return `<span style='background: ${getThemeColor('background-selected-1')}'>${str}</span>`;
   }
 
   private resetHighlightedHTML(): void {
@@ -147,8 +141,8 @@ export class ComponentPropertiesTableComponent implements OnInit {
     return txt.replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
-  private initializeSearchService(): void {
-    this.searchService.initializeSearch(this.componentProps, {
+  private initializeSearch(): void {
+    this.searcher = new Searcher(this.componentProps, {
       threshold: 0.4,
       includeMatches: true,
       keys: [
