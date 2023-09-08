@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "12.10.2",
+      "date": "September 8, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Table header theme background color fix"],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        }
+      ]
+    },
+    {
       "version": "12.10.1",
       "date": "September 7, 2023",
       "changelog": [
