@@ -55,7 +55,7 @@ export class Searcher<T> {
   /**
    * Adds the correct background and text color for a highlighted search result.
    * @param str
-   * @returns
+   * @returns - The HTML string with the added background and text color.
    */
   addHighlightBackground(str: string): string {
     return `<span class="e-color-background-selected-1">${str}</span>`;
