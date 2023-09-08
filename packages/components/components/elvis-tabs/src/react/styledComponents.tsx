@@ -73,18 +73,6 @@ export const ScrollContainer = styled.div<ScrollContainerProps>`
   }
 `;
 
-const decideLabelTextShadow = (isSelected: boolean, isInverted: boolean): string => {
-  if (isSelected) {
-    return (
-      '0 0 0 ' +
-      getThemeColor('text-1', { isInverted }) +
-      ', 0 0 0.5px ' +
-      getThemeColor('text-1', { isInverted })
-    );
-  }
-  return 'none';
-};
-
 interface TabLabelProps {
   isSelected: boolean;
   isInverted: boolean;
@@ -96,7 +84,7 @@ export const Tab = styled.button<TabLabelProps>`
     line-height: 20px;
     font-weight: normal;
     color: ${getThemeColor('text-1', { isInverted })};
-    text-shadow: ${decideLabelTextShadow(isSelected, isInverted)};
+    -webkit-text-stroke-width: ${isSelected ? '1px' : 0};
 
     display: flex;
     align-items: flex-start;
