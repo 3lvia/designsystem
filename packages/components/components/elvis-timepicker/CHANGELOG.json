@@ -3,16 +3,6 @@
   "content": [
     {
       "date": "08.09.23",
-      "version": "3.2.3",
-      "changelog": [
-        {
-          "type": "patch",
-          "changes": ["Updated internal dependencies."]
-        }
-      ]
-    },
-    {
-      "date": "31.08.23",
       "version": "4.0.0",
       "changelog": [
         {
@@ -21,6 +11,16 @@
           "fixes": [
             "The small timepicker will be taller. You may therefore want to check that the page layout is not severely affected by this."
           ]
+        }
+      ]
+    },
+    {
+      "date": "08.09.23",
+      "version": "3.2.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },
