@@ -97,7 +97,7 @@
       </div>
       <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()"></app-theme-switch>
     </elvia-popover>
-    <elvia-divider orientation="vertical" [inlineStyle]="{ maxHeight: '20px' }" *ngIf="devMode" />
+    <elvia-divider orientation="vertical" [inlineStyle]="{ maxHeight: '20px' }" />
 
     <div class="tabs-links elvis-search e-mr-24" (click)="openSearchMenu()" id="search-button">
       <span class="elvis-search__icon e-mr-8">
@@ -113,7 +113,7 @@
       </span>
     </div>
     <button class="menu-button" (click)="openMobileMenu()">
-      <img src="assets/icons/hamburger-menu.svg" alt="Mobile Menu Icon" />
+      <i class="e-icon e-icon--menu-bold e-icon--sm"></i>
     </button>
   </div>
 </header>
