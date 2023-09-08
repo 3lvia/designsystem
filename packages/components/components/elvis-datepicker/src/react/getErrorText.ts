@@ -15,10 +15,10 @@ export const getErrorText = (
       return 'Velg dato';
     }
     case 'beforeMinDate': {
-      return `Kan ikke være før ${getFormattedDate(minDate, withTime)}`;
+      return `Tidligste dato er ${getFormattedDate(minDate, withTime)}`;
     }
     case 'afterMaxDate': {
-      return `Kan ikke være etter ${getFormattedDate(maxDate, withTime)}`;
+      return `Seneste dato er ${getFormattedDate(maxDate, withTime)}`;
     }
     default: {
       return '';
