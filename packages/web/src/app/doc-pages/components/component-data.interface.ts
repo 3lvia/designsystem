@@ -1,8 +1,11 @@
-import { AccordionProps } from '@elvia/elvis-accordion/react';
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
-export interface PropBase {
+type PrimitiveType = string | string[] | number | number[] | boolean | JSX.Element | Date | null;
+type EventType = (...args: any) => any;
+type ChildlessType = PrimitiveType | EventType;
+
+interface PropBase {
   // Indicates whether a prop is required for the component.
   isRequired?: boolean;
 
@@ -16,10 +19,6 @@ export interface PropBase {
    */
   type: string;
 }
-
-export type PrimitiveType = string | number | boolean | number[] | string[] | JSX.Element | Date;
-export type EventType = (...args: any) => any;
-export type ChildlessType = PrimitiveType | EventType;
 
 /**
  * Represents props that are "primitive", which means that they have no child props.
@@ -56,7 +55,7 @@ export interface ComponentChangelog {
 /**
  * Each segment in the changelog for a specific update.
  */
-export interface ComponentChangelogChange {
+interface ComponentChangelogChange {
   type: 'breaking_changes' | 'new_feature' | 'bug_fix' | 'patch' | (string & {});
   changes: string[];
   fixes?: string[];
@@ -64,14 +63,13 @@ export interface ComponentChangelogChange {
   components?: { displayName: string; url: string }[];
 }
 
-type ReactPropsWithoutElvisBaseProps = Omit<ComponentPropsWithoutRef<'div'>, keyof BaseProps>;
 type FilteredComponentProps<TComponentProps> = Omit<
   TComponentProps,
-  keyof ReactPropsWithoutElvisBaseProps | 'webcomponent'
+  keyof ComponentPropsWithoutRef<'div'> | keyof BaseProps
 >;
 
-export type ComponentProps<TComponentProps> = {
-  [PropName in keyof FilteredComponentProps<Required<TComponentProps>>]: NonNullable<
+type ComponentProps<TComponentProps> = {
+  [PropName in keyof FilteredComponentProps<TComponentProps>]: NonNullable<
     TComponentProps[PropName]
   > extends ChildlessType
     ? ChildlessProp
@@ -81,9 +79,7 @@ export type ComponentProps<TComponentProps> = {
 /**
  * Interface for component data for documentation pages.
  */
-export default interface ComponentData<
-  TComponentProps extends ComponentPropsWithoutRef<any> = Record<string, any>,
-> {
+export default interface ComponentData<TComponentProps = Record<string, any>> {
   /**
    * Component name.
    * @example 'SegmentedControl'
@@ -92,7 +88,7 @@ export default interface ComponentData<
   /**
    * All the component's attributes should be in this object.
    */
-  attributes: ComponentProps<TComponentProps>;
+  attributes: ComponentProps<Required<TComponentProps>>;
 
   /**
    * Changes for component
