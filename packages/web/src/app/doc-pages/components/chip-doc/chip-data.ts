@@ -1,6 +1,5 @@
 import changelogJson from '@elvia/elvis-chip/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
-import { ChipProps } from '@elvia/elvis-chip/react';
 
 export const chipData: ComponentData = {
   changelog: changelogJson.content,

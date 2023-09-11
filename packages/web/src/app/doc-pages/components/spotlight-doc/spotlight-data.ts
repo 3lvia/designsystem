@@ -1,6 +1,5 @@
 import changelogJson from '@elvia/elvis-spotlight/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
-import { SpotlightProps } from '@elvia/elvis-spotlight/react';
 
 const spotlightData: ComponentData = {
   changelog: changelogJson.content,
