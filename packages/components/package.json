@@ -21,7 +21,6 @@
     "jsdom-global": "^3.0.2",
     "sass": "^1.33.0",
     "sass-loader": "^13.1.0",
-    "stylis": "^4.0.0",
     "webpack": "^5.76.0"
   },
   "devDependencies": {
