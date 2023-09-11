@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.09.23",
+      "version": "3.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using styled-components version 6 internally."]
+        }
+      ]
+    },
+    {
       "date": "24.08.23",
       "version": "3.1.0",
       "changelog": [

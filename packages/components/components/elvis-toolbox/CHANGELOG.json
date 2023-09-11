@@ -7,7 +7,9 @@
       "changelog": [
         {
           "type": "breaking_changes",
-          "changes": ["Updated all styled components props to use transient props ($ prefix)."]
+          "changes": [
+            "Now using styled-components version 6 internally. Updated all styled components props to use transient props ($ prefix)."
+          ]
         }
       ]
     },
