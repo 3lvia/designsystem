@@ -1,7 +1,8 @@
 import changelogJson from '@elvia/elvis-box/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { BoxProps } from '@elvia/elvis-box/react';
 
-const boxData: ComponentData = {
+const boxData: ComponentData<Omit<BoxProps, 'title' | 'hasBorder'>> = {
   changelog: changelogJson.content,
   name: 'Box',
   attributes: {
@@ -11,27 +12,14 @@ const boxData: ComponentData = {
       description: 'Text, images, tables or any other content (slot in webcomponent).',
     },
     heading: {
-      isRequired: false,
       type: `string | HTMLElement | JSX.Element`,
       description: `Heading for the box (slot in webcomponent).`,
     },
     isColored: {
-      isRequired: false,
       type: 'boolean',
       description:
         'Green line on top of box. Use the green line to draw attention, but avoid using multiple boxes with green lines on the same page.',
       default: 'false',
-    },
-    className: {
-      isRequired: false,
-      type: 'string',
-      description: 'Custom CSS classes that can be added to the box.',
-    },
-    inlineStyle: {
-      isRequired: false,
-      type: '{[cssProperty: string]: string}',
-      description:
-        "Custom CSS style object that can be added to the box. Example: {marginTop: '8px', width: '100%'}",
     },
   },
 };

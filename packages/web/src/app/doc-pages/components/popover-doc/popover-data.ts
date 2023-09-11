@@ -1,7 +1,22 @@
 import changelogJson from '@elvia/elvis-popover/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { PopoverProps } from '@elvia/elvis-popover/react';
 
-const popoverData: ComponentData = {
+const popoverData: ComponentData<
+  Omit<
+    PopoverProps,
+    | 'header'
+    | 'type'
+    | 'selectable'
+    | 'isSelectable'
+    | 'hasDivider'
+    | 'posX'
+    | 'posY'
+    | 'hasCloseBtn'
+    | 'isShowingOnChange'
+    | 'disableAutoClose'
+  >
+> = {
   changelog: changelogJson.content,
   name: 'Popover',
   attributes: {
@@ -16,55 +31,38 @@ const popoverData: ComponentData = {
       description: 'The element the user clicks to open the popover.',
     },
     heading: {
-      isRequired: false,
       type: 'string',
       description: 'Heading of content.',
     },
     hasCloseButton: {
-      isRequired: false,
       type: 'boolean',
       description: 'Determines if the close button in the upper right corner should be visible.',
       default: 'true',
     },
     isShowing: {
-      isRequired: false,
       type: 'boolean',
       description: 'Determines if the popover is visible.',
       default: 'false',
     },
     onOpen: {
-      isRequired: false,
+      isEvent: true,
       type: '() => void',
       description: 'Callback for every time the popover is being opened.',
     },
     onClose: {
-      isRequired: false,
+      isEvent: true,
       type: '() => void',
       description: 'Callback for every time the popover is being closed.',
     },
     verticalPosition: {
-      isRequired: false,
       type: 'bottom | top',
       description: 'Position vertically.',
       default: 'top',
     },
     horizontalPosition: {
-      isRequired: false,
       type: 'left | center | right',
       description: 'Position horizontally.',
       default: 'center',
-    },
-    className: {
-      isRequired: false,
-      type: 'string',
-      description:
-        'Custom CSS classes that can be added to the popover. Note: This applies to the content, not the trigger.',
-    },
-    inlineStyle: {
-      isRequired: false,
-      type: '{[cssProperty: string]: string}',
-      description:
-        "Custom CSS style object that can be added to the popover. Example: {marginTop: '8px', width: '100%'}. Note: This applies to the content, not the trigger.",
     },
   },
 };
