@@ -18,6 +18,7 @@ interface PropBase {
    * '"left" | "center" | "right"'
    */
   type: string;
+  default?: string | number | boolean;
 }
 
 /**
@@ -27,7 +28,6 @@ export interface ChildlessProp extends PropBase {
   isEvent?: boolean;
   type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | (string & {});
   description: string;
-  default?: string | number | boolean;
 }
 
 /**

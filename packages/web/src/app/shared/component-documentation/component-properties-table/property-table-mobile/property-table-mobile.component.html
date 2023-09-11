@@ -31,7 +31,7 @@
         {{ prop.description }}
       </td>
     </tr>
-    <tr>
+    <tr *ngIf="propHasNoChildren(prop)">
       <th class="e-table-mobile__cell" scope="row">Default</th>
       <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-default-mobile'">
         {{ prop.default ? prop.default : '-' }}
