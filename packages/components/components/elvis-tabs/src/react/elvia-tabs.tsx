@@ -65,8 +65,8 @@ const Tabs: FC<TabsProps> = ({
   return (
     <TabsContainer className={className} style={inlineStyle} data-testid="tabs-container" {...rest}>
       <LeftButton
-        isVisible={['center', 'right'].includes(scrollPosition)}
-        size="md"
+        $isVisible={['center', 'right'].includes(scrollPosition)}
+        $size="md"
         onClick={() => scroll('left')}
         aria-label="Scroll mot venstre"
       >
@@ -76,7 +76,7 @@ const Tabs: FC<TabsProps> = ({
         ref={scrollContainerRef}
         role="tablist"
         aria-label={ariaLabel}
-        scrollPosition={scrollPosition}
+        $scrollPosition={scrollPosition}
       >
         {items &&
           items.map((item, i) => (
@@ -87,16 +87,16 @@ const Tabs: FC<TabsProps> = ({
               aria-selected={selectedIndex === i}
               aria-controls={uniqueId + i}
               onClick={(event) => onTabClick(i, event)}
-              isSelected={selectedIndex == i}
-              isInverted={isInverted ?? false}
+              $isSelected={selectedIndex == i}
+              $isInverted={isInverted ?? false}
             >
               {item}
             </Tab>
           ))}
       </ScrollContainer>
       <RightButton
-        isVisible={['left', 'center'].includes(scrollPosition)}
-        size="md"
+        $isVisible={['left', 'center'].includes(scrollPosition)}
+        $size="md"
         onClick={() => scroll('right')}
         aria-label="Scroll mot høyre"
       >

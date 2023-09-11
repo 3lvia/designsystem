@@ -216,9 +216,9 @@ export const Carousel: FC<CarouselProps> = function ({
       <CarouselElements>
         {typeof carouselItems === 'object' && (
           <CarouselElementContainer
-            slideDirection={slideDirection}
-            enterAnimation={hasAnimation && fadeIn}
-            exitAnimation={hasAnimation && !fadeIn}
+            $slideDirection={slideDirection}
+            $enterAnimation={hasAnimation && fadeIn}
+            $exitAnimation={hasAnimation && !fadeIn}
           >
             {typeof carouselItems[index].heading === 'string' && (
               <CarouselHeading data-testid="carousel-item-heading">
@@ -265,7 +265,7 @@ export const Carousel: FC<CarouselProps> = function ({
             <CarouselDot
               data-testid="carousel-dot"
               key={listIndex}
-              isSelected={listIndex === index}
+              $isSelected={listIndex === index}
               tabIndex={0}
               aria-label={
                 listIndex === index ? `Du er på side ${listIndex + 1}` : `Gå til side ${listIndex + 1}`

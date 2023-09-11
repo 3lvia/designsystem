@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <div className={className} style={{ ...inlineStyle }}>
-      <StyledHeader menuIsOpen={desktopMenuIsOpen}>
+      <StyledHeader $menuIsOpen={desktopMenuIsOpen}>
         <LogoContainer>
           <IconButton aria-label="logo" onClick={() => logoClick()}>
             <svg
@@ -90,11 +90,11 @@ export const Header: React.FC<HeaderProps> = ({
         {isGtMobile && (
           <>
             <AppDrawer appTitle={applicationTitle} onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)} />
-            <Hr direction="vertical" />
+            <Hr $direction="vertical" />
           </>
         )}
 
-        <PageTitle isInvisible={mobileMenuIsOpen} ref={pageTitleRef}>
+        <PageTitle $isInvisible={mobileMenuIsOpen} ref={pageTitleRef}>
           {pageTitle}
         </PageTitle>
 
@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({
 
         {isGtMobile && (
           <>
-            <Hr direction="vertical" />
+            <Hr $direction="vertical" />
             <DesktopMenu
               email={email}
               username={username}
@@ -137,9 +137,9 @@ export const Header: React.FC<HeaderProps> = ({
       )}
       <AppContent
         ref={pageContainerRef}
-        sidenavPadding={hasNavItems}
+        $sidenavPadding={hasNavItems}
         hidden={!hasAppContent}
-        isExpanded={sidenavIsExpanded}
+        $isExpanded={sidenavIsExpanded}
       >
         {appContent}
       </AppContent>

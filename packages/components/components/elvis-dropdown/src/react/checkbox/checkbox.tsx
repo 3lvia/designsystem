@@ -11,7 +11,7 @@ export interface CheckboxProps {
 }
 
 export interface IndeterminateLineProps {
-  size?: FormFieldSizes;
+  $size?: FormFieldSizes;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
@@ -23,13 +23,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 }) => {
   return (
     <StyledCheckbox
-      isIndeterminate={isIndeterminate && !isChecked}
-      isChecked={isChecked}
-      isDisabled={isDisabled}
-      size={size}
-      isFocused={isFocused}
+      $isIndeterminate={isIndeterminate && !isChecked}
+      $isChecked={isChecked}
+      $isDisabled={isDisabled}
+      $size={size}
+      $isFocused={isFocused}
     >
-      <IndeterminateLine size={size} />
+      <IndeterminateLine $size={size} />
     </StyledCheckbox>
   );
 };

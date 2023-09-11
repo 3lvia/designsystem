@@ -60,7 +60,7 @@ export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
         {themes.map((pickerTheme) => (
           <ThemeButton
             key={pickerTheme.theme}
-            isActive={currentTheme === pickerTheme.theme}
+            $isActive={currentTheme === pickerTheme.theme}
             onClick={() => changeTheme(pickerTheme.theme)}
           >
             <ThemeIconOutline>

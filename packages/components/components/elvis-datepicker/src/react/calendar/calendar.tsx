@@ -148,7 +148,7 @@ export const Calendar: React.FC<Props> = ({
           onClick={() => shuffleViewedMonth(-1)}
           aria-label="Forrige måned"
           data-testid="prev-month-btn"
-          size="sm"
+          $size="sm"
         >
           <IconWrapper icon={arrowLongLeftBold} size="xs" />
         </IconButton>
@@ -159,7 +159,7 @@ export const Calendar: React.FC<Props> = ({
           onClick={() => shuffleViewedMonth(1)}
           aria-label="Neste måned"
           data-testid="next-month-btn"
-          size="sm"
+          $size="sm"
         >
           <IconWrapper icon={arrowLongRightBold} size="xs" />
         </IconButton>
@@ -201,8 +201,8 @@ export const Calendar: React.FC<Props> = ({
             <DayButton
               tabIndex={-1}
               aria-label={formatDate(day, { day: 'numeric', month: 'long', year: 'numeric' })}
-              isToday={isSameDay(day, new Date())}
-              isActive={isSameDay(day, selectedDate)}
+              $isToday={isSameDay(day, new Date())}
+              $isActive={isSameDay(day, selectedDate)}
               disabled={dateIsDisabled(day)}
               type="button"
               aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}

@@ -31,7 +31,7 @@ export const RadioFilterItem: FC<RadioFilterItemProps> = ({
   return (
     <RadioFilterLabel
       key={optionsValue}
-      isSelected={optionsValue === selectedValue}
+      $isSelected={optionsValue === selectedValue}
       data-testid="radio-button"
     >
       <RadioFilterInput

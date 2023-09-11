@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components';
 
 export type Size = 'sm' | 'small' | 'md' | 'medium' | 'lg' | 'large';
 export interface ButtonProps {
-  isActive: boolean;
-  size: Size;
+  $isActive: boolean;
+  $size: Size;
 }
 
 const getTypography = (size: Size) => {
@@ -42,7 +42,7 @@ const getTypography = (size: Size) => {
 };
 
 const ButtonBase = styled.button.attrs({ type: 'button' })<Partial<ButtonProps>>`
-  ${({ size }) => getTypography(size ?? 'md')};
+  ${({ $size }) => getTypography($size ?? 'md')};
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -97,13 +97,13 @@ const getButtonPadding = (size?: Size) => {
 };
 
 export const PrimaryButton = styled(ButtonBase)`
-  height: ${({ size }) => getButtonHeight(size ?? 'md')};
+  height: ${({ $size }) => getButtonHeight($size ?? 'md')};
   border: 1px solid
-    ${({ isActive }) => (isActive ? getThemeColor('border-selected-1') : getThemeColor('text-1'))};
-  padding: ${({ size }) => getButtonPadding(size ?? 'md')};
-  background-color: ${({ isActive }) =>
-    isActive ? getThemeColor('background-selected-1') : getThemeColor('text-1')};
-  color: ${({ isActive }) => (isActive ? getThemeColor('text-1') : getThemeColorContrast('text-1'))};
+    ${({ $isActive }) => ($isActive ? getThemeColor('border-selected-1') : getThemeColor('text-1'))};
+  padding: ${({ $size }) => getButtonPadding($size ?? 'md')};
+  background-color: ${({ $isActive }) =>
+    $isActive ? getThemeColor('background-selected-1') : getThemeColor('text-1')};
+  color: ${({ $isActive }) => ($isActive ? getThemeColor('text-1') : getThemeColorContrast('text-1'))};
   transition: transform 100ms;
   border-radius: 99px;
 
@@ -129,7 +129,8 @@ export const PrimaryButton = styled(ButtonBase)`
 `;
 
 export const SecondaryButton = styled(PrimaryButton)`
-  background-color: ${({ isActive }) => (isActive ? getThemeColor('background-selected-1') : 'transparent')};
+  background-color: ${({ $isActive }) =>
+    $isActive ? getThemeColor('background-selected-1') : 'transparent'};
   color: ${getThemeColor('text-1')};
 
   &:disabled {
@@ -144,7 +145,7 @@ export const TertiaryButton = styled(ButtonBase)`
   background: transparent;
   position: relative;
   padding: 0;
-  height: ${({ size }) => (size === 'sm' || size === 'small' ? '1.5rem' : '2rem')};
+  height: ${({ $size }) => ($size === 'sm' || $size === 'small' ? '1.5rem' : '2rem')};
   color: ${getThemeColor('text-1')};
 
   &:after {
@@ -155,8 +156,8 @@ export const TertiaryButton = styled(ButtonBase)`
     left: 0;
     right: 0;
     height: 2px;
-    background-color: ${({ isActive }) =>
-      isActive ? getThemeColor('background-selected-1') : 'transparent'};
+    background-color: ${({ $isActive }) =>
+      $isActive ? getThemeColor('background-selected-1') : 'transparent'};
     transform: scaleY(1);
     transform-origin: center bottom;
     transition: background-color 60ms, transform 100ms;

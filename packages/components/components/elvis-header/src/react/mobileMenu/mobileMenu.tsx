@@ -71,9 +71,9 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
       {userMenuIsOpen &&
         createPortal(
           <>
-            <Backdrop fadeOut={fadeOut} onClick={() => onMobileMenuToggle(false)} />
+            <Backdrop $fadeOut={fadeOut} onClick={() => onMobileMenuToggle(false)} />
             <MenuContainer
-              fadeOut={fadeOut}
+              $fadeOut={fadeOut}
               onAnimationEnd={onAnimationEnd}
               ref={popoverRef}
               role="menu"
@@ -89,7 +89,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
                   {!hideThemeSwitch && <ThemePicker onThemeChange={onThemeChange} />}
                   <MobileMenuFooter>
-                    <TertiaryButton size="sm" onClick={onSignOutClick}>
+                    <TertiaryButton $size="sm" onClick={onSignOutClick}>
                       <IconWrapper icon={logout} size="xs" />
                       Logg ut
                     </TertiaryButton>

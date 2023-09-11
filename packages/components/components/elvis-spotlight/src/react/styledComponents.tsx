@@ -10,18 +10,18 @@ export const SpotlightArea = styled.svg`
 `;
 
 interface SpotlightCircleProps {
-  transitionDuration: string;
+  $transitionDuration: string;
 }
 
 export const SpotlightCircle = styled.circle<SpotlightCircleProps>`
-  transition: all ${({ transitionDuration }) => transitionDuration} ease-in-out;
+  transition: all ${({ $transitionDuration }) => $transitionDuration} ease-in-out;
 `;
 interface SpotlightRectProps {
-  transitionDuration: string;
+  $transitionDuration: string;
 }
 
 export const SpotlightRect = styled.rect<SpotlightRectProps>`
-  transition: all ${({ transitionDuration }) => transitionDuration} ease-in-out;
+  transition: all ${({ $transitionDuration }) => $transitionDuration} ease-in-out;
 `;
 
 export const SpotlightMask = styled.rect`

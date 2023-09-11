@@ -99,11 +99,11 @@ const Card: FC<CardProps> = function ({
 
   return (
     <CardArea
-      type={type}
-      width={width}
-      height={height}
-      minWidth={minWidth}
-      maxWidth={maxWidth}
+      $type={type}
+      $width={width}
+      $height={height}
+      $minWidth={minWidth}
+      $maxWidth={maxWidth}
       onPointerEnter={() => setIsHoveringArea(true)}
       onPointerLeave={() => setIsHoveringArea(false)}
       className={className ?? ''}
@@ -112,10 +112,10 @@ const Card: FC<CardProps> = function ({
     >
       {type === 'simple' && !!borderColor && (
         <CardColoredLineContainer>
-          <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
+          <CardColoredLine $borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
         </CardColoredLineContainer>
       )}
-      <CardContent type={type} data-testid="card-content">
+      <CardContent $type={type} data-testid="card-content">
         {type === 'simple' && (
           <CardIcon onTransitionEnd={() => setIsAnimating(false)} data-testid="card-icon" ref={iconRef}>
             {isShowingHoverIcon && iconHover ? iconHover : icon}
@@ -125,7 +125,12 @@ const Card: FC<CardProps> = function ({
           <Tooltip
             trigger={
               <header>
-                <CardHeading as={headingLevel} ref={headingRef} type={type} maxHeadingLines={maxHeadingLines}>
+                <CardHeading
+                  as={headingLevel}
+                  ref={headingRef}
+                  $type={type}
+                  $maxHeadingLines={maxHeadingLines}
+                >
                   {heading}
                 </CardHeading>
               </header>
@@ -135,7 +140,7 @@ const Card: FC<CardProps> = function ({
           />
         )}
         {!!description && (
-          <CardDescription type={type} maxDescriptionLines={type === 'simple' ? 1 : maxDescriptionLines}>
+          <CardDescription $type={type} $maxDescriptionLines={type === 'simple' ? 1 : maxDescriptionLines}>
             {description}
           </CardDescription>
         )}

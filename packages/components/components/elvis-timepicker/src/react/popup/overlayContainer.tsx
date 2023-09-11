@@ -21,7 +21,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
 
     return (
       <Overlay ref={ref} onClose={onClose}>
-        <Container hasSecondPicker={hasSecondPicker} data-testid="popover">
+        <Container $hasSecondPicker={hasSecondPicker} data-testid="popover">
           <NumberPicker
             title="Time"
             currentValue={currentTime?.getHours()}

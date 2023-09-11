@@ -316,7 +316,7 @@ const Slider: React.FC<SliderProps> = function ({
       {...rest}
     >
       {label && <Label size={size} value={label} />}
-      <SliderWrapper isLeftSliderOnTop={isLeftSliderOnTop} size={size} isDisabled={isDisabled}>
+      <SliderWrapper $isLeftSliderOnTop={isLeftSliderOnTop} $size={size} $isDisabled={isDisabled}>
         <StyledSlider
           type={'range'}
           role={'slider'}
@@ -331,7 +331,7 @@ const Slider: React.FC<SliderProps> = function ({
           aria-valuemax={max}
           aria-valuemin={min}
           disabled={isDisabled}
-          isDisabled={isDisabled}
+          $isDisabled={isDisabled}
           max={max}
           min={min}
           name="left"
@@ -362,7 +362,7 @@ const Slider: React.FC<SliderProps> = function ({
               aria-valuemax={max}
               aria-valuemin={min}
               disabled={isDisabled}
-              isDisabled={isDisabled}
+              $isDisabled={isDisabled}
               max={max}
               min={min}
               name="right"
@@ -384,11 +384,11 @@ const Slider: React.FC<SliderProps> = function ({
           </>
         )}
 
-        <SliderTrack isDisabled={isDisabled} />
+        <SliderTrack $isDisabled={isDisabled} />
         <SliderFilledTrack
-          isDisabled={isDisabled}
-          rangeTrackWidth={getFilledMiddleTrackWidth()}
-          trackWidth={leftThumbPosition}
+          $isDisabled={isDisabled}
+          $rangeTrackWidth={getFilledMiddleTrackWidth()}
+          $trackWidth={leftThumbPosition}
           $type={type}
         />
       </SliderWrapper>
@@ -399,11 +399,11 @@ const Slider: React.FC<SliderProps> = function ({
 
       <InputFieldsContainer
         ref={inputFieldsContainerRectWidthRef}
-        replaceHintValueWithInput={replaceHintValueWithInput}
-        fullWithRangeInputs={isFullWidthRangeInput}
+        $replaceHintValueWithInput={replaceHintValueWithInput}
+        $fullWithRangeInputs={isFullWidthRangeInput}
         $type={type}
-        hasInputField={hasInputField}
-        hasHints={hasHints}
+        $hasInputField={hasInputField}
+        $hasHints={hasHints}
       >
         {hasHints && !(type === 'range' && hasInputField) && (
           <Hint
@@ -419,11 +419,11 @@ const Slider: React.FC<SliderProps> = function ({
 
         {hasInputField && (
           <FormFieldContainer
-            size={size}
-            isDisabled={isDisabled}
-            isInvalid={getIsErrorState({ side: 'left', error: error, errorOptions: mergedErrorOptions })}
-            isFullWidth={hintValueHasBeenReplaced || isFullWidthRangeInput}
-            hasErrorPlaceholder={hasErrorPlaceholder && !(type === 'range' && isFullWidthRangeInput)}
+            $size={size}
+            $isDisabled={isDisabled}
+            $isInvalid={getIsErrorState({ side: 'left', error: error, errorOptions: mergedErrorOptions })}
+            $isFullWidth={hintValueHasBeenReplaced || isFullWidthRangeInput}
+            $hasErrorPlaceholder={hasErrorPlaceholder && !(type === 'range' && isFullWidthRangeInput)}
           >
             <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
             <FormFieldInputContainer
@@ -472,15 +472,15 @@ const Slider: React.FC<SliderProps> = function ({
 
         {hasInputField && type === 'range' && (
           <FormFieldContainer
-            size={size}
-            isDisabled={isDisabled}
-            isInvalid={getIsErrorState({
+            $size={size}
+            $isDisabled={isDisabled}
+            $isInvalid={getIsErrorState({
               side: 'right',
               error: error,
               errorOptions: mergedErrorOptions,
             })}
-            hasErrorPlaceholder={hasErrorPlaceholder}
-            isFullWidth={isFullWidthRangeInput}
+            $hasErrorPlaceholder={hasErrorPlaceholder}
+            $isFullWidth={isFullWidthRangeInput}
           >
             <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
             <FormFieldInputContainer

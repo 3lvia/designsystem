@@ -22,13 +22,13 @@ export interface SegmentedControlProps extends ComponentPropsWithoutRef<'div'>, 
 // Styling
 export interface SegmentedControlContainerProps {
   $type: Type;
-  size: Size;
-  selectedIndex: number;
-  numberOfControls: number;
+  $size: Size;
+  $selectedIndex: number;
+  $numberOfControls: number;
 }
 
 export interface SegmentedControlLabelProps {
   $type: Type;
-  size: string;
-  isSelected: boolean;
+  $size: string;
+  $isSelected: boolean;
 }

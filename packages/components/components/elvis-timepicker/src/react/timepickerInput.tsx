@@ -242,8 +242,8 @@ export const TimepickerInput: React.FC<Props> = ({
     <Input
       ref={inputElement}
       disabled={disabled}
-      isFullWidth={isFullWidth}
-      hasSecondPicker={hasSecondPicker}
+      $isFullWidth={isFullWidth}
+      $hasSecondPicker={hasSecondPicker}
       placeholder={hasSecondPicker ? 'tt:mm:ss' : 'tt:mm'}
       value={inputValue}
       onKeyDown={onKeyDown}

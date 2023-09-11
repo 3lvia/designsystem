@@ -109,7 +109,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
         <ArrowButtonContainer>
           <IconButton
             aria-label={`Forrige ${title}`}
-            size="sm"
+            $size="sm"
             tabIndex={-1}
             onClick={() => shuffleTo('previous')}
             data-testid={`${title}-prev-value-button`}
@@ -120,7 +120,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
         {loopedNumbers.map((number, index) => (
           <NumberButton
             tabIndex={-1}
-            isSelected={number === currentValue}
+            $isSelected={number === currentValue}
             key={index}
             onClick={() => onSelect(number)}
             data-testid={`${title}-number-button`}
@@ -133,7 +133,7 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
         <ArrowButtonContainer>
           <IconButton
             aria-label={`Neste ${title}`}
-            size="sm"
+            $size="sm"
             tabIndex={-1}
             onClick={() => shuffleTo('next')}
             data-testid={`${title}-next-value-button`}

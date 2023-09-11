@@ -24,19 +24,19 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
   return (
     <StepHeader>
       <StepNumber
-        isActive={stepNumber === currentStep}
-        isError={steps?.[stepNumber]?.isError}
-        isCompleted={steps?.[stepNumber]?.isCompleted}
-        isDisabled={!isReachable(isForced, stepNumber, steps)}
+        $isActive={stepNumber === currentStep}
+        $isError={steps?.[stepNumber]?.isError}
+        $isCompleted={steps?.[stepNumber]?.isCompleted}
+        $isDisabled={!isReachable(isForced, stepNumber, steps)}
         onClick={() => handleStepChange(isReachable(isForced, stepNumber, steps) ? stepNumber : currentStep)}
       >
         {stepNumber}
       </StepNumber>
       <StepperTitle
         $type="vertical"
-        isActive={stepNumber === currentStep}
-        typography={typography}
-        isDisabled={!isReachable(isForced, stepNumber, steps)}
+        $isActive={stepNumber === currentStep}
+        $typography={typography}
+        $isDisabled={!isReachable(isForced, stepNumber, steps)}
         onClick={() => handleStepChange(isReachable(isForced, stepNumber, steps) ? stepNumber : currentStep)}
       >
         {steps?.[stepNumber]?.heading ?? ''}

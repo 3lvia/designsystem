@@ -20,5 +20,5 @@ export const StepDivider: FC<StepDividerProps> = function ({ type, isDots, isAct
       </StepLineDashed>
     );
   }
-  return <StepLine $type={type} isActive={isActive} isSelected={isSelected} />;
+  return <StepLine $type={type} $isActive={isActive} $isSelected={isSelected} />;
 };

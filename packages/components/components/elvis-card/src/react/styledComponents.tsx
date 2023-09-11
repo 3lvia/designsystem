@@ -44,17 +44,17 @@ export const CardArea = styled.article<CardAreaProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: ${({ type }) => (type === 'simple' ? 'center' : 'flex-start')};
+  justify-content: ${({ $type }) => ($type === 'simple' ? 'center' : 'flex-start')};
   position: relative;
   background: ${getThemeColor('background-element-1')};
   box-sizing: border-box;
 
   padding: 22px;
-  min-width: ${({ type, minWidth }) => getCardAreaMinWidth(type, minWidth)};
-  max-width: ${({ type, maxWidth }) => getCardAreaMaxWidth(type, maxWidth)};
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  aspect-ratio: ${({ type, height }) => type === 'simple' && height === undefined && '1 / 1'};
+  min-width: ${({ $type, $minWidth }) => getCardAreaMinWidth($type, $minWidth)};
+  max-width: ${({ $type, $maxWidth }) => getCardAreaMaxWidth($type, $maxWidth)};
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+  aspect-ratio: ${({ $type, $height }) => $type === 'simple' && $height === undefined && '1 / 1'};
 
   border-radius: 8px;
   border: 2px solid ${getThemeColor('border-4')};
@@ -68,9 +68,9 @@ export const CardArea = styled.article<CardAreaProps>`
 export const CardContent = styled.div<CardContentProps>`
   display: flex;
   flex-direction: column;
-  justify-content: ${({ type }) => (type === 'simple' ? 'center' : 'flex-start')};
-  align-items: ${({ type }) => (type === 'simple' ? 'center' : 'flex-start')};
-  gap: ${({ type }) => type === 'detail' && '8px'};
+  justify-content: ${({ $type }) => ($type === 'simple' ? 'center' : 'flex-start')};
+  align-items: ${({ $type }) => ($type === 'simple' ? 'center' : 'flex-start')};
+  gap: ${({ $type }) => $type === 'detail' && '8px'};
   width: fit-content;
 `;
 
@@ -84,13 +84,13 @@ const getHeadingLineClamp = (type: CardType, maxLines?: number) => {
 export const CardHeading = styled.h3<CardHeadingProps>`
   width: fit-content;
   margin: 0;
-  ${({ type }) => getTypographyCss(type === 'simple' ? 'text-sm-strong' : 'title-xs')};
-  text-align: ${({ type }) => (type === 'simple' ? 'center' : 'left')};
+  ${({ $type }) => getTypographyCss($type === 'simple' ? 'text-sm-strong' : 'title-xs')};
+  text-align: ${({ $type }) => ($type === 'simple' ? 'center' : 'left')};
   color: ${getThemeColor('text-1')};
   display: flexbox;
   overflow: hidden;
-  -webkit-line-clamp: ${({ type, maxHeadingLines }) => getHeadingLineClamp(type, maxHeadingLines)};
-  line-clamp: ${({ type, maxHeadingLines }) => getHeadingLineClamp(type, maxHeadingLines)};
+  -webkit-line-clamp: ${({ $type, $maxHeadingLines }) => getHeadingLineClamp($type, $maxHeadingLines)};
+  line-clamp: ${({ $type, $maxHeadingLines }) => getHeadingLineClamp($type, $maxHeadingLines)};
   -webkit-box-orient: vertical;
   overflow-wrap: break-word;
 `;
@@ -98,14 +98,14 @@ export const CardHeading = styled.h3<CardHeadingProps>`
 export const CardDescription = styled.p<CardDescriptionProps>`
   padding: 0;
   margin: 0;
-  ${({ type }) => getTypographyCss(type === 'simple' ? 'text-micro' : 'text-sm')};
-  text-align: ${({ type }) => (type === 'simple' ? 'center' : 'left')};
+  ${({ $type }) => getTypographyCss($type === 'simple' ? 'text-micro' : 'text-sm')};
+  text-align: ${({ $type }) => ($type === 'simple' ? 'center' : 'left')};
   color: ${getThemeColor('text-1')};
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  -webkit-line-clamp: ${({ maxDescriptionLines }) => maxDescriptionLines};
-  line-clamp: ${({ maxDescriptionLines }) => maxDescriptionLines};
+  -webkit-line-clamp: ${({ $maxDescriptionLines }) => $maxDescriptionLines};
+  line-clamp: ${({ $maxDescriptionLines }) => $maxDescriptionLines};
 `;
 
 export const CardIcon = styled.div`
@@ -138,7 +138,7 @@ export const CardColoredLine = styled.div<CardColoredLineProps>`
   top: 0;
   left: 0;
   width: 100%;
-  border-top: 4px solid ${({ borderColor }) => (borderColor ? borderColors[borderColor] : 'transparent')};
+  border-top: 4px solid ${({ $borderColor }) => ($borderColor ? borderColors[$borderColor] : 'transparent')};
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   ${CardArea}:hover & {

@@ -9,7 +9,7 @@ interface Props {
 
 export const Label: React.FC<Props> = ({ size = 'medium', value }) => {
   return (
-    <StyledLabel data-testid={'label'} size={size}>
+    <StyledLabel data-testid={'label'} $size={size}>
       {value}
     </StyledLabel>
   );

@@ -3,7 +3,7 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 type PaginatorProps = {
-  isRightAligned: boolean;
+  $isRightAligned: boolean;
 };
 
 export const Paginator = styled.div<PaginatorProps>`
@@ -12,7 +12,7 @@ export const Paginator = styled.div<PaginatorProps>`
   display: flex;
   flex-wrap: wrap-reverse;
   height: auto;
-  justify-content: ${({ isRightAligned }) => (isRightAligned ? 'flex-end' : 'flex-start')};
+  justify-content: ${({ $isRightAligned }) => ($isRightAligned ? 'flex-end' : 'flex-start')};
   max-width: 100%;
   width: 100%;
   row-gap: 8px;
@@ -56,7 +56,7 @@ export const PaginatorSelectorArea = styled.nav`
 `;
 
 type SelectorArrowBtnProps = {
-  visible: boolean;
+  $visible: boolean;
 };
 
 export const PaginatorSelectorArrowBtn = styled.button<SelectorArrowBtnProps>`
@@ -71,7 +71,7 @@ export const PaginatorSelectorArrowBtn = styled.button<SelectorArrowBtnProps>`
   min-height: 36px;
   min-width: 36px;
   padding: 0;
-  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
+  visibility: ${({ $visible }) => ($visible ? 'visible' : 'hidden')};
 
   @media (hover: hover) {
     &:hover {
@@ -93,8 +93,8 @@ export const PaginatorNumbersArea = styled.div`
 `;
 
 type PaginatorPageProps = {
-  pageNumber: number;
-  selected: boolean;
+  $pageNumber: number;
+  $selected: boolean;
 };
 
 export const PaginatorPage = styled.button<PaginatorPageProps>`
@@ -113,23 +113,23 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: ${({ selected }) => (selected ? `1px solid ${getThemeColor('border-selected-2')}` : 'none')};
+  border: ${({ $selected }) => ($selected ? `1px solid ${getThemeColor('border-selected-2')}` : 'none')};
   border-radius: 50%;
   min-width: 36px;
-  ${({ pageNumber }) => pageNumber.toString().length < 4 && 'width: 36px'};
+  ${({ $pageNumber }) => $pageNumber.toString().length < 4 && 'width: 36px'};
   height: 36px;
 
   border-radius: 100px;
   cursor: pointer;
   padding: 0%;
-  ${({ pageNumber }) => pageNumber.toString().length >= 4 && `padding: 8px 16px;`};
-  ${({ pageNumber, selected }) => pageNumber.toString().length >= 4 && selected && `padding: 8px 15px;`};
+  ${({ $pageNumber }) => $pageNumber.toString().length >= 4 && `padding: 8px 16px;`};
+  ${({ $pageNumber, $selected }) => $pageNumber.toString().length >= 4 && $selected && `padding: 8px 15px;`};
 
   @media (hover: hover) {
     &:hover {
       border: 1px solid ${getThemeColor('border-hover-1')};
-      ${({ pageNumber, selected }) =>
-        (pageNumber.toString().length >= 4 || (pageNumber.toString().length >= 4 && selected)) &&
+      ${({ $pageNumber, $selected }) =>
+        ($pageNumber.toString().length >= 4 || ($pageNumber.toString().length >= 4 && $selected)) &&
         `padding: 8px 15px;`};
     }
   }

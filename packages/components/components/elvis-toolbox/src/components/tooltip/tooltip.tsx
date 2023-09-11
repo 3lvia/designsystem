@@ -31,8 +31,8 @@ const TooltipFadeOut = keyframes`
 export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 
 export interface TooltipPopupProps {
-  position: TooltipPosition;
-  fadeOut: boolean;
+  $position: TooltipPosition;
+  $fadeOut: boolean;
 }
 
 export const TooltipPopup = styled.div<TooltipPopupProps>`
@@ -59,8 +59,8 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
     height: 0;
   }
 
-  ${({ position }) => {
-    switch (position) {
+  ${({ $position }) => {
+    switch ($position) {
       case 'top': {
         return css`
           transform-origin: center bottom;
@@ -112,8 +112,8 @@ export const TooltipPopup = styled.div<TooltipPopupProps>`
     }
   }}
 
-  ${({ fadeOut }) => {
-    if (fadeOut) {
+  ${({ $fadeOut }) => {
+    if ($fadeOut) {
       return css`
         animation: ${TooltipFadeOut} 200ms ease;
       `;

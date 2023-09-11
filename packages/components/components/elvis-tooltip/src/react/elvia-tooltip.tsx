@@ -147,11 +147,11 @@ export const Tooltip: React.FC<TooltipProps> = ({
         !isDisabled &&
         createPortal(
           <TooltipPopup
-            position={actualPosition}
+            $position={actualPosition}
             ref={overlayRef}
             className={className ?? ''}
             style={{ ...inlineStyle }}
-            fadeOut={fadeOut}
+            $fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
             aria-live="polite"
           >

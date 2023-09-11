@@ -21,20 +21,20 @@ export const LogoContainer = styled(SquareContainer)`
   padding: 19px 16px;
 `;
 
-export const PageTitle = styled.h1<{ isInvisible: boolean }>`
+export const PageTitle = styled.h1<{ $isInvisible: boolean }>`
   ${getTypographyCss('text-md-strong')};
   color: ${getThemeColor('text-1')};
   flex: 1;
   transition: opacity 400ms;
 
-  ${({ isInvisible }) =>
-    isInvisible &&
+  ${({ $isInvisible }) =>
+    $isInvisible &&
     css`
       opacity: 0;
     `};
 `;
 
-export const StyledHeader = styled.header<{ menuIsOpen: boolean }>`
+export const StyledHeader = styled.header<{ $menuIsOpen: boolean }>`
   background-color: ${getThemeColor('background-element-6')};
   height: ${toolbarHeight};
   display: flex;
@@ -59,14 +59,14 @@ export const StyledHeader = styled.header<{ menuIsOpen: boolean }>`
     }
   }
 
-  ${({ menuIsOpen }) =>
-    menuIsOpen &&
+  ${({ $menuIsOpen }) =>
+    $menuIsOpen &&
     css`
       z-index: 999999;
     `};
 `;
 
-export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
+export const TriggerButton = styled(TertiaryButton)<{ $isActive: boolean }>`
   position: relative;
   height: calc(100% - 8px); // Shows the full keyboard-focus outline without clipping
   font-weight: 400;
@@ -88,8 +88,8 @@ export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
     transform: scaleX(1);
   }
 
-  ${({ isActive }) =>
-    isActive &&
+  ${({ $isActive }) =>
+    $isActive &&
     css`
       &::after {
         transform: scaleX(1);
@@ -120,14 +120,14 @@ export const IconButton = styled.button`
 `;
 
 export interface HrProps {
-  direction: 'horizontal' | 'vertical';
+  $direction: 'horizontal' | 'vertical';
 }
 
 export const Hr = styled.hr<Partial<HrProps>>`
   border: 0 solid ${getThemeColor('border-2')};
 
-  ${({ direction }) => {
-    if (direction === 'vertical') {
+  ${({ $direction }) => {
+    if ($direction === 'vertical') {
       return css`
         height: 100%;
         border-right-width: 1px;
@@ -149,8 +149,8 @@ export const Hr = styled.hr<Partial<HrProps>>`
 `;
 
 interface AppContentProps {
-  sidenavPadding: boolean;
-  isExpanded: boolean;
+  $sidenavPadding: boolean;
+  $isExpanded: boolean;
 }
 
 export const AppContent = styled.main<AppContentProps>`
@@ -158,13 +158,13 @@ export const AppContent = styled.main<AppContentProps>`
   transition: padding-left ${sidebarAnimation};
   transition-duration: 400ms;
 
-  ${({ sidenavPadding, isExpanded }) => {
-    if (sidenavPadding) {
+  ${({ $sidenavPadding, $isExpanded }) => {
+    if ($sidenavPadding) {
       return css`
         padding-bottom: ${toolbarHeight};
 
         @media ${device.gtMobile} {
-          padding-left: ${isExpanded ? sidebarMaxWidth : toolbarHeight};
+          padding-left: ${$isExpanded ? sidebarMaxWidth : toolbarHeight};
           padding-bottom: 0;
         }
       `;

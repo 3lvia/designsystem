@@ -46,9 +46,9 @@ export const CarouselElements = styled.div`
 `;
 
 interface CarouselElementContainerProps {
-  enterAnimation: boolean;
-  exitAnimation: boolean;
-  slideDirection: 'left' | 'right';
+  $enterAnimation: boolean;
+  $exitAnimation: boolean;
+  $slideDirection: 'left' | 'right';
 }
 
 export const CarouselElementContainer = styled.div<CarouselElementContainerProps>`
@@ -73,12 +73,12 @@ export const CarouselElementContainer = styled.div<CarouselElementContainerProps
     }
   }
 
-  ${(props) => css`
-    ${props.exitAnimation &&
+  ${({ $exitAnimation, $slideDirection, $enterAnimation }) => css`
+    ${$exitAnimation &&
     css`
-      animation: ${props.slideDirection === 'left' ? exitLeft : exitRight} 500ms ease-in;
+      animation: ${$slideDirection === 'left' ? exitLeft : exitRight} 500ms ease-in;
     `}
-    ${props.enterAnimation &&
+    ${$enterAnimation &&
     css`
       animation: ${fadeInOpacity} 0.5s ease-in;
     `}
@@ -130,22 +130,22 @@ export const CarouselListOfDots = styled.div`
 `;
 
 interface CarouselDotProps {
-  isSelected: boolean;
+  $isSelected: boolean;
 }
 
 export const CarouselDot = styled.button<CarouselDotProps>`
-  border: 1px solid ${({ isSelected }) => getThemeColor(isSelected ? 'border-selected-1' : 'border-1')};
-  height: ${({ isSelected }) => (isSelected ? '9px' : '8px')};
-  width: ${({ isSelected }) => (isSelected ? '9px' : '8px')};
+  border: 1px solid ${({ $isSelected }) => getThemeColor($isSelected ? 'border-selected-1' : 'border-1')};
+  height: ${({ $isSelected }) => ($isSelected ? '9px' : '8px')};
+  width: ${({ $isSelected }) => ($isSelected ? '9px' : '8px')};
   @media (max-width: 767px) {
-    height: ${({ isSelected }) => (isSelected ? '13px' : '12px')};
-    width: ${({ isSelected }) => (isSelected ? '13px' : '12px')};
+    height: ${({ $isSelected }) => ($isSelected ? '13px' : '12px')};
+    width: ${({ $isSelected }) => ($isSelected ? '13px' : '12px')};
   }
 
   border-radius: 50%;
-  background-color: ${({ isSelected }) =>
-    getThemeColor(isSelected ? 'background-selected-1' : 'background-element-1')};
-  margin: ${({ isSelected }) => (isSelected ? '7.5px' : '8px')};
+  background-color: ${({ $isSelected }) =>
+    getThemeColor($isSelected ? 'background-selected-1' : 'background-element-1')};
+  margin: ${({ $isSelected }) => ($isSelected ? '7.5px' : '8px')};
   cursor: pointer;
   padding: 0;
   &:hover {

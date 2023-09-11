@@ -32,13 +32,13 @@ export const LoadMoreButton: React.FC<LoadMoreProps> = ({
         onClick={() => !isLoadingMoreItems && onLoadMoreItems && onLoadMoreItems()}
         onMouseEnter={() => onHover(item)}
         onMouseDown={preventInputElementBlur}
-        isLoading={isLoadingMoreItems}
+        $isLoading={isLoadingMoreItems}
         id={getDropdownItemId(item.value)}
       >
         <TertiaryButton
           tabIndex={-1}
-          isActive={focusedValue === item.value}
-          size={size === 'small' ? 'sm' : 'md'}
+          $isActive={focusedValue === item.value}
+          $size={size === 'small' ? 'sm' : 'md'}
         >
           <SpinContainer>
             <IconWrapper icon={sync} size="xs" />

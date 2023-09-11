@@ -32,10 +32,10 @@ export const BackButton: React.FC<SelectAllOptionProps> = ({
       onClick={() => onClick()}
       onMouseEnter={() => onHover(item)}
       onMouseDown={preventInputElementBlur}
-      isFocused={inputIsKeyboard && focusedValue === item.value}
-      size={size}
+      $isFocused={inputIsKeyboard && focusedValue === item.value}
+      $size={size}
     >
-      <IconButton size={size === 'small' ? 'sm' : 'md'} disabled>
+      <IconButton $size={size === 'small' ? 'sm' : 'md'} disabled>
         <IconWrapper icon={arrowLeft} size={size === 'small' ? 'xs' : 'sm'} />
       </IconButton>
       {item.label}

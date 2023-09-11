@@ -20,18 +20,18 @@ export const Divider: React.FC<DividerProps> = function ({
 
   return (
     <DividerArea
-      type={type}
-      orientation={orientation}
+      $type={type}
+      $orientation={orientation}
       role="separator"
       className={className ?? ''}
       style={inlineStyle}
       {...rest}
     >
       {heading === '' && type === 'heading' && (
-        <DividerHeading typography={typography} ref={dividerHeadingRef}></DividerHeading>
+        <DividerHeading $typography={typography} ref={dividerHeadingRef}></DividerHeading>
       )}
       {heading !== '' && type === 'heading' && (
-        <DividerHeading typography={typography} data-testid="divider-heading">
+        <DividerHeading $typography={typography} data-testid="divider-heading">
           {heading}
         </DividerHeading>
       )}

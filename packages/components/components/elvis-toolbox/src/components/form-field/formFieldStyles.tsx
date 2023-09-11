@@ -32,12 +32,12 @@ export const FormFieldInputContainer = styled.div`
 `;
 
 export interface FormFieldContainerProps {
-  isFullWidth?: boolean;
-  size?: FormFieldSizes;
-  isActive?: boolean;
-  isInvalid?: boolean;
-  isDisabled?: boolean;
-  hasErrorPlaceholder?: boolean;
+  $isFullWidth?: boolean;
+  $size?: FormFieldSizes;
+  $isActive?: boolean;
+  $isInvalid?: boolean;
+  $isDisabled?: boolean;
+  $hasErrorPlaceholder?: boolean;
 }
 
 /**
@@ -61,14 +61,14 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   line-height: 1;
   font-size: 16px;
 
-  ${({ hasErrorPlaceholder }) =>
-    hasErrorPlaceholder &&
+  ${({ $hasErrorPlaceholder }) =>
+    $hasErrorPlaceholder &&
     css`
       padding-bottom: 1.5rem;
     `}
 
-  ${({ isFullWidth }) =>
-    isFullWidth &&
+  ${({ $isFullWidth }) =>
+    $isFullWidth &&
     css`
       width: 100%;
 
@@ -77,8 +77,8 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `}
 
-  ${({ size }) => {
-    if (size === 'small') {
+  ${({ $size }) => {
+    if ($size === 'small') {
       return css`
         padding-top: 0.5rem;
 
@@ -120,8 +120,8 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
     `;
   }}
 
-  ${({ isDisabled }) =>
-    isDisabled &&
+  ${({ $isDisabled }) =>
+    $isDisabled &&
     css`
       && ${FormFieldInputContainer} {
          {
@@ -136,38 +136,38 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
       }
     `};
 
-  ${({ isInvalid, size }) =>
-    isInvalid &&
+  ${({ $isInvalid, $size }) =>
+    $isInvalid &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(size)};
+        ${setActiveBorder($size)};
         border-color: ${getThemeColor('signal-danger')};
       }
     `};
 
-  ${({ isActive, size }) =>
-    isActive &&
+  ${({ $isActive, $size }) =>
+    $isActive &&
     css`
       ${FormFieldInputContainer} {
-        ${setActiveBorder(size)}
+        ${setActiveBorder($size)}
       }
     `}
 
   ${FormFieldInputContainer}:focus-within {
-    ${({ size }) => setActiveBorder(size)}
+    ${({ $size }) => setActiveBorder($size)}
   }
 `;
 
 export interface LabelProps {
-  hasOptionalText?: boolean;
+  $hasOptionalText?: boolean;
 }
 
 export const FormFieldLabel = styled.div<LabelProps>`
   ${getTypographyCss('text-label')}
   margin-bottom: 5px;
 
-  ${({ hasOptionalText }) =>
-    hasOptionalText &&
+  ${({ $hasOptionalText }) =>
+    $hasOptionalText &&
     css`
       &::after {
         content: ' (valgfri)';

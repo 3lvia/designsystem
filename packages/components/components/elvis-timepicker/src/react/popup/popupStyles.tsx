@@ -9,12 +9,12 @@ const typography = {
   numberButton: getTypographyCss('text-md'),
 };
 
-export const OverlayContainer = styled.div<{ hasSecondPicker: boolean }>`
+export const OverlayContainer = styled.div<{ $hasSecondPicker: boolean }>`
   background-color: ${getThemeColor('background-overlay-1')};
   border-radius: 4px;
   box-shadow: ${getShadow('medium')};
   display: flex;
-  width: ${({ hasSecondPicker }) => (hasSecondPicker ? '180px' : '120px')};
+  width: ${({ $hasSecondPicker }) => ($hasSecondPicker ? '180px' : '120px')};
 `;
 
 export const NumberPickerContainer = styled.div`
@@ -70,7 +70,7 @@ export const ArrowButtonContainer = styled.div`
 `;
 
 interface NumberButtonProps {
-  isSelected: boolean;
+  $isSelected: boolean;
 }
 
 export const NumberButton = styled.button<NumberButtonProps>`
@@ -82,7 +82,7 @@ export const NumberButton = styled.button<NumberButtonProps>`
   border: none;
   padding: 0;
   height: 48px;
-  background: ${(props) => (props.isSelected ? getThemeColor('background-selected-2') : 'transparent')};
+  background: ${({ $isSelected }) => ($isSelected ? getThemeColor('background-selected-2') : 'transparent')};
   scroll-snap-align: center;
   cursor: pointer;
 

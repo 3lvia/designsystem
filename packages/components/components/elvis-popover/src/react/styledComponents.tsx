@@ -3,12 +3,12 @@ import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 interface TriggerContainerProps {
-  overlayIsOpen: boolean;
+  $overlayIsOpen: boolean;
 }
 
 interface PopoverTypographyProps {
-  isStringOnly: boolean;
-  hasCloseButton: boolean;
+  $isStringOnly: boolean;
+  $hasCloseButton: boolean;
 }
 
 export const PopoverContainer = styled.div`
@@ -39,8 +39,8 @@ export const TriggerContainer = styled.div<TriggerContainerProps>`
     display: flex;
   }
 
-  ${(props) =>
-    props.overlayIsOpen &&
+  ${({ $overlayIsOpen }) =>
+    $overlayIsOpen &&
     css`
       z-index: 999999;
     `};
@@ -50,9 +50,9 @@ export const PopoverTypography = styled.div.attrs({
   id: 'ewc-popover-content',
 })<PopoverTypographyProps>`
   ${getTypographyCss('text-sm')}
-  ${({ isStringOnly, hasCloseButton }) =>
-    isStringOnly &&
-    hasCloseButton &&
+  ${({ $isStringOnly, $hasCloseButton }) =>
+    $isStringOnly &&
+    $hasCloseButton &&
     css`
       padding-right: 8px;
     `}

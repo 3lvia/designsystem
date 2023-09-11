@@ -14,12 +14,12 @@ export const CursorCurve = styled.div`
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 80% 50%, 50% 20%);
 `;
 
-export const DropdownPopupContainer = styled.div<{ size: FormFieldSizes }>`
+export const DropdownPopupContainer = styled.div<{ $size: FormFieldSizes }>`
   position: relative;
   --item-height: 48px;
 
-  ${({ size }) =>
-    size === 'small' &&
+  ${({ $size }) =>
+    $size === 'small' &&
     css`
       --item-height: 40px;
 
@@ -33,7 +33,7 @@ export const DropdownPopupContainer = styled.div<{ size: FormFieldSizes }>`
     `};
 `;
 
-export const DropdownPopup = styled.div.attrs({ role: 'listbox' })<{ isInvisible: boolean }>`
+export const DropdownPopup = styled.div.attrs({ role: 'listbox' })<{ $isInvisible: boolean }>`
   background-color: ${getThemeColor('background-overlay-1')};
   box-shadow: ${getShadow('hard')};
   position: relative;
@@ -41,8 +41,8 @@ export const DropdownPopup = styled.div.attrs({ role: 'listbox' })<{ isInvisible
   overflow: hidden;
   width: 100%;
 
-  ${({ isInvisible }) =>
-    isInvisible &&
+  ${({ $isInvisible }) =>
+    $isInvisible &&
     css`
       visibility: hidden;
     `};
@@ -73,7 +73,7 @@ export const RotateAnimation = keyframes`
 
 export const SpinContainer = styled.div``;
 
-export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
+export const LoadMoreButtonStyles = styled.div<{ $isLoading?: boolean }>`
   height: var(--item-height);
   width: 100%;
   display: flex;
@@ -86,8 +86,8 @@ export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
     pointer-events: none;
   }
 
-  ${({ isLoading }) =>
-    isLoading &&
+  ${({ $isLoading }) =>
+    $isLoading &&
     css`
       cursor: progress;
 

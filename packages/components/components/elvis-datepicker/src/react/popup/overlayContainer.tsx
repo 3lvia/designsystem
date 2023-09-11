@@ -94,13 +94,13 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
               {formatDate(selectedDate, { weekday: 'long', day: 'numeric', month: 'long' })}
             </SelectedDateName>
             <TertiaryButton
-              size="sm"
+              $size="sm"
               onClick={() => toggleView()}
               aria-label="Endre år"
               data-testid="year-view-toggle"
             >
               {formatDate(viewedDate, { year: 'numeric' })}
-              <RotatingContainer isRotated={yearPickerIsOpen}>
+              <RotatingContainer $isRotated={yearPickerIsOpen}>
                 <IconWrapper icon={arrowDown} size="xs" />
               </RotatingContainer>
             </TertiaryButton>
@@ -132,7 +132,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                   dateRangeProps={dateRangeProps}
                 />
                 <PopoverFooter>
-                  <TertiaryButton onClick={resetDate} aria-label="Nullstill dato" size="sm">
+                  <TertiaryButton onClick={resetDate} aria-label="Nullstill dato" $size="sm">
                     <IconWrapper icon={reset} size="xs" />
                     {clearButtonText}
                   </TertiaryButton>

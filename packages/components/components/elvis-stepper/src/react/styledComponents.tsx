@@ -41,22 +41,21 @@ export const Steps = styled.div<StepsProps>`
 
 interface StepProps {
   $type?: StepperType;
-  isActive?: boolean;
-  isLast: boolean;
+  $isLast: boolean;
 }
 export const Step = styled.div<StepProps>`
   display: flex;
   flex-direction: ${({ $type }) => ($type === 'vertical' ? 'column' : 'row')};
   align-items: ${({ $type }) => ($type === 'vertical' ? 'start' : 'center')};
   gap: 4px;
-  flex: ${({ isLast }) => (isLast ? 0 : 1)};
+  flex: ${({ $isLast }) => ($isLast ? 0 : 1)};
   width: 100%;
 `;
 
 interface StepLineProps {
   $type?: StepperType;
-  isSelected: boolean;
-  isActive?: boolean;
+  $isSelected: boolean;
+  $isActive?: boolean;
 }
 
 export const StepLine = styled.div<StepLineProps>`
@@ -65,14 +64,14 @@ export const StepLine = styled.div<StepLineProps>`
   height: 2px;
   border-radius: 50px;
   margin: 0;
-  background-color: ${({ isSelected }) =>
-    getThemeColor(isSelected ? 'border-selected-2' : 'border-disabled-1')};
+  background-color: ${({ $isSelected }) =>
+    getThemeColor($isSelected ? 'border-selected-2' : 'border-disabled-1')};
   place-items: center;
 
-  ${({ $type, isActive }) =>
+  ${({ $type, $isActive }) =>
     $type === 'vertical' &&
     css`
-      height: ${isActive ? 'auto' : '12px'};
+      height: ${$isActive ? 'auto' : '12px'};
       width: 2px;
       flex: none;
     `}
@@ -122,18 +121,18 @@ export const StepHeader = styled.div`
 `;
 
 interface StepNumberProps {
-  isActive: boolean;
-  isError?: boolean;
-  isCompleted?: boolean;
-  isDisabled?: boolean;
+  $isActive: boolean;
+  $isError?: boolean;
+  $isCompleted?: boolean;
+  $isDisabled?: boolean;
 }
 
-const getStepNumberBorderColor = ({ isActive, isError, isDisabled }: StepNumberProps) => {
-  if (isActive) {
+const getStepNumberBorderColor = ({ $isActive, $isError, $isDisabled }: StepNumberProps) => {
+  if ($isActive) {
     return getThemeColor('border-selected-1');
-  } else if (isError) {
+  } else if ($isError) {
     return getThemeColor('signal-danger');
-  } else if (isDisabled) {
+  } else if ($isDisabled) {
     return getThemeColor('border-disabled-1');
   } else {
     return getThemeColor('icon-stroke-1');
@@ -148,10 +147,10 @@ export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProp
   border: 2px solid ${(props) => getStepNumberBorderColor(props)};
   border-radius: 100%;
   background-color: transparent;
-  color: ${({ isDisabled }) => getThemeColor(isDisabled ? 'text-disabled-1' : 'text-1')};
+  color: ${({ $isDisabled }) => getThemeColor($isDisabled ? 'text-disabled-1' : 'text-1')};
   padding: 0;
-  ${({ isCompleted }) =>
-    isCompleted &&
+  ${({ $isCompleted }) =>
+    $isCompleted &&
     css`
       background-color: ${getThemeColor('icon-filled-background-1')};
       position: relative;
@@ -189,8 +188,8 @@ export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProp
   &:hover {
     border-color: ${getThemeColor('border-hover-1')};
   }
-  ${({ isDisabled }) =>
-    isDisabled &&
+  ${({ $isDisabled }) =>
+    $isDisabled &&
     css`
       &:hover {
         border-color: ${getThemeColor('border-disabled-1')};
@@ -219,9 +218,9 @@ export const StepperContentWrapper = styled.div`
   width: 100%;
 `;
 
-const getStepTitleTypography = ({ $type, isActive, typography }: StepperTitleProps) => {
-  if (isActive || $type !== 'vertical') {
-    return getTypographyCss(typography ?? 'title-sm');
+const getStepTitleTypography = ({ $type, $isActive, $typography }: StepperTitleProps) => {
+  if ($isActive || $type !== 'vertical') {
+    return getTypographyCss($typography ?? 'title-sm');
   } else {
     return getTypographyCss('text-md');
   }
@@ -229,9 +228,9 @@ const getStepTitleTypography = ({ $type, isActive, typography }: StepperTitlePro
 
 interface StepperTitleProps {
   $type?: StepperType;
-  isActive?: boolean;
-  typography?: TypographyName;
-  isDisabled?: boolean;
+  $isActive?: boolean;
+  $typography?: TypographyName;
+  $isDisabled?: boolean;
 }
 export const StepperTitle = styled.div<StepperTitleProps>`
   ${(props) => getStepTitleTypography(props)}
@@ -245,8 +244,8 @@ export const StepperTitle = styled.div<StepperTitleProps>`
       cursor: pointer;
     `}
 
-  ${({ isDisabled }) =>
-    isDisabled &&
+  ${({ $isDisabled }) =>
+    $isDisabled &&
     css`
       @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
         @content;

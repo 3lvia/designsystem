@@ -98,8 +98,8 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
           <YearButton
             tabIndex={-1}
             key={year.year}
-            isActive={year.isActive}
-            isFocused={focusedYearIndex === index}
+            $isActive={year.isActive}
+            $isFocused={focusedYearIndex === index}
             onClick={() => onYearChange(year.year)}
             disabled={year.isDisabled}
           >

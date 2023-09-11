@@ -134,7 +134,7 @@ const Popover: FC<PopoverProps> = function ({
     <PopoverContainer ref={popoverContainerRef} {...rest}>
       <TriggerContainer
         onClick={toggleVisibility}
-        overlayIsOpen={isShowingConnectedOverlayState}
+        $overlayIsOpen={isShowingConnectedOverlayState}
         ref={triggerRef}
       >
         {trigger}
@@ -157,7 +157,7 @@ const Popover: FC<PopoverProps> = function ({
           >
             {hasCloseButton && (
               <CloseButtonContainer>
-                <IconButton size="sm" onClick={toggleVisibility} aria-label="Lukk">
+                <IconButton $size="sm" onClick={toggleVisibility} aria-label="Lukk">
                   <IconWrapper icon={closeBold} size="xs" />
                 </IconButton>
               </CloseButtonContainer>
@@ -165,8 +165,8 @@ const Popover: FC<PopoverProps> = function ({
             {heading && <Heading>{heading}</Heading>}
 
             <PopoverTypography
-              isStringOnly={isStringOnly(content)}
-              hasCloseButton={hasCloseButton}
+              $isStringOnly={isStringOnly(content)}
+              $hasCloseButton={hasCloseButton}
               ref={contentRef}
             >
               {content}

@@ -1,6 +1,7 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import styled, { css } from 'styled-components';
-import { CheckboxProps, IndeterminateLineProps } from './checkbox';
+import { IndeterminateLineProps } from './checkbox';
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 
 const checkMarkLeaveDuration = '100ms';
 const checkMarkEnterDuration = '180ms';
@@ -8,7 +9,7 @@ const checkMarkEnterDuration = '180ms';
 export const IndeterminateLine = styled.div<IndeterminateLineProps>`
   height: 2px;
   position: absolute;
-  width: ${({ size }) => (size === 'small' ? '6px' : '10px')};
+  width: ${({ $size }) => ($size === 'small' ? '6px' : '10px')};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -25,9 +26,17 @@ export const IndeterminateLine = styled.div<IndeterminateLineProps>`
   }
 `;
 
-const checkmarkLineBase = css<CheckboxProps>`
-  background-color: ${({ isDisabled }) =>
-    isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('static-black')};
+export interface StyledCheckboxProps {
+  $isChecked?: boolean;
+  $isIndeterminate?: boolean;
+  $isDisabled?: boolean;
+  $size?: FormFieldSizes;
+  $isFocused?: boolean;
+}
+
+const checkmarkLineBase = css<StyledCheckboxProps>`
+  background-color: ${({ $isDisabled }) =>
+    $isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('static-black')};
   border-radius: 2px;
   content: '';
   height: 2px;
@@ -35,12 +44,12 @@ const checkmarkLineBase = css<CheckboxProps>`
   transform-origin: left center;
 `;
 
-export const StyledCheckbox = styled.div<CheckboxProps>`
+export const StyledCheckbox = styled.div<StyledCheckboxProps>`
   flex: none;
   aspect-ratio: 1 / 1;
   width: 24px;
   background-color: ${getThemeColor('background-element-1')};
-  border-radius: ${({ size }) => (size === 'small' ? '3px' : '4px')};
+  border-radius: ${({ $size }) => ($size === 'small' ? '3px' : '4px')};
   border: 1px solid ${getThemeColor('border-1')};
   position: relative;
 
@@ -62,8 +71,8 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
     transition: transform ${checkMarkLeaveDuration} ease;
   }
 
-  ${({ isIndeterminate }) =>
-    isIndeterminate &&
+  ${({ $isIndeterminate }) =>
+    $isIndeterminate &&
     css`
       background-color: ${getThemeColor('background-selected-1')};
 
@@ -73,8 +82,8 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
       }
     `};
 
-  ${({ isChecked }) =>
-    isChecked &&
+  ${({ $isChecked }) =>
+    $isChecked &&
     css`
       background-color: ${getThemeColor('background-selected-1')};
 
@@ -89,8 +98,8 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
       }
     `};
 
-  ${({ size }) =>
-    size === 'small' &&
+  ${({ $size }) =>
+    $size === 'small' &&
     css`
       width: 16px;
 
@@ -101,23 +110,23 @@ export const StyledCheckbox = styled.div<CheckboxProps>`
       }
     `};
 
-  ${({ isFocused, isDisabled }) =>
-    isFocused &&
-    !isDisabled &&
+  ${({ $isFocused, $isDisabled }) =>
+    $isFocused &&
+    !$isDisabled &&
     css`
       background-color: ${getThemeColor('background-selected-1')};
     `};
 
-  ${({ isDisabled }) =>
-    isDisabled &&
+  ${({ $isDisabled }) =>
+    $isDisabled &&
     css`
       background-color: ${getThemeColor('background-disabled-1')};
       border: 1px solid ${getThemeColor('border-disabled-1')};
       cursor: not-allowed;
     `};
 
-  ${({ isIndeterminate, isChecked }) =>
-    (isChecked || isIndeterminate) &&
+  ${({ $isIndeterminate, $isChecked }) =>
+    ($isChecked || $isIndeterminate) &&
     css`
       //ignore border-color for dark theme when hovering parent
       .e-color-background-3 &&,

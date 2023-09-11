@@ -256,18 +256,20 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   return (
     <>
       <FormFieldContainer
-        size={size}
+        $size={size}
         className={className ?? ''}
         style={{ ...inlineStyle }}
-        isFullWidth={isFullWidth}
-        isDisabled={isDisabled}
-        hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
-        isActive={isShowing}
-        isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        $isFullWidth={isFullWidth}
+        $isDisabled={isDisabled}
+        $hasErrorPlaceholder={
+          !!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text
+        }
+        $isActive={isShowing}
+        $isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
         data-testid="wrapper"
       >
         {!!label && (
-          <FormFieldLabel data-testid="label" hasOptionalText={hasOptionalText}>
+          <FormFieldLabel data-testid="label" $hasOptionalText={hasOptionalText}>
             {label}
           </FormFieldLabel>
         )}
@@ -286,13 +288,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           />
           <IconButton
             disabled={isDisabled}
-            isActive={isShowing}
+            $isActive={isShowing}
             onClick={() => {
               onFocus?.();
               setVisibility(!isShowing);
             }}
             ref={openPopoverButtonRef}
-            size={size}
+            $size={size}
             data-testid="popover-toggle"
             aria-label="Åpne datovelger"
             aria-haspopup="dialog"

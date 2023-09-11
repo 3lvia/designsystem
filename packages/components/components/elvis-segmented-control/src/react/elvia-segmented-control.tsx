@@ -56,9 +56,9 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   return (
     <SegmentedControlContainer
       $type={type}
-      size={size}
-      selectedIndex={selectedIndex}
-      numberOfControls={items?.length}
+      $size={size}
+      $selectedIndex={selectedIndex}
+      $numberOfControls={items?.length}
       role="radiogroup"
       className={className ?? ''}
       style={inlineStyle}
@@ -68,8 +68,8 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       {items?.map((control, index) => (
         <SegmentedControlLabel
           $type={type}
-          size={size}
-          isSelected={index === selectedIndex}
+          $size={size}
+          $isSelected={index === selectedIndex}
           key={index}
           htmlFor={segmentedControlId + index}
           aria-label={type === 'icon' ? (control as IconSegmentedControl).ariaLabel : undefined}

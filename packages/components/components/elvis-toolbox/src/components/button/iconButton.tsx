@@ -31,14 +31,15 @@ export const IconButton = styled.button.attrs({ type: 'button' })<Partial<Button
   flex: none;
   display: grid;
   place-items: center;
-  ${({ size }) => getSize(size ?? 'md')};
+  ${({ $size }) => getSize($size ?? 'md')};
   border: 1px solid transparent;
-  background-color: ${({ isActive }) => (isActive ? getThemeColor('background-selected-1') : 'transparent')};
+  background-color: ${({ $isActive }) =>
+    $isActive ? getThemeColor('background-selected-1') : 'transparent'};
   border-radius: 99px;
   padding: 0;
   margin: 0;
-  ${({ isActive }) =>
-    isActive &&
+  ${({ $isActive }) =>
+    $isActive &&
     css`
       --e-color-icon-stroke-1: ${getThemeColorContrast('background-hover-1')};
       --e-color-icon-filled-background-1: ${getThemeColorContrast('background-hover-1')};

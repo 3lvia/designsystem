@@ -32,7 +32,7 @@ export const ContextMenuOverlay = React.forwardRef<HTMLDivElement, Props>(
           style={{ ...inlineStyle }}
           onClick={() => setFadeOut(true)}
           onKeyDown={handleKeyDown}
-          isSelectable={isSelectable}
+          $isSelectable={isSelectable}
           ref={contentRef}
           role="menu"
           {...rest}

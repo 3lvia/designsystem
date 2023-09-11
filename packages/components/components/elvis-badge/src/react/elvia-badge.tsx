@@ -38,7 +38,7 @@ const Badge: React.FC<BadgeProps> = ({
   return (
     <BadgeContainer className={`${className ?? ''}`} style={{ ...inlineStyle }} {...rest}>
       <div ref={contentRef}>{content}</div>
-      <BadgeCircle count={getCount(count)} badgeColor={badgeColor} role="status">
+      <BadgeCircle $count={getCount(count)} $badgeColor={badgeColor} role="status">
         {getCount(count)}
       </BadgeCircle>
     </BadgeContainer>

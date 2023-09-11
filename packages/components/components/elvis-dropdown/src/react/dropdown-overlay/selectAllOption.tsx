@@ -55,8 +55,8 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
         onClick={() => onClick()}
         onMouseEnter={() => onHover(item)}
         onMouseDown={preventInputElementBlur}
-        isFocused={focusedValue === item.value}
-        size={size}
+        $isFocused={focusedValue === item.value}
+        $size={size}
         id={getDropdownItemId(item.value)}
       >
         <Checkbox

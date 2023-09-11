@@ -2,18 +2,18 @@ import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export const TriggerContainer = styled.div<{ isShowing: boolean }>`
+export const TriggerContainer = styled.div<{ $isShowing: boolean }>`
   display: inline-block;
   user-select: none;
 
-  ${({ isShowing }) =>
-    isShowing &&
+  ${({ $isShowing }) =>
+    $isShowing &&
     css`
       z-index: 999999;
     `};
 `;
 
-export const ItemList = styled.div<{ isSelectable: boolean }>`
+export const ItemList = styled.div<{ $isSelectable: boolean }>`
   display: flex;
   flex-direction: column;
   min-width: 216px;
@@ -68,8 +68,8 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
       overflow: hidden;
     }
 
-    ${({ isSelectable }) =>
-      isSelectable &&
+    ${({ $isSelectable }) =>
+      $isSelectable &&
       css`
         padding: 10px 16px 10px 48px;
 

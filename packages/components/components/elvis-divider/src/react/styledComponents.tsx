@@ -4,25 +4,26 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 type DividerAreaProps = {
-  type: DividerType;
-  orientation: DividerOrientation;
+  $type: DividerType;
+  $orientation: DividerOrientation;
 };
 
 export const DividerArea = styled.div<DividerAreaProps>`
   display: block;
   margin: 0;
-  width: ${({ type, orientation }) => (type === 'simple' && orientation === 'vertical' ? '1px' : '100%')};
-  height: ${({ type, orientation }) =>
-    type === 'simple' && orientation === 'vertical' ? '100%' : type === 'heading' ? 'unset' : '1px'};
-  border-left: ${({ type, orientation }) =>
-    type === 'simple' && orientation === 'vertical' ? `1px solid` : 'none'};
-  border-bottom: ${({ type, orientation }) =>
-    type !== 'curved' && orientation === 'horizontal' ? `1px solid` : 'none'};
-  border-color: ${({ type }) => (type === 'heading' ? getThemeColor('border-1') : getThemeColor('border-2'))};
+  width: ${({ $type, $orientation }) => ($type === 'simple' && $orientation === 'vertical' ? '1px' : '100%')};
+  height: ${({ $type, $orientation }) =>
+    $type === 'simple' && $orientation === 'vertical' ? '100%' : $type === 'heading' ? 'unset' : '1px'};
+  border-left: ${({ $type, $orientation }) =>
+    $type === 'simple' && $orientation === 'vertical' ? `1px solid` : 'none'};
+  border-bottom: ${({ $type, $orientation }) =>
+    $type !== 'curved' && $orientation === 'horizontal' ? `1px solid` : 'none'};
+  border-color: ${({ $type }) =>
+    $type === 'heading' ? getThemeColor('border-1') : getThemeColor('border-2')};
   text-align: left;
 
-  ${({ type }) =>
-    type === 'curved' &&
+  ${({ $type }) =>
+    $type === 'curved' &&
     css`
       height: 4vw;
       position: relative;
@@ -44,18 +45,18 @@ export const DividerArea = styled.div<DividerAreaProps>`
 `;
 
 type DividerHeadingProps = {
-  typography: DividerTypography;
+  $typography: DividerTypography;
 };
 
 export const DividerHeading = styled.div<DividerHeadingProps>`
-  ${({ typography }) =>
-    typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
+  ${({ $typography }) =>
+    $typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
   color: ${getThemeColor('text-1')};
-  padding-bottom: ${({ typography }) => (typography === 'medium' ? '24px' : '8px')};
+  padding-bottom: ${({ $typography }) => ($typography === 'medium' ? '24px' : '8px')};
   * {
     margin: 0;
-    ${({ typography }) =>
-      typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
+    ${({ $typography }) =>
+      $typography === 'medium' ? getTypographyCss('title-md') : getTypographyCss('title-caps')};
     color: ${getThemeColor('text-1')};
   }
 `;

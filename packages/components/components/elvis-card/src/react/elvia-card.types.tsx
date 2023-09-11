@@ -10,29 +10,29 @@ export type BorderColors = {
 };
 
 export interface CardAreaProps {
-  type: CardType;
-  width: string;
-  height?: string;
-  minWidth?: number;
-  maxWidth?: number;
+  $type: CardType;
+  $width: string;
+  $height?: string;
+  $minWidth?: number;
+  $maxWidth?: number;
 }
 
 export interface CardContentProps {
-  type: CardType;
+  $type: CardType;
 }
 
 export interface CardHeadingProps {
-  type: CardType;
-  maxHeadingLines?: number;
+  $type: CardType;
+  $maxHeadingLines?: number;
 }
 
 export interface CardDescriptionProps {
-  type: CardType;
-  maxDescriptionLines: number;
+  $type: CardType;
+  $maxDescriptionLines: number;
 }
 
 export interface CardColoredLineProps {
-  borderColor?: BorderColor;
+  $borderColor?: BorderColor;
 }
 
 export interface CardProps extends ComponentPropsWithoutRef<'article'>, BaseProps {

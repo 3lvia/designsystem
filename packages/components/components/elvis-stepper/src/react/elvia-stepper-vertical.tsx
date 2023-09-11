@@ -39,8 +39,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                 role="tab"
                 aria-selected={stepNumber === currentStep}
                 key={stepNumber}
-                isActive={stepNumber === currentStep}
-                isLast={stepNumber === numberOfSteps}
+                $isLast={stepNumber === numberOfSteps}
               >
                 <VerticalStepElement
                   currentStep={currentStep}

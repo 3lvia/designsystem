@@ -38,14 +38,14 @@ export const PopoverFooter = styled.div`
 `;
 
 export interface RotatingContainerProps {
-  isRotated: boolean;
+  $isRotated: boolean;
 }
 
 export const RotatingContainer = styled.div<RotatingContainerProps>`
   transition: transform 250ms ease;
 
-  ${(props) =>
-    props.isRotated &&
+  ${({ $isRotated }) =>
+    $isRotated &&
     css`
       transform: rotate(180deg);
     `}

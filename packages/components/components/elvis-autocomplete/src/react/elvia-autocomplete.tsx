@@ -204,17 +204,19 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
       <FormFieldContainer
         data-testid="autocomplete-wrapper"
         className={className}
-        hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
-        isDisabled={isDisabled}
-        isFullWidth={isFullWidth}
-        isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
-        isActive={isShowing && !valueIsEqualOnlyItem}
-        size={size}
+        $hasErrorPlaceholder={
+          !!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text
+        }
+        $isDisabled={isDisabled}
+        $isFullWidth={isFullWidth}
+        $isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        $isActive={isShowing && !valueIsEqualOnlyItem}
+        $size={size}
         style={{ ...inlineStyle }}
         {...rest}
       >
         {(!!label || !!hasOptionalText) && (
-          <FormFieldLabel hasOptionalText={hasOptionalText}>{label}</FormFieldLabel>
+          <FormFieldLabel $hasOptionalText={hasOptionalText}>{label}</FormFieldLabel>
         )}
         <FormFieldInputContainer ref={connectedElementRef}>
           <FormFieldInput

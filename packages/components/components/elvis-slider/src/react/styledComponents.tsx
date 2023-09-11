@@ -9,18 +9,18 @@ import { BothSliders, Side, SliderType } from './elvia-slider.types';
 import { Hint } from './hint/styledHint';
 
 type SliderFilledTrackProps = {
-  isDisabled: boolean;
-  rangeTrackWidth?: number;
-  trackWidth: number;
+  $isDisabled: boolean;
+  $rangeTrackWidth?: number;
+  $trackWidth: number;
   $type: SliderType;
 };
 
 type InputFieldsContainerProps = {
-  replaceHintValueWithInput: BothSliders<boolean>;
-  fullWithRangeInputs: boolean;
-  hasInputField: boolean;
+  $replaceHintValueWithInput: BothSliders<boolean>;
+  $fullWithRangeInputs: boolean;
+  $hasInputField: boolean;
   $type: SliderType;
-  hasHints: boolean;
+  $hasHints: boolean;
 };
 
 const removeDefaultStyles = css`
@@ -132,12 +132,12 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   align-items: end;
   gap: 8px;
   display: grid;
-  grid-auto-flow: ${({ fullWithRangeInputs }) => (fullWithRangeInputs ? 'row' : 'column')};
-  grid-auto-columns: ${({ fullWithRangeInputs }) => (fullWithRangeInputs ? '1fr' : 'auto')};
+  grid-auto-flow: ${({ $fullWithRangeInputs }) => ($fullWithRangeInputs ? 'row' : 'column')};
+  grid-auto-columns: ${({ $fullWithRangeInputs }) => ($fullWithRangeInputs ? '1fr' : 'auto')};
 
-  ${({ replaceHintValueWithInput = {}, hasInputField, $type }) => {
-    const { left, right } = replaceHintValueWithInput;
-    if (hasInputField && $type === 'simple') {
+  ${({ $replaceHintValueWithInput = {}, $hasInputField, $type }) => {
+    const { left, right } = $replaceHintValueWithInput;
+    if ($hasInputField && $type === 'simple') {
       if (left && right) {
         return css`
           grid-auto-columns: 1fr;
@@ -157,12 +157,12 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }}
 
   label:first-of-type {
-    grid-column: ${({ hasHints: hasHintValues, $type }) =>
-      hasHintValues && $type === 'simple' ? '2 / 3' : 'auto'};
+    grid-column: ${({ $hasHints: $hasHintValues, $type }) =>
+      $hasHintValues && $type === 'simple' ? '2 / 3' : 'auto'};
     grid-row: 1 / 2;
 
-    ${({ replaceHintValueWithInput = {} }) => {
-      const { left, right } = replaceHintValueWithInput;
+    ${({ $replaceHintValueWithInput = {} }) => {
+      const { left, right } = $replaceHintValueWithInput;
 
       if (left && right) {
         return css`
@@ -182,20 +182,21 @@ export const InputFieldsContainer = styled.div<InputFieldsContainerProps>`
   }
 
   ${Hint}:first-of-type {
-    grid-column: ${({ hasInputField, $type }) => (hasInputField && $type === 'simple' ? '1 / 2' : 'auto')};
+    grid-column: ${({ $hasInputField, $type }) => ($hasInputField && $type === 'simple' ? '1 / 2' : 'auto')};
     grid-row: 1 / 2;
-    visibility: ${({ replaceHintValueWithInput }) => (replaceHintValueWithInput.left ? 'hidden' : 'initial')};
+    visibility: ${({ $replaceHintValueWithInput }) =>
+      $replaceHintValueWithInput.left ? 'hidden' : 'initial'};
   }
 
   ${Hint}:last-of-type {
-    grid-column: ${({ hasInputField, $type }) => (hasInputField && $type === 'simple' ? '3 / 4' : 'auto')};
+    grid-column: ${({ $hasInputField, $type }) => ($hasInputField && $type === 'simple' ? '3 / 4' : 'auto')};
     grid-row: 1 / 2;
-    visibility: ${({ replaceHintValueWithInput }) =>
-      replaceHintValueWithInput.right ? 'hidden' : 'initial'};
+    visibility: ${({ $replaceHintValueWithInput }) =>
+      $replaceHintValueWithInput.right ? 'hidden' : 'initial'};
   }
 `;
 
-export const StyledSlider = styled.input<{ $type: SliderType; isDisabled: boolean }>`
+export const StyledSlider = styled.input<{ $type: SliderType; $isDisabled: boolean }>`
   ${removeDefaultStyles};
 
   &::-webkit-slider-thumb {
@@ -256,21 +257,21 @@ export const StyledSlider = styled.input<{ $type: SliderType; isDisabled: boolea
     ${activeThumb}
   }
 
-  ${({ isDisabled }) =>
-    isDisabled &&
+  ${({ $isDisabled }) =>
+    $isDisabled &&
     css`
       cursor: not-allowed;
     `}
 `;
 
 type SliderWrapperProps = {
-  size: FormFieldSizes;
-  isLeftSliderOnTop: boolean;
-  isDisabled: boolean;
+  $size: FormFieldSizes;
+  $isLeftSliderOnTop: boolean;
+  $isDisabled: boolean;
 };
 
 type SliderTrackProps = {
-  isDisabled: boolean;
+  $isDisabled: boolean;
 };
 
 export const SliderWrapper = styled.div<SliderWrapperProps>`
@@ -280,14 +281,14 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
   position: relative;
   padding: 12px 0 4px 0;
 
-  ${({ size }) =>
-    size === 'small' &&
+  ${({ $size }) =>
+    $size === 'small' &&
     css`
       height: 36px;
     `}
 
-  ${({ isDisabled }) =>
-    isDisabled &&
+  ${({ $isDisabled }) =>
+    $isDisabled &&
     css`
       cursor: not-allowed;
     `}
@@ -297,13 +298,13 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
   }
 
   ${StyledSlider}:first-child {
-    z-index: ${({ isLeftSliderOnTop }) => (isLeftSliderOnTop ? 5 : 3)};
+    z-index: ${({ $isLeftSliderOnTop }) => ($isLeftSliderOnTop ? 5 : 3)};
   }
 `;
 
 export const SliderTrack = styled.div<SliderTrackProps>`
-  background-color: ${({ isDisabled }) =>
-    isDisabled ? getThemeColor('color-border-disabled-1') : getBaseColor('grey-20')};
+  background-color: ${({ $isDisabled }) =>
+    $isDisabled ? getThemeColor('color-border-disabled-1') : getBaseColor('grey-20')};
   border-radius: 50px;
   height: 3px;
   position: absolute;
@@ -312,17 +313,17 @@ export const SliderTrack = styled.div<SliderTrackProps>`
 
   .e-color-background-3 &&,
   .e-theme-dark && {
-    background-color: ${({ isDisabled }) =>
-      isDisabled ? getThemeColor('color-border-disabled-1') : getBaseColor('grey-20', 'dark')};
+    background-color: ${({ $isDisabled }) =>
+      $isDisabled ? getThemeColor('color-border-disabled-1') : getBaseColor('grey-20', 'dark')};
   }
 `;
 
 //`left` and `width` are as inline styles to avoid creating new classnames on every change
 export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>(
-  ({ $type, trackWidth, rangeTrackWidth }) => ({
+  ({ $type, $trackWidth, $rangeTrackWidth }) => ({
     style: {
-      left: $type === 'range' ? `${trackWidth}px` : undefined,
-      width: $type === 'simple' ? `${trackWidth}px` : `${rangeTrackWidth}px`,
+      left: $type === 'range' ? `${$trackWidth}px` : undefined,
+      width: $type === 'simple' ? `${$trackWidth}px` : `${$rangeTrackWidth}px`,
     },
   }),
 )<SliderFilledTrackProps>`
@@ -332,8 +333,8 @@ export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>(
   position: absolute;
   z-index: 2;
 
-  ${({ isDisabled }) =>
-    isDisabled &&
+  ${({ $isDisabled }) =>
+    $isDisabled &&
     css`
       background-color: ${getThemeColor('color-border-disabled-1')};
       cursor: not-allowed;

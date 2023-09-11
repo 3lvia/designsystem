@@ -1,8 +1,8 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { css, FlattenInterpolation, ThemeProps } from 'styled-components';
+import { RuleSet, css } from 'styled-components';
 
-export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemeProps<any>> => {
+export const publicStyles = (isGtMobile: boolean): RuleSet<object> => {
   return css`
     .e-sidenav__container {
       color: ${getThemeColor('text-1')};

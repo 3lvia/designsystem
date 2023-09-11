@@ -5,8 +5,8 @@ import { headerZIndex, sidebarAnimation, sidebarMaxWidth, toolbarHeight } from '
 import { publicStyles } from './publicStyles';
 
 interface SideNavContainerProps {
-  isGtMobile: boolean;
-  isExpanded: boolean;
+  $isGtMobile: boolean;
+  $isExpanded: boolean;
 }
 
 export const SideNavContainer = styled.nav<SideNavContainerProps>`
@@ -20,8 +20,8 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
   transition: max-width ${sidebarAnimation};
   width: 100%;
 
-  ${(props) => {
-    if (props.isGtMobile) {
+  ${({ $isGtMobile }) => {
+    if ($isGtMobile) {
       return css`
         left: 0;
         top: ${toolbarHeight};
@@ -41,12 +41,12 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
     `;
   }}
 
-  ${(props) => {
-    if (props.isExpanded && props.isGtMobile) {
+  ${({ $isExpanded, $isGtMobile }) => {
+    if ($isExpanded && $isGtMobile) {
       return css`
         max-width: ${sidebarMaxWidth};
       `;
-    } else if (props.isGtMobile) {
+    } else if ($isGtMobile) {
       return css`
         max-width: ${toolbarHeight};
       `;
@@ -55,21 +55,21 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
     return css``;
   }}
 
-  ${(props) => {
-    return publicStyles(props.isGtMobile);
+  ${({ $isGtMobile }) => {
+    return publicStyles($isGtMobile);
   }}
 `;
 
 interface ButtonContainerProps {
-  isGtMobile: boolean;
+  $isGtMobile: boolean;
 }
 
 export const ButtonContainer = styled.div<ButtonContainerProps>`
   display: flex;
   justify-content: space-evenly;
 
-  ${(props) => {
-    if (props.isGtMobile) {
+  ${({ $isGtMobile }) => {
+    if ($isGtMobile) {
       return css`
         flex-direction: column;
         gap: 24px;
@@ -84,7 +84,7 @@ export const ButtonContainer = styled.div<ButtonContainerProps>`
 `;
 
 interface IconContainerProps {
-  isActive?: boolean;
+  $isActive?: boolean;
 }
 
 export const IconContainer = styled.div<IconContainerProps>`
@@ -97,8 +97,8 @@ export const IconContainer = styled.div<IconContainerProps>`
   flex: none;
   border: 1px solid transparent;
 
-  ${(props) =>
-    props.isActive &&
+  ${({ $isActive }) =>
+    $isActive &&
     css`
       border-color: ${getThemeColor('border-1')};
     `}

@@ -18,9 +18,9 @@ export const PageElement: FC<PageElementProps> = ({
 
   return (
     <PaginatorPage
-      pageNumber={pageNumber}
+      $pageNumber={pageNumber}
       onClick={() => setSelectedPageNumber(pageNumber)}
-      selected={pageNumber === selectedPageNumber}
+      $selected={pageNumber === selectedPageNumber}
       aria-current={pageNumber === selectedPageNumber}
       aria-label={getAriaLabel(pageNumber)}
     >

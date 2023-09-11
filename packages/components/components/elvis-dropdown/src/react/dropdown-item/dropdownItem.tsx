@@ -159,14 +159,14 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     <>
       <DropdownItemStyles
         ref={itemRef}
-        isFocused={
+        $isFocused={
           (focusedItem?.value === item.value && inputIsKeyboard) || isShowing || (childIsSelected && !isMulti)
         }
-        isActive={selfOrAllChildrenAreSelected}
-        size={size}
-        isDisabled={item.isDisabled}
-        isGtMobile={isGtMobile}
-        isMulti={isMulti}
+        $isActive={selfOrAllChildrenAreSelected}
+        $size={size}
+        $isDisabled={item.isDisabled}
+        $isGtMobile={isGtMobile}
+        $isMulti={isMulti}
         onClick={() => onItemClick()}
         onMouseEnter={() => onMouseOver()}
         onMouseDown={(ev) => ev.preventDefault()}
@@ -212,7 +212,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         {item.children && (
           <IconContainer>
             <OpenOverlayButton
-              size={size === 'small' ? 'sm' : 'md'}
+              $size={size === 'small' ? 'sm' : 'md'}
               disabled={isGtMobile || !isMulti ? true : false}
               onClick={(ev) => {
                 ev.stopPropagation();

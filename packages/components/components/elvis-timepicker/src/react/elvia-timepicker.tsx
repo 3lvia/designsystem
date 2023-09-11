@@ -167,14 +167,16 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   return (
     <>
       <FormFieldContainer
-        size={size}
+        $size={size}
         className={className ?? ''}
         style={{ ...inlineStyle }}
-        isDisabled={isDisabled}
-        isFullWidth={isFullWidth}
-        isActive={isShowing}
-        isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
-        hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
+        $isDisabled={isDisabled}
+        $isFullWidth={isFullWidth}
+        $isActive={isShowing}
+        $isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        $hasErrorPlaceholder={
+          !!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text
+        }
       >
         {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
         <FormFieldInputContainer ref={connectedElementRef}>
@@ -192,13 +194,13 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           />
           <IconButton
             disabled={isDisabled}
-            isActive={isShowing}
+            $isActive={isShowing}
             onClick={() => {
               onFocus?.();
               setVisibility(!isShowing);
             }}
             ref={openPopoverButtonRef}
-            size={size === 'small' ? 'sm' : 'md'}
+            $size={size === 'small' ? 'sm' : 'md'}
             data-testid="popover-toggle"
             aria-label="Åpne tidvelger"
             aria-haspopup="dialog"

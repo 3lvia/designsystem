@@ -54,9 +54,9 @@ export const ToastBox: React.FC<Props> = ({ toast, indexInQueue, onClose, classN
     <ToastContainer
       className={className}
       style={inlineStyle}
-      fade={startFade}
-      index={indexInQueue}
-      toastType={toast.status}
+      $fade={startFade}
+      $index={indexInQueue}
+      $toastType={toast.status}
       role="status"
       data-elvia-toast-id={toast.id}
       onMouseEnter={() => indexInQueue === 0 && pauseTimer()}
@@ -73,7 +73,7 @@ export const ToastBox: React.FC<Props> = ({ toast, indexInQueue, onClose, classN
       </TextContent>
 
       {toast.closable && (
-        <CloseButton onClick={fadeOut} size="sm" data-testid="close-btn" aria-label="Lukk toast">
+        <CloseButton onClick={fadeOut} $size="sm" data-testid="close-btn" aria-label="Lukk toast">
           <IconWrapper icon={closeBold} size="xs" />
         </CloseButton>
       )}

@@ -48,7 +48,7 @@ export const ThemeIconOutline = styled.div`
   }
 `;
 
-export const ThemeButton = styled.button<{ isActive: boolean }>`
+export const ThemeButton = styled.button<{ $isActive: boolean }>`
   ${getTypographyCss('text-micro')}
   padding: 0;
   margin: 0;
@@ -71,8 +71,8 @@ export const ThemeButton = styled.button<{ isActive: boolean }>`
     vertical-align: top;
   }
 
-  ${({ isActive }) =>
-    isActive &&
+  ${({ $isActive }) =>
+    $isActive &&
     css`
       ${ThemeIconOutline}::after {
         border-color: ${getThemeColor('border-1')};

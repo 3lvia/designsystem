@@ -4,22 +4,22 @@ import { FormFieldContainer, FormFieldInputContainer } from '@elvia/elvis-toolbo
 export const DropdownContainer = styled(FormFieldContainer)`
   width: 100%;
 
-  ${({ isFullWidth }) =>
-    !isFullWidth &&
+  ${({ $isFullWidth }) =>
+    !$isFullWidth &&
     css`
       max-width: 448px;
     `}
 
-  ${({ isDisabled }) =>
-    !isDisabled &&
+  ${({ $isDisabled }) =>
+    !$isDisabled &&
     css`
       ${DropdownInputContainer} {
         cursor: pointer;
       }
     `};
 
-  ${({ size }) =>
-    size === 'small' &&
+  ${({ $size }) =>
+    $size === 'small' &&
     css`
       ${IconRotator} {
         width: 32px;
@@ -37,7 +37,7 @@ export const OverlayPositioner = styled.div`
   z-index: 99999;
 `;
 
-export const IconRotator = styled.div<{ isRotated: boolean }>`
+export const IconRotator = styled.div<{ $isRotated: boolean }>`
   width: 40px;
   height: 40px;
   display: flex;
@@ -47,8 +47,8 @@ export const IconRotator = styled.div<{ isRotated: boolean }>`
   transform: rotate(0deg);
   transition: transform 150ms ease;
 
-  ${(props) =>
-    props.isRotated &&
+  ${({ $isRotated }) =>
+    $isRotated &&
     css`
       transform: rotate(180deg);
     `}

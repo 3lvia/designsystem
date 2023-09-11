@@ -39,9 +39,9 @@ export const ToastPosition = styled.div`
 `;
 
 export const ToastContainer = styled.output<{
-  fade: boolean;
-  toastType: ToastType;
-  index: number;
+  $fade: boolean;
+  $toastType: ToastType;
+  $index: number;
 }>`
   --entryPosition: translateY(50%);
   box-shadow: ${getShadow('medium')};
@@ -61,22 +61,22 @@ export const ToastContainer = styled.output<{
   transition: all 300ms ease;
   width: 100%;
 
-  ${({ toastType }) =>
-    toastType === 'informative' &&
+  ${({ $toastType }) =>
+    $toastType === 'informative' &&
     css`
       border-color: ${getThemeColor('border-1')};
     `};
 
-  ${({ index }) => {
+  ${({ $index }) => {
     return css`
-      bottom: ${`${index * -3}px`};
-      scale: ${1 - index * 0.1};
-      z-index: ${5 - index};
+      bottom: ${`${$index * -3}px`};
+      scale: ${1 - $index * 0.1};
+      z-index: ${5 - $index};
     `;
   }};
 
-  ${({ fade }) =>
-    fade &&
+  ${({ $fade }) =>
+    $fade &&
     css`
       animation: ${fadeOut} ${animationDuration}ms forwards cubic-bezier(0.6, 0, 1, 0.9);
     `};
@@ -86,9 +86,9 @@ export const ToastContainer = styled.output<{
     width: 350px;
     right: 0;
 
-    ${({ index }) => {
+    ${({ $index }) => {
       return css`
-        top: ${`${index * 3}px`};
+        top: ${`${$index * 3}px`};
         bottom: unset;
       `;
     }};

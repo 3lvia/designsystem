@@ -9,11 +9,11 @@ export const AppTitle = styled.h1`
   text-align: left;
 `;
 
-export const SpinContainer = styled.div<{ rotated: boolean }>`
+export const SpinContainer = styled.div<{ $rotated: boolean }>`
   transition: transform 0.2s ease;
 
-  ${({ rotated }) =>
-    rotated &&
+  ${({ $rotated }) =>
+    $rotated &&
     css`
       transform: rotate(180deg);
     `};

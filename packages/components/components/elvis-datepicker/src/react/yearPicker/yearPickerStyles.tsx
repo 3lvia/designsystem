@@ -17,8 +17,8 @@ export const ScrollContainer = styled.div`
 `;
 
 interface YearButtonProps {
-  isActive: boolean;
-  isFocused: boolean;
+  $isActive: boolean;
+  $isFocused: boolean;
 }
 
 export const YearButton = styled.button<YearButtonProps>`
@@ -42,14 +42,14 @@ export const YearButton = styled.button<YearButtonProps>`
     color: ${getThemeColor('text-disabled-1')};
   }
 
-  ${({ isFocused }) =>
-    isFocused &&
+  ${({ $isFocused }) =>
+    $isFocused &&
     css`
       background-color: ${getThemeColor('background-hover-2')};
     `};
 
-  ${({ isActive }) =>
-    isActive &&
+  ${({ $isActive }) =>
+    $isActive &&
     css`
       background-color: ${getThemeColor('background-selected-2')};
     `};

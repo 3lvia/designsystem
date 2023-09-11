@@ -4,14 +4,14 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 import { StyledCheckbox } from '../checkbox/checkboxStyles';
 
-export const TooltipContainer = styled.div<{ noRightContent: boolean; isRootOverlay?: boolean }>`
+export const TooltipContainer = styled.div<{ $noRightContent: boolean; $isRootOverlay?: boolean }>`
   padding-right: 16px;
   overflow: hidden;
   flex: 1;
 
-  ${({ noRightContent, isRootOverlay }) =>
-    noRightContent &&
-    !isRootOverlay &&
+  ${({ $noRightContent, $isRootOverlay }) =>
+    $noRightContent &&
+    !$isRootOverlay &&
     css`
       padding-right: 40px;
       max-width: 300px;
@@ -47,13 +47,13 @@ export const IconContainer = styled.div`
 export const DropdownItemStyles = styled.div.attrs(() => ({
   role: 'option',
 }))<{
-  isActive?: boolean;
-  isFocused?: boolean;
-  isDisabled?: boolean;
-  size?: FormFieldSizes;
-  isMulti?: boolean;
-  isInvisible?: boolean;
-  isGtMobile?: boolean;
+  $isActive?: boolean;
+  $isFocused?: boolean;
+  $isDisabled?: boolean;
+  $size?: FormFieldSizes;
+  $isMulti?: boolean;
+  $isInvisible?: boolean;
+  $isGtMobile?: boolean;
 }>`
   display: flex;
   gap: 16px;
@@ -67,17 +67,17 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   height: var(--item-height);
   user-select: none;
 
-  ${({ isActive, isMulti }) =>
-    isActive &&
-    !isMulti &&
+  ${({ $isActive, $isMulti }) =>
+    $isActive &&
+    !$isMulti &&
     css`
       background-color: ${getThemeColor('background-selected-2')};
     `};
 
-  ${({ isMulti, isGtMobile, isDisabled }) =>
-    !isGtMobile &&
-    !isMulti &&
-    !isDisabled &&
+  ${({ $isMulti, $isGtMobile, $isDisabled }) =>
+    !$isGtMobile &&
+    !$isMulti &&
+    !$isDisabled &&
     css`
       &:hover {
         ${OpenOverlayButton} {
@@ -86,8 +86,8 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
       }
     `};
 
-  ${({ size }) => {
-    if (size === 'small') {
+  ${({ $size }) => {
+    if ($size === 'small') {
       return css`
         ${getTypographyCss('text-sm')};
 
@@ -102,8 +102,8 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     `;
   }};
 
-  ${({ isDisabled }) => {
-    if (isDisabled) {
+  ${({ $isDisabled }) => {
+    if ($isDisabled) {
       return css`
         cursor: not-allowed;
         color: ${getThemeColor('text-disabled-1')};
@@ -121,9 +121,9 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
     `;
   }}
 
-  ${({ isFocused, isActive, isMulti }) =>
-    isFocused &&
-    (!isActive || isMulti) &&
+  ${({ $isFocused, $isActive, $isMulti }) =>
+    $isFocused &&
+    (!$isActive || $isMulti) &&
     css`
       background-color: ${getThemeColor('background-hover-2')};
     `};

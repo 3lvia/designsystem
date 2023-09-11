@@ -36,7 +36,7 @@ export const Footer = styled.div`
   margin-left: auto;
 `;
 
-export const ImageContainer = styled.div<{ thumbnail?: boolean }>`
+export const ImageContainer = styled.div<{ $thumbnail?: boolean }>`
   width: 48px;
   flex-shrink: 0;
   border-radius: 50%;
@@ -45,8 +45,8 @@ export const ImageContainer = styled.div<{ thumbnail?: boolean }>`
   grid-row: 1 / -1;
   aspect-ratio: 1;
 
-  ${({ thumbnail }) =>
-    thumbnail &&
+  ${({ $thumbnail }) =>
+    $thumbnail &&
     css`
       width: 32px;
     `};

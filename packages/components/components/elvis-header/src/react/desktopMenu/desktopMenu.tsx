@@ -54,7 +54,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
   return (
     <>
       <ProfileButton
-        size="sm"
+        $size="sm"
         onClick={() => togglePopupVisibility(!isShowing)}
         aria-label="Åpne brukermeny"
         aria-expanded={isShowing}
@@ -63,7 +63,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
         isActive={isShowing}
         ref={connectedElementRef}
       >
-        <ImageContainer thumbnail>
+        <ImageContainer $thumbnail>
           <ProfilePicture />
         </ImageContainer>
         {username?.replace(/\(ekstern\)/gi, '').trim()}
@@ -81,7 +81,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
             {!hideThemeSwitch && <ThemePicker onThemeChange={onThemeChange} />}
             <MenuHr></MenuHr>
             <Footer>
-              <TertiaryButton size="sm" onClick={onSignOutClick}>
+              <TertiaryButton $size="sm" onClick={onSignOutClick}>
                 <IconWrapper icon={logout} size="xs" />
                 Logg ut
               </TertiaryButton>

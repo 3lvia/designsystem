@@ -11,13 +11,13 @@ export const TabsContainer = styled.div`
 `;
 
 interface ArrowButtonProps {
-  isVisible: boolean;
+  $isVisible: boolean;
 }
 
 const ArrowButtonBase = styled(IconButton)<ArrowButtonProps>`
   position: absolute;
   z-index: 1;
-  display: ${({ isVisible }) => (isVisible ? 'grid' : 'none')};
+  display: ${({ $isVisible }) => ($isVisible ? 'grid' : 'none')};
 
   &:not(:disabled):hover {
     background-color: transparent;
@@ -44,7 +44,7 @@ const getTabGradient = (scrollPosition: ScrollPosition): string => {
 };
 
 interface ScrollContainerProps {
-  scrollPosition: ScrollPosition;
+  $scrollPosition: ScrollPosition;
 }
 
 export const ScrollContainer = styled.div<ScrollContainerProps>`
@@ -57,7 +57,7 @@ export const ScrollContainer = styled.div<ScrollContainerProps>`
   scrollbar-width: none;
   gap: 16px;
   position: relative;
-  mask: ${({ scrollPosition }) => getTabGradient(scrollPosition)};
+  mask: ${({ $scrollPosition }) => getTabGradient($scrollPosition)};
   scroll-behavior: smooth;
 
   @media ${device.gtMobile} {
@@ -86,17 +86,17 @@ const decideLabelTextShadow = (isSelected: boolean, isInverted: boolean): string
 };
 
 interface TabLabelProps {
-  isSelected: boolean;
-  isInverted: boolean;
+  $isSelected: boolean;
+  $isInverted: boolean;
 }
 
 export const Tab = styled.button<TabLabelProps>`
-  ${({ isSelected, isInverted }) => css`
+  ${({ $isSelected, $isInverted }) => css`
     ${getTypographyCss('title-caps')}
     line-height: 20px;
     font-weight: normal;
-    color: ${getThemeColor('text-1', { isInverted })};
-    text-shadow: ${decideLabelTextShadow(isSelected, isInverted)};
+    color: ${getThemeColor('text-1', { isInverted: $isInverted })};
+    text-shadow: ${decideLabelTextShadow($isSelected, $isInverted)};
 
     display: flex;
     align-items: flex-start;
@@ -118,13 +118,15 @@ export const Tab = styled.button<TabLabelProps>`
 
     &::before {
       width: 100%;
-      background-color: ${getThemeColor('border-2', { isInverted })};
+      background-color: ${getThemeColor('border-2', { isInverted: $isInverted })};
     }
 
     &::after {
-      width: ${isSelected ? '100%' : '0'};
+      width: ${$isSelected ? '100%' : '0'};
       transition: all 0.3s ease-in-out;
-      background-color: ${isSelected ? getThemeColor('border-selected-1', { isInverted }) : 'transparent'};
+      background-color: ${$isSelected
+        ? getThemeColor('border-selected-1', { isInverted: $isInverted })
+        : 'transparent'};
 
       @media (prefers-reduced-motion: reduce) {
         transition: background-color 0.3s ease-in-out;
@@ -132,7 +134,7 @@ export const Tab = styled.button<TabLabelProps>`
     }
 
     &:hover::after {
-      background-color: ${getThemeColor('border-hover-1', { isInverted })};
+      background-color: ${getThemeColor('border-hover-1', { isInverted: $isInverted })};
       width: 100%;
     }
   `}

@@ -18,7 +18,7 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
 }) => {
   return (
     <ProgressLinearWrapper
-      currSize={size}
+      $currSize={size}
       style={inlineStyle}
       data-testid="progress-wrapper"
       aria-valuenow={value}
@@ -32,12 +32,12 @@ const ProgressLinear: FC<ProgressLinearProps> = ({
       {...rest}
     >
       <ProgressLinearProgress
-        isIndeterminate={isIndeterminate}
-        isError={isError}
-        currSize={size}
+        $isIndeterminate={isIndeterminate}
+        $isError={isError}
+        $currSize={size}
         style={{ width: `${value}%` }}
         data-testid="progress-linear-progress"
-        transitionDuration={transitionDuration}
+        $transitionDuration={transitionDuration}
       ></ProgressLinearProgress>
     </ProgressLinearWrapper>
   );

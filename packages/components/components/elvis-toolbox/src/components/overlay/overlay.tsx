@@ -88,8 +88,8 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
             {hasBackdrop && <Backdrop onClick={() => animateOut()} data-testid="backdrop" />}
             <OverlayContainer
               ref={ref}
-              fadeOut={fadeOut}
-              noAnimation={!hasAnimation}
+              $fadeOut={fadeOut}
+              $noAnimation={!hasAnimation}
               className={!useGlobalTheme ? themeClass : ''}
             >
               {children}

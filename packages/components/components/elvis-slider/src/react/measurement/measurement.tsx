@@ -43,7 +43,7 @@ export const Measurement: React.FC<Props> = ({ min, max, size, unit, setWidth })
       </BoundaryWidthMeasurement>
       <FormFieldContainer
         as="div"
-        size={size}
+        $size={size}
         style={{
           height: 0,
           margin: 0,

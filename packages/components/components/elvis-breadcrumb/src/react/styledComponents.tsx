@@ -33,7 +33,7 @@ export const BreadcrumbMobileWrapper = styled.li`
 `;
 
 type BreadcrumbLinkProps = {
-  isClickable: boolean;
+  $isClickable: boolean;
 };
 
 export const BreadcrumbLinkStyle = styled.a<BreadcrumbLinkProps>`
@@ -45,8 +45,8 @@ export const BreadcrumbLinkStyle = styled.a<BreadcrumbLinkProps>`
   text-align: left;
   text-decoration: none;
   color: ${getThemeColor('text-2')};
-  pointer-events: ${({ isClickable }) => (isClickable ? 'auto' : 'none')};
-  cursor: ${({ isClickable }) => (isClickable ? 'pointer' : 'default')};
+  pointer-events: ${({ $isClickable }) => ($isClickable ? 'auto' : 'none')};
+  cursor: ${({ $isClickable }) => ($isClickable ? 'pointer' : 'default')};
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

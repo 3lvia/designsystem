@@ -144,29 +144,29 @@ const Accordion: FC<AccordionProps> = ({
     >
       {type === 'overflow' ? (
         <AccordionContent
-          type={type}
-          spacingAboveContent={spacingAboveContent}
-          spacingBelowContent={spacingBelowContent}
-          isOpenState={isOpenState}
-          overflowHeight={overflowHeight}
-          contentHeight={contentHeight}
-          hasContent={hasContent}
+          $type={type}
+          $spacingAboveContent={spacingAboveContent}
+          $spacingBelowContent={spacingBelowContent}
+          $isOpenState={isOpenState}
+          $overflowHeight={overflowHeight}
+          $contentHeight={contentHeight}
+          $hasContent={hasContent}
           ref={accordionContentRef}
           data-testid="accordion-content-overflow"
         >
           {content}
         </AccordionContent>
       ) : null}
-      <AccordionButtonArea labelPosition={labelPosition} type={type}>
+      <AccordionButtonArea $labelPosition={labelPosition}>
         <AccordionButton
           aria-expanded={isOpenState}
-          size={size}
-          currType={type}
-          isFullWidth={isFullWidth}
-          isOpenState={isOpenState}
-          hasBoldLabel={hasBoldLabel}
-          openDetailText={openDetailText}
-          typography={typography}
+          $size={size}
+          $currType={type}
+          $isFullWidth={isFullWidth}
+          $isOpenState={isOpenState}
+          $hasBoldLabel={hasBoldLabel}
+          $openDetailText={openDetailText}
+          $typography={typography}
           onClick={() => handleOnClick()}
           onMouseEnter={() => setIsHoveringButton(true)}
           onMouseLeave={() => setIsHoveringButton(false)}
@@ -180,16 +180,16 @@ const Accordion: FC<AccordionProps> = ({
             />
           )}
           <AccordionLabel
-            hasLabel={type !== 'single'}
-            isStartAligned={isStartAligned}
-            isFullWidth={isFullWidth}
+            $hasLabel={type !== 'single'}
+            $isStartAligned={isStartAligned}
+            $isFullWidth={isFullWidth}
           >
             {isOpenState ? (
               <AccordionLabelText ref={closeLabelRef}>{closeLabel}</AccordionLabelText>
             ) : (
               <AccordionLabelText ref={openLabelRef}>{openLabel}</AccordionLabelText>
             )}
-            <AccordionDetailText size={size} openDetailText={openDetailText}>
+            <AccordionDetailText $size={size} $openDetailText={openDetailText}>
               {!isOpenState ? openDetailText : closeDetailText}
             </AccordionDetailText>
           </AccordionLabel>
@@ -203,13 +203,13 @@ const Accordion: FC<AccordionProps> = ({
       </AccordionButtonArea>
       {type === 'normal' ? (
         <AccordionContent
-          type={type}
-          spacingAboveContent={spacingAboveContent}
-          spacingBelowContent={spacingBelowContent}
-          isOpenState={isOpenState}
-          hasContent={hasContent}
-          contentHeight={contentHeight}
-          overflowHeight={overflowHeight}
+          $type={type}
+          $spacingAboveContent={spacingAboveContent}
+          $spacingBelowContent={spacingBelowContent}
+          $isOpenState={isOpenState}
+          $hasContent={hasContent}
+          $contentHeight={contentHeight}
+          $overflowHeight={overflowHeight}
           data-testid="accordion-content-normal"
           ref={accordionContentRef}
         >

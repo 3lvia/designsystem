@@ -48,8 +48,8 @@ export const DayName = styled.div`
 `;
 
 interface DayButtonProps {
-  isActive: boolean;
-  isToday: boolean;
+  $isActive: boolean;
+  $isToday: boolean;
 }
 
 export const DayButton = styled.button<Partial<DayButtonProps>>`
@@ -71,16 +71,16 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
     }
   }
 
-  ${(props) =>
-    props.isActive &&
+  ${({ $isActive }) =>
+    $isActive &&
     css`
       color: ${getThemeColorContrast('background-selected-1')};
       background-color: ${getThemeColor('background-selected-1')};
       font-weight: 500;
     `}
 
-  ${(props) =>
-    props.isToday &&
+  ${({ $isToday }) =>
+    $isToday &&
     css`
       &::after {
         content: '';

@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 interface DatepickerRangeWrapperProps {
-  readonly isVertical: boolean;
-  readonly isFullWidth: boolean;
+  readonly $isVertical: boolean;
+  readonly $isFullWidth: boolean;
 }
 
 export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
@@ -16,8 +16,8 @@ export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
     flex-direction: column;
   }
 
-  ${({ isVertical }) =>
-    isVertical &&
+  ${({ $isVertical }) =>
+    $isVertical &&
     css`
       flex-direction: column;
 
@@ -26,8 +26,8 @@ export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
       }
     `};
 
-  ${({ isFullWidth }) =>
-    isFullWidth &&
+  ${({ $isFullWidth }) =>
+    $isFullWidth &&
     css`
       width: 100%;
 

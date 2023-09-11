@@ -39,14 +39,13 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
                 role="tab"
                 aria-selected={stepNumber === currentStep}
                 key={stepNumber}
-                isActive={stepNumber === currentStep}
-                isLast={stepNumber === numberOfSteps}
+                $isLast={stepNumber === numberOfSteps}
               >
                 <StepNumber
-                  isActive={stepNumber === currentStep}
-                  isError={steps?.[stepNumber]?.isError}
-                  isCompleted={steps?.[stepNumber]?.isCompleted}
-                  isDisabled={!isReachable(isForced, stepNumber, steps)}
+                  $isActive={stepNumber === currentStep}
+                  $isError={steps?.[stepNumber]?.isError}
+                  $isCompleted={steps?.[stepNumber]?.isCompleted}
+                  $isDisabled={!isReachable(isForced, stepNumber, steps)}
                   onClick={() =>
                     handleStepChange(isReachable(isForced, stepNumber, steps) ? stepNumber : currentStep)
                   }
@@ -66,7 +65,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
             ),
         )}
       </Steps>
-      <StepperTitle typography={typography}>{steps?.[currentStep]?.heading ?? ''}</StepperTitle>
+      <StepperTitle $typography={typography}>{steps?.[currentStep]?.heading ?? ''}</StepperTitle>
       <StepContent
         currentStep={currentStep}
         handleStepChange={handleStepChange}

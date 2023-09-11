@@ -65,7 +65,7 @@ export const Outline: React.FC<OutlineProps> = ({ inlineStyle, className }) => {
         <StyledOutline
           data-testid="outline"
           className={className}
-          animate={!isScrolling}
+          $animate={!isScrolling}
           style={{
             ...inlineStyle,
             transform: `translate(${domRect.left - offset}px, ${domRect.top - offset}px)`,

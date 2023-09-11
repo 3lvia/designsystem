@@ -35,7 +35,7 @@ const backdropFadeOut = keyframes`
   to { opacity: 0; }
 `;
 
-export const MenuContainer = styled.div<{ fadeOut: boolean }>`
+export const MenuContainer = styled.div<{ $fadeOut: boolean }>`
   position: fixed;
   inset: ${toolbarHeight} 0 auto;
   padding: 0 32px 32px;
@@ -48,8 +48,8 @@ export const MenuContainer = styled.div<{ fadeOut: boolean }>`
   animation: ${fadeIn} 300ms ease;
   transform-origin: center top;
 
-  ${(props) =>
-    props.fadeOut &&
+  ${({ $fadeOut }) =>
+    $fadeOut &&
     css`
       animation: ${fadeOut} 250ms ease-out;
 
@@ -75,7 +75,7 @@ export const MenuContainer = styled.div<{ fadeOut: boolean }>`
   }
 `;
 
-export const Backdrop = styled.div<{ fadeOut: boolean }>`
+export const Backdrop = styled.div<{ $fadeOut: boolean }>`
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: ${toolbarHeight};
@@ -85,8 +85,8 @@ export const Backdrop = styled.div<{ fadeOut: boolean }>`
   animation: ${backdropFadeIn} 300ms;
   z-index: ${headerZIndex};
 
-  ${(props) =>
-    props.fadeOut &&
+  ${({ $fadeOut }) =>
+    $fadeOut &&
     css`
       animation: ${backdropFadeOut} 250ms ease;
     `};

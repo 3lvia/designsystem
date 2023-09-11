@@ -79,7 +79,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
   return (
     <>
-      <TriggerContainer onClick={toggleVisibility} ref={triggerRef} isShowing={isOverlayShowing}>
+      <TriggerContainer onClick={toggleVisibility} ref={triggerRef} $isShowing={isOverlayShowing}>
         {trigger}
       </TriggerContainer>
 

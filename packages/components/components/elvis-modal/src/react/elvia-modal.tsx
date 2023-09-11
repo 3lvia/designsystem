@@ -138,16 +138,16 @@ export const ModalComponent: FC<ModalProps> = function ({
       tabIndex={-1}
       role="dialog"
       aria-label={heading}
-      isShowing={isShowing}
-      disableBackdrop={disableBackdrop}
+      $isShowing={isShowing}
+      $disableBackdrop={disableBackdrop}
       {...rest}
     >
       <ModalWrapper
         ref={modalWrapperRef}
-        hasIllustration={hasIllustration}
+        $hasIllustration={hasIllustration}
         className={className}
         style={inlineStyle}
-        maxWidth={maxWidth}
+        $maxWidth={maxWidth}
         data-testid="modal-wrapper"
       >
         {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
@@ -170,8 +170,8 @@ export const ModalComponent: FC<ModalProps> = function ({
           </CloseButtonContainer>
         )}
 
-        <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
-          {heading && <ModalHeading hasIllustration={hasIllustration}>{heading}</ModalHeading>}
+        <ModalContent $hasIllustration={hasIllustration} $hasPadding={hasPadding}>
+          {heading && <ModalHeading $hasIllustration={hasIllustration}>{heading}</ModalHeading>}
           <ModalText data-testid="modal-content" ref={modalText}>
             {content}
           </ModalText>

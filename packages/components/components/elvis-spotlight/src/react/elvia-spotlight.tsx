@@ -26,7 +26,7 @@ const Spotlight: FC<SpotlightProps> = ({
             <rect width="100%" height="100%" fill="white" />
             {shape === 'circle' ? (
               <SpotlightCircle
-                transitionDuration={transitionDuration}
+                $transitionDuration={transitionDuration}
                 r={radius}
                 cx={position.horizontal}
                 cy={position.vertical}
@@ -34,7 +34,7 @@ const Spotlight: FC<SpotlightProps> = ({
               />
             ) : (
               <SpotlightRect
-                transitionDuration={transitionDuration}
+                $transitionDuration={transitionDuration}
                 width={rectangleProps.width}
                 height={rectangleProps.height}
                 x={position.horizontal}

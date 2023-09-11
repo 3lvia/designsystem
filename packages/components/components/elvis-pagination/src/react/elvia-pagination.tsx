@@ -151,7 +151,7 @@ const Pagination: FC<PaginationProps> = function ({
 
   return (
     <Paginator
-      isRightAligned={alignment === 'right'}
+      $isRightAligned={alignment === 'right'}
       className={className}
       style={inlineStyle}
       data-testid="pagination"
@@ -177,7 +177,7 @@ const Pagination: FC<PaginationProps> = function ({
       {showPaginationNumbers() && (
         <PaginatorSelectorArea ref={listContainerRef}>
           <PaginatorSelectorArrowBtn
-            visible={previousEnabled}
+            $visible={previousEnabled}
             aria-hidden={!previousEnabled}
             onClick={handleOnPreviousPageClick}
             aria-label="Forrige side"
@@ -193,7 +193,7 @@ const Pagination: FC<PaginationProps> = function ({
             lastNumberLimit={lastNumberLimit}
           />
           <PaginatorSelectorArrowBtn
-            visible={nextEnabled}
+            $visible={nextEnabled}
             aria-hidden={!nextEnabled}
             onClick={handleOnNextPageClick}
             aria-label="Neste side"

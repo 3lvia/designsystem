@@ -48,17 +48,17 @@ export const DateRangeHighlighter: React.FC<Props> = ({
 
   return (
     <DateRangeDayContainer
-      isStartPiece={isStartDate}
-      isMiddlePiece={isBetweenDates()}
-      isEndPiece={isEndDate}
-      isOtherSelectedDate={isOtherSelectedDate()}
-      isHoveredDate={isSameDay(date, hoveredDate) && !!dateRange?.start}
-      rangeIsValid={rangeIsValid()}
+      $isStartPiece={isStartDate}
+      $isMiddlePiece={isBetweenDates()}
+      $isEndPiece={isEndDate}
+      $isOtherSelectedDate={isOtherSelectedDate()}
+      $isHoveredDate={isSameDay(date, hoveredDate) && !!dateRange?.start}
+      $rangeIsValid={rangeIsValid()}
       onMouseEnter={() => date && !disabled && setHoveredDate(date)}
       onMouseLeave={() => setHoveredDate(undefined)}
-      invisible={!date}
-      isFocused={isFocused}
-      disabled={disabled}
+      $invisible={!date}
+      $isFocused={isFocused}
+      $disabled={disabled}
       onClick={() => onClick()}
     >
       {children}

@@ -31,13 +31,12 @@ const decideLabelPosition = (prop: AccordionLabelPosition) => {
 };
 
 export interface AccordionButtonAreaProps {
-  labelPosition: AccordionLabelPosition;
-  type: AccordionType;
+  $labelPosition: AccordionLabelPosition;
 }
 
 export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
   display: flex;
-  justify-content: ${({ labelPosition }) => decideLabelPosition(labelPosition)};
+  justify-content: ${({ $labelPosition }) => decideLabelPosition($labelPosition)};
   flex-direction: row;
   width: 100%;
 `;
@@ -55,13 +54,13 @@ const decideButtonFontSize = (size: AccordionSize) => {
 };
 
 interface AccordionButtonProps {
-  isFullWidth: boolean;
-  isOpenState: boolean;
-  currType: AccordionType;
-  size: AccordionSize;
-  hasBoldLabel: boolean;
-  openDetailText?: string;
-  typography?: TypographyName;
+  $isFullWidth: boolean;
+  $isOpenState: boolean;
+  $currType: AccordionType;
+  $size: AccordionSize;
+  $hasBoldLabel: boolean;
+  $openDetailText?: string;
+  $typography?: TypographyName;
 }
 
 export const AccordionButton = styled.button<AccordionButtonProps>`
@@ -70,25 +69,25 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   display: flex;
   padding: 0;
   font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: ${({ hasBoldLabel, openDetailText }) =>
-    !hasBoldLabel && openDetailText === undefined ? '400' : '500'};
-  font-size: ${({ size }) => `${decideButtonFontSize(size)}px`};
-  line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
-  ${({ typography }) => typography && getTypographyCss(typography)}
+  font-weight: ${({ $hasBoldLabel, $openDetailText }) =>
+    !$hasBoldLabel && $openDetailText === undefined ? '400' : '500'};
+  font-size: ${({ $size }) => `${decideButtonFontSize($size)}px`};
+  line-height: ${({ $size }) => ($size === 'small' ? '16px' : '24px')};
+  ${({ $typography }) => $typography && getTypographyCss($typography)}
   text-align: left;
   cursor: pointer;
   color: ${getThemeColor('text-1')};
-  width: ${({ isFullWidth, currType }) => (isFullWidth && currType === 'normal' ? '100%' : 'auto')};
-  justify-content: ${({ isFullWidth, currType }) =>
-    isFullWidth && currType === 'normal' ? 'space-between' : 'inherit'};
+  width: ${({ $isFullWidth, $currType }) => ($isFullWidth && $currType === 'normal' ? '100%' : 'auto')};
+  justify-content: ${({ $isFullWidth, $currType }) =>
+    $isFullWidth && $currType === 'normal' ? 'space-between' : 'inherit'};
   align-items: center;
 
   svg {
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
 
-    ${({ isOpenState }) =>
-      isOpenState &&
+    ${({ $isOpenState }) =>
+      $isOpenState &&
       css`
         transform: rotate(180deg);
       `};
@@ -96,17 +95,17 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
 `;
 
 interface AccordionLabelProps {
-  hasLabel: boolean;
-  isStartAligned: boolean | undefined;
-  isFullWidth: boolean | undefined;
+  $hasLabel: boolean;
+  $isStartAligned: boolean | undefined;
+  $isFullWidth: boolean | undefined;
 }
 
 export const AccordionLabel = styled.div<AccordionLabelProps>`
-  display: ${({ hasLabel }) => (hasLabel ? 'flex' : 'none')};
+  display: ${({ $hasLabel }) => ($hasLabel ? 'flex' : 'none')};
   flex-direction: row;
   align-items: baseline;
-  margin-left: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '8px' : '0')};
-  margin-right: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '0' : '8px')};
+  margin-left: ${({ $isStartAligned, $isFullWidth }) => ($isStartAligned && !$isFullWidth ? '8px' : '0')};
+  margin-right: ${({ $isStartAligned, $isFullWidth }) => ($isStartAligned && !$isFullWidth ? '0' : '8px')};
 `;
 
 export const AccordionLabelText = styled.div`
@@ -124,16 +123,16 @@ const decideDetailTextSize = (size: AccordionSize): string => {
 };
 
 interface AccordionDetailTextProps {
-  size: AccordionSize;
-  openDetailText: string | undefined;
+  $size: AccordionSize;
+  $openDetailText: string | undefined;
 }
 
 export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
-  ${({ size }) => decideDetailTextSize(size)};
+  ${({ $size }) => decideDetailTextSize($size)};
   display: flex;
   text-align: left;
   color: ${getThemeColor('text-1')};
-  margin-left: ${({ openDetailText }) => (openDetailText !== undefined ? '8px;' : '0;')};
+  margin-left: ${({ $openDetailText }) => ($openDetailText !== undefined ? '8px;' : '0;')};
 `;
 
 const decideContentMarginTop = (
@@ -179,31 +178,31 @@ const decideContentTransitionDuration = (contentHeight: number): string => {
 };
 
 interface AccordionContentProps {
-  isOpenState: boolean;
-  type: AccordionType;
-  spacingAboveContent: AccordionSpacingContent;
-  spacingBelowContent: AccordionSpacingContent;
-  overflowHeight?: number;
-  contentHeight: number;
-  hasContent: boolean;
+  $isOpenState: boolean;
+  $type: AccordionType;
+  $spacingAboveContent: AccordionSpacingContent;
+  $spacingBelowContent: AccordionSpacingContent;
+  $overflowHeight?: number;
+  $contentHeight: number;
+  $hasContent: boolean;
 }
 
 export const AccordionContent = styled.div<AccordionContentProps>`
-  display: ${({ hasContent }) => (hasContent ? 'block' : 'none')};
-  visibility: ${({ type, isOpenState }) => (type === 'normal' && !isOpenState ? `hidden` : `visible`)};
+  display: ${({ $hasContent }) => ($hasContent ? 'block' : 'none')};
+  visibility: ${({ $type, $isOpenState }) => ($type === 'normal' && !$isOpenState ? `hidden` : `visible`)};
   background: transparent;
   font-size: 16px;
   line-height: inherit;
-  margin-top: ${({ type, hasContent, spacingAboveContent }) =>
-    decideContentMarginTop(type, hasContent, spacingAboveContent)};
-  margin-bottom: ${({ type, spacingBelowContent }) => (type === 'overflow' ? spacingBelowContent : 0)};
-  pointer-events: ${({ isOpenState }) => (isOpenState ? 'auto' : 'none')};
-  max-height: ${({ isOpenState, type, contentHeight, overflowHeight }) =>
-    decideContentMaxHeight(isOpenState, type, contentHeight, overflowHeight)};
+  margin-top: ${({ $type, $hasContent, $spacingAboveContent }) =>
+    decideContentMarginTop($type, $hasContent, $spacingAboveContent)};
+  margin-bottom: ${({ $type, $spacingBelowContent }) => ($type === 'overflow' ? $spacingBelowContent : 0)};
+  pointer-events: ${({ $isOpenState }) => ($isOpenState ? 'auto' : 'none')};
+  max-height: ${({ $isOpenState, $type, $contentHeight, $overflowHeight }) =>
+    decideContentMaxHeight($isOpenState, $type, $contentHeight, $overflowHeight)};
   width: 100%;
-  opacity: ${({ isOpenState, type }) => decideContentOpacity(isOpenState, type)};
+  opacity: ${({ $isOpenState, $type }) => decideContentOpacity($isOpenState, $type)};
   overflow-y: hidden;
-  transition: all ${({ contentHeight }) => decideContentTransitionDuration(contentHeight)} ${bezierCurve};
+  transition: all ${({ $contentHeight }) => decideContentTransitionDuration($contentHeight)} ${bezierCurve};
   transition-property: opacity, max-height, visibility;
   -ms-overflow-style: none;
   scrollbar-width: none;

@@ -57,14 +57,14 @@ export const Chip: FC<ChipProps> = function ({
       role={type === 'removable' ? undefined : 'checkbox'}
       aria-checked={type === 'removable' ? undefined : isSelectedState}
       aria-label={ariaLabel}
-      color={color}
+      $color={color}
       onClick={() => (type === 'removable' ? handleOnDelete(value) : setIsSelectedState(!isSelectedState))}
-      isDisabled={isDisabled}
-      chipType={type}
-      isSelected={isSelectedState}
-      isHovering={isHovered}
+      $isDisabled={isDisabled}
+      $chipType={type}
+      $isSelected={isSelectedState}
+      $isHovering={isHovered}
       className={className ?? ''}
-      isLoading={isLoading}
+      $isLoading={isLoading}
       style={inlineStyle}
       disabled={isDisabled}
       data-testid="chip-button"
@@ -75,10 +75,10 @@ export const Chip: FC<ChipProps> = function ({
       )}
       {type === 'legend' && (
         <ChipDot
-          color={color}
-          showDot={isHovered || isSelectedState}
-          isDisabled={isDisabled}
-          isHidden={isLoading}
+          $color={color}
+          $showDot={isHovered || isSelectedState}
+          $isDisabled={isDisabled}
+          $isHidden={isLoading}
         />
       )}
       {isLoading && (
@@ -88,14 +88,7 @@ export const Chip: FC<ChipProps> = function ({
           <span />
         </ChipLoading>
       )}
-      <ChipTitle
-        chipType={type}
-        isDisabled={isDisabled}
-        isHovering={isHovered}
-        isHidden={isLoading}
-        data-testid="chip-label"
-        style={{ color: getTextColor() }}
-      >
+      <ChipTitle $isHidden={isLoading} data-testid="chip-label" style={{ color: getTextColor() }}>
         {value}
       </ChipTitle>
       {type === 'removable' && <IconWrapper icon={close} size="xxs" color={getTextColor()} />}

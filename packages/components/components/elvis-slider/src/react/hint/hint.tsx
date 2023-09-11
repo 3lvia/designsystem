@@ -14,7 +14,12 @@ interface Props {
 export const Hint = forwardRef<HTMLSpanElement, Props>(
   ({ hasErrorPlaceholder, size, isDisabled, side, value }, ref) => {
     return (
-      <StyledHint hasErrorPlaceholder={hasErrorPlaceholder} size={size} isDisabled={isDisabled} side={side}>
+      <StyledHint
+        $hasErrorPlaceholder={hasErrorPlaceholder}
+        $size={size}
+        $isDisabled={isDisabled}
+        $side={side}
+      >
         <span ref={ref} data-testid={`${side}-hint`}>
           {value.toLocaleString()}
         </span>

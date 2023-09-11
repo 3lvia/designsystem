@@ -15,7 +15,7 @@ export const SideNav = React.forwardRef<HTMLElement, SideNavProps>(
     const isGtMobile = useBreakpoint('gt-mobile');
 
     return (
-      <SideNavContainer isGtMobile={isGtMobile} isExpanded={isExpanded} ref={ref}>
+      <SideNavContainer $isGtMobile={isGtMobile} $isExpanded={isExpanded} ref={ref}>
         {children}
         {isGtMobile && (
           <ToggleWidthButton onClick={() => onSideNavToggle()}>

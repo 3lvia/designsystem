@@ -157,14 +157,14 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <>
       <DropdownContainer
-        size={size}
+        $size={size}
         className={className ?? ''}
         style={{ ...inlineStyle }}
-        isFullWidth={isFullWidth}
-        isDisabled={isDisabled}
-        hasErrorPlaceholder={!!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
-        isActive={isShowing}
-        isInvalid={!!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        $isFullWidth={isFullWidth}
+        $isDisabled={isDisabled}
+        $hasErrorPlaceholder={!!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
+        $isActive={isShowing}
+        $isInvalid={!!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
         data-testid="wrapper"
         aria-haspopup="true"
       >
@@ -187,10 +187,10 @@ const Dropdown: React.FC<DropdownProps> = ({
             ariaLabel={ariaLabel}
           />
 
-          <IconRotator isRotated={isShowing}>
+          <IconRotator $isRotated={isShowing}>
             <IconWrapper
               icon={arrowDownBold}
-              color={isDisabled ? 'text-disabled-1' : 'text-1'}
+              color={isDisabled ? 'text-disabled-1' : 'icon-stroke-1'}
               size={size === 'small' ? 'xs' : 'sm'}
             />
           </IconRotator>

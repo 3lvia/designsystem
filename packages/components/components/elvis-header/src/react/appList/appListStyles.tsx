@@ -52,7 +52,7 @@ export const IconLetters = styled.div`
   height: 100%;
 `;
 
-export const AppLink = styled.a<{ isActive: boolean }>`
+export const AppLink = styled.a<{ $isActive: boolean }>`
   ${getTypographyCss('text-micro')}
   text-decoration: none;
   display: flex;
@@ -62,8 +62,8 @@ export const AppLink = styled.a<{ isActive: boolean }>`
   gap: 8px;
   transition: transform 0.2s ease;
 
-  ${({ isActive }) => {
-    if (isActive) {
+  ${({ $isActive }) => {
+    if ($isActive) {
       return css`
         ${getTypographyCss('text-micro-strong')};
 

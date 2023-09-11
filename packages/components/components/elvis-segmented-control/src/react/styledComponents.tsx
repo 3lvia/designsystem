@@ -55,10 +55,10 @@ const getFontSize = (size: string) => {
   }
 };
 
-const getControlBorder = ($type: Type, isSelected: boolean, isHovering?: boolean): string => {
-  if ($type === 'icon' && isSelected) {
+const getControlBorder = ($type: Type, $isSelected: boolean, $isHovering?: boolean): string => {
+  if ($type === 'icon' && $isSelected) {
     return `1px solid ${getThemeColor('border-1')}`;
-  } else if ($type === 'icon' && isHovering) {
+  } else if ($type === 'icon' && $isHovering) {
     return `1px solid ${getThemeColor('border-hover-1')}`;
   } else {
     return '1px solid transparent';
@@ -77,16 +77,16 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   background: ${({ $type }) => ($type === 'text' ? getThemeColor('background-element-1') : 'transparent')};
 
   // Selected control background
-  ${({ $type, numberOfControls, selectedIndex }) =>
+  ${({ $type, $numberOfControls, $selectedIndex }) =>
     $type === 'text' &&
     css`
       &::after {
         content: '';
         position: absolute;
-        width: ${100 / numberOfControls}%;
+        width: ${100 / $numberOfControls}%;
         height: 100%;
         top: 0;
-        left: ${(100 / numberOfControls) * selectedIndex}%;
+        left: ${(100 / $numberOfControls) * $selectedIndex}%;
         border-radius: 100px;
         background-color: ${getThemeColor('background-element-5')};
         transition: left 250ms ${controlAnimation};
@@ -98,25 +98,25 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   position: relative;
   white-space: nowrap;
   background-color: transparent;
-  padding: ${({ size, $type }) => getControlPadding(size, $type)};
-  border: ${({ isSelected, $type }) => getControlBorder($type, isSelected)};
+  padding: ${({ $size, $type }) => getControlPadding($size, $type)};
+  border: ${({ $isSelected, $type }) => getControlBorder($type, $isSelected)};
   border-radius: 100px;
   z-index: 10;
-  color: ${({ isSelected }) => (isSelected ? getThemeColor('text-4') : getThemeColor('text-1'))};
+  color: ${({ $isSelected }) => ($isSelected ? getThemeColor('text-4') : getThemeColor('text-1'))};
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: ${({ size }) => getFontSize(size)};
+  font-size: ${({ $size }) => getFontSize($size)};
   font-style: 'unset';
   font-weight: '400';
   letter-spacing: 'unset';
   line-height: 20px;
   text-align: center;
-  text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
+  text-shadow: ${({ $isSelected }) => ($isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
   text-transform: 'unset';
 
   transition: color 250ms ${controlAnimation}, border 200ms linear, text-shadow 200ms ${controlAnimation};
   &:hover {
     text-shadow: 0 0 0 currentColor, 0 0 0.5px currentColor;
-    border: ${({ $type, isSelected }) => getControlBorder($type, isSelected, true)};
+    border: ${({ $type, $isSelected }) => getControlBorder($type, $isSelected, true)};
   }
 `;
 

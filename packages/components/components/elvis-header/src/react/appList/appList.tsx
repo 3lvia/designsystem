@@ -16,7 +16,7 @@ export const AppList: React.FC<Props> = ({ onLinkClick }) => {
         <AppLink
           href={`https://${link.url}.${domain}`}
           key={link.name}
-          isActive={activeUrl === link.url}
+          $isActive={activeUrl === link.url}
           onClick={onLinkClick}
         >
           <IconContainer>
