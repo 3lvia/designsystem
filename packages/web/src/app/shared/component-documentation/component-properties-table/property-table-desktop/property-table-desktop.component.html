@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <ng-container *ngFor="let group of groupedProps">
-      <tr *ngIf="group.rows.length > 0">
+      <tr *ngIf="group.rows.length > 0" class="group-title-row">
         <th colspan="4" scope="rowgroup">
           <div class="group-title">
             <h2 class="e-title-xs">{{ group.title }}</h2>
@@ -44,10 +44,10 @@
       </tr>
       <ng-container *ngIf="group.expanded">
         <tr *ngFor="let prop of group.rows">
-          <th scope="row" class="table-code-text bold">
-            <span [id]="'property-row-' + prop.attribute + '-attribute'">
+          <th scope="row" class="table-code-text">
+            <strong [id]="'property-row-' + prop.attribute + '-attribute'">
               {{ prop.attribute }}{{ prop.isRequired ? '*' : '' }}
-            </span>
+            </strong>
           </th>
           <td
             class="table-code-text e-table__cell--multiline-small"

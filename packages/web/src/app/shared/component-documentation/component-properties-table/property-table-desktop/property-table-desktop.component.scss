@@ -1,10 +1,6 @@
 th.table-code-text,
 td.table-code-text {
   font-family: 'Red Hat Mono', Verdana, sans-serif;
-
-  &.bold {
-    font-weight: 500;
-  }
 }
 
 .group-title {
@@ -16,13 +12,13 @@ td.table-code-text {
   }
 }
 
-.e-table th:has(.group-title) {
-  background-color: var(--e-color-background-element-2);
-  padding-block: 12px;
-}
-
-.e-table tr:has(.group-title) {
+.e-table .group-title-row {
   position: sticky;
   top: 40px;
   z-index: 2;
+
+  th {
+    background-color: var(--e-color-background-element-2);
+    padding-block: 12px;
+  }
 }
