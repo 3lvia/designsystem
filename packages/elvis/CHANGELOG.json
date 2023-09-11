@@ -1,6 +1,20 @@
 {
   "content": [
     {
+      "version": "13.0.0",
+      "date": "September 11, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Changed label size and position for the small text field."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }],
+          "fixes": [
+            "The small text-field will be taller. You may therefore want to check that the page layout is not severely affected by this."
+          ]
+        }
+      ]
+    },
+    {
       "version": "12.11.1",
       "date": "September 11, 2023",
       "changelog": [
