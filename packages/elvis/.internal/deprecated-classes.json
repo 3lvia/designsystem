@@ -417,10 +417,6 @@
     "deprecateChildren": true,
     "version": "12.0.0"
   },
-  "e-form-field--small": {
-    "deprecateChildren": true,
-    "version": "12.0.0"
-  },
   "e-form-field--medium": {
     "deprecateChildren": true,
     "version": "12.0.0"

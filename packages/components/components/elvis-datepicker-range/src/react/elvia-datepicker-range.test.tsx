@@ -59,7 +59,7 @@ describe('Elvis DatepickerRange', () => {
 
   describe('passes props to both underlying date pickers', () => {
     beforeEach(() => {
-      render(<DatepickerRange isDisabled isFullWidth size="small"></DatepickerRange>);
+      render(<DatepickerRange isDisabled isFullWidth></DatepickerRange>);
     });
 
     it('should have both date pickers disabled', () => {
@@ -73,12 +73,6 @@ describe('Elvis DatepickerRange', () => {
       const datePickers = screen.getAllByTestId('wrapper');
       datePickers.forEach((datepicker) => {
         expect(datepicker).toHaveStyle('width: 100%');
-      });
-    });
-    it('should have both date pickers compact', () => {
-      const datePickers = screen.getAllByTestId('wrapper');
-      datePickers.forEach((datepicker) => {
-        expect(datepicker).toHaveStyle('padding-top: 0.5rem');
       });
     });
   });
