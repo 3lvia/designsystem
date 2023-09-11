@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-property-search-input',
@@ -6,6 +6,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./property-search-input.component.scss'],
 })
 export class PropertySearchInputComponent {
+  @ViewChild('searchInputElement') inputElement: ElementRef<HTMLInputElement>;
+
   @Output() search = new EventEmitter<string>();
 
   searchTerm = '';
@@ -17,5 +19,6 @@ export class PropertySearchInputComponent {
   clearSearchField(): void {
     this.searchTerm = '';
     this.emitSearch();
+    this.inputElement.nativeElement?.focus();
   }
 }
