@@ -22,3 +22,13 @@ td.table-code-text {
     padding-block: 12px;
   }
 }
+
+.e-table th,
+.e-table td {
+  vertical-align: top;
+}
+
+.prop-row th,
+.prop-row td {
+  border-bottom: 1px solid var(--e-color-border-2);
+}

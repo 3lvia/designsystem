@@ -43,7 +43,7 @@
         </th>
       </tr>
       <ng-container *ngIf="group.expanded">
-        <tr *ngFor="let prop of group.rows">
+        <tr *ngFor="let prop of group.rows" class="prop-row">
           <th scope="row" class="table-code-text">
             <strong [id]="'property-row-' + prop.attribute + '-attribute'">
               {{ prop.attribute }}{{ prop.isRequired ? '*' : '' }}
