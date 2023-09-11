@@ -82,9 +82,8 @@ export const Tab = styled.button<TabLabelProps>`
   ${({ isSelected, isInverted }) => css`
     ${getTypographyCss('title-caps')}
     line-height: 20px;
-    font-weight: normal;
+    font-weight: ${isSelected ? 500 : 'normal'};
     color: ${getThemeColor('text-1', { isInverted })};
-    -webkit-text-stroke-width: ${isSelected ? '1px' : 0};
 
     display: flex;
     align-items: flex-start;
@@ -124,4 +123,18 @@ export const Tab = styled.button<TabLabelProps>`
       width: 100%;
     }
   `}
+`;
+
+export const TabText = styled.span`
+  position: absolute;
+  inset: 0;
+`;
+
+export const BoldTabTextPlaceholder = styled.span`
+  font-weight: 500;
+  height: 0;
+  color: transparent;
+  overflow: hidden;
+  visibility: hidden;
+  display: block;
 `;
