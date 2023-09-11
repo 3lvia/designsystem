@@ -60,7 +60,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
         aria-expanded={isShowing}
         aria-haspopup="dialog"
         aria-controls="ewc-header-desktop-menu"
-        isActive={isShowing}
+        $isActive={isShowing}
         ref={connectedElementRef}
       >
         <ImageContainer $thumbnail>

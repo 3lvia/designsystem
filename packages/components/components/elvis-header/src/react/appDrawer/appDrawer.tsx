@@ -27,7 +27,7 @@ export const AppDrawer: React.FC<Props> = ({ appTitle, onMenuToggle }) => {
 
   return (
     <>
-      <TriggerButton isActive={isShowing} ref={connectedElementRef} onClick={() => toggleAppDrawer()}>
+      <TriggerButton $isActive={isShowing} ref={connectedElementRef} onClick={() => toggleAppDrawer()}>
         <AppTitle>{appTitle}</AppTitle>
         <SpinContainer $rotated={isShowing}>
           <IconWrapper size="xs" icon={arrowDown} />
