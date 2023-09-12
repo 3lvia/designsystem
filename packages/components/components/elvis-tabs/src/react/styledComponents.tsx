@@ -73,18 +73,6 @@ export const ScrollContainer = styled.div<ScrollContainerProps>`
   }
 `;
 
-const decideLabelTextShadow = (isSelected: boolean, isInverted: boolean): string => {
-  if (isSelected) {
-    return (
-      '0 0 0 ' +
-      getThemeColor('text-1', { isInverted }) +
-      ', 0 0 0.5px ' +
-      getThemeColor('text-1', { isInverted })
-    );
-  }
-  return 'none';
-};
-
 interface TabLabelProps {
   $isSelected: boolean;
   $isInverted: boolean;
@@ -94,9 +82,8 @@ export const Tab = styled.button<TabLabelProps>`
   ${({ $isSelected, $isInverted }) => css`
     ${getTypographyCss('title-caps')}
     line-height: 20px;
-    font-weight: normal;
+    font-weight: ${$isSelected ? 500 : 'normal'};
     color: ${getThemeColor('text-1', { isInverted: $isInverted })};
-    text-shadow: ${decideLabelTextShadow($isSelected, $isInverted)};
 
     display: flex;
     align-items: flex-start;
@@ -138,4 +125,18 @@ export const Tab = styled.button<TabLabelProps>`
       width: 100%;
     }
   `}
+`;
+
+export const TabText = styled.span`
+  position: absolute;
+  inset: 0;
+`;
+
+export const BoldTabTextPlaceholder = styled.span`
+  font-weight: 500;
+  height: 0;
+  color: transparent;
+  overflow: hidden;
+  visibility: hidden;
+  display: block;
 `;

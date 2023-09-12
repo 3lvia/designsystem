@@ -14,6 +14,16 @@
       ]
     },
     {
+      "date": "30.08.23",
+      "version": "9.7.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Update design for input labels."]
+        }
+      ]
+    },
+    {
       "date": "25.08.23",
       "version": "9.6.1",
       "changelog": [

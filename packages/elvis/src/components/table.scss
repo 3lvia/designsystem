@@ -123,7 +123,7 @@ $table-invalid-padding: 8px 16px;
       max-width: 450px;
       height: auto;
       vertical-align: top;
-      white-space: pre-wrap;
+      white-space: normal;
     }
 
     &.e-table__cell--multiline-small,
@@ -133,7 +133,7 @@ $table-invalid-padding: 8px 16px;
       max-width: 250px;
       height: auto;
       vertical-align: top;
-      white-space: pre-wrap;
+      white-space: normal;
     }
   }
 

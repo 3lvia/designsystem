@@ -3164,8 +3164,8 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-datepicker": ^7.1.4
-    "@elvia/elvis-timepicker": ^3.2.4
+    "@elvia/elvis-datepicker": ^8.0.1
+    "@elvia/elvis-timepicker": ^4.0.1
     "@elvia/elvis-toolbox": ^10.0.0
     styled-components: ^6.0.0
   peerDependencies:
@@ -3182,7 +3182,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^7.1.4, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^8.0.1, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
@@ -3229,7 +3229,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^7.2.4, @elvia/elvis-dropdown@workspace:*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^8.0.0, @elvia/elvis-dropdown@workspace:*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
@@ -3353,7 +3353,7 @@ __metadata:
     "@elvia/elvis-assets-icons": ^3.3.1
     "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-dropdown": ^7.2.4
+    "@elvia/elvis-dropdown": ^8.0.0
     "@elvia/elvis-toolbox": ^10.0.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^6.0.0
@@ -3559,7 +3559,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^3.2.4, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
+"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^4.0.1, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:

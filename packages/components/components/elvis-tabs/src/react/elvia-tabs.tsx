@@ -1,6 +1,14 @@
 import React, { FC, MouseEvent, useEffect, useState } from 'react';
 import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
-import { TabsContainer, ScrollContainer, Tab, LeftButton, RightButton } from './styledComponents';
+import {
+  TabsContainer,
+  ScrollContainer,
+  Tab,
+  LeftButton,
+  RightButton,
+  BoldTabTextPlaceholder,
+  TabText,
+} from './styledComponents';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { TabsProps } from './elvia-tabs.types';
@@ -90,7 +98,8 @@ const Tabs: FC<TabsProps> = ({
               $isSelected={selectedIndex == i}
               $isInverted={isInverted ?? false}
             >
-              {item}
+              <BoldTabTextPlaceholder aria-hidden="true">{item}</BoldTabTextPlaceholder>
+              <TabText>{item}</TabText>
             </Tab>
           ))}
       </ScrollContainer>
