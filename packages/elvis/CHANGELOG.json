@@ -1,6 +1,48 @@
 {
   "content": [
     {
+      "version": "13.0.0",
+      "date": "September 11, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Changed label size and position for the small text field."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }],
+          "fixes": [
+            "The small text-field will be taller. You may therefore want to check that the page layout is not severely affected by this."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "12.11.1",
+      "date": "September 11, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Table header theme background color fix",
+            "Removed <code>e-form-field--small</code> class from deprecated list. Should not have been deprecated."
+          ],
+          "components": [
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "12.11.0",
+      "date": "September 8, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Read only textarea support"],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "12.10.1",
       "date": "September 7, 2023",
       "changelog": [

@@ -126,7 +126,11 @@ $form-input-padding-compact-active: 3px 9px;
     > input,
     > input:focus,
     > input:read-only,
-    > input:read-only:focus {
+    > input:read-only:focus,
+    > textarea,
+    > textarea:read-only,
+    > textarea:focus,
+    > textarea:read-only:focus {
       padding: $form-input-padding;
       border: 1px solid transparent;
       background: var(--e-color-background-element-2);
@@ -256,7 +260,11 @@ $form-input-padding-compact-active: 3px 9px;
     > input,
     > input:focus,
     > input:read-only,
-    > input:read-only:focus {
+    > input:read-only:focus,
+    > textarea,
+    > textarea:read-only,
+    > textarea:focus,
+    > textarea:read-only:focus {
       padding: $form-input-padding-compact-active;
       border: 1px solid transparent;
       background: var(--e-color-background-element-2);
