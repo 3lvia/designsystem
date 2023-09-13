@@ -16,3 +16,6 @@ packages/elvis/src/variables/typography.scss
 packages/elvis/src/utilities/colors.scss
 packages/react-test/*
 packages/vue-test/*
+packages/components/playwright-report/**/*
+packages/components/test-results/**/*
+packages/components/__snapshots__/**/*
