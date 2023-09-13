@@ -29,6 +29,7 @@ export default defineConfig({
   },
   /* Ignore test files that use the .test.tsx file names (they are used by Jest tests) */
   testIgnore: [/\.test\.ts(x?)/],
+  testMatch: ['*spec.ts', '*spec.tsx'],
 
   /* Configure projects for major browsers */
   projects: [
