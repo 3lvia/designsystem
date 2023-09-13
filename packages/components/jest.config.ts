@@ -7,6 +7,8 @@ const config: Config = {
     '\\.(css|scss)$': '<rootDir>/setupTests.js',
   },
   transformIgnorePatterns: ['/node_modules/(?!@elvia/elvis-(assets-icons|typography|toolbox))'],
+  // Ignore files using the .spec.tsx file names, they are for Playwright
+  testPathIgnorePatterns: ['/node_modules/', '.spec.[jt]s(x)?'],
 };
 
 export default config;

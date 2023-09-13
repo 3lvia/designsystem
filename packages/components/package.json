@@ -11,7 +11,8 @@
     "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
     "test": "jest --config jest.config.ts --colors",
     "test:start": "jest --config jest.config.ts --watch --colors",
-    "test:coverage": "jest --coverage --colors"
+    "test:coverage": "jest --coverage --colors",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.22.5",
@@ -31,6 +32,7 @@
     "@babel/preset-typescript": "^7.22.5",
     "@babel/register": "^7.22.5",
     "@elvia/elvis-component-wrapper": "*",
+    "@playwright/experimental-ct-react": "^1.37.1",
     "@testing-library/dom": "8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "13.4.0",
