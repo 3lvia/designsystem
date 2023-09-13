@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/experimental-ct-react';
-import { Datepicker } from '@elvia/elvis-datepicker/react';
+import { Datepicker } from '../../react';
 import React from 'react';
 
 test.use({ viewport: { width: 500, height: 500 } });
