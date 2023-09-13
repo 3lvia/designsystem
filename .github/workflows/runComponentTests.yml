@@ -21,4 +21,4 @@ jobs:
       - name: Run tests
         run: yarn test
       - name: Run Playwrighttests
-        run: yarn test-ct
+        run: npx playwright install && yarn test-ct
