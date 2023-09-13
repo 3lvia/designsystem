@@ -184,59 +184,23 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Finding the correct token'">
         <ng-container ngProjectAs="sectionContent">
-          Here are some tips and examples of how to think when chosing the tokens.
-          <ul class="e-list">
-            <li>
-              <strong>Disabled element:</strong>
-              The application needs to vizualize that an elemtent is disabled (not interactable). If the
-              element has a background with text on top, both the background and text should probably change
-              color. In the token list we find the "Background" and "Text" categories and then the "States"
-              sections. In this section, we find two different disabled options. The original color of the
-              element was pretty dark and, therefore, we choose to use option 2 for both the background and
-              text (
-              <code>background-disabled-2</code>
-              and
-              <code>text-disabled-2</code>
-              ).
-            </li>
-            <li>
-              <strong>Green and red status:</strong>
-              The application has an element which switches between green and red to show the status of
-              something. In the token categories, we find the "Signal" category and here we can find the
-              tokens
-              <code>signal-positive</code>
-              and
-              <code>signal-danger</code>
-              .
-            </li>
-            <li>
-              <strong>Dark background in light theme:</strong>
-              Use the
-              <code>color-background-3</code>
-              class to get dark surfaces within the light theme, such as in the header, footer, and "Elvia
-              curve" elements. This class inverts the appearance of all components within the element,
-              ensuring the content maintains a visually correct look.
-            </li>
-            <li>
-              <strong>Elvia green:</strong>
-              The Elvia green color is used a lot of places throughout the Elvia systems, so when replacing
-              green remember to differentiate between the use cases:
-              <ul class="e-list">
-                <li>
-                  <code>e-color-*-[state]</code>
-                  for e.g. hover and selected (Text, Background and Border)
-                </li>
-                <li>
-                  <code>e-color-signal-positive</code>
-                  for signalling something positive or successful (Signal)
-                </li>
-                <li>
-                  <code>e-color-brand-accent</code>
-                  for logos or Elvia concept elements (Assorted)
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <p>Here are some examples of how to choose what tokens to use.</p>
+          <img
+            class="e-mt-24 e-mb-32 theme-image-background"
+            src="assets/color-doc/how-to-use-tokens.svg"
+            alt="application using the light theme palette"
+            width="100%"
+          />
+          <p>
+            The Elvia green color is used a lot of places throughout the Elvia systems, so when replacing
+            green remember to differentiate between the use cases.
+          </p>
+          <img
+            class="e-mt-24 theme-image-background"
+            src="assets/color-doc/elvia-green-tokens.svg"
+            alt="application using the dark theme palette"
+            width="100%"
+          />
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Using CSS variables'">
