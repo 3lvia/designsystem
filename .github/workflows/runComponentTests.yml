@@ -17,7 +17,7 @@ jobs:
       - name: Install
         run: yarn install --immutable
       - name: Build
-        run: yarn build:tokens && yarn build:components
+        run: yarn build:tokens && yarn build:elvis && yarn build:components
       - name: Run tests
         run: yarn test
       - name: Run Playwrighttests
