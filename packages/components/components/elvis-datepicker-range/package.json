@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-datepicker-range",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "main": "web_component.js",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/datepicker-range",

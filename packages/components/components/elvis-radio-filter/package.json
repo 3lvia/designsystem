@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-radio-filter",
-  "version": "1.8.1",
+  "version": "2.0.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/radio-filter",
   "main": "web_component.js",

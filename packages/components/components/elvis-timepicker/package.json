@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-timepicker",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/timepicker",
   "main": "web_component.js",

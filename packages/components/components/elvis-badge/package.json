@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-badge",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/badge",
   "main": "web_component.js",
