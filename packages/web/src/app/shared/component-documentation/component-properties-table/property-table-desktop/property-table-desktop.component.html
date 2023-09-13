@@ -14,9 +14,11 @@
   <tbody>
     <ng-container *ngFor="let group of groupedProps">
       <tr *ngIf="group.rows.length > 0" class="group-title-row">
-        <th colspan="4" scope="rowgroup">
-          <div class="group-title">
-            <h2 class="e-title-xs">{{ group.title }}</h2>
+        <th scope="row">
+          <h2 class="e-title-xs e-m-0">{{ group.title }}</h2>
+        </th>
+        <td colspan="3">
+          <div class="e-flex e-justify-content-end">
             <button
               class="e-btn e-btn--icon e-btn--circled"
               [attr.aria-label]="group.expanded ? 'Collapse prop group' : 'Expand prop group'"
@@ -40,7 +42,7 @@
               </span>
             </button>
           </div>
-        </th>
+        </td>
       </tr>
       <ng-container *ngIf="group.expanded">
         <tr *ngFor="let prop of group.rows; let isLast = last" class="prop-row" [ngClass]="{ last: isLast }">
