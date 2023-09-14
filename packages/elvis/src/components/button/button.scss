@@ -34,6 +34,10 @@
     display: grid;
     place-items: center;
     @include icons.icon-size('xs');
+
+    .e-icon--inverted {
+      display: none;
+    }
   }
 
   .e-btn__title + .e-btn__icon,

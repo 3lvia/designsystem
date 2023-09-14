@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "13.0.1",
+      "date": "September 14, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where icons where doubled in all icon buttons."],
+          "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
+        }
+      ]
+    },
+    {
       "version": "13.0.0",
       "date": "September 12, 2023",
       "changelog": [
