@@ -17,6 +17,8 @@ export class LayoutDocComponent {
   descriptionNo = getDocPagesNotFromCMS('layout')?.descriptionNo;
   figmaUrl = getDocPagesNotFromCMS('layout')?.figmaUrl;
   locale: LOCALE_CODE = 'en-GB';
+  egSelectedValue = 0;
+  igSelectedValue = 0;
 
   constructor(private titleService: Title, private localizationService: LocalizationService) {
     this.setTabTitle();

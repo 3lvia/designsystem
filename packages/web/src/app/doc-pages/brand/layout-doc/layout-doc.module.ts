@@ -15,7 +15,6 @@ import { LayoutGuttersCustomCegComponent } from './layout-gutters-custom-ceg/lay
 import { LayoutAlignmentCegComponent } from './layout-alignment-ceg/layout-alignment-ceg.component';
 import { LayoutLevelsCegComponent } from './layout-levels-ceg/layout-levels-ceg.component';
 import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-ordering-ceg.component';
-import { GridDocComponent } from './grid-doc/grid-doc.component';
 
 @NgModule({
   imports: [
@@ -37,7 +36,6 @@ import { GridDocComponent } from './grid-doc/grid-doc.component';
     LayoutAlignmentCegComponent,
     LayoutLevelsCegComponent,
     LayoutOrderingCegComponent,
-    GridDocComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
