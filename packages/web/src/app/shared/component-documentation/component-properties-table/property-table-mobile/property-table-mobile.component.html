@@ -15,7 +15,7 @@
         scope="col"
         [id]="'property-row-' + prop.attribute + '-attribute-mobile'"
       >
-        {{ prop.attribute }}
+        {{ prop.attribute }}{{ prop.isRequired ? '*' : '' }}
       </th>
       <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
