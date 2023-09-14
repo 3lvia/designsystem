@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
-import { OverlayRef } from '@angular/cdk/overlay';
-import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
@@ -10,13 +7,15 @@ import { Theme, ThemeService } from 'src/app/core/services/theme.service';
 import { ThemeClassName } from '@elvia/elvis-colors';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
+type MenuType = 'search' | 'mobileMenu' | null;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  searchMenuOpen = false;
+  visibleMenuType: MenuType = null;
   mainMenu: CMSMenu;
   menuContentLoader = true;
   showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
@@ -34,7 +33,7 @@ export class HeaderComponent {
   get logoUrl(): string {
     if (this.isPrideMonth()) {
       return 'assets/logo/elvia_pride_rgb.svg';
-    } else if (this.searchMenuOpen) {
+    } else if (this.visibleMenuType) {
       return 'assets/logo/elvia_positive_1.svg';
     } else {
       return 'assets/logo/elvia_negative_1.svg';
@@ -42,7 +41,6 @@ export class HeaderComponent {
   }
 
   constructor(
-    private mobileMenu: MobileMenuService,
     private cmsService: CMSService,
     private localizationService: LocalizationService,
     private themeService: ThemeService,
@@ -70,25 +68,14 @@ export class HeaderComponent {
       });
   }
 
-  openMobileMenu(): void {
-    const overlayRef: OverlayRef = this.mobileMenu.setupOverlay();
-    const compInstance = this.mobileMenu.openOverlay(overlayRef, MobileMenuComponent);
-    overlayRef.backdropClick().subscribe(() => {
-      this.mobileMenu.detach(overlayRef);
-    });
-    compInstance.onDestroy$.subscribe(() => {
-      this.mobileMenu.detach(overlayRef);
-    });
-  }
-
-  openSearchMenu(): void {
+  openOverlay(menuType: MenuType): void {
     document.documentElement.style.overflow = 'hidden';
-    this.searchMenuOpen = true;
+    this.visibleMenuType = menuType;
   }
 
-  closeSearchMenu(): void {
+  closeOverlay(): void {
     document.documentElement.style.overflow = '';
-    this.searchMenuOpen = false;
+    this.visibleMenuType = null;
   }
 
   openThemeMenu = (): void => {

@@ -19,7 +19,7 @@
   </div>
 </elvia-modal>
 
-<header class="header" [ngClass]="searchMenuOpen ? 'e-color-background-1' : 'e-color-background-3'">
+<header class="header" [ngClass]="visibleMenuType ? 'e-color-background-1' : 'e-color-background-3'">
   <a class="e-flex e-align-items-center" [routerLink]="['', 'home']">
     <img [src]="logoUrl" class="elvia-logo" alt="Elvia Logo" />
   </a>
@@ -83,8 +83,8 @@
 
     <button
       class="header-button hover-underline"
-      [ngClass]="{ active: searchMenuOpen }"
-      (click)="openSearchMenu()"
+      [ngClass]="{ active: visibleMenuType === 'search' }"
+      (click)="openOverlay('search')"
       id="search-button"
     >
       <i class="e-icon e-icon--search-bold e-icon--xs" aria-hidden="true"></i>
@@ -94,9 +94,9 @@
 
   <div class="mobile-menu e-none-lg e-none-xl">
     <button
-      *ngIf="searchMenuOpen; else mobileMenu"
+      *ngIf="visibleMenuType; else mobileMenu"
       class="e-btn e-btn--icon e-btn--circled e-btn--lg"
-      (click)="closeSearchMenu()"
+      (click)="closeOverlay()"
       aria-label="Close search"
     >
       <span class="e-btn__icon">
@@ -106,15 +106,17 @@
     </button>
 
     <ng-template #mobileMenu>
-      <button (click)="openSearchMenu()">
+      <button (click)="openOverlay('search')">
         <span class="elvis-search__icon">
           <i class="e-icon e-icon--search-bold e-icon--sm" aria-hidden="true"></i>
         </span>
       </button>
-      <button (click)="openMobileMenu()" aria-label="Show menu">
+      <button (click)="openOverlay('mobileMenu')" aria-label="Show menu">
         <i class="e-icon e-icon--menu-bold e-icon--sm" aria-hidden="true"></i>
       </button>
     </ng-template>
   </div>
-  <app-search-menu (closeSearchMenu)="closeSearchMenu()" *ngIf="searchMenuOpen" />
+
+  <app-search-menu (closeSearchMenu)="closeOverlay()" *ngIf="visibleMenuType === 'search'" />
+  <app-mobile-menu (closeMenu)="closeOverlay()" *ngIf="visibleMenuType === 'mobileMenu'" />
 </header>

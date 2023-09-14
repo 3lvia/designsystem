@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
 import { ThemeSwitchModule } from './theme-switch/theme-switch.module';
-import { MobileHeaderModule } from './mobile-menu/mobile-menu.module';
 import { FormsModule } from '@angular/forms';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-divider';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, FormsModule, ThemeSwitchModule, MobileHeaderModule],
-  declarations: [HeaderComponent, SearchMenuComponent],
+  imports: [CommonModule, RouterModule, FormsModule, ThemeSwitchModule],
+  declarations: [HeaderComponent, SearchMenuComponent, MobileMenuComponent],
   exports: [HeaderComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

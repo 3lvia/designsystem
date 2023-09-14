@@ -1,30 +1,4 @@
-<header class="header">
-  <div class="logo">
-    <a (click)="navigate('')">
-      <img
-        [src]="
-          (currentTheme | async) === 'dark'
-            ? 'assets/logo/elvia_negative_1.svg'
-            : 'assets/logo/elvia_positive_1.svg'
-        "
-        alt="Elvia Logo"
-      />
-    </a>
-  </div>
-  <div class="closing">
-    <button
-      class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16"
-      (click)="onClose()"
-      aria-label="Close menu"
-    >
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--remove_circle-color" aria-hidden="true" aria-hidden="true"></i>
-        <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true" aria-hidden="true"></i>
-      </span>
-    </button>
-  </div>
-</header>
-
+<div class="backdrop" (click)="closeMenu.emit()"></div>
 <div class="content">
   <div class="menu" *ngIf="!isLoaded && !mainMenu">
     <div class="menu-items" *ngFor="let _ of [].constructor(5)">
@@ -38,7 +12,7 @@
   <div class="menu" *ngIf="mainMenu">
     <div class="menu-items" *ngFor="let menuItem of mainMenu.pages">
       <div class="links e-pt-24 e-pb-24" (click)="navigate(menuItem.path)">
-        <span class="text">{{ menuItem.title }}</span>
+        <span class="e-title-caps">{{ menuItem.title }}</span>
         <span class="links-icon">
           <i class="e-icon e-icon--arrow_right-bold e-icon--xxs" aria-hidden="true"></i>
         </span>
@@ -48,7 +22,7 @@
     <div class="menu" *ngIf="devMode">
       <div class="menu-items">
         <div class="links e-pt-24 e-pb-24">
-          <a class="text" (click)="navigate('dev')">Dev</a>
+          <a class="e-title-caps" (click)="navigate('dev')">Dev</a>
         </div>
       </div>
     </div>
