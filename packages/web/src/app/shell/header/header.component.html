@@ -93,14 +93,28 @@
   </div>
 
   <div class="mobile-menu e-none-lg e-none-xl">
-    <div class="elvis-search" (click)="openSearchMenu()">
-      <span class="elvis-search__icon">
-        <i class="e-icon e-icon--search-bold e-icon--sm" aria-hidden="true"></i>
+    <button
+      *ngIf="searchMenuOpen; else mobileMenu"
+      class="e-btn e-btn--icon e-btn--circled e-btn--lg"
+      (click)="closeSearchMenu()"
+      aria-label="Close search"
+    >
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--remove_circle-color" aria-hidden="true" aria-hidden="true"></i>
+        <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true" aria-hidden="true"></i>
       </span>
-    </div>
-    <button class="menu-button" (click)="openMobileMenu()" aria-label="Show menu">
-      <i class="e-icon e-icon--menu-bold e-icon--sm" aria-hidden="true"></i>
     </button>
+
+    <ng-template #mobileMenu>
+      <button (click)="openSearchMenu()">
+        <span class="elvis-search__icon">
+          <i class="e-icon e-icon--search-bold e-icon--sm" aria-hidden="true"></i>
+        </span>
+      </button>
+      <button (click)="openMobileMenu()" aria-label="Show menu">
+        <i class="e-icon e-icon--menu-bold e-icon--sm" aria-hidden="true"></i>
+      </button>
+    </ng-template>
   </div>
   <app-search-menu (closeSearchMenu)="closeSearchMenu()" *ngIf="searchMenuOpen" />
 </header>

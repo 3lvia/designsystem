@@ -31,10 +31,11 @@
   padding: 32px 32px;
 
   @include breakpoints.breakpoint-up(Tablet) {
-    padding-top: 32px;
+    padding: 32px 0;
   }
+
   @include breakpoints.breakpoint-up(Mobile) {
-    padding-top: 0;
+    padding: 0;
   }
 
   .elvis-search-header {

@@ -96,21 +96,13 @@
   gap: 24px;
   flex: 1;
   justify-content: flex-end;
+  align-items: center;
 
-  .elvis-search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .menu-button {
+  button {
     background: none;
     color: inherit;
     border: none;
     padding: 0;
-    font: inherit;
     cursor: pointer;
-    outline: inherit;
   }
 }
