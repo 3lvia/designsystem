@@ -33,7 +33,7 @@ export class HeaderComponent {
   get logoUrl(): string {
     if (this.isPrideMonth()) {
       return 'assets/logo/elvia_pride_rgb.svg';
-    } else if (this.visibleMenuType) {
+    } else if (this.visibleMenuType && this.currentTheme !== 'dark') {
       return 'assets/logo/elvia_positive_1.svg';
     } else {
       return 'assets/logo/elvia_negative_1.svg';

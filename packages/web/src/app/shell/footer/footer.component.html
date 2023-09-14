@@ -23,33 +23,14 @@
 
   <div class="links">
     <a
+      *ngFor="let link of links"
       class="e-btn e-btn--icon e-btn--sm"
-      href="https://app.contentful.com/spaces/zez3t3t1iiwd/home"
+      [href]="link.url"
       target="_blank"
       rel="noopener"
     >
-      <img class="default-img" src="assets/icons/Contentful.svg" alt="Contentful icon" />
-      <img class="inverted-img" src="assets/icons/Contentful-inverted.svg" alt="Contentful icon" />
-    </a>
-
-    <a
-      class="e-btn e-btn--icon e-btn--sm"
-      href="https://www.figma.com/files/880078299274452916/project/5995782/Designsystem-(Elvis)"
-      target="_blank"
-      rel="noopener"
-    >
-      <img class="default-img" src="assets/icons/figma-header.svg" alt="Figma icon" />
-      <img class="inverted-img" src="assets/icons/figma-header_inverted.svg" alt="Figma icon" />
-    </a>
-
-    <a
-      class="e-btn e-btn--icon e-btn--sm"
-      href="https://github.com/3lvia/designsystem"
-      target="_blank"
-      rel="noopener"
-    >
-      <img class="default-img" src="assets/icons/github-header.svg" alt="Github icon" />
-      <img class="inverted-img" src="assets/icons/github-header_inverted.svg" alt="Github icon" />
+      <img class="default-img" [src]="link.defaultImgSrc" [alt]="link.alt" />
+      <img class="inverted-img" [src]="link.invertedImgSrc" [alt]="link.alt" />
     </a>
   </div>
 </footer>
