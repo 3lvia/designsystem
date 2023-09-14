@@ -7,194 +7,110 @@
 }
 
 .header {
-  height: 64px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  --header-height: 64px;
+  display: flex;
+  height: var(--header-height);
+  padding-inline: 32px;
   box-sizing: border-box;
 
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
+  @include breakpoints.breakpoint-up(Tablet) {
+    padding-inline: 24px;
+  }
 
-  .logo {
-    display: inline-flex;
-    justify-content: flex-start;
+  @include breakpoints.breakpoint-up(Mobile) {
+    padding-inline: 16px;
+  }
+}
+
+.elvia-logo {
+  height: 26px;
+}
+
+.hover-underline {
+  --scale: 0;
+  position: relative;
+  height: var(--header-height);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: 2px;
+    background-color: var(--e-color-border-selected-1);
+    scale: var(--scale) 1;
+    transition: scale 300ms ease;
+    transform-origin: center left;
+  }
+
+  &:hover,
+  &.active {
+    --scale: 1;
+  }
+}
+
+.tabs-content-loader {
+  align-self: center;
+  width: 500px;
+  height: 32px;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  flex: none;
+
+  &-links {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  &-links-dev {
+    color: var(--e-color-signal-danger);
+  }
+}
+
+.header-aside-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+}
+
+.header-button {
+  display: flex;
+  place-items: center;
+  background: transparent;
+  gap: 8px;
+  color: var(--e-text-2);
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+  justify-content: flex-end;
+
+  .elvis-search {
+    display: flex;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-left: 32px;
-
-    @include breakpoints.breakpoint-up(Tablet) {
-      margin-left: 24px;
-    }
-
-    @include breakpoints.breakpoint-up(Mobile) {
-      margin-left: 16px;
-    }
-
-    img {
-      height: 26px;
-    }
-
-    .header-logo-link {
-      display: none;
-    }
-    .header-logo-link.show {
-      display: block;
-    }
   }
 
-  .content-loader-header-titles {
-    @include breakpoints.breakpoint-up(Tablet) {
-      display: none;
-    }
-  }
-
-  .tabs {
-    display: inline-flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    margin-left: 32px;
-
-    @include breakpoints.breakpoint-up(Tablet) {
-      display: none;
-    }
-
-    &-links {
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 14px;
-      display: flex;
-      align-items: center;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-
-      box-sizing: border-box;
-      margin-left: 24px;
-      margin-right: 24px;
-      height: 100%;
-      position: relative;
-
-      border-bottom: 2px solid transparent;
-
-      &.active {
-        -webkit-text-stroke-width: 0.5px;
-        &:before {
-          content: '';
-          visibility: visible;
-          position: absolute;
-          width: 100%;
-          height: 2px;
-          background-color: var(--e-color-border-selected-1);
-          border-radius: 16px;
-        }
-      }
-
-      &:not(.active):hover:before {
-        visibility: visible;
-        width: 100%;
-      }
-
-      &:before {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -2px;
-        left: 0;
-        background-color: var(--e-color-border-hover-1);
-        border-radius: 16px;
-        visibility: hidden;
-        transition: all 0.3s ease-in-out;
-      }
-    }
-    &-links-dev {
-      color: var(--e-color-signal-danger);
-    }
-  }
-
-  .external-links {
-    width: 100%;
-    display: inline-flex;
-    justify-content: flex-end;
-    align-items: center;
-    @include breakpoints.breakpoint-up(Tablet) {
-      display: none;
-    }
-
-    .elvis {
-      &-theme,
-      &-search {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        cursor: pointer;
-        &__title {
-          color: var(--e-color-text-3);
-          font-family: 'Red Hat Display', Verdana, sans-serif;
-          font-style: normal;
-          text-transform: capitalize;
-          font-weight: 500;
-          font-size: 15px;
-          line-height: 17px;
-        }
-      }
-    }
-  }
-
-  .mobile-menu {
-    display: none;
-
-    @include breakpoints.breakpoint-up(Tablet) {
-      display: inline-flex;
-      width: 100%;
-      justify-content: flex-end;
-      margin-right: 32px;
-    }
-    @include breakpoints.breakpoint-up(Mobile) {
-      margin-right: 16px;
-    }
-
-    .elvis-search {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      .elvis-search__title {
-        color: var(--e-color-text-3);
-        font-family: 'Red Hat Display', Verdana, sans-serif;
-        font-style: normal;
-        text-transform: none;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 17px;
-        @include breakpoints.breakpoint-up(Mobile) {
-          display: none;
-        }
-      }
-      .elvis-search__icon {
-        @include breakpoints.breakpoint-up(Mobile) {
-          margin-right: 0px;
-        }
-      }
-    }
-
-    .menu-button {
-      background: none;
-      color: inherit;
-      border: none;
-      padding: 0;
-      font: inherit;
-      cursor: pointer;
-      outline: inherit;
-
-      img {
-        height: 24px;
-        width: 24px;
-      }
-    }
+  .menu-button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
   }
 }

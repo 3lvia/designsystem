@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
-import { SearchMenuComponent } from './search-menu/search-menu.component';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
@@ -17,12 +16,9 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  private searchMenuOpen = false;
-  private searchOverlay: OverlayRef;
-  headerLogoLoaded = false;
+  searchMenuOpen = false;
   mainMenu: CMSMenu;
   menuContentLoader = true;
-  isPrideMonth = false;
   showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
   themeMenuIsOpen = false;
   currentTheme: Theme = 'light';
@@ -35,9 +31,18 @@ export class HeaderComponent {
     );
   }
 
+  get logoUrl(): string {
+    if (this.isPrideMonth()) {
+      return 'assets/logo/elvia_pride_rgb.svg';
+    } else if (this.searchMenuOpen) {
+      return 'assets/logo/elvia_positive_1.svg';
+    } else {
+      return 'assets/logo/elvia_negative_1.svg';
+    }
+  }
+
   constructor(
     private mobileMenu: MobileMenuService,
-    private searchMenu: MobileMenuService,
     private cmsService: CMSService,
     private localizationService: LocalizationService,
     private themeService: ThemeService,
@@ -63,14 +68,6 @@ export class HeaderComponent {
         this.currentTheme = theme;
         this.addDarkThemeClass(this.currentTheme);
       });
-
-    this.checkIfPrideMonth();
-  }
-
-  hideContentLoader(evt: Event): void {
-    if (evt && evt.target) {
-      this.headerLogoLoaded = true;
-    }
   }
 
   openMobileMenu(): void {
@@ -89,14 +86,10 @@ export class HeaderComponent {
       return;
     }
     this.searchMenuOpen = true;
-    this.searchOverlay = this.searchMenu.setupOverlay();
-    const compInstance = this.searchMenu.openOverlay(this.searchOverlay, SearchMenuComponent);
-    this.searchOverlay.backdropClick().subscribe(() => {
-      this.closeSearchMenu();
-    });
-    compInstance.onDestroy$.subscribe(() => {
-      this.closeSearchMenu();
-    });
+  }
+
+  closeSearchMenu(): void {
+    this.searchMenuOpen = false;
   }
 
   openThemeMenu = (): void => {
@@ -111,11 +104,8 @@ export class HeaderComponent {
     this.themeMenuIsOpen = false;
   };
 
-  private checkIfPrideMonth(): void {
-    const currentMonth = new Date().getMonth();
-    if (currentMonth === 5) {
-      this.isPrideMonth = true;
-    }
+  private isPrideMonth(): boolean {
+    return new Date().getMonth() === 5;
   }
 
   private addDarkThemeClass = (theme: Theme): void => {
@@ -127,15 +117,6 @@ export class HeaderComponent {
     if (!document.body.classList.contains(classToAdd)) {
       document.body.classList.add(classToAdd);
     }
-  };
-
-  private closeSearchMenu(): void {
-    this.searchMenu.detach(this.searchOverlay);
-    this.searchMenuOpen = false;
-  }
-
-  getThemeAnnouncementVisibility = () => {
-    this.showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
   };
 
   closeThemeAnnouncement = () => {
