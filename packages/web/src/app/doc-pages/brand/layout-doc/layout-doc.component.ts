@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import { spacingItems } from './spacing';
 import { Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { LOCALE_CODE } from 'contentful/types';
@@ -17,7 +16,6 @@ export class LayoutDocComponent {
   description = getDocPagesNotFromCMS('layout')?.description;
   descriptionNo = getDocPagesNotFromCMS('layout')?.descriptionNo;
   figmaUrl = getDocPagesNotFromCMS('layout')?.figmaUrl;
-  spacingItems = spacingItems;
   locale: LOCALE_CODE = 'en-GB';
 
   constructor(private titleService: Title, private localizationService: LocalizationService) {
@@ -36,12 +34,4 @@ export class LayoutDocComponent {
       (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
     );
   };
-
-  doCodeCSS = `padding: var(--e-spacing-16);
-  margin: var(--e-spacing-48);`;
-  dontCodeCSS = `padding: var(--e-p-16);
-  margin:  var(--e-m-48);`;
-
-  egSelectedValue = 0;
-  igSelectedValue = 0;
 }
