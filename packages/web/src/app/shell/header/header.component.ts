@@ -82,13 +82,12 @@ export class HeaderComponent {
   }
 
   openSearchMenu(): void {
-    if (this.searchMenuOpen) {
-      return;
-    }
+    document.documentElement.style.overflow = 'hidden';
     this.searchMenuOpen = true;
   }
 
   closeSearchMenu(): void {
+    document.documentElement.style.overflow = '';
     this.searchMenuOpen = false;
   }
 

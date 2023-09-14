@@ -1,168 +1,105 @@
-<!-- Header  -->
-<header class="header">
-  <div class="logo">
-    <a class="header-top_logo" [routerLink]="['', 'home']">
-      <img
-        [src]="
-          (currentTheme | async) === 'dark'
-            ? 'assets/logo/elvia_negative_1.svg'
-            : isPrideMonth
-            ? 'assets/logo/elvia_pride_rgb.svg'
-            : 'assets/logo/elvia_positive_1.svg'
-        "
-        alt="Elvia Logo"
-      />
-    </a>
-  </div>
-
-  <div class="tabs" *ngIf="mainMenu">
-    <a
-      *ngFor="let menuItem of mainMenu.pages"
-      class="tabs-links"
-      style="color: var(--e-color-text-1)"
-      [routerLink]="['/' + menuItem.path]"
-      routerLinkActive="active"
-      role="tab"
+<div class="backdrop" (click)="closeSearch()" (scroll)="$event.stopPropagation()"></div>
+<div class="content e-pb-112">
+  <div class="e-flex e-justify-content-end e-none-sm e-none-md">
+    <button
+      class="e-btn e-btn--icon e-btn--circled e-btn--lg"
       (click)="closeSearch()"
+      aria-label="Close search"
     >
-      {{ menuItem.title }}
-    </a>
-  </div>
-
-  <div class="external-links">
-    <div class="tabs-links active elvis-search e-mr-24" (click)="closeSearch()">
-      <span class="elvis-search__icon e-mr-8">
-        <i class="e-icon e-icon--search-bold e-icon--xs" aria-hidden="true"></i>
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--remove_circle-color" aria-hidden="true" aria-hidden="true"></i>
+        <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true" aria-hidden="true"></i>
       </span>
-      <span class="elvis-search__title">Search</span>
-    </div>
+    </button>
   </div>
-  <div class="mobile-menu">
-    <div class="closing">
-      <button
-        class="e-btn e-btn--icon e-btn--circled e-btn--lg e-mt-16"
-        (click)="closeSearch()"
-        aria-label="Close search"
-      >
-        <span class="e-btn__icon">
-          <i class="e-icon e-icon--remove_circle-color" aria-hidden="true" aria-hidden="true"></i>
-          <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true" aria-hidden="true"></i>
-        </span>
-      </button>
-    </div>
-  </div>
-</header>
 
-<div
-  class="content"
-  [ngClass]="{
-    'content-result': showResults,
-    'content-no-result': searchString.length !== 0 && this.resultsToDisplay.length === 0,
-    'long-result': this.resultsToDisplay.length > 2
-  }"
->
-  <div class="inner-content">
-    <div class="close-btn-desk">
-      <button
-        class="e-btn e-btn--icon e-btn--circled e-btn--lg"
-        (click)="closeSearch()"
-        aria-label="Close search"
-      >
-        <span class="e-btn__icon">
-          <i class="e-icon e-icon--remove_circle-color" aria-hidden="true" aria-hidden="true"></i>
-          <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true" aria-hidden="true"></i>
-        </span>
-      </button>
-    </div>
-    <div class="elvis-search-header e-mt-8">
-      <h2 class="e-title-md search-title">What are you looking for?</h2>
-      <div class="search-wrapper">
-        <div class="e-search e-search--global" [ngClass]="{ 'e-search--searched': searchString !== '' }">
-          <div class="e-input">
-            <input
-              [(ngModel)]="searchString"
-              type="text"
-              placeholder="Search"
-              id="search-field"
-              autocomplete="off"
-              (keyup)="onSearch()"
-              aria-label="Search through site content"
-            />
-          </div>
-          <button
-            class="e-btn e-btn--icon"
-            (click)="clearSearch()"
-            aria-label="Empty search field"
-            id="search-clear-button"
-          >
-            <span class="e-btn__icon">
-              <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
-            </span>
-          </button>
-        </div>
-        <p class="component-suggestions" *ngIf="searchStatus === 'ready' && synonymComponents.length > 0">
-          Looking for the
-          <ng-container *ngFor="let component of synonymComponents; let last = last; let first = first">
-            <span *ngIf="!last && !first">,&nbsp;</span>
-            <span *ngIf="last && !first">or</span>
-            <a class="e-link e-link--inline" [routerLink]="[component.absolutePath]" (click)="closeSearch()">
-              {{ component.title }}
-            </a>
-          </ng-container>
-          component?
-        </p>
-      </div>
-    </div>
-
-    <ng-container *ngIf="searchStatus === 'loading'">
-      <!-- Fake results loading -->
-      <div class="results">
-        <div *ngIf="searchString">
-          <ng-container *ngFor="let result of [1, 2, 3]; let last = last">
-            <div class="result-item loading">
-              <div class="e-content-loader e-w-100"></div>
-            </div>
-            <elvia-divider *ngIf="!last" />
-          </ng-container>
-        </div>
-      </div>
-    </ng-container>
-
-    <ng-container *ngIf="searchStatus === 'ready'">
+  <div class="elvis-search-header e-mt-8">
+    <h2 class="e-title-md search-title">What are you looking for?</h2>
+    <div class="search-wrapper">
       <div
-        class="no-results e-text-center"
-        *ngIf="searchString.length !== 0 && this.resultsToDisplay.length === 0"
+        class="e-search e-text-md e-search--global"
+        [ngClass]="{ 'e-search--searched': searchString !== '' }"
       >
-        <p class="e-m-0">
-          Oh snap 😕
-          <br />
-          We can’t find what you are looking for
-        </p>
+        <div class="e-input">
+          <input
+            #searchInput
+            [(ngModel)]="searchString"
+            type="text"
+            placeholder="Search"
+            autocomplete="off"
+            (ngModelChange)="onSearch()"
+            (keydown)="onKeydown($event)"
+            aria-label="Search through site content"
+          />
+        </div>
+        <button class="e-btn e-btn--icon" (click)="clearSearch()" aria-label="Empty search field">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
+          </span>
+        </button>
       </div>
+      <p
+        class="component-suggestions e-text-md"
+        *ngIf="searchStatus === 'ready' && synonymComponents.length > 0"
+      >
+        Looking for the
+        <ng-container *ngFor="let component of synonymComponents; let last = last; let first = first">
+          <span *ngIf="!last && !first">,&nbsp;</span>
+          <span *ngIf="last && !first">or</span>
+          <a class="e-link e-link--inline" [routerLink]="[component.absolutePath]" (click)="closeSearch()">
+            {{ component.title }}
+          </a>
+        </ng-container>
+        component?
+      </p>
+    </div>
+  </div>
 
-      <div class="results">
-        <ng-container *ngFor="let result of resultsToDisplay; let last = last">
-          <article>
-            <a
-              class="result-item"
-              [routerLink]="[result.absolutePath]"
-              [fragment]="result.fragmentPath"
-              (click)="closeSearch()"
-            >
-              <div class="result-heading">
-                <p class="e-m-0 title" [id]="'search_' + result.title">{{ result.title }}</p>
-                <div class="e-tag" *ngIf="result.type">{{ result.type }}</div>
-              </div>
-              <p
-                class="result-content e-m-0"
-                *ngIf="result.description"
-                [id]="encodeHTML(result.description)"
-              ></p>
-            </a>
-          </article>
+  <ng-container *ngIf="searchStatus === 'loading'">
+    <!-- Fake results loading -->
+    <div class="results">
+      <div *ngIf="searchString">
+        <ng-container *ngFor="let result of [1, 2, 3]; let last = last">
+          <div class="result-item loading">
+            <div class="e-content-loader e-w-100"></div>
+          </div>
           <elvia-divider *ngIf="!last" />
         </ng-container>
       </div>
-    </ng-container>
-  </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="searchStatus === 'ready'">
+    <div
+      class="no-results e-text-lg e-text-center"
+      *ngIf="searchString.length !== 0 && this.resultsToDisplay.length === 0"
+    >
+      <p class="e-m-0">
+        Oh snap 😕
+        <br />
+        We can’t find what you are looking for
+      </p>
+    </div>
+
+    <div class="results">
+      <ng-container *ngFor="let result of resultsToDisplay; let last = last">
+        <article>
+          <a
+            class="result-item"
+            [routerLink]="[result.absolutePath]"
+            [fragment]="result.fragmentPath"
+            (click)="closeSearch()"
+          >
+            <div class="result-heading">
+              <p class="e-m-0 e-title-xs" [id]="'search_' + result.title">{{ result.title }}</p>
+              <div class="e-tag" *ngIf="result.type">{{ result.type }}</div>
+            </div>
+            <p class="e-text-md e-m-0" *ngIf="result.description" [id]="encodeHTML(result.description)"></p>
+          </a>
+        </article>
+        <elvia-divider *ngIf="!last" />
+      </ng-container>
+    </div>
+  </ng-container>
 </div>
+<div class="elvia-curve"></div>
