@@ -122,7 +122,6 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
     if (event?.code === 'Enter' && this.activeResults.length) {
       this.router.navigate([this.activeResults[0].absolutePath]);
       this.closeSearch();
-      return;
     }
   }
 
