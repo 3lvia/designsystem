@@ -2,120 +2,77 @@
 @use '@elvia/elvis/src/utilities/helpers.scss' as helpers;
 
 .footer {
-  --footer-height: 200px;
+  --footer-height: 136px;
 
-  position: relative;
   height: var(--footer-height);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  padding: 48px;
+  grid-template-areas: 'copyright contact contact contact links';
+  gap: 32px 0;
   align-items: center;
-  overflow: hidden;
   background-color: var(--e-color-background-3);
+
   @include breakpoints.breakpoint-up(Mobile) {
-    height: calc(var(--footer-height) + 25px);
+    --footer-height: 225px;
+
+    grid-template-areas:
+      'contact contact'
+      'copyright links';
+  }
+}
+
+.copyright {
+  grid-area: copyright;
+}
+
+.contact {
+  grid-area: contact;
+  max-width: 400px;
+  text-align: center;
+  justify-self: center;
+}
+
+.links {
+  grid-area: links;
+  justify-self: flex-end;
+  display: flex;
+  gap: 16px;
+
+  .inverted-img {
+    display: none;
   }
 
-  &::before {
-    content: '';
-    border-radius: 100%;
-    position: absolute;
-    background-color: var(--e-color-background-1);
-    z-index: -1;
-    width: 685vw;
-    height: 685vw;
-    bottom: calc(100% - 3.7vw);
-  }
+  a {
+    background-color: var(--e-dark-theme-grey);
 
-  .footer-container {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: calc(100% - 3.7vw);
-    padding: 16px 48px 0;
-    @include breakpoints.breakpoint-up(Mobile) {
-      height: calc((100% - 3.7vw) + 25px);
-      padding: 8px 24px 0;
-    }
-  }
-  .e-grid {
-    width: 100%;
-
-    @media (max-width: 580px) {
-      .col-sm-8-custom {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-      }
-    }
-
-    .text-sm-custom {
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-size: 11px;
-      line-height: 160%;
-      letter-spacing: 0.2px;
-    }
-    .text-align-center {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      & .e-text-center {
-        justify-content: center;
-        width: 100%;
-      }
-      & .e-text-right {
-        justify-content: flex-end;
-        width: 100%;
-      }
-    }
-
-    .links {
-      background: var(--e-dark-theme-grey); // custom token
-      position: relative;
-      height: 32px;
-      width: 32px;
-      border-radius: 50%;
-      cursor: pointer;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        background: var(--e-color-background-hover-1);
-
-        .default-img {
-          display: none;
-        }
-        .inverted-img {
-          display: flex;
-        }
+    &:hover {
+      .inverted-img {
+        display: block;
       }
 
       .default-img {
-        display: flex;
-        height: 16px;
-        width: 16px;
-      }
-
-      .inverted-img {
         display: none;
-        height: 16px;
-        width: 16px;
-      }
-      a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        height: inherit;
-        width: inherit;
-        border-radius: inherit;
       }
     }
+  }
+}
+
+.elvia-curve {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  height: 3.7vw;
+  margin-top: -1px;
+  background-color: var(--e-color-background-3);
+
+  &::before {
+    position: absolute;
+    content: '';
+    background-color: var(--e-color-background-1);
+    width: 685vw;
+    height: 685vw;
+    border-radius: 100%;
+    bottom: calc(100% - 3.7vw);
   }
 }
