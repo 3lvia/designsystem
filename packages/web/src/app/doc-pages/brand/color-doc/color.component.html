@@ -136,8 +136,11 @@
   </app-component-section>
   <app-component-section [sectionTitle]="'What are tokens?'">
     <ng-container ngProjectAs="sectionContent">
-      Hard-coded HEX colors don't scale or age well in code or design. Tokens solve this issue, most tokens
-      come automagically by using the latest versions of our design system components!
+      <p>Hard-coded HEX colors don't scale or age well in code or design. Tokens solve this issue ✨</p>
+      <p>
+        All our components use tokens in the latest component versions 🪄 But you have to apply tokens
+        yourself for colors in your application that don't come from the design system.
+      </p>
       <app-component-subsection [sectionTitle]="'Tokens anatomy'">
         <ng-container ngProjectAs="sectionContent">
           <p>Here are some examples of how we use tokens in our components.</p>
@@ -147,8 +150,8 @@
             alt="Token usage examples"
           />
           <p>
-            The Elvia green color is used a lot of places throughout the Elvia systems, so when replacing
-            green remember to differentiate between the use cases.
+            The Elvia green color is used a lot of places throughout the Elvia systems, so when there are also
+            several different tokens refering to green for different use cases.
           </p>
           <img
             class="e-mt-24 theme-image-background e-w-100"
