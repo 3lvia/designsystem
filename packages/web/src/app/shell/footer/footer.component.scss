@@ -45,6 +45,10 @@
   a {
     background-color: var(--e-dark-theme-grey);
 
+    img {
+      width: 16px;
+    }
+
     &:hover {
       .inverted-img {
         display: block;
