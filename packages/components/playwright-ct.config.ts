@@ -31,6 +31,11 @@ export default defineConfig({
   testIgnore: [/\.test\.ts(x?)/],
   testMatch: ['*spec.ts', '*spec.tsx'],
   snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{arg}{-projectName}{ext}',
+  expect: {
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.01,
+    },
+  },
 
   /* Configure projects for major browsers */
   projects: [

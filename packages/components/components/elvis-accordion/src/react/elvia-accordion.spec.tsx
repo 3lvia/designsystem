@@ -9,13 +9,13 @@ test('should render', async ({ mount }) => {
   await expect(component).toBeAttached();
 });
 
-test('should look closed', async ({ mount, page }) => {
-  await mount(<Accordion openLabel="Open" closeLabel="Close" content={'test'} />);
-  await expect(page).toHaveScreenshot();
+test('should look closed', async ({ mount }) => {
+  const component = await mount(<Accordion openLabel="Open" closeLabel="Close" content={'test'} />);
+  await expect(component).toHaveScreenshot();
 });
 
-test('should look opened', async ({ mount, page }) => {
+test('should look opened', async ({ mount }) => {
   const component = await mount(<Accordion openLabel="Open" closeLabel="Close" content={'test'} />);
   await component.click();
-  await expect(page).toHaveScreenshot();
+  await expect(component).toHaveScreenshot();
 });
