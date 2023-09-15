@@ -69,12 +69,15 @@ Read about the
   to get sketches of how the component should be styled and work.
 - **Deprecating outdated classes**:
 
-  To deprecate an Elvis class, add it to the `deprecated-classes.json` file located at
-  `packages/elvis/.internal/deprecated-classes.json`. <br/>Do not remove the class from the library before the
-  sunset date. <br/>Do not include the period in the deprecated class name.
-
-  To get started quickly, copy an existing entry and change the values. Place new additions as the first
-  element within the JSON object.
+  - To deprecate an Elvis class, add it to the `deprecated-classes.json` file located at
+    `packages/elvis/.internal/deprecated-classes.json`. Do not include the period prefix in the deprecated
+    class name.
+  - Set the sunset dates to a date at least 6 months in the future and then every 6th month remove the classes
+    that are deprecated from the deprecated file as well as the actual classes and code dependencies. <br/>Do
+    not remove the class from the library before the sunset date. <br/>
+  - To get started quickly, copy an existing entry and change the values. Place new additions as the first
+    element within the JSON object.
+  - Bump major and list the classes in the changelog when removing the classes.
 
   ```json
       "e-deprecated-class": {

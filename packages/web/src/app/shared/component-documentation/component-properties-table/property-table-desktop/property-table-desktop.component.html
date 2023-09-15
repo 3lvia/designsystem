@@ -1,0 +1,73 @@
+<table
+  class="e-table e-table--no-stripes e-table--sticky-header e-table--small e-table--sticky-column-header"
+  *ngIf="props.length > 0"
+  aria-label="Property details and descriptions"
+>
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Type</th>
+      <th scope="col">Description</th>
+      <th scope="col">Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let group of groupedProps">
+      <tr *ngIf="group.rows.length > 0" class="group-title-row">
+        <th scope="row">
+          <h2 class="e-title-xs e-m-0">{{ group.title }}</h2>
+        </th>
+        <td></td>
+        <td></td>
+        <td class="sticky-right">
+          <div class="e-flex e-justify-content-end">
+            <button
+              class="e-btn e-btn--icon e-btn--circled"
+              [attr.aria-label]="group.expanded ? 'Collapse prop group' : 'Expand prop group'"
+              (click)="group.expanded = !group.expanded"
+            >
+              <span class="e-btn__icon">
+                <i
+                  class="e-icon"
+                  [ngClass]="group.expanded ? 'e-icon--collapse_circle-color' : 'e-icon--expand_circle-color'"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  class="e-icon"
+                  [ngClass]="
+                    group.expanded
+                      ? 'e-icon--collapse_circle-filled-color'
+                      : 'e-icon--expand_circle-filled-color'
+                  "
+                  aria-hidden="true"
+                ></i>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <ng-container *ngIf="group.expanded">
+        <tr *ngFor="let prop of group.rows; let isLast = last" class="prop-row" [ngClass]="{ last: isLast }">
+          <th scope="row" class="table-code-text">
+            <strong [id]="'property-row-' + prop.attribute + '-attribute'">
+              {{ prop.attribute }}
+            </strong>
+            <strong>{{ prop.isRequired ? '*' : '' }}</strong>
+          </th>
+          <td
+            class="table-code-text e-table__cell--multiline-small"
+            [id]="'property-row-' + prop.attribute + '-type'"
+          >
+            {{ prop.type }}
+          </td>
+          <td class="e-table__cell--multiline-small" [id]="'property-row-' + prop.attribute + '-description'">
+            {{ prop.description }}
+          </td>
+          <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-default'">
+            {{ prop.default ? prop.default : '-' }}
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </tbody>
+</table>

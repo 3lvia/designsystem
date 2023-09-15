@@ -6,7 +6,6 @@ export const chipData: ComponentData = {
   name: 'Chip',
   attributes: {
     type: {
-      isRequired: false,
       type: 'removable | legend | choice',
       description: 'Which type of chip should be displayed.',
       default: '"removable"',
@@ -18,13 +17,11 @@ export const chipData: ComponentData = {
         'Aria label should be added for accessibility. See the code example in top for inspiration.',
     },
     color: {
-      isRequired: false,
       type: 'blue | green | orange | purple | red | violet',
       description: 'Set a background color of the chip.',
       default: 'green',
     },
     isDisabled: {
-      isRequired: false,
       type: 'boolean',
       description: 'Set the chip as disabled.',
       default: 'false',
@@ -35,36 +32,23 @@ export const chipData: ComponentData = {
       description: 'The value displayed in the chip.',
     },
     isLoading: {
-      isRequired: false,
       type: 'boolean',
       description: 'Sets the chip to have loading state. Only works for legend type.',
     },
     isSelected: {
-      isRequired: false,
       type: 'boolean',
       description: 'Sets the chip to have the selected state. Optional on legend and choice types.',
     },
     isSelectedOnChange: {
-      isRequired: false,
+      isEvent: true,
       type: '(isSelected: boolean) => void',
       description: 'Gets called every time the selected state is changed.',
     },
     onDelete: {
-      isRequired: false,
+      isEvent: true,
       type: '(value: string) => void',
       description:
         'Gets called if an item is clicked and it should be deleted. Required on removable type and not necessary on any of the other types.',
-    },
-    className: {
-      isRequired: false,
-      type: 'string',
-      description: 'Custom CSS classes that can be added to the chip.',
-    },
-    inlineStyle: {
-      isRequired: false,
-      type: '{[cssProperty: string]: string}',
-      description:
-        "Custom CSS style object that can be added to the chip. Example: {marginTop: '8px', width: '100%'}",
     },
   },
 
