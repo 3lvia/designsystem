@@ -138,24 +138,27 @@
     <ng-container ngProjectAs="sectionContent">
       <p>Hard-coded HEX colors don't scale or age well in code or design. Tokens solve this issue ✨.</p>
       <p>
-        All our components use tokens in the latest component versions 🪄. You have to apply tokens yourself for colors in your application that don't come from the design system.
+        All our components use tokens in the latest component versions 🪄. You have to apply tokens yourself
+        for colors in your application that don't come from the design system.
       </p>
       <app-component-subsection [sectionTitle]="'Tokens anatomy'">
         <ng-container ngProjectAs="sectionContent">
           <p>Here are some examples of how we use tokens in our components.</p>
-          <img
-            class="e-mt-24 e-mb-32 theme-image-background e-w-100"
-            src="assets/color-doc/tokens-examples.svg"
-            alt="Token usage examples"
-          />
+          <figure>
+            <img
+              class="e-mt-24 e-mb-32 theme-image-background e-w-100"
+              src="assets/color-doc/tokens-examples.svg"
+            />
+            <figcaption>Illustration of tokens usage</figcaption>
+          </figure>
           <p>
-            The Elvia green color is used in a lot of places throughout the Elvia systems, so there are also several different tokens referring to green for different use cases.
+            The Elvia green color is used in a lot of places throughout the Elvia systems, so there are also
+            several different tokens referring to green for different use cases.
           </p>
-          <img
-            class="e-mt-24 theme-image-background e-w-100"
-            src="assets/color-doc/green-tokens.svg"
-            alt="Elvia green tokens usage"
-          />
+          <figure>
+            <img class="e-mt-24 theme-image-background e-w-100" src="assets/color-doc/green-tokens.svg" />
+            <figcaption>Illustration of Elvia green tokens usage</figcaption>
+          </figure>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Tokens deep dive'">
@@ -192,11 +195,13 @@
               </p>
               <app-theme-token-illustration />
               <p>As illustrated below, the tokens represents different colors in light and dark theme.</p>
-              <img
-                class="e-mt-24 theme-image-background e-w-100"
-                src="assets/color-doc/button-theme-token.svg"
-                alt="button using tokens in light and dark theme"
-              />
+              <figure>
+                <img
+                  class="e-mt-24 theme-image-background e-w-100"
+                  src="assets/color-doc/button-theme-token.svg"
+                />
+                <figcaption>Illustration of how light and dark theme tokens work</figcaption>
+              </figure>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
