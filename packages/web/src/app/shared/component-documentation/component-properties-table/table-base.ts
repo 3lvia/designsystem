@@ -18,7 +18,7 @@ export class PropertyTableBaseDirective implements OnChanges {
       {
         title: 'Properties',
         expanded: true,
-        rows: this.getInputProps(this.props).concat(...this.getCommonProps()),
+        rows: this.getInputProps(this.props),
       },
       {
         title: 'Events',
@@ -38,21 +38,5 @@ export class PropertyTableBaseDirective implements OnChanges {
 
   propHasNoChildren(prop: ComponentProp): prop is EventProp | InputProp {
     return !(prop as NestedProp<Record<string, any>>).children;
-  }
-
-  private getCommonProps(): InputProp[] {
-    return [
-      {
-        attribute: 'className',
-        description: 'Custom CSS classes that can be added to the component.',
-        type: 'string',
-      },
-      {
-        attribute: 'inlineStyle',
-        description:
-          "Custom CSS style object that can be added to the component. Example: {marginTop: '8px'}",
-        type: '{[cssProperty: string]: string}',
-      },
-    ];
   }
 }
