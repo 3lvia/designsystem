@@ -1,7 +1,8 @@
 import changelogJson from '@elvia/elvis-tabs/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { TabsProps } from '@elvia/elvis-tabs/dist/react/js/elvia-tabs.types';
 
-export const tabsData: ComponentData = {
+export const tabsData: ComponentData<TabsProps> = {
   changelog: changelogJson.content,
   name: 'Tabs',
   attributes: {
@@ -11,37 +12,32 @@ export const tabsData: ComponentData = {
       description: 'Items shown as tabs.',
     },
     value: {
-      isRequired: false,
       type: 'number',
       description: 'Index of selected tab.',
       default: '0',
     },
     ariaLabel: {
-      isRequired: false,
       type: 'string',
       description: 'Aria label that describes the tablist. Aria label should be added for accessibility.',
     },
     isInverted: {
-      isRequired: false,
       type: 'boolean',
       description: 'Decides if tabs should be inverted.',
       default: 'false',
     },
     hasManualActivation: {
-      isRequired: false,
       type: 'boolean',
       description:
         'Activates the tab when user hits either space, enter or a mouse click. Manual activation is usually necessary when panels cannot be displayed instantly.',
       default: 'false',
     },
     tabIdPrefix: {
-      isRequired: false,
       type: 'string',
       description:
         'If you have more than one set of tabs on your page you need to add a prefix for the tab-ids so that the sets can be differentiated.',
     },
     valueOnChange: {
-      isRequired: false,
+      isEvent: true,
       type: '(value: number) => void',
       description:
         'Gets called every time the value is changed. Value is the index of the clicked tab in items.',

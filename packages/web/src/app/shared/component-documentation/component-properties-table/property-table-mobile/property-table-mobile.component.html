@@ -1,0 +1,38 @@
+<table
+  class="e-table-mobile e-table-mobile--sticky-header e-table-mobile--small"
+  aria-label="Property details and descriptions"
+>
+  <thead>
+    <tr>
+      <th class="e-table-mobile__cell" scope="col">Properties</th>
+      <th class="e-table-mobile__cell" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let prop of props">
+    <tr>
+      <th class="e-table-mobile__cell" scope="col">
+        <span [id]="'property-row-' + prop.attribute + '-attribute-mobile'">{{ prop.attribute }}</span>
+        <span>{{ prop.isRequired ? '*' : '' }}</span>
+      </th>
+      <th class="e-table-mobile__cell" scope="col"></th>
+    </tr>
+    <tr>
+      <th class="e-table-mobile__cell" scope="row">Type</th>
+      <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-type-mobile'">
+        {{ prop.type }}
+      </td>
+    </tr>
+    <tr>
+      <th class="e-table-mobile__cell" scope="row">Description</th>
+      <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-description-mobile'">
+        {{ prop.description }}
+      </td>
+    </tr>
+    <tr *ngIf="propHasNoChildren(prop)">
+      <th class="e-table-mobile__cell" scope="row">Default</th>
+      <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-default-mobile'">
+        {{ prop.default ? prop.default : '-' }}
+      </td>
+    </tr>
+  </tbody>
+</table>

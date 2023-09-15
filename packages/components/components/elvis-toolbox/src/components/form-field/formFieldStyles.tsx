@@ -81,7 +81,6 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
     if (size === 'small') {
       return css`
         padding-top: 0.5rem;
-
         ${FormFieldLabel} {
           font-size: 0.625rem;
           background-color: ${getThemeColor('background-1')};

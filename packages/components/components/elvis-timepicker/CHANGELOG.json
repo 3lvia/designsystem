@@ -3,11 +3,24 @@
   "content": [
     {
       "date": "18.09.23",
-      "version": "3.3.0",
+      "version": "4.1.0",
       "changelog": [
         {
           "type": "new_feature",
           "changes": ["Added support for new props <code>minTime</code> and <code>maxTime</code>."]
+        }
+      ]
+    },
+    {
+      "date": "11.09.23",
+      "version": "4.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Change label size and position for the small timepicker."],
+          "fixes": [
+            "The small timepicker will be taller. You may therefore want to check that the page layout is not severely affected by this."
+          ]
         }
       ]
     },

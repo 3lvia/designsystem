@@ -1,118 +1,18 @@
-<div class="properties-container">
-  <div class="e-form-field properties-filter">
-    <div class="e-search e-search--instant" [ngClass]="{ 'e-search--searched': searchTerm !== '' }">
-      <div class="e-input">
-        <input
-          aria-label="Search properties table"
-          type="search"
-          placeholder="Search"
-          [(ngModel)]="searchTerm"
-          (ngModelChange)="searchProps()"
-        />
-      </div>
-      <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
-      <button
-        class="e-btn e-btn--icon e-btn--lg"
-        (click)="clearSearchField()"
-        aria-label="Clear search field"
-      >
-        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
-      </button>
-    </div>
-  </div>
-  <div class="e-table-container desktop">
-    <table
-      class="e-table e-table--sticky-column-header e-table--sticky-header e-table--small"
-      *ngIf="filteredComponentProps.length > 0"
-      aria-label="Property details and descriptions"
-    >
-      <thead>
-        <tr>
-          <th scope="col">Prop</th>
-          <th scope="col">Type</th>
-          <th scope="col">Description</th>
-          <th scope="col">Default</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let prop of filteredComponentProps">
-          <th scope="row" class="table-code-text">
-            <span [id]="'property-row-' + prop.attribute + '-attribute'">{{ prop.attribute }}</span>
-            <span *ngIf="prop.isRequired">*</span>
-          </th>
-          <td
-            class="table-code-text e-table__cell--multiline-small"
-            [id]="'property-row-' + prop.attribute + '-type'"
-          >
-            {{ prop.type }}
-          </td>
-          <td class="e-table__cell--multiline-small" [id]="'property-row-' + prop.attribute + '-description'">
-            {{ prop.description }}
-          </td>
-          <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-default'">
-            {{ prop.default ? prop.default : '-' }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="no-properties-found" *ngIf="filteredComponentProps.length === 0">
+<app-property-search-input (search)="searchProps($event)" />
+<div class="e-table-container">
+  <ng-container *ngIf="filteredComponentProps.length > 0; else noPropsTemplate">
+    <app-property-table-desktop [props]="filteredComponentProps" class="e-none-sm" />
+    <app-property-table-mobile [props]="filteredComponentProps" class="e-none-md e-none-lg e-none-xl" />
+  </ng-container>
+
+  <ng-template #noPropsTemplate>
+    <div class="no-properties-found">
       <img src="assets/no-results/no-results.svg" alt="" aria-hidden="true" />
       <span class="e-title-caps e-text-center">No properties found matching your search</span>
     </div>
-  </div>
-  <div
-    class="e-table-container mobile"
-    [ngClass]="{ 'properties-mobile': filteredComponentProps.length > 0 }"
-  >
-    <table
-      class="e-table-mobile e-table-mobile--sticky-header e-table-mobile--small"
-      *ngIf="filteredComponentProps.length > 0"
-      aria-label="Property details and descriptions"
-    >
-      <thead>
-        <tr>
-          <th class="e-table-mobile__cell" scope="col">Prop</th>
-          <th class="e-table-mobile__cell" scope="col"></th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let prop of filteredComponentProps">
-        <tr>
-          <th
-            class="e-table-mobile__cell"
-            scope="col"
-            [id]="'property-row-' + prop.attribute + '-attribute-mobile'"
-          >
-            {{ prop.attribute }}
-          </th>
-          <th class="e-table-mobile__cell" scope="col"></th>
-        </tr>
-        <tr>
-          <th class="e-table-mobile__cell" scope="row">Type</th>
-          <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-type-mobile'">
-            {{ prop.type }}
-          </td>
-        </tr>
-        <tr>
-          <th class="e-table-mobile__cell" scope="row">Description</th>
-          <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-description-mobile'">
-            {{ prop.description }}
-          </td>
-        </tr>
-        <tr>
-          <th class="e-table-mobile__cell" scope="row">Default</th>
-          <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-default-mobile'">
-            {{ prop.default ? prop.default : '-' }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="no-properties-found" *ngIf="filteredComponentProps.length === 0">
-      <img src="assets/no-results/no-results.svg" alt="" aria-hidden="true" />
-      <span class="e-title-caps e-text-center">No properties found matching your search</span>
-    </div>
-  </div>
-  <div class="e-table__footnote e-table__footnote--small">* Required - Properties that must be present</div>
-  <div class="e-table__footnote e-table__footnote--small">
-    All HTML DOM Events (e.g. click, focus, mouseover) are available to use on the component if needed.
-  </div>
+  </ng-template>
 </div>
+
+<footer class="e-table__footnote e-table__footnote--small">
+  * Required - Properties that must be present
+</footer>

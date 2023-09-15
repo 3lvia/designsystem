@@ -1,7 +1,8 @@
 import changelogJson from '@elvia/elvis-header/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { HeaderProps } from '@elvia/elvis-header/react';
 
-export const headerData: ComponentData = {
+export const headerData: ComponentData<HeaderProps> = {
   changelog: changelogJson.content,
   name: 'Header',
   attributes: {
@@ -16,7 +17,6 @@ export const headerData: ComponentData = {
       description: 'The email of the signed in user. Can be fetched from the JWT.',
     },
     appTitle: {
-      isRequired: false,
       type: 'string',
       description: 'The name of the application. If no title is provided, the title is assumed from the URL.',
     },
@@ -27,48 +27,34 @@ export const headerData: ComponentData = {
         'The name of the current page. Can be text, or rich content (use slot in web component if not just text).',
     },
     navItems: {
-      isRequired: false,
       type: 'string | HTMLElement | JSX.Element',
       description: 'A list of nav items which is rendered in the side nav.',
       default: 'undefined',
     },
     appContent: {
-      isRequired: false,
       type: 'string | HTMLElement | JSX.Element',
       default: 'undefined',
       description: 'The page content. Usually a div, wrapping a router outlet.',
     },
     hideThemeSwitch: {
-      isRequired: false,
       type: 'boolean',
       default: 'false',
       description: 'Hides the theme switch in the profile menu if set to true.',
     },
     onLogoClick: {
-      isRequired: false,
+      isEvent: true,
       type: '() => void',
       description: 'An event that is triggered when the Elvia logo is clicked.',
     },
     onSignOutClick: {
-      isRequired: false,
+      isEvent: true,
       type: '() => void',
       description: 'An event that is triggered when the sign out button is clicked.',
     },
     onThemeChange: {
-      isRequired: false,
+      isEvent: true,
       type: '(theme: Theme) => void',
       description: 'An event that is triggered when the theme is switched.',
-    },
-    className: {
-      isRequired: false,
-      type: 'string',
-      description: 'Custom CSS classes that can be added to the header.',
-    },
-    inlineStyle: {
-      isRequired: false,
-      type: '{[cssProperty: string]: string}',
-      description:
-        "Custom CSS style object that can be added to the header. Example: {marginTop: '8px', width: '100%'}.",
     },
   },
 };

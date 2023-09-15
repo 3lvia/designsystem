@@ -1,0 +1,20 @@
+.properties-filter {
+  margin-top: -40px;
+  margin-left: auto;
+  margin-bottom: 16px;
+  width: 50%;
+
+  @media (max-width: 768px) {
+    margin-top: -24px;
+    width: 100%;
+    max-width: 100%;
+    & .e-input {
+      width: 100%;
+      max-width: 100%;
+      & > input {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
