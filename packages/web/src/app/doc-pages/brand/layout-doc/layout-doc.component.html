@@ -41,114 +41,102 @@
               (valueOnChange)="egSelectedValue = $any($event).detail.value"
             ></elvia-tabs>
           </div>
-          <app-component-subsubsection [sectionTitle]="'Desktop'" *ngIf="egSelectedValue === 0">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
+          <div class="grid-info e-mt-16" *ngIf="egSelectedValue === 0">
+            <div>
+              <img
+                src="../../../../assets/grid/externalDesktopGrid.svg"
+                alt="External grid desktop"
+                class="e-none-sm e-w-100"
+              />
+            </div>
+            <div class="circles-container">
+              <div class="information-container">
+                <div class="information-circle column-color"></div>
                 <div>
-                  <img
-                    src="../../../../assets/grid/externalDesktopGrid.svg"
-                    alt="External grid desktop"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">12</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">120px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">56px</div>
-                    </div>
-                  </div>
+                  <div class="e-title-caps e-mr-8">Columns</div>
+                  <div class="e-text-sm">12</div>
                 </div>
               </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Tablet'" *ngIf="egSelectedValue === 1">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
+              <div class="information-container">
+                <div class="information-circle margin-color">M</div>
                 <div>
-                  <img
-                    src="../../../../assets/grid/externalTabletGrid.svg"
-                    alt="External grid tablet"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">8</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">32px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">32px</div>
-                    </div>
-                  </div>
+                  <div class="e-title-caps e-mr-8">Margin</div>
+                  <div class="e-text-sm">120px</div>
                 </div>
               </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'" *ngIf="egSelectedValue === 2">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
+              <div class="information-container">
+                <div class="information-circle gutter-color">G</div>
                 <div>
-                  <img
-                    src="../../../../assets/grid/externalMobileGrid.svg"
-                    alt="External grid mobile"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">6</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">16px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">16px</div>
-                    </div>
-                  </div>
+                  <div class="e-title-caps e-mr-8">Gutter</div>
+                  <div class="e-text-sm">56px</div>
                 </div>
               </div>
-            </ng-container>
-          </app-component-subsubsection>
+            </div>
+          </div>
+          <div class="grid-info e-mt-16" *ngIf="egSelectedValue === 1">
+            <div>
+              <img
+                src="../../../../assets/grid/externalTabletGrid.svg"
+                alt="External grid tablet"
+                class="e-none-sm e-w-100"
+              />
+            </div>
+            <div class="circles-container">
+              <div class="information-container">
+                <div class="information-circle column-color"></div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Columns</div>
+                  <div class="e-text-sm">8</div>
+                </div>
+              </div>
+              <div class="information-container">
+                <div class="information-circle margin-color">M</div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Margin</div>
+                  <div class="e-text-sm">32px</div>
+                </div>
+              </div>
+              <div class="information-container">
+                <div class="information-circle gutter-color">G</div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Gutter</div>
+                  <div class="e-text-sm">32px</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-info e-mt-16" *ngIf="egSelectedValue === 2">
+            <div>
+              <img
+                src="../../../../assets/grid/externalMobileGrid.svg"
+                alt="External grid mobile"
+                class="e-none-sm e-w-100"
+              />
+            </div>
+            <div class="circles-container">
+              <div class="information-container">
+                <div class="information-circle column-color"></div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Columns</div>
+                  <div class="e-text-sm">6</div>
+                </div>
+              </div>
+              <div class="information-container">
+                <div class="information-circle margin-color">M</div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Margin</div>
+                  <div class="e-text-sm">16px</div>
+                </div>
+              </div>
+              <div class="information-container">
+                <div class="information-circle gutter-color">G</div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Gutter</div>
+                  <div class="e-text-sm">16px</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </ng-container>
       </app-component-subsection>
 
@@ -168,116 +156,104 @@
               (valueOnChange)="igSelectedValue = $any($event).detail.value"
             ></elvia-tabs>
           </div>
-          <app-component-subsubsection [sectionTitle]="'Desktop'" *ngIf="igSelectedValue === 0">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
+          <div class="grid-info e-mt-16" *ngIf="igSelectedValue === 0">
+            <div>
+              <img
+                src="../../../../assets/grid/internalDesktopGrid.svg"
+                alt="Internal grid desktop"
+                class="e-none-sm e-w-100"
+              />
+            </div>
+            <div class="circles-container">
+              <div class="information-container">
+                <div class="information-circle column-color"></div>
                 <div>
-                  <img
-                    src="../../../../assets/grid/internalDesktopGrid.svg"
-                    alt="Internal grid desktop"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">12</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">Left: 88px</div>
-                      <div class="e-text-sm">Right: 32px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">32px</div>
-                    </div>
-                  </div>
+                  <div class="e-title-caps e-mr-8">Columns</div>
+                  <div class="e-text-sm">12</div>
                 </div>
               </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Tablet'" *ngIf="igSelectedValue === 1">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
+              <div class="information-container">
+                <div class="information-circle margin-color">M</div>
                 <div>
-                  <img
-                    src="../../../../assets/grid/internalTabletGrid.svg"
-                    alt="Internal grid tablet"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">8</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">Left: 88px</div>
-                      <div class="e-text-sm">Right: 32px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">24px</div>
-                    </div>
-                  </div>
+                  <div class="e-title-caps e-mr-8">Margin</div>
+                  <div class="e-text-sm">Left: 88px</div>
+                  <div class="e-text-sm">Right: 32px</div>
                 </div>
               </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'" *ngIf="igSelectedValue === 2">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
+              <div class="information-container">
+                <div class="information-circle gutter-color">G</div>
                 <div>
-                  <img
-                    src="../../../../assets/grid/internalMobileGrid.svg"
-                    alt="Internal grid mobile"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">6</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">16px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">16px</div>
-                    </div>
-                  </div>
+                  <div class="e-title-caps e-mr-8">Gutter</div>
+                  <div class="e-text-sm">32px</div>
                 </div>
               </div>
-            </ng-container>
-          </app-component-subsubsection>
+            </div>
+          </div>
+          <div class="grid-info e-mt-16" *ngIf="igSelectedValue === 1">
+            <div>
+              <img
+                src="../../../../assets/grid/internalTabletGrid.svg"
+                alt="Internal grid tablet"
+                class="e-none-sm e-w-100"
+              />
+            </div>
+            <div class="circles-container">
+              <div class="information-container">
+                <div class="information-circle column-color"></div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Columns</div>
+                  <div class="e-text-sm">8</div>
+                </div>
+              </div>
+              <div class="information-container">
+                <div class="information-circle margin-color">M</div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Margin</div>
+                  <div class="e-text-sm">Left: 88px</div>
+                  <div class="e-text-sm">Right: 32px</div>
+                </div>
+              </div>
+              <div class="information-container">
+                <div class="information-circle gutter-color">G</div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Gutter</div>
+                  <div class="e-text-sm">24px</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-info e-mt-16" *ngIf="igSelectedValue === 2">
+            <div>
+              <img
+                src="../../../../assets/grid/internalMobileGrid.svg"
+                alt="Internal grid mobile"
+                class="e-none-sm e-w-100"
+              />
+            </div>
+            <div class="circles-container">
+              <div class="information-container">
+                <div class="information-circle column-color"></div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Columns</div>
+                  <div class="e-text-sm">6</div>
+                </div>
+              </div>
+              <div class="information-container">
+                <div class="information-circle margin-color">M</div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Margin</div>
+                  <div class="e-text-sm">16px</div>
+                </div>
+              </div>
+              <div class="information-container">
+                <div class="information-circle gutter-color">G</div>
+                <div>
+                  <div class="e-title-caps e-mr-8">Gutter</div>
+                  <div class="e-text-sm">16px</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </ng-container>
       </app-component-subsection>
 
@@ -374,8 +350,7 @@
                     <img
                       src="/assets/grid/standardLayout.svg"
                       alt="Internal grid mobile"
-                      style="max-width: 100%; margin-top: 32px"
-                      class="theme-image-background"
+                      class="theme-image-background e-none-sm e-w-100 e-mt-32"
                     />
                   </ng-container>
                 </app-component-subsubsection>
@@ -498,7 +473,7 @@
           and
           <code>e-m-8</code>
           . View all classes available in the
-          <a class="e-link" [routerLink]="['/tools/utility-classes']" fragment="Spacing">
+          <a class="e-link e-link--inline" [routerLink]="['/tools/utility-classes']" fragment="Spacing">
             <span class="e-link__title">utilities table</span>
           </a>
         </ng-container>
@@ -510,7 +485,7 @@
           and
           <code>e-m-8</code>
           . Se på alle de tilgjengelige klassene i
-          <a class="e-link" [routerLink]="['/tools/utility-classes']" fragment="Spacing">
+          <a class="e-link e-link--inline" [routerLink]="['/tools/utility-classes']" fragment="Spacing">
             <span class="e-link__title">utilities tabellen</span>
             .
           </a>

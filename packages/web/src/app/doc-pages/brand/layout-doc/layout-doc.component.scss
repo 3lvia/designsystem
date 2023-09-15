@@ -16,12 +16,6 @@
   }
 }
 
-@include breakpoints.breakpoint-up(Mobile) {
-  img {
-    display: none;
-  }
-}
-
 .circles-container {
   display: flex;
   flex-direction: column;
