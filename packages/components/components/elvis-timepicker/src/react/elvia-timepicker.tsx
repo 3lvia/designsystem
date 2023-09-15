@@ -15,6 +15,7 @@ import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
 import { TimepickerInput } from './timepickerInput';
 import { TimepickerError } from './error/timepickerError';
 import { getErrorText } from './getErrorText';
+import { isAfter, isBefore } from './timeHelpers';
 
 const defaultErrorOptions = {
   hideText: false,
@@ -29,6 +30,8 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   valueOnChange,
   errorOnChange,
   label = 'Velg tid',
+  maxTime,
+  minTime,
   minuteInterval = '15',
   size = 'medium',
   hasSecondPicker = false,
@@ -58,6 +61,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     alignWidths: false,
   });
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
+  const [isInitialized, setIsInitialized] = useState(false);
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
@@ -116,7 +120,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     }
     setError(newError);
 
-    const errorText = getErrorText(newError);
+    const errorText = getErrorText(newError, minTime, maxTime, hasSecondPicker);
     errorOnChange?.(errorText);
     webcomponent?.triggerEvent('errorOnChange', errorText);
   };
@@ -163,6 +167,34 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   useEffect(() => {
     updateValue(value || null, false);
   }, [value]);
+
+  useEffect(() => {
+    if (isInitialized) {
+      validateMinMax(time);
+    }
+  }, [time, minTime, maxTime]);
+
+  const validateMinMax = (d?: Date | null): void => {
+    if (!d) {
+      onError();
+      return;
+    }
+
+    if (minTime && isBefore(d, minTime)) {
+      onError('beforeMinTime');
+      return;
+    }
+
+    if (maxTime && isAfter(d, maxTime)) {
+      onError('afterMaxTime');
+      return;
+    }
+    onError();
+  };
+
+  // We flag when the component is initialized, so that we don't
+  // run validation on init.
+  useEffect(() => setIsInitialized(true), []);
 
   return (
     <>
@@ -213,7 +245,14 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
 
         <div aria-live="polite">
           {((error && !mergedErrorOptions.hideText) || mergedErrorOptions.text) && (
-            <TimepickerError customText={mergedErrorOptions.text} errorType={error} errorId={errorId} />
+            <TimepickerError
+              customText={mergedErrorOptions.text}
+              errorType={error}
+              errorId={errorId}
+              minTime={minTime}
+              maxTime={maxTime}
+              hasSecondPicker={hasSecondPicker}
+            />
           )}
         </div>
       </FormFieldContainer>

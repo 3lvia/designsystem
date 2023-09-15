@@ -8,16 +8,26 @@ interface Props {
   errorType?: ErrorType;
   customText?: string;
   errorId?: string;
+  minTime?: Date;
+  maxTime?: Date;
+  hasSecondPicker?: boolean;
 }
 
-export const TimepickerError: React.FC<Props> = ({ errorType, customText, errorId }) => {
+export const TimepickerError: React.FC<Props> = ({
+  errorType,
+  customText,
+  errorId,
+  minTime,
+  maxTime,
+  hasSecondPicker,
+}) => {
   const [errorText, setErrorText] = useState('');
 
   useEffect(() => {
     if (customText) {
       setErrorText(customText);
     } else if (errorType) {
-      setErrorText(getErrorText(errorType));
+      setErrorText(getErrorText(errorType, minTime, maxTime, hasSecondPicker));
     }
   }, [errorType, customText]);
 

@@ -3,6 +3,7 @@ import { ErrorType } from './elviaTimepicker.types';
 
 import { padDigit } from './padDigit';
 import { Input } from './styledComponents';
+import { getFormattedInputValue } from './timeHelpers';
 
 interface Props {
   disabled?: boolean;
@@ -109,7 +110,7 @@ export const TimepickerInput: React.FC<Props> = ({
   };
 
   const emitNewValue = (formattedValue: string): void => {
-    if (!time || formattedValue !== getFormattedInputValue(time)) {
+    if (!time || formattedValue !== getFormattedInputValue(time, hasSecondPicker)) {
       const newValue = time ? new Date(time) : new Date();
 
       const [hour, minute, second] = formattedValue.split(':');
@@ -193,17 +194,6 @@ export const TimepickerInput: React.FC<Props> = ({
     emitNewValue(newValue);
   };
 
-  const getFormattedInputValue = (date?: Date | null): string => {
-    if (!date) {
-      return '';
-    }
-
-    return (
-      `${padDigit(date.getHours())}:${padDigit(date.getMinutes())}` +
-      (hasSecondPicker ? `:${padDigit(date.getSeconds())}` : '')
-    );
-  };
-
   const onInputFocus = (): void => {
     setTouched(true);
     onFocus();
@@ -217,7 +207,7 @@ export const TimepickerInput: React.FC<Props> = ({
   }, [required]);
 
   useEffect(() => {
-    const formattedInputValue = getFormattedInputValue(time);
+    const formattedInputValue = getFormattedInputValue(time, hasSecondPicker);
     setInputValue(formattedInputValue);
 
     const [hour, minute, second] = formattedInputValue.split(':');

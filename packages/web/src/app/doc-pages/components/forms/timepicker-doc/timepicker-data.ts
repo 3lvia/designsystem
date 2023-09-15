@@ -27,6 +27,18 @@ export const timepickerData: ComponentData = {
       default: '"15"',
       description: 'The number of minute steps in list of minute options.',
     },
+    minDate: {
+      isRequired: false,
+      type: 'Date',
+      description:
+        'Makes the time before the provided minimum time disabled. (The validation uses only the time part of this prop value)',
+    },
+    maxDate: {
+      isRequired: false,
+      type: 'Date',
+      description:
+        'Makes the time after the provided maximum time disabled. (The validation uses only the time part of this prop value)',
+    },
     hasSecondPicker: {
       isRequired: false,
       type: 'boolean',

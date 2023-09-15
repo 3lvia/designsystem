@@ -225,7 +225,9 @@ export class v2PlaygroundComponent {
     (this.stepperStates = { ...this.stepperStates, '2': { isCompleted: true, heading: 'Title #2' } });
 
   // Timepicker
-  timepickerValue = new Date();
+  timepickerValue = new Date(2023, 9, 16, 10, 0);
+  timepickerMax = new Date(2023, 9, 16, 17, 0);
+  timepickerMin = new Date(2023, 9, 16, 9, 0);
 
   // Toast
   showToast = () => {
