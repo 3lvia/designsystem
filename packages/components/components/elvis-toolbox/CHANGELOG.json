@@ -3,6 +3,26 @@
   "content": [
     {
       "date": "15.09.23",
+      "version": "10.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Increased the size of small input labels, which makes components taller."]
+        }
+      ]
+    },
+    {
+      "date": "12.09.23",
+      "version": "10.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Internal only."]
+        }
+      ]
+    },
+    {
+      "date": "15.09.23",
       "version": "9.7.1",
       "changelog": [
         {

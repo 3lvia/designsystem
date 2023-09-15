@@ -80,16 +80,9 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   ${({ size }) => {
     if (size === 'small') {
       return css`
-        padding-top: 0.5rem;
         ${FormFieldLabel} {
-          font-size: 0.625rem;
-          background-color: ${getThemeColor('background-1')};
-          position: absolute;
-          margin-left: 7px;
-          top: 0;
-          padding: 0 3px;
-          z-index: 1;
-          line-height: 1;
+          ${getTypographyCss('text-sm-strong')}
+          margin-bottom: 4px;
         }
 
         ${FormFieldInputContainer} {
