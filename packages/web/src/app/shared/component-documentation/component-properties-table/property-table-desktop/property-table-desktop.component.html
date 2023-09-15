@@ -50,8 +50,9 @@
         <tr *ngFor="let prop of group.rows; let isLast = last" class="prop-row" [ngClass]="{ last: isLast }">
           <th scope="row" class="table-code-text">
             <strong [id]="'property-row-' + prop.attribute + '-attribute'">
-              {{ prop.attribute }}{{ prop.isRequired ? '*' : '' }}
+              {{ prop.attribute }}
             </strong>
+            <strong>{{ prop.isRequired ? '*' : '' }}</strong>
           </th>
           <td
             class="table-code-text e-table__cell--multiline-small"

@@ -10,12 +10,9 @@
   </thead>
   <tbody *ngFor="let prop of props">
     <tr>
-      <th
-        class="e-table-mobile__cell"
-        scope="col"
-        [id]="'property-row-' + prop.attribute + '-attribute-mobile'"
-      >
-        {{ prop.attribute }}{{ prop.isRequired ? '*' : '' }}
+      <th class="e-table-mobile__cell" scope="col">
+        <span [id]="'property-row-' + prop.attribute + '-attribute-mobile'">{{ prop.attribute }}</span>
+        <span>{{ prop.isRequired ? '*' : '' }}</span>
       </th>
       <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
