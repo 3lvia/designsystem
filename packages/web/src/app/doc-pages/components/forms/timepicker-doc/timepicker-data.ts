@@ -27,18 +27,6 @@ export const timepickerData: ComponentData = {
       default: '"15"',
       description: 'The number of minute steps in list of minute options.',
     },
-    minDate: {
-      isRequired: false,
-      type: 'Date',
-      description:
-        'Makes the time before the provided minimum time disabled. (The validation uses only the time part of this prop value)',
-    },
-    maxDate: {
-      isRequired: false,
-      type: 'Date',
-      description:
-        'Makes the time after the provided maximum time disabled. (The validation uses only the time part of this prop value)',
-    },
     hasSecondPicker: {
       isRequired: false,
       type: 'boolean',
@@ -80,6 +68,18 @@ export const timepickerData: ComponentData = {
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
       description: 'An object that allows for custom configuration of the error handling in the time picker.',
       default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
+    },
+    minDate: {
+      isRequired: false,
+      type: 'Date',
+      description:
+        'Makes the time before the provided minimum time disabled. (The validation uses only the time part of this prop value)',
+    },
+    maxDate: {
+      isRequired: false,
+      type: 'Date',
+      description:
+        'Makes the time after the provided maximum time disabled. (The validation uses only the time part of this prop value)',
     },
     onOpen: {
       isRequired: false,
