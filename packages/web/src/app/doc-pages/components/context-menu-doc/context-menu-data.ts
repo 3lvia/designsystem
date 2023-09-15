@@ -1,7 +1,8 @@
 import changelogJson from '@elvia/elvis-context-menu/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { ContextMenuProps } from '@elvia/elvis-context-menu/react';
 
-const contextMenuData: ComponentData = {
+const contextMenuData: ComponentData<ContextMenuProps> = {
   changelog: changelogJson.content,
   name: 'ContextMenu',
   attributes: {
@@ -17,50 +18,34 @@ const contextMenuData: ComponentData = {
       description: 'The element the user clicks to open the context menu.',
     },
     isShowing: {
-      isRequired: false,
       type: 'boolean',
       description: 'Determines whether the context menu is showing.',
       default: 'false',
     },
     isSelectable: {
-      isRequired: false,
       type: 'boolean',
       description: 'Determines whether the context menu is selectable',
       default: 'false',
     },
     onOpen: {
-      isRequired: false,
+      isEvent: true,
       type: '() => void',
       description: 'Callback for every time the context menu is opened.',
     },
     onClose: {
-      isRequired: false,
+      isEvent: true,
       type: '() => void',
       description: 'Callback for every time the context menu is closed.',
     },
     verticalPosition: {
-      isRequired: false,
       type: 'bottom | top',
       description: 'Position vertically.',
       default: 'bottom',
     },
     horizontalPosition: {
-      isRequired: false,
       type: 'left | right',
       description: 'Position horizontally.',
       default: 'left',
-    },
-    className: {
-      isRequired: false,
-      type: 'string',
-      description:
-        'Custom CSS classes that can be added to the context menu. Note: This applies to the content, not the trigger.',
-    },
-    inlineStyle: {
-      isRequired: false,
-      type: '{[cssProperty: string]: string}',
-      description:
-        "Custom CSS style object that can be added to the context menu. Example: {marginTop: '8px', width: '100%'}. Note: This applies to the content, not the trigger.",
     },
   },
 };
