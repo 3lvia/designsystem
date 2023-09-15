@@ -24,40 +24,47 @@
     <img [src]="logoUrl" class="elvia-logo" alt="Elvia Logo" />
   </a>
 
-  <div
-    *ngIf="menuContentLoader"
-    class="tabs-content-loader e-none-sm e-none-md e-content-loader e-ml-48"
-  ></div>
-  <nav class="tabs e-ml-32 e-none-sm e-none-md" aria-label="tabs navigation" role="tablist" *ngIf="mainMenu">
-    <a
-      *ngFor="let menuItem of mainMenu.pages"
-      class="e-title-caps hover-underline tabs-links"
-      [routerLink]="['/' + menuItem.path]"
-      routerLinkActive="active"
-      role="tab"
+  <ng-container *ngIf="!visibleMenuType">
+    <div
+      *ngIf="menuContentLoader"
+      class="tabs-content-loader e-none-sm e-none-md e-content-loader e-ml-48"
+    ></div>
+    <nav
+      class="tabs e-ml-32 e-none-sm e-none-md"
+      aria-label="tabs navigation"
+      role="tablist"
+      *ngIf="mainMenu"
     >
-      {{ menuItem.title }}
-    </a>
-    <ng-container *ngIf="devMode">
       <a
-        class="e-title-caps hover-underline tabs-links tabs-links-dev"
-        [routerLink]="['/dev']"
+        *ngFor="let menuItem of mainMenu.pages"
+        class="e-title-caps hover-underline tabs-links"
+        [routerLink]="['/' + menuItem.path]"
         routerLinkActive="active"
         role="tab"
       >
-        Dev
+        {{ menuItem.title }}
       </a>
-      <a
-        class="e-title-caps hover-underline tabs-links tabs-links-dev"
-        target="_blank"
-        rel="noopener"
-        href="/react-preview"
-        role="tab"
-      >
-        React
-      </a>
-    </ng-container>
-  </nav>
+      <ng-container *ngIf="devMode">
+        <a
+          class="e-title-caps hover-underline tabs-links tabs-links-dev"
+          [routerLink]="['/dev']"
+          routerLinkActive="active"
+          role="tab"
+        >
+          Dev
+        </a>
+        <a
+          class="e-title-caps hover-underline tabs-links tabs-links-dev"
+          target="_blank"
+          rel="noopener"
+          href="/react-preview"
+          role="tab"
+        >
+          React
+        </a>
+      </ng-container>
+    </nav>
+  </ng-container>
 
   <div class="header-aside-actions e-none-sm e-none-md">
     <elvia-popover
@@ -84,7 +91,7 @@
     <button
       class="header-button hover-underline"
       [ngClass]="{ active: visibleMenuType === 'search' }"
-      (click)="openOverlay('search')"
+      (click)="visibleMenuType ? closeOverlay() : openOverlay('search')"
       id="search-button"
     >
       <i class="e-icon e-icon--search-bold e-icon--xs" aria-hidden="true"></i>
