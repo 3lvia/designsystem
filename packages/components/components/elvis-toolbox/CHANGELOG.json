@@ -6,7 +6,7 @@
       "version": "9.7.1",
       "changelog": [
         {
-          "type": "new_feature",
+          "type": "bug_fix",
           "changes": ["Revert 9.7.0"]
         }
       ]
