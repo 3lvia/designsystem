@@ -1,5 +1,13 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
 import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -9,10 +17,8 @@ import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchStatus, SearchItem } from './search-menu.interface';
 import Fuse from 'fuse.js';
-import { ThemeName } from '@elvia/elvis-colors';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ThemeService } from 'src/app/core/services/theme.service';
 import { Searcher } from 'src/app/shared/searcher';
 
 @Component({
@@ -20,32 +26,24 @@ import { Searcher } from 'src/app/shared/searcher';
   templateUrl: './search-menu.component.html',
   styleUrls: ['./search-menu.component.scss'],
 })
-export class SearchMenuComponent implements OnInit {
-  mainMenu: CMSMenu;
-  searchStatus: SearchStatus = 'loading';
-  showResults = false;
-  resultOfMoreThanTwo = false;
-  searchString = '';
-  searchItems: SearchItem[] = [];
-  activeResults: SearchItem[] = [];
-  resultsToDisplay: SearchItem[] = [];
-  synonymComponents: SearchItem[] = [];
-  isPrideMonth = false;
-  currentTheme: Observable<ThemeName>;
-
-  private onDestroy = new Subject<void>();
-  onDestroy$ = this.onDestroy.asObservable();
-
+export class SearchMenuComponent implements OnInit, AfterViewInit {
+  @ViewChild('searchInput') searchInputElement: ElementRef<HTMLInputElement>;
+  @Output() closeSearchMenu = new EventEmitter<void>();
+  private mainMenu: CMSMenu;
+  private searchItems: SearchItem[] = [];
+  private activeResults: SearchItem[] = [];
   private locale: Locale;
   private searcher: Searcher<SearchItem>;
+  searchStatus: SearchStatus = 'loading';
+  searchString = '';
+  resultsToDisplay: SearchItem[] = [];
+  synonymComponents: SearchItem[] = [];
 
   constructor(
     private cmsService: CMSService,
     private localizationService: LocalizationService,
     private router: Router,
-    themeService: ThemeService,
   ) {
-    this.currentTheme = themeService.listenTheme();
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
@@ -57,36 +55,12 @@ export class SearchMenuComponent implements OnInit {
       });
   }
 
-  @HostListener('document:keydown.enter')
-  navigateToFirstSearchResultOnEnter(): void {
-    if (this.activeResults.length === 0) {
-      return;
-    }
-    // If any link is focused, navigate to it instead of first search result
-    if (document.activeElement instanceof HTMLAnchorElement) {
-      const newHref = document.activeElement.href.split(window.location.origin)[1];
-      this.router.navigate([newHref]);
-      this.closeSearch();
-      return;
-    }
-    // If the clear search-button is focused, click it instead of the first search result
-    if (document.activeElement === document.getElementById('search-clear-button')) {
-      document.getElementById('search-clear-button')?.click();
-      return;
-    }
-    this.router.navigate([this.activeResults[0].absolutePath]);
-    this.closeSearch();
-  }
-
   @HostListener('document:keydown.escape')
   closeSearchMenuOnEsc(): void {
     this.closeSearch();
   }
 
   ngOnInit(): void {
-    const search = document.getElementById('search-field');
-    search?.focus();
-
     this.initializeSearchItems()
       .then(() => {
         this.searcher = new Searcher(this.searchItems, {
@@ -104,7 +78,10 @@ export class SearchMenuComponent implements OnInit {
       })
       // Call search once after initialized in case someone started typing before the search was initialized.
       .then(() => this.onSearch());
-    this.checkIfPrideMonth();
+  }
+
+  ngAfterViewInit(): void {
+    this.searchInputElement.nativeElement.focus();
   }
 
   /**
@@ -134,19 +111,22 @@ export class SearchMenuComponent implements OnInit {
       .map((result) => result.item);
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
-      this.showResults = true;
       this.getComponentsWithSynonym();
       setTimeout(() => {
         this.highlightSearchMatches();
       });
-    } else {
-      this.showResults = false;
+    }
+  }
+
+  onKeydown(event: KeyboardEvent): void {
+    if (event?.code === 'Enter' && this.activeResults.length) {
+      this.router.navigate([this.activeResults[0].absolutePath]);
+      this.closeSearch();
     }
   }
 
   closeSearch(): void {
-    this.onDestroy.next();
-    this.onDestroy.complete();
+    this.closeSearchMenu.emit();
   }
 
   clearSearch(): void {
@@ -154,8 +134,7 @@ export class SearchMenuComponent implements OnInit {
     this.activeResults = [];
     this.resultsToDisplay = [];
     this.synonymComponents = [];
-    const search = document.getElementById('search-field');
-    search?.focus();
+    this.searchInputElement.nativeElement.focus();
   }
 
   /**
@@ -379,13 +358,6 @@ export class SearchMenuComponent implements OnInit {
       this.synonymComponents = this.synonymComponents.slice(0, 5);
     } else {
       this.synonymComponents = [];
-    }
-  }
-
-  private checkIfPrideMonth(): void {
-    const currentMonth = new Date().getMonth();
-    if (currentMonth === 5) {
-      this.isPrideMonth = true;
     }
   }
 }
