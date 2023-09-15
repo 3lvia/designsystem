@@ -35,6 +35,7 @@
       [routerLink]="['/' + menuItem.path]"
       routerLinkActive="active"
       role="tab"
+      (click)="closeOverlay()"
     >
       {{ menuItem.title }}
     </a>
@@ -44,6 +45,7 @@
         [routerLink]="['/dev']"
         routerLinkActive="active"
         role="tab"
+        (click)="closeOverlay()"
       >
         Dev
       </a>
@@ -53,6 +55,7 @@
         rel="noopener"
         href="/react-preview"
         role="tab"
+        (click)="closeOverlay()"
       >
         React
       </a>
