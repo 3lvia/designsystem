@@ -277,6 +277,45 @@ describe('Elvis Timepicker', () => {
     });
   });
 
+  describe('Min and max time', () => {
+    beforeEach(() => {
+      render(
+        <Timepicker
+          minTime={new Date(2023, 9, 16, 9, 0)}
+          maxTime={new Date(2023, 9, 16, 17, 0)}
+        ></Timepicker>,
+      );
+    });
+
+    it('should show an error if a timestamp before the min time is typed into the input', async () => {
+      const user = userEvent.setup();
+
+      await user.type(
+        screen.getByRole('textbox', {
+          name: /velg tid/i,
+        }),
+        '08:00',
+      );
+      await user.tab();
+
+      expect(screen.queryByTestId('error')).toHaveTextContent('Tidligste tidspunkt er 09:00');
+    });
+
+    it('should show an error if a timestamp after the max time is typed into the input', async () => {
+      const user = userEvent.setup();
+
+      await user.type(
+        screen.getByRole('textbox', {
+          name: /velg tid/i,
+        }),
+        '18:00',
+      );
+      await user.tab();
+
+      expect(screen.queryByTestId('error')).toHaveTextContent('Seneste tidspunkt er 17:00');
+    });
+  });
+
   describe('the accessibility', () => {
     const onOpenListener: jest.Mock = jest.fn();
     const onCloseListener: jest.Mock = jest.fn();
