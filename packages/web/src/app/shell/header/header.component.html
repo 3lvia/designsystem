@@ -24,47 +24,40 @@
     <img [src]="logoUrl" class="elvia-logo" alt="Elvia Logo" />
   </a>
 
-  <ng-container *ngIf="!visibleMenuType">
-    <div
-      *ngIf="menuContentLoader"
-      class="tabs-content-loader e-none-sm e-none-md e-content-loader e-ml-48"
-    ></div>
-    <nav
-      class="tabs e-ml-32 e-none-sm e-none-md"
-      aria-label="tabs navigation"
-      role="tablist"
-      *ngIf="mainMenu"
+  <div
+    *ngIf="menuContentLoader"
+    class="tabs-content-loader e-none-sm e-none-md e-content-loader e-ml-48"
+  ></div>
+  <nav class="tabs e-ml-32 e-none-sm e-none-md" aria-label="tabs navigation" role="tablist" *ngIf="mainMenu">
+    <a
+      *ngFor="let menuItem of mainMenu.pages"
+      class="e-title-caps hover-underline tabs-links"
+      [routerLink]="['/' + menuItem.path]"
+      routerLinkActive="active"
+      role="tab"
     >
+      {{ menuItem.title }}
+    </a>
+    <ng-container *ngIf="devMode">
       <a
-        *ngFor="let menuItem of mainMenu.pages"
         class="e-title-caps hover-underline tabs-links"
-        [routerLink]="['/' + menuItem.path]"
+        [routerLink]="['/dev']"
         routerLinkActive="active"
         role="tab"
       >
-        {{ menuItem.title }}
+        Dev
       </a>
-      <ng-container *ngIf="devMode">
-        <a
-          class="e-title-caps hover-underline tabs-links tabs-links-dev"
-          [routerLink]="['/dev']"
-          routerLinkActive="active"
-          role="tab"
-        >
-          Dev
-        </a>
-        <a
-          class="e-title-caps hover-underline tabs-links tabs-links-dev"
-          target="_blank"
-          rel="noopener"
-          href="/react-preview"
-          role="tab"
-        >
-          React
-        </a>
-      </ng-container>
-    </nav>
-  </ng-container>
+      <a
+        class="e-title-caps hover-underline tabs-links"
+        target="_blank"
+        rel="noopener"
+        href="/react-preview"
+        role="tab"
+      >
+        React
+      </a>
+    </ng-container>
+  </nav>
 
   <div class="header-aside-actions e-none-sm e-none-md">
     <elvia-popover
@@ -81,7 +74,7 @@
         [ngClass]="{ active: themeMenuIsOpen }"
       >
         <i class="e-icon e-icon--{{ currentTheme }}_theme e-icon--xs" aria-hidden="true"></i>
-        <span class="e-text-sm">Theme</span>
+        <span class="e-text-md">Theme</span>
       </button>
       <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()"></app-theme-switch>
     </elvia-popover>
@@ -95,7 +88,7 @@
       id="search-button"
     >
       <i class="e-icon e-icon--search-bold e-icon--xs" aria-hidden="true"></i>
-      <span class="e-text-sm e-none-sm">Search</span>
+      <span class="e-text-md e-none-sm">Search</span>
     </button>
   </div>
 

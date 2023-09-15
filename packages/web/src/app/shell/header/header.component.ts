@@ -31,7 +31,8 @@ export class HeaderComponent {
   }
 
   get logoUrl(): string {
-    if (this.isPrideMonth()) {
+    const isPrideMonth = new Date().getMonth() === 5;
+    if (isPrideMonth) {
       return 'assets/logo/elvia_pride_rgb.svg';
     } else if (this.visibleMenuType && this.currentTheme !== 'dark') {
       return 'assets/logo/elvia_positive_1.svg';
@@ -79,9 +80,7 @@ export class HeaderComponent {
   }
 
   openThemeMenu = (): void => {
-    if (this.themeMenuIsOpen) {
-      return;
-    }
+    this.closeOverlay();
 
     this.themeMenuIsOpen = true;
   };
@@ -90,9 +89,10 @@ export class HeaderComponent {
     this.themeMenuIsOpen = false;
   };
 
-  private isPrideMonth(): boolean {
-    return new Date().getMonth() === 5;
-  }
+  closeThemeAnnouncement = () => {
+    localStorage.setItem('elvisThemeAnnouncementIsClosed', 'true');
+    this.showThemeAnnouncement = false;
+  };
 
   private addDarkThemeClass = (theme: Theme): void => {
     const classToRemove: ThemeClassName = theme === 'light' ? 'e-theme-dark' : 'e-theme-light';
@@ -103,11 +103,6 @@ export class HeaderComponent {
     if (!document.body.classList.contains(classToAdd)) {
       document.body.classList.add(classToAdd);
     }
-  };
-
-  closeThemeAnnouncement = () => {
-    localStorage.setItem('elvisThemeAnnouncementIsClosed', 'true');
-    this.showThemeAnnouncement = false;
   };
 
   private closeThemeMenuOnMobile(): void {
