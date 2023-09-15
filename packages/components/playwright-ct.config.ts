@@ -30,7 +30,7 @@ export default defineConfig({
   /* Ignore test files that use the .test.tsx file names (they are used by Jest tests) */
   testIgnore: [/\.test\.ts(x?)/],
   testMatch: ['*spec.ts', '*spec.tsx'],
-  snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{arg}{ext}',
+  snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{arg}{-projectName}{ext}',
 
   /* Configure projects for major browsers */
   projects: [
