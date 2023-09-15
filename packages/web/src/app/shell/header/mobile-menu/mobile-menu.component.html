@@ -2,7 +2,7 @@
 <div class="content">
   <div class="menu" *ngIf="!isLoaded && !mainMenu">
     <div class="menu-items" *ngFor="let _ of [].constructor(5)">
-      <div class="links e-pt-24 e-pb-24">
+      <div class="links e-py-24">
         <div class="e-content-loader e-content-loader--text"></div>
       </div>
       <elvia-divider />
@@ -11,7 +11,7 @@
 
   <div class="menu" *ngIf="mainMenu">
     <div class="menu-items" *ngFor="let menuItem of mainMenu.pages">
-      <div class="links e-pt-24 e-pb-24" (click)="navigate(menuItem.path)">
+      <div class="links e-py-24" (click)="navigate(menuItem.path)">
         <span class="e-title-caps">{{ menuItem.title }}</span>
         <span class="links-icon">
           <i class="e-icon e-icon--arrow_right-bold e-icon--xxs" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
     </div>
     <div class="menu" *ngIf="devMode">
       <div class="menu-items">
-        <div class="links e-pt-24 e-pb-24">
+        <div class="links e-py-24">
           <a class="e-title-caps" (click)="navigate('dev')">Dev</a>
         </div>
       </div>

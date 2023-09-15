@@ -85,6 +85,7 @@
       class="header-button hover-underline"
       [ngClass]="{ active: visibleMenuType === 'search' }"
       (click)="visibleMenuType ? closeOverlay() : openOverlay('search')"
+      aria-label="Open search"
       id="search-button"
     >
       <i class="e-icon e-icon--search-bold e-icon--xs" aria-hidden="true"></i>
@@ -100,13 +101,13 @@
       aria-label="Close search"
     >
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--remove_circle-color" aria-hidden="true" aria-hidden="true"></i>
-        <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true" aria-hidden="true"></i>
+        <i class="e-icon e-icon--remove_circle-color" aria-hidden="true"></i>
+        <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true"></i>
       </span>
     </button>
 
     <ng-template #mobileMenu>
-      <button (click)="openOverlay('search')">
+      <button (click)="openOverlay('search')" aria-label="Open search">
         <span class="elvis-search__icon">
           <i class="e-icon e-icon--search-bold e-icon--sm" aria-hidden="true"></i>
         </span>
