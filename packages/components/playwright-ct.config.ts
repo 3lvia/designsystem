@@ -30,6 +30,8 @@ export default defineConfig({
   /* Ignore test files that use the .test.tsx file names (they are used by Jest tests) */
   testIgnore: [/\.test\.ts(x?)/],
   testMatch: ['*spec.ts', '*spec.tsx'],
+
+  /* Rename snapshot images to not contain OS (so the same images can be used in CI and locally, even though that is bad practice) */
   snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{arg}{-projectName}{ext}',
   expect: {
     toHaveScreenshot: {
