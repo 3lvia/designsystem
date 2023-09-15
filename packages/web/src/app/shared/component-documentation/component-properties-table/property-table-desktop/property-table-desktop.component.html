@@ -49,22 +49,17 @@
       <ng-container *ngIf="group.expanded">
         <tr *ngFor="let prop of group.rows; let isLast = last" class="prop-row" [ngClass]="{ last: isLast }">
           <th scope="row" class="table-code-text">
-            <strong [id]="'property-row-' + prop.attribute + '-attribute'">
-              {{ prop.attribute }}
-            </strong>
-            <strong>{{ prop.isRequired ? '*' : '' }}</strong>
+            <strong [innerHTML]="prop.value.attribute | highlighter : 'attribute' : prop.matches"></strong>
+            <strong>{{ prop.value.isRequired ? '*' : '' }}</strong>
           </th>
-          <td
-            class="table-code-text e-table__cell--multiline-small"
-            [id]="'property-row-' + prop.attribute + '-type'"
-          >
-            {{ prop.type }}
+          <td class="table-code-text e-table__cell--multiline-small">
+            <div [innerHTML]="prop.value.type | highlighter : 'type' : prop.matches"></div>
           </td>
-          <td class="e-table__cell--multiline-small" [id]="'property-row-' + prop.attribute + '-description'">
-            {{ prop.description }}
+          <td class="e-table__cell--multiline-small">
+            <div [innerHTML]="prop.value.description | highlighter : 'description' : prop.matches"></div>
           </td>
-          <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-default'">
-            {{ prop.default ? prop.default : '-' }}
+          <td class="table-code-text">
+            <div [innerHTML]="prop.value.default | highlighter : 'default' : prop.matches"></div>
           </td>
         </tr>
       </ng-container>
