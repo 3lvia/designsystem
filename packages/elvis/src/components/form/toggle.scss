@@ -1,7 +1,6 @@
 @use '../../utilities/helpers';
 @use '../../utilities/outline';
-@use '../../variables/colors';
-@use '../../variables/typography.scss';
+@use '../../utilities/typography';
 
 $toggle-border-radius: 50px;
 

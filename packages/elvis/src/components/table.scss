@@ -1,7 +1,7 @@
-@use '../variables/typography';
+@use '../utilities/typography';
 @use '../utilities/icons';
 @use '../utilities/helpers';
-@use '../utilities/breakpoints.scss';
+@use '../utilities/breakpoints';
 
 $table-padding: 10px 16px;
 $table-compact-padding: 9px 16px;

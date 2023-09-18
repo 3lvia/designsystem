@@ -55,7 +55,7 @@ gulp.task('watch', function () {
   gulp.watch(
     [
       './src/**/*.scss',
-      '!./src/variables/typography.scss',
+      '!./src/utilities/typography.scss',
       './src/templates/**.*',
       './src/config/**.*',
       '!./src/config/icons.config.js',
