@@ -29,20 +29,5 @@ export const config: ComponentConfig = {
       type: 'boolean',
       deprecatedDetails: { version: '7.0.0', newProp: 'size', isDirectReplacement: false },
     },
-    {
-      name: 'errorMessage',
-      type: 'string',
-      deprecatedDetails: { version: '6.0.0', newProp: 'errorOptions.text', isDirectReplacement: true },
-    },
-    {
-      name: 'options',
-      type: 'object',
-      deprecatedDetails: { version: '3.0.0', newProp: 'value', isDirectReplacement: true },
-    },
-    {
-      name: 'defaultValue',
-      type: 'object',
-      deprecatedDetails: { version: '3.0.0', newProp: 'items', isDirectReplacement: true },
-    },
   ],
 };

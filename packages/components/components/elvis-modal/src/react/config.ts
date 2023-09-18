@@ -17,21 +17,5 @@ export const config: ComponentConfig = {
     { name: 'maxWidth', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
-    // Deprecated attributes
-    {
-      name: 'title',
-      type: 'string',
-      deprecatedDetails: { version: '2.0.0', newProp: 'heading', isDirectReplacement: true },
-    },
-    {
-      name: 'hasCloseBtn',
-      type: 'boolean',
-      deprecatedDetails: { version: '2.0.0', newProp: 'onClose', isCallbackFunction: true },
-    },
-    {
-      name: 'onHide',
-      type: 'event',
-      deprecatedDetails: { version: '2.0.0', newProp: 'hasCloseButton', isDirectReplacement: true },
-    },
   ],
 };
