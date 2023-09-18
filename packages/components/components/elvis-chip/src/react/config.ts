@@ -12,21 +12,5 @@ export const config: ComponentConfig = {
     { name: 'value', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
-    // Deprecated attributes
-    {
-      name: 'disabled',
-      type: 'boolean',
-      deprecatedDetails: { version: '2.0.0', newProp: 'isDisabled', isDirectReplacement: true },
-    },
-    {
-      name: 'selected',
-      type: 'boolean',
-      deprecatedDetails: { version: '2.0.0', newProp: 'isSelected', isDirectReplacement: true },
-    },
-    {
-      name: 'valueOnChange',
-      type: 'event',
-      deprecatedDetails: { version: '2.0.0', newProp: 'isSelectedOnChange', isCallbackFunction: true },
-    },
   ],
 };

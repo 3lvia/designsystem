@@ -1,10 +1,9 @@
 import check from '@elvia/elvis-assets-icons/dist/icons/check';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { getThemeColor } from '@elvia/elvis-colors';
-import { IconWrapper, useWebComponentState, warnDeprecatedProps } from '@elvia/elvis-toolbox';
+import { IconWrapper, useWebComponentState } from '@elvia/elvis-toolbox';
 import { useHover } from '@react-aria/interactions';
 import React, { FC } from 'react';
-import { config } from './config';
 import { ChipProps } from './elvia-chip.types';
 import { ChipComponent, ChipDot, ChipLoading, ChipTitle } from './styledComponents';
 
@@ -23,8 +22,6 @@ export const Chip: FC<ChipProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
-
   const [isSelectedState, setIsSelectedState] = useWebComponentState(
     isSelected,
     'isSelected',
