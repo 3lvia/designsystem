@@ -32,7 +32,7 @@ export default defineConfig({
   testMatch: ['*spec.ts', '*spec.tsx'],
 
   /* Rename snapshot images to not contain OS (so the same images can be used in CI and locally, even though that is bad practice) */
-  snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{arg}{-projectName}{ext}',
+  snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{testName}{-projectName}{ext}',
   expect: {
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.02,
