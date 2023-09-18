@@ -7,7 +7,10 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Deprecation warnings removed for old props deprecated more than 6 months."]
+          "changes": [
+            "Deprecation warnings removed for old props deprecated more than 6 months ago.",
+            "Updated internal dependency."
+          ]
         }
       ]
     },
