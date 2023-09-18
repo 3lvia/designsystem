@@ -35,7 +35,7 @@ export class SearchHighlighterPipe<T> implements PipeTransform {
       return highlightedText;
     }
 
-    return value?.toString() || '';
+    return value?.toString() ?? '';
   }
 }
 
