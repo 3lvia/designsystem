@@ -1,43 +1,22 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
-.properties-container {
+:host {
+  display: block;
   margin-left: -72px;
   width: calc(100% + 72px);
+
   @include breakpoints.breakpoint-up(Tablet) {
     margin-left: 0px;
     width: 100%;
   }
 }
-.e-table.e-table--compact td.table-code-text,
-.e-table.e-table--small th.table-code-text {
-  font-family: 'Red Hat Mono', Verdana, sans-serif;
-}
 
-.e-table-container.desktop {
-  display: block;
+.e-table-container {
   max-height: 80vh;
+
   @include breakpoints.breakpoint-up(Mobile) {
-    display: none;
+    max-height: 500px;
   }
-}
-
-.e-table-container.mobile {
-  display: none;
-  @include breakpoints.breakpoint-up(Mobile) {
-    display: block;
-  }
-}
-
-.properties-mobile {
-  max-height: 500px;
-  overflow-y: scroll;
-}
-
-.properties-filter {
-  margin-top: -40px;
-  margin-left: auto;
-  margin-bottom: 16px;
-  width: 50%;
 }
 
 .no-properties-found {
@@ -46,25 +25,8 @@
   align-items: center;
   gap: 16px;
   padding: 32px;
-  width: 100%;
 
   img {
     width: 75px;
-  }
-}
-
-@media (max-width: 768px) {
-  .properties-filter {
-    margin-top: -24px;
-    width: 100%;
-    max-width: 100%;
-    & .e-input {
-      width: 100%;
-      max-width: 100%;
-      & > input {
-        width: 100%;
-        max-width: 100%;
-      }
-    }
   }
 }

@@ -2,6 +2,46 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.09.23",
+      "version": "10.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Increased the size of small input labels, which makes components taller."]
+        }
+      ]
+    },
+    {
+      "date": "12.09.23",
+      "version": "10.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Internal only."]
+        }
+      ]
+    },
+    {
+      "date": "18.09.23",
+      "version": "9.7.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Revert 9.7.0"]
+        }
+      ]
+    },
+    {
+      "date": "30.08.23",
+      "version": "9.7.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Update design for input labels."]
+        }
+      ]
+    },
+    {
       "date": "25.08.23",
       "version": "9.6.1",
       "changelog": [

@@ -1,98 +1,33 @@
-@use '../header.component.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
-@use '@elvia/elvis/src/variables/typography.scss';
-@use '@elvia/elvis/src/variables/colors';
+@use '../../../shared/shared-animations.scss' as animation;
 
 :host {
   width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
 }
 
-.header {
+.backdrop {
   position: fixed;
-  height: 64px;
-  width: 100%;
-  top: 0px;
-  box-sizing: border-box;
-  background-color: var(--e-color-background-overlay-1);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  .elvis-search__title {
-    color: var(--e-color-background-overlay-1--contrast) !important;
-    text-transform: lowercase;
-  }
-
-  .external-links .vertical-line {
-    border: 1px solid var(--e-color-border-2);
-  }
+  inset: 0;
+  background-color: rgb(0 0 0 / 0.32);
+  z-index: -1;
+  @include animation.ease-in-out-opacity(0.4s, 0s);
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  width: 100%;
   background-color: var(--e-color-background-overlay-1);
   box-sizing: border-box;
-  margin-bottom: 144px;
-  top: 64px;
   border-top: 1px solid var(--e-color-border-2);
+  padding: 32px;
 
   @include breakpoints.breakpoint-up(Tablet) {
-    padding-top: 32px;
+    padding: 32px 0;
   }
+
   @include breakpoints.breakpoint-up(Mobile) {
-    padding-top: 0;
-  }
-
-  &::before {
-    content: '';
-    border-radius: 100%;
-    position: absolute;
-    background-color: var(--e-color-background-overlay-1);
-    z-index: -1;
-    width: 685vw;
-    height: 685vw;
-    bottom: -22%;
-    @include breakpoints.breakpoint-up(Mobile) {
-      bottom: -650px;
-      overflow: hidden;
-    }
-  }
-
-  &.content-no-result .inner-content {
-    margin-bottom: 60px;
-  }
-
-  &.long-result.content-result::before {
-    @include breakpoints.breakpoint-up(Mobile) {
-      height: 1100px;
-      overflow: hidden;
-    }
-  }
-
-  &.content-result .inner-content {
-    margin-bottom: 60px;
-    @include breakpoints.breakpoint-up(Tablet) {
-      margin-bottom: -20px;
-    }
-  }
-
-  .inner-content {
-    margin-bottom: 152px;
-    width: 100%;
-  }
-
-  .close-btn-desk {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 32px;
-    margin-right: 32px;
-    @include breakpoints.breakpoint-up(Tablet) {
-      display: none;
-    }
+    padding: 0;
   }
 
   .elvis-search-header {
@@ -100,7 +35,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+
     @include breakpoints.breakpoint-up(Tablet) {
       margin-top: 0px;
     }
@@ -126,7 +61,6 @@
         display: none;
       }
 
-      @include typography.typography('text-md');
       line-height: 22px;
 
       &.e-search--global {
@@ -192,7 +126,6 @@
     }
 
     .component-suggestions {
-      @include typography.typography('text-md');
       margin: 8px 0 0 0;
       width: 100%;
     }
@@ -202,7 +135,6 @@
     display: grid;
     place-items: center;
     margin-top: 64px;
-    @include typography.typography('text-lg');
   }
 
   .results {
@@ -243,17 +175,11 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        .title {
-          @include typography.typography('title-xs');
-        }
+
         .e-tag {
           cursor: pointer;
           max-height: 24px;
         }
-      }
-
-      .result-content {
-        @include typography.typography('text-md');
       }
 
       &.loading {
@@ -266,5 +192,25 @@
         }
       }
     }
+  }
+}
+
+.elvia-curve {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  height: 3.7vw;
+  margin-top: -1px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    background-color: var(--e-color-background-overlay-1);
+    width: 685vw;
+    height: 685vw;
+    border-radius: 100%;
+    bottom: calc(100% - 3.7vw);
   }
 }

@@ -78,7 +78,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
     maxWidth ? maxWidth : hasIllustration ? '1090px' : modalMaxWidth};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
-  background: ${getThemeColor('background-3')};
+  background: ${getThemeColor('background-element-4')};
   box-shadow: ${getShadow('soft')};
 
   ${({ hasIllustration }) =>
@@ -165,10 +165,10 @@ export const ModalIllustration = styled.div.attrs(() => ({
     z-index: 0;
     position: absolute;
     height: calc(550px * 4);
-    width: calc(550px * 6);
-    right: calc(100% - 2.7vw);
+    width: calc(550px * 5);
+    right: calc(100% - 3.7vw);
     @media (min-width: ${desktopMin}) {
-      right: calc(100% - 1.7vw);
+      right: calc(calc(100% - 44px));
     }
   }
 

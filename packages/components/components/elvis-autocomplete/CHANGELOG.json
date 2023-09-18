@@ -2,6 +2,29 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.09.23",
+      "version": "2.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "11.09.23",
+      "version": "2.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Change label size and position for the small autocomplete."],
+          "fixes": [
+            "The small autocomplete will be taller. You may therefore want to check that the page layout is not severely affected by this."
+          ]
+        }
+      ]
+    },
+    {
       "date": "31.08.23",
       "version": "1.1.2",
       "changelog": [

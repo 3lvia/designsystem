@@ -1,6 +1,10 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
+type PrimitiveType = string | string[] | number | number[] | boolean | JSX.Element | Date | null;
+type EventType = (...args: any) => any;
+type ChildlessType = PrimitiveType | EventType;
+
 interface PropBase {
   // Indicates whether a prop is required for the component.
   isRequired?: boolean;
@@ -14,20 +18,16 @@ interface PropBase {
    * '"left" | "center" | "right"'
    */
   type: string;
+  default?: string | number | boolean;
 }
-
-type PrimitiveType = string | number | boolean | number[] | string[] | ((...args: any) => any) | JSX.Element;
 
 /**
  * Represents props that are "primitive", which means that they have no child props.
  */
-export interface PrimitiveProp extends PropBase {
+export interface ChildlessProp extends PropBase {
+  isEvent?: boolean;
   type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | (string & {});
-
   description: string;
-
-  // Default value of the prop, if any.
-  default?: string | number | boolean;
 }
 
 /**
@@ -35,13 +35,12 @@ export interface PrimitiveProp extends PropBase {
  */
 export interface NestedProp<TObjectProp> extends PropBase {
   type: 'object' | 'object[]';
-  // Description of the prop.
   description?: string;
-  children: {
-    [TProp in keyof TObjectProp]: TObjectProp[TProp] extends PrimitiveType
-      ? PrimitiveProp
+  children: Required<{
+    [TProp in keyof TObjectProp]: NonNullable<TObjectProp[TProp]> extends ChildlessType
+      ? ChildlessProp
       : NestedProp<TObjectProp[TProp]>;
-  };
+  }>;
 }
 
 /**
@@ -56,7 +55,7 @@ export interface ComponentChangelog {
 /**
  * Each segment in the changelog for a specific update.
  */
-export interface ComponentChangelogChange {
+interface ComponentChangelogChange {
   type: 'breaking_changes' | 'new_feature' | 'bug_fix' | 'patch' | (string & {});
   changes: string[];
   fixes?: string[];
@@ -64,17 +63,16 @@ export interface ComponentChangelogChange {
   components?: { displayName: string; url: string }[];
 }
 
-type ReactPropsWithoutElvisBaseProps = Omit<ComponentPropsWithoutRef<'div'>, keyof BaseProps>;
 type FilteredComponentProps<TComponentProps> = Omit<
   TComponentProps,
-  keyof ReactPropsWithoutElvisBaseProps | 'webcomponent'
+  keyof ComponentPropsWithoutRef<'div'> | keyof BaseProps
 >;
 
-export type ComponentProps<TComponentProps> = {
-  [PropName in keyof FilteredComponentProps<Required<TComponentProps>>]: NonNullable<
+type ComponentProps<TComponentProps> = {
+  [PropName in keyof FilteredComponentProps<TComponentProps>]: NonNullable<
     TComponentProps[PropName]
-  > extends PrimitiveType
-    ? PrimitiveProp
+  > extends ChildlessType
+    ? ChildlessProp
     : NestedProp<TComponentProps[PropName]>;
 };
 
@@ -90,7 +88,7 @@ export default interface ComponentData<TComponentProps = Record<string, any>> {
   /**
    * All the component's attributes should be in this object.
    */
-  attributes: ComponentProps<TComponentProps>;
+  attributes: ComponentProps<Required<TComponentProps>>;
 
   /**
    * Changes for component

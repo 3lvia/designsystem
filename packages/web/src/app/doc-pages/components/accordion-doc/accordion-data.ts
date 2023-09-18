@@ -94,22 +94,15 @@ const accordionData: ComponentData<AccordionProps> = {
       description: 'Makes the accordion toggle text bold.',
     },
     onClose: {
+      isEvent: true,
       type: '() => void',
       description: 'Event that emits when an accordion closes.',
     },
     onOpen: {
+      isEvent: true,
       type: '() => void',
       description: 'Event that emits when an accordion opens.',
     },
-    className: {
-      type: 'string',
-      description: 'Custom CSS classes that can be added to the accordion.',
-    },
-    inlineStyle: {
-      type: '{[cssProperty: string]: string}',
-      description:
-        "Custom CSS style object that can be added to the accordion. Example: {marginTop: '8px', width: '100%'}",
-    } as any, // Temporary hack so that we don't have to document every prop in the inlineStyles object.
   },
 };
 
