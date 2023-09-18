@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
 import Fuse from 'fuse.js';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import { ComponentProp } from './types';
@@ -11,6 +11,7 @@ import { Searcher } from '../../searcher';
 })
 export class ComponentPropertiesTableComponent implements OnInit {
   @Input() componentData: ComponentData;
+  @Input({ transform: booleanAttribute }) ignoreDefaultProps: boolean;
   componentProps: ComponentProp[] = [];
   filteredComponentProps: ComponentProp[] = [];
 
@@ -35,6 +36,10 @@ export class ComponentPropertiesTableComponent implements OnInit {
       };
       this.componentProps.push(componentProp);
     });
+
+    if (!this.ignoreDefaultProps) {
+      this.componentProps.push(...this.getCommonProps());
+    }
   }
 
   searchProps(searchTerm: string): void {
@@ -50,6 +55,22 @@ export class ComponentPropertiesTableComponent implements OnInit {
     setTimeout(() => {
       this.highlightSearchMatches();
     });
+  }
+
+  private getCommonProps(): ComponentProp[] {
+    return [
+      {
+        attribute: 'className',
+        description: 'Custom CSS classes that can be added to the component.',
+        type: 'string',
+      },
+      {
+        attribute: 'inlineStyle',
+        description:
+          "Custom CSS style object that can be added to the component. Example: {marginTop: '8px'}",
+        type: '{[cssProperty: string]: string}',
+      },
+    ];
   }
 
   private highlightSearchMatches(): void {
