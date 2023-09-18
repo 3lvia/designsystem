@@ -4,7 +4,7 @@ import { BaseProps } from '@elvia/elvis-toolbox';
 export type ChipType = 'removable' | 'legend' | 'choice';
 export type ColorType = 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'violet';
 
-export interface ChipProps extends Omit<ComponentPropsWithoutRef<'button'>, 'type'>, BaseProps {
+export interface ChipProps extends Omit<ComponentPropsWithoutRef<'button'>, 'type' | 'color'>, BaseProps {
   ariaLabel?: string;
   color?: ColorType;
   /**

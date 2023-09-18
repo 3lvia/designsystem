@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
@@ -14,6 +14,7 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   styleUrls: ['./mobile-menu.component.scss'],
 })
 export class MobileMenuComponent {
+  @Output() closeMenu = new EventEmitter<void>();
   mainMenu: CMSMenu;
   isLoaded = false;
   currentTheme: Observable<ThemeName>;
@@ -25,9 +26,6 @@ export class MobileMenuComponent {
       window.location.href.indexOf('#dev') > -1
     );
   }
-
-  private onDestroy = new Subject<void>();
-  onDestroy$ = this.onDestroy.asObservable();
 
   constructor(
     private router: Router,
@@ -48,14 +46,9 @@ export class MobileMenuComponent {
       });
   }
 
-  onClose(): void {
-    this.onDestroy.next();
-    this.onDestroy.complete();
-  }
-
   navigate(path?: string): void {
     if (!path) return;
     this.router.navigate(['/' + path]);
-    this.onClose();
+    this.closeMenu.emit();
   }
 }

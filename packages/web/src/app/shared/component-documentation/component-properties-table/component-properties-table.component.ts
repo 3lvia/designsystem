@@ -1,11 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
 import Fuse from 'fuse.js';
-import ComponentData, { PrimitiveProp } from 'src/app/doc-pages/components/component-data.interface';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
+import { ComponentProp } from './types';
 import { Searcher } from '../../searcher';
-
-interface ComponentProp extends PrimitiveProp {
-  attribute: string;
-}
 
 @Component({
   selector: 'app-component-properties-table',
@@ -14,16 +11,16 @@ interface ComponentProp extends PrimitiveProp {
 })
 export class ComponentPropertiesTableComponent implements OnInit {
   @Input() componentData: ComponentData;
+  @Input({ transform: booleanAttribute }) ignoreDefaultProps: boolean;
   componentProps: ComponentProp[] = [];
   filteredComponentProps: ComponentProp[] = [];
-  searchTerm = '';
 
   private searcher: Searcher<ComponentProp>;
 
   ngOnInit(): void {
     this.createPropArray();
     this.initializeSearch();
-    this.searchProps();
+    this.searchProps('');
     setTimeout(() => {
       this.highlightSearchMatches();
     });
@@ -39,16 +36,20 @@ export class ComponentPropertiesTableComponent implements OnInit {
       };
       this.componentProps.push(componentProp);
     });
+
+    if (!this.ignoreDefaultProps) {
+      this.componentProps.push(...this.getCommonProps());
+    }
   }
 
-  searchProps(): void {
+  searchProps(searchTerm: string): void {
     if (!this.searcher.isInitialized) {
       return;
     }
-    if (this.searchTerm !== '') {
-      this.filteredComponentProps = this.searcher.search(this.searchTerm);
+    if (searchTerm !== '') {
+      this.filteredComponentProps = this.searcher.search(searchTerm);
     } else {
-      this.searcher.search(this.searchTerm);
+      this.searcher.search(searchTerm);
       this.filteredComponentProps = this.componentProps;
     }
     setTimeout(() => {
@@ -56,9 +57,20 @@ export class ComponentPropertiesTableComponent implements OnInit {
     });
   }
 
-  clearSearchField(): void {
-    this.searchTerm = '';
-    this.searchProps();
+  private getCommonProps(): ComponentProp[] {
+    return [
+      {
+        attribute: 'className',
+        description: 'Custom CSS classes that can be added to the component.',
+        type: 'string',
+      },
+      {
+        attribute: 'inlineStyle',
+        description:
+          "Custom CSS style object that can be added to the component. Example: {marginTop: '8px'}",
+        type: '{[cssProperty: string]: string}',
+      },
+    ];
   }
 
   private highlightSearchMatches(): void {
@@ -133,14 +145,15 @@ export class ComponentPropertiesTableComponent implements OnInit {
       (['attribute', 'type', 'description', 'default'] as const).forEach((key) => {
         const element = document.getElementById(`property-row-${prop.attribute}-${key}`);
         const elementMobile = document.getElementById(`property-row-${prop.attribute}-${key}-mobile`);
+
         if (key === 'default') {
           if (element)
             element.innerHTML = prop[key] !== undefined ? this.encodeHTML(prop[key]!.toString()) : '-';
           if (elementMobile)
             elementMobile.innerHTML = prop[key] !== undefined ? this.encodeHTML(prop[key]!.toString()) : '-';
         } else {
-          if (element) element.innerHTML = this.encodeHTML(prop[key]);
-          if (elementMobile) elementMobile.innerHTML = this.encodeHTML(prop[key]);
+          if (element) element.innerHTML = this.encodeHTML(prop[key] as string);
+          if (elementMobile) elementMobile.innerHTML = this.encodeHTML(prop[key] as string);
         }
       });
     });
