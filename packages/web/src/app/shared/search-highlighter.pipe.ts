@@ -1,10 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PropWithMatches } from './types';
+import { PropWithMatches } from './component-documentation/component-properties-table/types';
 
 @Pipe({
-  name: 'highlighter',
+  name: 'searchHighlighter',
+  standalone: true,
 })
-export class HighlighterPipe implements PipeTransform {
+export class SearchHighlighterPipe implements PipeTransform {
   transform(
     value: string | number | boolean | undefined,
     key: keyof PropWithMatches['value'],
