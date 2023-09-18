@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "15.09.23",
+      "date": "18.09.23",
       "version": "10.0.1",
       "changelog": [
         {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "date": "15.09.23",
+      "date": "18.09.23",
       "version": "9.7.1",
       "changelog": [
         {
