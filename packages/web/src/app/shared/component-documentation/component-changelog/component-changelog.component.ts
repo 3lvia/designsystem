@@ -78,7 +78,7 @@ export class ComponentChangelogComponent implements OnInit {
     }
     this.filteredChangelog =
       this.searchValue.length > minSearchValueLength
-        ? this.searcher.search(this.searchValue.trim())
+        ? this.searcher.search(this.searchValue.trim()).map((result) => result.item)
         : this.changelog;
     if (this.radioFilterValue !== 'all') {
       this.filteredChangelog = this.filteredChangelog?.filter((change) => {
