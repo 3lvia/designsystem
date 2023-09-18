@@ -213,7 +213,7 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
     return items.filter((item) => item.absolutePath);
   }
 
-  /** Filters activeResults and assigns the resulting array to synonymComponents.
+  /** Filters filteredResults and assigns the resulting array to synonymComponents.
    * The filter condition depends on searchString:
    * - If searchString is < 3, searchString must be an element of searchTerms.
    * - If searchString is >= 3, searchString must be a substring of one searchTerm.
