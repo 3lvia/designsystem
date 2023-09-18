@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "15.09.23",
+      "version": "9.7.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Revert 9.7.0"]
+        }
+      ]
+    },
+    {
       "date": "30.08.23",
       "version": "9.7.0",
       "changelog": [
