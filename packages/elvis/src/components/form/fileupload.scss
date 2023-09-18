@@ -66,11 +66,4 @@
   &--dragover {
     border-color: var(--e-color-border-hover-1);
   }
-
-  // DEPRECATED
-  /* stylelint-disable -- Do not lint deprecated styles */
-  &---hover {
-    border-color: var(--e-color-border-hover-1);
-  }
-  /* stylelint-enable */
 }
