@@ -18,12 +18,12 @@ export class PropertyTableBaseDirective implements OnChanges {
       {
         title: 'Properties',
         expanded: true,
-        rows: this.getInputProps(this.props),
+        rows: this.getInputProps(this.props).sort(this.sortProps),
       },
       {
         title: 'Events',
         expanded: true,
-        rows: this.getEventProps(this.props),
+        rows: this.getEventProps(this.props).sort(this.sortProps),
       },
     ];
   }
@@ -38,5 +38,22 @@ export class PropertyTableBaseDirective implements OnChanges {
 
   propHasNoChildren(prop: ComponentProp): prop is EventProp | InputProp {
     return !(prop as NestedProp<Record<string, any>>).children;
+  }
+
+  private sortProps(a: InputProp | EventProp, b: InputProp | EventProp): number {
+    if (['className', 'inlineStyle'].includes(a.attribute)) {
+      return 1;
+    }
+
+    let requiredComparison = 0;
+    if (a.isRequired && !b.isRequired) {
+      requiredComparison = -1;
+    } else if (!a.isRequired && b.isRequired) {
+      requiredComparison = 1;
+    }
+
+    const alphabeticalComparison = a.attribute.localeCompare(b.attribute);
+
+    return requiredComparison || alphabeticalComparison;
   }
 }
