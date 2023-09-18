@@ -1,8 +1,8 @@
 import { padDigit } from './padDigit';
 
 /**
- * @param d1 The original date
- * @param d2 The date to check against
+ * @param d1 The original time
+ * @param d2 The time to check against
  * @returns Whether d1 is before d2
  */
 export const isBefore = (d1?: Date | null, d2?: Date | null): boolean => {
@@ -10,8 +10,8 @@ export const isBefore = (d1?: Date | null, d2?: Date | null): boolean => {
 };
 
 /**
- * @param d1 The original date
- * @param d2 The date to check against
+ * @param d1 The original time
+ * @param d2 The time to check against
  * @returns Whether d1 is after d2
  */
 export const isAfter = (d1?: Date | null, d2?: Date | null): boolean => {
