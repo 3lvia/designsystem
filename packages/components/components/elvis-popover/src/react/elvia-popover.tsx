@@ -9,7 +9,6 @@ import {
   TriggerContainer,
   PopoverContent,
 } from './styledComponents';
-import { config } from './config';
 import {
   Overlay,
   IconButton,
@@ -17,7 +16,6 @@ import {
   useConnectedOverlay,
   useFocusTrap,
   useSlot,
-  warnDeprecatedProps,
   IconWrapper,
 } from '@elvia/elvis-toolbox';
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
@@ -37,8 +35,6 @@ const Popover: FC<PopoverProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
-
   const popoverRef = useRef<HTMLDivElement>(null);
   const popoverContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);

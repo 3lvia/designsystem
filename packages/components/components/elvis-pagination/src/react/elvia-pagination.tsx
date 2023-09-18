@@ -17,10 +17,9 @@ import {
   PaginatorSelectorArea,
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
-import { useRovingFocus, warnDeprecatedProps, IconWrapper } from '@elvia/elvis-toolbox';
+import { useRovingFocus, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
-import { config } from './config';
 import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
 
 const Pagination: FC<PaginationProps> = function ({
@@ -40,7 +39,6 @@ const Pagination: FC<PaginationProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
   const [selectedDropdownItemIndex, setSelectedDropdownItemIndex] = useState(dropdownSelectedItemIndex);
   const selectedDropdownValue = dropdownItems[selectedDropdownItemIndex].value;
   const [currentPage, setCurrentPage] = useState(0);
