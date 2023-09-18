@@ -1,6 +1,64 @@
 {
   "content": [
     {
+      "version": "14.0.0",
+      "date": "September 18, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Removed deprecated code for all classes deprecated more than 6 months ago."],
+          "fixes": [
+            "<code>e-table__sort-header</code> - Use table documentation for Option -> Sort to implement sorting in tables.",
+            "<code>e-label</code> - Replace class with class <code>e-tag</code>.",
+            "<code>e-position-picker</code> - Replace with custom solution.",
+            "<code>e-alert__close</code> (e-toast--local) - Should close automatically when the issue is solved.",
+            "<code>e-link--external</code> - Replace class with class <code>e-link--new-tab</code>.",
+            "<code>e-link--jumbo</code> - Replace class with action group, read more under Patterns -> Groups.",
+            "<code>e-link--shortcut</code> - Replace class with component <strong>Card</strong>.",
+            "<code>e-link--card</code> - Replace class with component <strong>Card</strong>.",
+            "<code>e-card</code> - Replace class with class component <strong>Card</strong>.",
+            "<code>e-dropdown</code> & <code>e-select</code> - Replace class with component <strong>Dropdown</strong>.",
+            "<code>e-divider</code> - Replace class with component <strong>Divider</strong>.",
+            "<code>e-chip</code> - Replace class with component <strong>Chip</strong>.",
+            "<code>e-modal</code> - Replace class with component <strong>Modal</strong>.",
+            "<code>e-pagination</code> - Replace class with component <strong>Pagination</strong>.",
+            "<code>e-popover</code> - Replace class with component <strong>Popover</strong>.",
+            "<code>e-progress</code> - Replace class with component <strong>Progressbar</strong>.",
+            "<code>e-radio-filter</code> - Replace class with component <strong>Radio</strong> filter.",
+            "<code>e-segmented-controls</code> - Replace class with component <strong>Segmented</strong> Control.",
+            "<code>e-header</code> - Replace class with component <strong>Header</strong>.",
+            "<code>e-tooltip</code> - Replace class with component <strong>Tooltip</strong>.",
+            "<code>e-accordion</code> - Replace class with component <strong>Accordion</strong>.",
+            "<code>e-alert--toast</code> - Replace class with component <strong>Toast</strong>"
+          ],
+          "components": [
+            { "displayName": "Divider", "url": "https://design.elvia.io/components/divider" },
+            { "displayName": "Link", "url": "https://design.elvia.io/components/link" },
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
+            { "displayName": "Card", "url": "https://design.elvia.io/components/card" },
+            { "displayName": "Tag", "url": "https://design.elvia.io/components/tag" },
+            { "displayName": "Groups", "url": "https://design.elvia.io/patterns/groups" },
+            { "displayName": "Dropdown", "url": "https://design.elvia.io/components/dropdown" },
+            { "displayName": "Chip", "url": "https://design.elvia.io/components/chip" },
+            { "displayName": "Modal", "url": "https://design.elvia.io/components/modal" },
+            { "displayName": "Pagination", "url": "https://design.elvia.io/components/pagination" },
+            { "displayName": "Popover", "url": "https://design.elvia.io/components/popover" },
+            { "displayName": "Progressbar", "url": "https://design.elvia.io/components/progressbar" },
+            { "displayName": "Radio Filter", "url": "https://design.elvia.io/components/radio-filter" },
+            {
+              "displayName": "Segmented Control",
+              "url": "https://design.elvia.io/components/segmented-control"
+            },
+            { "displayName": "Header", "url": "https://design.elvia.io/components/header" },
+            { "displayName": "Tooltip", "url": "https://design.elvia.io/components/tooltip" },
+            { "displayName": "Accordion", "url": "https://design.elvia.io/components/accordion" },
+            { "displayName": "Toast", "url": "https://design.elvia.io/components/toast" },
+            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "13.0.1",
       "date": "September 14, 2023",
       "changelog": [

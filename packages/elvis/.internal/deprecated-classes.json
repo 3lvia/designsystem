@@ -2,6 +2,7 @@
   "e-text": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -11,6 +12,7 @@
   "e-bg-": {
     "deprecateChildren": true,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -20,6 +22,7 @@
   "e-text-yellow": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -29,6 +32,7 @@
   "e-text-orange": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -38,6 +42,7 @@
   "e-text-warning": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -47,6 +52,7 @@
   "e-text-red": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -56,6 +62,7 @@
   "e-text-error": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -65,6 +72,7 @@
   "e-text-green-apple": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -74,6 +82,7 @@
   "e-text-violet-grape": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -83,6 +92,7 @@
   "e-text-blue-berry": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -92,6 +102,7 @@
   "e-text-purple-plum": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -101,6 +112,7 @@
   "e-text-orange-mango": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -110,6 +122,7 @@
   "e-text-red-tomato": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -119,6 +132,7 @@
   "e-text-green": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -128,6 +142,7 @@
   "e-text-elvia-charge": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -137,6 +152,7 @@
   "e-text-grey-90": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -146,6 +162,7 @@
   "e-text-grey-80": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -155,6 +172,7 @@
   "e-text-font-grey": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -164,6 +182,7 @@
   "e-text-text-light": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -173,6 +192,7 @@
   "e-text-grey-70": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -182,6 +202,7 @@
   "e-text-placeholder": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -191,6 +212,7 @@
   "e-text-grey-60": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -200,6 +222,7 @@
   "e-text-grey-50": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -209,6 +232,7 @@
   "e-text-grey-40": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -218,6 +242,7 @@
   "e-text-grey-30": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -227,6 +252,7 @@
   "e-text-disabled": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -236,6 +262,7 @@
   "e-text-light-inverted": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -245,6 +272,7 @@
   "e-text-grey-20": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -254,6 +282,7 @@
   "e-text-grey-10": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -263,6 +292,7 @@
   "e-text-grey-05": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -272,6 +302,7 @@
   "e-text-disabled-light": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -281,6 +312,7 @@
   "e-text-grey-02": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -290,6 +322,7 @@
   "e-text-white": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -299,6 +332,7 @@
   "e-text-elvis-on": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -308,6 +342,7 @@
   "e-text-elvia-on": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -317,6 +352,7 @@
   "e-text-font-color-light": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -326,6 +362,7 @@
   "e-text-elvia-inverted": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -335,6 +372,7 @@
   "e-text-black": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -344,6 +382,7 @@
   "e-text-elvis-off": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -353,6 +392,7 @@
   "e-text-elvia-off": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -362,6 +402,7 @@
   "e-text-font-color": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -371,6 +412,7 @@
   "e-text-text": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -380,6 +422,7 @@
   "e-text-grey": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -389,6 +432,7 @@
   "e-text-elvia-dark": {
     "deprecateChildren": false,
     "version": "12.7.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
@@ -398,6 +442,7 @@
   "e-autocomplete": {
     "deprecateChildren": true,
     "version": "12.5.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "Autocomplete",
       "type": "component",
@@ -407,6 +452,7 @@
   "e-stepper": {
     "deprecateChildren": true,
     "version": "12.4.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "Stepper",
       "type": "component",
@@ -415,16 +461,19 @@
   },
   "e-form-field--combined": {
     "deprecateChildren": true,
-    "version": "12.0.0"
+    "version": "12.0.0",
+    "sunset": "April 2024"
   },
   "e-form-field--medium": {
     "deprecateChildren": true,
-    "version": "12.0.0"
+    "version": "12.0.0",
+    "sunset": "April 2024"
   },
   "e-input--medium": {
     "requiredAncestor": "e-form-field--combined",
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-input--",
       "type": "class",
@@ -435,6 +484,7 @@
     "requiredAncestor": "e-form-field--combined",
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-input--short",
       "type": "class",
@@ -444,6 +494,7 @@
   "e-toggle--compact": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-toggle--small",
       "type": "class",
@@ -453,6 +504,7 @@
   "e-input--compact": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-input--small",
       "type": "class",
@@ -462,6 +514,7 @@
   "e-checkbox--compact": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-checkbox--small",
       "type": "class",
@@ -471,6 +524,7 @@
   "e-checkbox--sm": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-checkbox--small",
       "type": "class",
@@ -480,6 +534,7 @@
   "e-table__footnote--compact": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-table__footnote--small",
       "type": "class",
@@ -489,6 +544,7 @@
   "e-table__cell--multiline-sm": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-table__cell--multiline-small",
       "type": "class",
@@ -498,6 +554,7 @@
   "e-table-mobile--compact": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-table-mobile--small",
       "type": "class",
@@ -507,6 +564,7 @@
   "e-table--compact": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-table--small",
       "type": "class",
@@ -516,6 +574,7 @@
   "e-form-field--compact": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-form-field--small",
       "type": "class",
@@ -525,6 +584,7 @@
   "e-radio--compact": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-radio--small",
       "type": "class",
@@ -534,6 +594,7 @@
   "e-radio--sm": {
     "deprecateChildren": false,
     "version": "12.0.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-radio--small",
       "type": "class",
@@ -543,229 +604,11 @@
   "e-content-loader--grey": {
     "deprecateChildren": true,
     "version": "10.6.0",
+    "sunset": "April 2024",
     "replacement": {
       "name": "e-content-loader",
       "type": "class",
       "documentation": "https://design.elvia.io/components/content-loader"
     }
-  },
-  "e-accordion": {
-    "deprecateChildren": true,
-    "version": "10.4.0",
-    "sunset": "July 2023",
-    "replacement": {
-      "name": "Accordion",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/accordion"
-    }
-  },
-  "e-position-picker": {
-    "deprecateChildren": true,
-    "version": "10.0.0",
-    "sunset": "July 2023"
-  },
-  "e-alert--close": {
-    "requiredAncestor": "e-alert--local",
-    "version": "9.9.0",
-    "sunset": "July 2023"
-  },
-  "e-alert--toast": {
-    "version": "11.1.0",
-    "sunset": "September 2023",
-    "replacement": {
-      "name": "Toast",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/toast"
-    }
-  },
-  "e-link--shortcut": {
-    "deprecateChildren": true,
-    "version": "9.5.0",
-    "replacement": {
-      "name": "Card",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/card"
-    },
-    "sunset": "March 2023"
-  },
-  "e-tooltip": {
-    "deprecateChildren": true,
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Tooltip",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/tooltip"
-    },
-    "sunset": "March 2023"
-  },
-  "e-header": {
-    "deprecateChildren": true,
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Header",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/header"
-    },
-    "sunset": "March 2023"
-  },
-  "e-segmented-control": {
-    "deprecateChildren": true,
-    "version": "8.14.0",
-    "replacement": {
-      "name": "Segmented control",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/segmented-control"
-    },
-    "sunset": "March 2023"
-  },
-  "e-radio-filter": {
-    "deprecateChildren": true,
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Radio Filter",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/radio-filter"
-    },
-    "sunset": "March 2023"
-  },
-  "e-progress": {
-    "deprecateChildren": true,
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Progressbar",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/progressbar"
-    },
-    "sunset": "March 2023"
-  },
-  "e-popover": {
-    "deprecateChildren": true,
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Popover",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/popover"
-    },
-    "sunset": "March 2023"
-  },
-  "e-pagination": {
-    "deprecateChildren": true,
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Pagination",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/pagination"
-    },
-    "sunset": "March 2023"
-  },
-  "e-modal": {
-    "deprecateChildren": true,
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Modal",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/modal"
-    },
-    "sunset": "March 2023"
-  },
-  "e-dropdown": {
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Dropdown",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/dropdown"
-    },
-    "sunset": "March 2023"
-  },
-  "e-chip": {
-    "deprecateChildren": true,
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Chip",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/chip"
-    },
-    "sunset": "March 2023"
-  },
-  "e-select": {
-    "deprecateChildren": true,
-    "version": "8.13.0",
-    "replacement": {
-      "name": "Dropdown",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/dropdown"
-    },
-    "sunset": "March 2023"
-  },
-  "e-link--jumbo": {
-    "version": "8.5.12",
-    "replacement": {
-      "name": "action group",
-      "type": "pattern",
-      "documentation": "https://design.elvia.io/patterns/groups"
-    }
-  },
-  "e-label": {
-    "version": "8.4.1",
-    "replacement": {
-      "name": "e-tag",
-      "type": "class",
-      "documentation": "https://design.elvia.io/components/tag"
-    }
-  },
-  "e-table__sort-icon--inactive": {
-    "version": "8.0.4"
-  },
-  "e-table__sort-icon--up": {
-    "version": "8.0.4"
-  },
-  "e-table__sort-icon": {
-    "version": "8.0.4"
-  },
-  "e-link--card": {
-    "version": "7.13.5",
-    "replacement": {
-      "name": "Card",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/card"
-    }
-  },
-  "e-card": {
-    "deprecateChildren": true,
-    "version": "7.13.5",
-    "replacement": {
-      "name": "Card",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/card"
-    }
-  },
-  "e-fileupload---hover": {
-    "version": "7.9.3",
-    "replacement": {
-      "name": "e-fileupload--dragover",
-      "type": "class",
-      "documentation": "https://design.elvia.io/components/file-upload#States"
-    }
-  },
-  "e-table__sort-header": {
-    "version": "7.5.0"
-  },
-  "e-link--external": {
-    "version": "7.4.0",
-    "replacement": {
-      "name": "e-link--new-tab",
-      "type": "class",
-      "documentation": "https://design.elvia.io/components/link#Type"
-    }
-  },
-  "e-divider": {
-    "deprecateChildren": true,
-    "version": "2.9.22",
-    "replacement": {
-      "name": "Divider",
-      "type": "component",
-      "documentation": "https://design.elvia.io/components/divider"
-    },
-    "sunset": "March 2023"
   }
 }
