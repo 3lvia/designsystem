@@ -11,8 +11,8 @@
   <tbody *ngFor="let prop of props">
     <tr>
       <th class="e-table-mobile__cell" scope="col">
-        <span [innerHTML]="prop.value.attribute | searchHighlighter : 'attribute' : prop.matches"></span>
-        <span>{{ prop.value.isRequired ? '*' : '' }}</span>
+        <span [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"></span>
+        <span>{{ prop.item.isRequired ? '*' : '' }}</span>
       </th>
       <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
@@ -20,21 +20,21 @@
       <th class="e-table-mobile__cell" scope="row">Type</th>
       <td
         class="e-table-mobile__cell"
-        [innerHTML]="prop.value.type | searchHighlighter : 'type' : prop.matches"
+        [innerHTML]="prop.item.type | searchHighlighter : 'type' : prop.matches"
       ></td>
     </tr>
     <tr>
       <th class="e-table-mobile__cell" scope="row">Description</th>
       <td
         class="e-table-mobile__cell"
-        [innerHTML]="prop.value.description | searchHighlighter : 'description' : prop.matches"
+        [innerHTML]="prop.item.description | searchHighlighter : 'description' : prop.matches"
       ></td>
     </tr>
-    <tr *ngIf="propHasNoChildren(prop.value)">
+    <tr *ngIf="propHasNoChildren(prop.item)">
       <th class="e-table-mobile__cell" scope="row">Default</th>
       <td
         class="e-table-mobile__cell"
-        [innerHTML]="prop.value.default | searchHighlighter : 'default' : prop.matches"
+        [innerHTML]="prop.item.default | searchHighlighter : 'default' : prop.matches"
       ></td>
     </tr>
   </tbody>

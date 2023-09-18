@@ -1,16 +1,17 @@
 import { Directive, Input, OnChanges } from '@angular/core';
-import { ComponentProp, EventProp, InputProp, PropWithMatches } from './types';
+import { ComponentProp, EventProp, InputProp } from './types';
 import { NestedProp } from 'src/app/doc-pages/components/component-data.interface';
+import { SearchResult } from '../../searcher';
 
 interface TableGroup {
   title: string;
   expanded?: boolean;
-  rows: PropWithMatches[];
+  rows: SearchResult<ComponentProp>[];
 }
 
 @Directive({ selector: '[appPropertyTableBase]' })
 export class PropertyTableBaseDirective implements OnChanges {
-  @Input() props: PropWithMatches[] = [];
+  @Input() props: SearchResult<ComponentProp>[] = [];
   groupedProps: TableGroup[] = [];
 
   ngOnChanges(): void {
@@ -28,16 +29,16 @@ export class PropertyTableBaseDirective implements OnChanges {
     ];
   }
 
-  getEventProps(props: PropWithMatches[]): PropWithMatches[] {
+  getEventProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
     return props.filter(
-      (prop) => this.propHasNoChildren(prop.value) && prop.value.isEvent,
-    ) as PropWithMatches[];
+      (prop) => this.propHasNoChildren(prop.item) && prop.item.isEvent,
+    ) as SearchResult<ComponentProp>[];
   }
 
-  getInputProps(props: PropWithMatches[]): PropWithMatches[] {
+  getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
     return props.filter(
-      (prop) => this.propHasNoChildren(prop.value) && !prop.value.isEvent,
-    ) as PropWithMatches[];
+      (prop) => this.propHasNoChildren(prop.item) && !prop.item.isEvent,
+    ) as SearchResult<ComponentProp>[];
   }
 
   propHasNoChildren(prop: ComponentProp): prop is EventProp | InputProp {

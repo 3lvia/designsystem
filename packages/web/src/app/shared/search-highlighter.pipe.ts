@@ -1,17 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PropWithMatches } from './component-documentation/component-properties-table/types';
+import { SearchResult } from './searcher';
 
 @Pipe({
   name: 'searchHighlighter',
   standalone: true,
 })
-export class SearchHighlighterPipe implements PipeTransform {
+export class SearchHighlighterPipe<T> implements PipeTransform {
   transform(
     value: string | number | boolean | undefined,
-    key: keyof PropWithMatches['value'],
-    matches: PropWithMatches['matches'],
+    key: keyof SearchResult<T>['item'],
+    matches?: SearchResult<T>['matches'],
   ): string {
-    const match = matches?.find((match) => match.key === key);
+    const match = matches?.find?.((match) => match.key === key);
     if (match && value) {
       let highlightedText = value.toString();
       /** The highlighting works like this:

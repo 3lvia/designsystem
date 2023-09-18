@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
-import { ComponentProp, PropWithMatches } from './types';
-import { Searcher } from '../../searcher';
+import { ComponentProp } from './types';
+import { SearchResult, Searcher } from '../../searcher';
 
 @Component({
   selector: 'app-component-properties-table',
@@ -11,7 +11,7 @@ import { Searcher } from '../../searcher';
 export class ComponentPropertiesTableComponent implements OnInit {
   @Input() componentData: ComponentData;
   @Input({ transform: booleanAttribute }) ignoreDefaultProps: boolean;
-  filteredComponentProps: PropWithMatches[] = [];
+  filteredComponentProps: SearchResult<ComponentProp>[] = [];
 
   private searcher: Searcher<ComponentProp>;
 
@@ -31,14 +31,9 @@ export class ComponentPropertiesTableComponent implements OnInit {
 
   searchProps(searchTerm: string): void {
     if (searchTerm !== '') {
-      this.searcher.search(searchTerm);
-      this.filteredComponentProps = this.searcher.searchResults.map((searchResult) => ({
-        value: searchResult.item,
-        matches: searchResult.matches,
-      }));
+      this.filteredComponentProps = this.searcher.search(searchTerm);
     } else {
-      this.searcher.search(searchTerm);
-      this.filteredComponentProps = this.getPropArray().map((prop) => ({ value: prop }));
+      this.filteredComponentProps = this.getPropArray().map((prop) => ({ item: prop }));
     }
   }
 

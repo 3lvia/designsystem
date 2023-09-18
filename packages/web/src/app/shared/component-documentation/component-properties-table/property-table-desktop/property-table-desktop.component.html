@@ -54,27 +54,27 @@
         <th scope="row" class="table-code-text">
           <div class="height-changer">
             <strong
-              [innerHTML]="prop.value.attribute | searchHighlighter : 'attribute' : prop.matches"
+              [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"
             ></strong>
-            <strong>{{ prop.value.isRequired ? '*' : '' }}</strong>
+            <strong>{{ prop.item.isRequired ? '*' : '' }}</strong>
           </div>
         </th>
         <td class="table-code-text e-table__cell--multiline-small">
           <div
             class="height-changer"
-            [innerHTML]="prop.value.type | searchHighlighter : 'type' : prop.matches"
+            [innerHTML]="prop.item.type | searchHighlighter : 'type' : prop.matches"
           ></div>
         </td>
         <td class="e-table__cell--multiline-small">
           <div
             class="height-changer"
-            [innerHTML]="prop.value.description | searchHighlighter : 'description' : prop.matches"
+            [innerHTML]="prop.item.description | searchHighlighter : 'description' : prop.matches"
           ></div>
         </td>
         <td class="table-code-text">
           <div
             class="height-changer"
-            [innerHTML]="prop.value.default | searchHighlighter : 'default' : prop.matches"
+            [innerHTML]="prop.item.default | searchHighlighter : 'default' : prop.matches"
           ></div>
         </td>
       </tr>

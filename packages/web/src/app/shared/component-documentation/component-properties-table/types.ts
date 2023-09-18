@@ -1,4 +1,3 @@
-import Fuse from 'fuse.js';
 import { ChildlessProp, NestedProp } from 'src/app/doc-pages/components/component-data.interface';
 
 export interface EventProp extends ChildlessProp {
@@ -14,8 +13,3 @@ export interface NestedInputProp extends NestedProp<Record<string, any>> {
 }
 
 export type ComponentProp = EventProp | InputProp | NestedInputProp;
-
-export interface PropWithMatches {
-  value: ComponentProp;
-  matches?: ReadonlyArray<Fuse.FuseResultMatch>;
-}
