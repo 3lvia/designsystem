@@ -9,6 +9,7 @@ import naturalCompare from 'natural-compare-lite';
 import { LOCALE_CODE } from 'contentful/types';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { InstallLink } from 'src/app/shared/shared.interface';
 
 type IconArray = { pretty: string; title: string; terms: string[] }[];
 
@@ -25,6 +26,11 @@ export class IconDocComponent implements OnInit {
 
   componentData = elvisIconData;
   noSubs = true;
+
+  readonly installLink: InstallLink = {
+    npm: 'npm install @elvia/elvis-icon',
+    yarn: 'yarn add @elvia/elvis-icon',
+  };
 
   visibleIcons: IconArray = [];
   private allIcons: IconArray = [];

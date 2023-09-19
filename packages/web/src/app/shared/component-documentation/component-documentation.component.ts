@@ -5,6 +5,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
 import { DocPageName } from '../shared.enum';
 import { createElvisFilteredChangelog } from './component-changelog/createElvisFilteredChangelog';
 import { Title } from '@angular/platform-browser';
+import { InstallLink } from '../shared.interface';
 
 /**
  * Builds a standard documentation page for a component.
@@ -63,5 +64,13 @@ export class ComponentDocumentationComponent implements OnInit {
     } else {
       return '';
     }
+  }
+
+  get installLinks(): InstallLink | undefined {
+    if (!this.isElvis && this.componentData) {
+      const packageName = '@elvia/elvis' + this.componentData.name.replace(/([A-Z])/g, '-$1').toLowerCase();
+      return { npm: `npm install ${packageName}`, yarn: `yarn add ${packageName}` };
+    }
+    return undefined;
   }
 }
