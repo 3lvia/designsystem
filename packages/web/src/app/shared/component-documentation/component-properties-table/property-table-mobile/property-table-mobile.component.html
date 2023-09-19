@@ -11,28 +11,31 @@
   <tbody *ngFor="let prop of props">
     <tr>
       <th class="e-table-mobile__cell" scope="col">
-        <span [id]="'property-row-' + prop.attribute + '-attribute-mobile'">{{ prop.attribute }}</span>
-        <span>{{ prop.isRequired ? '*' : '' }}</span>
+        <span [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"></span>
+        <span>{{ prop.item.isRequired ? '*' : '' }}</span>
       </th>
       <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
     <tr>
       <th class="e-table-mobile__cell" scope="row">Type</th>
-      <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-type-mobile'">
-        {{ prop.type }}
-      </td>
+      <td
+        class="e-table-mobile__cell"
+        [innerHTML]="prop.item.type | searchHighlighter : 'type' : prop.matches"
+      ></td>
     </tr>
     <tr>
       <th class="e-table-mobile__cell" scope="row">Description</th>
-      <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-description-mobile'">
-        {{ prop.description }}
-      </td>
+      <td
+        class="e-table-mobile__cell"
+        [innerHTML]="prop.item.description | searchHighlighter : 'description' : prop.matches"
+      ></td>
     </tr>
-    <tr *ngIf="propHasNoChildren(prop)">
+    <tr *ngIf="propHasNoChildren(prop.item)">
       <th class="e-table-mobile__cell" scope="row">Default</th>
-      <td class="e-table-mobile__cell" [id]="'property-row-' + prop.attribute + '-default-mobile'">
-        {{ prop.default ? prop.default : '-' }}
-      </td>
+      <td
+        class="e-table-mobile__cell"
+        [innerHTML]="prop.item.default | searchHighlighter : 'default' : prop.matches"
+      ></td>
     </tr>
   </tbody>
 </table>

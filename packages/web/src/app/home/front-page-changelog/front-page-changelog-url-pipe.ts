@@ -8,9 +8,9 @@ export class FrontPageChangelogUrlPipe implements PipeTransform {
         return '';
       }
       if (name === 'elvis') {
-        return '/about/whats-new';
+        return name;
       }
-      const formattedUrl = '/components/' + name.split('-').slice(1).join('-');
+      const formattedUrl = name.split('-').slice(1).join('-');
       return formattedUrl;
     } catch (e) {
       console.warn(`"name": "${name}" in changelog is invalid. Should be "elvis-(name)" or "elvis"`);

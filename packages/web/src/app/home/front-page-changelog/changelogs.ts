@@ -12,7 +12,6 @@ const changelogNames = [
   'elvis-card',
   'elvis-carousel',
   'elvis-chip',
-  'elvis-component-wrapper',
   'elvis-context-menu',
   'elvis-datepicker',
   'elvis-datepicker-range',

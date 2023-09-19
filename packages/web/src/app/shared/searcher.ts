@@ -1,5 +1,10 @@
 import Fuse from 'fuse.js';
 
+export type SearchResult<T> = {
+  item: T;
+  matches?: ReadonlyArray<Fuse.FuseResultMatch>;
+};
+
 /**
  * Search facade over the Fuse library. How to use:
  * @example
@@ -24,7 +29,7 @@ import Fuse from 'fuse.js';
  * this.searcher.search(value);
  */
 export class Searcher<T> {
-  searchResults: Fuse.FuseResult<T>[];
+  searchResults: SearchResult<T>[];
   isInitialized = false;
 
   private fuse: Fuse<T>;
@@ -39,17 +44,9 @@ export class Searcher<T> {
    * @param searchString
    * @returns List containing search results, sorted by fuzzy score (best matches first).
    */
-  search(searchString: string): T[] {
+  search(searchString: string): SearchResult<T>[] {
     this.searchResults = this.fuse.search(searchString);
-    return this.searchResults.map((result) => result.item);
-  }
-
-  /**
-   * Replace the search items to search through with a new list.
-   * @param searchItems List containing the new items to search through.
-   */
-  updateSearchItems(searchItems: T[]): void {
-    this.fuse.setCollection(searchItems);
+    return this.searchResults;
   }
 
   /**
