@@ -77,18 +77,27 @@
       margin-right: 48px + 48px;
     }
     @include breakpoints.breakpoint-up(Mobile) {
-      margin-right: 0px;
+      margin-right: 0;
     }
-    .status-warn {
-      background-color: var(--e-color-signal-warning);
-    }
-    .status-informative {
-      background-color: var(--e-color-signal-info);
-    }
-    .status-error {
-      background-color: var(--e-color-signal-danger);
+
+    .status-example {
+      border-radius: 50%;
+      height: 24px;
+      margin-right: 24px;
+      padding: 24px;
+
+      &--warn {
+        background-color: var(--e-color-signal-warning);
+      }
+      &--informative {
+        background-color: var(--e-color-signal-info);
+      }
+      &--error {
+        background-color: var(--e-color-signal-danger);
+      }
     }
   }
+
   .title {
     @include breakpoints.breakpoint-up(Mobile) {
       margin-top: 16px;
