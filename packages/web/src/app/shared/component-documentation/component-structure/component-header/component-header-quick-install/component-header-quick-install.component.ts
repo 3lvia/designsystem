@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
-import { InstallLink } from 'src/app/shared/shared.interface';
+import { getPackageName } from '../../../component-installation/getPackageName';
 
 @Component({
   selector: 'app-component-header-quick-install',
@@ -11,5 +12,10 @@ import { InstallLink } from 'src/app/shared/shared.interface';
   imports: [CommonModule, CopyModule],
 })
 export class ComponentHeaderQuickInstallComponent {
-  @Input({ required: true }) installLinks?: InstallLink;
+  @Input({ required: true }) componentData: ComponentData;
+
+  get installLinks(): { npm: string; yarn: string } {
+    const packageName = getPackageName(this.componentData.name);
+    return { npm: `npm install ${packageName}`, yarn: `yarn add ${packageName}` };
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { InstallLink } from 'src/app/shared/shared.interface';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
   selector: 'app-component-header',
@@ -14,7 +14,7 @@ export class ComponentHeaderComponent implements AfterViewInit {
   @Input() figmaUrl?: string;
   @Input() figmaOnly = false;
   @Input() lastUpdated?: string;
-  @Input() installLinks?: InstallLink;
+  @Input() componentData?: ComponentData;
   @Output() selectedChange = new EventEmitter();
 
   currentRoute: string;

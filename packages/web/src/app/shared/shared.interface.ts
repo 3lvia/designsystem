@@ -21,8 +21,3 @@ export interface DocPage {
   elvisClassName?: keyof typeof data.block;
   relatedPages?: DocPageName[];
 }
-
-export interface InstallLink {
-  npm: string;
-  yarn: string;
-}

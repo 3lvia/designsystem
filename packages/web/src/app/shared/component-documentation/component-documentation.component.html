@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="lastUpdatedDate" [installLinks]="installLinks">
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="lastUpdatedDate" [componentData]="componentData">
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -33,9 +33,9 @@
   <ng-content select="[accessibility]" />
 
   <!--INSTALLATION-->
-  <app-component-section *ngIf="!isElvis && componentData && installLinks" [sectionTitle]="'Installation'">
+  <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData" [installLinks]="installLinks" />
+      <app-component-installation [componentData]="componentData" />
     </ng-container>
   </app-component-section>
 
