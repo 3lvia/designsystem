@@ -6,9 +6,10 @@ import { PropertySearchInputComponent } from './property-search-input/property-s
 import { PropertyTableDesktopComponent } from './property-table-desktop/property-table-desktop.component';
 import { PropertyTableMobileComponent } from './property-table-mobile/property-table-mobile.component';
 import { PropertyTableBaseDirective } from './table-base';
+import { SearchHighlighterPipe } from '../../search-highlighter.pipe';
 
 @NgModule({
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SearchHighlighterPipe],
   declarations: [
     ComponentPropertiesTableComponent,
     PropertySearchInputComponent,
