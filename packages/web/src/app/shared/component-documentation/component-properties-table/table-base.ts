@@ -42,8 +42,12 @@ export class PropertyTableBaseDirective implements OnChanges {
   }
 
   private sortProps(a: SearchResult<ComponentProp>, b: SearchResult<ComponentProp>): number {
-    if (['className', 'inlineStyle'].includes(a.item.attribute)) {
-      return 1;
+    const lastProps = ['className', 'inlineStyle'];
+    let lastPropComparison = 0;
+    if (lastProps.includes(a.item.attribute) && !lastProps.includes(b.item.attribute)) {
+      lastPropComparison = 1;
+    } else if (!lastProps.includes(a.item.attribute) && lastProps.includes(b.item.attribute)) {
+      lastPropComparison = -1;
     }
 
     let requiredComparison = 0;
@@ -55,6 +59,6 @@ export class PropertyTableBaseDirective implements OnChanges {
 
     const alphabeticalComparison = a.item.attribute.localeCompare(b.item.attribute);
 
-    return requiredComparison || alphabeticalComparison;
+    return lastPropComparison || requiredComparison || alphabeticalComparison;
   }
 }
