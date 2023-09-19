@@ -2,9 +2,6 @@
 @use './breakpoints.scss';
 @use '@elvia/elvis-typography/dist/typographyMap.scss' as TypographyMap;
 
-$font-family: 'Red Hat Display', Verdana, sans-serif;
-$font-family-secondary: 'Red Hat Text', Verdana, sans-serif;
-
 @function getValue($name, $value) {
   $typography-map: null;
 
@@ -45,7 +42,7 @@ $font-family-secondary: 'Red Hat Text', Verdana, sans-serif;
 
 body {
   color: var(--e-color-text-primary, #000);
-  font-family: $font-family;
+  font-family: 'Red Hat Display', Verdana, sans-serif;
 }
 
 $typography: TypographyMap.$typography;
