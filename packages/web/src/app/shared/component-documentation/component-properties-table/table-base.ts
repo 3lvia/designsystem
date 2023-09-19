@@ -29,31 +29,31 @@ export class PropertyTableBaseDirective implements OnChanges {
     ];
   }
 
-  getEventProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => this.propHasNoChildren(prop.item) && prop.item.isEvent);
-  }
-
-  getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => this.propHasNoChildren(prop.item) && !prop.item.isEvent);
-  }
-
   propHasNoChildren(prop: ComponentProp): prop is EventProp | InputProp {
     return !(prop as NestedProp<Record<string, any>>).children;
   }
 
-  private sortProps(a: InputProp | EventProp, b: InputProp | EventProp): number {
-    if (['className', 'inlineStyle'].includes(a.attribute)) {
+  private getEventProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
+    return props.filter((prop) => this.propHasNoChildren(prop.item) && prop.item.isEvent);
+  }
+
+  private getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
+    return props.filter((prop) => this.propHasNoChildren(prop.item) && !prop.item.isEvent);
+  }
+
+  private sortProps(a: SearchResult<ComponentProp>, b: SearchResult<ComponentProp>): number {
+    if (['className', 'inlineStyle'].includes(a.item.attribute)) {
       return 1;
     }
 
     let requiredComparison = 0;
-    if (a.isRequired && !b.isRequired) {
+    if (a.item.isRequired && !b.item.isRequired) {
       requiredComparison = -1;
-    } else if (!a.isRequired && b.isRequired) {
+    } else if (!a.item.isRequired && b.item.isRequired) {
       requiredComparison = 1;
     }
 
-    const alphabeticalComparison = a.attribute.localeCompare(b.attribute);
+    const alphabeticalComparison = a.item.attribute.localeCompare(b.item.attribute);
 
     return requiredComparison || alphabeticalComparison;
   }
