@@ -10,11 +10,10 @@
   </thead>
   <tbody *ngFor="let prop of props">
     <tr>
-      <th class="e-table-mobile__cell" scope="col">
+      <th class="e-table-mobile__cell" scope="col" colspan="2">
         <span [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"></span>
         <span>{{ prop.item.isRequired ? '*' : '' }}</span>
       </th>
-      <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
     <tr>
       <th class="e-table-mobile__cell" scope="row">Type</th>
