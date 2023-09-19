@@ -15,8 +15,7 @@
   "dependencies": {
     "@elvia/elvis-colors": "^3.0.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
-    "@elvia/elvis-toolbox": "^9.6.0",
-    "styled-components": "^5.3.3"
+    "@elvia/elvis-toolbox": "^9.6.0"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
@@ -33,5 +32,8 @@
     "react-is": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "classnames": "^2.3.2"
   }
 }
