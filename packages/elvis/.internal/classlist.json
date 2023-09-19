@@ -1,40 +1,5 @@
 {
 	"block": {
-		"e-icon": {
-			"modifier": {
-				"e-icon--inverted": {},
-				"e-icon--color-disabled": {},
-				"e-icon--color-disabled-1": {},
-				"e-icon--color-disabled-light": {},
-				"e-icon--color-disabled-2": {},
-				"e-icon--color-placeholder": {},
-				"e-icon--color-currentColor": {},
-				"e-icon--color-on": {},
-				"e-icon--color-success": {},
-				"e-icon--color-green": {},
-				"e-icon--color-positive": {},
-				"e-icon--color-caution": {},
-				"e-icon--color-yellow": {},
-				"e-icon--color-warning": {},
-				"e-icon--color-orange": {},
-				"e-icon--color-error": {},
-				"e-icon--color-danger": {},
-				"e-icon--color-red": {},
-				"e-icon--color-white": {},
-				"e-icon--color-black": {},
-				"e-icon--xxs": {},
-				"e-icon--custom12": {},
-				"e-icon--custom14": {},
-				"e-icon--xs": {},
-				"e-icon--custom19": {},
-				"e-icon--custom20": {},
-				"e-icon--sm": {},
-				"e-icon--md": {},
-				"e-icon--lg": {},
-				"e-icon--xl": {},
-				"e-icon--xxl": {}
-			}
-		},
 		"e-text": {},
 		"e-bg": {},
 		"e-text-yellow": {},
@@ -121,39 +86,47 @@
 		"e-bg-grey": {},
 		"e-text-elvia-dark": {},
 		"e-bg-elvia-dark": {},
-		"e-accordion": {
-			"element": {
-				"e-accordion__item": {
-					"modifier": {
-						"e-accordion__item--open": {}
-					}
-				},
-				"e-accordion__title": {
-					"modifier": {
-						"e-accordion__title--no-icon-hover": {}
-					}
-				},
-				"e-accordion__icon": {},
-				"e-accordion__content": {},
-				"e-accordion__label": {},
-				"e-accordion__item__row": {}
-			},
-			"modifier": {
-				"e-accordion--lg": {},
-				"e-accordion--md": {},
-				"e-accordion--sm": {},
-				"e-accordion--single": {},
-				"e-accordion--group": {},
-				"e-accordion--center": {},
-				"e-accordion--end": {}
-			}
-		},
 		"e-shadow-none": {},
 		"e-theme-light": {},
 		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
+		"e-icon": {
+			"modifier": {
+				"e-icon--inverted": {},
+				"e-icon--color-disabled": {},
+				"e-icon--color-disabled-1": {},
+				"e-icon--color-disabled-light": {},
+				"e-icon--color-disabled-2": {},
+				"e-icon--color-placeholder": {},
+				"e-icon--color-currentColor": {},
+				"e-icon--color-on": {},
+				"e-icon--color-success": {},
+				"e-icon--color-green": {},
+				"e-icon--color-positive": {},
+				"e-icon--color-caution": {},
+				"e-icon--color-yellow": {},
+				"e-icon--color-warning": {},
+				"e-icon--color-orange": {},
+				"e-icon--color-error": {},
+				"e-icon--color-danger": {},
+				"e-icon--color-red": {},
+				"e-icon--color-white": {},
+				"e-icon--color-black": {},
+				"e-icon--xxs": {},
+				"e-icon--custom12": {},
+				"e-icon--custom14": {},
+				"e-icon--xs": {},
+				"e-icon--custom19": {},
+				"e-icon--custom20": {},
+				"e-icon--sm": {},
+				"e-icon--md": {},
+				"e-icon--lg": {},
+				"e-icon--xl": {},
+				"e-icon--xxl": {}
+			}
+		},
 		"e-alert": {
 			"element": {
 				"e-alert__icon": {},
@@ -181,12 +154,6 @@
 		"e-autocomplete": {
 			"element": {
 				"e-autocomplete__item": {}
-			}
-		},
-		"e-dropdown": {
-			"element": {
-				"e-dropdown__content": {},
-				"e-dropdown__item": {}
 			}
 		},
 		"e-form-field": {
@@ -248,48 +215,6 @@
 				"e-button--inverted": {}
 			}
 		},
-		"e-card": {
-			"modifier": {
-				"e-card--text-only": {},
-				"e-card--shadow-soft": {},
-				"e-card--shadow-medium": {},
-				"e-card--shadow-hard": {},
-				"e-card--on-white": {}
-			},
-			"element": {
-				"e-card__title": {
-					"modifier": {
-						"e-card__title--above": {}
-					}
-				},
-				"e-card__content": {}
-			}
-		},
-		"e-chip": {
-			"container": {
-				"e-chip-container": {}
-			},
-			"element": {
-				"e-chip__label": {},
-				"e-chip__close": {}
-			},
-			"modifier": {
-				"e-chip--yellow": {},
-				"e-chip--orange": {},
-				"e-chip--red": {},
-				"e-chip--green-apple": {},
-				"e-chip--violet-grape": {},
-				"e-chip--blue-berry": {},
-				"e-chip--purple-plum": {},
-				"e-chip--orange-mango": {},
-				"e-chip--red-tomato": {},
-				"e-chip--green": {}
-			},
-			"psuedo": {
-				"e-chip---disabled": {},
-				"e-chip---hover": {}
-			}
-		},
 		"e-content-loader": {
 			"modifier": {
 				"e-content-loader--circle": {},
@@ -297,141 +222,19 @@
 				"e-content-loader--short": {}
 			}
 		},
-		"e-divider": {
-			"modifier": {
-				"e-divider--inverted": {},
-				"e-divider--title": {},
-				"e-divider--curved": {}
-			},
-			"element": {
-				"e-divider__title": {}
-			}
-		},
-		"e-input": {
-			"modifier": {
-				"e-input--placeholder": {},
-				"e-input--centered": {},
-				"e-input--compact": {},
-				"e-input--small": {}
-			},
-			"psuedo": {
-				"e-input---invalid": {},
-				"e-input---focus": {},
-				"e-input---disabled": {},
-				"e-input---readonly": {},
-				"e-input---loading": {}
-			}
-		},
-		"e-combined-field": {},
-		"e-radio-filter": {
-			"element": {
-				"e-radio-filter__label": {}
-			},
-			"psuedo": {
-				"e-radio-filter---focus": {},
-				"e-radio-filter---hover": {},
-				"e-radio-filter---checked": {}
-			}
-		},
-		"e-header": {
-			"element": {
-				"e-header__top-bar": {},
-				"e-header__top-bar-desktop": {},
-				"e-header__top-bar-desktop__title": {},
-				"e-header__top-bar-desktop__app": {
-					"modifier": {
-						"e-header__top-bar-desktop__app--open": {}
-					}
-				},
-				"e-header__top-bar-desktop__app-menu": {},
-				"e-header__top-bar-desktop__app-menu-item": {
-					"modifier": {
-						"e-header__top-bar-desktop__app-menu-item--active": {}
-					}
-				},
-				"e-header__top-bar-desktop__app-circle": {},
-				"e-header__top-bar-desktop__app-title": {},
-				"e-header__top-bar-desktop__area": {
-					"modifier": {
-						"e-header__top-bar-desktop__area--open": {}
-					}
-				},
-				"e-header__top-bar-desktop__area-menu": {},
-				"e-header__top-bar-desktop__area-menu-item": {},
-				"e-header__top-bar-desktop__logo": {},
-				"e-header__top-bar-desktop__user": {
-					"modifier": {
-						"e-header__top-bar-desktop__user--open": {}
-					}
-				},
-				"e-header__top-bar-desktop__hamburger": {},
-				"e-header__top-bar-desktop__link": {},
-				"e-header__top-bar-desktop__line": {},
-				"e-header__top-bar-desktop__user-menu": {},
-				"e-header__top-bar-desktop__user-menu-name": {},
-				"e-header__top-bar-desktop__user-menu-mail": {},
-				"e-header__top-bar-desktop__user-menu-settings": {},
-				"e-header__top-bar-desktop__user-menu-logout": {},
-				"e-header__top-bar-desktop__link-icon": {},
-				"e-header__top-bar-mobile": {},
-				"e-header__top-bar-mobile__app": {
-					"modifier": {
-						"e-header__top-bar-mobile__app--open": {}
-					}
-				},
-				"e-header__top-bar-mobile__area": {
-					"modifier": {
-						"e-header__top-bar-mobile__area--open": {}
-					}
-				},
-				"e-header__top-bar-mobile__user": {},
-				"e-header__top-bar-mobile__title": {},
-				"e-header__top-bar-mobile__link": {},
-				"e-header__top-bar-mobile__link-icon": {},
-				"e-header__top-bar-mobile__user-menu": {},
-				"e-header__top-bar-mobile__user-menu-name": {},
-				"e-header__top-bar-mobile__user-menu-settings": {},
-				"e-header__top-bar-mobile__user-menu-logout": {},
-				"e-header__top-bar-mobile__divider": {},
-				"e-header__sidebar": {
-					"modifier": {
-						"e-header__sidebar--open": {}
-					}
-				},
-				"e-header__sidebar__item": {
-					"modifier": {
-						"e-header__sidebar__item--active": {}
-					}
-				},
-				"e-header__sidebar__open-close": {},
-				"e-header__sidebar__text": {},
-				"e-header__sidebar__icon": {}
-			},
-			"modifier": {
-				"e-header--open": {}
-			}
-		},
-		"e-grid": {},
 		"e-link": {
 			"element": {
 				"e-link__icon": {},
-				"e-link__title": {},
-				"e-link__content": {},
-				"e-link__description": {}
+				"e-link__title": {}
 			},
 			"modifier": {
 				"e-link--lg": {},
 				"e-link--md": {},
 				"e-link--sm": {},
 				"e-link--inline": {},
-				"e-link--external": {},
 				"e-link--new-tab": {},
 				"e-link--back": {},
-				"e-link--action": {},
-				"e-link--jumbo": {},
-				"e-link--card": {},
-				"e-link--delay-hover": {},
-				"e-link--shortcut": {}
+				"e-link--action": {}
 			},
 			"psuedo": {
 				"e-link---hover": {},
@@ -763,64 +566,6 @@
 				"e-list__icon": {}
 			}
 		},
-		"e-modal": {
-			"element": {
-				"e-modal__content": {},
-				"e-modal__title": {},
-				"e-modal__text": {},
-				"e-modal__actions": {}
-			}
-		},
-		"e-pagination": {
-			"element": {
-				"e-pagination__number-per-page": {},
-				"e-pagination__dropdown": {},
-				"e-pagination__choosing-page": {},
-				"e-pagination__dots": {},
-				"e-pagination__number": {
-					"modifier": {
-						"e-pagination__number--active": {}
-					},
-					"psuedo": {
-						"e-pagination__number---hover": {}
-					}
-				},
-				"e-pagination__arrow": {
-					"psuedo": {
-						"e-pagination__arrow---hover": {}
-					}
-				}
-			}
-		},
-		"e-progress": {
-			"element": {
-				"e-progress__bar": {
-					"modifier": {
-						"e-progress__bar--loading": {},
-						"e-progress__bar--error": {}
-					}
-				}
-			}
-		},
-		"e-popover": {
-			"element": {
-				"e-popover__content": {},
-				"e-popover__close": {},
-				"e-popover__title": {},
-				"e-popover__text": {}
-			},
-			"modifier": {
-				"e-popover--bottom": {},
-				"e-popover--left": {},
-				"e-popover--left-50": {},
-				"e-popover--right": {},
-				"e-popover--right-50": {},
-				"e-popover--w-200": {},
-				"e-popover--w-220": {},
-				"e-popover--w-240": {},
-				"e-popover--w-260": {}
-			}
-		},
 		"e-stepper": {
 			"element": {
 				"e-stepper__steps": {},
@@ -903,14 +648,7 @@
 				},
 				"e-table__input": {},
 				"e-table__button": {},
-				"e-table__select": {},
-				"e-table__sort-header": {},
-				"e-table__sort-icon": {
-					"modifier": {
-						"e-table__sort-icon--up": {},
-						"e-table__sort-icon--inactive": {}
-					}
-				}
+				"e-table__select": {}
 			},
 			"container": {
 				"e-table-container": {}
@@ -918,6 +656,21 @@
 		},
 		"e-table-footnote": {},
 		"e-text-mono": {},
+		"e-input": {
+			"psuedo": {
+				"e-input---focus": {},
+				"e-input---invalid": {},
+				"e-input---disabled": {},
+				"e-input---readonly": {},
+				"e-input---loading": {}
+			},
+			"modifier": {
+				"e-input--placeholder": {},
+				"e-input--centered": {},
+				"e-input--compact": {},
+				"e-input--small": {}
+			}
+		},
 		"e-checkbox": {
 			"modifier": {
 				"e-checkbox--inverted": {},
@@ -937,30 +690,6 @@
 				"e-checkbox---disabled-checked": {},
 				"e-checkbox---disabled": {},
 				"e-checkbox---invalid": {}
-			}
-		},
-		"e-label": {
-			"modifier": {
-				"e-label--neutral": {},
-				"e-label--white": {},
-				"e-label--black": {},
-				"e-label--grey": {},
-				"e-label--green": {},
-				"e-label--positive": {},
-				"e-label--success": {},
-				"e-label--caution": {},
-				"e-label--yellow": {},
-				"e-label--warning": {},
-				"e-label--orange": {},
-				"e-label--error": {},
-				"e-label--danger": {},
-				"e-label--red": {},
-				"e-label--green-apple": {},
-				"e-label--violet-grape": {},
-				"e-label--blue-berry": {},
-				"e-label--purple-plum": {},
-				"e-label--orange-mango": {},
-				"e-label--red-tomato": {}
 			}
 		},
 		"e-tag": {
@@ -994,33 +723,6 @@
 				"e-thumbnail---hover": {}
 			}
 		},
-		"e-tooltip": {
-			"element": {
-				"e-tooltip__content": {
-					"modifier": {
-						"e-tooltip__content--bottom": {},
-						"e-tooltip__content--top": {},
-						"e-tooltip__content--left": {},
-						"e-tooltip__content--right": {}
-					}
-				}
-			}
-		},
-		"e-toggle": {
-			"modifier": {
-				"e-toggle--inverted": {},
-				"e-toggle--compact": {},
-				"e-toggle--small": {}
-			},
-			"element": {
-				"e-toggle__input": {}
-			},
-			"psuedo": {
-				"e-toggle---checked": {},
-				"e-toggle---focus": {},
-				"e-toggle---disabled": {}
-			}
-		},
 		"e-dragdrop": {
 			"modifier": {
 				"e-dragdrop--dragover": {}
@@ -1039,18 +741,9 @@
 			},
 			"modifier": {
 				"e-fileupload--dragover": {}
-			},
-			"psuedo": {
-				"e-fileupload---hover": {}
 			}
 		},
-		"e-position-picker": {
-			"element": {
-				"e-position-picker__icon": {},
-				"e-position-picker__description": {},
-				"e-position-picker__action": {}
-			}
-		},
+		"e-combined-field": {},
 		"e-radio": {
 			"modifier": {
 				"e-radio--inverted": {},
@@ -1078,16 +771,19 @@
 				"e-search--on-submit": {}
 			}
 		},
-		"e-segmented-controls": {
-			"psuedo": {
-				"e-segmented-controls---focus": {}
+		"e-toggle": {
+			"modifier": {
+				"e-toggle--inverted": {},
+				"e-toggle--compact": {},
+				"e-toggle--small": {}
 			},
 			"element": {
-				"e-segmented-controls__title": {}
+				"e-toggle__input": {}
 			},
-			"modifier": {
-				"e-segmented-controls--lg": {},
-				"e-segmented-controls--sm": {}
+			"psuedo": {
+				"e-toggle---checked": {},
+				"e-toggle---focus": {},
+				"e-toggle---disabled": {}
 			}
 		},
 		"e-sr-only": {},
@@ -1118,6 +814,7 @@
 		"e-border-none": {},
 		"e-br-4": {},
 		"e-br-8": {},
+		"e-grid": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
 		"e-grid-gutters-int": {},
@@ -1210,38 +907,6 @@
 		"e-gap-40": {}
 	},
 	"flat": {
-		"e-icon": {},
-		"e-icon--inverted": {},
-		"e-icon--color-disabled": {},
-		"e-icon--color-disabled-1": {},
-		"e-icon--color-disabled-light": {},
-		"e-icon--color-disabled-2": {},
-		"e-icon--color-placeholder": {},
-		"e-icon--color-currentColor": {},
-		"e-icon--color-on": {},
-		"e-icon--color-success": {},
-		"e-icon--color-green": {},
-		"e-icon--color-positive": {},
-		"e-icon--color-caution": {},
-		"e-icon--color-yellow": {},
-		"e-icon--color-warning": {},
-		"e-icon--color-orange": {},
-		"e-icon--color-error": {},
-		"e-icon--color-danger": {},
-		"e-icon--color-red": {},
-		"e-icon--color-white": {},
-		"e-icon--color-black": {},
-		"e-icon--xxs": {},
-		"e-icon--custom12": {},
-		"e-icon--custom14": {},
-		"e-icon--xs": {},
-		"e-icon--custom19": {},
-		"e-icon--custom20": {},
-		"e-icon--sm": {},
-		"e-icon--md": {},
-		"e-icon--lg": {},
-		"e-icon--xl": {},
-		"e-icon--xxl": {},
 		"e-text": {},
 		"e-bg": {},
 		"e-text-yellow": {},
@@ -1328,28 +993,44 @@
 		"e-bg-grey": {},
 		"e-text-elvia-dark": {},
 		"e-bg-elvia-dark": {},
-		"e-accordion": {},
-		"e-accordion__item": {},
-		"e-accordion__title": {},
-		"e-accordion__title--no-icon-hover": {},
-		"e-accordion__icon": {},
-		"e-accordion__content": {},
-		"e-accordion__item--open": {},
-		"e-accordion__label": {},
-		"e-accordion--lg": {},
-		"e-accordion--md": {},
-		"e-accordion--sm": {},
-		"e-accordion--single": {},
-		"e-accordion--group": {},
-		"e-accordion__item__row": {},
-		"e-accordion--center": {},
-		"e-accordion--end": {},
 		"e-shadow-none": {},
 		"e-theme-light": {},
 		"e-theme-dark": {},
 		"e-shadow-soft": {},
 		"e-shadow-medium": {},
 		"e-shadow-hard": {},
+		"e-icon": {},
+		"e-icon--inverted": {},
+		"e-icon--color-disabled": {},
+		"e-icon--color-disabled-1": {},
+		"e-icon--color-disabled-light": {},
+		"e-icon--color-disabled-2": {},
+		"e-icon--color-placeholder": {},
+		"e-icon--color-currentColor": {},
+		"e-icon--color-on": {},
+		"e-icon--color-success": {},
+		"e-icon--color-green": {},
+		"e-icon--color-positive": {},
+		"e-icon--color-caution": {},
+		"e-icon--color-yellow": {},
+		"e-icon--color-warning": {},
+		"e-icon--color-orange": {},
+		"e-icon--color-error": {},
+		"e-icon--color-danger": {},
+		"e-icon--color-red": {},
+		"e-icon--color-white": {},
+		"e-icon--color-black": {},
+		"e-icon--xxs": {},
+		"e-icon--custom12": {},
+		"e-icon--custom14": {},
+		"e-icon--xs": {},
+		"e-icon--custom19": {},
+		"e-icon--custom20": {},
+		"e-icon--sm": {},
+		"e-icon--md": {},
+		"e-icon--lg": {},
+		"e-icon--xl": {},
+		"e-icon--xxl": {},
 		"e-alert": {},
 		"e-alert__icon": {},
 		"e-alert__content": {},
@@ -1370,9 +1051,7 @@
 		"e-alert--actions": {},
 		"e-alert__actions": {},
 		"e-autocomplete": {},
-		"e-dropdown__content": {},
 		"e-autocomplete__item": {},
-		"e-dropdown__item": {},
 		"e-form-field": {},
 		"e-form-field--compact": {},
 		"e-form-field--small": {},
@@ -1398,107 +1077,10 @@
 		"e-btn---disabled": {},
 		"e-btn--circled": {},
 		"e-btn--inverted": {},
-		"e-card": {},
-		"e-card--text-only": {},
-		"e-card--shadow-soft": {},
-		"e-card--shadow-medium": {},
-		"e-card--shadow-hard": {},
-		"e-card--on-white": {},
-		"e-card__title": {},
-		"e-card__title--above": {},
-		"e-card__content": {},
-		"e-chip-container": {},
-		"e-chip": {},
-		"e-chip__label": {},
-		"e-chip__close": {},
-		"e-chip--yellow": {},
-		"e-chip---disabled": {},
-		"e-chip--orange": {},
-		"e-chip--red": {},
-		"e-chip--green-apple": {},
-		"e-chip--violet-grape": {},
-		"e-chip--blue-berry": {},
-		"e-chip--purple-plum": {},
-		"e-chip--orange-mango": {},
-		"e-chip--red-tomato": {},
-		"e-chip--green": {},
-		"e-chip---hover": {},
 		"e-content-loader": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},
 		"e-content-loader--short": {},
-		"e-divider": {},
-		"e-divider--inverted": {},
-		"e-divider--title": {},
-		"e-divider__title": {},
-		"e-divider--curved": {},
-		"e-input": {},
-		"e-input--placeholder": {},
-		"e-input--centered": {},
-		"e-input---invalid": {},
-		"e-input---focus": {},
-		"e-input---disabled": {},
-		"e-input---readonly": {},
-		"e-input---loading": {},
-		"e-combined-field": {},
-		"e-input--compact": {},
-		"e-input--small": {},
-		"e-dropdown": {},
-		"e-radio-filter": {},
-		"e-radio-filter__label": {},
-		"e-radio-filter---focus": {},
-		"e-radio-filter---hover": {},
-		"e-radio-filter---checked": {},
-		"e-header": {},
-		"e-header__top-bar": {},
-		"e-header__top-bar-desktop": {},
-		"e-grid": {},
-		"e-header__top-bar-desktop__title": {},
-		"e-header__top-bar-desktop__app": {},
-		"e-header__top-bar-desktop__app-menu": {},
-		"e-header__top-bar-desktop__app-menu-item": {},
-		"e-header__top-bar-desktop__app-circle": {},
-		"e-header__top-bar-desktop__app-menu-item--active": {},
-		"e-header__top-bar-desktop__app-title": {},
-		"e-header__top-bar-desktop__area": {},
-		"e-header__top-bar-desktop__area-menu": {},
-		"e-header__top-bar-desktop__area-menu-item": {},
-		"e-header__top-bar-desktop__logo": {},
-		"e-header__top-bar-desktop__user": {},
-		"e-header__top-bar-desktop__hamburger": {},
-		"e-header__top-bar-desktop__link": {},
-		"e-header__top-bar-desktop__line": {},
-		"e-header__top-bar-desktop__user-menu": {},
-		"e-header__top-bar-desktop__user-menu-name": {},
-		"e-header__top-bar-desktop__user-menu-mail": {},
-		"e-header__top-bar-desktop__user-menu-settings": {},
-		"e-header__top-bar-desktop__user-menu-logout": {},
-		"e-header__top-bar-desktop__link-icon": {},
-		"e-header__top-bar-desktop__app--open": {},
-		"e-header__top-bar-desktop__area--open": {},
-		"e-header__top-bar-desktop__user--open": {},
-		"e-header__top-bar-mobile": {},
-		"e-header--open": {},
-		"e-header__top-bar-mobile__app": {},
-		"e-header__top-bar-mobile__area": {},
-		"e-header__top-bar-mobile__user": {},
-		"e-header__top-bar-mobile__title": {},
-		"e-header__top-bar-mobile__link": {},
-		"e-header__top-bar-mobile__link-icon": {},
-		"e-header__top-bar-mobile__user-menu": {},
-		"e-header__top-bar-mobile__user-menu-name": {},
-		"e-header__top-bar-mobile__user-menu-settings": {},
-		"e-header__top-bar-mobile__user-menu-logout": {},
-		"e-header__top-bar-mobile__divider": {},
-		"e-header__sidebar": {},
-		"e-header__top-bar-mobile__app--open": {},
-		"e-header__top-bar-mobile__area--open": {},
-		"e-header__sidebar__item": {},
-		"e-header__sidebar__open-close": {},
-		"e-header__sidebar__text": {},
-		"e-header__sidebar__icon": {},
-		"e-header__sidebar__item--active": {},
-		"e-header__sidebar--open": {},
 		"e-link": {},
 		"e-link__icon": {},
 		"e-link__title": {},
@@ -1508,16 +1090,9 @@
 		"e-link---hover": {},
 		"e-link---focus": {},
 		"e-link--inline": {},
-		"e-link--external": {},
 		"e-link--new-tab": {},
 		"e-link--back": {},
 		"e-link--action": {},
-		"e-link--jumbo": {},
-		"e-link--card": {},
-		"e-link__content": {},
-		"e-link__description": {},
-		"e-link--delay-hover": {},
-		"e-link--shortcut": {},
 		"e-p-0": {},
 		"e-pt-0": {},
 		"e-pb-0": {},
@@ -1838,39 +1413,6 @@
 		"e-list--numbers": {},
 		"e-list--strong": {},
 		"e-list__icon": {},
-		"e-modal": {},
-		"e-modal__content": {},
-		"e-modal__title": {},
-		"e-modal__text": {},
-		"e-modal__actions": {},
-		"e-pagination": {},
-		"e-pagination__number-per-page": {},
-		"e-pagination__dropdown": {},
-		"e-pagination__choosing-page": {},
-		"e-pagination__dots": {},
-		"e-pagination__number": {},
-		"e-pagination__arrow": {},
-		"e-pagination__number--active": {},
-		"e-pagination__number---hover": {},
-		"e-pagination__arrow---hover": {},
-		"e-progress": {},
-		"e-progress__bar": {},
-		"e-progress__bar--loading": {},
-		"e-progress__bar--error": {},
-		"e-popover__content": {},
-		"e-popover": {},
-		"e-popover__close": {},
-		"e-popover__title": {},
-		"e-popover__text": {},
-		"e-popover--bottom": {},
-		"e-popover--left": {},
-		"e-popover--left-50": {},
-		"e-popover--right": {},
-		"e-popover--right-50": {},
-		"e-popover--w-200": {},
-		"e-popover--w-220": {},
-		"e-popover--w-240": {},
-		"e-popover--w-260": {},
 		"e-stepper": {},
 		"e-stepper__steps": {},
 		"e-stepper__step": {},
@@ -1917,75 +1459,38 @@
 		"e-text-mono": {},
 		"e-table__input": {},
 		"e-table-mobile__input": {},
+		"e-input": {},
+		"e-input---focus": {},
 		"e-table__button": {},
 		"e-table-mobile__button": {},
 		"e-checkbox": {},
 		"e-table__select": {},
 		"e-table-mobile__select": {},
-		"e-table__sort-header": {},
-		"e-table__sort-icon": {},
-		"e-table__sort-icon--up": {},
-		"e-table__sort-icon--inactive": {},
-		"e-label": {},
 		"e-tag": {},
 		"e-tag--inverted": {},
-		"e-label--neutral": {},
 		"e-tag--neutral": {},
-		"e-label--white": {},
 		"e-tag--white": {},
-		"e-label--black": {},
 		"e-tag--black": {},
-		"e-label--grey": {},
 		"e-tag--grey": {},
-		"e-label--green": {},
 		"e-tag--green": {},
-		"e-label--positive": {},
 		"e-tag--positive": {},
-		"e-label--success": {},
 		"e-tag--success": {},
-		"e-label--caution": {},
 		"e-tag--caution": {},
-		"e-label--yellow": {},
 		"e-tag--yellow": {},
-		"e-label--warning": {},
 		"e-tag--warning": {},
-		"e-label--orange": {},
 		"e-tag--orange": {},
-		"e-label--error": {},
 		"e-tag--error": {},
-		"e-label--danger": {},
 		"e-tag--danger": {},
-		"e-label--red": {},
 		"e-tag--red": {},
-		"e-label--green-apple": {},
 		"e-tag--green-apple": {},
-		"e-label--violet-grape": {},
 		"e-tag--violet-grape": {},
-		"e-label--blue-berry": {},
 		"e-tag--blue-berry": {},
-		"e-label--purple-plum": {},
 		"e-tag--purple-plum": {},
-		"e-label--orange-mango": {},
 		"e-tag--orange-mango": {},
-		"e-label--red-tomato": {},
 		"e-tag--red-tomato": {},
 		"e-thumbnail": {},
 		"e-thumbnail---selected": {},
 		"e-thumbnail---hover": {},
-		"e-tooltip": {},
-		"e-tooltip__content": {},
-		"e-tooltip__content--bottom": {},
-		"e-tooltip__content--top": {},
-		"e-tooltip__content--left": {},
-		"e-tooltip__content--right": {},
-		"e-toggle": {},
-		"e-toggle--inverted": {},
-		"e-toggle__input": {},
-		"e-toggle--compact": {},
-		"e-toggle--small": {},
-		"e-toggle---checked": {},
-		"e-toggle---focus": {},
-		"e-toggle---disabled": {},
 		"e-checkbox--inverted": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
@@ -2017,11 +1522,15 @@
 		"e-fileupload__description": {},
 		"e-fileupload__input": {},
 		"e-fileupload--dragover": {},
-		"e-fileupload---hover": {},
-		"e-position-picker": {},
-		"e-position-picker__icon": {},
-		"e-position-picker__description": {},
-		"e-position-picker__action": {},
+		"e-input--placeholder": {},
+		"e-input--centered": {},
+		"e-input---invalid": {},
+		"e-input---disabled": {},
+		"e-input---readonly": {},
+		"e-input---loading": {},
+		"e-combined-field": {},
+		"e-input--compact": {},
+		"e-input--small": {},
 		"e-radio": {},
 		"e-radio--inverted": {},
 		"e-radio__mark": {},
@@ -2039,11 +1548,14 @@
 		"e-search--instant": {},
 		"e-search--searched": {},
 		"e-search--on-submit": {},
-		"e-segmented-controls": {},
-		"e-segmented-controls---focus": {},
-		"e-segmented-controls__title": {},
-		"e-segmented-controls--lg": {},
-		"e-segmented-controls--sm": {},
+		"e-toggle": {},
+		"e-toggle--inverted": {},
+		"e-toggle__input": {},
+		"e-toggle--compact": {},
+		"e-toggle--small": {},
+		"e-toggle---checked": {},
+		"e-toggle---focus": {},
+		"e-toggle---disabled": {},
 		"e-sr-only": {},
 		"e-color-text-1": {},
 		"e-color-text-2": {},
@@ -2072,6 +1584,7 @@
 		"e-border-none": {},
 		"e-br-4": {},
 		"e-br-8": {},
+		"e-grid": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
 		"e-grid-gutters-int": {},

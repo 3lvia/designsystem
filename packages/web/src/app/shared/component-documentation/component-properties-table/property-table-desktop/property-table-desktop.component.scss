@@ -25,9 +25,33 @@ td.table-code-text {
   vertical-align: top;
 }
 
-.prop-row:not(.last) {
+tr.prop-row {
+  height: 0;
+
   th,
   td {
-    border-bottom: 1px solid var(--e-color-border-2);
+    height: 0;
+    padding: 0;
   }
+
+  &.expanded:not(.last) {
+    th,
+    td {
+      border-bottom: 1px solid var(--e-color-border-2);
+    }
+  }
+
+  &.expanded .height-changer {
+    height: auto;
+    padding-block: 9px;
+    opacity: 1;
+  }
+}
+
+.height-changer {
+  height: 0;
+  overflow: hidden;
+  padding-inline: 16px;
+  opacity: 0;
+  transition: opacity 600ms ease;
 }
