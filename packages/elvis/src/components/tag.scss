@@ -45,8 +45,6 @@ $label-font-size: 11px;
   }
 }
 
-// DEPRECATED (e-label -> e-tag)
-.e-label,
 .e-tag {
   @include helpers.custom-light-theme-tokens {
     --e-tag-color-neutral: var(--e-light-theme-black);
@@ -74,7 +72,6 @@ $label-font-size: 11px;
   white-space: nowrap;
 
   @each $name, $variable in $tag-colors {
-    &.e-label--#{$name},
     &.e-tag--#{$name} {
       @include circle($variable);
     }

@@ -4,7 +4,6 @@ import {
   FormFieldInputContainer,
   FormFieldInputSuffixText,
   useInputModeDetection,
-  warnDeprecatedProps,
 } from '@elvia/elvis-toolbox';
 import { Tooltip } from './tooltip/tooltip';
 import { FormFieldInputValue, Side, SliderProps, BothSliders, ErrorType } from './elvia-slider.types';
@@ -20,7 +19,6 @@ import {
 } from './styledComponents';
 import { calculateThumbPosition } from './utils/calculateThumbPosition';
 import { getAriaLabel } from './utils/getAriaLabel';
-import { config } from './config';
 import {
   getAriaErrorMessage,
   getHasErrorPlaceholder,
@@ -60,7 +58,6 @@ const Slider: React.FC<SliderProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
   const [id] = useState(`ewc-slider-${elvisSliderUniqueId++}`);
 
   const [sliderValue, setSliderValue] = useState({ left: min, right: max });

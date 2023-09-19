@@ -15,42 +15,10 @@ export interface PaginationLabel {
   label?: string;
 }
 
-export interface DeprecatedPaginationProps {
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `alignment`.
-   */
-  isRightAligned?: boolean;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `dropdownMenuPosition`.
-   */
-  dropdownMenuPos?: string;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `dropdownSelectedItemIndex`.
-   */
-  selectedDropdownItemIndex?: number;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `dropdownSelectedItemIndexOnChange`.
-   */
-  selectedDropdownItemIndexOnChange?: (value: number) => void;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.displaying`.
-   */
-  labelDisplaying?: string;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.label`.
-   */
-  label?: string;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `labelOptions.of`.
-   */
-  labelOf?: string;
-}
-
 export interface PaginationProps
   extends ComponentPropsWithoutRef<'div'>,
     BaseProps,
-    HasValue<VisibleElements>,
-    DeprecatedPaginationProps {
+    HasValue<VisibleElements> {
   numberOfElements?: number;
   lastNumberLimit?: number;
   alignment?: 'left' | 'right';

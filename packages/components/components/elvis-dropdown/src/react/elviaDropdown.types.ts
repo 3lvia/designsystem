@@ -5,22 +5,10 @@ export { DropdownItem, DropdownValue, DropdownValueType } from './sharedTypes';
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 
 export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasError {
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `items`.
-   */
-  options?: never;
   items: DropdownItem[];
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `value`.
-   */
-  defaultValue?: never;
   isFullWidth?: boolean;
   isSearchable?: boolean;
   allOptionsSelectedLabel?: string;
-  /**
-   * @deprecated Removed in version 6.0.0. Replaced by `errorOptions.text`.
-   */
-  errorMessage?: string;
   label?: string;
   menuPosition?: DropdownMenuPosition;
   placeholder?: string;

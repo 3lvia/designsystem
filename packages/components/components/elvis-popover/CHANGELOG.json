@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "18.09.23",
+      "version": "7.2.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Deprecation warnings removed for old props deprecated more than 6 months ago.",
+            "Updated internal dependency."
+          ]
+        }
+      ]
+    },
+    {
       "date": "31.08.23",
       "version": "7.2.1",
       "changelog": [

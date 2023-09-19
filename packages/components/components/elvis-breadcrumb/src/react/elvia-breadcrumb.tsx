@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ComponentPropsWithoutRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BreadcrumbWrapper,
   BreadcrumbDesktopWrapper,
@@ -6,42 +6,10 @@ import {
   BreadcrumbListWrapper,
   BreadcrumbMobileWrapper,
 } from './styledComponents';
-import { warnDeprecatedProps, IconWrapper, BaseProps } from '@elvia/elvis-toolbox';
+import { IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
-import { config } from './config';
-
-interface BreadcrumbLink {
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use href instead.
-   */
-  url?: string;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use text instead
-   */
-  title?: string;
-  href?: string;
-  text: string;
-}
-
-interface DeprecatedBreadcrumbProps {
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use items instead.
-   */
-  breadcrumbs?: BreadcrumbLink[];
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use onLinkClick instead.
-   */
-  breadcrumbsOnChange?: (value: number) => void;
-}
-
-export interface BreadcrumbProps
-  extends ComponentPropsWithoutRef<'nav'>,
-    BaseProps,
-    DeprecatedBreadcrumbProps {
-  items: BreadcrumbLink[];
-  onLinkClick?: (value: number) => void;
-}
+import { BreadcrumbProps } from './elvia-breadcrumb.types';
 
 const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   items = [],
@@ -51,8 +19,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
-
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 

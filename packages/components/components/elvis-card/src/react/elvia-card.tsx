@@ -12,10 +12,9 @@ import {
   CardCornerIcon,
   CardColoredLineContainer,
 } from './styledComponents';
-import { warnDeprecatedProps, useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
+import { useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
-import { config } from './config';
 
 const Card: FC<CardProps> = function ({
   icon,
@@ -38,8 +37,6 @@ const Card: FC<CardProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
-
   const [isHoveringArea, setIsHoveringArea] = useState(false);
   const [isShowingHoverIcon, setIsShowingHoverIcon] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
