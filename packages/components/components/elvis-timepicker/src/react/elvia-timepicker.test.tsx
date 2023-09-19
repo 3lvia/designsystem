@@ -290,28 +290,26 @@ describe('Elvis Timepicker', () => {
     it('should show an error if a timestamp before the min time is typed into the input', async () => {
       const user = userEvent.setup();
 
-      await user.type(
-        screen.getByRole('textbox', {
-          name: /velg tid/i,
-        }),
-        '08:00',
-      );
+      const input = screen.getByRole('textbox', {
+        name: /velg tid/i,
+      });
+      await user.type(input, '08:00');
       await user.tab();
 
+      expect(input).toHaveAttribute('aria-invalid', 'true');
       expect(screen.queryByTestId('error')).toHaveTextContent('Tidligste tidspunkt er 09:00');
     });
 
     it('should show an error if a timestamp after the max time is typed into the input', async () => {
       const user = userEvent.setup();
 
-      await user.type(
-        screen.getByRole('textbox', {
-          name: /velg tid/i,
-        }),
-        '18:00',
-      );
+      const input = screen.getByRole('textbox', {
+        name: /velg tid/i,
+      });
+      await user.type(input, '18:00');
       await user.tab();
 
+      expect(input).toHaveAttribute('aria-invalid', 'true');
       expect(screen.queryByTestId('error')).toHaveTextContent('Seneste tidspunkt er 17:00');
     });
   });

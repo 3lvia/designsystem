@@ -151,8 +151,6 @@ export const TimepickerInput: React.FC<Props> = ({
       onErrorChange('invalidTime');
       return false;
     }
-
-    onErrorChange(undefined);
     return true;
   };
 
