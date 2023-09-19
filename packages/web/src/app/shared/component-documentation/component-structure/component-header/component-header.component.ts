@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { DocPageStatus } from '../../../shared.enum';
 import { Router } from '@angular/router';
 import { InstallLink } from 'src/app/shared/shared.interface';
 
@@ -18,7 +17,6 @@ export class ComponentHeaderComponent implements AfterViewInit {
   @Input() installLinks?: InstallLink;
   @Output() selectedChange = new EventEmitter();
 
-  DocPageStatus = DocPageStatus;
   currentRoute: string;
 
   constructor(private router: Router) {

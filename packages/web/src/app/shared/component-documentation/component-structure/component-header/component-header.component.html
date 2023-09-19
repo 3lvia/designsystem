@@ -17,7 +17,7 @@
           Last updated {{ lastUpdated | DocumentationDatePipe }}
         </div>
       </div>
-      <app-component-header-quick-install *ngIf="installLinks" [installLinks]="installLinks" />
+      <app-component-header-quick-install [installLinks]="installLinks" />
       <div class="component-header__description component-header-description-animation">
         <span class="e-text-lead" #contentWrapper>
           <ng-content select="headerDescription"></ng-content>

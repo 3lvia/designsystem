@@ -11,5 +11,5 @@ import { InstallLink } from 'src/app/shared/shared.interface';
   imports: [CommonModule, CopyModule],
 })
 export class ComponentHeaderQuickInstallComponent {
-  @Input() installLinks?: InstallLink;
+  @Input({ required: true }) installLinks?: InstallLink;
 }
