@@ -3,9 +3,14 @@
 :host {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 24px;
+  margin-top: 24px;
 
   @include breakpoints.breakpoint-up(Tablet) {
     display: none;
   }
+}
+
+.mono-text {
+  font-family: 'Red Hat Mono', monospace;
 }
