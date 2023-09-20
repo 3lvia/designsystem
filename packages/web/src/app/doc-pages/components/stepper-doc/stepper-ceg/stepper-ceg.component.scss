@@ -1,4 +1,4 @@
-@use '@elvia/elvis/src/variables/typography.scss' as typography;
+@use '@elvia/elvis/src/utilities/typography.scss' as typography;
 
 div {
   @include typography.typography('text-caps');
