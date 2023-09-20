@@ -34,7 +34,10 @@ export class PropertyTableBaseDirective implements OnChanges {
   }
 
   getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => this.propHasNoChildren(prop.item) && !prop.item.isEvent);
+    return props.filter(
+      (prop) =>
+        (this.propHasNoChildren(prop.item) && !prop.item.isEvent) || !this.propHasNoChildren(prop.item),
+    );
   }
 
   propHasNoChildren(prop: ComponentProp): prop is EventProp | InputProp {

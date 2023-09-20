@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
-import ComponentData from 'src/app/doc-pages/components/component-data.interface';
-import { ComponentProp } from './types';
+import ComponentData, { NestedProp } from 'src/app/doc-pages/components/component-data.interface';
+import { ComponentProp, NestedInputProp } from './types';
 import { SearchResult, Searcher } from '../../searcher';
 
 @Component({
@@ -37,22 +37,47 @@ export class ComponentPropertiesTableComponent implements OnInit {
     }
   }
 
+  private getPropArrayRecursive(
+    nestedComponentProp: NestedInputProp,
+    level: number,
+    componentProps: ComponentProp[],
+  ): ComponentProp[] {
+    Object.keys(nestedComponentProp.children).forEach((prop) => {
+      const propData = nestedComponentProp.children[prop];
+      const componentProp: ComponentProp = {
+        attribute: prop,
+        ...propData,
+        description: propData.description ?? '',
+        level: level,
+      };
+      componentProps.push(componentProp);
+      if ('children' in componentProp) {
+        componentProps = this.getPropArrayRecursive(componentProp, level + 1, componentProps);
+      }
+    });
+    return componentProps;
+  }
+
   private getPropArray(): ComponentProp[] {
-    const componentProps: ComponentProp[] = [];
+    let componentProps: ComponentProp[] = [];
     Object.keys(this.componentData.attributes).forEach((prop) => {
       const propData = this.componentData.attributes[prop];
       const componentProp: ComponentProp = {
         attribute: prop,
         ...propData,
         description: propData.description ?? '',
+        level: 0,
       };
       componentProps.push(componentProp);
+      if ('children' in componentProp) {
+        componentProps = this.getPropArrayRecursive(componentProp, 1, componentProps);
+      }
     });
 
     if (!this.ignoreDefaultProps) {
       componentProps.push(...this.getCommonProps());
     }
-
+    console.log(componentProps);
     return componentProps;
   }
 
@@ -62,12 +87,14 @@ export class ComponentPropertiesTableComponent implements OnInit {
         attribute: 'className',
         description: 'Custom CSS classes that can be added to the component.',
         type: 'string',
+        level: 0,
       },
       {
         attribute: 'inlineStyle',
         description:
           "Custom CSS style object that can be added to the component. Example: {marginTop: '8px'}",
         type: '{[cssProperty: string]: string}',
+        level: 0,
       },
     ];
   }
