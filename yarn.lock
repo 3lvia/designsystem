@@ -2504,7 +2504,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@workspace:*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
+"@elvia/elvis-dropdown@*, @elvia/elvis-dropdown@^9.0.0, @elvia/elvis-dropdown@workspace:*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
@@ -2529,33 +2529,6 @@ __metadata:
       optional: true
   languageName: unknown
   linkType: soft
-
-"@elvia/elvis-dropdown@npm:^8.0.1":
-  version: 8.0.2
-  resolution: "@elvia/elvis-dropdown@npm:8.0.2"
-  dependencies:
-    "@elvia/elvis-assets-icons": ^3.3.1
-    "@elvia/elvis-colors": ^4.0.0
-    "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^10.0.1
-    "@elvia/elvis-tooltip": ^1.3.0
-    "@elvia/elvis-typography": ^2.4.0
-    dompurify: ^3.0.3
-    styled-components: ^5.3.3
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-    react-is:
-      optional: true
-  checksum: 751980fecb2b3e6566a3f92b219b3b38a915f0676523f73f79386ced96992b8a962e01a320e1c55b2ef3372e17ade4850ff23fc3eca51eece98dc97f95fe423c
-  languageName: node
-  linkType: hard
 
 "@elvia/elvis-header@*, @elvia/elvis-header@workspace:*, @elvia/elvis-header@workspace:packages/components/components/elvis-header":
   version: 0.0.0-use.local
@@ -2655,7 +2628,7 @@ __metadata:
     "@elvia/elvis-assets-icons": ^3.3.1
     "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-dropdown": ^8.0.1
+    "@elvia/elvis-dropdown": ^9.0.0
     "@elvia/elvis-toolbox": ^11.0.0
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
