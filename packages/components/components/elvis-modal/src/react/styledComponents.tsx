@@ -196,7 +196,7 @@ export const ModalIllustration = styled.div.attrs(() => ({
 `;
 
 export const ModalHeading = styled.h2<HeadingProps>`
-  margin: 0;
+  margin: 0 24px 0 0;
   padding: 0;
   ${getTypographyCss('title-md')}
   font-size: ${({ hasIllustration }) =>
