@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { DocPageStatus } from '../../../shared.enum';
 import { Router } from '@angular/router';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
   selector: 'app-component-header',
@@ -14,9 +14,9 @@ export class ComponentHeaderComponent implements AfterViewInit {
   @Input() figmaUrl?: string;
   @Input() figmaOnly = false;
   @Input() lastUpdated?: string;
+  @Input() componentData?: ComponentData;
   @Output() selectedChange = new EventEmitter();
 
-  DocPageStatus = DocPageStatus;
   currentRoute: string;
 
   constructor(private router: Router) {
