@@ -7,7 +7,9 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fixed issue where time is overridden if an initial value is provided."]
+          "changes": [
+            "Fixed issue where time is overridden if an initial value is provided and datepicker is touched."
+          ]
         }
       ]
     },
