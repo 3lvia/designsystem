@@ -125,7 +125,6 @@
   &.e-form-field--small {
     .e-search--instant {
       @include typography.typography('text-sm');
-      margin-top: -8px;
 
       .e-input {
         input,
@@ -133,15 +132,14 @@
         input:disabled,
         &.e-input---disabled input,
         &.e-input---loading input {
-          max-height: 34px;
-          padding: 6px 32px;
+          padding: 4px 32px;
         }
 
         &.e-input---invalid input,
         &.e-input---focus input,
         &.e-input---loading input,
         input:focus {
-          padding: 5px 31px;
+          padding: 3px 31px;
         }
       }
 
@@ -157,13 +155,12 @@
       }
 
       .e-btn {
-        top: 1px;
+        top: 0;
         right: 4px;
       }
     }
 
     .e-search--on-submit {
-      margin-top: -8px;
       font-size: 14px;
 
       .e-input {
@@ -172,15 +169,15 @@
         input:disabled,
         &.e-input---disabled input,
         &.e-input---loading input {
-          max-height: 34px;
-          padding: 6px 32px 6px 10px;
+          max-height: 32px;
+          padding: 4px 32px 4px 10px;
         }
 
         &.e-input---invalid input,
         &.e-input---focus input,
         &.e-input---loading input,
         input:focus {
-          padding: 5px 31px 5px 9px;
+          padding: 3px 31px 3px 9px;
         }
       }
 
