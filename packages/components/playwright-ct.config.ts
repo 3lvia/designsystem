@@ -35,7 +35,7 @@ export default defineConfig({
   snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{testName}{-projectName}{ext}',
   expect: {
     toHaveScreenshot: {
-      maxDiffPixelRatio: 0.02,
+      maxDiffPixelRatio: process.env.CI ? 0.02 : 0,
     },
   },
 
@@ -55,3 +55,7 @@ export default defineConfig({
     },
   ],
 });
+
+export type ToHaveScreenshotConfig = NonNullable<
+  Parameters<typeof defineConfig>[0]['expect']
+>['toHaveScreenshot'];
