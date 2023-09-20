@@ -2,7 +2,8 @@ import Chip from './elvia-chip';
 import React from 'react';
 import { axe } from 'jest-axe';
 import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 const colors = {
   green: getBaseColor('green-apple', 'light'),
@@ -96,6 +97,53 @@ describe('Elvis Chip', () => {
       const chipButton = screen.getByTestId('chip-button');
       expect(chipButton).toHaveStyle('margin: 24px');
       expect(chipButton).toHaveClass('test-class');
+    });
+  });
+
+  describe('Events', () => {
+    let onDeleteEvent: jest.Mock;
+    let isSelectedOnChangeEvent: jest.Mock;
+
+    beforeEach(() => {
+      onDeleteEvent = jest.fn();
+      isSelectedOnChangeEvent = jest.fn();
+
+      render(
+        <>
+          <Chip type={'removable'} value={'removable'} onDelete={onDeleteEvent} />
+          <Chip
+            type={'choice'}
+            value={'choice'}
+            isSelected={false}
+            isSelectedOnChange={isSelectedOnChangeEvent}
+          />
+          <Chip
+            type={'choice'}
+            value={'choice2'}
+            isSelected={true}
+            isSelectedOnChange={isSelectedOnChangeEvent}
+          />
+        </>,
+      );
+    });
+
+    it('should not emit events when idle', async () => {
+      await waitFor(() => expect(onDeleteEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(isSelectedOnChangeEvent).not.toHaveBeenCalled());
+    });
+
+    it('onDeleteEvent: should be called when clicking on delete icon', async () => {
+      const user = userEvent.setup();
+      const chipToRemove = screen.getByRole('button', { name: /removable/i });
+      await user.click(chipToRemove);
+      await waitFor(() => expect(onDeleteEvent).toHaveBeenCalled());
+    });
+
+    it('isSelectedOnChangeEvent: should be called when clicking on chip', async () => {
+      const user = userEvent.setup();
+      const chipToSelect = screen.getAllByRole('checkbox', { name: /choice/i });
+      await user.click(chipToSelect[0]);
+      await waitFor(() => expect(isSelectedOnChangeEvent).toHaveBeenCalled());
     });
   });
 
