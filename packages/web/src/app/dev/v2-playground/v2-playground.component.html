@@ -4,7 +4,75 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-p-16 e-mb-24"></div>
+    <div class="e-p-16 e-mb-24">
+      <!-- en -->
+      <div class="e-flex e-gap-8 e-align-items-start">
+        <div class="e-form-field e-form-field--small">
+          <label class="e-form-field__label" for="normal">Label</label>
+          <div class="e-input">
+            <input id="normal" placeholder="Placeholder text" />
+          </div>
+          <span class="e-form-field__error e-form-field__error--visible">
+            <span>
+              <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
+            </span>
+            <span>Feilmelding</span>
+          </span>
+        </div>
+        <elvia-autocomplete
+          [placeholder]="'Ditt postnummer...'"
+          [size]="'small'"
+          [label]="'Postnummer og sted'"
+          [errorOptions]="{ text: 'Feilmelding' }"
+          [items]="[{ value: '0001 Oslo', label: '0001 Oslo' }]"
+        ></elvia-autocomplete>
+      </div>
+      <!-- to -->
+      <br />
+      <div class="e-flex e-gap-8 e-align-items-start">
+        <div class="e-form-field e-form-field--small">
+          <label class="e-form-field__label" for="normal">Label</label>
+          <div class="e-input">
+            <input id="normal" placeholder="Placeholder text" disabled />
+          </div>
+          <span class="e-form-field__error">
+            <span>
+              <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
+            </span>
+            <span>Feilmelding</span>
+          </span>
+        </div>
+        <elvia-autocomplete
+          [placeholder]="'Ditt postnummer...'"
+          [size]="'small'"
+          [label]="'Postnummer og sted'"
+          [items]="[{ value: '0001 Oslo', label: '0001 Oslo' }]"
+        ></elvia-autocomplete>
+      </div>
+
+      <!-- tre -->
+      <br />
+      <div class="e-flex e-gap-8 e-align-items-start">
+        <div class="e-form-field e-form-field">
+          <label class="e-form-field__label" for="normal">Label</label>
+          <div class="e-input">
+            <input id="normal" placeholder="Placeholder text" />
+          </div>
+          <span class="e-form-field__error e-form-field__error--visible">
+            <span>
+              <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs" aria-hidden="true"></i>
+            </span>
+            <span>Feilmelding</span>
+          </span>
+        </div>
+        <elvia-autocomplete
+          [errorOptions]="{ text: 'Feilmelding' }"
+          [items]="[{ value: '0001 Oslo', label: '0001 Oslo' }]"
+          [label]="'Postnummer og sted'"
+          [placeholder]="'Ditt postnummer...'"
+        ></elvia-autocomplete>
+      </div>
+    </div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark e-p-16"></div>
 
@@ -326,8 +394,7 @@
         </div>
         Value deleted: {{ deleteValue }}
 
-        <div class="e-bg-white">
-          >>>>>>> origin
+        <div class="e-theme-light">
           <h3>Clickable chips</h3>
           <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
           <div style="display: flex; flex-direction: row">
