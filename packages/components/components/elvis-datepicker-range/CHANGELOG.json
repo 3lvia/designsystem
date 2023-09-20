@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.09.23",
+      "version": "4.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed issue where time is overridden if an initial value is provided and datepicker is touched."
+          ]
+        }
+      ]
+    },
+    {
       "date": "18.09.23",
       "version": "4.0.1",
       "changelog": [
