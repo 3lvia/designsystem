@@ -72,7 +72,7 @@
   <ng-container *ngIf="searchStatus === 'ready'">
     <div
       class="no-results e-text-lg e-text-center"
-      *ngIf="searchString.length !== 0 && this.resultsToDisplay.length === 0"
+      *ngIf="searchString.length !== 0 && this.filteredResults.length === 0"
     >
       <p class="e-m-0">
         Oh snap 😕
@@ -82,19 +82,26 @@
     </div>
 
     <div class="results">
-      <ng-container *ngFor="let result of resultsToDisplay; let last = last">
+      <ng-container *ngFor="let result of filteredResults; let last = last">
         <article>
           <a
             class="result-item"
-            [routerLink]="[result.absolutePath]"
-            [fragment]="result.fragmentPath"
+            [routerLink]="[result.item.absolutePath]"
+            [fragment]="result.item.fragmentPath"
             (click)="closeSearch()"
           >
             <div class="result-heading">
-              <p class="e-m-0 e-title-xs" [id]="'search_' + result.title">{{ result.title }}</p>
-              <div class="e-tag" *ngIf="result.type">{{ result.type }}</div>
+              <p
+                class="e-m-0 e-title-xs"
+                [innerHTML]="result.item.title | searchHighlighter : 'title' : result.matches"
+              ></p>
+              <div class="e-tag" *ngIf="result.item.type">{{ result.item.type }}</div>
             </div>
-            <p class="e-text-md e-m-0" *ngIf="result.description" [id]="encodeHTML(result.description)"></p>
+            <p
+              class="e-text-md e-m-0"
+              *ngIf="result.item.description"
+              [innerHTML]="result.item.description | searchHighlighter : 'description' : result.matches"
+            ></p>
           </a>
         </article>
         <elvia-divider *ngIf="!last" />
