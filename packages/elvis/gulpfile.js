@@ -53,13 +53,7 @@ gulp.task(
 // Run gulp watch
 gulp.task('watch', function () {
   gulp.watch(
-    [
-      './src/**/*.scss',
-      '!./src/utilities/typography.scss',
-      './src/templates/**.*',
-      './src/config/**.*',
-      '!./src/config/icons.config.js',
-    ],
+    ['./src/**/*.scss', './src/templates/**.*', './src/config/**.*', '!./src/config/icons.config.js'],
     gulp.series('default'),
   );
 });
