@@ -1,6 +1,26 @@
 {
   "content": [
     {
+      "version": "15.0.0",
+      "date": "September 20, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Changed label size and error text size to be more consistent across the design system."
+          ],
+          "components": [
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
+          ],
+          "fixes": [
+            "The total hight og the input elements has been adjusted. Adjust your design to accommodate for the new input height."
+          ]
+        }
+      ]
+    },
+    {
       "version": "14.0.0",
       "date": "September 18, 2023",
       "changelog": [
