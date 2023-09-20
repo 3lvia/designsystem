@@ -54,7 +54,7 @@ describe('Elvis Dropdown', () => {
 
       it('should not be compact', () => {
         const dropdownLabel = screen.getByText('Label');
-        expect(dropdownLabel).toHaveStyle(`font-size: 16px; line-height: 23px`);
+        expect(dropdownLabel).toHaveStyle(`font-size: 16px; line-height: 22px`);
       });
 
       it('should not have error message', () => {
