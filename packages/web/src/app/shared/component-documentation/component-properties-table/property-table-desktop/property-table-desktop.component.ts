@@ -6,4 +6,8 @@ import { PropertyTableBaseDirective } from '../table-base';
   templateUrl: './property-table-desktop.component.html',
   styleUrls: ['./property-table-desktop.component.scss'],
 })
-export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {}
+export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
+  calculateMargin(level: number) {
+    return 16 + 16 * level;
+  }
+}

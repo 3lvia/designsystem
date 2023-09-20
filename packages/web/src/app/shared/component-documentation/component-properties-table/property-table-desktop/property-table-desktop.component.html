@@ -52,7 +52,13 @@
         [ngClass]="{ last: isLast, expanded: group.expanded }"
       >
         <th scope="row" class="table-code-text">
-          <div class="height-changer">
+          <div
+            class="height-changer"
+            [ngClass]="{ 'remove-padding': prop.item.level > 0 }"
+            [ngStyle]="{
+              'margin-left': prop.item.level > 0 ? calculateMargin(prop.item.level) + 'px' : 'initial',
+            }"
+          >
             <strong
               [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"
             ></strong>

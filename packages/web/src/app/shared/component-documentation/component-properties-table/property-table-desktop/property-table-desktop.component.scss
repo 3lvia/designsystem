@@ -22,6 +22,7 @@ td.table-code-text {
 
 .e-table th,
 .e-table td {
+  border-right: 0 !important;
   vertical-align: top;
 }
 
@@ -32,17 +33,15 @@ tr.prop-row {
   td {
     height: 0;
     padding: 0;
-  }
 
-  &.expanded:not(.last) {
-    th,
-    td {
-      border-bottom: 1px solid var(--e-color-border-2);
+    .remove-padding {
+      padding-left: 0;
     }
   }
 
   &.expanded .height-changer {
-    height: auto;
+    border-bottom: 1px solid var(--e-color-border-2);
+    height: 100%;
     padding-block: 9px;
     opacity: 1;
   }
