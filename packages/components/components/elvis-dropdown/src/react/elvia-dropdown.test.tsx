@@ -322,7 +322,71 @@ describe('Elvis Dropdown', () => {
     });
   });
 
-  //To pass tests: move some aria-roles, update aria-selected, add aria-label prop
+  describe('events', () => {
+    let valueOnChangeEvent: jest.Mock;
+    let onItemHoverEvent: jest.Mock;
+    let onLoadMoreItemsEvent: jest.Mock;
+
+    beforeEach(() => {
+      valueOnChangeEvent = jest.fn();
+      onItemHoverEvent = jest.fn();
+      onLoadMoreItemsEvent = jest.fn();
+
+      render(
+        <Dropdown
+          hasLoadMoreItemsButton={true}
+          items={items}
+          onItemHover={onItemHoverEvent}
+          onLoadMoreItems={onLoadMoreItemsEvent}
+          valueOnChange={valueOnChangeEvent}
+        />,
+      );
+    });
+
+    it('should not emit any events when idle', async () => {
+      await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(onItemHoverEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(onLoadMoreItemsEvent).not.toHaveBeenCalled());
+    });
+
+    it('valueOnChange: should emit when an item is clicked', async () => {
+      const user = userEvent.setup();
+      const dropdown = screen.getByRole('combobox');
+      await user.click(dropdown);
+
+      const dropdownItems = screen.getAllByRole('option');
+      await user.click(dropdownItems[0]);
+
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('onItemHover: should emit when an item is hovered', async () => {
+      const user = userEvent.setup();
+      const dropdown = screen.getByRole('combobox');
+      await user.click(dropdown);
+
+      const dropdownItems = screen.getAllByRole('option');
+      await user.hover(dropdownItems[0]);
+
+      await waitFor(() => expect(onItemHoverEvent).toHaveBeenCalled());
+    });
+
+    it('onLoadMoreItems: should emit when the load more button is clicked', async () => {
+      const user = userEvent.setup();
+      const dropdown = screen.getByRole('combobox');
+      await user.click(dropdown);
+
+      //This button in inside a <div> element. The user clicks the div, not the "real" button.
+      const loadMoreButton = screen.getByRole('button', { name: /last inn flere/i }).parentElement;
+
+      if (loadMoreButton) {
+        await user.click(loadMoreButton);
+      }
+
+      await waitFor(() => expect(onLoadMoreItemsEvent).toHaveBeenCalled());
+    });
+  });
+
   describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(
