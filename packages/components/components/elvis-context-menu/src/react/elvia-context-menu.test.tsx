@@ -8,7 +8,7 @@ describe('Elvis Context Menu', () => {
   beforeEach(() => {
     render(
       <ContextMenu
-        trigger={<button data-testid="trigger">Trigger</button>}
+        trigger={<button>Trigger</button>}
         content={
           <div>
             <div className="ewc-popover__list-group">
@@ -31,14 +31,15 @@ describe('Elvis Context Menu', () => {
   });
 
   it('should render a trigger', () => {
-    const element = screen.queryByTestId('trigger');
-    expect(element).toBeInTheDocument();
+    const trigger = screen.queryByRole('button', { name: /trigger/i });
+    expect(trigger).toBeInTheDocument();
   });
 
   describe('when the trigger is clicked', () => {
     beforeEach(async () => {
       const user = userEvent.setup();
-      await user.click(screen.getByTestId('trigger'));
+      const trigger = screen.getByRole('button', { name: /trigger/i });
+      await user.click(trigger);
     });
 
     it('a context menu is visible', () => {
@@ -86,7 +87,8 @@ describe('Elvis Context Menu', () => {
 
     it('clicking the trigger again will close the list', async () => {
       const user = userEvent.setup();
-      await user.click(screen.getByTestId('trigger'));
+      const trigger = screen.getByRole('button', { name: /trigger/i });
+      await user.click(trigger);
 
       const menuItem = screen.queryByText('Be om tilgang');
       await waitFor(() => expect(menuItem).not.toBeInTheDocument());
