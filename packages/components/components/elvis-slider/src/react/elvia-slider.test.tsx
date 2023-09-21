@@ -3,7 +3,7 @@ import React from 'react';
 import Slider from './elvia-slider';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent, act, waitFor } from '@testing-library/react';
 
 // Simple Slider
 describe('Elvia Slider', () => {
@@ -351,6 +351,43 @@ describe('Elvia Slider', () => {
       expect(rightSlider).toBeDisabled();
       expect(leftInput).toBeDisabled();
       expect(rightInput).toBeDisabled();
+    });
+  });
+
+  describe('Events', () => {
+    let valueOnChangeEvent: jest.Mock;
+    let errorOnChangeEvent: jest.Mock;
+
+    beforeEach(() => {
+      valueOnChangeEvent = jest.fn();
+      errorOnChangeEvent = jest.fn();
+
+      render(<Slider valueOnChange={valueOnChangeEvent} errorOnChange={errorOnChangeEvent} />);
+    });
+
+    it('should not emit any events on init', async () => {
+      await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(errorOnChangeEvent).not.toHaveBeenCalled());
+    });
+
+    it('valueOnChange: should emit when the values changes', async () => {
+      const inputField = screen.getByRole('textbox');
+
+      await userEvent.click(inputField);
+      await userEvent.keyboard('{Backspace}');
+      await userEvent.type(inputField, '20');
+      await userEvent.tab();
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+    });
+
+    it('errorOnChange: should emit when the error changes', async () => {
+      const inputField = screen.getByRole('textbox');
+
+      await userEvent.click(inputField);
+      await userEvent.keyboard('{Backspace}');
+      await userEvent.type(inputField, 'abc'); //invalid input -> only numbers allowed
+      await userEvent.tab();
+      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalled());
     });
   });
 
