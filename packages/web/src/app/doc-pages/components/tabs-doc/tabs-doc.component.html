@@ -5,86 +5,74 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Label'">
-        <ng-container ngProjectAs="sectionContent">
-          Tabs with more than 6 options should be avoided and never fewer than 2 tabs. Keep the option label
-          short, descriptive and unique and not longer than two words.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Responsive'">
-        <ng-container ngProjectAs="sectionContent">
-          Tabs in mobile will stay the same but work like a carousel (tabs with horizontal scroll).
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-component-subsection [sectionTitle]="'Label'">
+      Tabs with more than 6 options should be avoided and never fewer than 2 tabs. Keep the option label
+      short, descriptive and unique and not longer than two words.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Responsive'">
+      Tabs in mobile will stay the same but work like a carousel (tabs with horizontal scroll).
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <span class="keyboard-button">Space</span>
-              or
-              <span class="keyboard-button">Enter</span>
-              to select the tab if you have
-              <span class="code-text">hasManualActivation</span>
-              set to true.
-            </div>
-            <div>
-              <span class="keyboard-button icon">
-                <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px">
-                <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              to navigate through the tabs. Will also select the tab if
-              <span class="code-text">hasManualActivation</span>
-              is set to false, which is the default behavior.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'ARIA'">
-        <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Role:</strong>
-              Add
-              <span class="code-text">role="tabpanel"</span>
-              to the corresponding content
-              <span class="code-text">closeAriaLabel</span>
-              to specify for assistive tools what the accordion is showing and hiding.
-            </li>
-            <li>
-              <strong>Aria labelledby:</strong>
-              Add
-              <span class="code-text">aria-labelledby='ewc-tabs-0'</span>
-              to the corresponding contents, with the id of that tab. The id of the tab is named like this:
-              <span class="code-text">'ewc-tabs-' + index</span>
-              . NB! If you have multiple set of tabs you should use the
-              <code>tabIdPrefix</code>
-              and the id will then be
-              <code>'ewc-tabs-prefix-index'</code>
-              e.g:
-              <code>'ewc-tabs-fruits-3'</code>
-              .
-            </li>
-            <li>
-              <strong>Aria controls:</strong>
-              The aria panels should also have unique id, which should correspond to the tabs aria-controls.
-              The aria-controls are named in the same way that the ids for the tabs are named, so it should be
-              easy to add the ids to panels e.g.
-              <code>id='ewc-tabs-fruits-3'</code>
-              .
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <span class="keyboard-button">Space</span>
+          or
+          <span class="keyboard-button">Enter</span>
+          to select the tab if you have
+          <span class="code-text">hasManualActivation</span>
+          set to true.
+        </div>
+        <div>
+          <span class="keyboard-button icon">
+            <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          <span class="keyboard-button icon" style="margin-left: 0px">
+            <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          to navigate through the tabs. Will also select the tab if
+          <span class="code-text">hasManualActivation</span>
+          is set to false, which is the default behavior.
+        </div>
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'ARIA'">
+      <ul class="e-list">
+        <li>
+          <strong>Role:</strong>
+          Add
+          <span class="code-text">role="tabpanel"</span>
+          to the corresponding content
+          <span class="code-text">closeAriaLabel</span>
+          to specify for assistive tools what the accordion is showing and hiding.
+        </li>
+        <li>
+          <strong>Aria labelledby:</strong>
+          Add
+          <span class="code-text">aria-labelledby='ewc-tabs-0'</span>
+          to the corresponding contents, with the id of that tab. The id of the tab is named like this:
+          <span class="code-text">'ewc-tabs-' + index</span>
+          . NB! If you have multiple set of tabs you should use the
+          <code>tabIdPrefix</code>
+          and the id will then be
+          <code>'ewc-tabs-prefix-index'</code>
+          e.g:
+          <code>'ewc-tabs-fruits-3'</code>
+          .
+        </li>
+        <li>
+          <strong>Aria controls:</strong>
+          The aria panels should also have unique id, which should correspond to the tabs aria-controls. The
+          aria-controls are named in the same way that the ids for the tabs are named, so it should be easy to
+          add the ids to panels e.g.
+          <code>id='ewc-tabs-fruits-3'</code>
+          .
+        </li>
+      </ul>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

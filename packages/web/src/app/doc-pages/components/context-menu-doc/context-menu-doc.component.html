@@ -5,157 +5,123 @@
 
   <!--STRUCTURE-->
   <app-component-section structure [sectionTitle]="'Structure'">
-    <ng-container ngProjectAs="sectionContent">
-      <img
-        alt="Context menu structure"
-        src="/assets/popover/Popover list example.svg"
-        class="usage-image-desktop e-w-100 e-mt-40 theme-image-background"
-      />
-      <div class="usage-image-mobile e-w-100">
-        <app-component-subsubsection [sectionTitle]="'Trigger'">
-          <ng-container ngProjectAs="sectionContent">
-            The trigger is often a 'more menu' icon button.
-          </ng-container>
-        </app-component-subsubsection>
-        <app-component-subsubsection [sectionTitle]="'Hover'">
-          <ng-container ngProjectAs="sectionContent">
-            You get a light grey color as a background when you hover.
-          </ng-container>
-        </app-component-subsubsection>
-        <app-component-subsubsection [sectionTitle]="'Content'">
-          <ng-container ngProjectAs="sectionContent">
-            Structures as a list of buttons where the entire area is clickable.
-          </ng-container>
-        </app-component-subsubsection>
-      </div>
-    </ng-container>
+    <img
+      alt="Context menu structure"
+      src="/assets/popover/Popover list example.svg"
+      class="usage-image-desktop e-w-100 e-mt-40 theme-image-background"
+    />
+    <div class="usage-image-mobile e-w-100">
+      <app-component-subsubsection [sectionTitle]="'Trigger'">
+        The trigger is often a 'more menu' icon button.
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Hover'">
+        You get a light grey color as a background when you hover.
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Content'">
+        Structures as a list of buttons where the entire area is clickable.
+      </app-component-subsubsection>
+    </div>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
 
-      <app-component-subsection [sectionTitle]="'Responsive'">
-        <ng-container ngProjectAs="sectionContent">
-          The context menu includes responsive functionality and is suited for all devices. However you should
-          keep in mind that it can be overwhelming on mobile if the context menu has a lot of content.
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Responsive'">
+      The context menu includes responsive functionality and is suited for all devices. However you should
+      keep in mind that it can be overwhelming on mobile if the context menu has a lot of content.
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Position'">
-        <ng-container ngProjectAs="sectionContent">
-          The context menu can be positioned above and below the clickable trigger and aligned in the center,
-          left or right.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Position'">
+      The context menu can be positioned above and below the clickable trigger and aligned in the center, left
+      or right.
+    </app-component-subsection>
   </app-component-section>
 
   <!--OPTIONS-->
   <app-component-section options [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsubsection [sectionTitle]="'Icons'">
-        <ng-container ngProjectAs="sectionContent">
-          Use icons to help users easily recognize known actions.
-          <app-static-ceg>
-            <app-context-menu-icons-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Headings'">
-        <ng-container ngProjectAs="sectionContent">
-          Different actions can be separated by headings and provide more context to the actions.
-          <app-static-ceg>
-            <app-context-menu-headings-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Selectable'">
-        <ng-container ngProjectAs="sectionContent">
-          Always one alternative selected, works likes a radio button.
-          <app-static-ceg>
-            <app-context-menu-selectable-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Disabled '">
-        <ng-container ngProjectAs="sectionContent">
-          Buttons and links inside the context menu may be disabled. If you use icons, make sure to set their
-          color to
-          <code>disabled</code>
-          yourself.
-          <app-static-ceg>
-            <app-context-menu-disabled-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsubsection>
-    </ng-container>
+    <app-component-subsubsection [sectionTitle]="'Icons'">
+      Use icons to help users easily recognize known actions.
+      <app-static-ceg>
+        <app-context-menu-icons-ceg />
+      </app-static-ceg>
+    </app-component-subsubsection>
+    <app-component-subsubsection [sectionTitle]="'Headings'">
+      Different actions can be separated by headings and provide more context to the actions.
+      <app-static-ceg>
+        <app-context-menu-headings-ceg />
+      </app-static-ceg>
+    </app-component-subsubsection>
+    <app-component-subsubsection [sectionTitle]="'Selectable'">
+      Always one alternative selected, works likes a radio button.
+      <app-static-ceg>
+        <app-context-menu-selectable-ceg />
+      </app-static-ceg>
+    </app-component-subsubsection>
+    <app-component-subsubsection [sectionTitle]="'Disabled '">
+      Buttons and links inside the context menu may be disabled. If you use icons, make sure to set their
+      color to
+      <code>disabled</code>
+      yourself.
+      <app-static-ceg>
+        <app-context-menu-disabled-ceg />
+      </app-static-ceg>
+    </app-component-subsubsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <kbd>Space</kbd>
-              or
-              <kbd>Enter</kbd>
-              to open or close the popover.
-            </div>
-            <div>
-              <kbd>ArrowUp/ArrowLeft</kbd>
-              or
-              <kbd>ArrowDown/ArrowRight</kbd>
-              to cycle between the options.
-            </div>
-            <div>
-              <kbd>Esc</kbd>
-              to close the popover when open.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Screen reader support'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>
-            To make the context menu accessible for screen readers, remember to add the following attributes
-            to your DOM elements:
-            <ul class="e-list">
-              <li>
-                <code>aria-haspopup="menu"</code>
-                should be added to the trigger element.
-              </li>
-              <li>
-                <code>role="menuitem"</code>
-                should be added to each menu item, if it's a regular context menu.
-              </li>
-              <li>
-                <code>role="menuitemradio"</code>
-                should be added to each menu item, if it's a selectable context menu.
-              </li>
-            </ul>
-            <code>role="menu"</code>
-            is added to the overlay by default. If you are unsure of how to apply the attributes, see the
-            example code at the top of the page.
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <kbd>Space</kbd>
+          or
+          <kbd>Enter</kbd>
+          to open or close the popover.
+        </div>
+        <div>
+          <kbd>ArrowUp/ArrowLeft</kbd>
+          or
+          <kbd>ArrowDown/ArrowRight</kbd>
+          to cycle between the options.
+        </div>
+        <div>
+          <kbd>Esc</kbd>
+          to close the popover when open.
+        </div>
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Screen reader support'">
+      <div>
+        To make the context menu accessible for screen readers, remember to add the following attributes to
+        your DOM elements:
+        <ul class="e-list">
+          <li>
+            <code>aria-haspopup="menu"</code>
+            should be added to the trigger element.
+          </li>
+          <li>
+            <code>role="menuitem"</code>
+            should be added to each menu item, if it's a regular context menu.
+          </li>
+          <li>
+            <code>role="menuitemradio"</code>
+            should be added to each menu item, if it's a selectable context menu.
+          </li>
+        </ul>
+        <code>role="menu"</code>
+        is added to the overlay by default. If you are unsure of how to apply the attributes, see the example
+        code at the top of the page.
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Trigger'">
-        <ng-container ngProjectAs="sectionContent">
-          When the trigger is selected remember to add the
-          <code>e-btn---selected</code>
-          class for the trigger.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Trigger'">
+      When the trigger is selected remember to add the
+      <code>e-btn---selected</code>
+      class for the trigger.
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

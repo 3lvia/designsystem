@@ -5,162 +5,139 @@
 
   <!-- TYPE -->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Removable'">
-        <ng-container ngProjectAs="sectionContent">
-          Removable chip is used to show what filter the user have selected and can easily be removed by
-          clicking on them.
-          <div style="display: flex; flex-direction: ChCrow" class="e-ml-n8">
-            <div *ngFor="let chip of deletableChipsListInType" class="e-m-8">
-              <elvia-chip
-                [value]="chip.value"
-                [color]="chip.color"
-                [isDisabled]="chip.isDisabled"
-                (onDelete)="handleOnDeleteInType($any($event).target.value)"
-              ></elvia-chip>
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Removable'">
+      Removable chip is used to show what filter the user have selected and can easily be removed by clicking
+      on them.
+      <div style="display: flex; flex-direction: ChCrow" class="e-ml-n8">
+        <div *ngFor="let chip of deletableChipsListInType" class="e-m-8">
+          <elvia-chip
+            [value]="chip.value"
+            [color]="chip.color"
+            [isDisabled]="chip.isDisabled"
+            (onDelete)="handleOnDeleteInType($any($event).target.value)"
+          ></elvia-chip>
+        </div>
+      </div>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Legend'">
-        <ng-container ngProjectAs="sectionContent">
-          Legend chips are a combination of a chip and a legend with multiple choice. It visualizes the color
-          of the data you are toggling on/off in a graph or map.
-          <div style="display: flex; flex-direction: row" class="e-ml-n8">
-            <div class="e-m-8">
-              <elvia-chip
-                [value]="2018"
-                type="legend"
-                isSelected="true"
-                (isSelectedOnChange)="handleOnChange($any($event))"
-              ></elvia-chip>
-            </div>
-            <div class="e-m-8">
-              <elvia-chip
-                [value]="2019"
-                type="legend"
-                color="purple"
-                isSelected="true"
-                (isSelectedOnChange)="handleOnChange($any($event))"
-              ></elvia-chip>
-            </div>
-            <div class="e-m-8">
-              <elvia-chip
-                [value]="2020"
-                type="legend"
-                color="red"
-                (isSelectedOnChange)="handleOnChange($any($event))"
-              ></elvia-chip>
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Legend'">
+      Legend chips are a combination of a chip and a legend with multiple choice. It visualizes the color of
+      the data you are toggling on/off in a graph or map.
+      <div style="display: flex; flex-direction: row" class="e-ml-n8">
+        <div class="e-m-8">
+          <elvia-chip
+            [value]="2018"
+            type="legend"
+            isSelected="true"
+            (isSelectedOnChange)="handleOnChange($any($event))"
+          ></elvia-chip>
+        </div>
+        <div class="e-m-8">
+          <elvia-chip
+            [value]="2019"
+            type="legend"
+            color="purple"
+            isSelected="true"
+            (isSelectedOnChange)="handleOnChange($any($event))"
+          ></elvia-chip>
+        </div>
+        <div class="e-m-8">
+          <elvia-chip
+            [value]="2020"
+            type="legend"
+            color="red"
+            (isSelectedOnChange)="handleOnChange($any($event))"
+          ></elvia-chip>
+        </div>
+      </div>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Choice'">
-        <ng-container ngProjectAs="sectionContent">
-          Choice chips are always showing all options the user can select from and can be toggled on/off
-          (multiple choice).
-          <div style="display: flex; flex-direction: row" class="e-ml-n8">
-            <div class="e-m-8">
-              <elvia-chip
-                [value]="'Løpsk måler'"
-                type="choice"
-                iconType="checkmark"
-                isSelected="true"
-                (isSelectedOnChange)="handleOnChange($any($event))"
-              ></elvia-chip>
-            </div>
-            <div class="e-m-8">
-              <elvia-chip
-                [value]="'Koblingsfeil'"
-                type="choice"
-                isSelected="false"
-                (isSelectedOnChange)="handleOnChange($any($event))"
-              ></elvia-chip>
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Choice'">
+      Choice chips are always showing all options the user can select from and can be toggled on/off (multiple
+      choice).
+      <div style="display: flex; flex-direction: row" class="e-ml-n8">
+        <div class="e-m-8">
+          <elvia-chip
+            [value]="'Løpsk måler'"
+            type="choice"
+            iconType="checkmark"
+            isSelected="true"
+            (isSelectedOnChange)="handleOnChange($any($event))"
+          ></elvia-chip>
+        </div>
+        <div class="e-m-8">
+          <elvia-chip
+            [value]="'Koblingsfeil'"
+            type="choice"
+            isSelected="false"
+            (isSelectedOnChange)="handleOnChange($any($event))"
+          ></elvia-chip>
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!-- COLOR -->
   <app-component-section color [sectionTitle]="'Color'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Default color'">
-        <ng-container ngProjectAs="sectionContent">
-          The default color is green. It is the main color to use when there is only one category.
-          <div style="display: flex; flex-direction: row; flex-wrap: wrap" class="e-ml-n8">
-            <div *ngFor="let chip of deletableChipsListInType" class="e-m-8">
-              <elvia-chip
-                [value]="chip.value"
-                [color]="chip.color"
-                (onDelete)="handleOnDeleteInType($any($event).detail.value)"
-              ></elvia-chip>
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Default color'">
+      The default color is green. It is the main color to use when there is only one category.
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap" class="e-ml-n8">
+        <div *ngFor="let chip of deletableChipsListInType" class="e-m-8">
+          <elvia-chip
+            [value]="chip.value"
+            [color]="chip.color"
+            (onDelete)="handleOnDeleteInType($any($event).detail.value)"
+          ></elvia-chip>
+        </div>
+      </div>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Color variants'">
-        <ng-container ngProjectAs="sectionContent">
-          To categorize chips, different colors can be used to distinguish them from each other. All chips in
-          the same color should be placed together. See the properties table at the bottom for all available
-          colors.
-          <div style="display: flex; flex-direction: row; flex-wrap: wrap" class="e-ml-n8">
-            <div *ngFor="let chip of colorChips" class="e-m-8">
-              <elvia-chip
-                [value]="chip.value"
-                [color]="chip.color"
-                [isDisabled]="chip.disabled"
-                (onDelete)="handleOnDeleteColor($any($event).detail.value)"
-              ></elvia-chip>
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Color variants'">
+      To categorize chips, different colors can be used to distinguish them from each other. All chips in the
+      same color should be placed together. See the properties table at the bottom for all available colors.
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap" class="e-ml-n8">
+        <div *ngFor="let chip of colorChips" class="e-m-8">
+          <elvia-chip
+            [value]="chip.value"
+            [color]="chip.color"
+            [isDisabled]="chip.disabled"
+            (onDelete)="handleOnDeleteColor($any($event).detail.value)"
+          ></elvia-chip>
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!-- USAGE -->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation e-mt-40">
-            <div>
-              <span class="keyboard-button">Space</span>
-              or
-              <span class="keyboard-button">Enter</span>
-              to select, unselect or delete a chip.
-            </div>
-            <div>
-              <span class="keyboard-button">Tab</span>
-              to navigate through the chips.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'ARIA'">
-        <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Aria label:</strong>
-              Remember to always supply a
-              <span class="code-text">aria-label</span>
-              for the chip. It should also be updated whenever a chip is selected or unselected
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation e-mt-40">
+        <div>
+          <span class="keyboard-button">Space</span>
+          or
+          <span class="keyboard-button">Enter</span>
+          to select, unselect or delete a chip.
+        </div>
+        <div>
+          <span class="keyboard-button">Tab</span>
+          to navigate through the chips.
+        </div>
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'ARIA'">
+      <ul class="e-list">
+        <li>
+          <strong>Aria label:</strong>
+          Remember to always supply a
+          <span class="code-text">aria-label</span>
+          for the chip. It should also be updated whenever a chip is selected or unselected
+        </li>
+      </ul>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>
