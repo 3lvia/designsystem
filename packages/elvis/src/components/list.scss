@@ -1,17 +1,23 @@
 @use '../utilities/breakpoints';
 
+@function get-text-offset($marker-size, $multiplier: 1) {
+  @return calc(($marker-size + var(--list-marker-margin)) * $multiplier);
+}
+
+@function get-marker-top-offset($marker-size) {
+  @return calc((var(--list-line-height) - $marker-size) / 2);
+}
+
 .e-list {
-  --list-marker-dot-size: 8px;
-  --list-marker-size: 32px;
-  --list-marker-margin: 16px;
   --list-line-height: 28px;
-  --list-text-offset: calc(var(--list-marker-size) + var(--list-marker-margin));
-  --list-marker-top-spacing: calc((var(--list-line-height) - var(--list-marker-size)) / 2);
+  --list-marker-size: 32px;
+  --list-marker-dot-size: 8px;
+  --list-marker-margin: 16px;
 
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
-  padding-left: calc(var(--list-marker-dot-size) + var(--list-marker-margin));
+  padding-left: get-text-offset(var(--list-marker-dot-size));
   margin: 0.5rem 0;
   color: var(--e-color-text-1);
   font-family: 'Red Hat Text', Verdana, sans-serif;
@@ -25,8 +31,8 @@
 
     &::before {
       position: absolute;
-      top: calc((var(--list-line-height) - var(--list-marker-dot-size)) / 2);
-      left: calc((var(--list-marker-dot-size) + var(--list-marker-margin)) * -1);
+      top: get-marker-top-offset(var(--list-marker-dot-size));
+      left: get-text-offset(var(--list-marker-dot-size), -1);
       width: var(--list-marker-dot-size);
       height: var(--list-marker-dot-size);
       border-radius: 50%;
@@ -42,7 +48,7 @@
 }
 
 .e-list.e-list--numbers {
-  padding-left: var(--list-text-offset);
+  padding-left: get-text-offset(var(--list-marker-size));
   margin: 32px 0;
   counter-reset: elvis-item;
   gap: 16px;
@@ -51,8 +57,8 @@
     counter-increment: elvis-item;
 
     &::before {
-      top: var(--list-marker-top-spacing);
-      left: calc(var(--list-text-offset) * -1);
+      top: get-marker-top-offset(var(--list-marker-size));
+      left: get-text-offset(var(--list-marker-size), -1);
       display: flex;
       width: var(--list-marker-size);
       height: var(--list-marker-size);
@@ -67,7 +73,7 @@
 }
 
 .e-list.e-list--icons {
-  padding-left: var(--list-text-offset);
+  padding-left: get-text-offset(var(--list-marker-size));
   margin: 16px 0;
   gap: 16px;
 
@@ -78,8 +84,8 @@
 
     .e-list__icon > i {
       position: absolute;
-      top: var(--list-marker-top-spacing);
-      left: calc(var(--list-text-offset) * -1);
+      top: get-marker-top-offset(var(--list-marker-size));
+      left: get-text-offset(var(--list-marker-size), -1);
       margin-right: var(--list-marker-margin);
     }
   }
