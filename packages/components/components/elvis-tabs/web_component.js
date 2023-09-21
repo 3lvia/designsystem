@@ -1,1 +1,1 @@
-export { default as Tabs } from './dist/web_component/js/elvia-tabs';
+export { default as Tabs } from './dist/main/web-component';

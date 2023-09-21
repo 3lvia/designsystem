@@ -1,1 +1,1 @@
-export { default as Timepicker } from './dist/web_component/js/elvia-timepicker';
+export { default as Timepicker } from './dist/main/web-component';

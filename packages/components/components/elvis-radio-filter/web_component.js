@@ -1,1 +1,1 @@
-export { default as RadioFilter } from './dist/web_component/js/elvia-radio-filter';
+export { default as RadioFilter } from './dist/main/web-component';

@@ -1,1 +1,1 @@
-export { default as Slider } from './dist/web_component/js/elvia-slider';
+export { default as Slider } from './dist/main/web-component';

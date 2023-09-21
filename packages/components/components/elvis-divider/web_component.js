@@ -1,1 +1,1 @@
-export { default as Divider } from './dist/web_component/js/elvia-divider';
+export { default as Divider } from './dist/main/web-component';

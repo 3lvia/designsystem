@@ -1,1 +1,1 @@
-export { default as Chip } from './dist/web_component/js/elvia-chip';
+export { default as Chip } from './dist/main/web-component';

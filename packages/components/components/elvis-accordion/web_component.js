@@ -1,1 +1,1 @@
-export { default as Accordion } from './dist/web_component/js/elvia-accordion';
+export { default as Accordion } from './dist/main/web-component';

@@ -1,2 +1,2 @@
-export { default as Header } from './dist/web_component/js/elvia-header';
+export { default as Header } from './dist/main/web-component';
 export { getCurrentTheme } from './dist/react/js/publicApi';

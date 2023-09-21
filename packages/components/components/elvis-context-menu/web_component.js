@@ -1,1 +1,1 @@
-export { default as ContextMenu } from './dist/web_component/js/elvia-context-menu';
+export { default as ContextMenu } from './dist/main/web-component';

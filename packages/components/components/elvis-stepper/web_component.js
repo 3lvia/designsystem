@@ -1,1 +1,1 @@
-export { default as Stepper } from './dist/web_component/js/elvia-stepper';
+export { default as Stepper } from './dist/main/web-component';

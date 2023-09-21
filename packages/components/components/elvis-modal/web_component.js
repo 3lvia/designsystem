@@ -1,1 +1,1 @@
-export { default as Modal } from './dist/web_component/js/elvia-modal';
+export { default as Modal } from './dist/main/web-component';

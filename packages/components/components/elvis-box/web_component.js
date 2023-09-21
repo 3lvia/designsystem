@@ -1,1 +1,1 @@
-export { default as Box } from './dist/web_component/js/elvia-box';
+export { default as Box } from './dist/main/web-component';

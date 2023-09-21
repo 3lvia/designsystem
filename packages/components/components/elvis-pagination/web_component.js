@@ -1,1 +1,1 @@
-export { default as Pagination } from './dist/web_component/js/elvia-pagination';
+export { default as Pagination } from './dist/main/web-component';

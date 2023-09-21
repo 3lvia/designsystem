@@ -1,1 +1,1 @@
-export { default as Popover } from './dist/web_component/js/elvia-popover';
+export { default as Popover } from './dist/main/web-component';
