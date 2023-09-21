@@ -16,8 +16,9 @@ packages/web/src/assets/changelogs
 /bazel-out
 dist
 
-#eslintchache
+# Chache
 .eslintcache
+.parcel-cache
 
 # dependencies
 node_modules
