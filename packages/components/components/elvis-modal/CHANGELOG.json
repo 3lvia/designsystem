@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Added margin for title to make space for close button."]
+          "changes": ["Added margin for heading to make space for the close button."]
         }
       ]
     },
