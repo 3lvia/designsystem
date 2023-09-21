@@ -200,18 +200,7 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white">
-                <Tooltip
-                  trigger={
-                    <button className="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
-                      <span className="e-btn__icon">
-                        <i className="e-icon e-icon--star" aria-hidden="true"></i>
-                      </span>
-                    </button>
-                  }
-                  content={'Tooltip content'}
-                />
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
@@ -580,6 +569,18 @@ function App() {
             <button className="e-btn" onClick={showToast}>
               Show toast
             </button>
+
+            {/* TOOLTIP */}
+            <Tooltip
+              trigger={
+                <button className="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
+                  <span className="e-btn__icon">
+                    <i className="e-icon e-icon--star" aria-hidden="true"></i>
+                  </span>
+                </button>
+              }
+              content={'Tooltip content'}
+            />
           </div>
         </div>
       }
