@@ -6,7 +6,7 @@
       "version": "3.1.6",
       "changelog": [
         {
-          "type": "patch",
+          "type": "bug_fix",
           "changes": ["Added margin for heading to make space for the close button."]
         }
       ]
