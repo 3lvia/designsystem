@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
-import ComponentData, { NestedProp } from 'src/app/doc-pages/components/component-data.interface';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import { ComponentProp, NestedInputProp } from './types';
 import { SearchResult, Searcher } from '../../searcher';
 
@@ -77,7 +77,6 @@ export class ComponentPropertiesTableComponent implements OnInit {
     if (!this.ignoreDefaultProps) {
       componentProps.push(...this.getCommonProps());
     }
-    console.log(componentProps);
     return componentProps;
   }
 
