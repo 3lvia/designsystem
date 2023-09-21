@@ -1,6 +1,16 @@
 {
   "content": [
     {
+      "version": "14.0.2",
+      "date": "September 21, 2023",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["List line-height update to match all typographies better."]
+        }
+      ]
+    },
+    {
       "version": "14.0.1",
       "date": "September 20, 2023",
       "changelog": [
