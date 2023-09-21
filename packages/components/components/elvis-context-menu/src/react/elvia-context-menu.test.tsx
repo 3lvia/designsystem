@@ -143,7 +143,7 @@ describe('Elvis Context Menu', () => {
       await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
     });
 
-    it('onCloseEvent: should emit onClose when the trigger is clicked', async () => {
+    it('onCloseEvent: should emit onClose when the popup closes', async () => {
       const user = userEvent.setup();
       const trigger = screen.getByRole('button', { name: /trigger/i });
       await user.click(trigger);
