@@ -290,13 +290,13 @@ describe('Elvis Datepicker', () => {
     });
 
     it('should not emit any events when idle', async () => {
+      await waitFor(() => expect(errorOnChangeEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(onCloseEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(onFocusEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(onOpenEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(onResetEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(valueOnChangeISOStringEvent).not.toHaveBeenCalled());
-      await waitFor(() => expect(errorOnChangeEvent).not.toHaveBeenCalled());
     });
 
     it('onOpenEvent: should emit onOpen when the trigger is clicked', async () => {
