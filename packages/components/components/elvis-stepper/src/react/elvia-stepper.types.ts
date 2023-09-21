@@ -1,6 +1,6 @@
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
-import { StepStates } from './sharedTypes';
+import { StepStates } from './publicApi';
 
 export type StepperType = 'vertical' | 'horizontal';
 

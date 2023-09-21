@@ -1,17 +1,23 @@
 {
   "name": "@elvia/elvis-card",
   "version": "3.4.1",
-  "description": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/card",
-  "main": "web_component.js",
+  "source": "src/react/elvia-card.tsx",
+  "main": "dist/main/web_component.js",
+  "types": "dist/react/types.d.ts",
+  "module": "dist/react/index.mjs",
+  "targets": {
+    "main": false,
+    "react": {
+      "isLibrary": true,
+      "distDir": "dist/react",
+      "context": "node",
+      "optimize": true
+    }
+  },
   "files": [
-    "web_component.js",
-    "react.js",
-    "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "react.js"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

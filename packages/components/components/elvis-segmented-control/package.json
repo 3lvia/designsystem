@@ -3,14 +3,21 @@
   "version": "2.1.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/segmented-control",
-  "main": "web_component.js",
+  "source": "src/react/elvia-segmented-control.tsx",
+  "main": "dist/main/web_component.js",
+  "types": "dist/react/types.d.ts",
+  "module": "dist/react/index.mjs",
+  "targets": {
+    "main": false,
+    "react": {
+      "isLibrary": true,
+      "distDir": "dist/react",
+      "context": "node",
+      "optimize": true
+    }
+  },
   "files": [
-    "web_component.js",
-    "react.js",
-    "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "react.js"
   ],
   "dependencies": {
     "@elvia/elvis-colors": "^3.0.0",

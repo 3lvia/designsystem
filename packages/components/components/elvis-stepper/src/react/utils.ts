@@ -1,4 +1,4 @@
-import { StepStates } from './sharedTypes';
+import { StepStates } from './publicApi';
 
 export const isReachable = (forced: boolean, stepNumber: number, steps?: StepStates): boolean => {
   return !(forced && stepNumber !== 1 && !steps?.[stepNumber - 1]?.isCompleted);

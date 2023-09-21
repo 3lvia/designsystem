@@ -1,2 +1,2 @@
-export { default as Toast } from './dist/main/web-component';
-export { openElviaToast } from './dist/react/js/publicApi';
+export * from './dist/main/web-component.js';
+export * from './dist/public-api/publicApi.js';

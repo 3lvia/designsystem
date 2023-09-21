@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { StepHeader, StepNumber, StepperTitle } from './styledComponents';
 import { isReachable } from './utils';
 import { TypographyName } from '@elvia/elvis-typography';
-import { StepStates } from './sharedTypes';
+import { StepStates } from './publicApi';
 
 type VerticalStepElementProps = {
   stepNumber: number;

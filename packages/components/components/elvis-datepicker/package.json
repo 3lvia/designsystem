@@ -3,14 +3,21 @@
   "version": "8.0.1",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/datepicker",
-  "main": "web_component.js",
+  "source": "src/react/elvia-datepicker.tsx",
+  "main": "dist/main/web_component.js",
+  "types": "dist/react/types.d.ts",
+  "module": "dist/react/index.mjs",
+  "targets": {
+    "main": false,
+    "react": {
+      "isLibrary": true,
+      "distDir": "dist/react",
+      "context": "node",
+      "optimize": true
+    }
+  },
   "files": [
-    "web_component.js",
-    "react.js",
-    "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "react.js"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

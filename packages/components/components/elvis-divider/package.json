@@ -1,18 +1,23 @@
 {
   "name": "@elvia/elvis-divider",
   "version": "3.1.0",
-  "description": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/divider",
-  "author": "",
-  "main": "web_component.js",
+  "source": "src/react/elvia-divider.tsx",
+  "main": "dist/main/web_component.js",
+  "types": "dist/react/types.d.ts",
+  "module": "dist/react/index.mjs",
+  "targets": {
+    "main": false,
+    "react": {
+      "isLibrary": true,
+      "distDir": "dist/react",
+      "context": "node",
+      "optimize": true
+    }
+  },
   "files": [
-    "web_component.js",
-    "react.js",
-    "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "react.js"
   ],
   "dependencies": {
     "@elvia/elvis-colors": "^3.0.0",

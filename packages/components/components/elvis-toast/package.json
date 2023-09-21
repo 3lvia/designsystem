@@ -3,15 +3,30 @@
   "version": "1.1.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/toast",
+  "source": "src/react/elvia-toast.tsx",
   "main": "web_component.js",
+  "types": "dist/react/types.d.ts",
+  "module": "dist/react/index.mjs",
+  "targets": {
+    "main": false,
+    "react": {
+      "context": "node",
+      "isLibrary": true,
+      "distDir": "dist/react",
+      "optimize": true
+    },
+    "module": {
+      "optimize": true
+    },
+    "publicApi": {
+      "context": "node",
+      "source": "src/react/publicApi.ts",
+      "distDir": "dist/public-api",
+      "isLibrary": true
+    }
+  },
   "files": [
-    "web_component.js",
-    "web_component.d.ts",
-    "react.js",
-    "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "react.js"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

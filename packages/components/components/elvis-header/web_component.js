@@ -1,2 +1,2 @@
-export { default as Header } from './dist/main/web-component';
-export { getCurrentTheme } from './dist/react/js/publicApi';
+export * from './dist/main/web-component.js';
+export * from './dist/public-api/publicApi.js';

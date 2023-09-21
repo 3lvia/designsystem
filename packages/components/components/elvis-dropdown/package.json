@@ -1,17 +1,23 @@
 {
   "name": "@elvia/elvis-dropdown",
   "version": "8.0.2",
-  "main": "web_component.js",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/dropdown",
+  "source": "src/react/elvia-dropdown.tsx",
+  "main": "dist/main/web_component.js",
+  "types": "dist/react/types.d.ts",
+  "module": "dist/react/index.mjs",
+  "targets": {
+    "main": false,
+    "react": {
+      "isLibrary": true,
+      "distDir": "dist/react",
+      "context": "node",
+      "optimize": true
+    }
+  },
   "files": [
-    "web_component.js",
-    "web_component.d.ts",
-    "react.js",
-    "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "react.js"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",
