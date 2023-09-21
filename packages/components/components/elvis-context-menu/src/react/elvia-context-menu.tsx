@@ -24,10 +24,11 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const [prevFocusedElement, setPrevFocusedElement] = useState<HTMLElement>();
   const [fadeOut, setFadeOut] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
-  const { isShowing: isOverlayShowing, setIsShowing: setIsOverlayShowing } = useConnectedOverlay(
+  const { isShowing: isOverlayShowing = false, setIsShowing: setIsOverlayShowing } = useConnectedOverlay(
     triggerRef,
     popoverRef,
     {
@@ -67,15 +68,20 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   }, [isShowing]);
 
   useEffect(() => {
-    if (isOverlayShowing) {
-      setPrevFocusedElement(document.activeElement as HTMLElement);
-      handleOnOpen();
-    } else {
-      handleOnClose();
-      prevFocusedElement?.focus();
-      setPrevFocusedElement(undefined);
+    if (isInitialized) {
+      if (isOverlayShowing) {
+        setPrevFocusedElement(document.activeElement as HTMLElement);
+        handleOnOpen();
+      } else {
+        handleOnClose();
+        prevFocusedElement?.focus();
+        setPrevFocusedElement(undefined);
+      }
     }
   }, [isOverlayShowing]);
+
+  //avoid emitting event first render
+  useEffect(() => setIsInitialized(true), []);
 
   return (
     <>
