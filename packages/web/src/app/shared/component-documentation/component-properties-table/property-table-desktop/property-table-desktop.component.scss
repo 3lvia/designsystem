@@ -3,6 +3,10 @@ td.table-code-text {
   font-family: 'Red Hat Mono', Verdana, sans-serif;
 }
 
+.e-table {
+  height: fit-content;
+}
+
 .e-table .group-title-row {
   position: sticky;
   top: 56px;
@@ -32,11 +36,10 @@ td.table-code-text {
 }
 
 tr.prop-row {
-  height: 0;
+  height: 100%;
 
   th,
   td {
-    height: 0;
     padding: 0;
 
     .remove-padding {
