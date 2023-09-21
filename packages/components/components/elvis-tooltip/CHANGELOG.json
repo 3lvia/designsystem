@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "21.09.23",
+      "version": "1.3.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed tooltip not activating on focus.", "Fixed tooltip not working in React."]
+        }
+      ]
+    },
+    {
       "date": "24.08.23",
       "version": "1.3.0",
       "changelog": [

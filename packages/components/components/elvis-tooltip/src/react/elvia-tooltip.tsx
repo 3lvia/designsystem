@@ -21,7 +21,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
   // We use this ref for delay, since delay is used within an event listener.
   // The regular prop would not receive an updated value inside the event listener.
   const delayAmount = useRef(showDelay);
-  const [isDestroyed, setIsDestroyed] = useState(false);
   const { ref: triggerRef } = useSlot<HTMLDivElement>('trigger', webcomponent);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
@@ -45,10 +44,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
     } else {
       timeoutId = window.setTimeout(
         () => {
-          if (!isDestroyed) {
-            setFadeOut(false);
-            setIsShowing(true);
-          }
+          setFadeOut(false);
+          setIsShowing(true);
         },
         delay ? delayAmount.current : 0,
       );
@@ -69,7 +66,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   };
 
   useEffect(() => {
-    const triggerArea = triggerAreaRef?.current ? triggerAreaRef.current : triggerRef.current;
+    const triggerArea = triggerAreaRef?.current ?? triggerRef.current;
     if (!triggerArea) {
       return;
     }
@@ -80,14 +77,14 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
     triggerArea.addEventListener('mouseenter', onHover);
     triggerArea.addEventListener('mouseleave', close);
-    triggerArea.addEventListener('focus', onFocus);
-    triggerArea.addEventListener('blur', close);
+    triggerArea.addEventListener('focusin', onFocus);
+    triggerArea.addEventListener('focusout', close);
 
     return () => {
       triggerArea.removeEventListener('mouseenter', onHover);
       triggerArea.removeEventListener('mouseleave', close);
-      triggerArea.removeEventListener('focus', onFocus);
-      triggerArea.removeEventListener('blur', close);
+      triggerArea.removeEventListener('focusin', onFocus);
+      triggerArea.removeEventListener('focusout', close);
     };
   }, [triggerAreaRef, triggerAreaRef?.current, triggerRef, triggerRef?.current]);
 
@@ -134,8 +131,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
   useEffect(() => {
     delayAmount.current = showDelay;
   }, [showDelay]);
-
-  useEffect(() => () => setIsDestroyed(true), []);
 
   return (
     <>
