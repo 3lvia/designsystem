@@ -1,1 +1,1 @@
-export { default as Dropdown } from './dist/react/js/elvia-dropdown.js';
+export * from './dist/react/elvia-dropdown.js';

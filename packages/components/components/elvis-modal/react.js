@@ -1,1 +1,1 @@
-export { default as Modal } from './dist/react/js/elvia-modal.js';
+export * from './dist/react/elvia-modal.js';

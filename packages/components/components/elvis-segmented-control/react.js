@@ -1,1 +1,1 @@
-export { default as SegmentedControl } from './dist/react/js/elvia-segmented-control.js';
+export * from './dist/react/elvia-segmented-control.js';
