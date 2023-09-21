@@ -385,7 +385,7 @@ describe('Elvia Slider', () => {
 
       await userEvent.click(inputField);
       await userEvent.keyboard('{Backspace}');
-      await userEvent.type(inputField, 'abc'); //invalid input -> only numbers allowed
+      await userEvent.type(inputField, 'abc'); //invalid input, only numbers allowed
       await userEvent.tab();
       await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalled());
     });
