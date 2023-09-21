@@ -572,6 +572,7 @@
             [value]="'read'"
             [name]="'readRadioFilters'"
             [ariaLabel]="'{value} filtrering valgt'"
+            (valueOnChange)="logValue('Radio filter', $any($event).detail.value)"
           ></elvia-radio-filter>
         </div>
 
