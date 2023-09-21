@@ -296,6 +296,7 @@ describe('Elvis Datepicker', () => {
       await waitFor(() => expect(onResetEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(valueOnChangeISOStringEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(errorOnChangeEvent).not.toHaveBeenCalled());
     });
 
     it('onOpenEvent: should emit onOpen when the trigger is clicked', async () => {
