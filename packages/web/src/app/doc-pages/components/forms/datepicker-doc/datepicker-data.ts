@@ -95,16 +95,35 @@ const datepickerData: ComponentData = {
     errorOptions: {
       type: 'object',
       description: 'An object that allows for custom configuration of the error handling in the date picker.',
-      default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
       children: {
         text: {
-          type: 'string',
-          description: 'Will always show the provided error message.',
+          type: 'object',
+          description: 'Description',
+          children: {
+            test1: {
+              type: 'string',
+              description: 'Description',
+            },
+            test2: {
+              type: 'string',
+              description: 'Description',
+            },
+          },
         },
         hideText: {
-          type: 'boolean',
+          type: 'object',
           description: 'Hides the default validation errors.',
           default: false,
+          children: {
+            test1: {
+              type: 'string',
+              description: 'Description',
+            },
+            test2: {
+              type: 'string',
+              description: 'Description',
+            },
+          },
         },
         isErrorState: {
           type: 'boolean',

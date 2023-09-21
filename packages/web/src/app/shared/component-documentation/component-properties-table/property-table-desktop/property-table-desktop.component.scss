@@ -5,7 +5,7 @@ td.table-code-text {
 
 .e-table .group-title-row {
   position: sticky;
-  top: 40px;
+  top: 56px;
   z-index: 2;
 
   th,
@@ -20,7 +20,12 @@ td.table-code-text {
   right: 0;
 }
 
-.e-table th,
+.e-table thead th {
+  border-right: 0 !important;
+  vertical-align: middle;
+}
+
+.e-table tbody th,
 .e-table td {
   border-right: 0 !important;
   vertical-align: top;
