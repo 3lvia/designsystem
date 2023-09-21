@@ -4,7 +4,7 @@ import SegmentedControl from './elvia-segmented-control';
 import userEvent from '@testing-library/user-event';
 import { IconSegmentedControl } from './elviaSegmentedControl.types';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
 describe('Elvia Segmented Control', () => {
   describe('The default segmented control', () => {
@@ -78,6 +78,34 @@ describe('Elvia Segmented Control', () => {
       const segmentedControlLabel = screen.queryAllByTestId('segmented-control-label');
 
       expect(segmentedControlLabel[0]).toHaveAttribute('aria-label', 'label');
+    });
+  });
+
+  describe('Events', () => {
+    let valueOnChangeEvent: jest.Mock;
+
+    beforeEach(() => {
+      valueOnChangeEvent = jest.fn();
+
+      render(
+        <SegmentedControl
+          items={[{ label: 'Weekly' }, { label: 'Monthly' }, { label: 'Yearly' }]}
+          valueOnChange={valueOnChangeEvent}
+        />,
+      );
+    });
+
+    it('should not emit any events on init', async () => {
+      await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+    });
+
+    it('valueOnChange: should emit when the values changes', async () => {
+      const user = userEvent.setup();
+      const controls = screen.getAllByRole('radio');
+
+      await user.click(controls[2]);
+
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
     });
   });
 
