@@ -98,11 +98,11 @@ const datepickerData: ComponentData = {
       default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
       children: {
         text: {
-          type: 'object',
-          description: 'Description',
+          type: 'string',
+          description: 'Error text.',
         },
         hideText: {
-          type: 'object',
+          type: 'boolean',
           description: 'Hides the default validation errors.',
           default: 'false',
         },
