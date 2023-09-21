@@ -94,58 +94,114 @@ describe('Elvis Context Menu', () => {
       await waitFor(() => expect(menuItem).not.toBeInTheDocument());
     });
   });
+});
 
-  describe('the accessibility', () => {
-    it('should have no axe violations', async () => {
-      render(
-        <div data-testid="context-menu-wrapper">
-          <ContextMenu
-            trigger={<button data-testid="trigger">Trigger</button>}
-            content={
-              <div>
-                <div className="ewc-popover__list-group">
-                  <button>
-                    <span>Be om tilgang</span>
-                  </button>
-                  <button>
-                    <span>Legg til bruker</span>
-                  </button>
-                </div>
-                <div className="ewc-popover__list-group">
-                  <a href="#">
-                    <span>Endre passord</span>
-                  </a>
-                </div>
+describe('Events', () => {
+  let onOpenEvent: jest.Mock;
+  let onCloseEvent: jest.Mock;
+
+  beforeEach(() => {
+    onOpenEvent = jest.fn();
+    onCloseEvent = jest.fn();
+    render(
+      <ContextMenu
+        onOpen={onOpenEvent}
+        onClose={onCloseEvent}
+        trigger={<button>Trigger</button>}
+        content={
+          <div>
+            <div className="ewc-popover__list-group">
+              <button>
+                <span>Be om tilgang</span>
+              </button>
+              <button>
+                <span>Legg til bruker</span>
+              </button>
+            </div>
+            <div className="ewc-popover__list-group">
+              <a href="#">
+                <span>Endre passord</span>
+              </a>
+            </div>
+          </div>
+        }
+      />,
+    );
+  });
+
+  it('should not emit events when idle', async () => {
+    await waitFor(() => expect(onOpenEvent).not.toHaveBeenCalled());
+    await waitFor(() => expect(onCloseEvent).not.toHaveBeenCalled());
+  });
+
+  it('onOpenEvent: should emit onOpen when the trigger is clicked', async () => {
+    const user = userEvent.setup();
+    const trigger = screen.getByRole('button', { name: /trigger/i });
+    await user.click(trigger);
+
+    await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
+  });
+
+  it('onCloseEvent: should emit onClose when the trigger is clicked', async () => {
+    const user = userEvent.setup();
+    const trigger = screen.getByRole('button', { name: /trigger/i });
+    await user.click(trigger);
+    await user.tab();
+
+    await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
+  });
+});
+
+describe('the accessibility', () => {
+  it('should have no axe violations', async () => {
+    render(
+      <div data-testid="context-menu-wrapper">
+        <ContextMenu
+          trigger={<button data-testid="trigger">Trigger</button>}
+          content={
+            <div>
+              <div className="ewc-popover__list-group">
+                <button>
+                  <span>Be om tilgang</span>
+                </button>
+                <button>
+                  <span>Legg til bruker</span>
+                </button>
               </div>
-            }
-          />
-          <ContextMenu
-            trigger={<button data-testid="trigger">Trigger</button>}
-            content={
-              <div>
-                <div className="ewc-popover__list-group">
-                  <button>
-                    <span>Be om tilgang</span>
-                  </button>
-                  <button>
-                    <span>Legg til bruker</span>
-                  </button>
-                </div>
-                <div className="ewc-popover__list-group">
-                  <a href="#">
-                    <span>Endre passord</span>
-                  </a>
-                </div>
+              <div className="ewc-popover__list-group">
+                <a href="#">
+                  <span>Endre passord</span>
+                </a>
               </div>
-            }
-          />
-        </div>,
-      );
+            </div>
+          }
+        />
+        <ContextMenu
+          trigger={<button data-testid="trigger">Trigger</button>}
+          content={
+            <div>
+              <div className="ewc-popover__list-group">
+                <button>
+                  <span>Be om tilgang</span>
+                </button>
+                <button>
+                  <span>Legg til bruker</span>
+                </button>
+              </div>
+              <div className="ewc-popover__list-group">
+                <a href="#">
+                  <span>Endre passord</span>
+                </a>
+              </div>
+            </div>
+          }
+        />
+      </div>,
+    );
 
-      const contextMenu = screen.getByTestId('context-menu-wrapper');
-      const results = await axe(contextMenu);
+    const contextMenu = screen.getByTestId('context-menu-wrapper');
+    const results = await axe(contextMenu);
 
-      expect(results).toHaveNoViolations();
-    });
+    expect(results).toHaveNoViolations();
   });
 });
