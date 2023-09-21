@@ -80,7 +80,10 @@
         <td class="table-code-text">
           <div
             class="height-changer"
-            [innerHTML]="prop.item.default | searchHighlighter : 'default' : prop.matches"
+            [innerHTML]="
+              (propHasNoChildren(prop.item) ? prop.item.default : '')
+                | searchHighlighter : 'default' : prop.matches
+            "
           ></div>
         </td>
       </tr>

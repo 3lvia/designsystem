@@ -8,6 +8,6 @@ import { PropertyTableBaseDirective } from '../table-base';
 })
 export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
   calculateMargin(level: number) {
-    return 16 + 16 * level;
+    return 16 + 24 * level;
   }
 }

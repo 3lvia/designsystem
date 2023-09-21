@@ -8,7 +8,7 @@
       <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
   </thead>
-  <tbody *ngFor="let prop of props">
+  <tbody *ngFor="let prop of itemsWithoutChildren">
     <tr>
       <th class="e-table-mobile__cell" scope="col" colspan="2">
         <span [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"></span>
@@ -29,7 +29,7 @@
         [innerHTML]="prop.item.description | searchHighlighter : 'description' : prop.matches"
       ></td>
     </tr>
-    <tr *ngIf="propHasNoChildren(prop.item)">
+    <tr>
       <th class="e-table-mobile__cell" scope="row">Default</th>
       <td
         class="e-table-mobile__cell"

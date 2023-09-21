@@ -95,6 +95,7 @@ const datepickerData: ComponentData = {
     errorOptions: {
       type: 'object',
       description: 'An object that allows for custom configuration of the error handling in the date picker.',
+      default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
       children: {
         text: {
           type: 'object',
@@ -103,17 +104,17 @@ const datepickerData: ComponentData = {
         hideText: {
           type: 'object',
           description: 'Hides the default validation errors.',
-          default: false,
+          default: 'false',
         },
         isErrorState: {
           type: 'boolean',
           description: 'Allows for manually activating the visual error UI.',
-          default: false,
+          default: 'false',
         },
         hasErrorPlaceholder: {
           type: 'boolean',
           description: 'Allows you to remove the padding below the date picker.',
-          default: true,
+          default: 'true',
         },
       },
     },
