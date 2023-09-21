@@ -27,7 +27,7 @@ export const carouselData: ComponentData = {
       isEvent: true,
       type: '() => void',
       description:
-        'Callback function for when the checkmark button is clicked. This requires the type to be "linear" and hasConfirmationButton to be true.',
+        'Callback function for when the checkmark button is clicked. This requires the type to be "linear" and hasConfirmationCheckmark to be true.',
       default: 'false',
     },
     value: {
