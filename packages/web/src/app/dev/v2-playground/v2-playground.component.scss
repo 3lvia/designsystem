@@ -3,12 +3,11 @@ body {
   font-family: 'Red Hat Text', Verdana, sans-serif;
 }
 .components-examples {
-  max-width: 700px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
 
   .example-wrapper {
-    border-top: 1px solid var(--e-color-brand-accent);
     padding: 32px 32px 72px;
   }
 }
@@ -22,12 +21,4 @@ h3 {
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-size: 22px;
   margin-bottom: 32px;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
 }
