@@ -10,6 +10,10 @@
           "changes": [
             "Fixed a bug where the Context Menu would emit the <code>onClose</code> event during its first render."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },
