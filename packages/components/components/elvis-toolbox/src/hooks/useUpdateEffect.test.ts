@@ -15,6 +15,7 @@ describe('useUpdateEffect custom hook', () => {
   });
 
   it('should run the effect on updates after the first render', () => {
+    //same as useEffect without dependencies -> should run the effect
     const { rerender } = renderHook(() => useUpdateEffect(effectFn));
 
     expect(effectFn).toHaveBeenCalledTimes(0);
