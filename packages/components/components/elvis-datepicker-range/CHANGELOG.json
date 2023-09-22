@@ -10,6 +10,10 @@
           "changes": [
             "Fixed a bug where the Date Picker Range would emit the <code>errorOnChange</code> event during its first render."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },
