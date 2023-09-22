@@ -35,6 +35,7 @@ const radioFilterData: ComponentData = {
       default: 'Filtreringsknapper',
     },
     valueOnChange: {
+      isEvent: true,
       isRequired: true,
       type: '(value: string) => void',
       description:
