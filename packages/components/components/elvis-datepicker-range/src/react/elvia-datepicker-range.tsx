@@ -15,6 +15,7 @@ import {
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { isAfter, isBefore } from './dateHelpers';
+import { useUpdateEffect } from '@elvia/elvis-toolbox';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
 
@@ -53,7 +54,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
   const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
   const [shouldOpenNextPicker, setShouldOpenNextPicker] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
 
   /**
    * Usually the value in the inputs are hidden before its touched.
@@ -70,13 +70,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   }, [isRequired]);
 
-  useEffect(() => {
-    if (isInitialized) {
-      if (!webcomponent) {
-        errorOnChange?.(currentErrorMessages);
-      } else {
-        webcomponent.triggerEvent('errorOnChange', currentErrorMessages);
-      }
+  useUpdateEffect(() => {
+    if (!webcomponent) {
+      errorOnChange?.(currentErrorMessages);
+    } else {
+      webcomponent.triggerEvent('errorOnChange', currentErrorMessages);
     }
   }, [currentErrorMessages]);
 
@@ -318,9 +316,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const handleEndTimePickerValueOnChange = (newDate: Date | null) => {
     handleEndDatepickerValueOnChange(newDate, 'time');
   };
-
-  //avoid emitting event first render
-  useEffect(() => setIsInitialized(true), []);
 
   return (
     <DatepickerRangeWrapper
