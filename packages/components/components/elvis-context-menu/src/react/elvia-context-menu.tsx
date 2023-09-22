@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useConnectedOverlay, useSlot, useFocusTrap } from '@elvia/elvis-toolbox';
+import { useConnectedOverlay, useSlot, useFocusTrap, useUpdateEffect } from '@elvia/elvis-toolbox';
 import { ContextMenuProps } from './elviaContextMenu.types';
 import { TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition } from './mapPosition';
@@ -24,7 +24,6 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const [prevFocusedElement, setPrevFocusedElement] = useState<HTMLElement>();
   const [fadeOut, setFadeOut] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
 
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
@@ -67,21 +66,16 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     }
   }, [isShowing]);
 
-  useEffect(() => {
-    if (isInitialized) {
-      if (isOverlayShowing) {
-        setPrevFocusedElement(document.activeElement as HTMLElement);
-        handleOnOpen();
-      } else {
-        handleOnClose();
-        prevFocusedElement?.focus();
-        setPrevFocusedElement(undefined);
-      }
+  useUpdateEffect(() => {
+    if (isOverlayShowing) {
+      setPrevFocusedElement(document.activeElement as HTMLElement);
+      handleOnOpen();
+    } else {
+      handleOnClose();
+      prevFocusedElement?.focus();
+      setPrevFocusedElement(undefined);
     }
   }, [isOverlayShowing]);
-
-  //avoid emitting event first render
-  useEffect(() => setIsInitialized(true), []);
 
   return (
     <>
