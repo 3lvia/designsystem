@@ -11,8 +11,7 @@
     "react": {
       "isLibrary": true,
       "distDir": "dist/react",
-      "context": "node",
-      "optimize": true
+      "context": "node"
     }
   },
   "files": [

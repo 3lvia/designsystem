@@ -12,14 +12,14 @@
     "react": {
       "isLibrary": true,
       "distDir": "dist/react",
-      "context": "node",
-      "optimize": true
+      "context": "node"
     }
   },
   "files": [
     "react.js"
   ],
   "dependencies": {
+    "@elvia/elvis-assets-icons": "^3.5.0",
     "@elvia/elvis-colors": "^4.0.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
     "@elvia/elvis-toolbox": "^10.0.1",
