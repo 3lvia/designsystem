@@ -12,17 +12,7 @@
     "react": {
       "context": "node",
       "isLibrary": true,
-      "distDir": "dist/react",
-      "optimize": true
-    },
-    "module": {
-      "optimize": true
-    },
-    "publicApi": {
-      "context": "node",
-      "source": "src/react/publicApi.ts",
-      "distDir": "dist/public-api",
-      "isLibrary": true
+      "distDir": "dist/react"
     }
   },
   "files": [
