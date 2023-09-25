@@ -3,7 +3,7 @@ import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
 import warningCircle from '@elvia/elvis-assets-icons/dist/icons/warningCircle';
 import informationCircle from '@elvia/elvis-assets-icons/dist/icons/informationCircle';
 import { ColorLabel } from '@elvia/elvis-colors';
-import { DropdownItemStatus } from './sharedTypes';
+import { DropdownItemStatus } from './sharedTypes.public';
 
 type StatusToIconMap = {
   [key in DropdownItemStatus]: { icon: IconType; color?: ColorLabel };

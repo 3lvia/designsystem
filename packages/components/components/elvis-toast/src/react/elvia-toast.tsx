@@ -5,7 +5,7 @@ import { BaseProps } from '@elvia/elvis-toolbox';
 import { toastEventName, ToastWithId } from './elviaToast.types';
 import { ToastPosition } from './styledComponents';
 import { ToastBox } from './toastBox';
-import { toastContainerId } from './publicApi';
+import { toastContainerId } from './publicApi.public';
 
 export interface ToastProps extends BaseProps {}
 

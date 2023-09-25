@@ -1,6 +1,6 @@
 import { FormFieldSizes, BaseProps, HasValue, HasError } from '@elvia/elvis-toolbox';
-import { DropdownItem, DropdownValue, DropdownValueType } from './sharedTypes';
-export { DropdownItem, DropdownValue, DropdownValueType } from './sharedTypes';
+import { DropdownItem, DropdownValue, DropdownValueType } from './sharedTypes.public';
+export { DropdownItem, DropdownValue, DropdownValueType } from './sharedTypes.public';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 
