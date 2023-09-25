@@ -77,11 +77,15 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     webcomponent?.triggerEvent('valueOnChange', newTime);
   };
 
-  const setHourOrMinute = (type: ChangeType, value: number): void => {
+  const setHourOrMinute = (type: ChangeType, value: number, isDisabled?: boolean): void => {
     const newTime = time ? new Date(time) : new Date();
 
     if (!time) {
       newTime.setHours(0, 0, 0, 0);
+    }
+
+    if (isDisabled) {
+      return;
     }
 
     switch (type) {
@@ -260,10 +264,12 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         <OverlayContainer
           ref={popoverRef}
           onClose={() => setVisibility(false)}
-          onChange={(type, value) => setHourOrMinute(type, value)}
+          onChange={(type, value, isDisabled) => setHourOrMinute(type, value, isDisabled)}
           currentTime={time}
           minuteInterval={minuteInterval}
           hasSecondPicker={hasSecondPicker}
+          minTime={minTime}
+          maxTime={maxTime}
         />
       )}
     </>

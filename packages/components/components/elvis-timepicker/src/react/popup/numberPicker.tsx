@@ -12,17 +12,46 @@ import {
   NumberPickerTitle,
 } from './popupStyles';
 import { listButtonHeight } from './buttonHeight';
+import { ChangeType } from '../elviaTimepicker.types';
 
 interface Props {
   title: string;
   numbers: number[];
-  currentValue: number | undefined;
-  onSelect: (value: number) => void;
+  currentTime?: Date | null;
+  onSelect: (value: number, isDisabled?: boolean) => void;
+  timeUnit: ChangeType;
+  minTime?: Date;
+  maxTime?: Date;
 }
 
-export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, onSelect }) => {
+export const NumberPicker: React.FC<Props> = ({
+  title,
+  numbers,
+  currentTime,
+  onSelect,
+  timeUnit,
+  minTime,
+  maxTime,
+}) => {
   const listRef = useRef<HTMLDivElement>(null);
   const [loopedNumbers, setLoopedNumbers] = useState<number[]>([]);
+  const currentValue = setCurrentValue();
+
+  function setCurrentValue(): number | undefined {
+    if (currentTime) {
+      switch (timeUnit) {
+        case 'hour':
+          return currentTime?.getHours();
+        case 'minute':
+          return currentTime?.getMinutes();
+        case 'second':
+          return currentTime?.getSeconds();
+        default:
+          return undefined;
+      }
+    }
+    return undefined;
+  }
 
   const loopScroll = () => {
     if (listRef.current) {
@@ -75,6 +104,37 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
     }
   };
 
+  const isNumberDisabled = (num: number): boolean => {
+    switch (timeUnit) {
+      case 'hour':
+        if (minTime && num < minTime?.getHours()) {
+          return true;
+        }
+        if (maxTime && num > maxTime?.getHours()) {
+          return true;
+        }
+        return false;
+      case 'minute':
+        if (minTime && num < minTime?.getMinutes() && currentTime?.getHours() === minTime?.getHours()) {
+          return true;
+        }
+        if (maxTime && num > maxTime?.getMinutes() && currentTime?.getHours() === maxTime?.getHours()) {
+          return true;
+        }
+        return false;
+      case 'second':
+        if (minTime && num < minTime?.getSeconds() && currentTime?.getMinutes() === minTime?.getMinutes()) {
+          return true;
+        }
+        if (maxTime && num > maxTime?.getSeconds() && currentTime?.getMinutes() === maxTime?.getMinutes()) {
+          return true;
+        }
+        return false;
+      default:
+        return false;
+    }
+  };
+
   useEffect(() => {
     // Set scroll position on current value
     if (listRef.current) {
@@ -121,8 +181,9 @@ export const NumberPicker: React.FC<Props> = ({ title, numbers, currentValue, on
           <NumberButton
             tabIndex={-1}
             isSelected={number === currentValue}
+            isDisabled={isNumberDisabled(number)}
             key={index}
-            onClick={() => onSelect(number)}
+            onClick={() => onSelect(number, isNumberDisabled(number))}
             data-testid={`${title}-number-button`}
             data-id={`${title}-${padDigit(number)}`}
             aria-label={`${title} ${padDigit(number)}`}
