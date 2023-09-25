@@ -21,7 +21,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   // We use this ref for delay, since delay is used within an event listener.
   // The regular prop would not receive an updated value inside the event listener.
   const delayAmount = useRef(showDelay);
-  const [isDestroyed, setIsDestroyed] = useState(false);
+  const isDestroyed = useRef(false);
   const { ref: triggerRef } = useSlot<HTMLDivElement>('trigger', webcomponent);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
@@ -45,7 +45,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     } else {
       timeoutId = window.setTimeout(
         () => {
-          if (!isDestroyed) {
+          if (!isDestroyed.current) {
             setFadeOut(false);
             setIsShowing(true);
           }
@@ -136,8 +136,10 @@ export const Tooltip: React.FC<TooltipProps> = ({
   }, [showDelay]);
 
   useEffect(() => {
-    setIsDestroyed(false);
-    return () => setIsDestroyed(true);
+    isDestroyed.current = false;
+    return () => {
+      isDestroyed.current = true;
+    };
   }, []);
 
   return (
