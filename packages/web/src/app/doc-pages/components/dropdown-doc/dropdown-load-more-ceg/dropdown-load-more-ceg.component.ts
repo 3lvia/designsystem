@@ -32,15 +32,21 @@ export class DropdownLoadMoreCegComponent implements StaticComponentExample {
     setTimeout(() => {
       this.isLoadingMoreItems = false;
       if (this.timesLoadedMoreItems === 0) {
-        this.items.push({ value: 'Tyskland', label: 'Tyskland' });
-        this.items.push({ value: 'Ungarn', label: 'Ungarn' });
-        this.items.push({ value: 'USA', label: 'USA' });
-        this.items.push({ value: 'Vatikanstaten', label: 'Vatikanstaten' });
+        this.items = [
+          ...this.items,
+          { value: 'Tyskland', label: 'Tyskland' },
+          { value: 'Ungarn', label: 'Ungarn' },
+          { value: 'USA', label: 'USA' },
+          { value: 'Vatikanstaten', label: 'Vatikanstaten' },
+        ];
       } else if (this.timesLoadedMoreItems === 1) {
-        this.items.push({ value: 'Venezuela', label: 'Venezuela' });
-        this.items.push({ value: 'Vietnam', label: 'Vietnam' });
-        this.items.push({ value: 'Østerrike', label: 'Østerrike' });
-        this.items.push({ value: 'Øst-Timor', label: 'Øst-Timor' });
+        this.items = [
+          ...this.items,
+          { value: 'Venezuela', label: 'Venezuela' },
+          { value: 'Vietnam', label: 'Vietnam' },
+          { value: 'Østerrike', label: 'Østerrike' },
+          { value: 'Øst-Timor', label: 'Øst-Timor' },
+        ];
       }
       this.timesLoadedMoreItems++;
       if (this.timesLoadedMoreItems > 1) {
