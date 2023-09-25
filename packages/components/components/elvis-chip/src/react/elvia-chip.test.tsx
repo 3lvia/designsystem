@@ -117,12 +117,6 @@ describe('Elvis Chip', () => {
             isSelected={false}
             isSelectedOnChange={isSelectedOnChangeEvent}
           />
-          <Chip
-            type={'choice'}
-            value={'choice2'}
-            isSelected={true}
-            isSelectedOnChange={isSelectedOnChangeEvent}
-          />
         </>,
       );
     });
@@ -141,8 +135,8 @@ describe('Elvis Chip', () => {
 
     it('isSelectedOnChangeEvent: should be called when clicking on chip', async () => {
       const user = userEvent.setup();
-      const chipToSelect = screen.getAllByRole('checkbox', { name: /choice/i });
-      await user.click(chipToSelect[0]);
+      const chip = screen.getByRole('checkbox', { name: /choice/i });
+      await user.click(chip);
       await waitFor(() => expect(isSelectedOnChangeEvent).toHaveBeenCalled());
     });
   });
@@ -151,11 +145,11 @@ describe('Elvis Chip', () => {
     it('should have no axe violations', async () => {
       render(
         <div data-testid="chips">
-          <Chip value="chip value"></Chip>
-          <Chip type="legend" value="chip value"></Chip>
-          <Chip type="legend" value="chip value" isSelected></Chip>
-          <Chip type="choice" value="chip value" isSelected></Chip>
-          <Chip value="chip value" isDisabled></Chip>
+          <Chip value="chip value" />
+          <Chip type="legend" value="chip value" />
+          <Chip type="legend" value="chip value" isSelected />
+          <Chip type="choice" value="chip value" isSelected />
+          <Chip value="chip value" isDisabled />
         </div>,
       );
 
