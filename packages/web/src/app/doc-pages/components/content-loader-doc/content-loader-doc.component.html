@@ -5,52 +5,40 @@
 
   <!--TYPES -->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Box'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-content-loader-box-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Circle'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-content-loader-circle-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Text'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-content-loader-text-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Box'">
+      <app-static-ceg>
+        <app-content-loader-box-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Circle'">
+      <app-static-ceg>
+        <app-content-loader-circle-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Text'">
+      <app-static-ceg>
+        <app-content-loader-text-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'ARIA'">
-        <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Aria live:</strong>
-              When loading any content use the
-              <span class="code-text">aria-live</span>
-              tag to indicate that the element will have an update.
-            </li>
-            <li>
-              <strong>Aria busy:</strong>
-              Set the
-              <span class="code-text">aria-busy</span>
-              state to prevent assistive tools from announcing changes before updates are done.
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'ARIA'">
+      <ul class="e-list">
+        <li>
+          <strong>Aria live:</strong>
+          When loading any content use the
+          <span class="code-text">aria-live</span>
+          tag to indicate that the element will have an update.
+        </li>
+        <li>
+          <strong>Aria busy:</strong>
+          Set the
+          <span class="code-text">aria-busy</span>
+          state to prevent assistive tools from announcing changes before updates are done.
+        </li>
+      </ul>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>
