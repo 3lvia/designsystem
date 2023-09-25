@@ -2,7 +2,7 @@ import React from 'react';
 import Pagination from './elvia-pagination';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
   Object.defineProperty(window, 'matchMedia', {
@@ -127,6 +127,7 @@ describe('Elvis Pagination', () => {
       expect(buttons.length).toBe(5);
     });
   });
+
   describe('All elements displayed', () => {
     beforeEach(() => {
       render(
@@ -143,6 +144,7 @@ describe('Elvis Pagination', () => {
       expect(selectorArea).not.toBeInTheDocument();
     });
   });
+
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       render(<Pagination numberOfElements={100} className="test-class" inlineStyle={{ margin: '24px' }} />);
@@ -152,6 +154,44 @@ describe('Elvis Pagination', () => {
       const pagination = screen.getByTestId('pagination');
       expect(pagination).toHaveStyle(`margin: 24px`);
       expect(pagination).toHaveClass(`test-class`);
+    });
+  });
+
+  describe('events', () => {
+    let dropdownSelectedItemIndexOnChangeEvent: jest.Mock;
+    let valueOnChangeEvent: jest.Mock;
+
+    beforeEach(() => {
+      dropdownSelectedItemIndexOnChangeEvent = jest.fn();
+      valueOnChangeEvent = jest.fn();
+
+      render(
+        <Pagination
+          numberOfElements={100}
+          dropdownSelectedItemIndexOnChange={dropdownSelectedItemIndexOnChangeEvent}
+          valueOnChange={valueOnChangeEvent}
+        />,
+      );
+    });
+
+    it('should not emit any event on init', async () => {
+      await waitFor(() => expect(dropdownSelectedItemIndexOnChangeEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+    });
+
+    it('dropdownSelectedItemIndexOnChange: should emit event when dropdown is clicked', async () => {
+      const user = userEvent.setup();
+      const dropdown = screen.getByRole('combobox');
+      await user.click(dropdown);
+      await user.click(screen.getByRole('option', { name: /20/ }));
+      await waitFor(() => expect(dropdownSelectedItemIndexOnChangeEvent).toHaveBeenCalled());
+    });
+
+    it('valueOnChange: should emit event when page button is clicked', async () => {
+      const user = userEvent.setup();
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
+      await user.click(nextButton);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
     });
   });
 

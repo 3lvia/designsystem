@@ -88,17 +88,6 @@ const Popover: FC<PopoverProps> = function ({
     updatePreferredPosition();
   }, [isShowingConnectedOverlayState, content, horizontalPosition, verticalPosition, heading]);
 
-  /**
-   * Dispatch onOpen and onClose events.
-   */
-  useEffect(() => {
-    if (isShowingConnectedOverlayState) {
-      handleOnOpen();
-    } else if (!isShowingConnectedOverlayState) {
-      handleOnClose();
-    }
-  }, [isShowingConnectedOverlayState]);
-
   const handleOnOpen = () => {
     onOpen?.();
     webcomponent?.triggerEvent('onOpen');
@@ -117,9 +106,11 @@ const Popover: FC<PopoverProps> = function ({
   const toggleVisibility = (): void => {
     if (isShowingConnectedOverlayState) {
       setFadeOut(true);
+      handleOnClose();
     } else {
       setFadeOut(false);
       setIsShowingConnectedOverlayState(true);
+      handleOnOpen();
     }
   };
 
@@ -139,7 +130,10 @@ const Popover: FC<PopoverProps> = function ({
       {isShowingConnectedOverlayState && (
         <Overlay
           ref={popoverRef}
-          onClose={() => setIsShowingConnectedOverlayState(false)}
+          onClose={() => {
+            handleOnClose();
+            setIsShowingConnectedOverlayState(false);
+          }}
           startFade={fadeOut}
         >
           <PopoverContent

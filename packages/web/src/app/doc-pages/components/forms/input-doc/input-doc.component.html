@@ -5,238 +5,194 @@
 
   <!-- TYPE -->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Textfield'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-input-type-normal-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Textarea'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-input-type-textarea-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Textfield'">
+      <app-static-ceg>
+        <app-input-type-normal-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Textarea'">
+      <app-static-ceg>
+        <app-input-type-textarea-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!-- OPTIONS -->
   <app-component-section options [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'With button'">
-        <ng-container ngProjectAs="sectionContent">
-          The
-          <code>view_on</code>
-          icon button should be used when showing and hiding a password.
-          <app-static-ceg>
-            <app-input-options-button-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'With button'">
+      The
+      <code>view_on</code>
+      icon button should be used when showing and hiding a password.
+      <app-static-ceg>
+        <app-input-options-button-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Without label'">
-        <ng-container ngProjectAs="sectionContent">
-          If you have an input field without a label, make sure that assistive tools are informed in some
-          other way with a description for the input.
-          <app-static-ceg>
-            <app-input-options-nolabel-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Without label'">
+      If you have an input field without a label, make sure that assistive tools are informed in some other
+      way with a description for the input.
+      <app-static-ceg>
+        <app-input-options-nolabel-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Optional inputs'">
-        <ng-container ngProjectAs="sectionContent">
-          The
-          <code>e-form-field__label--optional</code>
-          class should be added to the label when the input is not required.
-          <app-static-ceg>
-            <app-input-options-optional-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Optional inputs'">
+      The
+      <code>e-form-field__label--optional</code>
+      class should be added to the label when the input is not required.
+      <app-static-ceg>
+        <app-input-options-optional-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Full width'">
-        <ng-container ngProjectAs="sectionContent">
-          The
-          <code>e-form-field--full-width</code>
-          class should be added to the field when the input should take 100% of the width available.
-          <p>
-            Use the
-            <code>e-inlined-field--full-width</code>
-            class if the inputs are inlined on the same line, should take up all width available.
-          </p>
-          <app-static-ceg>
-            <app-input-options-full-width-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Full width'">
+      The
+      <code>e-form-field--full-width</code>
+      class should be added to the field when the input should take 100% of the width available.
+      <p>
+        Use the
+        <code>e-inlined-field--full-width</code>
+        class if the inputs are inlined on the same line, should take up all width available.
+      </p>
+      <app-static-ceg>
+        <app-input-options-full-width-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Inlined'">
-        <ng-container ngProjectAs="sectionContent">
-          Use the
-          <code>e-inlined-field</code>
-          class outside the form-field element to align inputs on the same line. When the zip code is filled
-          in, the post office should be filled in automatically.
-          <app-static-ceg>
-            <app-input-type-combined-inlined-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Inlined'">
+      Use the
+      <code>e-inlined-field</code>
+      class outside the form-field element to align inputs on the same line. When the zip code is filled in,
+      the post office should be filled in automatically.
+      <app-static-ceg>
+        <app-input-type-combined-inlined-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Read-only'">
-        <ng-container ngProjectAs="sectionContent">
-          The
-          <code>readonly</code>
-          attribute makes the input immutable, meaning the user can not edit the input or its value. Use
-          <code>readonly</code>
-          solely when the user cannot interact with the field, but the value is selected. Also, ensure to only
-          use
-          <code>readonly</code>
-          if there are other interactive input elements in the form, filter, or similar.
-          <p>
-            Consider that if the input is a stand-alone element, use regular typography instead. If the value
-            is immutable and is not selected/should not be read by the computer, use the
-            <code>disabled</code>
-            attribute instead.
-          </p>
-          <app-static-ceg>
-            <app-input-options-readonly-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Read-only'">
+      The
+      <code>readonly</code>
+      attribute makes the input immutable, meaning the user can not edit the input or its value. Use
+      <code>readonly</code>
+      solely when the user cannot interact with the field, but the value is selected. Also, ensure to only use
+      <code>readonly</code>
+      if there are other interactive input elements in the form, filter, or similar.
+      <p>
+        Consider that if the input is a stand-alone element, use regular typography instead. If the value is
+        immutable and is not selected/should not be read by the computer, use the
+        <code>disabled</code>
+        attribute instead.
+      </p>
+      <app-static-ceg>
+        <app-input-options-readonly-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Loading'">
-        <ng-container ngProjectAs="sectionContent">
-          The
-          <code>e-input---loading</code>
-          class should be added to indicate that the text field is loading, for instance if the current value
-          is being validated.
-          <app-static-ceg>
-            <app-input-options-loading-ceg />
-          </app-static-ceg>
-          <div class="e-alert e-alert--info e-mt-16" role="note">
-            <div class="e-alert__icon">
-              <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
-            </div>
-            <div class="e-alert__content">
-              <div class="e-alert__text">
-                <div>
-                  The loading animation may look different on different browsers due to discrepancies in
-                  supported CSS functionality.
-                </div>
-              </div>
+    <app-component-subsection [sectionTitle]="'Loading'">
+      The
+      <code>e-input---loading</code>
+      class should be added to indicate that the text field is loading, for instance if the current value is
+      being validated.
+      <app-static-ceg>
+        <app-input-options-loading-ceg />
+      </app-static-ceg>
+      <div class="e-alert e-alert--info e-mt-16" role="note">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__text">
+            <div>
+              The loading animation may look different on different browsers due to discrepancies in supported
+              CSS functionality.
             </div>
           </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!-- SIZE -->
   <app-component-section size [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      There are two different sizes of input. The width of the container should be proportional to the
-      expected user input and can be changes by setting the width on the container of the input.
-      <app-component-subsection [sectionTitle]="'Medium'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-input-size-medium-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Small'">
-        <ng-container ngProjectAs="sectionContent">
-          Small text fields are typically used in Elvia’s internal systems, where screen real estate is an
-          important factor. Regardless of which style you use for text fields, you should always stick with
-          the same type throughout the page and never mix the two.
-          <app-static-ceg>
-            <app-input-size-small-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    There are two different sizes of input. The width of the container should be proportional to the expected
+    user input and can be changes by setting the width on the container of the input.
+    <app-component-subsection [sectionTitle]="'Medium'">
+      <app-static-ceg>
+        <app-input-size-medium-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Small'">
+      Small text fields are typically used in Elvia’s internal systems, where screen real estate is an
+      important factor. Regardless of which style you use for text fields, you should always stick with the
+      same type throughout the page and never mix the two.
+      <app-static-ceg>
+        <app-input-size-small-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!-- USAGE -->
   <app-component-section uasge [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Validation'">
-        <ng-container ngProjectAs="sectionContent">
-          By default, all fields must be required. Validation is based on the field being filled out.
-          Validation takes place along the way, and the user must also be presented with guidance or error
-          messages. Read more about
-          <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
-            input validation and behaviors here.
-          </a>
-          <app-static-ceg>
-            <app-input-validation-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Patterns'">
-        <ng-container ngProjectAs="sectionContent">
-          Read more about how to use different forms and patterns in forms on our
-          <a class="e-link e-link--inline" [routerLink]="['/patterns/forms']">forms</a>
-          page.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-component-subsection [sectionTitle]="'Validation'">
+      By default, all fields must be required. Validation is based on the field being filled out. Validation
+      takes place along the way, and the user must also be presented with guidance or error messages. Read
+      more about
+      <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
+        input validation and behaviors here.
+      </a>
+      <app-static-ceg>
+        <app-input-validation-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Patterns'">
+      Read more about how to use different forms and patterns in forms on our
+      <a class="e-link e-link--inline" [routerLink]="['/patterns/forms']">forms</a>
+      page.
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Label'">
-        <ng-container ngProjectAs="sectionContent">
-          Make sure to always add a label that is linked to the input, to make it clear for assistive tools
-          what the input is doing. Use the
-          <code>e-form-field</code>
-          classes to get correct styling of labels.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'State'">
-        <ng-container ngProjectAs="sectionContent">
-          Remember to add attributes to the input-fields to the describe the current state of the input to
-          inform assistive technologies. For example
-          <code>required</code>
-          ,
-          <code>disabled</code>
-          , or
-          <code>invalid</code>
-          .
+    <app-component-subsection [sectionTitle]="'Label'">
+      Make sure to always add a label that is linked to the input, to make it clear for assistive tools what
+      the input is doing. Use the
+      <code>e-form-field</code>
+      classes to get correct styling of labels.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'State'">
+      Remember to add attributes to the input-fields to the describe the current state of the input to inform
+      assistive technologies. For example
+      <code>required</code>
+      ,
+      <code>disabled</code>
+      , or
+      <code>invalid</code>
+      .
 
-          <p>
-            During a
-            <code>invalid</code>
-            state, ensure to set
-            <code>aria-invalid</code>
-            to
-            <code>true</code>
-            and set the
-            <code>aria-errormessage</code>
-            attribute to the
-            <code>id</code>
-            of the element containing the error message text for that input. When
-            <code>aria-errormessage</code>
-            is used, the element it refers to must be visible in order for users to see or hear the error
-            message.
-          </p>
-        </ng-container>
-      </app-component-subsection>
+      <p>
+        During a
+        <code>invalid</code>
+        state, ensure to set
+        <code>aria-invalid</code>
+        to
+        <code>true</code>
+        and set the
+        <code>aria-errormessage</code>
+        attribute to the
+        <code>id</code>
+        of the element containing the error message text for that input. When
+        <code>aria-errormessage</code>
+        is used, the element it refers to must be visible in order for users to see or hear the error message.
+      </p>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Validation'">
-        <ng-container ngProjectAs="sectionContent">
-          Remember to add validation classes to help users understand what needs to be corrected.
-          <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
-            Read more about how the validation should happen
-          </a>
-          .
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Validation'">
+      Remember to add validation classes to help users understand what needs to be corrected.
+      <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
+        Read more about how the validation should happen
+      </a>
+      .
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

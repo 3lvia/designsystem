@@ -13,12 +13,22 @@ describe('Elvis Timepicker', () => {
   describe('Basic', () => {
     let onOpenListener: jest.Mock;
     let onCloseListener: jest.Mock;
+    let onFocusListener: jest.Mock;
+    let onChangeListener: jest.Mock;
 
     beforeEach(() => {
       onOpenListener = jest.fn();
       onCloseListener = jest.fn();
+      onFocusListener = jest.fn();
+      onChangeListener = jest.fn();
       render(
-        <Timepicker selectNowOnOpen={false} onOpen={onOpenListener} onClose={onCloseListener}></Timepicker>,
+        <Timepicker
+          onClose={onCloseListener}
+          onFocus={onFocusListener}
+          onOpen={onOpenListener}
+          selectNowOnOpen={false}
+          valueOnChange={onChangeListener}
+        />,
       );
     });
 
@@ -28,9 +38,7 @@ describe('Elvis Timepicker', () => {
     });
 
     it('should not have a default value', () => {
-      const input = screen.getByRole('textbox', {
-        name: /velg tid/i,
-      });
+      const input = screen.getByRole('textbox', { name: /velg tid/i });
       expect(input).toHaveValue('');
     });
 
@@ -88,6 +96,10 @@ describe('Elvis Timepicker', () => {
         expect(onOpenListener).toHaveBeenCalled();
       });
 
+      it('an focus event is emitted (internal only)', () => {
+        expect(onFocusListener).toHaveBeenCalled();
+      });
+
       describe('and the backdrop is clicked', () => {
         beforeEach(async () => {
           const user = userEvent.setup();
@@ -112,9 +124,7 @@ describe('Elvis Timepicker', () => {
         });
 
         it('the value in the input goes to the default setting', () => {
-          const input = screen.getByRole('textbox', {
-            name: /velg tid/i,
-          });
+          const input = screen.getByRole('textbox', { name: /velg tid/i });
           expect(input).toHaveValue('00:00');
         });
 
@@ -127,10 +137,12 @@ describe('Elvis Timepicker', () => {
           });
 
           it('the hour increases by one', () => {
-            const input = screen.getByRole('textbox', {
-              name: /velg tid/i,
-            });
+            const input = screen.getByRole('textbox', { name: /velg tid/i });
             expect(input).toHaveValue('01:00');
+          });
+
+          it('the valueOnChange event is emitted', async () => {
+            await waitFor(() => expect(onChangeListener).toHaveBeenCalled());
           });
         });
 
@@ -190,13 +202,11 @@ describe('Elvis Timepicker', () => {
 
   describe('Disabled', () => {
     beforeEach(() => {
-      render(<Timepicker isDisabled={true}></Timepicker>);
+      render(<Timepicker isDisabled={true} />);
     });
 
     it('should have an disabled input field', () => {
-      const input = screen.getByRole('textbox', {
-        name: /velg tid/i,
-      });
+      const input = screen.getByRole('textbox', { name: /velg tid/i });
       expect(input).toBeDisabled();
     });
 
@@ -250,24 +260,18 @@ describe('Elvis Timepicker', () => {
     });
 
     it('the required attribute must be present', () => {
-      const input = screen.getByRole('textbox', {
-        name: /velg tid/i,
-      });
+      const input = screen.getByRole('textbox', { name: /velg tid/i });
       expect(input).toHaveAttribute('required');
     });
 
     it('should not have an required error on initialization', () => {
-      const input = screen.getByRole('textbox', {
-        name: /velg tid/i,
-      });
+      const input = screen.getByRole('textbox', { name: /velg tid/i });
       expect(input).toHaveAttribute('aria-invalid', 'false');
     });
 
     it('should become invalid when the user focuses and blurs the input without writing anything', async () => {
       const user = userEvent.setup();
-      const input = screen.getByRole('textbox', {
-        name: /velg tid/i,
-      });
+      const input = screen.getByRole('textbox', { name: /velg tid/i });
 
       await user.click(input);
       await user.tab();
@@ -278,15 +282,12 @@ describe('Elvis Timepicker', () => {
   });
 
   describe('the accessibility', () => {
-    const onOpenListener: jest.Mock = jest.fn();
-    const onCloseListener: jest.Mock = jest.fn();
-
     it('should have no axe violations', async () => {
       render(
         <div data-testid="timepickers">
           <Timepicker isDisabled={true} />
-          <Timepicker selectNowOnOpen={false} onOpen={onOpenListener} onClose={onCloseListener} />
           <Timepicker isRequired />
+          <Timepicker selectNowOnOpen={false} />
         </div>,
       );
 

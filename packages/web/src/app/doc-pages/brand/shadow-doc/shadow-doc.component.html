@@ -11,29 +11,23 @@
   <app-shadow-viewer />
 
   <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Usage' : 'Bruk'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use
-        [locale]="locale"
-        [whens]="doDontText[locale].do"
-        [whenNots]="doDontText[locale].dont"
-      ></app-when-to-use>
-    </ng-container>
+    <app-when-to-use
+      [locale]="locale"
+      [whens]="doDontText[locale].do"
+      [whenNots]="doDontText[locale].dont"
+    ></app-when-to-use>
   </app-component-section>
 
   <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Style' : 'Stil'">
-    <ng-container ngProjectAs="sectionContent">
-      <p class="e-text-lg e-mb-40">{{ styleText[locale].description }}</p>
-      <ng-container *ngFor="let shadow of styleText[locale].shadows">
-        <h3 class="e-title-sm e-mb-16">{{ shadow.title }}</h3>
-        <h3 class="e-text-lg e-mb-48">{{ shadow.description }}</h3>
-      </ng-container>
+    <p class="e-text-lg e-mb-40">{{ styleText[locale].description }}</p>
+    <ng-container *ngFor="let shadow of styleText[locale].shadows">
+      <h3 class="e-title-sm e-mb-16">{{ shadow.title }}</h3>
+      <h3 class="e-text-lg e-mb-48">{{ shadow.description }}</h3>
     </ng-container>
   </app-component-section>
 
   <!--Changelog-->
   <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="'Shadow'"></app-component-changelog>
-    </ng-container>
+    <app-component-changelog [elvisComponentToFilter]="'Shadow'"></app-component-changelog>
   </app-component-section>
 </div>
