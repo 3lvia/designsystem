@@ -73,12 +73,21 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
     let dateISO;
     if (newDate && isValidDate(newDate)) {
-      dateISO = newDate.toISOString().substring(0, 10);
+      // Set hours to middle of day to ensure correct date is returned, as
+      // timezones and summer/winter time can cause some weird behavior
+      const newDateCopy = new Date(newDate);
+      newDateCopy.setHours(12);
+      dateISO = newDateCopy.toISOString().substring(0, 10);
     } else if (newDate === null) {
       dateISO = null;
     } else {
       dateISO = 'Invalid Date';
     }
+
+    // eslint-disable-next-line no-console
+    console.log(`newDate: ${newDate}`);
+    // eslint-disable-next-line no-console
+    console.log(`isoString: ${dateISO}`);
 
     valueOnChangeISOString?.(dateISO);
     webcomponent?.triggerEvent('valueOnChangeISOString', dateISO);
@@ -98,12 +107,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
 
     handleValueOnChangeISOString(newDate);
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(newDate);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: newDate }, true);
-      webcomponent.triggerEvent('valueOnChange', newDate);
-    }
+    valueOnChange?.(newDate);
+    webcomponent?.setProps({ value: newDate }, true);
+    webcomponent?.triggerEvent('valueOnChange', newDate);
   };
 
   const emitOnClose = () => {
