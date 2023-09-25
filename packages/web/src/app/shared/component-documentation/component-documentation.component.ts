@@ -14,9 +14,7 @@ import { Title } from '@angular/platform-browser';
  * ```
  * <app-component-documentation [componentData]="componentData">
  *   <app-component-section size [sectionTitle]="'Size'"> //notice the size attribute here
- *     <ng-container ngProjectAs="sectionContent">
- *       lorem ipsum...
- *     </ng-container>
+ *     lorem ipsum...
  *   </app-component-section>
  * </app-component-documentation>
  * ```

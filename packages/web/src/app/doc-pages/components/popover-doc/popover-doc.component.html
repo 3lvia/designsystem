@@ -5,106 +5,80 @@
 
   <!--STRUCTURE-->
   <app-component-section structure [sectionTitle]="'Structure'">
-    <ng-container ngProjectAs="sectionContent">
-      A popover is a shell with options like close button, heading and text. Content like text and inputs are
-      added inside. Popover closes after clicking outside the popover, “X” or ESC KEY.
-      <div class="e-content-loader e-mb-32 e-w-100 responsive-height" *ngIf="!loadedPopoverStructure"></div>
-      <img
-        alt="Informative popover structure"
-        src="./../../../../assets/popover/Group 2791.svg"
-        class="usage-image-desktop e-w-100 responsive-height theme-image-background"
-        (load)="hideContentLoader($event)"
-      />
-      <div class="usage-image-mobile e-w-100">
-        <app-component-subsubsection [sectionTitle]="'Heading'">
-          <ng-container ngProjectAs="sectionContent">
-            The heading should be short and clear. The heading is optional.
-          </ng-container>
-        </app-component-subsubsection>
-        <app-component-subsubsection [sectionTitle]="'Content'">
-          <ng-container ngProjectAs="sectionContent">
-            You can have different type of content like text, buttons, input etc. The content will have 100%
-            width, unless the content only consists of text, then the recommended max-width is 450px.
-          </ng-container>
-        </app-component-subsubsection>
-        <app-component-subsubsection [sectionTitle]="'Trigger'">
-          <ng-container ngProjectAs="sectionContent">The trigger can be any kind of button.</ng-container>
-        </app-component-subsubsection>
-        <app-component-subsubsection [sectionTitle]="'Close button'">
-          <ng-container ngProjectAs="sectionContent">
-            The popover will close if you click outside, ESC key, or the button connected to it. The close
-            button is optional and can be removed in special cases like in a menu list.
-          </ng-container>
-        </app-component-subsubsection>
-      </div>
+    A popover is a shell with options like close button, heading and text. Content like text and inputs are
+    added inside. Popover closes after clicking outside the popover, “X” or ESC KEY.
+    <div class="e-content-loader e-mb-32 e-w-100 responsive-height" *ngIf="!loadedPopoverStructure"></div>
+    <img
+      alt="Informative popover structure"
+      src="./../../../../assets/popover/Group 2791.svg"
+      class="usage-image-desktop e-w-100 responsive-height theme-image-background"
+      (load)="hideContentLoader($event)"
+    />
+    <div class="usage-image-mobile e-w-100">
+      <app-component-subsubsection [sectionTitle]="'Heading'">
+        The heading should be short and clear. The heading is optional.
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Content'">
+        You can have different type of content like text, buttons, input etc. The content will have 100%
+        width, unless the content only consists of text, then the recommended max-width is 450px.
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Trigger'">
+        The trigger can be any kind of button.
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Close button'">
+        The popover will close if you click outside, ESC key, or the button connected to it. The close button
+        is optional and can be removed in special cases like in a menu list.
+      </app-component-subsubsection>
+    </div>
 
-      <app-component-subsubsection [sectionTitle]="'Text'">
-        <ng-container ngProjectAs="sectionContent">
-          Recommended width for text popover is 450px. This is measured with the line length and number of
-          characters - to get a good readability.
-        </ng-container>
-      </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Custom content'">
-        <ng-container ngProjectAs="sectionContent">
-          Insert input, selection controls, buttons etc.
-        </ng-container>
-      </app-component-subsubsection>
-    </ng-container>
+    <app-component-subsubsection [sectionTitle]="'Text'">
+      Recommended width for text popover is 450px. This is measured with the line length and number of
+      characters - to get a good readability.
+    </app-component-subsubsection>
+    <app-component-subsubsection [sectionTitle]="'Custom content'">
+      Insert input, selection controls, buttons etc.
+    </app-component-subsubsection>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
 
-      <app-component-subsection [sectionTitle]="'Responsive'">
-        <ng-container ngProjectAs="sectionContent">
-          The popover include responsive functionality and is suited for all devices. However you should keep
-          in mind that it can be overwhelming on mobile if the popover has a lot of content.
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Responsive'">
+      The popover include responsive functionality and is suited for all devices. However you should keep in
+      mind that it can be overwhelming on mobile if the popover has a lot of content.
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Position'">
-        <ng-container ngProjectAs="sectionContent">
-          Popover can be positioned above and below the clickable trigger and aligned in the center, left or
-          right.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Position'">
+      Popover can be positioned above and below the clickable trigger and aligned in the center, left or
+      right.
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <span class="keyboard-button">Space</span>
-              or
-              <span class="keyboard-button">Enter</span>
-              to open or close the popover.
-            </div>
-            <div>
-              <span class="keyboard-button">Esc</span>
-              to close the popover when open.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <span class="keyboard-button">Space</span>
+          or
+          <span class="keyboard-button">Enter</span>
+          to open or close the popover.
+        </div>
+        <div>
+          <span class="keyboard-button">Esc</span>
+          to close the popover when open.
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Trigger'">
-        <ng-container ngProjectAs="sectionContent">
-          When the trigger is selected remember to add the
-          <span class="code-text">e-btn---selected</span>
-          class for the trigger.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Trigger'">
+      When the trigger is selected remember to add the
+      <span class="code-text">e-btn---selected</span>
+      class for the trigger.
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

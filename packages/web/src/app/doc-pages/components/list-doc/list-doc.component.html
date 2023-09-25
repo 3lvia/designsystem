@@ -5,36 +5,28 @@
 
   <!--TYPE-->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Bullet list'">
-        <ng-container ngProjectAs="sectionContent">
-          Green elvis dots for regular unordered list.
-          <app-static-ceg>
-            <app-list-bullet-ceg />
-          </app-static-ceg>
-          <app-when-to-use [whens]="doesExample1"></app-when-to-use>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Bullet list'">
+      Green elvis dots for regular unordered list.
+      <app-static-ceg>
+        <app-list-bullet-ceg />
+      </app-static-ceg>
+      <app-when-to-use [whens]="doesExample1"></app-when-to-use>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Numbered list'">
-        <ng-container ngProjectAs="sectionContent">
-          Ordered list with generated elvis styled bullet point
-          <app-static-ceg>
-            <app-list-numbered-ceg />
-          </app-static-ceg>
-          <app-when-to-use [whens]="doesExample3"></app-when-to-use>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Numbered list'">
+      Ordered list with generated elvis styled bullet point
+      <app-static-ceg>
+        <app-list-numbered-ceg />
+      </app-static-ceg>
+      <app-when-to-use [whens]="doesExample3"></app-when-to-use>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Icon list'">
-        <ng-container ngProjectAs="sectionContent">
-          List with icons as bullet point
-          <app-static-ceg>
-            <app-list-icon-ceg />
-          </app-static-ceg>
-          <app-when-to-use [whens]="doesExample4"></app-when-to-use>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Icon list'">
+      List with icons as bullet point
+      <app-static-ceg>
+        <app-list-icon-ceg />
+      </app-static-ceg>
+      <app-when-to-use [whens]="doesExample4"></app-when-to-use>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

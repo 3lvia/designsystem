@@ -5,56 +5,48 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      The progress bar is used to show loading, both locally and for full page actions where the
-      <a class="e-link e-link--inline" [routerLink]="['/components/contentLoader']">Content loader</a>
-      isn't suitable. It is for example used in
-      <a class="e-link e-link--inline" [routerLink]="['/components/fileUpload']">File Upload</a>
-      , where it shows progress or error for each file.
-    </ng-container>
+    The progress bar is used to show loading, both locally and for full page actions where the
+    <a class="e-link e-link--inline" [routerLink]="['/components/contentLoader']">Content loader</a>
+    isn't suitable. It is for example used in
+    <a class="e-link e-link--inline" [routerLink]="['/components/fileUpload']">File Upload</a>
+    , where it shows progress or error for each file.
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'ARIA'">
-        <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Aria label:</strong>
-              Remember to always supply a
-              <code>aria-label</code>
-              for the progress bar. Use the
-              <code>ariaLabel</code>
-              prop.
-            </li>
-            <li>
-              <strong>Role:</strong>
-              Use
-              <code>role="meter"</code>
-              when using the progress bar component as a gauge to improve accessibility for screen reader
-              users. Use the
-              <code>ariaRole</code>
-              prop.
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Recommended practices'">
-        <ng-container ngProjectAs="sectionContent">
-          To improve the accessibility of a page with a loading progress bar, include the
-          <code>aria-describedby</code>
-          attribute on the region being loaded and set it to reference the progress bar's
-          <code>id</code>
-          (use the
-          <code>componentId</code>
-          prop). Set the
-          <code>aria-busy</code>
-          attribute on the region to
-          <code>true</code>
-          while it is loading.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'ARIA'">
+      <ul class="e-list">
+        <li>
+          <strong>Aria label:</strong>
+          Remember to always supply a
+          <code>aria-label</code>
+          for the progress bar. Use the
+          <code>ariaLabel</code>
+          prop.
+        </li>
+        <li>
+          <strong>Role:</strong>
+          Use
+          <code>role="meter"</code>
+          when using the progress bar component as a gauge to improve accessibility for screen reader users.
+          Use the
+          <code>ariaRole</code>
+          prop.
+        </li>
+      </ul>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Recommended practices'">
+      To improve the accessibility of a page with a loading progress bar, include the
+      <code>aria-describedby</code>
+      attribute on the region being loaded and set it to reference the progress bar's
+      <code>id</code>
+      (use the
+      <code>componentId</code>
+      prop). Set the
+      <code>aria-busy</code>
+      attribute on the region to
+      <code>true</code>
+      while it is loading.
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>
