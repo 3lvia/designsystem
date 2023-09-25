@@ -10,262 +10,217 @@
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Bruk' : 'Usage'">
-    <ng-container ngProjectAs="sectionContent">
+    <ng-container *ngIf="locale === 'en-GB'">
+      All colors should be used in solid 100%. Don’t use a darker shade or lighter tint of a color in the
+      palette. The only shades we have are greys.
+    </ng-container>
+    <ng-container *ngIf="locale === 'nb-NO'">
+      Alle farger skal brukes i heldekkende 100%. Ikke bruk en mørkere eller lysere nyanse av en farge i
+      paletten. De eneste nyansene vi har, er gråtoner.
+    </ng-container>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Fargevekt' : 'Color weight'">
       <ng-container *ngIf="locale === 'en-GB'">
-        All colors should be used in solid 100%. Don’t use a darker shade or lighter tint of a color in the
-        palette. The only shades we have are greys.
+        Elvia is mainly white and dark grey, with some black components and a touch of green in details such
+        as icons, illustration and active states.
       </ng-container>
       <ng-container *ngIf="locale === 'nb-NO'">
-        Alle farger skal brukes i heldekkende 100%. Ikke bruk en mørkere eller lysere nyanse av en farge i
-        paletten. De eneste nyansene vi har, er gråtoner.
+        Elvia er hovedsakelig hvit og mørkegrå, med noen svarte komponenter og et snev av grønt i detaljer som
+        ikoner, illustrasjoner og aktive tilstander.
       </ng-container>
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Fargevekt' : 'Color weight'">
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            Elvia is mainly white and dark grey, with some black components and a touch of green in details
-            such as icons, illustration and active states.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Elvia er hovedsakelig hvit og mørkegrå, med noen svarte komponenter og et snev av grønt i detaljer
-            som ikoner, illustrasjoner og aktive tilstander.
-          </ng-container>
 
-          <div>
-            <img
-              style="width: calc(20% + 180px)"
-              class="e-p-24"
-              src="assets/color-doc/color-weight.svg"
-              alt="Illustrating how much of each color should be used"
-            />
-          </div>
-          <app-component-subsubsection>
-            <ng-container ngProjectAs="sectionContent">
-              <ng-container *ngIf="locale === 'en-GB'">
-                <span class="e-text-lg-strong">Green</span>
-                shows that Elvia is ON, activated, fully charged and environmentally friendly. The green color
-                should be used intentionally and should not be used on large surfaces as a background. The
-                green color are used to display when something is active/clickable on interactions. It’s also
-                used in illustration and icons to highlight the most important or just to get a touch of the
-                green light in between all the white and black.
-              </ng-container>
-              <ng-container *ngIf="locale === 'nb-NO'">
-                <span class="e-text-lg-strong">Grønn</span>
-                viser at Elvia er PÅ, aktivert, fulladet og miljøvennlig. Den grønne fargen bør brukes bevisst
-                og bør ikke brukes på store flater som bakgrunn. Den grønne fargen brukes til å vise når noe
-                er aktivt/klikkbart på interaksjoner. Den brukes også i illustrasjoner og ikoner for å
-                fremheve det viktigste eller bare for å få et snev av grønt lys mellom alt det hvite og
-                svarte.
-              </ng-container>
-              <app-do-dont-text>
-                <ng-container ngProjectAs="do">
-                  <img src="assets/color-doc/a.svg" style="max-width: 100%" alt="" />
-                </ng-container>
-                <ng-container ngProjectAs="dont">
-                  <img src="assets/color-doc/b.svg" style="max-width: 100%" alt="" />
-                </ng-container>
-              </app-do-dont-text>
-            </ng-container>
-          </app-component-subsubsection>
+      <div>
+        <img
+          style="width: calc(20% + 180px)"
+          class="e-p-24"
+          src="assets/color-doc/color-weight.svg"
+          alt="Illustrating how much of each color should be used"
+        />
+      </div>
+      <app-component-subsubsection>
+        <ng-container *ngIf="locale === 'en-GB'">
+          <span class="e-text-lg-strong">Green</span>
+          shows that Elvia is ON, activated, fully charged and environmentally friendly. The green color
+          should be used intentionally and should not be used on large surfaces as a background. The green
+          color are used to display when something is active/clickable on interactions. It’s also used in
+          illustration and icons to highlight the most important or just to get a touch of the green light in
+          between all the white and black.
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          <span class="e-text-lg-strong">Grønn</span>
+          viser at Elvia er PÅ, aktivert, fulladet og miljøvennlig. Den grønne fargen bør brukes bevisst og
+          bør ikke brukes på store flater som bakgrunn. Den grønne fargen brukes til å vise når noe er
+          aktivt/klikkbart på interaksjoner. Den brukes også i illustrasjoner og ikoner for å fremheve det
+          viktigste eller bare for å få et snev av grønt lys mellom alt det hvite og svarte.
+        </ng-container>
+        <app-do-dont-text>
+          <ng-container ngProjectAs="do">
+            <img src="assets/color-doc/a.svg" style="max-width: 100%" alt="" />
+          </ng-container>
+          <ng-container ngProjectAs="dont">
+            <img src="assets/color-doc/b.svg" style="max-width: 100%" alt="" />
+          </ng-container>
+        </app-do-dont-text>
+      </app-component-subsubsection>
 
-          <app-component-subsubsection>
-            <ng-container ngProjectAs="sectionContent">
-              <ng-container *ngIf="locale === 'en-GB'">
-                <span class="e-text-lg-strong">White</span>
-                stands for light and energy. White is used as a background color and as a text color on darker
-                surfaces.
-                <span class="e-text-lg-strong">Black</span>
-                shows that Elvia is OFF. It’s the primary color for text and icons, but can also be used to
-                get a dark surface.
-                <span class="e-text-lg-strong">Dark</span>
-                (grey) is the preferred dark background.
-              </ng-container>
-              <ng-container *ngIf="locale === 'nb-NO'">
-                <span class="e-text-lg-strong">Hvitt</span>
-                står for lys og energi. Hvitt brukes som bakgrunnsfarge og som tekstfarge på mørkere
-                overflater.
-                <span class="e-text-lg-strong">Svart</span>
-                viser at Elvia er AV. Det er primærfargen for tekst og ikoner, men kan også brukes for å få en
-                mørk overflate.
-                <span class="e-text-lg-strong">Mørk</span>
-                (grå) er den foretrukne mørke bakgrunnen.
-              </ng-container>
-            </ng-container>
-          </app-component-subsubsection>
+      <app-component-subsubsection>
+        <ng-container *ngIf="locale === 'en-GB'">
+          <span class="e-text-lg-strong">White</span>
+          stands for light and energy. White is used as a background color and as a text color on darker
+          surfaces.
+          <span class="e-text-lg-strong">Black</span>
+          shows that Elvia is OFF. It’s the primary color for text and icons, but can also be used to get a
+          dark surface.
+          <span class="e-text-lg-strong">Dark</span>
+          (grey) is the preferred dark background.
         </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Mørkt tema' : 'Dark Theme'">
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            We offer a dark theme for internal applications. We have created a separate palette for the dark
-            theme that reflects the light theme, with some exceptions. Dark theme colors are muted and are
-            more suitable for dark backgrounds.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Vi tilbyr et mørkt tema for interne applikasjoner. Vi har laget en egen palett for det mørke
-            temaet som gjenspeiler det lyse temaet, med noen unntak. Fargene i det mørke temaet er dempet og
-            passer bedre til mørke bakgrunner.
-          </ng-container>
-          <img
-            style="width: calc(20% + 180px)"
-            class="e-p-24"
-            src="assets/color-doc/color-weight-dark.svg"
-            alt="Illustrating how much of each color should be used in dark theme"
-          />
-          <app-component-subsubsection
-            [sectionTitle]="
-              locale === 'nb-NO' ? 'Eksempler på lyse og mørke temaer' : 'Light vs Dark Theme Examples'
-            "
-          >
-            <ng-container ngProjectAs="sectionContent">
-              <img
-                class="e-mt-8 e-mb-24"
-                src="assets/color-doc/example-light-theme.png"
-                alt="application using the light theme palette"
-                width="100%"
-              />
-              <img
-                src="assets/color-doc/example-dark-theme.png"
-                alt="application using the dark theme palette"
-                width="100%"
-              />
-            </ng-container>
-          </app-component-subsubsection>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          <span class="e-text-lg-strong">Hvitt</span>
+          står for lys og energi. Hvitt brukes som bakgrunnsfarge og som tekstfarge på mørkere overflater.
+          <span class="e-text-lg-strong">Svart</span>
+          viser at Elvia er AV. Det er primærfargen for tekst og ikoner, men kan også brukes for å få en mørk
+          overflate.
+          <span class="e-text-lg-strong">Mørk</span>
+          (grå) er den foretrukne mørke bakgrunnen.
         </ng-container>
-      </app-component-subsection>
-    </ng-container>
+      </app-component-subsubsection>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Mørkt tema' : 'Dark Theme'">
+      <ng-container *ngIf="locale === 'en-GB'">
+        We offer a dark theme for internal applications. We have created a separate palette for the dark theme
+        that reflects the light theme, with some exceptions. Dark theme colors are muted and are more suitable
+        for dark backgrounds.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Vi tilbyr et mørkt tema for interne applikasjoner. Vi har laget en egen palett for det mørke temaet
+        som gjenspeiler det lyse temaet, med noen unntak. Fargene i det mørke temaet er dempet og passer bedre
+        til mørke bakgrunner.
+      </ng-container>
+      <img
+        style="width: calc(20% + 180px)"
+        class="e-p-24"
+        src="assets/color-doc/color-weight-dark.svg"
+        alt="Illustrating how much of each color should be used in dark theme"
+      />
+      <app-component-subsubsection
+        [sectionTitle]="
+          locale === 'nb-NO' ? 'Eksempler på lyse og mørke temaer' : 'Light vs Dark Theme Examples'
+        "
+      >
+        <img
+          class="e-mt-8 e-mb-24"
+          src="assets/color-doc/example-light-theme.png"
+          alt="application using the light theme palette"
+          width="100%"
+        />
+        <img
+          src="assets/color-doc/example-dark-theme.png"
+          alt="application using the dark theme palette"
+          width="100%"
+        />
+      </app-component-subsubsection>
+    </app-component-subsection>
   </app-component-section>
   <app-component-section [sectionTitle]="'What are tokens?'">
-    <ng-container ngProjectAs="sectionContent">
-      <p>Hard-coded HEX colors don't scale or age well in code or design. Tokens solve this issue ✨.</p>
+    <p>Hard-coded HEX colors don't scale or age well in code or design. Tokens solve this issue ✨.</p>
+    <p>
+      All our components use tokens in the latest component versions 🪄. You have to apply tokens yourself for
+      colors in your application that don't come from the design system.
+    </p>
+    <app-component-subsection [sectionTitle]="'Tokens anatomy'">
+      <p>Here are some examples of how we use tokens in our components.</p>
+      <figure>
+        <img class="e-mt-24 theme-image-background e-w-100" src="assets/color-doc/tokens-examples.svg" />
+        <figcaption class="e-text-img">Illustration of tokens usage</figcaption>
+      </figure>
       <p>
-        All our components use tokens in the latest component versions 🪄. You have to apply tokens yourself
-        for colors in your application that don't come from the design system.
+        The Elvia green color is used in a lot of places throughout the Elvia systems, so there are also
+        several different tokens referring to green for different use cases.
       </p>
-      <app-component-subsection [sectionTitle]="'Tokens anatomy'">
-        <ng-container ngProjectAs="sectionContent">
-          <p>Here are some examples of how we use tokens in our components.</p>
-          <figure>
-            <img class="e-mt-24 theme-image-background e-w-100" src="assets/color-doc/tokens-examples.svg" />
-            <figcaption class="e-text-img">Illustration of tokens usage</figcaption>
-          </figure>
-          <p>
-            The Elvia green color is used in a lot of places throughout the Elvia systems, so there are also
-            several different tokens referring to green for different use cases.
-          </p>
-          <figure>
-            <img class="e-mt-24 theme-image-background e-w-100" src="assets/color-doc/green-tokens.svg" />
-            <figcaption class="e-text-img">Illustration of Elvia green tokens usage</figcaption>
-          </figure>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Tokens deep dive'">
-        <ng-container ngProjectAs="sectionContent">
-          <p class="e-m-0 e-mb-56">
-            Color tokens are labels that represent specific colors in a design system. They make it easier to
-            maintain consistency in the use of colors across different design elements and provide a shared
-            language for colors among designers and developers. By using color tokens, designers and
-            developers can easily change the colors used in the design without having to hunt through the code
-            for every instance of a particular color. This saves time and helps prevent mistakes.
-          </p>
-          <app-purpose-token-illustration />
-          <app-component-subsubsection [sectionTitle]="'Hex color'">
-            <ng-container ngProjectAs="sectionContent">All tokens are based on a hex color</ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Base tokens'">
-            <ng-container ngProjectAs="sectionContent">
-              The base tokens refer hex color and build the basis of the design system.
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Purpose tokens'">
-            <ng-container ngProjectAs="sectionContent">
-              Use purpose tokens in all applications. These always refer to a base token. Purpose tokens have
-              descriptive names that explain their intended use.
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Light and dark theme'">
-            <ng-container ngProjectAs="sectionContent">
-              <p class="e-m-0 e-mb-40">
-                Tokens adapt to light and dark themes automatically, keeping their purpose token names and
-                roles the same while adjusting their values. For instance,
-                <code>e-color-background-hover-1</code>
-                can be a light or dark shade of green depending on the theme used.
-              </p>
-              <app-theme-token-illustration />
-              <p>As illustrated below, the tokens represents different colors in light and dark theme.</p>
-              <figure>
-                <img
-                  class="e-mt-24 theme-image-background e-w-100"
-                  src="assets/color-doc/button-theme-token.svg"
-                />
-                <figcaption class="e-text-img">
-                  Illustration of how light and dark theme tokens work
-                </figcaption>
-              </figure>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+      <figure>
+        <img class="e-mt-24 theme-image-background e-w-100" src="assets/color-doc/green-tokens.svg" />
+        <figcaption class="e-text-img">Illustration of Elvia green tokens usage</figcaption>
+      </figure>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Tokens deep dive'">
+      <p class="e-m-0 e-mb-56">
+        Color tokens are labels that represent specific colors in a design system. They make it easier to
+        maintain consistency in the use of colors across different design elements and provide a shared
+        language for colors among designers and developers. By using color tokens, designers and developers
+        can easily change the colors used in the design without having to hunt through the code for every
+        instance of a particular color. This saves time and helps prevent mistakes.
+      </p>
+      <app-purpose-token-illustration />
+      <app-component-subsubsection [sectionTitle]="'Hex color'">
+        All tokens are based on a hex color
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Base tokens'">
+        The base tokens refer hex color and build the basis of the design system.
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Purpose tokens'">
+        Use purpose tokens in all applications. These always refer to a base token. Purpose tokens have
+        descriptive names that explain their intended use.
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Light and dark theme'">
+        <p class="e-m-0 e-mb-40">
+          Tokens adapt to light and dark themes automatically, keeping their purpose token names and roles the
+          same while adjusting their values. For instance,
+          <code>e-color-background-hover-1</code>
+          can be a light or dark shade of green depending on the theme used.
+        </p>
+        <app-theme-token-illustration />
+        <p>As illustrated below, the tokens represents different colors in light and dark theme.</p>
+        <figure>
+          <img class="e-mt-24 theme-image-background e-w-100" src="assets/color-doc/button-theme-token.svg" />
+          <figcaption class="e-text-img">Illustration of how light and dark theme tokens work</figcaption>
+        </figure>
+      </app-component-subsubsection>
+    </app-component-subsection>
   </app-component-section>
   <app-component-section [sectionTitle]="'Tokens'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-color-token-table />
-    </ng-container>
+    <app-color-token-table />
   </app-component-section>
   <app-component-section [sectionTitle]="'How to use tokens'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Using CSS variables'">
-        <ng-container ngProjectAs="sectionContent">
-          <p class="e-m-0">
-            All colors can be used through a CSS-variables. By using our purpose tokens we ensure cohesive
-            design and theme support everywhere. Both base and purpose tokens have their own variable. The
-            base tokens should only be used where custom colors are needed as the purpose tokens should be
-            able to cover most cases. The purpose tokens can be viewed in the tables above. Under are some
-            examples of use.
-          </p>
-          <app-component-subsubsection [sectionTitle]="'Purpose tokens'">
-            <ng-container ngProjectAs="sectionContent">
-              <p class="e-mt-0">Purpose tokens should be used everywhere as long as possible.</p>
-              <p class="e-mt-24">
-                All background tokens have a associated contrast tokens that can be used to set the text color
-                etc. The contrast colors will always meet the WCAG standards for contrast.
-              </p>
-              <app-code-viewer [tabs]="['CSS']" [activeCode]="purposeTokenExample" />
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection
-            [sectionTitle]="'Base tokens (only for when no purpose tokens are useable)'"
-          >
-            <ng-container ngProjectAs="sectionContent">
-              <p class="e-mb-24">Should only be used for when no purpose tokens fit the needs.</p>
-              <app-code-viewer [tabs]="['CSS']" [activeCode]="baseTokenExample" />
-              <p class="e-mt-24">
-                Base tokens are not prefixed with “color” and refers directly to a hex value. Theme support
-                therefore has to be added manually. The light themed base tokens are all prefixed with
-                “e-light” while the dark themed base tokens are all prefixed with “e-dark”. In light theme and
-                dark theme only the corresponding theme tokens should be used.
-              </p>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Using Classes'">
-        <ng-container ngProjectAs="sectionContent">
-          Some color tokens can be used through a set of classes as well as CSS-variables. These classes
-          includes:
-          <ul class="e-list e-mt-24">
-            <li><code>e-color-text-token</code></li>
-            <li><code>e-color-background-token</code></li>
-          </ul>
-          <p class="e-mt-24">Here is an examples of use:</p>
-          <app-code-viewer [activeCode]="classTokenExample" />
-          <p class="e-mt-24">
-            All background-classes sets the text-color to the contrast-color of the background. It is
-            therefore not necessary to use both the bg and the text class on the same element, exceptions can
-            of course occur and then the text class is available.
-          </p>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Using CSS variables'">
+      <p class="e-m-0">
+        All colors can be used through a CSS-variables. By using our purpose tokens we ensure cohesive design
+        and theme support everywhere. Both base and purpose tokens have their own variable. The base tokens
+        should only be used where custom colors are needed as the purpose tokens should be able to cover most
+        cases. The purpose tokens can be viewed in the tables above. Under are some examples of use.
+      </p>
+      <app-component-subsubsection [sectionTitle]="'Purpose tokens'">
+        <p class="e-mt-0">Purpose tokens should be used everywhere as long as possible.</p>
+        <p class="e-mt-24">
+          All background tokens have a associated contrast tokens that can be used to set the text color etc.
+          The contrast colors will always meet the WCAG standards for contrast.
+        </p>
+        <app-code-viewer [tabs]="['CSS']" [activeCode]="purposeTokenExample" />
+      </app-component-subsubsection>
+      <app-component-subsubsection
+        [sectionTitle]="'Base tokens (only for when no purpose tokens are useable)'"
+      >
+        <p class="e-mb-24">Should only be used for when no purpose tokens fit the needs.</p>
+        <app-code-viewer [tabs]="['CSS']" [activeCode]="baseTokenExample" />
+        <p class="e-mt-24">
+          Base tokens are not prefixed with “color” and refers directly to a hex value. Theme support
+          therefore has to be added manually. The light themed base tokens are all prefixed with “e-light”
+          while the dark themed base tokens are all prefixed with “e-dark”. In light theme and dark theme only
+          the corresponding theme tokens should be used.
+        </p>
+      </app-component-subsubsection>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Using Classes'">
+      Some color tokens can be used through a set of classes as well as CSS-variables. These classes includes:
+      <ul class="e-list e-mt-24">
+        <li><code>e-color-text-token</code></li>
+        <li><code>e-color-background-token</code></li>
+      </ul>
+      <p class="e-mt-24">Here is an examples of use:</p>
+      <app-code-viewer [activeCode]="classTokenExample" />
+      <p class="e-mt-24">
+        All background-classes sets the text-color to the contrast-color of the background. It is therefore
+        not necessary to use both the bg and the text class on the same element, exceptions can of course
+        occur and then the text class is available.
+      </p>
+    </app-component-subsection>
   </app-component-section>
 </div>

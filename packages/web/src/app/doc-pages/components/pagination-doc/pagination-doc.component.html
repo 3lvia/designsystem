@@ -5,30 +5,24 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does"></app-when-to-use>
-    </ng-container>
+    <app-when-to-use [whens]="does"></app-when-to-use>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <span class="keyboard-button">ArrowLeft/ArrowRight</span>
-              to navigate through the pagination elements and buttons.
-            </div>
-            <div>
-              <span class="keyboard-button">Space</span>
-              or
-              <span class="keyboard-button">Enter</span>
-              to open or close the dropdown, to select a new page number inside the pagination.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <span class="keyboard-button">ArrowLeft/ArrowRight</span>
+          to navigate through the pagination elements and buttons.
+        </div>
+        <div>
+          <span class="keyboard-button">Space</span>
+          or
+          <span class="keyboard-button">Enter</span>
+          to open or close the dropdown, to select a new page number inside the pagination.
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

@@ -5,439 +5,400 @@
 
   <!--SIZE-->
   <app-component-section size [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      Tables are available in two levels of density. When using tables, make sure to always use the same type
-      of density and style on all tables throughout the page.
-      <app-component-subsection [sectionTitle]="'Medium'">
-        <ng-container ngProjectAs="sectionContent">
-          Used when displaying information that should be perceived as easy to read and provides good
-          scanability with more space than the small version. Medium is most used in external systems.
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-static-ceg>
-                <app-table-size-medium-desktop-ceg />
-              </app-static-ceg>
-            </ng-container>
-          </app-component-subsubsection>
+    Tables are available in two levels of density. When using tables, make sure to always use the same type of
+    density and style on all tables throughout the page.
+    <app-component-subsection [sectionTitle]="'Medium'">
+      Used when displaying information that should be perceived as easy to read and provides good scanability
+      with more space than the small version. Medium is most used in external systems.
+      <app-component-subsubsection [sectionTitle]="'Desktop'">
+        <app-static-ceg>
+          <app-table-size-medium-desktop-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
 
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
-            <ng-container ngProjectAs="sectionContent">
-              The Elvia design system does not include table functionality, which means the design for mobiles
-              included here will not automatically appear when switching to smaller screens. The text in the
-              last column will always be aligned to the right on phones.
-              <app-static-ceg [phoneExample]="true">
-                <app-table-size-medium-mobile-ceg />
-              </app-static-ceg>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
+      <app-component-subsubsection [sectionTitle]="'Mobile'">
+        The Elvia design system does not include table functionality, which means the design for mobiles
+        included here will not automatically appear when switching to smaller screens. The text in the last
+        column will always be aligned to the right on phones.
+        <app-static-ceg [phoneExample]="true">
+          <app-table-size-medium-mobile-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Small'">
-        <ng-container ngProjectAs="sectionContent">
-          Small tables should be used when you need to show more data in less space, typically in internal
-          systems. They could also provide a better overview when used to show lots of similar types of data
-          that’s typically easier for the user to navigate in.
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-static-ceg>
-                <app-table-size-small-desktop-ceg />
-              </app-static-ceg>
-            </ng-container>
-          </app-component-subsubsection>
+    <app-component-subsection [sectionTitle]="'Small'">
+      Small tables should be used when you need to show more data in less space, typically in internal
+      systems. They could also provide a better overview when used to show lots of similar types of data
+      that’s typically easier for the user to navigate in.
+      <app-component-subsubsection [sectionTitle]="'Desktop'">
+        <app-static-ceg>
+          <app-table-size-small-desktop-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
 
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
-            <ng-container ngProjectAs="sectionContent">
-              The Elvia design system does not include table functionality, which means the design for mobiles
-              included here will not automatically appear when switching to smaller screens. The text in the
-              last column will always be aligned to the right on phones.
-              <app-static-ceg [phoneExample]="true">
-                <app-table-size-small-mobile-ceg />
-              </app-static-ceg>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+      <app-component-subsubsection [sectionTitle]="'Mobile'">
+        The Elvia design system does not include table functionality, which means the design for mobiles
+        included here will not automatically appear when switching to smaller screens. The text in the last
+        column will always be aligned to the right on phones.
+        <app-static-ceg [phoneExample]="true">
+          <app-table-size-small-mobile-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
+    </app-component-subsection>
   </app-component-section>
 
   <!--OPTIONS-->
   <app-component-section options [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
-        <elvia-accordion openLabel="Accordion" closeLabel="Accordion" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div><label class="e-tag e-tag--orange e-mb-16">Figma only</label></div>
-            <div>
-              Accordion is used when you need to have additional information to the row. An accordion is
-              placed all the way to the right with the possibility to expand/collapse on the whole row. Keep
-              the header title above empty. You can have multiple rows open at the same time (the user decides
-              when to close/open).
-            </div>
-            <ul class="e-list e-mt-24">
-              <li>
-                <a
-                  class="e-link e-link--inline e-link--new-tab"
-                  href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <span class="e-link__title">Figma</span>
-                  <span class="e-link__icon">
-                    <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <strong>Icons:&nbsp;</strong>
-                <code>e-icon--expand_circle-color</code>
-                &
-                <code>e-icon--expand_circle-filled-color</code>
-              </li>
-            </ul>
-            <app-component-subsubsection [sectionTitle]="'Desktop'">
-              <ng-container ngProjectAs="sectionContent">
-                <div width="100%" style="width: 100; overflow-x: auto">
-                  <iframe
-                    style="border: 1px solid var(--e-color-border-2)"
-                    width="500"
-                    height="450"
-                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3199%253A212"
-                    allowfullscreen
-                    title="Figma sketch of accordion in a table"
-                  ></iframe>
-                </div>
-              </ng-container>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Mobile'">
-              <ng-container ngProjectAs="sectionContent">
-                <div width="100%" style="width: 100; overflow-x: auto">
-                  <iframe
-                    style="border: 1px solid var(--e-color-border-2)"
-                    width="500"
-                    height="450"
-                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3582%253A44807"
-                    allowfullscreen
-                    title="Figma sketch of accordion in a table on mobile"
-                  ></iframe>
-                </div>
-              </ng-container>
-            </app-component-subsubsection>
+    <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
+      <elvia-accordion openLabel="Accordion" closeLabel="Accordion" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div><label class="e-tag e-tag--orange e-mb-16">Figma only</label></div>
+          <div>
+            Accordion is used when you need to have additional information to the row. An accordion is placed
+            all the way to the right with the possibility to expand/collapse on the whole row. Keep the header
+            title above empty. You can have multiple rows open at the same time (the user decides when to
+            close/open).
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Alignment" closeLabel="Alignment" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            The first column should always be left-aligned no matter the content of that column. By default
-            all content is left-aligned. There are however helper classes available for aligning content to
-            the center or to the right. The table header should always follow the alignment of the column.
-            Besides the first column, any type of content can be center-aligned or right-aligned.
-            <app-static-ceg>
-              <app-table-alignment-ceg />
-            </app-static-ceg>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Button" closeLabel="Button" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            Use icon buttons when you need actions in your table.
-            <app-component-subsubsection [sectionTitle]="'Desktop'">
-              <app-static-ceg ngProjectAs="sectionContent">
-                <app-table-button-desktop-ceg />
-              </app-static-ceg>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Mobile'">
-              <app-static-ceg [phoneExample]="true" ngProjectAs="sectionContent">
-                <app-table-button-mobile-ceg />
-              </app-static-ceg>
-            </app-component-subsubsection>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Checkbox" closeLabel="Checkbox" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              Use checkboxes when you need to multiselect rows to perform actions. The first checkbox, in the
-              table header should check and uncheck all checkboxes that are in the same column. Read about
-              nested checkboxes and the indeterminate state in the
-              <a class="e-link e-link--inline" [routerLink]="['/components/checkbox']" fragment="Type">
-                checkbox documentation
+          <ul class="e-list e-mt-24">
+            <li>
+              <a
+                class="e-link e-link--inline e-link--new-tab"
+                href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="e-link__title">Figma</span>
+                <span class="e-link__icon">
+                  <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+                </span>
               </a>
-              . Add the class
-              <code>e-table__checkbox--selected</code>
-              or
-              <code>e-table-mobile__checkbox-selected</code>
-              to all selected rows.
+            </li>
+            <li>
+              <strong>Icons:&nbsp;</strong>
+              <code>e-icon--expand_circle-color</code>
+              &
+              <code>e-icon--expand_circle-filled-color</code>
+            </li>
+          </ul>
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <div width="100%" style="width: 100; overflow-x: auto">
+              <iframe
+                style="border: 1px solid var(--e-color-border-2)"
+                width="500"
+                height="450"
+                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3199%253A212"
+                allowfullscreen
+                title="Figma sketch of accordion in a table"
+              ></iframe>
             </div>
-            <app-component-subsubsection [sectionTitle]="'Desktop'">
-              <app-static-ceg ngProjectAs="sectionContent">
-                <app-table-checkbox-desktop-ceg />
-              </app-static-ceg>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Mobile'">
-              <app-static-ceg [phoneExample]="true" ngProjectAs="sectionContent">
-                <app-table-checkbox-mobile-ceg />
-              </app-static-ceg>
-            </app-component-subsubsection>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Footnote" closeLabel="Footnote" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            Use a footnote when you need to clarify information. Use an asterisk (*) to connect the data to
-            the description.
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <div width="100%" style="width: 100; overflow-x: auto">
+              <iframe
+                style="border: 1px solid var(--e-color-border-2)"
+                width="500"
+                height="450"
+                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3582%253A44807"
+                allowfullscreen
+                title="Figma sketch of accordion in a table on mobile"
+              ></iframe>
+            </div>
+          </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Alignment" closeLabel="Alignment" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          The first column should always be left-aligned no matter the content of that column. By default all
+          content is left-aligned. There are however helper classes available for aligning content to the
+          center or to the right. The table header should always follow the alignment of the column. Besides
+          the first column, any type of content can be center-aligned or right-aligned.
+          <app-static-ceg>
+            <app-table-alignment-ceg />
+          </app-static-ceg>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Button" closeLabel="Button" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          Use icon buttons when you need actions in your table.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
             <app-static-ceg>
-              <app-table-footnote-ceg />
+              <app-table-button-desktop-ceg />
             </app-static-ceg>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <app-static-ceg [phoneExample]="true">
+              <app-table-button-mobile-ceg />
+            </app-static-ceg>
+          </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Checkbox" closeLabel="Checkbox" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            Use checkboxes when you need to multiselect rows to perform actions. The first checkbox, in the
+            table header should check and uncheck all checkboxes that are in the same column. Read about
+            nested checkboxes and the indeterminate state in the
+            <a class="e-link e-link--inline" [routerLink]="['/components/checkbox']" fragment="Type">
+              checkbox documentation
+            </a>
+            . Add the class
+            <code>e-table__checkbox--selected</code>
+            or
+            <code>e-table-mobile__checkbox-selected</code>
+            to all selected rows.
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Input" closeLabel="Input" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            Use an input field when the user can edit values in the table.
-            <app-component-subsubsection [sectionTitle]="'Desktop'">
-              <app-static-ceg ngProjectAs="sectionContent">
-                <app-table-input-desktop-ceg />
-              </app-static-ceg>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Mobile'">
-              <app-static-ceg [phoneExample]="true" ngProjectAs="sectionContent">
-                <app-table-input-mobile-ceg />
-              </app-static-ceg>
-            </app-component-subsubsection>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Long column" closeLabel="Long column" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              If the table requires scrolling the max-width for a column is 450px, the class
-              <code>e-table__cell--multiline</code>
-              can then be added to ensure width of column and text wrap. Use
-              <code>e-text-right</code>
-              to align numbers to the right. The class
-              <code>e-table__cell--multiline-sm</code>
-              can be used when the column should have a max-width of 250px.
-            </div>
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
             <app-static-ceg>
-              <app-table-long-column-ceg />
+              <app-table-checkbox-desktop-ceg />
             </app-static-ceg>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <app-static-ceg [phoneExample]="true">
+              <app-table-checkbox-mobile-ceg />
+            </app-static-ceg>
+          </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Footnote" closeLabel="Footnote" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          Use a footnote when you need to clarify information. Use an asterisk (*) to connect the data to the
+          description.
+          <app-static-ceg>
+            <app-table-footnote-ceg />
+          </app-static-ceg>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Input" closeLabel="Input" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          Use an input field when the user can edit values in the table.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <app-static-ceg>
+              <app-table-input-desktop-ceg />
+            </app-static-ceg>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <app-static-ceg [phoneExample]="true">
+              <app-table-input-mobile-ceg />
+            </app-static-ceg>
+          </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Long column" closeLabel="Long column" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            If the table requires scrolling the max-width for a column is 450px, the class
+            <code>e-table__cell--multiline</code>
+            can then be added to ensure width of column and text wrap. Use
+            <code>e-text-right</code>
+            to align numbers to the right. The class
+            <code>e-table__cell--multiline-sm</code>
+            can be used when the column should have a max-width of 250px.
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Sticky header" closeLabel="Sticky header" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              Sticky headers should primarily be used when there is a lot of information to scroll through so
-              that the user can view the context at all times when scrolling. Optional sticky headers for both
-              horizontal and vertical scroll. You can choose to have either row headers sticky, column headers
-              sticky, or both.
-            </div>
-            <app-component-subsubsection [sectionTitle]="'Desktop'">
-              <ng-container ngProjectAs="sectionContent">
-                <h5 class="e-title-caps">Row header</h5>
-                The first column will be sticky on the left side including the linked column header.
-                <app-static-ceg>
-                  <app-table-sticky-row-header-desktop-ceg />
-                </app-static-ceg>
+          <app-static-ceg>
+            <app-table-long-column-ceg />
+          </app-static-ceg>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Sticky header" closeLabel="Sticky header" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            Sticky headers should primarily be used when there is a lot of information to scroll through so
+            that the user can view the context at all times when scrolling. Optional sticky headers for both
+            horizontal and vertical scroll. You can choose to have either row headers sticky, column headers
+            sticky, or both.
+          </div>
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <h5 class="e-title-caps">Row header</h5>
+            The first column will be sticky on the left side including the linked column header.
+            <app-static-ceg>
+              <app-table-sticky-row-header-desktop-ceg />
+            </app-static-ceg>
 
-                <h5 class="e-title-caps e-mt-40">Column header</h5>
-                <div>The column header will be sticky on top while scrolling vertically.</div>
-                <app-static-ceg>
-                  <app-table-sticky-column-header-desktop-ceg />
-                </app-static-ceg>
-              </ng-container>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Mobile'">
-              <ng-container ngProjectAs="sectionContent">
-                When the row headers are sticky these headers should also be sticky on mobile. The row
-                currently displaying will follow on top until the next row is reached. Column headers will not
-                be sticky on mobile.
-                <app-static-ceg [phoneExample]="true">
-                  <app-table-sticky-column-header-mobile-ceg />
-                </app-static-ceg>
-              </ng-container>
-            </app-component-subsubsection>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="No stripes" closeLabel="No stripes" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              Use the modifier class
-              <code>e-table--no-stripes</code>
-              to remove the grey colored stripes on the table body.
-              <app-static-ceg>
-                <app-table-no-stripes-ceg />
-              </app-static-ceg>
-            </div>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Numbers" closeLabel="Numbers" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              Use the class
-              <code>e-text-mono</code>
-              on the table cell, when comparing numbers in the table. Mono has equal width for each character,
-              making comparing numbers easier than with Red Hat Text or Red Hat Display.
-            </div>
+            <h5 class="e-title-caps e-mt-40">Column header</h5>
+            <div>The column header will be sticky on top while scrolling vertically.</div>
             <app-static-ceg>
-              <app-table-numbers-ceg />
+              <app-table-sticky-column-header-desktop-ceg />
+            </app-static-ceg>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            When the row headers are sticky these headers should also be sticky on mobile. The row currently
+            displaying will follow on top until the next row is reached. Column headers will not be sticky on
+            mobile.
+            <app-static-ceg [phoneExample]="true">
+              <app-table-sticky-column-header-mobile-ceg />
+            </app-static-ceg>
+          </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="No stripes" closeLabel="No stripes" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            Use the modifier class
+            <code>e-table--no-stripes</code>
+            to remove the grey colored stripes on the table body.
+            <app-static-ceg>
+              <app-table-no-stripes-ceg />
             </app-static-ceg>
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Select" closeLabel="Select" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            Use select when navigating forward from the selected row.
-            <app-component-subsubsection [sectionTitle]="'Desktop'">
-              <app-static-ceg ngProjectAs="sectionContent">
-                <app-table-select-desktop-ceg />
-              </app-static-ceg>
-            </app-component-subsubsection>
-            <app-component-subsubsection [sectionTitle]="'Mobile'">
-              <app-static-ceg [phoneExample]="true" ngProjectAs="sectionContent">
-                <app-table-select-mobile-ceg />
-              </app-static-ceg>
-            </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Numbers" closeLabel="Numbers" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            Use the class
+            <code>e-text-mono</code>
+            on the table cell, when comparing numbers in the table. Mono has equal width for each character,
+            making comparing numbers easier than with Red Hat Text or Red Hat Display.
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Sorting" closeLabel="Sorting" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <label class="e-tag e-tag--orange e-mb-16">Figma only</label>
-            <div>
-              Sorting is another way to ease the user's search process in tables. The sorting functionality
-              can either be in a sorting dropdown outside of the table, or as a table sorting in the table
-              header. Here we provide the classes for table sorting, but the logic needs to be added.
-            </div>
-            <ul class="e-list e-mt-24">
-              <li>
-                <a
-                  class="e-link e-link--inline e-link--new-tab"
-                  href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <span class="e-link__title">Figma</span>
-                  <span class="e-link__icon">
-                    <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <strong>Icons:&nbsp;</strong>
-                <code>e-icon--sorting-bold</code>
-                &
-                <code>e-icon--sorting_ascending-bold</code>
-                &
-                <code>e-icon--sorting_descending-bold</code>
-              </li>
-            </ul>
+          <app-static-ceg>
+            <app-table-numbers-ceg />
+          </app-static-ceg>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Select" closeLabel="Select" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          Use select when navigating forward from the selected row.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <app-static-ceg>
+              <app-table-select-desktop-ceg />
+            </app-static-ceg>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <app-static-ceg [phoneExample]="true">
+              <app-table-select-mobile-ceg />
+            </app-static-ceg>
+          </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Sorting" closeLabel="Sorting" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <label class="e-tag e-tag--orange e-mb-16">Figma only</label>
+          <div>
+            Sorting is another way to ease the user's search process in tables. The sorting functionality can
+            either be in a sorting dropdown outside of the table, or as a table sorting in the table header.
+            Here we provide the classes for table sorting, but the logic needs to be added.
+          </div>
+          <ul class="e-list e-mt-24">
+            <li>
+              <a
+                class="e-link e-link--inline e-link--new-tab"
+                href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="e-link__title">Figma</span>
+                <span class="e-link__icon">
+                  <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <strong>Icons:&nbsp;</strong>
+              <code>e-icon--sorting-bold</code>
+              &
+              <code>e-icon--sorting_ascending-bold</code>
+              &
+              <code>e-icon--sorting_descending-bold</code>
+            </li>
+          </ul>
 
-            <app-component-subsubsection [sectionTitle]="'Desktop'">
-              <ng-container ngProjectAs="sectionContent">
-                On desktop, the sorting arrow appears when hovering over any of the sortable top tabs. When
-                clicked, the table will sort according to the chosen column; ascending (up), descending
-                (down), or original order (no arrow).
-                <div class="e-mt-16" width="100%" style="width: 100; overflow-x: auto">
-                  <iframe
-                    style="border: 1px solid var(--e-color-border-2)"
-                    width="500"
-                    height="450"
-                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3561%253A44676"
-                    allowfullscreen
-                    title="Figma sketch of sorting in a table"
-                  ></iframe>
-                </div>
-              </ng-container>
-            </app-component-subsubsection>
-
-            <app-component-subsubsection [sectionTitle]="'Mobile'">
-              <ng-container ngProjectAs="sectionContent">
-                On mobile, the function is displayed in a sorting menu, which also impacts the highlighted
-                title.
-                <div class="e-mt-16" width="100%" style="width: 100; overflow-x: auto">
-                  <iframe
-                    style="border: 1px solid var(--e-color-border-2)"
-                    width="500"
-                    height="450"
-                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3575%253A44807"
-                    allowfullscreen
-                    title="Figma sketch of sorting in a table on mobile"
-                  ></iframe>
-                </div>
-              </ng-container>
-            </app-component-subsubsection>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <elvia-accordion openLabel="Validation" closeLabel="Validation" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              A red border will be added around the cell or row to indicate validation in a table. Depending
-              on the case, you can have the validation text either below the table (if the table is small) or
-              a symbol together with a tooltip explanation.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            On desktop, the sorting arrow appears when hovering over any of the sortable top tabs. When
+            clicked, the table will sort according to the chosen column; ascending (up), descending (down), or
+            original order (no arrow).
+            <div class="e-mt-16" width="100%" style="width: 100; overflow-x: auto">
+              <iframe
+                style="border: 1px solid var(--e-color-border-2)"
+                width="500"
+                height="450"
+                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3561%253A44676"
+                allowfullscreen
+                title="Figma sketch of sorting in a table"
+              ></iframe>
             </div>
-            <app-static-ceg>
-              <app-table-validation-row-ceg />
-            </app-static-ceg>
-            <app-static-ceg>
-              <app-table-validation-cell-ceg />
-            </app-static-ceg>
+          </app-component-subsubsection>
+
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            On mobile, the function is displayed in a sorting menu, which also impacts the highlighted title.
+            <div class="e-mt-16" width="100%" style="width: 100; overflow-x: auto">
+              <iframe
+                style="border: 1px solid var(--e-color-border-2)"
+                width="500"
+                height="450"
+                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3575%253A44807"
+                allowfullscreen
+                title="Figma sketch of sorting in a table on mobile"
+              ></iframe>
+            </div>
+          </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion openLabel="Validation" closeLabel="Validation" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            A red border will be added around the cell or row to indicate validation in a table. Depending on
+            the case, you can have the validation text either below the table (if the table is small) or a
+            symbol together with a tooltip explanation.
           </div>
-        </elvia-accordion>
-      </div>
-    </ng-container>
+          <app-static-ceg>
+            <app-table-validation-row-ceg />
+          </app-static-ceg>
+          <app-static-ceg>
+            <app-table-validation-cell-ceg />
+          </app-static-ceg>
+        </div>
+      </elvia-accordion>
+    </div>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Caption'">
-        <ng-container ngProjectAs="sectionContent">
-          Include a
-          <code>caption</code>
-          element as the
-          <code>table</code>
-          element's first child. Using the
-          <code>e-sr-only</code>
-          class, you can visually hide the caption from the page while still enabling assistive technology
-          users to read/hear it.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Scope'">
-        <ng-container ngProjectAs="sectionContent">
-          The
-          <code>scope</code>
-          attribute should be places on all table header elements to make it clear if the headers is a row or
-          column header. Add
-          <code>scope="row"</code>
-          and the
-          <code>th</code>
-          element to the first cell on a row if this element acts as a header.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Sorting'">
-        <ng-container ngProjectAs="sectionContent">
-          Use the
-          <code>aria-sort</code>
-          attribute in the header cell for the currently sorted column or row. Set the attribute to
-          <code>ascending</code>
-          or
-          <code>descending</code>
-          , depending on the sort order. When the sort order is changed, update the attribute accordingly.
-          Also, move the attribute to the header cell for the newly sorted column or row.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Caption'">
+      Include a
+      <code>caption</code>
+      element as the
+      <code>table</code>
+      element's first child. Using the
+      <code>e-sr-only</code>
+      class, you can visually hide the caption from the page while still enabling assistive technology users
+      to read/hear it.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Scope'">
+      The
+      <code>scope</code>
+      attribute should be places on all table header elements to make it clear if the headers is a row or
+      column header. Add
+      <code>scope="row"</code>
+      and the
+      <code>th</code>
+      element to the first cell on a row if this element acts as a header.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Sorting'">
+      Use the
+      <code>aria-sort</code>
+      attribute in the header cell for the currently sorted column or row. Set the attribute to
+      <code>ascending</code>
+      or
+      <code>descending</code>
+      , depending on the sort order. When the sort order is changed, update the attribute accordingly. Also,
+      move the attribute to the header cell for the newly sorted column or row.
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

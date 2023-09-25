@@ -5,66 +5,58 @@
 
   <!--STATES-->
   <app-component-section states [sectionTitle]="'States'">
-    <ng-container ngProjectAs="sectionContent">
+    Use
+    <code>e-thumbnail---selected</code>
+    to visually show the selected thumbnail in a group with a dark border.
+    <p>
       Use
-      <code>e-thumbnail---selected</code>
-      to visually show the selected thumbnail in a group with a dark border.
-      <p>
-        Use
-        <code>e-thumbnail---hover</code>
-        to manually apply a green border around a thumbnail during hover. This also occurs automatically when
-        a user hovers over the thumbnail in the browser.
-      </p>
-      <app-static-ceg>
-        <app-thumbnail-selected-ceg />
-      </app-static-ceg>
-    </ng-container>
+      <code>e-thumbnail---hover</code>
+      to manually apply a green border around a thumbnail during hover. This also occurs automatically when a
+      user hovers over the thumbnail in the browser.
+    </p>
+    <app-static-ceg>
+      <app-thumbnail-selected-ceg />
+    </app-static-ceg>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <div class="e-flex e-flex-direction-column e-gap-16">
-        <img [src]="selectedImage" alt="Selected image" style="width: 248px" />
-        <div class="e-flex e-gap-8 e-align-items-left">
-          <button
-            *ngFor="let image of images; let i = index"
-            class="e-thumbnail"
-            [ngClass]="{ 'e-thumbnail---selected': image.src === selectedImage }"
-            (click)="selectedImage = image.src"
-          >
-            <img [src]="image.src" [alt]="'example ' + (i + 1)" />
-          </button>
-        </div>
+    <div class="e-flex e-flex-direction-column e-gap-16">
+      <img [src]="selectedImage" alt="Selected image" style="width: 248px" />
+      <div class="e-flex e-gap-8 e-align-items-left">
+        <button
+          *ngFor="let image of images; let i = index"
+          class="e-thumbnail"
+          [ngClass]="{ 'e-thumbnail---selected': image.src === selectedImage }"
+          (click)="selectedImage = image.src"
+        >
+          <img [src]="image.src" [alt]="'example ' + (i + 1)" />
+        </button>
       </div>
+    </div>
 
-      <p>This is an example of how a thumbnail should be used.</p>
-    </ng-container>
+    <p>This is an example of how a thumbnail should be used.</p>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'ARIA'">
-        <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Aria label:</strong>
-              Always add a descriptive
-              <span class="code-text">aria-label</span>
-              to the thumbnail button.
-            </li>
-            <li>
-              <strong>Alternate text:</strong>
-              Give the
-              <code>img</code>
-              an
-              <code>alt</code>
-              attribute explaining what the thumbnail button does.
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'ARIA'">
+      <ul class="e-list">
+        <li>
+          <strong>Aria label:</strong>
+          Always add a descriptive
+          <span class="code-text">aria-label</span>
+          to the thumbnail button.
+        </li>
+        <li>
+          <strong>Alternate text:</strong>
+          Give the
+          <code>img</code>
+          an
+          <code>alt</code>
+          attribute explaining what the thumbnail button does.
+        </li>
+      </ul>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

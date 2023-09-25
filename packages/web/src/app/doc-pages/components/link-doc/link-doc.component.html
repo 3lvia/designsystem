@@ -5,135 +5,105 @@
 
   <!--TYPE-->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Standard link'">
-        <ng-container ngProjectAs="sectionContent">
-          Standard links stand alone and direct you to another page.
-          <app-static-ceg>
-            <app-link-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Standard link'">
+      Standard links stand alone and direct you to another page.
+      <app-static-ceg>
+        <app-link-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Inline'">
-        <ng-container ngProjectAs="sectionContent">
-          Inline link are used within sentences and text blocks, and will always carry the font size of the
-          text block.
-          <app-static-ceg>
-            <app-link-inline-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Inline'">
+      Inline link are used within sentences and text blocks, and will always carry the font size of the text
+      block.
+      <app-static-ceg>
+        <app-link-inline-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'New tab'">
-        <ng-container ngProjectAs="sectionContent">
-          New tab link is used when the page you are linking to opens in a new window or tab. You should open
-          a link in a new tab when it leads outside of the website
-          <app-static-ceg>
-            <app-link-new-tab-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'New tab'">
+      New tab link is used when the page you are linking to opens in a new window or tab. You should open a
+      link in a new tab when it leads outside of the website
+      <app-static-ceg>
+        <app-link-new-tab-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Action'">
-        <ng-container ngProjectAs="sectionContent">
-          Action link are mostly used when you link to another page to do an action. It can also be used when
-          you have a link alone and want it to take more attention than a regular link.
-          <app-static-ceg>
-            <app-link-action-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Action'">
+      Action link are mostly used when you link to another page to do an action. It can also be used when you
+      have a link alone and want it to take more attention than a regular link.
+      <app-static-ceg>
+        <app-link-action-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Back'">
-        <ng-container ngProjectAs="sectionContent">
-          Back link are used to navigate the user to a previous page or take the user to the start page. Back
-          links have a green arrow next to it to make it stand out more and to clarify that you will be sent
-          back.
-          <app-static-ceg>
-            <app-link-back-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Back'">
+      Back link are used to navigate the user to a previous page or take the user to the start page. Back
+      links have a green arrow next to it to make it stand out more and to clarify that you will be sent back.
+      <app-static-ceg>
+        <app-link-back-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Multiple links'">
-        <ng-container ngProjectAs="sectionContent">
-          When needing a collection of links use either
-          <a class="e-link e-link--inline" [routerLink]="['/patterns/groups']" fragment="Examples">
-            action group
-          </a>
-          , a simple link list, or
-          <a class="e-link e-link--inline" [routerLink]="['/components/card']">cards</a>
-          , when you want a more visual representation of content.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Multiple links'">
+      When needing a collection of links use either
+      <a class="e-link e-link--inline" [routerLink]="['/patterns/groups']" fragment="Examples">
+        action group
+      </a>
+      , a simple link list, or
+      <a class="e-link e-link--inline" [routerLink]="['/components/card']">cards</a>
+      , when you want a more visual representation of content.
+    </app-component-subsection>
   </app-component-section>
 
   <!--SIZES-->
   <app-component-section size [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      We have three different sizes: small, medium, and large. Make sure the aspect ratio harmonizes with the
-      rest of the content. An example, if you use small body text and small title or/and small components -
-      use small link.
-      <app-static-ceg>
-        <app-link-sizes-ceg />
-      </app-static-ceg>
-    </ng-container>
+    We have three different sizes: small, medium, and large. Make sure the aspect ratio harmonizes with the
+    rest of the content. An example, if you use small body text and small title or/and small components - use
+    small link.
+    <app-static-ceg>
+      <app-link-sizes-ceg />
+    </app-static-ceg>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Label'">
-        <ng-container ngProjectAs="sectionContent">
-          Use meaningful labels for links and avoid terms like “click here”, and try to cut down the
-          unnecessary words. Try to reflect the content user will find when clicking on the link. The label
-          should be able to make sense on its own without the surrounding sentence or content.
-          <app-do-dont-text>
-            <ng-container ngProjectAs="do">
-              <a class="e-link" href="https://design.elvia.io">See our power outage map</a>
-            </ng-container>
-            <ng-container ngProjectAs="dont">
-              <a class="e-link" href="https://design.elvia.io">Click here</a>
-            </ng-container>
-          </app-do-dont-text>
+    <app-component-subsection [sectionTitle]="'Label'">
+      Use meaningful labels for links and avoid terms like “click here”, and try to cut down the unnecessary
+      words. Try to reflect the content user will find when clicking on the link. The label should be able to
+      make sense on its own without the surrounding sentence or content.
+      <app-do-dont-text>
+        <ng-container ngProjectAs="do">
+          <a class="e-link" href="https://design.elvia.io">See our power outage map</a>
         </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Which component should I use?'">
-        <ng-container ngProjectAs="sectionContent">
-          Link takes you to another place while button does something. Don’t use button for navigational
-          actions.
-
-          <app-component-subsubsection [sectionTitle]="'Link or button?'">
-            <ng-container ngProjectAs="sectionContent">
-              Link takes you to another place while button does something. Don’t use button for navigational
-              actions.
-
-              <h4 class="e-title-caps e-mt-40">Use Button</h4>
-              Actions where users affect the website’s back-end or front-end
-              <h4 class="e-title-caps e-mt-40">Use link</h4>
-              Actions where users won’t affect the website at all
-            </ng-container>
-          </app-component-subsubsection>
+        <ng-container ngProjectAs="dont">
+          <a class="e-link" href="https://design.elvia.io">Click here</a>
         </ng-container>
-      </app-component-subsection>
-    </ng-container>
+      </app-do-dont-text>
+    </app-component-subsection>
+
+    <app-component-subsection [sectionTitle]="'Which component should I use?'">
+      Link takes you to another place while button does something. Don’t use button for navigational actions.
+
+      <app-component-subsubsection [sectionTitle]="'Link or button?'">
+        Link takes you to another place while button does something. Don’t use button for navigational
+        actions.
+
+        <h4 class="e-title-caps e-mt-40">Use Button</h4>
+        Actions where users affect the website’s back-end or front-end
+        <h4 class="e-title-caps e-mt-40">Use link</h4>
+        Actions where users won’t affect the website at all
+      </app-component-subsubsection>
+    </app-component-subsection>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Links with button style'">
-        <ng-container ngProjectAs="sectionContent">
-          The e-btn class can also be used on anchor tags to make links appear like buttons. This should only
-          be done with good reason as the behavior might confuse the user.
-          <app-static-ceg>
-            <app-link-as-btn-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Links with button style'">
+      The e-btn class can also be used on anchor tags to make links appear like buttons. This should only be
+      done with good reason as the behavior might confuse the user.
+      <app-static-ceg>
+        <app-link-as-btn-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

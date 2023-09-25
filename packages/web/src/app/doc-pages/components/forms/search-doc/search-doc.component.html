@@ -5,107 +5,83 @@
 
   <!--TYPE-->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      We have two types of search: instant and on submit. These are typically used in connection to a data
-      table or list. Instant search is typically used when filtering among content, while search on submit is
-      for typical search functions (when content isn’t displayed before searching).
-      <app-component-subsection [sectionTitle]="'Instant'">
-        <ng-container ngProjectAs="sectionContent">
-          For use cases were the search result should appear "instant".
-          <app-static-ceg>
-            <app-search-instant-ceg />
-          </app-static-ceg>
-          <div class="e-mt-40">
-            Use the
-            <span class="code-text">e-search--searched</span>
-            class when the search input field has a valid search input.
-          </div>
-          <app-static-ceg>
-            <app-search-instant-searched-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'On Submit'">
-        <ng-container ngProjectAs="sectionContent">
-          For use cases where the search result should appear "on submit". Use a large button for medium
-          search, and a small button for small. You can find button documentation
-          <a class="e-link e-link--inline" [routerLink]="['/components/button']">here</a>
-          .
+    We have two types of search: instant and on submit. These are typically used in connection to a data table
+    or list. Instant search is typically used when filtering among content, while search on submit is for
+    typical search functions (when content isn’t displayed before searching).
+    <app-component-subsection [sectionTitle]="'Instant'">
+      For use cases were the search result should appear "instant".
+      <app-static-ceg>
+        <app-search-instant-ceg />
+      </app-static-ceg>
+      <div class="e-mt-40">
+        Use the
+        <span class="code-text">e-search--searched</span>
+        class when the search input field has a valid search input.
+      </div>
+      <app-static-ceg>
+        <app-search-instant-searched-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'On Submit'">
+      For use cases where the search result should appear "on submit". Use a large button for medium search,
+      and a small button for small. You can find button documentation
+      <a class="e-link e-link--inline" [routerLink]="['/components/button']">here</a>
+      .
 
-          <app-static-ceg>
-            <app-search-on-submit-ceg />
-          </app-static-ceg>
-          <div class="e-mt-40">
-            Use the
-            <span class="code-text">e-search--searched</span>
-            class when the search input field has a valid search input.
-          </div>
-          <app-static-ceg>
-            <app-search-on-submit-searched-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+      <app-static-ceg>
+        <app-search-on-submit-ceg />
+      </app-static-ceg>
+      <div class="e-mt-40">
+        Use the
+        <span class="code-text">e-search--searched</span>
+        class when the search input field has a valid search input.
+      </div>
+      <app-static-ceg>
+        <app-search-on-submit-searched-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!-- OPTIONS -->
   <app-component-section options [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Full width'">
-        <ng-container ngProjectAs="sectionContent">
-          When a search field needs to take up the entire available width, give the field the
-          <span class="code-text">e-form-field—width-full</span>
-          class.
-          <app-static-ceg>
-            <app-search-fullwidth-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Full width'">
+      When a search field needs to take up the entire available width, give the field the
+      <span class="code-text">e-form-field—width-full</span>
+      class.
+      <app-static-ceg>
+        <app-search-fullwidth-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--SIZE-->
   <app-component-section size [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Medium'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-search-size-medium-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Small'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-search-size-small-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Medium'">
+      <app-static-ceg>
+        <app-search-size-medium-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Small'">
+      <app-static-ceg>
+        <app-search-size-small-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!-- USAGE -->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Placeholder'">
-        <ng-container ngProjectAs="sectionContent">
-          Include a placeholder to suggest to users what they can search for, but try to keep it short.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-component-subsection [sectionTitle]="'Placeholder'">
+      Include a placeholder to suggest to users what they can search for, but try to keep it short.
+    </app-component-subsection>
   </app-component-section>
 
   <!-- ACCESSIBILITY -->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'aria-label'">
-        <ng-container ngProjectAs="sectionContent">
-          You don’t need to show label in search, but add an
-          <span class="code-text">aria-label</span>
-          as an explicit invisable label to the search form code that can accommodate screen reader users.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'aria-label'">
+      You don’t need to show label in search, but add an
+      <span class="code-text">aria-label</span>
+      as an explicit invisable label to the search form code that can accommodate screen reader users.
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

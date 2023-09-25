@@ -10,805 +10,777 @@
 <div class="page-body">
   <!--FOR DEVELOPERS-->
   <app-component-section [sectionTitle]="'For developers'">
-    <ng-container ngProjectAs="sectionContent">
-      The design system helps designers and developers create software with a consistent look and feel and
-      saves time by allowing us to reuse components and design elements across multiple systems and sketches.
+    The design system helps designers and developers create software with a consistent look and feel and saves
+    time by allowing us to reuse components and design elements across multiple systems and sketches.
 
-      <div class="e-mt-24">
-        We separate the available components into a style library and separate components. The style library
-        is called elvis and can be used to get styling with html classes. For more advanced components we
-        offer separate packages that can be used individually. When browsing our components it will be clear
-        what kind of component it is by looking at the code examples or the installation guidelines. Find all
-        the components under "Components" in the main menu.
-      </div>
+    <div class="e-mt-24">
+      We separate the available components into a style library and separate components. The style library is
+      called elvis and can be used to get styling with html classes. For more advanced components we offer
+      separate packages that can be used individually. When browsing our components it will be clear what kind
+      of component it is by looking at the code examples or the installation guidelines. Find all the
+      components under "Components" in the main menu.
+    </div>
 
-      <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
-        <!--Style library - Elvis-->
-        <elvia-accordion openLabel="Elvis" closeLabel="Elvis" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              Elvis is the styling library we offer with multiple component classes and utilities like colors,
-              icons and typography.
-            </div>
+    <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
+      <!--Style library - Elvis-->
+      <elvia-accordion openLabel="Elvis" closeLabel="Elvis" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            Elvis is the styling library we offer with multiple component classes and utilities like colors,
+            icons and typography.
+          </div>
 
-            <!--CDN-->
-            <app-component-subsubsection [sectionTitle]="'With CDN'">
-              <ng-container ngProjectAs="sectionContent">
-                Elvis can be very easily used through our CDN.
-                <ol class="e-list e-list--numbers">
-                  <li>
-                    <strong>Put the following in &lt;head></strong>
-                    <div class="overflow-scroll" *ngIf="scriptTagCode">
-                      <app-copy [message]="linkTagCode">
-                        <code>{{ linkTagCode }}</code>
-                      </app-copy>
-                    </div>
-                    <div
-                      *ngIf="!linkTagCode"
-                      class="e-content-loader"
-                      style="width: 100%; height: 127px"
-                    ></div>
-                  </li>
-                  <li>
-                    <strong>Put the following at the bottom of &lt;body></strong>
-                    <div class="overflow-scroll" *ngIf="scriptTagCode">
-                      <app-copy [message]="scriptTagCode">
-                        <code>{{ scriptTagCode }}</code>
-                      </app-copy>
-                    </div>
-                    <div
-                      *ngIf="!scriptTagCode"
-                      class="e-content-loader"
-                      style="width: 100%; height: 127px"
-                    ></div>
-                  </li>
-                </ol>
-
-                <p>The result should look like this:</p>
-                <div *ngIf="fullHTMLExample">
-                  <app-code-viewer [activeCode]="fullHTMLExample" />
+          <!--CDN-->
+          <app-component-subsubsection [sectionTitle]="'With CDN'">
+            Elvis can be very easily used through our CDN.
+            <ol class="e-list e-list--numbers">
+              <li>
+                <strong>Put the following in &lt;head></strong>
+                <div class="overflow-scroll" *ngIf="scriptTagCode">
+                  <app-copy [message]="linkTagCode">
+                    <code>{{ linkTagCode }}</code>
+                  </app-copy>
                 </div>
-                <div
-                  *ngIf="!fullHTMLExample"
-                  class="e-content-loader"
-                  style="width: 100%; height: 337px"
-                ></div>
-              </ng-container>
-            </app-component-subsubsection>
-
-            <!--NPM-->
-            <app-component-subsubsection [sectionTitle]="'With NPM (alternative)'">
-              <ng-container ngProjectAs="sectionContent">
-                <div class="e-alert e-alert--local e-alert--warn e-mb-32" role="note">
-                  <div class="e-alert__icon">
-                    <i class="e-icon e-icon--warning_circle e-icon--color-orange" aria-hidden="true"></i>
-                  </div>
-                  <div class="e-alert__content">
-                    <div class="e-alert__title">Not recommended</div>
-                    <div class="e-alert__text">This method is not recommended for less advanced users</div>
-                  </div>
+                <div *ngIf="!linkTagCode" class="e-content-loader" style="width: 100%; height: 127px"></div>
+              </li>
+              <li>
+                <strong>Put the following at the bottom of &lt;body></strong>
+                <div class="overflow-scroll" *ngIf="scriptTagCode">
+                  <app-copy [message]="scriptTagCode">
+                    <code>{{ scriptTagCode }}</code>
+                  </app-copy>
                 </div>
-                <ol class="e-list e-list--numbers">
-                  <li>
-                    <strong class="e-mr-16">Install the package:</strong>
-                    <app-copy [message]="'npm i @elvia/elvis'">
-                      <code class="code-text">npm i @elvia/elvis</code>
-                    </app-copy>
-                  </li>
-                  <li>
-                    <strong class="e-mr-16">
-                      Import css/elvis.min.css or src/main.scss in your stylesheet:
-                    </strong>
-                    <app-copy [message]="elvisCssImport">
-                      <code class="code-text">{{ elvisCssImport }}</code>
-                    </app-copy>
-                  </li>
-                  <li>
-                    <strong class="e-mr-16">Import elvis.js from the NPM package in your app:</strong>
-                    <app-copy [message]="elvisJsImport">
-                      <code class="code-text">{{ elvisJsImport }}</code>
-                    </app-copy>
-                    <p>
-                      Note that elvis.js should be imported only once, somewhere at the base-level of your
-                      app. Depending on what framework you are using, the method of doing this may differ.
-                    </p>
-                  </li>
-                </ol>
-              </ng-container>
-            </app-component-subsubsection>
+                <div *ngIf="!scriptTagCode" class="e-content-loader" style="width: 100%; height: 127px"></div>
+              </li>
+            </ol>
 
-            <app-component-subsubsection [sectionTitle]="'Using CSS variables'">
-              <ng-container ngProjectAs="sectionContent">
-                <div>
-                  For many of the our utilities, like colors and spacing, CSS-variables are also provided. All
-                  these variables are available when importing the main.scss file in your stylesheet, meaning
-                  you don't need to import any specific files to use them.
-                  <div class="e-my-16">
-                    <code class="code-text">var(--e-name-of-class)</code>
-                  </div>
-                </div>
-              </ng-container>
-            </app-component-subsubsection>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Components-->
-        <elvia-accordion openLabel="Components" closeLabel="Components" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
+            <p>The result should look like this:</p>
+            <div *ngIf="fullHTMLExample">
+              <app-code-viewer [activeCode]="fullHTMLExample" />
+            </div>
+            <div *ngIf="!fullHTMLExample" class="e-content-loader" style="width: 100%; height: 337px"></div>
+          </app-component-subsubsection>
+
+          <!--NPM-->
+          <app-component-subsubsection [sectionTitle]="'With NPM (alternative)'">
+            <div class="e-alert e-alert--local e-alert--warn e-mb-32" role="note">
+              <div class="e-alert__icon">
+                <i class="e-icon e-icon--warning_circle e-icon--color-orange" aria-hidden="true"></i>
+              </div>
+              <div class="e-alert__content">
+                <div class="e-alert__title">Not recommended</div>
+                <div class="e-alert__text">This method is not recommended for less advanced users</div>
+              </div>
+            </div>
+            <ol class="e-list e-list--numbers">
+              <li>
+                <strong class="e-mr-16">Install the package:</strong>
+                <app-copy [message]="'npm i @elvia/elvis'">
+                  <code class="code-text">npm i @elvia/elvis</code>
+                </app-copy>
+              </li>
+              <li>
+                <strong class="e-mr-16">Import css/elvis.min.css or src/main.scss in your stylesheet:</strong>
+                <app-copy [message]="elvisCssImport">
+                  <code class="code-text">{{ elvisCssImport }}</code>
+                </app-copy>
+              </li>
+              <li>
+                <strong class="e-mr-16">Import elvis.js from the NPM package in your app:</strong>
+                <app-copy [message]="elvisJsImport">
+                  <code class="code-text">{{ elvisJsImport }}</code>
+                </app-copy>
+                <p>
+                  Note that elvis.js should be imported only once, somewhere at the base-level of your app.
+                  Depending on what framework you are using, the method of doing this may differ.
+                </p>
+              </li>
+            </ol>
+          </app-component-subsubsection>
+
+          <app-component-subsubsection [sectionTitle]="'Using CSS variables'">
             <div>
-              Our components have each their own npm package that can be used individually or together with
-              other components and elvis. Our components are also listed together with the styling library
-              under "Components" in the menu.
+              For many of the our utilities, like colors and spacing, CSS-variables are also provided. All
+              these variables are available when importing the main.scss file in your stylesheet, meaning you
+              don't need to import any specific files to use them.
+              <div class="e-my-16">
+                <code class="code-text">var(--e-name-of-class)</code>
+              </div>
             </div>
+          </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Components-->
+      <elvia-accordion openLabel="Components" closeLabel="Components" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            Our components have each their own npm package that can be used individually or together with
+            other components and elvis. Our components are also listed together with the styling library under
+            "Components" in the menu.
+          </div>
 
-            <div class="e-mt-24">
-              Each component has its own guidelines for how to use and install the package in your project.
-            </div>
+          <div class="e-mt-24">
+            Each component has its own guidelines for how to use and install the package in your project.
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Utilities-->
-        <elvia-accordion openLabel="Utilities" closeLabel="Utilities" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            Find all the utilities we provide under the
-            <a class="e-link e-link--inline" [routerLink]="['/brand']">brand</a>
-            and
-            <a class="e-link e-link--inline" [routerLink]="['/tools']">tools</a>
-            headings. Here you can find our variables and packages for colors, typography, icons and many
-            more.
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Utilities-->
+      <elvia-accordion openLabel="Utilities" closeLabel="Utilities" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          Find all the utilities we provide under the
+          <a class="e-link e-link--inline" [routerLink]="['/brand']">brand</a>
+          and
+          <a class="e-link e-link--inline" [routerLink]="['/tools']">tools</a>
+          headings. Here you can find our variables and packages for colors, typography, icons and many more.
 
-            <div class="e-mt-32">
-              <a class="e-link e-link--action" [routerLink]="['/brand/color']">
-                <span class="e-link__title">Colors</span>
-                <span class="e-link__icon">
-                  <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
-                  <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
-            <div class="e-mt-16">
-              <a class="e-link e-link--action" [routerLink]="['/brand/typography']">
-                <span class="e-link__title">Typography</span>
-                <span class="e-link__icon">
-                  <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
-                  <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
-            <div class="e-mt-16">
-              <a class="e-link e-link--action" [routerLink]="['/brand/icon']">
-                <span class="e-link__title">Icons</span>
-                <span class="e-link__icon">
-                  <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
-                  <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
-            <div class="e-mt-16 e-mb-40">
-              <a class="e-link e-link--action" [routerLink]="['/tools/utility-classes']">
-                <span class="e-link__title">Utility classes</span>
-                <span class="e-link__icon">
-                  <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
-                  <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
+          <div class="e-mt-32">
+            <a class="e-link e-link--action" [routerLink]="['/brand/color']">
+              <span class="e-link__title">Colors</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+              </span>
+            </a>
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Theme-->
-        <elvia-accordion openLabel="Theme" closeLabel="Theme" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            Read about how to get started with theme support for your website on the
-            <a class="e-link e-link--inline" [routerLink]="['/about/theme']">theme documentation page</a>
-            .
+          <div class="e-mt-16">
+            <a class="e-link e-link--action" [routerLink]="['/brand/typography']">
+              <span class="e-link__title">Typography</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+              </span>
+            </a>
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Talk with us-->
-        <elvia-accordion openLabel="Talk with us" closeLabel="Talk with us" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              If you have any issues at all, please don't hesitate to
-              <a class="e-link e-link--inline" [routerLink]="['/about/contact']">contact us!</a>
-              Any friction you experience in the onboarding process, or during use is valuable feedback for
-              us. Reach out on slack in
-            </div>
-            <span class="e-link__title">
-              <a
-                class="e-link e-link--new-tab e-link--inline"
-                href="https://elvia-group.slack.com/archives/C01C1DU9X1Q"
-                target="_blank"
-                rel="noopener"
-              >
-                <span class="e-link__title">#designsystemet</span>
-                <span class="e-link__icon">
-                  <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-                </span>
-              </a>
-            </span>
+          <div class="e-mt-16">
+            <a class="e-link e-link--action" [routerLink]="['/brand/icon']">
+              <span class="e-link__title">Icons</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+              </span>
+            </a>
           </div>
-        </elvia-accordion>
-      </div>
-    </ng-container>
+          <div class="e-mt-16 e-mb-40">
+            <a class="e-link e-link--action" [routerLink]="['/tools/utility-classes']">
+              <span class="e-link__title">Utility classes</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Theme-->
+      <elvia-accordion openLabel="Theme" closeLabel="Theme" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          Read about how to get started with theme support for your website on the
+          <a class="e-link e-link--inline" [routerLink]="['/about/theme']">theme documentation page</a>
+          .
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Talk with us-->
+      <elvia-accordion openLabel="Talk with us" closeLabel="Talk with us" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            If you have any issues at all, please don't hesitate to
+            <a class="e-link e-link--inline" [routerLink]="['/about/contact']">contact us!</a>
+            Any friction you experience in the onboarding process, or during use is valuable feedback for us.
+            Reach out on slack in
+          </div>
+          <span class="e-link__title">
+            <a
+              class="e-link e-link--new-tab e-link--inline"
+              href="https://elvia-group.slack.com/archives/C01C1DU9X1Q"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="e-link__title">#designsystemet</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+              </span>
+            </a>
+          </span>
+        </div>
+      </elvia-accordion>
+    </div>
   </app-component-section>
 
   <!--FOR DESIGNERS-->
   <app-component-section [sectionTitle]="'For designers'">
-    <ng-container ngProjectAs="sectionContent">
-      As a designer, there’s a few resources to gather before getting started with the design system in Elvia.
-      First thing to do is to make sure you have access to the Figma library.
+    As a designer, there’s a few resources to gather before getting started with the design system in Elvia.
+    First thing to do is to make sure you have access to the Figma library.
 
-      <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
-        <!--Figma-->
-        <elvia-accordion openLabel="Figma" closeLabel="Figma" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div class="flex-container-figma">
-              <img class="figma-img" src="../../../../assets/get-started-designers/figma.svg" alt="" />
-              <div>
-                You can use Figma as an online tool, but we recommend you to
-                <a
-                  class="e-link e-link--inline e-link--new-tab"
-                  href="https://www.figma.com/downloads/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <span class="e-link__title">download the app</span>
-                  <span class="e-link__icon">
-                    <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-                  </span>
-                </a>
-                for the full experience. If you have any issues accessing the
-                <a
-                  class="e-link e-link--inline e-link--new-tab"
-                  href="https://www.figma.com/files/880078299274452916/team/619061899486461825/ELVIA"
-                  target="_blank"
-                  rel="noopener"
-                  aria-hidden="true"
-                >
-                  <span class="e-link__title">Elvia library</span>
-                  <span class="e-link__icon">
-                    <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-                  </span>
-                </a>
-                , just ask someone in the team and we’ll send you an invite. We can of course also help you
-                set up libraries in Figma if you’re new to it.
-              </div>
-            </div>
-
-            <div class="e-mt-24">
-              There’s a lot of useful information collected throughout this site, but we know you might be
-              eager to get started right away. That’s why we have gathered a short summary of the most
-              important information to help you get started. We do however recommend you to take a look at the
-              rest when you can, to make sure you don’t miss out on anything important.
-            </div>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Elvia brand and design concept-->
-        <elvia-accordion
-          openLabel="Elvia brand and design concept"
-          closeLabel="Elvia brand and design concept"
-          isFullWidth="true"
-          size="large"
-        >
-          <div slot="content" class="e-text-lg e-mt-16">
+    <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
+      <!--Figma-->
+      <elvia-accordion openLabel="Figma" closeLabel="Figma" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div class="flex-container-figma">
+            <img class="figma-img" src="../../../../assets/get-started-designers/figma.svg" alt="" />
             <div>
-              Elvia is characterized by being ON as an energy provider. The most important identity marker is
-              Elvia’s logo, which should be used in all visual communication. You can
-              <a class="e-link e-link--inline" [routerLink]="['/brand/logo']">
-                read more and download the logo here.
-              </a>
-            </div>
-
-            <div class="brand-text-container e-mt-32">
-              <div class="principles-text top-text">
-                <div>Energy</div>
-                <div>off.</div>
-              </div>
-              <div class="top-text">
-                <div class="principles-text">Energy</div>
-                <div class="principle">on</div>
-              </div>
-            </div>
-
-            <div class="e-mt-32">
-              In our design language, we use round forms and circles in combination with our green profile
-              color to symbolize environmentally friendly energy and to show that Elvia is ON, activated and
-              fully charged. You can read more about the brand on
+              You can use Figma as an online tool, but we recommend you to
               <a
                 class="e-link e-link--inline e-link--new-tab"
-                [routerLink]="['/brand']"
+                href="https://www.figma.com/downloads/"
                 target="_blank"
                 rel="noopener"
               >
-                <span class="e-link__title">our brand page.</span>
+                <span class="e-link__title">download the app</span>
                 <span class="e-link__icon">
                   <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
                 </span>
               </a>
-            </div>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Colors and style-->
-        <elvia-accordion
-          openLabel="Colors and style"
-          closeLabel="Colors and style"
-          isFullWidth="true"
-          size="large"
-        >
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div class="flex-img-container">
-              <div class="color-text">
-                The main colors we use are black, grey, white and green. The green color specifically should
-                only be used in details and - in the cases where it works - to symbolize that something is on,
-                or active. There’s a bit more tips to help you with color usage in our
-                <a class="e-link e-link--inline" [routerLink]="['/brand/color']">color guidelines.</a>
-              </div>
-              <img
-                class="color-img theme-image-background"
-                src="../../../../assets/get-started-designers/COLOR.svg"
-                alt=""
-              />
-            </div>
-
-            <div class="e-mt-24">
-              The typography we use is available in two optical sizes: Red Hat Text and Red Hat Display. The
-              Display version is most often used in bigger texts, such as titles, while the Text version is
-              used in standard text blocks, to provide better readability. The font family is open-source and
+              for the full experience. If you have any issues accessing the
               <a
                 class="e-link e-link--inline e-link--new-tab"
-                href="https://fonts.google.com/specimen/Red+Hat+Display"
+                href="https://www.figma.com/files/880078299274452916/team/619061899486461825/ELVIA"
                 target="_blank"
                 rel="noopener"
+                aria-hidden="true"
               >
-                <span class="e-link__title">Red Hat can be downloaded here</span>
+                <span class="e-link__title">Elvia library</span>
                 <span class="e-link__icon">
                   <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
                 </span>
               </a>
-              via Google Fonts. You can read more about our usage of it on our
-              <a class="e-link e-link--inline" [routerLink]="['/brand/typography']">typography page.</a>
-            </div>
-
-            <div class="e-mt-24">
-              For our icon library, we use Steamline as a base. We do however do find ourselves in cases where
-              we need to tailor icons to fit our specific needs, and adjust when we need to. To see the full
-              overview of available icons in Elvia’s design system, see our
-              <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">icons page.</a>
-              We continuously add new ones depending on demand, so if you can’t find what you need for your
-              project, let us know.
+              , just ask someone in the team and we’ll send you an invite. We can of course also help you set
+              up libraries in Figma if you’re new to it.
             </div>
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Grid and breakpoints-->
-        <elvia-accordion
-          openLabel="Grid and breakpoints"
-          closeLabel="Grid and breakpoints"
-          isFullWidth="true"
-          size="large"
-        >
-          <div slot="content" class="e-text-lg e-mt-16">
+
+          <div class="e-mt-24">
+            There’s a lot of useful information collected throughout this site, but we know you might be eager
+            to get started right away. That’s why we have gathered a short summary of the most important
+            information to help you get started. We do however recommend you to take a look at the rest when
+            you can, to make sure you don’t miss out on anything important.
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Elvia brand and design concept-->
+      <elvia-accordion
+        openLabel="Elvia brand and design concept"
+        closeLabel="Elvia brand and design concept"
+        isFullWidth="true"
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            Elvia is characterized by being ON as an energy provider. The most important identity marker is
+            Elvia’s logo, which should be used in all visual communication. You can
+            <a class="e-link e-link--inline" [routerLink]="['/brand/logo']">
+              read more and download the logo here.
+            </a>
+          </div>
+
+          <div class="brand-text-container e-mt-32">
+            <div class="principles-text top-text">
+              <div>Energy</div>
+              <div>off.</div>
+            </div>
+            <div class="top-text">
+              <div class="principles-text">Energy</div>
+              <div class="principle">on</div>
+            </div>
+          </div>
+
+          <div class="e-mt-32">
+            In our design language, we use round forms and circles in combination with our green profile color
+            to symbolize environmentally friendly energy and to show that Elvia is ON, activated and fully
+            charged. You can read more about the brand on
+            <a
+              class="e-link e-link--inline e-link--new-tab"
+              [routerLink]="['/brand']"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="e-link__title">our brand page.</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Colors and style-->
+      <elvia-accordion
+        openLabel="Colors and style"
+        closeLabel="Colors and style"
+        isFullWidth="true"
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div class="flex-img-container">
+            <div class="color-text">
+              The main colors we use are black, grey, white and green. The green color specifically should
+              only be used in details and - in the cases where it works - to symbolize that something is on,
+              or active. There’s a bit more tips to help you with color usage in our
+              <a class="e-link e-link--inline" [routerLink]="['/brand/color']">color guidelines.</a>
+            </div>
             <img
-              class="e-w-100 theme-image-background"
-              src="../../../../assets/get-started-designers/GRID.svg"
+              class="color-img theme-image-background"
+              src="../../../../assets/get-started-designers/COLOR.svg"
               alt=""
             />
-
-            <div class="e-mt-24">
-              In Elvia, we follow the 8 point grid. If you haven’t worked with it before we recommend you to
-              read
-              <a
-                class="e-link e-link--inline e-link--new-tab"
-                href="https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632"
-                target="_blank"
-                rel="noopener"
-              >
-                <span class="e-link__title">an intro to the 8 point grid.</span>
-                <span class="e-link__icon">
-                  <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-                </span>
-              </a>
-              Through the 8 point grid we can ensure higher consistency through using multiples of 8 to space
-              out elements. This helps us define dimensions, paddings and margin to make sure that both
-              components and full pages are scalable for a wide variety of devices.
-            </div>
-
-            <div class="e-mt-24">
-              We have defined breakpoints for different types of devices that we follow to make sure we create
-              responsive interfaces. You can read more about this in
-              <a class="e-link e-link--inline" [routerLink]="['/brand/grid']" fragment="Breakpoints">
-                the breakpoints section.
-              </a>
-            </div>
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Design in Elvia-->
-        <elvia-accordion
-          openLabel="Design in Elvia"
-          closeLabel="Design in Elvia"
-          isFullWidth="true"
-          size="large"
-        >
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              In Elvia, designers help each other to create great experiences. You can find information about
-              <a class="e-link e-link--inline" [routerLink]="['/tools/design-process']">
-                Elvia’s design process
-              </a>
-              and some suggested methods on our pages about our design process, as well as important
-              <a class="e-link e-link--inline" [routerLink]="['/tools/accessibility']">accessibility</a>
-              pointers to help you make sure that you deliver solutions that are inclusive.
-            </div>
 
-            <div class="e-mt-24">
-              You are welcome to
-              <a class="e-link e-link--inline" [routerLink]="['/about/contact']">reach out</a>
-              to any of the designers in the design system team if you have questions or ideas about the
-              design or usage of the design system, or you can join our design recaps each week to get some
-              great input from the full design team.
-            </div>
+          <div class="e-mt-24">
+            The typography we use is available in two optical sizes: Red Hat Text and Red Hat Display. The
+            Display version is most often used in bigger texts, such as titles, while the Text version is used
+            in standard text blocks, to provide better readability. The font family is open-source and
+            <a
+              class="e-link e-link--inline e-link--new-tab"
+              href="https://fonts.google.com/specimen/Red+Hat+Display"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="e-link__title">Red Hat can be downloaded here</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+              </span>
+            </a>
+            via Google Fonts. You can read more about our usage of it on our
+            <a class="e-link e-link--inline" [routerLink]="['/brand/typography']">typography page.</a>
           </div>
-        </elvia-accordion>
-      </div>
-    </ng-container>
+
+          <div class="e-mt-24">
+            For our icon library, we use Steamline as a base. We do however do find ourselves in cases where
+            we need to tailor icons to fit our specific needs, and adjust when we need to. To see the full
+            overview of available icons in Elvia’s design system, see our
+            <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">icons page.</a>
+            We continuously add new ones depending on demand, so if you can’t find what you need for your
+            project, let us know.
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Grid and breakpoints-->
+      <elvia-accordion
+        openLabel="Grid and breakpoints"
+        closeLabel="Grid and breakpoints"
+        isFullWidth="true"
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <img
+            class="e-w-100 theme-image-background"
+            src="../../../../assets/get-started-designers/GRID.svg"
+            alt=""
+          />
+
+          <div class="e-mt-24">
+            In Elvia, we follow the 8 point grid. If you haven’t worked with it before we recommend you to
+            read
+            <a
+              class="e-link e-link--inline e-link--new-tab"
+              href="https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="e-link__title">an intro to the 8 point grid.</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+              </span>
+            </a>
+            Through the 8 point grid we can ensure higher consistency through using multiples of 8 to space
+            out elements. This helps us define dimensions, paddings and margin to make sure that both
+            components and full pages are scalable for a wide variety of devices.
+          </div>
+
+          <div class="e-mt-24">
+            We have defined breakpoints for different types of devices that we follow to make sure we create
+            responsive interfaces. You can read more about this in
+            <a class="e-link e-link--inline" [routerLink]="['/brand/grid']" fragment="Breakpoints">
+              the breakpoints section.
+            </a>
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Design in Elvia-->
+      <elvia-accordion
+        openLabel="Design in Elvia"
+        closeLabel="Design in Elvia"
+        isFullWidth="true"
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            In Elvia, designers help each other to create great experiences. You can find information about
+            <a class="e-link e-link--inline" [routerLink]="['/tools/design-process']">
+              Elvia’s design process
+            </a>
+            and some suggested methods on our pages about our design process, as well as important
+            <a class="e-link e-link--inline" [routerLink]="['/tools/accessibility']">accessibility</a>
+            pointers to help you make sure that you deliver solutions that are inclusive.
+          </div>
+
+          <div class="e-mt-24">
+            You are welcome to
+            <a class="e-link e-link--inline" [routerLink]="['/about/contact']">reach out</a>
+            to any of the designers in the design system team if you have questions or ideas about the design
+            or usage of the design system, or you can join our design recaps each week to get some great input
+            from the full design team.
+          </div>
+        </div>
+      </elvia-accordion>
+    </div>
   </app-component-section>
 
   <!--FOR CONTENT CREATORS-->
   <app-component-section [sectionTitle]="'For content creators'">
-    <ng-container ngProjectAs="sectionContent">
-      If you are responsible for Elvia branding or want to contribute with tools, you need to have access to
-      our CMS.
-      <a
-        class="e-link e-link--inline e-link--new-tab"
-        href="https://app.contentful.com/spaces/zez3t3t1iiwd"
-        target="_blank"
-        rel="noopener"
-      >
-        Contentful
-      </a>
-      is a content management system that the design system is using to make it easier for non-developers to
-      edit content on design.elvia.io.
-      <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact us</a>
-      if you think you should have access to edit content on design.elvia.io or you need help with anything.
+    If you are responsible for Elvia branding or want to contribute with tools, you need to have access to our
+    CMS.
+    <a
+      class="e-link e-link--inline e-link--new-tab"
+      href="https://app.contentful.com/spaces/zez3t3t1iiwd"
+      target="_blank"
+      rel="noopener"
+    >
+      Contentful
+    </a>
+    is a content management system that the design system is using to make it easier for non-developers to
+    edit content on design.elvia.io.
+    <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact us</a>
+    if you think you should have access to edit content on design.elvia.io or you need help with anything.
 
-      <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
-        <!--Useful terms-->
-        <elvia-accordion openLabel="Useful terms" closeLabel="Useful terms" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              <ul class="e-list">
-                <li>
-                  <strong>CMS</strong>
-                  - Content management system, a system that lets people edit content easily.
-                </li>
-                <li>
-                  <strong>Contentful</strong>
-                  - The CMS the design system have chosen to use.
-                </li>
-                <li>
-                  <strong>Preview</strong>
-                  - A way to view content that has not been published yet.
-                </li>
-                <li>
-                  <strong>Entry</strong>
-                  - Entries are different types of models that can be used on a page, e.g. images or links.
-                </li>
-                <li>
-                  <strong>Models</strong>
-                  - Models are small code bundles we have made to enable us to add the different parts of a
-                  website the way we want it to look like. These models are what you use to add entries, e.g.
-                  images or links.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Logging in-->
-        <elvia-accordion openLabel="Sign in" closeLabel="Sign in" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              <div>
-                You need an Elvia account to log in to Contentful. If you have received access use SSO in the
-                bottom of the page to sign in.
-              </div>
-              <div class="e-mt-24 e-text-center">
-                <img
-                  width="60%"
-                  src="./../../../../assets/get-started-content/login.png"
-                  alt="Login button in Contentful"
-                />
-              </div>
-              <div class="e-mt-24">
-                Next you will be asked to fill in SSO name, this field should be 'Elvia'. After that proceed
-                to sign in a normal.
-              </div>
-            </div>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Contentful structure-->
-        <elvia-accordion
-          openLabel="Contentful structure"
-          closeLabel="Contentful structure"
-          isFullWidth="true"
-          size="large"
-        >
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              The contentful structure is made up of different content types. In the content tab you can find
-              all the content that is relevant for you to edit. Every page on design.elvia.io is called a
-              'documentation page' in Contentful. These documentation pages are the bases for adding or
-              editing content.
-              <div class="e-mt-24">
-                <img
-                  width="100%"
-                  src="./../../../../assets/get-started-content/content-tab.png"
-                  alt="Tab for content in Contentful"
-                />
-              </div>
-            </div>
-            <div class="e-mt-24">
-              <h3 class="e-title-xs">Sorting</h3>
-              You can easily sort and search through all the content in Contentful in the 'Content section'
-              (see image above) . You can choose to sort by content type or other sortable features from the
-              dropdown inside the search-field as well as from the sidebar.
-              <div class="e-mt-24">
-                <img
-                  width="60%"
-                  src="./../../../../assets/get-started-content/sorting.png"
-                  alt="Example of sorting in Contentful"
-                />
-              </div>
-            </div>
-            <div class="e-mt-24">
-              <h3 class="e-title-xs">Editing options</h3>
-              When editing a documentationPage you will mostly work inside the content field. In this field
-              you can use the Contentful options at the top to make headings, bold text, lists and quotes
-              among other things.
-              <div class="e-mt-24">
-                <img
-                  width="100%"
-                  src="./../../../../assets/get-started-content/contentful-options.png"
-                  alt="Example of option-bar in Contentful"
-                />
-              </div>
-            </div>
-            <div class="e-mt-24">
-              <h3 class="e-title-xs">Adding entries</h3>
-              <div class="e-mt-24">
-                You can also add / embed entries at the top right of the field. Entries are models we have
-                made to make it possible to customize the content more. When adding an image or link you
-                should always add them by using these models. If you want the entry to be inline with the text
-                you should choose "inline entry." Inline images are added in a different way that can be read
-                about below in the "Useful models and how to's".
-                <div class="e-mt-24">
-                  <img
-                    width="100%"
-                    src="./../../../../assets/get-started-content/entries.png"
-                    alt="Example of how to add entries in Contentful"
-                  />
-                </div>
-                <div class="e-mt-24">
-                  When you are adding entries you can choose to either use an existing entry and search
-                  through what has already been added, but mostly you will be adding new entries. Adding a new
-                  entry is done by clicking the "Create new entry" button in the top right corner of the "Add
-                  entry" popup.
-                </div>
-                <div class="e-mt-24">
-                  <img
-                    width="100%"
-                    src="./../../../../assets/get-started-content/new-entry.png"
-                    alt="Example of how to add a new entry in Contentful"
-                  />
-                </div>
-              </div>
-              <div class="e-mt-24">
-                Some fields are required and will show a red border around it if they are not filled in. Some
-                fields also have help-texts below them to help explain what the specific field does or how it
-                should be filled in.
-              </div>
-            </div>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Types-->
-        <elvia-accordion
-          openLabel="Useful models and how to's"
-          closeLabel="Useful models and how to's"
-          isFullWidth="true"
-          size="large"
-        >
-          <div slot="content" class="e-text-lg e-mt-16">
-            These are some of the models and options you can use to edit content in Contentful. If you want to
-            see examples of how to do something you can easily sort content by type in the lift sidebar when
-            you are on the "content" tab.
+    <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
+      <!--Useful terms-->
+      <elvia-accordion openLabel="Useful terms" closeLabel="Useful terms" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
             <ul class="e-list">
               <li>
-                <strong>Submenu</strong>
-                - Submenues are the main menu-items (about, brand, components, patterns, tools). If you are
-                adding new documentation pages you must also add the page to the submenu entry for that menu
-                in Contentful. If you are adding a new brand page, remember to also add a new 'Overview card'
-                to the landing page for that submenu.
+                <strong>CMS</strong>
+                - Content management system, a system that lets people edit content easily.
               </li>
               <li>
-                <strong>Documentation page</strong>
-                - The documentation pages should serve as the base for all content on a page. These pages can
-                be previewed with all content, even if that content also is just in draft. The page needs a
-                title, path and content and should usually also have a description. When adding a new
-                documentation page you also have to add it to the correct submenu.
+                <strong>Contentful</strong>
+                - The CMS the design system have chosen to use.
               </li>
               <li>
-                <strong>Image</strong>
-                - Images should be added through the image entry model and the image require a name, alt-text
-                and an asset / media. If you want the image to be placed next to text you should put that text
-                in the "Content next to image" and then chose the correct alignment in the "Alignment" field.
+                <strong>Preview</strong>
+                - A way to view content that has not been published yet.
               </li>
               <li>
-                <strong>Links</strong>
-                - All links should be created through the link entry model. Links have to have a link-text and
-                either an url to an existing page on design.eliva.io or an url to an external page. When
-                linking to pages on design.elvia.io always use the "Url design.elvia.io (internal)" field.
+                <strong>Entry</strong>
+                - Entries are different types of models that can be used on a page, e.g. images or links.
               </li>
               <li>
-                <strong>Centered content</strong>
-                - You can center any content by using the centered content model in Contentful and then add
-                the content that should be centered there.
-              </li>
-              <li>
-                <strong>List</strong>
-                - Make lists through the Contentful option-bar at the top of the content field.
-              </li>
-              <li>
-                <strong>Icon list</strong>
-                - To make a icons list can be made by starting each bullet point with an inline image. The
-                image should an icon and the size is 32px X 32px.
-                <div class="e-mt-16">
-                  <img
-                    width="100%"
-                    src="./../../../../assets/get-started-content/icon-list.png"
-                    alt="Example of how to make an icon list"
-                  />
-                </div>
-              </li>
-              <li>
-                <strong>Download content</strong>
-                - If you want to offer downloadable files or images on design.elvia.io, e.g. illustrations or
-                logos, you can use this model. For images use SVG format preferably. Each download content
-                entry you make will get its own button for downloading.
-              </li>
-              <li>
-                <strong>Grid</strong>
-                - The grid model can be used to place download content or images in a grid view (multiple next
-                to each other). Make sure to choose either download content or image and not both in the same
-                grid.
-              </li>
-              <li>
-                <strong>When & When not to use</strong>
-                - The model generates lists of points on when to use and when not to use a something, mostly
-                used for component.
+                <strong>Models</strong>
+                - Models are small code bundles we have made to enable us to add the different parts of a
+                website the way we want it to look like. These models are what you use to add entries, e.g.
+                images or links.
               </li>
             </ul>
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Publish-->
-        <elvia-accordion
-          openLabel="Publishing & previews"
-          closeLabel="Publishing & previews"
-          isFullWidth="true"
-          size="large"
-        >
-          <div slot="content" class="e-text-lg e-mt-16">
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Logging in-->
+      <elvia-accordion openLabel="Sign in" closeLabel="Sign in" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
             <div>
-              <h3 class="e-title-xs">Previews</h3>
-              When testing your content you have the "preview" option available in the right sidebar. This
-              will open a link in a new tab showing how the content will look after you publish it. It will
-              also display error-messages if your content is incorrect. It is therefore important to always
-              check the preview before publishing to make sure the content is correct. The preview button is
-              only clickable on documentation pages, but all content on that page will be visible in the
-              preview, even if it's not published yet.
+              You need an Elvia account to log in to Contentful. If you have received access use SSO in the
+              bottom of the page to sign in.
+            </div>
+            <div class="e-mt-24 e-text-center">
+              <img
+                width="60%"
+                src="./../../../../assets/get-started-content/login.png"
+                alt="Login button in Contentful"
+              />
+            </div>
+            <div class="e-mt-24">
+              Next you will be asked to fill in SSO name, this field should be 'Elvia'. After that proceed to
+              sign in a normal.
+            </div>
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Contentful structure-->
+      <elvia-accordion
+        openLabel="Contentful structure"
+        closeLabel="Contentful structure"
+        isFullWidth="true"
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            The contentful structure is made up of different content types. In the content tab you can find
+            all the content that is relevant for you to edit. Every page on design.elvia.io is called a
+            'documentation page' in Contentful. These documentation pages are the bases for adding or editing
+            content.
+            <div class="e-mt-24">
+              <img
+                width="100%"
+                src="./../../../../assets/get-started-content/content-tab.png"
+                alt="Tab for content in Contentful"
+              />
+            </div>
+          </div>
+          <div class="e-mt-24">
+            <h3 class="e-title-xs">Sorting</h3>
+            You can easily sort and search through all the content in Contentful in the 'Content section' (see
+            image above) . You can choose to sort by content type or other sortable features from the dropdown
+            inside the search-field as well as from the sidebar.
+            <div class="e-mt-24">
+              <img
+                width="60%"
+                src="./../../../../assets/get-started-content/sorting.png"
+                alt="Example of sorting in Contentful"
+              />
+            </div>
+          </div>
+          <div class="e-mt-24">
+            <h3 class="e-title-xs">Editing options</h3>
+            When editing a documentationPage you will mostly work inside the content field. In this field you
+            can use the Contentful options at the top to make headings, bold text, lists and quotes among
+            other things.
+            <div class="e-mt-24">
+              <img
+                width="100%"
+                src="./../../../../assets/get-started-content/contentful-options.png"
+                alt="Example of option-bar in Contentful"
+              />
+            </div>
+          </div>
+          <div class="e-mt-24">
+            <h3 class="e-title-xs">Adding entries</h3>
+            <div class="e-mt-24">
+              You can also add / embed entries at the top right of the field. Entries are models we have made
+              to make it possible to customize the content more. When adding an image or link you should
+              always add them by using these models. If you want the entry to be inline with the text you
+              should choose "inline entry." Inline images are added in a different way that can be read about
+              below in the "Useful models and how to's".
               <div class="e-mt-24">
                 <img
                   width="100%"
-                  src="./../../../../assets/get-started-content/preview.png"
-                  alt="Contentful example showing how to preview content"
+                  src="./../../../../assets/get-started-content/entries.png"
+                  alt="Example of how to add entries in Contentful"
+                />
+              </div>
+              <div class="e-mt-24">
+                When you are adding entries you can choose to either use an existing entry and search through
+                what has already been added, but mostly you will be adding new entries. Adding a new entry is
+                done by clicking the "Create new entry" button in the top right corner of the "Add entry"
+                popup.
+              </div>
+              <div class="e-mt-24">
+                <img
+                  width="100%"
+                  src="./../../../../assets/get-started-content/new-entry.png"
+                  alt="Example of how to add a new entry in Contentful"
                 />
               </div>
             </div>
             <div class="e-mt-24">
-              <h3 class="e-title-xs">Publish</h3>
-              Publish only once all the content is fully ready. Most of the time you should be working with
-              your content in draft without publishing it and use the preview until you are happy with the
-              page and are ready to publish. You can easily send preview-links to other people for them to
-              review your changes before publishing, to ensure that everything is correct. You will not be
-              able to publish your content if you have errors, but you should always check the documentation
-              page preview before publishing anyways.
-              <div class="e-mt-24">
-                <img
-                  width="100%"
-                  src="./../../../../assets/get-started-content/publish.png"
-                  alt="Contentful example showing how to publish content"
-                />
-              </div>
-              <div class="e-mt-24">
-                Publishing anything will also trigger a new build and deploy of the design system website.
-                This means that you should only publish once something is completely finished so that the
-                build does not have to be triggered all the time.
-              </div>
-              <div class="e-mt-24">
-                You can also publish multiple things at the same time by e.g. sorting on a content type on the
-                "content" tab page and then marking all the checkboxes before pushing the "Publish" or
-                "Republish" button.
-              </div>
+              Some fields are required and will show a red border around it if they are not filled in. Some
+              fields also have help-texts below them to help explain what the specific field does or how it
+              should be filled in.
             </div>
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Delete-->
-        <elvia-accordion
-          openLabel="Deleting entries"
-          closeLabel="Deleting entries"
-          isFullWidth="true"
-          size="large"
-        >
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              Any entry can be deleted as long as you are sure the entry is not used anywhere in Contentful.
-              If you are creating an entry by mistake, you should delete it so that there is not a lot of
-              unused entries floating around. If you want to be sure that you are not deleting an entry that
-              is being used, look at the right sidebar under links.
-              <div class="e-mt-24">
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Types-->
+      <elvia-accordion
+        openLabel="Useful models and how to's"
+        closeLabel="Useful models and how to's"
+        isFullWidth="true"
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          These are some of the models and options you can use to edit content in Contentful. If you want to
+          see examples of how to do something you can easily sort content by type in the lift sidebar when you
+          are on the "content" tab.
+          <ul class="e-list">
+            <li>
+              <strong>Submenu</strong>
+              - Submenues are the main menu-items (about, brand, components, patterns, tools). If you are
+              adding new documentation pages you must also add the page to the submenu entry for that menu in
+              Contentful. If you are adding a new brand page, remember to also add a new 'Overview card' to
+              the landing page for that submenu.
+            </li>
+            <li>
+              <strong>Documentation page</strong>
+              - The documentation pages should serve as the base for all content on a page. These pages can be
+              previewed with all content, even if that content also is just in draft. The page needs a title,
+              path and content and should usually also have a description. When adding a new documentation
+              page you also have to add it to the correct submenu.
+            </li>
+            <li>
+              <strong>Image</strong>
+              - Images should be added through the image entry model and the image require a name, alt-text
+              and an asset / media. If you want the image to be placed next to text you should put that text
+              in the "Content next to image" and then chose the correct alignment in the "Alignment" field.
+            </li>
+            <li>
+              <strong>Links</strong>
+              - All links should be created through the link entry model. Links have to have a link-text and
+              either an url to an existing page on design.eliva.io or an url to an external page. When linking
+              to pages on design.elvia.io always use the "Url design.elvia.io (internal)" field.
+            </li>
+            <li>
+              <strong>Centered content</strong>
+              - You can center any content by using the centered content model in Contentful and then add the
+              content that should be centered there.
+            </li>
+            <li>
+              <strong>List</strong>
+              - Make lists through the Contentful option-bar at the top of the content field.
+            </li>
+            <li>
+              <strong>Icon list</strong>
+              - To make a icons list can be made by starting each bullet point with an inline image. The image
+              should an icon and the size is 32px X 32px.
+              <div class="e-mt-16">
                 <img
                   width="100%"
-                  src="./../../../../assets/get-started-content/references.png"
-                  alt="Contentful example showing how to check for references through sidebar of an entry"
+                  src="./../../../../assets/get-started-content/icon-list.png"
+                  alt="Example of how to make an icon list"
                 />
               </div>
-              <div class="e-mt-24">
-                You can also hover over the link symbol in the top left corner next to the title of your entry
-                to see references.
-              </div>
-              <div class="e-mt-24">
-                <img
-                  width="100%"
-                  src="./../../../../assets/get-started-content/check-references.png"
-                  alt="Contentful example showing how to check for references of an entry"
-                />
-              </div>
+            </li>
+            <li>
+              <strong>Download content</strong>
+              - If you want to offer downloadable files or images on design.elvia.io, e.g. illustrations or
+              logos, you can use this model. For images use SVG format preferably. Each download content entry
+              you make will get its own button for downloading.
+            </li>
+            <li>
+              <strong>Grid</strong>
+              - The grid model can be used to place download content or images in a grid view (multiple next
+              to each other). Make sure to choose either download content or image and not both in the same
+              grid.
+            </li>
+            <li>
+              <strong>When & When not to use</strong>
+              - The model generates lists of points on when to use and when not to use a something, mostly
+              used for component.
+            </li>
+          </ul>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Publish-->
+      <elvia-accordion
+        openLabel="Publishing & previews"
+        closeLabel="Publishing & previews"
+        isFullWidth="true"
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            <h3 class="e-title-xs">Previews</h3>
+            When testing your content you have the "preview" option available in the right sidebar. This will
+            open a link in a new tab showing how the content will look after you publish it. It will also
+            display error-messages if your content is incorrect. It is therefore important to always check the
+            preview before publishing to make sure the content is correct. The preview button is only
+            clickable on documentation pages, but all content on that page will be visible in the preview,
+            even if it's not published yet.
+            <div class="e-mt-24">
+              <img
+                width="100%"
+                src="./../../../../assets/get-started-content/preview.png"
+                alt="Contentful example showing how to preview content"
+              />
             </div>
           </div>
-        </elvia-accordion>
-        <elvia-divider />
-        <!--Errors-->
-        <elvia-accordion openLabel="Errors" closeLabel="Errors" isFullWidth="true" size="large">
-          <div slot="content" class="e-text-lg e-mt-16">
-            <div>
-              When getting an error in Contentful the error-message should be displayed like in the image
-              below:
+          <div class="e-mt-24">
+            <h3 class="e-title-xs">Publish</h3>
+            Publish only once all the content is fully ready. Most of the time you should be working with your
+            content in draft without publishing it and use the preview until you are happy with the page and
+            are ready to publish. You can easily send preview-links to other people for them to review your
+            changes before publishing, to ensure that everything is correct. You will not be able to publish
+            your content if you have errors, but you should always check the documentation page preview before
+            publishing anyways.
+            <div class="e-mt-24">
+              <img
+                width="100%"
+                src="./../../../../assets/get-started-content/publish.png"
+                alt="Contentful example showing how to publish content"
+              />
+            </div>
+            <div class="e-mt-24">
+              Publishing anything will also trigger a new build and deploy of the design system website. This
+              means that you should only publish once something is completely finished so that the build does
+              not have to be triggered all the time.
+            </div>
+            <div class="e-mt-24">
+              You can also publish multiple things at the same time by e.g. sorting on a content type on the
+              "content" tab page and then marking all the checkboxes before pushing the "Publish" or
+              "Republish" button.
+            </div>
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Delete-->
+      <elvia-accordion
+        openLabel="Deleting entries"
+        closeLabel="Deleting entries"
+        isFullWidth="true"
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            Any entry can be deleted as long as you are sure the entry is not used anywhere in Contentful. If
+            you are creating an entry by mistake, you should delete it so that there is not a lot of unused
+            entries floating around. If you want to be sure that you are not deleting an entry that is being
+            used, look at the right sidebar under links.
+            <div class="e-mt-24">
+              <img
+                width="100%"
+                src="./../../../../assets/get-started-content/references.png"
+                alt="Contentful example showing how to check for references through sidebar of an entry"
+              />
+            </div>
+            <div class="e-mt-24">
+              You can also hover over the link symbol in the top left corner next to the title of your entry
+              to see references.
             </div>
             <div class="e-mt-24">
               <img
                 width="100%"
-                src="./../../../../assets/get-started-content/error.png"
-                alt="Example Contentful error on design.elvia.io"
+                src="./../../../../assets/get-started-content/check-references.png"
+                alt="Contentful example showing how to check for references of an entry"
               />
             </div>
-            <div class="e-mt-24">
-              All errors will be listed here and each error tells you what type of content that has been made
-              incorrectly and what specifically has to be corrected for the page to work.
-            </div>
-            <div class="e-mt-24">
-              If the content is stuck on loading the page, not displaying any error or you don't understand
-              the error message please contact us.
-            </div>
           </div>
-        </elvia-accordion>
-      </div>
-    </ng-container>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <!--Errors-->
+      <elvia-accordion openLabel="Errors" closeLabel="Errors" isFullWidth="true" size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          <div>
+            When getting an error in Contentful the error-message should be displayed like in the image below:
+          </div>
+          <div class="e-mt-24">
+            <img
+              width="100%"
+              src="./../../../../assets/get-started-content/error.png"
+              alt="Example Contentful error on design.elvia.io"
+            />
+          </div>
+          <div class="e-mt-24">
+            All errors will be listed here and each error tells you what type of content that has been made
+            incorrectly and what specifically has to be corrected for the page to work.
+          </div>
+          <div class="e-mt-24">
+            If the content is stuck on loading the page, not displaying any error or you don't understand the
+            error message please contact us.
+          </div>
+        </div>
+      </elvia-accordion>
+    </div>
   </app-component-section>
 </div>

@@ -5,92 +5,72 @@
 
   <!--Type-->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Normal'">
-        <ng-container ngProjectAs="sectionContent">
-          Normal will always have the same position above the content . Normal shows either none or all of the
-          content.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Overflow'">
-        <ng-container ngProjectAs="sectionContent">
-          Overflow is placed below the content and moves down if expanded. Overflow shows some of the content
-          and can be expanded to show all.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Single'">
-        <ng-container ngProjectAs="sectionContent">
-          Single are an accordion without label and can be placed next to other elements, for example in an
-          list or table.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Normal'">
+      Normal will always have the same position above the content . Normal shows either none or all of the
+      content.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Overflow'">
+      Overflow is placed below the content and moves down if expanded. Overflow shows some of the content and
+      can be expanded to show all.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Single'">
+      Single are an accordion without label and can be placed next to other elements, for example in an list
+      or table.
+    </app-component-subsection>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="doesAccordion" [whenNots]="dontsAccordion"></app-when-to-use>
-    </ng-container>
+    <app-when-to-use [whens]="doesAccordion" [whenNots]="dontsAccordion"></app-when-to-use>
   </app-component-section>
 
   <!--GROUP-->
   <app-component-section group [sectionTitle]="'Group'">
-    <ng-container ngProjectAs="sectionContent">
-      Group multiple accordions to make it easy for users to find relevant content faster. Let users know what
-      to expect by making sure the accordion labels are descriptive. Think of the usefulness of a
-      well-structured FAQ (Frequently Asked Questions). Read more on group patterns at our
-      <a [routerLink]="['/patterns/groups']" class="e-link e-link--inline">group documentation page</a>
-      .
-      <app-component-subsection implementation [sectionTitle]="'Implementation'">
-        <ng-container ngProjectAs="sectionContent">
-          To create an accordion group, use multiple accordions with
-          <code>isFullWidth=true</code>
-          grouped together, along with dividers and spacing. If you want only one accordion to be open at a
-          time, you can use the
-          <code>isOpen</code>
-          property along with the
-          <code>onOpen</code>
-          /
-          <code>onClose</code>
-          events to control the state of the accordions.
-          <app-static-ceg>
-            <app-accordion-group-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    Group multiple accordions to make it easy for users to find relevant content faster. Let users know what
+    to expect by making sure the accordion labels are descriptive. Think of the usefulness of a
+    well-structured FAQ (Frequently Asked Questions). Read more on group patterns at our
+    <a [routerLink]="['/patterns/groups']" class="e-link e-link--inline">group documentation page</a>
+    .
+    <app-component-subsection implementation [sectionTitle]="'Implementation'">
+      To create an accordion group, use multiple accordions with
+      <code>isFullWidth=true</code>
+      grouped together, along with dividers and spacing. If you want only one accordion to be open at a time,
+      you can use the
+      <code>isOpen</code>
+      property along with the
+      <code>onOpen</code>
+      /
+      <code>onClose</code>
+      events to control the state of the accordions.
+      <app-static-ceg>
+        <app-accordion-group-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <span class="keyboard-button">Space</span>
-              or
-              <span class="keyboard-button">Enter</span>
-              to open or close the accordion.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'ARIA'">
-        <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Aria label:</strong>
-              Remember to use the props
-              <span class="code-text">openAriaLabel</span>
-              and
-              <span class="code-text">closeAriaLabel</span>
-              to specify for assistive tools what the accordion is showing and hiding.
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <span class="keyboard-button">Space</span>
+          or
+          <span class="keyboard-button">Enter</span>
+          to open or close the accordion.
+        </div>
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'ARIA'">
+      <ul class="e-list">
+        <li>
+          <strong>Aria label:</strong>
+          Remember to use the props
+          <span class="code-text">openAriaLabel</span>
+          and
+          <span class="code-text">closeAriaLabel</span>
+          to specify for assistive tools what the accordion is showing and hiding.
+        </li>
+      </ul>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>
