@@ -6,6 +6,8 @@ import { dtsPlugin } from 'esbuild-plugin-d.ts';
 
 const tmpOutputFolder = 'tmp-public-api-output';
 
+// We create a hash of the new output to see if it differs from the old
+// If the file content is the same, we don't move it. This increases performance.
 const getMd5 = (fileName) => {
   if (!fs.existsSync(fileName) || fs.statSync(fileName).isDirectory()) {
     return null;
