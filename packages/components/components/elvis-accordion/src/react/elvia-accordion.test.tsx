@@ -109,7 +109,7 @@ describe('Elvis Accordion', () => {
       const accordionButton = screen.getByTestId('accordion-button-label');
       await user.click(accordionButton);
 
-      await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
     });
 
     it('onCloseEvent: should emit the onClose event when user presses the accordion button when open', async () => {
@@ -118,7 +118,8 @@ describe('Elvis Accordion', () => {
       await user.click(accordionButton); //open it first
       await user.click(accordionButton); //then close it
 
-      await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onCloseEvent).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
     });
   });
 
