@@ -141,25 +141,30 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const handleValueOnChangeISOString = (newDateRange: DateRange): void => {
     const dateISO: DateRangeString = { start: null, end: null };
     if (newDateRange.start && isValidDate(newDateRange.start)) {
-      dateISO.start = newDateRange.start?.toISOString().substring(0, 10);
+      // Set hours to middle of day to ensure correct date is returned, as
+      // timezones and summer/winter time can cause some weird behavior
+      const newDateCopy = new Date(newDateRange.start);
+      newDateCopy.setHours(12);
+      dateISO.start = newDateCopy.toISOString().substring(0, 10);
     } else if (newDateRange.start === null) {
       dateISO.start = null;
     } else {
       dateISO.start = 'Invalid Date';
     }
     if (newDateRange.end && isValidDate(newDateRange.end)) {
-      dateISO.end = newDateRange.end?.toISOString().substring(0, 10);
+      // Set hours to middle of day to ensure correct date is returned, as
+      // timezones and summer/winter time can cause some weird behavior
+      const newDateCopy = new Date(newDateRange.end);
+      newDateCopy.setHours(12);
+      dateISO.end = newDateCopy.toISOString().substring(0, 10);
     } else if (newDateRange.end === null) {
       dateISO.end = null;
     } else {
       dateISO.end = 'Invalid Date';
     }
 
-    if (!webcomponent) {
-      valueOnChangeISOString?.(dateISO);
-    } else {
-      webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
-    }
+    valueOnChangeISOString?.(dateISO);
+    webcomponent?.triggerEvent('valueOnChangeISOString', dateISO);
   };
 
   const setNewDateRange = (newDateRange: DateRange, emit = true): void => {
@@ -170,12 +175,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
 
     handleValueOnChangeISOString(newDateRange);
-    if (!webcomponent) {
-      valueOnChange?.(newDateRange);
-    } else {
-      webcomponent.setProps({ value: newDateRange }, true);
-      webcomponent.triggerEvent('valueOnChange', newDateRange);
-    }
+    valueOnChange?.(newDateRange);
+    webcomponent?.setProps({ value: newDateRange }, true);
+    webcomponent?.triggerEvent('valueOnChange', newDateRange);
   };
 
   useEffect(() => {
