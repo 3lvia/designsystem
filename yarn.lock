@@ -2365,6 +2365,8 @@ __metadata:
     "@babel/preset-typescript": ^7.22.5
     "@babel/register": ^7.22.5
     "@elvia/elvis-component-wrapper": "*"
+    "@parcel/packager-ts": 2.9.3
+    "@parcel/transformer-typescript-types": 2.9.3
     "@testing-library/dom": 8.19.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": 13.4.0
@@ -4784,6 +4786,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@parcel/packager-ts@npm:2.9.3":
+  version: 2.9.3
+  resolution: "@parcel/packager-ts@npm:2.9.3"
+  dependencies:
+    "@parcel/plugin": 2.9.3
+  checksum: 8ffaef8242140656ac558a76796edaa3f938da8bbb8c0351c9ead25fa2b0cb69983953c35b3a3a9a734ae4a96ed388292632ae392f7a77ceb3f247d5d3311056
+  languageName: node
+  linkType: hard
+
 "@parcel/plugin@npm:2.9.3":
   version: 2.9.3
   resolution: "@parcel/plugin@npm:2.9.3"
@@ -5059,6 +5070,33 @@ __metadata:
     posthtml-render: ^3.0.0
     semver: ^7.5.2
   checksum: 19cec37f9cfb4a5506e48e41d70e970584cd06a913dfc92d128031991ff6615ce3302a896c2766fa64be8c8f56f81da47ece05e7b65c30f7e5213e676cae346c
+  languageName: node
+  linkType: hard
+
+"@parcel/transformer-typescript-types@npm:2.9.3":
+  version: 2.9.3
+  resolution: "@parcel/transformer-typescript-types@npm:2.9.3"
+  dependencies:
+    "@parcel/diagnostic": 2.9.3
+    "@parcel/plugin": 2.9.3
+    "@parcel/source-map": ^2.1.1
+    "@parcel/ts-utils": 2.9.3
+    "@parcel/utils": 2.9.3
+    nullthrows: ^1.1.1
+  peerDependencies:
+    typescript: ">=3.0.0"
+  checksum: 33ac58ec7d7163b4181ec1b27b55e7d533451991de9adfabfee7ede7a3f3eef6587cb845abb54d33565ef45d1be9dd4664d5d1a127ff8b1f72fc8486abf8415c
+  languageName: node
+  linkType: hard
+
+"@parcel/ts-utils@npm:2.9.3":
+  version: 2.9.3
+  resolution: "@parcel/ts-utils@npm:2.9.3"
+  dependencies:
+    nullthrows: ^1.1.1
+  peerDependencies:
+    typescript: ">=3.0.0"
+  checksum: c070a5678342df3fc26019eb631762c7995cbd0227d27f564cfdc08e7153bd0edd0eec315d6a0df59ed473c217272c34dcbeff48461121231bc0bd894b4f8d89
   languageName: node
   linkType: hard
 

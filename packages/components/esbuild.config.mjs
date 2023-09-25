@@ -51,7 +51,6 @@ const movePublicApiFiles = {
       entryPoints: paths,
       outdir: tmpOutputFolder,
       sourcemap: true,
-      logLevel: 'info',
       plugins: [dtsPlugin(), movePublicApiFiles],
     });
     esBuildContext.watch();
@@ -59,7 +58,6 @@ const movePublicApiFiles = {
     esbuild.build({
       entryPoints: paths,
       outdir: tmpOutputFolder,
-      logLevel: 'info',
       plugins: [dtsPlugin(), movePublicApiFiles],
     });
   }
