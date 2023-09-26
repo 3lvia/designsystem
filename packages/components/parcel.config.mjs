@@ -21,6 +21,7 @@ import glob from 'tiny-glob';
     defaultTargetOptions: {
       isLibrary: true,
       sourceMaps: watchMode,
+      outputFormat: 'esmodule',
     },
   });
 

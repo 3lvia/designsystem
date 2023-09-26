@@ -1,7 +1,7 @@
 import React, { useEffect, useState, KeyboardEvent, useRef, useMemo } from 'react';
 import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { flattenTree, getValueAsList } from '../dropdownListUtils';
-import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../elviaDropdown.types';
+import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../sharedTypes.public';
 import { BackButton } from './backButton';
 import {
   CursorCurve,

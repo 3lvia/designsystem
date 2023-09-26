@@ -4,6 +4,7 @@ import { ContextMenuProps } from './elviaContextMenu.types';
 import { TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition } from './mapPosition';
 import { ContextMenuOverlay } from './contextMenuOverlay';
+export * from './elviaContextMenu.types';
 
 export const ContextMenu: React.FC<ContextMenuProps> = ({
   content = '',
@@ -100,5 +101,3 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     </>
   );
 };
-
-export default ContextMenu;

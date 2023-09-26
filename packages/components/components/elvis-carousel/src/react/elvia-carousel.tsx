@@ -20,6 +20,7 @@ import arrowRightCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/ar
 import checkCircleColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleColor';
 import checkCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleFilledColor';
 import { CarouselItem, CarouselProps, SlideDirection } from './elvia-carousel.types';
+export * from './elvia-carousel.types';
 
 let UNIQUE_CAROUSEL_ID = 0;
 

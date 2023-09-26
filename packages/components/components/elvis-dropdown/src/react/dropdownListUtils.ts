@@ -1,4 +1,4 @@
-import { DropdownItem, DropdownValue, DropdownValueType } from './elviaDropdown.types';
+import { DropdownItem, DropdownValue, DropdownValueType } from './sharedTypes.public';
 
 export const flattenTree = (tree: DropdownItem[] = [], flatList: DropdownItem[] = []): DropdownItem[] => {
   tree.forEach((item) => {

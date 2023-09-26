@@ -5,17 +5,20 @@
   "homepage": "https://design.elvia.io/components/toast",
   "source": "src/react/elvia-toast.tsx",
   "main": "web_component.js",
-  "module": "dist/react/index.mjs",
+  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {
       "context": "node",
-      "isLibrary": true,
       "distDir": "dist/react"
     }
   },
   "files": [
-    "react.js"
+    "react.js",
+    "react.d.ts",
+    "web_component.js",
+    "web_component.d.ts",
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

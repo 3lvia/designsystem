@@ -5,17 +5,20 @@
   "homepage": "https://design.elvia.io/components/stepper",
   "source": "src/react/elvia-stepper.tsx",
   "main": "dist/main/web_component.js",
-  "module": "dist/react/index.mjs",
+  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {
-      "isLibrary": true,
       "distDir": "dist/react",
       "context": "node"
     }
   },
   "files": [
-    "react.js"
+    "react.js",
+    "react.d.ts",
+    "web_component.js",
+    "web_component.d.ts",
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

@@ -15,8 +15,9 @@ import {
 import { useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
+export * from './elvia-card.types';
 
-const Card: FC<CardProps> = function ({
+export const Card: FC<CardProps> = function ({
   icon,
   iconHover,
   heading,
@@ -151,5 +152,3 @@ const Card: FC<CardProps> = function ({
     </CardArea>
   );
 };
-
-export default Card;

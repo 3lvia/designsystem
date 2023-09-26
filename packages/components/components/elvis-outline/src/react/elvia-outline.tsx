@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import { OutlineProps } from './elviaOutline.types';
 import { GlobalOutlineReset, StyledOutline } from './styledComponents';
+export * from './elviaOutline.types';
 
 export const Outline: React.FC<OutlineProps> = ({ inlineStyle, className }) => {
   const offset = 4;

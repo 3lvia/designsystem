@@ -5,17 +5,19 @@
   "homepage": "https://design.elvia.io/components/segmented-control",
   "source": "src/react/elvia-segmented-control.tsx",
   "main": "dist/main/web_component.js",
-  "module": "dist/react/index.mjs",
+  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {
-      "isLibrary": true,
       "distDir": "dist/react",
       "context": "node"
     }
   },
   "files": [
-    "react.js"
+    "react.js",
+    "react.d.ts",
+    "web_component.js",
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-colors": "^3.0.0",

@@ -3,6 +3,7 @@ import { SpotlightArea, SpotlightCircle, SpotlightMask, SpotlightRect } from './
 
 import { useLockBodyScroll } from './useLockBodyScroll';
 import { SpotlightProps } from './elvia-spotlight.types';
+export * from './elvia-spotlight.types';
 
 const Spotlight: FC<SpotlightProps> = ({
   position,

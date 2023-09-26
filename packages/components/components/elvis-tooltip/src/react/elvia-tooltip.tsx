@@ -4,6 +4,7 @@ import { useConnectedOverlay, isSsr, TooltipPopup, useSlot } from '@elvia/elvis-
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
 import { TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';
+export * from './elviaTooltip.types';
 
 export const Tooltip: React.FC<TooltipProps> = ({
   content = '',

@@ -19,6 +19,7 @@ import {
   IconWrapper,
 } from '@elvia/elvis-toolbox';
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
+export * from './elviaPopover.types';
 
 const Popover: FC<PopoverProps> = function ({
   heading,

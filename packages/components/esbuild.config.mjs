@@ -22,16 +22,13 @@ const movePublicApiFiles = {
   name: 'move-public-api-files',
   setup(build) {
     build.onEnd(async () => {
-      const paths = await tinyGlob(`${tmpOutputFolder}/**/*.{public,types}.{d.ts,js}`);
+      const paths = await tinyGlob(`${tmpOutputFolder}/**/*.public.{d.ts,js}`);
 
       paths.forEach((filePath) => {
-        const pathArray = filePath.split('/');
-        const componentFolder = pathArray[1];
+        const componentFolder = filePath.split('/')[1];
         const folderPath = `components/${componentFolder}/dist/public-api`;
         const isDTs = filePath.endsWith('.d.ts');
-        const fileName = filePath.includes('types')
-          ? pathArray.at(-1)
-          : `public-api.${isDTs ? 'd.ts' : 'js'}`;
+        const fileName = `public-api.${isDTs ? 'd.ts' : 'js'}`;
         const newPath = `${folderPath}/${fileName}`;
 
         if (getMd5(filePath) !== getMd5(newPath)) {
@@ -48,7 +45,7 @@ const movePublicApiFiles = {
 (async () => {
   const watchMode = process.argv.includes('--watch');
 
-  const paths = await tinyGlob('components/elvis-*/src/react/*.{public,types}.ts*');
+  const paths = await tinyGlob('components/elvis-*/src/react/*.public.ts*');
 
   if (watchMode) {
     const esBuildContext = await esbuild.context({

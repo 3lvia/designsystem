@@ -1,7 +1,8 @@
 import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { config } from './config';
-import { DropdownItem, DropdownProps, DropdownValueType } from './elviaDropdown.types';
+import { DropdownProps } from './elviaDropdown.types';
+import { DropdownItem, DropdownValueType } from './sharedTypes.public';
 import {
   warnDeprecatedProps,
   FormFieldLabel,
@@ -18,6 +19,7 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
+export * from './elviaDropdown.types';
 
 const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   if (!filter) {

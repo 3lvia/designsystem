@@ -16,6 +16,7 @@ import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
 import { copyDay, isAfter, isBefore, isValidDate } from './dateHelpers';
+export * from './elviaDatepicker.types';
 
 const defaultErrorOptions = {
   hideText: false,
@@ -329,5 +330,3 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     </>
   );
 };
-
-export default Datepicker;

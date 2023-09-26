@@ -1,7 +1,7 @@
 import { FormFieldSizes, IconButton, IconWrapper } from '@elvia/elvis-toolbox';
 import React, { MouseEvent } from 'react';
 import { getDropdownItemId } from '../dropdownListUtils';
-import { DropdownItem, DropdownValueType } from '../elviaDropdown.types';
+import { DropdownItem, DropdownValueType } from '../sharedTypes.public';
 import { BackButtonStyles } from './dropdownOverlayStyles';
 import arrowLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLeft';
 
