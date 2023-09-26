@@ -160,7 +160,7 @@ gulp.task(
   'default',
   gulp.series(getComponentConfigs, buildWebComponentsMagically, function (done) {
     done();
-    console.log('Successfully built Elvia Components!');
+    console.log('Successfully built React web component wrappers!');
   }),
 );
 

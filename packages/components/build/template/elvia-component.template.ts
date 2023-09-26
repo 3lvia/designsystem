@@ -1,4 +1,4 @@
-import * as ReactComponent from '../../../react.js';
+import * as ReactComponent from '../../react.js';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 export default class ElviaComponent extends ElvisComponentWrapper {
