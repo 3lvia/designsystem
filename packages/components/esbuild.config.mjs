@@ -22,13 +22,17 @@ const movePublicApiFiles = {
   name: 'move-public-api-files',
   setup(build) {
     build.onEnd(async () => {
-      const paths = await tinyGlob(`${tmpOutputFolder}/**/*.public.{d.ts,js}`);
+      const paths = await tinyGlob(`${tmpOutputFolder}/**/*.{public,types}.{d.ts,js}`);
 
       paths.forEach((filePath) => {
-        const componentFolder = filePath.split('/')[1];
-        const isDTs = filePath.endsWith('.d.ts');
+        const pathArray = filePath.split('/');
+        const componentFolder = pathArray[1];
         const folderPath = `components/${componentFolder}/dist/public-api`;
-        const newPath = `${folderPath}/public-api.${isDTs ? 'd.ts' : 'js'}`;
+        const isDTs = filePath.endsWith('.d.ts');
+        const fileName = filePath.includes('types')
+          ? pathArray.at(-1)
+          : `public-api.${isDTs ? 'd.ts' : 'js'}`;
+        const newPath = `${folderPath}/${fileName}`;
 
         if (getMd5(filePath) !== getMd5(newPath)) {
           fs.mkdirSync(folderPath, { recursive: true });
@@ -44,14 +48,14 @@ const movePublicApiFiles = {
 (async () => {
   const watchMode = process.argv.includes('--watch');
 
-  const paths = await tinyGlob('components/elvis-*/src/react/*.public.ts');
+  const paths = await tinyGlob('components/elvis-*/src/react/*.{public,types}.ts*');
 
   if (watchMode) {
     const esBuildContext = await esbuild.context({
       entryPoints: paths,
       outdir: tmpOutputFolder,
-      sourcemap: true,
       plugins: [dtsPlugin(), movePublicApiFiles],
+      sourcemap: true,
     });
     esBuildContext.watch();
   } else {
