@@ -84,11 +84,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       dateISO = 'Invalid Date';
     }
 
-    // eslint-disable-next-line no-console
-    console.log(`newDate: ${newDate}`);
-    // eslint-disable-next-line no-console
-    console.log(`isoString: ${dateISO}`);
-
     valueOnChangeISOString?.(dateISO);
     webcomponent?.triggerEvent('valueOnChangeISOString', dateISO);
   };
