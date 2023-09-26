@@ -24,7 +24,7 @@ Read about the
 - We use **React** to build our components and wrap them as
   **[Custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)** to
   make them accessible for multiple JavaScript frameworks.
-- We use **Jest** for unit testing of our components.
+- We use **Jest** for unit testing of our components, and **Playwright** for visual component tests.
 - **[Styled components](https://styled-components.com/)**,
   **[classnames](https://www.npmjs.com/package/classnames)** and **SCSS** for styling our components.
 - We use **Figma** for sketching the components. Use
@@ -42,7 +42,7 @@ Read about the
   [naming conventions](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/309464209/Navnekonvensjoner) for
   all props.
 - Write Jest unit tests for the component. The tests should primarily test the properties that can be sent
-  into the component.
+  into the component. Where applicable, write Playwright component tests.
 - When adding a new component make sure all points in the
   [review process doc](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10427498683/Review+prosess) has
   been addressed.
@@ -295,3 +295,20 @@ export interface CardProps {
 The function `warnDeprecatedProps(config, props)` from `@elvia/elvis-toolbox` must be called inside the
 component in order to `console.warn()` about the use of deprecated props. For information on how to use this
 function, see it's JSDoc for an example.
+
+## Playwright tests
+
+To run Playwright tests locally you need to install the corresponding Playwright browsers. To do so, you need
+to run the command
+
+```
+npx playwright install
+```
+
+See [the Playwright docs](https://playwright.dev/docs/browsers) for more information. This will install the
+latest versions of Chromium, Safari, and Firefox to be used by Playwright. The versions installed must
+correspond to the version of Playwright that is defined in `packages/components/package.json` (e.g.
+`"@playwright/test": "^1.38.0"`) and the Docker image used in the `Playwright.yml` Github action workflow.
+
+**NB:** Note that the sensitivity of changes in the snapshot images Playwright captures is different in the
+Github action vs. running the tests locally. It is more sensitive to changes on your local machine.

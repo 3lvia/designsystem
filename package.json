@@ -33,6 +33,7 @@
     "lint:all": "yarn prettier:elvis && yarn prettier:web && yarn prettier:components && yarn eslint",
     "test": "yarn workspace @elvia/elvis-components test",
     "test-ct": "yarn workspace @elvia/elvis-components test-ct",
+    "test-ct:update": "yarn workspace @elvia/elvis-components test-ct:update",
     "test:start": "yarn workspace @elvia/elvis-components test:start",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
     "publish": "yarn workspaces foreach -ipv --no-private npm publish --access public"
