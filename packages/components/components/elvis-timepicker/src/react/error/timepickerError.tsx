@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ErrorType } from '../elviaTimepicker.types';
+import { ErrorType } from '../publicApi.public';
 import { getErrorText } from '../getErrorText';
 import { FormFieldErrorContainer, FormFieldError, IconWrapper } from '@elvia/elvis-toolbox';
 import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';

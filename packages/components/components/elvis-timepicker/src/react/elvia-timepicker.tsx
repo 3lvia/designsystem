@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { OverlayContainer } from './popup/overlayContainer';
-import { ChangeType, ErrorType, TimepickerProps } from './elviaTimepicker.types';
+import { TimepickerProps } from './elviaTimepicker.types';
+import { ChangeType, ErrorType } from './publicApi.public';
 import {
   useConnectedOverlay,
   useFocusTrap,

@@ -1,4 +1,4 @@
-import { ErrorType } from './elviaTimepicker.types';
+import { ErrorType } from './publicApi.public';
 
 export const getErrorText = (error?: ErrorType): string => {
   switch (error) {

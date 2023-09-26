@@ -35,7 +35,7 @@ const defaultErrorOptions = {
   hasErrorPlaceholder: true,
 } satisfies Partial<ErrorOptions>;
 
-const Dropdown: React.FC<DropdownProps> = ({
+export const Dropdown: React.FC<DropdownProps> = ({
   items = [],
   value,
   size = 'medium',
@@ -226,5 +226,3 @@ const Dropdown: React.FC<DropdownProps> = ({
     </>
   );
 };
-
-export default Dropdown;
