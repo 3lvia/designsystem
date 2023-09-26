@@ -5,7 +5,6 @@
   "homepage": "https://design.elvia.io/components/divider",
   "source": "src/react/elvia-divider.tsx",
   "main": "dist/main/web_component.js",
-  "types": "dist/react/types.d.ts",
   "module": "dist/react/index.mjs",
   "targets": {
     "main": false,

@@ -5,7 +5,6 @@
   "homepage": "https://design.elvia.io/components/tabs",
   "source": "src/react/elvia-tabs.tsx",
   "main": "dist/main/web_component.js",
-  "types": "dist/react/types.d.ts",
   "module": "dist/react/index.mjs",
   "targets": {
     "main": false,
