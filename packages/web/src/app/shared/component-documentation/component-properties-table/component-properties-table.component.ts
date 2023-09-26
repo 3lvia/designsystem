@@ -37,11 +37,8 @@ export class ComponentPropertiesTableComponent implements OnInit {
     }
   }
 
-  private getPropArrayRecursive(
-    nestedComponentProp: NestedInputProp,
-    level: number,
-    componentProps: ComponentProp[],
-  ): ComponentProp[] {
+  private getPropArrayRecursive(nestedComponentProp: NestedInputProp, level: number): ComponentProp[] {
+    const componentChildProps: ComponentProp[] = [];
     Object.keys(nestedComponentProp.children).forEach((prop) => {
       const propData = nestedComponentProp.children[prop];
       const componentProp: ComponentProp = {
@@ -50,16 +47,16 @@ export class ComponentPropertiesTableComponent implements OnInit {
         description: propData.description ?? '',
         level: level,
       };
-      componentProps.push(componentProp);
+      componentChildProps.push(componentProp);
       if ('children' in componentProp) {
-        componentProps = this.getPropArrayRecursive(componentProp, level + 1, componentProps);
+        componentProp.childProps = this.getPropArrayRecursive(componentProp, level + 1);
       }
     });
-    return componentProps;
+    return componentChildProps;
   }
 
   private getPropArray(): ComponentProp[] {
-    let componentProps: ComponentProp[] = [];
+    const componentProps: ComponentProp[] = [];
     Object.keys(this.componentData.attributes).forEach((prop) => {
       const propData = this.componentData.attributes[prop];
       const componentProp: ComponentProp = {
@@ -70,7 +67,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
       };
       componentProps.push(componentProp);
       if ('children' in componentProp) {
-        componentProps = this.getPropArrayRecursive(componentProp, 1, componentProps);
+        componentProp.childProps = this.getPropArrayRecursive(componentProp, 1);
       }
     });
 

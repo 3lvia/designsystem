@@ -9,7 +9,7 @@ td.table-code-text {
 
 .e-table .group-title-row {
   position: sticky;
-  top: 56px;
+  top: 40px;
   z-index: 2;
 
   th,
@@ -41,10 +41,6 @@ tr.prop-row {
   th,
   td {
     padding: 0;
-
-    .remove-padding {
-      padding-left: 0;
-    }
   }
 
   &.expanded .height-changer {
