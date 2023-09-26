@@ -71,7 +71,9 @@
           <td class="e-table__cell--multiline-small">
             <div
               class="height-changer"
-              [innerHTML]="prop.item.description | searchHighlighter : 'description' : prop.matches"
+              [innerHTML]="
+                prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches
+              "
             ></div>
           </td>
           <td class="table-code-text">
