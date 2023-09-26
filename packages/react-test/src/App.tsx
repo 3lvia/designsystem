@@ -27,6 +27,7 @@ import { Stepper } from '@elvia/elvis-stepper/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
+import { Tooltip } from '@elvia/elvis-tooltip/react';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -568,6 +569,18 @@ function App() {
             <button className="e-btn" onClick={showToast}>
               Show toast
             </button>
+
+            {/* TOOLTIP */}
+            <Tooltip
+              trigger={
+                <button className="e-btn e-btn--icon e-btn--lg" aria-label="Vis tooltip">
+                  <span className="e-btn__icon">
+                    <i className="e-icon e-icon--star" aria-hidden="true"></i>
+                  </span>
+                </button>
+              }
+              content={'Tooltip content'}
+            />
           </div>
         </div>
       }
