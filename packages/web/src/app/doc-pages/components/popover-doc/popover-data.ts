@@ -55,14 +55,14 @@ const popoverData: ComponentData<
       description: 'Callback for every time the popover is being closed.',
     },
     verticalPosition: {
-      type: 'bottom | top',
+      type: '"bottom" | "top"',
       description: 'Position vertically.',
-      default: 'top',
+      default: '"top"',
     },
     horizontalPosition: {
-      type: 'left | center | right',
+      type: '"left" | "center" | "right"',
       description: 'Position horizontally.',
-      default: 'center',
+      default: '"center"',
     },
   },
 };
