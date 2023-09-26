@@ -28,7 +28,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             title="Time"
             currentTime={currentTime}
             numbers={hours}
-            onSelect={(val, isDisabled) => onChange('hour', val, isDisabled)}
+            onSelect={(changeType, val, isDisabled) => onChange(changeType, val, isDisabled)}
             timeUnit="hour"
             minTime={minTime}
             maxTime={maxTime}
@@ -38,7 +38,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
               title="Minutt"
               currentTime={currentTime}
               numbers={minutes}
-              onSelect={(val, isDisabled) => onChange('minute', val, isDisabled)}
+              onSelect={(changeType, val, isDisabled) => onChange(changeType, val, isDisabled)}
               timeUnit="minute"
               minTime={minTime}
               maxTime={maxTime}
@@ -49,7 +49,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
               title="Sekund"
               currentTime={currentTime}
               numbers={seconds}
-              onSelect={(val, isDisabled) => onChange('second', val, isDisabled)}
+              onSelect={(changeType, val, isDisabled) => onChange(changeType, val, isDisabled)}
               timeUnit="second"
               minTime={minTime}
               maxTime={maxTime}

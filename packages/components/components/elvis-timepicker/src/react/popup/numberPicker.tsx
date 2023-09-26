@@ -18,7 +18,7 @@ interface Props {
   title: string;
   numbers: number[];
   currentTime?: Date | null;
-  onSelect: (value: number, isDisabled?: boolean) => void;
+  onSelect: (changeType: ChangeType, value: number, isDisabled?: boolean) => void;
   timeUnit: ChangeType;
   minTime?: Date;
   maxTime?: Date;
@@ -38,19 +38,16 @@ export const NumberPicker: React.FC<Props> = ({
   const currentValue = setCurrentValue();
 
   function setCurrentValue(): number | undefined {
-    if (currentTime) {
-      switch (timeUnit) {
-        case 'hour':
-          return currentTime?.getHours();
-        case 'minute':
-          return currentTime?.getMinutes();
-        case 'second':
-          return currentTime?.getSeconds();
-        default:
-          return undefined;
-      }
+    switch (timeUnit) {
+      case 'hour':
+        return currentTime?.getHours();
+      case 'minute':
+        return currentTime?.getMinutes();
+      case 'second':
+        return currentTime?.getSeconds();
+      default:
+        return undefined;
     }
-    return undefined;
   }
 
   const loopScroll = () => {
@@ -70,23 +67,23 @@ export const NumberPicker: React.FC<Props> = ({
 
   const shuffleTo = (direction: 'next' | 'previous'): void => {
     if (currentValue == null) {
-      onSelect(numbers[0]);
+      onSelect(timeUnit, numbers[0], isNumberDisabled(numbers[0]));
     } else {
       const index = numbers.indexOf(currentValue);
 
       if (index === -1) {
-        onSelect(numbers[0]);
+        onSelect(timeUnit, numbers[0], isNumberDisabled(numbers[0]));
         return;
       }
 
       if (direction === 'next' && index !== numbers.length - 1) {
-        onSelect(numbers[index + 1]);
+        onSelect(timeUnit, numbers[index + 1], isNumberDisabled(numbers[index + 1]));
       } else if (direction === 'next' && index === numbers.length - 1) {
-        onSelect(numbers[0]);
+        onSelect(timeUnit, numbers[0], isNumberDisabled(numbers[0]));
       } else if (direction === 'previous' && index !== 0) {
-        onSelect(numbers[index - 1]);
+        onSelect(timeUnit, numbers[index - 1], isNumberDisabled(numbers[index - 1]));
       } else {
-        onSelect(numbers[numbers.length - 1]);
+        onSelect(timeUnit, numbers[numbers.length - 1], isNumberDisabled(numbers[numbers.length - 1]));
       }
     }
   };
@@ -183,7 +180,7 @@ export const NumberPicker: React.FC<Props> = ({
             isSelected={number === currentValue}
             isDisabled={isNumberDisabled(number)}
             key={index}
-            onClick={() => onSelect(number, isNumberDisabled(number))}
+            onClick={() => onSelect(timeUnit, number, isNumberDisabled(number))}
             data-testid={`${title}-number-button`}
             data-id={`${title}-${padDigit(number)}`}
             aria-label={`${title} ${padDigit(number)}`}
