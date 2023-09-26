@@ -2365,6 +2365,8 @@ __metadata:
     "@babel/preset-typescript": ^7.22.5
     "@babel/register": ^7.22.5
     "@elvia/elvis-component-wrapper": "*"
+    "@parcel/config-default": ^2.9.3
+    "@parcel/core": ^2.9.3
     "@parcel/packager-ts": 2.9.3
     "@parcel/transformer-typescript-types": 2.9.3
     "@testing-library/dom": 8.19.0
@@ -2411,7 +2413,6 @@ __metadata:
     styled-components: ^5.3.3
     tiny-glob: ^0.2.9
     ts-loader: ^8.0.3
-    ts-node: ^10.9.1
     typescript-plugin-styled-components: ^2.0.0
     webpack: ^5.76.0
   peerDependencies:
@@ -2803,6 +2804,7 @@ __metadata:
     "@elvia/elvis-colors": ^3.0.0
     "@elvia/elvis-component-wrapper": ^4.1.2
     "@elvia/elvis-toolbox": ^9.6.0
+    "@elvia/elvis-typography": ^2.5.0
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -4464,7 +4466,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/config-default@npm:2.9.3":
+"@parcel/config-default@npm:2.9.3, @parcel/config-default@npm:^2.9.3":
   version: 2.9.3
   resolution: "@parcel/config-default@npm:2.9.3"
   dependencies:
@@ -4504,7 +4506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/core@npm:2.9.3":
+"@parcel/core@npm:2.9.3, @parcel/core@npm:^2.9.3":
   version: 2.9.3
   resolution: "@parcel/core@npm:2.9.3"
   dependencies:
