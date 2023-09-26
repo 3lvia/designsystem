@@ -5,36 +5,26 @@
 
   <!-- TYPE -->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Simple'">
-        <ng-container ngProjectAs="sectionContent">
-          The simple divider is used as a discrete divider between content. It’s in a slightly lighter grey
-          tone to appear less powerful than the curved divider and should be used when the division is subtle.
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Simple'">
+      The simple divider is used as a discrete divider between content. It’s in a slightly lighter grey tone
+      to appear less powerful than the curved divider and should be used when the division is subtle.
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Heading'">
-        <ng-container ngProjectAs="sectionContent">
-          Heading divider is used to divide content, often text-based-, into sections with headlines. They
-          should be used to group content on similar hierarchy levels.
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Heading'">
+      Heading divider is used to divide content, often text-based-, into sections with headlines. They should
+      be used to group content on similar hierarchy levels.
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Curved'">
-        <ng-container ngProjectAs="sectionContent">
-          The curved divider is used to section parts of a page. It is always used in full width and scales
-          over screens after the Elvia curve formula. The curved divider is used to clearly divide content.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Curved'">
+      The curved divider is used to section parts of a page. It is always used in full width and scales over
+      screens after the Elvia curve formula. The curved divider is used to clearly divide content.
+    </app-component-subsection>
   </app-component-section>
 
   <!-- IMPLEMENTATION -->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      Pair the divider with our
-      <a class="e-link e-link--inline" [routerLink]="['/brand/layout']" fragment="Spacing">margin classes</a>
-      to get the desired spacing.
-    </ng-container>
+    Pair the divider with our
+    <a class="e-link e-link--inline" [routerLink]="['/brand/layout']" fragment="Spacing">margin classes</a>
+    to get the desired spacing.
   </app-component-section>
 </app-component-documentation>

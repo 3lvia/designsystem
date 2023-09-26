@@ -145,6 +145,53 @@ describe('Elvis Popover', () => {
     });
   });
 
+  describe('events', () => {
+    let onCloseEvent: jest.Mock;
+    let onOpenEvent: jest.Mock;
+
+    beforeEach(() => {
+      onCloseEvent = jest.fn();
+      onOpenEvent = jest.fn();
+
+      render(
+        <Popover
+          content="Content"
+          hasCloseButton={true}
+          heading="Header"
+          onClose={onCloseEvent}
+          onOpen={onOpenEvent}
+          trigger={<button>Trigger</button>}
+        />,
+      );
+    });
+
+    it('should not emit any event on init', async () => {
+      await waitFor(() => expect(onCloseEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(onOpenEvent).not.toHaveBeenCalled());
+    });
+
+    it('onOpen: should emit when trigger is clicked', async () => {
+      const user = userEvent.setup();
+      const trigger = screen.getByRole('button', { name: /trigger/i });
+
+      await user.click(trigger);
+
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
+    });
+
+    it('onClose: should emit event when close button is clicked', async () => {
+      const user = userEvent.setup();
+      const trigger = screen.getByRole('button', { name: /trigger/i });
+
+      await user.click(trigger);
+
+      const closeButton = screen.getByRole('button', { name: /lukk/i });
+      await user.click(closeButton);
+
+      await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
+    });
+  });
+
   describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(

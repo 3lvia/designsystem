@@ -5,92 +5,68 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
 
-      <app-component-subsection [sectionTitle]="'Use label'">
-        <ng-container ngProjectAs="sectionContent">
-          You should always have a label next to the toggle to tell the user what they are turning on/off.
-          When stacking multiple toggels vertically, the label should be placed right to align the buttons for
-          ease of use.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Use label'">
+      You should always have a label next to the toggle to tell the user what they are turning on/off. When
+      stacking multiple toggels vertically, the label should be placed right to align the buttons for ease of
+      use.
+    </app-component-subsection>
   </app-component-section>
 
   <!--STATES-->
   <app-component-section states [sectionTitle]="'States'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-static-ceg nonInteractive>
-        <app-toggle-states-ceg />
-      </app-static-ceg>
-    </ng-container>
+    <app-static-ceg nonInteractive>
+      <app-toggle-states-ceg />
+    </app-static-ceg>
   </app-component-section>
 
   <!-- OPTIONS -->
   <app-component-section options [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Label position'">
-        <ng-container ngProjectAs="sectionContent">
-          Place the label on the right or left side of the toggle.
-          <app-static-ceg>
-            <app-toggle-label-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Label position'">
+      Place the label on the right or left side of the toggle.
+      <app-static-ceg>
+        <app-toggle-label-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!-- SIZE -->
   <app-component-section size [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      The toggles come in two sizes. Regardless of the size you choose, you should never combine the two and
-      always use the same size of toggle throughout the page.
-      <app-component-subsection [sectionTitle]="'Medium'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-toggle-size-md-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Small'">
-        <ng-container ngProjectAs="sectionContent">
-          Small toggles are typically used in Elvia’s internal systems, where screen real estate is an
-          important factor.
-          <app-static-ceg>
-            <app-toggle-size-sm-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    The toggles come in two sizes. Regardless of the size you choose, you should never combine the two and
+    always use the same size of toggle throughout the page.
+    <app-component-subsection [sectionTitle]="'Medium'">
+      <app-static-ceg>
+        <app-toggle-size-md-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Small'">
+      Small toggles are typically used in Elvia’s internal systems, where screen real estate is an important
+      factor.
+      <app-static-ceg>
+        <app-toggle-size-sm-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Changing the aria-checked attribute'">
-        <ng-container ngProjectAs="sectionContent">
-          When a click event is fired on the toggle, your click handler must change the value of the
-          <span class="code-text">aria-checked</span>
-          attribute from
-          <span class="code-text">true</span>
-          to
-          <span class="code-text">false</span>
-          , or vice versa.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          The toggle is built up of a checkbox making the keyboard navigation identical to the keyboard
-          navigation for native checkboxes.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Label'">
-        <ng-container ngProjectAs="sectionContent">
-          Make sure to always add a label that is linked to the toggle, to make it clear for assistive tools
-          what the toggle is doing.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Changing the aria-checked attribute'">
+      When a click event is fired on the toggle, your click handler must change the value of the
+      <span class="code-text">aria-checked</span>
+      attribute from
+      <span class="code-text">true</span>
+      to
+      <span class="code-text">false</span>
+      , or vice versa.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      The toggle is built up of a checkbox making the keyboard navigation identical to the keyboard navigation
+      for native checkboxes.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Label'">
+      Make sure to always add a label that is linked to the toggle, to make it clear for assistive tools what
+      the toggle is doing.
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

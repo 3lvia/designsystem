@@ -5,205 +5,178 @@
 
   <!--OPTIONS-->
   <app-component-section options [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Icons'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>
-            It's possible to display icons in the dropdown. Simply add a key value pair of
-            <code class="code-text">icon: innerHTML</code>
-            to the dropdown options to create icons aligned on the left side of the label text.
-          </div>
-          <div class="e-mt-16">
-            Note that to display icons, all options need to have an icon attribute. The
-            <code>icon</code>
-            that you pass will be parsed as
-            <code>innerHTML</code>
-            , and icons should be 24px wide. This corresponds to
-            <code>e-icon--sm</code>
-            if you use icons from
-            <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">elvis.</a>
-          </div>
-          <app-static-ceg>
-            <app-dropdown-icons-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Nested dropdowns'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>
-            The dropdown also supports nested dropdowns. This is done by utilizing the
-            <span class="code-text">children</span>
-            property on a list item. The list contains new dropdown items, so the tree can be as deep as you
-            need it to be. Be aware that this can affect responsiveness, as nested dropdowns will occupy a lot
-            of screen space if the tree is too deep. Note that all values should be unique, since the output
-            only is the select value.
-          </div>
-          <app-static-ceg>
-            <app-dropdown-tree-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Status icon'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>
-            Add a status icon on the right side to specific options of any dropdown. Use it to quickly notify
-            the user to pay extra attention to some options over others. Each status consists of a predefined
-            color and icon that signals their level of importance. A status should always be accompanied by an
-            explaination to make sure the user understands the meaning of any status. Avoid overusing status -
-            only utilize it if necessery. Choose the correct status to secure a consistent and universal user
-            experience.
+    <app-component-subsection [sectionTitle]="'Icons'">
+      <div>
+        It's possible to display icons in the dropdown. Simply add a key value pair of
+        <code class="code-text">icon: innerHTML</code>
+        to the dropdown options to create icons aligned on the left side of the label text.
+      </div>
+      <div class="e-mt-16">
+        Note that to display icons, all options need to have an icon attribute. The
+        <code>icon</code>
+        that you pass will be parsed as
+        <code>innerHTML</code>
+        , and icons should be 24px wide. This corresponds to
+        <code>e-icon--sm</code>
+        if you use icons from
+        <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">elvis.</a>
+      </div>
+      <app-static-ceg>
+        <app-dropdown-icons-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Nested dropdowns'">
+      <div>
+        The dropdown also supports nested dropdowns. This is done by utilizing the
+        <span class="code-text">children</span>
+        property on a list item. The list contains new dropdown items, so the tree can be as deep as you need
+        it to be. Be aware that this can affect responsiveness, as nested dropdowns will occupy a lot of
+        screen space if the tree is too deep. Note that all values should be unique, since the output only is
+        the select value.
+      </div>
+      <app-static-ceg>
+        <app-dropdown-tree-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Status icon'">
+      <div>
+        Add a status icon on the right side to specific options of any dropdown. Use it to quickly notify the
+        user to pay extra attention to some options over others. Each status consists of a predefined color
+        and icon that signals their level of importance. A status should always be accompanied by an
+        explaination to make sure the user understands the meaning of any status. Avoid overusing status -
+        only utilize it if necessery. Choose the correct status to secure a consistent and universal user
+        experience.
 
-            <ul class="e-list e-list--icons e-mt-32">
-              <li>
-                <span class="e-list__icon">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-error" aria-hidden="true"></i>
-                </span>
-                <h4 class="e-title-caps">Error</h4>
-                Notify that something is wrong. Remember to explain why or what the user can do to resolve the
-                problem. Example: Error, missing or invalid option.
-              </li>
-              <li>
-                <span class="e-list__icon">
-                  <i class="e-icon e-icon--warning_circle e-icon--color-warning" aria-hidden="true"></i>
-                </span>
-                <h4 class="e-title-caps">Warning</h4>
-                Help users to avoid error situations or notify that something undesirable may occur when
-                choosing this option. Remember to explain the reason behind the warning and how to avoid or
-                fix the undesirable outcome.
-              </li>
-              <li>
-                <span class="e-list__icon">
-                  <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
-                </span>
-                <h4 class="e-title-caps">Informative</h4>
-                Use to inform the user that more information is available when choosing this option, unlike
-                other options. Do not use if relevant for all options.
-              </li>
-            </ul>
-          </div>
-          <div class="e-mt-16">
-            To add a status to an option, simply add a key value pair of
-            <span class="code-text">status: string</span>
-            to the option. The available status options are
-            <span class="code-text">error</span>
-            ,
-            <span class="code-text">warning</span>
-            and
-            <span class="code-text">info</span>
-            .
-          </div>
-          <app-static-ceg>
-            <app-dropdown-status-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Full width'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>
-            The dropdown component can ignore its default 448px maximum width and expand to fill its parent's
-            width by using the
-            <span class="code-text">isFullWidth</span>
-            prop.
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Load more options'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>
-            Use the load more button if you have too many options to load and display everything from the
-            start - if not, consider our
-            <a
-              class="e-link e-link--inline"
-              [routerLink]="['/components/autocomplete']"
-              [fragment]="'Overview'"
-            >
-              autocomplete
-            </a>
-            . Also, make use of it in similar scenarios if multiselection is needed, as this feature is not
-            supported in autocomplete. The load more button is useful if the number of items is so large that
-            it would negatively impact the user experience due to slow loading time - utilize it to split up
-            the data at reasonable intervals. When using the load more button, be mindful of the list sorting,
-            displaying the most important options at the top, readily available to the user, and not hidden
-            further down the list. Making the input searchable is also recommended with a large number of
-            options.
-          </div>
-          <div class="e-mt-16">
-            When the button is clicked, the
-            <span class="code-text">onLoadMoreItems</span>
-            event is emitted. The dropdown component does not handle the loading of more options, it is up to
-            the user to implement this functionality and update the
-            <span class="code-text">items</span>
-            prop. The button is hidden by default and can be shown by setting the
-            <span class="code-text">hasLoadMoreItemsButton</span>
-            prop to
-            <span class="code-text">true</span>
-            . When options are loading, the prop
-            <span class="code-text">isLoadingMoreItems</span>
-            should be set to
-            <span class="code-text">true</span>
-            . This will show a spinner in the button. When there are no more options to load, the button
-            should be removed.
-          </div>
-          <app-static-ceg>
-            <app-dropdown-load-more-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+        <ul class="e-list e-list--icons e-mt-32">
+          <li>
+            <span class="e-list__icon">
+              <i class="e-icon e-icon--remove_circle e-icon--color-error" aria-hidden="true"></i>
+            </span>
+            <h4 class="e-title-caps">Error</h4>
+            Notify that something is wrong. Remember to explain why or what the user can do to resolve the
+            problem. Example: Error, missing or invalid option.
+          </li>
+          <li>
+            <span class="e-list__icon">
+              <i class="e-icon e-icon--warning_circle e-icon--color-warning" aria-hidden="true"></i>
+            </span>
+            <h4 class="e-title-caps">Warning</h4>
+            Help users to avoid error situations or notify that something undesirable may occur when choosing
+            this option. Remember to explain the reason behind the warning and how to avoid or fix the
+            undesirable outcome.
+          </li>
+          <li>
+            <span class="e-list__icon">
+              <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+            </span>
+            <h4 class="e-title-caps">Informative</h4>
+            Use to inform the user that more information is available when choosing this option, unlike other
+            options. Do not use if relevant for all options.
+          </li>
+        </ul>
+      </div>
+      <div class="e-mt-16">
+        To add a status to an option, simply add a key value pair of
+        <span class="code-text">status: string</span>
+        to the option. The available status options are
+        <span class="code-text">error</span>
+        ,
+        <span class="code-text">warning</span>
+        and
+        <span class="code-text">info</span>
+        .
+      </div>
+      <app-static-ceg>
+        <app-dropdown-status-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Full width'">
+      <div>
+        The dropdown component can ignore its default 448px maximum width and expand to fill its parent's
+        width by using the
+        <span class="code-text">isFullWidth</span>
+        prop.
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Load more options'">
+      <div>
+        Use the load more button if you have too many options to load and display everything from the start -
+        if not, consider our
+        <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete']" [fragment]="'Overview'">
+          autocomplete
+        </a>
+        . Also, make use of it in similar scenarios if multiselection is needed, as this feature is not
+        supported in autocomplete. The load more button is useful if the number of items is so large that it
+        would negatively impact the user experience due to slow loading time - utilize it to split up the data
+        at reasonable intervals. When using the load more button, be mindful of the list sorting, displaying
+        the most important options at the top, readily available to the user, and not hidden further down the
+        list. Making the input searchable is also recommended with a large number of options.
+      </div>
+      <div class="e-mt-16">
+        When the button is clicked, the
+        <span class="code-text">onLoadMoreItems</span>
+        event is emitted. The dropdown component does not handle the loading of more options, it is up to the
+        user to implement this functionality and update the
+        <span class="code-text">items</span>
+        prop. The button is hidden by default and can be shown by setting the
+        <span class="code-text">hasLoadMoreItemsButton</span>
+        prop to
+        <span class="code-text">true</span>
+        . When options are loading, the prop
+        <span class="code-text">isLoadingMoreItems</span>
+        should be set to
+        <span class="code-text">true</span>
+        . This will show a spinner in the button. When there are no more options to load, the button should be
+        removed.
+      </div>
+      <app-static-ceg>
+        <app-dropdown-load-more-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--SIZE-->
   <app-component-section size [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      There are two different sizes of dropdown; medium and small. Much like small text fields, the small
-      dropdown is a version of the text field that’s primarily designed for internal systems, and shouldn’t be
-      mixed with the other input style.
-    </ng-container>
+    There are two different sizes of dropdown; medium and small. Much like small text fields, the small
+    dropdown is a version of the text field that’s primarily designed for internal systems, and shouldn’t be
+    mixed with the other input style.
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <span class="keyboard-button">Space</span>
-              or
-              <span class="keyboard-button">Enter</span>
-              to open or close the dropdown menu or select an item inside the dropdown menu.
-            </div>
-            <div>
-              <span class="keyboard-button icon">
-                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px">
-                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              should be used to navigate through the dropdown elements.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'ARIA'">
-        <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>aria-label:</strong>
-              Use the
-              <span class="code-text">ariaLabel</span>
-              prop to give the dropdown an accessible name if no explicit label is provided.
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <span class="keyboard-button">Space</span>
+          or
+          <span class="keyboard-button">Enter</span>
+          to open or close the dropdown menu or select an item inside the dropdown menu.
+        </div>
+        <div>
+          <span class="keyboard-button icon">
+            <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          <span class="keyboard-button icon" style="margin-left: 0px">
+            <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          should be used to navigate through the dropdown elements.
+        </div>
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'ARIA'">
+      <ul class="e-list">
+        <li>
+          <strong>aria-label:</strong>
+          Use the
+          <span class="code-text">ariaLabel</span>
+          prop to give the dropdown an accessible name if no explicit label is provided.
+        </li>
+      </ul>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

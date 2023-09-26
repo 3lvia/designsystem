@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
+import { getPackageName } from './getPackageName';
 
 @Component({
   selector: 'app-component-installation',
@@ -12,6 +13,6 @@ export class ComponentInstallationComponent implements OnInit {
 
   ngOnInit() {
     this.reactElementName = this.componentData.name;
-    this.packageName = 'elvis' + this.componentData.name.replace(/([A-Z])/g, '-$1').toLowerCase();
+    this.packageName = getPackageName(this.componentData.name);
   }
 }

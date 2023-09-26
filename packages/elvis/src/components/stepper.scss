@@ -1,7 +1,7 @@
 //DEPRECATED
-@use '../variables/colors';
+/* stylelint-disable */
 @use '../utilities/helpers';
-@use '../variables/typography';
+@use '../utilities/typography';
 
 .e-stepper {
   position: relative;
@@ -25,9 +25,9 @@
       display: grid;
       width: 32px;
       height: 32px;
-      border: 2px solid colors.color('elvia-off');
+      border: 2px solid black;
       border-radius: 50%;
-      color: colors.color('font-color');
+      color: black;
       cursor: pointer;
       place-items: center;
       user-select: none;
@@ -39,7 +39,7 @@
       height: 2px;
       border-radius: 50px;
       margin: 0;
-      background: colors.color('elvia-off');
+      background: black;
       place-items: center;
 
       &:not(:first-of-type) {
@@ -65,7 +65,7 @@
         width: 6px;
         height: 2px;
         margin: 0;
-        background: colors.color('grey-30');
+        background: var(--e-light-theme-grey-30);
       }
     }
   }
@@ -114,7 +114,7 @@
 
       .e-stepper__content {
         padding: 28px 30px;
-        border-left: 2px solid colors.color('grey-30');
+        border-left: 2px solid var(--e-light-theme-grey-30);
         margin: 0 15px;
       }
 
@@ -138,7 +138,7 @@
         width: 2px;
         height: 6px;
         margin-left: 15px;
-        background: colors.color('grey-30');
+        background: var(--e-light-theme-grey-30);
       }
     }
   }
@@ -146,8 +146,8 @@
   &.e-stepper--forced {
     .e-stepper__step {
       &-number {
-        border: 2px solid colors.color('grey-30');
-        color: colors.color('grey-30');
+        border: 2px solid var(--e-light-theme-grey-30);
+        color: var(--e-light-theme-grey-30);
       }
 
       &.e-stepper__step--active ~ .e-stepper__step,
@@ -155,8 +155,8 @@
         .e-stepper__step-number {
           @include helpers.hover() {
             &:hover {
-              border-color: colors.color('grey-30');
-              color: colors.color('grey-30');
+              border-color: var(--e-light-theme-grey-30);
+              color: var(--e-light-theme-grey-30);
               cursor: not-allowed;
             }
           }
@@ -167,7 +167,7 @@
         }
 
         .e-stepper__step-line {
-          background: colors.color('grey-10');
+          background: var(--e-light-theme-grey-10);
         }
       }
     }
@@ -175,19 +175,19 @@
 
   .e-stepper__step-number:hover,
   .e-stepper__step-number--hover {
-    border-color: colors.color('elvia-charge');
-    color: colors.color('font-color');
+    border-color: var(--e-color-brand-accent);
+    color: black;
   }
 
   .e-stepper__step.e-stepper__step--active {
     .e-stepper__step-number {
-      border-color: colors.color('elvia-charge');
-      color: colors.color('font-color');
+      border-color: var(--e-color-color-brand-accent);
+      color: black;
     }
 
     ~ .e-stepper__step {
       .e-stepper__step-line {
-        background: colors.color('grey-30');
+        background: var(--e-light-theme-grey-30);
       }
     }
 
@@ -200,13 +200,13 @@
     .e-stepper__step-number {
       @extend %checkbox-mark;
       @include helpers.user-select(none);
-      border-color: colors.color('elvia-off');
-      background: colors.color('elvia-off');
+      border-color: black;
+      background: black;
       color: transparent;
     }
 
     .e-stepper__step-line {
-      background: colors.color('elvia-off');
+      background: black;
     }
   }
 
@@ -214,14 +214,14 @@
     .e-stepper__step-number {
       @extend %checkbox-mark;
       @include helpers.user-select(none);
-      border-color: colors.color('elvia-charge');
-      background: colors.color('elvia-off');
+      border-color: var(--e-color-brand-accent);
+      background: black;
       color: transparent;
     }
 
     ~ .e-stepper__step {
       .e-stepper__step-line {
-        background: colors.color('grey-30');
+        background: var(--e-light-theme-grey-30);
       }
     }
 
@@ -232,8 +232,8 @@
 
   .e-stepper__step.e-stepper__step--error {
     .e-stepper__step-number {
-      border-color: colors.color('red');
-      color: colors.color('font-color');
+      border-color: var(--e-color-signal-red);
+      color: black;
     }
   }
 }
@@ -250,7 +250,7 @@
     width: 2px;
     height: 8px;
     border-radius: 15px;
-    background-color: colors.color('elvia-on');
+    background-color: white;
     content: '';
   }
 
@@ -263,7 +263,7 @@
     width: 2px;
     height: 15px;
     border-radius: 15px;
-    background-color: colors.color('elvia-on');
+    background-color: white;
     content: '';
   }
 }

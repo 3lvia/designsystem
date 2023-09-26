@@ -1,6 +1,10 @@
 <button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
 
-<elvia-modal (onClose)="isModalShowing = !isModalShowing" [isShowing]="isModalShowing">
+<elvia-modal
+  (onClose)="isModalShowing = !isModalShowing"
+  [isShowing]="isModalShowing"
+  [heading]="'Heading of content'"
+>
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
   </div>

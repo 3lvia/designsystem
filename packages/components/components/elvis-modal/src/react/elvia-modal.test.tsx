@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from './elvia-modal';
 import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 describe('Elvis Modal', () => {
   describe('Default', () => {
@@ -132,6 +133,27 @@ describe('Elvis Modal', () => {
       const results = await axe(modals);
 
       expect(results).toHaveNoViolations();
+    });
+  });
+
+  describe('the events', () => {
+    it('should not trigger onClose on mount', async () => {
+      const onClose = jest.fn<void, []>();
+
+      render(<Modal hasCloseButton isShowing={false} content={<p>Content</p>} onClose={onClose} />);
+
+      expect(onClose).not.toHaveBeenCalled();
+    });
+    it('should trigger onClose once on close', async () => {
+      const onClose = jest.fn<void, []>();
+
+      render(<Modal hasCloseButton isShowing content={<p>Content</p>} onClose={onClose} />);
+
+      const user = userEvent.setup();
+      const closeButton = screen.getByRole('button', { name: 'Lukk modal' });
+      await user.click(closeButton);
+
+      expect(onClose).toHaveBeenCalledTimes(1);
     });
   });
 });
