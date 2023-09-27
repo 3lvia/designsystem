@@ -18,7 +18,6 @@ import { AppDrawer } from './appDrawer/appDrawer';
 import { getActiveApp } from './elviaApps';
 import { getStoredActiveTheme, setThemeClassOnDocument } from './themeUtils';
 import { Theme } from './elviaHeader.shared.types';
-export * from './elviaHeader.types';
 
 export const Header: React.FC<HeaderProps> = ({
   appTitle,

@@ -1,16 +1,3 @@
-export const toastEventName = 'elviaToastOpen';
+import { BaseProps } from '@elvia/elvis-toolbox';
 
-export type ToastType = 'positive' | 'informative';
-
-export interface ToastConfig {
-  title: string;
-  body: string;
-  duration: number;
-  closable: boolean;
-  status: ToastType;
-  customIcon?: string;
-}
-
-export interface ToastWithId extends ToastConfig {
-  id: number;
-}
+export interface ToastProps extends BaseProps {}

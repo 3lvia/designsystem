@@ -21,7 +21,6 @@ import { useRovingFocus, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
-export * from './elvia-pagination.types';
 
 const Pagination: FC<PaginationProps> = function ({
   // Value represents the current visible elements in the pagination

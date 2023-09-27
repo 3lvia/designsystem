@@ -12,7 +12,6 @@ import {
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import DOMPurify from 'dompurify';
-export * from './elviaSegmentedControl.types';
 
 export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   items,

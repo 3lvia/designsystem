@@ -1,5 +1,5 @@
 import React from 'react';
-import Tooltip from './elvia-tooltip';
+import { Tooltip } from './elvia-tooltip';
 import userEvent from '@testing-library/user-event';
 import { TooltipProps } from './elviaTooltip.types';
 import { axe } from 'jest-axe';

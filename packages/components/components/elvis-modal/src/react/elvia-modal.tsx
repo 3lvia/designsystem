@@ -16,7 +16,6 @@ import { useLockBodyScroll } from './useLockBodyScroll';
 import { useFocusTrap, useSlot, IconWrapper, IconButton } from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { ModalProps } from './elvia-modal.types';
-export * from './elvia-modal.types';
 
 export const ModalComponent: FC<ModalProps> = function ({
   isShowing,

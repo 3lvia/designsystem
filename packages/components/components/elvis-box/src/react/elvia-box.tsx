@@ -3,7 +3,6 @@ import { BoxArea, BoxColoredLine, BoxHeading, BoxContent } from './styledCompone
 import { useSlot, warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { BoxProps } from './elvia-box.types';
 import { config } from './config';
-export * from './elvia-box.types';
 
 export const Box: FC<BoxProps> = function ({
   heading,

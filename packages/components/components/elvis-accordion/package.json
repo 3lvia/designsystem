@@ -5,7 +5,6 @@
   "homepage": "https://design.elvia.io/components/accordion",
   "source": "src/react/elvia-accordion.tsx",
   "main": "dist/main/web_component.js",
-  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {

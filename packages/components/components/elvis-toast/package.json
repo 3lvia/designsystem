@@ -5,7 +5,6 @@
   "homepage": "https://design.elvia.io/components/toast",
   "source": "src/react/elvia-toast.tsx",
   "main": "web_component.js",
-  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {

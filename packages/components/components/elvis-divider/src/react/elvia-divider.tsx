@@ -3,7 +3,6 @@ import { DividerProps } from './elvia-divider.types';
 import { DividerArea, DividerHeading } from './styledComponents';
 import { useSlot, warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { config } from './config';
-export * from './elvia-divider.types';
 
 export const Divider: React.FC<DividerProps> = function ({
   type = 'simple',

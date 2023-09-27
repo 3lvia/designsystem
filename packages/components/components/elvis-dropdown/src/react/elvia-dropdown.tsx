@@ -2,7 +2,7 @@ import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef,
 
 import { config } from './config';
 import { DropdownProps } from './elviaDropdown.types';
-import { DropdownItem, DropdownValueType } from './sharedTypes.public';
+import { DropdownItem, DropdownValueType } from './publicApi.public';
 import {
   warnDeprecatedProps,
   FormFieldLabel,
@@ -19,7 +19,6 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
-export * from './elviaDropdown.types';
 
 const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   if (!filter) {

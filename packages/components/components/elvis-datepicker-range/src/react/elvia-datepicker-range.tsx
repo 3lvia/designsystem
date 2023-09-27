@@ -15,7 +15,6 @@ import {
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { isAfter, isBefore } from './dateHelpers';
-export * from './elviaDatepickerRange.types';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
 

@@ -15,7 +15,6 @@ import { AutocompleteError } from './error/autocompleteError';
 import { useOutsideClickListener } from './utils/useOutsideClick';
 import { getInternalErrorText } from './utils/getInternalErrorText';
 import { getStatusForScreenReader } from './utils/statusMessage';
-export * from './elvia-autocomplete.types';
 
 const defaultErrorOptions = {
   hideText: false,

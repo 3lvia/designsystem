@@ -35,7 +35,6 @@ import { Hint } from './hint/hint';
 import { Label } from './label/label';
 import { calculateHintReplacement } from './utils/calculateHintReplacement';
 import { Measurement } from './measurement/measurement';
-export * from './elvia-slider.types';
 
 let elvisSliderUniqueId = 0;
 

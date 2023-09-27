@@ -16,7 +16,6 @@ import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
 import { TimepickerInput } from './timepickerInput';
 import { TimepickerError } from './error/timepickerError';
 import { getErrorText } from './getErrorText';
-export * from './elviaTimepicker.types';
 
 const defaultErrorOptions = {
   hideText: false,
@@ -232,5 +231,3 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     </>
   );
 };
-
-export default Timepicker;

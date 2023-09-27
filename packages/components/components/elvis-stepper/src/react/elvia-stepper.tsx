@@ -2,7 +2,6 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import { StepperProps } from './elvia-stepper.types';
 import { StepperVertical } from './elvia-stepper-vertical';
 import { StepperHorizontal } from './elvia-stepper-horizontal';
-export * from './elvia-stepper.types';
 
 export const Stepper: FC<StepperProps> = function ({
   type = 'horizontal',

@@ -10,7 +10,6 @@ import { IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { BreadcrumbProps } from './elvia-breadcrumb.types';
-export * from './elvia-breadcrumb.types';
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   items = [],

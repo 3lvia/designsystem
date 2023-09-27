@@ -5,7 +5,6 @@
   "homepage": "https://design.elvia.io/components/modal",
   "source": "src/react/elvia-modal.tsx",
   "main": "dist/main/web_component.js",
-  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {

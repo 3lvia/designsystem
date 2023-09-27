@@ -4,7 +4,6 @@
   "homepage": "https://design.elvia.io/components/datepicker-range",
   "source": "src/react/elvia-datepicker-range.tsx",
   "main": "dist/main/web_component.js",
-  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {

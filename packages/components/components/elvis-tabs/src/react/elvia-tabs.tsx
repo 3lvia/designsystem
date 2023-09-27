@@ -13,7 +13,6 @@ import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { TabsProps } from './elvia-tabs.types';
 import { useScrollPositionDetection } from './useScrollPositionDetection';
-export * from './elvia-tabs.types';
 
 const Tabs: FC<TabsProps> = ({
   items,

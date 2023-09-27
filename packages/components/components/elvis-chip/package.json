@@ -5,7 +5,6 @@
   "homepage": "https://design.elvia.io/components/chip",
   "source": "src/react/elvia-chip.tsx",
   "main": "dist/main/web_component.js",
-  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {

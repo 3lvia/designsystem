@@ -5,7 +5,6 @@
   "homepage": "https://design.elvia.io/components/tooltip",
   "source": "src/react/elvia-tooltip.tsx",
   "main": "dist/main/web_component.js",
-  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {

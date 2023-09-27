@@ -6,7 +6,6 @@ import { useHover } from '@react-aria/interactions';
 import React, { FC } from 'react';
 import { ChipProps } from './elvia-chip.types';
 import { ChipComponent, ChipDot, ChipLoading, ChipTitle } from './styledComponents';
-export * from './elvia-chip.types';
 
 export const Chip: FC<ChipProps> = function ({
   ariaLabel,

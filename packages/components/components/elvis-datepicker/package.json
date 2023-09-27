@@ -5,7 +5,6 @@
   "homepage": "https://design.elvia.io/components/datepicker",
   "source": "src/react/elvia-datepicker.tsx",
   "main": "web_component.js",
-  "types": "dist/react/types.d.ts",
   "targets": {
     "main": false,
     "react": {
