@@ -99,7 +99,7 @@ const datepickerData: ComponentData = {
       children: {
         text: {
           type: 'string',
-          description: 'Error text.',
+          description: 'Setting "text" will always show the provided error message.',
         },
         hideText: {
           type: 'boolean',
