@@ -24,9 +24,9 @@ export const dropdownData: ComponentData = {
       default: '{ isErrorState: false, hasErrorPlaceholder: true }',
     },
     size: {
-      type: 'small | medium',
+      type: '"small" | "medium"',
       description: 'Dropdown can be set to different sizes.',
-      default: 'medium',
+      default: '"medium"',
     },
     isDisabled: {
       type: 'boolean',
@@ -58,27 +58,27 @@ export const dropdownData: ComponentData = {
       type: 'string',
       description:
         'Change the label of the select all-option inside the opened dropdown. Only available in multiselect dropdown.',
-      default: 'Alle',
+      default: '"Alle"',
     },
     allOptionsSelectedLabel: {
       type: 'string',
       description:
         'Change the label shown in the dropdown text field when all options are selected. Only available in multiselect dropdown.',
-      default: 'Alle',
+      default: '"Alle"',
     },
     label: {
       type: 'string',
       description: 'The label for the dropdown.',
     },
     menuPosition: {
-      type: 'top | bottom | auto',
-      description: `Set the position of the dropdown menu.`,
-      default: `auto`,
+      type: '"top" | "bottom" | "auto"',
+      description: 'Set the position of the dropdown menu.',
+      default: '"auto"',
     },
     noOptionsMessage: {
       type: 'string',
       description: 'Text to display when there are no options.',
-      default: `'Ingen tilgjengelige valg'`,
+      default: '"Ingen tilgjengelige valg"',
     },
     placeholder: {
       type: 'string',
