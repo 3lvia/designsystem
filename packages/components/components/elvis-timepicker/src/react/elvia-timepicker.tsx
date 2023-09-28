@@ -104,7 +104,13 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       }
     }
 
-    updateValue(newTime);
+    if (maxTime && newTime > maxTime) {
+      updateValue(maxTime);
+    } else if (minTime && newTime < minTime) {
+      updateValue(minTime);
+    } else {
+      updateValue(newTime);
+    }
   };
 
   const setVisibility = (isShowing: boolean): void => {

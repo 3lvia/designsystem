@@ -84,11 +84,12 @@ export const NumberButton = styled.button<NumberButtonProps>`
   padding: 0;
   height: 48px;
   color: ${(props) => (props.isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-1'))};
-  background: ${(props) => (props.isSelected ? getThemeColor('background-selected-2') : 'transparent')};
+  background: ${(props) =>
+    props.isSelected && !props.isDisabled ? getThemeColor('background-selected-2') : 'transparent'};
   scroll-snap-align: center;
-  cursor: pointer;
+  cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
-    background: ${getThemeColor('background-hover-2')};
+    background: ${(props) => (props.isDisabled ? 'transparent' : getThemeColor('background-hover-2'))};
   }
 `;
