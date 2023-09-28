@@ -1,4 +1,5 @@
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
+import { ChangelogEntry } from 'src/app/shared/component-documentation/component-changelog/changelogTypes';
 
 type ChangelogArrayType = (Omit<ComponentChangelog, 'date'> & { name: string; date: Date })[];
 
@@ -47,8 +48,8 @@ export const createChangelogs = async () => {
   const changelogs = await changelogNames.reduce(async (changelogPromise, name) => {
     const changelogs = await changelogPromise;
     const entry = await import(`@elvia/${name}/CHANGELOG.json`).then((changelog) => {
-      const filteredChangelogs = changelog.content.filter((changelog: any) =>
-        changelog.version.endsWith('.0'),
+      const filteredChangelogs = changelog.content.filter(
+        (changelog: ChangelogEntry) => changelog.version.endsWith('.0') && !changelog.private,
       );
       return filteredChangelogs[0];
     });
