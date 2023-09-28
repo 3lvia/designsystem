@@ -34,7 +34,7 @@ export const PageTitle = styled.h1<{ isInvisible: boolean }>`
     `};
 `;
 
-export const StyledHeader = styled.header<{ menuIsOpen: boolean }>`
+export const StyledHeader = styled.header`
   background-color: ${getThemeColor('background-element-6')};
   height: ${toolbarHeight};
   display: flex;
@@ -58,12 +58,6 @@ export const StyledHeader = styled.header<{ menuIsOpen: boolean }>`
       margin: 0 auto 0 0;
     }
   }
-
-  ${({ menuIsOpen }) =>
-    menuIsOpen &&
-    css`
-      z-index: 999999;
-    `};
 `;
 
 export const TriggerButton = styled(TertiaryButton)<{ isActive: boolean }>`
