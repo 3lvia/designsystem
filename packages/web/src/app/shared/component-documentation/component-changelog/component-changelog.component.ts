@@ -64,7 +64,7 @@ export class ComponentChangelogComponent implements OnInit {
 
   ngOnInit() {
     if (this.changelog) {
-      this.changelog = this.changelog.filter((entry) => !entry.private);
+      this.changelog = this.changelog.filter((changelogEntry) => !changelogEntry.private);
     }
     if (this.elvisComponentToFilter) {
       this.changelog = createElvisFilteredChangelog(this.elvisComponentToFilter);

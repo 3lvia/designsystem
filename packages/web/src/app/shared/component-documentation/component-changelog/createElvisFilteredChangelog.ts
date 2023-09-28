@@ -10,7 +10,7 @@ export const createElvisFilteredChangelog = (elvisComponentToFilter: string): Ch
   let numberOfReleasesSkipped = 0;
 
   elvisChangelogJson.content
-    .filter((entry: ChangelogEntry) => !entry.private)
+    .filter((elvisChangelogEntry: ChangelogEntry) => !elvisChangelogEntry.private)
     .forEach((elvisChangelogEntry) => {
       let wasSkipped = true;
       elvisChangelogEntry.changelog.forEach((version: (typeof elvisChangelogEntry.changelog)[number]) => {
