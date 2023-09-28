@@ -256,17 +256,13 @@ describe('Elvis Autocomplete', () => {
   });
 
   describe('Events', () => {
-    let onOpenEvent: jest.Mock;
-    let onSelectItemEvent: jest.Mock;
-    let valueOnChangeEvent: jest.Mock;
-    let errorOnChangeEvent: jest.Mock;
+    const onOpenEvent = jest.fn();
+    const onSelectItemEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
+    const errorOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      onOpenEvent = jest.fn();
-      onSelectItemEvent = jest.fn();
-      valueOnChangeEvent = jest.fn();
-      errorOnChangeEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(
         <Autocomplete
           items={items}

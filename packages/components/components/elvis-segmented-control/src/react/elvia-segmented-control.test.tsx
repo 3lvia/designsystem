@@ -82,10 +82,10 @@ describe('Elvia Segmented Control', () => {
   });
 
   describe('Events', () => {
-    let valueOnChangeEvent: jest.Mock;
+    const valueOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      valueOnChangeEvent = jest.fn();
+      jest.clearAllMocks();
 
       render(
         <SegmentedControl

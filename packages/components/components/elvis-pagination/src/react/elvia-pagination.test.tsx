@@ -158,13 +158,11 @@ describe('Elvis Pagination', () => {
   });
 
   describe('events', () => {
-    let dropdownSelectedItemIndexOnChangeEvent: jest.Mock;
-    let valueOnChangeEvent: jest.Mock;
+    const dropdownSelectedItemIndexOnChangeEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      dropdownSelectedItemIndexOnChangeEvent = jest.fn();
-      valueOnChangeEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(
         <Pagination
           numberOfElements={100}

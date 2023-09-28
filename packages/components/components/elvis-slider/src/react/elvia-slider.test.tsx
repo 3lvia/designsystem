@@ -355,13 +355,11 @@ describe('Elvia Slider', () => {
   });
 
   describe('Events', () => {
-    let valueOnChangeEvent: jest.Mock;
-    let errorOnChangeEvent: jest.Mock;
+    const valueOnChangeEvent = jest.fn();
+    const errorOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      valueOnChangeEvent = jest.fn();
-      errorOnChangeEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(<Slider valueOnChange={valueOnChangeEvent} errorOnChange={errorOnChangeEvent} />);
     });
 

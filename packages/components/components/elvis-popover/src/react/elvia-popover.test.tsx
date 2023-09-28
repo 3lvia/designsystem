@@ -146,13 +146,11 @@ describe('Elvis Popover', () => {
   });
 
   describe('events', () => {
-    let onCloseEvent: jest.Mock;
-    let onOpenEvent: jest.Mock;
+    const onCloseEvent = jest.fn();
+    const onOpenEvent = jest.fn();
 
     beforeEach(() => {
-      onCloseEvent = jest.fn();
-      onOpenEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(
         <Popover
           content="Content"

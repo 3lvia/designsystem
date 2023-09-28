@@ -257,23 +257,16 @@ describe('Elvis Datepicker', () => {
   });
 
   describe('Events', () => {
-    let onCloseEvent: jest.Mock;
-    let onOpenEvent: jest.Mock;
-    let onResetEvent: jest.Mock;
-    let valueOnChangeEvent: jest.Mock;
-    let valueOnChangeISOStringEvent: jest.Mock;
-    let onFocusEvent: jest.Mock;
-    let errorOnChangeEvent: jest.Mock;
+    const onCloseEvent = jest.fn();
+    const onOpenEvent = jest.fn();
+    const onResetEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
+    const valueOnChangeISOStringEvent = jest.fn();
+    const onFocusEvent = jest.fn();
+    const errorOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      onCloseEvent = jest.fn();
-      onFocusEvent = jest.fn();
-      onOpenEvent = jest.fn();
-      onResetEvent = jest.fn();
-      valueOnChangeEvent = jest.fn();
-      valueOnChangeISOStringEvent = jest.fn();
-      errorOnChangeEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(
         <Datepicker
           errorOnChange={errorOnChangeEvent}

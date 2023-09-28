@@ -97,10 +97,10 @@ describe('Elvis Tabs', () => {
   });
 
   describe('Events', () => {
-    let valueOnChangeEvent: jest.Mock;
+    const valueOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      valueOnChangeEvent = jest.fn();
+      jest.clearAllMocks();
       render(<Tabs items={items} valueOnChange={valueOnChangeEvent} />);
     });
 

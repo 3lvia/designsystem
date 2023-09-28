@@ -84,6 +84,7 @@ describe('Elvis DatepickerRange', () => {
     const valueOnChangeISOStringEvent = jest.fn();
 
     beforeEach(() => {
+      jest.clearAllMocks();
       render(
         <DatepickerRange
           errorOnChange={errorOnChangeEvent}

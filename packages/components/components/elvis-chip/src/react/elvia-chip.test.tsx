@@ -101,13 +101,11 @@ describe('Elvis Chip', () => {
   });
 
   describe('Events', () => {
-    let onDeleteEvent: jest.Mock;
-    let isSelectedOnChangeEvent: jest.Mock;
+    const onDeleteEvent = jest.fn();
+    const isSelectedOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      onDeleteEvent = jest.fn();
-      isSelectedOnChangeEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(
         <>
           <Chip type={'removable'} value={'removable'} onDelete={onDeleteEvent} />

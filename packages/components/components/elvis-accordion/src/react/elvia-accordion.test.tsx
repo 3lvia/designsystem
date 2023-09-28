@@ -89,13 +89,11 @@ describe('Elvis Accordion', () => {
   });
 
   describe('Events', () => {
-    let onOpenEvent: jest.Mock;
-    let onCloseEvent: jest.Mock;
+    const onCloseEvent = jest.fn();
+    const onOpenEvent = jest.fn();
 
     beforeEach(() => {
-      onOpenEvent = jest.fn();
-      onCloseEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(<Accordion content="I am content" onClose={onCloseEvent} onOpen={onOpenEvent} />);
     });
 

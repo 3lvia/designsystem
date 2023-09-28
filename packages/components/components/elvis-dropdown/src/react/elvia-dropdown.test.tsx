@@ -323,15 +323,12 @@ describe('Elvis Dropdown', () => {
   });
 
   describe('events', () => {
-    let valueOnChangeEvent: jest.Mock;
-    let onItemHoverEvent: jest.Mock;
-    let onLoadMoreItemsEvent: jest.Mock;
+    const valueOnChangeEvent = jest.fn();
+    const onItemHoverEvent = jest.fn();
+    const onLoadMoreItemsEvent = jest.fn();
 
     beforeEach(() => {
-      valueOnChangeEvent = jest.fn();
-      onItemHoverEvent = jest.fn();
-      onLoadMoreItemsEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(
         <Dropdown
           hasLoadMoreItemsButton={true}

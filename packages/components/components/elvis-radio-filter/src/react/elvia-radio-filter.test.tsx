@@ -61,11 +61,10 @@ describe('Elvis RadioFilter', () => {
   });
 
   describe('events', () => {
-    //valueOnChange
-    let valueOnChangeEvent: jest.Mock;
+    const valueOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      valueOnChangeEvent = jest.fn();
+      jest.clearAllMocks();
 
       render(
         <RadioFilter items={items} name="radio-filter" value="all" valueOnChange={valueOnChangeEvent} />,

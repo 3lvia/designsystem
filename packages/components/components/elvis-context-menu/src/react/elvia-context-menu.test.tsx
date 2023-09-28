@@ -98,12 +98,11 @@ describe('Elvis Context Menu', () => {
   });
 
   describe('Events', () => {
-    let onOpenEvent: jest.Mock;
-    let onCloseEvent: jest.Mock;
+    const onOpenEvent = jest.fn();
+    const onCloseEvent = jest.fn();
 
     beforeEach(() => {
-      onOpenEvent = jest.fn();
-      onCloseEvent = jest.fn();
+      jest.clearAllMocks();
       render(
         <ContextMenu
           onOpen={onOpenEvent}

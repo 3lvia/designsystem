@@ -42,9 +42,9 @@ describe('Elvis Breadcrumb', () => {
   });
 
   describe('Events', () => {
-    let onLinkClickEvent: jest.Mock;
+    const onLinkClickEvent = jest.fn();
     beforeEach(() => {
-      onLinkClickEvent = jest.fn();
+      jest.clearAllMocks();
       render(<Breadcrumb items={breadcumbsLinksTest} onLinkClick={onLinkClickEvent} />);
     });
 
