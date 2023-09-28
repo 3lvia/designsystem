@@ -104,9 +104,9 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       }
     }
 
-    if (maxTime && newTime > maxTime) {
+    if (maxTime && isAfter(newTime, maxTime)) {
       updateValue(maxTime);
-    } else if (minTime && newTime < minTime) {
+    } else if (minTime && isBefore(newTime, minTime)) {
       updateValue(minTime);
     } else {
       updateValue(newTime);
