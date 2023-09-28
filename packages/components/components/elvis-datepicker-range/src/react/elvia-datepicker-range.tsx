@@ -15,6 +15,7 @@ import {
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { isAfter, isBefore } from './dateHelpers';
+import { useUpdateEffect } from '@elvia/elvis-toolbox';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
 
@@ -69,7 +70,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   }, [isRequired]);
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     if (!webcomponent) {
       errorOnChange?.(currentErrorMessages);
     } else {

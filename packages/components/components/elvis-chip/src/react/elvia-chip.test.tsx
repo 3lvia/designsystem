@@ -2,7 +2,8 @@ import Chip from './elvia-chip';
 import React from 'react';
 import { axe } from 'jest-axe';
 import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 const colors = {
   green: getBaseColor('green-apple', 'light'),
@@ -99,15 +100,54 @@ describe('Elvis Chip', () => {
     });
   });
 
+  describe('Events', () => {
+    const onDeleteEvent = jest.fn();
+    const isSelectedOnChangeEvent = jest.fn();
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+      render(
+        <>
+          <Chip type={'removable'} value={'removable'} onDelete={onDeleteEvent} />
+          <Chip
+            type={'choice'}
+            value={'choice'}
+            isSelected={false}
+            isSelectedOnChange={isSelectedOnChangeEvent}
+          />
+        </>,
+      );
+    });
+
+    it('should not emit events when idle', async () => {
+      await waitFor(() => expect(onDeleteEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(isSelectedOnChangeEvent).not.toHaveBeenCalled());
+    });
+
+    it('onDeleteEvent: should be called when clicking on delete icon', async () => {
+      const user = userEvent.setup();
+      const chipToRemove = screen.getByRole('button', { name: /removable/i });
+      await user.click(chipToRemove);
+      await waitFor(() => expect(onDeleteEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('isSelectedOnChangeEvent: should be called when clicking on chip', async () => {
+      const user = userEvent.setup();
+      const chip = screen.getByRole('checkbox', { name: /choice/i });
+      await user.click(chip);
+      await waitFor(() => expect(isSelectedOnChangeEvent).toHaveBeenCalledTimes(1));
+    });
+  });
+
   describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(
         <div data-testid="chips">
-          <Chip value="chip value"></Chip>
-          <Chip type="legend" value="chip value"></Chip>
-          <Chip type="legend" value="chip value" isSelected></Chip>
-          <Chip type="choice" value="chip value" isSelected></Chip>
-          <Chip value="chip value" isDisabled></Chip>
+          <Chip value="chip value" />
+          <Chip type="legend" value="chip value" />
+          <Chip type="legend" value="chip value" isSelected />
+          <Chip type="choice" value="chip value" isSelected />
+          <Chip value="chip value" isDisabled />
         </div>,
       );
 
