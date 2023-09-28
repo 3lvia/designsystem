@@ -32,7 +32,7 @@ const radioFilterData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Aria label for the whole radio filter group.',
-      default: 'Filtreringsknapper',
+      default: '"Filtreringsknapper"',
     },
     valueOnChange: {
       isEvent: true,
