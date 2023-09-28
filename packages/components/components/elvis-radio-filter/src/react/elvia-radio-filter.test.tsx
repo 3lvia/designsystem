@@ -81,9 +81,8 @@ describe('Elvis RadioFilter', () => {
       const radioFilterButton = screen.getAllByRole('radio');
 
       await user.click(radioFilterButton[1]);
-      screen.debug();
 
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

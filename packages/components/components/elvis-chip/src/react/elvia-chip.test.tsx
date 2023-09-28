@@ -130,14 +130,14 @@ describe('Elvis Chip', () => {
       const user = userEvent.setup();
       const chipToRemove = screen.getByRole('button', { name: /removable/i });
       await user.click(chipToRemove);
-      await waitFor(() => expect(onDeleteEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onDeleteEvent).toHaveBeenCalledTimes(1));
     });
 
     it('isSelectedOnChangeEvent: should be called when clicking on chip', async () => {
       const user = userEvent.setup();
       const chip = screen.getByRole('checkbox', { name: /choice/i });
       await user.click(chip);
-      await waitFor(() => expect(isSelectedOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(isSelectedOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

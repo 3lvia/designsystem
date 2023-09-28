@@ -105,7 +105,7 @@ describe('Elvia Segmented Control', () => {
 
       await user.click(controls[2]);
 
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

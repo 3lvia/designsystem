@@ -56,7 +56,7 @@ describe('Elvis Breadcrumb', () => {
       const user = userEvent.setup();
       const linkOne = screen.getAllByTestId('breadcrumb-desktop-multiple-links')[0];
       await user.click(linkOne);
-      await waitFor(() => expect(onLinkClickEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onLinkClickEvent).toHaveBeenCalledTimes(1));
     });
   });
 

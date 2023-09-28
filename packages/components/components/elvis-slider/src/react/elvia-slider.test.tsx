@@ -377,7 +377,7 @@ describe('Elvia Slider', () => {
       await userEvent.keyboard('{Backspace}');
       await userEvent.type(inputField, '20');
       await userEvent.tab();
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
 
     it('errorOnChange: should emit when the error changes', async () => {
@@ -387,7 +387,7 @@ describe('Elvia Slider', () => {
       await userEvent.keyboard('{Backspace}');
       await userEvent.type(inputField, 'abc'); //invalid input, only numbers allowed
       await userEvent.tab();
-      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

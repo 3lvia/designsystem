@@ -368,7 +368,7 @@ describe('Elvis Dropdown', () => {
       const dropdownItems = screen.getAllByRole('option');
       await user.hover(dropdownItems[0]);
 
-      await waitFor(() => expect(onItemHoverEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onItemHoverEvent).toHaveBeenCalledTimes(1));
     });
 
     it('onLoadMoreItems: should emit when the load more button is clicked', async () => {
@@ -383,7 +383,7 @@ describe('Elvis Dropdown', () => {
         await user.click(loadMoreButton);
       }
 
-      await waitFor(() => expect(onLoadMoreItemsEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onLoadMoreItemsEvent).toHaveBeenCalledTimes(1));
     });
   });
 

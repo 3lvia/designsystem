@@ -79,15 +79,11 @@ describe('Elvis DatepickerRange', () => {
   });
 
   describe('Events', () => {
-    let errorOnChangeEvent: jest.Mock;
-    let valueOnChangeEvent: jest.Mock;
-    let valueOnChangeISOStringEvent: jest.Mock;
+    const errorOnChangeEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
+    const valueOnChangeISOStringEvent = jest.fn();
 
     beforeEach(() => {
-      errorOnChangeEvent = jest.fn();
-      valueOnChangeEvent = jest.fn();
-      valueOnChangeISOStringEvent = jest.fn();
-
       render(
         <DatepickerRange
           errorOnChange={errorOnChangeEvent}
@@ -111,8 +107,8 @@ describe('Elvis DatepickerRange', () => {
       await user.type(input, '11.08.2022');
       await user.tab();
 
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
-      await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalledTimes(1));
     });
 
     it('errorOnChangeEvent: should emit when an error is shown', async () => {
@@ -122,7 +118,7 @@ describe('Elvis DatepickerRange', () => {
       await user.type(input, '26.03.2000');
       await user.tab();
 
-      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

@@ -304,7 +304,7 @@ describe('Elvis Datepicker', () => {
       const trigger = screen.getByRole('button', { name: /åpne datovelger/i });
       await user.click(trigger);
 
-      await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
     });
 
     it('onCloseEvent: should emit onClose when the popover closes', async () => {
@@ -313,7 +313,7 @@ describe('Elvis Datepicker', () => {
       await user.click(trigger);
       await user.keyboard('[Escape]');
 
-      await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onCloseEvent).toHaveBeenCalledTimes(1));
     });
 
     it('onFocusEvent: should emit onFocus when the input is focused', async () => {
@@ -321,7 +321,7 @@ describe('Elvis Datepicker', () => {
       const input = screen.getByRole('textbox', { name: /velg dato/i });
       await user.click(input);
 
-      await waitFor(() => expect(onFocusEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onFocusEvent).toHaveBeenCalledTimes(1));
     });
 
     it('onResetEvent: should emit onReset when the reset button is clicked', async () => {
@@ -331,7 +331,7 @@ describe('Elvis Datepicker', () => {
       const resetButton = screen.getByRole('button', { name: /nullstill/i });
       await user.click(resetButton);
 
-      await waitFor(() => expect(onResetEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onResetEvent).toHaveBeenCalledTimes(1));
     });
 
     it('valueOnChangeEvent / valueOnChangeISOStringEvent: should emit when a date is selected', async () => {
@@ -341,8 +341,8 @@ describe('Elvis Datepicker', () => {
       const dateButton = screen.getByRole('button', { name: /15/i });
       await user.click(dateButton);
 
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
-      await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalledTimes(1));
     });
 
     it('errorOnChangeEvent: should emit when an error is shown', async () => {
@@ -352,7 +352,7 @@ describe('Elvis Datepicker', () => {
       await user.type(input, '26.03.2000');
       await user.tab();
 
-      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

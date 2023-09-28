@@ -285,7 +285,7 @@ describe('Elvis Autocomplete', () => {
       const input = screen.getByRole('combobox');
       await user.type(input, 'a');
 
-      await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
     });
 
     it('onSelectItemEvent: should emit the select item event when the user selects an item', async () => {
@@ -297,7 +297,7 @@ describe('Elvis Autocomplete', () => {
       const listItems = screen.getAllByRole('option');
       await user.click(listItems[0]);
 
-      expect(onSelectItemEvent).toHaveBeenCalled();
+      await waitFor(() => expect(onSelectItemEvent).toHaveBeenCalledTimes(1));
     });
 
     it('valueOnChangeEvent: should emit the value change event when the user types', async () => {
@@ -319,7 +319,7 @@ describe('Elvis Autocomplete', () => {
       await user.tab();
 
       //required error
-      expect(errorOnChangeEvent).toHaveBeenCalled();
+      expect(errorOnChangeEvent).toHaveBeenCalledTimes(1);
     });
   });
 

@@ -173,11 +173,11 @@ describe('Elvis Carousel', () => {
   });
 
   describe('Events', () => {
-    let onFinishEvent: jest.Mock;
-    let valueOnChangeEvent: jest.Mock;
+    const onFinishEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
     beforeEach(() => {
-      onFinishEvent = jest.fn();
-      valueOnChangeEvent = jest.fn();
+      jest.clearAllMocks();
+
       render(
         <Carousel
           hasConfirmationCheckmark={true}
@@ -203,7 +203,7 @@ describe('Elvis Carousel', () => {
       const checkmark = await screen.findByTestId('carousel-onboarding-checkmark');
       await user.click(checkmark);
 
-      await waitFor(() => expect(onFinishEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onFinishEvent).toHaveBeenCalledTimes(1));
     });
 
     it('valueOnChangeEvent: should be called when the value is changed', async () => {
@@ -212,7 +212,7 @@ describe('Elvis Carousel', () => {
       const carouselDots = screen.getAllByTestId('carousel-dot');
       await user.click(carouselDots[1]);
 
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

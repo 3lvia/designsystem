@@ -176,7 +176,7 @@ describe('Elvis Popover', () => {
 
       await user.click(trigger);
 
-      await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
     });
 
     it('onClose: should emit event when close button is clicked', async () => {
@@ -188,7 +188,7 @@ describe('Elvis Popover', () => {
       const closeButton = screen.getByRole('button', { name: /lukk/i });
       await user.click(closeButton);
 
-      await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onCloseEvent).toHaveBeenCalledTimes(1));
     });
   });
 

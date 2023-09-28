@@ -113,7 +113,7 @@ describe('Elvis Tabs', () => {
       const tabs = screen.getAllByRole('tab');
 
       await user.click(tabs[1]);
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 
