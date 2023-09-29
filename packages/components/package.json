@@ -4,6 +4,7 @@
   "license": "ISC",
   "scripts": {
     "tsup": "tsup",
+    "esbuild": "node ./esbuild.config.mjs",
     "build": "gulp --gulpfile build/gulpfile.ts cleanup && concurrently 'gulp --gulpfile build/gulpfile.ts' 'tsup'",
     "start": "concurrently 'gulp --gulpfile build/gulpfile.ts watch' 'tsup --watch'",
     "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
@@ -43,6 +44,7 @@
     "@types/styled-components": "^5.1.19",
     "babel-jest": "^29.3.1",
     "babel-preset-minify": "^0.5.2",
+    "chalk": "^5.3.0",
     "concurrently": "^8.2.1",
     "crypto": "^1.0.1",
     "css-loader": "^4.3.0",

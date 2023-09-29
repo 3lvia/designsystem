@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "incremental": true,
+    "declarationDir": "tmp-dist-folder",
+    "listEmittedFiles": true,
+    "target": "ES2015",
+    "jsx": "react",
+    "moduleResolution": "Node",
+
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "lib": ["DOM", "ES2019"],
+    "module": "CommonJS",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "outDir": "another-very-tmp-folder",
+    "resolveJsonModule": false,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strictNullChecks": true
+  }
+}
