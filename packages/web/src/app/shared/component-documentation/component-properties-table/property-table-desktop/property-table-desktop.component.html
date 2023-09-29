@@ -46,15 +46,16 @@
           </div>
         </td>
       </tr>
-      <ng-container *ngFor="let prop of group.rows; let isLast = last">
+      <ng-container *ngFor="let prop of group.rows; let isLast = last; let i = index">
         <tr class="prop-row" [ngClass]="{ last: isLast, expanded: group.expanded }">
           <th scope="row" class="table-code-text">
             <div
               class="height-changer"
               [ngClass]="{ 'remove-padding': prop.item.level > 0 }"
               [ngStyle]="{
-              'margin-left': prop.item.level > 0 ? calculateMargin(prop.item.level) + 'px' : 'initial',
-            }"
+                'margin-left.px': calculateMargin(i, group.rows),
+                'padding-left.px': calculatePadding(i, group.rows)
+              }"
             >
               <strong
                 [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"
@@ -86,50 +87,6 @@
             ></div>
           </td>
         </tr>
-
-        <ng-container *ngIf="!propHasNoChildren(prop.item)">
-          <ng-container *ngTemplateOutlet="Recursion; context: { list: prop.item.childProps }"></ng-container>
-
-          <ng-template #Recursion let-list="list">
-            <ng-container *ngFor="let childProp of list; let isLastNested = last">
-              <tr class="prop-row" [ngClass]="{ expanded: group.expanded }">
-                <th scope="row" class="table-code-text">
-                  <div
-                    class="height-changer"
-                    [ngStyle]="{
-                      'margin-left':
-                        childProp.level > 0
-                          ? calculateMargin(childProp.level, isLastNested) + 'px'
-                          : 'initial',
-                      'padding-left':
-                        childProp.level > 0 ? calculatePadding(childProp.level, isLastNested) + 'px' : '16px'
-                    }"
-                  >
-                    <strong [innerHTML]="childProp.attribute"></strong>
-                    <strong>{{ childProp.isRequired ? '*' : '' }}</strong>
-                  </div>
-                </th>
-                <td class="table-code-text e-table__cell--multiline-small">
-                  <div class="height-changer" [innerHTML]="childProp.type"></div>
-                </td>
-                <td class="e-table__cell--multiline-small">
-                  <div class="height-changer" [innerHTML]="childProp.description"></div>
-                </td>
-                <td class="table-code-text">
-                  <div
-                    class="height-changer"
-                    [innerHTML]="propHasNoChildren(childProp) ? childProp.default : ''"
-                  ></div>
-                </td>
-              </tr>
-              <ng-container *ngIf="!propHasNoChildren(childProp)">
-                <ng-container
-                  *ngTemplateOutlet="Recursion; context: { list: childProp.childProps }"
-                ></ng-container>
-              </ng-container>
-            </ng-container>
-          </ng-template>
-        </ng-container>
       </ng-container>
     </ng-container>
   </tbody>

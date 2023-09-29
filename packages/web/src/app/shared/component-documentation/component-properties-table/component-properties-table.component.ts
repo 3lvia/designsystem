@@ -1,5 +1,8 @@
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
-import ComponentData from 'src/app/doc-pages/components/component-data.interface';
+import ComponentData, {
+  ChildlessProp,
+  NestedProp,
+} from 'src/app/doc-pages/components/component-data.interface';
 import { ComponentProp, NestedInputProp } from './types';
 import { SearchResult, Searcher } from '../../searcher';
 
@@ -37,8 +40,11 @@ export class ComponentPropertiesTableComponent implements OnInit {
     }
   }
 
-  private getPropArrayRecursive(nestedComponentProp: NestedInputProp, level: number): ComponentProp[] {
-    const componentChildProps: ComponentProp[] = [];
+  private getPropArrayRecursive(
+    nestedComponentProp: NestedProp<any>,
+    level: number,
+    componentProps: ComponentProp[],
+  ): ComponentProp[] {
     Object.keys(nestedComponentProp.children).forEach((prop) => {
       const propData = nestedComponentProp.children[prop];
       const componentProp: ComponentProp = {
@@ -47,16 +53,17 @@ export class ComponentPropertiesTableComponent implements OnInit {
         description: propData.description ?? '',
         level: level,
       };
-      componentChildProps.push(componentProp);
+      componentProps.push(componentProp);
       if ('children' in componentProp) {
-        componentProp.childProps = this.getPropArrayRecursive(componentProp, level + 1);
+        componentProps = this.getPropArrayRecursive(componentProp, level + 1, componentProps);
       }
     });
-    return componentChildProps;
+    return componentProps;
   }
 
   private getPropArray(): ComponentProp[] {
-    const componentProps: ComponentProp[] = [];
+    let componentProps: ComponentProp[] = [];
+
     Object.keys(this.componentData.attributes).forEach((prop) => {
       const propData = this.componentData.attributes[prop];
       const componentProp: ComponentProp = {
@@ -66,15 +73,44 @@ export class ComponentPropertiesTableComponent implements OnInit {
         level: 0,
       };
       componentProps.push(componentProp);
-      if ('children' in componentProp) {
-        componentProp.childProps = this.getPropArrayRecursive(componentProp, 1);
+    });
+
+    componentProps = componentProps.sort(this.sortProps);
+    let componentPropsWithChildren: ComponentProp[] = [];
+
+    Object.keys(componentProps).forEach((_, i) => {
+      const propData = componentProps[i];
+      componentPropsWithChildren.push(propData);
+      if ('children' in propData) {
+        componentPropsWithChildren = this.getPropArrayRecursive(propData, 1, componentPropsWithChildren);
       }
     });
 
     if (!this.ignoreDefaultProps) {
-      componentProps.push(...this.getCommonProps());
+      componentPropsWithChildren.push(...this.getCommonProps());
     }
-    return componentProps;
+    return componentPropsWithChildren;
+  }
+
+  private sortProps(a: ComponentProp, b: ComponentProp): number {
+    const lastProps = ['className', 'inlineStyle'];
+    let lastPropComparison = 0;
+    if (lastProps.includes(a.attribute) && !lastProps.includes(b.attribute)) {
+      lastPropComparison = 1;
+    } else if (!lastProps.includes(a.attribute) && lastProps.includes(b.attribute)) {
+      lastPropComparison = -1;
+    }
+
+    let requiredComparison = 0;
+    if (a.isRequired && !b.isRequired) {
+      requiredComparison = -1;
+    } else if (!a.isRequired && b.isRequired) {
+      requiredComparison = 1;
+    }
+
+    const alphabeticalComparison = a.attribute.localeCompare(b.attribute);
+
+    return lastPropComparison || requiredComparison || alphabeticalComparison;
   }
 
   private getCommonProps(): ComponentProp[] {

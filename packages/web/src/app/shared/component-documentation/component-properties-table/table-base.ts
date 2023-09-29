@@ -19,12 +19,12 @@ export class PropertyTableBaseDirective implements OnChanges {
       {
         title: 'Properties',
         expanded: true,
-        rows: this.getInputProps(this.props).sort(this.sortProps),
+        rows: this.getInputProps(this.props),
       },
       {
         title: 'Events',
         expanded: true,
-        rows: this.getEventProps(this.props).sort(this.sortProps),
+        rows: this.getEventProps(this.props),
       },
     ];
   }
@@ -42,26 +42,5 @@ export class PropertyTableBaseDirective implements OnChanges {
       (prop) =>
         (this.propHasNoChildren(prop.item) && !prop.item.isEvent) || !this.propHasNoChildren(prop.item),
     );
-  }
-
-  private sortProps(a: SearchResult<ComponentProp>, b: SearchResult<ComponentProp>): number {
-    const lastProps = ['className', 'inlineStyle'];
-    let lastPropComparison = 0;
-    if (lastProps.includes(a.item.attribute) && !lastProps.includes(b.item.attribute)) {
-      lastPropComparison = 1;
-    } else if (!lastProps.includes(a.item.attribute) && lastProps.includes(b.item.attribute)) {
-      lastPropComparison = -1;
-    }
-
-    let requiredComparison = 0;
-    if (a.item.isRequired && !b.item.isRequired) {
-      requiredComparison = -1;
-    } else if (!a.item.isRequired && b.item.isRequired) {
-      requiredComparison = 1;
-    }
-
-    const alphabeticalComparison = a.item.attribute.localeCompare(b.item.attribute);
-
-    return lastPropComparison || requiredComparison || alphabeticalComparison;
   }
 }
