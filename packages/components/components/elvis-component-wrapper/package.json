@@ -4,7 +4,6 @@
   "license": "MIT",
   "source": "src/elvia-component.ts",
   "main": "dist/elvia-component.mjs",
-  "types": "dist/elvia-component.d.ts",
   "files": [
     "dist"
   ],

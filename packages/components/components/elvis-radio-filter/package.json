@@ -5,13 +5,6 @@
   "homepage": "https://design.elvia.io/components/radio-filter",
   "source": "src/react/elvia-radio-filter.tsx",
   "main": "dist/main/web_component.js",
-  "targets": {
-    "main": false,
-    "react": {
-      "distDir": "dist/react",
-      "context": "node"
-    }
-  },
   "files": [
     "react.js",
     "react.d.ts",

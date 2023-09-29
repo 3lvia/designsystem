@@ -5,13 +5,6 @@
   "homepage": "https://design.elvia.io/components/card",
   "source": "src/react/elvia-card.tsx",
   "main": "dist/main/web_component.js",
-  "targets": {
-    "main": false,
-    "react": {
-      "distDir": "dist/react",
-      "context": "node"
-    }
-  },
   "files": [
     "react.js",
     "react.d.ts",
