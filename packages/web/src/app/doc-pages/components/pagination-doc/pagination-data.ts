@@ -23,14 +23,14 @@ export const paginationData: ComponentData = {
         'Hides the last number in pagination if numberOfElements is equal or exceeds the lastNumberLimit.',
     },
     dropdownMenuPosition: {
-      type: 'top | bottom | auto',
-      description: `Set the position of the dropdown menu.`,
-      default: 'bottom',
+      type: '"top" | "bottom" | "auto"',
+      description: 'Set the position of the dropdown menu.',
+      default: '"bottom"',
     },
     alignment: {
-      type: 'left | right',
+      type: '"left" | "right"',
       description: 'Alignment of the paginator.',
-      default: 'left',
+      default: '"left"',
     },
     dropdownItems: {
       type: 'object',

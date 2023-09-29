@@ -256,6 +256,99 @@ describe('Elvis Datepicker', () => {
     });
   });
 
+  describe('Events', () => {
+    const onCloseEvent = jest.fn();
+    const onOpenEvent = jest.fn();
+    const onResetEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
+    const valueOnChangeISOStringEvent = jest.fn();
+    const onFocusEvent = jest.fn();
+    const errorOnChangeEvent = jest.fn();
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+      render(
+        <Datepicker
+          errorOnChange={errorOnChangeEvent}
+          hasSelectDateOnOpen={false}
+          minDate={new Date('08/11/2022')}
+          onClose={onCloseEvent}
+          onFocus={onFocusEvent}
+          onOpen={onOpenEvent}
+          onReset={onResetEvent}
+          valueOnChange={valueOnChangeEvent}
+          valueOnChangeISOString={valueOnChangeISOStringEvent}
+        />,
+      );
+    });
+
+    it('should not emit any events when idle', async () => {
+      await waitFor(() => expect(errorOnChangeEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(onCloseEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(onFocusEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(onOpenEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(onResetEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeISOStringEvent).not.toHaveBeenCalled());
+    });
+
+    it('onOpenEvent: should emit onOpen when the trigger is clicked', async () => {
+      const user = userEvent.setup();
+      const trigger = screen.getByRole('button', { name: /åpne datovelger/i });
+      await user.click(trigger);
+
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('onCloseEvent: should emit onClose when the popover closes', async () => {
+      const user = userEvent.setup();
+      const trigger = screen.getByRole('button', { name: /åpne datovelger/i });
+      await user.click(trigger);
+      await user.keyboard('[Escape]');
+
+      await waitFor(() => expect(onCloseEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('onFocusEvent: should emit onFocus when the input is focused', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('textbox', { name: /velg dato/i });
+      await user.click(input);
+
+      await waitFor(() => expect(onFocusEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('onResetEvent: should emit onReset when the reset button is clicked', async () => {
+      const user = userEvent.setup();
+      const trigger = screen.getByRole('button', { name: /åpne datovelger/i });
+      await user.click(trigger);
+      const resetButton = screen.getByRole('button', { name: /nullstill/i });
+      await user.click(resetButton);
+
+      await waitFor(() => expect(onResetEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('valueOnChangeEvent / valueOnChangeISOStringEvent: should emit when a date is selected', async () => {
+      const user = userEvent.setup();
+      const trigger = screen.getByRole('button', { name: /åpne datovelger/i });
+      await user.click(trigger);
+      const dateButton = screen.getByRole('button', { name: /15/i });
+      await user.click(dateButton);
+
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('errorOnChangeEvent: should emit when an error is shown', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('textbox', { name: /velg dato/i });
+      await user.click(input);
+      await user.type(input, '26.03.2000');
+      await user.tab();
+
+      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalledTimes(1));
+    });
+  });
+
   describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(

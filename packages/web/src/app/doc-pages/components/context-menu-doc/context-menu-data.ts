@@ -38,14 +38,14 @@ const contextMenuData: ComponentData<ContextMenuProps> = {
       description: 'Callback for every time the context menu is closed.',
     },
     verticalPosition: {
-      type: 'bottom | top',
+      type: '"bottom" | "top"',
       description: 'Position vertically.',
-      default: 'bottom',
+      default: '"bottom"',
     },
     horizontalPosition: {
-      type: 'left | right',
+      type: '"left" | "right"',
       description: 'Position horizontally.',
-      default: 'left',
+      default: '"left"',
     },
   },
 };

@@ -355,13 +355,11 @@ describe('Elvia Slider', () => {
   });
 
   describe('Events', () => {
-    let valueOnChangeEvent: jest.Mock;
-    let errorOnChangeEvent: jest.Mock;
+    const valueOnChangeEvent = jest.fn();
+    const errorOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      valueOnChangeEvent = jest.fn();
-      errorOnChangeEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(<Slider valueOnChange={valueOnChangeEvent} errorOnChange={errorOnChangeEvent} />);
     });
 
@@ -377,7 +375,7 @@ describe('Elvia Slider', () => {
       await userEvent.keyboard('{Backspace}');
       await userEvent.type(inputField, '20');
       await userEvent.tab();
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
 
     it('errorOnChange: should emit when the error changes', async () => {
@@ -387,7 +385,7 @@ describe('Elvia Slider', () => {
       await userEvent.keyboard('{Backspace}');
       await userEvent.type(inputField, 'abc'); //invalid input, only numbers allowed
       await userEvent.tab();
-      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

@@ -7,10 +7,9 @@ import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
 
 interface Props {
   appTitle?: string;
-  onMenuToggle: (isOpen: boolean) => void;
 }
 
-export const AppDrawer: React.FC<Props> = ({ appTitle, onMenuToggle }) => {
+export const AppDrawer: React.FC<Props> = ({ appTitle }) => {
   const connectedElementRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const { isShowing, setIsShowing } = useConnectedOverlay(connectedElementRef, popoverRef, {
@@ -21,7 +20,6 @@ export const AppDrawer: React.FC<Props> = ({ appTitle, onMenuToggle }) => {
   });
 
   const toggleAppDrawer = () => {
-    onMenuToggle(!isShowing);
     setIsShowing((prevIsShowing) => !prevIsShowing);
   };
 

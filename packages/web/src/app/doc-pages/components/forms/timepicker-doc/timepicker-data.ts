@@ -41,9 +41,9 @@ export const timepickerData: ComponentData = {
       default: 'false',
     },
     size: {
-      type: 'small | medium',
+      type: '"small" | "medium"',
       description: 'Datepicker can be set to different sizes.',
-      default: 'medium',
+      default: '"medium"',
     },
     isRequired: {
       type: 'boolean',

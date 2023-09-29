@@ -25,9 +25,9 @@ const datepickerData: ComponentData = {
       description: 'Label of input.',
     },
     size: {
-      type: 'small | medium',
+      type: '"small" | "medium"',
       description: 'Datepicker can be set to different sizes.',
-      default: 'medium',
+      default: '"medium"',
     },
     isFullWidth: {
       type: 'boolean',
@@ -84,7 +84,7 @@ const datepickerData: ComponentData = {
     },
     placeholder: {
       type: 'string',
-      default: 'dd.mm.åååå',
+      default: '"dd.mm.åååå"',
       description: 'A short hint displayed in the input before the user enters a value.',
     },
     isOpen: {
@@ -125,7 +125,7 @@ const datepickerData: ComponentData = {
     },
     clearButtonText: {
       type: 'string',
-      default: 'Nullstill',
+      default: '"Nullstill"',
       description: 'Text to display in clear date-button.',
     },
     disableDate: {

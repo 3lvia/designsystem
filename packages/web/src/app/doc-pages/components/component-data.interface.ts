@@ -50,6 +50,7 @@ export interface ComponentChangelog {
   date: string;
   version: string;
   changelog: ComponentChangelogChange[];
+  private?: boolean;
 }
 
 /**

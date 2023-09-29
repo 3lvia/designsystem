@@ -256,17 +256,13 @@ describe('Elvis Autocomplete', () => {
   });
 
   describe('Events', () => {
-    let onOpenEvent: jest.Mock;
-    let onSelectItemEvent: jest.Mock;
-    let valueOnChangeEvent: jest.Mock;
-    let errorOnChangeEvent: jest.Mock;
+    const onOpenEvent = jest.fn();
+    const onSelectItemEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
+    const errorOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      onOpenEvent = jest.fn();
-      onSelectItemEvent = jest.fn();
-      valueOnChangeEvent = jest.fn();
-      errorOnChangeEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(
         <Autocomplete
           items={items}
@@ -285,7 +281,7 @@ describe('Elvis Autocomplete', () => {
       const input = screen.getByRole('combobox');
       await user.type(input, 'a');
 
-      await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
     });
 
     it('onSelectItemEvent: should emit the select item event when the user selects an item', async () => {
@@ -297,7 +293,7 @@ describe('Elvis Autocomplete', () => {
       const listItems = screen.getAllByRole('option');
       await user.click(listItems[0]);
 
-      expect(onSelectItemEvent).toHaveBeenCalled();
+      await waitFor(() => expect(onSelectItemEvent).toHaveBeenCalledTimes(1));
     });
 
     it('valueOnChangeEvent: should emit the value change event when the user types', async () => {
@@ -319,7 +315,7 @@ describe('Elvis Autocomplete', () => {
       await user.tab();
 
       //required error
-      expect(errorOnChangeEvent).toHaveBeenCalled();
+      expect(errorOnChangeEvent).toHaveBeenCalledTimes(1);
     });
   });
 
