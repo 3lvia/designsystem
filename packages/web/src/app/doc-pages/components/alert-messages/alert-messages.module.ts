@@ -12,6 +12,7 @@ import { AlertRoleAlertCegComponent } from './alert-role-alert-ceg/alert-role-al
 import { AlertRoleStatusCegComponent } from './alert-role-status-ceg/alert-role-status-ceg.component';
 import { AlertRoleNoteCegComponent } from './alert-role-note-ceg/alert-role-note-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
+import { AlertLocalClosableCegComponent } from './alert-local-closable-ceg/alert-local-closable-ceg.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     AlertRoleAlertCegComponent,
     AlertRoleStatusCegComponent,
     AlertRoleNoteCegComponent,
+    AlertLocalClosableCegComponent,
   ],
   imports: [SharedDocumentationModule],
 })
