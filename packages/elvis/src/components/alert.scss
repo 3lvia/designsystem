@@ -293,6 +293,13 @@ $toast-max-width: 400px;
         padding: $global-mobile-notitle-padding;
       }
     }
+
+    &.e-alert--local {
+      .e-alert__icon {
+        margin-top: 0;
+        align-items: center;
+      }
+    }
   }
 
   // ACTIONS
