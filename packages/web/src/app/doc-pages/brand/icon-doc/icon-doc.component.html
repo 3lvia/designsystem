@@ -77,57 +77,74 @@
 <div class="page-body">
   <!--ICONS PREVIEW-->
   <app-component-subsection>
-    <ng-container ngProjectAs="sectionContent">
-      <div class="overview-search-container">
-        <div class="e-form-field">
-          <label class="e-form-field__label" for="searchIcons">Search</label>
-          <div class="e-search e-search--instant e-search--searched">
-            <div class="e-input">
-              <input id="searchIcons" type="text" placeholder="Search through all icons" [(ngModel)]="term" />
-            </div>
-            <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
-            <button
-              class="e-btn e-btn--icon"
-              *ngIf="term.length > 0"
-              (click)="removeSearch()"
-              aria-label="Empty search field"
-            >
-              <span class="e-btn__icon">
-                <i class="e-icon e-icon--close-bold" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-            </button>
+    <div class="overview-search-container">
+      <div class="e-form-field">
+        <label class="e-form-field__label" for="searchIcons">Search</label>
+        <div class="e-search e-search--instant e-search--searched">
+          <div class="e-input">
+            <input id="searchIcons" type="text" placeholder="Search through all icons" [(ngModel)]="term" />
           </div>
-        </div>
-
-        <elvia-radio-filter
-          [items]="[
-            { label: 'All', value: 'all' },
-            { label: 'Outline', value: 'outline' },
-            { label: 'Filled', value: 'filled' },
-            { label: 'Two colored', value: 'colored' }
-          ]"
-          [value]="'all'"
-          [name]="'iconRadioFilters'"
-          [inlineStyle]="{ flexWrap: 'noWrap' }"
-          [className]="'icons-doc-radio-filter'"
-          (valueOnChange)="selectFilter($any($event).detail.value)"
-        ></elvia-radio-filter>
-      </div>
-      <div class="icon-accordion-container">
-        <div class="overview-icons-container" #icons>
-          <div
-            *ngFor="let icon of visibleIcons | iconSearchPipe : term; let i = index"
-            [class.margin-auto]="icon === -1"
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <button
+            class="e-btn e-btn--icon"
+            *ngIf="term.length > 0"
+            (click)="removeSearch()"
+            aria-label="Empty search field"
           >
-            <div *ngIf="icon === -1" class="no-results">
-              <div>Oh snap 😕</div>
-              <div>We can’t find the icon you are looking for!</div>
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--close-bold" aria-hidden="true" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <elvia-radio-filter
+        [items]="[
+          { label: 'All', value: 'all' },
+          { label: 'Outline', value: 'outline' },
+          { label: 'Filled', value: 'filled' },
+          { label: 'Two colored', value: 'colored' }
+        ]"
+        [value]="'all'"
+        [name]="'iconRadioFilters'"
+        [inlineStyle]="{ flexWrap: 'noWrap' }"
+        [className]="'icons-doc-radio-filter'"
+        (valueOnChange)="selectFilter($any($event).detail.value)"
+      ></elvia-radio-filter>
+    </div>
+    <div class="icon-accordion-container">
+      <div class="overview-icons-container" #icons>
+        <div
+          *ngFor="let icon of visibleIcons | iconSearchPipe : term; let i = index"
+          [class.margin-auto]="icon === -1"
+        >
+          <div *ngIf="icon === -1" class="no-results">
+            <div>Oh snap 😕</div>
+            <div>We can’t find the icon you are looking for!</div>
+            <div>
+              <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact us</a>
+              if you want to add an icon
+            </div>
+          </div>
+          <div class="desktop-copy">
+            <div
+              *ngIf="icon !== -1"
+              class="icon-card"
+              (click)="openCopyAlert(icon.title)"
+              [id]="icon.title + '_container'"
+            >
               <div>
-                <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact us</a>
-                if you want to add an icon
+                <div class="icon-icon">
+                  <i [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" aria-hidden="true"></i>
+                </div>
+                <div class="e-text-sm e-text-center">
+                  {{ icon.pretty }}
+                </div>
               </div>
             </div>
-            <div class="desktop-copy">
+          </div>
+          <div class="mobile-copy">
+            <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--sm'">
               <div
                 *ngIf="icon !== -1"
                 class="icon-card"
@@ -143,367 +160,307 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="mobile-copy">
-              <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--sm'">
-                <div
-                  *ngIf="icon !== -1"
-                  class="icon-card"
-                  (click)="openCopyAlert(icon.title)"
-                  [id]="icon.title + '_container'"
-                >
-                  <div>
-                    <div class="icon-icon">
-                      <i [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" aria-hidden="true"></i>
-                    </div>
-                    <div class="e-text-sm e-text-center">
-                      {{ icon.pretty }}
-                    </div>
-                  </div>
-                </div>
-              </app-copy>
-            </div>
+            </app-copy>
           </div>
-          <div class="bottom-blur"></div>
         </div>
+        <div class="bottom-blur"></div>
       </div>
-    </ng-container>
+    </div>
   </app-component-subsection>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Bruk' : 'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Alternativer' : 'Options'">
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            Icons are more easily recognizable than text, language independent, aesthetically pleasing, and
-            help separate actions from content. Using a common dictionary of icons across Elvia makes it
-            easier for users to interact with our platform and secure a holistic visual communication and
-            identity.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Ikoner er lettere gjenkjennelige enn tekst, språkuavhengige, estetisk tiltalende og bidrar til å
-            skille handlinger fra innhold. Bruk av en felles ikonordbok på tvers av Elvia gjør det enklere for
-            brukerne å samhandle med plattformen vår og sikrer en helhetlig visuell kommunikasjon og
-            identitet.
-          </ng-container>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Tekst eller ikke' : 'Text or not?'">
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            Icons are typically used in combination with text, and only sometimes unaccompanied. Only if a
-            text label does not fit and is not needed to understand the signification. One of the most common
-            UX mistakes is assuming that the users understand the icons we choose.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Ikoner brukes vanligvis i kombinasjon med tekst, og bare noen ganger alene. Bare hvis en
-            tekstetikett ikke passer og ikke er nødvendig for å forstå betydningen. En av de vanligste
-            UX-feilene er å anta at brukerne forstår ikonene vi velger.
-          </ng-container>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Lisens' : 'License'">
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            Our icon library is based on Streamline icons. This license includes royalty-free usage in an
-            unlimited number of projects without the need to credit the source. Note that you can only use our
-            icons in Elvia projects, and they may not be distributed outside of the organization. You can read
-            more about Streamline and their license guidelines
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Ikonbiblioteket vårt er basert på Streamline-ikoner. Denne lisensen inkluderer royaltyfri bruk i
-            et ubegrenset antall prosjekter uten behov for å kreditere kilden. Vær oppmerksom på at du bare
-            kan bruke ikonene våre i Elvia-prosjekter, og at de ikke kan distribueres utenfor organisasjonen.
-            Du kan lese mer om Streamline og deres lisensretningslinjer
-          </ng-container>
-          <a
-            class="e-link e-link--new-tab"
-            href="https://intercom.help/streamlinehq/en/articles/5354366-streamline-premium-license"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="e-link__title" *ngIf="locale === 'en-GB'">here</span>
-            <span class="e-link__title" *ngIf="locale === 'nb-NO'">her</span>
-            <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-          </a>
-          .
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Alternativer' : 'Options'">
+      <ng-container *ngIf="locale === 'en-GB'">
+        Icons are more easily recognizable than text, language independent, aesthetically pleasing, and help
+        separate actions from content. Using a common dictionary of icons across Elvia makes it easier for
+        users to interact with our platform and secure a holistic visual communication and identity.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Ikoner er lettere gjenkjennelige enn tekst, språkuavhengige, estetisk tiltalende og bidrar til å
+        skille handlinger fra innhold. Bruk av en felles ikonordbok på tvers av Elvia gjør det enklere for
+        brukerne å samhandle med plattformen vår og sikrer en helhetlig visuell kommunikasjon og identitet.
+      </ng-container>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Tekst eller ikke' : 'Text or not?'">
+      <ng-container *ngIf="locale === 'en-GB'">
+        Icons are typically used in combination with text, and only sometimes unaccompanied. Only if a text
+        label does not fit and is not needed to understand the signification. One of the most common UX
+        mistakes is assuming that the users understand the icons we choose.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Ikoner brukes vanligvis i kombinasjon med tekst, og bare noen ganger alene. Bare hvis en tekstetikett
+        ikke passer og ikke er nødvendig for å forstå betydningen. En av de vanligste UX-feilene er å anta at
+        brukerne forstår ikonene vi velger.
+      </ng-container>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Lisens' : 'License'">
+      <ng-container *ngIf="locale === 'en-GB'">
+        Our icon library is based on Streamline icons. This license includes royalty-free usage in an
+        unlimited number of projects without the need to credit the source. Note that you can only use our
+        icons in Elvia projects, and they may not be distributed outside of the organization. You can read
+        more about Streamline and their license guidelines
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Ikonbiblioteket vårt er basert på Streamline-ikoner. Denne lisensen inkluderer royaltyfri bruk i et
+        ubegrenset antall prosjekter uten behov for å kreditere kilden. Vær oppmerksom på at du bare kan bruke
+        ikonene våre i Elvia-prosjekter, og at de ikke kan distribueres utenfor organisasjonen. Du kan lese
+        mer om Streamline og deres lisensretningslinjer
+      </ng-container>
+      <a
+        class="e-link e-link--new-tab"
+        href="https://intercom.help/streamlinehq/en/articles/5354366-streamline-premium-license"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title" *ngIf="locale === 'en-GB'">here</span>
+        <span class="e-link__title" *ngIf="locale === 'nb-NO'">her</span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+      </a>
+      .
+    </app-component-subsection>
   </app-component-section>
 
   <!--OPTIONS-->
   <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Alternativer' : 'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Størrelser' : 'Sizes'">
-        <ng-container ngProjectAs="sectionContent">
-          <p>
-            <ng-container *ngIf="locale === 'en-GB'">
-              Icons are available in sizes from XXS to XXL based on multiplications of 8 pixels. When choosing
-              an icon size, keep in mind the screen size and accessibility considerations. Mobiles and tablets
-              require a larger touch surface and disabilities can make it difficult to interact with and/or
-              see icons that are too small.
-            </ng-container>
-            <ng-container *ngIf="locale === 'nb-NO'">
-              Ikoner er tilgjengelige i størrelser fra XXS til XXL basert på multiplikasjoner av 8 piksler.
-              Når du velger ikonstørrelse, må du ta hensyn til skjermstørrelse og tilgjengelighet. Mobiler og
-              nettbrett krever en større berøringsflate, og funksjonsnedsettelser kan gjøre det vanskelig å
-              samhandle med og/eller se ikoner som er for små.
-            </ng-container>
-          </p>
-          <div>
-            <ul class="e-list">
-              <li>
-                <app-copy [message]="'e-icon--xxl'">
-                  <span class="e-text-lg-strong">e-icon--xxl - 56px</span>
-                </app-copy>
-              </li>
-              <li>
-                <app-copy [message]="'e-icon--xl'">
-                  <span class="e-text-lg-strong">e-icon--xl - 48px</span>
-                </app-copy>
-              </li>
-              <li>
-                <app-copy [message]="'e-icon--lg'">
-                  <span class="e-text-lg-strong">e-icon--lg - 40px</span>
-                </app-copy>
-              </li>
-              <li>
-                <app-copy [message]="'e-icon--md'">
-                  <span class="e-text-lg-strong">e-icon--md - 32px</span>
-                </app-copy>
-              </li>
-              <li>
-                <app-copy [message]="'e-icon--sm'">
-                  <span class="e-text-lg-strong">e-icon--sm - 24px</span>
-                </app-copy>
-              </li>
-              <li>
-                <app-copy [message]="'e-icon--xs'">
-                  <span class="e-text-lg-strong">e-icon--xs - 16px</span>
-                </app-copy>
-              </li>
-              <li>
-                <app-copy [message]="'e-icon--xxs'">
-                  <span class="e-text-lg-strong">e-icon--xxs - 8px</span>
-                </app-copy>
-              </li>
-            </ul>
-          </div>
-          <app-static-ceg>
-            <app-icon-sizes-ceg />
-          </app-static-ceg>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Størrelser' : 'Sizes'">
+      <p>
+        <ng-container *ngIf="locale === 'en-GB'">
+          Icons are available in sizes from XXS to XXL based on multiplications of 8 pixels. When choosing an
+          icon size, keep in mind the screen size and accessibility considerations. Mobiles and tablets
+          require a larger touch surface and disabilities can make it difficult to interact with and/or see
+          icons that are too small.
         </ng-container>
-      </app-component-subsection>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Ikoner er tilgjengelige i størrelser fra XXS til XXL basert på multiplikasjoner av 8 piksler. Når du
+          velger ikonstørrelse, må du ta hensyn til skjermstørrelse og tilgjengelighet. Mobiler og nettbrett
+          krever en større berøringsflate, og funksjonsnedsettelser kan gjøre det vanskelig å samhandle med
+          og/eller se ikoner som er for små.
+        </ng-container>
+      </p>
+      <div>
+        <ul class="e-list">
+          <li>
+            <app-copy [message]="'e-icon--xxl'">
+              <span class="e-text-lg-strong">e-icon--xxl - 56px</span>
+            </app-copy>
+          </li>
+          <li>
+            <app-copy [message]="'e-icon--xl'">
+              <span class="e-text-lg-strong">e-icon--xl - 48px</span>
+            </app-copy>
+          </li>
+          <li>
+            <app-copy [message]="'e-icon--lg'">
+              <span class="e-text-lg-strong">e-icon--lg - 40px</span>
+            </app-copy>
+          </li>
+          <li>
+            <app-copy [message]="'e-icon--md'">
+              <span class="e-text-lg-strong">e-icon--md - 32px</span>
+            </app-copy>
+          </li>
+          <li>
+            <app-copy [message]="'e-icon--sm'">
+              <span class="e-text-lg-strong">e-icon--sm - 24px</span>
+            </app-copy>
+          </li>
+          <li>
+            <app-copy [message]="'e-icon--xs'">
+              <span class="e-text-lg-strong">e-icon--xs - 16px</span>
+            </app-copy>
+          </li>
+          <li>
+            <app-copy [message]="'e-icon--xxs'">
+              <span class="e-text-lg-strong">e-icon--xxs - 8px</span>
+            </app-copy>
+          </li>
+        </ul>
+      </div>
+      <app-static-ceg>
+        <app-icon-sizes-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Farger' : 'Color'">
-        <ng-container ngProjectAs="sectionContent">
-          <p>
-            <ng-container *ngIf="locale === 'en-GB'">
-              The green color on icons is typically used for the hover state, indicating that it is
-              interactive. A small pop-of-green is also used to draw focus to the most important detail to
-              better understand the significance of the icon. However, these icons are typically not
-              interactive. The colors red and orange are reserved to convey errors and warnings to the users.
-              Check out our
-              <a class="e-link e-link--inline" [routerLink]="['/brand/color']">color palette</a>
-              for a more in-depth understanding of the Elvia colors and how to use them.
-            </ng-container>
-            <ng-container *ngIf="locale === 'nb-NO'">
-              Den grønne fargen på ikoner brukes vanligvis for å indikere at ikonet er interaktivt. En liten
-              grønn farge brukes også for å sette fokus på de viktigste detaljene for å gjøre det lettere å
-              forstå betydningen av ikonet. Disse ikonene er imidlertid vanligvis ikke interaktive. Fargene
-              rødt og oransje er reservert for å formidle feil og advarsler til brukerne. Ta en titt på
-              <a class="e-link e-link--inline" [routerLink]="['/brand/color']">fargepaletten</a>
-              vår for en mer inngående forståelse av Elvia-fargene og hvordan de brukes.
-            </ng-container>
-          </p>
-          <p>
-            <ng-container *ngIf="locale === 'en-GB'">
-              The available color classes for icons can be seen below. Note that the static colors remain
-              black/white in dark theme, and should only be used in specific places.
-            </ng-container>
-            <ng-container *ngIf="locale === 'nb-NO'">
-              De tilgjengelige fargeklassene for ikoner kan sees nedenfor. Merk at de statiske fargene forblir
-              svart/hvitt i mørkt tema, og bør bare brukes på bestemte steder.
-            </ng-container>
-          </p>
-          <app-static-ceg>
-            <app-icon-colors-ceg />
-          </app-static-ceg>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Farger' : 'Color'">
+      <p>
+        <ng-container *ngIf="locale === 'en-GB'">
+          The green color on icons is typically used for the hover state, indicating that it is interactive. A
+          small pop-of-green is also used to draw focus to the most important detail to better understand the
+          significance of the icon. However, these icons are typically not interactive. The colors red and
+          orange are reserved to convey errors and warnings to the users. Check out our
+          <a class="e-link e-link--inline" [routerLink]="['/brand/color']">color palette</a>
+          for a more in-depth understanding of the Elvia colors and how to use them.
         </ng-container>
-      </app-component-subsection>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Den grønne fargen på ikoner brukes vanligvis for å indikere at ikonet er interaktivt. En liten grønn
+          farge brukes også for å sette fokus på de viktigste detaljene for å gjøre det lettere å forstå
+          betydningen av ikonet. Disse ikonene er imidlertid vanligvis ikke interaktive. Fargene rødt og
+          oransje er reservert for å formidle feil og advarsler til brukerne. Ta en titt på
+          <a class="e-link e-link--inline" [routerLink]="['/brand/color']">fargepaletten</a>
+          vår for en mer inngående forståelse av Elvia-fargene og hvordan de brukes.
+        </ng-container>
+      </p>
+      <p>
+        <ng-container *ngIf="locale === 'en-GB'">
+          The available color classes for icons can be seen below. Note that the static colors remain
+          black/white in dark theme, and should only be used in specific places.
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          De tilgjengelige fargeklassene for ikoner kan sees nedenfor. Merk at de statiske fargene forblir
+          svart/hvitt i mørkt tema, og bør bare brukes på bestemte steder.
+        </ng-container>
+      </p>
+      <app-static-ceg>
+        <app-icon-colors-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Deaktivert' : 'Disabled'">
-        <ng-container ngProjectAs="sectionContent">
-          <p>
-            <ng-container *ngIf="locale === 'en-GB'">
-              Grayed-out icons signify that the interaction is disabled and can not be clicked. Try to avoid
-              disabling any elements. Not all users understand the disabled state, confusing it with broken –
-              leading to a frustrating user experience.
-            </ng-container>
-            <ng-container *ngIf="locale === 'nb-NO'">
-              Gråtonede ikoner betyr at interaksjonen er deaktivert og ikke kan klikkes på. Prøv å unngå å
-              deaktivere noen elementer. Ikke alle brukere forstår den deaktiverte tilstanden, og forveksler
-              den med ødelagt - noe som fører til en frustrerende brukeropplevelse.
-            </ng-container>
-          </p>
-          <p>
-            <ng-container *ngIf="locale === 'en-GB'">
-              Disabled elements often create trouble for users with vision impairments, critiqued for their
-              low contrast and leaving out critical information for users dependent on screen readers. Try
-              using appropriate contextual feedback instead.
-            </ng-container>
-            <ng-container *ngIf="locale === 'nb-NO'">
-              Deaktiverte elementer skaper ofte problemer for brukere med nedsatt syn, kritiseres for lav
-              kontrast og utelater viktig informasjon for brukere som er avhengige av skjermlesere. Prøv å
-              bruke passende kontekstuell tilbakemelding i stedet.
-            </ng-container>
-          </p>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Deaktivert' : 'Disabled'">
+      <p>
+        <ng-container *ngIf="locale === 'en-GB'">
+          Grayed-out icons signify that the interaction is disabled and can not be clicked. Try to avoid
+          disabling any elements. Not all users understand the disabled state, confusing it with broken –
+          leading to a frustrating user experience.
         </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Fyll og vekt' : 'Fill and weight'">
-        <ng-container ngProjectAs="sectionContent">
-          <p>
-            <ng-container *ngIf="locale === 'en-GB'">
-              The icon fill depends on what background the icon is placed on. Filled icons are typically
-              better for readability on darker backgrounds, while outlines are often sufficient for lighter
-              backgrounds. Be mindful of contrast.
-            </ng-container>
-            <ng-container *ngIf="locale === 'nb-NO'">
-              Ikon-fyllet avhenger av hvilken bakgrunn ikonet er plassert på. Fylte ikoner gir vanligvis bedre
-              lesbarhet på mørkere bakgrunner, mens konturer ofte er tilstrekkelig på lysere bakgrunner. Vær
-              oppmerksom på kontrasten.
-            </ng-container>
-          </p>
-          <p>
-            <ng-container *ngIf="locale === 'en-GB'">
-              The stroke weight of icons should match thickness of the surrounding typography.
-            </ng-container>
-            <ng-container *ngIf="locale === 'nb-NO'">
-              Tykkelsen på ikonene bør samsvare med tykkelsen på den omkringliggende typografien.
-            </ng-container>
-          </p>
-          <p>
-            <ng-container *ngIf="locale === 'en-GB'">
-              Additionally, it’s important to be consistent in the choice of fill and weight – don't mix
-              outlined icons with filled icons, or use differing stroke weights for grouped icons. Be
-              consistent.
-            </ng-container>
-            <ng-container *ngIf="locale === 'nb-NO'">
-              I tillegg er det viktig å være konsekvent i valget av fyll og tykkelse - ikke bland ikoner med
-              omriss med ikoner med fyll, eller bruk forskjellige tykkelser for grupperte ikoner. Vær
-              konsekvent.
-            </ng-container>
-          </p>
-          <div class="doDontIcons">
-            <div class="doDontIcons__container">
-              <div class="doDontIcons__container__title">
-                <i
-                  class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"
-                  aria-hidden="true"
-                  aria-hidden="true"
-                ></i>
-                <div class="e-title-caps e-ml-16" *ngIf="locale === 'en-GB'">Be consistent</div>
-                <div class="e-title-caps e-ml-16" *ngIf="locale === 'nb-NO'">Vær konsekvent</div>
-              </div>
-              <div class="doDontIcons__container__icons">
-                <i class="e-icon e-icon--arrow_down e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-                <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-                <i class="e-icon e-icon--subtract_circle e-icon--sm" aria-hidden="true"></i>
-                <i class="e-icon e-icon--add_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-                <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-                <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
-              </div>
-            </div>
-            <div class="doDontDivider"></div>
-            <div class="doDontIcons__container">
-              <div class="doDontIcons__container__title">
-                <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red" aria-hidden="true"></i>
-                <div class="e-title-caps e-ml-16" *ngIf="locale === 'en-GB'">Don't mix</div>
-                <div class="e-title-caps e-ml-16" *ngIf="locale === 'nb-NO'">Ikke bland</div>
-              </div>
-              <div class="doDontIcons__container__icons">
-                <i class="e-icon e-icon--arrow_down-bold e-icon--sm" aria-hidden="true"></i>
-                <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-                <i class="e-icon e-icon--subtract_circle-filled e-icon--sm" aria-hidden="true"></i>
-                <i class="e-icon e-icon--add_circle-filled e-icon--sm" aria-hidden="true"></i>
-                <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-                <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
-              </div>
-            </div>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Gråtonede ikoner betyr at interaksjonen er deaktivert og ikke kan klikkes på. Prøv å unngå å
+          deaktivere noen elementer. Ikke alle brukere forstår den deaktiverte tilstanden, og forveksler den
+          med ødelagt - noe som fører til en frustrerende brukeropplevelse.
+        </ng-container>
+      </p>
+      <p>
+        <ng-container *ngIf="locale === 'en-GB'">
+          Disabled elements often create trouble for users with vision impairments, critiqued for their low
+          contrast and leaving out critical information for users dependent on screen readers. Try using
+          appropriate contextual feedback instead.
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Deaktiverte elementer skaper ofte problemer for brukere med nedsatt syn, kritiseres for lav kontrast
+          og utelater viktig informasjon for brukere som er avhengige av skjermlesere. Prøv å bruke passende
+          kontekstuell tilbakemelding i stedet.
+        </ng-container>
+      </p>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Fyll og vekt' : 'Fill and weight'">
+      <p>
+        <ng-container *ngIf="locale === 'en-GB'">
+          The icon fill depends on what background the icon is placed on. Filled icons are typically better
+          for readability on darker backgrounds, while outlines are often sufficient for lighter backgrounds.
+          Be mindful of contrast.
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Ikon-fyllet avhenger av hvilken bakgrunn ikonet er plassert på. Fylte ikoner gir vanligvis bedre
+          lesbarhet på mørkere bakgrunner, mens konturer ofte er tilstrekkelig på lysere bakgrunner. Vær
+          oppmerksom på kontrasten.
+        </ng-container>
+      </p>
+      <p>
+        <ng-container *ngIf="locale === 'en-GB'">
+          The stroke weight of icons should match thickness of the surrounding typography.
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Tykkelsen på ikonene bør samsvare med tykkelsen på den omkringliggende typografien.
+        </ng-container>
+      </p>
+      <p>
+        <ng-container *ngIf="locale === 'en-GB'">
+          Additionally, it’s important to be consistent in the choice of fill and weight – don't mix outlined
+          icons with filled icons, or use differing stroke weights for grouped icons. Be consistent.
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          I tillegg er det viktig å være konsekvent i valget av fyll og tykkelse - ikke bland ikoner med
+          omriss med ikoner med fyll, eller bruk forskjellige tykkelser for grupperte ikoner. Vær konsekvent.
+        </ng-container>
+      </p>
+      <div class="doDontIcons">
+        <div class="doDontIcons__container">
+          <div class="doDontIcons__container__title">
+            <i
+              class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"
+              aria-hidden="true"
+              aria-hidden="true"
+            ></i>
+            <div class="e-title-caps e-ml-16" *ngIf="locale === 'en-GB'">Be consistent</div>
+            <div class="e-title-caps e-ml-16" *ngIf="locale === 'nb-NO'">Vær konsekvent</div>
           </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+          <div class="doDontIcons__container__icons">
+            <i class="e-icon e-icon--arrow_down e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
+            <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
+            <i class="e-icon e-icon--subtract_circle e-icon--sm" aria-hidden="true"></i>
+            <i class="e-icon e-icon--add_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
+            <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
+            <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="doDontDivider"></div>
+        <div class="doDontIcons__container">
+          <div class="doDontIcons__container__title">
+            <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red" aria-hidden="true"></i>
+            <div class="e-title-caps e-ml-16" *ngIf="locale === 'en-GB'">Don't mix</div>
+            <div class="e-title-caps e-ml-16" *ngIf="locale === 'nb-NO'">Ikke bland</div>
+          </div>
+          <div class="doDontIcons__container__icons">
+            <i class="e-icon e-icon--arrow_down-bold e-icon--sm" aria-hidden="true"></i>
+            <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
+            <i class="e-icon e-icon--subtract_circle-filled e-icon--sm" aria-hidden="true"></i>
+            <i class="e-icon e-icon--add_circle-filled e-icon--sm" aria-hidden="true"></i>
+            <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
+            <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'General'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>All Elvia icons are available through the @elvia/elvis package or CDN.</div>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'General'">
+      <div>All Elvia icons are available through the @elvia/elvis package or CDN.</div>
+    </app-component-subsection>
 
-      <app-component-subsubsection [sectionTitle]="'Method 1 - Easiest if you are already using Elvis'">
-        <ng-container ngProjectAs="sectionContent">
-          <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
+    <app-component-subsubsection [sectionTitle]="'Method 1 - Easiest if you are already using Elvis'">
+      <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
 
-          <p class="e-mb-16">
-            Download the npm package and use Elvis.js from inside the npm package like this:
-          </p>
-          <app-code-viewer [activeCode]="scriptCodeHTML" />
+      <p class="e-mb-16">Download the npm package and use Elvis.js from inside the npm package like this:</p>
+      <app-code-viewer [activeCode]="scriptCodeHTML" />
 
-          <p class="e-mb-16">The icons can then be used like this:</p>
-          <app-code-viewer [activeCode]="iconExample" />
-          <p>
-            <strong>How it works:</strong>
-            <br />
-            Elvis.js looks for
-            <span class="code-text">e-icon</span>
-            and similar classes and injects a
-            <span class="code-text">img</span>
-            tag with the SVG icon at the desired location.
-          </p>
-        </ng-container>
-      </app-component-subsubsection>
+      <p class="e-mb-16">The icons can then be used like this:</p>
+      <app-code-viewer [activeCode]="iconExample" />
+      <p>
+        <strong>How it works:</strong>
+        <br />
+        Elvis.js looks for
+        <span class="code-text">e-icon</span>
+        and similar classes and injects a
+        <span class="code-text">img</span>
+        tag with the SVG icon at the desired location.
+      </p>
+    </app-component-subsubsection>
 
-      <app-component-subsubsection [sectionTitle]="'Method 2: Elvis-icon component'">
-        <ng-container ngProjectAs="sectionContent">
-          <a href="https://www.npmjs.com/package/@elvia/elvis-icon" class="e-link">Elvis-icon npm package</a>
-          <p class="e-mb-0">
-            Icons are also accessible through our icon component, as a custom element or React component.
-          </p>
-          <app-ceg>
-            <app-icon-ceg />
-          </app-ceg>
+    <app-component-subsubsection [sectionTitle]="'Method 2: Elvis-icon component'">
+      <a href="https://www.npmjs.com/package/@elvia/elvis-icon" class="e-link">Elvis-icon npm package</a>
+      <p class="e-mb-0">
+        Icons are also accessible through our icon component, as a custom element or React component.
+      </p>
+      <app-ceg>
+        <app-icon-ceg />
+      </app-ceg>
 
-          <!--INSTALLATION-->
-          <app-component-section [sectionTitle]="'Installation'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-installation [componentData]="componentData"></app-component-installation>
-            </ng-container>
-          </app-component-section>
+      <!--INSTALLATION-->
+      <app-component-section [sectionTitle]="'Installation'">
+        <app-component-installation [componentData]="componentData"></app-component-installation>
+      </app-component-section>
 
-          <!--PROPERTIES-->
-          <app-component-section [sectionTitle]="'Properties'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-properties-table
-                [componentData]="componentData"
-              ></app-component-properties-table>
-            </ng-container>
-          </app-component-section>
-        </ng-container>
-      </app-component-subsubsection>
-    </ng-container>
+      <!--PROPERTIES-->
+      <app-component-section [sectionTitle]="'Properties'">
+        <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+      </app-component-section>
+    </app-component-subsubsection>
   </app-component-section>
 
   <!--Changelog-->
   <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog [elvisComponentToFilter]="'Icons'"></app-component-changelog>
-    </ng-container>
+    <app-component-changelog [elvisComponentToFilter]="'Icons'"></app-component-changelog>
   </app-component-section>
 </div>

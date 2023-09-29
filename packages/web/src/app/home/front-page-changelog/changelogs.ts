@@ -12,7 +12,6 @@ const changelogNames = [
   'elvis-card',
   'elvis-carousel',
   'elvis-chip',
-  'elvis-component-wrapper',
   'elvis-context-menu',
   'elvis-datepicker',
   'elvis-datepicker-range',
@@ -48,8 +47,9 @@ export const createChangelogs = async () => {
   const changelogs = await changelogNames.reduce(async (changelogPromise, name) => {
     const changelogs = await changelogPromise;
     const entry = await import(`@elvia/${name}/CHANGELOG.json`).then((changelog) => {
-      const filteredChangelogs = changelog.content.filter((changelog: any) =>
-        changelog.version.endsWith('.0'),
+      const filteredChangelogs = changelog.content.filter(
+        (changelogEntry: ComponentChangelog) =>
+          changelogEntry.version.endsWith('.0') && !changelogEntry.private,
       );
       return filteredChangelogs[0];
     });

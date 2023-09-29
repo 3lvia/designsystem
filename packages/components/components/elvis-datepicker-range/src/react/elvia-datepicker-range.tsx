@@ -15,6 +15,7 @@ import {
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { isAfter, isBefore } from './dateHelpers';
+import { useUpdateEffect } from '@elvia/elvis-toolbox';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
 
@@ -69,7 +70,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   }, [isRequired]);
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     if (!webcomponent) {
       errorOnChange?.(currentErrorMessages);
     } else {
@@ -207,9 +208,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     // If start datepicker is set to a date after the end datepicker, set the end date to newValue.
     if (newDate) {
       let date = newDate;
-      if (change === 'date' && !isTouched('startTime')) {
+      if (change === 'date' && !selectedDateRange.start && !isTouched('startTime')) {
         date = setTime(newDate, 'startOfDay');
-      } else if (change === 'time' && !isTouched('startDate') && minDate) {
+      } else if (change === 'time' && !selectedDateRange.start && !isTouched('startDate') && minDate) {
         date.setFullYear(minDate.getFullYear(), minDate.getMonth(), minDate.getDate());
       }
 
@@ -225,9 +226,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
     if (newDate) {
       const date = newDate;
-      if (change === 'date' && !isTouched('endTime')) {
+      if (change === 'date' && !selectedDateRange.end && !isTouched('endTime')) {
         setTime(newDate, 'endOfDay');
-      } else if (change === 'time' && !isTouched('endDate') && maxDate) {
+      } else if (change === 'time' && !selectedDateRange.end && !isTouched('endDate') && maxDate) {
         date.setFullYear(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate());
       }
 

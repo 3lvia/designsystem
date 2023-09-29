@@ -10,698 +10,636 @@
 <div class="page-body">
   <!--GRID-->
   <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Rutenett' : 'Grid'">
-    <ng-container ngProjectAs="sectionContent">
+    <div>
+      <ng-container *ngIf="locale === 'en-GB'">
+        We use the 12-column grid in our design system. We have two versions of it, one for external use and
+        one for internal. They both are responsive and have the same number of columns, but they have
+        different gutters and margins.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Vi bruker et rutenett med 12 kolonner i designsystemet vårt. Vi har to versjoner av det, en for
+        ekstern bruk og en for intern bruk. Begge er responsive og har samme antall kolonner, men de har
+        forskjellige gutters og marginer.
+      </ng-container>
+    </div>
+
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Eksternt rutenett' : 'External grid'">
+      <ng-container *ngIf="locale === 'en-GB'">
+        The external grid are used on elvia.no and design.elvia.io.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Det eksterne rutenettet brukes på elvia.no og design.elvia.io.
+      </ng-container>
+
+      <div class="e-mt-16">
+        <elvia-tabs
+          id="egTabs"
+          [items]="['Desktop', 'Tablet', 'Mobile']"
+          [value]="0"
+          (valueOnChange)="egSelectedValue = $any($event).detail.value"
+        ></elvia-tabs>
+      </div>
+      <div class="grid-info e-mt-16" *ngIf="egSelectedValue === 0">
+        <div>
+          <img
+            src="/assets/grid/externalDesktopGrid.svg"
+            alt="External grid desktop"
+            class="e-none-sm e-w-100"
+          />
+        </div>
+        <div class="circles-container">
+          <div class="information-container">
+            <div class="information-circle column-color"></div>
+            <div>
+              <div class="e-title-caps e-mr-8">Columns</div>
+              <div class="e-text-sm">12</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle margin-color">M</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Margin</div>
+              <div class="e-text-sm">120px</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle gutter-color">G</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Gutter</div>
+              <div class="e-text-sm">56px</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-info e-mt-16" *ngIf="egSelectedValue === 1">
+        <div>
+          <img
+            src="/assets/grid/externalTabletGrid.svg"
+            alt="External grid tablet"
+            class="e-none-sm e-w-100"
+          />
+        </div>
+        <div class="circles-container">
+          <div class="information-container">
+            <div class="information-circle column-color"></div>
+            <div>
+              <div class="e-title-caps e-mr-8">Columns</div>
+              <div class="e-text-sm">8</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle margin-color">M</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Margin</div>
+              <div class="e-text-sm">32px</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle gutter-color">G</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Gutter</div>
+              <div class="e-text-sm">32px</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-info e-mt-16" *ngIf="egSelectedValue === 2">
+        <div>
+          <img
+            src="/assets/grid/externalMobileGrid.svg"
+            alt="External grid mobile"
+            class="e-none-sm e-w-100"
+          />
+        </div>
+        <div class="circles-container">
+          <div class="information-container">
+            <div class="information-circle column-color"></div>
+            <div>
+              <div class="e-title-caps e-mr-8">Columns</div>
+              <div class="e-text-sm">6</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle margin-color">M</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Margin</div>
+              <div class="e-text-sm">16px</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle gutter-color">G</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Gutter</div>
+              <div class="e-text-sm">16px</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-component-subsection>
+
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Internt rutenett' : 'Internal grid'">
+      <ng-container *ngIf="locale === 'en-GB'">
+        The internal grid is used on internal applications.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Det interne rutenettet brukes på interne applikasjoner.
+      </ng-container>
+      <div class="e-mt-24">
+        <elvia-tabs
+          id="igTabs"
+          [items]="['Desktop', 'Tablet', 'Mobile']"
+          [value]="0"
+          (valueOnChange)="igSelectedValue = $any($event).detail.value"
+        ></elvia-tabs>
+      </div>
+      <div class="grid-info e-mt-16" *ngIf="igSelectedValue === 0">
+        <div>
+          <img
+            src="/assets/grid/internalDesktopGrid.svg"
+            alt="Internal grid desktop"
+            class="e-none-sm e-w-100"
+          />
+        </div>
+        <div class="circles-container">
+          <div class="information-container">
+            <div class="information-circle column-color"></div>
+            <div>
+              <div class="e-title-caps e-mr-8">Columns</div>
+              <div class="e-text-sm">12</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle margin-color">M</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Margin</div>
+              <div class="e-text-sm">Left: 88px</div>
+              <div class="e-text-sm">Right: 32px</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle gutter-color">G</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Gutter</div>
+              <div class="e-text-sm">32px</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-info e-mt-16" *ngIf="igSelectedValue === 1">
+        <div>
+          <img
+            src="/assets/grid/internalTabletGrid.svg"
+            alt="Internal grid tablet"
+            class="e-none-sm e-w-100"
+          />
+        </div>
+        <div class="circles-container">
+          <div class="information-container">
+            <div class="information-circle column-color"></div>
+            <div>
+              <div class="e-title-caps e-mr-8">Columns</div>
+              <div class="e-text-sm">8</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle margin-color">M</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Margin</div>
+              <div class="e-text-sm">Left: 88px</div>
+              <div class="e-text-sm">Right: 32px</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle gutter-color">G</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Gutter</div>
+              <div class="e-text-sm">24px</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-info e-mt-16" *ngIf="igSelectedValue === 2">
+        <div>
+          <img
+            src="/assets/grid/internalMobileGrid.svg"
+            alt="Internal grid mobile"
+            class="e-none-sm e-w-100"
+          />
+        </div>
+        <div class="circles-container">
+          <div class="information-container">
+            <div class="information-circle column-color"></div>
+            <div>
+              <div class="e-title-caps e-mr-8">Columns</div>
+              <div class="e-text-sm">6</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle margin-color">M</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Margin</div>
+              <div class="e-text-sm">16px</div>
+            </div>
+          </div>
+          <div class="information-container">
+            <div class="information-circle gutter-color">G</div>
+            <div>
+              <div class="e-title-caps e-mr-8">Gutter</div>
+              <div class="e-text-sm">16px</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-component-subsection>
+
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Bruddpunkter' : 'Breakpoints'">
+      <ng-container *ngIf="locale === 'en-GB'">
+        The grid-system follows a 12 column rule, but the max number of columns should not exceed 8 on tablet
+        and 6 on mobile.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Rutenettet følger en 12-kolonners regel, men maks antall kolonner bør ikke overstige 8 på nettbrett og
+        6 på mobil.
+      </ng-container>
+
+      <div class="e-table-container e-mt-24">
+        <table class="e-table" aria-label="Beskrivelse av tabellen">
+          <thead>
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">Max columns</th>
+              <th scope="col">Sizes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="col">Mobile</th>
+              <td>6</td>
+              <td>-> 767px</td>
+            </tr>
+            <tr>
+              <th scope="row">Tablet</th>
+              <td>8</td>
+              <td>768px -> 1023px</td>
+            </tr>
+            <tr>
+              <th scope="row">MinDesktop</th>
+              <td>12</td>
+              <td>1024px -> 1439px</td>
+            </tr>
+            <tr>
+              <th scope="row">MaxDesktop</th>
+              <td>12</td>
+              <td>1440px -></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-component-subsection>
+
+    <app-component-subsection [sectionTitle]="'Implementation'">
       <div>
-        <ng-container *ngIf="locale === 'en-GB'">
-          We use the 12-column grid in our design system. We have two versions of it, one for external use and
-          one for internal. They both are responsive and have the same number of columns, but they have
-          different gutters and margins.
-        </ng-container>
-        <ng-container *ngIf="locale === 'nb-NO'">
-          Vi bruker et rutenett med 12 kolonner i designsystemet vårt. Vi har to versjoner av det, en for
-          ekstern bruk og en for intern bruk. Begge er responsive og har samme antall kolonner, men de har
-          forskjellige gutters og marginer.
-        </ng-container>
+        Our grid-system is based off of Bootstraps grid-system and works almost the same. Read the
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          target="_blank"
+          href="https://getbootstrap.com/docs/4.4/layout/grid/"
+          rel="noopener"
+        >
+          <span class="e-link__title">Bootstrap documentation</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+        </a>
+        . All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid
+        class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will
+        therefore not break any other potential grid-systems.
       </div>
 
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Eksternt rutenett' : 'External grid'">
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            The external grid are used on elvia.no and design.elvia.io.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Det eksterne rutenettet brukes på elvia.no og design.elvia.io.
-          </ng-container>
-
-          <div class="e-mt-16">
-            <elvia-tabs
-              id="egTabs"
-              [items]="['Desktop', 'Tablet', 'Mobile']"
-              [value]="0"
-              (valueOnChange)="egSelectedValue = $any($event).detail.value"
-            ></elvia-tabs>
+      <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
+        <!--Breakpoints-->
+        <elvia-accordion closeLabel="Breakpoints" isFullWidth="true" openLabel="Breakpoints" size="large">
+          <div slot="content">
+            Use
+            <code>col-sm</code>
+            ,
+            <code>col-md</code>
+            and
+            <code>col-lg</code>
+            to change grid at breakpoints.
+            <app-static-ceg>
+              <app-layout-breakpoints-ceg />
+            </app-static-ceg>
           </div>
-          <app-component-subsubsection [sectionTitle]="'Desktop'" *ngIf="egSelectedValue === 0">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
-                <div>
-                  <img
-                    src="../../../../assets/grid/externalDesktopGrid.svg"
-                    alt="External grid desktop"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">12</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">120px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">56px</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Tablet'" *ngIf="egSelectedValue === 1">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
-                <div>
-                  <img
-                    src="../../../../assets/grid/externalTabletGrid.svg"
-                    alt="External grid tablet"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">8</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">32px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">32px</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'" *ngIf="egSelectedValue === 2">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
-                <div>
-                  <img
-                    src="../../../../assets/grid/externalMobileGrid.svg"
-                    alt="External grid mobile"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">6</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">16px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">16px</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
+        </elvia-accordion>
+        <elvia-divider />
 
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Internt rutenett' : 'Internal grid'">
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            The internal grid is used on internal applications.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Det interne rutenettet brukes på interne applikasjoner.
-          </ng-container>
-          <div class="e-mt-24">
-            <elvia-tabs
-              id="igTabs"
-              [items]="['Desktop', 'Tablet', 'Mobile']"
-              [value]="0"
-              (valueOnChange)="igSelectedValue = $any($event).detail.value"
-            ></elvia-tabs>
+        <!--Layout-->
+        <elvia-accordion closeLabel="Layout" isFullWidth="true" openLabel="Layout" size="large">
+          <div slot="content">
+            <app-component-subsubsection [sectionTitle]="'Standard'">
+              A grid layout for external and internal systems. If you don’t need to use all 12 columns
+              individually, you can group the columns to create wider columns.
+              <img
+                src="/assets/grid/standardLayout.svg"
+                alt="Internal grid mobile"
+                class="theme-image-background e-none-sm e-w-100 e-mt-32"
+              />
+            </app-component-subsubsection>
+
+            <app-component-subsubsection [sectionTitle]="'Alignment'">
+              Use
+              <code>justify-content</code>
+              ,
+              <code>align-content</code>
+              , and
+              <code>offset</code>
+              to align
+              <code>col</code>
+              -classes inside grid.
+              <app-static-ceg>
+                <app-layout-alignment-ceg />
+              </app-static-ceg>
+            </app-component-subsubsection>
+
+            <app-component-subsubsection [sectionTitle]="'Ordering'">
+              Use
+              <code>order</code>
+              to choose the order of columns.
+              <app-static-ceg>
+                <app-layout-ordering-ceg />
+              </app-static-ceg>
+            </app-component-subsubsection>
+
+            <app-component-subsubsection [sectionTitle]="'Levels'">
+              The grid can have levels.
+              <app-static-ceg>
+                <app-layout-levels-ceg />
+              </app-static-ceg>
+            </app-component-subsubsection>
           </div>
-          <app-component-subsubsection [sectionTitle]="'Desktop'" *ngIf="igSelectedValue === 0">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
-                <div>
-                  <img
-                    src="../../../../assets/grid/internalDesktopGrid.svg"
-                    alt="Internal grid desktop"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">12</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">Left: 88px</div>
-                      <div class="e-text-sm">Right: 32px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">32px</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Tablet'" *ngIf="igSelectedValue === 1">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
-                <div>
-                  <img
-                    src="../../../../assets/grid/internalTabletGrid.svg"
-                    alt="Internal grid tablet"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">8</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">Left: 88px</div>
-                      <div class="e-text-sm">Right: 32px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">24px</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'" *ngIf="igSelectedValue === 2">
-            <ng-container ngProjectAs="sectionContent">
-              <div class="grid-info">
-                <div>
-                  <img
-                    src="../../../../assets/grid/internalMobileGrid.svg"
-                    alt="Internal grid mobile"
-                    style="max-width: 100%"
-                  />
-                </div>
-                <div class="circles-container">
-                  <div class="information-container">
-                    <div class="information-circle column-color"></div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Columns</div>
-                      <div class="e-text-sm">6</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle margin-color">M</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Margin</div>
-                      <div class="e-text-sm">16px</div>
-                    </div>
-                  </div>
-                  <div class="information-container">
-                    <div class="information-circle gutter-color">G</div>
-                    <div>
-                      <div class="e-title-caps e-mr-8">Gutter</div>
-                      <div class="e-text-sm">16px</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
+        </elvia-accordion>
+        <elvia-divider />
 
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Bruddpunkter' : 'Breakpoints'">
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            The grid-system follows a 12 column rule, but the max number of columns should not exceed 8 on
-            tablet and 6 on mobile.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Rutenettet følger en 12-kolonners regel, men maks antall kolonner bør ikke overstige 8 på
-            nettbrett og 6 på mobil.
-          </ng-container>
+        <!--Gutters-->
+        <elvia-accordion closeLabel="Gutters" isFullWidth="true" openLabel="Gutters" size="large">
+          <div slot="content">
+            <div>
+              Use the class
+              <code>e-grid-gutters-ext</code>
+              (for external systems) or
+              <code>e-grid-gutters-int</code>
+              (for internal systems) to add dynamic gutters on rows. Get vertical gutters as well by adding
+              the class
+              <code>e-grid-gutters-vertical</code>
+              .
+            </div>
+            <app-static-ceg>
+              <app-layout-gutters-ceg />
+            </app-static-ceg>
 
-          <div class="e-table-container e-mt-24">
-            <table class="e-table" aria-label="Beskrivelse av tabellen">
-              <thead>
-                <tr>
-                  <th scope="col">Device</th>
-                  <th scope="col">Max columns</th>
-                  <th scope="col">Sizes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="col">Mobile</th>
-                  <td>6</td>
-                  <td>-> 767px</td>
-                </tr>
-                <tr>
-                  <th scope="row">Tablet</th>
-                  <td>8</td>
-                  <td>768px -> 1023px</td>
-                </tr>
-                <tr>
-                  <th scope="row">MinDesktop</th>
-                  <td>12</td>
-                  <td>1024px -> 1439px</td>
-                </tr>
-                <tr>
-                  <th scope="row">MaxDesktop</th>
-                  <td>12</td>
-                  <td>1440px -></td>
-                </tr>
-              </tbody>
-            </table>
+            <app-component-subsubsection [sectionTitle]="'Custom padding (gutters)'">
+              Combine the padding classes (e.g.
+              <code>px-lg-3</code>
+              ) and negative margin classes (e.g.
+              <code>mx-lg-n3</code>
+              ) to add your own custom gutters.
+              <app-static-ceg>
+                <app-layout-gutters-custom-ceg />
+              </app-static-ceg>
+            </app-component-subsubsection>
+
+            <app-component-subsubsection [sectionTitle]="'No gutters'">
+              Use
+              <code>no-gutters</code>
+              to remove gutters on the row.
+              <app-static-ceg>
+                <app-layout-gutters-no-ceg />
+              </app-static-ceg>
+            </app-component-subsubsection>
           </div>
-        </ng-container>
-      </app-component-subsection>
+        </elvia-accordion>
+        <elvia-divider />
 
-      <app-component-subsection [sectionTitle]="'Implementation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>
-            Our grid-system is based off of Bootstraps grid-system and works almost the same. Read the
-            <a
-              class="e-link e-link--inline e-link--new-tab"
-              target="_blank"
-              href="https://getbootstrap.com/docs/4.4/layout/grid/"
-              rel="noopener"
-            >
-              <span class="e-link__title">Bootstrap documentation</span>
-              <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-            </a>
-            . All the Bootstrap grid-system classes are available for use. To use the grid-system add the
-            e-grid class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and
-            will therefore not break any other potential grid-systems.
+        <!--Margins-->
+        <elvia-accordion closeLabel="Breakpoints" isFullWidth="true" openLabel="Breakpoints" size="large">
+          <div slot="content">
+            <div>
+              Use the class
+              <code>e-grid-margin-ext</code>
+              (for external systems) or
+              <code>e-grid-margin-int</code>
+              (for internal systems) to add dynamic margin on rows.
+            </div>
+            <app-static-ceg>
+              <app-layout-margins-ceg />
+            </app-static-ceg>
           </div>
-
-          <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
-            <!--Breakpoints-->
-            <elvia-accordion closeLabel="Breakpoints" isFullWidth="true" openLabel="Breakpoints" size="large">
-              <div slot="content">
-                Use
-                <code>col-sm</code>
-                ,
-                <code>col-md</code>
-                and
-                <code>col-lg</code>
-                to change grid at breakpoints.
-                <app-static-ceg>
-                  <app-layout-breakpoints-ceg />
-                </app-static-ceg>
-              </div>
-            </elvia-accordion>
-            <elvia-divider />
-
-            <!--Layout-->
-            <elvia-accordion closeLabel="Layout" isFullWidth="true" openLabel="Layout" size="large">
-              <div slot="content">
-                <app-component-subsubsection [sectionTitle]="'Standard'">
-                  <ng-container ngProjectAs="sectionContent">
-                    A grid layout for external and internal systems. If you don’t need to use all 12 columns
-                    individually, you can group the columns to create wider columns.
-                    <img
-                      src="/assets/grid/standardLayout.svg"
-                      alt="Internal grid mobile"
-                      style="max-width: 100%; margin-top: 32px"
-                      class="theme-image-background"
-                    />
-                  </ng-container>
-                </app-component-subsubsection>
-
-                <app-component-subsubsection [sectionTitle]="'Alignment'">
-                  <ng-container ngProjectAs="sectionContent">
-                    Use
-                    <code>justify-content</code>
-                    ,
-                    <code>align-content</code>
-                    , and
-                    <code>offset</code>
-                    to align
-                    <code>col</code>
-                    -classes inside grid.
-                    <app-static-ceg>
-                      <app-layout-alignment-ceg />
-                    </app-static-ceg>
-                  </ng-container>
-                </app-component-subsubsection>
-
-                <app-component-subsubsection [sectionTitle]="'Ordering'">
-                  <ng-container ngProjectAs="sectionContent">
-                    Use
-                    <code>order</code>
-                    to choose the order of columns.
-                    <app-static-ceg>
-                      <app-layout-ordering-ceg />
-                    </app-static-ceg>
-                  </ng-container>
-                </app-component-subsubsection>
-
-                <app-component-subsubsection [sectionTitle]="'Levels'">
-                  <ng-container ngProjectAs="sectionContent">
-                    The grid can have levels.
-                    <app-static-ceg>
-                      <app-layout-levels-ceg />
-                    </app-static-ceg>
-                  </ng-container>
-                </app-component-subsubsection>
-              </div>
-            </elvia-accordion>
-            <elvia-divider />
-
-            <!--Gutters-->
-            <elvia-accordion closeLabel="Gutters" isFullWidth="true" openLabel="Gutters" size="large">
-              <div slot="content">
-                <div>
-                  Use the class
-                  <code>e-grid-gutters-ext</code>
-                  (for external systems) or
-                  <code>e-grid-gutters-int</code>
-                  (for internal systems) to add dynamic gutters on rows. Get vertical gutters as well by
-                  adding the class
-                  <code>e-grid-gutters-vertical</code>
-                  .
-                </div>
-                <app-static-ceg>
-                  <app-layout-gutters-ceg />
-                </app-static-ceg>
-
-                <app-component-subsubsection [sectionTitle]="'Custom padding (gutters)'">
-                  <ng-container ngProjectAs="sectionContent">
-                    Combine the padding classes (e.g.
-                    <code>px-lg-3</code>
-                    ) and negative margin classes (e.g.
-                    <code>mx-lg-n3</code>
-                    ) to add your own custom gutters.
-                    <app-static-ceg>
-                      <app-layout-gutters-custom-ceg />
-                    </app-static-ceg>
-                  </ng-container>
-                </app-component-subsubsection>
-
-                <app-component-subsubsection [sectionTitle]="'No gutters'">
-                  <ng-container ngProjectAs="sectionContent">
-                    Use
-                    <code>no-gutters</code>
-                    to remove gutters on the row.
-                    <app-static-ceg>
-                      <app-layout-gutters-no-ceg />
-                    </app-static-ceg>
-                  </ng-container>
-                </app-component-subsubsection>
-              </div>
-            </elvia-accordion>
-            <elvia-divider />
-
-            <!--Margins-->
-            <elvia-accordion closeLabel="Breakpoints" isFullWidth="true" openLabel="Breakpoints" size="large">
-              <div slot="content">
-                <div>
-                  Use the class
-                  <code>e-grid-margin-ext</code>
-                  (for external systems) or
-                  <code>e-grid-margin-int</code>
-                  (for internal systems) to add dynamic margin on rows.
-                </div>
-                <app-static-ceg>
-                  <app-layout-margins-ceg />
-                </app-static-ceg>
-              </div>
-            </elvia-accordion>
-            <elvia-divider />
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+        </elvia-accordion>
+        <elvia-divider />
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!--SPACING-->
   <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Avstand' : 'Spacing'">
-    <ng-container ngProjectAs="sectionContent">
-      <div>
+    <div>
+      <ng-container *ngIf="locale === 'en-GB'">
+        Spacing refers to space between UI elements. It is important to create an appropriate spatial
+        relationship between items and are a big part of the visual design. We follow an 8px spacing system
+        meaning we also provide classes like
+        <code>e-p-8</code>
+        and
+        <code>e-m-8</code>
+        . View all classes available in the
+        <a class="e-link e-link--inline" [routerLink]="['/tools/utility-classes']" fragment="Spacing">
+          <span class="e-link__title">utilities table</span>
+        </a>
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Avstand viser til mellomrommet mellom brukergrensesnitts-elementer. Det er viktig å skape et passende
+        romlig forhold mellom elementene og er en stor del av den visuelle layouten. Vi følger et 8px spacing
+        system som betyr at vi også tilbyr klasser som
+        <code>e-p-8</code>
+        and
+        <code>e-m-8</code>
+        . Se på alle de tilgjengelige klassene i
+        <a class="e-link e-link--inline" [routerLink]="['/tools/utility-classes']" fragment="Spacing">
+          <span class="e-link__title">utilities tabellen</span>
+          .
+        </a>
+      </ng-container>
+    </div>
+    <div class="e-mt-24">
+      <ng-container *ngIf="locale === 'en-GB'">Something to keep in mind when choosing spacing:</ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">Noe å huske på når du velger avstand:</ng-container>
+    </div>
+    <ul class="e-list">
+      <li>
         <ng-container *ngIf="locale === 'en-GB'">
-          Spacing refers to space between UI elements. It is important to create an appropriate spatial
-          relationship between items and are a big part of the visual design.
+          It's about logic. Related things are closer than unrelated things, so two unrelated things must be
+          far away from each other.
         </ng-container>
         <ng-container *ngIf="locale === 'nb-NO'">
-          Avstand viser til mellomrommet mellom brukergrensesnitts-elementer. Det er viktig å skape et
-          passende romlig forhold mellom elementene og er en stor del av den visuelle layouten.
+          Det handler om logikk. Relaterte ting er nærmere enn urelaterte ting, så to urelaterte ting må være
+          langt unna hverandre.
         </ng-container>
-      </div>
-      <div class="display-container centered-content e-mt-24">
-        <div class="display-card" *ngFor="let item of spacingItems">
-          <app-copy [message]="item.className">
-            <div class="display-card-square example-square" [ngClass]="item.className"></div>
-          </app-copy>
-          <div class="display-card-title e-title-caps e-mt-8">{{ item.title }}</div>
-          <div class="display-card-variable e-text-md">{{ item.size }}</div>
-        </div>
-      </div>
-      <div class="e-mt-24">
+      </li>
+      <li>
         <ng-container *ngIf="locale === 'en-GB'">
-          Something to keep in mind when choosing spacing:
+          The bigger the object, the bigger space around it.
         </ng-container>
-        <ng-container *ngIf="locale === 'nb-NO'">Noe å huske på når du velger avstand:</ng-container>
-      </div>
-      <ul class="e-list">
-        <li>
-          <ng-container *ngIf="locale === 'en-GB'">
-            It's about logic. Related things are closer than unrelated things, so two unrelated things must be
-            far away from each other.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Det handler om logikk. Relaterte ting er nærmere enn urelaterte ting, så to urelaterte ting må
-            være langt unna hverandre.
-          </ng-container>
-        </li>
-        <li>
-          <ng-container *ngIf="locale === 'en-GB'">
-            The bigger the object, the bigger space around it.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Jo større objekt, desto større plass rundt det.
-          </ng-container>
-        </li>
-        <li>
-          <ng-container *ngIf="locale === 'en-GB'">
-            We all need to breathe, so let the layout breathe as well.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Vi trenger alle å puste, så la også oppsettet puste.
-          </ng-container>
-        </li>
-      </ul>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Jo større objekt, desto større plass rundt det.
+        </ng-container>
+      </li>
+      <li>
+        <ng-container *ngIf="locale === 'en-GB'">
+          We all need to breathe, so let the layout breathe as well.
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Vi trenger alle å puste, så la også oppsettet puste.
+        </ng-container>
+      </li>
+    </ul>
 
-      <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Veiledning' : 'Help guide'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="e-text-lg e-mb-32">
-            <ng-container *ngIf="locale === 'en-GB'">
-              We have defined a guide to help you choose the correct spacing. These are not rules so
-              exceptions may occur. Spacing will also be used differently depending on which device you are
-              on.
-            </ng-container>
-            <ng-container *ngIf="locale === 'nb-NO'">
-              Vi har laget en veiledning for å hjelpe deg med å velge riktig avstand. Dette er ikke regler, så
-              unntak kan forekomme. Avstand vil også brukes forskjellig avhengig av hvilken enhet du bruker.
-            </ng-container>
-          </div>
-          <app-component-subsubsection
-            [sectionTitle]="
-              locale === 'nb-NO' ? 'Relaterte elementer (8px - 32px)' : 'Related elements (8px - 32px)'
-            "
-          >
-            <ng-container ngProjectAs="sectionContent">
-              <ng-container *ngIf="locale === 'en-GB'">
-                For spacing between
-                <strong>related elements</strong>
-                or inside a component use spacing between 8px and 32px.
-                <h4 class="e-title-caps e-mt-32">Example:</h4>
-                <ul class="e-list">
-                  <li>Padding inside card, table, form etc.</li>
-                  <li>Margin between typography, related input-fields, filter options etc.</li>
-                </ul>
-              </ng-container>
-              <ng-container *ngIf="locale === 'nb-NO'">
-                For avstand mellom
-                <strong>relaterte elementer</strong>
-                eller inne i en komponent, bruk avstand mellom 8px og 32px.
-                <h4 class="e-title-caps e-mt-32">Eksempel:</h4>
-                <ul class="e-list">
-                  <li>Utfylling inne i kort, tabell, skjema osv.</li>
-                  <li>Margin mellom typografi, relaterte inndatafelt, filteralternativer osv.</li>
-                </ul>
-              </ng-container>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection
-            [sectionTitle]="
-              locale === 'nb-NO'
-                ? 'Ikke-relaterte elementer (40px - 72px)'
-                : 'Unrelated elements (40px - 72px)'
-            "
-          >
-            <ng-container ngProjectAs="sectionContent">
-              <ng-container *ngIf="locale === 'en-GB'">
-                For spacing between
-                <strong>unrelated elements</strong>
-                and defines the layout use spacing between 40px and 72px.
-                <h4 class="e-title-caps e-mt-32">Example:</h4>
-                <ul class="e-list">
-                  <li>Margin between cards, tables etc.</li>
-                </ul>
-              </ng-container>
-              <ng-container *ngIf="locale === 'nb-NO'">
-                For avstand mellom
-                <strong>ikke-relaterte</strong>
-                elementer og definerer layout, bruk avstand mellom 40 px og 72 px.
-                <h4 class="e-title-caps e-mt-32">Eksempel:</h4>
-                <ul class="e-list">
-                  <li>Margin mellom kort, tabeller osv.</li>
-                </ul>
-              </ng-container>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection
-            [sectionTitle]="locale === 'nb-NO' ? 'Seksjoner (80px - 112px)' : 'Sections (80px - 112px)'"
-          >
-            <ng-container ngProjectAs="sectionContent">
-              <ng-container *ngIf="locale === 'en-GB'">
-                For spacing between different
-                <strong>sections</strong>
-                use spacing between 80px and 112px. This is used by external websites more often.
-                <h4 class="e-title-caps e-mt-32">Example:</h4>
-                <ul class="e-list">
-                  <li>Margin between different sections vertically</li>
-                </ul>
-              </ng-container>
-              <ng-container *ngIf="locale === 'nb-NO'">
-                Bruk mellomrom mellom 80px og 112px for avstand mellom ulike
-                <strong>seksjoner</strong>
-                . Dette brukes oftere av eksterne nettsteder.
-                <h4 class="e-title-caps e-mt-32">Eksempel:</h4>
-                <ul class="e-list">
-                  <li>Margin mellom ulike seksjoner vertikalt.</li>
-                </ul>
-              </ng-container>
-            </ng-container>
-          </app-component-subsubsection>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Veiledning' : 'Help guide'">
+      <div class="e-text-lg e-mb-32">
+        <ng-container *ngIf="locale === 'en-GB'">
+          We have defined a guide to help you choose the correct spacing. These are not rules so exceptions
+          may occur. Spacing will also be used differently depending on which device you are on.
         </ng-container>
-      </app-component-subsection>
-    </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Vi har laget en veiledning for å hjelpe deg med å velge riktig avstand. Dette er ikke regler, så
+          unntak kan forekomme. Avstand vil også brukes forskjellig avhengig av hvilken enhet du bruker.
+        </ng-container>
+      </div>
+      <app-component-subsubsection
+        [sectionTitle]="
+          locale === 'nb-NO' ? 'Relaterte elementer (8px - 32px)' : 'Related elements (8px - 32px)'
+        "
+      >
+        <ng-container *ngIf="locale === 'en-GB'">
+          For spacing between
+          <strong>related elements</strong>
+          or inside a component use spacing between 8px and 32px.
+          <h4 class="e-title-caps e-mt-32">Example:</h4>
+          <ul class="e-list">
+            <li>Padding inside card, table, form etc.</li>
+            <li>Margin between typography, related input-fields, filter options etc.</li>
+          </ul>
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          For avstand mellom
+          <strong>relaterte elementer</strong>
+          eller inne i en komponent, bruk avstand mellom 8px og 32px.
+          <h4 class="e-title-caps e-mt-32">Eksempel:</h4>
+          <ul class="e-list">
+            <li>Utfylling inne i kort, tabell, skjema osv.</li>
+            <li>Margin mellom typografi, relaterte inndatafelt, filteralternativer osv.</li>
+          </ul>
+        </ng-container>
+      </app-component-subsubsection>
+      <app-component-subsubsection
+        [sectionTitle]="
+          locale === 'nb-NO' ? 'Ikke-relaterte elementer (40px - 72px)' : 'Unrelated elements (40px - 72px)'
+        "
+      >
+        <ng-container *ngIf="locale === 'en-GB'">
+          For spacing between
+          <strong>unrelated elements</strong>
+          and defines the layout use spacing between 40px and 72px.
+          <h4 class="e-title-caps e-mt-32">Example:</h4>
+          <ul class="e-list">
+            <li>Margin between cards, tables etc.</li>
+          </ul>
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          For avstand mellom
+          <strong>ikke-relaterte</strong>
+          elementer og definerer layout, bruk avstand mellom 40 px og 72 px.
+          <h4 class="e-title-caps e-mt-32">Eksempel:</h4>
+          <ul class="e-list">
+            <li>Margin mellom kort, tabeller osv.</li>
+          </ul>
+        </ng-container>
+      </app-component-subsubsection>
+      <app-component-subsubsection
+        [sectionTitle]="locale === 'nb-NO' ? 'Seksjoner (80px - 112px)' : 'Sections (80px - 112px)'"
+      >
+        <ng-container *ngIf="locale === 'en-GB'">
+          For spacing between different
+          <strong>sections</strong>
+          use spacing between 80px and 112px. This is used by external websites more often.
+          <h4 class="e-title-caps e-mt-32">Example:</h4>
+          <ul class="e-list">
+            <li>Margin between different sections vertically</li>
+          </ul>
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Bruk mellomrom mellom 80px og 112px for avstand mellom ulike
+          <strong>seksjoner</strong>
+          . Dette brukes oftere av eksterne nettsteder.
+          <h4 class="e-title-caps e-mt-32">Eksempel:</h4>
+          <ul class="e-list">
+            <li>Margin mellom ulike seksjoner vertikalt.</li>
+          </ul>
+        </ng-container>
+      </app-component-subsubsection>
+    </app-component-subsection>
   </app-component-section>
 
   <!--BOX-->
   <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Bokser' : 'Boxes'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsubsection>
-        <ng-container ngProjectAs="sectionContent">
-          <div class="e-flex e-gap-16 e-align-items-end">
-            <elvia-box>
-              <div slot="content">
-                <div class="e-text-md box-example">CONTENT</div>
-              </div>
-            </elvia-box>
-            <elvia-box>
-              <h2 slot="heading">Heading</h2>
-              <div slot="content">
-                <div class="e-text-md box-example">CONTENT</div>
-              </div>
-            </elvia-box>
-            <elvia-box [isColored]="true">
-              <div slot="content">
-                <div class="e-text-md box-example">CONTENT</div>
-              </div>
-            </elvia-box>
+    <app-component-subsubsection>
+      <div class="e-flex e-gap-16 e-align-items-end">
+        <elvia-box>
+          <div slot="content">
+            <div class="e-text-md box-example">CONTENT</div>
           </div>
-        </ng-container>
-      </app-component-subsubsection>
-      <app-component-subsubsection>
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            Boxes are used as a background container to group content and together with grid and space you can
-            make different layouts. Boxes have no max width or height.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Bokser brukes som en bakgrunnsbeholder for å gruppere innhold, og sammen med rutenett og mellomrom
-            kan du lage forskjellige oppsett. Boksen har ingen maksimal bredde eller høyde.
-          </ng-container>
-        </ng-container>
-      </app-component-subsubsection>
-      <app-component-subsubsection>
-        <ng-container ngProjectAs="sectionContent">
-          <ng-container *ngIf="locale === 'en-GB'">
-            Besides a simple box, we have types with title outside and with a colored line. The box with a
-            colored line should be used if you want the box to take more attention, but not use multiple boxes
-            with colored lines on the same page.
-          </ng-container>
-          <ng-container *ngIf="locale === 'nb-NO'">
-            Foruten en enkel boks har vi typer med tittel utenfor og med en farget linje. Boksen med farget
-            linje bør brukes hvis du vil at boksen skal ta mer oppmerksomhet, men ikke bruke flere bokser med
-            fargede linjer på samme side.
-          </ng-container>
-        </ng-container>
-      </app-component-subsubsection>
-      <div>
-        <a class="e-link e-link--action" [routerLink]="['/components/box']">
-          <span class="e-link__title" *ngIf="locale === 'en-GB'">See box component</span>
-          <span class="e-link__title" *ngIf="locale === 'nb-NO'">Se boksekomponent</span>
-          <span class="e-link__icon">
-            <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
-            <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
-          </span>
-        </a>
+        </elvia-box>
+        <elvia-box>
+          <h2 slot="heading">Heading</h2>
+          <div slot="content">
+            <div class="e-text-md box-example">CONTENT</div>
+          </div>
+        </elvia-box>
+        <elvia-box [isColored]="true">
+          <div slot="content">
+            <div class="e-text-md box-example">CONTENT</div>
+          </div>
+        </elvia-box>
       </div>
-    </ng-container>
+    </app-component-subsubsection>
+    <app-component-subsubsection>
+      <ng-container *ngIf="locale === 'en-GB'">
+        Boxes are used as a background container to group content and together with grid and space you can
+        make different layouts. Boxes have no max width or height.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Bokser brukes som en bakgrunnsbeholder for å gruppere innhold, og sammen med rutenett og mellomrom kan
+        du lage forskjellige oppsett. Boksen har ingen maksimal bredde eller høyde.
+      </ng-container>
+    </app-component-subsubsection>
+    <app-component-subsubsection>
+      <ng-container *ngIf="locale === 'en-GB'">
+        Besides a simple box, we have types with title outside and with a colored line. The box with a colored
+        line should be used if you want the box to take more attention, but not use multiple boxes with
+        colored lines on the same page.
+      </ng-container>
+      <ng-container *ngIf="locale === 'nb-NO'">
+        Foruten en enkel boks har vi typer med tittel utenfor og med en farget linje. Boksen med farget linje
+        bør brukes hvis du vil at boksen skal ta mer oppmerksomhet, men ikke bruke flere bokser med fargede
+        linjer på samme side.
+      </ng-container>
+    </app-component-subsubsection>
+    <div>
+      <a class="e-link e-link--action" [routerLink]="['/components/box']">
+        <span class="e-link__title" *ngIf="locale === 'en-GB'">See box component</span>
+        <span class="e-link__title" *ngIf="locale === 'nb-NO'">Se boksekomponent</span>
+        <span class="e-link__icon">
+          <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+          <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+        </span>
+      </a>
+    </div>
   </app-component-section>
 </div>

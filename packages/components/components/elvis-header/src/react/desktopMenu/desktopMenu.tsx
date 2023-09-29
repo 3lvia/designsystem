@@ -26,7 +26,6 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
   email,
   hideThemeSwitch,
   onSignOutClick,
-  onMenuToggle,
   onThemeChange,
 }) => {
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
@@ -41,7 +40,6 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
 
   const togglePopupVisibility = (isShowing: boolean): void => {
     setIsShowing(isShowing);
-    onMenuToggle(isShowing);
 
     if (isShowing) {
       trapFocus(popoverRef);

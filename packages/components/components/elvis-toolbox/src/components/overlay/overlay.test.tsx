@@ -25,7 +25,7 @@ describe('Overlay', () => {
 
     await user.keyboard('{Escape}');
 
-    await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
+    await waitFor(() => expect(onCloseEvent).toHaveBeenCalledTimes(1));
   });
 
   it('should not close when a different key is pressed', async () => {
@@ -41,7 +41,7 @@ describe('Overlay', () => {
 
     await user.click(screen.getByTestId('backdrop'));
 
-    await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
+    await waitFor(() => expect(onCloseEvent).toHaveBeenCalledTimes(1));
   });
 
   it('should not close when the overlay content is clicked', async () => {

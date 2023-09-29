@@ -7,9 +7,9 @@ export const dividerData: ComponentData<DividerProps> = {
   name: 'Divider',
   attributes: {
     type: {
-      type: 'simple | heading | curved',
+      type: '"simple" | "heading" | "curved"',
       description: 'Type of the divider. The curved version of the divider follows the Elvia curve formula.',
-      default: 'simple',
+      default: '"simple"',
     },
     heading: {
       type: 'HTMLElement | JSX.Element',
@@ -17,14 +17,14 @@ export const dividerData: ComponentData<DividerProps> = {
         'Heading displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
     },
     typography: {
-      type: 'medium | caps',
+      type: '"medium" | "caps"',
       description: 'Type of heading typography.',
-      default: 'medium',
+      default: '"medium"',
     },
     orientation: {
-      type: 'horizontal | vertical',
+      type: '"horizontal" | "vertical"',
       description: 'Change the orientation of the divider.',
-      default: 'horizontal',
+      default: '"horizontal"',
     },
   },
 };

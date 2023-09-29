@@ -2,6 +2,29 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "21.09.23",
+      "version": "3.1.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Added margin for heading to make space for the close button."]
+        }
+      ]
+    },
+    {
+      "date": "18.09.23",
+      "version": "3.1.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Deprecation warnings removed for old props deprecated more than 6 months ago.",
+            "Updated internal dependency."
+          ]
+        }
+      ]
+    },
+    {
       "date": "13.09.23",
       "version": "3.1.4",
       "changelog": [

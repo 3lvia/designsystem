@@ -5,19 +5,13 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard focus'">
-        <ng-container ngProjectAs="sectionContent">
-          A tooltip will appear immediately if attached to an element that receives keyboard focus.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard focus'">
+      A tooltip will appear immediately if attached to an element that receives keyboard focus.
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

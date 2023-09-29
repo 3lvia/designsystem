@@ -5,23 +5,15 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Options'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Title outside'">
-            <ng-container ngProjectAs="sectionContent">
-              You can use the title option when you need a header.
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Colored'">
-            <ng-container ngProjectAs="sectionContent">
-              If you want the box to take more attention, use the box with a colored line, but avoid using it
-              with multiple boxes on the same page.
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-when-to-use [whens]="does"></app-when-to-use>
+    <app-component-subsection [sectionTitle]="'Options'">
+      <app-component-subsubsection [sectionTitle]="'Title outside'">
+        You can use the title option when you need a header.
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Colored'">
+        If you want the box to take more attention, use the box with a colored line, but avoid using it with
+        multiple boxes on the same page.
+      </app-component-subsubsection>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

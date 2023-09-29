@@ -2,7 +2,7 @@ import React from 'react';
 import Tabs from './elvia-tabs';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
 describe('Elvis Tabs', () => {
   const items = ['Oranges', 'Apples', 'Pears'];
@@ -93,6 +93,27 @@ describe('Elvis Tabs', () => {
     it.skip('should have white text-shadow when selected', () => {
       const tabLabel = screen.getByText('Oranges');
       expect(tabLabel).toHaveStyle('text-shadow: 0 0 0 white,0 0 0.5px white');
+    });
+  });
+
+  describe('Events', () => {
+    const valueOnChangeEvent = jest.fn();
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+      render(<Tabs items={items} valueOnChange={valueOnChangeEvent} />);
+    });
+
+    it('should not call onChange when clicking current tab', async () => {
+      await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+    });
+
+    it('should call onChange when clicking new tab', async () => {
+      const user = userEvent.setup();
+      const tabs = screen.getAllByRole('tab');
+
+      await user.click(tabs[1]);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

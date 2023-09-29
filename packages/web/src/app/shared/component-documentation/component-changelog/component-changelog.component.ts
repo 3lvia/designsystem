@@ -63,6 +63,9 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.changelog) {
+      this.changelog = this.changelog.filter((changelogEntry) => !changelogEntry.private);
+    }
     if (this.elvisComponentToFilter) {
       this.changelog = createElvisFilteredChangelog(this.elvisComponentToFilter);
     }
@@ -78,7 +81,7 @@ export class ComponentChangelogComponent implements OnInit {
     }
     this.filteredChangelog =
       this.searchValue.length > minSearchValueLength
-        ? this.searcher.search(this.searchValue.trim())
+        ? this.searcher.search(this.searchValue.trim()).map((result) => result.item)
         : this.changelog;
     if (this.radioFilterValue !== 'all') {
       this.filteredChangelog = this.filteredChangelog?.filter((change) => {

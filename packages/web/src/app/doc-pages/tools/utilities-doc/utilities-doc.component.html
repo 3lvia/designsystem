@@ -10,36 +10,34 @@
 <div class="page-body">
   <!--TABLE OF CLASSES-->
   <app-component-subsection>
-    <ng-container ngProjectAs="sectionContent">
-      <div *ngFor="let group of utilityGroups">
-        <div class="utility-container">
-          <h3 class="rowTitle e-title-xs" *ngIf="group.path">
-            <a
-              class="e-link e-link--lg"
-              [routerLink]="[group.path]"
-              [fragment]="group.fragment"
-              data-url-fragment
-            >
-              {{ group.title }}
-            </a>
-          </h3>
-          <h3 class="rowTitle e-title-xs" *ngIf="!group.path" data-url-fragment>
+    <div *ngFor="let group of utilityGroups">
+      <div class="utility-container">
+        <h3 class="rowTitle e-title-xs" *ngIf="group.path">
+          <a
+            class="e-link e-link--lg"
+            [routerLink]="[group.path]"
+            [fragment]="group.fragment"
+            data-url-fragment
+          >
             {{ group.title }}
-          </h3>
-          <div class="e-text-md" style="width: 100%">
-            <div class="tableRow" *ngFor="let class of group.classes">
-              <span class="class">
-                <app-copy [message]="class.className">
-                  <code class="code-text">{{ class.className }}</code>
-                </app-copy>
-              </span>
-              <span class="description">{{ class.description }}</span>
-              <span class="cssContent">{{ class.styling }}</span>
-            </div>
+          </a>
+        </h3>
+        <h3 class="rowTitle e-title-xs" *ngIf="!group.path" data-url-fragment>
+          {{ group.title }}
+        </h3>
+        <div class="e-text-md" style="width: 100%">
+          <div class="tableRow" *ngFor="let class of group.classes">
+            <span class="class">
+              <app-copy [message]="class.className">
+                <code class="code-text">{{ class.className }}</code>
+              </app-copy>
+            </span>
+            <span class="description">{{ class.description }}</span>
+            <span class="cssContent">{{ class.styling }}</span>
           </div>
         </div>
-        <div class="e-my-48 divider-style"></div>
       </div>
-    </ng-container>
+      <div class="e-my-48 divider-style"></div>
+    </div>
   </app-component-subsection>
 </div>

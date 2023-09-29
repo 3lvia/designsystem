@@ -185,6 +185,15 @@ export class v2PlaygroundComponent {
   isPopoverLIstCheckedShowing = false;
   isPopoverShowing1 = false;
 
+  popoverOnOpen = () => {
+    this.isPopoverShowing = true;
+    console.log('popover open');
+  };
+  popoverOnClose = () => {
+    this.isPopoverShowing = false;
+    console.log('popover close');
+  };
+
   // Progress linear
   progressValue = 0;
   progressError = false;
@@ -288,14 +297,6 @@ export class v2PlaygroundComponent {
     this.deleteValue = event;
     const values = [...this.deletableChipsList];
     this.deletableChipsList = values.filter((value) => value.value !== event);
-  };
-
-  // Popover
-  popoverOnOpen = (): void => {
-    console.log('Popover opened');
-  };
-  popoverOnClose = (): void => {
-    console.log('Popover closed');
   };
 
   sliderOnValueChange = (event: CustomEvent): void => {

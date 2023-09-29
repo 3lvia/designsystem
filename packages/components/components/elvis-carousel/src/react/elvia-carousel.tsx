@@ -12,8 +12,7 @@ import {
   CarouselRightButton,
   CarouselCheckButton,
 } from './StyledComponents';
-import { config } from './config';
-import { warnDeprecatedProps, useRovingFocus, IconWrapper } from '@elvia/elvis-toolbox';
+import { useRovingFocus, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLeftCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleColor';
 import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleFilledColor';
 import arrowRightCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleColor';
@@ -37,8 +36,6 @@ export const Carousel: FC<CarouselProps> = function ({
   type = 'loop',
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
-
   const [carouselItems, setCarouselItems] = useState<CarouselItem[] | number>();
   const [lengthOfItems, setLengthOfItems] = useState<number>(0);
   const [index, setIndex] = useState(value);

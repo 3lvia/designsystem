@@ -1,8 +1,10 @@
 @use 'sass:list';
 @use 'sass:map';
-@use '../variables/shadows';
+@use '@elvia/elvis-colors/dist/elvisShadowMap.scss' as ShadowMap;
 
-@each $label, $value in shadows.$shadowVariables {
+$shadowVariables: ShadowMap.$shadow;
+
+@each $label, $value in $shadowVariables {
   // Making CSS classes for shadow-variables
   .e {
     &-shadow-#{$label} {
@@ -21,6 +23,6 @@
   }
 }
 
-@function getShadow($name, $shadow-set: shadows.$shadowVariables) {
+@function getShadow($name, $shadow-set: $shadowVariables) {
   @return map.get($shadow-set, $name);
 }

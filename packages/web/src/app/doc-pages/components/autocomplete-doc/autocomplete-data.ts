@@ -22,9 +22,9 @@ export const autocompleteData: ComponentData = {
       default: '{ isErrorState: false, hasErrorPlaceholder: true }',
     },
     size: {
-      type: 'small | medium',
+      type: '"small" | "medium"',
       description: 'Autocomplete can be set to different sizes.',
-      default: 'medium',
+      default: '"medium"',
     },
     isDisabled: {
       type: 'boolean',
@@ -46,9 +46,9 @@ export const autocompleteData: ComponentData = {
       description: 'The label for the autocomplete.',
     },
     menuPosition: {
-      type: 'top | bottom | auto',
+      type: '"top" | "bottom" | "auto"',
       description: 'Set the position of the autocomplete menu.',
-      default: 'auto',
+      default: '"auto"',
     },
     placeholder: {
       type: 'string',

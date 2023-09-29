@@ -9,7 +9,6 @@ import {
   TriggerContainer,
   PopoverContent,
 } from './styledComponents';
-import { config } from './config';
 import {
   Overlay,
   IconButton,
@@ -17,7 +16,6 @@ import {
   useConnectedOverlay,
   useFocusTrap,
   useSlot,
-  warnDeprecatedProps,
   IconWrapper,
 } from '@elvia/elvis-toolbox';
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
@@ -37,8 +35,6 @@ const Popover: FC<PopoverProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
-
   const popoverRef = useRef<HTMLDivElement>(null);
   const popoverContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -92,17 +88,6 @@ const Popover: FC<PopoverProps> = function ({
     updatePreferredPosition();
   }, [isShowingConnectedOverlayState, content, horizontalPosition, verticalPosition, heading]);
 
-  /**
-   * Dispatch onOpen and onClose events.
-   */
-  useEffect(() => {
-    if (isShowingConnectedOverlayState) {
-      handleOnOpen();
-    } else if (!isShowingConnectedOverlayState) {
-      handleOnClose();
-    }
-  }, [isShowingConnectedOverlayState]);
-
   const handleOnOpen = () => {
     onOpen?.();
     webcomponent?.triggerEvent('onOpen');
@@ -121,9 +106,11 @@ const Popover: FC<PopoverProps> = function ({
   const toggleVisibility = (): void => {
     if (isShowingConnectedOverlayState) {
       setFadeOut(true);
+      handleOnClose();
     } else {
       setFadeOut(false);
       setIsShowingConnectedOverlayState(true);
+      handleOnOpen();
     }
   };
 
@@ -143,7 +130,10 @@ const Popover: FC<PopoverProps> = function ({
       {isShowingConnectedOverlayState && (
         <Overlay
           ref={popoverRef}
-          onClose={() => setIsShowingConnectedOverlayState(false)}
+          onClose={() => {
+            handleOnClose();
+            setIsShowingConnectedOverlayState(false);
+          }}
           startFade={fadeOut}
         >
           <PopoverContent

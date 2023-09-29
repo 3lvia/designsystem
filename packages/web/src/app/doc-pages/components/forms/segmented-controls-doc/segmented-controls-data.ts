@@ -22,7 +22,7 @@ export const segmentedControlData: ComponentData = {
       default: '"text"',
     },
     size: {
-      type: '“small” | “medium” | “large”',
+      type: '"small" | "medium" | "large"',
       description: 'Size of the segmented control.',
       default: '"medium"',
     },

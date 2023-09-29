@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect, useState, ComponentPropsWithoutRef } from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import {
   CloseButtonContainer,
   ModalContent,
@@ -13,44 +13,9 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { useClickOutside } from './useClickOutside';
 import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
-import {
-  warnDeprecatedProps,
-  useFocusTrap,
-  useSlot,
-  IconWrapper,
-  BaseProps,
-  IconButton,
-} from '@elvia/elvis-toolbox';
+import { useFocusTrap, useSlot, IconWrapper, IconButton } from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
-import { config } from './config';
-
-export interface ModalProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
-  isShowing: boolean;
-  /**
-   * @deprecated Removed in version 2.0.0. Replaced by `heading`.
-   */
-  title?: string;
-  heading?: string;
-  content: JSX.Element;
-  illustration?: JSX.Element;
-  primaryButton?: JSX.Element;
-  secondaryButton?: JSX.Element;
-  /**
-   * @deprecated Removed in version 2.0.0. Replaced by `hasCloseButton`.
-   */
-  hasCloseBtn?: boolean;
-  hasCloseButton?: boolean;
-  hasLockBodyScroll?: boolean;
-  hasPadding?: boolean;
-  disableClose?: boolean;
-  disableBackdrop?: boolean;
-  maxWidth?: string;
-  /**
-   * @deprecated Removed in version 2.0.0. Replaced by `onClose()`.
-   */
-  onHide?: () => void;
-  onClose?: () => void;
-}
+import { ModalProps } from './elvia-modal.types';
 
 export const ModalComponent: FC<ModalProps> = function ({
   isShowing,
@@ -71,8 +36,6 @@ export const ModalComponent: FC<ModalProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
-
   const modalWrapperRef = useRef<HTMLDivElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
 

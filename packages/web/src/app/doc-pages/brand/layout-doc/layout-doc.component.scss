@@ -1,5 +1,5 @@
-@use '@elvia/elvis/src/variables/typography.scss';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+@use '@elvia/elvis/src/utilities/typography.scss';
 
 .example-content {
   padding: 16px;
@@ -7,37 +7,6 @@
   background: var(--e-color-background-element-1);
 }
 
-.example-square {
-  box-sizing: border-box;
-  border: 1px solid var(--e-color-border-1);
-  border-radius: 8%;
-}
-
-.display-card {
-  @media (max-width: 494px) {
-    flex-direction: column;
-    width: 30%;
-  }
-
-  @include breakpoints.breakpoint-up(Tablet) {
-    flex-direction: column;
-    width: 40%;
-  }
-  @include breakpoints.breakpoint-up(Mobile) {
-    flex-direction: column;
-    width: 33%;
-  }
-}
-
-.padding-example {
-  width: 100%;
-}
-
-@include breakpoints.breakpoint-up(Mobile) {
-  img {
-    display: none;
-  }
-}
 .grid-info {
   display: flex;
   flex-direction: row;
@@ -46,6 +15,7 @@
     flex-direction: column;
   }
 }
+
 .circles-container {
   display: flex;
   flex-direction: column;

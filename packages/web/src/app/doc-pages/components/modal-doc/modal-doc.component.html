@@ -5,92 +5,68 @@
 
   <!--TYPE-->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Actions'">
-        <ng-container ngProjectAs="sectionContent">Default modal with two buttons.</ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Actions'">
+      Default modal with two buttons.
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Danger'">
-        <ng-container ngProjectAs="sectionContent">Used for destructive actions.</ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Danger'">
+      Used for destructive actions.
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Info'">
-        <ng-container ngProjectAs="sectionContent">
-          General information - user don’t need to take a desicion with only one button.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Info'">
+      General information - user don’t need to take a desicion with only one button.
+    </app-component-subsection>
   </app-component-section>
 
   <!--OPTIONS-->
   <app-component-section options [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'With illustration'">
-        <ng-container ngProjectAs="sectionContent">
-          You can add an illustration or image to the modal. The size of the modal then changes to fixed
-          height and width (550 x 1090px). Illustration can be used with both Actions and Info modals.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Multiple pages'">
-        <ng-container ngProjectAs="sectionContent">
-          If you need multiple pages in the modal
-          <a class="e-link e-link--inline" [routerLink]="['/components/carousel']">carousel</a>
-          are added to navigate. A close icon button is then added to make it easy to escape the modal.
-          <app-ceg fullWidth>
-            <app-modal-multiple-pages-ceg />
-          </app-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'With illustration'">
+      You can add an illustration or image to the modal. The size of the modal then changes to fixed height
+      and width (550 x 1090px). Illustration can be used with both Actions and Info modals.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Multiple pages'">
+      If you need multiple pages in the modal
+      <a class="e-link e-link--inline" [routerLink]="['/components/carousel']">carousel</a>
+      are added to navigate. A close icon button is then added to make it easy to escape the modal.
+      <app-ceg fullWidth>
+        <app-modal-multiple-pages-ceg />
+      </app-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Actions'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Closing'">
-            <ng-container ngProjectAs="sectionContent">
-              The modal requires implementation for closing. Use the callback prop 'onClose' to listen for
-              click outside modal or on close button and then set the 'isShowing' prop to false.
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Other actions'">
-            <ng-container ngProjectAs="sectionContent">
-              Actions has to be implemented for all other buttons added to the modal as well.
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Actions'">
+      <app-component-subsubsection [sectionTitle]="'Closing'">
+        The modal requires implementation for closing. Use the callback prop 'onClose' to listen for click
+        outside modal or on close button and then set the 'isShowing' prop to false.
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Other actions'">
+        Actions has to be implemented for all other buttons added to the modal as well.
+      </app-component-subsubsection>
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <span class="keyboard-button">Space</span>
-              or
-              <span class="keyboard-button">Enter</span>
-              to open or close the modal.
-            </div>
-            <div>
-              <span class="keyboard-button">Esc</span>
-              to close the modal when open.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <span class="keyboard-button">Space</span>
+          or
+          <span class="keyboard-button">Enter</span>
+          to open or close the modal.
+        </div>
+        <div>
+          <span class="keyboard-button">Esc</span>
+          to close the modal when open.
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

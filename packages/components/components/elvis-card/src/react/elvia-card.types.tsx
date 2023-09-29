@@ -38,33 +38,17 @@ export interface CardColoredLineProps {
 export interface CardProps extends ComponentPropsWithoutRef<'article'>, BaseProps {
   icon?: string | JSX.Element;
   iconHover?: string | JSX.Element;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Use `heading` instead.
-   */
-  header?: never;
   heading?: string;
   headingLevel?: HeadingLevel;
   description?: string;
   borderColor?: BorderColor;
   type?: CardType;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Card no longer supports circle type.
-   */
-  shape?: never;
-  /**
-   * @deprecated Deprecated in version 3.2.0. Card now has the same border on all backgrounds. No replacement needed.
-   */
-  hasBorder?: boolean;
   width?: string;
   height?: string;
   minWidth?: number;
   maxWidth?: number;
   maxDescriptionLines?: number;
   maxHeadingLines?: number;
-  /**
-   * @deprecated Deprecated in version 2.0.0. Instead use `tag`.
-   */
-  label?: never;
   tag?: string;
   cornerIcon?: string | JSX.Element;
 }

@@ -1,5 +1,4 @@
-@use '../variables/typography.scss';
-@use '../utilities/shadows';
+@use '../utilities/typography.scss';
 @use '../utilities/icons.scss';
 @use '../utilities/breakpoints';
 @use '../utilities/helpers';
@@ -289,62 +288,12 @@ $toast-max-width: 400px;
       }
     }
 
-    //DEPRECATED
-    /* stylelint-disable -- Do not lint deprecated styles. */
-    .e-alert__close {
-      justify-content: flex-end;
-      margin-top: -14px;
-      margin-right: -22px;
-    }
-    /* stylelint-enable */
-
     &.e-alert--warn {
       border-color: var(--e-color-signal-warning);
     }
 
     &.e-alert--info {
       border-color: var(--e-color-signal-info);
-    }
-  }
-
-  // TOAST - DEPRECATED
-  &.e-alert--toast {
-    max-width: $toast-max-width;
-    padding: $toast-padding;
-    border-color: var(--e-color-signal-positive);
-    border-radius: 8px;
-    box-shadow: shadows.getShadow('medium');
-
-    .e-alert__icon {
-      width: 24px;
-      align-items: center;
-      margin-top: 0;
-      margin-right: 16px;
-
-      i {
-        @include icons.icon-size('sm');
-      }
-    }
-
-    .e-alert__title {
-      @include typography.typography('text-sm-strong');
-      color: var(--e-color-text-1);
-    }
-
-    .e-alert__content .e-alert__text {
-      @include typography.typography('text-sm');
-      color: var(--e-color-text-1);
-    }
-
-    .e-alert__close {
-      align-items: flex-start;
-      justify-content: flex-end;
-      margin-top: -8px;
-      margin-right: -8px;
-    }
-
-    &.e-alert--info {
-      border-color: var(--e-color-border-1);
     }
   }
 

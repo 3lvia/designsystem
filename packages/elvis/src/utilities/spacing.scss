@@ -1,9 +1,59 @@
 @use 'sass:list';
 @use 'sass:map';
-@use '../variables/spacing';
+
+$spacing: (
+  '0': (
+    value: 0,
+  ),
+  '8': (
+    value: 8px,
+    alt-labels: (
+      primary,
+    ),
+  ),
+  '16': (
+    value: 16px,
+  ),
+  '24': (
+    value: 24px,
+  ),
+  '32': (
+    value: 32px,
+  ),
+  '40': (
+    value: 40px,
+  ),
+  '48': (
+    value: 48px,
+  ),
+  '56': (
+    value: 56px,
+  ),
+  '64': (
+    value: 64px,
+  ),
+  '72': (
+    value: 72px,
+  ),
+  '80': (
+    value: 80px,
+  ),
+  '88': (
+    value: 88px,
+  ),
+  '96': (
+    value: 96px,
+  ),
+  '104': (
+    value: 104px,
+  ),
+  '112': (
+    value: 112px,
+  ),
+);
 
 // Making margin and padding classes for all spacing
-@each $label, $map in spacing.$spacing {
+@each $label, $map in $spacing {
   $value: map.get($map, value);
   $alt-labels: map.get($map, labels);
   $labels: ($label);

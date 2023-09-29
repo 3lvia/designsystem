@@ -10,48 +10,5 @@ export const config: ComponentConfig = {
     { name: 'value', type: 'number' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
-    // Deprecated attributes
-    {
-      name: 'loop',
-      type: 'string',
-      deprecatedDetails: {
-        version: '3.0.0',
-        newProp: 'type',
-        isDirectReplacement: false,
-        explanation: "'loop' has been replaced by 'type'.",
-      },
-    },
-    {
-      name: 'elements',
-      type: 'string',
-      deprecatedDetails: {
-        version: '2.0.0',
-        newProp: 'items',
-        isDirectReplacement: false,
-        explanation:
-          "'elements' have been replaced by 'items'. The child-type CarouselElement has been renamed to CarouselItem.",
-      },
-    },
-    {
-      name: 'useOnboardingCheckmark',
-      type: 'boolean',
-      deprecatedDetails: { version: '2.0.0', newProp: 'hasConfirmationCheckmark', isDirectReplacement: true },
-    },
-    {
-      name: 'hideArrows',
-      type: 'boolean',
-      deprecatedDetails: {
-        version: '2.0.0',
-        newProp: 'loop',
-        isDirectReplacement: false,
-        explanation:
-          'Changed hideArrows to loop to better describe use-case. Remember to invert the boolean if hideArrows is being used.',
-      },
-    },
-    {
-      name: 'onHide',
-      type: 'event',
-      deprecatedDetails: { version: '2.0.0', newProp: 'onFinish', isDirectReplacement: true },
-    },
   ],
 };
