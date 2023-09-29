@@ -1,4 +1,4 @@
-import Badge from './elvia-badge';
+import { Badge } from './elvia-badge';
 import React from 'react';
 import { axe } from 'jest-axe';
 import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
