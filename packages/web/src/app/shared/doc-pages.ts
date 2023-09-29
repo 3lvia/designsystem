@@ -203,7 +203,7 @@ export const componentsDocPages: DocPage[] = [
       'https://www.figma.com/file/GIl5R2y3TWNwlyknvgwTZF/Context-menu?type=design&node-id=1%3A8&mode=design&t=WbrogSojhhPTUfBq-1',
     type: 'Component',
     searchTerms: ['menu', 'popup', 'more', 'actions'],
-    relatedPages: ['button', 'popover', 'icon'],
+    relatedPages: ['button', 'popover'],
   },
   {
     title: 'Datepicker',
