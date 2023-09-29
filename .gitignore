@@ -18,7 +18,6 @@ dist
 
 # Chache
 .eslintcache
-.parcel-cache
 
 # dependencies
 node_modules
