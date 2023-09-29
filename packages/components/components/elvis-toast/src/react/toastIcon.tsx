@@ -2,7 +2,7 @@ import React from 'react';
 import * as DOMPurify from 'dompurify';
 
 import { IconWrapper } from '@elvia/elvis-toolbox';
-import { ToastConfig } from './elviaToast.types';
+import { ToastConfig } from './publicApi.public';
 import checkCircle from '@elvia/elvis-assets-icons/dist/icons/checkCircle';
 import informationCircle from '@elvia/elvis-assets-icons/dist/icons/informationCircle';
 

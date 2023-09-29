@@ -11,7 +11,7 @@ import { DarkThemeIcon } from './darkThemeIcon';
 import { SystemThemeIcon } from './systemThemeIcon';
 import { getApplicableTheme, getStoredActiveTheme, setThemeClassOnDocument } from '../themeUtils';
 import { ThemeEvent } from '../elviaHeader.types';
-import { Theme, themeLocalStorageKey } from '../elviaHeader.shared.types';
+import { Theme, themeLocalStorageKey } from '../elviaHeader.types';
 
 interface PickerTheme {
   theme: Theme;
