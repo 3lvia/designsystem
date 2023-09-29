@@ -79,6 +79,6 @@ const toInOutTuple = (filePath) => {
     );
     esBuildContext.watch();
   } else {
-    await esbuild.build(Object.assign(baseConfig, { minify: false }));
+    await esbuild.build(Object.assign(baseConfig, { minify: true }));
   }
 })();
