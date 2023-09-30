@@ -35,20 +35,23 @@ export const dtsPlugin = ({ destinationDir, paths }) => ({
         undefined,
         (fileName, text) => {
           const componentName = fileName.split('/')[1];
-
-          const isPublic = path.basename(fileName).includes('.public');
-
-          if (isPublic) {
-            fs.writeFileSync(
-              path.join(destinationDir, componentName, 'dist', 'public-api', 'public-api.d.ts'),
-              text,
-            );
-          } else {
-            fs.writeFileSync(
-              path.join(destinationDir, componentName, 'dist', 'react', path.basename(fileName)),
-              text,
+          const isPublicApi = path.basename(fileName).includes('.public');
+          const outputPath = path.join(
+            destinationDir,
+            componentName,
+            'dist',
+            isPublicApi ? 'public-api' : 'react',
+            path.basename(fileName),
+          );
+          let fileContent = text;
+          if (text.match(/\.\/([\w-]+.public)/g)) {
+            fileContent = text.replace(
+              /\.\/([\w-]+.public)/g,
+              (_match, fileName) => `../public-api/${fileName}`,
             );
           }
+
+          fs.writeFileSync(outputPath, fileContent);
         },
         undefined,
         true,
