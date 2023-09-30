@@ -2,10 +2,13 @@
   "extends": "../../tsconfig.json",
   "ts-node": {
     "compilerOptions": {
-      "module": "commonjs"
+      "module": "ESNext"
     }
   },
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "module": "ESNext",
     "declaration": true,
     "outDir": "./dist/",
     "jsx": "react",

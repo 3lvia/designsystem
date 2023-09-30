@@ -2,8 +2,9 @@
   "name": "@elvia/elvis-components",
   "private": true,
   "license": "ISC",
+  "type": "module",
   "scripts": {
-    "esbuild": "node ./esbuild.config.mjs",
+    "esbuild": "ts-node --esm ./esbuild.config.ts",
     "build": "gulp --gulpfile build/gulpfile.ts cleanup && concurrently 'gulp --gulpfile build/gulpfile.ts' 'yarn esbuild'",
     "start": "concurrently 'gulp --gulpfile build/gulpfile.ts watch' 'yarn esbuild --watch'",
     "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
@@ -69,6 +70,7 @@
     "styled-components": "^5.3.3",
     "tiny-glob": "^0.2.9",
     "ts-loader": "^8.0.3",
+    "ts-node": "^10.9.1",
     "typescript-plugin-styled-components": "^2.0.0"
   },
   "peerDependencies": {
