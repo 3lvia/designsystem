@@ -1,1 +1,2 @@
-export * from './dist/react/types';
+export * from './dist/react/elvia-breadcrumb';
+export * from './dist/react/elvia-breadcrumb.types';

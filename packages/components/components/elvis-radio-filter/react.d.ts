@@ -1,1 +1,1 @@
-export * from './dist/react/types';
+export * from './dist/react/elvia-radio-filter';

@@ -8,7 +8,6 @@
   "files": [
     "react.js",
     "react.d.ts",
-    "web_component.js",
     "dist"
   ],
   "dependencies": {

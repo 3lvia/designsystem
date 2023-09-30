@@ -1,2 +1,2 @@
-export * from './dist/react/types';
-export * from './dist/public-api/elviaTooltip.types';
+export * from './dist/react/elvia-tooltip';
+export * from './dist/react/elviaTooltip.types';

@@ -38,16 +38,11 @@ const getAllDependencies = (componentDataList) => {
 };
 
 const toInOutTuple = (filePath) => {
-  const fileName = path.basename(filePath);
+  const fileName = path.parse(filePath).name;
   const componentFolder = filePath.split('/')[1];
-  const subFolder = fileName.includes('.public') ? 'public-api' : 'react';
-  const newFileName = fileName.includes('.types')
-    ? 'types'
-    : fileName.includes('.public')
-    ? 'public-api'
-    : 'react';
+  const subFolder = fileName.endsWith('.public') ? 'public-api' : 'react';
 
-  return { in: filePath, out: path.join(componentFolder, 'dist', subFolder, newFileName) };
+  return { in: filePath, out: path.join(componentFolder, 'dist', subFolder, fileName) };
 };
 
 (async () => {

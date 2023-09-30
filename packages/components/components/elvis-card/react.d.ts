@@ -1,1 +1,2 @@
-export * from './dist/react/types';
+export * from './dist/react/elvia-card';
+export * from './dist/react/elvia-card.types';

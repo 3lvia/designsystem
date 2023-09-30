@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/stepper",
   "source": "src/react/elvia-stepper.tsx",
-  "main": "dist/main/web_component.js",
+  "main": "web_component.js",
   "files": [
     "react.js",
     "react.d.ts",

@@ -1,1 +1,2 @@
-export * from './dist/react/types';
+export * from './dist/react/elvia-modal';
+export * from './dist/react/elvia-modal.types';

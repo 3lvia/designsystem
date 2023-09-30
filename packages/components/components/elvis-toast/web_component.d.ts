@@ -1,1 +1,1 @@
-export * from './dist/public-api/public-api';
+export * from './dist/public-api/publicApi.public';

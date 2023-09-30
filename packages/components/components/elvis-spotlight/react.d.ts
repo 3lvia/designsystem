@@ -1,1 +1,2 @@
-export * from './dist/react/types';
+export * from './dist/react/elvia-spotlight';
+export * from './dist/react/elvia-spotlight.types';

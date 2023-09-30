@@ -1,2 +1,3 @@
-export * from './dist/react/types';
-export * from './dist/public-api/public-api';
+export * from './dist/react/elvia-dropdown';
+export * from './dist/react/elviaDropdown.types';
+export * from './dist/public-api/publicApi.public';

@@ -1,2 +1,3 @@
-export * from './dist/react/types';
-export * from './dist/public-api/public-api';
+export * from './dist/react/elvia-timepicker';
+export * from './dist/react/elviaTimepicker.types';
+export * from './dist/public-api/publicApi.public';

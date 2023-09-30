@@ -1,1 +1,2 @@
-export * from './dist/react/types';
+export * from './dist/react/elvia-progress-linear';
+export * from './dist/react/elvia-progress-linear.types';
