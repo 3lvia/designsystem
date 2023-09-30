@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/slider",
   "source": "src/react/elvia-slider.tsx",
-  "main": "dist/main/web_component.js",
+  "main": "dist/main/web-component.js",
   "files": [
     "react.js",
     "react.d.ts",

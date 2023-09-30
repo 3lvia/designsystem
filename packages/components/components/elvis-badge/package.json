@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/badge",
   "source": "src/react/elvia-badge.tsx",
-  "main": "dist/main/web_component.js",
+  "main": "dist/main/web-component.js",
   "files": [
     "react.js",
     "react.d.ts",

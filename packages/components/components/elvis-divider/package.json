@@ -4,10 +4,11 @@
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/divider",
   "source": "src/react/elvia-divider.tsx",
-  "main": "dist/main/web_component.js",
+  "main": "dist/main/web-component.js",
   "files": [
     "react.js",
     "react.d.ts",
+    "web_component.js",
     "dist"
   ],
   "dependencies": {

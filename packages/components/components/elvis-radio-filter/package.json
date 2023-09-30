@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/radio-filter",
   "source": "src/react/elvia-radio-filter.tsx",
-  "main": "dist/main/web_component.js",
+  "main": "dist/main/web-component.js",
   "files": [
     "react.js",
     "react.d.ts",

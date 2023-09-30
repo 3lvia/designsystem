@@ -3,7 +3,7 @@
   "version": "4.0.1",
   "homepage": "https://design.elvia.io/components/datepicker-range",
   "source": "src/react/elvia-datepicker-range.tsx",
-  "main": "dist/main/web_component.js",
+  "main": "dist/main/web-component.js",
   "files": [
     "react.js",
     "react.d.ts",

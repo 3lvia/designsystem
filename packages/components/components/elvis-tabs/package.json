@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/tabs",
   "source": "src/react/elvia-tabs.tsx",
-  "main": "dist/main/web_component.js",
+  "main": "dist/main/web-component.js",
   "files": [
     "react.js",
     "react.d.ts",

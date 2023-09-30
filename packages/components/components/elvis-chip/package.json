@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/chip",
   "source": "src/react/elvia-chip.tsx",
-  "main": "dist/main/web_component.js",
+  "main": "dist/main/web-component.js",
   "files": [
     "react.js",
     "react.d.ts",
