@@ -34,15 +34,13 @@ export const dtsPlugin = ({ destinationDir }) => ({
       const emit = program.emit(
         undefined,
         (fileName, text) => {
-          const componentName = fileName.split('/')[1];
           const isPublicApi = path.basename(fileName).includes('.public');
-          const outputPath = path.join(
-            destinationDir,
-            componentName,
-            'dist',
-            isPublicApi ? 'public-api' : 'react',
-            path.basename(fileName),
+          const normalizedPath = fileName.replace('react/', '');
+          const outPath = normalizedPath.replace(
+            'src',
+            `dist${path.sep}${isPublicApi ? 'public-api' : 'react'}`,
           );
+
           let fileContent = text;
           if (text.match(/\.\/([\w-]+.public)/g)) {
             fileContent = text.replace(
@@ -51,7 +49,10 @@ export const dtsPlugin = ({ destinationDir }) => ({
             );
           }
 
-          fs.writeFileSync(outputPath, fileContent);
+          if (!fs.existsSync(path.dirname(outPath))) {
+            fs.mkdirSync(path.dirname(outPath), { recursive: true });
+          }
+          fs.writeFileSync(outPath, fileContent);
         },
         undefined,
         true,

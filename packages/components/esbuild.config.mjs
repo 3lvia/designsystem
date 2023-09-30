@@ -21,7 +21,7 @@ const getMd5 = (fileName) => {
 };
 
 const getComponentData = async () => {
-  const paths = await tinyGlob(`${rootDir}/elvis-*/package.json`);
+  const paths = await tinyGlob('components/elvis-*/package.json');
   return paths.map((path) => {
     const file = fs.readFileSync(path, 'utf-8');
     return { content: JSON.parse(file), component: path.split('/')[1] };
@@ -29,7 +29,7 @@ const getComponentData = async () => {
 };
 
 const getEntryPoint = (componentData) => {
-  return path.join(rootDir, componentData.component, componentData.content.source);
+  return path.join('components', componentData.component, componentData.content.source);
 };
 
 const getAllDependencies = (componentDataList) => {
@@ -48,7 +48,7 @@ const toInOutTuple = (filePath) => {
 (async () => {
   const watchMode = process.argv.includes('--watch');
 
-  const typePaths = await tinyGlob(`${rootDir}/elvis-*/src/react/*.{public,types}.ts*`);
+  const typePaths = await tinyGlob('components/elvis-*/src/react/*.{public,types}.ts*');
   const componentDataList = await getComponentData();
   const paths = typePaths.concat(componentDataList.map(getEntryPoint)).map(toInOutTuple);
   const dependencies = getAllDependencies(componentDataList);
