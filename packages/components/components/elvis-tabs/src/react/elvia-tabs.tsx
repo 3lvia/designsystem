@@ -14,7 +14,7 @@ import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold'
 import { TabsProps } from './elvia-tabs.types';
 import { useScrollPositionDetection } from './useScrollPositionDetection';
 
-const Tabs: FC<TabsProps> = ({
+export const Tabs: FC<TabsProps> = ({
   items,
   value = 0,
   isInverted,

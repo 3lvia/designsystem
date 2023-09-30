@@ -3,7 +3,7 @@ import {
   CloseButtonContainer,
   ModalContent,
   ModalIllustration,
-  Modal,
+  Modal as StyledModal,
   ModalHeading,
   ModalWrapper,
   ModalText,
@@ -17,7 +17,7 @@ import { useFocusTrap, useSlot, IconWrapper, IconButton } from '@elvia/elvis-too
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { ModalProps } from './elvia-modal.types';
 
-export const ModalComponent: FC<ModalProps> = function ({
+export const Modal: FC<ModalProps> = function ({
   isShowing,
   heading,
   content,
@@ -96,7 +96,7 @@ export const ModalComponent: FC<ModalProps> = function ({
   }, [isShowing]);
 
   return (
-    <Modal
+    <StyledModal
       aria-modal
       tabIndex={-1}
       role="dialog"
@@ -160,8 +160,8 @@ export const ModalComponent: FC<ModalProps> = function ({
           )}
         </ModalContent>
       </ModalWrapper>
-    </Modal>
+    </StyledModal>
   );
 };
 
-export default ModalComponent;
+export default Modal;
