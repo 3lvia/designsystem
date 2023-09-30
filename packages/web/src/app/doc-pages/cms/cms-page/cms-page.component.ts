@@ -7,7 +7,7 @@ import { combineLatest } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 import { IDocumentationPage } from 'contentful/types';
-import { ElvisComponentWrapper } from '../../../../../../components/components/elvis-component-wrapper/dist/elvia-component';
+import { ElvisComponentWrapper } from '../../../../../../components/components/elvis-component-wrapper';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
