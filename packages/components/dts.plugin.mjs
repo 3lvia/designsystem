@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import path from 'path';
 import fs from 'fs';
 
-export const dtsPlugin = ({ destinationDir, paths }) => ({
+export const dtsPlugin = ({ destinationDir }) => ({
   name: 'dts-plugin',
   async setup(build) {
     const tsConfig = JSON.parse(fs.readFileSync('./tsconfig.esbuild.json', 'utf-8'));
@@ -13,9 +13,8 @@ export const dtsPlugin = ({ destinationDir, paths }) => ({
     compilerOpts.listEmittedFiles = true;
     const host = ts.createCompilerHost(compilerOpts);
     const files = [];
-    const f = paths.map((p) => p.in);
 
-    // get all ts files
+    // Register all files that should be transpiled
     build.onResolve({ filter: /(\.tsx|\.ts)$/ }, async (args) => {
       files.push(args.path);
 
@@ -24,6 +23,7 @@ export const dtsPlugin = ({ destinationDir, paths }) => ({
       return {};
     });
 
+    // When the build is finished, transpile all typings
     build.onEnd(() => {
       const program = ts.createProgram({
         options: compilerOpts,

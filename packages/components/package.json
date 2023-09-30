@@ -3,10 +3,9 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "tsup": "tsup",
     "esbuild": "node ./esbuild.config.mjs",
-    "build": "gulp --gulpfile build/gulpfile.ts cleanup && concurrently 'gulp --gulpfile build/gulpfile.ts' 'tsup'",
-    "start": "concurrently 'gulp --gulpfile build/gulpfile.ts watch' 'tsup --watch'",
+    "build": "gulp --gulpfile build/gulpfile.ts cleanup && concurrently 'gulp --gulpfile build/gulpfile.ts' 'yarn esbuild'",
+    "start": "concurrently 'gulp --gulpfile build/gulpfile.ts watch' 'yarn esbuild --watch'",
     "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
     "test": "jest --config jest.config.ts --colors",
     "test:start": "jest --config jest.config.ts --watch --colors",
@@ -50,10 +49,7 @@
     "css-loader": "^4.3.0",
     "del": "^6.0.0",
     "esbuild": "^0.19.3",
-    "esbuild-css-modules-plugin": "^3.0.3",
-    "esbuild-plugin-d.ts": "^1.1.0",
     "esbuild-plugin-styled-components": "^2.2.2",
-    "esbuild-style-plugin": "^1.6.2",
     "express": "^4.17.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
@@ -72,7 +68,6 @@
     "styled-components": "^5.3.3",
     "tiny-glob": "^0.2.9",
     "ts-loader": "^8.0.3",
-    "tsup": "^7.2.0",
     "typescript-plugin-styled-components": "^2.0.0"
   },
   "peerDependencies": {
