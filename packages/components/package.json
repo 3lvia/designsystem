@@ -49,6 +49,7 @@
     "css-loader": "^4.3.0",
     "del": "^6.0.0",
     "esbuild": "^0.19.3",
+    "esbuild-css-modules-plugin": "^3.0.3",
     "esbuild-plugin-styled-components": "^2.2.2",
     "express": "^4.17.1",
     "gulp": "^4.0.2",

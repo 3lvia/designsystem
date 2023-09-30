@@ -1,6 +1,7 @@
 import esbuild from 'esbuild';
 import { dtsPlugin } from './dts.plugin.mjs';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
+import cssModulesPlugin from 'esbuild-css-modules-plugin';
 import tinyGlob from 'tiny-glob';
 import fs from 'fs';
 import path from 'path';
@@ -63,6 +64,7 @@ const toInOutTuple = (filePath) => {
     plugins: [
       dtsPlugin({ destinationDir: rootDir, paths }),
       styledComponentsPlugin({ ssr: true, displayName: true }),
+      cssModulesPlugin({ inject: true, localsConvention: 'camelCase' }),
     ],
   };
 
