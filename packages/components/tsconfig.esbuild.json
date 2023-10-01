@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "incremental": true,
-    "target": "ES2015",
-    "skipLibCheck": true
-  }
-}

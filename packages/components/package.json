@@ -4,9 +4,9 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "esbuild": "ts-node --esm ./esbuild.config.ts",
-    "build": "gulp --gulpfile build/gulpfile.ts cleanup && concurrently 'gulp --gulpfile build/gulpfile.ts' 'yarn esbuild'",
-    "start": "concurrently 'gulp --gulpfile build/gulpfile.ts watch' 'yarn esbuild --watch'",
+    "esbuild": "ts-node --esm ./build/esbuild.config.ts",
+    "build": "yarn esbuild",
+    "start": "yarn esbuild --watch",
     "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
     "test": "jest --config jest.config.ts --colors",
     "test:start": "jest --config jest.config.ts --watch --colors",

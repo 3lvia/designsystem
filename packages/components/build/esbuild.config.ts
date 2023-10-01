@@ -1,30 +1,21 @@
 import esbuild from 'esbuild';
 import dtsPlugin from './dts.plugin.ts';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
+import buildWebComponents from './web-component-buid.config.ts';
 import cssModulesPlugin from 'esbuild-css-modules-plugin';
 import tinyGlob from 'tiny-glob';
 import fs from 'fs';
 import path from 'path';
-import crypto from 'crypto';
+import chalk from 'chalk';
+import { toInOutTuple } from './utils.ts';
+import cleanDistFolders from './cleanDist.ts';
 
 interface ComponentData {
   component: string;
   content: Record<string, any>;
 }
 
-const rootDir = 'components';
-
-// We create a hash of the new output to see if it differs from the old
-// If the file content is the same, we don't move it. This increases performance.
-const getMd5 = (fileName: string) => {
-  if (!fs.existsSync(fileName) || fs.statSync(fileName).isDirectory()) {
-    return null;
-  }
-
-  const hash = crypto.createHash('md5');
-  const data = hash.update(fs.readFileSync(fileName) as any, 'utf-8');
-  return data.digest('hex');
-};
+const rootDir = 'tmp-folder';
 
 const getComponentData = async () => {
   const paths = await tinyGlob('components/elvis-*/package.json');
@@ -43,26 +34,17 @@ const getAllDependencies = (componentDataList: ComponentData[]) => {
   return Array.from(new Set(dependencies));
 };
 
-const toInOutTuple = (filePath: string) => {
-  const fileName = path.parse(filePath).name;
-  const componentFolder = filePath.split('/')[1];
-  const subFolder = fileName.endsWith('.public') ? 'public-api' : 'react';
-
-  return { in: filePath, out: path.join(componentFolder, 'dist', subFolder, fileName) };
-};
-
 export const build = async () => {
   const watchMode = process.argv.includes('--watch');
 
   const typePaths = await tinyGlob('components/elvis-*/src/react/*.{public,types}.ts*');
   const componentDataList = await getComponentData();
-  const paths = typePaths.concat(componentDataList.map(getEntryPoint)).map(toInOutTuple);
+  const paths = typePaths.concat(componentDataList.map(getEntryPoint)).map((path) => toInOutTuple(path));
   const dependencies = getAllDependencies(componentDataList);
 
   const baseConfig: esbuild.BuildOptions = {
     entryPoints: paths,
     outdir: rootDir,
-    logLevel: 'info',
     bundle: true,
     format: 'esm',
     external: dependencies,
@@ -74,13 +56,27 @@ export const build = async () => {
   };
 
   if (watchMode) {
+    console.log('👀 Starting watch...');
     const esBuildContext = await esbuild.context({
       ...baseConfig,
       sourcemap: true,
     });
-    esBuildContext.watch();
+    return Promise.all([
+      esBuildContext.watch(),
+      buildWebComponents({ outDir: rootDir, watch: watchMode }),
+    ]).then(() => console.log(chalk.green(`⚡️ Rebuilt components...`)));
   } else {
-    await esbuild.build({ ...baseConfig, minify: true });
+    cleanDistFolders();
+
+    console.log('📦 Building components...');
+
+    const start = Date.now();
+    return Promise.all([
+      esbuild.build({ ...baseConfig, minify: true }),
+      buildWebComponents({ outDir: rootDir, watch: watchMode }),
+    ]).then(() =>
+      console.log(chalk.green(`⚡️ Built ${componentDataList.length} components in ${Date.now() - start}ms`)),
+    );
   }
 };
 build();

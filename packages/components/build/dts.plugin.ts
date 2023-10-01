@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import esbuild from 'esbuild';
 import ts from 'typescript';
 import chalk from 'chalk';
@@ -9,15 +8,21 @@ interface Props {
   destinationDir: string;
 }
 
-export const dtsPlugin = (config: Props) =>
+const dtsPlugin = (config: Props) =>
   ({
     name: 'dts-plugin',
     async setup(build) {
-      const tsConfig = JSON.parse(fs.readFileSync('./tsconfig.esbuild.json', 'utf-8'));
-      const compilerOpts = ts.convertCompilerOptionsFromJson(tsConfig.compilerOptions, '').options;
-      compilerOpts.declarationDir = config.destinationDir;
-      compilerOpts.listEmittedFiles = true;
-      const host = ts.createCompilerHost(compilerOpts);
+      const tsConfig: ts.CompilerOptions = {
+        declarationDir: config.destinationDir,
+        listEmittedFiles: true,
+        declaration: true,
+        emitDeclarationOnly: true,
+        incremental: true,
+        target: ts.ScriptTarget.ES2015,
+        skipLibCheck: true,
+      };
+
+      const host = ts.createCompilerHost(tsConfig);
       const files: string[] = [];
 
       // Register all files that should be transpiled
@@ -26,8 +31,8 @@ export const dtsPlugin = (config: Props) =>
 
         host.getSourceFile(
           args.path,
-          compilerOpts.target ?? ts.ScriptTarget.ES2019,
-          (m) => console.log(m),
+          tsConfig.target ?? ts.ScriptTarget.ES2019,
+          (m) => console.error(m),
           true,
         );
 
@@ -37,7 +42,7 @@ export const dtsPlugin = (config: Props) =>
       // When the build is finished, transpile all typings
       build.onEnd(() => {
         const program = ts.createProgram({
-          options: compilerOpts,
+          options: tsConfig,
           host: host,
           rootNames: files,
         });
@@ -56,7 +61,7 @@ export const dtsPlugin = (config: Props) =>
             if (text.match(/\.\/([\w-]+.public)/g)) {
               fileContent = text.replace(
                 /\.\/([\w-]+.public)/g,
-                (_match, fileName) => `../public-api/${fileName}`,
+                (_match, fileName) => `..${path.sep}public-api${path.sep}${fileName}`,
               );
             }
 
@@ -69,8 +74,8 @@ export const dtsPlugin = (config: Props) =>
           true,
         );
         console.log(
-          chalk.green(
-            `⚡️ Built ${emit.emittedFiles ? emit.emittedFiles.length : 0} typings in ${
+          chalk.white(
+            `✏️  Wrote ${emit.emittedFiles ? emit.emittedFiles.length : 0} typings in ${
               Date.now() - start
             }ms`,
           ),
