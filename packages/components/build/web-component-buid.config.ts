@@ -89,7 +89,6 @@ const buildWebComponents = async (config: Props): Promise<esbuild.BuildResult | 
   const baseConfig: esbuild.BuildOptions = {
     entryPoints: paths.map((path) => toInOutTuple(path, 'main', 'web-component')),
     outdir: config.outDir,
-    logLevel: 'info',
     bundle: true,
     format: 'esm',
     plugins: [createWebComponentPlugin],

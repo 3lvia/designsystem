@@ -66,10 +66,10 @@ export const build = async () => {
       buildWebComponents({ outDir: rootDir, watch: watchMode }),
     ]).then(() => console.log(chalk.green(`⚡️ Rebuilt components...`)));
   } else {
-    cleanDistFolders();
+    console.log('🧹 Removing old dist folders...');
+    await cleanDistFolders();
 
     console.log('📦 Building components...');
-
     const start = Date.now();
     return Promise.all([
       esbuild.build({ ...baseConfig, minify: true }),

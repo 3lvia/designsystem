@@ -1,6 +1,5 @@
 import esbuild from 'esbuild';
 import ts from 'typescript';
-import chalk from 'chalk';
 import path from 'path';
 import fs from 'fs';
 
@@ -74,11 +73,7 @@ const dtsPlugin = (config: Props) =>
           true,
         );
         console.log(
-          chalk.white(
-            `✏️  Wrote ${emit.emittedFiles ? emit.emittedFiles.length : 0} typings in ${
-              Date.now() - start
-            }ms`,
-          ),
+          `✏️  Wrote ${emit.emittedFiles ? emit.emittedFiles.length : 0} typings in ${Date.now() - start}ms`,
         );
       });
     },
