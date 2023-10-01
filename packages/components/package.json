@@ -7,7 +7,6 @@
     "esbuild": "ts-node --esm ./build/esbuild.config.ts",
     "build": "yarn esbuild",
     "start": "yarn esbuild --watch",
-    "clean": "gulp --gulpfile build/gulpfile.ts cleanup",
     "test": "jest --config jest.config.ts --colors",
     "test:start": "jest --config jest.config.ts --watch --colors",
     "test:coverage": "jest --coverage --colors"

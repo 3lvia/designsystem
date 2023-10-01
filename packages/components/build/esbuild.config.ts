@@ -49,7 +49,7 @@ export const build = async () => {
     format: 'esm',
     external: dependencies,
     plugins: [
-      dtsPlugin({ destinationDir: rootDir }),
+      dtsPlugin({ destinationDir: rootDir, log: !watchMode }),
       styledComponentsPlugin({ ssr: true, displayName: true }),
       cssModulesPlugin({ inject: true, localsConvention: 'camelCase' }),
     ],
@@ -60,11 +60,10 @@ export const build = async () => {
     const esBuildContext = await esbuild.context({
       ...baseConfig,
       sourcemap: true,
+      logLevel: 'info',
     });
-    return Promise.all([
-      esBuildContext.watch(),
-      buildWebComponents({ outDir: rootDir, watch: watchMode }),
-    ]).then(() => console.log(chalk.green(`⚡️ Rebuilt components...`)));
+
+    return Promise.all([esBuildContext.watch(), buildWebComponents({ outDir: rootDir, watch: watchMode })]);
   } else {
     console.log('🧹 Removing old dist folders...');
     await cleanDistFolders();

@@ -5,6 +5,7 @@ import fs from 'fs';
 
 interface Props {
   destinationDir: string;
+  log: boolean;
 }
 
 const dtsPlugin = (config: Props) =>
@@ -72,9 +73,14 @@ const dtsPlugin = (config: Props) =>
           undefined,
           true,
         );
-        console.log(
-          `✏️  Wrote ${emit.emittedFiles ? emit.emittedFiles.length : 0} typings in ${Date.now() - start}ms`,
-        );
+
+        if (config.log) {
+          console.log(
+            `✏️  Wrote ${emit.emittedFiles ? emit.emittedFiles.length : 0} typings in ${
+              Date.now() - start
+            }ms`,
+          );
+        }
       });
     },
   } as esbuild.Plugin);
