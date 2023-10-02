@@ -5,261 +5,212 @@
 
   <!-- TYPE -->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Primary'">
-        <ng-container ngProjectAs="sectionContent">
-          Primary buttons are action-oriented buttons used for primary actions we want the user to do. Primary
-          are design to stand out and take the most attention of all the buttons. Primary button are often
-          used for saving, sending, submitting, registering and so on. It can be used alone or together with
-          secondary and tertiary.
-          <app-static-ceg>
-            <app-button-type-primary-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Primary'">
+      Primary buttons are action-oriented buttons used for primary actions we want the user to do. Primary are
+      design to stand out and take the most attention of all the buttons. Primary button are often used for
+      saving, sending, submitting, registering and so on. It can be used alone or together with secondary and
+      tertiary.
+      <app-static-ceg>
+        <app-button-type-primary-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Secondary'">
-        <ng-container ngProjectAs="sectionContent">
-          Secondary buttons are the alternative we give users to the primary action and should be used in less
-          important actions. Secondary are often used for canceling, declining, go back and so on. It can be
-          used alone or together to support primary or link style button.'
-          <app-static-ceg>
-            <app-button-type-secondary-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Secondary'">
+      Secondary buttons are the alternative we give users to the primary action and should be used in less
+      important actions. Secondary are often used for canceling, declining, go back and so on. It can be used
+      alone or together to support primary or link style button.'
+      <app-static-ceg>
+        <app-button-type-secondary-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Tertiary'">
-        <ng-container ngProjectAs="sectionContent">
-          Tertiary buttons are usually used for miscellaneous actions and may not be what the user is looking
-          for to do right then. Tertiary are designed to be less striking than primary and secondary. Example
-          of use is download and edit. It can be used isolated alone or paired together with primary or
-          secondary.
-          <app-static-ceg>
-            <app-button-type-tertiary-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Tertiary'">
+      Tertiary buttons are usually used for miscellaneous actions and may not be what the user is looking for
+      to do right then. Tertiary are designed to be less striking than primary and secondary. Example of use
+      is download and edit. It can be used isolated alone or paired together with primary or secondary.
+      <app-static-ceg>
+        <app-button-type-tertiary-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Danger'">
-        <ng-container ngProjectAs="sectionContent">
-          Danger button can be used for destructive actions with high severity. The red color warns the user,
-          but make sure to confirm the action with a confirmation screen.
-          <app-static-ceg>
-            <app-button-type-danger-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Danger'">
+      Danger button can be used for destructive actions with high severity. The red color warns the user, but
+      make sure to confirm the action with a confirmation screen.
+      <app-static-ceg>
+        <app-button-type-danger-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Icon'">
-        <ng-container ngProjectAs="sectionContent">
-          Icon buttons are used for well-known and simple actions such as close, edit, delete etc. They are
-          ideal for task based actions where the button should not attract to much attention. Icon button
-          should be supported by a tooltip.
-          <app-static-ceg>
-            <app-button-type-icon-ceg />
-          </app-static-ceg>
-          <app-component-subsubsection [sectionTitle]="'Circled icon'">
-            <ng-container ngProjectAs="sectionContent">
-              The modifier for circled icon button can be added when circled icon buttons are used alone, and
-              results in a different hover effect than in the normal icon button.
-              <app-static-ceg>
-                <app-button-type-icon-circled-ceg />
-              </app-static-ceg>
-              The following icons are examples of typical circled icon button usage:
-              <div class="e-mt-16">
-                <i class="e-icon e-icon--information_circle e-icon--sm e-mr-16" aria-hidden="true"></i>
-                <i class="e-icon e-icon--remove_circle e-icon--sm e-mr-16" aria-hidden="true"></i>
-                <i class="e-icon e-icon--question_circle e-icon--sm" aria-hidden="true"></i>
-              </div>
-              <div>
-                <i
-                  class="e-icon e-icon--information_circle-filled-color e-icon--sm e-mr-16"
-                  aria-hidden="true"
-                ></i>
-                <i
-                  class="e-icon e-icon--remove_circle-filled-color e-icon--sm e-mr-16"
-                  aria-hidden="true"
-                ></i>
-                <i class="e-icon e-icon--question_circle-filled-color e-icon--sm" aria-hidden="true"></i>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Touch target'">
-            <ng-container ngProjectAs="sectionContent">
-              The icon buttons all have at least 32 pixel touch dimensions to ensure that they are
-              user-friendly and accessible to everyone across different devices. It is also important that
-              there is enough space between icon buttons and other elements to decrease the chance of
-              accidentally pressing an incorrect target.
-              <div class="e-mt-24" style="display: flex; flex-direction: row">
-                <img src="../../../../assets/button/Group 846.svg" class="e-mr-16" alt="" />
-                <img src="../../../../assets/button/Group 845.svg" class="e-mr-16" alt="" />
-                <img src="../../../../assets/button/Group 844.svg" class="e-mr-16" alt="" />
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-when-to-use [whens]="doesExampleIcon" [whenNots]="dontsExampleIcon"></app-when-to-use>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Icon'">
+      Icon buttons are used for well-known and simple actions such as close, edit, delete etc. They are ideal
+      for task based actions where the button should not attract to much attention. Icon button should be
+      supported by a tooltip.
+      <app-static-ceg>
+        <app-button-type-icon-ceg />
+      </app-static-ceg>
+      <app-component-subsubsection [sectionTitle]="'Circled icon'">
+        The modifier for circled icon button can be added when circled icon buttons are used alone, and
+        results in a different hover effect than in the normal icon button.
+        <app-static-ceg>
+          <app-button-type-icon-circled-ceg />
+        </app-static-ceg>
+        The following icons are examples of typical circled icon button usage:
+        <div class="e-mt-16">
+          <i class="e-icon e-icon--information_circle e-icon--sm e-mr-16" aria-hidden="true"></i>
+          <i class="e-icon e-icon--remove_circle e-icon--sm e-mr-16" aria-hidden="true"></i>
+          <i class="e-icon e-icon--question_circle e-icon--sm" aria-hidden="true"></i>
+        </div>
+        <div>
+          <i class="e-icon e-icon--information_circle-filled-color e-icon--sm e-mr-16" aria-hidden="true"></i>
+          <i class="e-icon e-icon--remove_circle-filled-color e-icon--sm e-mr-16" aria-hidden="true"></i>
+          <i class="e-icon e-icon--question_circle-filled-color e-icon--sm" aria-hidden="true"></i>
+        </div>
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Touch target'">
+        The icon buttons all have at least 32 pixel touch dimensions to ensure that they are user-friendly and
+        accessible to everyone across different devices. It is also important that there is enough space
+        between icon buttons and other elements to decrease the chance of accidentally pressing an incorrect
+        target.
+        <div class="e-mt-24" style="display: flex; flex-direction: row">
+          <img src="../../../../assets/button/Group 846.svg" class="e-mr-16" alt="" />
+          <img src="../../../../assets/button/Group 845.svg" class="e-mr-16" alt="" />
+          <img src="../../../../assets/button/Group 844.svg" class="e-mr-16" alt="" />
+        </div>
+      </app-component-subsubsection>
+      <app-when-to-use [whens]="doesExampleIcon" [whenNots]="dontsExampleIcon"></app-when-to-use>
+    </app-component-subsection>
   </app-component-section>
 
   <!--SIZE-->
   <app-component-section size [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-static-ceg>
-        <app-button-size-ceg />
-      </app-static-ceg>
-      <p class="e-mt-24">
-        There are three different sizes of buttons: small, medium, and large. The choice of button size
-        depends on how important the button is and how much attention it should have. It can also depend on
-        the components used together with the button whether they are large or small in size.
-      </p>
-      <p>
-        Make sure you have a good touch target on mobile. You can extend the button in full width on the
-        mobile to make sure that the touch target is big enough for the thumb.
-      </p>
-      <app-component-subsection [sectionTitle]="'Small'">
-        <ng-container ngProjectAs="sectionContent">
-          Use small if the button has low priority and don’t need a lot of attention.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Medium'">
-        <ng-container ngProjectAs="sectionContent">
-          Medium is the default size and should fit to the majority of UI use cases.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Large'">
-        <ng-container ngProjectAs="sectionContent">
-          Use large if the button has high priority and needs a lot of attention.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-static-ceg>
+      <app-button-size-ceg />
+    </app-static-ceg>
+    <p class="e-mt-24">
+      There are three different sizes of buttons: small, medium, and large. The choice of button size depends
+      on how important the button is and how much attention it should have. It can also depend on the
+      components used together with the button whether they are large or small in size.
+    </p>
+    <p>
+      Make sure you have a good touch target on mobile. You can extend the button in full width on the mobile
+      to make sure that the touch target is big enough for the thumb.
+    </p>
+    <app-component-subsection [sectionTitle]="'Small'">
+      Use small if the button has low priority and don’t need a lot of attention.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Medium'">
+      Medium is the default size and should fit to the majority of UI use cases.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Large'">
+      Use large if the button has high priority and needs a lot of attention.
+    </app-component-subsection>
   </app-component-section>
 
   <!-- USAGE -->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Order'">
-        <ng-container ngProjectAs="sectionContent">
-          When using buttons in a pair, the primary button are placed to the right and secondary to the left.
-          This should be followed at all times.
-          <div class="e-mt-24">
-            <button class="e-btn e-btn--secondary e-mr-16">Secondary</button>
-            <button class="e-btn">Primary</button>
-          </div>
-        </ng-container>
-      </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Order'">
+      When using buttons in a pair, the primary button are placed to the right and secondary to the left. This
+      should be followed at all times.
+      <div class="e-mt-24">
+        <button class="e-btn e-btn--secondary e-mr-16">Secondary</button>
+        <button class="e-btn">Primary</button>
+      </div>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Label'">
-        <ng-container ngProjectAs="sectionContent">
-          The button label should be a action verb and tell the user what the button will do. Label in a
-          button should not be longer than three words.
-          <app-do-dont-text>
-            <ng-container ngProjectAs="do">
-              <button class="e-btn e-btn--secondary e-mt-8 e-mr-16">Cancel</button>
-              <button class="e-btn e-mt-8">Publish</button>
-            </ng-container>
-            <ng-container ngProjectAs="dont">
-              <button class="e-btn e-btn--secondary e-mt-8 e-mr-16">No</button>
-              <button class="e-btn e-mt-8">Yes</button>
-            </ng-container>
-          </app-do-dont-text>
+    <app-component-subsection [sectionTitle]="'Label'">
+      The button label should be a action verb and tell the user what the button will do. Label in a button
+      should not be longer than three words.
+      <app-do-dont-text>
+        <ng-container ngProjectAs="do">
+          <button class="e-btn e-btn--secondary e-mt-8 e-mr-16">Cancel</button>
+          <button class="e-btn e-mt-8">Publish</button>
         </ng-container>
-      </app-component-subsection>
+        <ng-container ngProjectAs="dont">
+          <button class="e-btn e-btn--secondary e-mt-8 e-mr-16">No</button>
+          <button class="e-btn e-mt-8">Yes</button>
+        </ng-container>
+      </app-do-dont-text>
+    </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Icon'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>
-            Icons can be used to the left or right of the text on a button. This should only be done when used
-            to clarify additional information that helps the context.
-          </div>
-          <app-do-dont-text>
-            <ng-container ngProjectAs="do">
-              <button class="e-btn e-mr-16 e-mt-8">
-                <span class="e-btn__icon">
-                  <i class="e-icon e-icon--profile" aria-hidden="true"></i>
-                </span>
-                <span class="e-btn__title">My page</span>
-              </button>
-              <button class="e-btn e-mt-8">
-                <span class="e-btn__title">Next</span>
-                <span class="e-btn__icon">
-                  <i class="e-icon e-icon--arrow_right-bold e-btn--xs" aria-hidden="true"></i>
-                </span>
-              </button>
-            </ng-container>
-            <ng-container ngProjectAs="dont">
-              <button class="e-btn e-mr-16 e-mt-8">
-                <span class="e-btn__icon">
-                  <i class="e-icon e-icon--mail_send-color" aria-hidden="true"></i>
-                </span>
-                <span class="e-btn__title">Send</span>
-              </button>
-              <button class="e-btn e-mt-8">
-                <span class="e-btn__title">Log in</span>
-                <span class="e-btn__icon">
-                  <i class="e-icon e-icon--lock" aria-hidden="true"></i>
-                </span>
-              </button>
-            </ng-container>
-          </app-do-dont-text>
-          <div class="e-mt-24">
-            An exception goes for Tertiary buttons however. In these cases, icons along with texts are often
-            preferred, as they clarify that the otherwise simple text is clickable.
-          </div>
+    <app-component-subsection [sectionTitle]="'Icon'">
+      <div>
+        Icons can be used to the left or right of the text on a button. This should only be done when used to
+        clarify additional information that helps the context.
+      </div>
+      <app-do-dont-text>
+        <ng-container ngProjectAs="do">
+          <button class="e-btn e-mr-16 e-mt-8">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--profile" aria-hidden="true"></i>
+            </span>
+            <span class="e-btn__title">My page</span>
+          </button>
+          <button class="e-btn e-mt-8">
+            <span class="e-btn__title">Next</span>
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--arrow_right-bold e-btn--xs" aria-hidden="true"></i>
+            </span>
+          </button>
         </ng-container>
-      </app-component-subsection>
-    </ng-container>
+        <ng-container ngProjectAs="dont">
+          <button class="e-btn e-mr-16 e-mt-8">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--mail_send-color" aria-hidden="true"></i>
+            </span>
+            <span class="e-btn__title">Send</span>
+          </button>
+          <button class="e-btn e-mt-8">
+            <span class="e-btn__title">Log in</span>
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--lock" aria-hidden="true"></i>
+            </span>
+          </button>
+        </ng-container>
+      </app-do-dont-text>
+      <div class="e-mt-24">
+        An exception goes for Tertiary buttons however. In these cases, icons along with texts are often
+        preferred, as they clarify that the otherwise simple text is clickable.
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Links with button style'">
-        <ng-container ngProjectAs="sectionContent">
-          The
-          <code>e-btn</code>
-          class can also be used on anchor tags to make links appear like buttons.
-          <app-static-ceg>
-            <app-button-link-ceg />
-          </app-static-ceg>
-          <app-when-to-use [whenNots]="dontsExample7"></app-when-to-use>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Links with button style'">
+      The
+      <code>e-btn</code>
+      class can also be used on anchor tags to make links appear like buttons.
+      <app-static-ceg>
+        <app-button-link-ceg />
+      </app-static-ceg>
+      <app-when-to-use [whenNots]="dontsExample7"></app-when-to-use>
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'ARIA'">
-        <ng-container ngProjectAs="sectionContent">
-          <ul class="e-list">
-            <li>
-              <strong>Aria label:</strong>
-              Remember to always add a descriptive
-              <code>aria-label</code>
-              to all icon-button.
-            </li>
-            <li>
-              <strong>Aria hidden:</strong>
-              Most icons are purely decorative and should therefore be excluded from the accessibility tree by
-              adding
-              <code>aria-hidden="true"</code>
-              to the icon element.
-            </li>
-          </ul>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Tooltip'">
-        <ng-container ngProjectAs="sectionContent">
-          If the icon in an icon-button is not very clear on it's own, use a tooltip to make it accessible for
-          the user. Read more about
-          <a class="e-link e-link--inline" [routerLink]="['/components/tooltip']">our tooltip here</a>
-          .
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'ARIA'">
+      <ul class="e-list">
+        <li>
+          <strong>Aria label:</strong>
+          Remember to always add a descriptive
+          <code>aria-label</code>
+          to all icon-button.
+        </li>
+        <li>
+          <strong>Aria hidden:</strong>
+          Most icons are purely decorative and should therefore be excluded from the accessibility tree by
+          adding
+          <code>aria-hidden="true"</code>
+          to the icon element.
+        </li>
+      </ul>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Tooltip'">
+      If the icon in an icon-button is not very clear on it's own, use a tooltip to make it accessible for the
+      user. Read more about
+      <a class="e-link e-link--inline" [routerLink]="['/components/tooltip']">our tooltip here</a>
+      .
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

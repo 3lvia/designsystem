@@ -5,33 +5,23 @@
 
   <!--TYPE-->
   <app-component-section type [sectionTitle]="'Options'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Colored'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-tag-colored-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Colored'">
+      <app-static-ceg>
+        <app-tag-colored-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="headerDoes" [whenNots]="headerDonts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Keep it short'">
-        <ng-container ngProjectAs="sectionContent">
-          Tags should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum
-          two words.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Color usage'">
-        <ng-container ngProjectAs="sectionContent">
-          Tags can be used with any color, but when visualising status, we typically use the combinations seen
-          in the examples.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-when-to-use [whens]="headerDoes" [whenNots]="headerDonts"></app-when-to-use>
+    <app-component-subsection [sectionTitle]="'Keep it short'">
+      Tags should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum two
+      words.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Color usage'">
+      Tags can be used with any color, but when visualising status, we typically use the combinations seen in
+      the examples.
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

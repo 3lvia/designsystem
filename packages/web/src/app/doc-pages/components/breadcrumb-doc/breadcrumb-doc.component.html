@@ -5,72 +5,57 @@
 
   <!-- USAGE -->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Levels'">
-        <ng-container ngProjectAs="sectionContent">
-          The breadcrumb should start with home (landing page) and end with the current page. All pages
-          besides the current page are a link. The breadcrumb is hidden until you have two levels (no
-          breadcrumbs are visible on the homepage).
-          <div class="breadcrumb-levels">
-            <img
-              alt="breadcrumb-levels on desktop"
-              class="e-mt-16 theme-image-background"
-              src="assets/breadcrumb/levels.svg"
-            />
-          </div>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-component-subsection [sectionTitle]="'Levels'">
+      The breadcrumb should start with home (landing page) and end with the current page. All pages besides
+      the current page are a link. The breadcrumb is hidden until you have two levels (no breadcrumbs are
+      visible on the homepage).
+      <div class="breadcrumb-levels">
+        <img
+          alt="breadcrumb-levels on desktop"
+          class="e-mt-16 theme-image-background"
+          src="assets/breadcrumb/levels.svg"
+        />
+      </div>
 
-          <div class="e-mt-40">On mobile you only get the closest parent.</div>
-          <div class="breadcrumb-levels">
-            <img
-              alt="breadcrumb-levels on mobile"
-              class="e-mt-16 theme-image-background"
-              src="assets/breadcrumb/levels-mobile.svg"
-            />
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Breadcrumb vs backlink'">
-        <ng-container ngProjectAs="sectionContent">
-          Breadcrumb is a great way to reveal the user's location and makes it easier to navigate and find
-          what they are looking for. But it's not necessary to use breadcrumbs for single-level pages with no
-          more than one parent category. Backlink can then be used to navigate the user back to home.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+      <div class="e-mt-40">On mobile you only get the closest parent.</div>
+      <div class="breadcrumb-levels">
+        <img
+          alt="breadcrumb-levels on mobile"
+          class="e-mt-16 theme-image-background"
+          src="assets/breadcrumb/levels-mobile.svg"
+        />
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Breadcrumb vs backlink'">
+      Breadcrumb is a great way to reveal the user's location and makes it easier to navigate and find what
+      they are looking for. But it's not necessary to use breadcrumbs for single-level pages with no more than
+      one parent category. Backlink can then be used to navigate the user back to home.
+    </app-component-subsection>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Routing'">
-        <ng-container ngProjectAs="sectionContent">
-          To use routing with the breadcrumb component, the callback function onLinkClick can be used. Instead
-          of passing in a URL to the breadcrumbs prop, the onLinkClick callback function is provided with the
-          index of the clicked breadcrumb. This functionality can be used to handle routing outside of the
-          breadcrumb component allowing the use of routing modules (e.g. Angular RoutingModule or React
-          Router).
-          <app-static-ceg>
-            <app-breadcrumb-event-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Routing'">
+      To use routing with the breadcrumb component, the callback function onLinkClick can be used. Instead of
+      passing in a URL to the breadcrumbs prop, the onLinkClick callback function is provided with the index
+      of the clicked breadcrumb. This functionality can be used to handle routing outside of the breadcrumb
+      component allowing the use of routing modules (e.g. Angular RoutingModule or React Router).
+      <app-static-ceg>
+        <app-breadcrumb-event-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <span class="keyboard-button">Tab</span>
-              to navigate through the breadcrumbs.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <span class="keyboard-button">Tab</span>
+          to navigate through the breadcrumbs.
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

@@ -5,38 +5,28 @@
 
   <!--IMPLEMENTATION-->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      The badge component acts as a wrapper. You should only use badges on Icon Button or Thumbnails. Note how
-      the badge places itself relative to its content, meaning you can place a badge component within other
-      elements, such as the icon in an Icon Button element. Use slots to give the badge its content.
-      <app-static-ceg>
-        <app-button-badge-ceg />
-      </app-static-ceg>
-    </ng-container>
+    The badge component acts as a wrapper. You should only use badges on Icon Button or Thumbnails. Note how
+    the badge places itself relative to its content, meaning you can place a badge component within other
+    elements, such as the icon in an Icon Button element. Use slots to give the badge its content.
+    <app-static-ceg>
+      <app-button-badge-ceg />
+    </app-static-ceg>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Color'">
-        <ng-container ngProjectAs="sectionContent">
-          The
-          <code>neutral</code>
-          badge color adapts to user's color scheme, turning black in light mode and white in dark mode.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Color'">
+      The
+      <code>neutral</code>
+      badge color adapts to user's color scheme, turning black in light mode and white in dark mode.
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <ng-container ngProjectAs="sectionContent">
-        You can't rely on the badge's content being announced correctly. You should include a detailed
-        description, such as
-        <span class="code-text">aria-label</span>
-        .
-      </ng-container>
-    </ng-container>
+    You can't rely on the badge's content being announced correctly. You should include a detailed
+    description, such as
+    <span class="code-text">aria-label</span>
+    .
   </app-component-section>
 </app-component-documentation>

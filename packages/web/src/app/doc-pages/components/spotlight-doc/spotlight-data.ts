@@ -13,9 +13,9 @@ const spotlightData: ComponentData = {
       default: '',
     },
     shape: {
-      type: 'circle | rectangle',
+      type: '"circle" | "rectangle"',
       description: 'The shape of the spotlight.',
-      default: 'circle',
+      default: '"circle"',
     },
     radius: {
       type: 'number',
@@ -36,7 +36,7 @@ const spotlightData: ComponentData = {
       type: 'string',
       description:
         'The duration of the transition when the spotlight is moved. Can be any valid css duration.',
-      default: '350ms',
+      default: '"350ms"',
     },
   },
 };

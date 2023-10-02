@@ -1,7 +1,8 @@
 import React from 'react';
 import DatepickerRange from './elvia-datepicker-range';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 describe('Elvis DatepickerRange', () => {
   describe('Default', () => {
@@ -74,6 +75,51 @@ describe('Elvis DatepickerRange', () => {
       datePickers.forEach((datepicker) => {
         expect(datepicker).toHaveStyle('width: 100%');
       });
+    });
+  });
+
+  describe('Events', () => {
+    const errorOnChangeEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
+    const valueOnChangeISOStringEvent = jest.fn();
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+      render(
+        <DatepickerRange
+          errorOnChange={errorOnChangeEvent}
+          minDate={new Date('08/11/2022')}
+          valueOnChange={valueOnChangeEvent}
+          valueOnChangeISOString={valueOnChangeISOStringEvent}
+        />,
+      );
+    });
+
+    it('should not emit any events when idle', async () => {
+      await waitFor(() => expect(errorOnChangeEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeISOStringEvent).not.toHaveBeenCalled());
+    });
+
+    it('valueOnChangeEvent / valueOnChangeISOStringEvent: should emit when a date is selected', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('textbox', { name: /fra dato/i });
+      await user.click(input);
+      await user.type(input, '11.08.2022');
+      await user.tab();
+
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('errorOnChangeEvent: should emit when an error is shown', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('textbox', { name: /fra dato/i });
+      await user.click(input);
+      await user.type(input, '26.03.2000');
+      await user.tab();
+
+      await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

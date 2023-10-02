@@ -5,75 +5,57 @@
 
   <!--SIZE-->
   <app-component-section size [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      There are two sizes of radio buttons: small and medium.
-      <app-component-subsection [sectionTitle]="'Medium'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-radiobutton-md-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Small'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-static-ceg>
-            <app-radiobutton-sm-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    There are two sizes of radio buttons: small and medium.
+    <app-component-subsection [sectionTitle]="'Medium'">
+      <app-static-ceg>
+        <app-radiobutton-md-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Small'">
+      <app-static-ceg>
+        <app-radiobutton-sm-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--STATES-->
   <app-component-section states [sectionTitle]="'States'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-static-ceg nonInteractive>
-        <app-radiobutton-states-ceg />
-      </app-static-ceg>
-    </ng-container>
+    <app-static-ceg nonInteractive>
+      <app-radiobutton-states-ceg />
+    </app-static-ceg>
   </app-component-section>
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Label'">
-        <ng-container ngProjectAs="sectionContent">
-          Make sure to always add a label that is linked to the radiobutton, to make it clear for assistive
-          tools what the radiobutton is doing. Use the
-          <span class="code-text">e-form-field</span>
-          classes to get correct styling of labels.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'State'">
-        <ng-container ngProjectAs="sectionContent">
-          The states have associated classes that can be used to programmatically add the desired styling.
-          Remember to always add the state attribute (
-          <span class="code-text">checked</span>
-          ,
-          <span class="code-text">required</span>
-          ,
-          <span class="code-text">disabled</span>
-          ,
-          <span class="code-text">invalid</span>
-          and so on) to the input to inform assistive tools of the current state.
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Validation'">
-        <ng-container ngProjectAs="sectionContent">
-          Remember to add validation classes to help users understand what needs to be corrected.
-          <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
-            Read more about how the validation should happen
-          </a>
-          .
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Label'">
+      Make sure to always add a label that is linked to the radiobutton, to make it clear for assistive tools
+      what the radiobutton is doing. Use the
+      <span class="code-text">e-form-field</span>
+      classes to get correct styling of labels.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'State'">
+      The states have associated classes that can be used to programmatically add the desired styling.
+      Remember to always add the state attribute (
+      <span class="code-text">checked</span>
+      ,
+      <span class="code-text">required</span>
+      ,
+      <span class="code-text">disabled</span>
+      ,
+      <span class="code-text">invalid</span>
+      and so on) to the input to inform assistive tools of the current state.
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Validation'">
+      Remember to add validation classes to help users understand what needs to be corrected.
+      <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
+        Read more about how the validation should happen
+      </a>
+      .
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

@@ -5,53 +5,39 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-    </ng-container>
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Loop'">
-        <ng-container ngProjectAs="sectionContent">
-          You can choose whether you want it to loop or not. In the last step, the right button then switches
-          to a confirmation button. This can be used in a dialog for example, and the dialog will then close
-          when clicking confirm button.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-component-subsection [sectionTitle]="'Loop'">
+      You can choose whether you want it to loop or not. In the last step, the right button then switches to a
+      confirmation button. This can be used in a dialog for example, and the dialog will then close when
+      clicking confirm button.
+    </app-component-subsection>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Items'">
-        <ng-container ngProjectAs="sectionContent">
-          If you want to have more control over the items, you can send just the number of items in to the
-          carousel instead of a list of items/slots. This will only show the carousel with the correct number
-          of steps. If you choose to use only the carousel, without sending in items, you have to add the
-          animation for items sliding out and fading in yourself.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Items'">
+      If you want to have more control over the items, you can send just the number of items in to the
+      carousel instead of a list of items/slots. This will only show the carousel with the correct number of
+      steps. If you choose to use only the carousel, without sending in items, you have to add the animation
+      for items sliding out and fading in yourself.
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <kbd>ArrowLeft/ArrowRight</kbd>
-              to navigate through the arrows and pages.
-            </div>
-            <div>
-              <kbd>Space</kbd>
-              or
-              <kbd>Enter</kbd>
-              to select a carousel page.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <kbd>ArrowLeft/ArrowRight</kbd>
+          to navigate through the arrows and pages.
+        </div>
+        <div>
+          <kbd>Space</kbd>
+          or
+          <kbd>Enter</kbd>
+          to select a carousel page.
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>
