@@ -1,5 +1,5 @@
 import { Directive, Input, OnChanges } from '@angular/core';
-import { ComponentProp, EventProp, InputProp } from './types';
+import { ComponentProp, LeafProp } from './types';
 import { NestedProp } from 'src/app/doc-pages/components/component-data.interface';
 import { SearchResult } from '../../searcher';
 
@@ -29,18 +29,15 @@ export class PropertyTableBaseDirective implements OnChanges {
     ];
   }
 
-  propHasNoChildren(prop: ComponentProp): prop is EventProp | InputProp {
+  propHasNoChildren(prop: ComponentProp): prop is LeafProp {
     return !(prop as NestedProp<Record<string, any>>).children;
   }
 
   private getEventProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => this.propHasNoChildren(prop.item) && prop.item.isEvent);
+    return props.filter((prop) => prop.item.isEvent);
   }
 
   private getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter(
-      (prop) =>
-        (this.propHasNoChildren(prop.item) && !prop.item.isEvent) || !this.propHasNoChildren(prop.item),
-    );
+    return props.filter((prop) => !prop.item.isEvent);
   }
 }
