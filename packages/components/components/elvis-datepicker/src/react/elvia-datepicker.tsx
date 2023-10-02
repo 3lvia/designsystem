@@ -15,7 +15,7 @@ import {
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
-import { copyDay, isAfter, isBefore, isValidDate } from './dateHelpers';
+import { copyDay, isAfter, isBefore, isValidDate, localISOTime } from './dateHelpers';
 
 const defaultErrorOptions = {
   hideText: false,
@@ -71,13 +71,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
-    let dateISO;
+    let dateISO: string | null = null;
     if (newDate && isValidDate(newDate)) {
-      // Set hours to middle of day to ensure correct date is returned, as
-      // timezones and summer/winter time can cause some weird behavior
-      const newDateCopy = new Date(newDate);
-      newDateCopy.setHours(12);
-      dateISO = newDateCopy.toISOString().substring(0, 10);
+      dateISO = localISOTime(newDate);
     } else if (newDate === null) {
       dateISO = null;
     } else {

@@ -14,7 +14,7 @@ import {
   ErrorOptions,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
-import { isAfter, isBefore } from './dateHelpers';
+import { isAfter, isBefore, localISOTime } from './dateHelpers';
 import { useUpdateEffect } from '@elvia/elvis-toolbox';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
@@ -142,22 +142,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const handleValueOnChangeISOString = (newDateRange: DateRange): void => {
     const dateISO: DateRangeString = { start: null, end: null };
     if (newDateRange.start && isValidDate(newDateRange.start)) {
-      // Set hours to middle of day to ensure correct date is returned, as
-      // timezones and summer/winter time can cause some weird behavior
-      const newDateCopy = new Date(newDateRange.start);
-      newDateCopy.setHours(12);
-      dateISO.start = newDateCopy.toISOString().substring(0, 10);
+      dateISO.start = localISOTime(newDateRange.start);
     } else if (newDateRange.start === null) {
       dateISO.start = null;
     } else {
       dateISO.start = 'Invalid Date';
     }
     if (newDateRange.end && isValidDate(newDateRange.end)) {
-      // Set hours to middle of day to ensure correct date is returned, as
-      // timezones and summer/winter time can cause some weird behavior
-      const newDateCopy = new Date(newDateRange.end);
-      newDateCopy.setHours(12);
-      dateISO.end = newDateCopy.toISOString().substring(0, 10);
+      dateISO.end = localISOTime(newDateRange.end);
     } else if (newDateRange.end === null) {
       dateISO.end = null;
     } else {
