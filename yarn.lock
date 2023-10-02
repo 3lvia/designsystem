@@ -2360,7 +2360,7 @@ __metadata:
     "@testing-library/react": 13.4.0
     "@testing-library/user-event": 14.4.3
     "@types/gulp": ^4.0.14
-    "@types/gulp-babel": ^6.1.30
+    "@types/gulp-babel": ^6.1.31
     "@types/gulp-cached": ^0.0.33
     "@types/gulp-filter": ^3.0.35
     "@types/gulp-header": ^2.0.1
@@ -4595,12 +4595,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-babel@npm:^6.1.30":
-  version: 6.1.30
-  resolution: "@types/gulp-babel@npm:6.1.30"
+"@types/gulp-babel@npm:^6.1.31":
+  version: 6.1.31
+  resolution: "@types/gulp-babel@npm:6.1.31"
   dependencies:
     "@types/node": "*"
-  checksum: f7942fa29438fbdfbeec388bd874b2d17b04474628eeb4ff925f33601447bdd38eb0c21e03865852d7f6ac88e7baa2c7b44321e27cf8cc65b212628b73cdcc2b
+  checksum: 78dca98950aed7741f931bfbbe515d2f8c3b90adb5a38c3dbf4b11a6ffe6f0aa370dd117a459e6cbfa57f862326e1891934cd2b9a503c72139881d892401e05c
   languageName: node
   linkType: hard
 
