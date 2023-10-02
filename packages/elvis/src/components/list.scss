@@ -29,6 +29,10 @@
   li {
     position: relative;
 
+    p {
+      margin: 0;
+    }
+
     &::before {
       position: absolute;
       top: get-marker-top-offset(var(--list-marker-dot-size));
@@ -59,15 +63,14 @@
     &::before {
       top: get-marker-top-offset(var(--list-marker-size));
       left: get-text-offset(var(--list-marker-size), -1);
-      display: flex;
+      display: grid;
       width: var(--list-marker-size);
       height: var(--list-marker-size);
-      align-items: center;
-      justify-content: center;
       border: 2px solid var(--e-color-brand-accent);
       background: transparent;
       content: counter(elvis-item);
       font-size: 18px;
+      place-items: center;
     }
   }
 }
