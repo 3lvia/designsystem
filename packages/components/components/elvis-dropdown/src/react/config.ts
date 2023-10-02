@@ -23,7 +23,6 @@ export const config: ComponentConfig = {
     { name: 'isLoadingMoreItems', type: 'boolean' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
-    // Deprecated attributes
     {
       name: 'isCompact',
       type: 'boolean',
