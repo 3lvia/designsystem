@@ -65,9 +65,9 @@ export class ComponentPropertiesTableComponent implements OnInit {
       },
       {
         attribute: 'inlineStyle',
-        description:
-          "Custom CSS style object that can be added to the component. Example: {marginTop: '8px'}",
+        description: 'Custom CSS style object that can be added to the component.',
         type: '{[cssProperty: string]: string}',
+        example: 'inlineStyle = {marginTop: "8px"}',
       },
     ];
   }
