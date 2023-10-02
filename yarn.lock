@@ -2553,13 +2553,8 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": 13.4.0
     "@testing-library/user-event": 14.4.3
-    "@types/gulp": ^4.0.13
-    "@types/gulp-babel": ^6.1.30
-    "@types/gulp-rename": ^2.0.1
-    "@types/gulp-tap": ^1.0.1
     "@types/jest": ^29.2.3
     "@types/jest-axe": ^3.5.5
-    "@types/merge-stream": ^1.1.2
     "@types/node": ^18.11.18
     "@types/styled-components": ^5.1.19
     babel-jest: ^29.3.1
@@ -2569,21 +2564,15 @@ __metadata:
     concurrently: ^8.2.1
     crypto: ^1.0.1
     css-loader: ^4.3.0
-    del: ^6.0.0
     esbuild: ^0.19.3
     esbuild-css-modules-plugin: ^3.0.3
     esbuild-plugin-styled-components: ^2.2.2
     express: ^4.17.1
-    gulp: ^4.0.2
-    gulp-babel: ^8.0.0
-    gulp-rename: ^2.0.0
-    gulp-tap: ^2.0.0
     jest: ^29.3.1
     jest-axe: ^7.0.0
     jest-environment-jsdom: ^29.3.1
     jsdom: ^20.0.3
     jsdom-global: ^3.0.2
-    merge-stream: ^2.0.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-is: ^18.2.0
@@ -4942,25 +4931,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-babel@npm:^6.1.30":
-  version: 6.1.30
-  resolution: "@types/gulp-babel@npm:6.1.30"
-  dependencies:
-    "@types/node": "*"
-  checksum: f7942fa29438fbdfbeec388bd874b2d17b04474628eeb4ff925f33601447bdd38eb0c21e03865852d7f6ac88e7baa2c7b44321e27cf8cc65b212628b73cdcc2b
-  languageName: node
-  linkType: hard
-
-"@types/gulp-rename@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@types/gulp-rename@npm:2.0.1"
-  dependencies:
-    "@types/node": "*"
-    "@types/vinyl": "*"
-  checksum: e44f2e3a4fc5d60b2e503a9f7bd892580c3af7af7b1c2104d87914153ce177278bbeb669a3da4469ed3c518121a423dff526675ba4bff4e8981bc5ee457c27b9
-  languageName: node
-  linkType: hard
-
 "@types/gulp-svgmin@npm:^1.2.2":
   version: 1.2.2
   resolution: "@types/gulp-svgmin@npm:1.2.2"
@@ -4969,16 +4939,6 @@ __metadata:
     "@types/svgo": 1
     "@types/vinyl": "*"
   checksum: 1a0a7854eed6f6630723a7267fa5d3f26faab66802d31fcbdb30da352c5e99729ab425e7d4711d6997f67f08376cbcc1ba67ebbef225afe05023965786db75c5
-  languageName: node
-  linkType: hard
-
-"@types/gulp-tap@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@types/gulp-tap@npm:1.0.1"
-  dependencies:
-    "@types/node": "*"
-    "@types/vinyl": "*"
-  checksum: 39a5458bfdd3eaaf92c84d5ddf257f9dc2fe0d5458a7cfbb8cfda5645dc758efd26651b9c3c8f4ac866ce2589fe58a9b040bcf4edc15a0d3e930e76000c18b7b
   languageName: node
   linkType: hard
 
@@ -5122,15 +5082,6 @@ __metadata:
   version: 4.14.189
   resolution: "@types/lodash@npm:4.14.189"
   checksum: 096d1e0954794fb76bd6a0ea443067f02004b53e3c59ac6e3fed88817a1468fc2e6614abdf44341f5e0fdff5f9a3c94a934cc9ff7126e07efbcd94355a21fe45
-  languageName: node
-  linkType: hard
-
-"@types/merge-stream@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "@types/merge-stream@npm:1.1.2"
-  dependencies:
-    "@types/node": "*"
-  checksum: fc94ffd53416f8ed51b0c0c8364369892bdec35d9ea00bc18a7cd249e3fd1969d0422c6382b308e91b2903289f50a85323277b8a0942efbe155b2368b4dbe778
   languageName: node
   linkType: hard
 
@@ -11398,20 +11349,6 @@ __metadata:
     gulp:
       optional: true
   checksum: 4187d2dcabbe8618e3162b5e3effdb44d9d8d070a40947f2d9770b39566ce1d11caaf447ea1d853bba0b537b0dec189345eeae83f198c6b39a2eaeb39777cfc9
-  languageName: node
-  linkType: hard
-
-"gulp-babel@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "gulp-babel@npm:8.0.0"
-  dependencies:
-    plugin-error: ^1.0.1
-    replace-ext: ^1.0.0
-    through2: ^2.0.0
-    vinyl-sourcemaps-apply: ^0.2.0
-  peerDependencies:
-    "@babel/core": ^7.0.0
-  checksum: 840ec07b1bf8587509e9d87bf55b31b714560bf66904f80fdb90d4f0dc50d1d536eb9f30f56c2e51249fbfb523cd6697fafd407bb3841e9980265fe60063308a
   languageName: node
   linkType: hard
 
@@ -19963,7 +19900,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vinyl-sourcemaps-apply@npm:0.2.1, vinyl-sourcemaps-apply@npm:^0.2.0, vinyl-sourcemaps-apply@npm:^0.2.1":
+"vinyl-sourcemaps-apply@npm:0.2.1, vinyl-sourcemaps-apply@npm:^0.2.1":
   version: 0.2.1
   resolution: "vinyl-sourcemaps-apply@npm:0.2.1"
   dependencies:
