@@ -3,6 +3,7 @@ import ts from 'typescript';
 import path from 'path';
 import fsPromises from 'fs/promises';
 import fs from 'fs';
+import { getMd5 } from './utils.ts';
 
 interface Props {
   destinationDir: string;
@@ -13,8 +14,8 @@ const dtsPlugin = (config: Props) =>
   ({
     name: 'dts-plugin',
     async setup(build) {
+      const cache = new Map<string, string>();
       const tsConfig: ts.CompilerOptions = {
-        declarationDir: config.destinationDir,
         listEmittedFiles: true,
         declaration: true,
         emitDeclarationOnly: true,
@@ -24,18 +25,15 @@ const dtsPlugin = (config: Props) =>
       };
 
       const host = ts.createCompilerHost(tsConfig);
-      const files: string[] = [];
+      let files: string[] = [];
 
       // Register all files that should be transpiled
       build.onResolve({ filter: /(\.tsx|\.ts)$/ }, async (args) => {
-        files.push(args.path);
-
-        host.getSourceFile(
-          args.path,
-          tsConfig.target ?? ts.ScriptTarget.ES2019,
-          (m) => console.error(m),
-          true,
-        );
+        const newHash = getMd5(args.path);
+        if (newHash && newHash !== cache.get(args.path)) {
+          cache.set(args.path, newHash);
+          files.push(args.path);
+        }
 
         return {};
       });
@@ -50,12 +48,18 @@ const dtsPlugin = (config: Props) =>
         const start = Date.now();
         const emit = program.emit(
           undefined,
-          async (fileName, text) => {
+          async (fileName, text, _, __, sources) => {
+            const originalPath = sources?.[0]?.fileName || '';
+            const componentName =
+              originalPath.split(path.sep).find((part) => part.startsWith('elvis-')) || '';
+
             const isPublicApi = path.basename(fileName).includes('.public');
-            const normalizedPath = fileName.replace('react/', '');
-            const outPath = normalizedPath.replace(
-              'src',
-              `dist${path.sep}${isPublicApi ? 'public-api' : 'react'}`,
+            const outPath = path.join(
+              process.cwd(),
+              config.destinationDir,
+              componentName,
+              'dist',
+              isPublicApi ? 'public-api' : 'react',
             );
 
             let fileContent = text;
@@ -69,12 +73,14 @@ const dtsPlugin = (config: Props) =>
             if (!fs.existsSync(path.dirname(outPath))) {
               await fsPromises.mkdir(path.dirname(outPath), { recursive: true });
             }
-            await fsPromises.writeFile(outPath, fileContent);
+            await fsPromises.writeFile(path.join(outPath, path.basename(fileName)), fileContent);
           },
           undefined,
           true,
         );
 
+        // Clear the files list for next build
+        files = [];
         if (config.log) {
           console.log(
             `✏️  Wrote ${emit.emittedFiles ? emit.emittedFiles.length : 0} typings in ${
