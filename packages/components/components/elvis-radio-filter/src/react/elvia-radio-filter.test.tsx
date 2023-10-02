@@ -61,11 +61,10 @@ describe('Elvis RadioFilter', () => {
   });
 
   describe('events', () => {
-    //valueOnChange
-    let valueOnChangeEvent: jest.Mock;
+    const valueOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      valueOnChangeEvent = jest.fn();
+      jest.clearAllMocks();
 
       render(
         <RadioFilter items={items} name="radio-filter" value="all" valueOnChange={valueOnChangeEvent} />,
@@ -81,9 +80,8 @@ describe('Elvis RadioFilter', () => {
       const radioFilterButton = screen.getAllByRole('radio');
 
       await user.click(radioFilterButton[1]);
-      screen.debug();
 
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

@@ -12,10 +12,10 @@ export const carouselData: ComponentData = {
         'A collection of related items that should be displayed in a carousel. If not React, send the items in by slots. Name the slots "item-1", "heading-1", "item-2", "heading-2" and so on.',
     },
     type: {
-      type: "'loop' | 'linear'",
+      type: '"loop" | "linear"',
       description:
         'The "loop" type allows the user to cycle through the carousel items endlessly, while the "linear" type allows the user to navigate the carousel items in a linear way, both forward and backwards.',
-      default: 'loop',
+      default: '"loop"',
     },
     hasConfirmationCheckmark: {
       type: 'boolean',

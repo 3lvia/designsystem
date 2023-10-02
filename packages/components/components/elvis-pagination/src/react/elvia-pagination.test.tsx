@@ -158,13 +158,11 @@ describe('Elvis Pagination', () => {
   });
 
   describe('events', () => {
-    let dropdownSelectedItemIndexOnChangeEvent: jest.Mock;
-    let valueOnChangeEvent: jest.Mock;
+    const dropdownSelectedItemIndexOnChangeEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      dropdownSelectedItemIndexOnChangeEvent = jest.fn();
-      valueOnChangeEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(
         <Pagination
           numberOfElements={100}
@@ -184,14 +182,14 @@ describe('Elvis Pagination', () => {
       const dropdown = screen.getByRole('combobox');
       await user.click(dropdown);
       await user.click(screen.getByRole('option', { name: /20/ }));
-      await waitFor(() => expect(dropdownSelectedItemIndexOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(dropdownSelectedItemIndexOnChangeEvent).toHaveBeenCalledTimes(1));
     });
 
     it('valueOnChange: should emit event when page button is clicked', async () => {
       const user = userEvent.setup();
       const nextButton = screen.getByRole('button', { name: /neste side/i });
       await user.click(nextButton);
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

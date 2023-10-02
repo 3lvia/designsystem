@@ -6,7 +6,7 @@ export const chipData: ComponentData = {
   name: 'Chip',
   attributes: {
     type: {
-      type: 'removable | legend | choice',
+      type: '"removable" | "legend" | "choice"',
       description: 'Which type of chip should be displayed.',
       default: '"removable"',
     },
@@ -17,9 +17,9 @@ export const chipData: ComponentData = {
         'Aria label should be added for accessibility. See the code example in top for inspiration.',
     },
     color: {
-      type: 'blue | green | orange | purple | red | violet',
+      type: '"blue" | "green" | "orange" | "purple" | "red" | "violet"',
       description: 'Set a background color of the chip.',
-      default: 'green',
+      default: '"green"',
     },
     isDisabled: {
       type: 'boolean',

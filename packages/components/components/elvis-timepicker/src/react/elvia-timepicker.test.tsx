@@ -93,11 +93,11 @@ describe('Elvis Timepicker', () => {
       });
 
       it('an open event is emitted', () => {
-        expect(onOpenListener).toHaveBeenCalled();
+        expect(onOpenListener).toHaveBeenCalledTimes(1);
       });
 
       it('an focus event is emitted (internal only)', () => {
-        expect(onFocusListener).toHaveBeenCalled();
+        expect(onFocusListener).toHaveBeenCalledTimes(1);
       });
 
       describe('and the backdrop is clicked', () => {
@@ -111,7 +111,7 @@ describe('Elvis Timepicker', () => {
         });
 
         it('an close event is emitted', async () => {
-          await waitFor(() => expect(onCloseListener).toHaveBeenCalled());
+          await waitFor(() => expect(onCloseListener).toHaveBeenCalledTimes(1));
         });
       });
 

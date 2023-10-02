@@ -146,13 +146,11 @@ describe('Elvis Popover', () => {
   });
 
   describe('events', () => {
-    let onCloseEvent: jest.Mock;
-    let onOpenEvent: jest.Mock;
+    const onCloseEvent = jest.fn();
+    const onOpenEvent = jest.fn();
 
     beforeEach(() => {
-      onCloseEvent = jest.fn();
-      onOpenEvent = jest.fn();
-
+      jest.clearAllMocks();
       render(
         <Popover
           content="Content"
@@ -176,7 +174,7 @@ describe('Elvis Popover', () => {
 
       await user.click(trigger);
 
-      await waitFor(() => expect(onOpenEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
     });
 
     it('onClose: should emit event when close button is clicked', async () => {
@@ -188,7 +186,7 @@ describe('Elvis Popover', () => {
       const closeButton = screen.getByRole('button', { name: /lukk/i });
       await user.click(closeButton);
 
-      await waitFor(() => expect(onCloseEvent).toHaveBeenCalled());
+      await waitFor(() => expect(onCloseEvent).toHaveBeenCalledTimes(1));
     });
   });
 
