@@ -19,7 +19,7 @@ interface PropBase {
    */
   type: string;
   default?: string | number | boolean;
-  /** A example of how the prop can be used. Typed as a string, but should be a valid ts code example.
+  /** An example of how the prop can be used. Typed as a string, but should be a valid ts code example.
    * @example
    * "myObject = {key: 'value'}"
    */
