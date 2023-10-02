@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "14.1.0",
+      "date": "September 29, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for the <code>.e-alert__close</code> class in a local <code>e-alert</code> so that it can be closed.",
+            "Added support for the <code>.e-alert--no-title</code> class on a local <code>e-alert</code> to get the correct icon alignment."
+          ]
+        }
+      ]
+    },
+    {
       "version": "14.0.1",
       "date": "September 20, 2023",
       "changelog": [

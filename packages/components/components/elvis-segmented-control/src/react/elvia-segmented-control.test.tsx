@@ -82,10 +82,10 @@ describe('Elvia Segmented Control', () => {
   });
 
   describe('Events', () => {
-    let valueOnChangeEvent: jest.Mock;
+    const valueOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      valueOnChangeEvent = jest.fn();
+      jest.clearAllMocks();
 
       render(
         <SegmentedControl
@@ -105,7 +105,7 @@ describe('Elvia Segmented Control', () => {
 
       await user.click(controls[2]);
 
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

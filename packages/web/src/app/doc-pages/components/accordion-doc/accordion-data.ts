@@ -17,7 +17,7 @@ const accordionData: ComponentData<AccordionProps> = {
       default: 'false',
     },
     type: {
-      type: '“normal” | “overflow” | “single”',
+      type: '"normal" | "overflow" | "single"',
       description: 'Variants of accordion',
       default: '"normal"',
     },
@@ -35,12 +35,12 @@ const accordionData: ComponentData<AccordionProps> = {
       description: `Determines if the accordion is full width.`,
     },
     labelPosition: {
-      type: '“left” | “center” | “right”',
+      type: '"left" | "center" | "right"',
       description: 'Horizontal position of label and button.',
       default: '"center"',
     },
     size: {
-      type: '“small” | “medium” | “large”',
+      type: '"small" | "medium" | "large"',
       description: 'Size of accordion label and button.',
       default: '"medium"',
     },

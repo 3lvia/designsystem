@@ -29,9 +29,7 @@
             <th scope="col">Type</th>
             <th scope="col">When to use</th>
             <th scope="col">Urgency</th>
-            <th scope="col">Skins</th>
             <th scope="col">Position / Location</th>
-            <th scope="col">Duration</th>
           </tr>
         </thead>
         <tbody>
@@ -39,9 +37,7 @@
             <th scope="row"><strong>Global</strong></th>
             <td>System or product level alerts and not specific to an user action.</td>
             <td>High</td>
-            <td>Informative, negative, warning</td>
             <td>Full-width strip above the header. Visible on the entire application.</td>
-            <td>Permanent or closable</td>
           </tr>
           <tr>
             <th scope="row"><strong>Local</strong></th>
@@ -50,9 +46,7 @@
               operation.
             </td>
             <td>Medium</td>
-            <td>Informative, negative, warning</td>
             <td>Next to where the action occurred. Only visible on the current page.</td>
-            <td>Permanent</td>
           </tr>
         </tbody>
       </table>
@@ -150,7 +144,7 @@
         </app-static-ceg>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Expandable'">
-        Global alerts can also be expandable. Add and remove the clas
+        Global alerts can also be expandable. Add and remove the class
         <code class="e-ml-8 e-lowercase">e-alert--open</code>
         to open and close the alert.
         <app-static-ceg>
@@ -164,6 +158,11 @@
         </app-static-ceg>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Without title'">
+        Use the
+        <code>.e-alert--no-title</code>
+        class on the same element as
+        <code>.e-alert</code>
+        when the alert does not have a title.
         <app-static-ceg>
           <app-alert-global-no-title-ceg />
         </app-static-ceg>
@@ -180,8 +179,22 @@
       <app-when-to-use [whens]="doesAlertDefault" />
 
       <app-component-subsubsection [sectionTitle]="'Without title'">
+        Use the
+        <code>.e-alert--no-title</code>
+        class on the same element as
+        <code>.e-alert</code>
+        when the alert does not have a title.
         <app-static-ceg>
           <app-alert-local-no-title-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Closable'">
+        Local alerts can have a close button. Use the
+        <code>.e-alert__close</code>
+        class as an descendant of
+        <code>.e-alert</code>
+        <app-static-ceg>
+          <app-alert-local-closable-ceg />
         </app-static-ceg>
       </app-component-subsubsection>
     </app-component-subsection>

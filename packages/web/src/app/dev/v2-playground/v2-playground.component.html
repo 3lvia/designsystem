@@ -389,6 +389,7 @@
           <h3>DatePicker</h3>
           <elvia-datepicker
             [value]="date"
+            resetTime
             (valueOnChange)="writeDate($any($event).detail.value)"
           ></elvia-datepicker>
         </div>
@@ -396,11 +397,14 @@
         <!--Date range picker-->
         <div class="example-wrapper">
           <h3>Date range picker</h3>
-          <elvia-datepicker-range></elvia-datepicker-range>
+          <elvia-datepicker-range
+            (valueOnChangeISOString)="writeDate($any($event).detail.value)"
+          ></elvia-datepicker-range>
           <elvia-datepicker-range
             hasTimepickers
             [minDate]="minDateRange"
             [maxDate]="maxDateRange"
+            (valueOnChangeISOString)="writeDate($any($event).detail.value)"
           ></elvia-datepicker-range>
         </div>
 

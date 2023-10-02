@@ -97,10 +97,10 @@ describe('Elvis Tabs', () => {
   });
 
   describe('Events', () => {
-    let valueOnChangeEvent: jest.Mock;
+    const valueOnChangeEvent = jest.fn();
 
     beforeEach(() => {
-      valueOnChangeEvent = jest.fn();
+      jest.clearAllMocks();
       render(<Tabs items={items} valueOnChange={valueOnChangeEvent} />);
     });
 
@@ -113,7 +113,7 @@ describe('Elvis Tabs', () => {
       const tabs = screen.getAllByRole('tab');
 
       await user.click(tabs[1]);
-      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
   });
 

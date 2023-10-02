@@ -20,8 +20,8 @@ const cardData: ComponentData<Omit<CardProps, 'header' | 'shape' | 'hasBorder' |
       description: 'Card heading.',
     },
     headingLevel: {
-      type: 'h1 | h2 | h3 | h4 | h5 | h6',
-      default: 'h3',
+      type: '"h1" | "h2" | "h3" | "h4" | "h5" | "h6"',
+      default: '"h3"',
       description: 'Defines the HTML heading used on the card heading.',
     },
     description: {
@@ -29,7 +29,7 @@ const cardData: ComponentData<Omit<CardProps, 'header' | 'shape' | 'hasBorder' |
       description: 'Description text, keep it short if not detail card.',
     },
     borderColor: {
-      type: 'green | blue-berry | red | orange',
+      type: '"green" | "blue-berry" | "red" | "orange"',
       description: 'Color on top of the card. Only applies to simple card. ',
     },
     width: {
