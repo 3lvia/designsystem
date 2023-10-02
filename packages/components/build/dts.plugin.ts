@@ -1,6 +1,7 @@
 import esbuild from 'esbuild';
 import ts from 'typescript';
 import path from 'path';
+import fsPromises from 'fs/promises';
 import fs from 'fs';
 
 interface Props {
@@ -49,7 +50,7 @@ const dtsPlugin = (config: Props) =>
         const start = Date.now();
         const emit = program.emit(
           undefined,
-          (fileName, text) => {
+          async (fileName, text) => {
             const isPublicApi = path.basename(fileName).includes('.public');
             const normalizedPath = fileName.replace('react/', '');
             const outPath = normalizedPath.replace(
@@ -66,9 +67,9 @@ const dtsPlugin = (config: Props) =>
             }
 
             if (!fs.existsSync(path.dirname(outPath))) {
-              fs.mkdirSync(path.dirname(outPath), { recursive: true });
+              await fsPromises.mkdir(path.dirname(outPath), { recursive: true });
             }
-            fs.writeFileSync(outPath, fileContent);
+            await fsPromises.writeFile(outPath, fileContent);
           },
           undefined,
           true,
