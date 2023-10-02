@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 4.1.0 (02.10.23)
+
+### New feature
+
+- New token `text-5` used for light black to dark black text.
+
 ## 4.0.0 (30.08.23)
 
 ### New feature
