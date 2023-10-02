@@ -75,10 +75,8 @@ $toast-max-width: 400px;
     .e-alert__links {
       height: 26px;
       margin-top: 16px;
-
-      a:not(:last-of-type) {
-        margin-right: 24px;
-      }
+      display: flex;
+      column-gap: 24px;
     }
   }
 
