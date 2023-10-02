@@ -1,7 +1,7 @@
 import esbuild from 'esbuild';
 import dtsPlugin from './dts.plugin.ts';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
-import buildWebComponents from './web-component-buid.config.ts';
+import buildWebComponents from './web-component-build.config.ts';
 import cssModulesPlugin from 'esbuild-css-modules-plugin';
 import tinyGlob from 'tiny-glob';
 import fs from 'fs';
@@ -15,7 +15,7 @@ interface ComponentData {
   content: Record<string, any>;
 }
 
-const rootDir = 'tmp-folder';
+const rootDir = 'components';
 
 const getComponentData = async () => {
   const paths = await tinyGlob('components/elvis-*/package.json');

@@ -55,7 +55,7 @@ const getConfigObject = (file: string): Config => {
   // Remove quotes, new lines and spaces
   const cleanContent = content.replace(/'/g, '').replace(/\n/g, '').replace(/ /g, '');
   const contentWithDoubleQuotes = cleanContent.replace(/([\w\.]+)/g, '"$1"');
-  const contentWithoutTrailingCommas = contentWithDoubleQuotes.replace(/],?}/g, ']}').replace(/},?]/g, '}]');
+  const contentWithoutTrailingCommas = contentWithDoubleQuotes.replace(/([\]}]),(?=[\]}])/g, '$1');
   return JSON.parse(contentWithoutTrailingCommas);
 };
 
