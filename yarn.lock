@@ -2120,7 +2120,7 @@ __metadata:
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
     "@elvia/elvis-colors": ^3.0.0
-    "@types/gulp": ^4.0.13
+    "@types/gulp": ^4.0.14
     "@types/gulp-svgmin": ^1.2.2
     "@types/node": ^18.11.18
     "@types/sharp": ^0.30.2
@@ -2309,7 +2309,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
-    "@types/gulp": ^4.0.13
+    "@types/gulp": ^4.0.14
     "@types/node": ^18.11.18
     del: ^6.0.0
     gulp: ^4.0.2
@@ -2359,7 +2359,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": 13.4.0
     "@testing-library/user-event": 14.4.3
-    "@types/gulp": ^4.0.13
+    "@types/gulp": ^4.0.14
     "@types/gulp-babel": ^6.1.30
     "@types/gulp-cached": ^0.0.33
     "@types/gulp-filter": ^3.0.35
@@ -2933,7 +2933,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
-    "@types/gulp": ^4.0.13
+    "@types/gulp": ^4.0.14
     "@types/node": ^18.11.18
     del: ^6.0.0
     gulp: ^4.0.2
@@ -4674,14 +4674,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp@npm:^4.0.13":
-  version: 4.0.13
-  resolution: "@types/gulp@npm:4.0.13"
+"@types/gulp@npm:^4.0.14":
+  version: 4.0.14
+  resolution: "@types/gulp@npm:4.0.14"
   dependencies:
     "@types/undertaker": ">=1.2.6"
     "@types/vinyl-fs": "*"
     chokidar: ^3.3.1
-  checksum: e1996a2414ceba9f10e363fa6dfd55f06d99571144992adf45f74f71eb4a6c2914458dbaa28f4bab7323c8914c373e8ad0d3769c8280e7c224a254c95964f411
+  checksum: 510961b33dfd8fa6678a2e9e4762358dc2087ecea988d194c97bea891dfb0f286b5a135ec57e4915d2fe0cc11ea5c4806a68a38bfe27dd11880b783ef1afb542
   languageName: node
   linkType: hard
 
