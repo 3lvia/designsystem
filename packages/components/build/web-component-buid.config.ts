@@ -1,12 +1,17 @@
 import esbuild from 'esbuild';
 import tinyGlob from 'tiny-glob';
-import fs from 'fs/promises';
+import fs from 'fs';
 import path from 'path';
 import { toInOutTuple } from './utils.ts';
 
 interface Props {
   outDir: string;
   watch: boolean;
+}
+
+interface Config {
+  name: string;
+  attributes: Attribute[];
 }
 
 interface Attribute {
@@ -49,49 +54,74 @@ const setGetList = (attributes: Attribute[]) => {
   return list;
 };
 
-const createWebComponentPlugin: esbuild.Plugin = {
-  name: 'create-webcomponent-plugin',
-  async setup(build) {
-    const templateFile = await fs.readFile('./build/template/elvia-component.template.js', 'utf-8');
+const getConfigObject = (file: string): Config => {
+  const content = file.match(/export.*({[\w\W]*})/)?.[1] as string;
 
-    build.onLoad({ filter: /(\.ts)$/ }, async (args) => {
-      const elementName = args.path.split(path.sep)[1];
-      const reactName = args.path.split(path.sep)[1];
-      const config = await fs.readFile(args.path, 'utf-8');
-      const attributes: Attribute[] = Array.from(config.matchAll(/name: ?'(\w+)',\W*type: ?'(\w+)'/g)).map(
-        (match) => ({ name: match[1], type: match[2] as Attribute['type'] }),
-      );
-      const filteredAttributes = attributes.filter((attr) => !shouldIgnoreAttribute(attr));
-      const observedAttributes = filteredAttributes.map((attr) => attr.name.toLowerCase());
+  // Remove quotes, new lines and spaces
+  const cleanContent = content.replace(/'/g, '').replace(/\n/g, '').replace(/ /g, '');
+  const contentWithDoubleQuotes = cleanContent.replace(/([\w\.]+)/g, '"$1"');
+  const contentWithoutTrailingCommas = contentWithDoubleQuotes.replace(/],?}/g, ']}').replace(/},?]/g, '}]');
+  return JSON.parse(contentWithoutTrailingCommas);
+};
 
-      const fileContent = templateFile
-        .replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(observedAttributes))
-        .replace(/{{INSERT_COMPONENT_NAME}}/, elementName)
-        .replace(/{{INSERT_REACT_NAME}}/, reactName)
-        .replace(/\/\/{{INSERT_SETTERS_AND_GETTERS}}/, setGetList(attributes))
-        .replace(
-          /\/\/{{INSERT_COMPONENT_DATA}}/,
-          `
+const createWebComponentPlugin = (rootDir: string) => {
+  return {
+    name: 'create-webcomponent-plugin',
+    async setup(build) {
+      const templateFile = fs.readFileSync('./build/template/elvia-component.template.js', 'utf-8');
+
+      build.onLoad({ filter: /(\.ts)$/, namespace: 'to-text' }, async (args) => {
+        const cmpName = args.path.split(path.sep).find((str) => str.startsWith('elvis-')) || '';
+        const reactName = cmpName
+          .split('-')
+          .slice(1)
+          .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
+          .join('');
+        const configFile = fs.readFileSync(args.path, 'utf-8');
+        const config = getConfigObject(configFile);
+
+        const attributeNames = config.attributes
+          .filter((attr) => !shouldIgnoreAttribute(attr))
+          .map((attr) => attr.name.toLowerCase());
+
+        const fileContent = templateFile
+          .replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(attributeNames))
+          .replace(/{{INSERT_COMPONENT_NAME}}/, cmpName.replace('elvis', 'elvia'))
+          .replace(/{{INSERT_REACT_NAME}}/, reactName)
+          .replace(/\/\/{{INSERT_SETTERS_AND_GETTERS}}/, setGetList(config.attributes))
+          .replace(
+            /\/\/{{INSERT_COMPONENT_DATA}}/,
+            `
               static getComponentData() {
-                  return ${JSON.stringify(attributes)}
+                  return ${JSON.stringify(config)}
               }    
               `,
-        );
+          );
 
-      return {};
-    });
-  },
+        // const outDir = path.join(rootDir, cmpName, 'dist', 'main');
+        // if (!fs.existsSync(outDir)) {
+        //   fs.mkdirSync(rootDir);
+        // }
+        // fs.writeFileSync(path.join(rootDir, 'web-component.js'), fileContent);
+
+        return {
+          contents: fileContent,
+          loader: 'ts',
+        };
+      });
+    },
+  } as esbuild.Plugin;
 };
 
 const buildWebComponents = async (config: Props): Promise<esbuild.BuildResult | void> => {
-  const paths = await tinyGlob('components/elvis-badge/src/react/config.ts');
+  const paths = await tinyGlob('components/elvis-accordion/src/react/config.ts');
 
   const baseConfig: esbuild.BuildOptions = {
     entryPoints: paths.map((path) => toInOutTuple(path, 'main', 'web-component')),
     outdir: config.outDir,
     bundle: true,
     format: 'esm',
-    plugins: [createWebComponentPlugin],
+    plugins: [createWebComponentPlugin(config.outDir)],
   };
 
   if (config.watch) {

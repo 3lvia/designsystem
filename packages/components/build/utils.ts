@@ -17,7 +17,7 @@ export const getMd5 = (fileName: string): string | null => {
 export const toInOutTuple = (filePath: string, outFolder?: string, fileName?: string) => {
   const componentFolder = filePath.split('/')[1];
   const outName = fileName ?? path.parse(filePath).name;
-  const subFolder = outFolder ?? outName.endsWith('.public') ? 'public-api' : 'react';
+  const subFolder = outFolder ? outFolder : outName.endsWith('.public') ? 'public-api' : 'react';
 
   return { in: filePath, out: path.join(componentFolder, 'dist', subFolder, outName) };
 };
