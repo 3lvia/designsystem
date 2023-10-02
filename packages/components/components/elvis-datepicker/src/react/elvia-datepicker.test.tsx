@@ -2,7 +2,14 @@ import React from 'react';
 import Datepicker from './elvia-datepicker';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { formatDate, dateIsWithinMinMaxBoundary, isAfter, isBefore, isValidDate } from './dateHelpers';
+import {
+  formatDate,
+  dateIsWithinMinMaxBoundary,
+  isAfter,
+  isBefore,
+  isValidDate,
+  localISOTime,
+} from './dateHelpers';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -371,9 +378,9 @@ describe('Elvis Datepicker', () => {
   });
 
   describe('dateHelpers.ts', () => {
-    const earlyDate = new Date(1, 1, 2020);
-    const middleDate = new Date(1, 1, 2021);
-    const lateDate = new Date(2, 2, 2022);
+    const earlyDate = new Date(2020, 1, 1, 0, 0, 0, 0);
+    const middleDate = new Date(2021, 1, 1, 0, 0, 0, 0);
+    const lateDate = new Date(2022, 2, 2, 0, 0, 0, 0);
 
     it('should give isBefore and isAfter', () => {
       const before = isBefore(earlyDate, lateDate);
@@ -412,6 +419,10 @@ describe('Elvis Datepicker', () => {
       expect(isBoolean).not.toBeTruthy();
       expect(isNumber).not.toBeTruthy();
       expect(isObject).not.toBeTruthy();
+    });
+    it('should give correct ISO string', () => {
+      const iso = localISOTime(earlyDate);
+      expect(iso).toBe('2020-02-01T00:00:00.000Z');
     });
   });
 });
