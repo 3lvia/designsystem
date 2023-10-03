@@ -7,9 +7,9 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "The local alert has a new, more compact design for mobile screens. The total height of the Alert, therefor, has changed."
+            "The Local Alert has a new, more compact, design on smaller screens. The total height of the Alert, therefore, has changed."
           ],
-          "fixes": ["Ensure Local Alert used on smaller screen still fit your design."],
+          "fixes": ["Ensure Local Alert used on smaller screens still fit your design."],
           "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
         }
       ]
