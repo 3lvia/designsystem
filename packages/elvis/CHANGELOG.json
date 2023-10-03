@@ -1,6 +1,20 @@
 {
   "content": [
     {
+      "version": "15.0.0",
+      "date": "October 3, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The local alert has a new, more compact design for mobile screens. The total height of the Alert, therefor, has changed."
+          ],
+          "fixes": ["Ensure Local Alert used on smaller screen still fit your design."],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        }
+      ]
+    },
+    {
       "version": "14.1.0",
       "date": "September 29, 2023",
       "changelog": [
