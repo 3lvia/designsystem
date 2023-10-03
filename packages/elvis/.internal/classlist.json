@@ -98,10 +98,9 @@
 				"e-alert--expandable": {},
 				"e-alert--open": {},
 				"e-alert--local": {},
-				"e-alert--toast": {},
+				"e-alert--actions": {},
 				"e-alert--info": {},
-				"e-alert--no-title": {},
-				"e-alert--actions": {}
+				"e-alert--no-title": {}
 			}
 		},
 		"e-shadow-none": {},
@@ -912,11 +911,10 @@
 		"e-alert--open": {},
 		"e-alert__accordion": {},
 		"e-alert--local": {},
-		"e-alert--toast": {},
-		"e-alert--info": {},
-		"e-alert--no-title": {},
 		"e-alert--actions": {},
 		"e-alert__actions": {},
+		"e-alert--info": {},
+		"e-alert--no-title": {},
 		"e-shadow-none": {},
 		"e-theme-light": {},
 		"e-theme-dark": {},
