@@ -337,7 +337,7 @@ export const getTypographyCss = <Key extends TypographyName>(typographyName: Key
 };
 
 const warnDeprecatedTypography = (typographyName: string): void => {
-  const localhost = window?.location.href.includes('localhost');
+  const localhost = typeof window !== 'undefined' && window?.location.href.includes('localhost');
   if (!localhost) {
     return;
   }
