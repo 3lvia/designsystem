@@ -44,10 +44,12 @@ tr.prop-row {
   }
 
   &.expanded .height-changer {
-    border-bottom: 1px solid var(--e-color-border-2);
     height: 100%;
     padding-block: 9px;
     opacity: 1;
+    &:not(.last) {
+      border-bottom: 1px solid var(--e-color-border-2);
+    }
   }
 }
 

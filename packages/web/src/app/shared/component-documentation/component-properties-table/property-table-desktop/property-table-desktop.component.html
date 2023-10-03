@@ -46,47 +46,53 @@
           </div>
         </td>
       </tr>
-      <ng-container *ngFor="let prop of group.rows; let isLast = last; let i = index">
-        <tr class="prop-row" [ngClass]="{ last: isLast, expanded: group.expanded }">
-          <th scope="row" class="table-code-text">
-            <div
-              class="height-changer"
-              [ngStyle]="{
-                'margin-left.px': calculateMargin(i, group.rows),
-                'padding-left.px': calculatePadding(i, group.rows)
-              }"
-            >
-              <strong
-                [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"
-              ></strong>
-              <strong>{{ prop.item.isRequired ? '*' : '' }}</strong>
-            </div>
-          </th>
-          <td class="table-code-text e-table__cell--multiline-small">
-            <div
-              class="height-changer"
-              [innerHTML]="prop.item.type | searchHighlighter : 'type' : prop.matches"
-            ></div>
-          </td>
-          <td class="e-table__cell--multiline-small">
-            <div
-              class="height-changer"
-              [innerHTML]="
-                prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches
-              "
-            ></div>
-          </td>
-          <td class="table-code-text">
-            <div
-              class="height-changer"
-              [innerHTML]="
-                (propHasNoChildren(prop.item) ? prop.item.default : '')
-                  | searchHighlighter : 'default' : prop.matches
-              "
-            ></div>
-          </td>
-        </tr>
-      </ng-container>
+      <tr
+        *ngFor="let prop of group.rows; let isLast = last; let i = index"
+        class="prop-row"
+        [ngClass]="{ expanded: group.expanded }"
+      >
+        <th scope="row" class="table-code-text">
+          <div
+            class="height-changer"
+            [ngClass]="{ last: isLast }"
+            [ngStyle]="{
+              'margin-left.px': calculateMargin(i, group.rows),
+              'padding-left.px': calculatePadding(i, group.rows)
+            }"
+          >
+            <strong
+              [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"
+            ></strong>
+            <strong>{{ prop.item.isRequired ? '*' : '' }}</strong>
+          </div>
+        </th>
+        <td class="table-code-text e-table__cell--multiline-small">
+          <div
+            class="height-changer"
+            [ngClass]="{ last: isLast }"
+            [innerHTML]="prop.item.type | searchHighlighter : 'type' : prop.matches"
+          ></div>
+        </td>
+        <td class="e-table__cell--multiline-small">
+          <div
+            class="height-changer"
+            [ngClass]="{ last: isLast }"
+            [innerHTML]="
+              prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches
+            "
+          ></div>
+        </td>
+        <td class="table-code-text">
+          <div
+            class="height-changer"
+            [ngClass]="{ last: isLast }"
+            [innerHTML]="
+              (propHasNoChildren(prop.item) ? prop.item.default : '')
+                | searchHighlighter : 'default' : prop.matches
+            "
+          ></div>
+        </td>
+      </tr>
     </ng-container>
   </tbody>
 </table>
