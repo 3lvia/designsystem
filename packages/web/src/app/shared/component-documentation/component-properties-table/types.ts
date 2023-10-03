@@ -2,13 +2,23 @@ import { ChildlessProp, NestedProp } from 'src/app/doc-pages/components/componen
 
 export interface LeafProp extends ChildlessProp {
   attribute: string;
-  level: number; // to define the indentation in the table
+  /** The indentation level of the prop.
+   * @example
+   * Root prop:
+   * "level = 0"
+   */
+  level: number;
   childProps?: ComponentProp[];
 }
 
 export interface NestedInputProp extends NestedProp<Record<string, any>> {
   attribute: string;
-  level: number; // to define the indentation in the table
+  /** The indentation level of the prop.
+   * @example
+   * Root prop:
+   * "level = 0"
+   */
+  level: number;
   childProps?: ComponentProp[];
 }
 
