@@ -1,6 +1,7 @@
 import esbuild from 'esbuild';
 import dtsPlugin from './dts.plugin.ts';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
+import writePlugin from './write.plugin.ts';
 import buildWebComponents from './web-component-build.config.ts';
 import cssModulesPlugin from 'esbuild-css-modules-plugin';
 import tinyGlob from 'tiny-glob';
@@ -61,12 +62,11 @@ export const build = async () => {
       ...baseConfig,
       sourcemap: true,
       logLevel: 'info',
+      write: false, // Let the write plugin only write files that have changed
+      plugins: baseConfig.plugins?.concat([writePlugin()]),
     });
 
-    return Promise.all([
-      esBuildContext.watch().then((res) => console.log(res)),
-      buildWebComponents({ outDir: rootDir, watch: watchMode }),
-    ]);
+    return Promise.all([esBuildContext.watch(), buildWebComponents({ outDir: rootDir, watch: watchMode })]);
   } else {
     console.log('🧹 Removing old dist folders...');
     await cleanDistFolders();
