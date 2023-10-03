@@ -50,16 +50,9 @@ const dtsPlugin = (config: Props) =>
           undefined,
           async (fileName, text, _, __, sources) => {
             const originalPath = sources?.[0]?.fileName || '';
-            const componentName =
-              originalPath.split(path.sep).find((part) => part.startsWith('elvis-')) || '';
-
             const isPublicApi = path.basename(fileName).includes('.public');
-            const outPath = path.join(
-              process.cwd(),
-              config.destinationDir,
-              componentName,
-              'dist',
-              isPublicApi ? 'public-api' : 'react',
+            const outDir = path.dirname(
+              originalPath.replace(/src(\/react)?/, `dist${path.sep}${isPublicApi ? 'public-api' : 'react'}`),
             );
 
             let fileContent = text;
@@ -70,10 +63,10 @@ const dtsPlugin = (config: Props) =>
               );
             }
 
-            if (!fs.existsSync(path.dirname(outPath))) {
-              await fsPromises.mkdir(path.dirname(outPath), { recursive: true });
+            if (!fs.existsSync(outDir)) {
+              await fsPromises.mkdir(outDir, { recursive: true });
             }
-            await fsPromises.writeFile(path.join(outPath, path.basename(fileName)), fileContent);
+            await fsPromises.writeFile(path.join(outDir, path.basename(fileName)), fileContent);
           },
           undefined,
           true,
