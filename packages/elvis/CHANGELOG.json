@@ -23,7 +23,8 @@
           "changes": [
             "Added support for the <code>.e-alert__close</code> class in a local <code>e-alert</code> so that it can be closed.",
             "Added support for the <code>.e-alert--no-title</code> class on a local <code>e-alert</code> to get the correct icon alignment."
-          ]
+          ],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
         }
       ]
     },
