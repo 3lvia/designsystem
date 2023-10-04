@@ -236,6 +236,19 @@ $global-mobile-notitle-padding: 14px; // -2px border
       justify-content: center;
       padding: $local-mobile-padding;
 
+      .e-alert__content {
+        row-gap: 8px;
+
+        .e-alert__title {
+          margin: 1px 0;
+          @include typography.typography('text-small-strong');
+        }
+
+        .e-alert__text {
+          @include typography.typography('text-small');
+        }
+      }
+
       .e-alert__title ~ .e-alert__text,
       &.e-alert--actions .e-alert__links,
       &.e-alert--actions .e-alert__actions {
@@ -252,7 +265,7 @@ $global-mobile-notitle-padding: 14px; // -2px border
       .e-alert__icon {
         width: 24px;
         height: 24px;
-        margin: 2px 8px 0 0;
+        margin: 0 8px 0 0;
 
         .e-icon {
           width: 24px;
@@ -351,7 +364,7 @@ $global-mobile-notitle-padding: 14px; // -2px border
         align-items: unset;
         margin: 11px 24px 0 0;
         @include breakpoints.breakpoint-up(Mobile) {
-          margin: 2px 8px 0 0;
+          margin: 0 8px 0 0;
         }
       }
 
@@ -372,7 +385,7 @@ $global-mobile-notitle-padding: 14px; // -2px border
 
         @include breakpoints.breakpoint-up(Mobile) {
           width: calc(100% + 32px);
-          margin: 8px 0 0 -32px;
+          margin: 0 0 0 -32px;
 
           button {
             width: auto;
