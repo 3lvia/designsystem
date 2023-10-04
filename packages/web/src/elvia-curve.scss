@@ -1,0 +1,21 @@
+.elvia-curve {
+  --elvia-curve-foreground: var(--e-color-background-1);
+  --elvia-curve-background: var(--e-color-background-3);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  height: 3.7vw;
+  margin-top: -1px;
+  background-color: var(--elvia-curve-background);
+
+  &::before {
+    position: absolute;
+    content: '';
+    background-color: var(--elvia-curve-foreground);
+    width: 685vw;
+    height: 685vw;
+    border-radius: 100%;
+    bottom: calc(100% - 3.7vw);
+  }
+}
