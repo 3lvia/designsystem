@@ -4,7 +4,6 @@ import { Theme } from './elviaHeader.shared.types';
 export type ThemeEvent = (themeName: Theme) => void;
 
 export interface UserMenuProps {
-  onMenuToggle: (isShowing: boolean) => void;
   onSignOutClick?: () => void;
   onThemeChange?: ThemeEvent;
   username: string;

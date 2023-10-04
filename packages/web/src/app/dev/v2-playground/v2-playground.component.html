@@ -625,6 +625,7 @@
           <h3>DatePicker</h3>
           <elvia-datepicker
             [value]="date"
+            resetTime
             (valueOnChange)="writeDate($any($event).detail.value)"
           ></elvia-datepicker>
         </div>
@@ -632,11 +633,14 @@
         <!--Date range picker-->
         <div class="example-wrapper">
           <h3>Date range picker</h3>
-          <elvia-datepicker-range></elvia-datepicker-range>
+          <elvia-datepicker-range
+            (valueOnChangeISOString)="writeDate($any($event).detail.value)"
+          ></elvia-datepicker-range>
           <elvia-datepicker-range
             hasTimepickers
             [minDate]="minDateRange"
             [maxDate]="maxDateRange"
+            (valueOnChangeISOString)="writeDate($any($event).detail.value)"
           ></elvia-datepicker-range>
         </div>
 
@@ -767,8 +771,8 @@
           <h3>Popover</h3>
           <elvia-popover
             [isShowing]="isPopoverShowing"
-            (onOpen)="isPopoverShowing = true"
-            (onClose)="isPopoverShowing = false"
+            (onOpen)="popoverOnOpen()"
+            (onClose)="popoverOnClose()"
             heading="BankID"
             horizontalPosition="left"
             verticalPosition="top"
@@ -777,7 +781,7 @@
             <button slot="trigger" class="e-btn">Show popover</button>
             <div slot="content">
               <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
-              <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+              <button class="e-btn" (click)="popoverOnClose()">Lukke popover</button>
             </div>
           </elvia-popover>
         </div>
@@ -808,6 +812,7 @@
             [value]="'read'"
             [name]="'readRadioFilters'"
             [ariaLabel]="'{value} filtrering valgt'"
+            (valueOnChange)="logValue('Radio filter', $any($event).detail.value)"
           ></elvia-radio-filter>
         </div>
 

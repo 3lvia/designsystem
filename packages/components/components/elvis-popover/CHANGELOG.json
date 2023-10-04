@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "21.09.23",
+      "version": "7.2.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue causing the popover to trigger the <code>onClose</code> event when it was mounted."
+          ]
+        }
+      ]
+    },
+    {
       "date": "18.09.23",
       "version": "7.2.2",
       "changelog": [

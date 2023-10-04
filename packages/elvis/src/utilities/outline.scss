@@ -1,13 +1,11 @@
-@use "../variables/colors";
-
 @mixin e-outline() {
-  outline: 2px solid colors.internal-color('focus-outline');
+  outline: 2px solid var(--e-color-focus-outline);
   outline-offset: 2px;
 }
 
 // for pseudoclasses :focus
 @mixin e-outline-pseudoclass() {
-  outline: 2px solid colors.internal-color('focus-outline') !important;
+  outline: 2px solid var(--e-color-focus-outline) !important;
   outline-offset: 2px;
 }
 

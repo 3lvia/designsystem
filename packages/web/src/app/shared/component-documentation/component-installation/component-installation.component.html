@@ -18,13 +18,13 @@
 <ol class="e-list e-list--numbers e-mt-56">
   <li>
     <strong>Install package:</strong>
-    <div class="code-text e-mt-16">
+    <div class="e-mt-16">
       <app-copy message="npm install {{ packageName }}">
         <code style="line-height: 26px">npm install {{ packageName }}</code>
       </app-copy>
     </div>
     <div class="e-text-md e-mt-8">or</div>
-    <div class="code-text e-mt-8">
+    <div class="e-mt-8">
       <app-copy message="yarn add {{ packageName }}">
         <code style="line-height: 26px">yarn add {{ packageName }}</code>
       </app-copy>
@@ -33,31 +33,25 @@
   <li>
     <strong>Import package:</strong>
     <h4 class="e-title-caps e-mt-24 e-mb-8">Web component</h4>
-    <div class="code-text">
-      <app-copy message="import '{{ packageName }}';">
-        <code style="line-height: 26px">import '{{ packageName }}';</code>
-      </app-copy>
-    </div>
+    <app-copy message="import '{{ packageName }}';">
+      <code style="line-height: 26px">import '{{ packageName }}';</code>
+    </app-copy>
     <div class="e-text-md">(Angular - Should be imported in module.ts not component.ts)</div>
     <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
-    <div class="code-text">
-      <app-copy message="import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';">
-        <code style="line-height: 26px">
-          import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';
-        </code>
-      </app-copy>
-    </div>
+    <app-copy message="import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';">
+      <code style="line-height: 26px">
+        import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';
+      </code>
+    </app-copy>
   </li>
   <li>
     <strong>Import types (optional):</strong>
     <h4 class="e-title-caps e-mt-16 e-mb-8">Types</h4>
-    <div class="code-text">
-      <app-copy message="import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';">
-        <code style="line-height: 26px">
-          import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';
-        </code>
-      </app-copy>
-    </div>
+    <app-copy message="import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';">
+      <code style="line-height: 26px">
+        import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';
+      </code>
+    </app-copy>
     <div class="e-text-md">Typescript interfaces for the component properties are available.</div>
   </li>
 </ol>

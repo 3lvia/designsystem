@@ -1,5 +1,5 @@
 @use '../../utilities/icons';
-@use '../../variables/typography.scss';
+@use '../../utilities/typography';
 
 .e-search {
   @include typography.typography('text-md');

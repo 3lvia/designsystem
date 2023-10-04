@@ -29,6 +29,7 @@ describe('Elvia Header', () => {
   const email = 'e12345@elvia.no';
   let logoHasBeenClicked = false;
   let signOutButtonHasBeenClicked = false;
+  let themeChangeHasBeenClicked = false;
   let user: UserEvent;
 
   beforeEach(() => {
@@ -54,6 +55,7 @@ describe('Elvia Header', () => {
           appContent={<div>Main content</div>}
           onLogoClick={() => (logoHasBeenClicked = true)}
           onSignOutClick={() => (signOutButtonHasBeenClicked = true)}
+          onThemeChange={() => (themeChangeHasBeenClicked = true)}
           navItems={
             <div className="e-sidenav__container">
               <a href="/" className="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
@@ -129,7 +131,7 @@ describe('Elvia Header', () => {
 
     describe('when the menu trigger is pressed', () => {
       beforeEach(async () => {
-        const element = await screen.getByRole('button', { name: /^åpne brukermeny$/i });
+        const element = screen.getByRole('button', { name: /^åpne brukermeny$/i });
         await user.click(element);
       });
 
@@ -160,6 +162,20 @@ describe('Elvia Header', () => {
         test('the sign out event is triggered', () => {
           expect(signOutButtonHasBeenClicked).toBe(true);
         });
+      });
+    });
+
+    describe('when the theme is switched', () => {
+      beforeEach(async () => {
+        const openMenu = screen.getByRole('button', { name: /^åpne brukermeny$/i });
+        await user.click(openMenu);
+
+        const menu = screen.getByRole('menu');
+        const themeSwitch = within(menu).getByRole('button', { name: /^mørk$/i });
+        await user.click(themeSwitch);
+      });
+      test('the theme change event has fired', () => {
+        expect(themeChangeHasBeenClicked).toBe(true);
       });
     });
   });

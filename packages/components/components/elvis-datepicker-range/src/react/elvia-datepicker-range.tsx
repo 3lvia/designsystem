@@ -14,7 +14,8 @@ import {
   ErrorOptions,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
-import { isAfter, isBefore } from './dateHelpers';
+import { isAfter, isBefore, localISOTime } from './dateHelpers';
+import { useUpdateEffect } from '@elvia/elvis-toolbox';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
 
@@ -69,7 +70,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   }, [isRequired]);
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     if (!webcomponent) {
       errorOnChange?.(currentErrorMessages);
     } else {
@@ -141,25 +142,22 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const handleValueOnChangeISOString = (newDateRange: DateRange): void => {
     const dateISO: DateRangeString = { start: null, end: null };
     if (newDateRange.start && isValidDate(newDateRange.start)) {
-      dateISO.start = newDateRange.start?.toISOString().substring(0, 10);
+      dateISO.start = localISOTime(newDateRange.start);
     } else if (newDateRange.start === null) {
       dateISO.start = null;
     } else {
       dateISO.start = 'Invalid Date';
     }
     if (newDateRange.end && isValidDate(newDateRange.end)) {
-      dateISO.end = newDateRange.end?.toISOString().substring(0, 10);
+      dateISO.end = localISOTime(newDateRange.end);
     } else if (newDateRange.end === null) {
       dateISO.end = null;
     } else {
       dateISO.end = 'Invalid Date';
     }
 
-    if (!webcomponent) {
-      valueOnChangeISOString?.(dateISO);
-    } else {
-      webcomponent.triggerEvent('valueOnChangeISOString', dateISO);
-    }
+    valueOnChangeISOString?.(dateISO);
+    webcomponent?.triggerEvent('valueOnChangeISOString', dateISO);
   };
 
   const setNewDateRange = (newDateRange: DateRange, emit = true): void => {
@@ -170,12 +168,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
 
     handleValueOnChangeISOString(newDateRange);
-    if (!webcomponent) {
-      valueOnChange?.(newDateRange);
-    } else {
-      webcomponent.setProps({ value: newDateRange }, true);
-      webcomponent.triggerEvent('valueOnChange', newDateRange);
-    }
+    valueOnChange?.(newDateRange);
+    webcomponent?.setProps({ value: newDateRange }, true);
+    webcomponent?.triggerEvent('valueOnChange', newDateRange);
   };
 
   useEffect(() => {

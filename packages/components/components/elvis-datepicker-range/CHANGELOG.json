@@ -2,7 +2,7 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "20.09.23",
+      "date": "xx.10.23",
       "version": "5.0.0",
       "changelog": [
         {
@@ -13,6 +13,32 @@
           "fixes": [
             "The total hight og the input elements has been adjusted. Adjust your design to accommodate for the new input height."
           ]
+        }
+      ]
+    },
+    {
+      "date": "02.10.23",
+      "version": "4.0.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed issue where <code>valueOnChangeISOString</code> would give wrong value."]
+        }
+      ]
+    },
+    {
+      "date": "28.09.23",
+      "version": "4.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the Date Picker Range would emit the <code>errorOnChange</code> event during its first render."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },

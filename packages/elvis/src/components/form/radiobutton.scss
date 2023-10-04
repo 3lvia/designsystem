@@ -1,5 +1,4 @@
-@use '../../variables/animation';
-@use '../../variables/typography';
+@use '../../utilities/typography';
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 
@@ -43,7 +42,7 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
     border: $radio-mark-border;
     border-radius: $radio-mark-border-radius;
     background-color: var(--e-color-background-element-1);
-    transition: background-color 0.3s animation.$transition-cubic;
+    transition: background-color 0.3s cubic-bezier(0.55, 0, 0.1, 1);
   }
 
   &__label {

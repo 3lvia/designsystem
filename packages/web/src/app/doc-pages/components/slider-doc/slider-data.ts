@@ -8,7 +8,7 @@ export const sliderData: ComponentData = {
     type: {
       default: '"simple"',
       description: 'Variants of slider.',
-      type: '“simple” | “range”',
+      type: '"simple" | "range"',
     },
     hasInputField: {
       default: 'true',
@@ -50,9 +50,9 @@ export const sliderData: ComponentData = {
       type: 'string',
     },
     size: {
-      default: 'medium',
+      default: '"medium"',
       description: 'The size of the slider and its input field(s).',
-      type: '“medium” | “small”',
+      type: '"medium" | "small"',
     },
     ariaLabel: {
       type: 'string | {left: string, right: string}',

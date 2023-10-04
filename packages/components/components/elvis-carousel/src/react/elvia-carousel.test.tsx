@@ -172,6 +172,50 @@ describe('Elvis Carousel', () => {
     });
   });
 
+  describe('Events', () => {
+    const onFinishEvent = jest.fn();
+    const valueOnChangeEvent = jest.fn();
+    beforeEach(() => {
+      jest.clearAllMocks();
+
+      render(
+        <Carousel
+          hasConfirmationCheckmark={true}
+          items={items}
+          onFinish={onFinishEvent}
+          type={'linear'}
+          valueOnChange={valueOnChangeEvent}
+        />,
+      );
+    });
+
+    it('should not emit events when idle', async () => {
+      await waitFor(() => expect(onFinishEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+    });
+
+    it('onFinishEvent: should be called when the carousel is completed', async () => {
+      const user = userEvent.setup();
+
+      const lastCarouselDot = screen.getAllByTestId('carousel-dot')[items.length - 1];
+      await user.click(lastCarouselDot);
+
+      const checkmark = await screen.findByTestId('carousel-onboarding-checkmark');
+      await user.click(checkmark);
+
+      await waitFor(() => expect(onFinishEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('valueOnChangeEvent: should be called when the value is changed', async () => {
+      const user = userEvent.setup();
+
+      const carouselDots = screen.getAllByTestId('carousel-dot');
+      await user.click(carouselDots[1]);
+
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
+    });
+  });
+
   describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(
