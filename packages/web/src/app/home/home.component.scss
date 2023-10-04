@@ -17,17 +17,6 @@
   position: relative;
   background-color: var(--home-background-color);
 
-  &::before {
-    content: '';
-    left: -40%;
-    border-radius: 50%;
-    position: absolute;
-    background-color: var(--home-background-color);
-    width: 180vw;
-    height: 565px;
-    z-index: -1;
-  }
-
   .image-div {
     display: flex;
     justify-content: center;
@@ -40,9 +29,7 @@
   }
   @media (min-width: 1851px) {
     height: 520px;
-    &::before {
-      height: 571px;
-    }
+
     img {
       width: 1000px;
       height: auto;
@@ -50,9 +37,7 @@
   }
   @media (max-width: 1850px) {
     height: 496px;
-    &::before {
-      height: 542px;
-    }
+
     .image-div {
       height: 660px;
       img {
@@ -66,9 +51,7 @@
   }
   @media (max-width: 1550px) {
     height: 477px;
-    &::before {
-      height: 522px;
-    }
+
     .image-div {
       height: 620px;
       img {
@@ -105,15 +88,6 @@
   position: relative;
   background-color: var(--home-background-color);
 
-  &::before {
-    content: '';
-    left: -40%;
-    border-radius: 50%;
-    position: absolute;
-    background-color: var(--home-background-color);
-    width: 180vw;
-    z-index: -1;
-  }
   .image-div {
     display: flex;
     justify-content: center;
@@ -122,9 +96,7 @@
     display: flex;
     height: 378px;
     margin-top: 0px;
-    &::before {
-      height: 417px;
-    }
+
     .image-div {
       align-items: center;
       height: 535px;
@@ -139,9 +111,7 @@
   @include breakpoints.breakpoint-up(Mobile) {
     height: 286px;
     margin-top: 0px;
-    &::before {
-      height: 313px;
-    }
+
     .image-div img {
       margin-top: -128px;
       width: 541px;
@@ -150,9 +120,7 @@
   }
   @media (max-width: 450px) {
     height: 196px;
-    &::before {
-      height: 214px;
-    }
+
     .image-div img {
       margin-top: -216px;
       width: 410px;
@@ -161,15 +129,18 @@
   }
   @media (max-width: 380px) {
     height: 196px;
-    &::before {
-      height: 214px;
-    }
+
     .image-div img {
       margin-top: -245px;
       width: 353px;
       height: auto;
     }
   }
+}
+
+.elvia-curve {
+  --elvia-curve-foreground: var(--home-background-color);
+  --elvia-curve-background: transparent;
 }
 
 // TEXT IN TOP
@@ -257,7 +228,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: calc(9% + 100px);
+    margin-top: calc(9% + 70px);
     .home-header {
       justify-content: center;
       align-items: center;
