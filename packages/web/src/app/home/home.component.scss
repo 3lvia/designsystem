@@ -2,13 +2,11 @@
 @use '@elvia/elvis/src/utilities/helpers' as helpers;
 @use '../shared/shared-animations.scss' as animation;
 
-.home-container {
-  overflow: hidden;
+:host {
   padding-bottom: 40px;
   --home-background-color: var(--e-color-background-3);
 }
 
-// IMAGE SIZING
 .home-top-desktop {
   display: flex;
   flex-direction: row;

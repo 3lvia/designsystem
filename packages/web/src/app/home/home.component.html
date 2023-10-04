@@ -1,104 +1,100 @@
-<div class="home-container">
-  <div class="e-grid">
-    <div class="home-top-desktop">
-      <div class="col-lg-6 desktop-col">
-        <div class="home-header home-text-animation e-theme-dark e-color-text-1">
-          <h1 class="big-header">
-            <div *ngIf="fontLoaded">
-              <span class="title">{{ overviewTitle }}</span>
-              <span *ngIf="!isConstitutionDay" class="dot"></span>
-              <span *ngIf="isConstitutionDay" class="e-text-green e-ml-8">!</span>
-            </div>
-            <div class="content-loader-title" *ngIf="!fontLoaded">
-              <span class="e-content-loader e-w-75" style="height: 60px"></span>
-              <span class="e-content-loader e-w-50 e-mt-24" style="height: 60px"></span>
-            </div>
-          </h1>
-          <div class="e-text-lead e-mt-32">
-            <div *ngIf="fontLoaded">
-              <span *ngIf="locale === 'en-GB'">
-                A scalable system of visual language, components and design assets so we can work together
-                towards an ultimate brand experience.
-              </span>
-              <span *ngIf="locale === 'nb-NO'">
-                Et skalerbart system av visuelt språk, komponenter og designelementer så vi sammen kan jobbe
-                mot den ultimate brandopplevelsen.
-              </span>
-            </div>
-            <div *ngIf="!fontLoaded" class="content-loader-text">
-              <span class="e-content-loader e-content-loader--text"></span>
-              <span class="e-content-loader e-content-loader--text e-mt-24"></span>
-              <span class="e-content-loader e-content-loader--text e-w-75 e-mt-24"></span>
-            </div>
-          </div>
-          <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
-            <span class="e-btn__title">
-              <div>Get started</div>
-            </span>
-          </a>
-          <div class="e-mt-48" *ngIf="!fontLoaded">
-            <span class="e-content-loader" style="width: 160px; height: 48px"></span>
-          </div>
+<div class="home-top-desktop">
+  <div class="col-lg-6 desktop-col">
+    <div class="home-header home-text-animation e-theme-dark e-color-text-1">
+      <h1 class="big-header">
+        <div *ngIf="fontLoaded">
+          <span class="title">{{ overviewTitle }}</span>
+          <span *ngIf="!isConstitutionDay" class="dot"></span>
+          <span *ngIf="isConstitutionDay" class="e-text-green e-ml-8">!</span>
         </div>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="image-div home-image-animation">
-          <ng-container *ngTemplateOutlet="illustrations"></ng-container>
+        <div class="content-loader-title" *ngIf="!fontLoaded">
+          <span class="e-content-loader e-w-75" style="height: 60px"></span>
+          <span class="e-content-loader e-w-50 e-mt-24" style="height: 60px"></span>
         </div>
-      </div>
-    </div>
-
-    <div class="home-top-mobile">
-      <div class="col-md-12">
-        <div class="image-div home-image-animation">
-          <ng-container *ngTemplateOutlet="illustrations"></ng-container>
-        </div>
-      </div>
-    </div>
-    <div class="elvia-curve"></div>
-
-    <div class="col-md-12 mobile-col">
-      <div class="home-header">
-        <h1 class="big-header">
-          <span class="title">
-            {{ overviewTitle }}
-            <span class="dot"></span>
+      </h1>
+      <div class="e-text-lead e-mt-32">
+        <div *ngIf="fontLoaded">
+          <span *ngIf="locale === 'en-GB'">
+            A scalable system of visual language, components and design assets so we can work together towards
+            an ultimate brand experience.
           </span>
-        </h1>
-        <div class="e-text-lead e-mt-32">
-          A scalable system of visual language, components and design assets so we can work together towards
-          an ultimate brand experience.
+          <span *ngIf="locale === 'nb-NO'">
+            Et skalerbart system av visuelt språk, komponenter og designelementer så vi sammen kan jobbe mot
+            den ultimate brandopplevelsen.
+          </span>
         </div>
-        <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
-          <span class="e-btn__title">Get started</span>
-        </a>
+        <div *ngIf="!fontLoaded" class="content-loader-text">
+          <span class="e-content-loader e-content-loader--text"></span>
+          <span class="e-content-loader e-content-loader--text e-mt-24"></span>
+          <span class="e-content-loader e-content-loader--text e-w-75 e-mt-24"></span>
+        </div>
+      </div>
+      <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
+        <span class="e-btn__title">
+          <div>Get started</div>
+        </span>
+      </a>
+      <div class="e-mt-48" *ngIf="!fontLoaded">
+        <span class="e-content-loader" style="width: 160px; height: 48px"></span>
       </div>
     </div>
+  </div>
 
-    <div class="col-12 card-links home-card-links-animation">
-      <div class="card-link" *ngFor="let page of pages">
-        <div *ngIf="!fontLoaded" class="e-content-loader" style="width: 100%; height: 100%"></div>
-        <a *ngIf="page.absolutePath && fontLoaded" [routerLink]="[page.absolutePath]">
-          <elvia-card
-            [description]="(isMobileScreenWidth | async) ? null : page.description"
-            [heading]="page.title"
-          >
-            <img slot="icon" src="{{ currentTheme === 'dark' ? page.imageUrlDark : page.imageUrl }}" alt="" />
-            <div slot="iconHover">
-              <img src="{{ currentTheme === 'dark' ? page.imageUrlOnDark : page.imageUrlOn }}" alt="" />
-            </div>
-          </elvia-card>
-        </a>
-      </div>
+  <div class="col-lg-6">
+    <div class="image-div home-image-animation">
+      <ng-container *ngTemplateOutlet="illustrations"></ng-container>
     </div>
+  </div>
+</div>
 
-    <div class="home-whats-new e-mt-80">
-      <div class="e-title-md e-mb-56" style="display: flex; justify-content: center">What's new?</div>
-      <div>
-        <app-front-page-changelog />
-      </div>
+<div class="home-top-mobile">
+  <div class="col-md-12">
+    <div class="image-div home-image-animation">
+      <ng-container *ngTemplateOutlet="illustrations"></ng-container>
     </div>
+  </div>
+</div>
+<div class="elvia-curve"></div>
+
+<div class="col-md-12 mobile-col">
+  <div class="home-header">
+    <h1 class="big-header">
+      <span class="title">
+        {{ overviewTitle }}
+        <span class="dot"></span>
+      </span>
+    </h1>
+    <div class="e-text-lead e-mt-32">
+      A scalable system of visual language, components and design assets so we can work together towards an
+      ultimate brand experience.
+    </div>
+    <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
+      <span class="e-btn__title">Get started</span>
+    </a>
+  </div>
+</div>
+
+<div class="col-12 card-links home-card-links-animation">
+  <div class="card-link" *ngFor="let page of pages">
+    <div *ngIf="!fontLoaded" class="e-content-loader" style="width: 100%; height: 100%"></div>
+    <a *ngIf="page.absolutePath && fontLoaded" [routerLink]="[page.absolutePath]">
+      <elvia-card
+        [description]="(isMobileScreenWidth | async) ? null : page.description"
+        [heading]="page.title"
+      >
+        <img slot="icon" src="{{ currentTheme === 'dark' ? page.imageUrlDark : page.imageUrl }}" alt="" />
+        <div slot="iconHover">
+          <img src="{{ currentTheme === 'dark' ? page.imageUrlOnDark : page.imageUrlOn }}" alt="" />
+        </div>
+      </elvia-card>
+    </a>
+  </div>
+</div>
+
+<div class="home-whats-new e-mt-80">
+  <div class="e-title-md e-mb-56" style="display: flex; justify-content: center">What's new?</div>
+  <div>
+    <app-front-page-changelog />
   </div>
 </div>
 
