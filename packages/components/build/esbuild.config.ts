@@ -63,7 +63,7 @@ export const build = async () => {
       sourcemap: true,
       logLevel: 'info',
       write: false, // Let the write plugin only write files that have changed
-      plugins: baseConfig.plugins?.concat([writePlugin()]),
+      plugins: baseConfig.plugins?.concat([writePlugin]),
     });
 
     return Promise.all([esBuildContext.watch(), buildWebComponents({ outDir: rootDir, watch: watchMode })]);
