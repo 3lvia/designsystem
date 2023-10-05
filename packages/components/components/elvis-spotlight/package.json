@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^4.1.3",
-    "@elvia/elvis-toolbox": "^10.0.1",
+    "@elvia/elvis-toolbox": "^11.0.0",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {
