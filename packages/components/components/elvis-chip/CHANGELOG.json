@@ -3,11 +3,21 @@
   "content": [
     {
       "date": "xx.10.23",
-      "version": "2.4.3",
+      "version": "2.4.4",
       "changelog": [
         {
           "type": "patch",
           "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "05.10.23",
+      "version": "2.4.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependency."]
         }
       ]
     },
