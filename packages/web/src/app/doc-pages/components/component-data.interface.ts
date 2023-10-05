@@ -34,7 +34,6 @@ export interface ChildlessProp extends PropBase {
  * Represents props that are nested.
  */
 export interface NestedProp<TObjectProp> extends PropBase {
-  isEvent?: boolean;
   type: 'object' | 'object[]';
   description?: string;
   children: Required<{

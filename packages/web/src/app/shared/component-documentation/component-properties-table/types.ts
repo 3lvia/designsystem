@@ -1,6 +1,7 @@
 import { ChildlessProp, NestedProp } from 'src/app/doc-pages/components/component-data.interface';
 
 export interface LeafProp extends ChildlessProp {
+  isLeaf?: true;
   attribute: string;
   /** The indentation level of the prop.
    * @example
@@ -12,6 +13,7 @@ export interface LeafProp extends ChildlessProp {
 }
 
 export interface NestedInputProp extends NestedProp<Record<string, any>> {
+  isLeaf?: false;
   attribute: string;
   /** The indentation level of the prop.
    * @example
