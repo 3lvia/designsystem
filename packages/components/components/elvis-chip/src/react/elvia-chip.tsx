@@ -41,7 +41,7 @@ export const Chip: FC<ChipProps> = function ({
     if (isDisabled) {
       return getThemeColor('text-disabled-1');
     } else if (type === 'removable' && isHovered) {
-      return getThemeColor('static-black');
+      return getThemeColor('text-5');
     }
     return getThemeColor('text-1');
   };
@@ -68,7 +68,11 @@ export const Chip: FC<ChipProps> = function ({
       {...rest}
     >
       {type === 'choice' && (
-        <IconWrapper icon={check} size="12px" color={isSelectedState || isHovered ? 'text-1' : 'border-4'} />
+        <IconWrapper
+          icon={check}
+          size="12px"
+          color={isSelectedState || isHovered ? 'icon-stroke-1' : 'border-4'}
+        />
       )}
       {type === 'legend' && (
         <ChipDot
