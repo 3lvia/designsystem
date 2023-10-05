@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class ListDocComponent {
   doesExample1 = ['Items that are in no required order.'];
   doesExample3 = [
-    'When you need to have a priority or hierarchy between list items',
-    'Item in required order (step by step)',
+    'When you need to have a priority or hierarchy between list items.',
+    'Item in required order (step by step).',
   ];
   doesExample4 = ['When you need to list up definitions or explain items.'];
 }

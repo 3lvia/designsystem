@@ -8,17 +8,20 @@
           "type": "breaking_changes",
           "changes": [
             "Changed label size and error text size to be more consistent across the design system.",
-            "The Local Alert has a new, more compact, design on smaller screens. The total height of the Alert, therefore, has changed."
+            "The Local Alert has a new, more compact, design on smaller screens. The total height of the Alert, therefore, has changed.",
+            "List line-height update to match all typographies better."
           ],
           "components": [
             { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
             { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
             { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
-            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "List", "url": "https://design.elvia.io/components/list" }
           ],
           "fixes": [
             "The total hight of the input elements has been adjusted. Check your design to make sure this doesn't break anything.",
-            "Ensure Local Alert used on smaller screens still fit your design."
+            "Ensure Local Alert used on smaller screens still fit your design.",
+            "List are now a little bit shorter than before. There is a small chance that this can break the layout, but most likely nothing changes."
           ]
         }
       ]

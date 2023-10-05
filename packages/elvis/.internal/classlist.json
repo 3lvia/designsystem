@@ -201,9 +201,9 @@
 		},
 		"e-list": {
 			"modifier": {
-				"e-list--icons": {},
+				"e-list--strong": {},
 				"e-list--numbers": {},
-				"e-list--strong": {}
+				"e-list--icons": {}
 			},
 			"element": {
 				"e-list__icon": {}
@@ -966,9 +966,9 @@
 		"e-link--back": {},
 		"e-link--action": {},
 		"e-list": {},
-		"e-list--icons": {},
-		"e-list--numbers": {},
 		"e-list--strong": {},
+		"e-list--numbers": {},
+		"e-list--icons": {},
 		"e-list__icon": {},
 		"e-stepper": {},
 		"e-stepper__steps": {},
