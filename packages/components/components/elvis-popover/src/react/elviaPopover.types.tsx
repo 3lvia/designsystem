@@ -11,6 +11,7 @@ export interface PopoverProps extends ComponentPropsWithoutRef<'div'>, BaseProps
   verticalPosition?: VerticalPosition;
   trigger?: JSX.Element;
   hasCloseButton?: boolean;
+  noPadding?: boolean;
   isShowing?: boolean;
   onOpen?: () => void;
   onClose?: () => void;

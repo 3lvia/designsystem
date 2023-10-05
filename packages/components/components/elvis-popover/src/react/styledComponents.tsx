@@ -16,11 +16,11 @@ export const PopoverContainer = styled.div`
   box-sizing: border-box;
 `;
 
-export const PopoverContent = styled.div`
+export const PopoverContent = styled.div<{ noPadding: boolean }>`
   display: flex;
   position: relative;
   flex-direction: column;
-  padding: 32px;
+  padding: ${({ noPadding }) => (noPadding ? 0 : '32px')};
   background-color: ${getThemeColor('background-overlay-1')};
   color: ${getThemeColor('text-1')};
   text-align: left;
@@ -46,9 +46,7 @@ export const TriggerContainer = styled.div<TriggerContainerProps>`
     `};
 `;
 
-export const PopoverTypography = styled.div.attrs({
-  id: 'ewc-popover-content',
-})<PopoverTypographyProps>`
+export const PopoverTypography = styled.div<PopoverTypographyProps>`
   ${getTypographyCss('text-sm')}
   ${({ isStringOnly, hasCloseButton }) =>
     isStringOnly &&
@@ -58,9 +56,7 @@ export const PopoverTypography = styled.div.attrs({
     `}
 `;
 
-export const Heading = styled.h3.attrs({
-  id: 'ewc-popover-heading',
-})`
+export const Heading = styled.h3`
   ${getTypographyCss('text-sm-strong')}
   margin: 0;
   padding: 0;

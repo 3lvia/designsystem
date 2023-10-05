@@ -9,6 +9,7 @@ export const config: ComponentConfig = {
     { name: 'verticalPosition', type: 'string' },
     { name: 'trigger', type: 'string' },
     { name: 'hasCloseButton', type: 'boolean' },
+    { name: 'noPadding', type: 'boolean' },
     { name: 'isShowing', type: 'boolean' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
