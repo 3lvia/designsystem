@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-slider",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/slider",
   "main": "web_component.js",
