@@ -15,7 +15,7 @@
             { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
           ],
           "fixes": [
-            "The total hight og the input elements has been adjusted. Adjust your design to accommodate for the new input height."
+            "The total hight of the input elements has been adjusted. Check your design to make sure this doesn't break anything."
           ]
         }
       ]
