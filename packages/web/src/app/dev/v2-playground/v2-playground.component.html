@@ -4,127 +4,9 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-p-16 e-mb-24">
-      <div class="e-flex e-flex-direction-column e-gap-16">
-        <!-- EN -->
-        <div class="e-alert">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--remove_circle e-icon--color-danger" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Short title</div>
-            <div class="e-alert__text">
-              <div>A descriptive text for local alert.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TO -->
-        <div class="e-alert">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--remove_circle e-icon--color-danger" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Short title</div>
-            <div class="e-alert__text">
-              <div>
-                Description with an
-                <a class="e-link e-link--sm e-link--inline">inline link.</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TRE -->
-        <div class="e-alert e-alert--no-title">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--remove_circle e-icon--color-danger" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__text">A descriptive text for local alert without a title.</div>
-          </div>
-        </div>
-
-        <!-- FIRE -->
-        <div class="e-alert">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--remove_circle e-icon--color-danger" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Short title</div>
-            <div class="e-alert__text">A descriptive text for closable local alert.</div>
-          </div>
-          <div class="e-alert__close">
-            <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
-              <span class="e-btn__icon">
-                <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
-              </span>
-            </button>
-          </div>
-        </div>
-
-        <!-- FEM -->
-        <div class="e-alert e-alert--actions">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--remove_circle e-icon--color-danger" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Short title</div>
-            <div class="e-alert__text">
-              <span>A descriptive text for local alert.</span>
-            </div>
-            <div class="e-alert__actions">
-              <button class="e-btn e-btn--tertiary e-btn--sm">
-                <span class="e-btn__icon">
-                  <i class="e-icon e-icon--download" aria-hidden="true"></i>
-                </span>
-                <span class="e-btn__title">Tertiary</span>
-              </button>
-              <button class="e-btn e-btn--tertiary e-btn--sm">
-                <span class="e-btn__icon">
-                  <i class="e-icon e-icon--download" aria-hidden="true"></i>
-                </span>
-                <span class="e-btn__title">Tertiary 2</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- SEKS -->
-        <div class="e-alert e-alert--actions">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--remove_circle e-icon--color-danger" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">Short title</div>
-            <div class="e-alert__text">
-              <span>A descriptive text for local alert.</span>
-            </div>
-            <div class="e-alert__links">
-              <a class="e-link e-link--sm">Medium link 1</a>
-              <a class="e-link e-link--sm">Medium link 2</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- SJU -->
-        <div class="e-alert e-alert--global e-alert--actions">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__text">General information for all users across applications.</div>
-            <div class="e-alert__actions">
-              <button class="e-btn e-btn--secondary e-btn--sm">
-                <span class="e-btn__title">Secondary</span>
-              </button>
-              <button class="e-btn e-btn--sm">
-                <span class="e-btn__title">Primary</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="e-p-16 e-mb-24"></div>
+    <!--Inverted version-->
+    <div class="e-color-background-1 e-theme-dark e-p-16"></div>
 
       <!--Accordion-->
       <div class="example-wrapper">
@@ -444,20 +326,20 @@
           </div>
           Value deleted: {{ deleteValue }}
 
-          <div class="e-bg-white">
-            >>>>>>> origin
-            <h3>Clickable chips</h3>
-            <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
-            <div style="display: flex; flex-direction: row">
-              <div *ngFor="let chip of filteredKeys">
-                <elvia-chip
-                  [value]="chip"
-                  [isSelected]="filteredValues[chip]"
-                  color="orange"
-                  type="legend"
-                  (isSelectedOnChange)="handleOnChange($any($event))"
-                ></elvia-chip>
-              </div>
+        <div class="e-bg-white">
+         
+          <h3>Clickable chips</h3>
+          <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
+          <div style="display: flex; flex-direction: row">
+            <div *ngFor="let chip of filteredKeys">
+              <elvia-chip
+                [value]="chip"
+                [isSelected]="filteredValues[chip]"
+                color="orange"
+                type="legend"
+                (isSelectedOnChange)="handleOnChange($any($event))"
+              ></elvia-chip>
+            </div>
 
               Selected values:
               <span *ngFor="let key of filteredKeys">

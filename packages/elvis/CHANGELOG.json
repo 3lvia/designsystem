@@ -2,15 +2,24 @@
   "content": [
     {
       "version": "15.0.0",
-      "date": "October 3, 2023",
+      "date": "October xx, 2023",
       "changelog": [
         {
           "type": "breaking_changes",
           "changes": [
+            "Changed label size and error text size to be more consistent across the design system.",
             "The Local Alert has a new, more compact, design on smaller screens. The total height of the Alert, therefore, has changed."
           ],
-          "fixes": ["Ensure Local Alert used on smaller screens still fit your design."],
-          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+          "components": [
+            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
+          ],
+          "fixes": [
+            "The total hight of the input elements has been adjusted. Check your design to make sure this doesn't break anything.",
+            "Ensure Local Alert used on smaller screens still fit your design."
+          ]
         }
       ]
     },
