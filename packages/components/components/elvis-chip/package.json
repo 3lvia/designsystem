@@ -1,10 +1,8 @@
 {
   "name": "@elvia/elvis-chip",
   "version": "2.4.3",
-  "description": "",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/chip",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",

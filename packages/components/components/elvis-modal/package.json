@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-modal",
-  "version": "3.1.6",
+  "version": "3.1.7",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/modal",
   "main": "web_component.js",

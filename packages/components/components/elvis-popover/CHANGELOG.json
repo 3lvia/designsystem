@@ -2,6 +2,17 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "xx.10.23",
+      "version": "7.3.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+
+    {
       "date": "05.10.23",
       "version": "7.3.0",
       "changelog": [

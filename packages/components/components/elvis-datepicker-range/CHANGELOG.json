@@ -13,6 +13,10 @@
           "fixes": [
             "The total hight og the input elements has been adjusted. Adjust your design to accommodate for the new input height."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },
