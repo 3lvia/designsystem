@@ -28,6 +28,7 @@ const Popover: FC<PopoverProps> = function ({
   trigger,
   hasCloseButton = true,
   isShowing = false,
+  noPadding = false,
   onOpen,
   onClose,
   className,
@@ -139,6 +140,7 @@ const Popover: FC<PopoverProps> = function ({
           <PopoverContent
             className={className}
             style={inlineStyle}
+            noPadding={noPadding}
             aria-modal="true"
             data-testid="popover"
             role="dialog"
@@ -152,12 +154,13 @@ const Popover: FC<PopoverProps> = function ({
                 </IconButton>
               </CloseButtonContainer>
             )}
-            {heading && <Heading>{heading}</Heading>}
+            {heading && <Heading id="ewc-popover-heading">{heading}</Heading>}
 
             <PopoverTypography
               isStringOnly={isStringOnly(content)}
               hasCloseButton={hasCloseButton}
               ref={contentRef}
+              id="ewc-popover-content"
             >
               {content}
             </PopoverTypography>
