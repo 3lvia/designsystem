@@ -28,7 +28,7 @@ export const ModalComponent: FC<ModalProps> = function ({
   inlineStyle,
   hasCloseButton = false,
   hasLockBodyScroll = true,
-  hasPadding = true,
+  hasPadding = true, // TODO: Change to `noPadding`. MAJOR!
   disableClose = false,
   disableBackdrop = false,
   maxWidth,
