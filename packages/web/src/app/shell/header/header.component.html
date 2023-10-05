@@ -1,24 +1,3 @@
-<elvia-modal
-  heading="Dark theme is here!"
-  hasCloseButton="true"
-  [isShowing]="showThemeAnnouncement"
-  (onClose)="closeThemeAnnouncement()"
->
-  <div class="e-text-lg" slot="content">
-    <p class="e-m-0">
-      All components now support dark theme. Choose between light and dark theme in the navigation bar.
-    </p>
-    <br />
-    <p class="e-m-0">
-      Read more about
-      <a routerLink="/brand/theme" class="e-link e-link--lg" (click)="closeThemeAnnouncement()">theme.</a>
-    </p>
-  </div>
-  <div slot="illustration">
-    <img alt="" src="assets/new_dark.svg" />
-  </div>
-</elvia-modal>
-
 <header class="header" [ngClass]="visibleMenuType ? 'e-color-background-overlay-1' : 'e-color-background-3'">
   <a class="e-flex e-align-items-center" [routerLink]="['', 'home']">
     <img [src]="logoUrl" class="elvia-logo" alt="Elvia Logo" />

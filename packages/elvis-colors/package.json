@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-colors",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Elvia colors",
   "license": "MIT",
   "main": "dist/index.js",
@@ -23,7 +23,7 @@
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "ts-node": "^10.9.1",
-    "tsup": "^6.7.0",
+    "tsup": "^7.2.0",
     "typescript": "~5.1.0"
   }
 }

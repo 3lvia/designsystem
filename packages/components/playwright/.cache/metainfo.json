@@ -1,0 +1,471 @@
+{
+  "version": "1.38.0",
+  "viteVersion": "4.4.9",
+  "registerSourceHash": "4352b8ccb2d13d802da54dbea619f4e4c970c4a0",
+  "components": [
+    {
+      "fullName": "_Users_frideskarseth_Documents_Kode_designsystem_packages_components_components_elvis_accordion_react_js_Accordion",
+      "importedName": "Accordion",
+      "deps": [
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-accordion/react.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-accordion/dist/react/js/elvia-accordion.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/isSsr.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/outlineListener.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/warnDeprecatedProps.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/breakpoints.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/backdrop/backdrop.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/styled-components/dist/styled-components.browser.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-is/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/shallowequal/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/stylis/dist/stylis.browser.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/unitless/dist/unitless.browser.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/memoize/dist/emotion-memoize.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/button/button.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@elvia/elvis-colors/dist/index.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/visually-hidden/visuallyHidden.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/button/iconButton.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/form-field/formFieldStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-typography/dist/elviaTypography.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/form-field/errorStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/overlay/overlay.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-dom/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useCurrentTheme.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/overlay/overlayStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/tooltip/tooltip.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/iconWrapper/iconWrapper.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/tslib/tslib.es6.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useBreakpoint.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useConnectedOverlay.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useFocusTrap.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useInputModeDetection.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useIsOverflowing.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useWebComponentState.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useSlot.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useRovingFocus.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useUpdateEffect.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/dev/useEffectDebugger.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-accordion/dist/react/js/styledComponents.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/expandCircleColor.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/expandCircleFilledColor.js"
+      ],
+      "importPath": "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-accordion/react.js",
+      "isModuleOrAlias": false
+    },
+    {
+      "fullName": "_Users_frideskarseth_Documents_Kode_designsystem_packages_components_components_elvis_chip_react_js_Chip",
+      "importedName": "Chip",
+      "deps": [
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-chip/react.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-chip/dist/react/js/elvia-chip.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/check.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@elvia/elvis-colors/dist/index.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/close.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/isSsr.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/outlineListener.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/warnDeprecatedProps.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/breakpoints.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/backdrop/backdrop.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/styled-components/dist/styled-components.browser.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-is/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/shallowequal/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/stylis/dist/stylis.browser.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/unitless/dist/unitless.browser.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/memoize/dist/emotion-memoize.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/button/button.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/visually-hidden/visuallyHidden.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/button/iconButton.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/form-field/formFieldStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-typography/dist/elviaTypography.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/form-field/errorStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/overlay/overlay.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-dom/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useCurrentTheme.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/overlay/overlayStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/tooltip/tooltip.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/iconWrapper/iconWrapper.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/tslib/tslib.es6.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useBreakpoint.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useConnectedOverlay.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useFocusTrap.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useInputModeDetection.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useIsOverflowing.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useWebComponentState.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useSlot.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useRovingFocus.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useUpdateEffect.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/dev/useEffectDebugger.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@react-aria/interactions/dist/module.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@react-aria/utils/dist/module.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@react-stately/utils/dist/module.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@react-aria/ssr/dist/module.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/clsx/dist/clsx.m.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-chip/dist/react/js/styledComponents.js"
+      ],
+      "importPath": "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-chip/react.js",
+      "isModuleOrAlias": false
+    },
+    {
+      "fullName": "_Users_frideskarseth_Documents_Kode_designsystem_packages_components_components_elvis_datepicker_react_js_Datepicker",
+      "importedName": "Datepicker",
+      "deps": [
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/react.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/elvia-datepicker.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/calendar.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@elvia/elvis-colors/dist/index.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/popup/overlayContainer.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/calendar/calendar.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/dateHelpers.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/calendar/calendarStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-colors/dist/index.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-typography/dist/elviaTypography.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/styled-components/dist/styled-components.browser.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-is/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/shallowequal/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/stylis/dist/stylis.browser.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/unitless/dist/unitless.browser.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/memoize/dist/emotion-memoize.esm.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/calendar/DateRangeHighlighter.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/calendar/dateRangeStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/isSsr.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/outlineListener.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/warnDeprecatedProps.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/breakpoints.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/backdrop/backdrop.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/button/button.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/visually-hidden/visuallyHidden.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/button/iconButton.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/form-field/formFieldStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/form-field/errorStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/overlay/overlay.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-dom/index.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useCurrentTheme.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/overlay/overlayStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/tooltip/tooltip.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/iconWrapper/iconWrapper.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/tslib/tslib.es6.mjs",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useBreakpoint.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useConnectedOverlay.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useFocusTrap.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useInputModeDetection.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useIsOverflowing.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useWebComponentState.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useSlot.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useRovingFocus.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useUpdateEffect.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/dev/useEffectDebugger.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/arrowLongLeftBold.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/arrowLongRightBold.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/popup/popupStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/yearPicker/yearPicker.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/yearPicker/yearPickerStyles.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/arrowDown.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/reset.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/datepickerInput.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/styledComponents.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/error/datepickerError.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/removeCircle.js",
+        "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/getErrorText.js"
+      ],
+      "importPath": "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/react.js",
+      "isModuleOrAlias": false
+    }
+  ],
+  "tests": {
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-accordion/src/react/elvia-accordion.spec.tsx": {
+      "timestamp": 1696410777263.0547,
+      "components": [
+        "_Users_frideskarseth_Documents_Kode_designsystem_packages_components_components_elvis_accordion_react_js_Accordion"
+      ]
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-chip/src/react/elvia-chip.spec.tsx": {
+      "timestamp": 1696410777263.164,
+      "components": [
+        "_Users_frideskarseth_Documents_Kode_designsystem_packages_components_components_elvis_chip_react_js_Chip"
+      ]
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/src/react/elvia-datepicker.spec.tsx": {
+      "timestamp": 1696410777263.2773,
+      "components": [
+        "_Users_frideskarseth_Documents_Kode_designsystem_packages_components_components_elvis_datepicker_react_js_Datepicker"
+      ]
+    }
+  },
+  "sources": {
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/playwright/index.html": {
+      "timestamp": 1696410777264.0134
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/playwright/index.tsx": {
+      "timestamp": 1696410777264.1746
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis/css/elvis.min.css": {
+      "timestamp": 1695212666638.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-chip/react.js": {
+      "timestamp": 1686048200452.1128
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-accordion/react.js": {
+      "timestamp": 1686048200446.8174
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/react.js": {
+      "timestamp": 1686048200455.821
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react/index.js": {
+      "timestamp": 1687768524184.6213
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-dom/client.js": {
+      "timestamp": 1687768526028.8237
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-dom/index.js": {
+      "timestamp": 1687768526034.6296
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-chip/dist/react/js/elvia-chip.js": {
+      "timestamp": 1695032239213.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-accordion/dist/react/js/elvia-accordion.js": {
+      "timestamp": 1694612002609.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react/cjs/react.production.min.js": {
+      "timestamp": 1687768524191.626
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@elvia/elvis-colors/dist/index.mjs": {
+      "timestamp": 1693392389325.6094
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/elvia-datepicker.js": {
+      "timestamp": 1696247753260.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis/elvis.js": {
+      "timestamp": 1696411025002
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/close.js": {
+      "timestamp": 1696411019767.926
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/check.js": {
+      "timestamp": 1696411019766.492
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/expandCircleFilledColor.js": {
+      "timestamp": 1696411019771.7454
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/calendar.js": {
+      "timestamp": 1696411019765.0383
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/index.js": {
+      "timestamp": 1696411033830.2615
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-accordion/dist/react/js/styledComponents.js": {
+      "timestamp": 1694612002611
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/expandCircleColor.js": {
+      "timestamp": 1696411019771.6292
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/popup/overlayContainer.js": {
+      "timestamp": 1694612002625.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/dateHelpers.js": {
+      "timestamp": 1696247753260.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-chip/dist/react/js/styledComponents.js": {
+      "timestamp": 1694612002619.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/getErrorText.js": {
+      "timestamp": 1694164621322.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/error/datepickerError.js": {
+      "timestamp": 1694176298539.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/datepickerInput.js": {
+      "timestamp": 1686048200456
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@react-aria/interactions/dist/module.js": {
+      "timestamp": 1687770093015.2327
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-typography/dist/elviaTypography.mjs": {
+      "timestamp": 1696411015603.8516
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-dom/cjs/react-dom.production.min.js": {
+      "timestamp": 1687768526152.0947
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/breakpoints.js": {
+      "timestamp": 1696411033829.5464
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/isSsr.js": {
+      "timestamp": 1696411033830.6035
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/outlineListener.js": {
+      "timestamp": 1696411033830.918
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/backdrop/backdrop.js": {
+      "timestamp": 1696411033839.6624
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/warnDeprecatedProps.js": {
+      "timestamp": 1696411033831.3523
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/button/button.js": {
+      "timestamp": 1696411033840.7163
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/visually-hidden/visuallyHidden.js": {
+      "timestamp": 1696411033842.9668
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useBreakpoint.js": {
+      "timestamp": 1696411033832.4565
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/form-field/formFieldStyles.js": {
+      "timestamp": 1696411033840.3599
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/form-field/errorStyles.js": {
+      "timestamp": 1696411033840.0288
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useSlot.js": {
+      "timestamp": 1696411033837.654
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/button/iconButton.js": {
+      "timestamp": 1696411033841.0479
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/overlay/overlay.js": {
+      "timestamp": 1696411033841.9226
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useFocusTrap.js": {
+      "timestamp": 1696411033835.3127
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/popup/popupStyles.js": {
+      "timestamp": 1694612002625.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/tooltip/tooltip.js": {
+      "timestamp": 1696411033842.4429
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useUpdateEffect.js": {
+      "timestamp": 1696411033837.9329
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useIsOverflowing.js": {
+      "timestamp": 1696411033837.0728
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useRovingFocus.js": {
+      "timestamp": 1696411033837.3809
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useWebComponentState.js": {
+      "timestamp": 1696411033838.1865
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useCurrentTheme.js": {
+      "timestamp": 1696411033833.0857
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-colors/dist/index.mjs": {
+      "timestamp": 1696411015605.0708
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useConnectedOverlay.js": {
+      "timestamp": 1696411033832.7979
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/arrowDown.js": {
+      "timestamp": 1696411019761.9521
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/dev/useEffectDebugger.js": {
+      "timestamp": 1696411033831.9094
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/reset.js": {
+      "timestamp": 1696411019783.2144
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/iconWrapper/iconWrapper.js": {
+      "timestamp": 1696411033841.3347
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/removeCircle.js": {
+      "timestamp": 1696411019782.8477
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/hooks/useInputModeDetection.js": {
+      "timestamp": 1696411033835.8376
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/styledComponents.js": {
+      "timestamp": 1686048200457
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/yearPicker/yearPicker.js": {
+      "timestamp": 1694612002625.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/calendar/calendar.js": {
+      "timestamp": 1694612002624
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/tslib/tslib.es6.mjs": {
+      "timestamp": 1692002634475.3901
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@react-aria/utils/dist/module.js": {
+      "timestamp": 1687770093088.7263
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/styled-components/dist/styled-components.browser.esm.js": {
+      "timestamp": 1694688996772.5144
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/scheduler/index.js": {
+      "timestamp": 1687768535182.5728
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-toolbox/dist/components/overlay/overlayStyles.js": {
+      "timestamp": 1696411033842.197
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/yearPicker/yearPickerStyles.js": {
+      "timestamp": 1694612002625.999
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/clsx/dist/clsx.m.js": {
+      "timestamp": 1687768560890.9172
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/arrowLongLeftBold.js": {
+      "timestamp": 1696411019762.4438
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/elvis-assets-icons/dist/icons/arrowLongRightBold.js": {
+      "timestamp": 1696411019762.6643
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/calendar/DateRangeHighlighter.js": {
+      "timestamp": 1694612002624
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/calendar/calendarStyles.js": {
+      "timestamp": 1694612002625
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@react-aria/ssr/dist/module.js": {
+      "timestamp": 1687770093015.2502
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@react-stately/utils/dist/module.js": {
+      "timestamp": 1687770093088.7437
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-is/index.js": {
+      "timestamp": 1687768524178.1304
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js": {
+      "timestamp": 1694688996811.4968
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/shallowequal/index.js": {
+      "timestamp": 1687768554128.4973
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/unitless/dist/unitless.browser.esm.js": {
+      "timestamp": 1694688996766.9375
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js": {
+      "timestamp": 1694688996769.3748
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/scheduler/cjs/scheduler.production.min.js": {
+      "timestamp": 1687768535210.2222
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/packages/components/components/elvis-datepicker/dist/react/js/calendar/dateRangeStyles.js": {
+      "timestamp": 1694612002625
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/hoist-non-react-statics/node_modules/react-is/index.js": {
+      "timestamp": 1694688997052.2456
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/react-is/cjs/react-is.production.min.js": {
+      "timestamp": 1687768524179.537
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/stylis/dist/stylis.browser.esm.js": {
+      "timestamp": 1694688996807.3115
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/@emotion/memoize/dist/emotion-memoize.esm.js": {
+      "timestamp": 1694688996769.325
+    },
+    "/Users/frideskarseth/Documents/Kode/designsystem/node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.production.min.js": {
+      "timestamp": 1694688997051.2576
+    }
+  }
+}
