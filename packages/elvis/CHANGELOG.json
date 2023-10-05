@@ -1,6 +1,20 @@
 {
   "content": [
     {
+      "version": "15.0.0",
+      "date": "October 3, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The Local Alert has a new, more compact, design on smaller screens. The total height of the Alert, therefore, has changed."
+          ],
+          "fixes": ["Ensure Local Alert used on smaller screens still fit your design."],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        }
+      ]
+    },
+    {
       "version": "14.1.0",
       "date": "September 29, 2023",
       "changelog": [
@@ -9,7 +23,8 @@
           "changes": [
             "Added support for the <code>.e-alert__close</code> class in a local <code>e-alert</code> so that it can be closed.",
             "Added support for the <code>.e-alert--no-title</code> class on a local <code>e-alert</code> to get the correct icon alignment."
-          ]
+          ],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
         }
       ]
     },
