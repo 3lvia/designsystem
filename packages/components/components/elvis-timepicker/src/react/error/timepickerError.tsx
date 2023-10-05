@@ -23,7 +23,7 @@ export const TimepickerError: React.FC<Props> = ({ errorType, customText, errorI
 
   return (
     <FormFieldErrorContainer>
-      <IconWrapper icon={removeCircle} color={'signal-danger'} size="xs" />
+      <IconWrapper icon={removeCircle} color={'icon-danger'} size="xs" />
       <FormFieldError data-testid="error" id={errorId}>
         {errorText}
       </FormFieldError>
