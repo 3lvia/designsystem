@@ -1,8 +1,9 @@
 <elvia-popover
   (onClose)="isOpen = false"
   (onOpen)="isOpen = true"
-  heading="{{ attribute }} example"
+  hasCloseButton="false"
   inlineStyle="{maxWidth: '512px'}"
+  noPadding="true"
 >
   <button
     [ngClass]="{ 'e-btn---selected': isOpen }"
@@ -15,8 +16,5 @@
       <i class="e-icon e-icon--information_circle-filled-color" aria-hidden="true"></i>
     </span>
   </button>
-  <div slot="heading">{{ attribute }} example</div>
-  <div slot="content" class="e-m-0">
-    <app-code-viewer [tabs]="['Typescript']" [activeCode]="example" hideTabs />
-  </div>
+  <app-code-viewer slot="content" [tabs]="['Typescript']" [activeCode]="example" hideTabs />
 </elvia-popover>
