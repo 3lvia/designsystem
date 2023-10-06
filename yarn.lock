@@ -3059,7 +3059,7 @@ __metadata:
     gulp-filter: ^7.0.0
     gulp-header: ^2.0.9
     gulp-rename: ^2.0.0
-    gulp-replace: ^1.0.0
+    gulp-replace: ^1.1.4
     gulp-sourcemaps: ^3.0.0
     gulp-tap: ^2.0.0
     gulp-typescript: ^6.0.0-alpha.1
@@ -5387,13 +5387,6 @@ __metadata:
   version: 18.16.0
   resolution: "@types/node@npm:18.16.0"
   checksum: 63e0042136663b9e85ce503a4c65406cc6621fdba63ea66c74b4b1364a9aa9bdb57cadcb76696abab177f38a819b0fa6ace9e7f1647dcb990aedb1b4bd01012f
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.14.41":
-  version: 14.18.33
-  resolution: "@types/node@npm:14.18.33"
-  checksum: 4e23f95186d8ae1d38c999bc6b46fe94e790da88744b0a3bfeedcbd0d9ffe2cb0ff39e85f43014f6739e5270292c1a1f6f97a1fc606fd573a0c17fda9a1d42de
   languageName: node
   linkType: hard
 
@@ -11476,16 +11469,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-replace@npm:^1.0.0":
-  version: 1.1.3
-  resolution: "gulp-replace@npm:1.1.3"
+"gulp-replace@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "gulp-replace@npm:1.1.4"
   dependencies:
-    "@types/node": ^14.14.41
+    "@types/node": "*"
     "@types/vinyl": ^2.0.4
     istextorbinary: ^3.0.0
     replacestream: ^4.0.3
     yargs-parser: ">=5.0.0-security.0"
-  checksum: fa151a94acf40dcb080c66a7fbc405a6a7902f5537dc1c202e909097b3a19238a033186335e55669a646ea8639e9b8f3662894e58e0f2c0ac6ad9e9c22d1c935
+  checksum: e0369327bab108eeefef07f7901c4910d4f5466db24958d7bc04464db88d8ddb1079a07c74f11bf1d8ecc1e8b549590550962dbf1e2df0284d28ca91f4b7ce5e
   languageName: node
   linkType: hard
 
