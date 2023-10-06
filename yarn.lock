@@ -3041,7 +3041,7 @@ __metadata:
     "@types/gulp-header": ^2.0.2
     "@types/gulp-rename": ^2.0.3
     "@types/gulp-sourcemaps": ^0.0.36
-    "@types/gulp-tap": ^1.0.1
+    "@types/gulp-tap": ^1.0.3
     "@types/jest": ^29.2.3
     "@types/jest-axe": ^3.5.5
     "@types/merge-stream": ^1.1.2
@@ -5186,13 +5186,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-tap@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@types/gulp-tap@npm:1.0.1"
+"@types/gulp-tap@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@types/gulp-tap@npm:1.0.3"
   dependencies:
     "@types/node": "*"
     "@types/vinyl": "*"
-  checksum: 39a5458bfdd3eaaf92c84d5ddf257f9dc2fe0d5458a7cfbb8cfda5645dc758efd26651b9c3c8f4ac866ce2589fe58a9b040bcf4edc15a0d3e930e76000c18b7b
+  checksum: dd07946b15097a570b6532d55da6b48b719f332697bc3349d15a451910c7a46551e71ff7b7864da216af7a7d665ee75851ca5eff8d7f128ceb89e399f27ccc4e
   languageName: node
   linkType: hard
 
