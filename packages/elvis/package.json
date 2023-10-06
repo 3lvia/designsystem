@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
-    "@elvia/elvis-colors": "^4.0.0",
+    "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-typography": "^2.5.0",
     "bootstrap": "4.6.1",
     "jquery": "^3.6.4",
