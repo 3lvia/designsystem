@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "15.1.0",
+      "date": "October 6, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>code_circle</code> and <code>code_circle-filled-color</code> icons."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "15.0.0",
       "date": "October 6, 2023",
       "changelog": [
