@@ -14,6 +14,16 @@ export const getMd5 = (fileName: string): string | null => {
   return data.digest('hex');
 };
 
+export const getMd5FromFile = (file?: string): string => {
+  if (!file) {
+    return '';
+  }
+
+  const hash = crypto.createHash('md5');
+  const data = hash.update(file as any, 'utf-8');
+  return data.digest('hex');
+};
+
 export const toInOutTuple = (filePath: string, outFolder?: string, fileName?: string) => {
   const componentFolder = filePath.split('/')[1];
   const outName = fileName ?? path.parse(filePath).name;

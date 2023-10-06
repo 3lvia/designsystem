@@ -3,7 +3,6 @@ import dtsPlugin from './dts.plugin.ts';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
 import writePlugin from './write.plugin.ts';
 import buildWebComponents from './web-component-build.config.ts';
-import cssModulesPlugin from 'esbuild-css-modules-plugin';
 import tinyGlob from 'tiny-glob';
 import fs from 'fs';
 import path from 'path';
@@ -49,10 +48,11 @@ export const build = async () => {
     bundle: true,
     format: 'esm',
     external: dependencies,
+    write: false,
     plugins: [
       dtsPlugin({ destinationDir: rootDir, log: !watchMode }),
       styledComponentsPlugin({ ssr: true, displayName: true }),
-      cssModulesPlugin({ inject: true, localsConvention: 'camelCase' }),
+      writePlugin,
     ],
   };
 
@@ -62,8 +62,6 @@ export const build = async () => {
       ...baseConfig,
       sourcemap: true,
       logLevel: 'info',
-      write: false, // Let the write plugin only write files that have changed
-      plugins: baseConfig.plugins?.concat([writePlugin]),
     });
 
     return Promise.all([esBuildContext.watch(), buildWebComponents({ outDir: rootDir, watch: watchMode })]);
