@@ -111,7 +111,7 @@ const datepickerData: ComponentData = {
     disableDate: {
       type: '(day: Date) => boolean',
       description: 'Function that sets dates as disabled. Return true to disable a date.',
-      example: `disableDate = (day: Date) => {
+      example: /*ts*/ `disableDate = (day: Date) => {
         const dayOfWeek = day.getDay();
         //return true if day is a weekend -> disable the date
         return dayOfWeek === 0 || dayOfWeek === 6;
