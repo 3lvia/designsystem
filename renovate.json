@@ -10,7 +10,9 @@
       "groupSlug": "angular-minor-patch",
       "matchPackagePatterns": ["^@angular"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": false
+      "automerge": true
     }
-  ]
+  ],
+  "ignoreDeps": ["styled-components", "bootstrap", "react", "react-dom"],
+  "ignorePaths": ["**/node_modules/**", "packages/components/components/**", "packages/elvis*"]
 }
