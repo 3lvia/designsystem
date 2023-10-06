@@ -19,7 +19,7 @@
   ],
   "devDependencies": {
     "@types/gulp": "^4.0.14",
-    "@types/node": "^18.11.18",
+    "@types/node": "^18.18.3",
     "del": "^6.1.1",
     "gulp": "^4.0.2",
     "ts-node": "^10.9.1",
