@@ -7,14 +7,16 @@ import { OverlayContainer as Container } from './popupStyles';
 
 interface Props {
   onClose: () => void;
-  onChange: (changeType: ChangeType, newValue: number) => void;
+  onChange: (changeType: ChangeType, newValue: number, isDisabled?: boolean) => void;
   minuteInterval: MinuteInterval;
   hasSecondPicker: boolean;
   currentTime?: Date | null;
+  minTime?: Date;
+  maxTime?: Date;
 }
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
-  ({ onClose, onChange, minuteInterval, hasSecondPicker, currentTime }, ref) => {
+  ({ onClose, onChange, minuteInterval, hasSecondPicker, currentTime, minTime, maxTime }, ref) => {
     const hours = new Array(24).fill('').map((_, index) => index);
     const minutes = new Array(60 / +minuteInterval).fill('').map((_, index) => index * +minuteInterval);
     const seconds = new Array(60 / +minuteInterval).fill('').map((_, index) => index * +minuteInterval);
@@ -24,24 +26,33 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
         <Container hasSecondPicker={hasSecondPicker} data-testid="popover">
           <NumberPicker
             title="Time"
-            currentValue={currentTime?.getHours()}
+            currentTime={currentTime}
             numbers={hours}
-            onSelect={(val) => onChange('hour', val)}
+            onSelect={(changeType, val, isDisabled) => onChange(changeType, val, isDisabled)}
+            timeUnit="hour"
+            minTime={minTime}
+            maxTime={maxTime}
           />
           {minuteInterval !== '60' && (
             <NumberPicker
               title="Minutt"
-              currentValue={currentTime?.getMinutes()}
+              currentTime={currentTime}
               numbers={minutes}
-              onSelect={(val) => onChange('minute', val)}
+              onSelect={(changeType, val, isDisabled) => onChange(changeType, val, isDisabled)}
+              timeUnit="minute"
+              minTime={minTime}
+              maxTime={maxTime}
             />
           )}
           {hasSecondPicker && (
             <NumberPicker
               title="Sekund"
-              currentValue={currentTime?.getSeconds()}
+              currentTime={currentTime}
               numbers={seconds}
-              onSelect={(val) => onChange('second', val)}
+              onSelect={(changeType, val, isDisabled) => onChange(changeType, val, isDisabled)}
+              timeUnit="second"
+              minTime={minTime}
+              maxTime={maxTime}
             />
           )}
         </Container>

@@ -4,6 +4,8 @@ export const config: ComponentConfig = {
   name: 'Timepicker',
   attributes: [
     { name: 'value', type: 'Date' },
+    { name: 'minTime', type: 'Date' },
+    { name: 'maxTime', type: 'Date' },
     { name: 'minuteInterval', type: 'string' },
     { name: 'hasSecondPicker', type: 'boolean' },
     { name: 'isDisabled', type: 'boolean' },

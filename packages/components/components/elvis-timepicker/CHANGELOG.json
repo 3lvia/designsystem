@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "06.10.23",
+      "version": "5.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for new props <code>minTime</code> and <code>maxTime</code>."]
+        }
+      ]
+    },
+    {
+      "date": "06.10.23",
       "version": "5.0.0",
       "changelog": [
         {
