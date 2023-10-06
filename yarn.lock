@@ -2806,7 +2806,7 @@ __metadata:
     "@types/gulp-svgmin": ^1.2.2
     "@types/node": ^18.11.18
     "@types/sharp": ^0.30.2
-    del: ^6.0.0
+    del: ^6.1.1
     gulp: ^4.0.2
     gulp-svgmin: ^4.1.0
     sharp: ^0.30.2
@@ -2993,7 +2993,7 @@ __metadata:
   dependencies:
     "@types/gulp": ^4.0.14
     "@types/node": ^18.11.18
-    del: ^6.0.0
+    del: ^6.1.1
     gulp: ^4.0.2
     ts-node: ^10.9.1
     tsup: ^7.2.0
@@ -3051,7 +3051,7 @@ __metadata:
     babel-plugin-styled-components: ^1.13.3
     babel-preset-minify: ^0.5.2
     css-loader: ^6.8.1
-    del: ^6.0.0
+    del: ^6.1.1
     express: ^4.18.2
     gulp: ^4.0.2
     gulp-babel: ^8.0.0
@@ -3610,7 +3610,7 @@ __metadata:
   dependencies:
     "@types/gulp": ^4.0.14
     "@types/node": ^18.11.18
-    del: ^6.0.0
+    del: ^6.1.1
     gulp: ^4.0.2
     ts-node: ^10.9.1
     tsup: ^7.2.0
@@ -3626,7 +3626,7 @@ __metadata:
     "@elvia/elvis-colors": ^4.1.0
     "@elvia/elvis-typography": ^2.5.0
     bootstrap: 4.6.1
-    del: ^6.0.0
+    del: ^6.1.1
     doiuse: ^4.4.0
     gulp: ^4.0.2
     gulp-autoprefixer: ^8.0.0
@@ -9084,7 +9084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"del@npm:^6.0.0":
+"del@npm:^6.1.1":
   version: 6.1.1
   resolution: "del@npm:6.1.1"
   dependencies:
