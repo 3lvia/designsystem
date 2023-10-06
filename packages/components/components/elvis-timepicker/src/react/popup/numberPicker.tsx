@@ -35,9 +35,8 @@ export const NumberPicker: React.FC<Props> = ({
 }) => {
   const listRef = useRef<HTMLDivElement>(null);
   const [loopedNumbers, setLoopedNumbers] = useState<number[]>([]);
-  const currentValue = setCurrentValue();
 
-  function setCurrentValue(): number | undefined {
+  const setCurrentValue = (): number | undefined => {
     switch (timeUnit) {
       case 'hour':
         return currentTime?.getHours();
@@ -48,7 +47,9 @@ export const NumberPicker: React.FC<Props> = ({
       default:
         return undefined;
     }
-  }
+  };
+
+  const currentValue = setCurrentValue();
 
   const loopScroll = () => {
     if (listRef.current) {
@@ -66,26 +67,28 @@ export const NumberPicker: React.FC<Props> = ({
   };
 
   const shuffleTo = (direction: 'next' | 'previous'): void => {
-    if (currentValue == null) {
-      onSelect(timeUnit, numbers[0], isNumberDisabled(numbers[0]));
-    } else {
+    let nextIndex = 0;
+
+    if (currentValue != null) {
       const index = numbers.indexOf(currentValue);
 
-      if (index === -1) {
-        onSelect(timeUnit, numbers[0], isNumberDisabled(numbers[0]));
-        return;
-      }
-
-      if (direction === 'next' && index !== numbers.length - 1) {
-        onSelect(timeUnit, numbers[index + 1], isNumberDisabled(numbers[index + 1]));
-      } else if (direction === 'next' && index === numbers.length - 1) {
-        onSelect(timeUnit, numbers[0], isNumberDisabled(numbers[0]));
-      } else if (direction === 'previous' && index !== 0) {
-        onSelect(timeUnit, numbers[index - 1], isNumberDisabled(numbers[index - 1]));
-      } else {
-        onSelect(timeUnit, numbers[numbers.length - 1], isNumberDisabled(numbers[numbers.length - 1]));
+      if (index !== -1) {
+        nextIndex = index + (direction === 'next' ? 1 : -1);
       }
     }
+
+    while (isNumberDisabled(numbers[nextIndex])) {
+      if (nextIndex === 0 && direction === 'previous') {
+        nextIndex = numbers.length - 1;
+      } else if (nextIndex === numbers.length - 1 && direction === 'next') {
+        nextIndex = 0;
+      } else {
+        nextIndex += direction === 'next' ? 1 : -1;
+      }
+    }
+
+    const selectedValue = numbers[nextIndex] || numbers[0];
+    onSelect(timeUnit, selectedValue, isNumberDisabled(selectedValue));
   };
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>): void => {
