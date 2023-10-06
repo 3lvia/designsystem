@@ -11,14 +11,6 @@
       "matchPackagePatterns": ["^@angular"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": false
-    },
-    {
-      "groupName": "all non-major dependencies",
-      "groupSlug": "all-minor-patch",
-      "matchPackagePatterns": ["*"],
-      "excludePackagePatterns": ["^@angular"],
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": false
     }
   ]
 }
