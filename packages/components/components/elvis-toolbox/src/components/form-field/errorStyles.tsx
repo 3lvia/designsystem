@@ -1,4 +1,4 @@
-import { getTypographyCss } from '@elvia/elvis-typography';
+import { getThemeColor } from '@elvia/elvis-colors';
 import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
@@ -23,6 +23,11 @@ export const FormFieldErrorContainer = styled.div`
 `;
 
 export const FormFieldError = styled.span`
-  ${getTypographyCss('text-sm')}
+  color: ${getThemeColor('text-1')};
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* ≈ 140% */
   white-space: nowrap;
 `;

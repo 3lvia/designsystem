@@ -5,8 +5,10 @@
 
   <!--TYPE-->
   <app-component-section type [sectionTitle]="'Type'">
+    Font-size is inherited from the closest element to the list element to look better with the surrounding
+    content.
     <app-component-subsection [sectionTitle]="'Bullet list'">
-      Green elvis dots for regular unordered list.
+      This is a regular unordered list.
       <app-static-ceg>
         <app-list-bullet-ceg />
       </app-static-ceg>
@@ -14,7 +16,7 @@
     </app-component-subsection>
 
     <app-component-subsection [sectionTitle]="'Numbered list'">
-      Ordered list with generated elvis styled bullet point
+      This is an ordered list, or numbered list, that can be used for items that have a natural order.
       <app-static-ceg>
         <app-list-numbered-ceg />
       </app-static-ceg>
@@ -22,7 +24,7 @@
     </app-component-subsection>
 
     <app-component-subsection [sectionTitle]="'Icon list'">
-      List with icons as bullet point
+      This list uses icons as markers to help visualize the points.
       <app-static-ceg>
         <app-list-icon-ceg />
       </app-static-ceg>
