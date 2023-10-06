@@ -18,6 +18,11 @@
       "matchPackageNames": ["typescript"],
       "matchUpdateTypes": ["patch"],
       "automerge": false
+    },
+    {
+      "excludePackagePatterns": ["^@angular", "^typescript$"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": false
     }
   ],
   "ignoreDeps": ["styled-components", "bootstrap", "react", "react-dom"],
