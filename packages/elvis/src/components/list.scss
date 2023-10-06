@@ -1,74 +1,47 @@
 @use '../utilities/breakpoints';
 
-$list-border-size: 20px;
-$list-dot-size: 8px;
-$list-border-radius: 50%;
+@function get-text-offset($marker-size, $multiplier: 1) {
+  @return calc(($marker-size + var(--list-marker-margin)) * $multiplier);
+}
+
+@function get-marker-top-offset($marker-size) {
+  @return calc((var(--list-line-height) - $marker-size) / 2);
+}
 
 .e-list {
-  $this: &;
+  --list-line-height: 28px;
+  --list-marker-size: 32px;
+  --list-marker-dot-size: 8px;
+  --list-marker-margin: 16px;
+
+  display: flex;
   box-sizing: border-box;
-  // remove browser margin and padding
-  padding: 0;
-  margin: 0;
+  flex-direction: column;
+  padding-left: get-text-offset(var(--list-marker-dot-size));
+  margin: 0.5rem 0;
   color: var(--e-color-text-1);
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  padding-inline-start: 0;
+  gap: 8px;
+  line-height: var(--list-line-height);
+  list-style: none;
   text-align: left;
 
-  %li-element {
+  li {
     position: relative;
 
-    // extra padding for the width of the green content bulletin.
-    padding-left: 24px;
-    margin: 0.5rem 0;
-    line-height: 32px;
-    list-style: none;
+    p {
+      margin: 0;
+    }
 
     &::before {
       position: absolute;
-      top: 12px;
-      left: 0;
-      width: $list-dot-size;
-      height: $list-dot-size;
-      border-radius: $list-border-radius;
+      top: get-marker-top-offset(var(--list-marker-dot-size));
+      left: get-text-offset(var(--list-marker-dot-size), -1);
+      width: var(--list-marker-dot-size);
+      height: var(--list-marker-dot-size);
+      border-radius: 50%;
       background-color: var(--e-color-brand-accent);
       content: '';
-    }
-  }
-
-  li {
-    @extend %li-element;
-  }
-
-  &.e-list--numbers {
-    counter-reset: elvis-item;
-    list-style: none;
-
-    li {
-      padding-left: 48px;
-      margin: 32px 0;
-      counter-increment: elvis-item;
-
-      &::before {
-        top: 2px;
-        display: flex;
-        width: 30px;
-        height: 30px;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid var(--e-color-brand-accent);
-        border-radius: $list-border-radius;
-        background: transparent;
-        content: counter(elvis-item);
-        font-size: 18px;
-      }
-    }
-
-    .e-list:not(.e-list--numbers) li,
-    .e-list:not(.e-list--icons) li {
-      @extend %li-element;
     }
   }
 
@@ -76,34 +49,47 @@ $list-border-radius: 50%;
     background: transparent;
     font-weight: 600;
   }
+}
 
-  &.e-list--icons {
-    &#{$this} li {
-      &::before {
-        content: none;
-      }
+.e-list.e-list--numbers {
+  padding-left: get-text-offset(var(--list-marker-size));
+  margin: 32px 0;
+  counter-reset: elvis-item;
+  gap: 16px;
+
+  li {
+    counter-increment: elvis-item;
+
+    &::before {
+      top: get-marker-top-offset(var(--list-marker-size));
+      left: get-text-offset(var(--list-marker-size), -1);
+      display: grid;
+      width: var(--list-marker-size);
+      height: var(--list-marker-size);
+      border: 2px solid var(--e-color-brand-accent);
+      background: transparent;
+      content: counter(elvis-item);
+      font-size: 18px;
+      place-items: center;
     }
+  }
+}
 
-    li {
-      padding-left: 32px;
-      margin: 16px 0;
-      margin-left: 16px;
+.e-list.e-list--icons {
+  padding-left: get-text-offset(var(--list-marker-size));
+  margin: 16px 0;
+  gap: 16px;
 
-      @include breakpoints.breakpoint-up(Mobile) {
-        padding-left: 20px;
-        margin-left: 24px;
-      }
+  li {
+    &::before {
+      content: none;
     }
 
     .e-list__icon > i {
       position: absolute;
-      margin-right: 8px;
-      margin-left: -48px;
-    }
-
-    .e-list:not(.e-list--numbers) li,
-    .e-list:not(.e-list--icons) li {
-      @extend %li-element;
+      top: get-marker-top-offset(var(--list-marker-size));
+      left: get-text-offset(var(--list-marker-size), -1);
+      margin-right: var(--list-marker-margin);
     }
   }
 }
