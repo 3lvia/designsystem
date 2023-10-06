@@ -2383,7 +2383,7 @@ __metadata:
     "@types/gulp-cached": ^0.0.34
     "@types/gulp-filter": ^3.0.37
     "@types/gulp-header": ^2.0.2
-    "@types/gulp-rename": ^2.0.1
+    "@types/gulp-rename": ^2.0.3
     "@types/gulp-sourcemaps": ^0.0.35
     "@types/gulp-tap": ^1.0.1
     "@types/jest": ^29.2.3
@@ -4499,13 +4499,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-rename@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@types/gulp-rename@npm:2.0.1"
+"@types/gulp-rename@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@types/gulp-rename@npm:2.0.3"
   dependencies:
     "@types/node": "*"
     "@types/vinyl": "*"
-  checksum: e44f2e3a4fc5d60b2e503a9f7bd892580c3af7af7b1c2104d87914153ce177278bbeb669a3da4469ed3c518121a423dff526675ba4bff4e8981bc5ee457c27b9
+  checksum: 269e9aeb9fcae67352c41631c31be8e15ab1e4966040eb4f71847c67fbe26bb23c31229b736296bf482218cf90feeb6fd3e94e300b015fca1ffd8f54f032b021
   languageName: node
   linkType: hard
 
