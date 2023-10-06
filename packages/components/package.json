@@ -38,7 +38,7 @@
     "@types/gulp": "^4.0.14",
     "@types/gulp-babel": "^6.1.31",
     "@types/gulp-cached": "^0.0.34",
-    "@types/gulp-filter": "^3.0.35",
+    "@types/gulp-filter": "^3.0.37",
     "@types/gulp-header": "^2.0.1",
     "@types/gulp-rename": "^2.0.1",
     "@types/gulp-sourcemaps": "^0.0.35",

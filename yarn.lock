@@ -2355,7 +2355,7 @@ __metadata:
     "@types/gulp": ^4.0.14
     "@types/gulp-babel": ^6.1.31
     "@types/gulp-cached": ^0.0.34
-    "@types/gulp-filter": ^3.0.35
+    "@types/gulp-filter": ^3.0.37
     "@types/gulp-header": ^2.0.1
     "@types/gulp-rename": ^2.0.1
     "@types/gulp-sourcemaps": ^0.0.35
@@ -4453,14 +4453,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-filter@npm:^3.0.35":
-  version: 3.0.35
-  resolution: "@types/gulp-filter@npm:3.0.35"
+"@types/gulp-filter@npm:^3.0.37":
+  version: 3.0.37
+  resolution: "@types/gulp-filter@npm:3.0.37"
   dependencies:
     "@types/minimatch": "*"
     "@types/node": "*"
     "@types/vinyl": "*"
-  checksum: b6a625899543dae6b3c546c31a8667a6795cf20a900533fe04f8d017a14c3350e9edc6bf341121dc6875714d3eb1b2f2218ebc8e07ebd943c9a22472f6164469
+  checksum: 3869812b08a5c48274b07ff04dc521a8e3584b5d0c4f3a71dd7ff31f995411def2929c00014f08ba24aeeee6d55c95d7503d8cc1d385d740bf26807087ded771
   languageName: node
   linkType: hard
 
