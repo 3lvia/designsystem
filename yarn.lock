@@ -2370,7 +2370,7 @@ __metadata:
     babel-preset-minify: ^0.5.2
     css-loader: ^6.8.1
     del: ^6.0.0
-    express: ^4.17.1
+    express: ^4.18.2
     gulp: ^4.0.2
     gulp-babel: ^8.0.0
     gulp-cached: ^1.1.1
@@ -9562,7 +9562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:^4.17.1, express@npm:^4.17.3":
+"express@npm:^4.17.3, express@npm:^4.18.2":
   version: 4.18.2
   resolution: "express@npm:4.18.2"
   dependencies:
@@ -16587,7 +16587,7 @@ __metadata:
     "@typescript-eslint/parser": ^6.3.0
     eslint: ^8.17.0
     eslint-plugin-react: ^7.30.0
-    express: ^4.17.1
+    express: ^4.18.2
     gulp-stylelint: ^13.0.0
     husky: ^4.2.5
     lint-staged: ^13.2.2
