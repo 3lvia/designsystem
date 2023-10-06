@@ -3043,7 +3043,7 @@ __metadata:
     "@types/gulp-sourcemaps": ^0.0.36
     "@types/gulp-tap": ^1.0.3
     "@types/jest": ^29.2.3
-    "@types/jest-axe": ^3.5.5
+    "@types/jest-axe": ^3.5.6
     "@types/merge-stream": ^1.1.2
     "@types/node": ^18.11.18
     "@types/styled-components": ^5.1.19
@@ -5251,13 +5251,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest-axe@npm:^3.5.5":
-  version: 3.5.5
-  resolution: "@types/jest-axe@npm:3.5.5"
+"@types/jest-axe@npm:^3.5.6":
+  version: 3.5.6
+  resolution: "@types/jest-axe@npm:3.5.6"
   dependencies:
     "@types/jest": "*"
     axe-core: ^3.5.5
-  checksum: 535038968034fe80fb466dcd5939ea5d9e9adb3ef00852ded3e41c62536c05137eb30bcbfd608142d2bc571d65c20b8e3563181674fb48594c2662d340bb4da5
+  checksum: 58650dd407e4d9eefb2fa3d5ea8555e599162841a46fca91792e754a383eb91bbf4bd0c978cb5da68e476293bfd395a78b742129f8a61b327b8a22e7b8d1b128
   languageName: node
   linkType: hard
 
