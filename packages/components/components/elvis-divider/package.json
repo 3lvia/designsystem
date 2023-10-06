@@ -1,10 +1,8 @@
 {
   "name": "@elvia/elvis-divider",
-  "version": "3.1.0",
-  "description": "",
+  "version": "3.1.1",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/divider",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",
@@ -15,9 +13,9 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-colors": "^3.0.0",
+    "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
-    "@elvia/elvis-toolbox": "^10.0.1",
+    "@elvia/elvis-toolbox": "^11.0.0",
     "@elvia/elvis-typography": "^2.4.0",
     "styled-components": "^5.3.3"
   },

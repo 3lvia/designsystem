@@ -102,6 +102,17 @@ export const textColorsDefault = [
     links: [
       { title: 'Button', path: '/components/button' },
       { title: 'Badge', path: '/components/badge' },
+      { title: 'Segmented controls', path: '/components/segmented-control' },
+    ],
+  },
+  {
+    token: 'text-5',
+    role: 'Text for light backgrounds that are not switching',
+    light: { hex: getColor('text-5', 'light'), label: 'Black' },
+    dark: { hex: getColor('text-5', 'dark'), label: 'Dark-black' },
+    links: [
+      { title: 'Button', path: '/components/button' },
+      { title: 'Badge', path: '/components/badge' },
     ],
   },
 ] as const satisfies TableColorArray<TextLabels>;

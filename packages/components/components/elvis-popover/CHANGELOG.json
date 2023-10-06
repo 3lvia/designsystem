@@ -2,6 +2,29 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "06.10.23",
+      "version": "7.3.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+
+    {
+      "date": "05.10.23",
+      "version": "7.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new prop <code>noPadding</code> that can be used to remove all padding from inside the popover. This should only be used in edge cases!"
+          ]
+        }
+      ]
+    },
+    {
       "date": "21.09.23",
       "version": "7.2.3",
       "changelog": [

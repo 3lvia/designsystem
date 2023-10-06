@@ -18,7 +18,6 @@ export class HeaderComponent {
   visibleMenuType: MenuType = null;
   mainMenu: CMSMenu;
   menuContentLoader = true;
-  showThemeAnnouncement = !localStorage.getItem('elvisThemeAnnouncementIsClosed');
   themeMenuIsOpen = false;
   currentTheme: Theme = 'light';
 
@@ -87,11 +86,6 @@ export class HeaderComponent {
 
   closeThemeMenu = (): void => {
     this.themeMenuIsOpen = false;
-  };
-
-  closeThemeAnnouncement = () => {
-    localStorage.setItem('elvisThemeAnnouncementIsClosed', 'true');
-    this.showThemeAnnouncement = false;
   };
 
   private addDarkThemeClass = (theme: Theme): void => {

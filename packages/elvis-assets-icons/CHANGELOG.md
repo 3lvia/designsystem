@@ -1,5 +1,17 @@
 # Elvis-assets-icon
 
+## 3.6.0 (06.10.23)
+
+### New feature
+
+- Added the `code_circle-filled-color` and `code_circle` icons.
+
+## 3.5.1 (05.10.23)
+
+### Patch
+
+- Updated dependency on `@elvia/elvis-colors`
+
 ## 3.5.0 (29.08.23)
 
 ### New feature
