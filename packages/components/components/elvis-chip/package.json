@@ -19,8 +19,8 @@
     "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
     "@elvia/elvis-toolbox": "^10.0.1",
-    "@react-aria/interactions": "^3.8.4",
-    "styled-components": "^5.3.3"
+    "@react-aria/interactions": "^3.19.0",
+    "styled-components": "^5.3.11"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",

@@ -16,8 +16,8 @@
     "@elvia/elvis-colors": "^3.0.0",
     "@elvia/elvis-component-wrapper": "^4.0.0",
     "@elvia/elvis-typography": "^2.3.1",
-    "styled-components": "^5.3.6",
-    "tslib": "^2.4.1"
+    "styled-components": "^5.3.11",
+    "tslib": "^2.6.2"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
@@ -36,6 +36,6 @@
     }
   },
   "devDependencies": {
-    "typescript": "~5.1.0"
+    "typescript": "~5.2.2"
   }
 }
