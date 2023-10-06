@@ -1,4 +1,18 @@
 {
-  "extends": ["config:base", "schedule:monthly"],
-  "rangeStrategy": "bump"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "rebaseWhen": "conflicted",
+  "prConcurrentLimit": 5,
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "groupName": "all angular dependencies",
+      "groupSlug": "angular-minor-patch",
+      "matchPackagePatterns": ["^@angular"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "ignoreDeps": ["styled-components", "bootstrap", "react", "react-dom"],
+  "ignorePaths": ["**/node_modules/**", "packages/components/components/**", "packages/elvis*"]
 }
