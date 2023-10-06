@@ -83,11 +83,11 @@ export const NumberButton = styled.button<NumberButtonProps>`
   border: none;
   padding: 0;
   height: 48px;
-  color: ${(props) => (props.isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-1'))};
-  background: ${(props) =>
-    props.isSelected && !props.isDisabled ? getThemeColor('background-selected-2') : 'transparent'};
+  color: ${({ isDisabled }) => (isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('text-1'))};
+  background: ${({ isSelected, isDisabled }) =>
+    isSelected && !isDisabled ? getThemeColor('background-selected-2') : 'transparent'};
   scroll-snap-align: center;
-  cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
+  cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
     background: ${(props) => (props.isDisabled ? 'transparent' : getThemeColor('background-hover-2'))};
