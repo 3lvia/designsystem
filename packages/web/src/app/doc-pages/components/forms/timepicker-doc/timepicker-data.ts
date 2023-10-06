@@ -60,13 +60,13 @@ export const timepickerData: ComponentData = {
       description: 'An object that allows for custom configuration of the error handling in the time picker.',
       default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
     },
-    minDate: {
+    minTime: {
       isRequired: false,
       type: 'Date',
       description:
         'Makes the time before the provided minimum time disabled. (The validation uses only the time part of this prop value)',
     },
-    maxDate: {
+    maxTime: {
       isRequired: false,
       type: 'Date',
       description:
