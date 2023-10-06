@@ -57,6 +57,9 @@ export const build = async () => {
   };
 
   if (watchMode) {
+    console.log('🧹 Removing old dist folders...');
+    await cleanDistFolders();
+
     console.log('👀 Starting watch...');
     const esBuildContext = await esbuild.context({
       ...baseConfig,
@@ -72,7 +75,7 @@ export const build = async () => {
     console.log('📦 Building components...');
     const start = Date.now();
     return Promise.all([
-      esbuild.build({ ...baseConfig, minify: false }),
+      esbuild.build({ ...baseConfig, minify: true }),
       buildWebComponents({ outDir: rootDir, watch: watchMode }),
     ]).then(() =>
       console.log(chalk.green(`⚡️ Built ${componentDataList.length} components in ${Date.now() - start}ms`)),
