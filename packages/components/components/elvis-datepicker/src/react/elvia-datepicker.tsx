@@ -15,7 +15,7 @@ import {
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
-import { copyDay, isAfter, isBefore, isValidDate } from './dateHelpers';
+import { copyDay, isAfter, isBefore, isValidDate, localISOTime } from './dateHelpers';
 
 const defaultErrorOptions = {
   hideText: false,
@@ -71,9 +71,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
 
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
-    let dateISO;
+    let dateISO: string | null = null;
     if (newDate && isValidDate(newDate)) {
-      dateISO = newDate.toISOString().substring(0, 10);
+      dateISO = localISOTime(newDate);
     } else if (newDate === null) {
       dateISO = null;
     } else {
@@ -98,12 +98,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
 
     handleValueOnChangeISOString(newDate);
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(newDate);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: newDate }, true);
-      webcomponent.triggerEvent('valueOnChange', newDate);
-    }
+    valueOnChange?.(newDate);
+    webcomponent?.setProps({ value: newDate }, true);
+    webcomponent?.triggerEvent('valueOnChange', newDate);
   };
 
   const emitOnClose = () => {
