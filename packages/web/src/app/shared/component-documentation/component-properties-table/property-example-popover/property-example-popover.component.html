@@ -6,6 +6,7 @@
   noPadding="true"
 >
   <button
+    [attr.aria-pressed]="isOpen"
     [ngClass]="{ 'e-btn---selected': isOpen }"
     attr.aria-label="Show {{ attribute }} example"
     class="e-btn e-btn--sm e-btn--icon e-btn--circled"
