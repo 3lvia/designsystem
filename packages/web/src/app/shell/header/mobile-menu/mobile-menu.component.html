@@ -19,11 +19,9 @@
       </div>
       <elvia-divider />
     </div>
-    <div class="menu" *ngIf="devMode">
-      <div class="menu-items">
-        <div class="links e-py-24">
-          <a class="e-title-caps" (click)="navigate('dev')">Dev</a>
-        </div>
+    <div class="menu-items" *ngIf="devMode">
+      <div class="links e-py-24">
+        <a class="e-title-caps" (click)="navigate('dev')">Dev</a>
       </div>
     </div>
     <div class="menu-items">
@@ -33,3 +31,4 @@
     </div>
   </div>
 </div>
+<div class="elvia-curve"></div>

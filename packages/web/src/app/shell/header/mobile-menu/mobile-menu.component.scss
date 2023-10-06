@@ -6,6 +6,7 @@
   position: absolute;
   top: 100%;
   left: 0;
+  --background: var(--e-color-background-overlay-1);
 }
 
 .backdrop {
@@ -17,25 +18,9 @@
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background-color: var(--e-color-background-overlay-1);
+  background-color: var(--background);
   border-top: 1px solid var(--e-color-border-2);
-  box-sizing: border-box;
   padding-top: 48px;
-
-  &::before {
-    content: '';
-    left: -50%;
-    border-radius: 50%;
-    position: absolute;
-    background-color: var(--e-color-background-overlay-1);
-    width: 200vw;
-    height: calc(100% + 8px);
-    z-index: -1;
-  }
 
   @include breakpoints.breakpoint-up(Mobile) {
     padding-top: 32px;
@@ -47,19 +32,14 @@
       overflow-y: scroll;
       overflow-x: hidden;
       padding-bottom: 64px;
-      background-color: var(--e-color-background-overlay-1);
-
-      &::before {
-        display: none;
-      }
     }
   }
 
   .menu {
+    margin: 0 auto;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background-color: var(--e-color-background-overlay-1);
     width: 50%;
 
     @include breakpoints.breakpoint-up(Mobile) {
@@ -78,6 +58,17 @@
           align-items: center;
         }
       }
+    }
+  }
+}
+
+.elvia-curve {
+  --elvia-curve-foreground: var(--background);
+  --elvia-curve-background: transparent;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    @media (orientation: landscape) {
+      display: none;
     }
   }
 }
