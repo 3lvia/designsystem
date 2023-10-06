@@ -3627,7 +3627,7 @@ __metadata:
     "@elvia/elvis-typography": ^2.5.0
     bootstrap: 4.6.1
     del: ^6.1.1
-    doiuse: ^4.4.0
+    doiuse: ^4.4.1
     gulp: ^4.0.2
     gulp-autoprefixer: ^8.0.0
     gulp-clean-css: ^4.3.0
@@ -9234,7 +9234,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"doiuse@npm:^4.4.0":
+"doiuse@npm:^4.4.1":
   version: 4.4.1
   resolution: "doiuse@npm:4.4.1"
   dependencies:
