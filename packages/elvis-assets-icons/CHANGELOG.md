@@ -4,7 +4,7 @@
 
 ### New feature
 
-- Added the `code_circle-filled-color` and `ode_circle` icons.
+- Added the `code_circle-filled-color` and `code_circle` icons.
 
 ## 3.5.1 (05.10.23)
 
