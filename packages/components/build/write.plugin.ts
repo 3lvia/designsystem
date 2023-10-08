@@ -4,6 +4,11 @@ import fsPromises from 'fs/promises';
 import path from 'path';
 import { getComponentName, getMd5FromFile } from './utils';
 
+interface FileWithHash {
+  hash: string;
+  text: string;
+}
+
 const getEntryPointName = (cssPath: string): string => {
   const packageJsonPath = path.resolve(cssPath, '..', '..', '..', 'package.json');
   const packageJson = fs.readFileSync(packageJsonPath, 'utf-8');
@@ -12,11 +17,43 @@ const getEntryPointName = (cssPath: string): string => {
   return path.resolve(cssPath, '..', outFileName);
 };
 
+const appendInlineStyles = (outputFile: esbuild.OutputFile, cssContent: string): string => {
+  const id = `${getComponentName(outputFile.path)}-component`;
+
+  const injectionScript = /*ts*/ `const injectCss = () => setTimeout(() => {
+  if (!globalThis.document) {
+    return;
+  }
+
+  const existingStyles = globalThis.document.getElementById('${id}');
+  const styleContent = globalThis.document.createTextNode(${JSON.stringify(cssContent)});
+
+  if (!existingStyles) {
+    const styleTag = globalThis.document.createElement('style');
+    styleTag.id = '${id}';
+    
+    const nonce = globalThis.window.__webpack_nonce__ || globalThis.window.__elvia_nonce__;
+    if (nonce) {
+      styleTag.setAttribute('nonce', nonce);
+    }
+
+    styleTag.appendChild(styleContent);
+    globalThis.document.head.appendChild(styleTag);
+  } else {
+    existingStyles.replaceChildren(styleContent);
+  }
+}, 0);
+
+injectCss();`;
+
+  return `${outputFile.text}\n${injectionScript}`;
+};
+
 /**
- * This plugin is used during local development, and ensures
- * that we only write to disk files that have changed. The default
- * behavior of ESBuild is to write everything, which makes HMR of
- * the web page really slow, since a lot of files have changed.
+ * By default, ESBuild compiles and writes all files it watches. This
+ * makes the HMR on local development slow, since Angular needs to reload
+ * all components. Therefore, we implement the write logic ourselves by
+ * only writing the files that have changed.
  */
 const writePlugin: esbuild.Plugin = {
   name: 'write-plugin',
@@ -24,7 +61,12 @@ const writePlugin: esbuild.Plugin = {
     const writeCache = new Map<string, string>();
 
     build.onEnd(async (result) => {
-      const output = new Map<string, { text: string; hash: string }>();
+      const output = getFilesToWriteWithInjectedCSS(result);
+      writeFilesToDisc(output);
+    });
+
+    const getFilesToWriteWithInjectedCSS = (result: esbuild.BuildResult): Map<string, FileWithHash> => {
+      const output = new Map<string, FileWithHash>();
       result.outputFiles?.forEach((outputFile) => {
         if (outputFile.path.endsWith('.css')) {
           const entryPointName = getEntryPointName(outputFile.path);
@@ -40,42 +82,10 @@ const writePlugin: esbuild.Plugin = {
         }
       });
 
-      writeFilesToDisc(output);
-    });
-
-    const appendInlineStyles = (outputFile: esbuild.OutputFile, cssContent: string): string => {
-      const id = `${getComponentName(outputFile.path)}-component`;
-
-      const injectionScript = /*ts*/ `const injectCss = () => setTimeout(() => {
-    if (!globalThis.document) {
-      return;
-    }
-    const root = globalThis.document;
-    const existingStyles = root.getElementById('${id}');
-    const styleContent = root.createTextNode(${JSON.stringify(cssContent)});
-  
-    if (!existingStyles) {
-      const styleTag = root.createElement('style');
-      styleTag.id = '${id}';
-      
-      const nonce = globalThis.window.__webpack_nonce__ || globalThis.window.__elvia_nonce__;
-      if (nonce) {
-        styleTag.setAttribute('nonce', nonce);
-      }
-
-      styleTag.appendChild(styleContent);
-      root.head.appendChild(styleTag);
-    } else {
-      existingStyles.replaceChildren(styleContent);
-    }
-}, 0);
-  
-injectCss();`;
-
-      return `${outputFile.text}\n${injectionScript}`;
+      return output;
     };
 
-    const writeFilesToDisc = (output: Map<string, { text: string; hash: string }>): void => {
+    const writeFilesToDisc = (output: Map<string, FileWithHash>): void => {
       output.forEach(async (outputFile, filePath) => {
         if (outputFile.hash !== writeCache.get(filePath)) {
           writeCache.set(filePath, outputFile.hash);

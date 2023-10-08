@@ -1,7 +1,7 @@
 import esbuild from 'esbuild';
 import dtsPlugin from './dts.plugin';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
-import writePlugin from './write.plugin';
+import writeFilesAndInjectCssPlugin from './write.plugin';
 import buildWebComponents from './web-component-build.config';
 import tinyGlob from 'tiny-glob';
 import fs from 'fs';
@@ -58,7 +58,7 @@ export const build = async () => {
     plugins: [
       dtsPlugin({ destinationDir: rootDir, log: !watchMode }),
       styledComponentsPlugin({ ssr: true, displayName: true }),
-      writePlugin,
+      writeFilesAndInjectCssPlugin,
     ],
   };
 
