@@ -1,5 +1,5 @@
 import React from 'react';
-import Timepicker from './elvia-timepicker';
+import { Timepicker } from './elvia-timepicker';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';

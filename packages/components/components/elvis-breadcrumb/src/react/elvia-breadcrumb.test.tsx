@@ -1,4 +1,4 @@
-import Breadcrumb from './elvia-breadcrumb';
+import { Breadcrumb } from './elvia-breadcrumb';
 import React from 'react';
 import { axe } from 'jest-axe';
 import { render, screen } from '@testing-library/react';

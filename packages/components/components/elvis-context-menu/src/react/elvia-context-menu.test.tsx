@@ -1,5 +1,5 @@
 import React from 'react';
-import ContextMenu from './elvia-context-menu';
+import { ContextMenu } from './elvia-context-menu';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
