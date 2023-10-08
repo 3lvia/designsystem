@@ -2,11 +2,9 @@
   "name": "@elvia/elvis-components",
   "private": true,
   "license": "ISC",
-  "type": "module",
   "scripts": {
-    "esbuild": "ts-node --esm ./build/esbuild.config.ts",
-    "build": "yarn esbuild",
-    "start": "yarn esbuild --watch",
+    "build": "tsx ./build/esbuild.config.ts",
+    "start": "tsx ./build/esbuild.config.ts --watch",
     "test": "jest --config jest.config.ts --colors",
     "test:start": "jest --config jest.config.ts --watch --colors",
     "test:coverage": "jest --coverage --colors"
@@ -57,7 +55,7 @@
     "styled-components": "^5.3.3",
     "tiny-glob": "^0.2.9",
     "ts-loader": "^8.0.3",
-    "ts-node": "^10.9.1",
+    "tsx": "^3.13.0",
     "typescript-plugin-styled-components": "^2.0.0"
   },
   "peerDependencies": {

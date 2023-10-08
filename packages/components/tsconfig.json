@@ -1,18 +1,9 @@
 {
   "extends": "../../tsconfig.json",
-  "ts-node": {
-    "compilerOptions": {
-      "module": "ESNext"
-    }
-  },
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
     "module": "ESNext",
-    "declaration": true,
     "outDir": "./dist/",
     "jsx": "react",
-    "resolveJsonModule": false, // Our users might not support this
     "plugins": [
       {
         "transform": "typescript-plugin-styled-components",

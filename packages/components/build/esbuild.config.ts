@@ -1,14 +1,14 @@
 import esbuild from 'esbuild';
-import dtsPlugin from './dts.plugin.ts';
+import dtsPlugin from './dts.plugin';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
-import writePlugin from './write.plugin.ts';
-import buildWebComponents from './web-component-build.config.ts';
+import writePlugin from './write.plugin';
+import buildWebComponents from './web-component-build.config';
 import tinyGlob from 'tiny-glob';
 import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
-import { toInOutTuple } from './utils.ts';
-import cleanDistFolders from './cleanDist.ts';
+import { toInOutTuple } from './utils';
+import cleanDistFolders from './cleanDist';
 
 interface ComponentData {
   component: string;
@@ -18,7 +18,7 @@ interface ComponentData {
 const rootDir = 'components';
 
 const getComponentData = async () => {
-  const paths = await tinyGlob('components/elvis-*/package.json');
+  const paths = await tinyGlob('components/*/package.json');
   return paths.map((path) => {
     const file = fs.readFileSync(path, 'utf-8');
     return { content: JSON.parse(file), component: path.split('/')[1] };
@@ -30,8 +30,14 @@ const getEntryPoint = (componentData: ComponentData) => {
 };
 
 const getAllDependencies = (componentDataList: ComponentData[]) => {
-  const dependencies = componentDataList.flatMap((c) => Object.keys(c.content.dependencies));
-  return Array.from(new Set(dependencies));
+  return componentDataList
+    .flatMap((c) => Object.keys(c.content.dependencies))
+    .reduce((list, dep) => {
+      if (!list.includes(dep)) {
+        list.push(dep);
+      }
+      return list;
+    }, [] as string[]);
 };
 
 export const build = async () => {

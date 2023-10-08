@@ -2,7 +2,7 @@ import esbuild from 'esbuild';
 import tinyGlob from 'tiny-glob';
 import fs from 'fs/promises';
 import path from 'path';
-import { toInOutTuple } from './utils.ts';
+import { toInOutTuple } from './utils';
 
 interface Config {
   name: string;

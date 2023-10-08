@@ -3,7 +3,7 @@ import ts from 'typescript';
 import path from 'path';
 import fsPromises from 'fs/promises';
 import fs from 'fs';
-import { getMd5 } from './utils.ts';
+import { getMd5 } from './utils';
 
 interface Props {
   destinationDir: string;

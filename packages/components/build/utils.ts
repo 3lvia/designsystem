@@ -9,9 +9,7 @@ export const getMd5 = (fileName: string): string | null => {
     return null;
   }
 
-  const hash = crypto.createHash('md5');
-  const data = hash.update(fs.readFileSync(fileName) as any, 'utf-8');
-  return data.digest('hex');
+  return getMd5FromFile(fs.readFileSync(fileName, 'utf-8'));
 };
 
 export const getMd5FromFile = (file?: string): string => {
@@ -20,7 +18,7 @@ export const getMd5FromFile = (file?: string): string => {
   }
 
   const hash = crypto.createHash('md5');
-  const data = hash.update(file as any, 'utf-8');
+  const data = hash.update(file, 'utf-8');
   return data.digest('hex');
 };
 
@@ -30,4 +28,8 @@ export const toInOutTuple = (filePath: string, outFolder?: string, fileName?: st
   const subFolder = outFolder ? outFolder : outName.endsWith('.public') ? 'public-api' : 'react';
 
   return { in: filePath, out: path.join(componentFolder, 'dist', subFolder, outName) };
+};
+
+export const getComponentName = (filePath: string): string => {
+  return filePath.split(path.sep).find((part) => part.startsWith('elvis')) || '';
 };
