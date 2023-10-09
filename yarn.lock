@@ -2275,7 +2275,6 @@ __metadata:
     "@types/gulp": ^4.0.14
     "@types/gulp-svgmin": ^1.2.2
     "@types/node": ^18.18.4
-    "@types/sharp": ^0.31.1
     del: ^6.1.1
     gulp: ^4.0.2
     gulp-svgmin: ^4.1.0
@@ -4972,15 +4971,6 @@ __metadata:
     "@types/mime": "*"
     "@types/node": "*"
   checksum: b6ac93d471fb0f53ddcac1f9b67572a09cd62806f7db5855244b28f6f421139626f24799392566e97d1ffc61b12f9de7f30380c39fcae3c8a161fe161d44edf2
-  languageName: node
-  linkType: hard
-
-"@types/sharp@npm:^0.31.1":
-  version: 0.31.1
-  resolution: "@types/sharp@npm:0.31.1"
-  dependencies:
-    "@types/node": "*"
-  checksum: 226871181fc88b5ef8a6bc32c1e14a3426cc45480ed49536c45bb5c166c089169b8fe3e5c57aea8c34cc40b08311a95d5582c1a2f540f4425eb66fea3d6e0489
   languageName: node
   linkType: hard
 

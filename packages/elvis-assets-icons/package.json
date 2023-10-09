@@ -26,7 +26,6 @@
     "@types/gulp": "^4.0.14",
     "@types/gulp-svgmin": "^1.2.2",
     "@types/node": "^18.18.4",
-    "@types/sharp": "^0.31.1",
     "del": "^6.1.1",
     "gulp": "^4.0.2",
     "gulp-svgmin": "^4.1.0",
