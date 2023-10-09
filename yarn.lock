@@ -2274,7 +2274,7 @@ __metadata:
     "@elvia/elvis-colors": ^4.1.0
     "@types/gulp": ^4.0.14
     "@types/gulp-svgmin": ^1.2.2
-    "@types/node": ^18.18.3
+    "@types/node": ^18.18.4
     "@types/sharp": ^0.30.2
     del: ^6.1.1
     gulp: ^4.0.2
@@ -2462,7 +2462,7 @@ __metadata:
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
     "@types/gulp": ^4.0.14
-    "@types/node": ^18.18.3
+    "@types/node": ^18.18.4
     del: ^6.1.1
     gulp: ^4.0.2
     ts-node: ^10.9.1
@@ -2515,7 +2515,7 @@ __metadata:
     "@types/jest": ^29.2.3
     "@types/jest-axe": ^3.5.6
     "@types/merge-stream": ^1.1.2
-    "@types/node": ^18.18.3
+    "@types/node": ^18.18.4
     "@types/styled-components": ^5.1.28
     babel-jest: ^29.3.1
     babel-plugin-styled-components: ^1.13.3
@@ -3078,7 +3078,7 @@ __metadata:
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
     "@types/gulp": ^4.0.14
-    "@types/node": ^18.18.3
+    "@types/node": ^18.18.4
     del: ^6.1.1
     gulp: ^4.0.2
     ts-node: ^10.9.1
@@ -4859,10 +4859,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.18.3, @types/node@npm:^18.18.3":
-  version: 18.18.3
-  resolution: "@types/node@npm:18.18.3"
-  checksum: ed97a832179e0cfbb93738021fe16d0bc5c0f34bea35269c23c9dd5f0ecc8be93dbe5efd51630189a099b31786a47c1bde115508831a7245613a55c3ad1a7d6b
+"@types/node@npm:18.18.4, @types/node@npm:^18.18.4":
+  version: 18.18.4
+  resolution: "@types/node@npm:18.18.4"
+  checksum: 4901e91c4cc479bb58acbcd79236a97a0ad6db4a53cb1f4ba4cf32af15324c61b16faa6e31c1b09bf538a20feb5f5274239157ce5237f5741db0b9ab71e69c52
   languageName: node
   linkType: hard
 
@@ -8929,7 +8929,7 @@ __metadata:
     "@elvia/elvis-typography": "workspace:*"
     "@types/lodash.debounce": ^4.0.7
     "@types/natural-compare-lite": ^1.4.0
-    "@types/node": 18.18.3
+    "@types/node": 18.18.4
     "@types/prismjs": ^1.26.1
     "@typescript-eslint/eslint-plugin": ^6.7.4
     "@typescript-eslint/parser": ^6.7.4
