@@ -235,6 +235,8 @@ export class v2PlaygroundComponent {
 
   // Timepicker
   timepickerValue = new Date();
+  timepickerMax = new Date(2023, 9, 16, 17, 0);
+  timepickerMin = new Date(2023, 9, 16, 9, 0);
 
   // Toast
   showToast = () => {

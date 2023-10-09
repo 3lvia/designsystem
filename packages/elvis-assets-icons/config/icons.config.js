@@ -233,6 +233,8 @@ module.exports = [
   { name: 'close_menu', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
   { name: 'cloud_upload', terms: ['upload', 'cloud', 'import'], thirdparty: { name: ['streamline'] } },
   { name: 'code', terms: ['develop', 'preview'] },
+  { name: 'code_circle', terms: ['develop', 'preview'] },
+  { name: 'code_circle-filled-color', terms: ['develop', 'preview'] },
   { name: 'cog', terms: ['settings', 'gear'], thirdparty: { name: ['streamline'] } },
   {
     name: 'cog-color',
