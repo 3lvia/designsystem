@@ -55,7 +55,7 @@
     ]
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18.18.0"
   },
   "dependencies": {
     "prettier": "^2.8.8"
