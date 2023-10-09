@@ -31,7 +31,7 @@
     "@babel/preset-typescript": "^7.23.0",
     "@babel/register": "^7.22.15",
     "@elvia/elvis-component-wrapper": "*",
-    "@testing-library/dom": "8.19.0",
+    "@testing-library/dom": "8.20.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.5.1",
