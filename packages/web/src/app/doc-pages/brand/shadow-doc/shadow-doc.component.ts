@@ -20,7 +20,10 @@ export class ShadowDocComponent {
   styleText = styleText;
   doDontText = doAndDont;
 
-  constructor(private titleService: Title, private localizationService: LocalizationService) {
+  constructor(
+    private titleService: Title,
+    private localizationService: LocalizationService,
+  ) {
     this.setTabTitle();
     this.localizationService
       .listenLocalization()

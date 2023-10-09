@@ -124,8 +124,8 @@ export class ComponentChangelogComponent implements OnInit {
           }
           case 'changelog.pages.displayName': {
             const changelogType =
-              (resultItem.item as ComponentChangelog).changelog.find((entry) =>
-                entry.pages?.some((page) => page.displayName === match.value),
+              (resultItem.item as ComponentChangelog).changelog.find(
+                (entry) => entry.pages?.some((page) => page.displayName === match.value),
               )?.type ?? 'CHANGELOG_TYPE_NOT_FOUND';
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
@@ -138,8 +138,8 @@ export class ComponentChangelogComponent implements OnInit {
           }
           case 'changelog.components.displayName': {
             const changelogType =
-              (resultItem.item as ComponentChangelog).changelog.find((entry) =>
-                entry.components?.some((component) => component.displayName === match.value),
+              (resultItem.item as ComponentChangelog).changelog.find(
+                (entry) => entry.components?.some((component) => component.displayName === match.value),
               )?.type ?? 'CHANGELOG_TYPE_NOT_FOUND';
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,

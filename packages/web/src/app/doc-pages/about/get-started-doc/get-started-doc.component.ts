@@ -19,7 +19,10 @@ export class GetStartedDocComponent {
   elvisCssImport = "@use '~@elvia/elvis/css/elvis.min.css';";
   elvisJsImport = "import '@elvia/elvis/elvis.js';";
 
-  constructor(private versionService: VersionService, private titleService: Title) {
+  constructor(
+    private versionService: VersionService,
+    private titleService: Title,
+  ) {
     this.titleService.setTitle('Get started | Elvia design system');
 
     combineLatest([this.versionService.getCDNScriptFile(), this.versionService.getCDNStyleFile()])
