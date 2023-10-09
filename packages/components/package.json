@@ -16,7 +16,7 @@
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.22.15",
     "@babel/plugin-transform-runtime": "^7.22.15",
-    "babel-plugin-styled-components": "^1.13.3",
+    "babel-plugin-styled-components": "^2.1.4",
     "gulp-typescript": "^6.0.0-alpha.1",
     "jsdom-global": "^3.0.2",
     "sass": "^1.69.0",
