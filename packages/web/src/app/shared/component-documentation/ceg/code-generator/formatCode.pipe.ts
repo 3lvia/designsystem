@@ -1,15 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import Prettier from 'prettier/standalone';
-import parserHtml from 'prettier/parser-html';
-import parserBabel from 'prettier/parser-babel';
-import parserPostCss from 'prettier/parser-postcss';
+import { format } from 'prettier/standalone';
+import pluginHtml from 'prettier/plugins/html';
+import pluginBabel from 'prettier/plugins/babel';
+import pluginPostCss from 'prettier/plugins/postcss';
+import pluginEstree from 'prettier/plugins/estree';
 import { Language } from './types';
 
 @Pipe({
   name: 'formatCode',
 })
 export class FormatCodePipe implements PipeTransform {
-  transform(code: string, language: Language): string {
+  async transform(code: string, language: Language): Promise<string> {
     const codeWithClosedTags = this.addClosingTagsToVoidElements(code);
     const codeWithoutComments = this.removeCommentsFromTemplate(codeWithClosedTags);
 
@@ -20,9 +21,9 @@ export class FormatCodePipe implements PipeTransform {
       parser = 'html';
     }
 
-    let formattedCode = Prettier.format(codeWithoutComments, {
+    let formattedCode = await format(codeWithoutComments, {
       parser: parser,
-      plugins: [parserHtml, parserBabel, parserPostCss],
+      plugins: [pluginEstree, pluginHtml, pluginBabel, pluginPostCss],
       printWidth: 80,
     });
 
