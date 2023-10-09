@@ -43,8 +43,8 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.5",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
+    "@types/react": "^18.2.25",
+    "@types/react-dom": "^18.2.11",
     "@vitejs/plugin-react": "^4.1.0",
     "sass": "^1.69.0",
     "typescript": "~5.1.0",
