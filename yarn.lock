@@ -2532,7 +2532,7 @@ __metadata:
     gulp: ^4.0.2
     gulp-babel: ^8.0.0
     gulp-cached: ^1.1.1
-    gulp-filter: ^7.0.0
+    gulp-filter: ^8.0.0
     gulp-header: ^2.0.9
     gulp-rename: ^2.0.0
     gulp-replace: ^1.1.4
@@ -4863,7 +4863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimatch@npm:^3.0.3":
+"@types/minimatch@npm:^3.0.3, @types/minimatch@npm:^3.0.5":
   version: 3.0.5
   resolution: "@types/minimatch@npm:3.0.5"
   checksum: c41d136f67231c3131cf1d4ca0b06687f4a322918a3a5adddc87ce90ed9dbd175a3610adee36b106ae68c0b92c637c35e02b58c8a56c424f71d30993ea220b92
@@ -6202,6 +6202,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"array-differ@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "array-differ@npm:4.0.0"
+  checksum: 1de99a06bc3219f96b062a561a4c19af7a68bfaf2c1e0ccedd1d82ce1fbc7757f939e03cf0d3ad76b71f855a8ad2b2a16bf53df331bf5f0c90002774f04fb0b5
+  languageName: node
+  linkType: hard
+
 "array-each@npm:^1.0.0, array-each@npm:^1.0.1":
   version: 1.0.1
   resolution: "array-each@npm:1.0.1"
@@ -6277,6 +6284,13 @@ __metadata:
   version: 2.1.0
   resolution: "array-union@npm:2.1.0"
   checksum: 5bee12395cba82da674931df6d0fea23c4aa4660cb3b338ced9f828782a65caa232573e6bf3968f23e0c5eb301764a382cef2f128b170a9dc59de0e36c39f98d
+  languageName: node
+  linkType: hard
+
+"array-union@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "array-union@npm:3.0.1"
+  checksum: 47b29f88258e8f37ffb93ddaa327d4308edd950b52943c172b73558afdd3fa74cfd68816ba5aa4b894242cf281fa3c6d0362ae057e4a18bddbaedbe46ebe7112
   languageName: node
   linkType: hard
 
@@ -11033,20 +11047,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-filter@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "gulp-filter@npm:7.0.0"
+"gulp-filter@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "gulp-filter@npm:8.0.0"
   dependencies:
-    multimatch: ^5.0.0
-    plugin-error: ^1.0.1
+    multimatch: ^6.0.0
+    plugin-error: ^2.0.1
     streamfilter: ^3.0.0
-    to-absolute-glob: ^2.0.2
+    to-absolute-glob: ^3.0.0
   peerDependencies:
     gulp: ">=4"
   peerDependenciesMeta:
     gulp:
       optional: true
-  checksum: e9f8657cea5ed42538282331b7ac08206cb2d6bae9a019c557072fe685db3f05d8a1a5850417d686e59cb3acfbef642c6fac58e189f4e00eb82ff8162dd4fd37
+  checksum: 00928df3e5d76cf20204ff69adbc51a823905d2c42c17478e443d73ef720f06b399684c9a9d7499fc28bded5ef2fe1a75f611c400e742e4dc00d93e019ddc730
   languageName: node
   linkType: hard
 
@@ -14551,6 +14565,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"multimatch@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "multimatch@npm:6.0.0"
+  dependencies:
+    "@types/minimatch": ^3.0.5
+    array-differ: ^4.0.0
+    array-union: ^3.0.1
+    minimatch: ^3.0.4
+  checksum: c04233765f664f556af12309cdad1a11c137655f756674b853a981f287984a49f3916955b57d306ed36bba3d2d6d5b6fbba4b48f483f11bd24e3c124a09e05b5
+  languageName: node
+  linkType: hard
+
 "mute-stdout@npm:^1.0.0":
   version: 1.0.1
   resolution: "mute-stdout@npm:1.0.1"
@@ -15858,6 +15884,15 @@ __metadata:
     arr-union: ^3.1.0
     extend-shallow: ^3.0.2
   checksum: 5cacd34372b909f07125829c2876707f4add64dcdf0dd8bd23d7ceac70eeb961c038a9707a998cc498bf8d478cc81f8d85b82584313926fe61a8fa294f79f3e4
+  languageName: node
+  linkType: hard
+
+"plugin-error@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "plugin-error@npm:2.0.1"
+  dependencies:
+    ansi-colors: ^1.0.1
+  checksum: 9a4f91461cd24cce401112098969991d7aa6b4c94f78e0381234280c07da779570a8b21ab143292b534ec0117c09705a67e5d756c1c303d4706fdd7f861bf5bc
   languageName: node
   linkType: hard
 
@@ -18890,13 +18925,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"to-absolute-glob@npm:^2.0.0, to-absolute-glob@npm:^2.0.2":
+"to-absolute-glob@npm:^2.0.0":
   version: 2.0.2
   resolution: "to-absolute-glob@npm:2.0.2"
   dependencies:
     is-absolute: ^1.0.0
     is-negated-glob: ^1.0.0
   checksum: 0a8bef172909e43d711bfd33792643f2eec35b9109bde927dabfd231e6ad643b7a657f306c93c6e7b89f71d3de74ac94060fe9637bca8c37b036523993664323
+  languageName: node
+  linkType: hard
+
+"to-absolute-glob@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "to-absolute-glob@npm:3.0.0"
+  dependencies:
+    is-absolute: ^1.0.0
+    is-negated-glob: ^1.0.0
+  checksum: 5a6e439fcfff4c3280912d458a329e0912bbfd7580946edd961589be6a2b80204c1119b8e83f4e426ed41579b1300c0537df6f0db260b0794b68431aed98fc46
   languageName: node
   linkType: hard
 
