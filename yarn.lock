@@ -2192,7 +2192,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-types@npm:^16.3.0":
+"@contentful/rich-text-types@npm:^16.0.2, @contentful/rich-text-types@npm:^16.3.0":
   version: 16.3.0
   resolution: "@contentful/rich-text-types@npm:16.3.0"
   checksum: 86d5a0bcc84804beb750d94cd9ed9a590c3811bf57e10e6c4b25403bbdb85c8a9bc6d336fe98e561b252c5010527398bd21c6548ffdc289bce9e01898bcdc59c
@@ -7977,16 +7977,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-sdk-core@npm:^7.0.4":
-  version: 7.0.5
-  resolution: "contentful-sdk-core@npm:7.0.5"
+"contentful-sdk-core@npm:^7.0.5":
+  version: 7.1.0
+  resolution: "contentful-sdk-core@npm:7.1.0"
   dependencies:
     fast-copy: ^2.1.7
     lodash.isplainobject: ^4.0.6
     lodash.isstring: ^4.0.1
     p-throttle: ^4.1.1
     qs: ^6.9.4
-  checksum: b6c3543077f0f139fcecb693d8b3fb0478ae178b805f3ffea05b160525d0b4aeaf1ca9f3d2a022b8fcf88cbb02bba058327b3568acdebfc738302cd1ba4131cd
+  checksum: 9f31cef7f2d7a6247ec5473315ed9c5574d93f8afb9748bfbf2439b2c54552b3689cb48ff7512f05fdc4930b2d19363b2a7f6cea0c426d8d5cfe71b9987427e8
   languageName: node
   linkType: hard
 
@@ -8021,16 +8021,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful@npm:^9.2.13":
-  version: 9.2.13
-  resolution: "contentful@npm:9.2.13"
+"contentful@npm:^9.3.5":
+  version: 9.3.5
+  resolution: "contentful@npm:9.3.5"
   dependencies:
+    "@contentful/rich-text-types": ^16.0.2
     axios: ^0.27.0
     contentful-resolve-response: ^1.3.12
-    contentful-sdk-core: ^7.0.4
+    contentful-sdk-core: ^7.0.5
     fast-copy: ^2.1.7
     json-stringify-safe: ^5.0.1
-  checksum: 6722be9de6335c575de43b54e10b0d9a97a45535f5eea17c84f926e4a692c595ba3d7276eec12ef733f420cf29bbe3d6d7c2643976d12b4e1b409dfc0f2845fc
+  checksum: 85783f497e1091190aea4a631523a08e884f43ce6e88af42e895762ee77d6b7193206a9da023b2a2d4ed18ae57c142d7c2da837897a02f0bc1b4b9c374535504
   languageName: node
   linkType: hard
 
@@ -9056,7 +9057,7 @@ __metadata:
     "@types/prismjs": ^1.26.1
     "@typescript-eslint/eslint-plugin": ^6.7.4
     "@typescript-eslint/parser": ^6.7.4
-    contentful: ^9.2.13
+    contentful: ^9.3.5
     contentful-management: ^10.46.4
     contentful-typescript-codegen: ^3.4.0
     dotenv: ^10.0.0
