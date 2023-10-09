@@ -28,7 +28,7 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "del": "^6.1.1",
+    "del": "^7.1.0",
     "doiuse": "^6.0.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
