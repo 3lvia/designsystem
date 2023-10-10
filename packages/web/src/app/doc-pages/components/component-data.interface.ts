@@ -1,5 +1,4 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
-import { ComponentPropsWithoutRef } from 'react';
 
 type PrimitiveType = string | string[] | number | number[] | boolean | JSX.Element | Date | null;
 type EventType = (...args: any) => any;
