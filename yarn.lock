@@ -2506,9 +2506,6 @@ __metadata:
     "@babel/preset-typescript": ^7.23.0
     "@babel/register": ^7.22.15
     "@elvia/elvis-component-wrapper": "*"
-    "@playwright/browser-chromium": 1.38.1
-    "@playwright/browser-firefox": 1.38.1
-    "@playwright/browser-webkit": 1.38.1
     "@playwright/experimental-ct-react": 1.38.1
     "@playwright/test": 1.38.1
     "@testing-library/dom": 9.3.3
@@ -4202,33 +4199,6 @@ __metadata:
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
   checksum: 6ad6a00fc4f2f2cfc6bff76fb1d88b8ee20bc0601e18ebb01b6d4be583733a860239a521a7fbca73b612e66705078809483549d2b18f370eb346c5155c8e4a0f
-  languageName: node
-  linkType: hard
-
-"@playwright/browser-chromium@npm:1.38.1":
-  version: 1.38.1
-  resolution: "@playwright/browser-chromium@npm:1.38.1"
-  dependencies:
-    playwright-core: 1.38.1
-  checksum: 0fa4c30792288102a27fd1cdb33f44ab25cbec53c6913e268f4c4609865fa7dd556177f72e54790d0472e73d668fa97e1a2f54d83b9bec7e04cdb6e748d0f555
-  languageName: node
-  linkType: hard
-
-"@playwright/browser-firefox@npm:1.38.1":
-  version: 1.38.1
-  resolution: "@playwright/browser-firefox@npm:1.38.1"
-  dependencies:
-    playwright-core: 1.38.1
-  checksum: d14d91a8c7354eb882b0f4696feedab5a017214edb590c64742220402fc30b721f61012a49d57fde5ef7ec7044ae85635b806f5c91ff4f20f1e11f7494f9dbea
-  languageName: node
-  linkType: hard
-
-"@playwright/browser-webkit@npm:1.38.1":
-  version: 1.38.1
-  resolution: "@playwright/browser-webkit@npm:1.38.1"
-  dependencies:
-    playwright-core: 1.38.1
-  checksum: 941008c3ed7a4a336bf1a860ffb7c8e8b20a39a9f774d71a6499881385a54f05bac83156423c2c1ec29ea6eb789e39c9ace4ff344f859107d646d1eaea882f3d
   languageName: node
   linkType: hard
 
