@@ -20,4 +20,4 @@ export interface BaseStepperProps extends HasValue<number>, BaseProps {
   content?: JSX.Element[];
 }
 
-export interface StepperProps extends BaseStepperProps, ComponentPropsWithoutRef<'div'> {}
+export interface StepperProps extends BaseStepperProps, Omit<ComponentPropsWithoutRef<'div'>, 'content'> {}
