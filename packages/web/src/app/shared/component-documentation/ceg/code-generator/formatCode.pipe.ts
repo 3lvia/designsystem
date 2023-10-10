@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { format } from 'prettier/standalone';
 import pluginHtml from 'prettier/plugins/html';
 import pluginBabel from 'prettier/plugins/babel';
+import pluginTypescript from 'prettier/plugins/typescript';
 import pluginPostCss from 'prettier/plugins/postcss';
 import pluginEstree from 'prettier/plugins/estree';
 import { Language } from './types';
@@ -19,11 +20,13 @@ export class FormatCodePipe implements PipeTransform {
       parser = 'css';
     } else if (language === 'html') {
       parser = 'html';
+    } else if (language === 'typescript') {
+      parser = 'typescript';
     }
 
     let formattedCode = await format(codeWithoutComments, {
       parser: parser,
-      plugins: [pluginEstree, pluginHtml, pluginBabel, pluginPostCss],
+      plugins: [pluginEstree, pluginHtml, pluginBabel, pluginTypescript, pluginPostCss],
       printWidth: 80,
     });
 
