@@ -1,5 +1,4 @@
-import { Dispatch, RefObject, SetStateAction, useEffect, useState } from 'react';
-import { isSsr } from '../isSsr';
+import { Dispatch, RefObject, SetStateAction, useLayoutEffect, useState } from 'react';
 
 interface WindowRect {
   height: number;
@@ -71,9 +70,6 @@ export const useConnectedOverlay = (
 
   /** Get screen dimensions based on device */
   const getScreenDimensions = (): WindowRect | null => {
-    if (isSsr()) {
-      return null;
-    }
     if (navigator.userAgent.toLowerCase().includes('android') && window.visualViewport) {
       return {
         height: window.visualViewport.height,
@@ -283,7 +279,7 @@ export const useConnectedOverlay = (
     positionPopover();
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!isShowing) {
       return;
     }
@@ -298,10 +294,6 @@ export const useConnectedOverlay = (
     };
 
     alignOverlayWithConnectedElement();
-
-    if (isSsr()) {
-      return;
-    }
 
     window.addEventListener('resize', alignOverlayWithConnectedElement);
     window.addEventListener('scroll', alignOverlayWithConnectedElement);
