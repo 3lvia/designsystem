@@ -8,15 +8,19 @@
   "packageRules": [
     {
       "groupName": "all angular dependencies",
-      "groupSlug": "angular-minor-patch",
       "matchPackagePatterns": ["^@angular"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
     {
       "groupName": "all @testing-library dependencies",
-      "groupSlug": "testing-library-minor-patch",
       "matchPackagePatterns": ["^@testing-library"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": false
+    },
+    {
+      "groupName": "all playwright dependencies",
+      "matchPackagePatterns": ["^@playwright"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": false
     }
