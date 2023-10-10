@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.10.23",
+      "version": "11.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed issue where a connected overlay could be misaligned on initial render"]
+        }
+      ]
+    },
+    {
       "date": "06.10.23",
       "version": "11.0.0",
       "changelog": [
