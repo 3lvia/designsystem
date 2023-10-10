@@ -7,7 +7,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.38.0-jammy
+      image: mcr.microsoft.com/playwright:v1.38.1-jammy
     steps:
       - name: Checkout
         uses: actions/checkout@v3
