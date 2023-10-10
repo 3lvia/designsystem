@@ -64,10 +64,7 @@ interface ComponentChangelogChange {
   components?: { displayName: string; url: string }[];
 }
 
-type FilteredComponentProps<TComponentProps> = Omit<
-  TComponentProps,
-  keyof ComponentPropsWithoutRef<'div'> | keyof BaseProps
->;
+type FilteredComponentProps<TComponentProps> = Omit<TComponentProps, keyof BaseProps>;
 
 type ComponentProps<TComponentProps> = {
   [PropName in keyof FilteredComponentProps<TComponentProps>]: NonNullable<
