@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef } from 'react';
 export type VerticalPosition = 'bottom' | 'top';
 export type HorizontalPosition = 'left' | 'right';
 
-export interface ContextMenuProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
+export interface BaseContextMenuProps extends BaseProps {
   content?: string | JSX.Element;
   horizontalPosition?: HorizontalPosition;
   isSelectable?: boolean;
@@ -14,3 +14,5 @@ export interface ContextMenuProps extends ComponentPropsWithoutRef<'div'>, BaseP
   trigger?: JSX.Element;
   verticalPosition?: VerticalPosition;
 }
+
+export interface ContextMenuProps extends BaseContextMenuProps, ComponentPropsWithoutRef<'div'> {}

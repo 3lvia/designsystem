@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef } from 'react';
 export type VerticalPosition = 'bottom' | 'top';
 export type HorizontalPosition = 'left' | 'center' | 'right';
 
-export interface PopoverProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
+export interface BasePopoverProps extends BaseProps {
   heading?: string;
   content?: string | JSX.Element;
   horizontalPosition?: HorizontalPosition;
@@ -16,3 +16,5 @@ export interface PopoverProps extends ComponentPropsWithoutRef<'div'>, BaseProps
   onOpen?: () => void;
   onClose?: () => void;
 }
+
+export interface PopoverProps extends BasePopoverProps, ComponentPropsWithoutRef<'div'> {}

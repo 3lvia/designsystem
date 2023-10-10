@@ -13,11 +13,13 @@ export interface IconSegmentedControl {
   ariaLabel: string;
 }
 
-export interface SegmentedControlProps extends ComponentPropsWithoutRef<'div'>, BaseProps, HasValue<number> {
+export interface BaseSegmentedControlProps extends BaseProps, HasValue<number> {
   items: TextSegmentedControl[] | IconSegmentedControl[];
   type?: Type;
   size?: Size;
 }
+
+export interface SegmentedControlProps extends BaseSegmentedControlProps, ComponentPropsWithoutRef<'div'> {}
 
 // Styling
 export interface SegmentedControlContainerProps {

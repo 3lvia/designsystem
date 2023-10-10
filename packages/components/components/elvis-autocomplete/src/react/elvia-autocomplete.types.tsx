@@ -9,11 +9,7 @@ export interface AutocompleteItem {
   label: string;
 }
 
-export interface AutocompleteProps
-  extends ComponentPropsWithoutRef<'label'>,
-    BaseProps,
-    HasValue<string | null>,
-    HasError {
+export interface BaseAutocompleteProps extends BaseProps, HasValue<string | null>, HasError {
   ariaLabel?: string;
   hasOptionalText?: boolean;
   isDisabled?: boolean;
@@ -30,3 +26,7 @@ export interface AutocompleteProps
   size?: FormFieldSizes;
   hasBuiltInFilter?: boolean;
 }
+
+export interface AutocompleteProps
+  extends BaseAutocompleteProps,
+    Omit<ComponentPropsWithoutRef<'label'>, 'onFocus'> {}

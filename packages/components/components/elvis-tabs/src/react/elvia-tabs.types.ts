@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef } from 'react';
 
 export type ScrollPosition = 'left' | 'center' | 'right' | 'no-scroll';
 
-export interface TabsProps extends ComponentPropsWithoutRef<'div'>, BaseProps, HasValue<number> {
+export interface BaseTabsProps extends BaseProps, HasValue<number> {
   items: string[];
   isInverted?: boolean;
   hasManualActivation?: boolean;
@@ -11,3 +11,5 @@ export interface TabsProps extends ComponentPropsWithoutRef<'div'>, BaseProps, H
   tabIdPrefix?: string;
   valueOnChange?: (value: number) => void;
 }
+
+export interface TabsProps extends BaseTabsProps, ComponentPropsWithoutRef<'div'> {}
