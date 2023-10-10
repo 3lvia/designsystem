@@ -15,10 +15,7 @@ export interface PaginationLabel {
   label?: string;
 }
 
-export interface PaginationProps
-  extends ComponentPropsWithoutRef<'div'>,
-    BaseProps,
-    HasValue<VisibleElements> {
+export interface BasePaginationProps extends BaseProps, HasValue<VisibleElements> {
   numberOfElements?: number;
   lastNumberLimit?: number;
   alignment?: 'left' | 'right';
@@ -28,6 +25,8 @@ export interface PaginationProps
   dropdownSelectedItemIndexOnChange?: (value: number) => void;
   labelOptions?: PaginationLabel;
 }
+
+export interface PaginationProps extends BasePaginationProps, ComponentPropsWithoutRef<'div'> {}
 
 export const defaultPaginationDropdownItems: DropdownItem[] = [
   { value: '10', label: '10' },

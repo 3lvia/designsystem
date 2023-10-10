@@ -36,10 +36,7 @@ export const emptyErrorMessage: CustomError = {
   end: '',
 };
 
-export interface DatepickerRangeProps
-  extends ComponentPropsWithoutRef<'div'>,
-    BaseProps,
-    HasValue<DateRange> {
+export interface BaseDatepickerRangeProps extends BaseProps, HasValue<DateRange> {
   valueOnChangeISOString?: (value: DateRangeString) => void;
   labelOptions?: LabelOptions;
   size?: FormFieldSizes;
@@ -61,3 +58,5 @@ export interface DatepickerRangeProps
   maxDate?: Date;
   disableDates?: DisableDates;
 }
+
+export interface DatepickerRangeProps extends BaseDatepickerRangeProps, ComponentPropsWithoutRef<'div'> {}

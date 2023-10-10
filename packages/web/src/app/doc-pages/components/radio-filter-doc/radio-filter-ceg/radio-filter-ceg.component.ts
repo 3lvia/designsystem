@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { RadioFilterProps } from '@elvia/elvis-radio-filter/react';
+import { BaseRadioFilterProps } from '@elvia/elvis-radio-filter/react';
 
 @Component({
   selector: 'app-radio-filter-ceg',
@@ -9,7 +9,7 @@ import { RadioFilterProps } from '@elvia/elvis-radio-filter/react';
 })
 export class RadioFilterCegComponent implements ComponentExample {
   elementName = 'radio-filter';
-  cegContent = new CegControlManager<RadioFilterProps>([
+  cegContent = new CegControlManager<BaseRadioFilterProps>([
     {
       controls: {},
       groupOrder: [],

@@ -1,6 +1,7 @@
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
 import { StepStates } from './sharedTypes';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type StepperType = 'vertical' | 'horizontal';
 
@@ -11,10 +12,12 @@ export type StepperTypeProps = Omit<StepperProps, 'webcomponent' | 'type'> & {
   contentRef: React.RefObject<HTMLDivElement>;
 };
 
-export interface StepperProps extends HasValue<number>, BaseProps {
+export interface BaseStepperProps extends HasValue<number>, BaseProps {
   type?: StepperType;
   steps?: StepStates;
   isForced?: boolean;
   typography?: TypographyName;
   content?: JSX.Element[];
 }
+
+export interface StepperProps extends BaseStepperProps, ComponentPropsWithoutRef<'div'> {}

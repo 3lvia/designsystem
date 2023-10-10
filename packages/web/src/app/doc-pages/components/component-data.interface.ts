@@ -1,5 +1,4 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
-import { ComponentPropsWithoutRef } from 'react';
 
 type PrimitiveType = string | string[] | number | number[] | boolean | JSX.Element | Date | null;
 type EventType = (...args: any) => any;
@@ -64,10 +63,7 @@ interface ComponentChangelogChange {
   components?: { displayName: string; url: string }[];
 }
 
-type FilteredComponentProps<TComponentProps> = Omit<
-  TComponentProps,
-  keyof ComponentPropsWithoutRef<'div'> | keyof BaseProps
->;
+type FilteredComponentProps<TComponentProps> = Omit<TComponentProps, keyof BaseProps>;
 
 type ComponentProps<TComponentProps> = {
   [PropName in keyof FilteredComponentProps<TComponentProps>]: NonNullable<
