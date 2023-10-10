@@ -41,16 +41,13 @@ export class ComponentPropertiesTableComponent implements OnInit {
   private flattenProps(componentProps: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
     let flatComponentProps: SearchResult<ComponentProp>[] = [];
 
-    componentProps.forEach((prop) => {
-      const componentProp = prop;
-      flatComponentProps.push(componentProp);
+    for (const prop of componentProps) {
+      flatComponentProps.push(prop);
       const propData = this.componentData.attributes[prop.item.attribute];
-      if (propData) {
-        if ('children' in propData) {
-          flatComponentProps = this.flattenPropsRecursive(propData, 1, flatComponentProps);
-        }
+      if (propData && 'children' in propData) {
+        flatComponentProps = this.flattenPropsRecursive(propData, 1, flatComponentProps);
       }
-    });
+    }
     return flatComponentProps;
   }
 
@@ -59,38 +56,34 @@ export class ComponentPropertiesTableComponent implements OnInit {
     level: number,
     componentProps: SearchResult<ComponentProp>[],
   ): SearchResult<ComponentProp>[] {
-    Object.keys(nestedComponentProp.children).forEach((prop) => {
+    for (const prop in nestedComponentProp.children) {
       const propData = nestedComponentProp.children[prop];
       const componentProp: ComponentProp = {
         attribute: prop,
         ...propData,
-        description: propData.description ?? '',
-        level: level,
+        description: propData.description || '',
+        level,
       };
-      const componentPropSearch = { item: componentProp };
-      componentProps.push(componentPropSearch);
+      componentProps.push({ item: componentProp });
       if ('children' in propData) {
         componentProps = this.flattenPropsRecursive(propData, level + 1, componentProps);
       }
-    });
+    }
     return componentProps;
   }
 
   private getRootPropArray(): ComponentProp[] {
-    let componentProps: ComponentProp[] = [];
-
-    Object.keys(this.componentData.attributes).forEach((prop) => {
+    const componentProps: ComponentProp[] = Object.keys(this.componentData.attributes).map((prop) => {
       const propData = this.componentData.attributes[prop];
-      const componentProp: ComponentProp = {
+      return {
         attribute: prop,
         ...propData,
-        description: propData.description ?? '',
+        description: propData.description || '',
         level: 0,
       };
-      componentProps.push(componentProp);
     });
 
-    componentProps = componentProps.sort(this.sortProps);
+    componentProps.sort(this.sortProps);
 
     if (!this.ignoreDefaultProps) {
       componentProps.push(...this.getCommonProps());
