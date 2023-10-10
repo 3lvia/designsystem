@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { PopoverProps } from '@elvia/elvis-popover/react';
+import { BasePopoverProps } from '@elvia/elvis-popover/react';
 
 @Component({
   selector: 'app-popover-ceg',
@@ -9,7 +9,7 @@ import { PopoverProps } from '@elvia/elvis-popover/react';
 })
 export class PopoverCegComponent implements ComponentExample {
   elementName = 'popover';
-  cegContent = new CegControlManager<PopoverProps>([
+  cegContent = new CegControlManager<BasePopoverProps>([
     {
       controls: {
         verticalPosition: {

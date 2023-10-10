@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { DatepickerRangeProps } from '@elvia/elvis-datepicker-range/react';
+import { BaseDatepickerRangeProps } from '@elvia/elvis-datepicker-range/react';
 /**
  * The `isRequired` prop is of type `BothDatepicker<boolean> | boolean` which confuses the CEG,
  * so we override it here to be only a `boolean`.
  */
-type DatepickerRangePropsWithFixedRequired = Omit<DatepickerRangeProps, 'isRequired'> & {
+type DatepickerRangePropsWithFixedRequired = Omit<BaseDatepickerRangeProps, 'isRequired'> & {
   isRequired?: boolean;
 };
 

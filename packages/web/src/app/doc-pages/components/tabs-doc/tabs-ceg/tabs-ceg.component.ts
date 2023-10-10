@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { TabsProps } from '@elvia/elvis-tabs/react';
+import { BaseTabsProps } from '@elvia/elvis-tabs/react';
 
 @Component({
   selector: 'app-tabs-ceg',
@@ -10,7 +10,7 @@ import { TabsProps } from '@elvia/elvis-tabs/react';
 })
 export class TabsCegComponent implements ComponentExample {
   elementName = 'tabs';
-  cegContent = new CegControlManager<TabsProps>([
+  cegContent = new CegControlManager<BaseTabsProps>([
     {
       controls: {},
       groupOrder: [],

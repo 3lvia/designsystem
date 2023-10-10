@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { SegmentedControlProps } from '@elvia/elvis-segmented-control/react';
+import { BaseSegmentedControlProps } from '@elvia/elvis-segmented-control/react';
 
 @Component({
   selector: 'app-segmented-control-ceg',
@@ -9,7 +9,7 @@ import { SegmentedControlProps } from '@elvia/elvis-segmented-control/react';
 })
 export class SegmentedControlCegComponent implements ComponentExample {
   elementName = 'segmented-control';
-  cegContent = new CegControlManager<SegmentedControlProps>([
+  cegContent = new CegControlManager<BaseSegmentedControlProps>([
     {
       type: 'Text',
       controls: {

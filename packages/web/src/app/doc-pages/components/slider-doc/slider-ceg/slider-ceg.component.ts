@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { SliderProps } from '@elvia/elvis-slider/react';
+import { BaseSliderProps } from '@elvia/elvis-slider/react';
 
 @Component({
   selector: 'app-slider-ceg',
@@ -9,7 +9,7 @@ import { SliderProps } from '@elvia/elvis-slider/react';
 })
 export class SliderCegComponent implements ComponentExample {
   elementName = 'slider';
-  cegContent = new CegControlManager<SliderProps>([
+  cegContent = new CegControlManager<BaseSliderProps>([
     {
       type: 'Simple',
       controls: {
