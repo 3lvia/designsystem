@@ -8,7 +8,7 @@ export interface ComponentProp {
   attribute: string;
   type: string;
   description?: string;
-  default?: string | number | boolean | undefined;
+  default?: string | number | boolean;
   isEvent?: boolean;
   isRequired?: boolean;
   example?: string;
