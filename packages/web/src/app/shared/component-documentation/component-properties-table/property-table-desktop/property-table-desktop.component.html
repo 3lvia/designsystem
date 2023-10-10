@@ -86,7 +86,10 @@
           <div
             class="height-changer"
             [ngClass]="{ last: isLast }"
-            [innerHTML]="prop.item.default | searchHighlighter : 'default' : prop.matches"
+            [innerHTML]="
+              (isLeafProp(i, group.rows) ? prop.item.default : '')
+                | searchHighlighter : 'default' : prop.matches
+            "
           ></div>
         </td>
       </tr>
