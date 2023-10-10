@@ -10,7 +10,7 @@
     ]
   },
   "scripts": {
-    "build": "yarn build:tokens && yarn build:elvis:prod && yarn build:components:prod && yarn build:web:prod",
+    "build": "yarn build:tokens && yarn build:elvis:prod && yarn build:components && yarn build:web:prod",
     "build:elvis": "yarn workspace @elvia/elvis build",
     "build:elvis:prod": "yarn workspace @elvia/elvis build:production",
     "build:components": "yarn workspace @elvia/elvis-components build",
