@@ -288,6 +288,9 @@ export const getTypography = <Key extends TypographyName>(
   typographyName: Key,
 ): (typeof ElviaTypography)[Key] | null => {
   if (ElviaTypography[typographyName]) {
+    if ('deprecated' in ElviaTypography[typographyName]) {
+      warnDeprecatedTypography(typographyName);
+    }
     return ElviaTypography[typographyName];
   } else {
     console.error(`Cannot get typography ${typographyName} from elvis-typography.`);
@@ -331,4 +334,12 @@ export const getTypographyCss = <Key extends TypographyName>(typographyName: Key
     typographyString += `}\n`;
   }
   return typographyString;
+};
+
+const warnDeprecatedTypography = (typographyName: string): void => {
+  const localhost = typeof window !== 'undefined' && window?.location.href.includes('localhost');
+  if (!localhost) {
+    return;
+  }
+  console.warn(`The typography "${typographyName}" has been deprecated.`);
 };

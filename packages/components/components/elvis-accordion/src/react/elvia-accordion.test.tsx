@@ -1,6 +1,6 @@
 import { Accordion } from './elvia-accordion';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
@@ -85,6 +85,39 @@ describe('Elvis Accordion', () => {
 
       expect(accordionArea).toHaveStyle('margin: 24px');
       expect(accordionArea).toHaveClass('test-class');
+    });
+  });
+
+  describe('Events', () => {
+    const onCloseEvent = jest.fn();
+    const onOpenEvent = jest.fn();
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+      render(<Accordion content="I am content" onClose={onCloseEvent} onOpen={onOpenEvent} />);
+    });
+
+    it('should not emit event when idle', async () => {
+      await waitFor(() => expect(onOpenEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(onCloseEvent).not.toHaveBeenCalled());
+    });
+
+    it('onOpenEvent: should emit the onOpen event when user presses the accordion button', async () => {
+      const user = userEvent.setup();
+      const accordionButton = screen.getByTestId('accordion-button-label');
+      await user.click(accordionButton);
+
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('onCloseEvent: should emit the onClose event when user presses the accordion button when open', async () => {
+      const user = userEvent.setup();
+      const accordionButton = screen.getByTestId('accordion-button-label');
+      await user.click(accordionButton); //open it first
+      await user.click(accordionButton); //then close it
+
+      await waitFor(() => expect(onCloseEvent).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
     });
   });
 

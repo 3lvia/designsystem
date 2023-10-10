@@ -5,67 +5,57 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="whens" [whenNots]="whenNots"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Lack of space'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>
-            <strong>On mobile</strong>
-            - You can put radio filter in a popover if there is a lack of space or if it should take up less
-            focus. Popover is triggered by a button.
-          </div>
-          <div class="e-mt-24">
-            <img
-              alt="Radio filter in popover"
-              class="theme-image-background"
-              src="./../../../../assets/radio-filter/Example popover.svg"
-            />
-          </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Icons'">
-        <ng-container ngProjectAs="sectionContent">
-          <div>You can have an icon together with the text.</div>
-          <app-static-ceg>
-            <app-radio-filter-icon-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-when-to-use [whens]="whens" [whenNots]="whenNots"></app-when-to-use>
+    <app-component-subsection [sectionTitle]="'Lack of space'">
+      <div>
+        <strong>On mobile</strong>
+        - You can put radio filter in a popover if there is a lack of space or if it should take up less
+        focus. Popover is triggered by a button.
+      </div>
+      <div class="e-mt-24">
+        <img
+          alt="Radio filter in popover"
+          class="theme-image-background"
+          src="./../../../../assets/radio-filter/Example popover.svg"
+        />
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Icons'">
+      <div>You can have an icon together with the text.</div>
+      <app-static-ceg>
+        <app-radio-filter-icon-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          Radio filters work like and built up of a radiobuttons, making the keyboard navigation identical to
-          the keyboard navigation for native radiobuttons.
-          <div class="accessibility-keyboard-navigation e-mt-40">
-            <div>
-              <span class="keyboard-button">Space</span>
-              or
-              <span class="keyboard-button">Enter</span>
-              to select a radio filter.
-            </div>
-            <div>
-              <span class="keyboard-button icon">
-                <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px">
-                <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon">
-                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px">
-                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              can be used to navigate between the radio filters.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      Radio filters work like and built up of a radiobuttons, making the keyboard navigation identical to the
+      keyboard navigation for native radiobuttons.
+      <div class="accessibility-keyboard-navigation e-mt-40">
+        <div>
+          <span class="keyboard-button">Space</span>
+          or
+          <span class="keyboard-button">Enter</span>
+          to select a radio filter.
+        </div>
+        <div>
+          <span class="keyboard-button icon">
+            <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          <span class="keyboard-button icon" style="margin-left: 0px">
+            <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          <span class="keyboard-button icon">
+            <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          <span class="keyboard-button icon" style="margin-left: 0px">
+            <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          can be used to navigate between the radio filters.
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

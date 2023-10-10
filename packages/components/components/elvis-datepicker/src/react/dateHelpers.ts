@@ -68,3 +68,12 @@ export const copyDay = (copyFrom: Date, copyTo: Date): Date => {
   newDate.setFullYear(copyFrom.getFullYear(), copyFrom.getMonth(), copyFrom.getDate());
   return newDate;
 };
+
+/**
+ * Get ISO time without considering the timezone offset
+ */
+export const localISOTime = (date: Date): string => {
+  const timeZoneOffset = date.getTimezoneOffset() * 60000; // Local timezone offset in ms
+  const localISOTime = new Date(date.getTime() - timeZoneOffset).toISOString();
+  return localISOTime;
+};

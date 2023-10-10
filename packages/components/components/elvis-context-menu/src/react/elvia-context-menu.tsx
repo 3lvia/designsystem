@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useConnectedOverlay, useSlot, useFocusTrap } from '@elvia/elvis-toolbox';
+import { useConnectedOverlay, useSlot, useFocusTrap, useUpdateEffect } from '@elvia/elvis-toolbox';
 import { ContextMenuProps } from './elviaContextMenu.types';
 import { TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition } from './mapPosition';
@@ -27,7 +27,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
-  const { isShowing: isOverlayShowing, setIsShowing: setIsOverlayShowing } = useConnectedOverlay(
+  const { isShowing: isOverlayShowing = false, setIsShowing: setIsOverlayShowing } = useConnectedOverlay(
     triggerRef,
     popoverRef,
     {
@@ -66,7 +66,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     }
   }, [isShowing]);
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     if (isOverlayShowing) {
       setPrevFocusedElement(document.activeElement as HTMLElement);
       handleOnOpen();

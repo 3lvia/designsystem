@@ -160,7 +160,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
         if (focusedItem?.value === selectAllItem.value) {
           toggleAllSelection();
         } else if (focusedItem?.value === loadMoreItem.value) {
-          onLoadMoreItems && onLoadMoreItems();
+          onLoadMoreItems?.();
         } else if (focusedItem?.value === backItem.value) {
           closeOpenOverlay();
         } else if (focusedItem && !focusedItem.children) {
@@ -237,7 +237,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
         <DropdownPopupContainer
           data-testid="popover"
           id={id}
-          onMouseLeave={() => setHoveredItem && setHoveredItem(undefined)}
+          onMouseLeave={() => setHoveredItem?.(undefined)}
           size={size}
         >
           {!isRootOverlay && isGtMobile && <CursorCurve />}

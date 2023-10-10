@@ -10,6 +10,6 @@ export class ThumbnailDocComponent {
     { src: 'assets/thumbnail/image-3.jpg' },
     { src: 'assets/thumbnail/image-1.jpg' },
     { src: 'assets/thumbnail/image-2.jpg' },
-    { src: 'assets/thumbnail/image.jpg' },
+    { src: 'assets/thumbnail/image-4.jpg' },
   ];
 }

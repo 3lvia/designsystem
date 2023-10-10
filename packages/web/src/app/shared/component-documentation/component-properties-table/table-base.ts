@@ -1,16 +1,17 @@
 import { Directive, Input, OnChanges } from '@angular/core';
 import { ComponentProp, EventProp, InputProp } from './types';
 import { NestedProp } from 'src/app/doc-pages/components/component-data.interface';
+import { SearchResult } from '../../searcher';
 
 interface TableGroup {
   title: string;
   expanded?: boolean;
-  rows: (InputProp | EventProp)[];
+  rows: SearchResult<ComponentProp>[];
 }
 
 @Directive({ selector: '[appPropertyTableBase]' })
 export class PropertyTableBaseDirective implements OnChanges {
-  @Input() props: ComponentProp[] = [];
+  @Input() props: SearchResult<ComponentProp>[] = [];
   groupedProps: TableGroup[] = [];
 
   ngOnChanges(): void {
@@ -18,25 +19,46 @@ export class PropertyTableBaseDirective implements OnChanges {
       {
         title: 'Properties',
         expanded: true,
-        rows: this.getInputProps(this.props),
+        rows: this.getInputProps(this.props).sort(this.sortProps),
       },
       {
         title: 'Events',
         expanded: true,
-        rows: this.getEventProps(this.props),
+        rows: this.getEventProps(this.props).sort(this.sortProps),
       },
     ];
   }
 
-  getEventProps(props: ComponentProp[]): EventProp[] {
-    return props.filter((prop) => this.propHasNoChildren(prop) && prop.isEvent) as EventProp[];
-  }
-
-  getInputProps(props: ComponentProp[]): InputProp[] {
-    return props.filter((prop) => this.propHasNoChildren(prop) && !prop.isEvent) as InputProp[];
-  }
-
   propHasNoChildren(prop: ComponentProp): prop is EventProp | InputProp {
     return !(prop as NestedProp<Record<string, any>>).children;
+  }
+
+  private getEventProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
+    return props.filter((prop) => this.propHasNoChildren(prop.item) && prop.item.isEvent);
+  }
+
+  private getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
+    return props.filter((prop) => this.propHasNoChildren(prop.item) && !prop.item.isEvent);
+  }
+
+  private sortProps(a: SearchResult<ComponentProp>, b: SearchResult<ComponentProp>): number {
+    const lastProps = ['className', 'inlineStyle'];
+    let lastPropComparison = 0;
+    if (lastProps.includes(a.item.attribute) && !lastProps.includes(b.item.attribute)) {
+      lastPropComparison = 1;
+    } else if (!lastProps.includes(a.item.attribute) && lastProps.includes(b.item.attribute)) {
+      lastPropComparison = -1;
+    }
+
+    let requiredComparison = 0;
+    if (a.item.isRequired && !b.item.isRequired) {
+      requiredComparison = -1;
+    } else if (!a.item.isRequired && b.item.isRequired) {
+      requiredComparison = 1;
+    }
+
+    const alphabeticalComparison = a.item.attribute.localeCompare(b.item.attribute);
+
+    return lastPropComparison || requiredComparison || alphabeticalComparison;
   }
 }

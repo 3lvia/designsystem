@@ -36,7 +36,6 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [sidenavIsExpanded, setSidenavIsExpanded] = useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
-  const [desktopMenuIsOpen, setDesktopMenuIsOpen] = useState(false);
   const applicationTitle = appTitle ?? getActiveApp('name');
   const isGtMobile = useBreakpoint('gt-mobile');
 
@@ -68,7 +67,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <div className={className} style={{ ...inlineStyle }}>
-      <StyledHeader menuIsOpen={desktopMenuIsOpen}>
+      <StyledHeader>
         <LogoContainer>
           <IconButton aria-label="logo" onClick={() => logoClick()}>
             <svg
@@ -89,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({
 
         {isGtMobile && (
           <>
-            <AppDrawer appTitle={applicationTitle} onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)} />
+            <AppDrawer appTitle={applicationTitle} />
             <Hr direction="vertical" />
           </>
         )}
@@ -121,7 +120,6 @@ export const Header: React.FC<HeaderProps> = ({
               hideThemeSwitch={hideThemeSwitch}
               onSignOutClick={signOutClick}
               onThemeChange={themeChange}
-              onMenuToggle={(isOpen) => setDesktopMenuIsOpen(isOpen)}
             />
           </>
         )}

@@ -15,7 +15,7 @@ export const ToastIcon: React.FC<Props> = ({ toast }) => {
     const sanitizedDom = DOMPurify.sanitize(toast.customIcon);
     return <div dangerouslySetInnerHTML={{ __html: sanitizedDom }} />;
   } else if (toast.status === 'informative') {
-    return <IconWrapper icon={informationCircle} color={'text-1'} size="sm" />;
+    return <IconWrapper icon={informationCircle} color={'icon-info'} size="sm" />;
   } else {
     return <IconWrapper icon={checkCircle} color={'icon-positive'} size="sm" />;
   }

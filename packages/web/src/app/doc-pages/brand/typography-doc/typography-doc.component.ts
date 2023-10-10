@@ -23,7 +23,10 @@ export class TypographyDocComponent {
   isDesktop = true;
   isMobile = false;
 
-  constructor(private titleService: Title, private localizationService: LocalizationService) {
+  constructor(
+    private titleService: Title,
+    private localizationService: LocalizationService,
+  ) {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())

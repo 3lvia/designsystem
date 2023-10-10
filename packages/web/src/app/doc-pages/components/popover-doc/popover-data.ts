@@ -39,6 +39,12 @@ const popoverData: ComponentData<
       description: 'Determines if the close button in the upper right corner should be visible.',
       default: 'true',
     },
+    noPadding: {
+      type: 'boolean',
+      description:
+        'Can be used to remove all the padding from inside the popover. Should only be used in edge cases.',
+      default: 'false',
+    },
     isShowing: {
       type: 'boolean',
       description: 'Determines if the popover is visible.',
@@ -55,14 +61,14 @@ const popoverData: ComponentData<
       description: 'Callback for every time the popover is being closed.',
     },
     verticalPosition: {
-      type: 'bottom | top',
+      type: '"bottom" | "top"',
       description: 'Position vertically.',
-      default: 'top',
+      default: '"top"',
     },
     horizontalPosition: {
-      type: 'left | center | right',
+      type: '"left" | "center" | "right"',
       description: 'Position horizontally.',
-      default: 'center',
+      default: '"center"',
     },
   },
 };

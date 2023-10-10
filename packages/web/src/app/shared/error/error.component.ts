@@ -12,7 +12,10 @@ import { ThemeService } from 'src/app/core/services/theme.service';
 export class ErrorComponent {
   currentTheme: ThemeName = 'light';
 
-  constructor(private titleService: Title, private themeService: ThemeService) {
+  constructor(
+    private titleService: Title,
+    private themeService: ThemeService,
+  ) {
     this.themeService
       .listenTheme()
       .pipe(takeUntilDestroyed())

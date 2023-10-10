@@ -1,4 +1,4 @@
-@use '../../variables/typography';
+@use '../../utilities/typography';
 @use '../../utilities/icons.scss';
 
 .e-form-field {
@@ -10,10 +10,11 @@
   text-align: left;
 
   &__label {
-    @include typography.typography('text-label');
+    @include typography.typography('text-md-strong');
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     color: var(--e-color-text-1);
+    line-height: 22px;
     text-align: left;
 
     &.e-form-field__label--optional::after {
@@ -23,11 +24,15 @@
   }
 
   &__error {
-    @include typography.typography('text-sm');
     display: flex;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 4px;
     color: var(--e-color-text-1);
+    font-family: 'Red Hat Text', Verdana, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* ≈ 140% */
     visibility: hidden;
 
     &.e-form-field__error--visible {
@@ -51,23 +56,9 @@
 
   &.e-form-field--compact,
   &.e-form-field--small {
-    position: relative;
-    padding-top: 8px;
-
     .e-form-field__label {
       @include typography.typography('text-sm-strong');
       margin-bottom: 4px;
-    }
-
-    .e-form-field__error {
-      margin-top: 4px;
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-size: 12px;
-      line-height: 16px;
-    }
-
-    input:disabled {
-      color: var(--e-color-text-disabled-1);
     }
   }
 

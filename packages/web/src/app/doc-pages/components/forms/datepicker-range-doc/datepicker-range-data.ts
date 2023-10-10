@@ -26,9 +26,9 @@ const datepickerRangeData: ComponentData = {
       default: '{start: "Fra dato", end: "Til dato"}',
     },
     size: {
-      type: 'small | medium',
+      type: '"small" | "medium"',
       description: 'Datepicker can be set to different sizes.',
-      default: 'medium',
+      default: '"medium"',
     },
     isFullWidth: {
       type: 'boolean',

@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="lastUpdatedDate">
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="lastUpdatedDate" [componentData]="componentData">
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -34,41 +34,31 @@
 
   <!--INSTALLATION-->
   <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Installation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-installation [componentData]="componentData" />
-    </ng-container>
+    <app-component-installation [componentData]="componentData" />
   </app-component-section>
 
   <!--PROPERTIES-->
   <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Properties'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties-table [componentData]="componentData" />
-    </ng-container>
+    <app-component-properties-table [componentData]="componentData" />
   </app-component-section>
   <app-component-section
     *ngIf="isElvis && elvisClassName"
     [sectionTitle]="'Properties'"
     [propertiesClass]="elvisClassName"
   >
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="elvisClassName" />
-    </ng-container>
+    <app-component-properties [componentName]="elvisClassName" />
   </app-component-section>
 
   <ng-content select="[configuration]" />
 
   <!--CHANGELOG-->
   <app-component-section [sectionTitle]="'Changelog'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-changelog *ngIf="!isElvis && componentData" [changelog]="componentData.changelog" />
-      <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title" />
-    </ng-container>
+    <app-component-changelog *ngIf="!isElvis && componentData" [changelog]="componentData.changelog" />
+    <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title" />
   </app-component-section>
 
   <!--RELATED COMPONENTS-->
   <app-component-section *ngIf="relatedPages" [sectionTitle]="'Related'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-related [relatedPages]="relatedPages" />
-    </ng-container>
+    <app-component-related [relatedPages]="relatedPages" />
   </app-component-section>
 </div>

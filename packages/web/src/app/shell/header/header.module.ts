@@ -9,9 +9,10 @@ import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-divider';
+import { SearchHighlighterPipe } from '../../shared/search-highlighter.pipe';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, SearchHighlighterPipe],
   declarations: [HeaderComponent, SearchMenuComponent, MobileMenuComponent, ThemeSwitchComponent],
   exports: [HeaderComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

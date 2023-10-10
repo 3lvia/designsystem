@@ -5,50 +5,40 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-    </ng-container>
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Keyboard navigation'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="accessibility-keyboard-navigation">
-            <div>
-              <span class="keyboard-button icon">
-                <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px">
-                <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              or
-              <span class="keyboard-button icon">
-                <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              <span class="keyboard-button icon" style="margin-left: 0px">
-                <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-              to navigate between the segmented controls options.
-            </div>
-          </div>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+      <div class="accessibility-keyboard-navigation">
+        <div>
+          <span class="keyboard-button icon">
+            <i class="e-icon e-icon--arrow_left e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          <span class="keyboard-button icon" style="margin-left: 0px">
+            <i class="e-icon e-icon--arrow_right e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          or
+          <span class="keyboard-button icon">
+            <i class="e-icon e-icon--arrow_up e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          <span class="keyboard-button icon" style="margin-left: 0px">
+            <i class="e-icon e-icon--arrow_down e-icon--xs" aria-hidden="true" aria-hidden="true"></i>
+          </span>
+          to navigate between the segmented controls options.
+        </div>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!-- IMPLEMENTATION -->
   <app-component-section implementation [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Icons'">
-        <ng-container ngProjectAs="sectionContent">
-          The icons should be sent in as HTML string and using elvis icons are recommended as this also
-          supports the size-prop. If you send in icons in a different way the size prop will not work and the
-          icons needs to be adjusted manually.
-          <p>Large = 24x24px, Medium and Small = 16x16px.</p>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Icons'">
+      The icons should be sent in as HTML string and using elvis icons are recommended as this also supports
+      the size-prop. If you send in icons in a different way the size prop will not work and the icons needs
+      to be adjusted manually.
+      <p>Large = 24x24px, Medium and Small = 16x16px.</p>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

@@ -12,7 +12,10 @@ import { Language } from './types';
   name: 'highlighter',
 })
 export class HighlighterPipe implements PipeTransform {
-  transform(code: string, language: Language): string {
+  transform(code: string | null, language: Language): string {
+    if (!code) {
+      return '';
+    }
     if (Prism.languages[language]) {
       return Prism.highlight(code, Prism.languages[language], language);
     } else {

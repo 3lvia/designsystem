@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "14.0.0",
+  "version": "15.1.0",
   "description": "Elvia design system",
   "license": "ISC",
   "homepage": "https://design.elvia.io/",
@@ -21,25 +21,26 @@
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
-    "@elvia/elvis-colors": "^4.0.0",
+    "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-typography": "^2.5.0",
     "bootstrap": "4.6.1",
     "jquery": "^3.6.4",
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "del": "^6.0.0",
-    "doiuse": "^4.4.0",
+    "del": "^6.1.1",
+    "doiuse": "^6.0.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-postcss": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-tap": "^2.0.0",
     "gulp-terser": "^2.1.0",
-    "mini-svg-data-uri": "^1.1.3",
-    "resolve": "^1.20.0",
-    "sass": "^1.33.0"
+    "mini-svg-data-uri": "^1.4.4",
+    "postcss": "^8.4.31",
+    "resolve": "^1.22.6",
+    "sass": "^1.69.1"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"

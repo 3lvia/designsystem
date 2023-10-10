@@ -29,14 +29,18 @@
       left: -36px;
 
       .icon {
-        display: none;
+        display: flex;
+        background: none;
+        border: none;
+        padding: 0;
+        opacity: 0;
       }
     }
 
     &:hover,
     &:focus-within {
       .copy-container .icon {
-        display: block;
+        opacity: 1;
       }
     }
 

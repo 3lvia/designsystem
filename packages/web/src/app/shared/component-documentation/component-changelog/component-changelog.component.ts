@@ -63,6 +63,9 @@ export class ComponentChangelogComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.changelog) {
+      this.changelog = this.changelog.filter((changelogEntry) => !changelogEntry.private);
+    }
     if (this.elvisComponentToFilter) {
       this.changelog = createElvisFilteredChangelog(this.elvisComponentToFilter);
     }
@@ -78,7 +81,7 @@ export class ComponentChangelogComponent implements OnInit {
     }
     this.filteredChangelog =
       this.searchValue.length > minSearchValueLength
-        ? this.searcher.search(this.searchValue.trim())
+        ? this.searcher.search(this.searchValue.trim()).map((result) => result.item)
         : this.changelog;
     if (this.radioFilterValue !== 'all') {
       this.filteredChangelog = this.filteredChangelog?.filter((change) => {
@@ -121,8 +124,8 @@ export class ComponentChangelogComponent implements OnInit {
           }
           case 'changelog.pages.displayName': {
             const changelogType =
-              (resultItem.item as ComponentChangelog).changelog.find((entry) =>
-                entry.pages?.some((page) => page.displayName === match.value),
+              (resultItem.item as ComponentChangelog).changelog.find(
+                (entry) => entry.pages?.some((page) => page.displayName === match.value),
               )?.type ?? 'CHANGELOG_TYPE_NOT_FOUND';
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,
@@ -135,8 +138,8 @@ export class ComponentChangelogComponent implements OnInit {
           }
           case 'changelog.components.displayName': {
             const changelogType =
-              (resultItem.item as ComponentChangelog).changelog.find((entry) =>
-                entry.components?.some((component) => component.displayName === match.value),
+              (resultItem.item as ComponentChangelog).changelog.find(
+                (entry) => entry.components?.some((component) => component.displayName === match.value),
               )?.type ?? 'CHANGELOG_TYPE_NOT_FOUND';
             const elementId = this.changelogIdPipe.transform(
               (resultItem.item as ComponentChangelog).date,

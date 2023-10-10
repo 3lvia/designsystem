@@ -1,21 +1,24 @@
 <div class="component page-body">
   <div class="component-header">
     <div class="component-header__title">
-      <div class="title-container e-mb-32 e-w-100">
-        <h1 class="big-header e-mb-0 e-w-100" data-url-fragment>
-          <ng-content select="headerTitle"></ng-content>
-          <div class="e-pl-16">
-            <a *ngIf="figmaUrl" [href]="figmaUrl" target="_blank" rel="noopener">
-              <img src="assets/icons/figma-logo.svg" alt="Figma icon" />
-            </a>
+      <div class="e-mb-32 e-w-100">
+        <div class="title-container e-w-100">
+          <h1 class="big-header e-mb-0 e-w-100" data-url-fragment>
+            <ng-content select="headerTitle"></ng-content>
+            <div class="e-pl-16">
+              <a *ngIf="figmaUrl" [href]="figmaUrl" target="_blank" rel="noopener">
+                <img src="assets/icons/figma-logo.svg" alt="Figma icon" />
+              </a>
+            </div>
+          </h1>
+          <div *ngIf="figmaOnly">
+            <label class="e-tag e-tag--orange">Figma only</label>
           </div>
-        </h1>
-        <div *ngIf="figmaOnly">
-          <label class="e-tag e-tag--orange">Figma only</label>
+          <div *ngIf="!figmaOnly && lastUpdated" class="no-wrap e-text-micro e-color-text-2 e-mb-8">
+            Last updated {{ lastUpdated | DocumentationDatePipe }}
+          </div>
         </div>
-        <div *ngIf="!figmaOnly && lastUpdated" class="no-wrap e-text-micro e-color-text-2 e-mb-8">
-          Last updated {{ lastUpdated | DocumentationDatePipe }}
-        </div>
+        <app-component-header-quick-install *ngIf="componentData" [componentData]="componentData" />
       </div>
       <div class="component-header__description component-header-description-animation">
         <span class="e-text-lead" #contentWrapper>

@@ -1,4 +1,4 @@
-import { BaseProps, FormFieldSizes, HasError, HasValue } from '@elvia/elvis-toolbox';
+import { BaseProps, type FormFieldSizes, HasError, HasValue } from '@elvia/elvis-toolbox';
 import { MinuteInterval } from './publicApi.public';
 
 export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasError {
@@ -17,6 +17,8 @@ export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasEr
   onOpen: () => void;
   selectNowOnOpen: boolean;
   label: string;
+  maxTime?: Date;
+  minTime?: Date;
 
   /**
    * Used by the datepicker range component. Internal use only.

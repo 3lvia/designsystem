@@ -28,6 +28,7 @@ import { ThemePicker } from '../themePicker/themePicker';
 
 interface MobileUserMenuProps extends UserMenuProps {
   appTitle: string;
+  onMenuToggle: (isShowing: boolean) => void;
 }
 
 export const MobileMenu: React.FC<MobileUserMenuProps> = ({

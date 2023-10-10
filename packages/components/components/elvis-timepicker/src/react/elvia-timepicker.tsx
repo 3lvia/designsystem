@@ -11,11 +11,13 @@ import {
   FormFieldInputContainer,
   IconWrapper,
   ErrorOptions,
+  useUpdateEffect,
 } from '@elvia/elvis-toolbox';
 import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
 import { TimepickerInput } from './timepickerInput';
 import { TimepickerError } from './error/timepickerError';
 import { getErrorText } from './getErrorText';
+import { isAfter, isBefore } from './timeHelpers';
 
 const defaultErrorOptions = {
   hideText: false,
@@ -30,6 +32,8 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   valueOnChange,
   errorOnChange,
   label = 'Velg tid',
+  maxTime,
+  minTime,
   minuteInterval = '15',
   size = 'medium',
   hasSecondPicker = false,
@@ -74,11 +78,15 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     webcomponent?.triggerEvent('valueOnChange', newTime);
   };
 
-  const setHourOrMinute = (type: ChangeType, value: number): void => {
+  const setHourOrMinute = (type: ChangeType, value: number, isDisabled?: boolean): void => {
     const newTime = time ? new Date(time) : new Date();
 
     if (!time) {
       newTime.setHours(0, 0, 0, 0);
+    }
+
+    if (isDisabled) {
+      return;
     }
 
     switch (type) {
@@ -97,7 +105,13 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
       }
     }
 
-    updateValue(newTime);
+    if (maxTime && isAfter(newTime, maxTime)) {
+      updateValue(maxTime);
+    } else if (minTime && isBefore(newTime, minTime)) {
+      updateValue(minTime);
+    } else {
+      updateValue(newTime);
+    }
   };
 
   const setVisibility = (isShowing: boolean): void => {
@@ -117,7 +131,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     }
     setError(newError);
 
-    const errorText = getErrorText(newError);
+    const errorText = getErrorText(newError, minTime, maxTime, hasSecondPicker);
     errorOnChange?.(errorText);
     webcomponent?.triggerEvent('errorOnChange', errorText);
   };
@@ -164,6 +178,28 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   useEffect(() => {
     updateValue(value || null, false);
   }, [value]);
+
+  useUpdateEffect(() => {
+    validateMinMax(time);
+  }, [time, minTime, maxTime]);
+
+  const validateMinMax = (d?: Date | null): void => {
+    if (!d) {
+      onError();
+      return;
+    }
+
+    if (minTime && isBefore(d, minTime)) {
+      onError('beforeMinTime');
+      return;
+    }
+
+    if (maxTime && isAfter(d, maxTime)) {
+      onError('afterMaxTime');
+      return;
+    }
+    onError();
+  };
 
   return (
     <>
@@ -214,7 +250,14 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
 
         <div aria-live="polite">
           {((error && !mergedErrorOptions.hideText) || mergedErrorOptions.text) && (
-            <TimepickerError customText={mergedErrorOptions.text} errorType={error} errorId={errorId} />
+            <TimepickerError
+              customText={mergedErrorOptions.text}
+              errorType={error}
+              errorId={errorId}
+              minTime={minTime}
+              maxTime={maxTime}
+              hasSecondPicker={hasSecondPicker}
+            />
           )}
         </div>
       </FormFieldContainer>
@@ -222,10 +265,12 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         <OverlayContainer
           ref={popoverRef}
           onClose={() => setVisibility(false)}
-          onChange={(type, value) => setHourOrMinute(type, value)}
+          onChange={(type, value, isDisabled) => setHourOrMinute(type, value, isDisabled)}
           currentTime={time}
           minuteInterval={minuteInterval}
           hasSecondPicker={hasSecondPicker}
+          minTime={minTime}
+          maxTime={maxTime}
         />
       )}
     </>

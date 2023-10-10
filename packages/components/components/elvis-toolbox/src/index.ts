@@ -37,6 +37,7 @@ export { useWebComponentState } from './hooks/useWebComponentState';
 export { useSlot } from './hooks/useSlot';
 export { useRovingFocus } from './hooks/useRovingFocus';
 export { useCurrentTheme } from './hooks/useCurrentTheme';
+export { useUpdateEffect } from './hooks/useUpdateEffect';
 
 export type { BaseProps } from './prop-blocks/baseProps';
 export type { ErrorOptions, HasError } from './prop-blocks/hasError';

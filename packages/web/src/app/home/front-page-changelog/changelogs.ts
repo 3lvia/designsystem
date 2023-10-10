@@ -12,7 +12,6 @@ const changelogNames = [
   'elvis-card',
   'elvis-carousel',
   'elvis-chip',
-  'elvis-component-wrapper',
   'elvis-context-menu',
   'elvis-datepicker',
   'elvis-datepicker-range',
@@ -45,17 +44,21 @@ const toDateObject = (dateString: string) => {
 };
 
 export const createChangelogs = async () => {
-  const changelogs = await changelogNames.reduce(async (changelogPromise, name) => {
-    const changelogs = await changelogPromise;
-    const entry = await import(`@elvia/${name}/CHANGELOG.json`).then((changelog) => {
-      const filteredChangelogs = changelog.content.filter((changelog: any) =>
-        changelog.version.endsWith('.0'),
-      );
-      return filteredChangelogs[0];
-    });
-    entry && changelogs.push({ ...entry, name: name, date: toDateObject(entry.date) });
-    return changelogs;
-  }, Promise.resolve([] as ChangelogArrayType));
+  const changelogs = await changelogNames.reduce(
+    async (changelogPromise, name) => {
+      const changelogs = await changelogPromise;
+      const entry = await import(`@elvia/${name}/CHANGELOG.json`).then((changelog) => {
+        const filteredChangelogs = changelog.content.filter(
+          (changelogEntry: ComponentChangelog) =>
+            changelogEntry.version.endsWith('.0') && !changelogEntry.private,
+        );
+        return filteredChangelogs[0];
+      });
+      entry && changelogs.push({ ...entry, name: name, date: toDateObject(entry.date) });
+      return changelogs;
+    },
+    Promise.resolve([] as ChangelogArrayType),
+  );
   const sortedChangelogs = changelogs.sort((a, b) => {
     return a.date < b.date ? 1 : -1;
   });

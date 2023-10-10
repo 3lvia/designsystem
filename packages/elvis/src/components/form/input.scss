@@ -1,6 +1,4 @@
-@use '../../variables/animation';
-@use '../../variables/shared-sizes';
-@use '../../variables/typography';
+@use '../../utilities/typography';
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 @use '../../utilities/icons';
@@ -9,7 +7,7 @@ $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
 $form-input-padding-with-icon: 12px 44px 12px 16px;
 $form-input-padding-with-icon-active: 11px 43px 11px 15px;
-$form-input-border-radius: shared-sizes.$border-radius;
+$form-input-border-radius: 4px;
 $form-input-border: 1px solid var(--e-color-border-1);
 
 $form-input-padding-compact: 4px 10px;

@@ -3,16 +3,14 @@
 <div class="component-section documentation-section-animation">
   <div class="component-section__title">
     <h2 class="e-title-md e-mb-24 e-flex e-align-items-center" data-url-fragment>
-      <app-copy
-        tabindex="0"
-        (click)="copyAnchor()"
-        (keydown.enter)="copyAnchor()"
-        class="e-flex copy-container"
-      >
-        <i
-          class="icon e-icon e-icon--link e-icon--sm"
-          [ngClass]="{ 'e-icon--color-positive': titleIsCopied }"
-        ></i>
+      <app-copy class="e-flex copy-container">
+        <button class="icon" (click)="copyAnchor()" (keydown.enter)="copyAnchor()">
+          <i
+            class="e-icon e-icon--link e-icon--sm"
+            [ngClass]="{ 'e-icon--color-positive': titleIsCopied }"
+            aria-hidden="true"
+          ></i>
+        </button>
       </app-copy>
       {{ sectionTitle }}
       <span *ngIf="figmaOnly" class="e-ml-16">
@@ -29,6 +27,6 @@
   </div>
 
   <div class="component-section__content e-text-lg">
-    <ng-content select="sectionContent"></ng-content>
+    <ng-content />
   </div>
 </div>

@@ -2,6 +2,27 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "06.10.23",
+      "version": "3.1.7",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+
+    {
+      "date": "21.09.23",
+      "version": "3.1.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Added margin for heading to make space for the close button."]
+        }
+      ]
+    },
+    {
       "date": "18.09.23",
       "version": "3.1.5",
       "changelog": [

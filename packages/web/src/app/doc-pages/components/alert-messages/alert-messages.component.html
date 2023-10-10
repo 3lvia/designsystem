@@ -1,360 +1,347 @@
 <app-component-documentation docUrl="alert" isElvis>
   <app-static-ceg ceg>
-    <app-alert-ceg></app-alert-ceg>
+    <app-alert-ceg />
   </app-static-ceg>
 
   <!--TYPE-->
   <app-component-section type [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <div class="alert-type-container">
-        <div class="alert-type-item">
-          <div class="e-title-caps">Global</div>
-          <div class="type-images">
-            <img alt="Alert types - Global" src="./../../../../assets/alert/global.svg" />
-            <img alt="Alert types - Global" src="./../../../../assets/alert/global-mobile.svg" />
-          </div>
-        </div>
-        <div class="alert-type-item">
-          <div class="e-title-caps">Local</div>
-          <div class="type-images">
-            <img alt="Alert types - Local" src="./../../../../assets/alert/local.svg" />
-            <img alt="Alert types - Local" src="./../../../../assets/alert/local-mobile.svg" />
-          </div>
+    <div class="alert-type-container">
+      <div class="alert-type-item">
+        <div class="e-title-caps">Global</div>
+        <div class="type-images">
+          <img alt="Alert types - Global" src="./../../../../assets/alert/global.svg" />
+          <img alt="Alert types - Global" src="./../../../../assets/alert/global-mobile.svg" />
         </div>
       </div>
-
-      <div class="e-table-container e-mt-40">
-        <table class="e-table" aria-label="Type descriptions and when to use">
-          <thead>
-            <tr>
-              <th scope="col">Type</th>
-              <th scope="col">When to use</th>
-              <th scope="col">Urgency</th>
-              <th scope="col">Skins</th>
-              <th scope="col">Position / Location</th>
-              <th scope="col">Duration</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"><strong>Global</strong></th>
-              <td>System or product level alerts and not specific to an user action.</td>
-              <td>High</td>
-              <td>Informative, negative, warning</td>
-              <td>Full-width strip above the header. Visible on the entire application.</td>
-              <td>Permanent or closable</td>
-            </tr>
-            <tr>
-              <th scope="row"><strong>Local</strong></th>
-              <td>
-                Related to the content of the page. Correct a problem. It can be in response to an user
-                operation.
-              </td>
-              <td>Medium</td>
-              <td>Informative, negative, warning</td>
-              <td>Next to where the action occurred. Only visible on the current page.</td>
-              <td>Permanent</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="alert-type-item">
+        <div class="e-title-caps">Local</div>
+        <div class="type-images">
+          <img alt="Alert types - Local" src="./../../../../assets/alert/local.svg" />
+          <img alt="Alert types - Local" src="./../../../../assets/alert/local-mobile.svg" />
+        </div>
       </div>
+    </div>
 
-      <!--Table replacing the original on mobile-->
-      <table class="e-table-mobile e-mt-40" aria-label="Type descriptions and when to use">
+    <div class="e-table-container e-mt-40">
+      <table class="e-table" aria-label="Type descriptions and when to use">
         <thead>
           <tr>
-            <th class="e-table-mobile__cell" scope="col">Type</th>
-            <th class="e-table-mobile__cell" scope="col"></th>
+            <th scope="col">Type</th>
+            <th scope="col">When to use</th>
+            <th scope="col">Urgency</th>
+            <th scope="col">Position / Location</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th class="e-table-mobile__cell" scope="col">Global</th>
-            <th class="e-table-mobile__cell" scope="col"></th>
+            <th scope="row"><strong>Global</strong></th>
+            <td>System or product level alerts and not specific to an user action.</td>
+            <td>High</td>
+            <td>Full-width strip above the header. Visible on the entire application.</td>
           </tr>
           <tr>
-            <th class="e-table-mobile__cell" scope="row">When to use</th>
-            <td class="e-table-mobile__cell">
-              System or product level alerts and not specific to an user action.
-            </td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Urgency</th>
-            <td class="e-table-mobile__cell">High</td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Skins</th>
-            <td class="e-table-mobile__cell">Informative, negative, warning</td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Position / Location</th>
-            <td class="e-table-mobile__cell">
-              Full-width strip above the header. Visible on the entire application.
-            </td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Duration</th>
-            <td class="e-table-mobile__cell">Permanent or closable</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <th class="e-table-mobile__cell" scope="col">Local</th>
-            <th class="e-table-mobile__cell" scope="col"></th>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">When to use</th>
-            <td class="e-table-mobile__cell">
+            <th scope="row"><strong>Local</strong></th>
+            <td>
               Related to the content of the page. Correct a problem. It can be in response to an user
               operation.
             </td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Urgency</th>
-            <td class="e-table-mobile__cell">Medium</td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Skins</th>
-            <td class="e-table-mobile__cell">Informative, negative, warning</td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Position / Location</th>
-            <td class="e-table-mobile__cell">
-              Next to where the action occurred. Only visible on the current page.
-            </td>
-          </tr>
-          <tr>
-            <th class="e-table-mobile__cell" scope="row">Duration</th>
-            <td class="e-table-mobile__cell">Permanent</td>
+            <td>Medium</td>
+            <td>Next to where the action occurred. Only visible on the current page.</td>
           </tr>
         </tbody>
       </table>
+    </div>
 
-      <app-component-subsection [sectionTitle]="'Global Alert'">
-        <ng-container ngProjectAs="sectionContent">
-          Global alert is in most cases initiated by the application or system, but can also be used when an
-          important message needs to be flagged. It’s a general message to all users and are not associated
-          with user actions. Global alert appears on all pages of the application/website and extends in full
-          length above the header. It can include links or actions such as expand and close.
+    <!--Table replacing the original on mobile-->
+    <table class="e-table-mobile e-mt-40" aria-label="Type descriptions and when to use">
+      <thead>
+        <tr>
+          <th class="e-table-mobile__cell" scope="col">Type</th>
+          <th class="e-table-mobile__cell" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="e-table-mobile__cell" scope="col">Global</th>
+          <th class="e-table-mobile__cell" scope="col"></th>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">When to use</th>
+          <td class="e-table-mobile__cell">
+            System or product level alerts and not specific to an user action.
+          </td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Urgency</th>
+          <td class="e-table-mobile__cell">High</td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Skins</th>
+          <td class="e-table-mobile__cell">Informative, negative, warning</td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Position / Location</th>
+          <td class="e-table-mobile__cell">
+            Full-width strip above the header. Visible on the entire application.
+          </td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Duration</th>
+          <td class="e-table-mobile__cell">Permanent or closable</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <th class="e-table-mobile__cell" scope="col">Local</th>
+          <th class="e-table-mobile__cell" scope="col"></th>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">When to use</th>
+          <td class="e-table-mobile__cell">
+            Related to the content of the page. Correct a problem. It can be in response to an user operation.
+          </td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Urgency</th>
+          <td class="e-table-mobile__cell">Medium</td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Skins</th>
+          <td class="e-table-mobile__cell">Informative, negative, warning</td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Position / Location</th>
+          <td class="e-table-mobile__cell">
+            Next to where the action occurred. Only visible on the current page.
+          </td>
+        </tr>
+        <tr>
+          <th class="e-table-mobile__cell" scope="row">Duration</th>
+          <td class="e-table-mobile__cell">Permanent</td>
+        </tr>
+      </tbody>
+    </table>
 
-          <p>
-            NB: Remember to make the global alert fixed to the top of your application and make sure that it
-            extends the full length of the page!
-          </p>
-          <app-static-ceg>
-            <app-alert-global-ceg />
-          </app-static-ceg>
-          <app-when-to-use [whens]="doesGlobalDefault" [whenNots]="dontsGlobalDefault"></app-when-to-use>
+    <app-component-subsection [sectionTitle]="'Global Alert'">
+      Global alert is in most cases initiated by the application or system, but can also be used when an
+      important message needs to be flagged. It’s a general message to all users and are not associated with
+      user actions. Global alert appears on all pages of the application/website and extends in full length
+      above the header. It can include links or actions such as expand and close.
 
-          <app-component-subsubsection [sectionTitle]="'Closable'">
-            <ng-container ngProjectAs="sectionContent">
-              Global alerts can also have a close button.
-              <app-static-ceg>
-                <app-alert-global-closable-ceg />
-              </app-static-ceg>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Expandable'">
-            <ng-container ngProjectAs="sectionContent">
-              Global alerts can also be expandable. Add and remove the clas
-              <code class="e-ml-8 e-text-desription" style="text-transform: lowercase">e-alert--open</code>
-              to open and close the alert.
-              <app-static-ceg>
-                <app-alert-global-expandable-ceg />
-              </app-static-ceg>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Actions'">
-            <ng-container ngProjectAs="sectionContent">
-              Global alerts can also have actions.
-              <app-static-ceg>
-                <app-alert-global-actions-ceg />
-              </app-static-ceg>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Without title'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-static-ceg>
-                <app-alert-global-no-title-ceg />
-              </app-static-ceg>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
+      <p>
+        NB: Remember to make the global alert fixed to the top of your application and make sure that it
+        extends the full length of the page!
+      </p>
+      <app-static-ceg>
+        <app-alert-global-ceg />
+      </app-static-ceg>
+      <app-when-to-use [whens]="doesGlobalDefault" [whenNots]="dontsGlobalDefault" />
 
-      <app-component-subsection [sectionTitle]="'Local Alert'">
-        <ng-container ngProjectAs="sectionContent">
-          Local alerts are messages related to the site and the content. It can be placed anywhere between the
-          header and footer, but close to the content it is related to. Local messages can also be used for
-          feedback after a user actions. The maximum width is 850px.
-          <app-static-ceg>
-            <app-alert-local-ceg />
-          </app-static-ceg>
-          <app-when-to-use [whens]="doesAlertDefault"></app-when-to-use>
+      <app-component-subsubsection [sectionTitle]="'Closable'">
+        Global alerts can also have a close button.
+        <app-static-ceg>
+          <app-alert-global-closable-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Expandable'">
+        Global alerts can also be expandable. Add and remove the class
+        <code class="e-ml-8 e-lowercase">e-alert--open</code>
+        to open and close the alert.
+        <app-static-ceg>
+          <app-alert-global-expandable-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Actions'">
+        Global alerts can also have actions.
+        <app-static-ceg>
+          <app-alert-global-actions-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Without title'">
+        Use the
+        <code>.e-alert--no-title</code>
+        class on the same element as
+        <code>.e-alert</code>
+        when the alert does not have a title.
+        <app-static-ceg>
+          <app-alert-global-no-title-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
+    </app-component-subsection>
 
-          <app-component-subsubsection [sectionTitle]="'Without title'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-static-ceg>
-                <app-alert-local-no-title-ceg />
-              </app-static-ceg>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'Local Alert'">
+      Local alerts are messages related to the site and the content. It can be placed anywhere between the
+      header and footer, but close to the content it is related to. Local messages can also be used for
+      feedback after a user actions. The maximum width is 850px.
+      <app-static-ceg>
+        <app-alert-local-ceg />
+      </app-static-ceg>
+      <app-when-to-use [whens]="doesAlertDefault" />
+
+      <app-component-subsubsection [sectionTitle]="'Without title'">
+        Use the
+        <code>.e-alert--no-title</code>
+        class on the same element as
+        <code>.e-alert</code>
+        when the alert does not have a title.
+        <app-static-ceg>
+          <app-alert-local-no-title-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="'Closable'">
+        Local alerts can have a close button. Use the
+        <code>.e-alert__close</code>
+        class as an descendant of
+        <code>.e-alert</code>
+        <app-static-ceg>
+          <app-alert-local-closable-ceg />
+        </app-static-ceg>
+      </app-component-subsubsection>
+    </app-component-subsection>
   </app-component-section>
 
   <!--STATUS-->
   <app-component-section status [sectionTitle]="'Status'">
-    <ng-container ngProjectAs="sectionContent">
-      The status of an alert helps to communicate the information and the severity of the alert. Each status
-      consists of a defined color and an icon. It is important to use the correct status of the alert to
-      provide a consistent and universal user experience.
-      <div class="alert-status e-mt-80">
-        <div class="alert-icons">
-          <div class="status-error e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
-          <div>
-            <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xl" aria-hidden="true"></i>
-          </div>
-        </div>
+    The status of an alert helps to communicate the information and the severity of the alert. Each status
+    consists of a defined color and an icon. It is important to use the correct status of the alert to provide
+    a consistent and universal user experience.
+    <div class="alert-status e-mt-80">
+      <div class="alert-icons">
+        <div class="status-example status-example--error"></div>
         <div>
-          <div class="title e-title-caps">
-            error
-            <code class="e-ml-8 e-text-desription" style="text-transform: lowercase">e-alert--error</code>
-          </div>
-          <div class="e-mt-8">
-            Notify when something goes wrong or the user is denied completing their task. Explain why and what
-            to do. Example: Error, missing fields and invalid entry. This status can be used with
-            <strong>local</strong>
-            and
-            <strong>global alerts.</strong>
-          </div>
+          <i class="e-icon e-icon--remove_circle e-icon--color-danger e-icon--xl" aria-hidden="true"></i>
         </div>
       </div>
-      <div class="alert-status">
-        <div class="alert-icons">
-          <div class="status-warn e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
-          <div>
-            <i class="e-icon e-icon--warning_circle e-icon--color-orange e-icon--xl" aria-hidden="true"></i>
-          </div>
-        </div>
+      <div>
+        <h3 class="e-mb-8 title e-title-caps">
+          error
+          <app-copy message="e-alert--error">
+            <code class="e-ml-8 e-lowercase">e-alert--error</code>
+          </app-copy>
+        </h3>
+        <p class="e-m-0">
+          Notify when something goes wrong or the user is denied completing their task. Explain why and what
+          to do.
+        </p>
+      </div>
+    </div>
+    <div class="alert-status">
+      <div class="alert-icons">
+        <div class="status-example status-example--warn"></div>
         <div>
-          <div class="title e-title-caps">
-            warning
-            <code class="e-ml-8 e-text-desription" style="text-transform: lowercase">e-alert--warn</code>
-          </div>
-          <div class="e-mt-8">
-            Help users to avoid error situations and to give attention to something undesirable that may
-            occur. Explain why and what to do. This status can be used with
-            <strong>local</strong>
-            and
-            <strong>global alerts.</strong>
-          </div>
+          <i class="e-icon e-icon--warning_circle e-icon--color-orange e-icon--xl" aria-hidden="true"></i>
         </div>
       </div>
-      <div class="alert-status">
-        <div class="alert-icons">
-          <div
-            class="status-informative e-mr-24"
-            style="padding: 24px; height: 24px; border-radius: 50%"
-          ></div>
-          <div>
-            <i class="e-icon e-icon--information_circle e-icon--color-grey e-icon--xl" aria-hidden="true"></i>
-          </div>
-        </div>
+      <div>
+        <h3 class="e-mb-8 title e-title-caps">
+          warning
+          <app-copy message="e-alert--warn">
+            <code class="e-ml-8 e-lowercase">e-alert--warn</code>
+          </app-copy>
+        </h3>
+        <p class="e-m-0">
+          Help users to avoid error situations and to give attention to something undesirable that may occur.
+          Explain why and what to do.
+        </p>
+      </div>
+    </div>
+    <div class="alert-status">
+      <div class="alert-icons">
+        <div class="status-example status-example--informative"></div>
         <div>
-          <div class="title e-title-caps">
-            informative
-            <code class="e-ml-8 e-text-desription" style="text-transform: lowercase">e-alert--info</code>
-          </div>
-          <div class="e-mt-8">
-            Inform users to understand minor contextual changes, and are not typically in response to a user
-            action. Like a helpful tip or a suggestion. This status can be used with
-            <strong>all alerts.</strong>
-          </div>
+          <i class="e-icon e-icon--information_circle e-icon--color-grey e-icon--xl" aria-hidden="true"></i>
         </div>
       </div>
-    </ng-container>
+      <div>
+        <h3 class="e-mb-8 title e-title-caps">
+          informative
+          <app-copy message="e-alert--info">
+            <code class="e-ml-8 e-lowercase">e-alert--info</code>
+          </app-copy>
+        </h3>
+        <p class="e-m-0">
+          Inform users to understand minor contextual changes, and are not typically in response to a user
+          action. Like a helpful tip or a suggestion.
+        </p>
+      </div>
+    </div>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
   <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <ng-container ngProjectAs="sectionContent">
-      When new alerts appear, users of assistive technologies may miss them. ARIA live regions enable
-      programmatically exposing new alerts in a way that can be announced by assistive technology.
-      <app-component-subsection [sectionTitle]="'ARIA: alert role'">
-        <ng-container ngProjectAs="sectionContent">
-          Only alerts that require the user's
-          <em>immediate</em>
-          attention should use
-          <span class="code-text">role=alert</span>
-          . When this role is applied to an element, the browser sends an accessible alert event to assistive
-          technology products, which subsequently notifies the user.
-          <p>
-            Alerts will only be announced when the content of the element with
-            <span class="code-text">role="alert"</span>
-            is updated. Do not try to dynamically add/generate an alert with
-            <span class="code-text">role="alert"</span>
-            that is already populated with the alert message you want to be announced – this generally does
-            not lead to an announcement, as it is not a content change.
-          </p>
-          Instead, you can use a visually hidden alert container for screen reader notifications. Using
-          JavaScript, you can dynamically change the content inside the element with
-          <span class="code-text">role="alert"</span>
-          . We advise replacing the entire alert message at once instead of just parts of the alert message to
-          ensure it fires an update to assistive technologies.
-          <p>
-            If the content inside the element with
-            <span class="code-text">role="alert"</span>
-            is initially hidden using CSS, making it visible will also cause the alert to fire. However,
-            ensure that the container is not hidden using
-            <span class="code-text">display:none</span>
-            , as this will hide it from assistive technologies, meaning that users won't be notified of any
-            alerts.
-          </p>
+    When new alerts appear, users of assistive technologies may miss them. ARIA live regions enable
+    programmatically exposing new alerts in a way that can be announced by assistive technology.
+    <app-component-subsection [sectionTitle]="'ARIA: alert role'">
+      Only alerts that require the user's
+      <em>immediate</em>
+      attention should use
+      <app-copy message="role='alert'">
+        <code>role="alert"</code>
+      </app-copy>
+      . When this role is applied to an element, the browser sends an accessible alert event to assistive
+      technology products, which subsequently notifies the user.
+      <p>
+        Alerts will only be announced when the content of the element with
+        <app-copy message="role='alert'">
+          <code>role="alert"</code>
+        </app-copy>
+        is updated. Do not try to dynamically add/generate an alert with
+        <app-copy message="role='alert'">
+          <code>role="alert"</code>
+        </app-copy>
+        that is already populated with the alert message you want to be announced – this generally does not
+        lead to an announcement, as it is not a content change.
+      </p>
+      Instead, you can use a visually hidden alert container for screen reader notifications. Using
+      JavaScript, you can dynamically change the content inside the element with
+      <app-copy message="role='alert'">
+        <code>role="alert"</code>
+      </app-copy>
+      . We advise replacing the entire alert message at once instead of just parts of the alert message to
+      ensure it fires an update to assistive technologies.
+      <p>
+        If the content inside the element with
+        <app-copy message="role='alert'">
+          <code>role="alert"</code>
+        </app-copy>
+        is initially hidden using CSS, making it visible will also cause the alert to fire. However, ensure
+        that the container is not hidden using
+        <app-copy message="display:none">
+          <code>display:none</code>
+        </app-copy>
+        , as this will hide it from assistive technologies, meaning that users won't be notified of any
+        alerts.
+      </p>
 
-          <app-when-to-use
-            [whens]="doesAriaRoleAlertDefault"
-            [whenNots]="dontsAriaRoleAlertDefault"
-          ></app-when-to-use>
+      <app-when-to-use [whens]="doesAriaRoleAlertDefault" [whenNots]="dontsAriaRoleAlertDefault" />
 
-          <ng-container ngProjectAs="sectionContent">
-            <app-static-ceg>
-              <app-alert-role-alert-ceg />
-            </app-static-ceg>
-          </ng-container>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'ARIA: status role'">
-        <ng-container ngProjectAs="sectionContent">
-          Use
-          <span class="code-text">role=status</span>
-          when an alert contains advisory information that is not important enough to be an alert.
-          <app-when-to-use
-            [whens]="doesAriaRoleStatusDefault"
-            [whenNots]="dontsAriaRoleStatusDefault"
-          ></app-when-to-use>
-          <ng-container ngProjectAs="sectionContent">
-            <app-static-ceg>
-              <app-alert-role-status-ceg />
-            </app-static-ceg>
-          </ng-container>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'ARIA: note role'">
-        <ng-container ngProjectAs="sectionContent">
-          Use
-          <span class="code-text">role="note"</span>
-          when a alerts whose subject matter is supplementary to the primary subject.
-          <app-when-to-use
-            [whens]="doesAriaRoleNoteDefault"
-            [whenNots]="dontsAriaRoleNoteDefault"
-          ></app-when-to-use>
-          <app-static-ceg>
-            <app-alert-role-note-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+      <app-static-ceg>
+        <app-alert-role-alert-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'ARIA: status role'">
+      Use
+      <code>role=status</code>
+      when an alert contains advisory information that is not important enough to be an alert.
+      <app-when-to-use
+        [whens]="doesAriaRoleStatusDefault"
+        [whenNots]="dontsAriaRoleStatusDefault"
+      ></app-when-to-use>
+      <app-static-ceg>
+        <app-alert-role-status-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'ARIA: note role'">
+      Use
+      <code>role="note"</code>
+      when a alerts whose subject matter is supplementary to the primary subject.
+      <app-when-to-use
+        [whens]="doesAriaRoleNoteDefault"
+        [whenNots]="dontsAriaRoleNoteDefault"
+      ></app-when-to-use>
+      <app-static-ceg>
+        <app-alert-role-note-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

@@ -1,5 +1,4 @@
-@use '../../variables/animation';
-@use '../../variables/typography';
+@use '../../utilities/typography';
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 
@@ -40,7 +39,10 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     border: $checkbox-mark-border;
     border-radius: $checkbox-mark-border-radius;
     background-color: var(--e-color-background-element-1);
-    transition: background-color, border, 0.3s animation.$transition-cubic;
+    transition:
+      background-color,
+      border,
+      0.3s cubic-bezier(0.55, 0, 0.1, 1);
   }
 
   &__label {

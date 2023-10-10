@@ -28,6 +28,7 @@ export const Popover: FC<PopoverProps> = function ({
   trigger,
   hasCloseButton = true,
   isShowing = false,
+  noPadding = false,
   onOpen,
   onClose,
   className,
@@ -88,17 +89,6 @@ export const Popover: FC<PopoverProps> = function ({
     updatePreferredPosition();
   }, [isShowingConnectedOverlayState, content, horizontalPosition, verticalPosition, heading]);
 
-  /**
-   * Dispatch onOpen and onClose events.
-   */
-  useEffect(() => {
-    if (isShowingConnectedOverlayState) {
-      handleOnOpen();
-    } else if (!isShowingConnectedOverlayState) {
-      handleOnClose();
-    }
-  }, [isShowingConnectedOverlayState]);
-
   const handleOnOpen = () => {
     onOpen?.();
     webcomponent?.triggerEvent('onOpen');
@@ -117,9 +107,11 @@ export const Popover: FC<PopoverProps> = function ({
   const toggleVisibility = (): void => {
     if (isShowingConnectedOverlayState) {
       setFadeOut(true);
+      handleOnClose();
     } else {
       setFadeOut(false);
       setIsShowingConnectedOverlayState(true);
+      handleOnOpen();
     }
   };
 
@@ -139,12 +131,16 @@ export const Popover: FC<PopoverProps> = function ({
       {isShowingConnectedOverlayState && (
         <Overlay
           ref={popoverRef}
-          onClose={() => setIsShowingConnectedOverlayState(false)}
+          onClose={() => {
+            handleOnClose();
+            setIsShowingConnectedOverlayState(false);
+          }}
           startFade={fadeOut}
         >
           <PopoverContent
             className={className}
             style={inlineStyle}
+            noPadding={noPadding}
             aria-modal="true"
             data-testid="popover"
             role="dialog"
@@ -158,12 +154,13 @@ export const Popover: FC<PopoverProps> = function ({
                 </IconButton>
               </CloseButtonContainer>
             )}
-            {heading && <Heading>{heading}</Heading>}
+            {heading && <Heading id="ewc-popover-heading">{heading}</Heading>}
 
             <PopoverTypography
               isStringOnly={isStringOnly(content)}
               hasCloseButton={hasCloseButton}
               ref={contentRef}
+              id="ewc-popover-content"
             >
               {content}
             </PopoverTypography>

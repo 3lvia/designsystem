@@ -33,7 +33,7 @@ export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
   const changeTheme = (theme: Theme): void => {
     setThemeClassOnDocument(theme);
     setCurrentTheme(theme);
-    localStorage.setItem(themeLocalStorageKey, theme);
+    window?.localStorage?.setItem(themeLocalStorageKey, theme);
     onThemeChange?.(getApplicableTheme(theme));
   };
 

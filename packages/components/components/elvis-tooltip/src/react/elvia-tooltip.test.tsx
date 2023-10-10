@@ -41,6 +41,15 @@ describe('Elvis Tooltip', () => {
       await user.hover(trigger);
       await waitFor(() => expect(screen.queryByText(tooltipContent)).toBeInTheDocument());
     });
+    it('should show on focus', async () => {
+      const trigger = screen.getByText(triggerText);
+      await waitFor(() => {
+        trigger.focus();
+        expect(trigger).toHaveFocus();
+        const tooltip = screen.queryByText(tooltipContent);
+        expect(tooltip).toBeInTheDocument();
+      });
+    });
   });
 
   describe('which is disabled', () => {
@@ -55,6 +64,15 @@ describe('Elvis Tooltip', () => {
       await user.hover(trigger);
 
       expect(screen.queryByText(tooltipContent)).not.toBeInTheDocument();
+    });
+    it('should not show on focus', async () => {
+      const trigger = screen.getByText(triggerText);
+      await waitFor(() => {
+        trigger.focus();
+        expect(trigger).toHaveFocus();
+        const tooltip = screen.queryByText(tooltipContent);
+        expect(tooltip).not.toBeInTheDocument();
+      });
     });
   });
 

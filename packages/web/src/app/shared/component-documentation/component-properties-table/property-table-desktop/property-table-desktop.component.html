@@ -46,28 +46,40 @@
           </div>
         </td>
       </tr>
-      <ng-container *ngIf="group.expanded">
-        <tr *ngFor="let prop of group.rows; let isLast = last" class="prop-row" [ngClass]="{ last: isLast }">
-          <th scope="row" class="table-code-text">
-            <strong [id]="'property-row-' + prop.attribute + '-attribute'">
-              {{ prop.attribute }}
-            </strong>
-            <strong>{{ prop.isRequired ? '*' : '' }}</strong>
-          </th>
-          <td
-            class="table-code-text e-table__cell--multiline-small"
-            [id]="'property-row-' + prop.attribute + '-type'"
-          >
-            {{ prop.type }}
-          </td>
-          <td class="e-table__cell--multiline-small" [id]="'property-row-' + prop.attribute + '-description'">
-            {{ prop.description }}
-          </td>
-          <td class="table-code-text" [id]="'property-row-' + prop.attribute + '-default'">
-            {{ prop.default ? prop.default : '-' }}
-          </td>
-        </tr>
-      </ng-container>
+      <tr
+        *ngFor="let prop of group.rows; let isLast = last"
+        class="prop-row"
+        [ngClass]="{ last: isLast, expanded: group.expanded }"
+      >
+        <th scope="row" class="table-code-text">
+          <div class="height-changer">
+            <strong
+              [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"
+            ></strong>
+            <strong>{{ prop.item.isRequired ? '*' : '' }}</strong>
+          </div>
+        </th>
+        <td class="table-code-text e-table__cell--multiline-small">
+          <div
+            class="height-changer"
+            [innerHTML]="prop.item.type | searchHighlighter : 'type' : prop.matches"
+          ></div>
+        </td>
+        <td class="e-table__cell--multiline-small">
+          <div
+            class="height-changer"
+            [innerHTML]="
+              prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches
+            "
+          ></div>
+        </td>
+        <td class="table-code-text">
+          <div
+            class="height-changer"
+            [innerHTML]="prop.item.default | searchHighlighter : 'default' : prop.matches"
+          ></div>
+        </td>
+      </tr>
     </ng-container>
   </tbody>
 </table>

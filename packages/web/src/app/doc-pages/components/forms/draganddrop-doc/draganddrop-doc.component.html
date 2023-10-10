@@ -5,17 +5,13 @@
 
   <!--STATES-->
   <app-component-section states [sectionTitle]="'States'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'When dragging over'">
-        <ng-container ngProjectAs="sectionContent">
-          When dragging over the modifier
-          <span class="code-text">e-dragdrop--dragover</span>
-          should be added.
-          <app-static-ceg>
-            <app-draganddrop-dragover-ceg />
-          </app-static-ceg>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
+    <app-component-subsection [sectionTitle]="'When dragging over'">
+      When dragging over the modifier
+      <span class="code-text">e-dragdrop--dragover</span>
+      should be added.
+      <app-static-ceg>
+        <app-draganddrop-dragover-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

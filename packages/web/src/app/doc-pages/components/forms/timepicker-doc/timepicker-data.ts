@@ -41,9 +41,9 @@ export const timepickerData: ComponentData = {
       default: 'false',
     },
     size: {
-      type: 'small | medium',
+      type: '"small" | "medium"',
       description: 'Datepicker can be set to different sizes.',
-      default: 'medium',
+      default: '"medium"',
     },
     isRequired: {
       type: 'boolean',
@@ -59,6 +59,18 @@ export const timepickerData: ComponentData = {
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
       description: 'An object that allows for custom configuration of the error handling in the time picker.',
       default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
+    },
+    minTime: {
+      isRequired: false,
+      type: 'Date',
+      description:
+        'Makes the time before the provided minimum time disabled. (The validation uses only the time part of this prop value)',
+    },
+    maxTime: {
+      isRequired: false,
+      type: 'Date',
+      description:
+        'Makes the time after the provided maximum time disabled. (The validation uses only the time part of this prop value)',
     },
     onOpen: {
       isEvent: true,

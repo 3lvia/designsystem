@@ -1,6 +1,10 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 @use '@elvia/elvis/src/utilities/helpers.scss' as helpers;
 
+:host {
+  --footer-background: var(--e-color-background-3);
+}
+
 .footer {
   --footer-height: 136px;
 
@@ -10,7 +14,7 @@
   grid-template-areas: 'copyright contact contact contact links';
   gap: 32px 0;
   align-items: center;
-  background-color: var(--e-color-background-3);
+  background-color: var(--footer-background);
 
   @include breakpoints.breakpoint-up(Mobile) {
     --footer-height: 225px;
@@ -62,21 +66,6 @@
 }
 
 .elvia-curve {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  height: 3.7vw;
-  margin-top: -1px;
-  background-color: var(--e-color-background-3);
-
-  &::before {
-    position: absolute;
-    content: '';
-    background-color: var(--e-color-background-1);
-    width: 685vw;
-    height: 685vw;
-    border-radius: 100%;
-    bottom: calc(100% - 3.7vw);
-  }
+  --elvia-curve-foreground: var(--e-color-background-1);
+  --elvia-curve-background: var(--footer-background);
 }

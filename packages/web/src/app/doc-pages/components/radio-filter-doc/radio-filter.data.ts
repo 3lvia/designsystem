@@ -32,24 +32,14 @@ const radioFilterData: ComponentData = {
       isRequired: false,
       type: 'string',
       description: 'Aria label for the whole radio filter group.',
-      default: 'Filtreringsknapper',
+      default: '"Filtreringsknapper"',
     },
     valueOnChange: {
+      isEvent: true,
       isRequired: true,
       type: '(value: string) => void',
       description:
         'Gets called every time a new filter is selected and returns the value of the selected filter.',
-    },
-    className: {
-      isRequired: false,
-      type: 'string',
-      description: 'Custom CSS classes that can be added to the radio filter.',
-    },
-    inlineStyle: {
-      isRequired: false,
-      type: '{[cssProperty: string]: string}',
-      description:
-        "Custom CSS style object that can be added to the radio filter. Example: {marginTop: '8px', width: '100%'}",
     },
   },
 };
