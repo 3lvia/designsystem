@@ -19,7 +19,7 @@
     "babel-plugin-styled-components": "^2.1.4",
     "gulp-typescript": "^6.0.0-alpha.1",
     "jsdom-global": "^3.0.2",
-    "sass": "^1.69.0",
+    "sass": "^1.69.1",
     "sass-loader": "^13.3.2",
     "webpack": "^5.88.2"
   },
