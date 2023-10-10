@@ -83,6 +83,6 @@ const dtsPlugin = (config: Props) =>
         }
       });
     },
-  } as esbuild.Plugin);
+  }) as esbuild.Plugin;
 
 export default dtsPlugin;
