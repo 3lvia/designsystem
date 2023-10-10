@@ -1,7 +1,7 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
-export interface ModalProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
+export interface BaseModalProps extends BaseProps {
   isShowing: boolean;
   heading?: string;
   content: JSX.Element;
@@ -16,3 +16,5 @@ export interface ModalProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
   maxWidth?: string;
   onClose?: () => void;
 }
+
+export interface ModalProps extends BaseModalProps, ComponentPropsWithoutRef<'div'> {}

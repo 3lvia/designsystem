@@ -9,7 +9,10 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   styleUrls: ['./front-page-changelog.component.scss'],
 })
 export class FrontPageChangelogComponent {
-  constructor(private cmsService: CMSService, private themeService: ThemeService) {
+  constructor(
+    private cmsService: CMSService,
+    private themeService: ThemeService,
+  ) {
     this.themeService.listenTheme().subscribe(() => {
       this.componentIcons = this.cmsService.getPageIcons();
     });

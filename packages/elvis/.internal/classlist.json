@@ -98,10 +98,9 @@
 				"e-alert--expandable": {},
 				"e-alert--open": {},
 				"e-alert--local": {},
-				"e-alert--toast": {},
+				"e-alert--actions": {},
 				"e-alert--info": {},
-				"e-alert--no-title": {},
-				"e-alert--actions": {}
+				"e-alert--no-title": {}
 			}
 		},
 		"e-shadow-none": {},
@@ -202,9 +201,9 @@
 		},
 		"e-list": {
 			"modifier": {
-				"e-list--icons": {},
+				"e-list--strong": {},
 				"e-list--numbers": {},
-				"e-list--strong": {}
+				"e-list--icons": {}
 			},
 			"element": {
 				"e-list__icon": {}
@@ -439,6 +438,7 @@
 		"e-color-text-2": {},
 		"e-color-text-3": {},
 		"e-color-text-4": {},
+		"e-color-text-5": {},
 		"e-color-text-disabled-1": {},
 		"e-color-text-disabled-2": {},
 		"e-color-text-placeholder-1": {},
@@ -912,11 +912,10 @@
 		"e-alert--open": {},
 		"e-alert__accordion": {},
 		"e-alert--local": {},
-		"e-alert--toast": {},
-		"e-alert--info": {},
-		"e-alert--no-title": {},
 		"e-alert--actions": {},
 		"e-alert__actions": {},
+		"e-alert--info": {},
+		"e-alert--no-title": {},
 		"e-shadow-none": {},
 		"e-theme-light": {},
 		"e-theme-dark": {},
@@ -967,9 +966,9 @@
 		"e-link--back": {},
 		"e-link--action": {},
 		"e-list": {},
-		"e-list--icons": {},
-		"e-list--numbers": {},
 		"e-list--strong": {},
+		"e-list--numbers": {},
+		"e-list--icons": {},
 		"e-list__icon": {},
 		"e-stepper": {},
 		"e-stepper__steps": {},
@@ -1123,6 +1122,7 @@
 		"e-color-text-2": {},
 		"e-color-text-3": {},
 		"e-color-text-4": {},
+		"e-color-text-5": {},
 		"e-color-text-disabled-1": {},
 		"e-color-text-disabled-2": {},
 		"e-color-text-placeholder-1": {},

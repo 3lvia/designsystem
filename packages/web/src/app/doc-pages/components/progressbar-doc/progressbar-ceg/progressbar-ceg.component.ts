@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { ProgressLinearProps } from '@elvia/elvis-progress-linear/react';
+import { BaseProgressLinearProps } from '@elvia/elvis-progress-linear/react';
 
 @Component({
   selector: 'app-progressbar-ceg',
@@ -9,7 +9,7 @@ import { ProgressLinearProps } from '@elvia/elvis-progress-linear/react';
 })
 export class ProgressbarCegComponent implements ComponentExample {
   elementName = 'progress-linear';
-  cegContent = new CegControlManager<ProgressLinearProps>([
+  cegContent = new CegControlManager<BaseProgressLinearProps>([
     {
       controls: {
         size: {

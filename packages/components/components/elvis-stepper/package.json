@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-stepper",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/stepper",
   "main": "web_component.js",
@@ -15,9 +15,9 @@
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",
-    "@elvia/elvis-colors": "^3.0.0",
+    "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-component-wrapper": "^4.1.2",
-    "@elvia/elvis-toolbox": "^10.0.1",
+    "@elvia/elvis-toolbox": "^11.0.0",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {

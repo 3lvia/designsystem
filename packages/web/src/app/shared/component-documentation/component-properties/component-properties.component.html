@@ -1,8 +1,24 @@
 <!--PROPERTIES-->
 
-<div class="e-mt-72" *ngIf="elements.length > 0 || modifiers.length !== 0 || pseudos.length !== 0">
+<p class="e-m-0">
+  All CSS classes follow the
+  <a
+    class="e-link e-link--new-tab e-link--inline"
+    href="https://getbem.com/introduction/"
+    target="_blank"
+    rel="noopener"
+  >
+    <span class="e-link__title">BEM class naming convention</span>
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+    </span>
+  </a>
+  .
+</p>
+
+<div *ngIf="elements.length > 0 || modifiers.length !== 0 || pseudos.length !== 0">
   <div *ngIf="container">
-    <h3 class="e-title-sm e-mt-72 e-mb-16">Container</h3>
+    <h3 class="e-title-sm e-mt-48 e-mb-16">Container</h3>
     <ul class="e-list">
       <li>
         <app-copy [message]="container">
@@ -13,7 +29,7 @@
   </div>
 
   <div *ngIf="elements.length !== 0">
-    <h3 class="e-title-sm e-mt-72 e-mb-16">Elements</h3>
+    <h3 class="e-title-sm e-mt-48 e-mb-16">Elements</h3>
     <ul class="e-list">
       <div *ngFor="let el of elements">
         <li *ngIf="el.name">
@@ -39,7 +55,7 @@
   </div>
 
   <div *ngIf="modifiers.length !== 0">
-    <h3 class="e-title-sm e-mt-72 e-mb-16">Modifiers</h3>
+    <h3 class="e-title-sm e-mt-48 e-mb-16">Modifiers</h3>
     <ul class="e-list">
       <div *ngFor="let mod of modifiers" class="prop-element">
         <li>
@@ -52,7 +68,7 @@
   </div>
 
   <div *ngIf="pseudos.length !== 0">
-    <h3 class="e-title-sm e-mt-72 e-mb-16">Pseudos</h3>
+    <h3 class="e-title-sm e-mt-48 e-mb-16">Pseudos</h3>
     <ul class="e-list">
       <div *ngFor="let psu of pseudos" class="prop-element">
         <li>

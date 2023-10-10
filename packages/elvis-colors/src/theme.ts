@@ -24,6 +24,7 @@ export type TextLabels =
   | 'text-2'
   | 'text-3'
   | 'text-4'
+  | 'text-5'
   | 'text-disabled-1'
   | 'text-disabled-2'
   | 'text-placeholder-1';

@@ -61,6 +61,7 @@ export const sliderData: ComponentData = {
     errorOptions: {
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }> | {left: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, right: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}',
       description: 'An object that allows for custom configuration of the error handling.',
+      example: /* ts */ `errorOptions = { left: { text: "Left error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true }, right: { text: "Right error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true } }`,
     },
     valueOnChange: {
       isEvent: true,

@@ -1,10 +1,8 @@
 {
   "name": "@elvia/elvis-chip",
-  "version": "2.4.2",
-  "description": "",
+  "version": "2.4.4",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/chip",
-  "author": "",
   "main": "web_component.js",
   "files": [
     "web_component.js",
@@ -15,10 +13,10 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@elvia/elvis-assets-icons": "^3.3.1",
-    "@elvia/elvis-colors": "^3.0.0",
+    "@elvia/elvis-assets-icons": "^3.5.1",
+    "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
-    "@elvia/elvis-toolbox": "^10.0.1",
+    "@elvia/elvis-toolbox": "^11.0.0",
     "@react-aria/interactions": "^3.8.4",
     "styled-components": "^5.3.3"
   },

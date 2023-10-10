@@ -1,8 +1,8 @@
 import changelogJson from '@elvia/elvis-card/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
-import { CardProps } from '@elvia/elvis-card/react';
+import { BaseCardProps } from '@elvia/elvis-card/react';
 
-const cardData: ComponentData<Omit<CardProps, 'header' | 'shape' | 'hasBorder' | 'label'>> = {
+const cardData: ComponentData<BaseCardProps> = {
   changelog: changelogJson.content,
   name: 'Card',
   attributes: {

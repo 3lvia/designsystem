@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AutocompleteProps } from '@elvia/elvis-autocomplete/react';
+import { BaseAutocompleteProps } from '@elvia/elvis-autocomplete/react';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { data } from './autocomplete-items-data';
 
@@ -13,7 +13,7 @@ export class AutocompleteCegComponent implements ComponentExample {
   autocompleteItems = this.getAutoCompleteItems();
 
   elementName = 'autocomplete';
-  cegContent = new CegControlManager<AutocompleteProps>([
+  cegContent = new CegControlManager<BaseAutocompleteProps>([
     {
       controls: {
         size: {

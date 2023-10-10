@@ -1,22 +1,8 @@
 import changelogJson from '@elvia/elvis-popover/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
-import { PopoverProps } from '@elvia/elvis-popover/react';
+import { BasePopoverProps } from '@elvia/elvis-popover/react';
 
-const popoverData: ComponentData<
-  Omit<
-    PopoverProps,
-    | 'header'
-    | 'type'
-    | 'selectable'
-    | 'isSelectable'
-    | 'hasDivider'
-    | 'posX'
-    | 'posY'
-    | 'hasCloseBtn'
-    | 'isShowingOnChange'
-    | 'disableAutoClose'
-  >
-> = {
+const popoverData: ComponentData<BasePopoverProps> = {
   changelog: changelogJson.content,
   name: 'Popover',
   attributes: {
@@ -38,6 +24,12 @@ const popoverData: ComponentData<
       type: 'boolean',
       description: 'Determines if the close button in the upper right corner should be visible.',
       default: 'true',
+    },
+    noPadding: {
+      type: 'boolean',
+      description:
+        'Can be used to remove all the padding from inside the popover. Should only be used in edge cases.',
+      default: 'false',
     },
     isShowing: {
       type: 'boolean',

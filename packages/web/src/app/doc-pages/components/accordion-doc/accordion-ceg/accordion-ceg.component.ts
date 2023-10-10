@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { AccordionProps } from '@elvia/elvis-accordion/react';
+import { BaseAccordionProps } from '@elvia/elvis-accordion/react';
 
 @Component({
   selector: 'app-accordion-ceg',
@@ -11,7 +11,7 @@ import { AccordionProps } from '@elvia/elvis-accordion/react';
 export class AccordionCegComponent implements ComponentExample {
   elementName = 'accordion';
 
-  cegContent = new CegControlManager<AccordionProps>([
+  cegContent = new CegControlManager<BaseAccordionProps>([
     {
       type: 'Normal',
       controls: {

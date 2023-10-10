@@ -1,3 +1,7 @@
 {
-  "recommendations": ["figma.figma-vscode-extension", "ms-playwright.playwright"]
+  "recommendations": [
+    "figma.figma-vscode-extension",
+    "bierner.comment-tagged-templates",
+    "ms-playwright.playwright"
+  ]
 }

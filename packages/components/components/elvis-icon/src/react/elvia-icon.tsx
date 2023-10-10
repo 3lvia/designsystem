@@ -4,7 +4,7 @@ import { IconName } from '@elvia/elvis-assets-icons';
 export type { IconName } from '@elvia/elvis-assets-icons';
 export type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
-export interface IconProps extends ComponentPropsWithoutRef<'i'> {
+export interface BaseIconProps {
   name: IconName;
   color?: Parameters<(typeof elvisIcons)[keyof typeof elvisIcons]['getIcon']>[0];
   size?: IconSizes;
@@ -13,6 +13,9 @@ export interface IconProps extends ComponentPropsWithoutRef<'i'> {
   inlineStyle?: CSSProperties;
   children?: React.ReactNode;
 }
+
+export interface IconProps extends BaseIconProps, Omit<ComponentPropsWithoutRef<'i'>, 'color'> {}
+
 export const Icon: React.FC<IconProps> = ({
   name,
   color,

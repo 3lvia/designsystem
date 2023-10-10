@@ -1,8 +1,8 @@
 import changelogJson from '@elvia/elvis-progress-linear/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
-import { ProgressLinearProps } from '@elvia/elvis-progress-linear/react';
+import { BaseProgressLinearProps } from '@elvia/elvis-progress-linear/react';
 
-export const progressbarData: ComponentData<ProgressLinearProps> = {
+export const progressbarData: ComponentData<BaseProgressLinearProps> = {
   changelog: changelogJson.content,
   name: 'ProgressLinear',
   attributes: {

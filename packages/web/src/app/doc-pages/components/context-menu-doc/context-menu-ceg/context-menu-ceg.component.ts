@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { ContextMenuProps } from '@elvia/elvis-context-menu/react';
+import { BaseContextMenuProps } from '@elvia/elvis-context-menu/react';
 
 @Component({
   selector: 'app-context-menu-ceg',
@@ -9,7 +9,7 @@ import { ContextMenuProps } from '@elvia/elvis-context-menu/react';
 })
 export class ContextMenuCegComponent implements ComponentExample {
   elementName = 'context-menu';
-  cegContent = new CegControlManager<ContextMenuProps>([
+  cegContent = new CegControlManager<BaseContextMenuProps>([
     {
       controls: {
         verticalPosition: {
