@@ -35,8 +35,6 @@ export class ComponentPropertiesTableComponent implements OnInit {
     } else {
       this.filteredComponentProps = this.getRootPropArray().map((prop) => ({ item: prop }));
     }
-
-    // add children of props to search results
     this.filteredComponentProps = this.flattenProps(this.filteredComponentProps);
   }
 
