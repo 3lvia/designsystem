@@ -1,6 +1,5 @@
 import { Directive, Input, OnChanges } from '@angular/core';
-import { ComponentProp, LeafProp } from './types';
-import { NestedProp } from 'src/app/doc-pages/components/component-data.interface';
+import { ComponentProp } from './types';
 import { SearchResult } from '../../searcher';
 
 interface TableGroup {
@@ -27,10 +26,6 @@ export class PropertyTableBaseDirective implements OnChanges {
         rows: this.getEventProps(this.props),
       },
     ];
-  }
-
-  propHasNoChildren(prop: ComponentProp): prop is LeafProp {
-    return !(prop as NestedProp<Record<string, any>>).children;
   }
 
   private getEventProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {

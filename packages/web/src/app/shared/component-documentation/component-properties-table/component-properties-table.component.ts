@@ -16,7 +16,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
   private searcher: Searcher<ComponentProp>;
 
   ngOnInit(): void {
-    this.searcher = new Searcher(this.getPropArray(), {
+    this.searcher = new Searcher(this.getRootPropArray(), {
       threshold: 0.4,
       includeMatches: true,
       keys: [
@@ -33,27 +33,30 @@ export class ComponentPropertiesTableComponent implements OnInit {
     if (searchTerm !== '') {
       this.filteredComponentProps = this.searcher.search(searchTerm);
     } else {
-      this.filteredComponentProps = this.getPropArray().map((prop) => ({ item: prop }));
+      this.filteredComponentProps = this.getRootPropArray().map((prop) => ({ item: prop }));
     }
 
     // add children of props to search results
-    let filteredComponentPropsWithChildren: SearchResult<ComponentProp>[] = [];
-
-    Object.keys(this.filteredComponentProps).forEach((_, i) => {
-      const propData = this.filteredComponentProps[i];
-      filteredComponentPropsWithChildren.push(propData);
-      if ('children' in propData.item) {
-        filteredComponentPropsWithChildren = this.getPropArrayRecursive(
-          propData.item,
-          1,
-          filteredComponentPropsWithChildren,
-        );
-      }
-    });
-    this.filteredComponentProps = filteredComponentPropsWithChildren;
+    this.filteredComponentProps = this.flattenProps(this.filteredComponentProps);
   }
 
-  private getPropArrayRecursive(
+  private flattenProps(componentProps: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
+    let flatComponentProps: SearchResult<ComponentProp>[] = [];
+
+    componentProps.forEach((prop) => {
+      const componentProp = prop;
+      flatComponentProps.push(componentProp);
+      const propData = this.componentData.attributes[prop.item.attribute];
+      if (propData) {
+        if ('children' in propData) {
+          flatComponentProps = this.flattenPropsRecursive(propData, 1, flatComponentProps);
+        }
+      }
+    });
+    return flatComponentProps;
+  }
+
+  private flattenPropsRecursive(
     nestedComponentProp: NestedProp<any>,
     level: number,
     componentProps: SearchResult<ComponentProp>[],
@@ -68,14 +71,14 @@ export class ComponentPropertiesTableComponent implements OnInit {
       };
       const componentPropSearch = { item: componentProp };
       componentProps.push(componentPropSearch);
-      if ('children' in componentPropSearch.item) {
-        componentProps = this.getPropArrayRecursive(componentPropSearch.item, level + 1, componentProps);
+      if ('children' in propData) {
+        componentProps = this.flattenPropsRecursive(propData, level + 1, componentProps);
       }
     });
     return componentProps;
   }
 
-  private getPropArray(): ComponentProp[] {
+  private getRootPropArray(): ComponentProp[] {
     let componentProps: ComponentProp[] = [];
 
     Object.keys(this.componentData.attributes).forEach((prop) => {

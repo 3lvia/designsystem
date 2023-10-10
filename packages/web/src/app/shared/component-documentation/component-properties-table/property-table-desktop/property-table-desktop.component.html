@@ -86,10 +86,7 @@
           <div
             class="height-changer"
             [ngClass]="{ last: isLast }"
-            [innerHTML]="
-              (propHasNoChildren(prop.item) ? prop.item.default : '')
-                | searchHighlighter : 'default' : prop.matches
-            "
+            [innerHTML]="prop.item.default | searchHighlighter : 'default' : prop.matches"
           ></div>
         </td>
       </tr>
