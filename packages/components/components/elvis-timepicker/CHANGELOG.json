@@ -3,23 +3,17 @@
   "content": [
     {
       "date": "10.10.23",
-      "version": "5.1.1",
-      "changelog": [
-        {
-          "type": "bug_fix",
-          "changes": [
-            "Fixed an issue where the popup sometimes did not align horizontally on initial render."
-          ]
-        }
-      ]
-    },
-    {
-      "date": "06.10.23",
       "version": "5.1.0",
       "changelog": [
         {
           "type": "new_feature",
           "changes": ["Added support for new props <code>minTime</code> and <code>maxTime</code>."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the popup sometimes did not align horizontally on initial render."
+          ]
         }
       ]
     },
