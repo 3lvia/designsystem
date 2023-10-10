@@ -5,7 +5,7 @@
       "date": "October 10, 2023",
       "changelog": [
         {
-          "type": "bug",
+          "type": "bug_fix",
           "changes": ["Fixed tables in dark theme with sticky headers."],
           "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
         }
