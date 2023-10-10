@@ -1,15 +1,15 @@
-import { ChildlessProp, NestedProp } from 'src/app/doc-pages/components/component-data.interface';
-
-export interface EventProp extends ChildlessProp {
+export interface ComponentProp {
+  /** The indentation level of the prop.
+   * @example
+   * Root prop:
+   * "level = 0"
+   */
+  level: number;
   attribute: string;
+  type: string;
+  description?: string;
+  default?: string | number | boolean;
+  isEvent?: boolean;
+  isRequired?: boolean;
+  example?: string;
 }
-
-export interface InputProp extends ChildlessProp {
-  attribute: string;
-}
-
-export interface NestedInputProp extends NestedProp<Record<string, any>> {
-  attribute: string;
-}
-
-export type ComponentProp = EventProp | InputProp | NestedInputProp;

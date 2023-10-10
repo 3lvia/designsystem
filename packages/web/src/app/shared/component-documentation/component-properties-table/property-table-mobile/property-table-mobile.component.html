@@ -8,13 +8,12 @@
       <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
   </thead>
-  <tbody *ngFor="let prop of props">
+  <tbody *ngFor="let prop of itemsWithoutChildren">
     <tr>
-      <th class="e-table-mobile__cell" scope="col">
+      <th class="e-table-mobile__cell" scope="col" colspan="2">
         <span [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"></span>
         <span>{{ prop.item.isRequired ? '*' : '' }}</span>
       </th>
-      <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
     <tr>
       <th class="e-table-mobile__cell" scope="row">Type</th>
@@ -30,7 +29,7 @@
         [innerHTML]="prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches"
       ></td>
     </tr>
-    <tr *ngIf="propHasNoChildren(prop.item)">
+    <tr>
       <th class="e-table-mobile__cell" scope="row">Default</th>
       <td
         class="e-table-mobile__cell"
