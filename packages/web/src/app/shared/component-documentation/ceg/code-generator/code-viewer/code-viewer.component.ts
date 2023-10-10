@@ -37,13 +37,15 @@ export class CodeViewerComponent {
 
   constructor(private codeFormatter: FormatCodePipe) {}
 
-  copyCode() {
-    navigator.clipboard.writeText(this.codeFormatter.transform(this.activeCode, this.language)).then(() => {
-      this.copyMessage = 'Copied!';
-      const copyTimeout = setTimeout(() => {
-        this.copyMessage = '';
-        clearTimeout(copyTimeout);
-      }, 3000);
-    });
+  async copyCode() {
+    await navigator.clipboard
+      .writeText(await this.codeFormatter.transform(this.activeCode, this.language))
+      .then(() => {
+        this.copyMessage = 'Copied!';
+        const copyTimeout = setTimeout(() => {
+          this.copyMessage = '';
+          clearTimeout(copyTimeout);
+        }, 3000);
+      });
   }
 }

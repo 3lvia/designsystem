@@ -44,7 +44,10 @@ export class ColorComponent {
   title = getDocPagesNotFromCMS('color')?.title;
   titleNo = getDocPagesNotFromCMS('color')?.titleNo;
 
-  constructor(private titleService: Title, private localizationService: LocalizationService) {
+  constructor(
+    private titleService: Title,
+    private localizationService: LocalizationService,
+  ) {
     this.setTabTitle();
     this.localizationService
       .listenLocalization()

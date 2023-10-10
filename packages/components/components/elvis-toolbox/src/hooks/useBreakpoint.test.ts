@@ -13,7 +13,7 @@ const setUpMockMatchMedia = (
         matches: matches,
         addEventListener: addListenerMock,
         removeEventListener: removeListenerMock,
-      } as unknown as MediaQueryList),
+      }) as unknown as MediaQueryList,
   );
 
   return { addListenerMock, removeListenerMock };

@@ -20,7 +20,10 @@ export class LayoutDocComponent {
   egSelectedValue = 0;
   igSelectedValue = 0;
 
-  constructor(private titleService: Title, private localizationService: LocalizationService) {
+  constructor(
+    private titleService: Title,
+    private localizationService: LocalizationService,
+  ) {
     this.setTabTitle();
     this.localizationService
       .listenLocalization()

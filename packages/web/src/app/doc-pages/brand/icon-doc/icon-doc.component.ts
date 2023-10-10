@@ -43,7 +43,10 @@ export class IconDocComponent implements OnInit {
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private titleService: Title, private localizationService: LocalizationService) {
+  constructor(
+    private titleService: Title,
+    private localizationService: LocalizationService,
+  ) {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
