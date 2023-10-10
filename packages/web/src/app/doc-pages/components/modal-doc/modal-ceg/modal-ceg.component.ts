@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { ModalProps } from '@elvia/elvis-modal/react';
+import { BaseModalProps } from '@elvia/elvis-modal/react';
 
 @Component({
   selector: 'app-modal-ceg',
@@ -11,7 +11,7 @@ import { ModalProps } from '@elvia/elvis-modal/react';
 export class ModalCegComponent implements ComponentExample {
   isModalShowing = false;
   elementName = 'modal';
-  cegContent = new CegControlManager<ModalProps>([
+  cegContent = new CegControlManager<BaseModalProps>([
     {
       controls: {
         illustration: {

@@ -21,6 +21,14 @@
       "automerge": false
     }
   ],
-  "ignoreDeps": ["styled-components", "bootstrap", "react", "react-dom", "jquery"],
+  "ignoreDeps": [
+    "styled-components",
+    "bootstrap",
+    "jquery",
+    "react",
+    "react-dom",
+    "@types/react",
+    "@types/react-dom"
+  ],
   "ignorePaths": ["**/node_modules/**", "packages/components/components/**", "packages/elvis*"]
 }

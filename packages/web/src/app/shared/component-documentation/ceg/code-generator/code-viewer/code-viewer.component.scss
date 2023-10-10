@@ -1,12 +1,23 @@
 :host {
   line-height: normal;
+
+  .e-theme-light & {
+    --code-container-background-color: var(--e-light-theme-grey);
+  }
+  .e-theme-dark & {
+    --code-container-background-color: var(--e-dark-theme-grey-60);
+  }
 }
 
 .code-container {
-  background: var(--e-color-background-3);
+  background-color: var(--code-container-background-color, var(--e-color-background-3));
   border-radius: 8px;
   padding: 24px;
   width: 100%;
+
+  pre {
+    margin: 0;
+  }
 }
 
 .top-menu {

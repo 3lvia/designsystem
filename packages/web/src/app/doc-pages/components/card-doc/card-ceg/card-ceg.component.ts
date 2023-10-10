@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { CardProps } from '@elvia/elvis-card/react';
+import { BaseCardProps } from '@elvia/elvis-card/react';
 
 @Component({
   selector: 'app-card-ceg',
@@ -9,7 +9,7 @@ import { CardProps } from '@elvia/elvis-card/react';
 })
 export class CardCegComponent implements ComponentExample {
   elementName = 'card';
-  cegContent = new CegControlManager<CardProps>([
+  cegContent = new CegControlManager<BaseCardProps>([
     {
       type: 'Simple',
       controls: {

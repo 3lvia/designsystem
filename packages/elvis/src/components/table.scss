@@ -194,7 +194,7 @@ $table-invalid-padding: 8px 16px;
       tr,
       tr:nth-of-type(odd) th,
       tr:nth-of-type(odd) td {
-        background: var(--e-color-background-element-1);
+        background: var(--e-table-row-background);
       }
     }
   }

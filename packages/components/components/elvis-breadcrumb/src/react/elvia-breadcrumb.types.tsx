@@ -6,7 +6,9 @@ interface BreadcrumbLink {
   text: string;
 }
 
-export interface BreadcrumbProps extends ComponentPropsWithoutRef<'nav'>, BaseProps {
+export interface BaseBreadcrumbProps extends BaseProps {
   items: BreadcrumbLink[];
   onLinkClick?: (value: number) => void;
 }
+
+export interface BreadcrumbProps extends BaseBreadcrumbProps, ComponentPropsWithoutRef<'nav'> {}

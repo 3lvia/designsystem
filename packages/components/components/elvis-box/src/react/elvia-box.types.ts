@@ -1,7 +1,7 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
-export interface BoxProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
+export interface BaseBoxProps extends BaseProps {
   /**
    * @deprecated Deprecated in version 2.0.0. Use the `heading` prop instead.
    */
@@ -14,3 +14,5 @@ export interface BoxProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
   hasBorder?: boolean;
   heading?: string | JSX.Element;
 }
+
+export interface BoxProps extends BaseBoxProps, ComponentPropsWithoutRef<'div'> {}

@@ -1,5 +1,5 @@
 <table
-  class="e-table e-table--no-stripes e-table--sticky-header e-table--small e-table--sticky-column-header"
+  class="e-table e-table--small e-table--no-stripes e-table--sticky-header e-table--sticky-column-header"
   *ngIf="props.length > 0"
   aria-label="Property details and descriptions"
 >
@@ -47,12 +47,18 @@
         </td>
       </tr>
       <tr
-        *ngFor="let prop of group.rows; let isLast = last"
+        *ngFor="let prop of group.rows; let isLast = last; let i = index"
         class="prop-row"
-        [ngClass]="{ last: isLast, expanded: group.expanded }"
+        [ngClass]="{ expanded: group.expanded, last: isLast }"
       >
         <th scope="row" class="table-code-text">
-          <div class="height-changer">
+          <div
+            class="height-changer"
+            [ngStyle]="{
+              'margin-left.px': calculateMargin(i, group.rows),
+              'padding-left.px': calculatePadding(i, group.rows)
+            }"
+          >
             <strong
               [innerHTML]="prop.item.attribute | searchHighlighter : 'attribute' : prop.matches"
             ></strong>
@@ -66,17 +72,26 @@
           ></div>
         </td>
         <td class="e-table__cell--multiline-small">
-          <div
-            class="height-changer"
-            [innerHTML]="
-              prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches
-            "
-          ></div>
+          <div class="height-changer e-flex e-gap-8">
+            <div
+              [innerHTML]="
+                prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches
+              "
+            ></div>
+            <app-property-example-popover
+              *ngIf="prop.item.example"
+              [attribute]="prop.item.attribute"
+              [example]="prop.item.example"
+            />
+          </div>
         </td>
         <td class="table-code-text">
           <div
             class="height-changer"
-            [innerHTML]="prop.item.default | searchHighlighter : 'default' : prop.matches"
+            [innerHTML]="
+              (isLeafProp(i, group.rows) ? prop.item.default : '')
+                | searchHighlighter : 'default' : prop.matches
+            "
           ></div>
         </td>
       </tr>

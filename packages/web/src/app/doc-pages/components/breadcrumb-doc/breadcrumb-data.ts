@@ -1,7 +1,8 @@
 import changelogJson from '@elvia/elvis-breadcrumb/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { BreadcrumbProps } from '@elvia/elvis-breadcrumb/react';
 
-const breadcrumbData: ComponentData = {
+const breadcrumbData: ComponentData<BreadcrumbProps> = {
   changelog: changelogJson.content,
   name: 'Breadcrumb',
   attributes: {

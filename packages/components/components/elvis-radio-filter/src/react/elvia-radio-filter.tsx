@@ -8,7 +8,7 @@ export interface Option {
   value: string;
 }
 
-export interface RadioFilterProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
+export interface BaseRadioFilterProps extends BaseProps {
   name: string;
   items: Option[];
   value: string;
@@ -16,6 +16,8 @@ export interface RadioFilterProps extends ComponentPropsWithoutRef<'div'>, BaseP
   groupAriaLabel?: string;
   valueOnChange?: (value: string) => void;
 }
+
+export interface RadioFilterProps extends BaseRadioFilterProps, ComponentPropsWithoutRef<'div'> {}
 
 export const RadioFilter: FC<RadioFilterProps> = ({
   ariaLabel,

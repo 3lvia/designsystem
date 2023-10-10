@@ -3,6 +3,10 @@ td.table-code-text {
   font-family: 'Red Hat Mono', Verdana, sans-serif;
 }
 
+.e-table {
+  height: fit-content;
+}
+
 .e-table .group-title-row {
   position: sticky;
   top: 40px;
@@ -20,31 +24,33 @@ td.table-code-text {
   right: 0;
 }
 
-.e-table th,
+.e-table thead th {
+  border-right: 0;
+  vertical-align: middle;
+}
+
+.e-table tbody th,
 .e-table td {
+  border-right: 0;
   vertical-align: top;
 }
 
 tr.prop-row {
-  height: 0;
+  height: 100%;
 
   th,
   td {
-    height: 0;
     padding: 0;
   }
 
-  &.expanded:not(.last) {
-    th,
-    td {
-      border-bottom: 1px solid var(--e-color-border-2);
-    }
-  }
-
   &.expanded .height-changer {
-    height: auto;
+    height: 100%;
     padding-block: 9px;
     opacity: 1;
+  }
+
+  &:not(.last) .height-changer {
+    border-bottom: 1px solid var(--e-color-border-2);
   }
 }
 

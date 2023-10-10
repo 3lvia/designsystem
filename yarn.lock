@@ -2313,7 +2313,7 @@ __metadata:
     "@elvia/elvis-assets-icons": ^3.6.0
     "@elvia/elvis-colors": ^4.1.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^11.0.0
+    "@elvia/elvis-toolbox": ^11.0.1
     "@elvia/elvis-tooltip": ^1.2.3
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
@@ -2520,20 +2520,20 @@ __metadata:
     "@testing-library/jest-dom": 6.1.3
     "@testing-library/react": 14.0.0
     "@testing-library/user-event": 14.5.1
-    "@types/jest": ^29.2.3
+    "@types/jest": ^29.5.5
     "@types/jest-axe": ^3.5.6
     "@types/node": ^18.18.4
     "@types/styled-components": ^5.1.28
-    babel-jest: ^29.3.1
+    babel-jest: ^29.7.0
     babel-plugin-styled-components: ^2.1.4
     babel-preset-minify: ^0.5.2
     css-loader: ^6.8.1
     del: ^6.1.1
     esbuild-plugin-styled-components: ^2.2.2
     express: ^4.18.2
-    jest: ^29.3.1
+    jest: ^29.7.0
     jest-axe: ^8.0.0
-    jest-environment-jsdom: ^29.3.1
+    jest-environment-jsdom: ^29.7.0
     jsdom: ^20.0.3
     jsdom-global: ^3.0.2
     react: ^18.2.0
@@ -2558,7 +2558,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-colors": ^4.1.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^11.0.0
+    "@elvia/elvis-toolbox": ^11.0.1
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2580,9 +2580,9 @@ __metadata:
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-datepicker": ^9.0.0
-    "@elvia/elvis-timepicker": ^5.0.0
-    "@elvia/elvis-toolbox": ^11.0.0
+    "@elvia/elvis-datepicker": ^9.0.1
+    "@elvia/elvis-timepicker": ^5.0.1
+    "@elvia/elvis-toolbox": ^11.0.1
     styled-components: ^5.3.3
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2598,14 +2598,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^9.0.0, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@*, @elvia/elvis-datepicker@^9.0.1, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
     "@elvia/elvis-assets-icons": ^3.3.1
     "@elvia/elvis-colors": ^4.1.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^11.0.0
+    "@elvia/elvis-toolbox": ^11.0.1
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2652,7 +2652,7 @@ __metadata:
     "@elvia/elvis-assets-icons": ^3.3.1
     "@elvia/elvis-colors": ^4.1.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^11.0.0
+    "@elvia/elvis-toolbox": ^11.0.1
     "@elvia/elvis-tooltip": ^1.3.0
     "@elvia/elvis-typography": ^2.4.0
     dompurify: ^3.0.3
@@ -2794,7 +2794,7 @@ __metadata:
     "@elvia/elvis-assets-icons": ^3.3.1
     "@elvia/elvis-colors": ^4.1.0
     "@elvia/elvis-component-wrapper": ^4.1.3
-    "@elvia/elvis-toolbox": ^11.0.0
+    "@elvia/elvis-toolbox": ^11.0.1
     "@elvia/elvis-typography": ^2.4.0
     styled-components: ^5.3.3
   peerDependencies:
@@ -2976,14 +2976,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^5.0.0, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
+"@elvia/elvis-timepicker@*, @elvia/elvis-timepicker@^5.0.1, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:
     "@elvia/elvis-assets-icons": ^3.0.0
     "@elvia/elvis-colors": ^4.1.0
     "@elvia/elvis-component-wrapper": ^4.1.2
-    "@elvia/elvis-toolbox": ^11.0.0
+    "@elvia/elvis-toolbox": ^11.0.1
     "@elvia/elvis-typography": ^2.3.2
     styled-components: ^5.3.3
   peerDependencies:
@@ -3026,7 +3026,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@*, @elvia/elvis-toolbox@^11.0.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@*, @elvia/elvis-toolbox@^11.0.0, @elvia/elvis-toolbox@^11.0.1, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
@@ -4654,7 +4654,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*, @types/jest@npm:^29.2.3":
+"@types/jest@npm:*, @types/jest@npm:^29.5.5":
   version: 29.5.5
   resolution: "@types/jest@npm:29.5.5"
   dependencies:
@@ -5338,9 +5338,9 @@ __metadata:
   linkType: hard
 
 "@vue/devtools-api@npm:^6.5.0":
-  version: 6.5.0
-  resolution: "@vue/devtools-api@npm:6.5.0"
-  checksum: ec819ef3a426e91d09e9cfefd2827e9ed8ec9d62bb3b3e0674f3da8c7e92a4b879c3b777dc7329172ca6fe2670b62dd5580d23160339208f0f5ae038f2e504ad
+  version: 6.5.1
+  resolution: "@vue/devtools-api@npm:6.5.1"
+  checksum: 3de9ff5ec78890c84d22c59910e26bf53140413895ba85b0e2a276609c24d9dde007cf468d9f21ef18389eaef75605fe94e79a761beb30d3bbb7af1ef19bbd4e
   languageName: node
   linkType: hard
 
@@ -6478,7 +6478,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:^29.3.1, babel-jest@npm:^29.7.0":
+"babel-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "babel-jest@npm:29.7.0"
   dependencies:
@@ -8777,7 +8777,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^10.0.0, dotenv@npm:~10.0.0":
+"dotenv@npm:^16.3.1":
+  version: 16.3.1
+  resolution: "dotenv@npm:16.3.1"
+  checksum: 15d75e7279018f4bafd0ee9706593dd14455ddb71b3bcba9c52574460b7ccaf67d5cf8b2c08a5af1a9da6db36c956a04a1192b101ee102a3e0cf8817bbcf3dfd
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:~10.0.0":
   version: 10.0.0
   resolution: "dotenv@npm:10.0.0"
   checksum: f412c5fe8c24fbe313d302d2500e247ba8a1946492db405a4de4d30dd0eb186a88a43f13c958c5a7de303938949c4231c56994f97d05c4bc1f22478d631b4005
@@ -8924,10 +8931,9 @@ __metadata:
     contentful: ^9.3.5
     contentful-management: ^11.1.1
     contentful-typescript-codegen: ^3.4.0
-    dotenv: ^10.0.0
+    dotenv: ^16.3.1
     eslint: ^8.51.0
     fuse.js: ^6.6.2
-    glob: ^7.2.3
     html-loader: ^4.2.0
     natural-compare-lite: ^1.4.0
     prettier: ^3.0.3
@@ -10675,7 +10681,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.2.3":
+"glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
   dependencies:
@@ -12528,7 +12534,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-jsdom@npm:^29.3.1":
+"jest-environment-jsdom@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-environment-jsdom@npm:29.7.0"
   dependencies:
@@ -12855,7 +12861,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^29.3.1":
+"jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest@npm:29.7.0"
   dependencies:

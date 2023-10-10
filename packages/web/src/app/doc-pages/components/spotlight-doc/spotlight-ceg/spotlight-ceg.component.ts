@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { SpotlightProps } from '@elvia/elvis-spotlight/react';
+import { BaseSpotlightProps } from '@elvia/elvis-spotlight/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 @Component({
@@ -13,7 +13,7 @@ export class SpotlightCegComponent implements ComponentExample, AfterViewInit {
   @ViewChild('trigger') trigger: ElementRef<HTMLButtonElement>;
 
   elementName = 'spotlight';
-  cegContent = new CegControlManager<SpotlightProps>([
+  cegContent = new CegControlManager<BaseSpotlightProps>([
     {
       controls: {
         shape: {

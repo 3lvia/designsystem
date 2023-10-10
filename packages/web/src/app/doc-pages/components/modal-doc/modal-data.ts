@@ -1,8 +1,8 @@
 import changelogJson from '@elvia/elvis-modal/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
-import { ModalProps } from '@elvia/elvis-modal/react';
+import { BaseModalProps } from '@elvia/elvis-modal/react';
 
-const modalData: ComponentData<Omit<ModalProps, 'onHide' | 'hasCloseBtn'>> = {
+const modalData: ComponentData<BaseModalProps> = {
   changelog: changelogJson.content,
   name: 'Modal',
   attributes: {

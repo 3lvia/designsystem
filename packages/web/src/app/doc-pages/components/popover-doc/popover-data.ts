@@ -1,22 +1,8 @@
 import changelogJson from '@elvia/elvis-popover/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
-import { PopoverProps } from '@elvia/elvis-popover/react';
+import { BasePopoverProps } from '@elvia/elvis-popover/react';
 
-const popoverData: ComponentData<
-  Omit<
-    PopoverProps,
-    | 'header'
-    | 'type'
-    | 'selectable'
-    | 'isSelectable'
-    | 'hasDivider'
-    | 'posX'
-    | 'posY'
-    | 'hasCloseBtn'
-    | 'isShowingOnChange'
-    | 'disableAutoClose'
-  >
-> = {
+const popoverData: ComponentData<BasePopoverProps> = {
   changelog: changelogJson.content,
   name: 'Popover',
   attributes: {

@@ -14,10 +14,12 @@ export interface SpotlightRectangleProps {
   borderRadius?: number;
 }
 
-export interface SpotlightProps extends ComponentPropsWithoutRef<'div'>, BaseProps, HasTransitionDuration {
+export interface BaseSpotlightProps extends BaseProps, HasTransitionDuration {
   position?: SpotlightPosition;
   shape?: SpotlightShape;
   radius?: number;
   rectangleProps?: SpotlightRectangleProps;
   hasLockBodyScroll?: boolean;
 }
+
+export interface SpotlightProps extends BaseSpotlightProps, ComponentPropsWithoutRef<'div'> {}

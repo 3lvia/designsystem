@@ -5,9 +5,11 @@ export type DividerType = 'simple' | 'heading' | 'curved';
 export type DividerTypography = 'medium' | 'caps';
 export type DividerOrientation = 'horizontal' | 'vertical';
 
-export interface DividerProps extends ComponentPropsWithoutRef<'div'>, BaseProps {
+export interface BaseDividerProps extends BaseProps {
   type?: DividerType;
   heading?: string | JSX.Element;
   typography?: DividerTypography;
   orientation?: DividerOrientation;
 }
+
+export interface DividerProps extends BaseDividerProps, ComponentPropsWithoutRef<'div'> {}

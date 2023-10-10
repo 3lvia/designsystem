@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { BadgeProps } from '@elvia/elvis-badge/react';
+import { BaseBadgeProps } from '@elvia/elvis-badge/react';
 
 @Component({
   selector: 'app-badge-ceg',
@@ -9,7 +9,7 @@ import { BadgeProps } from '@elvia/elvis-badge/react';
 })
 export class BadgeCegComponent implements ComponentExample {
   elementName = 'badge';
-  cegContent = new CegControlManager<BadgeProps>([
+  cegContent = new CegControlManager<BaseBadgeProps>([
     {
       controls: {
         badgeColor: {

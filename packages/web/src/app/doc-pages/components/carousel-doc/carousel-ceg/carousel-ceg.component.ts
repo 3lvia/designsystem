@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { CarouselProps } from '@elvia/elvis-carousel/react';
+import { BaseCarouselProps } from '@elvia/elvis-carousel/react';
 
 @Component({
   selector: 'app-carousel-ceg',
@@ -8,9 +8,9 @@ import { CarouselProps } from '@elvia/elvis-carousel/react';
   styleUrls: ['./carousel-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: CarouselCegComponent }],
 })
-export class CarouselCegComponent implements ComponentExample<CarouselProps> {
+export class CarouselCegComponent implements ComponentExample<BaseCarouselProps> {
   elementName = 'carousel';
-  cegContent = new CegControlManager<CarouselProps>([
+  cegContent = new CegControlManager<BaseCarouselProps>([
     {
       type: 'Loop',
       controls: {},
