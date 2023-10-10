@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
-
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { FormFieldError } from './errorStyles';
 
 export type FormFieldSizes = 'small' | 'medium';
 
@@ -95,10 +93,6 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
           font-size: 0.875rem;
         }
 
-        ${FormFieldError} {
-          ${getTypographyCss('text-micro')}
-        }
-
         ${FormFieldInputSuffixText} {
           ${getTypographyCss('text-sm-light')}
           color: ${getThemeColor('color-text-2')};
@@ -155,8 +149,9 @@ export interface LabelProps {
 }
 
 export const FormFieldLabel = styled.div<LabelProps>`
-  ${getTypographyCss('text-label')}
-  margin-bottom: 5px;
+  ${getTypographyCss('text-md-strong')}
+  line-height: 22px;
+  margin-bottom: 4px;
 
   ${({ hasOptionalText }) =>
     hasOptionalText &&

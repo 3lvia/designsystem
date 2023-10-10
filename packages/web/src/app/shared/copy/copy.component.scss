@@ -1,28 +1,12 @@
-.ewc-tooltip-copy-content {
-  display: contents;
-  > * {
-    cursor: pointer;
-  }
+.zoom-on-hover {
+  cursor: pointer;
+  transition: scale 0.2s ease-in-out;
+  display: inline-block;
 }
 
 //only use this is the user allows motion
 @media (prefers-reduced-motion: no-preference) {
-  .ewc-tooltip-copy-content {
-    > * {
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        transform: scale(1.03);
-      }
-    }
-
-    &.ewc-tooltip-copy-content--no-animation {
-      > * {
-        transition: none;
-        &:hover {
-          transform: scale(1);
-        }
-      }
-    }
+  .zoom-on-hover:hover {
+    scale: 1.03;
   }
 }

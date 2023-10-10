@@ -159,7 +159,9 @@ export const TertiaryButton = styled(ButtonBase)`
       isActive ? getThemeColor('background-selected-1') : 'transparent'};
     transform: scaleY(1);
     transform-origin: center bottom;
-    transition: background-color 60ms, transform 100ms;
+    transition:
+      background-color 60ms,
+      transform 100ms;
   }
 
   &:not(:disabled) {

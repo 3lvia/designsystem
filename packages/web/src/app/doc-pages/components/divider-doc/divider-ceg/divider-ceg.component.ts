@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DividerProps } from '@elvia/elvis-divider/react';
+import { BaseDividerProps } from '@elvia/elvis-divider/react';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
@@ -9,7 +9,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
 })
 export class DividerCegComponent implements ComponentExample {
   elementName = 'divider';
-  cegContent = new CegControlManager<DividerProps>([
+  cegContent = new CegControlManager<BaseDividerProps>([
     {
       type: 'Simple',
       controls: {

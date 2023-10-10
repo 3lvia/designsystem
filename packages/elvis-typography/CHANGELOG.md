@@ -1,5 +1,11 @@
 # Elvia Typography Changelog
 
+## 2.6.0 (05.10.23)
+
+### New feature
+
+- Now giving a console warning if a deprecated typography is used.
+
 ## 2.5.0 (29.08.23)
 
 ### New feature

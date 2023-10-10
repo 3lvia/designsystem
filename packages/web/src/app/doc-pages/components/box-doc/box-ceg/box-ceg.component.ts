@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BoxProps } from '@elvia/elvis-box/react';
+import { BaseBoxProps } from '@elvia/elvis-box/react';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
@@ -10,7 +10,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
 })
 export class BoxCegComponent implements ComponentExample {
   elementName = 'box';
-  cegContent = new CegControlManager<BoxProps>([
+  cegContent = new CegControlManager<BaseBoxProps>([
     {
       controls: {
         isColored: {

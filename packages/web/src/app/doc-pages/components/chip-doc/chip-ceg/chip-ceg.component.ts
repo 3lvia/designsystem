@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { ChipProps } from '@elvia/elvis-chip/react';
+import { BaseChipProps } from '@elvia/elvis-chip/react';
 
 @Component({
   selector: 'app-chip-ceg',
@@ -9,7 +9,7 @@ import { ChipProps } from '@elvia/elvis-chip/react';
 })
 export class ChipCegComponent implements ComponentExample {
   elementName = 'chip';
-  cegContent = new CegControlManager<ChipProps>([
+  cegContent = new CegControlManager<BaseChipProps>([
     {
       type: 'Removable',
       controls: {

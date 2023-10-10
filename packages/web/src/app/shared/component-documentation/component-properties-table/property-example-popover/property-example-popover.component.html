@@ -1,0 +1,21 @@
+<elvia-popover
+  (onClose)="isOpen = false"
+  (onOpen)="isOpen = true"
+  hasCloseButton="false"
+  inlineStyle="{maxWidth: '512px'}"
+  noPadding="true"
+>
+  <button
+    [attr.aria-pressed]="isOpen"
+    [ngClass]="{ 'e-btn---selected': isOpen }"
+    attr.aria-label="Show {{ attribute }} example"
+    class="e-btn e-btn--sm e-btn--icon e-btn--circled"
+    slot="trigger"
+  >
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--code_circle" aria-hidden="true"></i>
+      <i class="e-icon e-icon--code_circle-filled-color" aria-hidden="true"></i>
+    </span>
+  </button>
+  <app-code-viewer slot="content" [tabs]="['Typescript']" [activeCode]="example" hideTabs />
+</elvia-popover>

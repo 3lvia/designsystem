@@ -8,7 +8,7 @@ export interface CarouselItem {
 export type SlideDirection = 'left' | 'right';
 export type AccordionType = 'linear' | 'loop';
 
-export interface CarouselProps extends ComponentPropsWithoutRef<'section'>, BaseProps {
+export interface BaseCarouselProps extends BaseProps {
   items: CarouselItem[] | number;
   onFinish?: () => void;
   hasConfirmationCheckmark?: boolean;
@@ -17,3 +17,5 @@ export interface CarouselProps extends ComponentPropsWithoutRef<'section'>, Base
   hasAnimation?: boolean;
   type?: AccordionType;
 }
+
+export interface CarouselProps extends BaseCarouselProps, ComponentPropsWithoutRef<'section'> {}

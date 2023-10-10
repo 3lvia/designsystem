@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { PaginationProps } from '@elvia/elvis-pagination/react';
+import { BasePaginationProps } from '@elvia/elvis-pagination/react';
 
 @Component({
   selector: 'app-pagination-ceg',
@@ -9,7 +9,7 @@ import { PaginationProps } from '@elvia/elvis-pagination/react';
 })
 export class PaginationCegComponent implements ComponentExample {
   elementName = 'pagination';
-  cegContent = new CegControlManager<PaginationProps>([
+  cegContent = new CegControlManager<BasePaginationProps>([
     {
       controls: {
         alignment: {

@@ -6,7 +6,7 @@ import {
   FormFieldSizes,
 } from '@elvia/elvis-toolbox';
 
-export type SliderProps = {
+export type BaseSliderProps = {
   errorOnChange?: (error: string) => void;
   hasHints?: boolean;
   hasInputField?: boolean;
@@ -17,8 +17,9 @@ export type SliderProps = {
   size?: FormFieldSizes;
   unit?: string;
 } & BaseProps &
-  ComponentPropsWithoutRef<'div'> &
   SliderPropsValue;
+
+export type SliderProps = BaseSliderProps & ComponentPropsWithoutRef<'div'>;
 
 type SliderPropsValue =
   | ({

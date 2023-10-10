@@ -1,5 +1,5 @@
-<div class="code-container e-color-background-3">
-  <div class="top-menu">
+<div class="code-container">
+  <div *ngIf="!hideTabs" class="top-menu e-theme-dark">
     <elvia-tabs
       (valueOnChange)="tabIndexChange.emit($any($event).detail.value)"
       [value]="activeTabIndex"
@@ -20,6 +20,6 @@
   </div>
 
   <div class="overflow-container">
-    <pre><code [innerHtml]="activeCode | formatCode:language | highlighter:language" class="ceg-code"></code></pre>
+    <pre><code [innerHtml]="activeCode | formatCode:language | async | highlighter:language" class="ceg-code"></code></pre>
   </div>
 </div>

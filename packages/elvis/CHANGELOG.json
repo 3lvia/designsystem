@@ -1,6 +1,57 @@
 {
   "content": [
     {
+      "version": "15.1.0",
+      "date": "October 6, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>code_circle</code> and <code>code_circle-filled-color</code> icons."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "15.0.0",
+      "date": "October 6, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Changed label size and error text size to be more consistent across the design system.",
+            "The Local Alert has a new, more compact, design on smaller screens. The total height of the Alert, therefore, has changed.",
+            "List line-height update to match all typographies better."
+          ],
+          "components": [
+            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "List", "url": "https://design.elvia.io/components/list" }
+          ],
+          "fixes": [
+            "The total hight of the input elements has been adjusted. Check your design to make sure this doesn't break anything.",
+            "Ensure Local Alert used on smaller screens still fit your design.",
+            "List are now a little bit shorter than before. There is a small chance that this can break the layout, but most likely nothing changes."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "14.1.0",
+      "date": "September 29, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for the <code>.e-alert__close</code> class in a local <code>e-alert</code> so that it can be closed.",
+            "Added support for the <code>.e-alert--no-title</code> class on a local <code>e-alert</code> to get the correct icon alignment."
+          ],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        }
+      ]
+    },
+    {
       "version": "14.0.1",
       "date": "September 20, 2023",
       "changelog": [

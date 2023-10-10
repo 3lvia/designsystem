@@ -61,7 +61,11 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
     );
   }
 
-  constructor(private zone: NgZone, private route: ActivatedRoute, private location: Location) {}
+  constructor(
+    private zone: NgZone,
+    private route: ActivatedRoute,
+    private location: Location,
+  ) {}
 
   ngAfterViewInit(): void {
     this.setCegStateFromURL();
@@ -144,10 +148,13 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
 
   private getNewestParamMap() {
     const params = new HttpParams({ fromString: this.location.path().split('?')[1] ?? '' });
-    const paramMap = params.keys().reduce((map, prop) => {
-      map[prop] = params.get(prop) ?? '';
-      return map;
-    }, {} as Record<string, string>);
+    const paramMap = params.keys().reduce(
+      (map, prop) => {
+        map[prop] = params.get(prop) ?? '';
+        return map;
+      },
+      {} as Record<string, string>,
+    );
     return paramMap;
   }
 
@@ -222,12 +229,15 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
           return;
         }
 
-        const propsToInclude = Object.entries(props).reduce((acc, [key, value]) => {
-          if (typeof value !== 'function') {
-            acc[key] = value;
-          }
-          return acc;
-        }, {} as Record<string, any>);
+        const propsToInclude = Object.entries(props).reduce(
+          (acc, [key, value]) => {
+            if (typeof value !== 'function') {
+              acc[key] = value;
+            }
+            return acc;
+          },
+          {} as Record<string, any>,
+        );
         this.getWebComponent().setProps(propsToInclude);
       });
   }

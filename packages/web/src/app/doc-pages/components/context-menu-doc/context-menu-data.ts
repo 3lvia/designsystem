@@ -1,8 +1,8 @@
 import changelogJson from '@elvia/elvis-context-menu/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
-import { ContextMenuProps } from '@elvia/elvis-context-menu/react';
+import { BaseContextMenuProps } from '@elvia/elvis-context-menu/react';
 
-const contextMenuData: ComponentData<ContextMenuProps> = {
+const contextMenuData: ComponentData<BaseContextMenuProps> = {
   changelog: changelogJson.content,
   name: 'ContextMenu',
   attributes: {

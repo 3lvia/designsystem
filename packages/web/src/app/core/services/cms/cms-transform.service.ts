@@ -651,8 +651,8 @@ export class CMSTransformService {
     return `
       <div class="cms-landing-page">
         <img class="cms-landing-page__img" src="${srcUrl}" alt="${this.extractLocale(
-      this.extractLocale(data.fields.overviewImage!)!.fields.title,
-    )}"></img>
+          this.extractLocale(data.fields.overviewImage!)!.fields.title,
+        )}"></img>
         <div class="cms-landing-page__description e-text-lg">
           ${data.fields.description ? this.extractLocale(data.fields.description) : ''}
         </div>

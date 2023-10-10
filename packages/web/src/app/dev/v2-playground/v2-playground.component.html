@@ -4,7 +4,19 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-p-16 e-mb-24"></div>
+    <div class="e-p-16 e-mb-24">
+      <elvia-popover noPadding hasCloseButton="false">
+        <button slot="trigger" class="e-btn">Show popover</button>
+        <div slot="content" style="background: red; border-radius: 8px; max-width: 350px">
+          <span class="e-text-md">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eos vero hic explicabo debitis
+            ut officia possimus iusto rem fugiat numquam dolore rerum quisquam error ex soluta dolor ipsum aut
+            nobis, magni quae nisi? Distinctio voluptatum facere iste. Sed, exercitationem porro! Quasi,
+            sequi.
+          </span>
+        </div>
+      </elvia-popover>
+    </div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark e-p-16"></div>
 
@@ -389,6 +401,7 @@
           <h3>DatePicker</h3>
           <elvia-datepicker
             [value]="date"
+            resetTime
             (valueOnChange)="writeDate($any($event).detail.value)"
           ></elvia-datepicker>
         </div>
@@ -396,11 +409,14 @@
         <!--Date range picker-->
         <div class="example-wrapper">
           <h3>Date range picker</h3>
-          <elvia-datepicker-range></elvia-datepicker-range>
+          <elvia-datepicker-range
+            (valueOnChangeISOString)="writeDate($any($event).detail.value)"
+          ></elvia-datepicker-range>
           <elvia-datepicker-range
             hasTimepickers
             [minDate]="minDateRange"
             [maxDate]="maxDateRange"
+            (valueOnChangeISOString)="writeDate($any($event).detail.value)"
           ></elvia-datepicker-range>
         </div>
 
@@ -653,6 +669,12 @@
             <elvia-timepicker isDisabled="true"></elvia-timepicker>
 
             <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
+
+            <elvia-timepicker [minTime]="timepickerMin" [maxTime]="timepickerMax"></elvia-timepicker>
+
+            <elvia-timepicker [minTime]="timepickerMin"></elvia-timepicker>
+
+            <elvia-timepicker [maxTime]="timepickerMax"></elvia-timepicker>
           </div>
         </div>
 

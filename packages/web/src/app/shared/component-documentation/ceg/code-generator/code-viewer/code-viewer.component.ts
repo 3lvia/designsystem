@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, booleanAttribute } from '@angular/core';
 import { Language, Tab } from '../types';
 import { FormatCodePipe } from '../formatCode.pipe';
 
@@ -13,7 +13,11 @@ export class CodeViewerComponent {
   @Input() tabs: Tab[] = ['HTML'];
   @Input() activeCode = '';
   @Input() activeTabIndex = 0;
+  /** Hides tabs in the code viewer
+   * NB: language must be specified in the 'tabs' property for syntax highlighting */
+  @Input({ transform: booleanAttribute }) hideTabs = false;
   @Output() tabIndexChange = new EventEmitter<number>();
+
   tabGroupId = `ceg-tabs-id-${CODE_GENERATOR_TAB_ID++}`;
   copyMessage = '';
 
@@ -37,13 +41,15 @@ export class CodeViewerComponent {
 
   constructor(private codeFormatter: FormatCodePipe) {}
 
-  copyCode() {
-    navigator.clipboard.writeText(this.codeFormatter.transform(this.activeCode, this.language)).then(() => {
-      this.copyMessage = 'Copied!';
-      const copyTimeout = setTimeout(() => {
-        this.copyMessage = '';
-        clearTimeout(copyTimeout);
-      }, 3000);
-    });
+  async copyCode() {
+    await navigator.clipboard
+      .writeText(await this.codeFormatter.transform(this.activeCode, this.language))
+      .then(() => {
+        this.copyMessage = 'Copied!';
+        const copyTimeout = setTimeout(() => {
+          this.copyMessage = '';
+          clearTimeout(copyTimeout);
+        }, 3000);
+      });
   }
 }

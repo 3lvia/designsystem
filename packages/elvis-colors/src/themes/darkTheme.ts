@@ -120,6 +120,10 @@ export const darkTheme = {
       hex: darkThemeColors['primary-colors']['black'].color,
       contrast: darkThemeColors['primary-colors']['black'].contrastText,
     },
+    'text-5': {
+      hex: darkThemeColors['primary-colors']['black'].color,
+      contrast: darkThemeColors['primary-colors']['black'].contrastText,
+    },
     'text-disabled-1': {
       hex: darkThemeColors['grey-colors']['grey-30'].color,
       contrast: darkThemeColors['grey-colors']['grey-30'].contrastText,

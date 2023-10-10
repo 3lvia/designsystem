@@ -74,13 +74,19 @@
           ></div>
         </td>
         <td class="e-table__cell--multiline-small">
-          <div
-            class="height-changer"
-            [ngClass]="{ last: isLast }"
-            [innerHTML]="
-              prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches
-            "
-          ></div>
+          <div class="height-changer e-flex e-gap-8">
+            <div
+              [ngClass]="{ last: isLast }"
+              [innerHTML]="
+                prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches
+              "
+            ></div>
+            <app-property-example-popover
+              *ngIf="prop.item.example"
+              [attribute]="prop.item.attribute"
+              [example]="prop.item.example"
+            />
+          </div>
         </td>
         <td class="table-code-text">
           <div

@@ -11,9 +11,6 @@ $global-padding: 22px;
 $global-mobile-padding: 22px 14px; // -2px border
 $global-mobile-notitle-padding: 14px; // -2px border
 
-$toast-padding: 14px; // -2px border
-$toast-max-width: 400px;
-
 .e-alert {
   position: relative;
   display: inline-flex;
@@ -25,7 +22,7 @@ $toast-max-width: 400px;
   text-align: left;
 
   // Local as default
-  &:not(.e-alert--global):not(.e-alert--toast) {
+  &:not(.e-alert--global) {
     @extend .e-alert--local;
   }
 
@@ -34,7 +31,6 @@ $toast-max-width: 400px;
     width: 32px;
     margin-right: 24px;
     @include breakpoints.breakpoint-up(Mobile) {
-      align-items: center;
       margin-top: 0;
       margin-right: 16px;
     }
@@ -47,17 +43,13 @@ $toast-max-width: 400px;
     justify-content: center;
 
     .e-alert__title {
-      @include typography.typography('title-caps');
       margin-bottom: 2px;
-      color: var(--e-color-text-1);
-      text-align: left;
     }
 
     .e-alert__text {
       @include typography.typography('text-md');
       max-width: 758px;
       color: var(--e-color-text-1);
-      text-align: left;
 
       ul {
         padding: 0;
@@ -73,27 +65,10 @@ $toast-max-width: 400px;
     }
 
     .e-alert__links {
+      display: flex;
       height: 26px;
       margin-top: 16px;
-
-      a:not(:last-of-type) {
-        margin-right: 24px;
-      }
-    }
-  }
-
-  &__close {
-    display: flex;
-    width: 56px;
-    align-items: flex-start;
-    justify-content: center;
-    padding-left: 16px;
-    margin-top: 8px;
-    margin-left: auto;
-
-    @include breakpoints.breakpoint-up(Mobile) {
-      align-items: center;
-      margin-top: 0;
+      column-gap: 24px;
     }
   }
 
@@ -107,17 +82,18 @@ $toast-max-width: 400px;
       padding: $global-mobile-padding;
     }
 
-    .e-alert__icon,
     .e-alert__close {
-      align-items: center;
-      margin-top: 0;
+      display: grid;
+      margin-left: 24px;
+      place-items: center;
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        margin-left: 16px;
+      }
     }
 
-    .e-alert__close {
-      padding-left: 24px;
-      @include breakpoints.breakpoint-up(Mobile) {
-        padding-left: 16px;
-      }
+    .e-alert__icon {
+      align-items: center;
     }
 
     .e-alert__content .e-alert__title {
@@ -173,12 +149,10 @@ $toast-max-width: 400px;
           animation: rotate-center-forward 0.2s ease-in-out both;
 
           @include helpers.keyframes(rotate-center-forward) {
-            /* stylelint-disable-next-line declaration-no-important */
             0% {
               @include helpers.transform(rotate(180deg));
             }
 
-            /* stylelint-disable-next-line declaration-no-important */
             100% {
               @include helpers.transform(rotate(0));
             }
@@ -209,8 +183,10 @@ $toast-max-width: 400px;
         margin-top: 0;
         opacity: 0;
         pointer-events: none;
-        transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1),
-          opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), margin-top 0.17s cubic-bezier(0, 0.18, 1, 1);
+        transition:
+          max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1),
+          opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1),
+          margin-top 0.17s cubic-bezier(0, 0.18, 1, 1);
       }
 
       &.e-alert--open {
@@ -240,7 +216,9 @@ $toast-max-width: 400px;
           max-height: 10000px;
           opacity: 1;
           pointer-events: auto;
-          transition: 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97),
+          transition:
+            0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32),
+            opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97),
             margin-top 0.1s cubic-bezier(0, 0.3, 0.83, 0.97);
         }
       }
@@ -254,38 +232,61 @@ $toast-max-width: 400px;
     padding: $local-padding;
     border-radius: 8px;
 
+    .e-alert__icon {
+      margin-top: 11px;
+    }
+
     @include breakpoints.breakpoint-up(Mobile) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
       padding: $local-mobile-padding;
 
       .e-alert__content {
-        margin-top: 8px;
+        row-gap: 8px;
+
+        .e-alert__title {
+          margin: 1px 0;
+          @include typography.typography('text-small-strong');
+        }
+
+        .e-alert__text {
+          @include typography.typography('text-small');
+        }
       }
 
-      .e-alert__text {
-        text-align: center;
+      .e-alert__title ~ .e-alert__text,
+      &.e-alert--actions .e-alert__links,
+      &.e-alert--actions .e-alert__actions {
+        margin-left: -32px;
       }
-    }
 
-    .e-alert__icon {
-      margin-top: 11px;
+      &.e-alert--actions {
+        .e-alert__links,
+        .e-alert__actions {
+          margin-top: 16;
+        }
+      }
 
-      @include breakpoints.breakpoint-up(Mobile) {
-        margin: 0;
+      .e-alert__icon {
+        width: 24px;
+        height: 24px;
+        margin: 0 8px 0 0;
+
+        .e-icon {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
 
     .e-alert__title {
       @include typography.typography('text-md-strong');
-      margin-bottom: 0;
+      margin: 0;
       color: var(--e-color-text-1);
+    }
 
-      @include breakpoints.breakpoint-up(Mobile) {
-        text-align: center;
-      }
+    .e-alert__close {
+      position: absolute;
+      inset: 8px 8px auto auto;
     }
 
     &.e-alert--warn {
@@ -302,6 +303,13 @@ $toast-max-width: 400px;
     &.e-alert--global {
       @include breakpoints.breakpoint-up(Mobile) {
         padding: $global-mobile-notitle-padding;
+      }
+    }
+
+    &.e-alert--local {
+      .e-alert__icon {
+        align-items: center;
+        margin-top: 0;
       }
     }
   }
@@ -351,6 +359,41 @@ $toast-max-width: 400px;
         // IE hack
         @media screen and (-ms-high-contrast: none) {
           width: 100%;
+        }
+      }
+    }
+
+    &.e-alert--local {
+      .e-alert__icon {
+        align-items: unset;
+        margin: 11px 24px 0 0;
+        @include breakpoints.breakpoint-up(Mobile) {
+          margin: 0 8px 0 0;
+        }
+      }
+
+      .e-alert__content {
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .e-alert__actions,
+      .e-alert__links {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        margin-top: 16px;
+        gap: 24px;
+
+        @include breakpoints.breakpoint-up(Mobile) {
+          width: calc(100% + 32px);
+          margin: 0 0 0 -32px;
+
+          button {
+            width: auto;
+          }
         }
       }
     }

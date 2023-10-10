@@ -35,7 +35,7 @@ export interface CardColoredLineProps {
   borderColor?: BorderColor;
 }
 
-export interface CardProps extends ComponentPropsWithoutRef<'article'>, BaseProps {
+export interface BaseCardProps extends BaseProps {
   icon?: string | JSX.Element;
   iconHover?: string | JSX.Element;
   heading?: string;
@@ -52,3 +52,5 @@ export interface CardProps extends ComponentPropsWithoutRef<'article'>, BaseProp
   tag?: string;
   cornerIcon?: string | JSX.Element;
 }
+
+export interface CardProps extends BaseCardProps, ComponentPropsWithoutRef<'article'> {}
