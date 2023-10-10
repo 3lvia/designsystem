@@ -49,12 +49,11 @@
       <tr
         *ngFor="let prop of group.rows; let isLast = last; let i = index"
         class="prop-row"
-        [ngClass]="{ expanded: group.expanded }"
+        [ngClass]="{ expanded: group.expanded, last: isLast }"
       >
         <th scope="row" class="table-code-text">
           <div
             class="height-changer"
-            [ngClass]="{ last: isLast }"
             [ngStyle]="{
               'margin-left.px': calculateMargin(i, group.rows),
               'padding-left.px': calculatePadding(i, group.rows)
@@ -69,14 +68,12 @@
         <td class="table-code-text e-table__cell--multiline-small">
           <div
             class="height-changer"
-            [ngClass]="{ last: isLast }"
             [innerHTML]="prop.item.type | searchHighlighter : 'type' : prop.matches"
           ></div>
         </td>
         <td class="e-table__cell--multiline-small">
           <div class="height-changer e-flex e-gap-8">
             <div
-              [ngClass]="{ last: isLast }"
               [innerHTML]="
                 prop.item.description | escapeHTML | searchHighlighter : 'description' : prop.matches
               "
@@ -91,7 +88,6 @@
         <td class="table-code-text">
           <div
             class="height-changer"
-            [ngClass]="{ last: isLast }"
             [innerHTML]="
               (isLeafProp(i, group.rows) ? prop.item.default : '')
                 | searchHighlighter : 'default' : prop.matches

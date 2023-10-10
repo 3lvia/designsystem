@@ -11,4 +11,5 @@ export interface ComponentProp {
   default?: string | number | boolean | undefined;
   isEvent?: boolean;
   isRequired?: boolean;
+  example?: string;
 }
