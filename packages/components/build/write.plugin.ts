@@ -85,17 +85,17 @@ const writePlugin: esbuild.Plugin = {
       return output;
     };
 
-    const writeFilesToDisc = (output: Map<string, FileWithHash>): void => {
-      output.forEach(async (outputFile, filePath) => {
-        if (outputFile.hash !== writeCache.get(filePath)) {
-          writeCache.set(filePath, outputFile.hash);
+    const writeFilesToDisc = async (output: Map<string, FileWithHash>): Promise<void> => {
+      for (const [filePath, file] of output) {
+        if (file.hash !== writeCache.get(filePath)) {
+          writeCache.set(filePath, file.hash);
 
           if (!fs.existsSync(filePath)) {
             await fsPromises.mkdir(path.dirname(filePath), { recursive: true });
           }
-          await fsPromises.writeFile(filePath, outputFile.text);
+          await fsPromises.writeFile(filePath, file.text);
         }
-      });
+      }
     };
   },
 };

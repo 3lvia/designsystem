@@ -50,11 +50,11 @@ const setGetList = (attributes: Attribute[]) => {
 };
 
 const getConfigObject = (file: string): Config => {
-  const content = file.match(/export.*({[\w\W]*})/)?.[1] as string;
+  const content = /export.*({.*})/.exec(file)?.[1] as string;
 
   // Remove quotes, new lines and spaces
   const cleanContent = content.replace(/'/g, '').replace(/\n/g, '').replace(/ /g, '');
-  const contentWithDoubleQuotes = cleanContent.replace(/([\w\.]+)/g, '"$1"');
+  const contentWithDoubleQuotes = cleanContent.replace(/([\w.]+)/g, '"$1"');
   const contentWithoutTrailingCommas = contentWithDoubleQuotes.replace(/([\]}]),(?=[\]}])/g, '$1');
   return JSON.parse(contentWithoutTrailingCommas);
 };

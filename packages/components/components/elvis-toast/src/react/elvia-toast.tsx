@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import { toastEventName, ToastWithId } from './publicApi.public';
+import { toastEventName, ToastWithId, toastContainerId } from './publicApi.public';
 import { ToastPosition } from './styledComponents';
 import { ToastBox } from './toastBox';
-import { toastContainerId } from './publicApi.public';
 import { ToastProps } from './elviaToast.types';
 
 export const Toast: React.FC<ToastProps> = ({ className, inlineStyle }) => {

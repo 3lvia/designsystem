@@ -25,11 +25,15 @@ export const getMd5FromFile = (file?: string): string => {
 export const toInOutTuple = (filePath: string, outFolder?: string, fileName?: string) => {
   const componentFolder = filePath.split('/')[1];
   const outName = fileName ?? path.parse(filePath).name;
-  const subFolder = outFolder ? outFolder : outName.endsWith('.public') ? 'public-api' : 'react';
+
+  let subFolder = outFolder ?? 'react';
+  if (outName.endsWith('.public')) {
+    subFolder = 'public-api';
+  }
 
   return { in: filePath, out: path.join(componentFolder, 'dist', subFolder, outName) };
 };
 
 export const getComponentName = (filePath: string): string => {
-  return filePath.split(path.sep).find((part) => part.startsWith('elvis')) || '';
+  return filePath.split(path.sep).find((part) => part.startsWith('elvis')) ?? '';
 };
