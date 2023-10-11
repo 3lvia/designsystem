@@ -115,13 +115,10 @@ const buildWebComponents = async (config: {
   };
 
   if (config.watch) {
-    const esBuildContext = await esbuild.context({
-      ...baseConfig,
-      sourcemap: true,
-    });
+    const esBuildContext = await esbuild.context(baseConfig);
     return esBuildContext.watch();
   } else {
-    return esbuild.build({ ...baseConfig, minify: false });
+    return esbuild.build(baseConfig);
   }
 };
 
