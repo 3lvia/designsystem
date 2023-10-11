@@ -88,13 +88,9 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     background-color: var(--e-color-background-hover-1);
   }
 
-  &:has(input:disabled, .e-checkbox---disabled, .e-checkbox---disabled-checked) {
-    background-color: rgb(0, 255, 170);
-    cursor: not-allowed;
-  }
-
-  input:disabled,
-  &.e-checkbox---disabled {
+  &.e-checkbox---disabled,
+  &:has(input:disabled, .e-checkbox---disabled, .e-checkbox---disabled-checked),
+  input:disabled {
     @extend %checkbox-mark-disabled;
   }
 
