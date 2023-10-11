@@ -2288,7 +2288,7 @@ __metadata:
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
     "@elvia/elvis-colors": ^4.1.0
-    "@types/gulp": ^4.0.14
+    "@types/gulp": ^4.0.15
     "@types/gulp-svgmin": ^1.2.2
     "@types/node": ^18.18.4
     del: ^6.1.1
@@ -2477,7 +2477,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
-    "@types/gulp": ^4.0.14
+    "@types/gulp": ^4.0.15
     "@types/node": ^18.18.4
     del: ^6.1.1
     gulp: ^4.0.2
@@ -2541,7 +2541,7 @@ __metadata:
     react-dom: ^18.2.0
     react-is: ^18.2.0
     resize-observer-polyfill: ^1.5.1
-    sass: ^1.69.1
+    sass: ^1.69.2
     sass-loader: ^13.3.2
     styled-components: ^5.3.3
     tiny-glob: ^0.2.9
@@ -3076,7 +3076,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
-    "@types/gulp": ^4.0.14
+    "@types/gulp": ^4.0.15
     "@types/node": ^18.18.4
     del: ^6.1.1
     gulp: ^4.0.2
@@ -3107,8 +3107,8 @@ __metadata:
     mini-svg-data-uri: ^1.4.4
     popper.js: ^1.16.1
     postcss: ^8.4.31
-    resolve: ^1.22.6
-    sass: ^1.69.1
+    resolve: ^1.22.8
+    sass: ^1.69.2
   languageName: unknown
   linkType: soft
 
@@ -4737,14 +4737,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp@npm:^4.0.14":
-  version: 4.0.14
-  resolution: "@types/gulp@npm:4.0.14"
+"@types/gulp@npm:^4.0.15":
+  version: 4.0.15
+  resolution: "@types/gulp@npm:4.0.15"
   dependencies:
     "@types/undertaker": ">=1.2.6"
     "@types/vinyl-fs": "*"
     chokidar: ^3.3.1
-  checksum: 510961b33dfd8fa6678a2e9e4762358dc2087ecea988d194c97bea891dfb0f286b5a135ec57e4915d2fe0cc11ea5c4806a68a38bfe27dd11880b783ef1afb542
+  checksum: 70eacddda7acdde1eeb12e352262085fdc947252875d4ca6c5bd1df023203b9b1e14220c922b8d0a3f48a50d0216b2b6d95b6583b3dec0303cfe74b07be2a2c2
   languageName: node
   linkType: hard
 
@@ -9094,7 +9094,7 @@ __metadata:
     prettier: ^3.0.3
     prismjs: ^1.29.0
     rxjs: ^7.8.1
-    sass: ^1.69.1
+    sass: ^1.69.2
     ts-node: ^10.9.1
     tslib: ^2.6.2
     typescript: ~5.1.0
@@ -16359,7 +16359,7 @@ __metadata:
     "@vitejs/plugin-react": ^4.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
-    sass: ^1.69.1
+    sass: ^1.69.2
     typescript: ~5.1.0
     vite: ^4.4.11
   languageName: unknown
@@ -16866,7 +16866,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.1.6, resolve@npm:^1.1.7, resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.20.0, resolve@npm:^1.22.6, resolve@npm:^1.4.0":
+"resolve@npm:^1.1.6, resolve@npm:^1.1.7, resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.20.0, resolve@npm:^1.4.0":
   version: 1.22.6
   resolution: "resolve@npm:1.22.6"
   dependencies:
@@ -16876,6 +16876,19 @@ __metadata:
   bin:
     resolve: bin/resolve
   checksum: d13bf66d4e2ee30d291491f16f2fa44edd4e0cefb85d53249dd6f93e70b2b8c20ec62f01b18662e3cd40e50a7528f18c4087a99490048992a3bb954cf3201a5b
+  languageName: node
+  linkType: hard
+
+"resolve@npm:^1.22.8":
+  version: 1.22.8
+  resolution: "resolve@npm:1.22.8"
+  dependencies:
+    is-core-module: ^2.13.0
+    path-parse: ^1.0.7
+    supports-preserve-symlinks-flag: ^1.0.0
+  bin:
+    resolve: bin/resolve
+  checksum: f8a26958aa572c9b064562750b52131a37c29d072478ea32e129063e2da7f83e31f7f11e7087a18225a8561cfe8d2f0df9dbea7c9d331a897571c0a2527dbb4c
   languageName: node
   linkType: hard
 
@@ -16905,7 +16918,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.1.7#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.4.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.1.7#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.4.0#~builtin<compat/resolve>":
   version: 1.22.6
   resolution: "resolve@patch:resolve@npm%3A1.22.6#~builtin<compat/resolve>::version=1.22.6&hash=c3c19d"
   dependencies:
@@ -16915,6 +16928,19 @@ __metadata:
   bin:
     resolve: bin/resolve
   checksum: 9d3b3c67aefd12cecbe5f10ca4d1f51ea190891096497c43f301b086883b426466918c3a64f1bbf1788fabb52b579d58809614006c5d0b49186702b3b8fb746a
+  languageName: node
+  linkType: hard
+
+"resolve@patch:resolve@^1.22.8#~builtin<compat/resolve>":
+  version: 1.22.8
+  resolution: "resolve@patch:resolve@npm%3A1.22.8#~builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
+  dependencies:
+    is-core-module: ^2.13.0
+    path-parse: ^1.0.7
+    supports-preserve-symlinks-flag: ^1.0.0
+  bin:
+    resolve: bin/resolve
+  checksum: 5479b7d431cacd5185f8db64bfcb7286ae5e31eb299f4c4f404ad8aa6098b77599563ac4257cb2c37a42f59dfc06a1bec2bcf283bb448f319e37f0feb9a09847
   languageName: node
   linkType: hard
 
@@ -17161,16 +17187,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.69.1":
-  version: 1.69.1
-  resolution: "sass@npm:1.69.1"
+"sass@npm:^1.69.2":
+  version: 1.69.2
+  resolution: "sass@npm:1.69.2"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: e3f0754fc8e1ffc239919cba8d1cc8d89908d596161992c562d0679a6aa1e1c57b0a11846726f9222f96622495a5bfc00461b3f31182e71a54ad91a86dd10a8f
+  checksum: 25c6aaf993a40ce33e66c6c3a25690ce573a3c890024ba3dea5416a17c7db6ec39542d4b4e62c2c429005737630d6b48ab841f99fd534ac1b441f37d2c34e0c4
   languageName: node
   linkType: hard
 
@@ -19749,7 +19775,7 @@ __metadata:
     "@elvia/elvis-tooltip": "*"
     "@rollup/plugin-commonjs": ^25.0.5
     "@vitejs/plugin-vue": ^4.4.0
-    sass: ^1.69.1
+    sass: ^1.69.2
     typescript: ~5.1.0
     vite: ^4.4.11
     vue: ^3.3.4
