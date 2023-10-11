@@ -7,7 +7,7 @@ import { getMd5 } from './utils';
 
 interface Props {
   destinationDir: string;
-  log: boolean;
+  watchMode: boolean;
 }
 
 const writeTypingsToDisk = async (fileName: string, text: string, sources?: readonly ts.SourceFile[]) => {
@@ -43,6 +43,7 @@ const dtsPlugin = (config: Props) =>
         incremental: true,
         target: ts.ScriptTarget.ES2015,
         skipLibCheck: true,
+        declarationMap: config.watchMode,
       };
 
       const host = ts.createCompilerHost(tsConfig);
@@ -78,7 +79,7 @@ const dtsPlugin = (config: Props) =>
 
         // Clear the files list for next build
         files = [];
-        if (config.log) {
+        if (!config.watchMode) {
           console.log(
             `✏️  Wrote ${emit.emittedFiles ? emit.emittedFiles.length : 0} typings in ${
               Date.now() - start
