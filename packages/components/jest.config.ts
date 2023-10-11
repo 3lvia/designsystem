@@ -4,7 +4,7 @@ const config: Config = {
   verbose: true,
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>/setupTests.js',
+    '\\.(css|scss)$': 'identity-obj-proxy',
   },
   transformIgnorePatterns: ['/node_modules/(?!@elvia/elvis-(assets-icons|typography|toolbox))'],
 };
