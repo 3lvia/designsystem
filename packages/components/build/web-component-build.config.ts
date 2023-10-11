@@ -50,7 +50,7 @@ const setGetList = (attributes: Attribute[]) => {
 };
 
 const getConfigObject = (file: string): Config => {
-  const content = /export.*({.*})/.exec(file)?.[1] as string;
+  const content = /export.*({[\w\W]*})/.exec(file)?.[1] as string;
 
   // Remove quotes, new lines and spaces
   const cleanContent = content.replace(/'/g, '').replace(/\n/g, '').replace(/ /g, '');
