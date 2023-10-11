@@ -63,9 +63,6 @@ export const build = async () => {
   };
 
   if (watchMode) {
-    console.log('🧹 Removing old dist folders...');
-    await cleanDistFolders();
-
     console.log('👀 Starting watch...');
     const esBuildContext = await esbuild.context({
       ...baseConfig,
