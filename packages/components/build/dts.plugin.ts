@@ -10,6 +10,27 @@ interface Props {
   log: boolean;
 }
 
+const writeTypingsToDisk = async (fileName: string, text: string, sources?: readonly ts.SourceFile[]) => {
+  const originalPath = sources?.[0]?.fileName || '';
+  const isPublicApi = path.basename(fileName).includes('.public');
+  const outDir = path.dirname(
+    originalPath.replace(/src(\/react)?/, `dist${path.sep}${isPublicApi ? 'public-api' : 'react'}`),
+  );
+
+  let fileContent = text;
+  if (text.match(/\.\/([\w-]+.public)/g)) {
+    fileContent = text.replace(
+      /\.\/([\w-]+.public)/g,
+      (_match, fileName) => `..${path.sep}public-api${path.sep}${fileName}`,
+    );
+  }
+
+  if (!fs.existsSync(outDir)) {
+    await fsPromises.mkdir(outDir, { recursive: true });
+  }
+  await fsPromises.writeFile(path.join(outDir, path.basename(fileName)), fileContent);
+};
+
 const dtsPlugin = (config: Props) =>
   ({
     name: 'dts-plugin',
@@ -49,24 +70,7 @@ const dtsPlugin = (config: Props) =>
         const emit = program.emit(
           undefined,
           async (fileName, text, _, __, sources) => {
-            const originalPath = sources?.[0]?.fileName || '';
-            const isPublicApi = path.basename(fileName).includes('.public');
-            const outDir = path.dirname(
-              originalPath.replace(/src(\/react)?/, `dist${path.sep}${isPublicApi ? 'public-api' : 'react'}`),
-            );
-
-            let fileContent = text;
-            if (text.match(/\.\/([\w-]+.public)/g)) {
-              fileContent = text.replace(
-                /\.\/([\w-]+.public)/g,
-                (_match, fileName) => `..${path.sep}public-api${path.sep}${fileName}`,
-              );
-            }
-
-            if (!fs.existsSync(outDir)) {
-              await fsPromises.mkdir(outDir, { recursive: true });
-            }
-            await fsPromises.writeFile(path.join(outDir, path.basename(fileName)), fileContent);
+            await writeTypingsToDisk(fileName, text, sources);
           },
           undefined,
           true,
