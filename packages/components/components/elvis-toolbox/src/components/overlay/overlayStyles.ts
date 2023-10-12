@@ -28,6 +28,7 @@ const fadeOutAnimation = keyframes`
 
 export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: boolean }>`
   position: absolute;
+  top: 0;
   z-index: 99999;
   animation: ${fadeInAnimation} 300ms ease;
   max-width: calc(100% - 16px);
