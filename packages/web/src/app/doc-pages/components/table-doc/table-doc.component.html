@@ -173,6 +173,28 @@
         </div>
       </elvia-accordion>
       <elvia-divider />
+      <elvia-accordion
+        openLabel="Extra information"
+        closeLabel="Extra information"
+        isFullWidth="true"
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <p class="e-m-0">
+            If a cell of content needs further information or explaining a tooltip or popover can be used.
+          </p>
+          <app-component-subsubsection [sectionTitle]="'Tooltip'">
+            <p class="e-m-0">
+              Tooltips are normally used to complete a sentence, defining abbreviations or explaining
+              something unclear. Keep tooltips short.
+            </p>
+            <app-static-ceg>
+              <app-table-extra-information-tooltip-ceg />
+            </app-static-ceg>
+          </app-component-subsubsection>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
       <elvia-accordion openLabel="Input" closeLabel="Input" isFullWidth="true" size="large">
         <div slot="content" class="e-text-lg e-mt-16">
           Use an input field when the user can edit values in the table.
