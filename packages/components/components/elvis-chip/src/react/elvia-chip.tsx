@@ -1,13 +1,13 @@
 import check from '@elvia/elvis-assets-icons/dist/icons/check';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { getThemeColor } from '@elvia/elvis-colors';
-import { IconWrapper, useWebComponentState } from '@elvia/elvis-toolbox';
+import { IconWrapper, useSlot, useWebComponentState } from '@elvia/elvis-toolbox';
 import { useHover } from '@react-aria/interactions';
 import React, { FC } from 'react';
 import { ChipProps } from './elvia-chip.types';
-import { ChipComponent, ChipDot, ChipLoading, ChipTitle } from './styledComponents';
+import { ChipComponent, ChipDot, ChipImageContainer, ChipLoading, ChipTitle } from './styledComponents';
 
-export const Chip: FC<ChipProps> = function ({
+export const Chip: FC<ChipProps> = ({
   ariaLabel,
   color = 'green',
   isDisabled = false,
@@ -15,13 +15,14 @@ export const Chip: FC<ChipProps> = function ({
   isLoading = false,
   type = 'removable',
   value,
+  image,
   onDelete,
   isSelectedOnChange,
   className,
   inlineStyle,
   webcomponent,
   ...rest
-}) {
+}) => {
   const [isSelectedState, setIsSelectedState] = useWebComponentState(
     isSelected,
     'isSelected',
@@ -29,12 +30,12 @@ export const Chip: FC<ChipProps> = function ({
     isSelectedOnChange,
   );
 
+  const { ref: imageRef } = useSlot<HTMLDivElement>('image', webcomponent);
+  const hasImage = !!(imageRef?.current?.childNodes.length || image);
+
   const handleOnDelete = (value: ChipProps['value']) => {
-    if (!webcomponent) {
-      onDelete && onDelete(value);
-    } else if (webcomponent) {
-      webcomponent.triggerEvent('onDelete', value);
-    }
+    onDelete?.(value);
+    webcomponent?.triggerEvent('onDelete', value);
   };
 
   const getTextColor = (): string => {
@@ -59,6 +60,7 @@ export const Chip: FC<ChipProps> = function ({
       isDisabled={isDisabled}
       chipType={type}
       isSelected={isSelectedState}
+      hasImage={hasImage}
       isHovering={isHovered}
       className={className ?? ''}
       isLoading={isLoading}
@@ -82,6 +84,7 @@ export const Chip: FC<ChipProps> = function ({
           isHidden={isLoading}
         />
       )}
+      {type === 'removable' && <ChipImageContainer ref={imageRef}>{image}</ChipImageContainer>}
       {isLoading && (
         <ChipLoading color={color}>
           <span />
