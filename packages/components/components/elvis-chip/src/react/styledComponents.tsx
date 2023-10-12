@@ -19,7 +19,8 @@ const chipColors = (color: ColorType, theme: ThemeName = 'light') => {
   }
 };
 
-const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
+const baseTenToHex = (num: number) => parseInt(num.toString(), 16);
+const setOpacity = (color: string, opacity: number): string => `${color}${baseTenToHex(opacity)}`;
 
 const getChipBackgroundLight = (
   color: ColorType,

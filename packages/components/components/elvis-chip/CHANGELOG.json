@@ -2,9 +2,13 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "13.10.23",
+      "date": "12.10.23",
       "version": "2.5.0",
       "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed all chip backgrounds having the wrong opacity."]
+        },
         {
           "type": "patch",
           "changes": ["Added support for an image in removable chip."]
