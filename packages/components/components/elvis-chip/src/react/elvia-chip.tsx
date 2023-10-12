@@ -31,7 +31,7 @@ export const Chip: FC<ChipProps> = ({
   );
 
   const { ref: imageRef } = useSlot<HTMLDivElement>('image', webcomponent);
-  const hasImage = !!(imageRef?.current?.childNodes.length || image);
+  const hasImage = !!(imageRef?.current?.childNodes.length || webcomponent?.getSlot('image') || image);
 
   const handleOnDelete = (value: ChipProps['value']) => {
     onDelete?.(value);
