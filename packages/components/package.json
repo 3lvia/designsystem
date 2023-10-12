@@ -31,7 +31,7 @@
     "@babel/register": "^7.22.15",
     "@elvia/elvis-component-wrapper": "*",
     "@testing-library/dom": "9.3.3",
-    "@testing-library/jest-dom": "6.1.3",
+    "@testing-library/jest-dom": "6.1.4",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.5.1",
     "@types/gulp": "^4.0.15",
