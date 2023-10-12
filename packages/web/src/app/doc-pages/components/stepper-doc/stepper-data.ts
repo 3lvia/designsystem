@@ -11,9 +11,37 @@ export const stepperData: ComponentData = {
       default: '"horizontal"',
     },
     steps: {
-      type: '{[stepIndex: number]: StepItem}',
+      type: 'object',
       description:
         'An object to define the heading, next- and previous-button text and/or the state of the step.',
+      children: {
+        1: {
+          type: 'object',
+          description: 'Number of step. Create a new object on this level for each step.',
+          children: {
+            heading: {
+              type: 'string',
+              description: 'The heading of the step.',
+            },
+            nextButtonText: {
+              type: 'string',
+              description: 'The text of the next button.',
+            },
+            previousButtonText: {
+              type: 'string',
+              description: 'The text of the previous button.',
+            },
+            isCompleted: {
+              type: 'boolean',
+              description: 'If the step is completed.',
+            },
+            isError: {
+              type: 'boolean',
+              description: 'If the step has an error.',
+            },
+          },
+        },
+      },
     },
     isForced: {
       type: 'boolean',
