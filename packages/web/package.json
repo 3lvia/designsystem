@@ -76,7 +76,7 @@
     "@angular/cli": "^16.2.6",
     "@angular/compiler-cli": "^16.2.9",
     "@angular/language-service": "^16.2.9",
-    "@babel/core": "^7.23.0",
+    "@babel/core": "^7.23.2",
     "@babel/eslint-parser": "^7.22.15",
     "@types/lodash.debounce": "^4.0.7",
     "@types/natural-compare-lite": "^1.4.0",
