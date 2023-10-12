@@ -118,7 +118,7 @@ export const ChipComponent = styled.button<ChipComponentProps>`
     ${({ isLoading, isSelected, chipType }) => getChipBorderLight(isLoading, isSelected, chipType)};
   background-color: ${({ color, isSelected, isHovering, isDisabled, isLoading, chipType }) =>
     getChipBackgroundLight(color, isSelected, isHovering, isDisabled, isLoading, chipType)};
-  padding: ${({ hasImage }) => (hasImage ? '3px 16px 3px 4px' : '7px 15px')};
+  padding: ${({ hasImage }) => (hasImage ? '3px 15px 3px 3px' : '7px 15px')};
   border-radius: 24px;
   transition: background-color 150ms ease-in;
   white-space: nowrap;
