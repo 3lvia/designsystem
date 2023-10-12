@@ -7,10 +7,20 @@ const spotlightData: ComponentData = {
   attributes: {
     position: {
       isRequired: true,
-      type: '{horizontal: number, vertical: number}',
+      type: 'object',
       description:
         'The position represents the center of the circle, or the top left corner of the rectangle. The position is relative to the screen.',
       default: '',
+      children: {
+        horizontal: {
+          type: 'number',
+          description: 'Horizontal coordinate.',
+        },
+        vertical: {
+          type: 'number',
+          description: 'Vertical coordinate.',
+        },
+      },
     },
     shape: {
       type: '"circle" | "rectangle"',
@@ -23,9 +33,23 @@ const spotlightData: ComponentData = {
       default: '200',
     },
     rectangleProps: {
-      type: '{width: number, height: number, borderRadius: number}',
+      type: 'object',
       description: 'Props for the spotlight rectangle. Only applies to shape rectangle.',
       default: '{width: 200, height: 200, borderRadius: 8}',
+      children: {
+        width: {
+          type: 'number',
+          description: 'Width of the rectangle.',
+        },
+        height: {
+          type: 'number',
+          description: 'Height of the rectangle.',
+        },
+        borderRadius: {
+          type: 'number',
+          description: 'Border radius of the rectangle.',
+        },
+      },
     },
     hasLockBodyScroll: {
       type: 'boolean',
