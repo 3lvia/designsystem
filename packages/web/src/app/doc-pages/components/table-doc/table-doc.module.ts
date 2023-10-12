@@ -1,12 +1,13 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { TableDocComponent } from './table-doc.component';
-import { TableCegComponent } from './table-ceg/table-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 import { TableAlignmentCegComponent } from './table-alignment-ceg/table-alignment-ceg.component';
 import { TableButtonDesktopCegComponent } from './table-button-desktop-ceg/table-button-desktop-ceg.component';
 import { TableButtonMobileCegComponent } from './table-button-mobile-ceg/table-button-mobile-ceg.component';
+import { TableCegComponent } from './table-ceg/table-ceg.component';
 import { TableCheckboxDesktopCegComponent } from './table-checkbox-desktop-ceg/table-checkbox-desktop-ceg.component';
 import { TableCheckboxMobileCegComponent } from './table-checkbox-mobile-ceg/table-checkbox-mobile-ceg.component';
+import { TableDocComponent } from './table-doc.component';
+import { TableExtraInformationPopoverCegComponent } from './table-extra-information-popover-ceg/table-extra-information-popover-ceg.component';
 import { TableExtraInformationTooltipCegComponent } from './table-extra-information-tooltip-ceg/table-extra-information-tooltip-ceg.component';
 import { TableFootnoteCegComponent } from './table-footnote-ceg/table-footnote-ceg.component';
 import { TableInputDesktopCegComponent } from './table-input-desktop-ceg/table-input-desktop-ceg.component';
@@ -25,16 +26,16 @@ import { TableStickyColumnHeaderMobileCegComponent } from './table-sticky-column
 import { TableStickyRowHeaderDesktopCegComponent } from './table-sticky-row-header-desktop-ceg/table-sticky-row-header-desktop-ceg.component';
 import { TableValidationCellCegComponent } from './table-validation-cell-ceg/table-validation-cell-ceg.component';
 import { TableValidationRowCegComponent } from './table-validation-row-ceg/table-validation-row-ceg.component';
-
 @NgModule({
   declarations: [
-    TableDocComponent,
-    TableCegComponent,
     TableAlignmentCegComponent,
     TableButtonDesktopCegComponent,
     TableButtonMobileCegComponent,
+    TableCegComponent,
     TableCheckboxDesktopCegComponent,
     TableCheckboxMobileCegComponent,
+    TableDocComponent,
+    TableExtraInformationPopoverCegComponent,
     TableExtraInformationTooltipCegComponent,
     TableFootnoteCegComponent,
     TableInputDesktopCegComponent,
