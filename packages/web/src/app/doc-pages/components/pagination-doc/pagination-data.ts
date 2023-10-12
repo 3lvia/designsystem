@@ -10,6 +10,16 @@ export const paginationData: ComponentData = {
       description:
         'The range of elements that should be visible in the paginator from start. "start" represents first element index and "end" represents last element index. {start: number, end: number}',
       default: '{ start: undefined, end: undefined }',
+      children: {
+        start: {
+          type: 'number',
+          description: 'First element index.',
+        },
+        end: {
+          type: 'number',
+          description: 'Last element index.',
+        },
+      },
     },
     numberOfElements: {
       isRequired: true,
@@ -47,6 +57,16 @@ export const paginationData: ComponentData = {
           label: '40'
         },
       ]`,
+      children: {
+        value: {
+          type: 'string',
+          description: 'Value of the dropdown item.',
+        },
+        label: {
+          type: 'string',
+          description: 'Label of the dropdown item.',
+        },
+      },
     },
     dropdownSelectedItemIndex: {
       type: 'number',
@@ -66,6 +86,20 @@ export const paginationData: ComponentData = {
         of: 'av',
         label: 'elementer'
       }`,
+      children: {
+        displaying: {
+          type: 'string',
+          description: 'Label for "displaying".',
+        },
+        of: {
+          type: 'string',
+          description: 'Label for "of".',
+        },
+        label: {
+          type: 'string',
+          description: 'Label for "label".',
+        },
+      },
     },
     valueOnChange: {
       isEvent: true,
