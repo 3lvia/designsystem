@@ -6,8 +6,18 @@ const datepickerRangeData: ComponentData = {
   name: 'DatepickerRange',
   attributes: {
     value: {
-      type: '{start: Date | null, end: Date | null}',
-      description: 'Preselected date.',
+      type: 'object',
+      description: 'Preselected dates.',
+      children: {
+        start: {
+          type: 'Date',
+          description: 'Preselected start date.',
+        },
+        end: {
+          type: 'Date',
+          description: 'Preselected end date.',
+        },
+      },
     },
     valueOnChange: {
       isEvent: true,
@@ -21,9 +31,19 @@ const datepickerRangeData: ComponentData = {
       description: `Gets called every time the value is changed. Returns a string containing the chosen date, without time, in ISO format (e.g. '2022-06-20'), or null if no date is selected.`,
     },
     labelOptions: {
-      type: '{start?: string; end?: string}',
+      type: 'object',
       description: 'Labels of inputs.',
       default: '{start: "Fra dato", end: "Til dato"}',
+      children: {
+        start: {
+          type: 'string',
+          description: 'Label of start input.',
+        },
+        end: {
+          type: 'string',
+          description: 'Label of end input.',
+        },
+      },
     },
     size: {
       type: '"small" | "medium"',
@@ -81,14 +101,76 @@ const datepickerRangeData: ComponentData = {
       description: 'Makes dates after the provided maximum date disabled.',
     },
     disableDates: {
-      type: '{start: (day: Date) => boolean; end: (day: Date) => boolean}',
+      type: 'object',
       description: 'Object containing functions that set dates as disabled. Return true to disable a date.',
+      children: {
+        start: {
+          type: '(date: Date) => boolean',
+          description: 'Function that disables dates in the start datepicker.',
+        },
+        end: {
+          type: '(date: Date) => boolean',
+          description: 'Function that disables dates in the end datepicker.',
+        },
+      },
     },
     errorOptions: {
-      type: 'Partial<{start: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, end: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}>',
+      type: 'object',
       description: 'An object that allows for custom configuration of the error handling.',
       default:
         '{ start: { hideText: false, hasErrorPlaceholder: true }, end: { hideText: false, hasErrorPlaceholder: true }}',
+      children: {
+        start: {
+          type: 'object',
+          description: 'Error options for the start datepicker.',
+          children: {
+            text: {
+              type: 'string',
+              description: 'Setting "text" will always show the provided error message.',
+            },
+            hideText: {
+              type: 'boolean',
+              description: 'Hides the default validation errors.',
+              default: 'false',
+            },
+            isErrorState: {
+              type: 'boolean',
+              description: 'Allows for manually activating the visual error UI.',
+              default: 'false',
+            },
+            hasErrorPlaceholder: {
+              type: 'boolean',
+              description: 'Allows you to remove the padding below the datepicker.',
+              default: 'true',
+            },
+          },
+        },
+        end: {
+          type: 'object',
+          description: 'Error options for the end datepicker.',
+          children: {
+            text: {
+              type: 'string',
+              description: 'Setting "text" will always show the provided error message.',
+            },
+            hideText: {
+              type: 'boolean',
+              description: 'Hides the default validation errors.',
+              default: 'false',
+            },
+            isErrorState: {
+              type: 'boolean',
+              description: 'Allows for manually activating the visual error UI.',
+              default: 'false',
+            },
+            hasErrorPlaceholder: {
+              type: 'boolean',
+              description: 'Allows you to remove the padding below the datepicker.',
+              default: 'true',
+            },
+          },
+        },
+      },
     },
     errorOnChange: {
       isEvent: true,
