@@ -43,7 +43,7 @@ const getCardAreaMaxWidth = (type: CardType, maxWidth?: number) => {
 export const CardArea = styled.article<CardAreaProps>`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: ${({ type }) => (type === 'simple' ? 'center' : 'flex-start')};
   justify-content: ${({ type }) => (type === 'simple' ? 'center' : 'flex-start')};
   position: relative;
   background: ${getThemeColor('background-element-1')};
