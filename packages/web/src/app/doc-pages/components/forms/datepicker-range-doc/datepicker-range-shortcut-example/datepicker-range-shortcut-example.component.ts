@@ -12,11 +12,12 @@ export class DatepickerRangeShortcutExampleComponent {
   datepickerRangeValue?: { start: Date | null; end: Date | null };
 
   handleDatePickerRangeOnChange(value: { start: Date | null; end: Date | null }): void {
-    console.log('Elvia Date Picker Range:', value);
+    console.log('Elvia Date Picker Range value:', value);
     this.radioFilterValue = 'custom';
   }
 
   handleRadioFilterOnChange(value: Shortcut): void {
+    this.radioFilterValue = value;
     this.setDatePickerRangeValue(value);
   }
 
@@ -24,8 +25,10 @@ export class DatepickerRangeShortcutExampleComponent {
     const todayStart = new Date();
     todayStart.setHours(0, 0, 0);
 
+    //set as tomorrow at 00:00:00 to include final minute of _today_
     const todayEnd = new Date();
-    todayEnd.setHours(23, 59, 59);
+    todayEnd.setDate(todayEnd.getDate() + 1);
+    todayEnd.setHours(0, 0, 0);
 
     switch (value) {
       case 'today':
