@@ -36,37 +36,41 @@ const cardData: ComponentData<BaseCardProps> = {
       type: 'string',
       default: '100%',
       description:
-        'Override width of card. Any css length value is accepted (e.g. 150px, 20vw, 75%). Width cannot be less than 112px (or 250px for detail type card). ',
+        'Override the width of the card. Any CSS length value is accepted. Width cannot be less than 112px (or 250px for detail type card). ',
+      example: /* ts */ `width = "100%"; width = "20vw"; width = "75%"; width = "150px";`,
     },
     height: {
       type: 'string',
-      description: 'Override height of card. Any css length value is accepted (e.g. 150px, 20vw, 75%).',
+      description: 'Override the height the of card. Any CSS length value is accepted.',
+      example: /* ts */ `height = "100%"; height = "20vw"; height = "75%"; height = "150px";`,
     },
     minWidth: {
       type: 'number',
       default: '112 | 250',
-      description: 'Minimum width of card in px, cannot be less than 112px (or 250px for detail type card).',
+      description:
+        'The minimum width of the card in px, cannot be less than 112px (or 250px for detail type card).',
     },
     maxWidth: {
       type: 'number',
       default: '250 | 400',
-      description: 'Maximum width of card in px, cannot be more than 250 (or 400 for detail type card).',
+      description:
+        'The maximum width of the card in px, cannot be more than 250 (or 400 for detail type card).',
     },
     maxDescriptionLines: {
       type: 'number',
       default: '3',
       description:
-        'Max number of text lines in description. Overflow is clamped with an ellipsis. NB: This prop is only used for detail cards.',
+        'The maximum number of text lines in the description. Overflow is clamped with an ellipsis. NB: This prop is only used for detail cards.',
     },
     maxHeadingLines: {
       type: 'number',
       default: '1 | 2',
       description:
-        'Max number of text lines in heading. Overflow is clamped with an ellipsis. Default 1 (2 for detail type card).',
+        'The maximum number of text lines in heading. Overflow is clamped with an ellipsis. Default 1 (2 for detail type card).',
     },
     tag: {
       type: 'string',
-      description: 'Tag on bottom of card, only available on detail card.',
+      description: 'The content for a tag on bottom of the card, only available on detail card.',
     },
     iconHover: {
       type: 'string | HTMLElement | JSX.Element',
