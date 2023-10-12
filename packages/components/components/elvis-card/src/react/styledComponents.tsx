@@ -24,7 +24,7 @@ const borderColors: BorderColors = {
 const simpleMinWidth = 150;
 const simpleMaxWidth = 250;
 const detailMinWidth = 250;
-const detailMaxWidth = 400;
+const detailMaxWidth = 600;
 
 const getCardAreaMinWidth = (type: CardType, minWidth?: number) => {
   if (type === 'simple') {
