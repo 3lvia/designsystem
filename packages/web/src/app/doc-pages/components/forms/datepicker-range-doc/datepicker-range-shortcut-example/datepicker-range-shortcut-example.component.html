@@ -1,0 +1,20 @@
+<elvia-radio-filter
+  [value]="radioFilterValue"
+  name="datepicker-range-shortcut-example"
+  [items]="[
+    { label: 'Velg selv', value: 'custom' },
+    { label: 'I dag', value: 'today' },
+    { label: 'I går', value: 'yesterday' },
+    { label: 'Siste 7 dager', value: 'lastWeek' },
+    { label: 'Siste 30 dager', value: 'lastMonth' }
+  ]"
+  (valueOnChange)="handleRadioFilterOnChange($any($event).detail.value)"
+/>
+
+<elvia-datepicker-range
+  (valueOnChange)="handleDatePickerRangeOnChange($any($event).detail.value)"
+  errorOptions="{ start: { hasErrorPlaceholder: false }, end: { hasErrorPlaceholder: false } }"
+  hasTimepickers="true"
+  size="medium"
+  [value]="datepickerRangeValue"
+/>
