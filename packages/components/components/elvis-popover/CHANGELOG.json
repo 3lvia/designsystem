@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.10.23",
+      "version": "7.3.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the popup sometimes did not align horizontally on initial render."
+          ]
+        }
+      ]
+    },
+    {
       "date": "06.10.23",
       "version": "7.3.1",
       "changelog": [
