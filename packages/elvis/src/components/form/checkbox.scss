@@ -53,8 +53,14 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     line-height: 24px;
   }
 
-  // Hides initial checkbox
   input {
+    @include helpers.hover() {
+      &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
+        background-color: var(--e-color-background-hover-1);
+      }
+    }
+
+    // Hides initial checkbox
     position: absolute;
     z-index: -1;
     width: $checkbox-mark-size;
@@ -78,20 +84,13 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     @include outline.e-outline-pseudoclass();
   }
 
-  input {
-    @include helpers.hover() {
-      &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
-        background-color: var(--e-color-background-hover-1);
-      }
-    }
-  }
-
   &.e-checkbox---hover:not(:disabled):not(:invalid) .e-checkbox__mark {
     background-color: var(--e-color-background-hover-1);
   }
 
-  input:disabled,
-  &.e-checkbox---disabled {
+  &.e-checkbox---disabled,
+  &:has(input:disabled, .e-checkbox---disabled, .e-checkbox---disabled-checked),
+  input:disabled {
     @extend %checkbox-mark-disabled;
   }
 
