@@ -56,9 +56,30 @@ export const timepickerData: ComponentData = {
       description: 'Controlled picker open state.',
     },
     errorOptions: {
-      type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
+      type: 'object',
       description: 'An object that allows for custom configuration of the error handling in the time picker.',
       default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
+      children: {
+        text: {
+          type: 'string',
+          description: 'Setting "text" will always show the provided error message.',
+        },
+        hideText: {
+          type: 'boolean',
+          description: 'Hides the default validation errors.',
+          default: 'false',
+        },
+        isErrorState: {
+          type: 'boolean',
+          description: 'Allows for manually activating the visual error UI.',
+          default: 'false',
+        },
+        hasErrorPlaceholder: {
+          type: 'boolean',
+          description: 'Allows you to remove the padding below the time picker.',
+          default: 'true',
+        },
+      },
     },
     minTime: {
       isRequired: false,
