@@ -9,7 +9,7 @@ type Shortcut = 'custom' | 'today' | 'yesterday' | 'lastWeek' | 'lastMonth';
 })
 export class DatepickerRangeShortcutExampleComponent {
   radioFilterValue: Shortcut = 'custom';
-  datepickerRangeValue?: { start: Date | null; end: Date | null } = undefined;
+  datepickerRangeValue?: { start: Date | null; end: Date | null };
 
   handleDatePickerRangeOnChange(value: { start: Date | null; end: Date | null }): void {
     console.log('Elvia Date Picker Range:', value);
@@ -17,31 +17,51 @@ export class DatepickerRangeShortcutExampleComponent {
   }
 
   handleRadioFilterOnChange(value: Shortcut): void {
-    this.radioFilterValue = value;
+    this.setDatePickerRangeValue(value);
+  }
+
+  private setDatePickerRangeValue(value: Shortcut): void {
+    const todayStart = new Date();
+    todayStart.setHours(0, 0, 0);
+
+    const todayEnd = new Date();
+    todayEnd.setHours(23, 59, 59);
 
     switch (value) {
       case 'today':
         this.datepickerRangeValue = {
-          start: new Date(),
-          end: new Date(),
+          start: todayStart,
+          end: todayEnd,
         };
         break;
       case 'yesterday':
+        const yesterdayStart = new Date(todayStart);
+        yesterdayStart.setDate(todayStart.getDate() - 1);
+
+        const yesterdayEnd = new Date(todayEnd);
+        yesterdayEnd.setDate(todayEnd.getDate() - 1);
+
         this.datepickerRangeValue = {
-          start: new Date(new Date().setDate(new Date().getDate() - 1)),
-          end: new Date(new Date().setDate(new Date().getDate() - 1)),
+          start: yesterdayStart,
+          end: yesterdayEnd,
         };
         break;
       case 'lastWeek':
+        const lastWeekStart = new Date(todayStart);
+        lastWeekStart.setDate(todayStart.getDate() - 7);
+
         this.datepickerRangeValue = {
-          start: new Date(new Date().setDate(new Date().getDate() - 7)),
-          end: new Date(),
+          start: lastWeekStart,
+          end: todayEnd,
         };
         break;
       case 'lastMonth':
+        const lastMonthStart = new Date(todayStart);
+        lastMonthStart.setDate(todayStart.getDate() - 30);
+
         this.datepickerRangeValue = {
-          start: new Date(new Date().setDate(new Date().getDate() - 30)),
-          end: new Date(),
+          start: lastMonthStart,
+          end: todayEnd,
         };
         break;
       case 'custom':
