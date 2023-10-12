@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.22.15",
-    "@babel/plugin-transform-runtime": "^7.22.15",
+    "@babel/plugin-transform-runtime": "^7.23.2",
     "babel-plugin-styled-components": "^2.1.4",
     "gulp-typescript": "^6.0.0-alpha.1",
     "jsdom-global": "^3.0.2",
@@ -24,11 +24,11 @@
     "webpack": "^5.88.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.0",
+    "@babel/core": "^7.23.2",
     "@babel/plugin-syntax-jsx": "^7.22.5",
-    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
-    "@babel/preset-typescript": "^7.23.0",
+    "@babel/preset-typescript": "^7.23.2",
     "@babel/register": "^7.22.15",
     "@elvia/elvis-component-wrapper": "*",
     "@testing-library/dom": "9.3.3",
