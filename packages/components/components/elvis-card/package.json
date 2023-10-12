@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-card",
-  "version": "3.4.2",
+  "version": "3.4.3",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/card",
   "main": "web_component.js",
