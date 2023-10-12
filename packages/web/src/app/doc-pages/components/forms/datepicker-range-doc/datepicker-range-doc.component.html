@@ -7,22 +7,16 @@
   <app-component-section size [sectionTitle]="'Size'">
     There are two different sizes of the date range picker; medium and small. Just like small text fields, the
     small date range picker is primarily designed for internal systems. Don't mix medium and small size inputs
-    in one layout–choose one or the other and be consistent in your choice throughout the design.
+    in one layout – choose one or the other and be consistent in your choice throughout the design.
   </app-component-section>
 
   <!-- OPTIONS -->
   <app-component-section size [sectionTitle]="'Options'">
-    There are two different sizes of the date range picker; medium and small. Just like small text fields, the
-    small date range picker is primarily designed for internal systems. Don't mix medium and small size inputs
-    in one layout – choose one or the other and be consistent in your choice throughout the design.
-
-    <app-component-subsection [sectionTitle]="'Shortcuts'">
-      We suggest combining Datepicker Range with
-      <a class="e-link e-link--inline" [routerLink]="['/components/radio-filter']">Radio Filter</a>
-      to create shortcuts that reduce the number of clicks. The options should be periods of time most often
-      used depending on the use case.
-
-      <app-datepicker-range-shortcut-example class="e-mt-56" />
+    <app-component-subsection [sectionTitle]="'Current time as default'">
+      Use
+      <code>hasSelectDateOnOpen</code>
+      to automatically select the current date and time when opening the picker overlay. It helps users find
+      the correct date and time by starting from now.
     </app-component-subsection>
 
     <app-component-subsection [sectionTitle]="'Fewer clicks'">
@@ -32,18 +26,20 @@
       clicks by automatically opening the next picker overlay after selecting from date.
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Current time as default'">
-      Use
-      <code>hasSelectDateOnOpen</code>
-      to automatically select the current date and time when opening the picker overlay. It helps users find
-      the correct date and time by starting from now.
-    </app-component-subsection>
-
     <app-component-subsection [sectionTitle]="'Responsive stacking'">
       When the screen size becomes smaller than 767px, the date pickers will stack vertically. When needed,
       use
       <code>isVertical</code>
       to always keep this stacking order.
+    </app-component-subsection>
+
+    <app-component-subsection [sectionTitle]="'Shortcuts'">
+      We suggest combining Datepicker Range with
+      <a class="e-link e-link--inline" [routerLink]="['/components/radio-filter']">Radio Filter</a>
+      to create shortcuts that reduce the number of clicks. The options should be periods of time most often
+      used depending on the use case.
+
+      <app-datepicker-range-shortcut-example class="e-mt-56" />
     </app-component-subsection>
   </app-component-section>
 
