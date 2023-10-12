@@ -52,9 +52,9 @@ const cardData: ComponentData<BaseCardProps> = {
     },
     maxWidth: {
       type: 'number',
-      default: '250 | 400',
+      default: '250 | 600',
       description:
-        'The maximum width of the card in px, cannot be more than 250 (or 400 for detail type card).',
+        'The maximum width of the card in px, cannot be more than 250 (or 600 for detail type card).',
     },
     maxDescriptionLines: {
       type: 'number',
