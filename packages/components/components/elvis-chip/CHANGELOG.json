@@ -10,7 +10,7 @@
           "changes": ["Fixed all chip backgrounds having the wrong opacity."]
         },
         {
-          "type": "patch",
+          "type": "new_feature",
           "changes": ["Added support for an image in removable chip."]
         }
       ]
