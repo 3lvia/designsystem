@@ -6555,16 +6555,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.0":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
-  dependencies:
-    follow-redirects: ^1.14.9
-    form-data: ^4.0.0
-  checksum: 38cb7540465fe8c4102850c4368053c21683af85c5fdf0ea619f9628abbcb59415d1e22ebc8a6390d2bbc9b58a9806c874f139767389c862ec9b772235f06854
-  languageName: node
-  linkType: hard
-
 "axios@npm:^1.0.0, axios@npm:^1.4.0":
   version: 1.5.1
   resolution: "axios@npm:1.5.1"
@@ -8071,25 +8061,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-resolve-response@npm:^1.3.12":
-  version: 1.3.12
-  resolution: "contentful-resolve-response@npm:1.3.12"
+"contentful-resolve-response@npm:^1.8.1":
+  version: 1.8.1
+  resolution: "contentful-resolve-response@npm:1.8.1"
   dependencies:
     fast-copy: ^2.1.7
-  checksum: 399ed85531f00b2eb7e65893d811c8a0d9cab970a9cef559c206f1d7c6d5fc95eb973afe3f6c7c0f06d6f56d30cdd965784fe4c861c22fbaadf538862e46d8b2
-  languageName: node
-  linkType: hard
-
-"contentful-sdk-core@npm:^7.0.5":
-  version: 7.1.0
-  resolution: "contentful-sdk-core@npm:7.1.0"
-  dependencies:
-    fast-copy: ^2.1.7
-    lodash.isplainobject: ^4.0.6
-    lodash.isstring: ^4.0.1
-    p-throttle: ^4.1.1
-    qs: ^6.9.4
-  checksum: 9f31cef7f2d7a6247ec5473315ed9c5574d93f8afb9748bfbf2439b2c54552b3689cb48ff7512f05fdc4930b2d19363b2a7f6cea0c426d8d5cfe71b9987427e8
+  checksum: 59d9085529cc1a371d0b9e218b5dbb2efdec3b339672e6f4f150884778ce990c32decb68b6cdf645fe4b9741e4078aae0f7290b20e13e8d91fd4c97d84aca60a
   languageName: node
   linkType: hard
 
@@ -8124,17 +8101,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful@npm:^9.3.5":
-  version: 9.3.5
-  resolution: "contentful@npm:9.3.5"
+"contentful@npm:^10.6.2":
+  version: 10.6.2
+  resolution: "contentful@npm:10.6.2"
   dependencies:
     "@contentful/rich-text-types": ^16.0.2
-    axios: ^0.27.0
-    contentful-resolve-response: ^1.3.12
-    contentful-sdk-core: ^7.0.5
-    fast-copy: ^2.1.7
+    axios: ^1.4.0
+    contentful-resolve-response: ^1.8.1
+    contentful-sdk-core: ^8.1.0
     json-stringify-safe: ^5.0.1
-  checksum: 85783f497e1091190aea4a631523a08e884f43ce6e88af42e895762ee77d6b7193206a9da023b2a2d4ed18ae57c142d7c2da837897a02f0bc1b4b9c374535504
+    type-fest: ^4.0.0
+  checksum: aa977438da35f47b01cdfe8a4f39f96feb1fb4bc151d12963494d4295c7516000d98b63f5fe3e56e142114b69abdd5446a747c980a344b2c3193afe2954eee67
   languageName: node
   linkType: hard
 
@@ -9186,7 +9163,7 @@ __metadata:
     "@types/prismjs": ^1.26.1
     "@typescript-eslint/eslint-plugin": ^6.7.5
     "@typescript-eslint/parser": ^6.7.5
-    contentful: ^9.3.5
+    contentful: ^10.6.2
     contentful-management: ^11.1.1
     contentful-typescript-codegen: ^3.4.0
     dotenv: ^16.3.1
@@ -10483,7 +10460,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.15.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
@@ -16423,7 +16400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.11.0, qs@npm:^6.9.4":
+"qs@npm:6.11.0":
   version: 6.11.0
   resolution: "qs@npm:6.11.0"
   dependencies:
