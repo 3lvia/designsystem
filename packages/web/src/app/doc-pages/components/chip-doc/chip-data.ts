@@ -1,7 +1,8 @@
 import changelogJson from '@elvia/elvis-chip/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { BaseChipProps } from '@elvia/elvis-chip/react';
 
-export const chipData: ComponentData = {
+export const chipData: ComponentData<BaseChipProps> = {
   changelog: changelogJson.content,
   name: 'Chip',
   attributes: {
@@ -38,6 +39,10 @@ export const chipData: ComponentData = {
     isSelected: {
       type: 'boolean',
       description: 'Sets the chip to have the selected state. Optional on legend and choice types.',
+    },
+    image: {
+      type: 'string | HTMLElement | JSX.Element',
+      description: 'Add an image to the left side of the chip. NB: only available in removable chips.',
     },
     isSelectedOnChange: {
       isEvent: true,

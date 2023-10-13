@@ -68,10 +68,18 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   ) {}
 
   ngAfterViewInit(): void {
+    let hasPropControls = true;
+    const controls = this.componentExample.cegContent.getControlSnapshot();
+    if (controls) {
+      hasPropControls = Object.values(controls).some((control) => !control?.excludedFromDOM);
+    }
+
     this.setCegStateFromURL();
-    this.setUpSlotSubscription();
-    this.setUpTypeChangeSubscription();
-    this.setUpStaticPropSubscription();
+    if (hasPropControls) {
+      this.setUpSlotSubscription();
+      this.setUpTypeChangeSubscription();
+      this.setUpStaticPropSubscription();
+    }
   }
 
   ngAfterContentInit(): void {
