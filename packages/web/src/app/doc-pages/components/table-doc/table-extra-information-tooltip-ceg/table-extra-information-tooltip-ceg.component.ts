@@ -10,4 +10,6 @@ import * as template from 'html-loader!./table-extra-information-tooltip-ceg.com
 })
 export class TableExtraInformationTooltipCegComponent implements StaticComponentExample {
   html = template.default;
+
+  showHoverIcon = false;
 }

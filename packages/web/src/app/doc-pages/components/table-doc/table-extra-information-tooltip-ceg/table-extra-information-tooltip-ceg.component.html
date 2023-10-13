@@ -17,7 +17,16 @@
               position="bottom"
               content="Målepunkt med feilkobling 3-fas 230V jordfeilstrøm"
             >
-              <i slot="trigger" class="e-icon e-icon--information_circle e-icon--sm"></i>
+              <i
+                slot="trigger"
+                (mouseleave)="showHoverIcon = false"
+                (mouseenter)="showHoverIcon = true"
+                class="e-icon e-icon--sm"
+                [ngClass]="{
+                  'e-icon--information_circle': !showHoverIcon,
+                  'e-icon--information_circle-color': showHoverIcon
+                }"
+              ></i>
             </elvia-tooltip>
           </div>
         </td>
