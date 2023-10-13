@@ -56,7 +56,7 @@ export const build = async () => {
     external: dependencies,
     write: false,
     plugins: [
-      dtsPlugin({ destinationDir: rootDir, watchMode: watchMode }),
+      dtsPlugin({ watchMode: watchMode }),
       styledComponentsPlugin({ ssr: true, displayName: true }),
       writeFilesAndInjectCssPlugin,
     ],

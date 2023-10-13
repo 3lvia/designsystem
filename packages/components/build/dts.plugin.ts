@@ -6,7 +6,6 @@ import fs from 'fs';
 import { getMd5 } from './utils';
 
 interface Props {
-  destinationDir: string;
   watchMode: boolean;
 }
 
@@ -17,6 +16,7 @@ const writeTypingsToDisk = async (fileName: string, text: string, sources?: read
     originalPath.replace(/src(\/react)?/, `dist${path.sep}${isPublicApi ? 'public-api' : 'react'}`),
   );
 
+  // Re-write imports of types from .public.ts to resolve from ../public-api folder
   let fileContent = text;
   if (text.match(/\.\/([\w-]+.public)/g)) {
     fileContent = text.replace(
@@ -41,9 +41,9 @@ const dtsPlugin = (config: Props) =>
         listEmittedFiles: true,
         declaration: true,
         emitDeclarationOnly: true,
-        incremental: true,
         target: ts.ScriptTarget.ES2015,
         skipLibCheck: true,
+        jsx: ts.JsxEmit.React,
         declarationMap: config.watchMode,
       };
 
