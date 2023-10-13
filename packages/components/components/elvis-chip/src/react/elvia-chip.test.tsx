@@ -23,6 +23,17 @@ describe('Elvis Chip', () => {
     });
   });
 
+  describe('Type = Removable', () => {
+    beforeEach(() => {
+      render(<Chip type="removable" value="chip value" image={<div>chip image</div>} />);
+    });
+
+    it('should render image', () => {
+      const chipImage = screen.getByText('chip image');
+      expect(chipImage).toBeInTheDocument();
+    });
+  });
+
   describe('Type = Legend', () => {
     beforeEach(() => {
       render(<Chip type="legend" value="chip value"></Chip>);
