@@ -2405,7 +2405,7 @@ __metadata:
     "@elvia/elvis-colors": ^4.1.0
     "@types/gulp": ^4.0.15
     "@types/gulp-svgmin": ^1.2.2
-    "@types/node": ^18.18.4
+    "@types/node": ^18.18.5
     del: ^6.1.1
     gulp: ^4.0.2
     gulp-svgmin: ^4.1.0
@@ -2592,7 +2592,7 @@ __metadata:
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
     "@types/gulp": ^4.0.15
-    "@types/node": ^18.18.4
+    "@types/node": ^18.18.5
     del: ^6.1.1
     gulp: ^4.0.2
     ts-node: ^10.9.1
@@ -2645,7 +2645,7 @@ __metadata:
     "@types/jest": ^29.5.5
     "@types/jest-axe": ^3.5.6
     "@types/merge-stream": ^1.1.2
-    "@types/node": ^18.18.4
+    "@types/node": ^18.18.5
     "@types/styled-components": ^5.1.28
     babel-jest: ^29.7.0
     babel-plugin-styled-components: ^2.1.4
@@ -3205,7 +3205,7 @@ __metadata:
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
     "@types/gulp": ^4.0.15
-    "@types/node": ^18.18.4
+    "@types/node": ^18.18.5
     del: ^6.1.1
     gulp: ^4.0.2
     ts-node: ^10.9.1
@@ -4985,10 +4985,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.18.4, @types/node@npm:^18.18.4":
+"@types/node@npm:*":
   version: 18.18.4
   resolution: "@types/node@npm:18.18.4"
   checksum: 4901e91c4cc479bb58acbcd79236a97a0ad6db4a53cb1f4ba4cf32af15324c61b16faa6e31c1b09bf538a20feb5f5274239157ce5237f5741db0b9ab71e69c52
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:18.18.5, @types/node@npm:^18.18.5":
+  version: 18.18.5
+  resolution: "@types/node@npm:18.18.5"
+  checksum: fc8c9b2bf226270cf9085a7dac76ce09dd7c3519ec9b687ee2b50385954ab3709c45ca82d002d1536e24286803cd194d7ab7008acebdcd6681b8b19d4277fa5c
   languageName: node
   linkType: hard
 
@@ -8056,9 +8063,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.1.1":
-  version: 11.1.1
-  resolution: "contentful-management@npm:11.1.1"
+"contentful-management@npm:^11.2.0":
+  version: 11.2.0
+  resolution: "contentful-management@npm:11.2.0"
   dependencies:
     "@contentful/rich-text-types": ^16.3.0
     "@types/json-patch": 0.0.30
@@ -8067,7 +8074,7 @@ __metadata:
     fast-copy: ^3.0.0
     lodash.isplainobject: ^4.0.6
     type-fest: ^4.0.0
-  checksum: ec6aecdd8fcd8ed447b8a4dd0c4ebc527ac41006163038bbdaf4b413a982ec6c86bf9c9103e681b252581da4241e6557eedda29494af96c92d49a204663b8043
+  checksum: b1c6a4c91f2f70743bfccb05910a95a268d2a73d15ec59c34cce63ba311be90c536c0e053cff7f808f9b53611f39c3360746738a7657f9520823a8c47cf19daa
   languageName: node
   linkType: hard
 
@@ -9182,12 +9189,12 @@ __metadata:
     "@elvia/elvis-typography": "workspace:*"
     "@types/lodash.debounce": ^4.0.7
     "@types/natural-compare-lite": ^1.4.0
-    "@types/node": 18.18.4
+    "@types/node": 18.18.5
     "@types/prismjs": ^1.26.1
     "@typescript-eslint/eslint-plugin": ^6.7.5
     "@typescript-eslint/parser": ^6.7.5
     contentful: ^9.3.5
-    contentful-management: ^11.1.1
+    contentful-management: ^11.2.0
     contentful-typescript-codegen: ^3.4.0
     dotenv: ^16.3.1
     eslint: ^8.51.0
