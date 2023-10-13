@@ -108,6 +108,21 @@
     </app-component-subsection>
   </app-component-section>
 
+  <app-component-section options [sectionTitle]="'Options'">
+    <app-component-subsection [sectionTitle]="'Image'">
+      You can have an image (32px * 32px) in a removable chip. An example of use is when you assign yourself
+      or others to a task.
+      <app-static-ceg class="e-mb-48">
+        <app-chip-image-ceg />
+      </app-static-ceg>
+      If no image is available for one of the chips, an empty state should be used. Remember to update it on
+      theme changes.
+      <app-static-ceg>
+        <app-chip-empty-image-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+  </app-component-section>
+
   <!-- USAGE -->
   <app-component-section usage [sectionTitle]="'Usage'">
     <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>

@@ -5,20 +5,31 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-p-16 e-mb-24">
-      <elvia-popover noPadding hasCloseButton="false">
-        <button slot="trigger" class="e-btn">Show popover</button>
-        <div slot="content" style="background: red; border-radius: 8px; max-width: 350px">
-          <span class="e-text-md">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eos vero hic explicabo debitis
-            ut officia possimus iusto rem fugiat numquam dolore rerum quisquam error ex soluta dolor ipsum aut
-            nobis, magni quae nisi? Distinctio voluptatum facere iste. Sed, exercitationem porro! Quasi,
-            sequi.
-          </span>
-        </div>
-      </elvia-popover>
+      <div class="e-flex e-gap-8">
+        <elvia-chip type="removable" value="Erik Tallang" color="orange">
+          <img alt="" slot="image" src="assets/contact/Erik.png" />
+        </elvia-chip>
+        <elvia-chip type="removable" value="Trygve Urdahl" color="blue">
+          <img alt="" slot="image" src="assets/contact/Trygve.png" />
+        </elvia-chip>
+        <elvia-chip type="removable" value="Hilde Breivik" color="red">
+          <img alt="" slot="image" src="assets/contact/Hilde.jpg" />
+        </elvia-chip>
+      </div>
+      <div class="e-flex e-gap-8 e-mt-24">
+        <elvia-chip isDisabled type="removable" value="Erik Tallang" color="orange">
+          <img alt="" slot="image" src="assets/contact/Erik.png" />
+        </elvia-chip>
+        <elvia-chip isDisabled type="removable" value="Trygve Urdahl" color="blue">
+          <img alt="" slot="image" src="assets/contact/Trygve.png" />
+        </elvia-chip>
+        <elvia-chip isDisabled type="removable" value="Hilde Breivik" color="red">
+          <img alt="" slot="image" src="assets/contact/Hilde.jpg" />
+        </elvia-chip>
+      </div>
     </div>
     <!--Inverted version-->
-    <div class="e-color-background-1 e-theme-dark e-p-16"></div>
+    <div class="e-color-background-1 e-theme-dark"></div>
 
     <!--Accordion-->
     <div class="example-wrapper">
@@ -185,7 +196,7 @@
             (onDelete)="handleOnDelete($any($event).detail.value)"
             (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
             [inlineStyle]="{ margin: '8px' }"
-          ></elvia-chip>
+          />
         </div>
       </div>
       Value deleted: {{ deleteValue }}

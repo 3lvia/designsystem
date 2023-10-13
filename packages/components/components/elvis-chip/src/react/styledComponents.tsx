@@ -19,7 +19,8 @@ const chipColors = (color: ColorType, theme: ThemeName = 'light') => {
   }
 };
 
-const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
+const baseTenToHex = (num: number) => parseInt(num.toString(), 16);
+export const setOpacity = (color: string, opacity: number): string => `${color}${baseTenToHex(opacity)}`;
 
 const getChipBackgroundLight = (
   color: ColorType,
@@ -105,6 +106,7 @@ type ChipComponentProps = {
   isHovering: boolean;
   isLoading: boolean;
   isSelected: boolean;
+  hasImage: boolean;
 };
 
 export const ChipComponent = styled.button<ChipComponentProps>`
@@ -117,7 +119,7 @@ export const ChipComponent = styled.button<ChipComponentProps>`
     ${({ isLoading, isSelected, chipType }) => getChipBorderLight(isLoading, isSelected, chipType)};
   background-color: ${({ color, isSelected, isHovering, isDisabled, isLoading, chipType }) =>
     getChipBackgroundLight(color, isSelected, isHovering, isDisabled, isLoading, chipType)};
-  padding: 7px 15px;
+  padding: ${({ hasImage }) => (hasImage ? '3px 15px 3px 3px' : '7px 15px')};
   border-radius: 24px;
   transition: background-color 150ms ease-in;
   white-space: nowrap;
@@ -211,4 +213,19 @@ export const ChipTitle = styled.div<ChipTitleProps>`
   font-style: unset;
   transition: opacity 150ms ease-in;
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
+`;
+
+export const ChipImageContainer = styled.div`
+  width: 32px;
+  height: 32px;
+  border-radius: 999999px;
+  overflow: hidden;
+  & > * {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:empty {
+    display: none;
+  }
 `;
