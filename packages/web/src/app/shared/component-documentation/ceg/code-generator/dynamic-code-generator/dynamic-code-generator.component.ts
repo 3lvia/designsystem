@@ -220,7 +220,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
             return `${propName}="'${prop.value}'" `;
           case 'function':
             const eventName = `${frameworkSpec.eventPrefix}${prop.name}${frameworkSpec.eventPostfix}`;
-            const eventObj = frameworkSpec.castEventDataAsAny ? '$any($event)' : '$any';
+            const eventObj = frameworkSpec.castEventDataAsAny ? '$any($event)' : '$event';
             return `${eventName}="handleOnChange(${eventObj}.detail.value)"`;
           default:
             /** JSON.stringify gives us a string with double quotes for objects,
