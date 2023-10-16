@@ -17,17 +17,16 @@ export const AccordionArea = styled.div`
 `;
 
 const decideLabelPosition = (prop: AccordionLabelPosition) => {
-  if (prop === 'center') {
-    return 'center';
+  switch (prop) {
+    case 'center':
+      return 'center';
+    case 'right':
+      return 'flex-end';
+    case 'left':
+      return 'start';
+    default:
+      return 'flex-start';
   }
-  if (prop === 'right') {
-    return 'flex-end';
-  }
-  if (prop === 'left') {
-    return 'start';
-  }
-
-  return 'flex-start';
 };
 
 export interface AccordionButtonAreaProps {
@@ -114,12 +113,13 @@ export const AccordionLabelText = styled.div`
 `;
 
 const decideDetailTextSize = (size: AccordionSize): string => {
-  if (size === 'small') {
-    return getTypographyCss('text-micro');
-  } else if (size === 'large') {
-    return getTypographyCss('text-md');
-  } else {
-    return getTypographyCss('text-sm');
+  switch (size) {
+    case 'small':
+      return getTypographyCss('text-micro');
+    case 'large':
+      return getTypographyCss('text-md');
+    default:
+      return getTypographyCss('text-sm');
   }
 };
 
@@ -188,7 +188,13 @@ interface AccordionContentProps {
   hasContent: boolean;
 }
 
-export const AccordionContent = styled.div<AccordionContentProps>`
+export const AccordionContent = styled.div.attrs<AccordionContentProps>(
+  ({ isOpenState, type, contentHeight, overflowHeight }) => ({
+    style: {
+      maxHeight: decideContentMaxHeight(isOpenState, type, contentHeight, overflowHeight),
+    },
+  }),
+)<AccordionContentProps>`
   display: ${({ hasContent }) => (hasContent ? 'block' : 'none')};
   visibility: ${({ type, isOpenState }) => (type === 'normal' && !isOpenState ? `hidden` : `visible`)};
   background: transparent;
@@ -198,8 +204,6 @@ export const AccordionContent = styled.div<AccordionContentProps>`
     decideContentMarginTop(type, hasContent, spacingAboveContent)};
   margin-bottom: ${({ type, spacingBelowContent }) => (type === 'overflow' ? spacingBelowContent : 0)};
   pointer-events: ${({ isOpenState }) => (isOpenState ? 'auto' : 'none')};
-  max-height: ${({ isOpenState, type, contentHeight, overflowHeight }) =>
-    decideContentMaxHeight(isOpenState, type, contentHeight, overflowHeight)};
   width: 100%;
   opacity: ${({ isOpenState, type }) => decideContentOpacity(isOpenState, type)};
   overflow-y: hidden;
