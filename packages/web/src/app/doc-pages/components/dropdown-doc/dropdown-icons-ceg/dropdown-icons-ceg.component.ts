@@ -15,30 +15,30 @@ export class DropdownIconsCegComponent implements StaticComponentExample {
   items = [
     {
       value: 'Powerline',
-      label: 'Powerline',
+      label: 'Høyspentlinje',
       icon: '<i class="e-icon e-icon--powerline e-icon--sm"></i>',
     },
     {
       value: 'Electricity tower',
-      label: 'Electricity tower',
+      label: 'Elektrisitetstårn',
       icon: '<i class="e-icon e-icon--electricity_tower e-icon--sm"></i>',
     },
-    { value: 'Cable', label: 'Cable', icon: '<i class="e-icon e-icon--cable e-icon--sm"></i>' },
+    { value: 'Cable', label: 'Kabel', icon: '<i class="e-icon e-icon--cable e-icon--sm"></i>' },
   ];
 `;
 
   items = [
     {
       value: 'Powerline',
-      label: 'Powerline',
+      label: 'Høyspentlinje',
       icon: '<i class="e-icon e-icon--powerline e-icon--sm"></i>',
     },
     {
       value: 'Electricity tower',
-      label: 'Electricity tower',
+      label: 'Elektrisitetstårn',
       icon: '<i class="e-icon e-icon--electricity_tower e-icon--sm"></i>',
     },
-    { value: 'Cable', label: 'Cable', icon: '<i class="e-icon e-icon--cable e-icon--sm"></i>' },
+    { value: 'Cable', label: 'Kabel', icon: '<i class="e-icon e-icon--cable e-icon--sm"></i>' },
   ];
 
   handleOnChange(newValues: string | string[]): void {
