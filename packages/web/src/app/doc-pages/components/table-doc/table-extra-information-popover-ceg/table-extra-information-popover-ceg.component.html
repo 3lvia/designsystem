@@ -8,20 +8,19 @@
           <div class="e-flex e-align-items-center e-gap-8">
             Estimert total
             <elvia-popover
-              (onClose)="isOpen = false"
-              (onOpen)="isOpen = true"
+              (onClose)="setIsOpen(false)"
+              (onOpen)="setIsOpen(true)"
               [content]="
-                'Estimeringen bruker spotpris uten ekstrakostnader og påslag og tar ikke hensyn til din personlige strømavtale. Sjekk med din strømleverandør for reelle tall.'
+                'Estimeringen bruker spotpris uten ekstrakostnader og påslag og tar ikke hensyn til din strømavtale.'
               "
               [heading]="'Estimert totalkostnad'"
               [inlineStyle]="{ maxWidth: '460px' }"
             >
               <button
-                slot="trigger"
+                [ngClass]="{ 'e-btn---selected': isOpen }"
                 aria-label="Les mer om estimert totalkostnad"
                 class="e-btn e-btn--sm e-btn--icon e-btn--circled"
-                [attr.aria-pressed]="isOpen"
-                [ngClass]="{ 'e-btn---selected': isOpen }"
+                slot="trigger"
               >
                 <span class="e-btn__icon">
                   <i aria-hidden="true" class="e-icon e-icon--question_circle"></i>

@@ -12,4 +12,8 @@ export class TableExtraInformationPopoverCegComponent implements StaticComponent
   html = template.default;
 
   isOpen = false;
+
+  setIsOpen(isOpen: boolean): void {
+    this.isOpen = isOpen;
+  }
 }
