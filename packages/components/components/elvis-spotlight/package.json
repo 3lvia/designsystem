@@ -1,16 +1,14 @@
 {
   "name": "@elvia/elvis-spotlight",
   "version": "1.6.2",
-  "main": "web_component.js",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/spotlight",
+  "source": "src/react/elvia-spotlight.tsx",
+  "main": "dist/main/web-component.js",
   "files": [
-    "web_component.js",
     "react.js",
     "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^4.1.3",

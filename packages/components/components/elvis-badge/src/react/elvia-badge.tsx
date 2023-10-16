@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { BadgeCircle, BadgeContainer } from './styledComponents';
+import classnames from 'classnames';
+import styles from './elvia-badge.module.css';
 import { BadgeProps } from './elvia-badge.types';
 
-const Badge: React.FC<BadgeProps> = ({
+export const Badge: React.FC<BadgeProps> = ({
   badgeColor = 'green',
   className,
   content,
@@ -35,14 +36,18 @@ const Badge: React.FC<BadgeProps> = ({
     return count.toString();
   };
 
+  const badgeCircleClasses = classnames(styles['badge-circle'], {
+    [styles['badge--wide']]: getCount(count) === '99+',
+    [styles['badge--green']]: badgeColor === 'green',
+    [styles['badge--red']]: badgeColor === 'red',
+  });
+
   return (
-    <BadgeContainer className={`${className ?? ''}`} style={{ ...inlineStyle }} {...rest}>
+    <div className={classnames(className, styles['badge-container'])} style={{ ...inlineStyle }} {...rest}>
       <div ref={contentRef}>{content}</div>
-      <BadgeCircle count={getCount(count)} badgeColor={badgeColor} role="status">
+      <div className={badgeCircleClasses} role="status">
         {getCount(count)}
-      </BadgeCircle>
-    </BadgeContainer>
+      </div>
+    </div>
   );
 };
-
-export default Badge;

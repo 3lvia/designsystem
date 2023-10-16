@@ -1,1 +1,1 @@
-export { default as RadioFilter } from './dist/react/js/elvia-radio-filter.js';
+export * from './dist/react/elvia-radio-filter.js';

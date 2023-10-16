@@ -11,7 +11,7 @@ import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { BreadcrumbProps } from './elvia-breadcrumb.types';
 
-const Breadcrumb: React.FC<BreadcrumbProps> = function ({
+export const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   items = [],
   onLinkClick,
   className,
@@ -139,5 +139,3 @@ const Breadcrumb: React.FC<BreadcrumbProps> = function ({
     </BreadcrumbWrapper>
   );
 };
-
-export default Breadcrumb;

@@ -1,1 +1,1 @@
-export { default as Breadcrumb } from './dist/react/js/elvia-breadcrumb';
+export * from './dist/react/elvia-breadcrumb.js';

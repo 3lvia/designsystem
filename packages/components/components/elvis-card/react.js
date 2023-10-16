@@ -1,1 +1,1 @@
-export { default as Card } from './dist/react/js/elvia-card.js';
+export * from './dist/react/elvia-card.js';

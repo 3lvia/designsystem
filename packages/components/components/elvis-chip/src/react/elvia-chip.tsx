@@ -106,5 +106,3 @@ export const Chip: FC<ChipProps> = ({
     </ChipComponent>
   );
 };
-
-export default Chip;

@@ -1,8 +1,8 @@
-import * as ReactComponent from '../../../react.js';
+import * as ReactComponent from '../../react.js';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 export default class ElviaComponent extends ElvisComponentWrapper {
-    static get observedAttributes(): any[] {
+    static get observedAttributes() {
         return ['{{INSERT_ATTRIBUTES}}'];
     }
 
@@ -14,4 +14,4 @@ export default class ElviaComponent extends ElvisComponentWrapper {
     }
 }
 
-window.customElements.define(`{{INSERT_COMPONENT_NAME}}`, ElviaComponent as any);
+window.customElements.define(`{{INSERT_COMPONENT_NAME}}`, ElviaComponent);

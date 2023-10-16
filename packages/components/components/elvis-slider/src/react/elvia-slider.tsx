@@ -38,7 +38,7 @@ import { Measurement } from './measurement/measurement';
 
 let elvisSliderUniqueId = 0;
 
-const Slider: React.FC<SliderProps> = function ({
+export const Slider: React.FC<SliderProps> = function ({
   ariaLabel,
   className,
   errorOnChange,

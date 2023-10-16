@@ -1,4 +1,4 @@
-import Card from './elvia-card';
+import { Card } from './elvia-card';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';

@@ -1,5 +1,3 @@
-declare module '@elvia/elvis-timepicker/react';
-export { default as Timepicker } from './dist/react/js/elvia-timepicker';
-export type { TimepickerProps, MinuteInterval } from './dist/react/js/elviaTimepicker.types';
-export type * from './dist/react/js/elvia-timepicker';
-export type * from './dist/react/js/elvia-timepicker.types';
+export * from './dist/react/elvia-timepicker';
+export * from './dist/react/elviaTimepicker.types';
+export * from './dist/public-api/publicApi.public';

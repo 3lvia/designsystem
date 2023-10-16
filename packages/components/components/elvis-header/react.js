@@ -1,2 +1,2 @@
-export { default as Header } from './dist/react/js/elvia-header.js';
-export { getCurrentTheme } from './dist/react/js/publicApi.js';
+export * from './dist/react/elvia-header.js';
+export * from './dist/public-api/publicApi.public.js';

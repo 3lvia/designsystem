@@ -1,6 +1,6 @@
 import { Overlay } from '@elvia/elvis-toolbox';
 import React from 'react';
-import { ChangeType, MinuteInterval } from '../elviaTimepicker.types';
+import { ChangeType, MinuteInterval } from '../publicApi.public';
 import { NumberPicker } from './numberPicker';
 
 import { OverlayContainer as Container } from './popupStyles';

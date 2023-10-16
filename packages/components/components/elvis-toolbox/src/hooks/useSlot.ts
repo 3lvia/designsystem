@@ -27,7 +27,7 @@ export const useSlot = <
   },
 >(
   slot: string,
-  webcomponent: TWebcomponent | undefined,
+  webcomponent?: TWebcomponent,
   options?: {
     ref?: React.RefObject<TRefElement>;
     /**
