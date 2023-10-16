@@ -15,9 +15,9 @@ export class RadioFilterCegComponent implements ComponentExample {
       groupOrder: [],
       staticProps: {
         items: [
-          { label: 'All', value: 'all' },
-          { label: 'Read', value: 'read' },
-          { label: 'Unread', value: 'unread' },
+          { label: 'Alle', value: 'all' },
+          { label: 'Lest', value: 'read' },
+          { label: 'Ulest', value: 'unread' },
         ],
         value: 'read',
         name: 'radioFilterExample',
