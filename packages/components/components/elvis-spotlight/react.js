@@ -1,1 +1,1 @@
-export { default as Spotlight } from './dist/react/js/elvia-spotlight';
+export * from './dist/react/elvia-spotlight.js';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Datepicker from './elvia-datepicker';
+import { Datepicker } from './elvia-datepicker';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import {

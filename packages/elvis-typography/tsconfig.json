@@ -1,5 +1,10 @@
 {
   "extends": "../components/tsconfig.json",
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,

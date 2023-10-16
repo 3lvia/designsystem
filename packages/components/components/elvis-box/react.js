@@ -1,1 +1,1 @@
-export { default as Box } from './dist/react/js/elvia-box';
+export * from './dist/react/elvia-box.js';

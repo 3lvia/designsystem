@@ -2,16 +2,12 @@
   "name": "@elvia/elvis-toolbox",
   "version": "11.0.1",
   "license": "MIT",
-  "main": "./dist/index.js",
+  "source": "src/index.ts",
+  "main": "dist/react/index.js",
+  "types": "dist/react/index.d.ts",
   "files": [
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*",
-    "!dist/**/*.d.ts.map"
+    "dist"
   ],
-  "scripts": {
-    "sourcemap": "tsc"
-  },
   "dependencies": {
     "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-component-wrapper": "^4.0.0",

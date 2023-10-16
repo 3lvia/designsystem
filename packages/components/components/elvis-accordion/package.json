@@ -1,16 +1,14 @@
 {
   "name": "@elvia/elvis-accordion",
   "version": "2.11.1",
-  "main": "web_component.js",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/accordion",
+  "source": "src/react/elvia-accordion.tsx",
+  "main": "dist/main/web-component.js",
   "files": [
-    "web_component.js",
     "react.js",
     "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

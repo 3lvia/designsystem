@@ -4,7 +4,7 @@ import { useSlot, warnDeprecatedProps } from '@elvia/elvis-toolbox';
 import { BoxProps } from './elvia-box.types';
 import { config } from './config';
 
-const Box: FC<BoxProps> = function ({
+export const Box: FC<BoxProps> = function ({
   heading,
   content,
   isColored = false,
@@ -31,5 +31,3 @@ const Box: FC<BoxProps> = function ({
     </BoxArea>
   );
 };
-
-export default Box;

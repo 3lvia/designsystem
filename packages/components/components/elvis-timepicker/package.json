@@ -3,14 +3,14 @@
   "version": "5.1.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/timepicker",
+  "source": "src/react/elvia-timepicker.tsx",
   "main": "web_component.js",
   "files": [
-    "web_component.js",
     "react.js",
     "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "web_component.js",
+    "web_component.d.ts",
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.0.0",
