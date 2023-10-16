@@ -308,7 +308,7 @@ npx playwright install
 See [the Playwright docs](https://playwright.dev/docs/browsers) for more information. This will install the
 latest versions of Chromium, Safari, and Firefox to be used by Playwright. The versions installed must
 correspond to the version of Playwright that is defined in `packages/components/package.json` (e.g.
-`"@playwright/test": "^1.38.0"`) and the Docker image used in the `Playwright.yml` Github action workflow.
+`"@playwright/test": "^1.39.0"`) and the Docker image used in the `Playwright.yml` Github action workflow.
 
 **NB:** Note that the sensitivity of changes in the snapshot images Playwright captures is different in the
 Github action vs. running the tests locally. It is more sensitive to changes on your local machine.
