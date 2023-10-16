@@ -171,9 +171,23 @@
       >
         <div slot="content" class="e-text-lg e-mt-16">
           <p class="e-m-0">
-            Avoid information overload by hiding away details that aren't necessary for users to have
-            available at all times.
+            Avoid information overload by hiding details that users don't need to have available at all times
+            to complete their tasks.
           </p>
+          <app-component-subsubsection [sectionTitle]="'Info or Question?'">
+            <div class="e-mt-16 e-flex e-gap-16">
+              <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
+              <i class="e-icon e-icon--question_circle e-icon--sm" aria-hidden="true"></i>
+            </div>
+            <p class="e-m-0 e-mt-16">
+              The information icon "i" lets users know they can get more detailed information than they
+              currently see.
+            </p>
+            <p class="e-m-0 e-mt-8">
+              The question icon "?" assures users that most people get confused about the information they see
+              and need an explanation to fully understand it.
+            </p>
+          </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Tooltip'">
             <p class="e-m-0">
               Tooltips are normally used to complete a sentence, defining abbreviations or explaining
@@ -191,17 +205,6 @@
             <app-static-ceg>
               <app-table-detailed-information-popover-ceg />
             </app-static-ceg>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Info or Question?'">
-            <div class="e-mt-16 e-flex e-gap-16">
-              <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
-              <i class="e-icon e-icon--question_circle e-icon--sm" aria-hidden="true"></i>
-            </div>
-            <p class="e-m-0 e-mt-16">
-              Use the information icon "i" to let the user know they can get more detailed information than
-              what they are currently seeing. Use a question icon "?" to assure users that most people get
-              confused about the information presented and need an explanation to understand.
-            </p>
           </app-component-subsubsection>
         </div>
       </elvia-accordion>
