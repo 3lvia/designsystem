@@ -164,14 +164,15 @@
       </elvia-accordion>
       <elvia-divider />
       <elvia-accordion
-        openLabel="Extra information"
-        closeLabel="Extra information"
+        openLabel="Detailed information"
+        closeLabel="Detailed information"
         isFullWidth="true"
         size="large"
       >
         <div slot="content" class="e-text-lg e-mt-16">
           <p class="e-m-0">
-            If a cell of content needs further information or explaining a tooltip or popover can be used.
+            Avoid information overload by hiding away details that aren't necessary for users to have
+            available at all times.
           </p>
           <app-component-subsubsection [sectionTitle]="'Tooltip'">
             <p class="e-m-0">
@@ -179,7 +180,7 @@
               something unclear. Keep tooltips short.
             </p>
             <app-static-ceg>
-              <app-table-extra-information-tooltip-ceg />
+              <app-table-detailed-information-tooltip-ceg />
             </app-static-ceg>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Popover'">
@@ -188,7 +189,7 @@
               illustrations, models, etc.
             </p>
             <app-static-ceg>
-              <app-table-extra-information-popover-ceg />
+              <app-table-detailed-information-popover-ceg />
             </app-static-ceg>
           </app-component-subsubsection>
         </div>
