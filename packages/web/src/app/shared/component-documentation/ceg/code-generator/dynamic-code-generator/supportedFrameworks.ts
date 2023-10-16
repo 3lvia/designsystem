@@ -1,9 +1,9 @@
 type FrameworkName = 'angular' | 'vue';
 export interface FrameworkSpec {
-  attributePrefix?: string;
-  attributePostfix?: string;
-  eventPrefix?: string;
-  eventPostfix?: string;
+  attributePrefix: string;
+  attributePostfix: string;
+  eventPrefix: string;
+  eventPostfix: string;
   castEventDataAsAny?: boolean;
 }
 
@@ -17,6 +17,8 @@ export const frameworks: Record<FrameworkName, FrameworkSpec> = {
   },
   vue: {
     attributePrefix: ':',
+    attributePostfix: '',
     eventPrefix: '@',
+    eventPostfix: '',
   },
 };
