@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "15.1.2",
+  "version": "15.1.3",
   "description": "Elvia design system",
   "license": "ISC",
   "homepage": "https://design.elvia.io/",
@@ -22,7 +22,7 @@
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-colors": "^4.1.0",
-    "@elvia/elvis-typography": "^2.5.0",
+    "@elvia/elvis-typography": "^2.6.0",
     "bootstrap": "4.6.1",
     "jquery": "^3.6.4",
     "popper.js": "^1.16.1"
