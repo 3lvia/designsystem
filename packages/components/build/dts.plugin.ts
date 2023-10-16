@@ -37,11 +37,11 @@ const dtsPlugin = (config: Props) =>
     async setup(build) {
       const cache = new Map<string, string>();
       const tsConfig: ts.CompilerOptions = {
+        strict: true,
         outDir: 'dist', // This gives the appropriate source link in d.ts.map files
         listEmittedFiles: true,
         declaration: true,
         emitDeclarationOnly: true,
-        target: ts.ScriptTarget.ES2015,
         skipLibCheck: true,
         jsx: ts.JsxEmit.React,
         declarationMap: config.watchMode,
