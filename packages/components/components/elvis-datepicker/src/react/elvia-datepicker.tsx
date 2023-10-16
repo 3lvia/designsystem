@@ -326,5 +326,3 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     </>
   );
 };
-
-export default Datepicker;

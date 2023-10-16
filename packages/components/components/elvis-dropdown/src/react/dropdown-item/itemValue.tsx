@@ -1,6 +1,6 @@
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import React, { useMemo, useRef } from 'react';
-import { DropdownItem } from '../elviaDropdown.types';
+import { DropdownItem } from '../publicApi.public';
 import { DropdownItemValue, TooltipContainer, TooltipTextContainer } from './dropdownItemStyles';
 
 interface Props {

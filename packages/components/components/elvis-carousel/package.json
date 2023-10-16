@@ -3,14 +3,13 @@
   "version": "3.1.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/carousel",
-  "main": "web_component.js",
+  "source": "src/react/elvia-carousel.tsx",
+  "main": "dist/main/web-component.js",
   "files": [
-    "web_component.js",
     "react.js",
     "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "web_component.js",
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

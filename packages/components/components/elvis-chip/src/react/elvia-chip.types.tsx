@@ -12,6 +12,7 @@ export interface BaseChipProps extends BaseProps {
   type?: ChipType;
   isSelected?: boolean;
   value: string | number;
+  image?: JSX.Element;
   onDelete?: (value: ChipProps['value']) => void;
   isSelectedOnChange?: (isSelected: NonNullable<ChipProps['isSelected']>) => void;
 }
