@@ -20,7 +20,7 @@ import {
 } from '@elvia/elvis-toolbox';
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
 
-const Popover: FC<PopoverProps> = function ({
+export const Popover: FC<PopoverProps> = function ({
   heading,
   content,
   horizontalPosition = 'center',

@@ -1,7 +1,7 @@
 import React from 'react';
-import Dropdown from './elvia-dropdown';
+import { Dropdown } from './elvia-dropdown';
 import userEvent from '@testing-library/user-event';
-import { DropdownItem } from './elviaDropdown.types';
+import { DropdownItem } from './publicApi.public';
 import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
 

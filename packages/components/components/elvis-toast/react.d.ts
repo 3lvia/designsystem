@@ -1,6 +1,3 @@
-declare module '@elvia/elvis-toast/react';
-export { default as Toast } from './dist/react/js/elvia-toast';
-export type { ToastProps } from './dist/react/js/elvia-toast';
-export type * from './dist/react/js/elvia-toast';
-export { openElviaToast } from './dist/react/js/publicApi';
-export type * from './dist/react/js/elviaToast.types';
+export * from './dist/react/elvia-toast';
+export * from './dist/react/elviaToast.types';
+export * from './dist/public-api/publicApi.public';

@@ -1,1 +1,1 @@
-export { getCurrentTheme } from './dist/react/js/publicApi';
+export * from './dist/public-api/publicApi.public';

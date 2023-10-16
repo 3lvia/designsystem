@@ -3,14 +3,12 @@
   "version": "4.0.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/slider",
-  "main": "web_component.js",
+  "source": "src/react/elvia-slider.tsx",
+  "main": "dist/main/web-component.js",
   "files": [
-    "web_component.js",
     "react.js",
     "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

@@ -1,7 +1,6 @@
-import Badge from './elvia-badge';
+import { Badge } from './elvia-badge';
 import React from 'react';
 import { axe } from 'jest-axe';
-import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
 
 describe('Elvis Badge', () => {
@@ -20,8 +19,7 @@ describe('Elvis Badge', () => {
 
     it('is green', () => {
       const badgeCircle = screen.getByRole('status');
-
-      expect(badgeCircle).toHaveStyle(`background-color: ${getThemeColor('background-selected-1')}`);
+      expect(badgeCircle).toHaveClass('badge--green');
     });
   });
 
@@ -45,14 +43,9 @@ describe('Elvis Badge', () => {
       expect(badgeCircle).toHaveTextContent('53');
     });
 
-    it('should have normal padding', () => {
+    it('should have normal styling', () => {
       const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`padding: 4px 0px`);
-    });
-
-    it('should have a fixed width to stay round', () => {
-      const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`width: 16px`);
+      expect(badgeCircle).not.toHaveClass('badge--wide');
     });
   });
 
@@ -76,14 +69,9 @@ describe('Elvis Badge', () => {
       expect(badgeCircle).toHaveTextContent('99+');
     });
 
-    it('have some extra padding', () => {
-      const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`padding: 4px`);
-    });
-
     it('should not have a fixed width', () => {
       const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`width: unset`);
+      expect(badgeCircle).toHaveClass(`badge--wide`);
     });
   });
 
@@ -105,7 +93,7 @@ describe('Elvis Badge', () => {
 
     it('should have a red contrast text color', () => {
       const badgeCircle = screen.getByRole('status');
-      expect(badgeCircle).toHaveStyle(`color: ${getThemeColorContrast('signal-danger')}`);
+      expect(badgeCircle).toHaveClass('badge--red');
     });
   });
 

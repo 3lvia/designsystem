@@ -1,4 +1,4 @@
-import Chip from './elvia-chip';
+import { Chip } from './elvia-chip';
 import React from 'react';
 import { axe } from 'jest-axe';
 import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
