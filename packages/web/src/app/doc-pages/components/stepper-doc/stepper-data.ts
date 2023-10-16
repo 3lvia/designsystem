@@ -14,6 +14,7 @@ export const stepperData: ComponentData = {
       type: '{[stepIndex: number]: StepItem}',
       description:
         'An object to define the heading, next- and previous-button text and/or the state of the step.',
+      example: `const steps = { 1: { heading: 'Title 1', isCompleted: true }, 2: { heading: 'Title 2', isCompleted: true }, 3: { heading: 'Title 3' }, 4: { heading: 'Title 4', nextButtonText: 'Lagre' }}`,
     },
     isForced: {
       type: 'boolean',
@@ -24,7 +25,8 @@ export const stepperData: ComponentData = {
     typography: {
       type: 'string',
       description:
-        'The stepper uses custom typography for the titles of each step. If you want to use any of the design system typographies, pass the name of the typography here. Example: "text-md"',
+        'The stepper uses custom typography for the titles of each step. If you want to use any of the design system typographies, pass the name of the typography here.',
+      example: /* ts */ `typography = "text-md"`,
     },
     content: {
       isRequired: true,

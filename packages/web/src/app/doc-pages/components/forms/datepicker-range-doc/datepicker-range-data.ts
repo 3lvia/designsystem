@@ -83,12 +83,16 @@ const datepickerRangeData: ComponentData = {
     disableDates: {
       type: '{start: (day: Date) => boolean; end: (day: Date) => boolean}',
       description: 'Object containing functions that set dates as disabled. Return true to disable a date.',
+      example: /* ts */ `// example: only allow mondays on start datepicker, only allow fridays on end datepicker
+        disableDates = { start: (day: Date) => day.getDay() !== 1, end: (day: Date) => day.getDay() !== 5 }
+      `,
     },
     errorOptions: {
       type: 'Partial<{start: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, end: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}>',
       description: 'An object that allows for custom configuration of the error handling.',
       default:
         '{ start: { hideText: false, hasErrorPlaceholder: true }, end: { hideText: false, hasErrorPlaceholder: true }}',
+      example: /* ts */ `errorOptions = { start: { text: "Start error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true }, end: { text: "End error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true } }`,
     },
     errorOnChange: {
       isEvent: true,

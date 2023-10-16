@@ -22,6 +22,7 @@ export const dropdownData: ComponentData = {
       description:
         'An object that allows for custom configuration of the error handling in the dropdown. Setting "text" will always show the provided error message. "isErrorState" allows for manually activating the visual error UI. "hasErrorPlaceholder" allows you to remove the padding below the dropdown.',
       default: '{ isErrorState: false, hasErrorPlaceholder: true }',
+      example: /* ts */ `errorOptions = { text: "Error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true }`,
     },
     size: {
       type: '"small" | "medium"',
