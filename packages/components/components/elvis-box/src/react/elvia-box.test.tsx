@@ -1,4 +1,4 @@
-import Box from './elvia-box';
+import { Box } from './elvia-box';
 import React from 'react';
 import { axe } from 'jest-axe';
 import { getThemeColor } from '@elvia/elvis-colors';

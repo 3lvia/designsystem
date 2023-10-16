@@ -1,9 +1,10 @@
-import Chip from './elvia-chip';
+import { Chip } from './elvia-chip';
 import React from 'react';
 import { axe } from 'jest-axe';
 import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { setOpacity } from './styledComponents';
 
 const colors = {
   green: getBaseColor('green-apple', 'light'),
@@ -19,6 +20,17 @@ describe('Elvis Chip', () => {
     it('should have label "chip value"', () => {
       const chipLabel = screen.getByTestId('chip-label');
       expect(chipLabel).toHaveTextContent('chip value');
+    });
+  });
+
+  describe('Type = Removable', () => {
+    beforeEach(() => {
+      render(<Chip type="removable" value="chip value" image={<div>chip image</div>} />);
+    });
+
+    it('should render image', () => {
+      const chipImage = screen.getByText('chip image');
+      expect(chipImage).toBeInTheDocument();
     });
   });
 
@@ -40,7 +52,7 @@ describe('Elvis Chip', () => {
 
     it('should be selected', () => {
       const chipButton = screen.getByTestId('chip-button');
-      expect(chipButton).toHaveStyle(`background-color: ${colors.green}30;`);
+      expect(chipButton).toHaveStyle(`background-color: ${setOpacity(colors.green, 30)};`);
     });
   });
 
@@ -62,7 +74,7 @@ describe('Elvis Chip', () => {
 
     it('should be selected', () => {
       const chipButton = screen.getByTestId('chip-button');
-      expect(chipButton).toHaveStyle(`background-color: ${colors.green}30;`);
+      expect(chipButton).toHaveStyle(`background-color: ${setOpacity(colors.green, 30)};`);
     });
   });
 
@@ -73,7 +85,7 @@ describe('Elvis Chip', () => {
 
     it('should have color blue', () => {
       const chipButton = screen.getByTestId('chip-button');
-      expect(chipButton).toHaveStyle(`background-color: ${colors.blue}30;`);
+      expect(chipButton).toHaveStyle(`background-color: ${setOpacity(colors.blue, 30)};`);
     });
   });
 

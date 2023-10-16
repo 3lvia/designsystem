@@ -1,16 +1,15 @@
 {
   "name": "@elvia/elvis-chip",
-  "version": "2.4.4",
+  "version": "2.5.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/chip",
-  "main": "web_component.js",
+  "source": "src/react/elvia-chip.tsx",
+  "main": "dist/main/web-component.js",
   "files": [
-    "web_component.js",
     "react.js",
     "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "web_component.js",
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.5.1",

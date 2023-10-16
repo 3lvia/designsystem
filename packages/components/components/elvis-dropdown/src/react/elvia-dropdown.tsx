@@ -1,7 +1,8 @@
 import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { config } from './config';
-import { DropdownItem, DropdownProps, DropdownValueType } from './elviaDropdown.types';
+import { DropdownProps } from './elviaDropdown.types';
+import { DropdownItem, DropdownValueType } from './publicApi.public';
 import {
   warnDeprecatedProps,
   FormFieldLabel,
@@ -35,7 +36,7 @@ const defaultErrorOptions = {
   hasErrorPlaceholder: true,
 } satisfies Partial<ErrorOptions>;
 
-const Dropdown: React.FC<DropdownProps> = ({
+export const Dropdown: React.FC<DropdownProps> = ({
   items = [],
   value,
   size = 'medium',
@@ -226,5 +227,3 @@ const Dropdown: React.FC<DropdownProps> = ({
     </>
   );
 };
-
-export default Dropdown;

@@ -1,1 +1,1 @@
-export { default as Chip } from './dist/react/js/elvia-chip.js';
+export * from './dist/react/elvia-chip.js';

@@ -1,1 +1,1 @@
-export { default as Datepicker } from './dist/react/js/elvia-datepicker.js';
+export * from './dist/react/elvia-datepicker.js';

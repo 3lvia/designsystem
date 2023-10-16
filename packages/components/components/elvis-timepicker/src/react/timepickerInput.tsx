@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { ErrorType } from './elviaTimepicker.types';
+import { ErrorType } from './publicApi.public';
 
 import { padDigit } from './padDigit';
 import { Input } from './styledComponents';

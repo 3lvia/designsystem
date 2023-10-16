@@ -1,1 +1,1 @@
-export { default as ContextMenu } from './dist/react/js/elvia-context-menu.js';
+export * from './dist/react/elvia-context-menu.js';

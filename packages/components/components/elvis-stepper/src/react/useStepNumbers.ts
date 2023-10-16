@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { StepStates } from './sharedTypes';
+import { StepStates } from './publicApi.public';
 
 export const useStepNumbers = (
   numberOfSteps: number,

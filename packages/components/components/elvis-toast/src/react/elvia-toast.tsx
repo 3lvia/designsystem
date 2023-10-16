@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { BaseProps } from '@elvia/elvis-toolbox';
 
-import { toastEventName, ToastWithId } from './elviaToast.types';
+import { toastEventName, ToastWithId, toastContainerId } from './publicApi.public';
 import { ToastPosition } from './styledComponents';
 import { ToastBox } from './toastBox';
-import { toastContainerId } from './publicApi';
-
-export interface ToastProps extends BaseProps {}
+import { ToastProps } from './elviaToast.types';
 
 export const Toast: React.FC<ToastProps> = ({ className, inlineStyle }) => {
   const [toastQueue, setToastQueue] = useState<ToastWithId[]>([]);

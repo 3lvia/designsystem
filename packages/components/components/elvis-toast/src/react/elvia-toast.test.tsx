@@ -2,8 +2,7 @@ import React from 'react';
 import Toast from './elvia-toast';
 import { axe } from 'jest-axe';
 import { act, render, screen, waitFor } from '@testing-library/react';
-import { openElviaToast } from './publicApi';
-import { ToastConfig } from './elviaToast.types';
+import { openElviaToast, ToastConfig } from './publicApi.public';
 
 const toastTitle = 'Toast title';
 const toastBody = 'Toast description';

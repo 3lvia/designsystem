@@ -1,0 +1,39 @@
+.badge-container {
+  width: fit-content;
+  position: relative;
+}
+
+.badge-circle {
+  background-color: var(--e-color-background-element-5);
+  border-radius: 50px;
+  color: var(--e-color-text-4);
+  display: grid;
+  font-size: 9px;
+  font-weight: 600;
+  height: 16px;
+  line-height: 9px;
+  padding: 4px 0;
+  place-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+  user-select: none;
+  width: 16px;
+  z-index: 10;
+}
+
+.badge--wide {
+  padding: 4px;
+  width: unset;
+}
+
+.badge--green {
+  background-color: var(--e-color-signal-positive);
+  color: var(--e-color-signal-positive--contrast);
+}
+
+.badge--red {
+  background-color: var(--e-color-signal-danger);
+  color: var(--e-color-signal-danger--contrast);
+}

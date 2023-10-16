@@ -1,6 +1,6 @@
 import { BaseProps, IconWrapper } from '@elvia/elvis-toolbox';
 import React, { AnimationEvent, useEffect, useState } from 'react';
-import { ToastWithId } from './elviaToast.types';
+import { ToastWithId } from './publicApi.public';
 import {
   animationDuration,
   CloseButton,

@@ -10,11 +10,10 @@
     ]
   },
   "scripts": {
-    "build": "yarn build:tokens && yarn build:elvis:prod && yarn build:components:prod && yarn build:web:prod",
+    "build": "yarn build:tokens && yarn build:elvis:prod && yarn build:components && yarn build:web:prod",
     "build:elvis": "yarn workspace @elvia/elvis build",
     "build:elvis:prod": "yarn workspace @elvia/elvis build:production",
     "build:components": "yarn workspace @elvia/elvis-components build",
-    "build:components:prod": "yarn workspace @elvia/elvis-components build:production",
     "build:web": "yarn workspace elvia-designsystem build",
     "build:web:prod": "yarn contentful:production && yarn workspace elvia-designsystem build:production && yarn workspace react-test build:production",
     "build:tokens": "yarn workspaces foreach -pv --include @elvia/elvis-colors --include @elvia/elvis-typography run build && yarn workspace @elvia/elvis-assets-icons build",
@@ -68,7 +67,7 @@
     "express": "^4.18.2",
     "gulp-stylelint": "^13.0.0",
     "husky": "^4.3.8",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.0.1",
     "postcss": "^8.4.31",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",

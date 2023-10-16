@@ -3,15 +3,12 @@
   "version": "2.2.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/tabs",
-  "main": "web_component.js",
-  "types": "elvia-tabs.d.ts",
+  "source": "src/react/elvia-tabs.tsx",
+  "main": "dist/main/web-component.js",
   "files": [
-    "web_component.js",
     "react.js",
     "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

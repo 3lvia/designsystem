@@ -4,7 +4,7 @@ import { SpotlightArea, SpotlightCircle, SpotlightMask, SpotlightRect } from './
 import { useLockBodyScroll } from './useLockBodyScroll';
 import { SpotlightProps } from './elvia-spotlight.types';
 
-const Spotlight: FC<SpotlightProps> = ({
+export const Spotlight: FC<SpotlightProps> = ({
   position,
   shape = 'circle',
   radius = 200,

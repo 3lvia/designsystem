@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { ProgressLinearProps } from './elvia-progress-linear.types';
 import { ProgressLinearWrapper, ProgressLinearProgress } from './styledComponents';
 
-const ProgressLinear: FC<ProgressLinearProps> = ({
+export const ProgressLinear: FC<ProgressLinearProps> = ({
   value = 0,
   isIndeterminate,
   isError,
