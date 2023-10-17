@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "15.1.3",
+      "date": "October 17, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Revert changes from last version, because of bugs related to the change. Removed :has() selector - Firefox does not support it yet, but will be added soon."
+          ],
+          "components": [{ "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" }]
+        }
+      ]
+    },
+    {
       "version": "15.1.2",
       "date": "October 11, 2023",
       "changelog": [
