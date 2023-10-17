@@ -89,7 +89,6 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 
   &.e-checkbox---disabled,
-  &:has(input:disabled, .e-checkbox---disabled, .e-checkbox---disabled-checked),
   input:disabled {
     @extend %checkbox-mark-disabled;
   }
