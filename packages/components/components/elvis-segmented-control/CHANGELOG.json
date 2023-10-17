@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "17.10.23",
+      "version": "2.1.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Changed to smaller padding on text."]
+        }
+      ]
+    },
+    {
       "date": "06.10.23",
       "version": "2.1.1",
       "changelog": [
