@@ -20,10 +20,10 @@ interface StepStates {
 export class StepperCegComponent implements ComponentExample {
   elementName = 'stepper';
   stepperStates: BaseStepperProps['steps'] = {
-    '1': { heading: 'Title 1', isCompleted: true },
-    '2': { heading: 'Title 2', isCompleted: true },
-    '3': { heading: 'Title 3' },
-    '4': { heading: 'Title 4', nextButtonText: 'Lagre' },
+    '1': { heading: 'Tittel 1', isCompleted: true },
+    '2': { heading: 'Tittel 2', isCompleted: true },
+    '3': { heading: 'Tittel 3' },
+    '4': { heading: 'Tittel 4', nextButtonText: 'Lagre' },
   };
   cegContent = new CegControlManager<BaseStepperProps>([
     {
