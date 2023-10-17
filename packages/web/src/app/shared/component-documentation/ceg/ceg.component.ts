@@ -68,9 +68,14 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   ) {}
 
   ngAfterViewInit(): void {
-    this.setCegStateFromURL();
+    let hasPropControls = true;
+    const controls = this.componentExample.cegContent.getControlSnapshot();
+    if (controls) {
+      hasPropControls = Object.values(controls).some((control) => !control?.excludedFromDOM);
+    }
 
-    if (this.hasWebComponent()) {
+    this.setCegStateFromURL();
+    if (hasPropControls) {
       this.setUpSlotSubscription();
       this.setUpTypeChangeSubscription();
       this.setUpStaticPropSubscription();
@@ -251,11 +256,6 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
         this.getWebComponent().setProps({ [controlName]: control.value });
       }
     });
-  }
-
-  private hasWebComponent() {
-    const tagName = `elvia-${this.componentExample.elementName}`;
-    return !!this.componentContainer.nativeElement.querySelector(tagName);
   }
 
   private getWebComponent() {
