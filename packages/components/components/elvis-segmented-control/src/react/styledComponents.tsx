@@ -7,7 +7,7 @@ import {
   Type,
 } from './elviaSegmentedControl.types';
 
-const controlPaddingXLarge = 20;
+const controlPaddingXLarge = 24;
 const controlPaddingYLarge = 12;
 
 const controlPaddingXMedium = 18;
