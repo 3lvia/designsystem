@@ -38,7 +38,7 @@ const dtsPlugin = (config: Props) =>
       const cache = new Map<string, string>();
       const tsConfig: ts.CompilerOptions = {
         strict: true,
-        outDir: 'dist', // This gives the appropriate source link in d.ts.map files
+        declarationDir: 'dist/react',
         listEmittedFiles: true,
         declaration: true,
         emitDeclarationOnly: true,
@@ -56,6 +56,13 @@ const dtsPlugin = (config: Props) =>
         if (newHash && newHash !== cache.get(args.path)) {
           cache.set(args.path, newHash);
           files.push(args.path);
+
+          host.getSourceFile(
+            args.path,
+            tsConfig.target ?? ts.ScriptTarget.Latest,
+            (m) => console.log(m),
+            true,
+          );
         }
 
         return {};
