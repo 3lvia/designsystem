@@ -7,13 +7,13 @@ import {
   Type,
 } from './elviaSegmentedControl.types';
 
-const controlPaddingXLarge = 40;
+const controlPaddingXLarge = (isMobile?: boolean) => (isMobile ? 0 : 40);
 const controlPaddingYLarge = 12;
 
-const controlPaddingXMedium = 24;
+const controlPaddingXMedium = (isMobile?: boolean) => (isMobile ? 0 : 24);
 const controlPaddingYMedium = 8;
 
-const controlPaddingXSmall = 22;
+const controlPaddingXSmall = (isMobile?: boolean) => (isMobile ? 0 : 22);
 const controlPaddingYSmall = 4;
 
 const iconControlPaddingLarge = 12;
@@ -25,7 +25,9 @@ const fontSizeMedium = '14px';
 const fontSizeSmall = '14px';
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const getControlPadding = (size: string, $type: Type) => {
+const mobileMax = '767px';
+
+const getControlPadding = (size: string, $type: Type, isMobile?: boolean) => {
   if ($type === 'icon') {
     if (size === 'large') {
       return `${iconControlPaddingLarge - 1}px`;
@@ -36,11 +38,11 @@ const getControlPadding = (size: string, $type: Type) => {
     }
   } else {
     if (size === 'large') {
-      return `${controlPaddingYLarge}px ${controlPaddingXLarge}px`;
+      return `${controlPaddingYLarge}px ${controlPaddingXLarge(isMobile)}px`;
     } else if (size === 'medium') {
-      return `${controlPaddingYMedium}px ${controlPaddingXMedium}px`;
+      return `${controlPaddingYMedium}px ${controlPaddingXMedium(isMobile)}px`;
     } else {
-      return `${controlPaddingYSmall}px ${controlPaddingXSmall}px`;
+      return `${controlPaddingYSmall}px ${controlPaddingXSmall(isMobile)}px`;
     }
   }
 };
@@ -92,6 +94,9 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
         transition: left 250ms ${controlAnimation};
       }
     `}
+  @media (max-width: ${mobileMax}) {
+    width: 100%;
+  }
 `;
 
 export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
@@ -122,6 +127,10 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
       0 0 0 currentColor,
       0 0 0.5px currentColor;
     border: ${({ $type, isSelected }) => getControlBorder($type, isSelected, true)};
+  }
+
+  @media (max-width: ${mobileMax}) {
+    padding: ${({ size, $type }) => getControlPadding(size, $type, true)};
   }
 `;
 
