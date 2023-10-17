@@ -107,7 +107,7 @@ const buildWebComponents = async (config: {
   const paths = await tinyGlob('components/elvis-*/src/react/config.ts');
 
   const baseConfig: esbuild.BuildOptions = {
-    entryPoints: paths.map((path) => toInOutTuple(path, 'main', 'web-component')),
+    entryPoints: paths.map((path) => toInOutTuple(path, 'dist/main', 'web-component')),
     outdir: config.outDir,
     bundle: true,
     format: 'esm',
