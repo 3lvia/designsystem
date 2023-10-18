@@ -67,24 +67,15 @@ export const Modal: FC<ModalProps> = function ({
   /**
    * Starts listener for click outside modal, closes modal when clicked
    * Starts listener for escape click, closes modal when clicked
-   * Adds styling for locking scroll on body when modal open
    */
   !disableClose && useClickOutside(modalWrapperRef, () => isShowing && handleOnClose());
   useKeyPress('Escape', handleOnClose);
 
-  /** When the modal is closed add focus back to the element that had focus when the modal was opened. */
-  useEffect(() => {
-    const originalFocusedElement = document.activeElement as HTMLElement;
-    return () => {
-      originalFocusedElement && originalFocusedElement.focus();
-    };
-  }, []);
-
-  /** Trap focus inside modal */
   useEffect(() => {
     if (!isShowing) {
       return;
     }
+    const originalFocusedElement = document.activeElement as HTMLElement;
     trapFocus(modalWrapperRef);
 
     if (hasLockBodyScroll) {
@@ -93,6 +84,7 @@ export const Modal: FC<ModalProps> = function ({
 
     return () => {
       releaseFocusTrap();
+      originalFocusedElement && originalFocusedElement.focus();
 
       if (hasLockBodyScroll) {
         releaseBodyScroll();
