@@ -10,6 +10,10 @@
           "changes": [
             "Fixed an issue where sticky content on the page would be mispositioned while the modal was open."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Bump internal dependencies."]
         }
       ]
     },
