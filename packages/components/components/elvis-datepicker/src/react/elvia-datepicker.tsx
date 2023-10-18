@@ -138,6 +138,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       case 'invalidDate':
       case 'beforeMinDate':
       case 'afterMaxDate':
+      case 'required':
         onError(error);
         break;
       default:
@@ -332,7 +333,6 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             onChange={updateValue}
             onFocus={() => onFocus?.()}
             required={isRequired}
-            currentError={error}
             onErrorChange={onError}
             minDate={minDateWithoutTime}
             maxDate={maxDateWithoutTime}

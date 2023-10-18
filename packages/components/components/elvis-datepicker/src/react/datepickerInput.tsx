@@ -23,7 +23,6 @@ interface Props {
   placeholder?: string;
   onChange: (newValue: Date | null) => void;
   onFocus: () => void;
-  currentError?: ErrorType;
   onErrorChange: (error?: ErrorType) => void;
   overlayTriggerRef: RefObject<HTMLButtonElement>;
 }
