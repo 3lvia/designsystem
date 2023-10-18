@@ -38,6 +38,7 @@ export const Modal: FC<ModalProps> = function ({
 }) {
   const modalWrapperRef = useRef<HTMLDivElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
+  const { lockBodyScroll, releaseBodyScroll } = useLockBodyScroll();
 
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
 
@@ -57,13 +58,10 @@ export const Modal: FC<ModalProps> = function ({
     if (!isShowing) {
       return;
     }
-    if (!webcomponent && onClose) {
-      onClose();
-    } else if (webcomponent) {
-      webcomponent.setProps({ isShowing: false }, true);
-      webcomponent.triggerEvent('isShowingOnChange', false);
-      webcomponent.triggerEvent('onClose');
-    }
+    onClose?.();
+    webcomponent?.setProps({ isShowing: false }, true);
+    webcomponent?.triggerEvent('isShowingOnChange', false);
+    webcomponent?.triggerEvent('onClose');
   };
 
   /**
@@ -73,7 +71,6 @@ export const Modal: FC<ModalProps> = function ({
    */
   !disableClose && useClickOutside(modalWrapperRef, () => isShowing && handleOnClose());
   useKeyPress('Escape', handleOnClose);
-  useLockBodyScroll(hasLockBodyScroll && isShowing);
 
   /** When the modal is closed add focus back to the element that had focus when the modal was opened. */
   useEffect(() => {
@@ -90,8 +87,16 @@ export const Modal: FC<ModalProps> = function ({
     }
     trapFocus(modalWrapperRef);
 
+    if (hasLockBodyScroll) {
+      lockBodyScroll();
+    }
+
     return () => {
       releaseFocusTrap();
+
+      if (hasLockBodyScroll) {
+        releaseBodyScroll();
+      }
     };
   }, [isShowing]);
 
