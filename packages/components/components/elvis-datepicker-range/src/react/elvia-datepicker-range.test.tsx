@@ -106,6 +106,8 @@ describe('Elvis DatepickerRange', () => {
       const input = screen.getByRole('textbox', { name: /fra dato/i });
       await user.click(input);
       await user.type(input, '11.08.2022');
+      // Tab twice to get outside the whole datepicker (input field and overlay trigger)
+      await user.tab();
       await user.tab();
 
       await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
@@ -117,6 +119,8 @@ describe('Elvis DatepickerRange', () => {
       const input = screen.getByRole('textbox', { name: /fra dato/i });
       await user.click(input);
       await user.type(input, '26.03.2000');
+      // Tab twice to get outside the whole datepicker (input field and overlay trigger)
+      await user.tab();
       await user.tab();
 
       await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalledTimes(1));
