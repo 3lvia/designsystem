@@ -7,7 +7,7 @@ const radioFilterData: ComponentData = {
   attributes: {
     items: {
       isRequired: true,
-      type: 'Array<object>',
+      type: 'object[]',
       description:
         'Options available in the radio-filter component, set as array of objects with keys: {label: string, value: string}. The label will be injected as innerHTML to allow support for icons.',
     },
@@ -20,12 +20,13 @@ const radioFilterData: ComponentData = {
       isRequired: true,
       type: 'string',
       description:
-        'The HTML attribute "name" is used for radio button group input elements in the Radio Filter component. Each name must be unique for each Radio Filter on the page and is not visible to the user. e.g "messageFilter".',
+        'The HTML attribute "name" is used for radio button group input elements in the Radio Filter component. Each name must be unique for each Radio Filter on the page and is not visible to the user.',
+      example: /* ts */ `name = "messageFilter"`,
     },
     ariaLabel: {
       isRequired: false,
       type: 'string',
-      description: 'Arialabel for each filter button.',
+      description: 'Aria-label for each filter button.',
       default: '{value} filtrering valgt',
     },
     groupAriaLabel: {

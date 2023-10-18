@@ -47,19 +47,22 @@ const accordionData: ComponentData<BaseAccordionProps> = {
     typography: {
       type: 'string',
       description:
-        'The accordion uses a custom typography. If you want to use any of the design system typographies, pass the name of the typography here. Example: "text-md"',
+        'The accordion uses a custom typography. If you want to use any of the design system typographies, pass the name of the typography here.',
+      example: /* ts */ `typography = "text-md"`,
     },
     spacingAboveContent: {
       type: '"8px" | "16px" | "24px"',
       description:
-        'For normal accordion, if you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingAboveContent: "16px".',
+        'For normal accordion, if you want to change det padding between the accordion button and the content below it, you can use this attribute.',
       default: '"8px"',
+      example: /* ts */ `spacingAboveContent = "16px"`,
     },
     spacingBelowContent: {
       type: '"8px" | "16px" | "24px"',
       description:
-        'For overflow accordion, if you want to change det padding between the accordion button and the content below it, you can use this attribute. Example: spacingBelowContent: "16px".',
+        'For overflow accordion, if you want to change det padding between the accordion button and the content below it, you can use this attribute.',
       default: '"8px"',
+      example: /* ts */ `spacingBelowContent = "16px"`,
     },
     openLabel: {
       type: `string | JSX.Element`,

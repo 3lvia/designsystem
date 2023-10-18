@@ -34,8 +34,8 @@ export const configurationProps: ComponentData = {
     customIcon: {
       isRequired: false,
       type: 'string',
-      description:
-        'Allows for writing inner HTML to replace the default icon. Example: <i class="e-icon e-icon--crane"></i>',
+      description: 'Allows for writing inner HTML to replace the default icon.',
+      example: /* ts */ `customIcon = '<i class="e-icon e-icon--crane"></i>'`,
     },
   },
 };

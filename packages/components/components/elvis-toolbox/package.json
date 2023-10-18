@@ -3,8 +3,8 @@
   "version": "11.0.1",
   "license": "MIT",
   "source": "src/index.ts",
-  "main": "dist/react/index.js",
-  "types": "dist/react/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],

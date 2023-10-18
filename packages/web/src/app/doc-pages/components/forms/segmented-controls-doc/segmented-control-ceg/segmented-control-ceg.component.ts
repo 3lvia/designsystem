@@ -26,7 +26,7 @@ export class SegmentedControlCegComponent implements ComponentExample {
       },
       groupOrder: ['Size'],
       staticProps: {
-        items: [{ label: 'Weekly' }, { label: 'Monthly' }, { label: 'Yearly' }],
+        items: [{ label: 'Ukentlig' }, { label: 'Månedlig' }, { label: 'Årlig' }],
       },
     },
     {
@@ -49,12 +49,12 @@ export class SegmentedControlCegComponent implements ComponentExample {
           {
             icon: '<i class="e-icon e-icon--thumbnail"></i>',
             iconSelected: '<i class="e-icon e-icon--thumbnail-color"></i>',
-            ariaLabel: 'Segmented control example label',
+            ariaLabel: 'Segmentert kontrolleksempeletikett',
           },
           {
             icon: '<i class="e-icon e-icon--list"></i>',
             iconSelected: '<i class="e-icon e-icon--list_color"></i>',
-            ariaLabel: 'Segmented control example label',
+            ariaLabel: 'Segmentert kontrolleksempeletikett',
           },
         ],
       },
