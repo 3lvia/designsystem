@@ -2,7 +2,7 @@
 @use '../../utilities/typography';
 
 .e-search {
-  @include typography.typography('text-md');
+  @include typography.typography('text-sm');
   position: relative;
 
   &::-ms-clear {

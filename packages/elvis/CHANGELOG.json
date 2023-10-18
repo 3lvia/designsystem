@@ -1,6 +1,25 @@
 {
   "content": [
     {
+      "version": "15.1.3",
+      "date": "October 18, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the typography in table footnotes being wrong. It is now slightly smaller than it was.",
+            "Fixed the typography in search fields being wrong. It is now slightly smaller than it was.",
+            "Fixed the typography in labels in small radio button being wrong. It is now slightly smaller than it was."
+          ],
+          "components": [
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Radio Button", "url": "https://design.elvia.io/components/radiobutton" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "15.1.2",
       "date": "October 11, 2023",
       "changelog": [
