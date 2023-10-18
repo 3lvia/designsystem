@@ -127,6 +127,8 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
     }
 
     .e-radio__label {
+      @include typography.typography('text-sm');
+      color: var(--e-color-text-1);
       margin-left: 24px;
     }
 
