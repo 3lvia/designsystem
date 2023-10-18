@@ -1,6 +1,6 @@
 th.table-code-text,
 td.table-code-text {
-  font-family: 'Red Hat Mono', Verdana, sans-serif;
+  font-family: 'Red Hat Mono', Verdana, monospace;
 }
 
 .e-table {
@@ -8,31 +8,37 @@ td.table-code-text {
 }
 
 .e-table .group-title-row {
+  background-color: var(--e-color-background-element-2);
   position: sticky;
   top: 40px;
   z-index: 2;
 
   th,
   td {
-    background-color: var(--e-color-background-element-2);
+    border-bottom: 1px solid var(--e-color-border-2);
+    background-color: transparent;
     padding-block: 12px;
+  }
+
+  .sticky {
+    background-color: transparent;
+    max-width: 0;
+    position: sticky;
+
+    &.sticky-right {
+      right: 0;
+    }
+
+    &.sticky-left {
+      left: 0;
+    }
   }
 }
 
-.sticky-right {
-  position: sticky;
-  right: 0;
-}
-
-.e-table thead th {
-  border-right: 0;
-  vertical-align: middle;
-}
-
 .e-table tbody th,
+.e-table thead th,
 .e-table td {
   border-right: 0;
-  vertical-align: top;
 }
 
 tr.prop-row {
@@ -44,13 +50,10 @@ tr.prop-row {
   }
 
   &.expanded .height-changer {
-    height: 100%;
-    padding-block: 9px;
-    opacity: 1;
-  }
-
-  &:not(.last) .height-changer {
     border-bottom: 1px solid var(--e-color-border-2);
+    height: 100%;
+    opacity: 1;
+    padding-block: 9px;
   }
 }
 
