@@ -86,7 +86,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
     componentProps.sort(this.sortProps);
 
     if (!this.ignoreDefaultProps) {
-      componentProps.push(...this.getCommonProps());
+      componentProps.push(...this.getDefaultProps());
     }
     return componentProps;
   }
@@ -112,7 +112,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
     return lastPropComparison || requiredComparison || alphabeticalComparison;
   }
 
-  private getCommonProps(): ComponentProp[] {
+  private getDefaultProps(): ComponentProp[] {
     return [
       {
         attribute: 'className',
