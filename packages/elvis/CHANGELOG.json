@@ -7,7 +7,7 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed a bug where the pointer cursor would still appear on the checkbox label element even when the checkbox was disabled."
+            "Fixed a bug where the pointer cursor would still appear on the checkbox label element even when the checkbox was disabled. "
           ],
           "components": [{ "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" }]
         }
