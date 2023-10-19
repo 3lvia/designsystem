@@ -1,5 +1,5 @@
 <div class="e-form-field">
-  <label class="e-form-field__label" for="validationExample">Ugyldig tekstfelt med feilmelding</label>
+  <label class="e-form-field__label" for="validationExample">Passord</label>
   <div class="e-input e-input---invalid">
     <button class="e-btn e-btn--icon" aria-label="Vis/skjul passord">
       <span class="e-btn__icon">
@@ -7,13 +7,13 @@
       </span>
     </button>
     <input
+      aria-errormessage="error-message-example"
+      aria-invalid="true"
       id="validationExample"
+      invalid
+      required
       type="password"
       value="Passord"
-      required
-      invalid
-      aria-invalid="true"
-      aria-errormessage="error-message-example"
     />
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
