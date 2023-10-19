@@ -1,6 +1,11 @@
 th.table-code-text,
-td.table-code-text {
+td.table-code-text,
+.e-tag {
   font-family: 'Red Hat Mono', Verdana, monospace;
+}
+
+.e-tag {
+  text-transform: unset;
 }
 
 .e-table {
@@ -15,8 +20,8 @@ td.table-code-text {
 
   th,
   td {
-    border-bottom: 1px solid var(--e-color-border-2);
     background-color: transparent;
+    border-bottom: 1px solid var(--e-color-border-2);
     padding-block: 12px;
   }
 

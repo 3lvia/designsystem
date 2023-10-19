@@ -6,6 +6,7 @@ type Section = 'Properties' | 'Events' | 'Arguments';
 
 interface TableGroup {
   title: Section;
+  tag?: string;
   description: string;
   expanded?: boolean;
   rows: SearchResult<ComponentProp>[];

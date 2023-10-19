@@ -15,7 +15,10 @@
     <ng-container *ngFor="let group of groupedProps">
       <tr *ngIf="group.rows.length > 0" class="group-title-row">
         <td class="sticky sticky-left">
-          <h2 class="e-title-caps e-m-0 e-mb-8">{{ group.title }}</h2>
+          <div class="e-flex e-align-items-center e-gap-16 e-mb-8">
+            <h2 class="e-title-caps e-m-0">{{ group.title }}</h2>
+            <span *ngIf="group.tag" class="e-tag">{{ group.tag }}</span>
+          </div>
           <p class="e-text-sm e-m-0">{{ group.description }}</p>
         </td>
         <td></td>
