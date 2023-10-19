@@ -312,3 +312,6 @@ correspond to the version of Playwright that is defined in `packages/components/
 
 **NB:** Note that the sensitivity of changes in the snapshot images Playwright captures is different in the
 Github action vs. running the tests locally. It is more sensitive to changes on your local machine.
+
+Once the browsers have been installed, you can run the tests with the command `yarn test-ct`. If you need to
+update the snapshots because there are intentional changes to a component, tun `yarn test-ct:update`.
