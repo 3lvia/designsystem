@@ -1,56 +1,65 @@
 import esbuild from 'esbuild';
 import ts from 'typescript';
 import path from 'path';
-import fsPromises from 'fs/promises';
-import fs from 'fs';
 import { getMd5 } from './utils';
 
 interface Props {
   watchMode: boolean;
 }
 
-const writeTypingsToDisk = async (fileName: string, text: string, sources?: readonly ts.SourceFile[]) => {
-  const originalPath = sources?.[0]?.fileName || '';
-  const isPublicApi = path.basename(fileName).includes('.public');
-  const outDir = path.dirname(
-    originalPath.replace(/src(\/react)?/, `dist${path.sep}${isPublicApi ? 'public-api' : 'react'}`),
+// Fix imports of types from .public.ts to resolve from ../public-api folder.
+// We need to do this since we manually write the files to other locations than the default.
+// This and writeTypingsToDisc can be removed if we figure out how to define a more granular
+// outPath for our types.
+const resolveImportsOfPublicApi = (text: string): string => {
+  return text.replace(
+    /\.\/([\w-]+.public)/g,
+    (_match, fileName) => `..${path.sep}public-api${path.sep}${fileName}`,
   );
+};
 
-  // Re-write imports of types from .public.ts to resolve from ../public-api folder
-  let fileContent = text;
-  if (text.match(/\.\/([\w-]+.public)/g)) {
-    fileContent = text.replace(
-      /\.\/([\w-]+.public)/g,
-      (_match, fileName) => `..${path.sep}public-api${path.sep}${fileName}`,
-    );
-  }
-
-  if (!fs.existsSync(outDir)) {
-    await fsPromises.mkdir(outDir, { recursive: true });
-  }
-  await fsPromises.writeFile(path.join(outDir, path.basename(fileName)), fileContent);
+const writeTypingsToDisk = (fileName: string, text: string, outDir: string) => {
+  const fileContent = resolveImportsOfPublicApi(text);
+  const isPublicApi = path.basename(fileName).includes('.public');
+  const dir = path.resolve(fileName.replace(outDir, 'components'));
+  const outPath = dir.replace('src', 'dist').replace('react', `${isPublicApi ? 'public-api' : 'react'}`);
+  ts.sys.writeFile(outPath, fileContent);
 };
 
 const dtsPlugin = (config: Props) =>
   ({
     name: 'dts-plugin',
     async setup(build) {
+      /**
+       * The out dir name does not matter. The important part is that we build
+       * our types in a folder, even though we resolve a custom build path in
+       * writeTypingsToDisk. The reason for this, is that it is used by the
+       * TypeScript compiler to calculate the relative path to sources when we
+       * generate declaration maps during development.
+       */
+      const outDir = 'tmp_folder';
+
       const cache = new Map<string, string>();
       const tsConfig: ts.CompilerOptions = {
-        outDir: 'dist', // This gives the appropriate source link in d.ts.map files
+        declarationDir: outDir,
+        strict: true,
         listEmittedFiles: true,
         declaration: true,
         emitDeclarationOnly: true,
-        target: ts.ScriptTarget.ES2015,
         skipLibCheck: true,
         jsx: ts.JsxEmit.React,
         declarationMap: config.watchMode,
+        rootDir: 'components',
       };
 
       const host = ts.createCompilerHost(tsConfig);
       let files: string[] = [];
 
-      // Register all files that should be transpiled
+      /**
+       * Register all files that should be transpiled. We compare
+       * old and new file content with an MD5 hash to only compile
+       * types for files that have actually changed.
+       **/
       build.onResolve({ filter: /(\.tsx|\.ts)$/ }, async (args) => {
         const newHash = getMd5(args.path);
         if (newHash && newHash !== cache.get(args.path)) {
@@ -69,14 +78,7 @@ const dtsPlugin = (config: Props) =>
           rootNames: files,
         });
         const start = Date.now();
-        const emit = program.emit(
-          undefined,
-          async (fileName, text, _, __, sources) => {
-            await writeTypingsToDisk(fileName, text, sources);
-          },
-          undefined,
-          true,
-        );
+        const emit = program.emit(undefined, (fileName, text) => writeTypingsToDisk(fileName, text, outDir));
 
         // Clear the files list for next build
         files = [];

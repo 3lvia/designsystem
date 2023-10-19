@@ -1,4 +1,14 @@
 {
+  "e-text-option": {
+    "deprecateChildren": true,
+    "version": "12.7.0",
+    "sunset": "April 2024"
+  },
+  "e-text-label": {
+    "deprecateChildren": true,
+    "version": "12.7.0",
+    "sunset": "April 2024"
+  },
   "e-text": {
     "deprecateChildren": false,
     "version": "12.7.0",

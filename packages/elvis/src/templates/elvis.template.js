@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
       
-      if (warnings.length) {
+      if (warnings.length > 0) {
         console.group('Elvis Deprecations')
         warnings.forEach(warning => console.warn(warning));
         console.groupEnd();
