@@ -2,13 +2,26 @@
   "content": [
     {
       "version": "15.1.3",
-      "date": "October 16, 2023",
+      "date": "October 20, 2023",
       "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the typography in small search fields being wrong. It is now slightly smaller than it was.",
+            "Fixed the typography in table footnotes being wrong. It is now slightly smaller than it was.",
+            "Revert changes from last version, because of bugs related to the change. Removed :has() selector - Firefox does not support it yet, but will be added soon."
+          ],
+          "components": [
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" }
+          ]
+        },
         {
           "type": "patch",
           "changes": [
-            "Updated internal <code>@elvia/elvis-typography</code> dependency to <code>^2.6.0</code>",
-            "The typography classes <code>e-text-option</code> and <code>e-text-label</code> are now marked as deprecated and will give a warning in the developer console. They will be removed in a later update."
+            "The typography classes <code>e-text-option</code> and <code>e-text-label</code> are now marked as deprecated and will give a warning in the developer console. They will be removed in a later update.",
+            "Updated internal <code>@elvia/elvis-typography</code> dependency to <code>^2.6.0</code>"
           ],
           "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
         }
@@ -21,7 +34,7 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed a bug where the pointer cursor would still appear on the checkbox label element even when the checkbox was disabled. "
+            "Fixed a bug where the pointer cursor would still appear on the checkbox label element even when the checkbox was disabled."
           ],
           "components": [{ "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" }]
         }

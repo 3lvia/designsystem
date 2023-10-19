@@ -49,11 +49,7 @@ $table-invalid-padding: 8px 16px;
 .e-table-footnote,
 .e-table__footnote {
   margin-top: 8px;
-  color: inherit;
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 26px;
-  text-align: left;
+  @include typography.typography('text-sm');
 
   &.e-table__footnote--compact,
   &.e-table__footnote--small {
