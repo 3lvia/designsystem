@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { toastData } from './toast-data';
-import { configurationProps } from './toast-configuration-props';
 
 @Component({
   selector: 'app-toast-doc',
@@ -9,7 +8,6 @@ import { configurationProps } from './toast-configuration-props';
 })
 export class ToastDocComponent {
   componentData = toastData;
-  toastConfigurationProps = configurationProps;
 
   does = ['Confirmation message after an user action', 'Notification message'];
   donts = ['Error messages'];
