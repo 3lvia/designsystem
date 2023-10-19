@@ -127,9 +127,7 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
     }
 
     .e-radio__label {
-      @include typography.typography('text-sm');
       margin-left: 24px;
-      color: var(--e-color-text-1);
     }
 
     // States - small specific
