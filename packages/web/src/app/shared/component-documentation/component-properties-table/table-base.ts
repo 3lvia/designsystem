@@ -30,6 +30,13 @@ export class PropertyTableBaseDirective implements OnChanges {
         expanded: true,
         rows: this.getEventProps(this.props),
       },
+      {
+        title: 'Arguments',
+        description: "Use arguments to customize the component's behavior and look.",
+        expanded: true,
+        rows: this.getArgumentProps(this.props),
+        tag: 'openElviaToast',
+      },
     ];
   }
 
@@ -38,6 +45,10 @@ export class PropertyTableBaseDirective implements OnChanges {
   }
 
   private getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => !prop.item.isEvent);
+    return props.filter((prop) => !prop.item.isEvent && !prop.item.isArgument);
+  }
+
+  private getArgumentProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
+    return props.filter((prop) => prop.item.isArgument);
   }
 }
