@@ -162,9 +162,9 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   }
 
   private cleanElviaComponentsInSlot(slotString: string) {
-    const elviaElement = slotString.match(/elvia-\S+/)?.[0] || '';
-    const slotName = slotString.match(/slot="(\w+)"/)?.[1] || '';
-    const rootElement = slotString.match(/<(\w+)/)?.[1] || '';
+    const elviaElement = /elvia-\S+/.exec(slotString)?.[0] ?? '';
+    const slotName = /slot="(\w+)"/.exec(slotString)?.[1] ?? '';
+    const rootElement = /<(\w+)/.exec(slotString)?.[1] ?? '';
     return `<${rootElement} slot="${slotName}">
   <${elviaElement}>
     Content removed for simplicity...
