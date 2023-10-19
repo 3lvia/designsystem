@@ -8,7 +8,7 @@
           "type": "bug_fix",
           "changes": [
             "Fixed the typography in table footnotes being wrong. It is now slightly smaller than it was.",
-            "Fixed the typography in search fields being wrong. It is now slightly smaller than it was."
+            "Fixed the typography in small search fields being wrong. It is now slightly smaller than it was."
           ],
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
