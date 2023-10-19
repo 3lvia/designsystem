@@ -3,6 +3,7 @@ import { BaseProps } from '@elvia/elvis-toolbox';
 type PrimitiveType = string | string[] | number | number[] | boolean | JSX.Element | Date | null;
 type EventType = (...args: any) => any;
 type ChildlessType = PrimitiveType | EventType;
+type GetArrayType<T> = T extends (infer U)[] ? U : never;
 
 interface PropBase {
   // Indicates whether a prop is required for the component.
@@ -41,9 +42,24 @@ export interface NestedProp<TObjectProp> extends PropBase {
   type: 'object' | 'object[]';
   description?: string;
   children: Required<{
-    [TProp in keyof TObjectProp]: NonNullable<TObjectProp[TProp]> extends ChildlessType
+    [TProp in keyof GetArrayType<TObjectProp>]: NonNullable<
+      GetArrayType<TObjectProp>[TProp]
+    > extends ChildlessType
       ? ChildlessProp
-      : NestedProp<TObjectProp[TProp]>;
+      : NestedProp<GetArrayType<TObjectProp>[TProp]>;
+  }>;
+}
+
+/**
+ * Represents props that are used in an array.
+ */
+export interface NestedArrayProp<TObjectProp extends Array<object>> extends PropBase {
+  type: 'object[]';
+  description?: string;
+  children: Required<{
+    [TProp in keyof GetArrayType<TObjectProp>]: TProp extends ChildlessType
+      ? ChildlessProp
+      : NestedProp<TProp>;
   }>;
 }
 
@@ -68,15 +84,22 @@ interface ComponentChangelogChange {
   components?: { displayName: string; url: string }[];
 }
 
-type FilteredComponentProps<TComponentProps> = Omit<TComponentProps, keyof BaseProps>;
-
 type ComponentProps<TComponentProps> = {
-  [PropName in keyof FilteredComponentProps<TComponentProps>]: NonNullable<
+  [PropName in keyof Omit<TComponentProps, keyof BaseProps>]: NonNullable<
     TComponentProps[PropName]
   > extends ChildlessType
     ? ChildlessProp
     : NestedProp<TComponentProps[PropName]>;
 };
+// type ComponentProps<TComponentProps> = {
+//   [PropName in keyof Omit<TComponentProps, keyof BaseProps>]: NonNullable<
+//     TComponentProps[PropName]
+//   > extends ChildlessType
+//     ? ChildlessProp
+//     : NonNullable<TComponentProps[PropName]> extends ArrayType
+//     ? NestedArrayProp<TComponentProps[PropName]>
+//     : NestedProp<TComponentProps[PropName]>;
+// };
 
 /**
  * Interface for component data for documentation pages.
