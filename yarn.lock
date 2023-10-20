@@ -2235,7 +2235,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-colors": ^4.1.0
     "@types/gulp": ^4.0.15
-    "@types/gulp-svgmin": ^1.2.2
+    "@types/gulp-svgmin": ^1.2.3
     "@types/node": ^18.18.5
     del: ^6.1.1
     gulp: ^4.0.2
@@ -4658,14 +4658,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-svgmin@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "@types/gulp-svgmin@npm:1.2.2"
+"@types/gulp-svgmin@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "@types/gulp-svgmin@npm:1.2.3"
   dependencies:
     "@types/node": "*"
     "@types/svgo": 1
     "@types/vinyl": "*"
-  checksum: 1a0a7854eed6f6630723a7267fa5d3f26faab66802d31fcbdb30da352c5e99729ab425e7d4711d6997f67f08376cbcc1ba67ebbef225afe05023965786db75c5
+  checksum: da1ef5b15124b3210e55c6a9cce3a273944ca7ba718a1411f280b158fb1c380499af013b1228a3f23057e02102f76f5bad196a02e665712a01d1f7519657d6b7
   languageName: node
   linkType: hard
 
