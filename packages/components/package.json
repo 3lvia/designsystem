@@ -37,7 +37,7 @@
     "tiny-glob": "^0.2.9",
     "tsx": "^3.14.0",
     "typescript": "~5.1.0",
-    "typescript-plugin-css-modules": "^5.0.1",
+    "typescript-plugin-css-modules": "^5.0.2",
     "typescript-plugin-styled-components": "^3.0.0"
   }
 }
