@@ -4846,10 +4846,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/natural-compare-lite@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@types/natural-compare-lite@npm:1.4.0"
-  checksum: cfd5f71857675145551485d542848bfdefc7bd6575f1dfaf29fcacc5785438fa7ba81e51850ce84e2e439128db94170d538b97f4d333644d8503fd3b265a1671
+"@types/natural-compare-lite@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@types/natural-compare-lite@npm:1.4.1"
+  checksum: 2f953c8d82dde24a342cb0f01a57cf9c201d5526fcb81d112d3de1ea771cb2bbdeee65db6e37ec09aa093274d6594e689684e6670ab66c9dfa0ca2bd29a4583d
   languageName: node
   linkType: hard
 
@@ -8765,7 +8765,7 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
-    "@types/natural-compare-lite": ^1.4.0
+    "@types/natural-compare-lite": ^1.4.1
     "@types/node": 18.18.5
     "@types/prismjs": ^1.26.1
     "@typescript-eslint/eslint-plugin": ^6.7.5
