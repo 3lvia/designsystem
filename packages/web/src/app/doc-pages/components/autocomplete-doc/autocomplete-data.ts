@@ -27,7 +27,6 @@ export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
       description: 'Set a default value to the autocomplete.',
     },
     errorOptions: {
-      // type: 'Partial<{ text: string; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
       type: 'object',
       description:
         'An object that allows for custom configuration of the error handling in the autocomplete.',

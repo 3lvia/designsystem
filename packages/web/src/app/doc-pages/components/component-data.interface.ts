@@ -3,7 +3,7 @@ import { BaseProps } from '@elvia/elvis-toolbox';
 type PrimitiveType = string | string[] | number | number[] | boolean | JSX.Element | Date | null;
 type EventType = (...args: any) => any;
 type ChildlessType = PrimitiveType | EventType;
-type GetArrayType<T> = T extends (infer U)[] ? U : never;
+type BaseType<T> = T extends (infer U)[] ? U : T;
 
 interface PropBase {
   // Indicates whether a prop is required for the component.
@@ -31,7 +31,7 @@ interface PropBase {
  */
 export interface ChildlessProp extends PropBase {
   isEvent?: boolean;
-  type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | (string & {});
+  type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | 'Date' | (string & {});
   description: string;
 }
 
@@ -39,27 +39,12 @@ export interface ChildlessProp extends PropBase {
  * Represents props that are nested.
  */
 export interface NestedProp<TObjectProp> extends PropBase {
-  type: 'object' | 'object[]';
+  type: 'object' | 'object[]' | (string & {});
   description?: string;
   children: Required<{
-    [TProp in keyof GetArrayType<TObjectProp>]: NonNullable<
-      GetArrayType<TObjectProp>[TProp]
-    > extends ChildlessType
+    [TProp in keyof BaseType<TObjectProp>]: NonNullable<BaseType<TObjectProp>[TProp]> extends ChildlessType
       ? ChildlessProp
-      : NestedProp<GetArrayType<TObjectProp>[TProp]>;
-  }>;
-}
-
-/**
- * Represents props that are used in an array.
- */
-export interface NestedArrayProp<TObjectProp extends Array<object>> extends PropBase {
-  type: 'object[]';
-  description?: string;
-  children: Required<{
-    [TProp in keyof GetArrayType<TObjectProp>]: TProp extends ChildlessType
-      ? ChildlessProp
-      : NestedProp<TProp>;
+      : NestedProp<BaseType<TObjectProp>[TProp]>;
   }>;
 }
 
@@ -87,19 +72,12 @@ interface ComponentChangelogChange {
 type ComponentProps<TComponentProps> = {
   [PropName in keyof Omit<TComponentProps, keyof BaseProps>]: NonNullable<
     TComponentProps[PropName]
-  > extends ChildlessType
-    ? ChildlessProp
-    : NestedProp<TComponentProps[PropName]>;
+  > extends infer U
+    ? U extends ChildlessType
+      ? ChildlessProp
+      : NestedProp<U>
+    : never;
 };
-// type ComponentProps<TComponentProps> = {
-//   [PropName in keyof Omit<TComponentProps, keyof BaseProps>]: NonNullable<
-//     TComponentProps[PropName]
-//   > extends ChildlessType
-//     ? ChildlessProp
-//     : NonNullable<TComponentProps[PropName]> extends ArrayType
-//     ? NestedArrayProp<TComponentProps[PropName]>
-//     : NestedProp<TComponentProps[PropName]>;
-// };
 
 /**
  * Interface for component data for documentation pages.
@@ -122,3 +100,8 @@ export default interface ComponentData<TComponentProps = Record<string, any>> {
   does?: string[];
   donts?: string[];
 }
+
+type SharedInterface = string | number;
+type UsingInterface = SharedInterface | SharedInterface[];
+type Plain = string | number | string[] | number[];
+type Test = ComponentProps<{ value: UsingInterface; plain: Plain; obj: Record<string, any> }>;

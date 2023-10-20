@@ -1,15 +1,26 @@
 import changelogJson from '@elvia/elvis-radio-filter/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { BaseRadioFilterProps } from '@elvia/elvis-radio-filter/react';
 
-const radioFilterData: ComponentData = {
+const radioFilterData: ComponentData<BaseRadioFilterProps> = {
   changelog: changelogJson.content,
   name: 'RadioFilter',
   attributes: {
     items: {
       isRequired: true,
       type: 'object[]',
-      description:
-        'Options available in the radio-filter component, set as array of objects with keys: {label: string, value: string}. The label will be injected as innerHTML to allow support for icons.',
+      description: 'Options available in the radio-filter component, set as array of objects.',
+      children: {
+        label: {
+          type: 'string',
+          description:
+            'The label for the radio filter item. Will be injected as innerHTML to allow icon support',
+        },
+        value: {
+          type: 'string',
+          description: 'The value for the radio filter item.',
+        },
+      },
     },
     value: {
       isRequired: true,
