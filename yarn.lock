@@ -2461,7 +2461,7 @@ __metadata:
     "@testing-library/jest-dom": 6.1.4
     "@testing-library/react": 14.0.0
     "@testing-library/user-event": 14.5.1
-    "@types/identity-obj-proxy": ^3.0.0
+    "@types/identity-obj-proxy": ^3.0.1
     "@types/jest": ^29.5.5
     "@types/jest-axe": ^3.5.6
     "@types/styled-components": ^5.1.28
@@ -4706,10 +4706,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/identity-obj-proxy@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@types/identity-obj-proxy@npm:3.0.0"
-  checksum: 95f859f5f08abc93313d25896e56aeda087da78e9e8726610dbcc96af5ba6ec9c7672c2487b568a3937c06012fb533cfd82004fa46a98d53a48992be20525848
+"@types/identity-obj-proxy@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@types/identity-obj-proxy@npm:3.0.1"
+  checksum: 662b8d72a36ba45ff4427ee724b70841593206528428fe5b2b5c75d991f330b53a8131666b1d5a12f3a1c43023cc1284360eaca8a97ef45132a23826ce9f083d
   languageName: node
   linkType: hard
 
