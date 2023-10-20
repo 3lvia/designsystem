@@ -4784,15 +4784,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.debounce@npm:^4.0.8":
-  version: 4.0.8
-  resolution: "@types/lodash.debounce@npm:4.0.8"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 63f195cb053ca390135a9aca62bb60fa149ca81838519871506b60760ff4113333709becb8e4147707eaa3d916dab7eff66b0588caf4ce508cabda9bee9c5b60
-  languageName: node
-  linkType: hard
-
 "@types/lodash.isequal@npm:^4.5.5":
   version: 4.5.6
   resolution: "@types/lodash.isequal@npm:4.5.6"
@@ -8774,7 +8765,6 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
-    "@types/lodash.debounce": ^4.0.8
     "@types/natural-compare-lite": ^1.4.0
     "@types/node": 18.18.5
     "@types/prismjs": ^1.26.1
