@@ -6,7 +6,7 @@ export const paginationData: ComponentData = {
   name: 'Pagination',
   attributes: {
     value: {
-      type: '{ start: number, end: number }',
+      type: 'object',
       description:
         'The range of elements that should be visible in the paginator from start. "start" represents first element index and "end" represents last element index.',
       default: '{ start: undefined, end: undefined }',
@@ -43,7 +43,7 @@ export const paginationData: ComponentData = {
       default: '"left"',
     },
     dropdownItems: {
-      type: '{value: string, label: string}',
+      type: '{value: string, label: string}[]',
       description:
         'Options available in the pagination dropdown menu, set as array of objects with keys of:  {value: string, label: string}',
       default: `[
@@ -57,16 +57,6 @@ export const paginationData: ComponentData = {
           label: '40'
         },
       ]`,
-      children: {
-        value: {
-          type: 'string',
-          description: 'Value of the dropdown item.',
-        },
-        label: {
-          type: 'string',
-          description: 'Label of the dropdown item.',
-        },
-      },
     },
     dropdownSelectedItemIndex: {
       type: 'number',
