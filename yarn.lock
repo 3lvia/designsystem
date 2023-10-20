@@ -2475,7 +2475,7 @@ __metadata:
     react-dom: ^18.2.0
     react-is: ^18.2.0
     resize-observer-polyfill: ^1.5.1
-    sass: ^1.69.3
+    sass: ^1.69.4
     styled-components: ^5.3.3
     tiny-glob: ^0.2.9
     tsx: ^3.13.0
@@ -3040,7 +3040,7 @@ __metadata:
     popper.js: ^1.16.1
     postcss: ^8.4.31
     resolve: ^1.22.8
-    sass: ^1.69.3
+    sass: ^1.69.4
   languageName: unknown
   linkType: soft
 
@@ -8819,7 +8819,7 @@ __metadata:
     prettier: ^3.0.3
     prismjs: ^1.29.0
     rxjs: ^7.8.1
-    sass: ^1.69.3
+    sass: ^1.69.4
     ts-node: ^10.9.1
     tslib: ^2.6.2
     typescript: ~5.1.0
@@ -16071,7 +16071,7 @@ __metadata:
     "@vitejs/plugin-react": ^4.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
-    sass: ^1.69.3
+    sass: ^1.69.4
     typescript: ~5.1.0
     vite: ^4.4.11
   languageName: unknown
@@ -16880,7 +16880,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.58.3, sass@npm:^1.69.3":
+"sass@npm:^1.58.3":
   version: 1.69.3
   resolution: "sass@npm:1.69.3"
   dependencies:
@@ -16890,6 +16890,19 @@ __metadata:
   bin:
     sass: sass.js
   checksum: b89a3370c7ede462b344e2136bf1407bf375855c1ec54f73b6257b18fe59dae5377eb9f7b25f21ae4a25d8f0bc41a165d8d7e5f693d8285b1aa51ac6056c4d19
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.69.4":
+  version: 1.69.4
+  resolution: "sass@npm:1.69.4"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: ed5558445b59dfa711e094f804e4a360544dd916c069ee211e1c687446146721d91d4304f33fe5df3966a10de96eba43369beb2e14f0881c285424e5e44cf360
   languageName: node
   linkType: hard
 
@@ -19509,7 +19522,7 @@ __metadata:
     "@elvia/elvis-tooltip": "*"
     "@rollup/plugin-commonjs": ^25.0.7
     "@vitejs/plugin-vue": ^4.4.0
-    sass: ^1.69.3
+    sass: ^1.69.4
     typescript: ~5.1.0
     vite: ^4.4.11
     vue: ^3.3.5

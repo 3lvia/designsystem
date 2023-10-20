@@ -32,7 +32,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "resize-observer-polyfill": "^1.5.1",
-    "sass": "^1.69.3",
+    "sass": "^1.69.4",
     "styled-components": "^5.3.3",
     "tiny-glob": "^0.2.9",
     "tsx": "^3.13.0",
