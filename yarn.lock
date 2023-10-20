@@ -4916,10 +4916,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prismjs@npm:^1.26.1":
-  version: 1.26.1
-  resolution: "@types/prismjs@npm:1.26.1"
-  checksum: ef34b2f47e34645760a48fc351e5926c330810a724c64838bfc30b7317c6038ea66abd19fe9c713002679d6f2faa97d90d432869e512dcb660d9a791c150595a
+"@types/prismjs@npm:^1.26.2":
+  version: 1.26.2
+  resolution: "@types/prismjs@npm:1.26.2"
+  checksum: e2956744e3e4ccac3c986b3f46177a9468d71906a29878cc815c574906d71a54c604920306cfdfc2c8fea35ae512d0ce37a259e37f1086f1f23d9ef93e40648b
   languageName: node
   linkType: hard
 
@@ -8822,7 +8822,7 @@ __metadata:
     "@elvia/elvis-typography": "workspace:*"
     "@types/natural-compare-lite": ^1.4.1
     "@types/node": 18.18.6
-    "@types/prismjs": ^1.26.1
+    "@types/prismjs": ^1.26.2
     "@typescript-eslint/eslint-plugin": ^6.8.0
     "@typescript-eslint/parser": ^6.8.0
     contentful: ^9.3.5
