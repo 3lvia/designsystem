@@ -6,7 +6,7 @@
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
+      "documentation": "https://design.elvia.io/brand/icons"
     }
   },
   "e-icon--color-white": {
@@ -16,7 +16,7 @@
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
+      "documentation": "https://design.elvia.io/brand/icons"
     }
   },
   "e-icon--color-red": {
@@ -26,7 +26,7 @@
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
+      "documentation": "https://design.elvia.io/brand/icons"
     }
   },
   "e-icon--color-orange": {
@@ -36,7 +36,7 @@
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
+      "documentation": "https://design.elvia.io/brand/icons"
     }
   },
   "e-icon--color-yellow": {
@@ -46,7 +46,7 @@
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
+      "documentation": "https://design.elvia.io/brand/icons"
     }
   },
   "e-icon--color-green": {
@@ -56,7 +56,7 @@
     "replacement": {
       "name": "CSS variables tokens and class tokens",
       "type": "class",
-      "documentation": "https://design.elvia.io/brand/colors"
+      "documentation": "https://design.elvia.io/brand/icons"
     }
   },
   "e-text-option": {
