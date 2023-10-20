@@ -18,7 +18,7 @@ export const tabsData: ComponentData<BaseTabsProps> = {
     },
     ariaLabel: {
       type: 'string',
-      description: 'Aria label that describes the tablist. Aria label should be added for accessibility.',
+      description: 'Aria label that describes the tab list. Aria label should be added for accessibility.',
     },
     isInverted: {
       type: 'boolean',
