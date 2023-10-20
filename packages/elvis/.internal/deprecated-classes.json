@@ -1,4 +1,74 @@
 {
+  "e-icon--color-black": {
+    "deprecateChildren": false,
+    "version": "15.2.0",
+    "sunset": "April 2024",
+    "replacement": {
+      "name": "CSS variables tokens and class tokens",
+      "type": "class",
+      "documentation": "https://design.elvia.io/brand/icons"
+    }
+  },
+  "e-icon--color-white": {
+    "deprecateChildren": false,
+    "version": "15.2.0",
+    "sunset": "April 2024",
+    "replacement": {
+      "name": "CSS variables tokens and class tokens",
+      "type": "class",
+      "documentation": "https://design.elvia.io/brand/icons"
+    }
+  },
+  "e-icon--color-red": {
+    "deprecateChildren": false,
+    "version": "15.2.0",
+    "sunset": "April 2024",
+    "replacement": {
+      "name": "CSS variables tokens and class tokens",
+      "type": "class",
+      "documentation": "https://design.elvia.io/brand/icons"
+    }
+  },
+  "e-icon--color-orange": {
+    "deprecateChildren": false,
+    "version": "15.2.0",
+    "sunset": "April 2024",
+    "replacement": {
+      "name": "CSS variables tokens and class tokens",
+      "type": "class",
+      "documentation": "https://design.elvia.io/brand/icons"
+    }
+  },
+  "e-icon--color-yellow": {
+    "deprecateChildren": false,
+    "version": "15.2.0",
+    "sunset": "April 2024",
+    "replacement": {
+      "name": "CSS variables tokens and class tokens",
+      "type": "class",
+      "documentation": "https://design.elvia.io/brand/icons"
+    }
+  },
+  "e-icon--color-green": {
+    "deprecateChildren": false,
+    "version": "15.2.0",
+    "sunset": "April 2024",
+    "replacement": {
+      "name": "CSS variables tokens and class tokens",
+      "type": "class",
+      "documentation": "https://design.elvia.io/brand/icons"
+    }
+  },
+  "e-text-option": {
+    "deprecateChildren": true,
+    "version": "15.2.0",
+    "sunset": "April 2024"
+  },
+  "e-text-label": {
+    "deprecateChildren": true,
+    "version": "15.2.0",
+    "sunset": "April 2024"
+  },
   "e-text": {
     "deprecateChildren": false,
     "version": "12.7.0",

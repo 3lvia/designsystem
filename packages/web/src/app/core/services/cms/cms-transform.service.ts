@@ -375,7 +375,7 @@ export class CMSTransformService {
     <div class="when-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
-          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green" aria-hidden="true"></i>
+          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-positive" aria-hidden="true"></i>
         </div>
         <div>When to use:</div>
       </div>
@@ -388,7 +388,7 @@ export class CMSTransformService {
     <div class="when-not-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
-          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red" aria-hidden="true"></i>
+          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-error" aria-hidden="true"></i>
         </div>
         <div>When not to use:</div>
       </div>

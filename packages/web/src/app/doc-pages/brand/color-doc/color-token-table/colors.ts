@@ -526,7 +526,7 @@ export const iconColors = [
   {
     token: 'icon-[signal-type]',
     example:
-      '<i class="e-icon e-icon--check_circle e-icon--color-green e-icon--sm"></i><i class="e-icon e-icon--check_circle-filled-color e-icon--sm"></i>',
+      '<i class="e-icon e-icon--check_circle e-icon--color-positive e-icon--sm"></i><i class="e-icon e-icon--check_circle-filled-color e-icon--sm"></i>',
     role: 'Icons can use all the different signal colors. E.g. e-color-icon-positive',
     light: { hex: 'signal', label: 'Signal' },
     dark: { hex: 'dark-signal', label: 'Dark-signal' },

@@ -3024,7 +3024,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-assets-icons": "*"
     "@elvia/elvis-colors": ^4.1.0
-    "@elvia/elvis-typography": ^2.5.0
+    "@elvia/elvis-typography": ^2.6.0
     bootstrap: 4.6.1
     del: ^6.1.1
     doiuse: ^6.0.2
