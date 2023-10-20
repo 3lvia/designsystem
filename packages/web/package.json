@@ -78,7 +78,6 @@
     "@angular/language-service": "^16.2.10",
     "@babel/core": "^7.23.2",
     "@babel/eslint-parser": "^7.22.15",
-    "@types/lodash.debounce": "^4.0.7",
     "@types/natural-compare-lite": "^1.4.0",
     "@types/node": "18.18.5",
     "@types/prismjs": "^1.26.1",
