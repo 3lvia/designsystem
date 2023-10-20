@@ -2463,7 +2463,7 @@ __metadata:
     "@testing-library/user-event": 14.5.1
     "@types/identity-obj-proxy": ^3.0.1
     "@types/jest": ^29.5.5
-    "@types/jest-axe": ^3.5.6
+    "@types/jest-axe": ^3.5.7
     "@types/styled-components": ^5.1.28
     esbuild: ^0.19.4
     esbuild-plugin-styled-components: ^2.2.2
@@ -4739,13 +4739,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest-axe@npm:^3.5.6":
-  version: 3.5.6
-  resolution: "@types/jest-axe@npm:3.5.6"
+"@types/jest-axe@npm:^3.5.7":
+  version: 3.5.7
+  resolution: "@types/jest-axe@npm:3.5.7"
   dependencies:
     "@types/jest": "*"
     axe-core: ^3.5.5
-  checksum: 58650dd407e4d9eefb2fa3d5ea8555e599162841a46fca91792e754a383eb91bbf4bd0c978cb5da68e476293bfd395a78b742129f8a61b327b8a22e7b8d1b128
+  checksum: 939581917fc119250ffab78d64c54124210b9153a0248ec9a69aa65b288bd91ca3c2a02a53aaab5bff218628aa00e7936e4ac2b2870f727f839583882f0d71ac
   languageName: node
   linkType: hard
 
