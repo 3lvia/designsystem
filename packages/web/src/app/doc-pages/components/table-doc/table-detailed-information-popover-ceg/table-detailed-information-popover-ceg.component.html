@@ -1,0 +1,43 @@
+<div class="e-table-container">
+  <table class="e-table" aria-label="Table with detailed information in a popover">
+    <thead>
+      <tr>
+        <th scope="col">Nettleiekostnad</th>
+        <th scope="col">Strømstøtte</th>
+        <th scope="col">
+          <div class="e-flex e-align-items-center e-gap-8">
+            Estimert total
+            <elvia-popover
+              (onClose)="setIsOpen(false)"
+              (onOpen)="setIsOpen(true)"
+              [content]="
+                'Estimeringen bruker spotpris uten ekstrakostnader og påslag og tar ikke hensyn til din strømavtale.'
+              "
+              [heading]="'Estimert totalkostnad'"
+              [inlineStyle]="{ maxWidth: '460px' }"
+            >
+              <button
+                [ngClass]="{ 'e-btn---selected': isOpen }"
+                aria-label="Les mer om estimert totalkostnad"
+                class="e-btn e-btn--sm e-btn--icon e-btn--circled"
+                slot="trigger"
+              >
+                <span class="e-btn__icon">
+                  <i aria-hidden="true" class="e-icon e-icon--question_circle"></i>
+                  <i aria-hidden="true" class="e-icon e-icon--question_circle-filled-color"></i>
+                </span>
+              </button>
+            </elvia-popover>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>56 kr</td>
+        <td>0 kr</td>
+        <td>3000 kr</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

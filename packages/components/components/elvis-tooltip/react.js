@@ -1,1 +1,1 @@
-export { default as Tooltip } from './dist/react/js/elvia-tooltip.js';
+export * from './dist/react/elvia-tooltip.js';

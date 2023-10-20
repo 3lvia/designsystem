@@ -59,6 +59,7 @@ export const timepickerData: ComponentData = {
       type: 'object',
       description: 'An object that allows for custom configuration of the error handling in the time picker.',
       default: '{ hideText: false, isErrorState: false, hasErrorPlaceholder: true }',
+      example: /* ts */ `errorOptions = { text: "Error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true }`,
       children: {
         text: {
           type: 'string',

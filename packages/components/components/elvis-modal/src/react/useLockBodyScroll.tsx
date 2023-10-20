@@ -1,18 +1,17 @@
-import { useEffect } from 'react';
+import { useRef } from 'react';
 
-export function useLockBodyScroll(shouldDisableBodyScroll: boolean): void {
-  useEffect(() => {
-    if (!shouldDisableBodyScroll) {
-      return;
-    }
-    const originalStyleOverflowBody = window.getComputedStyle(document.body).overflow;
-    const originalStyleOverflowHtml = window.getComputedStyle(document.documentElement).overflow;
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
+export function useLockBodyScroll() {
+  const previousOverflow = useRef('');
+  const root = document.documentElement ?? document.body;
 
-    return () => {
-      document.body.style.overflow = originalStyleOverflowBody;
-      document.documentElement.style.overflow = originalStyleOverflowHtml;
-    };
-  }, [shouldDisableBodyScroll]);
+  const lockBodyScroll = () => {
+    previousOverflow.current = root.style.overflow;
+    root.style.overflow = 'hidden';
+  };
+
+  const releaseBodyScroll = () => {
+    root.style.overflow = previousOverflow.current;
+  };
+
+  return { lockBodyScroll, releaseBodyScroll };
 }

@@ -3,16 +3,15 @@
   "version": "3.0.1",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/autocomplete",
-  "main": "web_component.js",
+  "source": "src/react/elvia-autocomplete.tsx",
+  "main": "dist/main/web-component.js",
   "files": [
-    "web_component.js",
     "react.js",
     "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "dist"
   ],
   "dependencies": {
+    "@elvia/elvis-assets-icons": "^3.6.0",
     "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
     "@elvia/elvis-toolbox": "^11.0.1",

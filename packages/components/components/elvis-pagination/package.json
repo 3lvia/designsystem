@@ -3,14 +3,12 @@
   "version": "3.5.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/pagination",
-  "main": "web_component.js",
+  "source": "src/react/elvia-pagination.tsx",
+  "main": "dist/main/web-component.js",
   "files": [
-    "web_component.js",
     "react.js",
     "react.d.ts",
-    "CHANGELOG.json",
-    "README.md",
-    "dist/**/*"
+    "dist"
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "^3.3.1",

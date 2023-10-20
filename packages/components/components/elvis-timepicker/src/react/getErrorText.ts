@@ -1,4 +1,4 @@
-import { ErrorType } from './elviaTimepicker.types';
+import { ErrorType } from './publicApi.public';
 import { getFormattedInputValue } from './timeHelpers';
 
 export const getErrorText = (

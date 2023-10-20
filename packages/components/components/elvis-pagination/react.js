@@ -1,1 +1,1 @@
-export { default as Pagination } from './dist/react/js/elvia-pagination.js';
+export * from './dist/react/elvia-pagination.js';

@@ -1,20 +1,15 @@
 {
   "extends": "../../tsconfig.json",
-  "ts-node": {
-    "compilerOptions": {
-      "module": "commonjs"
-    }
-  },
   "compilerOptions": {
-    "declaration": true,
+    "module": "ESNext",
     "outDir": "./dist/",
     "jsx": "react",
-    "resolveJsonModule": false, // Our users might not support this
     "plugins": [
       {
         "transform": "typescript-plugin-styled-components",
         "type": "config"
-      }
+      },
+      { "name": "typescript-plugin-css-modules" }
     ]
   }
 }

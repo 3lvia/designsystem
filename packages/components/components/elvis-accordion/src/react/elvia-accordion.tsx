@@ -13,7 +13,7 @@ import {
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
 
-const Accordion: FC<AccordionProps> = ({
+export const Accordion: FC<AccordionProps> = ({
   content,
   isOpen = false,
   isHovering = false,
@@ -219,5 +219,3 @@ const Accordion: FC<AccordionProps> = ({
     </AccordionArea>
   );
 };
-
-export default Accordion;

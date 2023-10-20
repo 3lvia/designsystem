@@ -3,6 +3,7 @@ import { Subject, Observable, combineLatest } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { UnknownCegControlManager } from '../../cegControlManager';
 import { Controls, StaticProps } from '../../controlType';
+import { FrameworkSpec, frameworks } from './supportedFrameworks';
 
 interface Prop {
   name: string;
@@ -49,8 +50,8 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
           (prop) => !disabledControls.includes(prop.name),
         );
 
-        this.angularCode = this.createWebComponentCode(props, slots, '[', ']', '(', ')');
-        this.vueCode = this.createWebComponentCode(props, slots, ':', '', '@');
+        this.angularCode = this.createWebComponentCode(props, slots, frameworks.angular);
+        this.vueCode = this.createWebComponentCode(props, slots, frameworks.vue);
         this.reactCode = this.createReactCode(props, slots);
 
         /**
@@ -209,23 +210,18 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     return sanitizedSlots ? `${sanitizedSlots}\n` : '';
   }
 
-  private createWebComponentCode(
-    props: Prop[],
-    slots: string[],
-    attributePrefix = '',
-    attributePostfix = '',
-    eventPrefix = '',
-    eventPostfix = '',
-  ): string {
+  private createWebComponentCode(props: Prop[], slots: string[], frameworkSpec: FrameworkSpec): string {
     const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
     return `<elvia-${this.elementName} ${propsToInclude
       .map((prop) => {
-        const propName = `${attributePrefix}${prop.name}${attributePostfix}`;
+        const propName = `${frameworkSpec.attributePrefix}${prop.name}${frameworkSpec.attributePostfix}`;
         switch (typeof prop.value) {
           case 'string':
             return `${propName}="'${prop.value}'" `;
           case 'function':
-            return `${eventPrefix}${prop.name}${eventPostfix}="handleOnChange($event.detail.value)" `;
+            const eventName = `${frameworkSpec.eventPrefix}${prop.name}${frameworkSpec.eventPostfix}`;
+            const eventObj = frameworkSpec.castEventDataAsAny ? '$any($event)' : '$event';
+            return `${eventName}="handleOnChange(${eventObj}.detail.value)"`;
           default:
             /** JSON.stringify gives us a string with double quotes for objects,
              * which we need to replace with single quotes for the web components. */

@@ -20,6 +20,7 @@ export const autocompleteData: ComponentData = {
       description:
         'An object that allows for custom configuration of the error handling in the autocomplete.',
       default: '{ isErrorState: false, hasErrorPlaceholder: true }',
+      example: /* ts */ `errorOptions = { text: "Error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true }`,
       children: {
         text: {
           type: 'string',

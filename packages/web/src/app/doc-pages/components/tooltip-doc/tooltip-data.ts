@@ -16,6 +16,9 @@ export const tooltipData: ComponentData<Omit<TooltipProps, 'triggerAreaRef'>> = 
       default: '"inline-block"',
       description:
         'The display property for the trigger wrapper. Change this if the default display property interferes with your app layout.',
+      example: /* ts */ `//use the display CSS property
+        display = "block"; 
+        display = "flex";`,
     },
     position: {
       type: '"top" | "right" | "bottom" | "left"',

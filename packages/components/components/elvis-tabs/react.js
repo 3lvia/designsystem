@@ -1,1 +1,1 @@
-export { default as Tabs } from './dist/react/js/elvia-tabs.js';
+export * from './dist/react/elvia-tabs.js';

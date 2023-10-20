@@ -1,5 +1,5 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react';
-import { DropdownItem, DropdownValue } from '../elviaDropdown.types';
+import { DropdownItem, DropdownValue } from '../publicApi.public';
 import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
 import DOMPurify from 'dompurify';
 

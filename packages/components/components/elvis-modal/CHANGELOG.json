@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "19.10.23",
+      "version": "3.1.8",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where sticky content on the page would be mispositioned while the modal was open."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Bump internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "06.10.23",
       "version": "3.1.7",
       "changelog": [
@@ -11,7 +27,6 @@
         }
       ]
     },
-
     {
       "date": "21.09.23",
       "version": "3.1.6",

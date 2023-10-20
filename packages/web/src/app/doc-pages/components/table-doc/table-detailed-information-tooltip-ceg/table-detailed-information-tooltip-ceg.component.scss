@@ -1,0 +1,24 @@
+$icon-size: 24px;
+
+div[slot='trigger'] {
+  height: $icon-size;
+  width: $icon-size;
+
+  .e-icon--information_circle {
+    display: inline-block;
+
+    &-filled-color {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .e-icon--information_circle {
+      display: none;
+
+      &-filled-color {
+        display: inline-block;
+      }
+    }
+  }
+}

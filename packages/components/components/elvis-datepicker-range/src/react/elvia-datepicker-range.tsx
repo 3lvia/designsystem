@@ -436,5 +436,3 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     </DatepickerRangeWrapper>
   );
 };
-
-export default DatepickerRange;
