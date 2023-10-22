@@ -44,7 +44,7 @@ export interface NestedProp<TObjectProp> extends PropBase {
   children: Required<{
     [TProp in keyof BaseType<TObjectProp>]: NonNullable<BaseType<TObjectProp>[TProp]> extends ChildlessType
       ? ChildlessProp
-      : NestedProp<BaseType<TObjectProp>[TProp]>;
+      : NestedProp<NonNullable<BaseType<TObjectProp>[TProp]>>;
   }>;
 }
 
@@ -100,8 +100,3 @@ export default interface ComponentData<TComponentProps = Record<string, any>> {
   does?: string[];
   donts?: string[];
 }
-
-type SharedInterface = string | number;
-type UsingInterface = SharedInterface | SharedInterface[];
-type Plain = string | number | string[] | number[];
-type Test = ComponentProps<{ value: UsingInterface; plain: Plain; obj: Record<string, any> }>;
