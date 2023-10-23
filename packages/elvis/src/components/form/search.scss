@@ -161,7 +161,7 @@
     }
 
     .e-search--on-submit {
-      font-size: 14px;
+      @include typography.typography('text-sm');
 
       .e-input {
         input,

@@ -1,6 +1,37 @@
 {
   "content": [
     {
+      "version": "15.2.0",
+      "date": "October 20, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the typography in small search fields being wrong. It is now slightly smaller than it was.",
+            "Fixed the typography in table footnotes being wrong. It is now slightly smaller than it was.",
+            "Revert changes from Elvis 15.1.2, because of bugs related to the change. Removed <code>:has()</code> selector - Firefox does not support it yet, but will be added soon."
+          ],
+          "components": [
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" },
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" }
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "The icon color classes <code>e-icon--color-black</code>, <code>e-icon--color-white</code>, <code>e-icon--color-red</code>, <code>e-icon--color-orange</code>, <code>e-icon--color-yellow</code> and <code>e-icon--color-green</code> are now marked as deprecated and will give a warning in the developer console. They will be removed in a later update.",
+            "The typography classes <code>e-text-option</code> and <code>e-text-label</code> are now marked as deprecated and will give a warning in the developer console. They will be removed in a later update.",
+            "Updated internal <code>@elvia/elvis-typography</code> dependency to <code>^2.6.0</code>"
+          ],
+          "components": [
+            { "displayName": "Icon", "url": "https://design.elvia.io/brand/icon" },
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "15.1.2",
       "date": "October 11, 2023",
       "changelog": [

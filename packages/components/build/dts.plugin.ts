@@ -49,6 +49,7 @@ const dtsPlugin = (config: Props) =>
         skipLibCheck: true,
         jsx: ts.JsxEmit.React,
         declarationMap: config.watchMode,
+        rootDir: 'components',
       };
 
       const host = ts.createCompilerHost(tsConfig);
