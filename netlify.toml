@@ -3,5 +3,5 @@
     command = "yarn build"
 
 [build.environment]
-    YARN_VERSION = "3.6.4"
+    YARN_VERSION = "4.0.0"
     
