@@ -1,6 +1,6 @@
 <app-component-documentation docUrl="input" isElvis>
   <app-static-ceg ceg>
-    <app-input-ceg></app-input-ceg>
+    <app-input-ceg />
   </app-static-ceg>
 
   <!-- TYPE -->
@@ -132,15 +132,29 @@
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section uasge [sectionTitle]="'Usage'">
-    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+  <app-component-section usage [sectionTitle]="'Usage'">
+    <app-when-to-use [whens]="does" [whenNots]="donts" />
     <app-component-subsection [sectionTitle]="'Validation'">
       By default, all fields must be required. Validation is based on the field being filled out. Validation
-      takes place along the way, and the user must also be presented with guidance or error messages. Read
-      more about
+      takes place along the way, and the user must also be presented with guidance or error messages.
       <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
-        input validation and behaviors here.
+        Read more about input validation and behaviors.
       </a>
+      <p>Use the classes:</p>
+      <ul class="e-list">
+        <li>
+          <app-copy [message]="'e-form-field'"><code>e-form-field</code></app-copy>
+        </li>
+        <li>
+          <app-copy [message]="'e-form-field__error'"><code>e-form-field__error</code></app-copy>
+        </li>
+        <li>
+          <app-copy [message]="'e-form-field__error--visible'">
+            <code>e-form-field__error--visible</code>
+          </app-copy>
+        </li>
+      </ul>
+
       <app-static-ceg>
         <app-input-validation-ceg />
       </app-static-ceg>

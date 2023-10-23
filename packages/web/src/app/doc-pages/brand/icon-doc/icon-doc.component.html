@@ -8,7 +8,7 @@
 <div class="body">
   <div
     class="alert-container e-none"
-    *ngFor="let icon of visibleIcons | iconSearchPipe : term"
+    *ngFor="let icon of visibleIcons | iconSearchPipe: term"
     [id]="icon.title"
   >
     <div class="e-alert e-alert--local e-alert--info" role="alert">
@@ -115,7 +115,7 @@
     <div class="icon-accordion-container">
       <div class="overview-icons-container" #icons>
         <div
-          *ngFor="let icon of visibleIcons | iconSearchPipe : term; let i = index"
+          *ngFor="let icon of visibleIcons | iconSearchPipe: term; let i = index"
           [class.margin-auto]="icon === -1"
         >
           <div *ngIf="icon === -1" class="no-results">
@@ -377,7 +377,7 @@
         <div class="doDontIcons__container">
           <div class="doDontIcons__container__title">
             <i
-              class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"
+              class="e-icon e-icon--check_circle e-icon--sm e-icon--color-positive"
               aria-hidden="true"
               aria-hidden="true"
             ></i>
@@ -396,7 +396,7 @@
         <div class="doDontDivider"></div>
         <div class="doDontIcons__container">
           <div class="doDontIcons__container__title">
-            <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red" aria-hidden="true"></i>
+            <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-error" aria-hidden="true"></i>
             <div class="e-title-caps e-ml-16" *ngIf="locale === 'en-GB'">Don't mix</div>
             <div class="e-title-caps e-ml-16" *ngIf="locale === 'nb-NO'">Ikke bland</div>
           </div>

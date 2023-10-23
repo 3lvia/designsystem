@@ -17,7 +17,6 @@ import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
 import { IllustrationBaseDirective } from './illustrations/illustration-base.directive';
 import { ColorListBaseDirective } from './color-picker/color-list-base.directive';
-import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
 import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
 import { ColorPickerExhibitComponent } from './color-picker/color-picker-exhibit/color-picker-exhibit.component';
 import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
@@ -38,7 +37,6 @@ import '@elvia/elvis-segmented-control';
     ComponentSubsubsectionModule,
     CegModule,
     CopyModule,
-    DoDontModule,
     DoDontTextModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

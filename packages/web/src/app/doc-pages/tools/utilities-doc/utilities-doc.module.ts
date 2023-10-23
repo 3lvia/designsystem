@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { UtilitiesDocComponent } from './utilities-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { RouterModule } from '@angular/router';
-import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
@@ -12,7 +11,6 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
   imports: [
     CommonModule,
     ComponentHeaderModule,
-    DoDontModule,
     CopyModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
