@@ -244,6 +244,11 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     newDate = isValidDate(newDate) ? newDate : null;
     switch (error) {
       case 'required':
+        if (!isSameDay(newDate, date) && newDate !== date) {
+          updateValue(newDate);
+        }
+        onError(error);
+        break;
       case 'invalidDate':
       case 'beforeMinDate':
       case 'afterMaxDate':
