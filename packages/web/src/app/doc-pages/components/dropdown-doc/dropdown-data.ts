@@ -17,7 +17,7 @@ export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithS
         icon: {
           type: 'string',
           description:
-            'Name of icon that should be displayed with the dropdown item. No icons are displayed if one or more dropdown item are missing an icon.',
+            'HTML for icon that should be displayed with the dropdown item. No icons are displayed if one or more dropdown item are missing an icon.',
         },
         isDisabled: {
           type: 'boolean',
