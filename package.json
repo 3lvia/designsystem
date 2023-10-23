@@ -16,7 +16,7 @@
     "build:components": "yarn workspace @elvia/elvis-components build",
     "build:web": "yarn workspace elvia-designsystem build",
     "build:web:prod": "yarn contentful:production && yarn workspace elvia-designsystem build:production && yarn workspace react-test build:production",
-    "build:tokens": "yarn workspaces foreach -pv --include @elvia/elvis-colors --include @elvia/elvis-typography run build && yarn workspace @elvia/elvis-assets-icons build",
+    "build:tokens": "yarn workspaces foreach -pvR --from '{@elvia/elvis-colors,@elvia/elvis-typography}' run build && yarn workspace @elvia/elvis-assets-icons run build",
     "start:elvis": "yarn workspace @elvia/elvis start",
     "start:components": "yarn workspace @elvia/elvis-components start",
     "start:web": "yarn contentful && yarn workspace elvia-designsystem start",
