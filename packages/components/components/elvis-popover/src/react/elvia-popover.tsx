@@ -42,13 +42,6 @@ export const Popover: FC<PopoverProps> = function ({
   const triggerRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
 
-  useSlot('trigger', webcomponent, {
-    ref: triggerRef,
-    callback: (foundSlot) => {
-      console.log(`popover found trigger: ${foundSlot}`);
-    },
-  });
-
   const {
     isShowing: isShowingConnectedOverlayState,
     setIsShowing: setIsShowingConnectedOverlayState,
@@ -57,6 +50,14 @@ export const Popover: FC<PopoverProps> = function ({
     horizontalPosition: mapPositionToHorizontalPosition(horizontalPosition),
     verticalPosition: verticalPosition,
     alignWidths: false,
+  });
+
+  useSlot('trigger', webcomponent, {
+    ref: triggerRef,
+    callback: (foundSlot) => {
+      console.log(`popover found trigger: ${foundSlot}`);
+    },
+    useEffectDependencies: [isShowingConnectedOverlayState],
   });
 
   useSlot('content', webcomponent, {
