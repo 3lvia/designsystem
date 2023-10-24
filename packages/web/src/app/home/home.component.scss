@@ -11,7 +11,7 @@
   display: grid;
   gap: 6vw;
   grid-template-columns: repeat(2, 1fr);
-  padding: 0 64px;
+  padding: 0 80px;
   background-color: var(--home-background-color);
   height: 32vw;
   min-height: 477px;
@@ -67,8 +67,8 @@
 
   img {
     position: absolute;
-    inset: 0 -70px auto auto;
-    width: 125%;
+    inset: 0 -64px auto auto;
+    width: 135%;
     max-width: 1000px;
   }
 }
