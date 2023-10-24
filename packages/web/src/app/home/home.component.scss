@@ -49,6 +49,12 @@
       width: 90vw;
     }
   }
+
+  @media (max-width: 370px) {
+    .top-image {
+      width: 100vw;
+    }
+  }
 }
 
 .title-desktop {
