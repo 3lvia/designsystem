@@ -1,7 +1,8 @@
 import changelogJson from '@elvia/elvis-slider/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { BaseSliderProps } from '@elvia/elvis-slider/react';
 
-export const sliderData: ComponentData = {
+export const sliderData: ComponentData<BaseSliderProps> = {
   changelog: changelogJson.content,
   name: 'Slider',
   attributes: {
@@ -62,6 +63,27 @@ export const sliderData: ComponentData = {
       type: 'Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }> | {left: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, right: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}',
       description: 'An object that allows for custom configuration of the error handling.',
       example: /* ts */ `errorOptions = { left: { text: "Left error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true }, right: { text: "Right error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true } }`,
+      children: {
+        text: {
+          type: 'string',
+          description: 'Setting "text" will always show the provided error message.',
+        },
+        hideText: {
+          type: 'boolean',
+          description: 'Hides the default validation errors.',
+          default: 'false',
+        },
+        isErrorState: {
+          type: 'boolean',
+          description: 'Allows for manually activating the visual error UI.',
+          default: 'false',
+        },
+        hasErrorPlaceholder: {
+          type: 'boolean',
+          description: 'Allows you to remove the padding below the date picker.',
+          default: 'true',
+        },
+      },
     },
     valueOnChange: {
       isEvent: true,

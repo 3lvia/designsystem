@@ -3,6 +3,7 @@ import { BaseProps } from '@elvia/elvis-toolbox';
 type PrimitiveType = string | string[] | number | number[] | boolean | JSX.Element | Date | null;
 type EventType = (...args: any) => any;
 type ChildlessType = PrimitiveType | EventType;
+type BaseType<T> = T extends (infer U)[] ? U : T;
 
 interface PropBase {
   // Indicates whether a prop is required for the component.
@@ -30,7 +31,7 @@ interface PropBase {
  */
 export interface ChildlessProp extends PropBase {
   isEvent?: boolean;
-  type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | (string & {});
+  type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | 'Date' | (string & {});
   description: string;
 }
 
@@ -38,12 +39,12 @@ export interface ChildlessProp extends PropBase {
  * Represents props that are nested.
  */
 export interface NestedProp<TObjectProp> extends PropBase {
-  type: 'object' | 'object[]';
+  type: 'object' | 'object[]' | (string & {});
   description?: string;
   children: Required<{
-    [TProp in keyof TObjectProp]: NonNullable<TObjectProp[TProp]> extends ChildlessType
+    [TProp in keyof BaseType<TObjectProp>]: NonNullable<BaseType<TObjectProp>[TProp]> extends ChildlessType
       ? ChildlessProp
-      : NestedProp<TObjectProp[TProp]>;
+      : NestedProp<NonNullable<BaseType<TObjectProp>[TProp]>>;
   }>;
 }
 
@@ -68,14 +69,14 @@ interface ComponentChangelogChange {
   components?: { displayName: string; url: string }[];
 }
 
-type FilteredComponentProps<TComponentProps> = Omit<TComponentProps, keyof BaseProps>;
-
 type ComponentProps<TComponentProps> = {
-  [PropName in keyof FilteredComponentProps<TComponentProps>]: NonNullable<
+  [PropName in keyof Omit<TComponentProps, keyof BaseProps>]: NonNullable<
     TComponentProps[PropName]
-  > extends ChildlessType
-    ? ChildlessProp
-    : NestedProp<TComponentProps[PropName]>;
+  > extends infer U
+    ? U extends ChildlessType
+      ? ChildlessProp
+      : NestedProp<U>
+    : never;
 };
 
 /**
