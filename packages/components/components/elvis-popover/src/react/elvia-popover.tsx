@@ -42,7 +42,12 @@ export const Popover: FC<PopoverProps> = function ({
   const triggerRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
 
-  useSlot('trigger', webcomponent, { ref: triggerRef });
+  useSlot('trigger', webcomponent, {
+    ref: triggerRef,
+    callback: (foundSlot) => {
+      console.log(`popover found trigger: ${foundSlot}`);
+    },
+  });
 
   const {
     isShowing: isShowingConnectedOverlayState,
