@@ -14,7 +14,7 @@ export const dividerData: ComponentData<BaseDividerProps> = {
     heading: {
       type: 'HTMLElement | JSX.Element',
       description:
-        'Heading displayed together with a divider. Send in as slot in webcomponent and JSX.Element in React.',
+        'Heading displayed together with a divider. Send in as slot in web component and JSX.Element in React.',
     },
     typography: {
       type: '"medium" | "caps"',

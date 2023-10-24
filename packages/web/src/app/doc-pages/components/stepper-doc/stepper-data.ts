@@ -1,7 +1,12 @@
 import changelogJson from '@elvia/elvis-stepper/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
+import ComponentData, { NestedProp } from '../component-data.interface';
+import { BaseStepperProps, StepState } from '@elvia/elvis-stepper/react';
 
-export const stepperData: ComponentData = {
+type ContentMock = {
+  content: string;
+};
+
+export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
   changelog: changelogJson.content,
   name: 'Stepper',
   attributes: {
@@ -15,7 +20,31 @@ export const stepperData: ComponentData = {
       description:
         'An object to define the heading, next- and previous-button text and/or the state of the step.',
       example: `const steps = { 1: { heading: 'Title 1', isCompleted: true }, 2: { heading: 'Title 2', isCompleted: true }, 3: { heading: 'Title 3' }, 4: { heading: 'Title 4', nextButtonText: 'Lagre' }}`,
-    },
+      children: {
+        heading: {
+          type: 'string',
+          description: 'The heading for the step',
+        },
+        isCompleted: {
+          type: 'boolean',
+          description: 'Whether the step is completed or not.',
+        },
+        isError: {
+          type: 'boolean',
+          description: 'Whether the step has an error.',
+        },
+        nextButtonText: {
+          type: 'string',
+          description: 'The text that should be visible in the next-step button.',
+          default: 'Neste',
+        },
+        previousButtonText: {
+          type: 'string',
+          description: 'The text that should be visible in the previous-step button.',
+          default: 'Tilbake',
+        },
+      },
+    } as NestedProp<StepState>,
     isForced: {
       type: 'boolean',
       description:
@@ -31,7 +60,16 @@ export const stepperData: ComponentData = {
     content: {
       isRequired: true,
       type: 'HTMLElement | JSX.Element',
-      description: 'Text, images, tables or any other content (slot in webcomponent).',
+      description: 'Text, images, tables or any other content (slot in web component).',
+    },
+    value: {
+      type: 'number',
+      description: 'The index of the current step',
+    },
+    valueOnChange: {
+      isEvent: true,
+      type: '(stepIndex: number) => void',
+      description: 'Emits when the step index changes.',
     },
   },
 
