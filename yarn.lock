@@ -4853,14 +4853,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 18.18.6
-  resolution: "@types/node@npm:18.18.6"
-  checksum: ba8b71c724c4c9b1908faf09be1aa062790ef4194f956f6c7ae9791f8d2c1d123635695e41c3c8326223d2262bae2b3b5c8774c7a6c5885a98437b6fb04a2f0c
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:20.8.8, @types/node@npm:^20.8.8":
+"@types/node@npm:*, @types/node@npm:20.8.8, @types/node@npm:^20.8.8":
   version: 20.8.8
   resolution: "@types/node@npm:20.8.8"
   dependencies:
