@@ -324,7 +324,7 @@ describe('Elvis Datepicker', () => {
       await waitFor(() => expect(onFocusEvent).toHaveBeenCalledTimes(1));
     });
 
-    it('onResetEvent: should emit onReset when the reset button is clicked', async () => {
+    it('onResetEvent: should emit onReset when the reset button is clicked ', async () => {
       const user = userEvent.setup();
       const trigger = screen.getByRole('button', { name: /åpne datovelger/i });
       await user.click(trigger);
