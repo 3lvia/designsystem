@@ -13,23 +13,18 @@
     <p class="e-m-0 e-mb-56">
       The CSS library is its own package that provide the most basic utilities and components needed to create
       a new Elvia application.
-      <br />
-      To be able to use these components and utilities, all you need to do is install this package as
-      described in the
-      <a class="e-link e-link--inline" routerLink="./" fragment="Installation">installation section</a>
-      and you are ready to go.
     </p>
 
     <app-css-library-illustration class="e-mb-88" />
 
     <app-component-subsection sectionTitle="Components">
-      This package include all basic components like links, tags, simple inputs and many more. All components
-      that are listed in the components menu together with the other components, but also marked with the
-      label “CSS library”.
+      This package includes basic CSS-based components such as buttons, links and tags. These are all found in
+      the list of components, and are marked with the tag “CSS Library” to indicate that they are used through
+      this library.
     </app-component-subsection>
     <app-component-subsection sectionTitle="Utilities">
-      A lot of utilities are also available through installing the package. These include tokens, like colors
-      and typography, as well as assets, like icons and logos.
+      Different utilities are also available through this library. These include tokens like colors and
+      typography, as well as assets like icons and logos.
     </app-component-subsection>
   </app-component-section>
 
@@ -38,28 +33,28 @@
       Npm is the recommended method of installing Elvis.
       <ol class="e-list e-list--numbers">
         <li>
-          <p>Install package:</p>
+          <strong>Install package:</strong>
           <app-copy [message]="npmInstall">
             <code>{{ npmInstall }}</code>
           </app-copy>
-          <p>or</p>
+          <p class="e-text-md e-my-8">or</p>
           <app-copy [message]="yarnAdd">
             <code>{{ yarnAdd }}</code>
           </app-copy>
         </li>
         <li>
-          <p>Import stylesheet:</p>
+          <strong>Import stylesheet:</strong>
           <app-copy [message]="importStylesheet">
             <code>{{ importStylesheet }}</code>
           </app-copy>
-          <p class="e-text-sm">Add this import to your main stylesheet, for example "styles.scss".</p>
+          <p class="e-text-md e-mt-8">Add this import to your main stylesheet, for example "styles.scss".</p>
         </li>
         <li>
-          <p>Import script:</p>
+          <strong>Import script:</strong>
           <app-copy [message]="importScript">
             <code>{{ importScript }}</code>
           </app-copy>
-          <p class="e-text-sm">
+          <p class="e-text-md e-mt-8">
             Please note that elvis.js should be imported only once, somewhere at the base-level of your app,
             for example "main.ts". Depending on what framework you are using, the method of doing this may
             differ.
@@ -73,20 +68,20 @@
 
       <ol class="e-list e-list--numbers">
         <li>
-          <p>Add stylesheet</p>
+          <strong>Add stylesheet</strong>
           <div class="e-title-caps">Head</div>
           <app-copy [message]="linkTagCode">
             <code class="e-flex">{{ linkTagCode }}</code>
           </app-copy>
-          <p class="e-text-sm">This should be added to the head element.</p>
+          <p class="e-text-md e-mt-8">This should be added to the head element.</p>
         </li>
         <li>
-          <p>Add script</p>
+          <strong>Add script</strong>
           <div class="e-title-caps">Body</div>
           <app-copy [message]="scriptTagCode">
             <code class="e-flex">{{ scriptTagCode }}</code>
           </app-copy>
-          <p class="e-text-sm">This should be added to the body element.</p>
+          <p class="e-text-md e-mt-8">This should be added to the body element.</p>
         </li>
       </ol>
     </app-component-subsection>

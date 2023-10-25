@@ -9,6 +9,7 @@ import ComponentData from '../component-data.interface';
 @Component({
   selector: 'app-css-library-doc',
   templateUrl: './css-library-doc.component.html',
+  styleUrls: ['./css-library-doc.component.scss'],
 })
 export class CSSLibraryDocComponent {
   componentData: ComponentData = {
