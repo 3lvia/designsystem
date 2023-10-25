@@ -1,0 +1,11 @@
+<app-component-header [lastUpdated]="changelog[0].date" [componentData]="componentData">
+  <ng-container ngProjectAs="headerTitle">CSS library</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    The CSS library consists of multiple component classes and utilities like colors, icons and typography and
+    are all available trough
+    <code>@elvia/elvis</code>
+    .
+  </ng-container>
+</app-component-header>
+
+<app-component-changelog [hasAccordion]="false" [changelog]="changelog"></app-component-changelog>

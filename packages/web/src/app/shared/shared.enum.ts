@@ -10,6 +10,9 @@ export enum Pages {
   Index = '',
   Home = 'home',
 
+  // Elvis
+  CssLibrary = 'css-library',
+
   // Component Pages
   Accordion = 'accordion',
   Alert = 'alert',
