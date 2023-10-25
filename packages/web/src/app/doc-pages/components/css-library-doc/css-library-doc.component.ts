@@ -1,10 +1,10 @@
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Title } from '@angular/platform-browser';
 import { Component } from '@angular/core';
-import { cssLibraryData } from './css-library-data';
+import { combineLatest } from 'rxjs';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 import { VersionService } from '../../../core/services/version.service';
-import { Title } from '@angular/platform-browser';
-import { combineLatest } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import ComponentData from '../component-data.interface';
 
 @Component({
   selector: 'app-css-library-doc',
@@ -12,7 +12,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./css-library-doc.component.scss'],
 })
 export class CSSLibraryDocComponent {
-  componentData = cssLibraryData;
+  componentData: ComponentData = {
+    attributes: {},
+    name: '',
+  };
   changelog = changelogJson.content;
   npmInstall = 'npm install @elvia/elvis';
   yarnAdd = 'yarn add @elvia/elvis';
