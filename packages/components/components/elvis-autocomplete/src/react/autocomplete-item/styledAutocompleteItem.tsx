@@ -24,17 +24,5 @@ export const AutocompleteItemStyles = styled.div<{ $isFocused: boolean; $size: F
       background-color: ${getThemeColor('background-hover-2')};
     `}
 
-  ${({ $size }) => {
-    if ($size === 'small') {
-      return css`
-        ${getTypographyCss('text-sm')};
-        line-height: 24px;
-      `;
-    } else {
-      return css`
-        ${getTypographyCss('text-md')};
-        line-height: 28px;
-      `;
-    }
-  }};
+  ${({ $size }) => getTypographyCss($size === 'small' ? 'text-sm' : 'text-md')};
 `;

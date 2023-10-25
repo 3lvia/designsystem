@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "25.10.23",
+      "version": "3.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the typography of an autocomplete item in small autocomplete."]
+        }
+      ]
+    },
+    {
       "date": "10.10.23",
       "version": "3.0.1",
       "changelog": [
