@@ -2,6 +2,8 @@
   cursor: pointer;
   transition: scale 0.2s ease-in-out;
   display: inline-block;
+  overflow: auto;
+  max-width: 100%;
 }
 
 //only use this is the user allows motion

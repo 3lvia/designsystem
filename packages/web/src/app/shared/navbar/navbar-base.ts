@@ -53,7 +53,7 @@ export class NavbarBase {
         } else {
           this.navbarList = navbarItems;
           this.navbarList.unshift({
-            title: 'CSS library',
+            title: 'CSS Library',
             isMainPage: true,
             fullPath: '/components/css-library',
           });
