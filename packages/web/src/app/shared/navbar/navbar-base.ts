@@ -52,11 +52,6 @@ export class NavbarBase {
           );
         } else {
           this.navbarList = navbarItems;
-          this.navbarList.unshift({
-            title: 'CSS Library',
-            isMainPage: true,
-            fullPath: '/components/css-library',
-          });
           this.navbarListChangedSubject.next();
         }
       });
