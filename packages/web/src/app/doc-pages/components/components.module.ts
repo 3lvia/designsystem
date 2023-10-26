@@ -34,9 +34,11 @@ import { ThumbnailDocModule } from './thumbnail-doc/thumbnail-doc.module';
 import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.module';
 import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
 import { ToastDocModule } from './toast-doc/toast-doc.module';
+import { CssLibraryDocModule } from './css-library-doc/css-library-doc.module';
 
 @NgModule({
   imports: [
+    CssLibraryDocModule,
     AccordionDocModule,
     AlertMessagesModule,
     AutocompleteDocModule,
