@@ -192,8 +192,6 @@ export const AccordionContent = styled.div<AccordionContentProps>`
   display: ${({ hasContent }) => (hasContent ? 'block' : 'none')};
   visibility: ${({ type, isOpenState }) => (type === 'normal' && !isOpenState ? `hidden` : `visible`)};
   background: transparent;
-  font-size: 16px;
-  line-height: inherit;
   margin-top: ${({ type, hasContent, spacingAboveContent }) =>
     decideContentMarginTop(type, hasContent, spacingAboveContent)};
   margin-bottom: ${({ type, spacingBelowContent }) => (type === 'overflow' ? spacingBelowContent : 0)};
