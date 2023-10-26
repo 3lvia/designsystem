@@ -1,5 +1,14 @@
 # Elvia Typography Changelog
 
+## 2.6.0 (26.10.23)
+
+### New feature
+
+- Added new typographies:
+  - text-clickable (small, medium, and large).
+  - text-italic (small, medium, and large).
+  - text-mono (small, medium, and large).
+
 ## 2.6.0 (05.10.23)
 
 ### New feature
