@@ -4,11 +4,10 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: baseline;
-  gap: 0 8px;
+  gap: 24px 8px;
 
   @include breakpoints.breakpoint-up(Tablet) {
     grid-template-columns: 1fr;
-    gap: 8px;
   }
 }
 
