@@ -46,6 +46,7 @@ import { ThumbnailDocComponent } from './thumbnail-doc/thumbnail-doc.component';
 import { ToastDocComponent } from './toast-doc/toast-doc.component';
 import { TooltipDocComponent } from './tooltip-doc/tooltip-doc.component';
 import { ComponentsModule } from './components.module';
+import { CSSLibraryDocComponent } from './css-library-doc/css-library-doc.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
     path: 'accordion-group',
     redirectTo: Pages.Accordion,
     pathMatch: 'full',
+  },
+  {
+    path: Pages.CssLibrary,
+    component: CSSLibraryDocComponent,
   },
   {
     path: Pages.Accordion,
