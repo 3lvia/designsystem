@@ -10,6 +10,8 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-divider';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
+import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
+import { WebComponentIllustrationComponent } from './web-component-illustration/web-component-illustration.component';
 
 @NgModule({
   imports: [
@@ -22,7 +24,7 @@ import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module
     RouterModule,
     CegModule,
   ],
-  declarations: [GetStartedDocComponent],
+  declarations: [GetStartedDocComponent, CssLibraryIllustrationComponent, WebComponentIllustrationComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class GetStartedDocModule {}

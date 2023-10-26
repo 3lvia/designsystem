@@ -100,3 +100,10 @@
 .overflow-scroll {
   overflow-x: scroll;
 }
+
+.component-illustrations-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 72px;
+}
