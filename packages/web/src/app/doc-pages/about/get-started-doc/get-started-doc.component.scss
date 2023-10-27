@@ -96,3 +96,10 @@
     background: var(--e-color-brand-accent);
   }
 }
+
+.component-illustrations-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 72px;
+}
