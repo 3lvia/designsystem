@@ -5,16 +5,18 @@
   grid-template-columns: 1fr auto;
   align-items: baseline;
   gap: 24px 8px;
-
-  @include breakpoints.breakpoint-up(Tablet) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .full-width {
   grid-column: 1 / -1;
 }
 
-.no-wrap {
+.last-updated {
   white-space: nowrap;
+}
+
+.title {
+  @include breakpoints.breakpoint-up(Tablet) {
+    grid-column: 1 / -1;
+  }
 }
