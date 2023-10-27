@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { LOCALE_CODE } from 'contentful/types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { doAndDont, styleText } from './texts';
 
@@ -16,7 +15,7 @@ export class ShadowDocComponent {
   titleNo = getDocPagesNotFromCMS('shadow')?.titleNo;
   description = getDocPagesNotFromCMS('shadow')?.description;
   descriptionNo = getDocPagesNotFromCMS('shadow')?.descriptionNo;
-  locale: LOCALE_CODE = 'en-GB';
+  locale: Locale = 'en-GB';
   styleText = styleText;
   doDontText = doAndDont;
 
@@ -29,7 +28,7 @@ export class ShadowDocComponent {
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
-        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+        this.locale = locale;
         this.setTabTitle();
       });
   }

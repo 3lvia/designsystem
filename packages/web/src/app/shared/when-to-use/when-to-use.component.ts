@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LOCALE_CODE } from 'contentful/types';
+import { Locale } from 'src/app/core/services/localization.service';
 
 @Component({
   selector: 'app-when-to-use',
@@ -9,5 +9,5 @@ import { LOCALE_CODE } from 'contentful/types';
 export class WhenToUseComponent {
   @Input() whens? = [''];
   @Input() whenNots? = [''];
-  @Input() locale: LOCALE_CODE = 'en-GB';
+  @Input() locale: Locale = 'en-GB';
 }

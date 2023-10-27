@@ -6,7 +6,6 @@ import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { elvisIconData } from './icon-data';
 import { Title } from '@angular/platform-browser';
 import naturalCompare from 'natural-compare-lite';
-import { LOCALE_CODE } from 'contentful/types';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
@@ -35,7 +34,7 @@ export class IconDocComponent implements OnInit {
   titleNo = getDocPagesNotFromCMS('icon')?.titleNo;
   private latestIcon = '';
   copied = false;
-  locale: LOCALE_CODE = 'en-GB';
+  locale: Locale = 'en-GB';
 
   scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>`;
   iconExample = `<i class="e-icon e-icon--chat e-icon--md" aria-hidden="true"></i>`;
@@ -51,7 +50,7 @@ export class IconDocComponent implements OnInit {
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
-        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+        this.locale = locale;
         this.setTabTitle();
       });
   }

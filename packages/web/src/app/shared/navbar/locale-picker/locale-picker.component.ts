@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { LOCALE_CODE } from 'contentful/types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -10,19 +9,19 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrls: ['./locale-picker.component.scss'],
 })
 export class LocalePickerComponent {
-  selectedLocale: LOCALE_CODE = 'en-GB';
+  selectedLocale: Locale = 'en-GB';
 
   constructor(private localizationService: LocalizationService) {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
-        this.selectedLocale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+        this.selectedLocale = locale;
       });
   }
 
-  setLocale(locale: LOCALE_CODE): void {
-    this.localizationService.setLocalization(Locale[locale]);
-    this.localizationService.setPreferredLocalization(Locale[locale]);
+  setLocale(locale: Locale): void {
+    this.localizationService.setLocalization(locale);
+    this.localizationService.setPreferredLocalization(locale);
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Theme, ThemeService } from 'src/app/core/services/theme.service';
@@ -53,7 +53,7 @@ export class HeaderComponent {
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
         // The main menu is only available in english until more pages are translated
-        this.cmsService.getMenu(Locale['en-GB']).then((data) => {
+        this.cmsService.getMenu('en-GB').then((data) => {
           this.mainMenu = data;
           this.menuContentLoader = false;
         });
