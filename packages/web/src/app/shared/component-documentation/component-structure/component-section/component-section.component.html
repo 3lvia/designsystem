@@ -19,11 +19,9 @@
       <ng-content select="headerIcon"></ng-content>
     </h2>
 
-    <span class="e-ml-16" *ngIf="propertiesClass !== ''">
-      <app-copy [message]="propertiesClass">
-        <span class="code-text">{{ propertiesClass }}</span>
-      </app-copy>
-    </span>
+    <app-copy class="e-ml-16" *ngIf="propertiesClass !== ''" [message]="propertiesClass">
+      <code class="e-flex">{{ propertiesClass }}</code>
+    </app-copy>
   </div>
 
   <div class="component-section__content e-text-lg">
