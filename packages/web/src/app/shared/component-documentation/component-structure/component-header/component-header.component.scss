@@ -16,7 +16,7 @@
 }
 
 .title {
-  @include breakpoints.breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Mobile) {
     grid-column: 1 / -1;
   }
 }
