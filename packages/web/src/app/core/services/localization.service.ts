@@ -3,18 +3,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { RouterService } from './router.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { LOCALE_CODE } from 'contentful/types';
 
-export enum Locale {
-  'en-GB' = 0,
-  'nb-NO' = 1,
-}
+export type Locale = LOCALE_CODE;
 
 const LOCALIZATION_STORAGE_KEY = 'preferredDesignElviaIoLocale';
 @Injectable({
   providedIn: 'root',
 })
 export class LocalizationService {
-  readonly defaultLocale = Locale['en-GB'];
+  readonly defaultLocale: Locale = 'en-GB';
   private localizationSubject = new BehaviorSubject<Locale>(this.getInitialStreamValue());
 
   constructor(private routerService: RouterService) {
@@ -24,12 +22,12 @@ export class LocalizationService {
       .pipe(takeUntilDestroyed())
       .subscribe((newPath) => {
         if (newPath.split('/')[1] !== 'brand') {
-          this.setLocalization(Locale['en-GB']);
+          this.setLocalization('en-GB');
         } else {
           // On route change to brand, check if a preferred locale is set
           const preferredLocale = localStorage.getItem(LOCALIZATION_STORAGE_KEY);
-          if (this.isKeyofLocale(preferredLocale)) {
-            this.setLocalization(Locale[preferredLocale]);
+          if (this.isLocale(preferredLocale)) {
+            this.setLocalization(preferredLocale);
           }
         }
       });
@@ -48,19 +46,19 @@ export class LocalizationService {
   }
 
   setPreferredLocalization(locale: Locale): void {
-    localStorage.setItem(LOCALIZATION_STORAGE_KEY, Locale[locale]);
+    localStorage.setItem(LOCALIZATION_STORAGE_KEY, locale);
   }
 
   private getInitialStreamValue(): Locale {
     const preferredLocale = localStorage.getItem(LOCALIZATION_STORAGE_KEY);
-    if (this.isKeyofLocale(preferredLocale)) {
-      return Locale[preferredLocale];
+    if (this.isLocale(preferredLocale)) {
+      return preferredLocale;
     }
 
     return this.defaultLocale;
   }
 
-  private isKeyofLocale(key: unknown): key is keyof typeof Locale {
-    return typeof key === 'string' && key in Locale;
+  private isLocale(key: unknown): key is Locale {
+    return typeof key === 'string' && ['en-GB', 'nb-NO'].includes(key);
   }
 }

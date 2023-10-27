@@ -20,6 +20,9 @@ export class ComponentSectionComponent {
     setTimeout(() => {
       this.titleIsCopied = false;
     }, 800);
+  }
+
+  get copyUrl() {
     const modifiedAnchor = this.sectionTitle.replace(/ /g, '-');
     let anchorUrl = location?.origin ?? 'https://design.elvia.io';
     if (this.router.url.includes('#')) {
@@ -28,6 +31,6 @@ export class ComponentSectionComponent {
     } else {
       anchorUrl = anchorUrl + this.router.url + '#' + modifiedAnchor;
     }
-    navigator.clipboard.writeText(anchorUrl);
+    return anchorUrl;
   }
 }

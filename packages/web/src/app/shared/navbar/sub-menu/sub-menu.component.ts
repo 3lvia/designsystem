@@ -110,7 +110,7 @@ export class SubMenuComponent {
   }
 
   private getAnchors(locale: Locale): Anchor[] {
-    const overviewTitle = locale === Locale['nb-NO'] ? 'Oversikt' : 'Overview';
+    const overviewTitle = locale === 'nb-NO' ? 'Oversikt' : 'Overview';
     const elements = document.querySelectorAll<HTMLElement>('[data-url-fragment]');
 
     if (elements.length > 1) {
