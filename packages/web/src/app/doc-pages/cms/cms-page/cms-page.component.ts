@@ -119,13 +119,13 @@ export class CMSPageComponent implements OnDestroy {
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
     const cmsLastUpdatedDate = new Date(this.cmsContent.lastUpdated);
-    const lastUpdatedFormattedDate = cmsLastUpdatedDate.toLocaleString(locale === 0 ? 'en-GB' : 'nb-NO', {
+    const lastUpdatedFormattedDate = cmsLastUpdatedDate.toLocaleString(locale, {
       month: 'long',
       year: 'numeric',
       day: 'numeric',
     });
 
-    this.lastUpdated = (locale === 0 ? 'Last updated ' : 'Sist oppdatert ') + lastUpdatedFormattedDate;
+    this.lastUpdated = (locale === 'en-GB' ? 'Last updated ' : 'Sist oppdatert ') + lastUpdatedFormattedDate;
     this.showContentLoader = false;
     this.cmsService.contentLoadedFromCMS();
     this.addClickEventListenersForCopyPath();

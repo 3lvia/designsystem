@@ -86,8 +86,7 @@ export class CMSTransformService {
     subMenu: CMSSubMenu[],
     localization: Locale,
   ): TransformedDocPage {
-    const locale = localization === Locale['nb-NO'] ? 'nb-NO' : 'en-GB';
-    this.locale = locale;
+    this.locale = localization;
     let subMenuRoute = '';
     if (this.router.url.split('/')[2]) {
       subMenuRoute = this.router.url.split('/')[1] + '/';

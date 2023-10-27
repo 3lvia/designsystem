@@ -53,7 +53,7 @@ export class HeaderComponent {
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
         // The main menu is only available in english until more pages are translated
-        this.cmsService.getMenu(Locale['en-GB']).then((data) => {
+        this.cmsService.getMenu('en-GB').then((data) => {
           this.mainMenu = data;
           this.menuContentLoader = false;
         });

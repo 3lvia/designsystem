@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LOCALE_CODE } from 'contentful/types';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { Title } from '@angular/platform-browser';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
@@ -40,7 +39,7 @@ export class ColorComponent {
 </div>`;
   description = getDocPagesNotFromCMS('color')?.description;
   descriptionNo = getDocPagesNotFromCMS('color')?.descriptionNo;
-  locale: LOCALE_CODE = 'en-GB';
+  locale: Locale = 'en-GB';
   title = getDocPagesNotFromCMS('color')?.title;
   titleNo = getDocPagesNotFromCMS('color')?.titleNo;
 
@@ -53,7 +52,7 @@ export class ColorComponent {
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
-        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+        this.locale = locale;
         this.setTabTitle();
       });
   }

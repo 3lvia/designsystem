@@ -1,10 +1,10 @@
-import { LOCALE_CODE } from '../../../../../contentful/types';
+import { Locale } from 'src/app/core/services/localization.service';
 
 interface StyleText {
   description: string;
   shadows: { title: string; description: string }[];
 }
-export const styleText: Record<LOCALE_CODE, StyleText> = {
+export const styleText: Record<Locale, StyleText> = {
   'en-GB': {
     description: 'We have three different shadows; soft, medium and hard.',
     shadows: [
@@ -45,7 +45,7 @@ interface DoDontText {
   do: string[];
   dont: string[];
 }
-export const doAndDont: Record<LOCALE_CODE, DoDontText> = {
+export const doAndDont: Record<Locale, DoDontText> = {
   'en-GB': {
     do: ['Behind a solid surface (for example together with cards).'],
     dont: [

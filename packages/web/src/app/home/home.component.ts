@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { LOCALE_CODE } from 'contentful/types';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
@@ -21,7 +20,7 @@ export class HomeComponent implements OnInit {
   pages = homeMenu;
   fontLoaded = false;
   holiday: Holiday = 'None';
-  locale: LOCALE_CODE;
+  locale: Locale;
   currentTheme: ThemeName = 'light';
   changelog = changelogJson.content;
   isMobileScreenWidth: Observable<boolean>;
@@ -66,11 +65,7 @@ export class HomeComponent implements OnInit {
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
-        if (locale === Locale['en-GB']) {
-          this.locale = 'en-GB';
-        } else {
-          this.locale = 'nb-NO';
-        }
+        this.locale = locale;
       });
     this.themeService
       .listenTheme()
