@@ -59,6 +59,6 @@ export class LocalizationService {
   }
 
   private isLocale(key: unknown): key is Locale {
-    return typeof key === 'string' && key in ['en-GB', 'nb-NO'];
+    return typeof key === 'string' && ['en-GB', 'nb-NO'].includes(key);
   }
 }
