@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import Fuse from 'fuse.js';
+import { FuseResultMatch } from 'fuse.js';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 import { ChangelogIdPipe } from './component-changelog-id-pipe';
 import { ChangelogTypePipe } from './component-changelog-pipe';
@@ -165,7 +165,7 @@ export class ComponentChangelogComponent implements OnInit {
     });
   }
 
-  private getHighlightedHTMLString(match: Fuse.FuseResultMatch): string {
+  private getHighlightedHTMLString(match: FuseResultMatch): string {
     const { value, indices } = match;
     if (!value) {
       return '';
