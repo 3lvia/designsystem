@@ -1,6 +1,7 @@
 {
   "content": [
     {
+      "private": true,
       "version": "15.3.0",
       "date": "October 27, 2023",
       "changelog": [
