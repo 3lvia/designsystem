@@ -66,8 +66,8 @@ export const ElviaTypography = {
     color: 'inherit',
   },
 
-  'text-clickable-lg': {
-    altLabels: ['text-clickable-large'],
+  'text-interactive-lg': {
+    altLabels: ['text-interactive-large'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '18px',
     fontWeight: '500',
@@ -77,8 +77,8 @@ export const ElviaTypography = {
     textTransform: 'unset',
     color: 'inherit',
   },
-  'text-clickable-md': {
-    altLabels: ['text-clickable-medium'],
+  'text-interactive-md': {
+    altLabels: ['text-interactive-medium'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '500',
@@ -88,8 +88,8 @@ export const ElviaTypography = {
     textTransform: 'unset',
     color: 'inherit',
   },
-  'text-clickable-sm': {
-    altLabels: ['text-clickable-small'],
+  'text-interactive-sm': {
+    altLabels: ['text-interactive-small'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '500',
