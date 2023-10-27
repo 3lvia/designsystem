@@ -56,7 +56,7 @@
     "@elvia/elvis-typography": "workspace:*",
     "contentful": "^9.3.5",
     "dotenv": "^16.3.1",
-    "fuse.js": "^6.6.2",
+    "fuse.js": "^7.0.0",
     "html-loader": "^4.2.0",
     "natural-compare-lite": "^1.4.0",
     "prettier": "^3.0.3",
