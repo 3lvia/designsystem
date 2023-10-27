@@ -20,7 +20,7 @@
     "@angular/platform-browser": "^16.2.11",
     "@angular/platform-browser-dynamic": "^16.2.11",
     "@angular/router": "^16.2.11",
-    "@contentful/rich-text-html-renderer": "^16.2.0",
+    "@contentful/rich-text-html-renderer": "^16.3.0",
     "@contentful/rich-text-types": "^16.3.0",
     "@elvia/elvis": "workspace:*",
     "@elvia/elvis-accordion": "workspace:*",
