@@ -2137,13 +2137,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-html-renderer@npm:^16.2.0":
-  version: 16.2.0
-  resolution: "@contentful/rich-text-html-renderer@npm:16.2.0"
+"@contentful/rich-text-html-renderer@npm:^16.3.0":
+  version: 16.3.0
+  resolution: "@contentful/rich-text-html-renderer@npm:16.3.0"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.3.0"
     escape-html: "npm:^1.0.3"
-  checksum: d737d78f5bf3884d969160459cbf37893906e71a7ea548bcbc10ed7f88d33a1feab2408d692f99e2ef055557dd28ce5b0482559334a8f852b6f5ec6eb11465e5
+  checksum: e192dcb550a68b11e144edda7adc2a240a583fe8911900b26e6f3870838e1a43fa37913c5fa5798466bfb69cd7688ad7af319cb2877b9cd78e025e763e149b90
   languageName: node
   linkType: hard
 
@@ -8730,7 +8730,7 @@ __metadata:
     "@angular/router": "npm:^16.2.11"
     "@babel/core": "npm:^7.23.2"
     "@babel/eslint-parser": "npm:^7.22.15"
-    "@contentful/rich-text-html-renderer": "npm:^16.2.0"
+    "@contentful/rich-text-html-renderer": "npm:^16.3.0"
     "@contentful/rich-text-types": "npm:^16.3.0"
     "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
