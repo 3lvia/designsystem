@@ -16,7 +16,7 @@ export class GetStartedDocComponent {
   linkTagCode = '';
   scriptTagCode = '';
   fullHTMLExample = '';
-  elvisCssImport = "@use '~@elvia/elvis/css/elvis.min.css';";
+  elvisCssImport = "@use '@elvia/elvis/css/elvis.min.css';";
   elvisJsImport = "import '@elvia/elvis/elvis.js';";
 
   constructor(

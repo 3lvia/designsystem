@@ -26,12 +26,13 @@
 </ng-template>
 
 <ng-template #changelogTemplateHeader>
-  <p *ngIf="!isFrontpage && elvisComponentToFilter" class="e-m-0 e-mb-32">
+  <p *ngIf="!isFrontpage && elvisComponentToFilter" class="e-m-0 e-mb-48 e-text-sm">
     This changelog only contains Elvis versions that affected the
-    {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the complete Elvis
-    changelog on the
-    <a class="e-link e-link--inline" [routerLink]="'/about/whats-new'">What's new?</a>
-    page.
+    {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the
+    <a class="e-link e-link--inline" routerLink="/components/css-library">
+      complete CSS library changelog here
+    </a>
+    .
   </p>
   <ng-container *ngIf="!isFrontpage" [ngTemplateOutlet]="changelogFilter"></ng-container>
 </ng-template>
@@ -62,7 +63,7 @@
             <div class="changelog-section" *ngFor="let changelog of el.changelog">
               <div
                 class="changelog-section-title"
-                [id]="el.date | ChangelogIdPipe : el.version : (changelog.type | ChangelogTypePipe) : ''"
+                [id]="el.date | ChangelogIdPipe: el.version : (changelog.type | ChangelogTypePipe) : ''"
               >
                 {{ changelog.type | ChangelogTypePipe }}
               </div>
@@ -78,7 +79,7 @@
                   <a
                     class="e-link e-link--inline"
                     [href]="component.url"
-                    [id]="el.date | ChangelogIdPipe : el.version : component.displayName : changelog.type"
+                    [id]="el.date | ChangelogIdPipe: el.version : component.displayName : changelog.type"
                   >
                     {{ component.displayName }}
                   </a>
@@ -95,7 +96,7 @@
                   <a
                     class="e-link e-link--inline"
                     [href]="component.url"
-                    [id]="el.date | ChangelogIdPipe : el.version : component.displayName : changelog.type"
+                    [id]="el.date | ChangelogIdPipe: el.version : component.displayName : changelog.type"
                   >
                     {{ component.displayName }}
                   </a>
@@ -103,10 +104,7 @@
               </div>
               <ul class="e-list">
                 <li *ngFor="let change of changelog.changes">
-                  <p
-                    [innerHTML]="change"
-                    [id]="el.date | ChangelogIdPipe : el.version : change : 'entry'"
-                  ></p>
+                  <p [innerHTML]="change" [id]="el.date | ChangelogIdPipe: el.version : change : 'entry'"></p>
                 </li>
               </ul>
               <ng-container *ngIf="changelog.fixes && changelog.fixes.length > 0">

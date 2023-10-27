@@ -36,20 +36,16 @@
             <ol class="e-list e-list--numbers">
               <li>
                 <strong>Put the following in &lt;head></strong>
-                <div class="overflow-scroll" *ngIf="scriptTagCode">
-                  <app-copy [message]="linkTagCode">
-                    <code>{{ linkTagCode }}</code>
-                  </app-copy>
-                </div>
+                <app-copy [message]="linkTagCode" *ngIf="linkTagCode">
+                  <code class="e-flex">{{ linkTagCode }}</code>
+                </app-copy>
                 <div *ngIf="!linkTagCode" class="e-content-loader" style="width: 100%; height: 127px"></div>
               </li>
               <li>
                 <strong>Put the following at the bottom of &lt;body></strong>
-                <div class="overflow-scroll" *ngIf="scriptTagCode">
-                  <app-copy [message]="scriptTagCode">
-                    <code>{{ scriptTagCode }}</code>
-                  </app-copy>
-                </div>
+                <app-copy [message]="scriptTagCode" *ngIf="scriptTagCode">
+                  <code class="e-flex">{{ scriptTagCode }}</code>
+                </app-copy>
                 <div *ngIf="!scriptTagCode" class="e-content-loader" style="width: 100%; height: 127px"></div>
               </li>
             </ol>
