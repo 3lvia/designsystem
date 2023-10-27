@@ -2475,7 +2475,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-is: "npm:^18.2.0"
     resize-observer-polyfill: "npm:^1.5.1"
-    sass: "npm:^1.69.4"
+    sass: "npm:^1.69.5"
     styled-components: "npm:^5.3.3"
     tiny-glob: "npm:^0.2.9"
     tsx: "npm:^3.14.0"
@@ -3040,7 +3040,7 @@ __metadata:
     popper.js: "npm:^1.16.1"
     postcss: "npm:^8.4.31"
     resolve: "npm:^1.22.8"
-    sass: "npm:^1.69.4"
+    sass: "npm:^1.69.5"
   languageName: unknown
   linkType: soft
 
@@ -8780,7 +8780,7 @@ __metadata:
     prettier: "npm:^3.0.3"
     prismjs: "npm:^1.29.0"
     rxjs: "npm:^7.8.1"
-    sass: "npm:^1.69.4"
+    sass: "npm:^1.69.5"
     ts-node: "npm:^10.9.1"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.1.0"
@@ -16049,7 +16049,7 @@ __metadata:
     "@vitejs/plugin-react": "npm:^4.1.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    sass: "npm:^1.69.4"
+    sass: "npm:^1.69.5"
     typescript: "npm:~5.1.0"
     vite: "npm:^4.5.0"
   languageName: unknown
@@ -16858,7 +16858,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.58.3, sass@npm:^1.69.4":
+"sass@npm:^1.58.3":
   version: 1.69.4
   resolution: "sass@npm:1.69.4"
   dependencies:
@@ -16868,6 +16868,19 @@ __metadata:
   bin:
     sass: sass.js
   checksum: d0f77e5b3817b878233c17aa604dfbef50d8f51936b46560f63d500de72aea27c041ffe5d92e7aec089830f2a141fa011e49334a3c3cedd99e94a2bf4fb2c976
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.69.5":
+  version: 1.69.5
+  resolution: "sass@npm:1.69.5"
+  dependencies:
+    chokidar: "npm:>=3.0.0 <4.0.0"
+    immutable: "npm:^4.0.0"
+    source-map-js: "npm:>=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: b320ab22061b3c7fe8cee43b13329b281dd7d86691b8b7c55dec3e47d3ede988989dac56db4dff57ee847d10252a26b611be1b0a5f7c3a0f6a6405ef37a6d018
   languageName: node
   linkType: hard
 
@@ -19494,7 +19507,7 @@ __metadata:
     "@elvia/elvis-tooltip": "npm:*"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@vitejs/plugin-vue": "npm:^4.4.0"
-    sass: "npm:^1.69.4"
+    sass: "npm:^1.69.5"
     typescript: "npm:~5.1.0"
     vite: "npm:^4.5.0"
     vue: "npm:^3.3.6"
