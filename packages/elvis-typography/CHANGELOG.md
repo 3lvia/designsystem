@@ -8,6 +8,7 @@
   - text-interactive (small, medium, and large).
   - text-italic (small, medium, and large).
   - text-mono (small, medium, and large).
+- Now using font weight 300 instead of a lighter text color for light typographies.
 
 ## 2.6.0 (05.10.23)
 

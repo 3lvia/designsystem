@@ -8,7 +8,8 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added several new typographies: italic and mono text (small, medium, and large), and a dedicated interactive text (small, medium, and large)."
+            "Added several new typographies: italic and mono text (small, medium, and large), and a dedicated interactive text (small, medium, and large).",
+            "Now using font weight instead of text color for light typographies."
           ]
         }
       ],
