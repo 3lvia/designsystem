@@ -150,17 +150,13 @@ export const CardTag = styled.span`
   position: relative;
   margin-top: 8px;
   width: fit-content;
-  padding: 4px 8px;
+  padding: 5px 8px;
   border-radius: 4px;
   background: ${getThemeColor('background-element-3')};
-  font-family: 'Red Hat Text', 'Verdana, sans-serif';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 16px;
+  ${getTypographyCss('text-micro')}
+  color: ${getThemeColor('text-1')};
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: ${getThemeColor('text-1')};
   white-space: nowrap;
 `;
 
