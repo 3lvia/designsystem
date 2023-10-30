@@ -1,6 +1,6 @@
 # Elvia Typography Changelog
 
-## 2.7.0 (27.10.23)
+## 2.7.0 (30.10.23)
 
 ### New feature
 
