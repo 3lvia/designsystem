@@ -367,9 +367,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'startTime'}
             errorOptions={{
               hideText: true,
-              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start)
-                ? false
-                : isOutsideMinMaxBoundary(selectedDateRange.start),
               text: '',
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.start?.hasErrorPlaceholder || !!mergedErrorOptions?.start?.text,
@@ -427,9 +424,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'endTime'}
             errorOptions={{
               hideText: true,
-              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end)
-                ? false
-                : isOutsideMinMaxBoundary(selectedDateRange.end),
               text: '',
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.end?.hasErrorPlaceholder || !!mergedErrorOptions?.end?.text,
