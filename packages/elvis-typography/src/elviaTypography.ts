@@ -279,7 +279,7 @@ export const ElviaTypography = {
   },
   'text-sm-mono': {
     altLabels: ['text-small-mono'],
-    fontFamily: '"Red Hat Text", Verdana, sans-serif',
+    fontFamily: '"Red Hat Mono", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '400',
     lineHeight: '22px',
