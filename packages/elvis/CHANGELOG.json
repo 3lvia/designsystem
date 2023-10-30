@@ -17,7 +17,7 @@
           "changes": [
             "Updated the typography in tag.",
             "Now using font weight instead of text color for light typographies.",
-            "Removed some font weight downloads that were not in use (Red Hat Display 300, 400, and 400 italic, and Red Hat Text 600). If you were using them you need to manually add them from Google fonts yourself."
+            "Removed some font weight downloads that were not in use (Red Hat Display 300, 400, and 400 italic). If you were using them you need to manually add them from Google fonts yourself."
           ],
           "components": [
             { "displayName": "Tag", "url": "https://design.elvia.io/components/tag" },
