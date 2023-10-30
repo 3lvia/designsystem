@@ -15,7 +15,7 @@
         },
         {
           "type": "patch",
-          "changes": ["Updated the typography in tag. The width of the tag is now slightly shorter."],
+          "changes": ["Updated the typography in tag."],
           "components": [{ "displayName": "Tag", "url": "https://design.elvia.io/components/tag" }]
         }
       ]
