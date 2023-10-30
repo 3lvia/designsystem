@@ -3,20 +3,26 @@
     {
       "private": true,
       "version": "15.3.0",
-      "date": "October 27, 2023",
+      "date": "October 30, 2023",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
-            "Added several new typographies: italic and mono text (small, medium, and large), and a dedicated interactive text (small, medium, and large).",
-            "Now using font weight instead of text color for light typographies."
+            "Added several new typographies: italic and mono text (small, medium, and large), and a dedicated interactive text (small, medium, and large)."
           ],
           "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
         },
         {
           "type": "patch",
-          "changes": ["Updated the typography in tag."],
-          "components": [{ "displayName": "Tag", "url": "https://design.elvia.io/components/tag" }]
+          "changes": [
+            "Updated the typography in tag.",
+            "Now using font weight instead of text color for light typographies.",
+            "Removed some font weight downloads that were not in use (Red Hat Display 300, 400, and 400 italic, and Red Hat Text 600). If you were using them you need to manually add them from Google fonts yourself."
+          ],
+          "components": [
+            { "displayName": "Tag", "url": "https://design.elvia.io/components/tag" },
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }
+          ]
         }
       ]
     },
