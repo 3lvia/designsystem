@@ -59,6 +59,7 @@ $tag-colors: (
   background: var(--e-color-background-element-3);
   @include typography.typography('text-micro');
   color: var(--e-color-text-1);
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   white-space: nowrap;
 
