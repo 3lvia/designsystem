@@ -5,7 +5,7 @@
 ### New feature
 
 - Added new typographies:
-  - text-clickable (small, medium, and large).
+  - text-interactive (small, medium, and large).
   - text-italic (small, medium, and large).
   - text-mono (small, medium, and large).
 
