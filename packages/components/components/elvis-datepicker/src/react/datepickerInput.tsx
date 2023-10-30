@@ -123,9 +123,11 @@ export const DatepickerInput: React.FC<Props> = ({
       return false;
     } else if (minDate && newDate.getTime() < minDate.getTime()) {
       onErrorChange('beforeMinDate');
+      emitNewValue(newDate);
       return false;
     } else if (maxDate && newDate.getTime() > maxDate.getTime()) {
       onErrorChange('afterMaxDate');
+      emitNewValue(newDate);
       return false;
     } else if (currentError) {
       // Don't emit undefined error every time the value changes

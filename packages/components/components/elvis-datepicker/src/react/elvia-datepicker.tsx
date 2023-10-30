@@ -166,6 +166,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     webcomponent?.triggerEvent('errorOnChange', errorText);
   };
 
+  const isInvalid = (): boolean => {
+    if (mergedErrorOptions.isErrorState !== undefined) {
+      return mergedErrorOptions.isErrorState;
+    }
+    return !!error || !!mergedErrorOptions.text;
+  };
+
   const triggerResetEvent = (): void => {
     onReset?.();
     webcomponent?.triggerEvent('onReset');
@@ -260,7 +267,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         isDisabled={isDisabled}
         hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
         isActive={isShowing}
-        isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        //isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        isInvalid={isInvalid()}
         data-testid="wrapper"
       >
         {!!label && (

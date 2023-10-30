@@ -14,7 +14,7 @@ import {
   ErrorOptions,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
-import { isAfter, isBefore, localISOTime } from './dateHelpers';
+import { isAfter, isBefore, isSameDate, localISOTime } from './dateHelpers';
 import { useUpdateEffect } from '@elvia/elvis-toolbox';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
@@ -282,7 +282,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const isOutsideMinMaxBoundary = (d?: Date | null): boolean => {
+  const isOutsideMinMaxBoundary = (d?: Date | null, withTime?: boolean): boolean => {
+    if (withTime && (isSameDate(d, minDate) || isSameDate(d, maxDate))) {
+      return false;
+    }
     return isBefore(d, minDate) || isAfter(d, maxDate);
   };
 
@@ -336,11 +339,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           dateRangeProps={{
             selectedDateRange: selectedDateRange,
             whichRangePicker: 'start',
-            showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.start}
           errorOptions={{
-            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
+            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start, hasTimepickers),
             ...mergedErrorOptions?.start,
           }}
           errorOnChange={(error: string) =>
@@ -365,7 +367,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'startTime'}
             errorOptions={{
               hideText: true,
-              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start),
+              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start)
+                ? false
+                : isOutsideMinMaxBoundary(selectedDateRange.start),
               text: '',
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.start?.hasErrorPlaceholder || !!mergedErrorOptions?.start?.text,
@@ -373,6 +377,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             errorOnChange={(error: string) => {
               setCurrentErrorMessages((current) => ({ ...current, start: error }));
             }}
+            minTime={isSameDate(selectedDateRange.start, minDate) ? minDate : undefined}
+            maxTime={isSameDate(selectedDateRange.start, maxDate) ? maxDate : undefined}
           />
         )}
       </RowContainer>
@@ -393,11 +399,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           dateRangeProps={{
             selectedDateRange: selectedDateRange,
             whichRangePicker: 'end',
-            showTimeInError: hasTimepickers,
           }}
           disableDate={disableDatesWrapper()?.end}
           errorOptions={{
-            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
+            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end, hasTimepickers),
             ...mergedErrorOptions?.end,
           }}
           errorOnChange={(error: string) =>
@@ -422,7 +427,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             isOpen={openPicker === 'endTime'}
             errorOptions={{
               hideText: true,
-              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end),
+              isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end)
+                ? false
+                : isOutsideMinMaxBoundary(selectedDateRange.end),
               text: '',
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.end?.hasErrorPlaceholder || !!mergedErrorOptions?.end?.text,
@@ -430,6 +437,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             errorOnChange={(error: string) => {
               setCurrentErrorMessages((current) => ({ ...current, end: error }));
             }}
+            minTime={isSameDate(selectedDateRange.end, minDate) ? minDate : undefined}
+            maxTime={isSameDate(selectedDateRange.end, maxDate) ? maxDate : undefined}
           />
         )}
       </RowContainer>
