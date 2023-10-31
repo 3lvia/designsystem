@@ -33,7 +33,7 @@
     "test": "yarn workspace @elvia/elvis-components test",
     "test:start": "yarn workspace @elvia/elvis-components test:start",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
-    "publish": "yarn workspaces foreach -ipv --no-private npm publish --access public"
+    "publish": "yarn workspaces foreach -ipv --all --no-private npm publish --access public"
   },
   "husky": {
     "hooks": {
