@@ -16,6 +16,7 @@
           "type": "patch",
           "changes": [
             "Updated the typography in tag.",
+            "Added some missing mobile line heights to mobile text typographies.",
             "Now using font weight instead of text color for light typographies.",
             "Removed some font weight downloads that were not in use (Red Hat Display 300, 400, and 400 italic). If you were using them you need to manually add them from Google fonts yourself."
           ],

@@ -198,7 +198,7 @@ export const ElviaTypography = {
     fontSize: '16px',
     fontWeight: '400',
     lineHeight: '28px',
-    lineHeightMobile: '160%',
+    lineHeightMobile: '26px',
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
