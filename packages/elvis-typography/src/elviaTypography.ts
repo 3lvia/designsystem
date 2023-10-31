@@ -54,6 +54,19 @@ export const ElviaTypography = {
     color: 'inherit',
   },
 
+  'title-xxs': {
+    altLabels: ['title-xxsmall'],
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
+    fontSize: '15px',
+    fontSizeMobile: '15px',
+    fontWeight: '700',
+    lineHeight: '19px',
+    letterSpacing: 'unset',
+    fontStyle: 'unset',
+    textTransform: 'unset',
+    color: 'inherit',
+  },
+
   'title-caps': {
     altLabels: ['text-caps'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',

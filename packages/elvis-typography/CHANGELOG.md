@@ -1,6 +1,6 @@
 # Elvia Typography Changelog
 
-## 2.7.0 (30.10.23)
+## 2.7.0 (31.10.23)
 
 ### New feature
 
@@ -8,6 +8,7 @@
   - text-interactive (small, medium, and large).
   - text-italic (small, medium, and large).
   - text-mono (small, medium, and large).
+  - Title xxsmall.
 - Now using font weight 300 instead of a lighter text color for light typographies.
 
 ## 2.6.0 (05.10.23)
