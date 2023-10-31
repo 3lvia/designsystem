@@ -258,9 +258,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
-        hasErrorPlaceholder={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
         isActive={isShowing}
-        isInvalid={!!error || !!mergedErrorOptions.isErrorState || !!mergedErrorOptions.text}
+        isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
         data-testid="wrapper"
       >
         {!!label && (
