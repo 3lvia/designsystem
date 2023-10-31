@@ -14,9 +14,9 @@
             ? '/components/css-library'
             : '/components/' + (changelog.name | FrontPageChangelogUrlPipe)
         "
-        [fragment]="changelog.name !== 'elvis' ? 'Changelog' : undefined"
+        fragment="Changelog"
       >
-        {{ changelog.name | FrontPageChangelogNamePipe }}
+        {{ changelog.name === 'elvis' ? 'CSS Library' : (changelog.name | FrontPageChangelogNamePipe) }}
       </a>
     </td>
 
