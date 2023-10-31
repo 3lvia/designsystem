@@ -14,8 +14,9 @@ import {
   ErrorOptions,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
-import { isAfter, isBefore, isSameDate, localISOTime } from './dateHelpers';
-import { useUpdateEffect } from '@elvia/elvis-toolbox';
+import { isSameDate, localISOTime } from './dateHelpers';
+import { FormFieldContainer, useUpdateEffect } from '@elvia/elvis-toolbox';
+import { DatepickerRangeError } from './error/datepickerRangeError';
 
 type Picker = 'startDate' | 'startTime' | 'endDate' | 'endTime';
 
@@ -52,7 +53,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const [touchedPickers, setTouchedPickers] = useState<Picker[]>([]);
   const [openPicker, setOpenPicker] = useState<Picker>();
   const [isRequiredState, setIsRequiredState] = useState<IsRequired>();
-  const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
+
+  const [currentTimepickerErrorMessages, setCurrentTimepickerErrorMessages] =
+    useState<CustomError>(emptyErrorMessage);
+  const [currentDatepickerErrorMessages, setCurrentDatepickerErrorMessages] =
+    useState<CustomError>(emptyErrorMessage);
   const [shouldOpenNextPicker, setShouldOpenNextPicker] = useState(false);
 
   /**
@@ -71,12 +76,20 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   }, [isRequired]);
 
   useUpdateEffect(() => {
+    const currentErrorMessages = {
+      start: currentDatepickerErrorMessages.start
+        ? currentDatepickerErrorMessages.start
+        : currentTimepickerErrorMessages.start,
+      end: currentDatepickerErrorMessages.end
+        ? currentDatepickerErrorMessages.end
+        : currentTimepickerErrorMessages.end,
+    };
     if (!webcomponent) {
       errorOnChange?.(currentErrorMessages);
     } else {
       webcomponent.triggerEvent('errorOnChange', currentErrorMessages);
     }
-  }, [currentErrorMessages]);
+  }, [currentDatepickerErrorMessages, currentTimepickerErrorMessages]);
 
   const isValidDate = (date: unknown): boolean => {
     return !isNaN(date as number) && date instanceof Date;
@@ -127,12 +140,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     start: {
       ...defaultErrorOptions.start,
       ...errorOptions?.start,
-      text: currentErrorMessages.start,
     },
     end: {
       ...defaultErrorOptions.end,
       ...errorOptions?.end,
-      text: currentErrorMessages.end,
     },
   };
 
@@ -282,13 +293,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     }
   };
 
-  const isOutsideMinMaxBoundary = (d?: Date | null, withTime?: boolean): boolean => {
-    if (withTime && (isSameDate(d, minDate) || isSameDate(d, maxDate))) {
-      return false;
-    }
-    return isBefore(d, minDate) || isAfter(d, maxDate);
-  };
-
   /** These props are passed through directly to both the underlying datepickers. */
   const passThroughProps: Partial<DatepickerProps> = {
     minDate,
@@ -323,119 +327,145 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       data-testid="datepicker-range-wrapper"
       {...rest}
     >
-      <RowContainer>
-        <Datepicker
-          {...passThroughProps}
-          label={labelOptions?.start ?? defaultLabelOptions.start}
-          value={selectedDateRange.start}
-          valueOnChange={handleStartDatePickerValueOnChange}
-          isRequired={isRequiredState?.start}
-          onClose={openNextPicker}
-          onFocus={() => setTouched('startDate')}
-          onOpen={onStartPickerOpen}
-          onReset={() => {
-            setNewDateRange({ ...selectedDateRange, start: null });
-          }}
-          dateRangeProps={{
-            selectedDateRange: selectedDateRange,
-            whichRangePicker: 'start',
-          }}
-          disableDate={disableDatesWrapper()?.start}
-          errorOptions={{
-            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.start, hasTimepickers),
-            ...mergedErrorOptions?.start,
-          }}
-          errorOnChange={(error: string) =>
-            setCurrentErrorMessages((current) => ({ ...current, start: error }))
-          }
-          hasSelectDateOnOpen={false}
-        ></Datepicker>
-        {hasTimepickers && (
-          <Timepicker
-            label=""
-            size={size}
-            isDisabled={isDisabled}
-            value={isTouched('startTime') || valueIsSentAsProp ? selectedDateRange.start : undefined}
-            valueOnChange={handleStartTimePickerValueOnChange}
-            isFullWidth={isFullWidth && isVertical}
-            onFocus={() => setTouched('startTime')}
+      <FormFieldContainer>
+        <RowContainer>
+          <Datepicker
+            {...passThroughProps}
+            label={labelOptions?.start ?? defaultLabelOptions.start}
+            value={selectedDateRange.start}
+            valueOnChange={handleStartDatePickerValueOnChange}
             isRequired={isRequiredState?.start}
-            selectNowOnOpen={false}
-            minuteInterval={timepickerInterval}
-            onOpen={() => setOpenPicker('startTime')}
             onClose={openNextPicker}
-            isOpen={openPicker === 'startTime'}
+            onFocus={() => setTouched('startDate')}
+            onOpen={onStartPickerOpen}
+            onReset={() => {
+              setNewDateRange({ ...selectedDateRange, start: null });
+            }}
+            dateRangeProps={{
+              selectedDateRange: selectedDateRange,
+              whichRangePicker: 'start',
+            }}
+            disableDate={disableDatesWrapper()?.start}
             errorOptions={{
+              ...mergedErrorOptions?.start,
               hideText: true,
-              text: '',
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.start?.hasErrorPlaceholder || !!mergedErrorOptions?.start?.text,
             }}
-            errorOnChange={(error: string) => {
-              setCurrentErrorMessages((current) => ({ ...current, start: error }));
-            }}
-            minTime={isSameDate(selectedDateRange.start, minDate) ? minDate : undefined}
-            maxTime={isSameDate(selectedDateRange.start, maxDate) ? maxDate : undefined}
+            errorOnChange={(error: string) =>
+              setCurrentDatepickerErrorMessages((current) => ({ ...current, start: error }))
+            }
+            hasSelectDateOnOpen={false}
+          ></Datepicker>
+          {hasTimepickers && (
+            <Timepicker
+              label=""
+              size={size}
+              isDisabled={isDisabled}
+              value={isTouched('startTime') || valueIsSentAsProp ? selectedDateRange.start : undefined}
+              valueOnChange={handleStartTimePickerValueOnChange}
+              isFullWidth={isFullWidth && isVertical}
+              onFocus={() => setTouched('startTime')}
+              isRequired={isRequiredState?.start}
+              selectNowOnOpen={false}
+              minuteInterval={timepickerInterval}
+              onOpen={() => setOpenPicker('startTime')}
+              onClose={openNextPicker}
+              isOpen={openPicker === 'startTime'}
+              errorOptions={{
+                hideText: true,
+                isErrorState: !!currentDatepickerErrorMessages.start,
+                hasErrorPlaceholder:
+                  !!mergedErrorOptions?.start?.hasErrorPlaceholder || !!mergedErrorOptions?.start?.text,
+              }}
+              errorOnChange={(error: string) => {
+                setCurrentTimepickerErrorMessages((current) => ({ ...current, start: error }));
+              }}
+              minTime={isSameDate(selectedDateRange.start, minDate) ? minDate : undefined}
+              maxTime={isSameDate(selectedDateRange.start, maxDate) ? maxDate : undefined}
+            />
+          )}
+        </RowContainer>
+        {(currentDatepickerErrorMessages.start || currentTimepickerErrorMessages.start) && (
+          <DatepickerRangeError
+            errorText={
+              currentDatepickerErrorMessages.start
+                ? currentDatepickerErrorMessages.start
+                : currentTimepickerErrorMessages.start
+            }
           />
         )}
-      </RowContainer>
-      <RowContainer>
-        <Datepicker
-          {...passThroughProps}
-          label={labelOptions?.end ?? defaultLabelOptions.end}
-          value={selectedDateRange.end}
-          valueOnChange={handleEndDatePickerValueOnChange}
-          isRequired={isRequiredState?.end}
-          onClose={openNextPicker}
-          onFocus={() => setTouched('endDate')}
-          onOpen={onEndPickerOpen}
-          onReset={() => {
-            setNewDateRange({ ...selectedDateRange, end: null });
-          }}
-          isOpen={openPicker === 'endDate'}
-          dateRangeProps={{
-            selectedDateRange: selectedDateRange,
-            whichRangePicker: 'end',
-          }}
-          disableDate={disableDatesWrapper()?.end}
-          errorOptions={{
-            isErrorState: isOutsideMinMaxBoundary(selectedDateRange.end, hasTimepickers),
-            ...mergedErrorOptions?.end,
-          }}
-          errorOnChange={(error: string) =>
-            setCurrentErrorMessages((current) => ({ ...current, end: error }))
-          }
-          hasSelectDateOnOpen={false}
-        ></Datepicker>
-        {hasTimepickers && (
-          <Timepicker
-            label=""
-            size={size}
-            isDisabled={isDisabled}
-            value={isTouched('endTime') || valueIsSentAsProp ? selectedDateRange.end : undefined}
-            valueOnChange={handleEndTimePickerValueOnChange}
-            isFullWidth={isFullWidth && isVertical}
-            onFocus={() => setTouched('endTime')}
+      </FormFieldContainer>
+      <FormFieldContainer>
+        <RowContainer>
+          <Datepicker
+            {...passThroughProps}
+            label={labelOptions?.end ?? defaultLabelOptions.end}
+            value={selectedDateRange.end}
+            valueOnChange={handleEndDatePickerValueOnChange}
             isRequired={isRequiredState?.end}
-            selectNowOnOpen={false}
-            minuteInterval={timepickerInterval}
-            onOpen={() => setOpenPicker('endTime')}
             onClose={openNextPicker}
-            isOpen={openPicker === 'endTime'}
+            onFocus={() => setTouched('endDate')}
+            onOpen={onEndPickerOpen}
+            onReset={() => {
+              setNewDateRange({ ...selectedDateRange, end: null });
+            }}
+            isOpen={openPicker === 'endDate'}
+            dateRangeProps={{
+              selectedDateRange: selectedDateRange,
+              whichRangePicker: 'end',
+            }}
+            disableDate={disableDatesWrapper()?.end}
             errorOptions={{
+              ...mergedErrorOptions?.end,
               hideText: true,
-              text: '',
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.end?.hasErrorPlaceholder || !!mergedErrorOptions?.end?.text,
             }}
-            errorOnChange={(error: string) => {
-              setCurrentErrorMessages((current) => ({ ...current, end: error }));
-            }}
-            minTime={isSameDate(selectedDateRange.end, minDate) ? minDate : undefined}
-            maxTime={isSameDate(selectedDateRange.end, maxDate) ? maxDate : undefined}
+            errorOnChange={(error: string) =>
+              setCurrentDatepickerErrorMessages((current) => ({ ...current, end: error }))
+            }
+            hasSelectDateOnOpen={false}
+          ></Datepicker>
+          {hasTimepickers && (
+            <Timepicker
+              label=""
+              size={size}
+              isDisabled={isDisabled}
+              value={isTouched('endTime') || valueIsSentAsProp ? selectedDateRange.end : undefined}
+              valueOnChange={handleEndTimePickerValueOnChange}
+              isFullWidth={isFullWidth && isVertical}
+              onFocus={() => setTouched('endTime')}
+              isRequired={isRequiredState?.end}
+              selectNowOnOpen={false}
+              minuteInterval={timepickerInterval}
+              onOpen={() => setOpenPicker('endTime')}
+              onClose={openNextPicker}
+              isOpen={openPicker === 'endTime'}
+              errorOptions={{
+                isErrorState: !!currentDatepickerErrorMessages.end,
+                hideText: true,
+                hasErrorPlaceholder:
+                  !!mergedErrorOptions?.end?.hasErrorPlaceholder || !!mergedErrorOptions?.end?.text,
+              }}
+              errorOnChange={(error: string) => {
+                setCurrentTimepickerErrorMessages((current) => ({ ...current, end: error }));
+              }}
+              minTime={isSameDate(selectedDateRange.end, minDate) ? minDate : undefined}
+              maxTime={isSameDate(selectedDateRange.end, maxDate) ? maxDate : undefined}
+            />
+          )}
+        </RowContainer>
+        {(currentDatepickerErrorMessages.end || currentTimepickerErrorMessages.end) && (
+          <DatepickerRangeError
+            errorText={
+              currentDatepickerErrorMessages.end
+                ? currentDatepickerErrorMessages.end
+                : currentTimepickerErrorMessages.end
+            }
           />
         )}
-      </RowContainer>
+      </FormFieldContainer>
     </DatepickerRangeWrapper>
   );
 };
