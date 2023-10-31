@@ -69,7 +69,7 @@
         <li>
           <strong>Add stylesheet</strong>
           <div class="e-title-caps">Head</div>
-          <app-copy [message]="linkTagCode">
+          <app-copy [message]="linkTagCode" autoOverflow>
             <code class="e-flex">{{ linkTagCode }}</code>
           </app-copy>
           <p class="e-text-md e-mt-8">This should be added to the head element.</p>
@@ -77,7 +77,7 @@
         <li>
           <strong>Add script</strong>
           <div class="e-title-caps">Body</div>
-          <app-copy [message]="scriptTagCode">
+          <app-copy [message]="scriptTagCode" autoOverflow>
             <code class="e-flex">{{ scriptTagCode }}</code>
           </app-copy>
           <p class="e-text-md e-mt-8">This should be added to the body element.</p>
