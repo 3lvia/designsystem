@@ -11,10 +11,6 @@
   - Title xxsmall.
 - Now using font weight 300 instead of a lighter text color for light typographies.
 
-### Bug fix
-
-- Added missing line heights to text medium typographies on mobile.
-
 ## 2.6.0 (05.10.23)
 
 ### New feature
