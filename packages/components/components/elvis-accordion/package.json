@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-accordion",
-  "version": "2.11.1",
+  "version": "2.11.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/accordion",
   "source": "src/react/elvia-accordion.tsx",

@@ -1,6 +1,6 @@
 <ul class="scroll-container" [ngClass]="{ 'bottom-gradient': listOverflows }" #scrollContainer>
   <ng-container *ngIf="navbarList.length; else contentLoader">
-    <ng-container *ngFor="let navbarItem of navbarList; let i = index">
+    <ng-container *ngFor="let navbarItem of navbarList">
       <li>
         <a [routerLink]="navbarItem.fullPath" routerLinkActive="active" class="navbar-item__link">
           <div class="navbar-item__link-text e-text-sm-strong">{{ navbarItem.title }}</div>
@@ -12,7 +12,7 @@
           *ngIf="navbarItem.fullPath === activeRoute"
         />
       </li>
-      <div class="e-ml-16 e-mr-64" *ngIf="navbarItem.isMainPage && !navbarList[i + 1].isMainPage">
+      <div class="e-ml-16 e-mr-64" *ngIf="navbarItem.isMainPage">
         <elvia-divider />
       </div>
     </ng-container>

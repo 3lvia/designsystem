@@ -21,13 +21,9 @@ const modalTabletWithIllustrationTitlePaddingBottom = '16px';
 
 const modalDesktopPadding = '48px';
 const modalDesktopTitlePaddingBottom = '32px';
-const titleFontSize = '30px';
-const titleFontWeight = '700';
 
 const modalDesktopWithIllustrationPadding = '80px';
 const modalDesktopWithIllustrationTitlePaddingBottom = '24px';
-const modalDesktopWithIllustrationTitleFontSize = '44px';
-const modalDesktopWithIllustrationTitleFontWeight = '900';
 
 const fadeIn = keyframes`0% {opacity: 0;} 100% {opacity: 1;}`;
 
@@ -198,11 +194,7 @@ export const ModalIllustration = styled.div.attrs(() => ({
 export const ModalHeading = styled.h2<HeadingProps>`
   margin: 0 24px 0 0;
   padding: 0;
-  ${getTypographyCss('title-md')}
-  font-size: ${({ hasIllustration }) =>
-    hasIllustration ? modalDesktopWithIllustrationTitleFontSize : titleFontSize};
-  font-weight: ${({ hasIllustration }) =>
-    hasIllustration ? modalDesktopWithIllustrationTitleFontWeight : titleFontWeight};
+  ${({ hasIllustration }) => getTypographyCss(hasIllustration ? 'title-lg' : 'title-md')}
   padding-bottom: ${({ hasIllustration }) =>
     hasIllustration ? modalDesktopWithIllustrationTitlePaddingBottom : modalDesktopTitlePaddingBottom};
 
@@ -212,6 +204,7 @@ export const ModalHeading = styled.h2<HeadingProps>`
       hasIllustration ? modalTabletWithIllustrationTitlePaddingBottom : modalTabletTitlePaddingBottom};
   }
   @media (max-width: ${mobileMax}) {
+    ${getTypographyCss('title-md')}
     padding-top: ${modalMobileTitlePaddingTop};
     padding-bottom: ${modalMobileTitlePaddingBottom};
   }

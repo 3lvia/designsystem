@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "26.10.23",
+      "version": "2.11.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The component no longer sets any typography on its content. It previously erroneously sat the font size to 16px. Unless you have not defined a typography for the content of your accordions, this change should not break anything."
+          ]
+        }
+      ]
+    },
+    {
       "date": "06.10.23",
       "version": "2.11.1",
       "changelog": [

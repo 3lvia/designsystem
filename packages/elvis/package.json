@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "15.2.0",
+  "version": "15.2.1",
   "description": "Elvia design system",
   "license": "ISC",
   "homepage": "https://design.elvia.io/",
@@ -40,7 +40,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "postcss": "^8.4.31",
     "resolve": "^1.22.8",
-    "sass": "^1.69.4"
+    "sass": "^1.69.5"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"

@@ -1,15 +1,25 @@
 import changelogJson from '@elvia/elvis-pagination/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { BasePaginationProps } from '@elvia/elvis-pagination/react';
 
-export const paginationData: ComponentData = {
+export const paginationData: ComponentData<BasePaginationProps> = {
   changelog: changelogJson.content,
   name: 'Pagination',
   attributes: {
     value: {
-      type: '{ start: number, end: number }',
+      type: 'object',
       description:
         'The range of elements that should be visible in the paginator from start. "start" represents first element index and "end" represents last element index.',
-      default: '{ start: undefined, end: undefined }',
+      children: {
+        start: {
+          type: 'number',
+          description: 'The start index for the visible range.',
+        },
+        end: {
+          type: 'number',
+          description: 'The end index for the visible range.',
+        },
+      },
     },
     numberOfElements: {
       isRequired: true,
@@ -33,7 +43,7 @@ export const paginationData: ComponentData = {
       default: '"left"',
     },
     dropdownItems: {
-      type: '{value: string, label: string}',
+      type: 'object',
       description:
         'Options available in the pagination dropdown menu, set as array of objects with keys of:  {value: string, label: string}',
       default: `[
@@ -47,6 +57,16 @@ export const paginationData: ComponentData = {
           label: '40'
         },
       ]`,
+      children: {
+        label: {
+          type: 'string',
+          description: 'The label for the dropdown item.',
+        },
+        value: {
+          type: 'string',
+          description: 'The value for the dropdown item.',
+        },
+      },
     },
     dropdownSelectedItemIndex: {
       type: 'number',
@@ -61,11 +81,23 @@ export const paginationData: ComponentData = {
     labelOptions: {
       type: 'object',
       description: 'Labels used in the paginator.',
-      default: `{
-        displaying: 'Viser', 
-        of: 'av',
-        label: 'elementer'
-      }`,
+      children: {
+        displaying: {
+          type: 'string',
+          description: 'The value for the word "displaying"',
+          default: 'Viser',
+        },
+        label: {
+          type: 'string',
+          description: 'The value for the word "label"',
+          default: 'elementer',
+        },
+        of: {
+          type: 'string',
+          description: 'The value for the word "of"',
+          default: 'av',
+        },
+      },
     },
     valueOnChange: {
       isEvent: true,

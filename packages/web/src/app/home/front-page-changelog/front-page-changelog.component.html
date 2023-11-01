@@ -4,19 +4,19 @@
       <img
         class="e-mr-24"
         alt=""
-        *ngIf="(componentIcons | async)?.[changelog.name | FrontPageChangelogUrlPipe ]; else noIcon"
-        [src]="(componentIcons | async)?.[changelog.name | FrontPageChangelogUrlPipe ]"
+        *ngIf="(componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)]; else noIcon"
+        [src]="(componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)]"
       />
       <a
         class="e-link e-link--lg"
         [routerLink]="
           changelog.name === 'elvis'
-            ? '/about/whats-new'
+            ? '/components/css-library'
             : '/components/' + (changelog.name | FrontPageChangelogUrlPipe)
         "
-        [fragment]="changelog.name !== 'elvis' ? 'Changelog' : ''"
+        fragment="Changelog"
       >
-        {{ changelog.name | FrontPageChangelogNamePipe }}
+        {{ changelog.name === 'elvis' ? 'CSS Library' : (changelog.name | FrontPageChangelogNamePipe) }}
       </a>
     </td>
 

@@ -1,16 +1,27 @@
 import changelogJson from '@elvia/elvis-spotlight/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { BaseSpotlightProps } from '@elvia/elvis-spotlight/react';
 
-const spotlightData: ComponentData = {
+const spotlightData: ComponentData<BaseSpotlightProps> = {
   changelog: changelogJson.content,
   name: 'Spotlight',
   attributes: {
     position: {
       isRequired: true,
-      type: '{horizontal: number, vertical: number}',
-      description:
-        'The position represents the center of the circle, or the top left corner of the rectangle. The position is relative to the screen.',
-      default: '',
+      type: 'object',
+      description: 'The position of the spotlight, relative to the screen.',
+      children: {
+        horizontal: {
+          type: 'number',
+          description:
+            'The horizontal position of the spotlight. Represents the center of a circle, and the left edge of a rectangle.',
+        },
+        vertical: {
+          type: 'number',
+          description:
+            'The vertical position of the spotlight. Represents the center of a circle, and the top edge of a rectangle.',
+        },
+      },
     },
     shape: {
       type: '"circle" | "rectangle"',
@@ -23,9 +34,25 @@ const spotlightData: ComponentData = {
       default: '200',
     },
     rectangleProps: {
-      type: '{width: number, height: number, borderRadius: number}',
+      type: 'object',
       description: 'Props for the spotlight rectangle. Only applies to shape rectangle.',
-      default: '{width: 200, height: 200, borderRadius: 8}',
+      children: {
+        borderRadius: {
+          type: 'number',
+          description: 'The border radius of the spotlight',
+          default: 8,
+        },
+        height: {
+          type: 'number',
+          description: 'The height of the spotlight.',
+          default: 200,
+        },
+        width: {
+          type: 'number',
+          description: 'The width of the spotlight.',
+          default: 200,
+        },
+      },
     },
     hasLockBodyScroll: {
       type: 'boolean',

@@ -73,7 +73,7 @@ export class CMSService {
     let pageId = '';
     await this.getMenu(localization).then((menu) => {
       const pages = menu['pages'][0].entry.fields.pages;
-      const localeKey = (Object.keys(pages!)[localization] ?? 'en-GB') as LOCALE_CODE;
+      const localeKey = (Object.keys(pages!)[localization as any] ?? 'en-GB') as LOCALE_CODE;
       const subMenu = menu['pages'].find((subMenu) => subMenu.path === urlWithoutAnchor[1]);
       const urlWithoutQueryParams = urlWithoutAnchor[2]?.split('?')[0];
 
@@ -143,7 +143,7 @@ export class CMSService {
       return [];
     }
 
-    const localeKey = (Object.keys(page.entry.fields.pages)[localization] ?? 'en-GB') as LOCALE_CODE;
+    const localeKey = Object.keys(page.entry.fields.pages).includes(localization) ? localization : 'en-GB';
     const cmsPages = page.entry.fields.pages[localeKey];
 
     if (!cmsPages) {
@@ -151,7 +151,9 @@ export class CMSService {
     }
 
     return cmsPages?.map((cmsPage) => {
-      const innerLocaleKey = (Object.keys(cmsPage.fields.title)[localization] ?? 'en-GB') as LOCALE_CODE;
+      const innerLocaleKey = Object.keys(cmsPage.fields.title).includes(localization)
+        ? localization
+        : 'en-GB';
       const navbarItem: CMSNavbarItem = {
         title: cmsPage.fields.title && extractLocale(cmsPage.fields.title, innerLocaleKey)!,
         isMainPage: !!(cmsPage.fields.isMainPage && extractLocale(cmsPage.fields.isMainPage, innerLocaleKey)),
@@ -167,21 +169,20 @@ export class CMSService {
     if (this.getMenuCache.has(localization)) {
       return this.getMenuCache.get(localization)!;
     }
-    const locale = localization === Locale['nb-NO'] ? 'nb-NO' : 'en-GB';
     const entryMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
 
     const menu: CMSMenu = {
       title: entryMenu.fields.title?.['en-GB']!,
       pages: [],
     };
-    const subMenuEntries = extractLocale(entryMenu.fields.submenus!, locale);
+    const subMenuEntries = extractLocale(entryMenu.fields.submenus!, localization);
     if (!subMenuEntries) {
       throw new Error('No submenus found in CMS.service');
     }
     for (const subMenuEntry of subMenuEntries) {
       const subEntry = await this.getEntry<ISubMenu>(subMenuEntry.sys.id);
       const subMenu: CMSSubMenu = {
-        title: extractLocale(subMenuEntry.fields.title, locale) ?? '',
+        title: extractLocale(subMenuEntry.fields.title, localization) ?? '',
         entry_id: subMenuEntry.sys.id,
         entry: subEntry,
         path: subMenuEntry.fields.path['en-GB'], // url path - No localization on this field

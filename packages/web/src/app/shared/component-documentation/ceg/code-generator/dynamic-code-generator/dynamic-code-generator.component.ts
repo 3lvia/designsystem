@@ -135,14 +135,16 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     return (
       slots
         .map((slot) => {
-          if (slot.includes('e-icon') || slot.includes('<elvia-')) {
-            const parsedSlot = new DOMParser().parseFromString(slot, 'text/html');
+          let parsedSlot = slot;
 
-            this.cleanIconsInSlot(parsedSlot);
-            this.cleanElviaComponentsInSlot(slot, parsedSlot);
-            return parsedSlot.body.innerHTML;
+          if (slot.includes('e-icon')) {
+            const document = new DOMParser().parseFromString(slot, 'text/html');
+            this.cleanIconsInSlot(document);
+            parsedSlot = document.body.innerHTML;
+          } else if (slot.includes('<elvia-')) {
+            parsedSlot = this.cleanElviaComponentsInSlot(slot);
           }
-          return slot;
+          return parsedSlot;
         })
         // Ensure that each slot falls on a new line.
         .map((slot) => slot.replace(/></g, '>\n<'))
@@ -159,17 +161,13 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     });
   }
 
-  private cleanElviaComponentsInSlot(slotString: string, parsedSlot: Document) {
-    slotString.split('<').forEach((slotPart) => {
-      if (slotPart.startsWith('elvia-')) {
-        const elviaTag = slotPart.split(' ')[0];
-
-        Array.from(parsedSlot.getElementsByTagName(elviaTag)).forEach((elviaElement) => {
-          elviaElement.getAttributeNames().forEach((attribute) => elviaElement.removeAttribute(attribute));
-          elviaElement.innerHTML = 'Content removed for simplicity...';
-        });
-      }
-    });
+  private cleanElviaComponentsInSlot(slotString: string) {
+    const elviaElement = /elvia-\S+/.exec(slotString)?.[0] ?? '';
+    const slotName = /slot="(\w+)"/.exec(slotString)?.[1] ?? '';
+    const rootElement = /<(\w+)/.exec(slotString)?.[1] ?? '';
+    return `<${rootElement} slot="${slotName}">
+  <${elviaElement}>Content removed for simplicity...</${elviaElement}>
+</${rootElement}>`;
   }
 
   private getWebComponentSlots(slots: string[]): string {

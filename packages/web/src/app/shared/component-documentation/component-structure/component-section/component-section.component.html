@@ -3,7 +3,7 @@
 <div class="component-section documentation-section-animation">
   <div class="component-section__title">
     <h2 class="e-title-md e-mb-24 e-flex e-align-items-center" data-url-fragment>
-      <app-copy class="e-flex copy-container">
+      <app-copy class="e-flex copy-container" [message]="copyUrl">
         <button class="icon" (click)="copyAnchor()" (keydown.enter)="copyAnchor()">
           <i
             class="e-icon e-icon--link e-icon--sm"
@@ -19,11 +19,9 @@
       <ng-content select="headerIcon"></ng-content>
     </h2>
 
-    <span class="e-ml-16" *ngIf="propertiesClass !== ''">
-      <app-copy [message]="propertiesClass">
-        <span class="code-text">{{ propertiesClass }}</span>
-      </app-copy>
-    </span>
+    <app-copy class="e-ml-16" *ngIf="propertiesClass !== ''" [message]="propertiesClass">
+      <code class="e-flex">{{ propertiesClass }}</code>
+    </app-copy>
   </div>
 
   <div class="component-section__content e-text-lg">

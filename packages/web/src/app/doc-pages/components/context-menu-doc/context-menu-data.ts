@@ -10,7 +10,7 @@ const contextMenuData: ComponentData<BaseContextMenuProps> = {
       isRequired: true,
       type: 'string | HTMLElement | JSX.Element',
       description:
-        'The content (use slot in webcomponent if not just text), typically a list of buttons and links.',
+        'The content (use slot in web component if not just text), typically a list of buttons and links.',
     },
     trigger: {
       isRequired: true,

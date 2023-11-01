@@ -1,7 +1,8 @@
 import changelogJson from '@elvia/elvis-datepicker/CHANGELOG.json';
 import ComponentData from '../../component-data.interface';
+import { DatepickerProps } from '@elvia/elvis-datepicker/react';
 
-const datepickerData: ComponentData = {
+const datepickerData: ComponentData<Omit<DatepickerProps, 'isCompact' | 'dateRangeProps' | 'onFocus'>> = {
   changelog: changelogJson.content,
   name: 'Datepicker',
   attributes: {

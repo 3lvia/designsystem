@@ -1,4 +1,4 @@
-<div class="zoom-on-hover">
+<div class="zoom-on-hover" [ngClass]="{ 'auto-overflow': autoOverflow }">
   <elvia-tooltip [content]="tooltipContent" showDelay="200">
     <div
       slot="trigger"

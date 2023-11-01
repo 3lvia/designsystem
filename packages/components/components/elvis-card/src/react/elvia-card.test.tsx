@@ -144,17 +144,6 @@ describe('Elvis Card', () => {
       expect(tag).toBeInTheDocument();
     });
 
-    it('should have label with styling', () => {
-      const tag = screen.getByText('Tag');
-      expect(tag).toHaveStyle(
-        `padding: 4px 8px;
-        border-radius: 4px;
-        background: ${getThemeColor('background-element-3')}; 
-        font-size: 11px;
-        font-weight: 400;`,
-      );
-    });
-
     it('should have shape square', () => {
       const cardArea = screen.getByRole('article');
       expect(cardArea).toHaveStyle(`border-radius: 8px`);

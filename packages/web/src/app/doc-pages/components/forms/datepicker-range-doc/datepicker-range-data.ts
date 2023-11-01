@@ -1,13 +1,24 @@
 import changelogJson from '@elvia/elvis-datepicker-range/CHANGELOG.json';
 import ComponentData from '../../component-data.interface';
+import { BaseDatepickerRangeProps } from '@elvia/elvis-datepicker-range/react';
 
-const datepickerRangeData: ComponentData = {
+const datepickerRangeData: ComponentData<Omit<BaseDatepickerRangeProps, 'isCompact'>> = {
   changelog: changelogJson.content,
   name: 'DatepickerRange',
   attributes: {
     value: {
-      type: '{start: Date | null, end: Date | null}',
+      type: 'object',
       description: 'Preselected date.',
+      children: {
+        start: {
+          type: 'Date',
+          description: 'The start date.',
+        },
+        end: {
+          type: 'Date',
+          description: 'The end date.',
+        },
+      },
     },
     valueOnChange: {
       isEvent: true,
@@ -15,15 +26,26 @@ const datepickerRangeData: ComponentData = {
       description:
         'Gets called every time the value is changed. Returns null if input field is empty, or Invalid Date if input is not a valid date.',
     },
-    handleValueOnChangeISOString: {
+    valueOnChangeISOString: {
       isEvent: true,
       type: '(value: {start: string | null, end: string | null}) => void',
       description: `Gets called every time the value is changed. Returns a string containing the chosen date, without time, in ISO format (e.g. '2022-06-20'), or null if no date is selected.`,
     },
     labelOptions: {
-      type: '{start?: string; end?: string}',
+      type: 'object',
       description: 'Labels of inputs.',
-      default: '{start: "Fra dato", end: "Til dato"}',
+      children: {
+        start: {
+          type: 'string',
+          description: 'The label for the start datepicker.',
+          default: 'Fra dato',
+        },
+        end: {
+          type: 'string',
+          description: 'The label for the end datepicker.',
+          default: 'Til dato',
+        },
+      },
     },
     size: {
       type: '"small" | "medium"',
@@ -81,18 +103,77 @@ const datepickerRangeData: ComponentData = {
       description: 'Makes dates after the provided maximum date disabled.',
     },
     disableDates: {
-      type: '{start: (day: Date) => boolean; end: (day: Date) => boolean}',
+      type: 'object',
       description: 'Object containing functions that set dates as disabled. Return true to disable a date.',
       example: /* ts */ `// example: only allow mondays on start datepicker, only allow fridays on end datepicker
         disableDates = { start: (day: Date) => day.getDay() !== 1, end: (day: Date) => day.getDay() !== 5 }
       `,
+      children: {
+        start: {
+          type: '(day: Date) => boolean',
+          description: 'A function that defines what dates that should be disabled in the start datepicker.',
+        },
+        end: {
+          type: '(day: Date) => boolean',
+          description: 'A function that defines what dates that should be disabled in the end datepicker.',
+        },
+      },
     },
     errorOptions: {
-      type: 'Partial<{start: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>, end: Partial<{ text: string; hideText: boolean; isErrorState: boolean; hasErrorPlaceholder: boolean }>}>',
-      description: 'An object that allows for custom configuration of the error handling.',
-      default:
-        '{ start: { hideText: false, hasErrorPlaceholder: true }, end: { hideText: false, hasErrorPlaceholder: true }}',
+      type: 'object',
+      description:
+        'An object that allows for custom configuration of the error handling for both the start- and end-datepicker.',
       example: /* ts */ `errorOptions = { start: { text: "Start error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true }, end: { text: "End error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true } }`,
+      children: {
+        start: {
+          type: 'object',
+          children: {
+            text: {
+              type: 'string',
+              description: 'Setting "text" will always show the provided error message.',
+            },
+            hideText: {
+              type: 'boolean',
+              description: 'Hides the default validation errors.',
+              default: 'false',
+            },
+            isErrorState: {
+              type: 'boolean',
+              description: 'Allows for manually activating the visual error UI.',
+              default: 'false',
+            },
+            hasErrorPlaceholder: {
+              type: 'boolean',
+              description: 'Allows you to remove the padding below the date picker.',
+              default: 'true',
+            },
+          },
+        },
+        end: {
+          type: 'object',
+          children: {
+            text: {
+              type: 'string',
+              description: 'Setting "text" will always show the provided error message.',
+            },
+            hideText: {
+              type: 'boolean',
+              description: 'Hides the default validation errors.',
+              default: 'false',
+            },
+            isErrorState: {
+              type: 'boolean',
+              description: 'Allows for manually activating the visual error UI.',
+              default: 'false',
+            },
+            hasErrorPlaceholder: {
+              type: 'boolean',
+              description: 'Allows you to remove the padding below the date picker.',
+              default: 'true',
+            },
+          },
+        },
+      },
     },
     errorOnChange: {
       isEvent: true,

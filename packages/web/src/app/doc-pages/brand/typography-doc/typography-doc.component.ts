@@ -3,7 +3,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { LOCALE_CODE } from 'contentful/types';
 
 @Component({
   selector: 'app-typography-doc',
@@ -18,7 +17,7 @@ export class TypographyDocComponent {
   description = getDocPagesNotFromCMS('typography')?.description;
   descriptionNo = getDocPagesNotFromCMS('typography')?.descriptionNo;
   figmaUrl = getDocPagesNotFromCMS('typography')?.figmaUrl;
-  locale: LOCALE_CODE = 'en-GB';
+  locale: Locale = 'en-GB';
 
   isDesktop = true;
   isMobile = false;
@@ -31,7 +30,7 @@ export class TypographyDocComponent {
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
-        this.locale = locale === Locale['en-GB'] ? 'en-GB' : 'nb-NO';
+        this.locale = locale;
         this.titleService.setTitle(
           ((this.locale === 'nb-NO' && this.titleNo) || this.title) + ' | Elvia design system',
         );

@@ -1,14 +1,7 @@
-@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
-
 :host {
   display: flex;
   flex-direction: row;
   gap: 24px;
-  margin-top: 16px;
-
-  @include breakpoints.breakpoint-up(Mobile) {
-    display: none;
-  }
 }
 
 .mono-text {

@@ -18,19 +18,19 @@ const modalData: ComponentData<BaseModalProps> = {
     content: {
       isRequired: true,
       type: 'HTMLElement | JSX.Element',
-      description: 'Text, images, tables or any other content (slot in webcomponent).',
+      description: 'Text, images, tables or any other content (slot in web component).',
     },
     illustration: {
       type: 'HTMLElement | JSX.Element',
-      description: 'Illustration/image to be shown in the modal (slot in webcomponent).',
+      description: 'Illustration/image to be shown in the modal (slot in web component).',
     },
     primaryButton: {
       type: 'HTMLElement | JSX.Element',
-      description: 'Primary button placed to the right in the modal (slot in webcomponent).',
+      description: 'Primary button placed to the right in the modal (slot in web component).',
     },
     secondaryButton: {
       type: 'HTMLElement | JSX.Element',
-      description: 'Secondary button placed to the left in the modal (slot in webcomponent).',
+      description: 'Secondary button placed to the left in the modal (slot in web component).',
     },
     hasCloseButton: {
       type: 'boolean',
