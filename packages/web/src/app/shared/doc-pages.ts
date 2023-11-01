@@ -766,12 +766,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     status: DocPageStatus.Done,
   },
   {
-    title: 'What’s New?',
-    description: 'The latest news, updates, and changes to the design system.',
-    docUrl: Pages.Changelog,
-    absolutePath: '/about/' + Pages.Changelog,
-  },
-  {
     title: 'Shadow',
     titleNo: 'Skygge',
     description:
@@ -869,12 +863,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/tools/' + Pages.Utilities,
     status: DocPageStatus.Done,
     type: 'Tools',
-  },
-  {
-    title: 'What’s New?',
-    description: 'The latest news, updates, and changes to the design system.',
-    docUrl: Pages.Changelog,
-    absolutePath: '/about/' + Pages.Changelog,
   },
   {
     title: 'Contact',

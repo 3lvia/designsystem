@@ -5,7 +5,6 @@ import { AboutModule } from './about.module';
 import { TheDesignSystemDocComponent } from './the-design-system-doc/the-design-system-doc.component';
 import { ContactComponent } from './contact/contact.component';
 import { GetStartedDocComponent } from './get-started-doc/get-started-doc.component';
-import { ChangelogComponent } from './changelog/changelog.component';
 import { Pages } from 'src/app/shared/shared.enum';
 
 const routes: Routes = [
@@ -24,10 +23,6 @@ const routes: Routes = [
   {
     path: Pages.GetStarted,
     component: GetStartedDocComponent,
-  },
-  {
-    path: Pages.Changelog,
-    component: ChangelogComponent,
   },
 ];
 

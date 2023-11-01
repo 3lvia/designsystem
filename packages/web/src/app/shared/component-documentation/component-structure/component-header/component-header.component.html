@@ -1,21 +1,22 @@
 <div class="page-body e-mb-16">
   <div class="title-container e-mb-32">
-    <h1 class="big-header e-m-0" data-url-fragment>
+    <h1 class="big-header e-m-0 title" data-url-fragment>
       <ng-content select="headerTitle"></ng-content>
       <a class="e-ml-16" *ngIf="figmaUrl" [href]="figmaUrl" target="_blank" rel="noopener">
         <img src="assets/icons/figma-logo.svg" alt="Figma icon" />
       </a>
     </h1>
-    <div *ngIf="lastUpdated" class="no-wrap e-text-micro e-color-text-2">
+    <div *ngIf="lastUpdated" class="e-text-micro e-color-text-2 last-updated">
       Last updated {{ lastUpdated | DocumentationDatePipe }}
     </div>
-    <div class="full-width">
+    <div>
       <app-component-header-quick-install
+        class="e-none-sm"
         *ngIf="componentData; else cssLibraryTag"
         [componentData]="componentData"
       />
       <ng-template #cssLibraryTag>
-        <div class="e-tag">CSS Library</div>
+        <div class="e-tag" *ngIf="showCssLibraryTag">CSS Library</div>
       </ng-template>
     </div>
   </div>

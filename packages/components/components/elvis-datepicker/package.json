@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-datepicker",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/datepicker",
   "source": "src/react/elvia-datepicker.tsx",

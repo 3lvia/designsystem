@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, booleanAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-copy',
@@ -9,6 +9,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 export class CopyComponent {
   @Input() message = '';
   @Input() smallElementAnimation = false;
+  @Input({ transform: booleanAttribute }) autoOverflow = false;
 
   tooltipContent = 'Copy';
   copyTimeout: ReturnType<typeof setTimeout>;

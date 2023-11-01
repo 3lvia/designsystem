@@ -29,7 +29,7 @@
   <p *ngIf="!isFrontpage && elvisComponentToFilter" class="e-m-0 e-mb-48 e-text-sm">
     This changelog only contains Elvis versions that affected the
     {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the
-    <a class="e-link e-link--inline" routerLink="/components/css-library">
+    <a class="e-link e-link--inline" routerLink="/components/css-library" fragment="Changelog">
       complete CSS library changelog here
     </a>
     .
@@ -39,7 +39,9 @@
 
 <ng-template #changelogTemplateContent>
   <table *ngIf="filteredChangelog && filteredChangelog.length > 0">
-    <caption class="e-sr-only">Component changes</caption>
+    <caption class="e-sr-only">
+      Component changes
+    </caption>
     <tr class="e-sr-only">
       <th class="changelog-date py-0" scope="col">Date and version</th>
       <th class="changelog-content py-0" scope="col">Changes</th>

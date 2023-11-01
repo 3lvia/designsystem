@@ -1,5 +1,10 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="lastUpdatedDate" [componentData]="componentData">
+<app-component-header
+  [figmaUrl]="figmaUrl"
+  [lastUpdated]="lastUpdatedDate"
+  [componentData]="componentData"
+  showCssLibraryTag
+>
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -33,17 +38,29 @@
   <ng-content select="[accessibility]" />
 
   <!--INSTALLATION-->
-  <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Installation'">
-    <app-component-installation [componentData]="componentData" />
+  <app-component-section sectionTitle="Installation">
+    <app-component-installation
+      *ngIf="!isElvis && componentData; else elvisInstallation"
+      [componentData]="componentData"
+    />
+
+    <ng-template #elvisInstallation>
+      <p class="e-text-lg">
+        This component is available through the CSS library package <code>@elvia/elvis</code>.
+        <a class="e-link e-link--inline" routerLink="/components/css-library" fragment="Installation"
+          >Read about installing the CSS library</a
+        >.
+      </p>
+    </ng-template>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section *ngIf="!isElvis && componentData" [sectionTitle]="'Properties'">
+  <app-component-section *ngIf="!isElvis && componentData" sectionTitle="Properties">
     <app-component-properties-table [componentData]="componentData" />
   </app-component-section>
   <app-component-section
     *ngIf="isElvis && elvisClassName"
-    [sectionTitle]="'Properties'"
+    sectionTitle="Properties"
     [propertiesClass]="elvisClassName"
   >
     <app-component-properties [componentName]="elvisClassName" />
@@ -52,13 +69,13 @@
   <ng-content select="[configuration]" />
 
   <!--CHANGELOG-->
-  <app-component-section [sectionTitle]="'Changelog'">
+  <app-component-section sectionTitle="Changelog">
     <app-component-changelog *ngIf="!isElvis && componentData" [changelog]="componentData.changelog" />
     <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title" />
   </app-component-section>
 
   <!--RELATED COMPONENTS-->
-  <app-component-section *ngIf="relatedPages" [sectionTitle]="'Related'">
+  <app-component-section *ngIf="relatedPages" sectionTitle="Related">
     <app-component-related [relatedPages]="relatedPages" />
   </app-component-section>
 </div>

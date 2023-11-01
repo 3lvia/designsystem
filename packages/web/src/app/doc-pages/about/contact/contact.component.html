@@ -1,9 +1,7 @@
 <!--HEADER-->
 <app-component-header>
   <ng-container ngProjectAs="headerTitle">Contact</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
 </app-component-header>
 
 <!--BODY-->
