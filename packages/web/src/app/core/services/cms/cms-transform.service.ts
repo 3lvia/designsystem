@@ -411,7 +411,10 @@ export class CMSTransformService {
     const shouldHaveThemeBackground = !data.fields.transparentBackground;
     const description = data.fields.description ? this.extractLocale(data.fields.description) : undefined;
     const altText = data.fields.altText ? this.extractLocale(data.fields.altText) : undefined;
-    const srcUrl = 'https:' + this.extractLocale(this.extractLocale(data.fields.image)!.fields.file)?.url;
+    let srcUrl = 'https:' + this.extractLocale(this.extractLocale(data.fields.image)!.fields.file)?.url;
+    if (this.currentTheme === 'dark' && data.fields.imageDark) {
+      srcUrl = 'https:' + this.extractLocale(this.extractLocale(data.fields.imageDark)!.fields.file)?.url;
+    }
     return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
     <div
       style=' 

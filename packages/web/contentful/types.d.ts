@@ -146,6 +146,9 @@ export interface IImageFields {
   /** Image */
   image: LocalizedField<Asset>;
 
+  /** Image Dark */
+  imageDark?: LocalizedField<Asset> | undefined;
+
   /** Description */
   description?: LocalizedField<Document> | undefined;
 
