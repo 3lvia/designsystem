@@ -149,14 +149,14 @@ export interface IImageFields {
   /** Image Dark */
   imageDark?: LocalizedField<Asset> | undefined;
 
+  /** Transparent background */
+  transparentBackground?: LocalizedField<boolean> | undefined;
+
   /** Description */
   description?: LocalizedField<Document> | undefined;
 
   /** Content next to image */
   inlineText?: LocalizedField<Document> | undefined;
-
-  /** Transparent background */
-  transparentBackground?: LocalizedField<boolean> | undefined;
 }
 
 export interface IImage extends Entry<IImageFields> {
