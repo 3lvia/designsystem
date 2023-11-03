@@ -23,6 +23,12 @@
             { "displayName": "Tag", "url": "https://design.elvia.io/components/tag" },
             { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }
           ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Fixed the wrong default typography being applied to the <code>body</code>-element. It now sets <code>text-md</code>."
+          ]
         }
       ]
     },
