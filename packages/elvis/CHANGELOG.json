@@ -3,12 +3,12 @@
     {
       "private": true,
       "version": "15.3.0",
-      "date": "October 31, 2023",
+      "date": "November 3, 2023",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
-            "Added several new typographies: italic and mono text (small, medium, and large), a dedicated interactive text (small, medium, and large), and title xxsmall."
+            "Added several new  mono text typographies (small, medium, and large), a dedicated interactive text (small, medium, and large), and title xxsmall."
           ],
           "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
         },
