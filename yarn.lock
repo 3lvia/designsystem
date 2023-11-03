@@ -7712,9 +7712,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.3.0":
-  version: 11.3.0
-  resolution: "contentful-management@npm:11.3.0"
+"contentful-management@npm:^11.4.0":
+  version: 11.4.0
+  resolution: "contentful-management@npm:11.4.0"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.3.0"
     "@types/json-patch": "npm:0.0.30"
@@ -7723,7 +7723,7 @@ __metadata:
     fast-copy: "npm:^3.0.0"
     lodash.isplainobject: "npm:^4.0.6"
     type-fest: "npm:^4.0.0"
-  checksum: aa39e5e8b27202c3ed54ae15493689c178224ba1e14329e320d56c48fd8c31042d63630d0a433235e932a01641d4efe789e08e8a27a4e9205f5d152b1d378c36
+  checksum: ed910e9c26e8eb5b6aea373ed69d6c45d91342b7f2011983cc00fa0f181f88e71b6cf9c3bac92b596a56ee5410effe200a6207fcc5ab259e121c7df58d53ff9a
   languageName: node
   linkType: hard
 
@@ -8818,7 +8818,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^6.9.1"
     "@typescript-eslint/parser": "npm:^6.9.1"
     contentful: "npm:^9.3.5"
-    contentful-management: "npm:^11.3.0"
+    contentful-management: "npm:^11.4.0"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.3.1"
     eslint: "npm:^8.52.0"
