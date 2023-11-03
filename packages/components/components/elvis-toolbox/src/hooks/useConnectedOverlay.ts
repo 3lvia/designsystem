@@ -293,7 +293,16 @@ export const useConnectedOverlay = (
       positionPopover();
     };
 
-    alignOverlayWithConnectedElement();
+    /**
+     * Perform initial alignment on the next render cycle,
+     * so that we allow the content of the overlay to stabilize.
+     * Web components passed as slots may in some cases get injected
+     * into the DOM a bit later than native HTML. This causes the width
+     * and height of the overlay to be incorrect when positioning the overlay.
+     */
+    setTimeout(() => {
+      alignOverlayWithConnectedElement();
+    });
 
     window.addEventListener('resize', alignOverlayWithConnectedElement);
     window.addEventListener('scroll', alignOverlayWithConnectedElement);

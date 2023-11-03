@@ -61,7 +61,6 @@ export enum Pages {
   Tooltip = 'tooltip',
 
   // Pages not from CMS
-  Changelog = 'whats-new',
   Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq',

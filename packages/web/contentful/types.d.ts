@@ -143,17 +143,20 @@ export interface IImageFields {
   /** Alignment */
   alignment?: LocalizedField<'left' | 'right' | 'center'> | undefined;
 
-  /** Image */
+  /** Image (light theme) */
   image: LocalizedField<Asset>;
+
+  /** Image (dark theme) */
+  imageDark?: LocalizedField<Asset> | undefined;
+
+  /** Transparent background */
+  transparentBackground?: LocalizedField<boolean> | undefined;
 
   /** Description */
   description?: LocalizedField<Document> | undefined;
 
   /** Content next to image */
   inlineText?: LocalizedField<Document> | undefined;
-
-  /** Transparent background */
-  transparentBackground?: LocalizedField<boolean> | undefined;
 }
 
 export interface IImage extends Entry<IImageFields> {

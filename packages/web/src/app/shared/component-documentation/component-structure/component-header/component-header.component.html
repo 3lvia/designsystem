@@ -16,7 +16,7 @@
         [componentData]="componentData"
       />
       <ng-template #cssLibraryTag>
-        <div class="e-tag">CSS Library</div>
+        <div class="e-tag" *ngIf="showCssLibraryTag">CSS Library</div>
       </ng-template>
     </div>
   </div>
