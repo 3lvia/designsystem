@@ -513,7 +513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.23.2, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.22.1, @babel/core@npm:^7.22.20, @babel/core@npm:^7.23.2":
+"@babel/core@npm:7.23.2, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.22.1, @babel/core@npm:^7.23.2":
   version: 7.23.2
   resolution: "@babel/core@npm:7.23.2"
   dependencies:
@@ -4492,7 +4492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.1.14, @types/babel__core@npm:^7.20.2":
+"@types/babel__core@npm:^7.1.14":
   version: 7.20.2
   resolution: "@types/babel__core@npm:7.20.2"
   dependencies:
@@ -4502,6 +4502,19 @@ __metadata:
     "@types/babel__template": "npm:*"
     "@types/babel__traverse": "npm:*"
   checksum: 78aede009117ff6c95ef36db19e27ad15ecdcb5cfc9ad57d43caa5d2f44127105691a3e6e8d1806fd305484db8a74fdec5640e88da452c511f6351353f7ac0c8
+  languageName: node
+  linkType: hard
+
+"@types/babel__core@npm:^7.20.3":
+  version: 7.20.3
+  resolution: "@types/babel__core@npm:7.20.3"
+  dependencies:
+    "@babel/parser": "npm:^7.20.7"
+    "@babel/types": "npm:^7.20.7"
+    "@types/babel__generator": "npm:*"
+    "@types/babel__template": "npm:*"
+    "@types/babel__traverse": "npm:*"
+  checksum: 063dbb8ba75fc503b2adf7845b1c188570f439ca4f3bc5cd8be508b4a74c919e6a4682a751ea9acd569ceee78ca946fd2f734d1a11c522aa570b82355de15e7d
   languageName: node
   linkType: hard
 
@@ -5358,18 +5371,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@vitejs/plugin-react@npm:4.1.0"
+"@vitejs/plugin-react@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "@vitejs/plugin-react@npm:4.1.1"
   dependencies:
-    "@babel/core": "npm:^7.22.20"
+    "@babel/core": "npm:^7.23.2"
     "@babel/plugin-transform-react-jsx-self": "npm:^7.22.5"
     "@babel/plugin-transform-react-jsx-source": "npm:^7.22.5"
-    "@types/babel__core": "npm:^7.20.2"
+    "@types/babel__core": "npm:^7.20.3"
     react-refresh: "npm:^0.14.0"
   peerDependencies:
     vite: ^4.2.0
-  checksum: 97cdc60c572c1c9081f498723fc4ed4353dead01d649325b6cd7a8ae3cedc5ecdcfb7e3deacfe814cb10825a1e96bed2a853d1f2109057c0033fe68d6cd78020
+  checksum: 5bfabd78812099270f03ed3e37db157335c423e06545cfd05415ca0a64ea583f14c37686aba0d5ff9dab0a26b6c88e06ae2130739e2f1bd709a99b68abc16d7e
   languageName: node
   linkType: hard
 
@@ -16094,7 +16107,7 @@ __metadata:
     "@elvia/elvis-typography": "npm:*"
     "@types/react": "npm:^18.2.28"
     "@types/react-dom": "npm:^18.2.13"
-    "@vitejs/plugin-react": "npm:^4.1.0"
+    "@vitejs/plugin-react": "npm:^4.1.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     sass: "npm:^1.69.5"
