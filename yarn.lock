@@ -3029,7 +3029,7 @@ __metadata:
     del: "npm:^6.1.1"
     doiuse: "npm:^6.0.2"
     gulp: "npm:^4.0.2"
-    gulp-autoprefixer: "npm:^8.0.0"
+    gulp-autoprefixer: "npm:^9.0.0"
     gulp-clean-css: "npm:^4.3.0"
     gulp-postcss: "npm:^9.0.1"
     gulp-rename: "npm:^2.0.0"
@@ -5096,6 +5096,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/vinyl@npm:^2.0.9":
+  version: 2.0.9
+  resolution: "@types/vinyl@npm:2.0.9"
+  dependencies:
+    "@types/expect": "npm:^1.20.4"
+    "@types/node": "npm:*"
+  checksum: eb55486ff872ec5e46f4a6b3548e94949426f86fa62cd31d03332e37a4b7e6392d12f41c48c9c3e74dbd2a434cd0169bc3e0953df136892b27246a2ef9aeac98
+  languageName: node
+  linkType: hard
+
 "@types/ws@npm:^8.5.5":
   version: 8.5.7
   resolution: "@types/ws@npm:8.5.7"
@@ -6447,7 +6457,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.2.6":
+"autoprefixer@npm:^10.4.16":
   version: 10.4.16
   resolution: "autoprefixer@npm:10.4.16"
   dependencies:
@@ -7086,7 +7096,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:5.3.0":
+"chalk@npm:5.3.0, chalk@npm:^5.3.0":
   version: 5.3.0
   resolution: "chalk@npm:5.3.0"
   checksum: 6373caaab21bd64c405bfc4bd9672b145647fc9482657b5ea1d549b3b2765054e9d3d928870cdf764fb4aad67555f5061538ff247b8310f110c5c888d92397ea
@@ -8678,6 +8688,13 @@ __metadata:
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
   checksum: 9b1d3e1baefeaf7d70799db8774149cef33b97183a6addceeba0cf6b85ba23ee2686f302f14482006df32df75d32b17c509c143a3689627929e4a8efaf483952
+  languageName: node
+  linkType: hard
+
+"easy-transform-stream@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "easy-transform-stream@npm:1.0.1"
+  checksum: 3d783ad3ffa21690c9e84ee54a9993a882f07e86416f15fe8dfcfb2c93ea28ce79f10775c2e56d846bba6a9e85e64f9f867c085d5906031c06c97c5a5234be46
   languageName: node
   linkType: hard
 
@@ -10783,22 +10800,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-autoprefixer@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "gulp-autoprefixer@npm:8.0.0"
+"gulp-autoprefixer@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "gulp-autoprefixer@npm:9.0.0"
   dependencies:
-    autoprefixer: "npm:^10.2.6"
-    fancy-log: "npm:^1.3.3"
-    plugin-error: "npm:^1.0.1"
-    postcss: "npm:^8.3.0"
-    through2: "npm:^4.0.2"
+    autoprefixer: "npm:^10.4.16"
+    gulp-plugin-extras: "npm:^0.2.2"
+    postcss: "npm:^8.4.31"
     vinyl-sourcemaps-apply: "npm:^0.2.1"
   peerDependencies:
     gulp: ">=4"
   peerDependenciesMeta:
     gulp:
       optional: true
-  checksum: 4187d2dcabbe8618e3162b5e3effdb44d9d8d070a40947f2d9770b39566ce1d11caaf447ea1d853bba0b537b0dec189345eeae83f198c6b39a2eaeb39777cfc9
+  checksum: cb27cf948e4769504959d51d7f6c53fe2106fc2561bff915aead51df53d42053c70fa578a7f2d04366ba9c70c8babd3225e91b89a6d32a0c5ec7e7b52f6e8183
   languageName: node
   linkType: hard
 
@@ -10839,6 +10854,17 @@ __metadata:
   bin:
     gulp: bin/gulp.js
   checksum: d1a47535b6aba7167d42fcca341939e3b5a907976dd8a5fcc6a0c03723f9d74156d49cf4b82aa3e30d6d56cfbb54dd145874b58ad4bb859666c1ee537933d65b
+  languageName: node
+  linkType: hard
+
+"gulp-plugin-extras@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "gulp-plugin-extras@npm:0.2.2"
+  dependencies:
+    "@types/vinyl": "npm:^2.0.9"
+    chalk: "npm:^5.3.0"
+    easy-transform-stream: "npm:^1.0.1"
+  checksum: 96ce1f063f67891d3a02e30c5c63c2d2f41606816700102b289179cbffee4201e59f6e607355638852a42f7936e6de4ab2ecff22013ff62775a2ba2d873fc39e
   languageName: node
   linkType: hard
 
@@ -15656,7 +15682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.31, postcss@npm:^8.0.0, postcss@npm:^8.2.14, postcss@npm:^8.3.0, postcss@npm:^8.3.11, postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.24, postcss@npm:^8.4.26, postcss@npm:^8.4.27, postcss@npm:^8.4.28, postcss@npm:^8.4.31":
+"postcss@npm:8.4.31, postcss@npm:^8.0.0, postcss@npm:^8.2.14, postcss@npm:^8.3.11, postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.24, postcss@npm:^8.4.26, postcss@npm:^8.4.27, postcss@npm:^8.4.28, postcss@npm:^8.4.31":
   version: 8.4.31
   resolution: "postcss@npm:8.4.31"
   dependencies:
