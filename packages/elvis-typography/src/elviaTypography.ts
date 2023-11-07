@@ -54,6 +54,19 @@ export const ElviaTypography = {
     color: 'inherit',
   },
 
+  'title-xxs': {
+    altLabels: ['title-xxsmall'],
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
+    fontSize: '15px',
+    fontSizeMobile: '15px',
+    fontWeight: '700',
+    lineHeight: '19px',
+    letterSpacing: 'unset',
+    fontStyle: 'unset',
+    textTransform: 'unset',
+    color: 'inherit',
+  },
+
   'title-caps': {
     altLabels: ['text-caps'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
@@ -63,6 +76,40 @@ export const ElviaTypography = {
     letterSpacing: '0.8px',
     fontStyle: 'unset',
     textTransform: 'uppercase',
+    color: 'inherit',
+  },
+
+  'text-interactive-lg': {
+    altLabels: ['text-interactive-large'],
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
+    fontSize: '18px',
+    fontWeight: '500',
+    lineHeight: '24px',
+    letterSpacing: 'unset',
+    fontStyle: 'unset',
+    textTransform: 'unset',
+    color: 'inherit',
+  },
+  'text-interactive-md': {
+    altLabels: ['text-interactive-medium'],
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
+    fontSize: '16px',
+    fontWeight: '500',
+    lineHeight: '22px',
+    letterSpacing: 'unset',
+    fontStyle: 'unset',
+    textTransform: 'unset',
+    color: 'inherit',
+  },
+  'text-interactive-sm': {
+    altLabels: ['text-interactive-small'],
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
+    fontSize: '14px',
+    fontWeight: '500',
+    lineHeight: '20px',
+    letterSpacing: 'unset',
+    fontStyle: 'unset',
+    textTransform: 'unset',
     color: 'inherit',
   },
 
@@ -120,6 +167,18 @@ export const ElviaTypography = {
     textTransform: 'unset',
     color: 'inherit',
   },
+  'text-lg-mono': {
+    altLabels: ['text-large-mono'],
+    fontFamily: '"Red Hat Mono", monospace',
+    fontSize: '20px',
+    fontSizeMobile: '18px',
+    fontWeight: '400',
+    lineHeight: '32px',
+    lineHeightMobile: '29px',
+    letterSpacing: 'unset',
+    fontStyle: 'unset',
+    textTransform: 'unset',
+  },
 
   'text-md': {
     altLabels: ['text-medium', 'text-description'],
@@ -155,6 +214,16 @@ export const ElviaTypography = {
     textTransform: 'unset',
     color: 'inherit',
   },
+  'text-md-mono': {
+    altLabels: ['text-medium-mono'],
+    fontFamily: '"Red Hat Mono", monospace',
+    fontSize: '16px',
+    fontWeight: '400',
+    lineHeight: '28px',
+    letterSpacing: 'unset',
+    fontStyle: 'unset',
+    textTransform: 'unset',
+  },
 
   'text-sm': {
     altLabels: ['text-small', 'text-info'],
@@ -188,6 +257,16 @@ export const ElviaTypography = {
     fontStyle: 'unset',
     textTransform: 'unset',
     color: 'inherit',
+  },
+  'text-sm-mono': {
+    altLabels: ['text-small-mono'],
+    fontFamily: '"Red Hat Mono", monospace',
+    fontSize: '14px',
+    fontWeight: '400',
+    lineHeight: '22px',
+    letterSpacing: 'unset',
+    fontStyle: 'unset',
+    textTransform: 'unset',
   },
 
   'text-micro': {

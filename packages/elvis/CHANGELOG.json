@@ -1,6 +1,38 @@
 {
   "content": [
     {
+      "private": true,
+      "version": "15.3.0",
+      "date": "November 7, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added several new  mono text typographies (small, medium, and large), a dedicated interactive text (small, medium, and large), and title xxsmall."
+          ],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Updated the typography in tag.",
+            "Now using font weight instead of text color for light typographies.",
+            "Removed some font weight downloads that were not in use (Red Hat Display 300, 400, and 400 italic). If you were using them you need to manually add them from Google fonts yourself."
+          ],
+          "components": [
+            { "displayName": "Tag", "url": "https://design.elvia.io/components/tag" },
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Fixed the wrong default typography being applied to the <code>body</code>-element. It now sets <code>text-md</code>."
+          ]
+        }
+      ]
+    },
+    {
       "version": "15.2.1",
       "date": "October 24, 2023",
       "changelog": [
