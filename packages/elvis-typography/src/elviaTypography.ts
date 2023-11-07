@@ -169,7 +169,7 @@ export const ElviaTypography = {
   },
   'text-lg-mono': {
     altLabels: ['text-large-mono'],
-    fontFamily: '"Red Hat Mono", Verdana, sans-serif',
+    fontFamily: '"Red Hat Mono", monospace',
     fontSize: '20px',
     fontSizeMobile: '18px',
     fontWeight: '400',
@@ -216,7 +216,7 @@ export const ElviaTypography = {
   },
   'text-md-mono': {
     altLabels: ['text-medium-mono'],
-    fontFamily: '"Red Hat Mono", Verdana, sans-serif',
+    fontFamily: '"Red Hat Mono", monospace',
     fontSize: '16px',
     fontWeight: '400',
     lineHeight: '28px',
@@ -260,7 +260,7 @@ export const ElviaTypography = {
   },
   'text-sm-mono': {
     altLabels: ['text-small-mono'],
-    fontFamily: '"Red Hat Mono", Verdana, sans-serif',
+    fontFamily: '"Red Hat Mono", monospace',
     fontSize: '14px',
     fontWeight: '400',
     lineHeight: '22px',
