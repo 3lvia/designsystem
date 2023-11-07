@@ -16,7 +16,7 @@
           "type": "patch",
           "changes": [
             "Updated the typography in tag.",
-            "Updated the typography for checkbox and radio button labels. This causes small radio buttons to be slightly smaller.",
+            "Updated the typography for checkbox and radio button labels, and fixed the spacing between checkboxes and radio buttons. This causes all checkboxes and radio buttons to be slightly smaller.",
             "Now using font weight instead of text color for light typographies.",
             "Removed some font weight downloads that were not in use (Red Hat Display 300, 400, and 400 italic). If you were using them you need to manually add them from Google fonts yourself."
           ],
