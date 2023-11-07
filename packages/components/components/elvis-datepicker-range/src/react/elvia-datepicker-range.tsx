@@ -14,7 +14,7 @@ import {
   ErrorOptions,
 } from './elviaDatepickerRange.types';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
-import { isSameDate, localISOTime } from './dateHelpers';
+import { isSameDate, isValidDate, localISOTime } from './dateHelpers';
 import { FormFieldContainer, useUpdateEffect } from '@elvia/elvis-toolbox';
 import { DatepickerRangeError } from './error/datepickerRangeError';
 
@@ -86,10 +86,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
       webcomponent.triggerEvent('errorOnChange', currentErrorMessages);
     }
   }, [currentDatepickerErrorMessages, currentTimepickerErrorMessages]);
-
-  const isValidDate = (date: unknown): boolean => {
-    return !isNaN(date as number) && date instanceof Date;
-  };
 
   const setTime = (date: Date | number, when: 'startOfDay' | 'endOfDay'): Date => {
     const dateCopy = new Date(date);
@@ -390,11 +386,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         </RowContainer>
         {(currentDatepickerErrorMessages.start || currentTimepickerErrorMessages.start) && (
           <DatepickerRangeError
-            errorText={
-              currentDatepickerErrorMessages.start
-                ? currentDatepickerErrorMessages.start
-                : currentTimepickerErrorMessages.start
-            }
+            errorText={currentDatepickerErrorMessages.start ?? currentTimepickerErrorMessages.start}
           />
         )}
       </FormFieldContainer>
@@ -466,11 +458,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         </RowContainer>
         {(currentDatepickerErrorMessages.end || currentTimepickerErrorMessages.end) && (
           <DatepickerRangeError
-            errorText={
-              currentDatepickerErrorMessages.end
-                ? currentDatepickerErrorMessages.end
-                : currentTimepickerErrorMessages.end
-            }
+            errorText={currentDatepickerErrorMessages.end ?? currentTimepickerErrorMessages.end}
           />
         )}
       </FormFieldContainer>
