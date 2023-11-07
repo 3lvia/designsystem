@@ -26,7 +26,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   text-align: left;
 
   &:not(:last-child) {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   &__mark {
@@ -49,7 +49,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     width: fit-content;
     margin-left: 8px;
     color: var(--e-color-text-1);
-    @include typography.typography('text-option');
+    @include typography.typography('text-md');
     line-height: 24px;
   }
 
