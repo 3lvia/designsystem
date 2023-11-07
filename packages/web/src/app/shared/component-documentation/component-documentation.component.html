@@ -55,12 +55,12 @@
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section *ngIf="!isElvis && componentData" sectionTitle="Properties">
+  <app-component-section *ngIf="!isElvis && componentData" sectionTitle="API">
     <app-component-properties-table [componentData]="componentData" />
   </app-component-section>
   <app-component-section
     *ngIf="isElvis && elvisClassName"
-    sectionTitle="Properties"
+    sectionTitle="API"
     [propertiesClass]="elvisClassName"
   >
     <app-component-properties [componentName]="elvisClassName" />
