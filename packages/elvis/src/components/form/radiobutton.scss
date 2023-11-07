@@ -115,13 +115,8 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
   &.e-radio--compact,
   &.e-radio--sm,
   &.e-radio--small {
-    // &:not(:last-child) {
-    //   margin-bottom: 0;
-    // }
-
     input,
     .e-radio__mark {
-      // top: 3px;
       width: $radio-mark-small-size;
       height: $radio-mark-small-size;
     }
