@@ -129,8 +129,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     const [day, month, year] = (inputRef.current?.value ?? '').split('.');
     const error = validateDate({
       inputValue: { day: parseInt(day), month: parseInt(month), year: parseInt(year) },
-      minDate: minDate,
-      maxDate: maxDate,
+      minDate: minDateWithoutTime,
+      maxDate: maxDateWithoutTime,
       required: isRequired,
     });
 
@@ -204,8 +204,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
     const error = validateDate({
       inputValue: { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() },
-      minDate: minDate,
-      maxDate: maxDate,
+      minDate: minDateWithoutTime,
+      maxDate: maxDateWithoutTime,
       required: isRequired,
     });
 
@@ -235,8 +235,8 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
     const error = validateDate({
       inputValue: { day, month, year },
-      minDate: minDate,
-      maxDate: maxDate,
+      minDate: minDateWithoutTime,
+      maxDate: maxDateWithoutTime,
       required: isRequired,
     });
 

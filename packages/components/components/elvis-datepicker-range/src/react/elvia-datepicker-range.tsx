@@ -77,12 +77,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
 
   useUpdateEffect(() => {
     const currentErrorMessages = {
-      start: currentDatepickerErrorMessages.start
-        ? currentDatepickerErrorMessages.start
-        : currentTimepickerErrorMessages.start,
-      end: currentDatepickerErrorMessages.end
-        ? currentDatepickerErrorMessages.end
-        : currentTimepickerErrorMessages.end,
+      start: currentDatepickerErrorMessages.start ?? currentTimepickerErrorMessages.start,
+      end: currentDatepickerErrorMessages.end ?? currentTimepickerErrorMessages.end,
     };
     if (!webcomponent) {
       errorOnChange?.(currentErrorMessages);
@@ -352,8 +348,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.start?.hasErrorPlaceholder || !!mergedErrorOptions?.start?.text,
             }}
-            errorOnChange={(error: string) =>
-              setCurrentDatepickerErrorMessages((current) => ({ ...current, start: error }))
+            errorOnChange={(error) =>
+              setCurrentDatepickerErrorMessages((current) => ({
+                ...current,
+                start: error !== '' ? error : undefined,
+              }))
             }
             hasSelectDateOnOpen={false}
           ></Datepicker>
@@ -378,8 +377,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
                 hasErrorPlaceholder:
                   !!mergedErrorOptions?.start?.hasErrorPlaceholder || !!mergedErrorOptions?.start?.text,
               }}
-              errorOnChange={(error: string) => {
-                setCurrentTimepickerErrorMessages((current) => ({ ...current, start: error }));
+              errorOnChange={(error) => {
+                setCurrentTimepickerErrorMessages((current) => ({
+                  ...current,
+                  start: error !== '' ? error : undefined,
+                }));
               }}
               minTime={isSameDate(selectedDateRange.start, minDate) ? minDate : undefined}
               maxTime={isSameDate(selectedDateRange.start, maxDate) ? maxDate : undefined}
@@ -422,8 +424,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               hasErrorPlaceholder:
                 !!mergedErrorOptions?.end?.hasErrorPlaceholder || !!mergedErrorOptions?.end?.text,
             }}
-            errorOnChange={(error: string) =>
-              setCurrentDatepickerErrorMessages((current) => ({ ...current, end: error }))
+            errorOnChange={(error) =>
+              setCurrentDatepickerErrorMessages((current) => ({
+                ...current,
+                end: error !== '' ? error : undefined,
+              }))
             }
             hasSelectDateOnOpen={false}
           ></Datepicker>
@@ -448,8 +453,11 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
                 hasErrorPlaceholder:
                   !!mergedErrorOptions?.end?.hasErrorPlaceholder || !!mergedErrorOptions?.end?.text,
               }}
-              errorOnChange={(error: string) => {
-                setCurrentTimepickerErrorMessages((current) => ({ ...current, end: error }));
+              errorOnChange={(error) => {
+                setCurrentTimepickerErrorMessages((current) => ({
+                  ...current,
+                  end: error !== '' ? error : undefined,
+                }));
               }}
               minTime={isSameDate(selectedDateRange.end, minDate) ? minDate : undefined}
               maxTime={isSameDate(selectedDateRange.end, maxDate) ? maxDate : undefined}
