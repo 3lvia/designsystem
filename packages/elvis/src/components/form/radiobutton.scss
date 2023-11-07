@@ -48,9 +48,9 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
   &__label {
     flex-grow: 1;
     margin-left: 32px;
-    color: var(--e-color-text-1);
-    @include typography.typography('text-option');
+    @include typography.typography('text-md');
     line-height: 24px;
+    color: var(--e-color-text-1);
   }
 
   // Hide default radiostyle
@@ -115,19 +115,21 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
   &.e-radio--compact,
   &.e-radio--sm,
   &.e-radio--small {
-    &:not(:last-child) {
-      margin-bottom: 0;
-    }
+    // &:not(:last-child) {
+    //   margin-bottom: 0;
+    // }
 
     input,
     .e-radio__mark {
-      top: 3px;
+      // top: 3px;
       width: $radio-mark-small-size;
       height: $radio-mark-small-size;
     }
 
     .e-radio__label {
       margin-left: 24px;
+      @include typography.typography('text-sm');
+      line-height: 16px;
     }
 
     // States - small specific
