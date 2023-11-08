@@ -14,8 +14,11 @@
   <tbody>
     <ng-container *ngFor="let group of groupedProps">
       <tr *ngIf="group.rows.length > 0" class="group-title-row">
-        <th scope="row">
-          <h2 class="e-title-xs e-m-0">{{ group.title }}</h2>
+        <th scope="row" class="title-cell">
+          <h2 class="e-title-caps e-m-0">{{ group.title }}</h2>
+          <div class="e-text-small e-mt-8">
+            {{ group.description }}
+          </div>
         </th>
         <td></td>
         <td></td>
@@ -59,17 +62,19 @@
               'padding-left.px': calculatePadding(i, group.rows)
             }"
           >
+            <div class="example-width" *ngIf="prop.item.level === 0">
+              <app-property-example-popover
+                *ngIf="prop.item.example"
+                [attribute]="prop.item.attribute"
+                [example]="prop.item.example"
+              />
+            </div>
             <div>
               <strong
                 [innerHTML]="prop.item.attribute | searchHighlighter: 'attribute' : prop.matches"
               ></strong>
               <strong>{{ prop.item.isRequired ? '*' : '' }}</strong>
             </div>
-            <app-property-example-popover
-              *ngIf="prop.item.example"
-              [attribute]="prop.item.attribute"
-              [example]="prop.item.example"
-            />
           </div>
         </th>
         <td class="table-code-text e-table__cell--multiline-small">

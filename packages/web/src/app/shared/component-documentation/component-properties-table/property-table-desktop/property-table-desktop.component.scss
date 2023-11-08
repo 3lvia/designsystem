@@ -17,6 +17,27 @@ td.table-code-text {
     background-color: var(--e-color-background-element-2);
     padding-block: 12px;
   }
+
+  .title-cell {
+    max-width: 0;
+    position: sticky;
+  }
+
+  // Border
+  &:not(:first-of-type) {
+    .title-cell {
+      border-top: 1px solid var(--e-color-border-2);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      border-top: 1px solid var(--e-color-border-2);
+    }
+  }
 }
 
 .sticky-right {
@@ -36,11 +57,15 @@ td.table-code-text {
 }
 
 tr.prop-row {
-  height: 100%;
+  visibility: collapse;
 
   th,
   td {
     padding: 0;
+  }
+
+  &.expanded {
+    visibility: visible;
   }
 
   &.expanded .height-changer {
@@ -60,4 +85,8 @@ tr.prop-row {
   padding-inline: 16px;
   opacity: 0;
   transition: opacity 600ms ease;
+}
+
+.example-width {
+  width: 16px;
 }
