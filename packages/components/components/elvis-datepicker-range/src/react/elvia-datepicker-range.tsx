@@ -58,7 +58,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     useState<CustomError>(emptyErrorMessage);
   const [currentDatepickerErrorMessages, setCurrentDatepickerErrorMessages] =
     useState<CustomError>(emptyErrorMessage);
-  const [currentErrorMessages, setCurrentErrorMessages] = useState<CustomError>(emptyErrorMessage);
+  const currentErrorMessages: CustomError = {
+    start: currentDatepickerErrorMessages.start ?? currentTimepickerErrorMessages.start,
+    end: currentDatepickerErrorMessages.end ?? currentTimepickerErrorMessages.end,
+  };
   const [shouldOpenNextPicker, setShouldOpenNextPicker] = useState(false);
 
   /**
@@ -77,10 +80,6 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   }, [isRequired]);
 
   useUpdateEffect(() => {
-    setCurrentErrorMessages({
-      start: currentDatepickerErrorMessages.start ?? currentTimepickerErrorMessages.start,
-      end: currentDatepickerErrorMessages.end ?? currentTimepickerErrorMessages.end,
-    });
     if (!webcomponent) {
       errorOnChange?.(currentErrorMessages);
     } else {
