@@ -2861,7 +2861,7 @@ __metadata:
     "@elvia/elvis-colors": "npm:^4.1.0"
     "@elvia/elvis-component-wrapper": "npm:^4.1.2"
     "@elvia/elvis-toolbox": "npm:^11.0.0"
-    "@elvia/elvis-typography": "npm:^2.4.0"
+    "@elvia/elvis-typography": "npm:^2.7.0"
     styled-components: "npm:^5.3.3"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0

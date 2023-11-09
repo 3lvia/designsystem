@@ -42,26 +42,10 @@ export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
   width: 100%;
 `;
 
-const decideButtonFontSize = (size: AccordionSize) => {
-  switch (size) {
-    case 'small':
-      return '14';
-    case 'large':
-      return '20';
-    case 'medium':
-    default:
-      return '16';
-  }
-};
-
 interface AccordionButtonProps {
   isFullWidth: boolean;
   isOpenState: boolean;
   currType: AccordionType;
-  size: AccordionSize;
-  hasBoldLabel: boolean;
-  openDetailText?: string;
-  typography?: TypographyName;
 }
 
 export const AccordionButton = styled.button<AccordionButtonProps>`
@@ -69,12 +53,6 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   background: transparent;
   display: flex;
   padding: 0;
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: ${({ hasBoldLabel, openDetailText }) =>
-    !hasBoldLabel && openDetailText === undefined ? '400' : '500'};
-  font-size: ${({ size }) => `${decideButtonFontSize(size)}px`};
-  line-height: ${({ size }) => (size === 'small' ? '16px' : '24px')};
-  ${({ typography }) => typography && getTypographyCss(typography)}
   text-align: left;
   cursor: pointer;
   color: ${getThemeColor('text-1')};
@@ -109,8 +87,32 @@ export const AccordionLabel = styled.div<AccordionLabelProps>`
   margin-right: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '0' : '8px')};
 `;
 
-export const AccordionLabelText = styled.div`
+const decideTypography = (size: AccordionSize) => {
+  switch (size) {
+    case 'small':
+      return css`
+        ${getTypographyCss('text-interactive-sm')}
+        line-height: 16px;
+      `;
+    case 'large':
+      return css`
+        ${getTypographyCss('text-interactive-lg')}
+        font-size: 20px;
+      `;
+    case 'medium':
+    default:
+      return getTypographyCss('text-interactive-md');
+  }
+};
+
+interface AccordionTextProps {
+  size: AccordionSize;
+  typography?: TypographyName;
+}
+
+export const AccordionLabelText = styled.div<AccordionTextProps>`
   display: flex;
+  ${({ typography, size }) => (typography ? getTypographyCss(typography) : decideTypography(size))}
 `;
 
 const decideDetailTextSize = (size: AccordionSize): string => {

@@ -2,6 +2,25 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.11.23",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Large accordion icon update meaning the large accordion label is now 32px instead of 24px tall."
+          ],
+          "fixes": ["Check that the layout still looks good where large accordion is used."]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Typography update and <code>hasBoldLabel</code> prop removed, since the label is bold by default."
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.10.23",
       "version": "2.11.2",
       "changelog": [
