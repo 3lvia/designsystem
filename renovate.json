@@ -20,7 +20,7 @@
     },
     {
       "groupName": "all @types dependencies",
-      "matchPackagePatterns": ["^@types"],
+      "matchPackagePatterns": ["^@types/"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
