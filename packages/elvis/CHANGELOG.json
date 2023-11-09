@@ -15,7 +15,7 @@
         {
           "type": "patch",
           "changes": [
-            "Updated the typography in tag.",
+            "Updated the typography in tag and text field error.",
             "Updated the typography for checkbox and radio button labels, and fixed the spacing between checkboxes and radio buttons. This causes all checkboxes and radio buttons to be slightly smaller.",
             "Updated some typographies in tables. The mobile table changes size slightly.",
             "Now using font weight instead of text color for light typographies.",
@@ -26,6 +26,7 @@
             { "displayName": "Tag", "url": "https://design.elvia.io/components/tag" },
             { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
             { "displayName": "Radio Button", "url": "https://design.elvia.io/components/radiobutton" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" }
           ]
         },
