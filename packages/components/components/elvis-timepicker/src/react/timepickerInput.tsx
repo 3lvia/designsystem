@@ -162,6 +162,7 @@ export const TimepickerInput: React.FC<Props> = ({
     // Always emit empty values
     if (!inputValue.length) {
       onChange(null);
+      onErrorChange(!isValid ? 'required' : undefined);
       return;
     }
 
