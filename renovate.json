@@ -17,6 +17,12 @@
       "matchPackagePatterns": ["^@testing-library"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "groupName": "all @types dependencies",
+      "matchPackagePatterns": ["^@types"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ],
   "ignoreDeps": [
