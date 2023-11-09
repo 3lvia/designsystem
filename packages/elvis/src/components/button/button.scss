@@ -1,6 +1,7 @@
 @use './button-helpers.scss' as buttonHelper;
 @use '../../utilities/helpers.scss';
 @use '../../utilities/icons.scss';
+@use '../../utilities/typography.scss';
 
 .e-btn,
 .e-btn.e-btn--primary {
@@ -16,16 +17,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 23px;
+  padding: 8px 23px;
   border: 1px solid var(--e-color-border-1);
   border-radius: 24px;
   background: var(--e-color-background-element-5);
+
+  @include typography.typography('text-interactive-md');
   color: var(--e-color-text-4);
   cursor: pointer;
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20px;
   text-decoration: none;
   white-space: nowrap;
 
@@ -54,8 +53,8 @@
   // Sizes
   &.e-btn--lg {
     padding: 11px 31px;
-    font-size: 18px;
-    line-height: 24px;
+    @include typography.typography('text-interactive-lg');
+    color: var(--e-color-text-4);
 
     .e-btn__icon {
       @include icons.icon-size('sm');
@@ -68,9 +67,9 @@
   }
 
   &.e-btn--sm {
-    padding: 7px 15px;
-    font-size: 14px;
-    line-height: 16px;
+    padding: 5px 15px;
+    @include typography.typography('text-interactive-sm');
+    color: var(--e-color-text-4);
 
     &.e-btn--loading span {
       width: 8px;

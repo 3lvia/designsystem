@@ -3,7 +3,7 @@
     {
       "private": true,
       "version": "15.3.0",
-      "date": "November 7, 2023",
+      "date": "November 8, 2023",
       "changelog": [
         {
           "type": "new_feature",
@@ -15,6 +15,7 @@
         {
           "type": "patch",
           "changes": [
+            "Updated the typography in button, link, and file upload to use the new interactive typographies.",
             "Updated the typography in tag and text field error.",
             "Updated the typography for checkbox and radio button labels, and fixed the spacing between checkboxes and radio buttons. This causes all checkboxes and radio buttons to be slightly smaller.",
             "Updated some typographies in tables. The mobile table changes size slightly.",
@@ -23,7 +24,10 @@
           ],
           "components": [
             { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" },
+            { "displayName": "Button", "url": "https://design.elvia.io/components/button" },
+            { "displayName": "Link", "url": "https://design.elvia.io/components/link" },
             { "displayName": "Tag", "url": "https://design.elvia.io/components/tag" },
+            { "displayName": "File Upload", "url": "https://design.elvia.io/components/file-upload" },
             { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
             { "displayName": "Radio Button", "url": "https://design.elvia.io/components/radiobutton" },
             { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },

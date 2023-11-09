@@ -1,20 +1,7 @@
 @use '../utilities/outline';
 @use '../utilities/icons';
 @use '../utilities/helpers';
-
-$link-lg-font-size: 18px;
-$link-md-font-size: 16px;
-$link-sm-font-size: 14px;
-$link-lg-line-height: 24px;
-$link-md-line-height: 22px;
-$link-sm-line-height: 20px;
-
-$link-action-lg-line-height: 26px;
-$link-action-md-line-height: 24px;
-$link-action-sm-line-height: 21px;
-$link-action-lg-font-size: 20px;
-$link-action-md-font-size: 18px;
-$link-action-sm-font-size: 16px;
+@use '../utilities/typography';
 
 $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
@@ -28,12 +15,11 @@ $link-jumbo-phone-width: 287px;
   display: inline;
   box-sizing: border-box;
   border-bottom: 2px solid var(--e-color-border-1);
+
+  @include typography.typography('text-interactive-md');
   color: var(--e-color-text-1);
   cursor: pointer;
-
-  font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 600;
-  text-align: inherit;
   text-decoration: none;
   @include helpers.hover() {
     &:hover {
@@ -59,18 +45,18 @@ $link-jumbo-phone-width: 287px;
   }
 
   &.e-link--lg {
-    font-size: $link-lg-font-size;
-    line-height: $link-lg-line-height;
+    @include typography.typography('text-interactive-lg');
+    font-weight: 600;
   }
 
   &.e-link--md {
-    font-size: $link-md-font-size;
-    line-height: $link-md-line-height;
+    @include typography.typography('text-interactive-md');
+    font-weight: 600;
   }
 
   &.e-link--sm {
-    font-size: $link-sm-font-size;
-    line-height: $link-sm-line-height;
+    @include typography.typography('text-interactive-sm');
+    font-weight: 600;
   }
 
   &:active,
@@ -153,8 +139,8 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--lg {
-      font-size: $link-action-lg-font-size;
-      line-height: $link-action-lg-line-height;
+      @include typography.typography('text-interactive-lg');
+      font-weight: 600;
 
       .e-link__icon {
         @include icons.icon-size('sm');
@@ -162,8 +148,8 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--md {
-      font-size: $link-action-md-font-size;
-      line-height: $link-action-md-line-height;
+      @include typography.typography('text-interactive-lg');
+      font-weight: 600;
 
       .e-link__icon {
         @include icons.icon-size('sm');
@@ -171,8 +157,8 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--sm {
-      font-size: $link-action-sm-font-size;
-      line-height: $link-action-sm-line-height;
+      @include typography.typography('text-interactive-md');
+      font-weight: 600;
 
       .e-link__icon {
         @include icons.icon-size('xs');
