@@ -26,13 +26,10 @@
   &__error {
     display: flex;
     align-items: center;
-    margin-top: 4px;
+    margin-top: 2px;
+    @include typography.typography('text-sm');
     color: var(--e-color-text-1);
-    font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px; /* ≈ 140% */
+
     visibility: hidden;
 
     &.e-form-field__error--visible {
