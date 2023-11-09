@@ -2882,9 +2882,9 @@ __metadata:
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
     "@elvia/elvis-colors": "npm:^4.1.0"
-    "@types/gulp": "npm:^4.0.16"
-    "@types/gulp-svgmin": "npm:^1.2.3"
-    "@types/node": "npm:^20.8.10"
+    "@types/gulp": "npm:^4.0.17"
+    "@types/gulp-svgmin": "npm:^1.2.4"
+    "@types/node": "npm:^20.9.0"
     del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     gulp-svgmin: "npm:^4.1.0"
@@ -3071,8 +3071,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
-    "@types/gulp": "npm:^4.0.16"
-    "@types/node": "npm:^20.8.10"
+    "@types/gulp": "npm:^4.0.17"
+    "@types/node": "npm:^20.9.0"
     del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.1"
@@ -3109,10 +3109,10 @@ __metadata:
     "@testing-library/jest-dom": "npm:6.1.4"
     "@testing-library/react": "npm:14.0.0"
     "@testing-library/user-event": "npm:14.5.1"
-    "@types/identity-obj-proxy": "npm:^3.0.1"
-    "@types/jest": "npm:^29.5.7"
-    "@types/jest-axe": "npm:^3.5.7"
-    "@types/styled-components": "npm:^5.1.29"
+    "@types/identity-obj-proxy": "npm:^3.0.2"
+    "@types/jest": "npm:^29.5.8"
+    "@types/jest-axe": "npm:^3.5.8"
+    "@types/styled-components": "npm:^5.1.30"
     esbuild: "npm:^0.19.5"
     esbuild-plugin-styled-components: "npm:^2.2.2"
     identity-obj-proxy: "npm:^3.0.0"
@@ -3656,8 +3656,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
-    "@types/gulp": "npm:^4.0.16"
-    "@types/node": "npm:^20.8.10"
+    "@types/gulp": "npm:^4.0.17"
+    "@types/node": "npm:^20.9.0"
     del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.1"
@@ -5188,26 +5188,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-svgmin@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "@types/gulp-svgmin@npm:1.2.3"
+"@types/gulp-svgmin@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "@types/gulp-svgmin@npm:1.2.4"
   dependencies:
     "@types/node": "npm:*"
     "@types/svgo": "npm:1"
     "@types/vinyl": "npm:*"
-  checksum: da1ef5b15124b3210e55c6a9cce3a273944ca7ba718a1411f280b158fb1c380499af013b1228a3f23057e02102f76f5bad196a02e665712a01d1f7519657d6b7
+  checksum: 02a2f68b99eae3963df03bb0cd5cb0ebe04b8eeed0a734c6592ad78b2647b461b3143e48accfa427d5d4dd32db4dbbe861ff3733e98f5113f4da2ce372229cbd
   languageName: node
   linkType: hard
 
-"@types/gulp@npm:^4.0.16":
-  version: 4.0.16
-  resolution: "@types/gulp@npm:4.0.16"
+"@types/gulp@npm:^4.0.17":
+  version: 4.0.17
+  resolution: "@types/gulp@npm:4.0.17"
   dependencies:
     "@types/node": "npm:*"
     "@types/undertaker": "npm:>=1.2.6"
     "@types/vinyl-fs": "npm:*"
     chokidar: "npm:^3.3.1"
-  checksum: d3586f955a43746e9e7ef2061c12a2a4d8a7d461b09c681a4b09f75a037a9778336033a31e17a88585b1e77fe9b3005dbe7ea5c32d00e46b6cc8ac10a87281c1
+  checksum: 46b51ffbb0d4d608a720cfd6bcd922c0bb215b41ec87050417b9e1c59992bdb5996a4e477bccf4fff37c0a194a9929446fc5167895c61d1ff6bf9ff6b1b48a4b
   languageName: node
   linkType: hard
 
@@ -5237,10 +5237,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/identity-obj-proxy@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@types/identity-obj-proxy@npm:3.0.1"
-  checksum: 662b8d72a36ba45ff4427ee724b70841593206528428fe5b2b5c75d991f330b53a8131666b1d5a12f3a1c43023cc1284360eaca8a97ef45132a23826ce9f083d
+"@types/identity-obj-proxy@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@types/identity-obj-proxy@npm:3.0.2"
+  checksum: 77387ee587657ab24f12a1dee5c0e1386358d5c38cda5cac78bc5049340cb358e009f6254de3bbdee6a08e46f13b1552cd47a0bbd3e7a53ff469bf58a04ec6e9
   languageName: node
   linkType: hard
 
@@ -5269,23 +5269,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest-axe@npm:^3.5.7":
-  version: 3.5.7
-  resolution: "@types/jest-axe@npm:3.5.7"
+"@types/jest-axe@npm:^3.5.8":
+  version: 3.5.8
+  resolution: "@types/jest-axe@npm:3.5.8"
   dependencies:
     "@types/jest": "npm:*"
     axe-core: "npm:^3.5.5"
-  checksum: 593e7528428a0f0b82824765f13d7c1e3bd14905696617ce2a36de710b6abb43ce8a5bbbda1272a8dbb5e87e652e668457b98d9e5d4422f8c4a26a9d1e273ed4
+  checksum: 5f4f583ebda0297fa590b28f217196f3ef570279d86d43c07d9a964a44841762a2b0db19dcbb4ef457ae660a2ec78dfb59d82e08c6f530723e9a9fa72781d644
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*, @types/jest@npm:^29.5.7":
+"@types/jest@npm:*":
   version: 29.5.7
   resolution: "@types/jest@npm:29.5.7"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
   checksum: 64a31afa2c8bd003c7e637c36933170f731341957150274e518564e513d6dd7cb8dae61afea29ff703c2c8d3bdbbc8fb97095029a4fc91f55707f26753557583
+  languageName: node
+  linkType: hard
+
+"@types/jest@npm:^29.5.8":
+  version: 29.5.8
+  resolution: "@types/jest@npm:29.5.8"
+  dependencies:
+    expect: "npm:^29.0.0"
+    pretty-format: "npm:^29.0.0"
+  checksum: a8194e26c642780d5b2e22170ac538f7975e04aeaa76d87f8e5ac921f7a8fffc5252029a9e6efacdb0ec4b45320322c8e1f27a5338083f49efbd3c6021314f7e
   languageName: node
   linkType: hard
 
@@ -5376,28 +5386,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/natural-compare-lite@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "@types/natural-compare-lite@npm:1.4.1"
-  checksum: 2f953c8d82dde24a342cb0f01a57cf9c201d5526fcb81d112d3de1ea771cb2bbdeee65db6e37ec09aa093274d6594e689684e6670ab66c9dfa0ca2bd29a4583d
+"@types/natural-compare-lite@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "@types/natural-compare-lite@npm:1.4.2"
+  checksum: aed5a637b6e53f1e3a1842fe097350759dad7b6ac3b8f49db3def646eb76d72802290da1f49dd2dbdc43572d07e76d72ccb09ee9c044b25183ebcb7a9714d364
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:^20.8.10":
+"@types/node@npm:*, @types/node@npm:20.9.0, @types/node@npm:>=10.0.0, @types/node@npm:^20.9.0":
   version: 20.9.0
   resolution: "@types/node@npm:20.9.0"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: a934f7645ed117a27857147403b0c657ffbca578c8f280e4c21d27dfb43e58dc4f24c4319d4335b8a4fa08e28fb2dc905a5bd5e4bc8878047164c56c1b162139
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:20.8.10":
-  version: 20.8.10
-  resolution: "@types/node@npm:20.8.10"
-  dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 8930039077c8ad74de74c724909412bea8110c3f8892bcef8dda3e9629073bed65632ee755f94b252bcdae8ca71cf83e89a4a440a105e2b1b7c9797b43483049
   languageName: node
   linkType: hard
 
@@ -5440,10 +5441,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prismjs@npm:^1.26.2":
-  version: 1.26.2
-  resolution: "@types/prismjs@npm:1.26.2"
-  checksum: d86561508d423eaf1dc2dda1e7f465888731a6af40577eac1a8a52aaac330dee121c702f23868e0a96fca9c907f960286e2f3431e3f16cd13612276745e9235c
+"@types/prismjs@npm:^1.26.3":
+  version: 1.26.3
+  resolution: "@types/prismjs@npm:1.26.3"
+  checksum: 4bd55230ffc0b2b16f4008be3a7f1d7c6b32dd3bed8006e64d24fb22c44fc7e300dac77b856f732803ccdc9a3472b2c0ee7776cad048843c47d608c41a89b6a6
   languageName: node
   linkType: hard
 
@@ -5564,14 +5565,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:^5.1.29":
-  version: 5.1.29
-  resolution: "@types/styled-components@npm:5.1.29"
+"@types/styled-components@npm:^5.1.30":
+  version: 5.1.30
+  resolution: "@types/styled-components@npm:5.1.30"
   dependencies:
     "@types/hoist-non-react-statics": "npm:*"
     "@types/react": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: da14b84e9504b550f2ca53e71b6323aebd4965eaa1cfd3f4c6061e9c95f86497a33c7d45cfda5d383ab26c1a97c96a1804952965ff2252182a219681603f2a1f
+  checksum: 26e4fe70fb964727a67e91526412a0e8bd0cf02cc082cab43a2581b4fe189b719c4e0f4fd7f6246762665fe184d001b0f332ef0607ad7dbe916a62974453a763
   languageName: node
   linkType: hard
 
@@ -9495,9 +9496,9 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
-    "@types/natural-compare-lite": "npm:^1.4.1"
-    "@types/node": "npm:20.8.10"
-    "@types/prismjs": "npm:^1.26.2"
+    "@types/natural-compare-lite": "npm:^1.4.2"
+    "@types/node": "npm:20.9.0"
+    "@types/prismjs": "npm:^1.26.3"
     "@typescript-eslint/eslint-plugin": "npm:^6.9.1"
     "@typescript-eslint/parser": "npm:^6.9.1"
     contentful: "npm:^9.3.5"
