@@ -8,9 +8,9 @@ type PrimaryColors = LightThemeColors['primary-colors'];
 type PrimaryColor = keyof PrimaryColors;
 const primaryColors = Object.keys(lightThemeColors['primary-colors']) as PrimaryColor[];
 
-type SignalColors = LightThemeColors['signal-colors'];
-type SignalColor = keyof SignalColors;
-const signalColors = Object.keys(lightThemeColors['signal-colors']) as SignalColor[];
+type SecondaryColors = LightThemeColors['signal-colors'];
+type SecondaryColor = keyof SecondaryColors;
+const secondaryColors = Object.keys(lightThemeColors['signal-colors']) as SecondaryColor[];
 
 type DataColors = LightThemeColors['data-colors'];
 type DataColor = keyof DataColors;
@@ -22,7 +22,7 @@ const greyColors = Object.keys(lightThemeColors['grey-colors']) as GreyColor[];
 
 export const lightColors: ColorsObject = {
   primary: primaryColors.map((colorName) => getColorElement(colorName)) as ColorsObject['primary'],
-  signal: signalColors.map((colorName) => getColorElement(colorName)) as ColorsObject['signal'],
+  secondary: secondaryColors.map((colorName) => getColorElement(colorName)) as ColorsObject['secondary'],
   data: dataColors.map((colorName) => getColorElement(colorName)) as ColorsObject['data'],
   grey: greyColors.map((colorName) => getColorElement(colorName)) as ColorsObject['grey'],
 };
