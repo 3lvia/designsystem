@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { ColorType, ChipType } from './elvia-chip.types';
 import { getThemeColor, getBaseColor, ThemeName } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 const chipColors = (color: ColorType, theme: ThemeName = 'light') => {
   switch (color) {
@@ -119,7 +120,7 @@ export const ChipComponent = styled.button<ChipComponentProps>`
     ${({ isLoading, isSelected, chipType }) => getChipBorderLight(isLoading, isSelected, chipType)};
   background-color: ${({ color, isSelected, isHovering, isDisabled, isLoading, chipType }) =>
     getChipBackgroundLight(color, isSelected, isHovering, isDisabled, isLoading, chipType)};
-  padding: ${({ hasImage }) => (hasImage ? '3px 15px 3px 3px' : '7px 15px')};
+  padding: ${({ hasImage }) => (hasImage ? '3px 15px 3px 3px' : '5px 15px')};
   border-radius: 24px;
   transition: background-color 150ms ease-in;
   white-space: nowrap;
@@ -204,13 +205,7 @@ interface ChipTitleProps {
 }
 
 export const ChipTitle = styled.div<ChipTitleProps>`
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  text-transform: 'unset';
-  letter-spacing: 'unset';
-  font-style: unset;
+  ${getTypographyCss('text-interactive-sm')};
   transition: opacity 150ms ease-in;
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;
