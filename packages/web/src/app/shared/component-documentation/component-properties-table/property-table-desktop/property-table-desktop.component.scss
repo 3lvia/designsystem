@@ -57,15 +57,11 @@ td.table-code-text {
 }
 
 tr.prop-row {
-  visibility: collapse;
+  height: 100%;
 
   th,
   td {
     padding: 0;
-  }
-
-  &.expanded {
-    visibility: visible;
   }
 
   &.expanded .height-changer {

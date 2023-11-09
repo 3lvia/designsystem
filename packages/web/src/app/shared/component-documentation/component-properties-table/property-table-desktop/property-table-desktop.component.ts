@@ -28,14 +28,4 @@ export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
     }
     return true;
   }
-
-  private isLastChild(i: number, propList: SearchResult<ComponentProp>[]) {
-    if (i === propList.length - 1) {
-      return true;
-    }
-    if (propList[i].item.level > propList[i + 1].item.level) {
-      return true;
-    }
-    return false;
-  }
 }
