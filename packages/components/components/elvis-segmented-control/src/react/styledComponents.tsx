@@ -90,7 +90,7 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   border-radius: 100px;
   z-index: 10;
   text-align: center;
-  text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.25px currentColor` : '0')};
+  text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
   text-transform: 'unset';
   ${({ size }) => css`
     ${getTypographyCss(size === 'large' ? 'text-interactive-md' : 'text-interactive-sm')};
