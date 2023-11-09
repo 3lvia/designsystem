@@ -10,10 +10,17 @@ import '@elvia/elvis-modal';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-divider';
 import { SearchHighlighterPipe } from '../../shared/search-highlighter.pipe';
+import { TrapFocusDirective } from './search-menu/trap-focus.directive';
 
 @NgModule({
   imports: [CommonModule, RouterModule, FormsModule, SearchHighlighterPipe],
-  declarations: [HeaderComponent, SearchMenuComponent, MobileMenuComponent, ThemeSwitchComponent],
+  declarations: [
+    HeaderComponent,
+    SearchMenuComponent,
+    MobileMenuComponent,
+    ThemeSwitchComponent,
+    TrapFocusDirective,
+  ],
   exports: [HeaderComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
