@@ -90,21 +90,18 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   border-radius: 100px;
   z-index: 10;
   text-align: center;
-  text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
   ${({ size }) => css`
     ${getTypographyCss(size === 'large' ? 'text-interactive-md' : 'text-interactive-sm')};
   `}
-  font-weight: 400;
+  font-weight: ${({ isSelected }) => (isSelected ? '500' : '400')};
   color: ${({ isSelected }) => (isSelected ? getThemeColor('text-4') : getThemeColor('text-1'))};
-
   transition:
     color 250ms ${controlAnimation},
     border 200ms linear,
     text-shadow 200ms ${controlAnimation};
+
   &:hover {
-    text-shadow:
-      0 0 0 currentColor,
-      0 0 0.5px currentColor;
+    font-weight: 500;
     border: ${({ $type, isSelected }) => getControlBorder($type, isSelected, true)};
   }
 `;
@@ -125,4 +122,13 @@ export const SegmentedControlInput = styled.input`
 
 export const SegmentedControlIconContainer = styled.div`
   display: flex;
+`;
+
+export const BoldControlTextPlaceholder = styled.span`
+  font-weight: 500;
+  height: 0;
+  color: transparent;
+  overflow: hidden;
+  visibility: hidden;
+  display: block;
 `;

@@ -9,6 +9,7 @@ import {
   SegmentedControlLabel,
   SegmentedControlInput,
   SegmentedControlIconContainer,
+  BoldControlTextPlaceholder,
 } from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
 import DOMPurify from 'dompurify';
@@ -84,7 +85,12 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
             data-testid="segmented-control-input"
           ></SegmentedControlInput>
           {type === 'text' && (
-            <div data-testid="segmented-control-text">{(control as TextSegmentedControl).label}</div>
+            <div data-testid="segmented-control-text">
+              <span>{(control as TextSegmentedControl).label}</span>
+              <BoldControlTextPlaceholder aria-hidden="true">
+                {(control as TextSegmentedControl).label}
+              </BoldControlTextPlaceholder>
+            </div>
           )}
           {type === 'icon' &&
             (index !== selectedIndex ? (
