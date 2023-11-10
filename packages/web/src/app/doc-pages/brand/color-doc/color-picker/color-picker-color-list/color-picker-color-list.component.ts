@@ -10,7 +10,7 @@ import { convertContrastValueToNumber, getColorElement } from '../colors-util';
 export class ColorPickerColorListComponent {
   @Input({ required: true }) currentColor: ColorElement | undefined;
   @Input({ required: true }) colorList: ColorsObject;
-  @Input({ required: true }) category: 'primary' | 'signal' | 'data' | 'grey';
+  @Input({ required: true }) category: 'primary' | 'secondary' | 'data' | 'grey';
   @Input({ required: true }) isDarkTheme: boolean;
   @Output() chooseColor = new EventEmitter<ColorElement>();
   @Output() userChoosesColor = new EventEmitter<void>();
