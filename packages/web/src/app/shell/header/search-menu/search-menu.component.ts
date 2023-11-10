@@ -18,7 +18,7 @@ import { SearchStatus, SearchItem } from './search-menu.interface';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SearchResult, Searcher } from 'src/app/shared/searcher';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-search-menu',
@@ -41,7 +41,7 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
     private cmsService: CMSService,
     private localizationService: LocalizationService,
     private router: Router,
-    public media: MediaMatcher,
+    public breakpointService: BreakpointService,
   ) {
     this.localizationService
       .listenLocalization()
