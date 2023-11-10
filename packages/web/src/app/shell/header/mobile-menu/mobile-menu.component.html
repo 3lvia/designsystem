@@ -1,12 +1,13 @@
 <div class="backdrop" (click)="closeMenu.emit()"></div>
 <div class="content">
-  <div class="menu" *ngIf="!isLoaded && !mainMenu">
+  @if( !isLoaded && !mainMenu){
+  <div class="menu">
     <div class="links e-py-24" *ngFor="let _ of [].constructor(5)">
       <div class="e-content-loader e-content-loader--text" style="height: 17px"></div>
     </div>
   </div>
-
-  <div class="menu" *ngIf="mainMenu">
+  } @else {
+  <div class="menu">
     <a
       class="links e-py-24"
       [routerLink]="menuItem.path"
@@ -18,16 +19,18 @@
         <i class="e-icon e-icon--arrow_right-bold e-icon--xxs" aria-hidden="true"></i>
       </span>
     </a>
-    <a class="links e-py-24" [routerLink]="'dev'" (click)="closeMenu.emit()" *ngIf="devMode">
+    @if(devMode) {
+    <a class="links e-py-24" [routerLink]="'dev'" (click)="closeMenu.emit()">
       <span class="e-title-caps">Dev</span>
       <span class="links-icon">
         <i class="e-icon e-icon--arrow_right-bold e-icon--xxs" aria-hidden="true"></i>
-      </span>
-    </a>
+      </span> </a
+    >}
 
     <div class="e-py-24 e-w-100">
       <app-theme-switch></app-theme-switch>
     </div>
   </div>
+  }
 </div>
 <div class="elvia-curve"></div>
