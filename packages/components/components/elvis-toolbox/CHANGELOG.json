@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "03.11.23",
+      "version": "11.0.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Added a listener to the webcomponent in <code>useSlot</code> to help detect slot changes."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "03.11.23",
       "version": "11.0.2",
       "changelog": [
         {
