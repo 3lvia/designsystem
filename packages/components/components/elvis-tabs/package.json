@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-tabs",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/tabs",
   "source": "src/react/elvia-tabs.tsx",
@@ -15,7 +15,7 @@
     "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
     "@elvia/elvis-toolbox": "^11.0.0",
-    "@elvia/elvis-typography": "^2.4.0",
+    "@elvia/elvis-typography": "^2.7.0",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { getThemeColor } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const RadioFilterGroup = styled.div`
   display: flex;
@@ -50,10 +51,6 @@ export const RadioFilterTitle = styled.span`
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-family: 'Red Hat Display', verdana, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
+  ${getTypographyCss('text-interactive-md')}
   color: ${getThemeColor('text-1')};
 `;

@@ -22,8 +22,12 @@ import React, { useEffect, useRef } from 'react';
  */
 export const useSlot = <
   TRefElement extends HTMLElement,
-  TWebcomponent extends { getSlot: (slotName: string) => Element } = {
+  TWebcomponent extends HTMLElement & {
     getSlot: (slotName: string) => Element;
+    storeAllSlotsEvent?: string;
+  } = HTMLElement & {
+    getSlot: (slotName: string) => Element;
+    storeAllSlotsEvent?: string;
   },
 >(
   slot: string,
@@ -44,19 +48,32 @@ export const useSlot = <
 ): { ref: React.RefObject<TRefElement> } => {
   const defaultRef = useRef<TRefElement>(null);
   const ref = options?.ref ?? defaultRef;
+
   useEffect(() => {
-    if (!webcomponent) {
-      options?.callback?.(false);
+    const updateSlot = () => {
+      if (!webcomponent) {
+        options?.callback?.(false);
+        return;
+      }
+      // Get slotted items from web component
+      if (ref.current && webcomponent.getSlot(slot)) {
+        options?.callback?.(true);
+        ref.current.innerHTML = '';
+        ref.current.appendChild(webcomponent.getSlot(slot));
+      } else {
+        options?.callback?.(false);
+      }
+    };
+
+    updateSlot();
+    const storeAllSlotsEvent = webcomponent?.storeAllSlotsEvent;
+    if (!webcomponent || !storeAllSlotsEvent) {
       return;
     }
-    // Get slotted items from web component
-    if (ref.current && webcomponent.getSlot(slot)) {
-      options?.callback?.(true);
-      ref.current.innerHTML = '';
-      ref.current.appendChild(webcomponent.getSlot(slot));
-    } else {
-      options?.callback?.(false);
-    }
+    webcomponent.addEventListener(storeAllSlotsEvent, updateSlot);
+    return () => {
+      webcomponent.removeEventListener(storeAllSlotsEvent, updateSlot);
+    };
   }, [
     ref,
     slot,
