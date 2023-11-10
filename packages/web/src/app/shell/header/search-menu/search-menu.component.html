@@ -1,5 +1,5 @@
 <div class="backdrop" (click)="closeSearch()"></div>
-<div class="content e-pb-112">
+<div class="content e-pb-112" [cdkTrapFocus]="media.matchMedia('(min-width: 1024px)').matches">
   <div>
     <div class="elvis-search-header e-mt-8">
       <h2 class="e-title-md search-title">What are you looking for?</h2>
