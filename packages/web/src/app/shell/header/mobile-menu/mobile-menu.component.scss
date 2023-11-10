@@ -46,17 +46,15 @@
       width: 80%;
     }
 
-    .menu-items {
-      .links {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        cursor: pointer;
+    .links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--e-color-border-3);
 
-        .links-icon {
-          display: flex;
-          align-items: center;
-        }
+      .links-icon {
+        display: flex;
+        align-items: center;
       }
     }
   }
