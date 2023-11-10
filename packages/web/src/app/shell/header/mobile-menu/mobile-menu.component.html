@@ -1,34 +1,36 @@
 <div class="backdrop" (click)="closeMenu.emit()"></div>
 <div class="content">
-  <div class="menu" *ngIf="!isLoaded && !mainMenu">
-    <div class="menu-items" *ngFor="let _ of [].constructor(5)">
-      <div class="links e-py-24">
-        <div class="e-content-loader e-content-loader--text"></div>
-      </div>
-      <elvia-divider />
+  @if( !isLoaded && !mainMenu){
+  <div class="menu">
+    <div class="links e-py-24" *ngFor="let _ of [].constructor(5)">
+      <div class="e-content-loader e-content-loader--text" style="height: 17px"></div>
     </div>
   </div>
+  } @else {
+  <div class="menu">
+    <a
+      class="links e-py-24"
+      [routerLink]="menuItem.path"
+      (click)="closeMenu.emit()"
+      *ngFor="let menuItem of mainMenu.pages"
+    >
+      <span class="e-title-caps">{{ menuItem.title }}</span>
+      <span class="links-icon">
+        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs" aria-hidden="true"></i>
+      </span>
+    </a>
+    @if(devMode) {
+    <a class="links e-py-24" [routerLink]="'dev'" (click)="closeMenu.emit()">
+      <span class="e-title-caps">Dev</span>
+      <span class="links-icon">
+        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs" aria-hidden="true"></i>
+      </span> </a
+    >}
 
-  <div class="menu" *ngIf="mainMenu">
-    <div class="menu-items" *ngFor="let menuItem of mainMenu.pages">
-      <div class="links e-py-24" (click)="navigate(menuItem.path)">
-        <span class="e-title-caps">{{ menuItem.title }}</span>
-        <span class="links-icon">
-          <i class="e-icon e-icon--arrow_right-bold e-icon--xxs" aria-hidden="true"></i>
-        </span>
-      </div>
-      <elvia-divider />
-    </div>
-    <div class="menu-items" *ngIf="devMode">
-      <div class="links e-py-24">
-        <a class="e-title-caps" (click)="navigate('dev')">Dev</a>
-      </div>
-    </div>
-    <div class="menu-items">
-      <div class="e-py-24 e-w-100">
-        <app-theme-switch></app-theme-switch>
-      </div>
+    <div class="e-py-24 e-w-100">
+      <app-theme-switch></app-theme-switch>
     </div>
   </div>
+  }
 </div>
 <div class="elvia-curve"></div>

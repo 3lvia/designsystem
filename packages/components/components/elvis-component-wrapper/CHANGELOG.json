@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.11.23",
+      "version": "4.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Now triggering an event when <code>storeAllSlots</code> is triggered. This can be used to re-render slots in react components."
+          ]
+        }
+      ]
+    },
+    {
       "date": "09.06.23",
       "version": "4.1.3",
       "changelog": [

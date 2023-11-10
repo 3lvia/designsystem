@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "15.3.1",
+      "date": "November 10, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Red Hat Display 400 is available again, because it is used in segmented controls."],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "15.3.0",
       "date": "November 9, 2023",
       "changelog": [

@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-component-wrapper",
-  "version": "4.1.3",
+  "version": "4.2.0",
   "license": "MIT",
   "source": "src/elvia-component.ts",
   "main": "dist/elvia-component.js",
