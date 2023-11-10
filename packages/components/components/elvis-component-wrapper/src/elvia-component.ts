@@ -6,6 +6,7 @@ import JSON5 from 'json5';
 
 let ewcReactRootIdentifierPrefix = 0;
 export class ElvisComponentWrapper extends HTMLElement {
+  public storeAllSlotsEvent = 'elvisStoreAllSlots' as const;
   protected _data: { [propName: string]: any };
   protected _slots: { [slotName: string]: Element };
   protected reactComponent: FC;
@@ -109,7 +110,6 @@ export class ElvisComponentWrapper extends HTMLElement {
    * webcomponent.triggerEvent('onOpen');
    * webcomponent.triggerEvent('onDelete', deletedValue);
    */
-  // eslint-disable-next-line
   triggerEvent(callbackName: string, eventData?: any): void {
     this.onEvent(callbackName, eventData);
   }
@@ -231,6 +231,15 @@ export class ElvisComponentWrapper extends HTMLElement {
       this._slots[slotName] = element;
       element.remove();
     });
+
+    // In some rare situations, the wrapper stores a slot but the react component doesn't notice that the slot exists yet.
+    // This event can then be used to manually re-trigger a "store slot"-action inside the component.
+    this.dispatchEvent(
+      new CustomEvent(this.storeAllSlotsEvent, {
+        bubbles: false,
+        composed: false,
+      }),
+    );
   }
 
   private convertString(stringToConvert: string, attrType: string, attrName: string) {

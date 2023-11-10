@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-toolbox",
-  "version": "11.0.2",
+  "version": "11.0.3",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/index.js",
