@@ -21,38 +21,43 @@
         size="large"
       >
         <div slot="content">
-          <p class="e-text-lg">
+          <div class="e-text-lg">
             Our design system, Elvis, provides components and utilities in a CSS library and as separate web
             components. The CSS library
             <code>&#64;elvia/elvis</code>
             consists of the most basic components like links, tags and inputs as well as utilities like
             colors, typography and icons. All assets in the CSS library are prefixed with <code>e-</code>.
-            <a routerLink="/components/css-library" class="e-link e-link--inline">
-              Get started with the CSS library.
+          </div>
+          <div class="e-mt-8">
+            <a class="e-link e-link--action" [routerLink]="['/components/css-library']">
+              <span class="e-link__title">Get started with the CSS library</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+              </span>
             </a>
-            <br />
-            <br />
+          </div>
+          <div class="e-mt-24">
             For more advanced components we offer separate packages that can be used individually, for example
             <a routerLink="/components/datepicker" class="e-link e-link--inline">Datepicker</a>&nbsp;
-            <code>&#64;elvia/elvis-datepicker</code>. The advanced components have each their own npm package that
-            should be used together with the CSS library. Each component has its own guidelines for how to use
-            and install the package in your project. These elements are all prefixed with <code>elvis-</code>.
-            <br />
-            <br />
-          </p>
-          <div class="component-illustrations-container e-mt-40">
+            <code>&#64;elvia/elvis-datepicker</code>. The advanced components have each their own npm package
+            that should be used together with the CSS library. Each component has its own guidelines for how
+            to use and install the package in your project. These elements are all prefixed with
+            <code>elvis-</code>.
+          </div>
+          <div class="e-mt-8">
+            <a class="e-link e-link--action" [routerLink]="['/components']">
+              <span class="e-link__title">Get started using components</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+          <div class="component-illustrations-container e-mt-80">
             <app-css-library-illustration />
             <app-web-component-illustration />
           </div>
-          <p class="e-text-lg e-m-0 e-mt-32">
-            Find all the components under
-            <a routerLink="/components" class="e-link e-link--inline">Components</a>
-            in the main menu and all utilities under
-            <a routerLink="/brand" class="e-link e-link--inline">Brand</a>
-            and
-            <a routerLink="/tools" class="e-link e-link--inline">Tools</a>
-            .
-          </p>
         </div>
       </elvia-accordion>
       <elvia-divider />
