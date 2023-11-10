@@ -3,7 +3,6 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-mobile-menu',
