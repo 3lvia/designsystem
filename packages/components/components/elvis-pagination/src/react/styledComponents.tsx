@@ -27,8 +27,6 @@ export const PaginatorInfoContainer = styled.div`
 
 export const PaginatorInfoText = styled.div`
   ${getTypographyCss('text-sm')}
-  font-style: normal;
-  letter-spacing: 0.2px;
   text-align: left;
 `;
 
@@ -42,7 +40,6 @@ export const PaginatorInfoDropdown = styled.div`
 
 export const PaginatorInfoAmount = styled.div`
   ${getTypographyCss('text-sm')}
-  font-style: normal;
   text-align: left;
   white-space: nowrap;
 `;
@@ -98,12 +95,9 @@ type PaginatorPageProps = {
 };
 
 export const PaginatorPage = styled.button<PaginatorPageProps>`
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 13px;
-  font-style: normal;
+  ${getTypographyCss('text-interactive-sm')}
   font-weight: 400;
-  line-height: 21px;
-  letter-spacing: 0.2px;
+  font-size: 13px;
   text-align: center;
   color: ${getThemeColor('text-1')};
 
@@ -140,12 +134,7 @@ export const PaginatorPage = styled.button<PaginatorPageProps>`
 `;
 
 export const PaginatorDots = styled.div`
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 1.2px;
-  line-height: 21px;
+  ${getTypographyCss('text-sm')}
   text-align: center;
   color: ${getThemeColor('text-1')};
 

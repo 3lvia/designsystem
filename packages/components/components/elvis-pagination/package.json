@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-pagination",
-  "version": "3.5.2",
+  "version": "3.5.3",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/pagination",
   "source": "src/react/elvia-pagination.tsx",
