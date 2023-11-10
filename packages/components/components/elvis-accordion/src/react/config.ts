@@ -14,7 +14,6 @@ export const config: ComponentConfig = {
     { name: 'openAriaLabel', type: 'string' },
     { name: 'closeAriaLabel', type: 'string' },
     { name: 'isStartAligned', type: 'boolean' },
-    { name: 'hasBoldLabel', type: 'boolean' },
     { name: 'labelPosition', type: 'string' },
     { name: 'size', type: 'string' },
     { name: 'type', type: 'string' },
