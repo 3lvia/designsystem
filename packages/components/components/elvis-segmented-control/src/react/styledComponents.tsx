@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-
+import { getTypographyCss } from '@elvia/elvis-typography';
 import { getThemeColor } from '@elvia/elvis-colors';
 import {
   SegmentedControlContainerProps,
@@ -8,7 +8,7 @@ import {
 } from './elviaSegmentedControl.types';
 
 const controlPaddingXLarge = 24;
-const controlPaddingYLarge = 12;
+const controlPaddingYLarge = 11;
 
 const controlPaddingXMedium = 18;
 const controlPaddingYMedium = 8;
@@ -20,9 +20,6 @@ const iconControlPaddingLarge = 12;
 const iconControlPaddingMedium = 12;
 const iconControlPaddingSmall = 8;
 
-const fontSizeLarge = '16px';
-const fontSizeMedium = '14px';
-const fontSizeSmall = '14px';
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
 const getControlPadding = (size: string, $type: Type) => {
@@ -42,16 +39,6 @@ const getControlPadding = (size: string, $type: Type) => {
     } else {
       return `${controlPaddingYSmall}px ${controlPaddingXSmall}px`;
     }
-  }
-};
-
-const getFontSize = (size: string) => {
-  if (size === 'large') {
-    return fontSizeLarge;
-  } else if (size === 'medium') {
-    return fontSizeMedium;
-  } else {
-    return fontSizeSmall;
   }
 };
 
@@ -102,25 +89,17 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   border: ${({ isSelected, $type }) => getControlBorder($type, isSelected)};
   border-radius: 100px;
   z-index: 10;
-  color: ${({ isSelected }) => (isSelected ? getThemeColor('text-4') : getThemeColor('text-1'))};
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: ${({ size }) => getFontSize(size)};
-  font-style: 'unset';
-  font-weight: '400';
-  letter-spacing: 'unset';
-  line-height: 20px;
   text-align: center;
-  text-shadow: ${({ isSelected }) => (isSelected ? `0 0 0 currentColor, 0 0 0.5px currentColor` : '0')};
-  text-transform: 'unset';
-
+  ${({ size }) => getTypographyCss(size === 'large' ? 'text-interactive-md' : 'text-interactive-sm')};
+  font-weight: ${({ isSelected }) => (isSelected ? '500' : '400')};
+  color: ${({ isSelected }) => (isSelected ? getThemeColor('text-4') : getThemeColor('text-1'))};
   transition:
     color 250ms ${controlAnimation},
     border 200ms linear,
     text-shadow 200ms ${controlAnimation};
+
   &:hover {
-    text-shadow:
-      0 0 0 currentColor,
-      0 0 0.5px currentColor;
+    font-weight: 500;
     border: ${({ $type, isSelected }) => getControlBorder($type, isSelected, true)};
   }
 `;
@@ -141,4 +120,13 @@ export const SegmentedControlInput = styled.input`
 
 export const SegmentedControlIconContainer = styled.div`
   display: flex;
+`;
+
+export const BoldControlTextPlaceholder = styled.span`
+  font-weight: 500;
+  height: 0;
+  color: transparent;
+  overflow: hidden;
+  visibility: hidden;
+  display: block;
 `;
