@@ -208,7 +208,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           <DropdownInput
             placeholder={placeholder}
             placeholderIcon={placeholderIcon}
-            required={isRequired}
+            isRequired={isRequired}
             allOptionsSelectedLabel={allOptionsSelectedLabel}
             isEditable={isSearchable}
             onChange={(value) => setFilter(value)}
