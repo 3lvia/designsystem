@@ -1,7 +1,7 @@
 import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { config } from './config';
-import { DropdownProps } from './elviaDropdown.types';
+import { DropdownProps, ErrorType } from './elviaDropdown.types';
 import { DropdownItem, DropdownValueType } from './publicApi.public';
 import {
   warnDeprecatedProps,
@@ -19,6 +19,7 @@ import { DropdownContainer, DropdownInputContainer, IconRotator } from './styled
 import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
+import { getInternalErrorText } from './getInternalErrorText';
 
 const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   if (!filter) {
@@ -43,6 +44,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   isDisabled = false,
   isFullWidth = false,
   isSearchable = false,
+  isRequired = false,
   allOptionsSelectedLabel = 'Alle',
   label = '',
   errorOptions,
@@ -54,6 +56,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   selectAllOption = 'Alle',
   noOptionsMessage = 'Ingen tilgjengelige valg',
   valueOnChange,
+  errorOnChange,
   onItemHover,
   hasLoadMoreItemsButton,
   onLoadMoreItems,
@@ -73,6 +76,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const [pressedKey, setPressedKey] = useState<ReactKeyboardEvent<HTMLInputElement>>();
   const [focusedItem, setFocusedItem] = useState<DropdownItem>();
   const [id] = useState(`ewc-dropdown-overlay-${uniqueDropdownId++}`);
+  const [error, setError] = useState<ErrorType | undefined>(undefined);
+  const [touched, setTouched] = useState(false);
 
   const filteredItems = useMemo(() => filterItems(items, filter), [items, filter]);
 
@@ -139,8 +144,37 @@ export const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
+  const validateDropdownValue = () => {
+    if (touched && isRequired && !currentVal) {
+      onError('required');
+    } else {
+      onError();
+    }
+  };
+
+  const onError = (newError?: ErrorType) => {
+    if (newError === error) {
+      return;
+    }
+    setError(newError);
+
+    const errorText = getInternalErrorText(newError, label);
+    errorOnChange?.(errorText);
+    webcomponent?.triggerEvent('errorOnChange', errorText);
+  };
+
+  const openDropdown = () => {
+    setTouched(true);
+    setIsShowing(true);
+  };
+
+  useEffect(() => {
+    validateDropdownValue();
+  }, [isRequired]);
+
   useEffect(() => {
     if (!isShowing) {
+      validateDropdownValue();
       setFilter('');
       return;
     }
@@ -163,9 +197,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
         style={{ ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
-        hasErrorPlaceholder={!!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
+        hasErrorPlaceholder={!!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text || !!error}
         isActive={isShowing}
-        isInvalid={!!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
+        isInvalid={!!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState || !!error}
         data-testid="wrapper"
         aria-haspopup="true"
       >
@@ -174,13 +208,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
           <DropdownInput
             placeholder={placeholder}
             placeholderIcon={placeholderIcon}
+            required={isRequired}
             allOptionsSelectedLabel={allOptionsSelectedLabel}
             isEditable={isSearchable}
             onChange={(value) => setFilter(value)}
             dropdownIsOpen={isShowing}
             isDisabled={isDisabled}
             items={items}
-            onOpenDropdown={() => setIsShowing(true)}
+            onOpenDropdown={openDropdown}
             onKeyPress={setPressedKey}
             currentVal={currentVal}
             focusedItem={focusedItem}
@@ -196,7 +231,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
             />
           </IconRotator>
         </DropdownInputContainer>
-        {!!mergedErrorOptions.text && <DropdownError errorText={mergedErrorOptions.text} />}
+        {!!(mergedErrorOptions.text || error) && (
+          <DropdownError errorText={mergedErrorOptions.text ?? getInternalErrorText(error, label)} />
+        )}
       </DropdownContainer>
       {isShowing && (
         <DropdownOverlay

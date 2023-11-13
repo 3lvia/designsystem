@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "13.11.23",
+      "version": "9.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new prop <code>isRequired</code>.",
+            "Added support for a dropdown item to have <code>value=null</code>. When that item is selected in the overlay, the input will be cleared and the placeholder shown."
+          ]
+        }
+      ]
+    },
+    {
       "date": "10.10.23",
       "version": "9.0.1",
       "changelog": [

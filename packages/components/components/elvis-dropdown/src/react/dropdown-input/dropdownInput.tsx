@@ -9,6 +9,7 @@ import { DropdownIconContainer } from '../styledComponents';
 interface Props {
   placeholder?: string;
   placeholderIcon?: string;
+  required: boolean;
   allOptionsSelectedLabel: string;
   isEditable: boolean;
   isDisabled: boolean;
@@ -26,6 +27,7 @@ interface Props {
 export const DropdownInput: React.FC<Props> = ({
   placeholder,
   placeholderIcon,
+  required,
   allOptionsSelectedLabel,
   isEditable,
   onChange,
@@ -84,7 +86,13 @@ export const DropdownInput: React.FC<Props> = ({
         } else if (selectedItems.length >= 2) {
           setInputValue(`${selectedItems.length} valgte`);
         } else if (selectedItems.length === 1) {
-          setInputValue(selectedItems[0].label);
+          // A value of null is specifically used when a dropdown item is used as a
+          // "no item selected"-option. It should therefore set the input value to empty.
+          if (selectedItems[0].value === null) {
+            setInputValue('');
+          } else {
+            setInputValue(selectedItems[0].label);
+          }
         } else {
           setInputValue('');
         }
@@ -108,6 +116,7 @@ export const DropdownInput: React.FC<Props> = ({
         ></DropdownIconContainer>
       )}
       <Input
+        required={required}
         aria-activedescendant={focusedItem ? getDropdownItemId(focusedItem.value) : undefined}
         disabled={isDisabled}
         placeholder={placeholder}

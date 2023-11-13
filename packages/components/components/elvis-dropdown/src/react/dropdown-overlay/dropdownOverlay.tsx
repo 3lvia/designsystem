@@ -267,7 +267,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
               )}
               {filteredItems.map((item) => (
                 <DropdownItem
-                  key={item.value}
+                  key={item.value ?? item.label} // Use label if value is null
                   item={item}
                   focusedItem={focusedItem}
                   setFocusedItem={(item) => {
@@ -278,7 +278,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                     }
                   }}
                   setHoveredItem={(item) => {
-                    setHoveredItem && setHoveredItem(item);
+                    setHoveredItem?.(item);
                   }}
                   size={size}
                   isMulti={isMulti}
