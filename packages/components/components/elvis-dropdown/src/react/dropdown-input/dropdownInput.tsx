@@ -9,7 +9,7 @@ import { DropdownIconContainer } from '../styledComponents';
 interface Props {
   placeholder?: string;
   placeholderIcon?: string;
-  required: boolean;
+  isRequired: boolean;
   allOptionsSelectedLabel: string;
   isEditable: boolean;
   isDisabled: boolean;
@@ -27,7 +27,7 @@ interface Props {
 export const DropdownInput: React.FC<Props> = ({
   placeholder,
   placeholderIcon,
-  required,
+  isRequired,
   allOptionsSelectedLabel,
   isEditable,
   onChange,
@@ -116,7 +116,7 @@ export const DropdownInput: React.FC<Props> = ({
         ></DropdownIconContainer>
       )}
       <Input
-        required={required}
+        required={isRequired}
         aria-activedescendant={focusedItem ? getDropdownItemId(focusedItem.value) : undefined}
         disabled={isDisabled}
         placeholder={placeholder}
