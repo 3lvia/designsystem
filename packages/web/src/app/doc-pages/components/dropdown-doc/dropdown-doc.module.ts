@@ -7,6 +7,7 @@ import { DropdownTreeCegComponent } from './dropdown-tree-ceg/dropdown-tree-ceg.
 import { DropdownLoadMoreCegComponent } from './dropdown-load-more-ceg/dropdown-load-more-ceg.component';
 import { DropdownStatusCegComponent } from './dropdown-status-ceg/dropdown-status-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
+import { DropdownEmptyCegComponent } from './dropdown-empty-ceg/dropdown-empty-ceg.component';
 
 @NgModule({
   imports: [SharedDocumentationModule],
@@ -18,6 +19,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     DropdownTreeCegComponent,
     DropdownLoadMoreCegComponent,
     DropdownStatusCegComponent,
+    DropdownEmptyCegComponent,
   ],
 })
 export class DropdownDocModule {}
