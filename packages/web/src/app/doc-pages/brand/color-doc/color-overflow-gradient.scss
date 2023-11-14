@@ -5,7 +5,9 @@
   mask-size: calc(100% + var(--gradient-width) * 2) 100%;
   overflow-x: scroll;
   position: relative;
-  transition: mask-size 400ms, mask-position 400ms;
+  transition:
+    mask-size 400ms,
+    mask-position 400ms;
 
   &.overflow-right {
     mask-position: right;
