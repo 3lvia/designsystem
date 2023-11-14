@@ -1,6 +1,6 @@
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { combineLatest } from 'rxjs';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 import { VersionService } from '../../../core/services/version.service';
@@ -12,7 +12,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
   templateUrl: './css-library-doc.component.html',
   styleUrls: ['./css-library-doc.component.scss'],
 })
-export class CSSLibraryDocComponent implements OnInit {
+export class CSSLibraryDocComponent {
   componentData: ComponentData = {
     attributes: {},
     name: '',
@@ -24,9 +24,8 @@ export class CSSLibraryDocComponent implements OnInit {
   importScript = "import '@elvia/elvis/elvis.js';";
   linkTagCode = '';
   scriptTagCode = '';
-
-  title: string | undefined;
-  description: string | undefined;
+  title = getComponent('css-library')?.title;
+  description = getComponent('css-library')?.description;
 
   constructor(
     private versionService: VersionService,
@@ -40,10 +39,5 @@ export class CSSLibraryDocComponent implements OnInit {
         this.scriptTagCode = scriptFile;
         this.linkTagCode = styleFile;
       });
-  }
-
-  ngOnInit(): void {
-    this.title = getComponent('css-library')?.title;
-    this.description = getComponent('css-library')?.description;
   }
 }
