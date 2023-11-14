@@ -1,6 +1,6 @@
 @use 'sass:map';
 @use '../utilities/helpers';
-@use '../utilities/typography';
+@use '../utilities/mixins';
 
 $tag-colors: (
   'neutral': --e-tag-color-neutral,
@@ -57,7 +57,7 @@ $tag-colors: (
   padding: 5px 8px;
   border-radius: 4px;
   background: var(--e-color-background-element-3);
-  @include typography.typography('text-micro');
+  @include mixins.typography('text-micro');
   color: var(--e-color-text-1);
   letter-spacing: 0.5px;
   text-transform: uppercase;
