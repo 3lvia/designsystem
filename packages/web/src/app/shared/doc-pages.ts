@@ -47,6 +47,13 @@ export const homeMenu: DocPage[] = [
 
 export const componentsDocPages: DocPage[] = [
   {
+    title: 'CSS Library',
+    description: `The CSS library <code>@elvia/elvis</code> consists of the most basic components like links, tags and inputs as well as utilities like colors, typography, icons and logos.`,
+    docUrl: Pages.CssLibrary,
+    absolutePath: '/components/' + Pages.CssLibrary,
+    status: DocPageStatus.Done,
+  },
+  {
     title: 'Accordion',
     description:
       'An accordion lets the user show and hide a section of content. It let us organize information and deliver a large amount of content in a small place.',

@@ -1,11 +1,6 @@
 <app-component-header [lastUpdated]="changelog[0].date" [componentData]="componentData">
-  <ng-container ngProjectAs="headerTitle">CSS Library</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    The CSS library
-    <code>&#64;elvia/elvis</code>
-    consists of the most basic components like links, tags and inputs as well as utilities like colors,
-    typography, icons and logos.
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
 </app-component-header>
 
 <div class="page-body e-mt-72">
