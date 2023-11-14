@@ -15,8 +15,8 @@ const consoleWarnDeprecatedProp = (propInfo: PropInfo, isSlot: boolean) => {
   const propOrCallbackOrSlot = deprecatedDetails.isCallbackFunction
     ? 'callback function'
     : isSlot
-    ? 'slot'
-    : 'prop';
+      ? 'slot'
+      : 'prop';
   const versionString = deprecatedDetails.version ? ` from version ${deprecatedDetails.version}` : '';
   const newPropString = deprecatedDetails.newProp
     ? `\nSee prop '${deprecatedDetails.newProp}' for replacement.`

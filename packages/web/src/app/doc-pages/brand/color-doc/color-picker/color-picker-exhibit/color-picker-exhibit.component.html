@@ -5,13 +5,13 @@
       'background-color': currentColorExistsInCurrentTheme ? currentColor.hex : null
     }"
     [ngClass]="{
-      border: currentColor && currentColor.name ? (currentColor.name | needsBorder : theme) : false,
+      border: currentColor && currentColor.name ? (currentColor.name | needsBorder: theme) : false,
       nonexistent: !currentColorExistsInCurrentTheme
     }"
   ></div>
 
   <div class="info" *ngIf="currentColorExistsInCurrentTheme; else nonExistentColor">
-    <p class="e-title-md e-capitalize title">{{ currentColor.name | replace : '-' : ' ' }}</p>
+    <p class="e-title-md e-capitalize title">{{ currentColor.name | replace: '-' : ' ' }}</p>
 
     <!-- HEX -->
     <p class="e-title-caps">hex</p>

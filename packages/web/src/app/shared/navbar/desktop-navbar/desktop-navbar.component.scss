@@ -27,7 +27,9 @@
   mask-image: linear-gradient(to top, transparent 5px, black var(--gradient-height));
   mask-position: center;
   mask-size: 100% calc(100% + var(--gradient-height) * 2);
-  transition: mask-size 400ms, mask-position 400ms;
+  transition:
+    mask-size 400ms,
+    mask-position 400ms;
 
   &.bottom-gradient {
     mask-size: 100% 100%;
