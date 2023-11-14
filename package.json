@@ -27,7 +27,7 @@
     "contentful:production": "yarn workspace elvia-designsystem contentful:production",
     "prettier:elvis": "prettier --write \"packages/elvis/**/*.js\"",
     "prettier:components": "prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
-    "prettier:web": "prettier --write \"packages/web/src/**/*.ts\"",
+    "prettier:web": "prettier --write \"packages/web/src/**/*.{ts,html,scss}\"",
     "lint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint:all": "yarn prettier:elvis && yarn prettier:web && yarn prettier:components && yarn eslint",
     "test": "yarn workspace @elvia/elvis-components test",

@@ -67,8 +67,8 @@ export type Controls<T = Record<string, any>> = Readonly<
     [K in keyof T]: NonNullable<T[K]> extends boolean
       ? Checkbox<T> | Switch
       : NonNullable<T[K]> extends string
-      ? RadioGroup<T[K]> | Text
-      : RadioGroup<T[K]> | Counter | Text | SlotToggle;
+        ? RadioGroup<T[K]> | Text
+        : RadioGroup<T[K]> | Counter | Text | SlotToggle;
   }>
 >;
 

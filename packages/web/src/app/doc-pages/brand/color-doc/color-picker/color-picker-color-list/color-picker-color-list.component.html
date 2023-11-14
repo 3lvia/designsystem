@@ -3,7 +3,7 @@
     *ngFor="let color of getColorsFromCategory(); let i = index"
     class="color-circle"
     [ngClass]="{
-      border: color.name | needsBorder : (isDarkTheme ? 'dark' : 'light'),
+      border: color.name | needsBorder: (isDarkTheme ? 'dark' : 'light'),
       chosen: isChosen(color)
     }"
     [style.z-index]="i"
