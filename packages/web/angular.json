@@ -42,13 +42,13 @@
               "json5",
               "lodash.isequal",
               "lodash.throttle",
+              "lodash.uniqueid",
               "natural-compare-lite",
               "prismjs",
               "react-dom/client",
-              "@elvia/elvis-toolbox",
               "dompurify",
               "shallowequal",
-              "lodash.uniqueid"
+              "classnames"
             ],
             "index": "src/index.html",
             "main": "src/main.ts",
