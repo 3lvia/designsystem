@@ -423,8 +423,8 @@ export class CMSTransformService {
           imgSize === 'original'
             ? 'width: unset'
             : imgSize === '100%'
-            ? 'width: calc(' + imgSize + '- 64px)'
-            : 'width: ' + imgSize
+              ? 'width: calc(' + imgSize + '- 64px)'
+              : 'width: ' + imgSize
         }
       '
       class='
@@ -590,8 +590,8 @@ export class CMSTransformService {
       background === 'Dark'
         ? 'background: var(--e-light-theme-grey); color: var(--e-light-theme-grey--contrast);'
         : background === 'Grey'
-        ? 'background: var(--e-light-theme-grey-05); color: var(--e-light-theme-grey-05--contrast);'
-        : 'background: var(--e-light-theme-white); color: var(--e-light-theme-white--contrast);'
+          ? 'background: var(--e-light-theme-grey-05); color: var(--e-light-theme-grey-05--contrast);'
+          : 'background: var(--e-light-theme-white); color: var(--e-light-theme-white--contrast);'
     } margin-top: 12px; margin-bottom: 12px">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       ${returnString}

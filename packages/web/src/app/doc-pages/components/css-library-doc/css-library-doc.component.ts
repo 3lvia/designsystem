@@ -5,6 +5,7 @@ import { combineLatest } from 'rxjs';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 import { VersionService } from '../../../core/services/version.service';
 import ComponentData from '../component-data.interface';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-css-library-doc',
@@ -23,6 +24,8 @@ export class CSSLibraryDocComponent {
   importScript = "import '@elvia/elvis/elvis.js';";
   linkTagCode = '';
   scriptTagCode = '';
+  title = getComponent('css-library')?.title;
+  description = getComponent('css-library')?.description;
 
   constructor(
     private versionService: VersionService,
