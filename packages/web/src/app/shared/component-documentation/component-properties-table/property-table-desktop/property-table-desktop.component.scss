@@ -73,6 +73,10 @@ tr.prop-row {
   &:not(.last) .height-changer {
     border-bottom: 1px solid var(--e-color-border-2);
   }
+
+  &:not(.expanded) .height-changer {
+    border: none;
+  }
 }
 
 .height-changer {
