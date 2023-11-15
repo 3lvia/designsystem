@@ -5,6 +5,7 @@ export const config: ComponentConfig = {
   attributes: [
     { name: 'items', type: 'object' },
     { name: 'isFullWidth', type: 'boolean' },
+    { name: 'isRequired', type: 'boolean' },
     { name: 'isSearchable', type: 'boolean' },
     { name: 'allOptionsSelectedLabel', type: 'string' },
     { name: 'errorOptions', type: 'object' },

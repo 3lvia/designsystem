@@ -75,10 +75,15 @@ export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithS
         },
         hasErrorPlaceholder: {
           type: 'boolean',
-          description: 'Allows you to remove the padding below the date picker.',
+          description: 'Allows you to remove the padding below the dropdown.',
           default: 'true',
         },
       },
+    },
+    isRequired: {
+      type: 'boolean',
+      description: 'Makes the dropdown required.',
+      default: 'false',
     },
     size: {
       type: '"small" | "medium"',
@@ -98,7 +103,7 @@ export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithS
     errorOnChange: {
       isEvent: true,
       type: '(error: string) => void',
-      description: 'Gets called every time the internal date validation error is changed. ',
+      description: 'Gets called every time the internal validation error is changed. ',
     },
     isSearchable: {
       type: 'boolean',
