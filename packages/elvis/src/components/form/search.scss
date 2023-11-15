@@ -10,21 +10,19 @@
   }
 
   &--instant {
-    .e-input {
-      input,
-      input:invalid,
-      input:disabled,
-      &.e-input---disabled input,
-      &.e-input---loading input {
-        padding: 12px 48px 12px 56px;
-      }
+    .e-input,
+    .e-input:has(input:invalid),
+    .e-input:has(input:disabled),
+    .e-input.e-input---disabled,
+    .e-input.e-input---loading {
+      padding: 12px 48px 12px 56px;
+    }
 
-      &.e-input---invalid input,
-      &.e-input---focus input,
-      &.e-input---loading input,
-      input:focus {
-        padding: 11px 47px 11px 55px;
-      }
+    .e-input.e-input---invalid,
+    .e-input.e-input---focus,
+    .e-input.e-input---loading,
+    .e-input:focus-within {
+      padding: 11px 47px 11px 55px;
     }
 
     i[class*='e-icon--search-color'] {
@@ -70,21 +68,19 @@
   }
 
   &--on-submit {
-    .e-input {
-      input,
-      input:invalid,
-      input:disabled,
-      &.e-input---loading input,
-      &.e-input---disabled input {
-        padding: 12px 48px 12px 12px;
-      }
+    .e-input,
+    .e-input:has(input:invalid),
+    .e-input:has(input:disabled),
+    .e-input.e-input---loading,
+    .e-input.e-input---disabled {
+      padding: 12px 48px 12px 12px;
+    }
 
-      &.e-input---invalid input,
-      &.e-input---focus input,
-      &.e-input---loading input,
-      input:focus {
-        padding: 11px 47px 11px 11px;
-      }
+    .e-input.e-input---invalid,
+    .e-input.e-input---focus,
+    .e-input.e-input---loading,
+    .e-input:focus-within {
+      padding: 11px 47px 11px 11px;
     }
 
     &.e-search--searched {
@@ -126,21 +122,19 @@
     .e-search--instant {
       @include typography.typography('text-sm');
 
-      .e-input {
-        input,
-        input:invalid,
-        input:disabled,
-        &.e-input---disabled input,
-        &.e-input---loading input {
-          padding: 4px 32px;
-        }
+      .e-input,
+      .e-input:has(input:invalid),
+      .e-input:has(input:disabled),
+      .e-input.e-input---disabled,
+      .e-input.e-input---loading {
+        padding: 4px 32px;
+      }
 
-        &.e-input---invalid input,
-        &.e-input---focus input,
-        &.e-input---loading input,
-        input:focus {
-          padding: 3px 31px;
-        }
+      .e-input.e-input---invalid,
+      .e-input.e-input---focus,
+      .e-input.e-input---loading,
+      .e-input:focus-within {
+        padding: 3px 31px;
       }
 
       i[class*='e-icon--search-color'] {
@@ -163,21 +157,19 @@
     .e-search--on-submit {
       @include typography.typography('text-sm');
 
-      .e-input {
-        input,
-        input:invalid,
-        input:disabled,
-        &.e-input---disabled input,
-        &.e-input---loading input {
-          padding: 4px 32px 4px 10px;
-        }
+      .e-input,
+      .e-input:has(input:invalid),
+      .e-input:has(input:disabled),
+      .e-input.e-input---disabled,
+      .e-input.e-input---loading {
+        padding: 4px 32px 4px 10px;
+      }
 
-        &.e-input---invalid input,
-        &.e-input---focus input,
-        &.e-input---loading input,
-        input:focus {
-          padding: 3px 31px 3px 9px;
-        }
+      .e-input.e-input---invalid,
+      .e-input.e-input---focus,
+      .e-input.e-input---loading,
+      .e-input:focus-within {
+        padding: 3px 31px 3px 9px;
       }
 
       .e-btn {
