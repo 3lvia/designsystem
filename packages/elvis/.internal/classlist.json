@@ -177,8 +177,8 @@
 				"e-btn---hover": {},
 				"e-btn---selected": {},
 				"e-btn---active": {},
-				"e-btn---focus": {},
-				"e-btn---disabled": {}
+				"e-btn---disabled": {},
+				"e-btn---focus": {}
 			}
 		},
 		"e-color-background-3": {},
@@ -1059,8 +1059,8 @@
 		"e-btn---hover": {},
 		"e-btn---selected": {},
 		"e-btn---active": {},
-		"e-btn---focus": {},
 		"e-btn---disabled": {},
+		"e-btn---focus": {},
 		"e-btn--circled": {},
 		"e-btn--inverted": {},
 		"e-content-loader": {},

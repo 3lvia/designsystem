@@ -5,16 +5,68 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-p-16 e-mb-24">
-      <span class="e-text-interactive-lg">e-text-interactive-lg</span>
-      <span class="e-text-interactive-md">e-text-interactive-md</span>
-      <span class="e-text-interactive-sm">e-text-interactive-sm</span>
-      <span class="e-text-lg"><em>e-text-lg-italic</em></span>
-      <span class="e-text-md"><em>e-text-md-italic</em></span>
-      <span class="e-text-sm"><em>e-text-sm-italic</em></span>
-      <span class="e-text-lg-mono">e-text-lg-mono</span>
-      <span class="e-text-md-mono">e-text-md-mono</span>
-      <span class="e-text-sm-mono">e-text-sm-mono</span>
-      <span class="e-title-xxs">e-title-xxs</span>
+      <div class="toggle-hover">
+        <i class="e-icon e-icon--sm e-icon--search" aria-hidden></i>
+        <i class="e-icon e-icon--sm e-icon--search-color" aria-hidden></i>
+      </div>
+      <div>
+        <h3>Buttons</h3>
+        <div>
+          <button class="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--upload" aria-hidden="true"> </i>
+            </span>
+          </button>
+          Normal
+        </div>
+        <div>
+          <button disabled class="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--upload" aria-hidden="true"> </i>
+            </span>
+          </button>
+          with <code>:disabled</code>
+        </div>
+        <div>
+          <button class="e-btn e-btn--icon e-btn---disabled" aria-label="Beskrivelse av ikon-knapp">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--upload" aria-hidden="true"> </i>
+            </span>
+          </button>
+          with <code>e-btn---disabled</code>
+        </div>
+      </div>
+      <div>
+        <h3>Inputs</h3>
+        <div>
+          <div class="e-form-field">
+            <label class="e-form-field__label" for="iconExample"> Passord </label>
+            <div class="e-input">
+              <button class="e-btn e-btn--icon" aria-label="Vis/skjul passord">
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--view_on" aria-hidden="true"> </i>
+                </span>
+              </button>
+              <input id="iconExample" value="Passord" />
+            </div>
+          </div>
+          Normal
+        </div>
+        <div>
+          <div class="e-form-field">
+            <label class="e-form-field__label" for="iconExample"> Passord </label>
+            <div class="e-input e-input---disabled">
+              <button disabled class="e-btn e-btn--icon" aria-label="Vis/skjul passord">
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--view_on" aria-hidden="true"> </i>
+                </span>
+              </button>
+              <input disabled id="iconExample" value="Passord" />
+            </div>
+          </div>
+          <code>e-input---disabled</code>, <code>input:disabled</code>, and <code>e-btn:disabled</code>.
+        </div>
+      </div>
     </div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark"></div>

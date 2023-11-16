@@ -1,6 +1,25 @@
 {
   "content": [
     {
+      "version": "15.3.2",
+      "date": "November 16, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where a disabled text field with an icon button wouldn't properly visually disable the button.",
+            "Fixed a bug where disabled icon buttons could still sometimes get active hover state.",
+            "Fixed the <code>e-icon--search</code> and corresponding colored icons being slightly different sizes."
+          ],
+          "components": [
+            { "displayName": "Button", "url": "https://design.elvia.io/components/button" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "15.3.1",
       "date": "November 10, 2023",
       "changelog": [
