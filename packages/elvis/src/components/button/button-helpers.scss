@@ -12,8 +12,8 @@
     &.e-btn---hover,
     &.e-btn---selected,
     &.e-btn---active,
-    &:active:not(:disabled):not(.e-btn--loading),
-    &:hover:not(:disabled):not(.e-btn--loading) {
+    &:active:not(:disabled):not(.e-btn---disabled):not(.e-btn--loading),
+    &:hover:not(:disabled):not(.e-btn---disabled):not(.e-btn--loading) {
       @content;
     }
   }
