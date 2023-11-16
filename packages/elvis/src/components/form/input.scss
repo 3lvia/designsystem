@@ -1,4 +1,4 @@
-@use '../../utilities/typography';
+@use '../../utilities/mixins';
 @use '../../utilities/outline';
 @use '../../utilities/helpers';
 @use '../../utilities/icons';
@@ -27,7 +27,7 @@ $form-input-padding-compact-active: 3px 9px;
 
   > input,
   > textarea {
-    @include typography.typography('text-option');
+    @include mixins.typography('text-option');
     display: flex;
     width: 100%;
     max-width: 448px;
@@ -227,7 +227,7 @@ $form-input-padding-compact-active: 3px 9px;
 .e-input.e-input--small {
   input,
   textarea {
-    @include typography.typography('text-sm');
+    @include mixins.typography('text-sm');
     padding: $form-input-padding-compact;
     color: var(--e-color-text-1);
   }

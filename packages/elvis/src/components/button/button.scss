@@ -1,7 +1,7 @@
 @use './button-helpers.scss' as buttonHelper;
 @use '../../utilities/helpers.scss';
 @use '../../utilities/icons.scss';
-@use '../../utilities/typography.scss';
+@use '../../utilities/mixins.scss';
 
 .e-btn,
 .e-btn.e-btn--primary {
@@ -22,7 +22,7 @@
   border-radius: 24px;
   background: var(--e-color-background-element-5);
 
-  @include typography.typography('text-interactive-md');
+  @include mixins.typography('text-interactive-md');
   color: var(--e-color-text-4);
   cursor: pointer;
   text-decoration: none;
@@ -53,7 +53,7 @@
   // Sizes
   &.e-btn--lg {
     padding: 11px 31px;
-    @include typography.typography('text-interactive-lg');
+    @include mixins.typography('text-interactive-lg');
     color: var(--e-color-text-4);
 
     .e-btn__icon {
@@ -68,7 +68,7 @@
 
   &.e-btn--sm {
     padding: 5px 15px;
-    @include typography.typography('text-interactive-sm');
+    @include mixins.typography('text-interactive-sm');
     color: var(--e-color-text-4);
 
     &.e-btn--loading span {

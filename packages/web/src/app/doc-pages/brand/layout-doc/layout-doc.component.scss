@@ -1,5 +1,5 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
-@use '@elvia/elvis/src/utilities/typography.scss';
+@use '@elvia/elvis/src/utilities/mixins.scss';
 
 .example-content {
   padding: 16px;
@@ -54,7 +54,7 @@
       align-items: center;
       justify-content: center;
       margin-right: 16px;
-      @include typography.typography('title-caps');
+      @include mixins.typography('title-caps');
       &.gutter-color {
         background: var(--e-color-data-3);
         color: var(--e-color-data-3--contrast);
