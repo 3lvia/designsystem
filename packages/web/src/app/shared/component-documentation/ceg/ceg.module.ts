@@ -18,7 +18,8 @@ import { StaticCodeGeneratorComponent } from './code-generator/static-code-gener
 import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
 import { PhoneShellComponent } from './phone-shell/phone-shell.component';
 import { CodeViewerComponent } from './code-generator/code-viewer/code-viewer.component';
-import '@elvia/elvis-tabs';
+import { ViewportSizeModule } from '../../viewport-size/viewport-size.module';
+import '@elvia/elvis-segmented-control';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import '@elvia/elvis-tabs';
     CodeViewerComponent,
   ],
   exports: [CegComponent, StaticCegComponent, CodeViewerComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, ViewportSizeModule],
   providers: [FormatCodePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
