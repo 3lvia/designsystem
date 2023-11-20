@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-modal",
-  "version": "3.1.9",
+  "version": "3.2.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/modal",
   "source": "src/react/elvia-modal.tsx",
@@ -14,7 +14,7 @@
     "@elvia/elvis-assets-icons": "^3.6.0",
     "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-component-wrapper": "^4.1.3",
-    "@elvia/elvis-toolbox": "^11.0.1",
+    "@elvia/elvis-toolbox": "^11.1.0",
     "@elvia/elvis-typography": "^2.6.0",
     "styled-components": "^5.3.3"
   },

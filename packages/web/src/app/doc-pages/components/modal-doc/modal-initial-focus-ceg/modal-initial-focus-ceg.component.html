@@ -1,0 +1,7 @@
+<button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
+
+<elvia-modal (onClose)="isModalShowing = false" [isShowing]="isModalShowing">
+  <div slot="content">Fokuset er automatisk på "Primær"-knappen når modalen åpnes.</div>
+  <button slot="primaryButton" elvisFocusInitial class="e-btn e-btn--primary e-btn--lg">Primær</button>
+  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg">Sekundær</button>
+</elvia-modal>
