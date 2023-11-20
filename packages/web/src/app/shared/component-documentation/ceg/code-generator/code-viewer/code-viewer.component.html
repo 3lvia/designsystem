@@ -1,13 +1,12 @@
 <div class="code-container">
   <div *ngIf="!hideTabs" class="top-menu e-theme-dark">
-    <elvia-tabs
+    <elvia-segmented-control
+      [size]="(breakpointService.matches(['md', 'lg', 'xl']) | async) ? 'medium' : 'small'"
+      [items]="tabs | tabToSegmentedControlItem"
       (valueOnChange)="tabIndexChange.emit($any($event).detail.value)"
-      [value]="activeTabIndex"
-      [items]="tabs"
-      [tabIdPrefix]="tabGroupId"
-    ></elvia-tabs>
+    />
 
-    <div class="copy-code">
+    <div class="copy-code" *ifViewportSize="['md', 'lg', 'xl']">
       <div class="e-mr-8">
         {{ copyMessage }}
       </div>
