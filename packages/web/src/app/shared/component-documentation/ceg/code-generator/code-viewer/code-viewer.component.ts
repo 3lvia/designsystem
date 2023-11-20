@@ -37,10 +37,6 @@ export class CodeViewerComponent {
     return this.tabs[this.activeTabIndex];
   }
 
-  // get segmentedControlTabs(): { label: Tab }[] {
-  //   return this.tabs.map((tab) => ({ label: tab }));
-  // }
-
   constructor(
     private codeFormatter: FormatCodePipe,
     public breakpointService: BreakpointService,
