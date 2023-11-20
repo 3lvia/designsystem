@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.11.23",
+      "version": "9.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Properly expose typings for web components"]
+        }
+      ]
+    },
+    {
       "date": "15.11.23",
       "version": "9.1.0",
       "changelog": [
