@@ -10,38 +10,59 @@ const loading = keyframes`
 `;
 
 type ProgressLinearWrapperProps = {
-  currSize: ProgressLinearSize;
+  $size: ProgressLinearSize;
+};
+
+const getBarHeight = (size: ProgressLinearSize) => {
+  switch (size) {
+    case 'large':
+      return '8px';
+    case 'medium':
+      return '4px';
+    case 'small':
+      return '2px';
+  }
 };
 
 export const ProgressLinearWrapper = styled.div<ProgressLinearWrapperProps>`
   display: flex;
   width: 100%;
-  height: ${({ currSize }) => (currSize === 'medium' ? '8px' : '4px')};
+  height: ${({ $size }) => getBarHeight($size)};
   border-radius: 50px;
   background-color: ${getThemeColor('background-element-3')};
   margin: 0;
 `;
 
 type ProgressLinearProgressProps = {
-  isIndeterminate?: boolean;
-  isError?: boolean;
-  currSize?: ProgressLinearSize;
-  transitionDuration: string;
+  $isIndeterminate?: boolean;
+  $isError?: boolean;
+  $size: ProgressLinearSize;
+  $transitionDuration: string;
+};
+
+const getProgressHeight = (size: ProgressLinearSize) => {
+  switch (size) {
+    case 'large':
+      return '16px';
+    case 'medium':
+      return '8px';
+    case 'small':
+      return '4px';
+  }
 };
 
 export const ProgressLinearProgress = styled.div<ProgressLinearProgressProps>`
   border-radius: 50px;
   align-self: center;
-  height: ${({ currSize }) => (currSize === 'medium' ? '16px' : '8px')};
+  height: ${({ $size }) => getProgressHeight($size)};
   margin-left: 0;
-  background-color: ${({ isError }) =>
-    isError ? getThemeColor('signal-danger') : getThemeColor('brand-accent')};
-  transition: ${({ isIndeterminate, transitionDuration }) =>
-    isIndeterminate ? 'none' : `width ${transitionDuration} ease-in;`};
-  ${({ isIndeterminate, isError }) => decideProgressValue(isIndeterminate, isError)};
-  // Indeterminate
-  ${({ isIndeterminate, isError }) =>
-    isIndeterminate && !isError
+  background-color: ${({ $isError }) => getThemeColor($isError ? 'signal-danger' : 'brand-accent')};
+  transition: ${({ $isIndeterminate, $transitionDuration }) =>
+    $isIndeterminate ? 'none' : `width ${$transitionDuration} ease-in;`};
+  ${({ $isIndeterminate, $isError }) => decideProgressValue($isIndeterminate, $isError)};
+
+  ${({ $isIndeterminate, $isError }) =>
+    $isIndeterminate && !$isError
       ? css`
           animation: ${loading} 1s infinite;
         `
