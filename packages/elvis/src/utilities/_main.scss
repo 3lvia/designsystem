@@ -12,3 +12,5 @@
 @use 'spacing';
 @use 'typography';
 @use 'visibility';
+@use 'old-colors'; // TODO: Remove when we remove old colors from Elvis
+@use 'mixins';

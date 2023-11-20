@@ -6,6 +6,7 @@ interface TableGroup {
   title: string;
   expanded?: boolean;
   rows: SearchResult<ComponentProp>[];
+  description: string;
 }
 
 @Directive({ selector: '[appPropertyTableBase]' })
@@ -19,11 +20,13 @@ export class PropertyTableBaseDirective implements OnChanges {
         title: 'Properties',
         expanded: true,
         rows: this.getInputProps(this.props),
+        description: "Properties can be used to customise the component's behaviour and appearance.",
       },
       {
         title: 'Events',
         expanded: true,
         rows: this.getEventProps(this.props),
+        description: 'Events let the component communicate with your app, notifying it of changes.',
       },
     ];
   }

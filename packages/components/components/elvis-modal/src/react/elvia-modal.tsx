@@ -38,6 +38,7 @@ export const Modal: FC<ModalProps> = function ({
 }) {
   const modalWrapperRef = useRef<HTMLDivElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
+  const { lockBodyScroll, releaseBodyScroll } = useLockBodyScroll();
 
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
 
@@ -57,41 +58,37 @@ export const Modal: FC<ModalProps> = function ({
     if (!isShowing) {
       return;
     }
-    if (!webcomponent && onClose) {
-      onClose();
-    } else if (webcomponent) {
-      webcomponent.setProps({ isShowing: false }, true);
-      webcomponent.triggerEvent('isShowingOnChange', false);
-      webcomponent.triggerEvent('onClose');
-    }
+    onClose?.();
+    webcomponent?.setProps({ isShowing: false }, true);
+    webcomponent?.triggerEvent('isShowingOnChange', false);
+    webcomponent?.triggerEvent('onClose');
   };
 
   /**
    * Starts listener for click outside modal, closes modal when clicked
    * Starts listener for escape click, closes modal when clicked
-   * Adds styling for locking scroll on body when modal open
    */
   !disableClose && useClickOutside(modalWrapperRef, () => isShowing && handleOnClose());
   useKeyPress('Escape', handleOnClose);
-  useLockBodyScroll(hasLockBodyScroll && isShowing);
 
-  /** When the modal is closed add focus back to the element that had focus when the modal was opened. */
-  useEffect(() => {
-    const originalFocusedElement = document.activeElement as HTMLElement;
-    return () => {
-      originalFocusedElement && originalFocusedElement.focus();
-    };
-  }, []);
-
-  /** Trap focus inside modal */
   useEffect(() => {
     if (!isShowing) {
       return;
     }
+    const originalFocusedElement = document.activeElement as HTMLElement;
     trapFocus(modalWrapperRef);
+
+    if (hasLockBodyScroll) {
+      lockBodyScroll();
+    }
 
     return () => {
       releaseFocusTrap();
+      originalFocusedElement && originalFocusedElement.focus();
+
+      if (hasLockBodyScroll) {
+        releaseBodyScroll();
+      }
     };
   }, [isShowing]);
 

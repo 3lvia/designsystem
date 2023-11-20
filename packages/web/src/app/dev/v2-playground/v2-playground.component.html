@@ -5,27 +5,67 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-p-16 e-mb-24">
-      <div class="e-flex e-gap-8">
-        <elvia-chip type="removable" value="Erik Tallang" color="orange">
-          <img alt="" slot="image" src="assets/contact/Erik.png" />
-        </elvia-chip>
-        <elvia-chip type="removable" value="Trygve Urdahl" color="blue">
-          <img alt="" slot="image" src="assets/contact/Trygve.png" />
-        </elvia-chip>
-        <elvia-chip type="removable" value="Hilde Breivik" color="red">
-          <img alt="" slot="image" src="assets/contact/Hilde.jpg" />
-        </elvia-chip>
+      <div class="toggle-hover">
+        <i class="e-icon e-icon--sm e-icon--search" aria-hidden></i>
+        <i class="e-icon e-icon--sm e-icon--search-color" aria-hidden></i>
       </div>
-      <div class="e-flex e-gap-8 e-mt-24">
-        <elvia-chip isDisabled type="removable" value="Erik Tallang" color="orange">
-          <img alt="" slot="image" src="assets/contact/Erik.png" />
-        </elvia-chip>
-        <elvia-chip isDisabled type="removable" value="Trygve Urdahl" color="blue">
-          <img alt="" slot="image" src="assets/contact/Trygve.png" />
-        </elvia-chip>
-        <elvia-chip isDisabled type="removable" value="Hilde Breivik" color="red">
-          <img alt="" slot="image" src="assets/contact/Hilde.jpg" />
-        </elvia-chip>
+      <div>
+        <h3>Buttons</h3>
+        <div>
+          <button class="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--upload" aria-hidden="true"> </i>
+            </span>
+          </button>
+          Normal
+        </div>
+        <div>
+          <button disabled class="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--upload" aria-hidden="true"> </i>
+            </span>
+          </button>
+          with <code>:disabled</code>
+        </div>
+        <div>
+          <button class="e-btn e-btn--icon e-btn---disabled" aria-label="Beskrivelse av ikon-knapp">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--upload" aria-hidden="true"> </i>
+            </span>
+          </button>
+          with <code>e-btn---disabled</code>
+        </div>
+      </div>
+      <div>
+        <h3>Inputs</h3>
+        <div>
+          <div class="e-form-field">
+            <label class="e-form-field__label" for="iconExample"> Passord </label>
+            <div class="e-input">
+              <button class="e-btn e-btn--icon" aria-label="Vis/skjul passord">
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--view_on" aria-hidden="true"> </i>
+                </span>
+              </button>
+              <input id="iconExample" value="Passord" />
+            </div>
+          </div>
+          Normal
+        </div>
+        <div>
+          <div class="e-form-field">
+            <label class="e-form-field__label" for="iconExample"> Passord </label>
+            <div class="e-input e-input---disabled">
+              <button disabled class="e-btn e-btn--icon" aria-label="Vis/skjul passord">
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--view_on" aria-hidden="true"> </i>
+                </span>
+              </button>
+              <input disabled id="iconExample" value="Passord" />
+            </div>
+          </div>
+          <code>e-input---disabled</code>, <code>input:disabled</code>, and <code>e-btn:disabled</code>.
+        </div>
       </div>
     </div>
     <!--Inverted version-->
@@ -558,6 +598,7 @@
         <!--Paginator-->
         <div class="example-wrapper">
           <h3>Paginator</h3>
+          <elvia-pagination numberOfElements="100"></elvia-pagination>
         </div>
 
         <!--Popover-->
@@ -738,7 +779,7 @@
             <elvia-tooltip>
               <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
                 <i
-                  class="e-icon e-icon--search-bold e-icon--xs e-icon--color-white e-mr-8"
+                  class="e-icon e-icon--search-bold e-icon--xs e-icon--color-info e-mr-8"
                   aria-hidden="true"
                 ></i>
                 This is custom content!

@@ -81,7 +81,6 @@ interface TabLabelProps {
 export const Tab = styled.button<TabLabelProps>`
   ${({ isSelected, isInverted }) => css`
     ${getTypographyCss('title-caps')}
-    line-height: 20px;
     font-weight: ${isSelected ? 500 : 'normal'};
     color: ${getThemeColor('text-1', { isInverted })};
 

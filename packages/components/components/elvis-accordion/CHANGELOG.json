@@ -2,6 +2,37 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "10.11.23",
+      "version": "3.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Large accordion icon update meaning the large accordion label is now 32px instead of 24px tall."
+          ],
+          "fixes": ["Check that the layout still looks good where large accordion is used."]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Typography update and <code>hasBoldLabel</code> prop removed, since the label is bold by default."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "26.10.23",
+      "version": "2.11.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The component no longer sets any typography on its content. It previously erroneously sat the font size to 16px. Unless you have not defined a typography for the content of your accordions, this change should not break anything."
+          ]
+        }
+      ]
+    },
+    {
       "date": "06.10.23",
       "version": "2.11.1",
       "changelog": [

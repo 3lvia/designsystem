@@ -11,30 +11,12 @@ import { ComponentProp } from '../types';
 export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
   calculateMargin(i: number, propList: SearchResult<ComponentProp>[]) {
     const level = propList[i].item.level;
-    if (level === 0) {
-      return 0;
-    }
-    if (this.isLastChild(i, propList)) {
-      if (level === 1) {
-        return 0;
-      }
-      return 16 + 24 * (level - 1);
-    }
-    return 16 + 24 * level;
+    return level === 0 ? 0 : 32 * (level + 1);
   }
 
   calculatePadding(i: number, propList: SearchResult<ComponentProp>[]) {
     const level = propList[i].item.level;
-    if (level === 0) {
-      return 16;
-    }
-    if (this.isLastChild(i, propList)) {
-      if (level === 1) {
-        return 40;
-      }
-      return 24;
-    }
-    return 0;
+    return level === 0 ? 8 : 0;
   }
 
   isLeafProp(i: number, propList: SearchResult<ComponentProp>[]) {
@@ -45,15 +27,5 @@ export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
       return false;
     }
     return true;
-  }
-
-  private isLastChild(i: number, propList: SearchResult<ComponentProp>[]) {
-    if (i === propList.length - 1) {
-      return true;
-    }
-    if (propList[i].item.level > propList[i + 1].item.level) {
-      return true;
-    }
-    return false;
   }
 }

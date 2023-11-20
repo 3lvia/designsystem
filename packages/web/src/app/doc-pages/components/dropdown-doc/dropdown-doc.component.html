@@ -133,6 +133,16 @@
         <app-dropdown-load-more-ceg />
       </app-static-ceg>
     </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Empty option'">
+      <div>
+        If you need an option that is empty, use a placeholder option to clear the dropdown. It should have an
+        item with a <code>label</code> resembling the placeholder, and a <code>value</code> of
+        <code>null</code>.
+        <app-static-ceg>
+          <app-dropdown-empty-ceg />
+        </app-static-ceg>
+      </div>
+    </app-component-subsection>
   </app-component-section>
 
   <!--SIZE-->

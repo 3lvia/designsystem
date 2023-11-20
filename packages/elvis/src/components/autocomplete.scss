@@ -1,6 +1,6 @@
 //DEPRECATED
 /* stylelint-disable */
-@use '../utilities/typography.scss';
+@use '../utilities/mixins.scss';
 @use '../utilities/shadows.scss';
 @use '../utilities/helpers.scss';
 
@@ -23,7 +23,7 @@ $autocomplete-padding-item-compact: 6px 10px;
   text-align: left;
 
   &__item {
-    @include typography.typography('text-md');
+    @include mixins.typography('text-md');
     z-index: 100;
     display: block;
     width: 100%;
@@ -49,7 +49,7 @@ $autocomplete-padding-item-compact: 6px 10px;
   &.e-form-field--small {
     .e-autocomplete {
       &__item {
-        @include typography.typography('text-sm');
+        @include mixins.typography('text-sm');
         padding: $autocomplete-padding-item-compact;
       }
     }

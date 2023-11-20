@@ -22,7 +22,7 @@ const greyColors = Object.keys(darkThemeColors['grey-colors']) as GreyColor[];
 
 export const darkColors: ColorsObject = {
   primary: primaryColors.map((colorName) => getColorElement(colorName, 'dark')) as ColorsObject['primary'],
-  signal: signalColors.map((colorName) => getColorElement(colorName, 'dark')) as ColorsObject['signal'],
+  secondary: signalColors.map((colorName) => getColorElement(colorName, 'dark')) as ColorsObject['secondary'],
   data: dataColors.map((colorName) => getColorElement(colorName, 'dark')) as ColorsObject['data'],
   grey: greyColors.map((colorName) => getColorElement(colorName, 'dark')) as ColorsObject['grey'],
 };

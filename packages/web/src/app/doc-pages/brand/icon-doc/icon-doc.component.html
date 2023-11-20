@@ -8,7 +8,7 @@
 <div class="body">
   <div
     class="alert-container e-none"
-    *ngFor="let icon of visibleIcons | iconSearchPipe : term"
+    *ngFor="let icon of visibleIcons | iconSearchPipe: term"
     [id]="icon.title"
   >
     <div class="e-alert e-alert--local e-alert--info" role="alert">
@@ -21,7 +21,7 @@
             <div class="e-alert__title">{{ icon.pretty }}</div>
             <div class="e-alert__text">
               <div style="display: flex; flex-direction: row; justify-content: space-between">
-                <div class="e-text-sm e-text-grey-70">e-icon e-icon--{{ icon.title }} e-icon--sm</div>
+                <div class="e-text-sm e-color-text-2">e-icon e-icon--{{ icon.title }} e-icon--sm</div>
               </div>
             </div>
           </div>
@@ -30,7 +30,7 @@
             <div class="copy-text-container">
               <div
                 [ngClass]="{ hide: !copied }"
-                class="copy-text e-mr-24 e-text-black"
+                class="copy-text e-mr-24 e-color-text-1"
                 style="margin-top: -4px"
               >
                 Copied!
@@ -115,7 +115,7 @@
     <div class="icon-accordion-container">
       <div class="overview-icons-container" #icons>
         <div
-          *ngFor="let icon of visibleIcons | iconSearchPipe : term; let i = index"
+          *ngFor="let icon of visibleIcons | iconSearchPipe: term; let i = index"
           [class.margin-auto]="icon === -1"
         >
           <div *ngIf="icon === -1" class="no-results">
@@ -377,7 +377,7 @@
         <div class="doDontIcons__container">
           <div class="doDontIcons__container__title">
             <i
-              class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"
+              class="e-icon e-icon--check_circle e-icon--sm e-icon--color-positive"
               aria-hidden="true"
               aria-hidden="true"
             ></i>
@@ -396,7 +396,7 @@
         <div class="doDontDivider"></div>
         <div class="doDontIcons__container">
           <div class="doDontIcons__container__title">
-            <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red" aria-hidden="true"></i>
+            <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-error" aria-hidden="true"></i>
             <div class="e-title-caps e-ml-16" *ngIf="locale === 'en-GB'">Don't mix</div>
             <div class="e-title-caps e-ml-16" *ngIf="locale === 'nb-NO'">Ikke bland</div>
           </div>
@@ -416,7 +416,7 @@
   <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
     <app-component-subsection [sectionTitle]="'General'">
-      <div>All Elvia icons are available through the @elvia/elvis package or CDN.</div>
+      <div>All Elvia icons are available through the &#64;elvia/elvis package or CDN.</div>
     </app-component-subsection>
 
     <app-component-subsubsection [sectionTitle]="'Method 1 - Easiest if you are already using Elvis'">
@@ -452,8 +452,7 @@
         <app-component-installation [componentData]="componentData"></app-component-installation>
       </app-component-section>
 
-      <!--PROPERTIES-->
-      <app-component-section [sectionTitle]="'Properties'">
+      <app-component-section sectionTitle="API">
         <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
       </app-component-section>
     </app-component-subsubsection>

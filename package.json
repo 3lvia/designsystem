@@ -16,7 +16,7 @@
     "build:components": "yarn workspace @elvia/elvis-components build",
     "build:web": "yarn workspace elvia-designsystem build",
     "build:web:prod": "yarn contentful:production && yarn workspace elvia-designsystem build:production && yarn workspace react-test build:production",
-    "build:tokens": "yarn workspaces foreach -pv --include @elvia/elvis-colors --include @elvia/elvis-typography run build && yarn workspace @elvia/elvis-assets-icons build",
+    "build:tokens": "yarn workspaces foreach -pvt --recursive --from '{@elvia/elvis-colors,@elvia/elvis-typography,@elvia/elvis-assets-icons}' run build",
     "start:elvis": "yarn workspace @elvia/elvis start",
     "start:components": "yarn workspace @elvia/elvis-components start",
     "start:web": "yarn contentful && yarn workspace elvia-designsystem start",
@@ -27,7 +27,7 @@
     "contentful:production": "yarn workspace elvia-designsystem contentful:production",
     "prettier:elvis": "prettier --write \"packages/elvis/**/*.js\"",
     "prettier:components": "prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
-    "prettier:web": "prettier --write \"packages/web/src/**/*.ts\"",
+    "prettier:web": "prettier --write \"packages/web/src/**/*.{ts,html,scss}\"",
     "lint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint:all": "yarn prettier:elvis && yarn prettier:web && yarn prettier:components && yarn eslint",
     "test": "yarn workspace @elvia/elvis-components test",
@@ -35,7 +35,7 @@
     "test-ct:update": "yarn workspace @elvia/elvis-components test-ct:update",
     "test:start": "yarn workspace @elvia/elvis-components test:start",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
-    "publish": "yarn workspaces foreach -ipv --no-private npm publish --access public"
+    "publish": "yarn workspaces foreach -ipv --all --no-private npm publish --access public"
   },
   "husky": {
     "hooks": {
@@ -56,32 +56,32 @@
     ]
   },
   "engines": {
-    "node": ">=18.18.2"
+    "node": ">=20.9.0"
   },
   "dependencies": {
-    "prettier": "^3.0.3"
+    "prettier": "^3.1.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.7.5",
-    "@typescript-eslint/parser": "^6.7.5",
-    "eslint": "^8.51.0",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "eslint": "^8.53.0",
     "eslint-plugin-react": "^7.33.2",
     "express": "^4.18.2",
     "gulp-stylelint": "^13.0.0",
     "husky": "^4.3.8",
-    "lint-staged": "^15.0.1",
+    "lint-staged": "^15.1.0",
     "postcss": "^8.4.31",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "safe-json-stringify": "^1.2.0",
-    "stylelint": "^15.10.3",
+    "stylelint": "^15.11.0",
     "stylelint-config-idiomatic-order": "^9.0.0",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-sass-guidelines": "^10.0.0",
-    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-config-standard-scss": "^11.1.0",
     "stylelint-selector-bem-pattern": "^3.0.1",
-    "typescript": "~5.1.0"
+    "typescript": "~5.2.2"
   },
-  "packageManager": "yarn@3.6.4"
+  "packageManager": "yarn@4.0.2"
 }

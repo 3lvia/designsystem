@@ -1,15 +1,27 @@
 import changelogJson from '@elvia/elvis-carousel/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
+import ComponentData, { NestedProp } from '../component-data.interface';
+import { BaseCarouselProps, CarouselItem } from '@elvia/elvis-carousel/react';
 
-export const carouselData: ComponentData = {
+// We force items to be CarouselItem, since it actually is a union of number and CarouselItem[], which is hard to type correctly.
+export const carouselData: ComponentData<BaseCarouselProps & { items: CarouselItem[] }> = {
   changelog: changelogJson.content,
   name: 'Carousel',
   attributes: {
     items: {
       isRequired: true,
-      type: 'CarouselItem[] | number | slot',
+      type: 'object[] | number',
       description:
         'A collection of related items that should be displayed in a carousel. If not React, send the items in by slots. Name the slots "item-1", "heading-1", "item-2", "heading-2" and so on.',
+      children: {
+        heading: {
+          type: 'JSX.Element | string',
+          description: 'The title of the item.',
+        },
+        item: {
+          type: 'JSX.Element | string',
+          description: 'The content of the item.',
+        },
+      },
     },
     type: {
       type: '"loop" | "linear"',
@@ -56,3 +68,20 @@ export const carouselData: ComponentData = {
     'More than five frames - It’s unlikely users will engage with more than that (Use a list instead)',
   ],
 };
+
+const f = {
+  isRequired: true,
+  type: 'object[]',
+  description:
+    'A collection of related items that should be displayed in a carousel. If not React, send the items in by slots. Name the slots "item-1", "heading-1", "item-2", "heading-2" and so on.',
+  children: {
+    heading: {
+      type: 'JSX.Element | string',
+      description: 'The title of the item.',
+    },
+    item: {
+      type: 'JSX.Element | string',
+      description: 'The content of the item.',
+    },
+  },
+} as NestedProp<CarouselItem>;

@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-typography",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Elvia typography",
   "license": "MIT",
   "main": "dist/elviaTypography.js",
@@ -19,12 +19,12 @@
     "!dist/**/*.d.ts.map"
   ],
   "devDependencies": {
-    "@types/gulp": "^4.0.15",
-    "@types/node": "^18.18.5",
+    "@types/gulp": "^4.0.17",
+    "@types/node": "^20.9.2",
     "del": "^6.1.1",
     "gulp": "^4.0.2",
     "ts-node": "^10.9.1",
-    "tsup": "^7.2.0",
-    "typescript": "~5.1.0"
+    "tsup": "^7.3.0",
+    "typescript": "~5.2.2"
   }
 }

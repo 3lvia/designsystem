@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { outlineListener, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
-import { AccordionProps } from './elvia-accordion.types';
+import { AccordionProps, AccordionSize } from './elvia-accordion.types';
 import {
   AccordionArea,
   AccordionButtonArea,
@@ -25,7 +25,6 @@ export const Accordion: FC<AccordionProps> = ({
   openAriaLabel,
   closeAriaLabel,
   isStartAligned = false,
-  hasBoldLabel = true,
   labelPosition = 'center',
   size = 'medium',
   type = 'normal',
@@ -134,6 +133,16 @@ export const Accordion: FC<AccordionProps> = ({
     return isStartAligned && !isFullWidth;
   };
 
+  const getIconSize = (size: AccordionSize): string => {
+    if (size === 'small') {
+      return 'xs';
+    } else if (size === 'medium') {
+      return 'sm';
+    } else {
+      return 'md';
+    }
+  };
+
   return (
     <AccordionArea
       className={className}
@@ -160,13 +169,9 @@ export const Accordion: FC<AccordionProps> = ({
       <AccordionButtonArea labelPosition={labelPosition} type={type}>
         <AccordionButton
           aria-expanded={isOpenState}
-          size={size}
           currType={type}
           isFullWidth={isFullWidth}
           isOpenState={isOpenState}
-          hasBoldLabel={hasBoldLabel}
-          openDetailText={openDetailText}
-          typography={typography}
           onClick={() => handleOnClick()}
           onMouseEnter={() => setIsHoveringButton(true)}
           onMouseLeave={() => setIsHoveringButton(false)}
@@ -176,7 +181,7 @@ export const Accordion: FC<AccordionProps> = ({
           {shouldShowLeftIcon() && (
             <IconWrapper
               icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
-              size={size === 'small' ? 'xs' : 'sm'}
+              size={getIconSize(size)}
             />
           )}
           <AccordionLabel
@@ -185,9 +190,13 @@ export const Accordion: FC<AccordionProps> = ({
             isFullWidth={isFullWidth}
           >
             {isOpenState ? (
-              <AccordionLabelText ref={closeLabelRef}>{closeLabel}</AccordionLabelText>
+              <AccordionLabelText size={size} typography={typography} ref={closeLabelRef}>
+                {closeLabel}
+              </AccordionLabelText>
             ) : (
-              <AccordionLabelText ref={openLabelRef}>{openLabel}</AccordionLabelText>
+              <AccordionLabelText size={size} typography={typography} ref={openLabelRef}>
+                {openLabel}
+              </AccordionLabelText>
             )}
             <AccordionDetailText size={size} openDetailText={openDetailText}>
               {!isOpenState ? openDetailText : closeDetailText}
@@ -196,7 +205,7 @@ export const Accordion: FC<AccordionProps> = ({
           {shouldShowRightIcon() && (
             <IconWrapper
               icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
-              size={size === 'small' ? 'xs' : 'sm'}
+              size={getIconSize(size)}
             />
           )}
         </AccordionButton>

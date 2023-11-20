@@ -1,15 +1,50 @@
 import changelogJson from '@elvia/elvis-dropdown/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { DropdownProps, DropdownItem } from '@elvia/elvis-dropdown/react';
 
-export const dropdownData: ComponentData = {
+type DropdownPropsWithStubbedItems = {
+  items: (DropdownItem & { children: any })[];
+};
+export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithStubbedItems, 'isCompact'>> = {
   changelog: changelogJson.content,
   name: 'Dropdown',
   attributes: {
     items: {
       isRequired: true,
       type: 'object[]',
-      description:
-        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string | number, label: string, icon?: string, isDisabled?: boolean, status?: string, tooltip?: string, children?: Array<object>}',
+      description: 'Items available in the dropdown menu.',
+      children: {
+        icon: {
+          type: 'string',
+          description:
+            'HTML for icon that should be displayed with the dropdown item. No icons are displayed if one or more dropdown item are missing an icon.',
+        },
+        isDisabled: {
+          type: 'boolean',
+          description: 'Disables the dropdown item.',
+        },
+        label: {
+          type: 'string',
+          description: 'The visible label for the dropdown item.',
+        },
+        status: {
+          type: "'error' | 'warning' | 'info' | 'informative'",
+          description: 'The status for the dropdown item.',
+        },
+        tooltip: {
+          type: 'string',
+          description: 'A tooltip that should be displayed on the dropdown item.',
+        },
+        value: {
+          type: 'string | number',
+          description:
+            'The value associated with the dropdown item. This is what is emitted from the dropdown component when selecting an item.',
+        },
+        children: {
+          type: 'object[]',
+          description: 'Adds another level of items that is opened in another dropdown window.',
+        },
+      },
     },
     value: {
       type: 'string | string[] | number | number[]',
@@ -18,11 +53,37 @@ export const dropdownData: ComponentData = {
       default: 'undefined',
     },
     errorOptions: {
-      type: 'Partial<{ text: string; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
+      type: 'object',
       description:
-        'An object that allows for custom configuration of the error handling in the dropdown. Setting "text" will always show the provided error message. "isErrorState" allows for manually activating the visual error UI. "hasErrorPlaceholder" allows you to remove the padding below the dropdown.',
+        'An object that allows for custom configuration of the error handling in the autocomplete.',
       default: '{ isErrorState: false, hasErrorPlaceholder: true }',
       example: /* ts */ `errorOptions = { text: "Error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true }`,
+      children: {
+        text: {
+          type: 'string',
+          description: 'Setting "text" will always show the provided error message.',
+        },
+        hideText: {
+          type: 'boolean',
+          description: 'Hides the default validation errors.',
+          default: 'false',
+        },
+        isErrorState: {
+          type: 'boolean',
+          description: 'Allows for manually activating the visual error UI.',
+          default: 'false',
+        },
+        hasErrorPlaceholder: {
+          type: 'boolean',
+          description: 'Allows you to remove the padding below the dropdown.',
+          default: 'true',
+        },
+      },
+    },
+    isRequired: {
+      type: 'boolean',
+      description: 'Makes the dropdown required.',
+      default: 'false',
     },
     size: {
       type: '"small" | "medium"',
@@ -38,6 +99,11 @@ export const dropdownData: ComponentData = {
       type: 'boolean',
       description: "Set the dropdown to fill 100% of its parent's container width.",
       default: 'false',
+    },
+    errorOnChange: {
+      isEvent: true,
+      type: '(error: string) => void',
+      description: 'Gets called every time the internal validation error is changed. ',
     },
     isSearchable: {
       type: 'boolean',

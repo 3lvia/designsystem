@@ -10,6 +10,9 @@ export enum Pages {
   Index = '',
   Home = 'home',
 
+  // Elvis
+  CssLibrary = 'css-library',
+
   // Component Pages
   Accordion = 'accordion',
   Alert = 'alert',
@@ -58,7 +61,6 @@ export enum Pages {
   Tooltip = 'tooltip',
 
   // Pages not from CMS
-  Changelog = 'whats-new',
   Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq',

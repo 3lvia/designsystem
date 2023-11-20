@@ -42,13 +42,13 @@
               "json5",
               "lodash.isequal",
               "lodash.throttle",
+              "lodash.uniqueid",
               "natural-compare-lite",
               "prismjs",
               "react-dom/client",
-              "@elvia/elvis-toolbox",
               "dompurify",
               "shallowequal",
-              "lodash.uniqueid"
+              "classnames"
             ],
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -122,18 +122,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "elvia-designsystem:build"
+            "buildTarget": "elvia-designsystem:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "elvia-designsystem:build:production"
+              "buildTarget": "elvia-designsystem:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "elvia-designsystem:build"
+            "buildTarget": "elvia-designsystem:build"
           }
         },
         "lint": {

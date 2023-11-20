@@ -23,6 +23,7 @@ import { ComponentRelatedModule } from './component-related/component-related.mo
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ComponentChangelogModule,
     ComponentHeaderModule,
     ComponentInstallationModule,

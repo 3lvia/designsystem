@@ -1,0 +1,82 @@
+<app-component-header [lastUpdated]="changelog[0].date" [componentData]="componentData">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body e-mt-72">
+  <app-component-section sectionTitle="What is the CSS library?">
+    <app-css-library-illustration class="e-mb-88" />
+    <app-component-subsection sectionTitle="Components">
+      This package includes basic CSS-based components such as links, tags and inputs. These are all found in
+      the list of components, and are marked with the tag “CSS Library” to indicate that they are used through
+      this library.
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Utilities">
+      Different utilities are also available through this library. These include tokens like colors and
+      typography, as well as assets like icons and logos.
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section sectionTitle="Installation">
+    <app-component-subsection sectionTitle="NPM">
+      Npm is the recommended method of installing Elvis.
+      <ol class="e-list e-list--numbers">
+        <li>
+          <strong>Install package:</strong>
+          <app-copy [message]="npmInstall">
+            <code>{{ npmInstall }}</code>
+          </app-copy>
+          <p class="e-text-md e-my-8">or</p>
+          <app-copy [message]="yarnAdd">
+            <code>{{ yarnAdd }}</code>
+          </app-copy>
+        </li>
+        <li>
+          <strong>Import stylesheet:</strong>
+          <app-copy [message]="importStylesheet">
+            <code>{{ importStylesheet }}</code>
+          </app-copy>
+          <p class="e-text-md e-mt-8">Add this import to your main stylesheet, for example "styles.scss".</p>
+        </li>
+        <li>
+          <strong>Import script:</strong>
+          <app-copy [message]="importScript">
+            <code>{{ importScript }}</code>
+          </app-copy>
+          <p class="e-text-md e-mt-8">
+            Please note that elvis.js should be imported only once, somewhere at the base-level of your app,
+            for example "main.ts". Depending on what framework you are using, the method of doing this may
+            differ.
+          </p>
+        </li>
+      </ol>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="CDN">
+      The CDN can also be used. Note that this is not recommended, since you miss out on typings and automatic
+      updates through Renovate.
+
+      <ol class="e-list e-list--numbers">
+        <li>
+          <strong>Add stylesheet</strong>
+          <div class="e-title-caps">Head</div>
+          <app-copy [message]="linkTagCode" autoOverflow>
+            <code class="e-flex">{{ linkTagCode }}</code>
+          </app-copy>
+          <p class="e-text-md e-mt-8">This should be added to the head element.</p>
+        </li>
+        <li>
+          <strong>Add script</strong>
+          <div class="e-title-caps">Body</div>
+          <app-copy [message]="scriptTagCode" autoOverflow>
+            <code class="e-flex">{{ scriptTagCode }}</code>
+          </app-copy>
+          <p class="e-text-md e-mt-8">This should be added to the body element.</p>
+        </li>
+      </ol>
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section sectionTitle="Changelog">
+    <app-component-changelog [changelog]="changelog"></app-component-changelog>
+  </app-component-section>
+</div>

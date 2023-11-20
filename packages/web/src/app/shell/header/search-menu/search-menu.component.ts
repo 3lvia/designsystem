@@ -13,12 +13,12 @@ import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-gro
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
-import { LOCALE_CODE } from 'contentful/types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchStatus, SearchItem } from './search-menu.interface';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SearchResult, Searcher } from 'src/app/shared/searcher';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-search-menu',
@@ -41,6 +41,7 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
     private cmsService: CMSService,
     private localizationService: LocalizationService,
     private router: Router,
+    public breakpointService: BreakpointService,
   ) {
     this.localizationService
       .listenLocalization()
@@ -174,26 +175,19 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
 
     const mappedCMSItems: SearchItem[] = [];
     this.mainMenu.pages.forEach((subMenu) => {
-      subMenu.entry.fields.pages?.[Locale[this.locale] as LOCALE_CODE]?.forEach((documentationPage) => {
+      subMenu.entry.fields.pages?.[this.locale]?.forEach((documentationPage) => {
         let description: string | undefined;
         if (documentationPage.fields.pageDescription) {
-          description = documentToHtmlString(
-            documentationPage.fields.pageDescription[Locale[this.locale] as LOCALE_CODE]!,
-          );
+          description = documentToHtmlString(documentationPage.fields.pageDescription[this.locale]!);
           description = description.replace(/<.*?>/g, '');
         }
 
-        if (
-          !mappedCMSItems.find(
-            (item) => item.title === documentationPage.fields.title[Locale[this.locale] as LOCALE_CODE],
-          )
-        ) {
+        if (!mappedCMSItems.find((item) => item.title === documentationPage.fields.title[this.locale])) {
           mappedCMSItems.push({
-            title: documentationPage.fields.title[Locale[this.locale] as LOCALE_CODE]!,
+            title: documentationPage.fields.title[this.locale]!,
             description: description,
             type: subMenu.title.substring(0, subMenu.title.length - (subMenu.title.endsWith('s') ? 1 : 0)),
-            absolutePath:
-              subMenu.path + '/' + documentationPage.fields.path[Locale[this.locale] as LOCALE_CODE],
+            absolutePath: subMenu.path + '/' + documentationPage.fields.path[this.locale],
           });
         }
       });

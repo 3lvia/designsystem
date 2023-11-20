@@ -165,6 +165,8 @@ describe('Elvis Datepicker', () => {
       const user = userEvent.setup();
 
       await user.click(screen.getByTestId('input'));
+      // Tab twice to get outside the whole datepicker (input field and overlay trigger)
+      await user.tab();
       await user.tab();
 
       expect(screen.getByTestId('error')).toHaveTextContent('Velg dato');
@@ -210,6 +212,7 @@ describe('Elvis Datepicker', () => {
 
       await user.type(screen.getByTestId('input'), '01.05.2076');
       await user.tab();
+      await user.tab();
 
       expect(screen.queryByTestId('error')).toHaveTextContent('Tidligste dato er 01.05.2077');
     });
@@ -230,6 +233,8 @@ describe('Elvis Datepicker', () => {
       const user = userEvent.setup();
 
       await user.type(screen.getByTestId('input'), '01.05.2023');
+      // Tab twice to get outside the whole datepicker (input field and overlay trigger)
+      await user.tab();
       await user.tab();
 
       expect(screen.queryByTestId('error')).toHaveTextContent('Seneste dato er 01.05.2022');
@@ -350,6 +355,8 @@ describe('Elvis Datepicker', () => {
       const input = screen.getByRole('textbox', { name: /velg dato/i });
       await user.click(input);
       await user.type(input, '26.03.2000');
+      // Tab twice to get outside the whole datepicker (input field and overlay trigger)
+      await user.tab();
       await user.tab();
 
       await waitFor(() => expect(errorOnChangeEvent).toHaveBeenCalledTimes(1));

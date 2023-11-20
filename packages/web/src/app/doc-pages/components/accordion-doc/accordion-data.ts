@@ -92,10 +92,6 @@ const accordionData: ComponentData<BaseAccordionProps> = {
       type: `boolean`,
       description: `Sets the accordion icon at the start, before the accordion label.`,
     },
-    hasBoldLabel: {
-      type: 'boolean',
-      description: 'Makes the accordion toggle text bold.',
-    },
     onClose: {
       isEvent: true,
       type: '() => void',

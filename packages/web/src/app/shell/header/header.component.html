@@ -1,4 +1,8 @@
-<header class="header" [ngClass]="visibleMenuType ? 'e-color-background-overlay-1' : 'e-color-background-3'">
+<header
+  class="header"
+  [ngClass]="visibleMenuType ? 'e-color-background-overlay-1' : 'e-color-background-3'"
+  [cdkTrapFocus]="visibleMenuType !== null"
+>
   <a class="e-flex e-align-items-center" [routerLink]="['', 'home']">
     <img [src]="logoUrl" class="elvia-logo" alt="Elvia Logo" />
   </a>
@@ -61,7 +65,7 @@
       <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()"></app-theme-switch>
     </elvia-popover>
 
-    <elvia-divider orientation="vertical" className="e-mx-24" [inlineStyle]="{ maxHeight: '20px' }" />
+    <elvia-divider orientation="vertical" className="e-mx-24" inlineStyle="{ maxHeight: '20px' }" />
 
     <button
       class="header-button hover-underline"

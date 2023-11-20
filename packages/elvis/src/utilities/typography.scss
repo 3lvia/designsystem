@@ -1,57 +1,18 @@
 @use 'sass:map';
 @use './breakpoints.scss';
 @use '@elvia/elvis-typography/dist/typographyMap.scss' as TypographyMap;
+@use './mixins.scss';
 
-@function getValue($name, $value) {
-  $typography-map: null;
-
-  @if map-has-key($typography, $name) {
-    $typography-map: map-get($typography, $name);
-  } @else {
-    @each $label, $map in $typography {
-      @if map-has-key($typography, alt-labels) {
-        @if contains(map-get($map, alt-labels), $name) {
-          $typography-map: $map;
-        }
-      }
-    }
-  }
-
-  @if not $typography-map {
-    @warn 'the typography variable "#{$name}" was not found';
-    @return null;
-  }
-
-  @return map-get($typography-map, $value);
-}
-
-@mixin typography($name) {
-  color: getValue($name, color);
-  font-family: getValue($name, family);
-  font-size: getValue($name, size);
-  font-style: getValue($name, style);
-  font-weight: getValue($name, weight);
-  letter-spacing: getValue($name, letter-spacing);
-  line-height: getValue($name, height);
-  text-transform: getValue($name, transform);
-  @include breakpoints.breakpoint-up(Mobile) {
-    font-size: getValue($name, size-m);
-    line-height: getValue($name, height-m);
-  }
-}
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,500,500i,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:300,400,400i,500,500i,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400&display=swap');
 
 body {
+  @include mixins.typography('text-md');
   color: var(--e-color-text-primary, #000);
-  font-family: 'Red Hat Display', Verdana, sans-serif;
 }
 
-$typography: TypographyMap.$typography;
-
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,500i,700,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500,500i,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&display=swap');
-
-@each $label, $map in $typography {
+@each $label, $map in TypographyMap.$typography {
   $family: map.get($map, family);
   $size: map.get($map, size);
   $size-m: map.get($map, size-m);

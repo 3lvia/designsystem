@@ -1,15 +1,35 @@
 import changelogJson from '@elvia/elvis-segmented-control/CHANGELOG.json';
 import ComponentData from '../../component-data.interface';
+import { BaseSegmentedControlProps } from '@elvia/elvis-segmented-control/react';
 
-export const segmentedControlData: ComponentData = {
+export const segmentedControlData: ComponentData<BaseSegmentedControlProps> = {
   changelog: changelogJson.content,
   name: 'SegmentedControl',
   attributes: {
     items: {
       isRequired: true,
-      type: 'TextSegmentedControl: {label: string}[] | IconSegmentedControl: {icon: string, iconSelected: string, ariaLabel: string }[]',
-      description:
-        'The items represent the controls in the segmented control. When using the icon type, the items should be provided with icon as HTML both for normal state and hover and should have an ariaLabel to describe the icon. ',
+      type: 'TextSegmentedControl[] | IconSegmentedControl[]',
+      description: 'The items represent the controls in the segmented control.',
+      children: {
+        label: {
+          type: 'string',
+          description: 'Label for the segmented control. Applicable for regular segmented controls.',
+        },
+        ariaLabel: {
+          type: 'string',
+          description: 'Aria label for the segmented control. Only used in icon segmented controls.',
+        },
+        icon: {
+          type: 'string',
+          description:
+            'HTML for the icon to be used for the segmented control. Only used in icon segmented controls.',
+        },
+        iconSelected: {
+          type: 'string',
+          description:
+            'HTML for the icon visible when the segmented control is active. Only used in icon segmented controls.',
+        },
+      },
     },
     value: {
       type: 'Number',

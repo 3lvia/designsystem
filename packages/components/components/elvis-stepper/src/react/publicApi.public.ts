@@ -1,4 +1,4 @@
-interface StepState {
+export interface StepState {
   heading: string;
   isError: boolean;
   isCompleted: boolean;

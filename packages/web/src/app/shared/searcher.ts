@@ -1,8 +1,8 @@
-import Fuse from 'fuse.js';
+import Fuse, { FuseResultMatch, IFuseOptions } from 'fuse.js';
 
 export type SearchResult<T> = {
   item: T;
-  matches?: ReadonlyArray<Fuse.FuseResultMatch>;
+  matches?: ReadonlyArray<FuseResultMatch>;
 };
 
 /**
@@ -34,7 +34,7 @@ export class Searcher<T> {
 
   private fuse: Fuse<T>;
 
-  constructor(searchItems: T[], searchOptions: Fuse.IFuseOptions<T>) {
+  constructor(searchItems: T[], searchOptions: IFuseOptions<T>) {
     this.fuse = new Fuse(searchItems, searchOptions);
     this.isInitialized = true;
   }

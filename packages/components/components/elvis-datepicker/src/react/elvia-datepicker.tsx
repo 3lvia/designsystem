@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { FocusEventHandler, useEffect, useRef, useState } from 'react';
 import calendar from '@elvia/elvis-assets-icons/dist/icons/calendar';
 import { OverlayContainer } from './popup/overlayContainer';
 import { ErrorType, DatepickerProps } from './elviaDatepicker.types';
@@ -15,7 +15,8 @@ import {
 import { DatepickerInput } from './datepickerInput';
 import { DatepickerError } from './error/datepickerError';
 import { getErrorText } from './getErrorText';
-import { copyDay, isAfter, isBefore, isValidDate, localISOTime } from './dateHelpers';
+import { copyDay, isSameDay, isValidDate, localISOTime } from './dateHelpers';
+import { validateDate } from './validateDate';
 
 const defaultErrorOptions = {
   hideText: false,
@@ -56,6 +57,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const [error, setError] = useState<ErrorType | undefined>();
   const [minDateWithoutTime, setMinDateWithoutTime] = useState(minDate);
   const [maxDateWithoutTime, setMaxDateWithoutTime] = useState(maxDate);
+  const inputRef = useRef<HTMLInputElement>(null);
   const connectedElementRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const openPopoverButtonRef = useRef<HTMLButtonElement>(null);
@@ -123,17 +125,34 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
   };
 
+  const revalidateInputValue = () => {
+    const [day, month, year] = (inputRef.current?.value ?? '').split('.');
+    const error = validateDate({
+      inputValue: { day: parseInt(day), month: parseInt(month), year: parseInt(year) },
+      minDate: minDateWithoutTime,
+      maxDate: maxDateWithoutTime,
+      required: isRequired,
+    });
+
+    switch (error) {
+      case 'invalidDate':
+      case 'beforeMinDate':
+      case 'afterMaxDate':
+      case 'required':
+        onError(error);
+        break;
+      default:
+        onError();
+        break;
+    }
+  };
+
   const setVisibility = (isShowing: boolean): void => {
     setIsShowing(isShowing);
 
     if (!isShowing) {
       openPopoverButtonRef.current?.focus();
-
-      if (isRequired && !date) {
-        setError('required');
-      } else if (date) {
-        validateMinMax(date);
-      }
+      revalidateInputValue();
 
       emitOnClose();
       releaseFocusTrap();
@@ -183,23 +202,65 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       return;
     }
 
-    if (d.getFullYear() < 1800 || !isValidDate(d)) {
-      onError('invalidDate');
+    const error = validateDate({
+      inputValue: { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() },
+      minDate: minDateWithoutTime,
+      maxDate: maxDateWithoutTime,
+      required: isRequired,
+    });
+
+    switch (error) {
+      case 'invalidDate':
+      case 'beforeMinDate':
+      case 'afterMaxDate':
+        onError(error);
+        return;
+      default:
+        onError();
+        return;
+    }
+  };
+
+  const handleTriggerButtonBlur: FocusEventHandler<HTMLButtonElement> = (event) => {
+    // Don't run validation on blur of the trigger button if new focused element is the input field
+    // Don't run validation on blur when opening the overlay
+    if (event.relatedTarget?.isSameNode(inputRef.current) || isShowing) {
       return;
     }
 
-    const checkMinDate = dateRangeProps?.showTimeInError ? minDate : minDateWithoutTime;
-    if (minDate && isBefore(d, checkMinDate)) {
-      onError('beforeMinDate');
-      return;
-    }
+    const inputValue = inputRef.current?.value ?? '';
 
-    const checkMaxDate = dateRangeProps?.showTimeInError ? maxDate : maxDateWithoutTime;
-    if (checkMaxDate && isAfter(d, checkMaxDate)) {
-      onError('afterMaxDate');
-      return;
+    const [dayString, monthString, yearString] = inputValue.split('.');
+    const [day, month, year] = [parseInt(dayString), parseInt(monthString), parseInt(yearString)];
+
+    const error = validateDate({
+      inputValue: { day, month, year },
+      minDate: minDateWithoutTime,
+      maxDate: maxDateWithoutTime,
+      required: isRequired,
+    });
+
+    let newDate: Date | null = new Date(`${year}/${month}/${day}`);
+    newDate = isValidDate(newDate) ? newDate : null;
+    switch (error) {
+      case 'required':
+        if (!isSameDay(newDate, date) && newDate !== date) {
+          updateValue(newDate);
+        }
+        onError(error);
+        break;
+      case 'invalidDate':
+      case 'beforeMinDate':
+      case 'afterMaxDate':
+        onError(error);
+        break;
+      case 'valid':
+        if (!isSameDay(newDate, date) && newDate !== date) {
+          updateValue(newDate);
+        }
+        onError();
+        break;
     }
-    onError();
   };
 
   // Needed for webcomponent -> To update the default value
@@ -216,7 +277,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
   }, [value, maxDateWithoutTime, minDateWithoutTime]);
 
-  // Allows app to open the datepicker programatically
+  // Allows app to open the datepicker programmatically
   useEffect(() => {
     if (isShowing !== isOpen) {
       // Allow the DOM to stabilize
@@ -270,16 +331,17 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         )}
         <FormFieldInputContainer ref={connectedElementRef} data-testid="input-container">
           <DatepickerInput
+            ref={inputRef}
             date={date}
             disabled={isDisabled}
             placeholder={placeholder}
             onChange={updateValue}
             onFocus={() => onFocus?.()}
             required={isRequired}
-            currentError={error}
             onErrorChange={onError}
             minDate={minDateWithoutTime}
             maxDate={maxDateWithoutTime}
+            overlayTriggerRef={openPopoverButtonRef}
           />
           <IconButton
             disabled={isDisabled}
@@ -288,6 +350,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
               onFocus?.();
               setVisibility(!isShowing);
             }}
+            onBlur={handleTriggerButtonBlur}
             ref={openPopoverButtonRef}
             size={size}
             data-testid="popover-toggle"

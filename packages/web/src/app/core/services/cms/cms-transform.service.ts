@@ -86,8 +86,7 @@ export class CMSTransformService {
     subMenu: CMSSubMenu[],
     localization: Locale,
   ): TransformedDocPage {
-    const locale = localization === Locale['nb-NO'] ? 'nb-NO' : 'en-GB';
-    this.locale = locale;
+    this.locale = localization;
     let subMenuRoute = '';
     if (this.router.url.split('/')[2]) {
       subMenuRoute = this.router.url.split('/')[1] + '/';
@@ -375,7 +374,7 @@ export class CMSTransformService {
     <div class="when-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
-          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green" aria-hidden="true"></i>
+          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-positive" aria-hidden="true"></i>
         </div>
         <div>When to use:</div>
       </div>
@@ -388,7 +387,7 @@ export class CMSTransformService {
     <div class="when-not-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
-          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red" aria-hidden="true"></i>
+          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-error" aria-hidden="true"></i>
         </div>
         <div>When not to use:</div>
       </div>
@@ -412,7 +411,10 @@ export class CMSTransformService {
     const shouldHaveThemeBackground = !data.fields.transparentBackground;
     const description = data.fields.description ? this.extractLocale(data.fields.description) : undefined;
     const altText = data.fields.altText ? this.extractLocale(data.fields.altText) : undefined;
-    const srcUrl = 'https:' + this.extractLocale(this.extractLocale(data.fields.image)!.fields.file)?.url;
+    let srcUrl = 'https:' + this.extractLocale(this.extractLocale(data.fields.image)!.fields.file)?.url;
+    if (this.currentTheme === 'dark' && data.fields.imageDark) {
+      srcUrl = 'https:' + this.extractLocale(this.extractLocale(data.fields.imageDark)!.fields.file)?.url;
+    }
     return `<div class='${imgAlignment && !hasInlineText ? 'cms-image-align-' + imgAlignment : ''}'>
     <div
       style=' 
@@ -421,8 +423,8 @@ export class CMSTransformService {
           imgSize === 'original'
             ? 'width: unset'
             : imgSize === '100%'
-            ? 'width: calc(' + imgSize + '- 64px)'
-            : 'width: ' + imgSize
+              ? 'width: calc(' + imgSize + '- 64px)'
+              : 'width: ' + imgSize
         }
       '
       class='
@@ -588,8 +590,8 @@ export class CMSTransformService {
       background === 'Dark'
         ? 'background: var(--e-light-theme-grey); color: var(--e-light-theme-grey--contrast);'
         : background === 'Grey'
-        ? 'background: var(--e-light-theme-grey-05); color: var(--e-light-theme-grey-05--contrast);'
-        : 'background: var(--e-light-theme-white); color: var(--e-light-theme-white--contrast);'
+          ? 'background: var(--e-light-theme-grey-05); color: var(--e-light-theme-grey-05--contrast);'
+          : 'background: var(--e-light-theme-white); color: var(--e-light-theme-white--contrast);'
     } margin-top: 12px; margin-bottom: 12px">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       ${returnString}

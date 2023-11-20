@@ -47,6 +47,13 @@ export const homeMenu: DocPage[] = [
 
 export const componentsDocPages: DocPage[] = [
   {
+    title: 'CSS Library',
+    description: `The CSS library <code>@elvia/elvis</code> consists of the most basic components like links, tags and inputs as well as utilities like colors, typography, icons and logos.`,
+    docUrl: Pages.CssLibrary,
+    absolutePath: '/components/' + Pages.CssLibrary,
+    status: DocPageStatus.Done,
+  },
+  {
     title: 'Accordion',
     description:
       'An accordion lets the user show and hide a section of content. It let us organize information and deliver a large amount of content in a small place.',
@@ -766,12 +773,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     status: DocPageStatus.Done,
   },
   {
-    title: 'What’s New?',
-    description: 'The latest news, updates, and changes to the design system.',
-    docUrl: Pages.Changelog,
-    absolutePath: '/about/' + Pages.Changelog,
-  },
-  {
     title: 'Shadow',
     titleNo: 'Skygge',
     description:
@@ -869,12 +870,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/tools/' + Pages.Utilities,
     status: DocPageStatus.Done,
     type: 'Tools',
-  },
-  {
-    title: 'What’s New?',
-    description: 'The latest news, updates, and changes to the design system.',
-    docUrl: Pages.Changelog,
-    absolutePath: '/about/' + Pages.Changelog,
   },
   {
     title: 'Contact',

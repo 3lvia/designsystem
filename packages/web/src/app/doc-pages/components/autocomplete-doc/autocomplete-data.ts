@@ -1,13 +1,24 @@
 import changelogJson from '@elvia/elvis-autocomplete/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
+import { BaseAutocompleteProps } from '@elvia/elvis-autocomplete/react';
 
-export const autocompleteData: ComponentData = {
+export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
   changelog: changelogJson.content,
   name: 'Autocomplete',
   attributes: {
     items: {
       isRequired: true,
-      type: 'Array<{value: string, label: string }>',
+      type: 'object[]',
+      children: {
+        value: {
+          type: 'string',
+          description: 'The value for the given autocomplete item',
+        },
+        label: {
+          type: 'string',
+          description: 'The label which is visible in the autocomplete dropdown.',
+        },
+      },
       description:
         'Options available in the autocomplete menu, set as array of objects with keys of: {value: string, label: string }',
     },
@@ -16,11 +27,32 @@ export const autocompleteData: ComponentData = {
       description: 'Set a default value to the autocomplete.',
     },
     errorOptions: {
-      type: 'Partial<{ text: string; isErrorState: boolean; hasErrorPlaceholder: boolean }>',
+      type: 'object',
       description:
-        'An object that allows for custom configuration of the error handling in the autocomplete. Setting "text" will always show the provided error message. "isErrorState" allows for manually activating the visual error UI. "hasErrorPlaceholder" allows you to remove the padding below the autocomplete.',
+        'An object that allows for custom configuration of the error handling in the autocomplete.',
       default: '{ isErrorState: false, hasErrorPlaceholder: true }',
       example: /* ts */ `errorOptions = { text: "Error text", hideText: false, isErrorState: true, hasErrorPlaceholder: true }`,
+      children: {
+        text: {
+          type: 'string',
+          description: 'Setting "text" will always show the provided error message.',
+        },
+        hideText: {
+          type: 'boolean',
+          description: 'Hides the default validation errors.',
+          default: 'false',
+        },
+        isErrorState: {
+          type: 'boolean',
+          description: 'Allows for manually activating the visual error UI.',
+          default: 'false',
+        },
+        hasErrorPlaceholder: {
+          type: 'boolean',
+          description: 'Allows you to remove the padding below the date picker.',
+          default: 'true',
+        },
+      },
     },
     size: {
       type: '"small" | "medium"',
@@ -64,6 +96,21 @@ export const autocompleteData: ComponentData = {
       isEvent: true,
       type: '() => void',
       description: 'Gets called when the autocomplete popup opens',
+    },
+    onClose: {
+      isEvent: true,
+      type: '() => void',
+      description: 'Gets called when the autocomplete popup closes',
+    },
+    onFocus: {
+      isEvent: true,
+      type: '() => void',
+      description: 'Gets called when the autocomplete receives focus',
+    },
+    errorOnChange: {
+      isEvent: true,
+      type: '(error: string) => void',
+      description: 'Gets called every time the internal date validation error is changed. ',
     },
     onSelectItem: {
       isEvent: true,

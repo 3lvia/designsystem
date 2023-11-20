@@ -32,8 +32,8 @@ export const defaultLabelOptions: LabelOptions = {
 };
 
 export const emptyErrorMessage: CustomError = {
-  start: '',
-  end: '',
+  start: undefined,
+  end: undefined,
 };
 
 export interface BaseDatepickerRangeProps extends BaseProps, HasValue<DateRange> {

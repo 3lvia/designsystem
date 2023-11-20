@@ -3,9 +3,12 @@ import { DropdownItem, DropdownValue, DropdownValueType } from './publicApi.publ
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 
+export type ErrorType = 'required';
+
 export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasError {
   items: DropdownItem[];
   isFullWidth?: boolean;
+  isRequired?: boolean;
   isSearchable?: boolean;
   allOptionsSelectedLabel?: string;
   label?: string;

@@ -16,7 +16,13 @@
       "groupName": "all @testing-library dependencies",
       "matchPackagePatterns": ["^@testing-library"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": false
+      "automerge": true
+    },
+    {
+      "groupName": "all @types dependencies",
+      "matchPackagePatterns": ["^@types/"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     },
     {
       "groupName": "all playwright dependencies",
