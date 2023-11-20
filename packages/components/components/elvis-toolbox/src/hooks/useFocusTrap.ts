@@ -1,5 +1,15 @@
 import { RefObject } from 'react';
 
+/**
+ * A React hook that provides a function to trap focus within an element,
+ * so that the user only can cycle between focusable elements within that container.
+ *
+ * The attribute `elvisFocusInitial` can be set on a focusable item in the
+ * container, to define the initial focused element.
+ *
+ * @returns A function that traps the focus within the provided element, and a function that releases the focus trap.
+ *
+ */
 export const useFocusTrap = (): {
   trapFocus: (focusTrapContainer: RefObject<HTMLElement>) => void;
   releaseFocusTrap: () => void;
@@ -43,10 +53,12 @@ export const useFocusTrap = (): {
       });
 
       firstItem = focusableItems[0];
+      const forcedInitialFocus = focusableItems.find((item) => item.hasAttribute('elvisFocusInitial'));
+      const focusedItem = forcedInitialFocus ?? firstItem;
       lastItem = focusableItems[focusableItems.length - 1];
 
       if (firstItem) {
-        (firstItem as HTMLElement).focus();
+        (focusedItem as HTMLElement).focus();
         firstItem.addEventListener('keydown', handleFirstItemTab);
       }
       if (lastItem) {
