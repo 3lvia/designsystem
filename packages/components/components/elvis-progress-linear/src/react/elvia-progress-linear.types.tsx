@@ -14,6 +14,6 @@ export interface BaseProgressLinearProps extends BaseProps, HasTransitionDuratio
 
 export interface ProgressLinearProps extends BaseProgressLinearProps, ComponentPropsWithoutRef<'div'> {}
 
-export type ProgressLinearSize = 'small' | 'medium';
+export type ProgressLinearSize = 'small' | 'medium' | 'large';
 
 export type ProgressLinearRole = 'meter' | 'progressbar';
