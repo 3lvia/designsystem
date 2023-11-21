@@ -35,7 +35,7 @@
     "sass": "^1.69.5",
     "styled-components": "^5.3.3",
     "tiny-glob": "^0.2.9",
-    "tsx": "^4.1.4",
+    "tsx": "^4.2.0",
     "typescript": "~5.2.2",
     "typescript-plugin-css-modules": "^5.0.2",
     "typescript-plugin-styled-components": "^3.0.0"
