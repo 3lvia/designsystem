@@ -79,7 +79,7 @@
     "@babel/core": "^7.23.3",
     "@babel/eslint-parser": "^7.23.3",
     "@types/natural-compare-lite": "^1.4.2",
-    "@types/node": "20.9.2",
+    "@types/node": "20.9.3",
     "@types/prismjs": "^1.26.3",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
