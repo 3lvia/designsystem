@@ -4,6 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 import { UnknownCegControlManager } from '../../cegControlManager';
 import { Controls, StaticProps } from '../../controlType';
 import { FrameworkSpec, frameworks } from './supportedFrameworks';
+import { transformAttributesBackToOriginalSyntaxAfterDomParser } from './slotAttributeTransforms';
 
 interface Prop {
   name: string;
@@ -144,7 +145,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
           } else if (slot.includes('<elvia-')) {
             parsedSlot = this.cleanElviaComponentsInSlot(slot);
           }
-          return parsedSlot;
+          return transformAttributesBackToOriginalSyntaxAfterDomParser(parsedSlot);
         })
         // Ensure that each slot falls on a new line.
         .map((slot) => slot.replace(/></g, '>\n<'))
@@ -205,7 +206,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
       .map((slot) => slot.replace(/class=/g, 'className='))
       .join('');
 
-    return sanitizedSlots ? `${sanitizedSlots}\n` : '';
+    return sanitizedSlots ? `${transformAttributesBackToOriginalSyntaxAfterDomParser(sanitizedSlots)}\n` : '';
   }
 
   private createWebComponentCode(props: Prop[], slots: string[], frameworkSpec: FrameworkSpec): string {

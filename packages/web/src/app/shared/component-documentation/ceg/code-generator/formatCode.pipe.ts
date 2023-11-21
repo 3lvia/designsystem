@@ -13,7 +13,6 @@ import { Language } from './types';
 export class FormatCodePipe implements PipeTransform {
   async transform(code: string, language: Language): Promise<string> {
     const codeWithClosedTags = this.addClosingTagsToVoidElements(code);
-    const codeWithoutComments = this.removeCommentsFromTemplate(codeWithClosedTags);
 
     let parser = 'babel';
     if (language === 'css') {
@@ -24,7 +23,7 @@ export class FormatCodePipe implements PipeTransform {
       parser = 'typescript';
     }
 
-    let formattedCode = await format(codeWithoutComments, {
+    let formattedCode = await format(codeWithClosedTags, {
       parser: parser,
       plugins: [pluginEstree, pluginHtml, pluginBabel, pluginTypescript, pluginPostCss],
       printWidth: 80,
@@ -57,25 +56,6 @@ export class FormatCodePipe implements PipeTransform {
       });
     }
 
-    return code;
-  };
-
-  /**
-   * Remove comments from the template, as they will be compiled away in production either way.
-   * This is to ensure local dev works the same.
-   */
-  private removeCommentsFromTemplate = (code: string): string => {
-    const commentRegExp = new RegExp(/<!--([\S\s]*?)-->/);
-    const comments = code.match(new RegExp(commentRegExp, 'g'));
-
-    if (comments) {
-      console.warn(
-        'A comment has been stripped from a CEG code example. Any comments inside a CEG template will not be shown in the production deployment.',
-      );
-      comments.forEach((comment) => {
-        code = code.replace(comment, '');
-      });
-    }
     return code;
   };
 }

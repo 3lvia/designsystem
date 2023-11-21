@@ -44,9 +44,9 @@ export const progressbarData: ComponentData<BaseProgressLinearProps> = {
         'The id of the progress bar. Can be used to set the aria-labelledby attribute on other elements.',
     },
     size: {
-      type: '"small" | "medium"',
+      type: '"small" | "medium" | "large"',
       description: 'The size of the progress bar.',
-      default: '"small"',
+      default: '"medium"',
     },
     transitionDuration: {
       type: 'string',
