@@ -32,12 +32,12 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
       {...rest}
     >
       <ProgressLinearProgress
-        $isIndeterminate={isIndeterminate}
-        $isError={isError}
+        isIndeterminate={isIndeterminate}
+        isError={isError}
         $size={size}
         style={{ width: `${value}%` }}
         data-testid="progress-linear-progress"
-        $transitionDuration={transitionDuration}
+        transitionDuration={transitionDuration}
       ></ProgressLinearProgress>
     </ProgressLinearWrapper>
   );

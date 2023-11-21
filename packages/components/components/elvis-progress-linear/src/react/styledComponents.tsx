@@ -34,10 +34,10 @@ export const ProgressLinearWrapper = styled.div<ProgressLinearWrapperProps>`
 `;
 
 type ProgressLinearProgressProps = {
-  $isIndeterminate?: boolean;
-  $isError?: boolean;
+  isIndeterminate?: boolean;
+  isError?: boolean;
   $size: ProgressLinearSize;
-  $transitionDuration: string;
+  transitionDuration: string;
 };
 
 const getProgressHeight = (size: ProgressLinearSize) => {
@@ -56,13 +56,13 @@ export const ProgressLinearProgress = styled.div<ProgressLinearProgressProps>`
   align-self: center;
   height: ${({ $size }) => getProgressHeight($size)};
   margin-left: 0;
-  background-color: ${({ $isError }) => getThemeColor($isError ? 'signal-danger' : 'brand-accent')};
-  transition: ${({ $isIndeterminate, $transitionDuration }) =>
-    $isIndeterminate ? 'none' : `width ${$transitionDuration} ease-in;`};
-  ${({ $isIndeterminate, $isError }) => decideProgressValue($isIndeterminate, $isError)};
+  background-color: ${({ isError }) => getThemeColor(isError ? 'signal-danger' : 'brand-accent')};
+  transition: ${({ isIndeterminate, transitionDuration }) =>
+    isIndeterminate ? 'none' : `width ${transitionDuration} ease-in;`};
+  ${({ isIndeterminate, isError }) => decideProgressValue(isIndeterminate, isError)};
 
-  ${({ $isIndeterminate, $isError }) =>
-    $isIndeterminate && !$isError
+  ${({ isIndeterminate, isError }) =>
+    isIndeterminate && !isError
       ? css`
           animation: ${loading} 1s infinite;
         `
