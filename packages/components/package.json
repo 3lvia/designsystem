@@ -8,8 +8,8 @@
     "test": "jest --config jest.config.ts --colors",
     "test:start": "jest --config jest.config.ts --watch --colors",
     "test:coverage": "jest --coverage --colors",
-    "test-ct": "playwright test -c playwright-ct.config.ts",
-    "test-ct:update": "playwright test -c playwright-ct.config.ts --update-snapshots"
+    "test-ct": "percy exec -- playwright test -c playwright-ct.config.ts",
+    "test-ct:update": "percy exec -- playwright test -c playwright-ct.config.ts --update-snapshots"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
