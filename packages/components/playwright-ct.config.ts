@@ -55,7 +55,3 @@ export default defineConfig({
     },
   ],
 });
-
-export type ToHaveScreenshotConfig = NonNullable<
-  Parameters<typeof defineConfig>[0]['expect']
->['toHaveScreenshot'];

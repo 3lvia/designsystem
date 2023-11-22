@@ -8,15 +8,14 @@
     "test": "jest --config jest.config.ts --colors",
     "test:start": "jest --config jest.config.ts --watch --colors",
     "test:coverage": "jest --coverage --colors",
-    "test-ct": "percy exec -- playwright test -c playwright-ct.config.ts",
-    "test-ct:update": "percy exec -- playwright test -c playwright-ct.config.ts --update-snapshots"
+    "test-ct": "playwright test -c playwright-ct.config.ts",
+    "test-ct:update": "playwright test -c playwright-ct.config.ts --update-snapshots"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
     "@babel/preset-env": "^7.23.3",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
-    "@percy/cli": "^1.27.4",
     "@percy/playwright": "^1.0.4",
     "@playwright/experimental-ct-react": "1.40.0",
     "@playwright/test": "1.40.0",
