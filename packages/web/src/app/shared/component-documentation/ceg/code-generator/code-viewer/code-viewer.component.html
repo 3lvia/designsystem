@@ -2,7 +2,7 @@
   <div *ngIf="!hideTabs" class="top-menu e-theme-dark">
     <elvia-segmented-control
       [size]="(breakpointService.matches(['md', 'lg', 'xl']) | async) ? 'medium' : 'small'"
-      [items]="tabs | tabToSegmentedControlItem"
+      [items]="tabs | arrayToSegmentedControlItem"
       (valueOnChange)="tabIndexChange.emit($any($event).detail.value)"
     />
 
