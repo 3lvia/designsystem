@@ -31,8 +31,8 @@
     "lint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint:all": "yarn prettier:elvis && yarn prettier:web && yarn prettier:components && yarn eslint",
     "test": "yarn workspace @elvia/elvis-components test",
-    "test-ct": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.40.0-jammy /bin/sh -c 'yarn workspace @elvia/elvis-components test-ct'",
-    "test-ct:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.40.0-jammy /bin/sh -c 'yarn workspace @elvia/elvis-components test-ct:update'",
+    "test-ct": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.40.0-jammy /bin/sh -c 'yarn && yarn workspace @elvia/elvis-components test-ct'",
+    "test-ct:update": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.40.0-jammy /bin/sh -c 'yarn && yarn workspace @elvia/elvis-components test-ct:update'",
     "test:start": "yarn workspace @elvia/elvis-components test:start",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
     "publish": "yarn workspaces foreach -ipv --all --no-private npm publish --access public"
