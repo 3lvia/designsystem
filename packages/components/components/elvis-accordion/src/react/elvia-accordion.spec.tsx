@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/experimental-ct-react';
+import percySnapshot from '@percy/playwright';
 import { Accordion } from '../../react';
 import React from 'react';
 
@@ -11,11 +12,11 @@ test('should render', async ({ mount }) => {
 
 test('should look closed', async ({ mount, page }) => {
   await mount(<Accordion openLabel="Open" closeLabel="Close" content={'test'} />);
-  await expect(page).toHaveScreenshot();
+  await percySnapshot(page, 'Closed accordion');
 });
 
 test('should look opened', async ({ mount, page }) => {
   const component = await mount(<Accordion openLabel="Open" closeLabel="Close" content={'test'} />);
   await component.click();
-  await expect(page).toHaveScreenshot();
+  await percySnapshot(page, 'Open accordion');
 });
