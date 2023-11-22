@@ -2215,7 +2215,7 @@ __metadata:
     "@elvia/elvis-colors": "npm:^4.1.0"
     "@types/gulp": "npm:^4.0.17"
     "@types/gulp-svgmin": "npm:^1.2.4"
-    "@types/node": "npm:^20.9.3"
+    "@types/node": "npm:^20.9.4"
     del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     gulp-svgmin: "npm:^4.1.0"
@@ -2404,7 +2404,7 @@ __metadata:
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.9.3"
+    "@types/node": "npm:^20.9.4"
     del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.1"
@@ -2442,9 +2442,9 @@ __metadata:
     "@testing-library/react": "npm:14.1.2"
     "@testing-library/user-event": "npm:14.5.1"
     "@types/identity-obj-proxy": "npm:^3.0.2"
-    "@types/jest": "npm:^29.5.9"
+    "@types/jest": "npm:^29.5.10"
     "@types/jest-axe": "npm:^3.5.8"
-    "@types/styled-components": "npm:^5.1.31"
+    "@types/styled-components": "npm:^5.1.32"
     esbuild: "npm:^0.19.7"
     esbuild-plugin-styled-components: "npm:^2.2.2"
     identity-obj-proxy: "npm:^3.0.0"
@@ -2990,7 +2990,7 @@ __metadata:
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.9.3"
+    "@types/node": "npm:^20.9.4"
     del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.1"
@@ -4873,13 +4873,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.5.9":
-  version: 29.5.9
-  resolution: "@types/jest@npm:29.5.9"
+"@types/jest@npm:^29.5.10":
+  version: 29.5.10
+  resolution: "@types/jest@npm:29.5.10"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
-  checksum: 99a9a38efc5ebc2e683f3cb79abfbf984695a8d9796fa7ef319eb9fe23fe76dadc0da7f089c0525be9436379b546fd31eaaf547c3af8dfbc7c54bd6007d4d9ff
+  checksum: f31cdc9cf840a3bc2230148bb5cba1e0369e3180ae75d85804038905300dd8cfa1d989a4dbbd909633c04568d0c1a9251b2ee5c4197309ec033403dd2a08ea42
   languageName: node
   linkType: hard
 
@@ -4986,12 +4986,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.9.3, @types/node@npm:^20.9.3":
-  version: 20.9.3
-  resolution: "@types/node@npm:20.9.3"
+"@types/node@npm:20.9.4, @types/node@npm:^20.9.4":
+  version: 20.9.4
+  resolution: "@types/node@npm:20.9.4"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 5d2a3a6b2b900814eab8c5093dabb7aa10895928719ec0074b9ac5584bcc83f5b680e2d2cb6c8b9751511b7b1b7fdd8586d2fc827b156f0263fdb65c4741bdef
+  checksum: d567855b48e453b443499c17fc6c939d154732b54319a05b9b31db6e475e6458f053838635b201b1bb493d349d9b1af0aecc58b28fd6062e564e9fbf593199eb
   languageName: node
   linkType: hard
 
@@ -5071,12 +5071,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.16":
-  version: 18.2.16
-  resolution: "@types/react-dom@npm:18.2.16"
+"@types/react-dom@npm:^18.2.17":
+  version: 18.2.17
+  resolution: "@types/react-dom@npm:18.2.17"
   dependencies:
     "@types/react": "npm:*"
-  checksum: c0be61864a9f50bb8cd29c719d170b03b36149f4fbe308faa40194d15492c4a13814a2f344fc5ceb99b4747bfa11cdfb2d15a141ed37218a32ec0edf98b90f2b
+  checksum: fe0dbb3224b48515da8fe25559e3777d756a27c3f22903f0b1b020de8d68bd57eb1f0af62b52ee65d9632637950afed8cbad24d158c4f3d910d083d49bd73fba
   languageName: node
   linkType: hard
 
@@ -5178,14 +5178,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:^5.1.31":
-  version: 5.1.31
-  resolution: "@types/styled-components@npm:5.1.31"
+"@types/styled-components@npm:^5.1.32":
+  version: 5.1.32
+  resolution: "@types/styled-components@npm:5.1.32"
   dependencies:
     "@types/hoist-non-react-statics": "npm:*"
     "@types/react": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: dc7dbe310a1587d73edc4712e7513a0c72d9d0907cbdf3738296c4090a2bb9091157434df22e106105970d931a40d7e32e8f3885d61942ca731a2ad123ed9b0e
+  checksum: 6f071894d36a82d942a8e0e4c259748c3a17cb0a23c9ba187fb7d0cf7a769ac83cb3958d11b5b1eb100ee0f37c6e924b5a2d00ae2a3dd0057f2c559c6c544b1a
   languageName: node
   linkType: hard
 
@@ -9110,7 +9110,7 @@ __metadata:
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
     "@types/natural-compare-lite": "npm:^1.4.2"
-    "@types/node": "npm:20.9.3"
+    "@types/node": "npm:20.9.4"
     "@types/prismjs": "npm:^1.26.3"
     "@typescript-eslint/eslint-plugin": "npm:^6.12.0"
     "@typescript-eslint/parser": "npm:^6.12.0"
@@ -16532,7 +16532,7 @@ __metadata:
     "@elvia/elvis-tooltip": "npm:*"
     "@elvia/elvis-typography": "npm:*"
     "@types/react": "npm:^18.2.38"
-    "@types/react-dom": "npm:^18.2.16"
+    "@types/react-dom": "npm:^18.2.17"
     "@vitejs/plugin-react": "npm:^4.2.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
