@@ -1,11 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Category, Modifier } from '../typographies';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 import '@elvia/elvis-segmented-control';
 import '@elvia/elvis-radio-filter';
-import { BreakpointService } from 'src/app/core/services/breakpoint.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,

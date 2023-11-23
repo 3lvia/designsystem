@@ -22,6 +22,8 @@ export class TypographyExampleExhibitComponent {
         return textTypographies;
       case 'special-text':
         return specialTypographies;
+      default:
+        return titleTypographies;
     }
   }
 
