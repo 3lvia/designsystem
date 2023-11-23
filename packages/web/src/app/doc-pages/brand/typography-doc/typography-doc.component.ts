@@ -7,7 +7,6 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
-  styleUrls: ['./typography-doc.component.scss'],
 })
 export class TypographyDocComponent {
   title = getDocPagesNotFromCMS('typography')?.title;
