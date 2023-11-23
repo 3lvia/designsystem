@@ -9,6 +9,10 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { TypographyExampleExhibitComponent } from './typography-example-exhibit/typography-example-exhibit.component';
+import { TypographyArticleExampleComponent } from './typography-article-example/typography-article-example.component';
+import { TypographyTitleExampleComponent } from './typography-title-example/typography-title-example.component';
+import { TypographyOutlineExampleComponent } from './typography-outline-example/typography-outline-example.component';
+import { TypographyFontExampleComponent } from './typography-font-example/typography-font-example.component';
 
 @NgModule({
   imports: [
@@ -21,6 +25,10 @@ import { TypographyExampleExhibitComponent } from './typography-example-exhibit/
     ComponentChangelogModule,
     RouterModule,
     TypographyExampleExhibitComponent,
+    TypographyFontExampleComponent,
+    TypographyTitleExampleComponent,
+    TypographyOutlineExampleComponent,
+    TypographyArticleExampleComponent,
   ],
   declarations: [TypographyDocComponent],
 })

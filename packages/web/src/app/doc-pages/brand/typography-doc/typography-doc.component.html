@@ -8,19 +8,12 @@
     <app-typography-example-exhibit />
   </app-component-subsection>
 
-  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Font family' : 'Font family'">
-    <div class="e-mt-72 e-mb-24">
-      <div class="e-flex e-justify-content-center e-w-100" *ngIf="!loadedImg">
-        <div class="e-content-loader" style="width: 80%"></div>
-      </div>
-      <img
-        class="header-img"
-        [ngClass]="!loadedImg ? 'e-none' : ''"
-        src="/assets/doc-page-icons/pages-icons/RedHat.jpeg"
-        alt="Red Hat typography anatomy"
-        (load)="hideContentLoader($event)"
-      />
-    </div>
+  <app-component-section #fontFamily [sectionTitle]="locale === 'nb-NO' ? 'Font family' : 'Font family'">
+    @defer (on viewport(fontFamily)) {
+      <app-typography-font-example />
+    } @placeholder {
+      <div class="e-content-loader" style="width: 80%"></div>
+    }
     <app-component-subsection sectionTitle="Red Hat Display, Text and Mono">
       <p>
         <strong>Red Hat Display</strong> has denser letter space and higher x-height and is suitable in large
@@ -55,20 +48,32 @@
     </app-component-subsection>
   </app-component-section>
 
-  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Brand titles' : 'Brand titles'">
+  <app-component-section #brandTitles [sectionTitle]="locale === 'nb-NO' ? 'Brand titles' : 'Brand titles'">
     <app-component-subsection>
-      Red Hat Display Black should be used in all titles. Titles should be clear and easy to recognize. As a
-      rule, they should be uppercase, but in the case of longer texts, lower case letters should be used to
-      ensure good readability.
-      <div class="e-content-loader" style="width: 170px; height: 170px"></div>
+      <p>
+        Red Hat Display Black should be used in all titles. Titles should be clear and easy to recognize. As a
+        rule, they should be uppercase, but in the case of longer texts, lower case letters should be used to
+        ensure good readability.
+      </p>
+      @defer (on viewport(brandTitles)) {
+        <app-typography-title-example />
+      } @placeholder {
+        <div class="e-content-loader" style="width: 701px; width: 128px"></div>
+      }
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Outline' : 'Outline'">
-      <p>
+    <app-component-subsection #outline [sectionTitle]="locale === 'nb-NO' ? 'Outline' : 'Outline'">
+      <p class="e-mb-32">
         Brand titles can be activated to show that Elvia is ON and fully charged. To do this, we use text with
         outline (OFF) in combination with filled text (ON) and our green dot at the end (fully charged).
       </p>
-      <div class="e-content-loader" style="width: 170px; height: 170px"></div>
+
+      @defer (on viewport(outline)) {
+        <app-typography-outline-example class="e-mb-32" />
+      } @placeholder {
+        <div class="e-content-loader" style="width: 447px; width: 174px"></div>
+      }
+
       <p>
         The activated text should always be filled in solid black or white, depending on which gives best
         contrast to the background. The deactivated text should have an stroke width (black or white,
@@ -89,8 +94,12 @@
     </app-component-subsection>
   </app-component-section>
 
-  <app-component-section [sectionTitle]="'Articles'">
-    <div class="e-content-loader" style="width: 400px; height: 600px"></div>
+  <app-component-section #articles [sectionTitle]="'Articles'">
+    @defer (on viewport(articles)) {
+      <app-typography-article-example />
+    } @placeholder {
+      <div class="e-content-loader" style="width: 100%; aspect-ratio: 1/1"></div>
+    }
 
     <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Title' : 'Title'">
       Can be written in capitals or lower case. The entire text can be outlined. If parts of the text are to
