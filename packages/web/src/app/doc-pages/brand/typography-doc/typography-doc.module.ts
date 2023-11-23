@@ -7,7 +7,6 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
-import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { TypographyExampleExhibitComponent } from './typography-example-exhibit/typography-example-exhibit.component';
 import { TypographyArticleExampleComponent } from './typography-article-example/typography-article-example.component';
 import { TypographyTitleExampleComponent } from './typography-title-example/typography-title-example.component';
@@ -18,7 +17,6 @@ import { TypographyFontExampleComponent } from './typography-font-example/typogr
   imports: [
     CommonModule,
     ComponentHeaderModule,
-    CegModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
