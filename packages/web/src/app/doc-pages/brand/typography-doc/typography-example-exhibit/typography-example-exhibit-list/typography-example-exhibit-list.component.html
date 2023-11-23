@@ -1,0 +1,35 @@
+@for (typography of typographies; track typography.class) {
+  @if (typography.modifier === modifier) {
+    <div class="typography-example">
+      <span [class]="typography.class">
+        @switch (typography.details.fontStyle) {
+          @case ('italic') {
+            <em>The quick brown fox</em>
+          }
+          @default {
+            The quick brown fox
+          }
+        }
+      </span>
+      <div class="typography-information">
+        <div class="typography-title e-mb-8">
+          <span class="e-title-caps">
+            {{ typography.title }}
+          </span>
+          <span class="typography-class e-tag e-lowercase">{{ typography.class }}</span>
+        </div>
+        <span class="e-mb-16 e-text-sm">{{ typography.description }}</span>
+
+        <div class="typography-details e-text-micro-strong">
+          <span class="font-size">{{ typography.details.size }} / {{ typography.details.lineHeight }}</span>
+          |
+          <span class="e-capitalize"
+            >{{ typography.details.fontStyle }} / {{ typography.details.fontWeight }}</span
+          >
+          |
+          <span class="font-family">{{ typography.details.fontFamily }}</span>
+        </div>
+      </div>
+    </div>
+  }
+}
