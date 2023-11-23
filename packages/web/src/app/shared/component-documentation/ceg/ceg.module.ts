@@ -19,7 +19,7 @@ import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-gen
 import { PhoneShellComponent } from './phone-shell/phone-shell.component';
 import { CodeViewerComponent } from './code-generator/code-viewer/code-viewer.component';
 import { ViewportSizeModule } from '../../viewport-size/viewport-size.module';
-import { ArrayToSegmentedControlItemPipe } from '../../pipes/arrayToSegmentedControlItem.pipe';
+import { TabToSegmentedControlItemPipe } from './code-generator/code-viewer/tabToSegmentedControlItem.pipe';
 import '@elvia/elvis-segmented-control';
 
 @NgModule({
@@ -43,7 +43,7 @@ import '@elvia/elvis-segmented-control';
     CodeViewerComponent,
   ],
   exports: [CegComponent, StaticCegComponent, CodeViewerComponent],
-  imports: [CommonModule, ViewportSizeModule, ArrayToSegmentedControlItemPipe],
+  imports: [CommonModule, ViewportSizeModule, TabToSegmentedControlItemPipe],
   providers: [FormatCodePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
