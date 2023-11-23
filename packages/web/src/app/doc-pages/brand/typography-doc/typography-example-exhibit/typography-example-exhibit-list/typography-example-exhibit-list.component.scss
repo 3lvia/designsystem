@@ -16,7 +16,7 @@
     .typography-demo {
       display: flex;
       align-items: center;
-      word-break: break-all;
+      overflow-wrap: anywhere;
     }
 
     .typography-class {
