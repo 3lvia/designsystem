@@ -8,7 +8,6 @@ import { TypographyExampleExhibitListComponent } from './typography-example-exhi
   imports: [TypographyExampleExhibitFilterComponent, TypographyExampleExhibitListComponent],
   selector: 'app-typography-example-exhibit',
   templateUrl: './typography-example-exhibit.component.html',
-  styleUrls: ['./typography-example-exhibit.component.scss'],
 })
 export class TypographyExampleExhibitComponent {
   selectedCategory: Category = 'title';
