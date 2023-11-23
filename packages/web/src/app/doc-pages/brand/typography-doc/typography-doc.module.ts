@@ -13,7 +13,7 @@ import { TypographyBodyCegComponent } from './typography-body-ceg/typography-bod
 import { TypographySpecialCegComponent } from './typography-special-ceg/typography-special-ceg.component';
 import { TypographyTitlesCegComponent } from './typography-titles-ceg/typography-titles-ceg.component';
 import { TypographyEmphasisCegComponent } from './typography-emphasis-ceg/typography-emphasis-ceg.component';
-import '@elvia/elvis-tabs';
+import { TypographyExampleExhibitComponent } from './typography-example-exhibit/typography-example-exhibit.component';
 
 @NgModule({
   imports: [
@@ -25,6 +25,7 @@ import '@elvia/elvis-tabs';
     ComponentSubsubsectionModule,
     ComponentChangelogModule,
     RouterModule,
+    TypographyExampleExhibitComponent,
   ],
   declarations: [
     TypographyDocComponent,

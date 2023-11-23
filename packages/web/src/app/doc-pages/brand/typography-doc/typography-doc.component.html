@@ -1,13 +1,14 @@
-<!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">{{ locale === 'nb-NO' ? titleNo : title }}</ng-container>
   <div ngProjectAs="headerDescription" [innerHTML]="locale === 'nb-NO' ? descriptionNo : description"></div>
 </app-component-header>
 
-<!--BODY-->
 <div class="page-body">
-  <!--PREVIEW-->
   <app-component-subsection>
+    <app-typography-example-exhibit />
+  </app-component-subsection>
+
+  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Typer' : 'Types'">
     <div class="e-mt-72 e-mb-24">
       <div class="e-flex e-justify-content-center e-w-100" *ngIf="!loadedImg">
         <div class="e-content-loader" style="width: 80%"></div>
@@ -20,10 +21,6 @@
         (load)="hideContentLoader($event)"
       />
     </div>
-  </app-component-subsection>
-
-  <!--Types-->
-  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Typer' : 'Types'">
     <div class="e-text-lg e-mb-72">
       <ng-container *ngIf="locale === 'en-GB'">
         All typography can be used through a set of classes. The font-classes set multiple attributes, like
@@ -47,7 +44,6 @@
     </div>
   </app-component-section>
 
-  <!--USAGE-->
   <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Bruk' : 'Usage'">
     <app-component-subsection [sectionTitle]="'Red Hat Display VS Red Hat Text'">
       <ng-container *ngIf="locale === 'en-GB'">
@@ -200,7 +196,6 @@
     </app-component-subsection>
   </app-component-section>
 
-  <!--Implemenation-->
   <app-component-section [sectionTitle]="'Implementation'">
     All typography can be used through a set of classes. The classes set multiple attributes, like font-size,
     line-height and font-weight. These are all available when using Elvis.
@@ -238,7 +233,6 @@
     </app-component-subsubsection>
   </app-component-section>
 
-  <!--Changelog-->
   <app-component-section [sectionTitle]="'Changelog'">
     <app-component-changelog [elvisComponentToFilter]="'Typography'"></app-component-changelog>
   </app-component-section>
