@@ -13,6 +13,12 @@
       border-bottom: 1px solid var(--e-color-border-2);
     }
 
+    .typography-demo {
+      display: flex;
+      align-items: center;
+      word-break: break-all;
+    }
+
     .typography-class {
       margin-left: auto;
       height: fit-content;
@@ -24,6 +30,7 @@
       display: grid;
       grid-template-columns: repeat(1, minmax(0, 1fr));
       padding: 16px;
+      height: fit-content;
 
       .typography-title {
         display: flex;

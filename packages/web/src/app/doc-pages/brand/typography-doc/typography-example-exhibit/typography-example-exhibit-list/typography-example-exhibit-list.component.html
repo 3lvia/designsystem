@@ -3,7 +3,8 @@
     <div class="typography-example">
       <div
         [class]="typography.class"
-        class="e-flex e-align-items-center"
+        class="typography-demo"
+        style="word-break: break-all"
         [contentEditable]="true"
         (input)="demoContent = $any($event.target).textContent"
       >
@@ -23,7 +24,9 @@
           <span class="e-title-caps">
             {{ typography.title }}
           </span>
-          <span class="typography-class e-tag e-lowercase">{{ typography.class }}</span>
+          <app-copy [message]="typography.class">
+            <span class="typography-class e-tag e-lowercase">{{ typography.class }}</span>
+          </app-copy>
         </div>
         <span class="e-mb-16 e-text-sm">{{ typography.description }}</span>
 
