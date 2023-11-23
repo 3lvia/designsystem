@@ -2,8 +2,8 @@ export type Category = 'title' | 'body-text' | 'special-text';
 export type Modifier = 'regular' | 'strong' | 'light' | 'italic' | 'mono';
 
 export type FontFamily = 'Red Hat Display' | 'Red Hat Text' | 'Red Hat Mono';
-export type FontWeight = 900 | 500 | 400 | 300;
-export type FontStyle = 'regular' | 'italic' | 'black' | 'medium' | 'light';
+export type FontWeight = 900 | 700 | 500 | 400 | 300;
+export type FontStyle = 'black' | 'bold' | 'medium' | 'regular' | 'light' | 'italic';
 
 export type Typography = Readonly<{
   title: string;
@@ -44,9 +44,9 @@ export const titleTypographies = [
     details: {
       size: '30px',
       lineHeight: '120%',
-      fontWeight: 900,
+      fontWeight: 700,
       fontFamily: 'Red Hat Display',
-      fontStyle: 'black',
+      fontStyle: 'bold',
     },
     modifier: 'regular',
   },
@@ -58,9 +58,9 @@ export const titleTypographies = [
     details: {
       size: '24px',
       lineHeight: '120%',
-      fontWeight: 900,
+      fontWeight: 700,
       fontFamily: 'Red Hat Display',
-      fontStyle: 'black',
+      fontStyle: 'bold',
     },
     modifier: 'regular',
   },
@@ -72,9 +72,9 @@ export const titleTypographies = [
     details: {
       size: '18px',
       lineHeight: '120%',
-      fontWeight: 900,
+      fontWeight: 700,
       fontFamily: 'Red Hat Display',
-      fontStyle: 'black',
+      fontStyle: 'bold',
     },
     modifier: 'regular',
   },
@@ -86,9 +86,9 @@ export const titleTypographies = [
     details: {
       size: '15px',
       lineHeight: '120%',
-      fontWeight: 900,
+      fontWeight: 700,
       fontFamily: 'Red Hat Display',
-      fontStyle: 'black',
+      fontStyle: 'bold',
     },
     modifier: 'regular',
   },
