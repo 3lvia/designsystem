@@ -10,4 +10,6 @@ import { Modifier, Typographies } from '../typographies';
 export class TypographyExampleExhibitListComponent {
   @Input({ required: true }) typographies: Typographies;
   @Input({ required: true }) modifier: Modifier;
+
+  demoContent = 'The quick brown fox';
 }
