@@ -7,6 +7,8 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import '@elvia/elvis-segmented-control';
 import '@elvia/elvis-radio-filter';
 
+type DisplayCategories = 'Title' | 'Body' | 'Body text' | 'Special' | 'Special text';
+
 @Component({
   standalone: true,
   selector: 'app-typography-example-exhibit-filter',
@@ -23,7 +25,11 @@ export class TypographyExampleExhibitFilterComponent {
   @Output() newModifiers = new EventEmitter<Modifier>();
   currentModifier: Modifier = 'regular';
 
-  displayCategories = [{ label: 'Title' }, { label: 'Body text' }, { label: 'Special text' }];
+  displayCategories: { label: DisplayCategories }[] = [
+    { label: 'Title' },
+    { label: 'Body text' },
+    { label: 'Special text' },
+  ];
 
   constructor(public breakpointService: BreakpointService) {
     breakpointService
@@ -62,7 +68,7 @@ export class TypographyExampleExhibitFilterComponent {
     }));
   }
 
-  private displayCategoryToCategory = (category: string): Category => {
+  private displayCategoryToCategory = (category: DisplayCategories): Category => {
     switch (category) {
       case 'Title':
         return 'title';
