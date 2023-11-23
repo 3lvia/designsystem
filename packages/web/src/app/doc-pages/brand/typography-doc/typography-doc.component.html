@@ -14,46 +14,93 @@
     } @placeholder {
       <div class="e-content-loader" style="width: 80%"></div>
     }
-    <app-component-subsection sectionTitle="Red Hat Display, Text and Mono">
-      <p>
-        <strong>Red Hat Display</strong> has denser letter space and higher x-height and is suitable in large
-        sizes, for example in titles.
-      </p>
-      <p>
-        <strong>Red Hat Text</strong> has a slightly smaller x-height, more space and is designed for good
-        readability in smaller sizes.
-      </p>
-      <p>
-        <strong>Red Hat Mono</strong> has characters that take the same amount of horizontal space. Mono are
-        used to make it easier to comparing numbers and to distinguish code from natural-language text.
-      </p>
-      <p>
-        You can download all the fonts via
-        <a
-          class="e-link e-link--inline e-link--new-tab"
-          href="https://fonts.google.com/?query=red+hat"
-          target="_blank"
-          rel="noopener"
-        >
-          <span class="e-link__title">Google Fonts</span>
-          <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span> </a
-        >.
-      </p>
+    <app-component-subsection
+      [sectionTitle]="locale === 'nb-NO' ? 'Red Hat Display, Text og Mono' : 'Red Hat Display, Text and Mono'"
+    >
+      @if (locale === 'en-GB') {
+        <p>
+          <strong>Red Hat Display</strong> has denser letter space and higher x-height and is suitable in
+          large sizes, for example in titles.
+        </p>
+        <p>
+          <strong>Red Hat Text</strong> has a slightly smaller x-height, more space and is designed for good
+          readability in smaller sizes.
+        </p>
+        <p>
+          <strong>Red Hat Mono</strong> has characters that take the same amount of horizontal space. Mono are
+          used to make it easier to comparing numbers and to distinguish code from natural-language text.
+        </p>
+        <p>
+          You can download all the fonts via
+          <a
+            class="e-link e-link--inline e-link--new-tab"
+            href="https://fonts.google.com/?query=red+hat"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="e-link__title">Google Fonts</span>
+            <span class="e-link__icon"
+              ><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i
+            ></span> </a
+          >.
+        </p>
+      } @else {
+        <p>
+          <strong>Red Hat Display</strong> har tettere karakteravstand og høyere x-høyde og egner seg i store
+          størrelser, for eksempel i titler.
+        </p>
+        <p>
+          <strong>Red Hat Text</strong> har en litt mindre x-høyde, mer plass og er designet for god lesbarhet
+          i mindre størrelser.
+        </p>
+        <p>
+          <strong>Red Hat Mono</strong> har tegn som tar like mye horisontal plass. Mono brukes for å gjøre
+          det enklere å sammenligne tall og for å skille kode fra naturlig tekst.
+        </p>
+        <p>
+          Du kan laste ned alle fonter på
+          <a
+            class="e-link e-link--inline e-link--new-tab"
+            href="https://fonts.google.com/?query=red+hat"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="e-link__title">Google Fonts</span>
+            <span class="e-link__icon"
+              ><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i
+            ></span> </a
+          >.
+        </p>
+      }
     </app-component-subsection>
-    <app-component-subsection sectionTitle="Alternative font">
-      We use <strong>Verdana</strong> as an alternative system font. It’s only used in the cases where it
-      isn’t possible to use the profile font, for example digital documents and templates that are shared with
-      people outside of Elvia who might not have the profile font installed. Verdana is less dense than Red
-      Hat, but to simulate Red Hat in the best way you can pinch the text by reducing the letter spacing.
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Alternativ font' : 'Alternative font'">
+      @if (locale === 'en-GB') {
+        We use <strong>Verdana</strong> as an alternative system font. It’s only used in the cases where it
+        isn’t possible to use the profile font, for example digital documents and templates that are shared
+        with people outside of Elvia who might not have the profile font installed. Verdana is less dense than
+        Red Hat, but to simulate Red Hat in the best way you can pinch the text by reducing the letter
+        spacing.
+      } @else {
+        Vi bruker <strong>Verdana</strong> som en alternativ systemfont. Den brukes bare i tilfeller der det
+        ikke er mulig å bruke profilfonten, for eksempel i digitale dokumenter og maler som deles med personer
+        utenfor Elvia som kanskje ikke har profilfonten installert. Verdana er mindre tett enn Red Hat, men
+        for å simulere Red Hat på best mulig måte kan du knipe sammen teksten ved å redusere bokstavavstanden.
+      }
     </app-component-subsection>
   </app-component-section>
 
   <app-component-section #brandTitles [sectionTitle]="locale === 'nb-NO' ? 'Brand titles' : 'Brand titles'">
     <app-component-subsection>
       <p>
-        Red Hat Display Black should be used in all titles. Titles should be clear and easy to recognize. As a
-        rule, they should be uppercase, but in the case of longer texts, lower case letters should be used to
-        ensure good readability.
+        @if (locale === 'en-GB') {
+          Red Hat Display Black should be used in all titles. Titles should be clear and easy to recognize. As
+          a rule, they should be uppercase, but in the case of longer texts, lower case letters should be used
+          to ensure good readability.
+        } @else {
+          Red Hat Display Black skal brukes i alle titler. Titler skal være tydlige og lett å oppfatte. Som
+          regel skal de bestå av versaler (store bokstaver), men ved lengre tekster brukes minuskler (små
+          bokstaver) for å sikre god lesbarhet.
+        }
       </p>
       @defer (on viewport(brandTitles)) {
         <app-typography-title-example />
@@ -64,8 +111,14 @@
 
     <app-component-subsection #outline [sectionTitle]="locale === 'nb-NO' ? 'Outline' : 'Outline'">
       <p class="e-mb-32">
-        Brand titles can be activated to show that Elvia is ON and fully charged. To do this, we use text with
-        outline (OFF) in combination with filled text (ON) and our green dot at the end (fully charged).
+        @if (locale === 'en-GB') {
+          Brand titles can be activated to show that Elvia is ON and fully charged. To do this, we use text
+          with outline (OFF) in combination with filled text (ON) and our green dot at the end (fully
+          charged).
+        } @else {
+          Merkevaretitler kan aktiveres for å vise at Elvia er PÅ og fulladet. For å gjøre dette bruker vi
+          tekst med omriss (AV) i kombinasjon med fylt tekst (PÅ) og vår grønne prikk på slutten (fulladet).
+        }
       </p>
 
       @defer (on viewport(outline)) {
@@ -75,50 +128,91 @@
       }
 
       <p>
-        The activated text should always be filled in solid black or white, depending on which gives best
-        contrast to the background. The deactivated text should have an stroke width (black or white,
-        depending on the background), with a thickness following the following formulas:
+        @if (locale === 'en-GB') {
+          The activated text should always be filled in solid black or white, depending on which gives best
+          contrast to the background. The deactivated text should have an stroke width (black or white,
+          depending on the background), with a thickness following the following formulas:
+        } @else {
+          Den aktiverte teksten skal alltid fylles ut i svart eller hvitt, avhengig av hva som gir best
+          kontrast til bakgrunnen. Den deaktiverte teksten skal ha en strekbredde (svart eller hvit, avhengig
+          av bakgrunnen), med en tykkelse som følger følgende formler:
+        }
       </p>
     </app-component-subsection>
 
     <app-component-subsection
-      [sectionTitle]="locale === 'nb-NO' ? 'Digital stroke width' : 'Digital stroke width'"
+      [sectionTitle]="locale === 'nb-NO' ? 'Digital strektykkelse' : 'Digital stroke width'"
     >
-      Pixel size of the text x 0.02 = line thickness on the outline measured in pixels.
+      @if (locale === 'en-GB') {
+        Pixel size of the text x 0.02 = line thickness on the outline measured in pixels.
+      } @else {
+        Pikselstørrelse på teksten x 0,02 = linjetykkelse på omrisset målt i piksler.
+      }
     </app-component-subsection>
 
     <app-component-subsection
-      [sectionTitle]="locale === 'nb-NO' ? 'Print stroke width' : 'Print stroke width'"
+      [sectionTitle]="locale === 'nb-NO' ? 'Print strektykkelse' : 'Print stroke width'"
     >
-      Point size of the text x 0.017 = line thickness on the outline measured in points.
+      @if (locale === 'en-GB') {
+        Point size of the text x 0.017 = line thickness on the outline measured in points.
+      } @else {
+        Punktstørrelse på teksten x 0,017 = linjetykkelse på omrisset målt i punkter.
+      }
     </app-component-subsection>
   </app-component-section>
 
-  <app-component-section #articles [sectionTitle]="'Articles'">
+  <app-component-section #articles [sectionTitle]="locale === 'nb-NO' ? 'Artikler' : 'Articles'">
     @defer (on viewport(articles)) {
       <app-typography-article-example />
     } @placeholder {
       <div class="e-content-loader" style="width: 100%; aspect-ratio: 1/1"></div>
     }
 
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Title' : 'Title'">
-      Can be written in capitals or lower case. The entire text can be outlined. If parts of the text are to
-      be highlighted, the highlighted part can be set as filled. We mainly use Red Hat Display Bold in titles.
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Tittel' : 'Title'">
+      @if (locale === 'en-GB') {
+        Can be written in capitals or lower case. The entire text can be outlined. If parts of the text are to
+        be highlighted, the highlighted part can be set as filled. We mainly use Red Hat Display Bold in
+        titles.
+      } @else {
+        Kan skrives i VERSALER eller minuskler. Hele teksten kan settes med omriss. Skal deler av teksten
+        utheves kan den uthevede delen settes som fylt. Vi bruker hovedsaklig Red Hat Display Bold i titler.
+      }
     </app-component-subsection>
     <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Ingress' : 'Ingress'">
-      Use Red Hat Text Medium, and should always be smaller than the title. Ingress should have a larger point
-      size than the body text, to create a hierarchical relationship between them.
+      @if (locale === 'en-GB') {
+        Use Red Hat Text Medium, and should always be smaller than the title. Ingress should have a larger
+        point size than the body text, to create a hierarchical relationship between them.
+      } @else {
+        Settes i Red Hat Text Medium, og skal alltid være mindre enn tittelen. Ingress skal ha en større
+        punktstørrelse enn brødteksten, for å skape et hierarkisk forhold mellom disse.
+      }
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Body text' : 'Body text'">
-      Must always be set in an easily readable size. This text should have a smaller point size than the title
-      and preamble. We mainly use Red Hat Text Regular in body text, but we can emphasise important content
-      with italic, underlined or bold.
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Brødtekst' : 'Body text'">
+      @if (locale === 'en-GB') {
+        Must always be set in an easily readable size. This text should have a smaller point size than the
+        title and preamble. We mainly use Red Hat Text Regular in body text, but we can emphasise important
+        content with italic, underlined or bold.
+      } @else {
+        Skal alltid settes i en godt lesbar størrelse. Denne teksten skal ha en mindre punktstørrelse enn
+        tittel og ingress. Vi bruker hovedsaklig Red Hat Text Regular i brødtekst, men vi kan utheve viktig
+        innhold med italic, understreket eller bold
+      }
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Middle text' : 'Middle text'">
-      Always set in bold, and is 0-2 points larger than the body text that follows.
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Mellomtittel' : 'Middle text'">
+      @if (locale === 'en-GB') {
+        Always set in bold, and is 0-2 points larger than the body text that follows.
+      } @else {
+        Settes alltid i bold, og er 0-2 punkt større enn brødteksten som følger.
+      }
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Closing sentence' : 'Closing sentence'">
-      We end titles with a green full stop.
+    <app-component-subsection
+      [sectionTitle]="locale === 'nb-NO' ? 'Avsluttende punktum' : 'Closing sentence'"
+    >
+      @if (locale === 'en-GB') {
+        We end titles with a green full stop.
+      } @else {
+        Vi avslutter titler med et grønt punktum.
+      }
     </app-component-subsection>
   </app-component-section>
 
