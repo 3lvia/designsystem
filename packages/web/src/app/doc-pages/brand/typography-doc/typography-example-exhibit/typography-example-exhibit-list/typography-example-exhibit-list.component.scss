@@ -14,9 +14,11 @@
     }
 
     .typography-demo {
-      display: flex;
-      align-items: center;
+      width: 100%;
+      height: 100%;
+      border: none;
       overflow-wrap: anywhere;
+      resize: none;
     }
 
     .typography-class {

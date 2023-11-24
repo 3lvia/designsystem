@@ -1,23 +1,28 @@
 @for (typography of typographies; track typography.class) {
   @if (typography.modifier === modifier) {
     <div class="typography-example">
-      <div
-        [class]="typography.class"
-        class="typography-demo"
-        [contentEditable]="true"
-        (input)="demoContent = $any($event.target).textContent"
-      >
-        @switch (typography.details.fontStyle) {
-          @case ('italic') {
-            <em [textContent]="demoContent">{{ demoContent }}</em>
-          }
-          @default {
-            <span [textContent]="demoContent">
-              {{ demoContent }}
-            </span>
-          }
+      @switch (typography.details.fontStyle) {
+        @case ('italic') {
+          <em>
+            <textarea
+              cdkTextareaAutosize
+              [class]="typography.class"
+              class="typography-demo"
+              type="text"
+              [(ngModel)]="demoContent"
+            ></textarea>
+          </em>
         }
-      </div>
+        @default {
+          <textarea
+            cdkTextareaAutosize
+            [class]="typography.class"
+            class="typography-demo"
+            type="text"
+            [(ngModel)]="demoContent"
+          ></textarea>
+        }
+      }
       <div class="typography-information">
         <div class="typography-title e-mb-8">
           <span class="e-title-caps">
