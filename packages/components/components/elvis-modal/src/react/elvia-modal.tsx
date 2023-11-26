@@ -55,6 +55,16 @@ export const Modal: FC<ModalProps> = function ({
   const hasSecondaryButton =
     !!secondaryButton || !!(webcomponent && !!webcomponent.getSlot('secondaryButton'));
 
+  const getAriaLabel = (): string => {
+    if (heading && typeof heading === 'string') {
+      return heading;
+    } else if (webcomponent && !!webcomponent.getSlot('heading')) {
+      return webcomponent.getSlot('heading').textContent ?? 'Forgrunnsvindu';
+    } else {
+      return 'Forgrunnsvindu';
+    }
+  };
+
   /** Dispatch onClose events */
   const handleOnClose = (): void => {
     if (!isShowing) {
@@ -99,7 +109,7 @@ export const Modal: FC<ModalProps> = function ({
       aria-modal
       tabIndex={-1}
       role="dialog"
-      aria-label={heading}
+      aria-label={getAriaLabel()}
       isShowing={isShowing}
       disableBackdrop={disableBackdrop}
       {...rest}
