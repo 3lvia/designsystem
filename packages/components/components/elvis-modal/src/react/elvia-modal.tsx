@@ -43,11 +43,13 @@ export const Modal: FC<ModalProps> = function ({
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
 
   /** Get all slots */
-  const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent);
+  const { ref: modalHeading } = useSlot<HTMLHeadingElement>('heading', webcomponent);
   const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent);
   const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent);
   const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent);
+  const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent);
 
+  const hasHeading = !!heading || !!(webcomponent && !!webcomponent.getSlot('heading'));
   const hasIllustration = !!illustration || !!(webcomponent && !!webcomponent.getSlot('illustration'));
   const hasPrimaryButton = !!primaryButton || !!(webcomponent && !!webcomponent.getSlot('primaryButton'));
   const hasSecondaryButton =
@@ -131,7 +133,11 @@ export const Modal: FC<ModalProps> = function ({
         )}
 
         <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
-          {heading && <ModalHeading hasIllustration={hasIllustration}>{heading}</ModalHeading>}
+          {hasHeading && (
+            <ModalHeading ref={modalHeading} hasIllustration={hasIllustration}>
+              {heading}
+            </ModalHeading>
+          )}
           <ModalText data-testid="modal-content" ref={modalText}>
             {content}
           </ModalText>
