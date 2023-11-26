@@ -463,7 +463,10 @@
             [isShowing]="isModalShowing"
             [disableClose]="false"
           >
-            <div slot="heading">Jeg er en heading (slot)</div>
+            <div slot="heading" class="e-flex e-align-items-center e-gap-8">
+              Jeg er en heading (slot)
+              <i class="e-icon e-icon--move_truck-color e-icon--sm" aria-hidden="true"> </i>
+            </div>
             <div slot="content">Content</div>
             <button
               slot="secondaryButton"
