@@ -13,7 +13,7 @@ describe('Elvis Modal', () => {
           heading="Title"
           content={<p>Content</p>}
           primaryButton={<button>Primary</button>}
-        ></Modal>,
+        />,
       );
     });
 
@@ -57,19 +57,26 @@ describe('Elvis Modal', () => {
     beforeEach(() => {
       render(
         <Modal
+          heading={<span>I am heading</span>}
           content={<p>Content</p>}
           primaryButton={<button>Primary</button>}
           secondaryButton={<button>Secondary</button>}
           illustration={<svg />}
           hasCloseButton
           isShowing
-        ></Modal>,
+        />,
       );
     });
 
     it('should be visible', () => {
       const container = screen.getByRole('dialog');
       expect(container).toBeVisible();
+    });
+
+    it('should have a heading (slot)', () => {
+      const heading = screen.getByRole('heading', { level: 2 });
+      expect(heading).toHaveTextContent('I am heading');
+      expect(heading).toBeInTheDocument();
     });
 
     it('should have secondary button', () => {
@@ -91,12 +98,7 @@ describe('Elvis Modal', () => {
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       render(
-        <Modal
-          content={<p>Content</p>}
-          className="test-class"
-          inlineStyle={{ margin: '24px' }}
-          isShowing
-        ></Modal>,
+        <Modal content={<p>Content</p>} className="test-class" inlineStyle={{ margin: '24px' }} isShowing />,
       );
     });
 
@@ -116,7 +118,7 @@ describe('Elvis Modal', () => {
             heading="Title"
             content={<p>Content</p>}
             primaryButton={<button>Primary</button>}
-          ></Modal>
+          />
           <Modal
             heading="Title"
             content={<p>Content</p>}
@@ -125,7 +127,7 @@ describe('Elvis Modal', () => {
             illustration={<svg />}
             hasCloseButton
             isShowing
-          ></Modal>
+          />
         </div>,
       );
 
