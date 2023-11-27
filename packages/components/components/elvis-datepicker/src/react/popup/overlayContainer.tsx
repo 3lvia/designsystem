@@ -112,26 +112,24 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                 maxDate={maxDate}
               ></YearPicker>
             ) : (
-              <>
-                <Calendar
-                  selectedDate={selectedDate}
-                  viewedDate={viewedDate}
-                  onDateChange={(newDate, closeOverlay) => {
-                    onChange(newDate);
+              <Calendar
+                selectedDate={selectedDate}
+                viewedDate={viewedDate}
+                onDateChange={(newDate, closeOverlay) => {
+                  onChange(newDate);
 
-                    if (closeOverlay) {
-                      setFadeOut(true);
-                    }
-                  }}
-                  setViewedDate={setViewedDate}
-                  minDate={minDate}
-                  maxDate={maxDate}
-                  disableDate={disableDate}
-                  resetDate={resetDate}
-                  clearButtonText={clearButtonText}
-                  dateRangeProps={dateRangeProps}
-                />
-              </>
+                  if (closeOverlay) {
+                    setFadeOut(true);
+                  }
+                }}
+                setViewedDate={setViewedDate}
+                minDate={minDate}
+                maxDate={maxDate}
+                disableDate={disableDate}
+                resetDate={resetDate}
+                clearButtonText={clearButtonText}
+                dateRangeProps={dateRangeProps}
+              />
             )}
           </PopoverBody>
         </Container>
