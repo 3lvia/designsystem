@@ -4,7 +4,6 @@ import { Calendar } from '../calendar/calendar';
 import {
   OverlayContainer as Container,
   PopoverBody,
-  PopoverFooter,
   PopoverHeader,
   RotatingContainer,
   SelectedDateName,
@@ -14,7 +13,6 @@ import { formatDate, isAfter, isBefore } from '../dateHelpers';
 import { DatepickerRangeProps } from '../elviaDatepicker.types';
 import { TertiaryButton, Overlay, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
-import reset from '@elvia/elvis-assets-icons/dist/icons/reset';
 
 interface Props {
   onClose: () => void;
@@ -129,14 +127,10 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                   minDate={minDate}
                   maxDate={maxDate}
                   disableDate={disableDate}
+                  resetDate={resetDate}
+                  clearButtonText={clearButtonText}
                   dateRangeProps={dateRangeProps}
                 />
-                <PopoverFooter>
-                  <TertiaryButton onClick={resetDate} aria-label="Nullstill dato" size="sm">
-                    <IconWrapper icon={reset} size="xs" />
-                    {clearButtonText}
-                  </TertiaryButton>
-                </PopoverFooter>
               </>
             )}
           </PopoverBody>
