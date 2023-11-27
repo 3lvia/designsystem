@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect, useState } from 'react';
+import React, { FC, useRef, useEffect, useState, useMemo } from 'react';
 import {
   CloseButtonContainer,
   ModalContent,
@@ -42,14 +42,20 @@ export const Modal: FC<ModalProps> = function ({
 
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
 
+  const hasHeading = useMemo(
+    () => !!heading || !!(webcomponent && !!webcomponent.getSlot('heading')),
+    [heading, webcomponent],
+  );
+
   /** Get all slots */
-  const { ref: modalHeading } = useSlot<HTMLHeadingElement>('heading', webcomponent);
+  const { ref: modalHeading } = useSlot<HTMLHeadingElement>('heading', webcomponent, {
+    useEffectDependencies: hasHeading,
+  });
   const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent);
   const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent);
   const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent);
   const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent);
 
-  const hasHeading = !!heading || !!(webcomponent && !!webcomponent.getSlot('heading'));
   const hasIllustration = !!illustration || !!(webcomponent && !!webcomponent.getSlot('illustration'));
   const hasPrimaryButton = !!primaryButton || !!(webcomponent && !!webcomponent.getSlot('primaryButton'));
   const hasSecondaryButton =
