@@ -62,7 +62,6 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
     const resetDate = (): void => {
       onChange(null);
       onReset();
-      setViewedDate(new Date());
     };
 
     useEffect(() => {

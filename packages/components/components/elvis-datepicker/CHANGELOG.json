@@ -11,6 +11,10 @@
             "Fixed an issue where the height of the datepicker overlay would change depending on what month you were on.",
             "Fixed an issue where the height of the datepicker overlay would change when resetting the value, going from a selected date to no selected date."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["No longer change the calendar view to today when clicking the reset button."]
         }
       ]
     },
