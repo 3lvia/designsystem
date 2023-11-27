@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "27.11.23",
+      "version": "9.0.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the height of the datepicker overlay would change depending on what month you were on.",
+            "Fixed an issue where the height of the datepicker overlay would change when resetting the value, going from a selected date to no selected date."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.11.23",
       "version": "9.0.3",
       "changelog": [
