@@ -2458,7 +2458,7 @@ __metadata:
     sass: "npm:^1.69.5"
     styled-components: "npm:^5.3.3"
     tiny-glob: "npm:^0.2.9"
-    tsx: "npm:^4.5.0"
+    tsx: "npm:^4.6.0"
     typescript: "npm:~5.2.2"
     typescript-plugin-css-modules: "npm:^5.0.2"
     typescript-plugin-styled-components: "npm:^3.0.0"
@@ -19378,9 +19378,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "tsx@npm:4.5.0"
+"tsx@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "tsx@npm:4.6.0"
   dependencies:
     esbuild: "npm:~0.18.20"
     fsevents: "npm:~2.3.3"
@@ -19390,7 +19390,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 49576a8e20799f01e7eb282aec0dca3faa2d841fea688374e981e2a9ad433ac63397939bf787065450501a49f9bd84d7ce7f095fef2d11b6003fec3d426fc757
+  checksum: 97aaf8c8d718f1ca9ce2c2d57cffae30044588ea5db687b1ff27416b136fe0f307f329b1fb7c6a877aa0a4ba3db3ff19a10d7878b7c4325175155f52b384b73c
   languageName: node
   linkType: hard
 
