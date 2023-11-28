@@ -12,8 +12,8 @@ const modalData: ComponentData<BaseModalProps> = {
       description: 'Controls if the modal is showing or not.',
     },
     heading: {
-      type: 'string',
-      description: 'Heading for the modal.',
+      type: 'string | HTMLElement | JSX.Element',
+      description: 'Heading for the modal (slot in web component).',
     },
     content: {
       isRequired: true,
@@ -68,7 +68,13 @@ const modalData: ComponentData<BaseModalProps> = {
     },
     maxWidth: {
       type: 'string',
-      description: 'Overwrite the max width of the modal (e.g. "100px", "90%").',
+      description: 'Overwrite the max width of the modal.',
+      example: /* ts */ `
+        maxWidth = "100px"
+        //or
+        maxWidth = "90%"
+        //etc...
+      `,
     },
   },
 };
