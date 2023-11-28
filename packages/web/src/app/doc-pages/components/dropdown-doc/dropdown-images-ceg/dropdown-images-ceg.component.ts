@@ -14,48 +14,58 @@ export class DropdownImagesCegComponent implements StaticComponentExample {
   comment = ` Define the items in Typescript:
   items = [
     {
-      value: 'tom',
-      label: 'Tom',
-      icon: '<img src="assets/contact/Tom.png" class="e-dropdown__image" width="32" height="32">',
+      value: 'mats',
+      label: 'Mats',
+      icon: '<img src="assets/dropdown/images/mats.png" class="e-dropdown__image" width="32" height="32">',
     },
     {
-      value: 'erik',
-      label: 'Erik',
-      icon: '<img src="assets/contact/Erik.png" class="e-dropdown__image" width="32" height="32">',
+      value: 'peder',
+      label: 'Peder',
+      icon: '<img src="assets/dropdown/images/peder.png" class="e-dropdown__image" width="32" height="32">',
     },
     {
-      value: 'kari',
-      label: 'Kari',
-      icon: '<img src="assets/contact/Kari.jpg" class="e-dropdown__image" width="32" height="32">',
+      value: 'katrine',
+      label: 'Katrine',
+      icon: '<img src="assets/dropdown/images/katrine.png" class="e-dropdown__image" width="32" height="32">',
     },
     {
-      value: 'fride',
-      label: 'Fride',
-      icon: '<img src="assets/contact/Fride.jpg" class="e-dropdown__image" width="32" height="32">',
+      value: 'sofie',
+      label: 'Sofie',
+      icon: '<img src="assets/dropdown/images/sofie.png" class="e-dropdown__image" width="32" height="32">',
+    },
+    {
+      value: 'trine',
+      label: 'Trine Marie',
+      icon: '<img src="assets/dropdown/images/trine.png" class="e-dropdown__image" width="32" height="32">',
     },
   ];
 `;
 
   items = [
     {
-      value: 'tom',
-      label: 'Tom',
-      icon: '<img src="assets/contact/Tom.png" class="e-dropdown__image" width="32" height="32">',
+      value: 'mats',
+      label: 'Mats',
+      icon: '<img src="assets/dropdown/images/mats.png" class="e-dropdown__image" width="32" height="32">',
     },
     {
-      value: 'erik',
-      label: 'Erik',
-      icon: '<img src="assets/contact/Erik.png" class="e-dropdown__image" width="32" height="32">',
+      value: 'peder',
+      label: 'Peder',
+      icon: '<img src="assets/dropdown/images/peder.png" class="e-dropdown__image" width="32" height="32">',
     },
     {
-      value: 'kari',
-      label: 'Kari',
-      icon: '<img src="assets/contact/Kari.jpg" class="e-dropdown__image" width="32" height="32">',
+      value: 'katrine',
+      label: 'Katrine',
+      icon: '<img src="assets/dropdown/images/katrine.png" class="e-dropdown__image" width="32" height="32">',
     },
     {
-      value: 'fride',
-      label: 'Fride',
-      icon: '<img src="assets/contact/Fride.jpg" class="e-dropdown__image" width="32" height="32">',
+      value: 'sofie',
+      label: 'Sofie',
+      icon: '<img src="assets/dropdown/images/sofie.png" class="e-dropdown__image" width="32" height="32">',
+    },
+    {
+      value: 'trine',
+      label: 'Trine Marie',
+      icon: '<img src="assets/dropdown/images/trine.png" class="e-dropdown__image" width="32" height="32">',
     },
   ];
 
