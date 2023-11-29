@@ -437,6 +437,7 @@
             [items]="dropdownItems"
             label="Select location"
             (valueOnChange)="onDropdownSelect($any($event).detail.value)"
+            [labelTransformation]="labelTransformation"
           ></elvia-dropdown>
           <h3>Dropdown</h3>
           <elvia-dropdown

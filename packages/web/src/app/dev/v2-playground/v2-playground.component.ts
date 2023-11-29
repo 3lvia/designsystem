@@ -109,25 +109,25 @@ export class v2PlaygroundComponent {
   longDropdownList = dropdownData;
   dropdownItems = [
     {
-      value: 0,
+      value: 'norge',
       label: 'Norge',
-      children: [
-        { label: 'Oslo', value: 'oslo' },
-        {
-          label: 'Bergen',
-          value: 'bergen',
-          children: [
-            { label: 'Arna', value: 'arna' },
-            { label: 'Bergenhus', value: 'bergenhus' },
-            { label: 'Fana', value: 'fana' },
-            { label: 'Fyllingsdalen', value: 'fyllingsdalen' },
-            { label: 'Laksevåg', value: 'Laksevåg' },
-          ],
-        },
-        { label: 'Trondheim', value: 'trondheim' },
-        { label: 'Stavanger', value: 'stavanger' },
-        { label: 'Kristiansand', value: 'kristiansand' },
-      ],
+      // children: [
+      //   { label: 'Oslo', value: 'oslo' },
+      //   {
+      //     label: 'Bergen',
+      //     value: 'bergen',
+      //     children: [
+      //       { label: 'Arna', value: 'arna' },
+      //       { label: 'Bergenhus', value: 'bergenhus' },
+      //       { label: 'Fana', value: 'fana' },
+      //       { label: 'Fyllingsdalen', value: 'fyllingsdalen' },
+      //       { label: 'Laksevåg', value: 'Laksevåg' },
+      //     ],
+      //   },
+      //   { label: 'Trondheim', value: 'trondheim' },
+      //   { label: 'Stavanger', value: 'stavanger' },
+      //   { label: 'Kristiansand', value: 'kristiansand' },
+      // ],
     },
     {
       value: 1,
@@ -146,13 +146,19 @@ export class v2PlaygroundComponent {
     {
       value: 'england',
       label: 'England',
-      children: [
-        { value: 'london', label: 'London', icon: 'adjust' },
-        { value: 'manchester', label: 'Manchester', icon: 'addCircle' },
-        { value: 'birmingham', label: 'Birmingham', icon: 'search' },
-      ],
+      // children: [
+      //   { value: 'london', label: 'London' },
+      //   { value: 'manchester', label: 'Manchester' },
+      //   { value: 'birmingham', label: 'Birmingham' },
+      // ],
     },
   ];
+
+  labelTransformation = (val: string): string => {
+    const label = this.dropdownItems.find((item) => item.value === val)?.label as string;
+    return `${label.substring(0, 6)}${label.length > 6 ? '...' : ''}`;
+  };
+
   isLoadingMoreItems = false;
   setLoading = () => {
     this.isLoadingMoreItems = true;
