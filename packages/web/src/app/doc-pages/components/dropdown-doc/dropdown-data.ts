@@ -183,5 +183,15 @@ export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithS
       type: 'string',
       description: 'Add an Aria label for accessibility if no explicit label is provided.',
     },
+    labelTransformation: {
+      type: '(value: string | number) => string',
+      description:
+        "Function that can be used to show a different selected value for the input than what is show inside the dropdown overlay based on the selected item's value.",
+      example: /*ts*/ `labelTransformation = (value: string | number) => {
+        // Example: Shorten the shown label
+        const label = items.find(item => item.value === value).label;
+        return label.substring(0,3) + '...';
+      };`,
+    },
   },
 };

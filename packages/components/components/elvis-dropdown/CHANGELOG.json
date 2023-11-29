@@ -3,6 +3,18 @@
   "content": [
     {
       "date": "29.11.23",
+      "version": "9.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new prop <code>labelTransformation</code> that can be used to transform the shown label of the selected dropdown item. "
+          ]
+        }
+      ]
+    },
+    {
+      "date": "29.11.23",
       "version": "9.2.0",
       "changelog": [
         {

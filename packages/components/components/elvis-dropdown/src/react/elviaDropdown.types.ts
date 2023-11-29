@@ -30,4 +30,5 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasEr
   onLoadMoreItems?: () => void;
   isLoadingMoreItems?: boolean;
   ariaLabel?: string;
+  labelTransformation?: (val: DropdownValueType) => string;
 }
