@@ -22,6 +22,7 @@ export const config: ComponentConfig = {
     { name: 'noOptionsMessage', type: 'string' },
     { name: 'hasLoadMoreItemsButton', type: 'boolean' },
     { name: 'isLoadingMoreItems', type: 'boolean' },
+    { name: 'labelTransformation', type: 'function' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
     {
