@@ -870,7 +870,7 @@ module.exports = [
   { name: 'step_9', terms: ['number', 'ninth', 'nine'], thirdparty: { name: ['streamline'] } },
   { name: 'step_10', terms: ['number', 'tenth', 'ten'], thirdparty: { name: ['streamline'] } },
   { name: 'stop_circle-color', terms: ['video'] },
-  { name: 'stop_circle-filled', terms: ['video'] },
+  { name: 'stop_circle-filled-color', terms: ['video'] },
   { name: 'stove', terms: ['oven'] },
   {
     name: 'subtract_circle',
