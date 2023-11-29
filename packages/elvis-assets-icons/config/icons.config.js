@@ -374,7 +374,7 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   { name: 'forward_circle-color', terms: ['video'] },
-  { name: 'forward_circle-filled', terms: ['video'] },
+  { name: 'forward_circle-filled-color', terms: ['video'] },
   {
     name: 'form-color',
     terms: ['application', 'paper', 'sheet', 'letter', 'document', 'write', 'edit'],
