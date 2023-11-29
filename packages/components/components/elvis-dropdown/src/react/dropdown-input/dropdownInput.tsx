@@ -59,7 +59,7 @@ export const DropdownInput: React.FC<Props> = ({
   };
 
   const updateCurrentValIcon = (): void => {
-    if (typeof currentVal === 'string') {
+    if (typeof currentVal === 'string' || typeof currentVal === 'number') {
       setCurrentValIcon(flattenTree(items).find((item) => item.value === currentVal)?.icon);
     } else {
       setCurrentValIcon(undefined);

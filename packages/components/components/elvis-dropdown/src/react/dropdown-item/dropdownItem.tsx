@@ -175,10 +175,9 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
         aria-selected={selfOrAllChildrenAreSelected}
-        aria-label={`
-        ${item.label}
-        ${item.children ? ', undermeny' : ''} 
-        ${item.tooltip ? ', Merknad: ' + item.tooltip : ''}`}
+        aria-label={`${item.label}${item.children ? ' , undermeny' : ''}${
+          item.tooltip ? ' , Merknad: ' + item.tooltip : ''
+        }`}
         data-testid="dropdown-item"
       >
         {isMulti && (
