@@ -333,6 +333,21 @@ describe('Elvis Dropdown', () => {
       });
     });
 
+    describe('labelTransformation', () => {
+      const labelTransformer = (val: string) => {
+        const label = items.find((item) => item.value === val)?.label || '';
+        return `${label} transformed`;
+      };
+      const value = items[0].value as string;
+
+      it('should transform the selected item value', async () => {
+        render(<Dropdown value={value} labelTransformation={labelTransformer} items={items}></Dropdown>);
+
+        const input = screen.getByRole('combobox');
+        expect(input).toHaveValue(labelTransformer(value));
+      });
+    });
+
     describe('className and inlineStyle passed to wrapper', () => {
       beforeEach(() => {
         render(<Dropdown className="test-class" inlineStyle={{ margin: '24px' }} items={[]}></Dropdown>);
