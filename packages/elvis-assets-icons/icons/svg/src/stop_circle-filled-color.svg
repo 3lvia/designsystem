@@ -1,0 +1,6 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="stop_circle-filled-color">
+<path id="Color" fill-rule="evenodd" clip-rule="evenodd" d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#29D305"/>
+<path id="Icon" d="M15.6199 7.5L8.38015 7.5C7.89405 7.5 7.5 7.86631 7.5 8.31818V15.6818C7.5 16.1337 7.89405 16.5 8.38015 16.5H15.6199C16.1059 16.5 16.5 16.1337 16.5 15.6818V8.31818C16.5 7.86631 16.1059 7.5 15.6199 7.5Z" fill="black"/>
+</g>
+</svg>

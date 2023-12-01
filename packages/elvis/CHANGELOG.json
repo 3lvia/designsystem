@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "15.4.0",
+      "date": "December 1, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the icons <code>equal-bold</code>, <code>forward_circle-color</code>, <code>forward_circle-filled</code>, <code>stop_circle-color</code>, <code>stop_circle-filled</code> and <code>undo</code>"
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "15.3.2",
       "date": "November 16, 2023",
       "changelog": [
