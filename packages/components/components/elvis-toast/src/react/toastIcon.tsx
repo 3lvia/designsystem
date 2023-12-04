@@ -1,5 +1,5 @@
 import React from 'react';
-import * as DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify';
 
 import { IconWrapper } from '@elvia/elvis-toolbox';
 import { ToastConfig } from './publicApi.public';
