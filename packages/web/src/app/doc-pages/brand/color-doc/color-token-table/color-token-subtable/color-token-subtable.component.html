@@ -18,132 +18,135 @@
         {{ subtitle }}
       </p>
     </div>
-    <div class="table-wrapper" slot="content">
-      <table class="desktop-table">
-        <caption class="e-sr-only">
-          Overview of available
-          {{
-            title | lowercase
-          }}
-          color tokens
-        </caption>
-        <thead>
-          <tr class="e-title-xs">
-            <th class="e-text-left" [ngClass]="{ 'small-column': hasRoleColumn }">Token</th>
-            <th *ngIf="hasExampleColumn" class="small-column">Example</th>
-            <th *ngIf="hasRoleColumn" class="e-text-left">Role</th>
-            <th class="light-and-dark-column">Light</th>
-            <th class="light-and-dark-column">Dark</th>
-          </tr>
-        </thead>
-        <tbody>
-          <ng-container *ngFor="let tablePart of visibleColors">
-            <tr *ngIf="tablePart.title" class="title-row">
-              <td [colSpan]="3 + (hasRoleColumn ? 1 : 0) + (hasExampleColumn ? 1 : 0)">
-                <h5 class="e-title-caps e-m-0">{{ tablePart.title }}</h5>
-                <span class="e-text-sm">{{ tablePart.description }}</span>
-              </td>
+    <div slot="content">
+      <div class="table-wrapper">
+        <table class="desktop-table">
+          <caption class="e-sr-only">
+            Overview of available
+            {{
+              title | lowercase
+            }}
+            color tokens
+          </caption>
+          <thead>
+            <tr class="e-title-xs">
+              <th class="e-text-left" [ngClass]="{ 'small-column': hasRoleColumn }">Token</th>
+              <th *ngIf="hasExampleColumn" class="small-column">Example</th>
+              <th *ngIf="hasRoleColumn" class="e-text-left">Role</th>
+              <th class="light-and-dark-column">Light</th>
+              <th class="light-and-dark-column">Dark</th>
             </tr>
-            <tr *ngFor="let color of tablePart.colors">
-              <app-copy [message]="'--e-color-' + color.token">
-                <td class="token-font" [ngClass]="{ 'small-column': hasRoleColumn }">
-                  <p class="e-m-0">{{ color.token }}</p>
-                </td>
-              </app-copy>
-              <td class="small-column" *ngIf="hasExampleColumn">
-                <div class="example-container" [innerHTML]="color.example"></div>
-              </td>
-              <td *ngIf="hasRoleColumn">
-                <div>
-                  <p class="e-text-sm e-m-0">{{ color.role }}</p>
-                  <div>
-                    <a
-                      class="e-link e-link--new-tab e-link--sm e-mr-8"
-                      target="_blank"
-                      rel="noopener"
-                      [routerLink]="[link.path]"
-                      *ngFor="let link of color.links"
-                    >
-                      <span class="e-link__title">
-                        {{ link.title }}
-                      </span>
-                      <span class="e-link__icon">
-                        <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="e-text-micro e-mt-16 e-flex e-align-items-center" *ngIf="color.warning">
-                    <div class="100%">
-                      <i
-                        class="e-icon e-icon--warning_circle e-icon--color-warning e-icon--xs e-mr-16"
-                        aria-hidden="true"
-                      ></i>
-                    </div>
-                    <div>NB! {{ color.warning }}</div>
-                  </div>
-                </div>
-              </td>
-              <td class="top-align">
-                <div class="color-circle light-and-dark-column">
-                  <app-color-token-subtable-color-circle [hex]="color.light.hex" />
-                  <span class="e-text-sm e-text-center">{{ color.light.label }}</span>
-                </div>
-              </td>
-              <td class="top-align">
-                <div class="color-circle light-and-dark-column">
-                  <app-color-token-subtable-color-circle [hex]="color.dark.hex" />
-                  <span class="e-text-sm e-text-center">{{ color.dark.label }}</span>
-                </div>
-              </td>
-            </tr>
-          </ng-container>
-        </tbody>
-      </table>
-      <table class="mobile-table">
-        <caption class="e-sr-only">
-          Overview of available
-          {{
-            title | lowercase
-          }}
-          color tokens
-        </caption>
-        <thead>
-          <tr class="e-title-xs">
-            <th class="e-text-left">Token</th>
-          </tr>
-        </thead>
-        <tbody>
-          <ng-container *ngFor="let tablePart of visibleColors">
-            <ng-container *ngIf="tablePart.title">
-              <tr class="title-row">
-                <td>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let tablePart of visibleColors">
+              <tr *ngIf="tablePart.title" class="title-row">
+                <td [colSpan]="3 + (hasRoleColumn ? 1 : 0) + (hasExampleColumn ? 1 : 0)">
                   <h5 class="e-title-caps e-m-0">{{ tablePart.title }}</h5>
                   <span class="e-text-sm">{{ tablePart.description }}</span>
                 </td>
               </tr>
-            </ng-container>
-            <ng-container *ngIf="tablePart.colors">
               <tr *ngFor="let color of tablePart.colors">
-                <td>
-                  <div class="token-wrapper">
-                    <span class="token-font">{{ color.token }}</span>
-                    <div class="color-wrapper">
-                      <div class="color-circle light-and-dark-column">
-                        <app-color-token-subtable-color-circle [hex]="color.light.hex" />
-                        <span class="e-text-sm e-text-center">{{ color.light.label }}</span>
-                      </div>
-                      <div class="color-circle light-and-dark-column">
-                        <app-color-token-subtable-color-circle [hex]="color.dark.hex" />
-                        <span class="e-text-sm e-text-center">{{ color.dark.label }}</span>
-                      </div>
+                <app-copy [message]="'--e-color-' + color.token">
+                  <td class="token-font" [ngClass]="{ 'small-column': hasRoleColumn }">
+                    <p class="e-m-0">{{ color.token }}</p>
+                  </td>
+                </app-copy>
+                <td class="small-column" *ngIf="hasExampleColumn">
+                  <div class="example-container" [innerHTML]="color.example"></div>
+                </td>
+                <td *ngIf="hasRoleColumn">
+                  <div>
+                    <p class="e-text-sm e-m-0">{{ color.role }}</p>
+                    <div>
+                      <a
+                        class="e-link e-link--new-tab e-link--sm e-mr-8"
+                        target="_blank"
+                        rel="noopener"
+                        [routerLink]="[link.path]"
+                        *ngFor="let link of color.links"
+                      >
+                        <span class="e-link__title">
+                          {{ link.title }}
+                        </span>
+                        <span class="e-link__icon">
+                          <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+                        </span>
+                      </a>
                     </div>
+                    <div class="e-text-micro e-mt-16 e-flex e-align-items-center" *ngIf="color.warning">
+                      <div class="100%">
+                        <i
+                          class="e-icon e-icon--warning_circle e-icon--color-warning e-icon--xs e-mr-16"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+                      <div>NB! {{ color.warning }}</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="top-align">
+                  <div class="color-circle light-and-dark-column">
+                    <app-color-token-subtable-color-circle [hex]="color.light.hex" />
+                    <span class="e-text-sm e-text-center">{{ color.light.label }}</span>
+                  </div>
+                </td>
+                <td class="top-align">
+                  <div class="color-circle light-and-dark-column">
+                    <app-color-token-subtable-color-circle [hex]="color.dark.hex" />
+                    <span class="e-text-sm e-text-center">{{ color.dark.label }}</span>
                   </div>
                 </td>
               </tr>
             </ng-container>
-          </ng-container>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+        <table class="mobile-table">
+          <caption class="e-sr-only">
+            Overview of available
+            {{
+              title | lowercase
+            }}
+            color tokens
+          </caption>
+          <thead>
+            <tr class="e-title-xs">
+              <th class="e-text-left">Token</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let tablePart of visibleColors">
+              <ng-container *ngIf="tablePart.title">
+                <tr class="title-row">
+                  <td>
+                    <h5 class="e-title-caps e-m-0">{{ tablePart.title }}</h5>
+                    <span class="e-text-sm">{{ tablePart.description }}</span>
+                  </td>
+                </tr>
+              </ng-container>
+              <ng-container *ngIf="tablePart.colors">
+                <tr *ngFor="let color of tablePart.colors">
+                  <td>
+                    <div class="token-wrapper">
+                      <span class="token-font">{{ color.token }}</span>
+                      <div class="color-wrapper">
+                        <div class="color-circle light-and-dark-column">
+                          <app-color-token-subtable-color-circle [hex]="color.light.hex" />
+                          <span class="e-text-sm e-text-center">{{ color.light.label }}</span>
+                        </div>
+                        <div class="color-circle light-and-dark-column">
+                          <app-color-token-subtable-color-circle [hex]="color.dark.hex" />
+                          <span class="e-text-sm e-text-center">{{ color.dark.label }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <ng-content></ng-content>
     </div>
   </elvia-accordion>
 
