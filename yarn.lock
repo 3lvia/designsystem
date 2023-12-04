@@ -2755,7 +2755,7 @@ __metadata:
     "@types/jest-axe": "npm:^3.5.9"
     "@types/styled-components": "npm:^5.1.32"
     esbuild: "npm:^0.19.8"
-    esbuild-plugin-styled-components: "npm:^2.2.2"
+    esbuild-plugin-styled-components: "npm:^3.0.0"
     identity-obj-proxy: "npm:^3.0.0"
     jest: "npm:^29.7.0"
     jest-axe: "npm:^8.0.0"
@@ -9820,13 +9820,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-plugin-styled-components@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "esbuild-plugin-styled-components@npm:2.2.2"
+"esbuild-plugin-styled-components@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "esbuild-plugin-styled-components@npm:3.0.0"
   dependencies:
     "@babel/core": "npm:^7.22.1"
     babel-plugin-styled-components: "npm:^2.1.3"
-  checksum: 20226c4574e881e02dd833b21882cecc80414b59fe3193f1c0e961dc7dda67d5a603feff63ce92245db65ff388aa599d3e6c6b94d5ed59c055cd82d608e94a79
+  checksum: 19757133aa830f17f67f3d094e3a8eee476134def7c21d114d89b5cc7d9b1a2086a9f775e09176620881a920205bfc0e689af1e8d2b45d3ae5bd8d4b2df5d0e0
   languageName: node
   linkType: hard
 
