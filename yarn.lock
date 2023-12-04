@@ -296,9 +296,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cdk@npm:^17.0.1":
-  version: 17.0.1
-  resolution: "@angular/cdk@npm:17.0.1"
+"@angular/cdk@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "@angular/cdk@npm:17.0.2"
   dependencies:
     parse5: "npm:^7.1.2"
     tslib: "npm:^2.3.0"
@@ -309,7 +309,7 @@ __metadata:
   dependenciesMeta:
     parse5:
       optional: true
-  checksum: 157b7eb84066768c5dfca8a907a9beefd413ac2af73b3014ab5facfa80fbcd9cc893a5bd1d787ea01d00274b48761d15eab062442cfe4be460b142c056cf04ba
+  checksum: bd4cee88d4d81c2f08ae6cf3fe67d868cdc36950969885c3ecbb695c0f949cd964ce877b5a736ba7b24c5f44d2e1612cc7b8eef07791c2c5bfd6424ff1c50e49
   languageName: node
   linkType: hard
 
@@ -9416,7 +9416,7 @@ __metadata:
     "@angular-eslint/schematics": "npm:^17.1.1"
     "@angular-eslint/template-parser": "npm:^17.1.1"
     "@angular/animations": "npm:^17.0.5"
-    "@angular/cdk": "npm:^17.0.1"
+    "@angular/cdk": "npm:^17.0.2"
     "@angular/cli": "npm:^17.0.5"
     "@angular/common": "npm:^17.0.5"
     "@angular/compiler": "npm:^17.0.5"
