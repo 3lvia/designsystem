@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "15.4.1",
+      "date": "December 5, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Added a missing <code>position: relative;</code> to the checkbox container element."],
+          "components": [{ "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" }]
+        }
+      ]
+    },
+    {
       "version": "15.4.0",
       "date": "December 1, 2023",
       "changelog": [
