@@ -19,7 +19,7 @@ $link-jumbo-phone-width: 287px;
   @include mixins.typography('text-interactive-md');
   color: var(--e-color-text-1);
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   @include helpers.hover() {
     &:hover {
