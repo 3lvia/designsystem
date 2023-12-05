@@ -1,5 +1,23 @@
 # Elvis-assets-icon
 
+## 3.7.0 (01.12.23)
+
+### New feature
+
+- New icons:
+  1. `equal-bold`.
+  2. `forward_circle-color`.
+  3. `forward_circle-filled`.
+  4. `stop_circle-color`.
+  5. `stop_circle-filled`.
+  6. `undo`
+
+## 3.6.1 (16.11.23)
+
+### Bug fix
+
+- Fixed the `search` and `search-color` icons being slightly different sizes.
+
 ## 3.6.0 (06.10.23)
 
 ### New feature

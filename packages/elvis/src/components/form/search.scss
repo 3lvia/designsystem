@@ -1,8 +1,8 @@
 @use '../../utilities/icons';
-@use '../../utilities/typography';
+@use '../../utilities/mixins';
 
 .e-search {
-  @include typography.typography('text-md');
+  @include mixins.typography('text-md');
   position: relative;
 
   &::-ms-clear {
@@ -124,7 +124,7 @@
   &.e-form-field--compact,
   &.e-form-field--small {
     .e-search--instant {
-      @include typography.typography('text-sm');
+      @include mixins.typography('text-sm');
 
       .e-input {
         input,
@@ -161,7 +161,7 @@
     }
 
     .e-search--on-submit {
-      @include typography.typography('text-sm');
+      @include mixins.typography('text-sm');
 
       .e-input {
         input,

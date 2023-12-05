@@ -56,7 +56,7 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   isGtMobile?: boolean;
 }>`
   display: flex;
-  gap: 16px;
+  gap: 8px;
   border: none;
   margin: 0;
   width: 100%;

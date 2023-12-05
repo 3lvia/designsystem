@@ -1,7 +1,7 @@
 @use '../utilities/outline';
 @use '../utilities/icons';
 @use '../utilities/helpers';
-@use '../utilities/typography';
+@use '../utilities/mixins';
 
 $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
@@ -16,7 +16,7 @@ $link-jumbo-phone-width: 287px;
   box-sizing: border-box;
   border-bottom: 2px solid var(--e-color-border-1);
 
-  @include typography.typography('text-interactive-md');
+  @include mixins.typography('text-interactive-md');
   color: var(--e-color-text-1);
   cursor: pointer;
   font-weight: 600;
@@ -45,17 +45,17 @@ $link-jumbo-phone-width: 287px;
   }
 
   &.e-link--lg {
-    @include typography.typography('text-interactive-lg');
+    @include mixins.typography('text-interactive-lg');
     font-weight: 600;
   }
 
   &.e-link--md {
-    @include typography.typography('text-interactive-md');
+    @include mixins.typography('text-interactive-md');
     font-weight: 600;
   }
 
   &.e-link--sm {
-    @include typography.typography('text-interactive-sm');
+    @include mixins.typography('text-interactive-sm');
     font-weight: 600;
   }
 
@@ -139,7 +139,7 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--lg {
-      @include typography.typography('text-interactive-lg');
+      @include mixins.typography('text-interactive-lg');
       font-weight: 600;
 
       .e-link__icon {
@@ -148,7 +148,7 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--md {
-      @include typography.typography('text-interactive-lg');
+      @include mixins.typography('text-interactive-lg');
       font-weight: 600;
 
       .e-link__icon {
@@ -157,7 +157,7 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--sm {
-      @include typography.typography('text-interactive-md');
+      @include mixins.typography('text-interactive-md');
       font-weight: 600;
 
       .e-link__icon {

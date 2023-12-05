@@ -2,6 +2,57 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "29.11.23",
+      "version": "9.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new prop <code>labelTransformation</code> that can be used to transform the shown label of the selected dropdown item. "
+          ]
+        }
+      ]
+    },
+    {
+      "date": "29.11.23",
+      "version": "9.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for images in dropdown."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed icons (and now images) not showing in current value of input field if the <code>item.value</code> was of type number."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "20.11.23",
+      "version": "9.1.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Properly expose typings for web components."]
+        }
+      ]
+    },
+    {
+      "date": "15.11.23",
+      "version": "9.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new prop <code>isRequired</code>.",
+            "Added support for a dropdown item to have <code>value=null</code>. When that item is selected in the overlay, the input will be cleared and the placeholder shown."
+          ]
+        }
+      ]
+    },
+    {
       "date": "10.10.23",
       "version": "9.0.1",
       "changelog": [

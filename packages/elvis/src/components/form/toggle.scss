@@ -1,6 +1,6 @@
 @use '../../utilities/helpers';
 @use '../../utilities/outline';
-@use '../../utilities/typography';
+@use '../../utilities/mixins';
 
 $toggle-border-radius: 50px;
 
@@ -21,7 +21,7 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
   }
 
   // Label
-  @include typography.typography('text-medium');
+  @include mixins.typography('text-medium');
   position: relative;
   display: flex;
   flex-direction: row;
@@ -86,7 +86,7 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
   &.e-toggle--compact,
   &.e-toggle--small {
     // Compact Label
-    @include typography.typography('text-small');
+    @include mixins.typography('text-small');
   }
 
   // Checked

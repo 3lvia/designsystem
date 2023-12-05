@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect, useState } from 'react';
+import React, { FC, useRef, useEffect, useState, useMemo } from 'react';
 import {
   CloseButtonContainer,
   ModalContent,
@@ -42,16 +42,34 @@ export const Modal: FC<ModalProps> = function ({
 
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
 
+  const hasHeading = useMemo(
+    () => !!heading || !!(webcomponent && !!webcomponent.getSlot('heading')),
+    [heading, webcomponent],
+  );
+
   /** Get all slots */
-  const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent);
+  const { ref: modalHeading } = useSlot<HTMLHeadingElement>('heading', webcomponent, {
+    useEffectDependencies: hasHeading,
+  });
   const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent);
   const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent);
   const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent);
+  const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent);
 
   const hasIllustration = !!illustration || !!(webcomponent && !!webcomponent.getSlot('illustration'));
   const hasPrimaryButton = !!primaryButton || !!(webcomponent && !!webcomponent.getSlot('primaryButton'));
   const hasSecondaryButton =
     !!secondaryButton || !!(webcomponent && !!webcomponent.getSlot('secondaryButton'));
+
+  const getAriaLabel = (): string => {
+    if (heading && typeof heading === 'string') {
+      return heading;
+    } else if (webcomponent && !!webcomponent.getSlot('heading')) {
+      return webcomponent.getSlot('heading').textContent ?? 'Forgrunnsvindu';
+    } else {
+      return 'Forgrunnsvindu';
+    }
+  };
 
   /** Dispatch onClose events */
   const handleOnClose = (): void => {
@@ -97,7 +115,7 @@ export const Modal: FC<ModalProps> = function ({
       aria-modal
       tabIndex={-1}
       role="dialog"
-      aria-label={heading}
+      aria-label={getAriaLabel()}
       isShowing={isShowing}
       disableBackdrop={disableBackdrop}
       {...rest}
@@ -131,7 +149,11 @@ export const Modal: FC<ModalProps> = function ({
         )}
 
         <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
-          {heading && <ModalHeading hasIllustration={hasIllustration}>{heading}</ModalHeading>}
+          {hasHeading && (
+            <ModalHeading ref={modalHeading} hasIllustration={hasIllustration}>
+              {heading}
+            </ModalHeading>
+          )}
           <ModalText data-testid="modal-content" ref={modalText}>
             {content}
           </ModalText>

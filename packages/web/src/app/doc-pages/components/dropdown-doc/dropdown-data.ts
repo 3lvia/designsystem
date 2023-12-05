@@ -75,10 +75,15 @@ export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithS
         },
         hasErrorPlaceholder: {
           type: 'boolean',
-          description: 'Allows you to remove the padding below the date picker.',
+          description: 'Allows you to remove the padding below the dropdown.',
           default: 'true',
         },
       },
+    },
+    isRequired: {
+      type: 'boolean',
+      description: 'Makes the dropdown required.',
+      default: 'false',
     },
     size: {
       type: '"small" | "medium"',
@@ -98,7 +103,7 @@ export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithS
     errorOnChange: {
       isEvent: true,
       type: '(error: string) => void',
-      description: 'Gets called every time the internal date validation error is changed. ',
+      description: 'Gets called every time the internal validation error is changed. ',
     },
     isSearchable: {
       type: 'boolean',
@@ -177,6 +182,16 @@ export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithS
     ariaLabel: {
       type: 'string',
       description: 'Add an Aria label for accessibility if no explicit label is provided.',
+    },
+    labelTransformation: {
+      type: '(value: string | number) => string',
+      description:
+        "Function that can be used to show a different selected value for the input than what is show inside the dropdown overlay based on the selected item's value.",
+      example: /*ts*/ `labelTransformation = (value: string | number) => {
+        // Example: Shorten the shown label
+        const label = items.find(item => item.value === value).label;
+        return label.substring(0,3) + '...';
+      };`,
     },
   },
 };

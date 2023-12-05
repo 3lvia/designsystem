@@ -18,7 +18,6 @@ export interface BaseAccordionProps extends BaseProps {
   closeDetailText?: string;
   openAriaLabel?: string;
   closeAriaLabel?: string;
-  hasBoldLabel?: boolean;
   isStartAligned?: boolean;
   labelPosition?: AccordionLabelPosition;
   size?: AccordionSize;
@@ -31,4 +30,6 @@ export interface BaseAccordionProps extends BaseProps {
   onClose?: () => void;
 }
 
-export interface AccordionProps extends BaseAccordionProps, ComponentPropsWithoutRef<'div'> {}
+export interface AccordionProps
+  extends BaseAccordionProps,
+    Omit<ComponentPropsWithoutRef<'div'>, 'content'> {}

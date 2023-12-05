@@ -1,4 +1,4 @@
-@use '@elvia/elvis/src/utilities/typography.scss' as typography;
+@use '@elvia/elvis/src/utilities/mixins.scss' as mixins;
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
 a {
@@ -8,7 +8,7 @@ a {
 
 kbd,
 .keyboard-button {
-  @include typography.typography('text-sm');
+  @include mixins.typography('text-sm');
   padding: 6px 16px;
   margin-right: 8px;
   border: 1px solid var(--e-color-border-1, black);

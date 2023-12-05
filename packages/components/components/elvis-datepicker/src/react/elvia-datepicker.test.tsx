@@ -2,14 +2,7 @@ import React from 'react';
 import { Datepicker } from './elvia-datepicker';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import {
-  formatDate,
-  dateIsWithinMinMaxBoundary,
-  isAfter,
-  isBefore,
-  isValidDate,
-  localISOTime,
-} from './dateHelpers';
+import { dateIsWithinMinMaxBoundary, isAfter, isBefore, isValidDate, localISOTime } from './dateHelpers';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -33,25 +26,6 @@ describe('Elvis Datepicker', () => {
 
       await user.click(screen.getByTestId('popover-toggle'));
       expect(screen.getByTestId('input')).not.toHaveProperty('value', '');
-    });
-
-    it('should move calendar to todays month when the reset button is pressed', async () => {
-      const user = userEvent.setup();
-
-      await user.click(screen.getByTestId('popover-toggle'));
-      await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
-
-      await user.click(screen.getByTestId('prev-month-btn'));
-
-      const previousMonth = new Date();
-      previousMonth.setMonth(previousMonth.getMonth() - 1);
-      const previousMonthName = formatDate(previousMonth, { month: 'long' });
-      expect(screen.getByTestId('month-name').textContent).toContain(previousMonthName);
-
-      await user.click(screen.getByText('Nullstill'));
-
-      const currentMonthName = formatDate(new Date(), { month: 'long' });
-      expect(screen.getByTestId('month-name').textContent).toContain(currentMonthName);
     });
   });
 

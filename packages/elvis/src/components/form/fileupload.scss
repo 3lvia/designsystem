@@ -1,5 +1,5 @@
 @use '../../utilities/icons';
-@use '../../utilities/typography';
+@use '../../utilities/mixins';
 @use '../../utilities/helpers';
 
 .e-fileupload {
@@ -19,7 +19,7 @@
   }
 
   &__description {
-    @include typography.typography('text-medium');
+    @include mixins.typography('text-medium');
     color: var(--e-color-text-1);
   }
 
@@ -36,7 +36,7 @@
       padding-bottom: 3.5px;
       border-radius: 0;
       border-bottom: 2.5px solid transparent;
-      @include typography.typography('text-interactive-md');
+      @include mixins.typography('text-interactive-md');
       color: var(--e-color-text-1);
       cursor: pointer;
 

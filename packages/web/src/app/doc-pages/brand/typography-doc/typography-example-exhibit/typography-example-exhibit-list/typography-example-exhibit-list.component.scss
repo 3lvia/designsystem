@@ -1,0 +1,87 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+:host {
+  display: grid;
+  gap: 16px;
+
+  .typography-example {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    padding: 32px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--e-color-border-2);
+    }
+
+    .typography-demo {
+      display: flex;
+      align-items: center;
+
+      textarea {
+        width: 100%;
+        overflow: hidden;
+        border: none;
+        padding: 0;
+        padding-bottom: 4px;
+        overflow-wrap: anywhere;
+        resize: none;
+      }
+    }
+
+    .typography-class {
+      margin-left: auto;
+      height: fit-content;
+      width: fit-content;
+      font-family: 'Red Hat Mono', monospace;
+    }
+
+    .typography-information {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      padding: 16px;
+      height: fit-content;
+
+      .typography-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      .typography-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        > * {
+          text-wrap: nowrap;
+        }
+      }
+    }
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 0;
+      padding: 8px 0;
+
+      &:not(:last-child) {
+        border-bottom: 0;
+      }
+
+      .typography-information {
+        border: 1px solid var(--e-color-border-2);
+        border-radius: 0 0 8px 8px;
+        padding: 16px;
+
+        .typography-details {
+          gap: 8px;
+        }
+      }
+      > div {
+        border: 1px solid var(--e-color-border-2);
+        border-bottom: 0;
+        border-radius: 8px 8px 0 0;
+        padding: 24px 16px;
+      }
+    }
+  }
+}

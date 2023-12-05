@@ -6,12 +6,12 @@
   <!--OPTIONS-->
   <app-component-section options [sectionTitle]="'Options'">
     <app-component-subsection [sectionTitle]="'Icons'">
-      <div>
+      <p>
         It's possible to display icons in the dropdown. Simply add a key value pair of
         <code class="code-text">icon: innerHTML</code>
         to the dropdown options to create icons aligned on the left side of the label text.
-      </div>
-      <div class="e-mt-16">
+      </p>
+      <p>
         Note that to display icons, all options need to have an icon attribute. The
         <code>icon</code>
         that you pass will be parsed as
@@ -20,9 +20,19 @@
         <code>e-icon--sm</code>
         if you use icons from
         <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">elvis.</a>
-      </div>
+      </p>
       <app-static-ceg>
         <app-dropdown-icons-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Images'">
+      <p>Add an image to your option. Most used when you need a profile picture together with the name.</p>
+      <p>
+        This is done using the same <code>icon</code> key value pair of <code>items</code>. A helper-class
+        <code>e-dropdown__image</code> is provided to ensure correct size.
+      </p>
+      <app-static-ceg>
+        <app-dropdown-images-ceg />
       </app-static-ceg>
     </app-component-subsection>
     <app-component-subsection [sectionTitle]="'Nested dropdowns'">
@@ -132,6 +142,16 @@
       <app-static-ceg>
         <app-dropdown-load-more-ceg />
       </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Empty option'">
+      <div>
+        If you need an option that is empty, use a placeholder option to clear the dropdown. It should have an
+        item with a <code>label</code> resembling the placeholder, and a <code>value</code> of
+        <code>null</code>.
+        <app-static-ceg>
+          <app-dropdown-empty-ceg />
+        </app-static-ceg>
+      </div>
     </app-component-subsection>
   </app-component-section>
 

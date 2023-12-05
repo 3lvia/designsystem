@@ -4,57 +4,63 @@
   </app-ceg>
 
   <!--TYPE-->
-  <app-component-section type [sectionTitle]="'Type'">
-    <app-component-subsection [sectionTitle]="'Actions'">
+  <app-component-section type sectionTitle="Type">
+    <app-component-subsection sectionTitle="Actions">
       Default modal with two buttons.
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Danger'">
-      Used for destructive actions.
-    </app-component-subsection>
+    <app-component-subsection sectionTitle="Danger"> Used for destructive actions. </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Info'">
+    <app-component-subsection sectionTitle="Info">
       General information - user don’t need to take a desicion with only one button.
     </app-component-subsection>
   </app-component-section>
 
   <!--OPTIONS-->
-  <app-component-section options [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'With illustration'">
+  <app-component-section options sectionTitle="Options">
+    <app-component-subsection sectionTitle="With illustration">
       You can add an illustration or image to the modal. The size of the modal then changes to fixed height
       and width (550 x 1090px). Illustration can be used with both Actions and Info modals.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Multiple pages'">
+    <app-component-subsection sectionTitle="Multiple pages">
       If you need multiple pages in the modal
-      <a class="e-link e-link--inline" [routerLink]="['/components/carousel']">carousel</a>
+      <a class="e-link e-link--inline" routerLink="/components/carousel">carousel</a>
       are added to navigate. A close icon button is then added to make it easy to escape the modal.
       <app-ceg fullWidth>
         <app-modal-multiple-pages-ceg />
       </app-ceg>
     </app-component-subsection>
+    <app-component-subsection sectionTitle="With custom initial focus">
+      The Elvia modal will automatically trap the focus within the modal, and will by default focus on the
+      first focusable element when opened. If you wish to customize what element is focused initially, you can
+      use the <code>elvisFocusInitial</code> attribute on the element you want to give initial focus.
+      <app-ceg fullWidth>
+        <app-modal-initial-focus-ceg />
+      </app-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
-    <app-component-subsection [sectionTitle]="'Actions'">
-      <app-component-subsubsection [sectionTitle]="'Closing'">
+  <app-component-section implementation sectionTitle="Implementation">
+    <app-component-subsection sectionTitle="Actions">
+      <app-component-subsubsection sectionTitle="Closing">
         The modal requires implementation for closing. Use the callback prop 'onClose' to listen for click
         outside modal or on close button and then set the 'isShowing' prop to false.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Other actions'">
+      <app-component-subsubsection sectionTitle="Other actions">
         Actions has to be implemented for all other buttons added to the modal as well.
       </app-component-subsubsection>
     </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div>
           <span class="keyboard-button">Space</span>

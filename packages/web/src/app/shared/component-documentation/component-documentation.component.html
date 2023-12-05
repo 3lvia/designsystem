@@ -6,9 +6,7 @@
   showCssLibraryTag
 >
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
+  <div [innerHTML]="description" ngProjectAs="headerDescription"></div>
 </app-component-header>
 
 <!--BODY-->

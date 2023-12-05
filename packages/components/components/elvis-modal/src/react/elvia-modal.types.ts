@@ -2,19 +2,19 @@ import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
 export interface BaseModalProps extends BaseProps {
-  isShowing: boolean;
-  heading?: string;
   content: JSX.Element;
-  illustration?: JSX.Element;
-  primaryButton?: JSX.Element;
-  secondaryButton?: JSX.Element;
+  disableBackdrop?: boolean;
+  disableClose?: boolean;
   hasCloseButton?: boolean;
   hasLockBodyScroll?: boolean;
   hasPadding?: boolean;
-  disableClose?: boolean;
-  disableBackdrop?: boolean;
+  heading?: string | JSX.Element;
+  illustration?: JSX.Element;
+  isShowing: boolean;
   maxWidth?: string;
+  primaryButton?: JSX.Element;
+  secondaryButton?: JSX.Element;
   onClose?: () => void;
 }
 
-export interface ModalProps extends BaseModalProps, ComponentPropsWithoutRef<'div'> {}
+export interface ModalProps extends BaseModalProps, Omit<ComponentPropsWithoutRef<'div'>, 'content'> {}

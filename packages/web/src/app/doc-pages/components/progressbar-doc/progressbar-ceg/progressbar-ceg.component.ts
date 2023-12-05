@@ -15,10 +15,11 @@ export class ProgressbarCegComponent implements ComponentExample {
         size: {
           type: 'radioGroup',
           group: 'Size',
-          value: 'small',
+          value: 'medium',
           radios: [
             { label: 'Small', value: 'small' },
             { label: 'Medium', value: 'medium' },
+            { label: 'Large', value: 'large' },
           ],
         },
         value: { type: 'counter', group: 'Loaded', increment: 10, value: 20, max: 100, min: 0, postfix: '%' },
