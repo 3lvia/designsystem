@@ -92,7 +92,18 @@
   [subtitle]="'Only for icons or svg representing an icon'"
   [colors]="[{ colors: iconColors }]"
   [searchValue]="filterInput.value"
-/>
+>
+  <div class="e-alert e-alert--info e-alert--no-title e-mt-32" role="note">
+    <div class="e-alert__icon">
+      <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"> </i>
+    </div>
+    <div class="e-alert__content">
+      <div class="e-alert__text">
+        <p class="e-m-0">If you need color token for an icon state, use text tokens.</p>
+      </div>
+    </div>
+  </div>
+</app-color-token-subtable>
 
 <div class="no-properties-found">
   <img src="assets/not-found/NoResults.svg" alt="" aria-hidden="true" />
