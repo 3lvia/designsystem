@@ -8,7 +8,7 @@ dependencies:
 
 design.elvia.io:
   - changed-files:
-      - all-glob-to-any-file:
+      - all-globs-to-any-file:
           [
             'packages/web/**/*',
             '!packages/web/src/assets/changelogs/**/*',
