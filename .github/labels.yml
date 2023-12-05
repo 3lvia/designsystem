@@ -8,12 +8,7 @@ dependencies:
 
 design.elvia.io:
   - changed-files:
-      - all-globs-to-any-file:
-          [
-            'packages/web/**/*',
-            '!packages/web/src/assets/changelogs/**/*',
-            '!packages/web/src/assets/js/elvis.js',
-          ]
+      - any-glob-to-any-file: 'packages/web/**/*'
 
 elvis:
   - changed-files:
