@@ -67,6 +67,12 @@ export const ToastContainer = styled.output<{
       border-color: ${getThemeColor('border-1')};
     `};
 
+  ${({ toastType }) =>
+    toastType === 'error' &&
+    css`
+      border-color: ${getThemeColor('signal-danger')};
+    `};
+
   ${({ index }) => {
     return css`
       bottom: ${`${index * -3}px`};

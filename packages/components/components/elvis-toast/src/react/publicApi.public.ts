@@ -1,6 +1,6 @@
 export const toastEventName = 'elviaToastOpen';
 
-export type ToastType = 'positive' | 'informative';
+export type ToastType = 'positive' | 'informative' | 'error';
 
 export interface ToastConfig {
   title: string;
