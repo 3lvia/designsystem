@@ -46,17 +46,17 @@ $link-jumbo-phone-width: 287px;
 
   &.e-link--lg {
     @include mixins.typography('text-interactive-lg');
-    font-weight: 600;
+    font-weight: 700;
   }
 
   &.e-link--md {
     @include mixins.typography('text-interactive-md');
-    font-weight: 600;
+    font-weight: 700;
   }
 
   &.e-link--sm {
     @include mixins.typography('text-interactive-sm');
-    font-weight: 600;
+    font-weight: 700;
   }
 
   &:active,
@@ -140,7 +140,7 @@ $link-jumbo-phone-width: 287px;
 
     &.e-link--lg {
       @include mixins.typography('text-interactive-lg');
-      font-weight: 600;
+      font-weight: 700;
 
       .e-link__icon {
         @include icons.icon-size('sm');
@@ -149,7 +149,7 @@ $link-jumbo-phone-width: 287px;
 
     &.e-link--md {
       @include mixins.typography('text-interactive-lg');
-      font-weight: 600;
+      font-weight: 700;
 
       .e-link__icon {
         @include icons.icon-size('sm');
@@ -158,7 +158,7 @@ $link-jumbo-phone-width: 287px;
 
     &.e-link--sm {
       @include mixins.typography('text-interactive-md');
-      font-weight: 600;
+      font-weight: 700;
 
       .e-link__icon {
         @include icons.icon-size('xs');
