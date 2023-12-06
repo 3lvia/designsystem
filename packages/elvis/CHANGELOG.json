@@ -6,7 +6,9 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added the new icons <code>like</code> and <code>dislike</code>"],
+          "changes": [
+            "Added the new icons <code>like</code>, <code>like-filled</code>, <code>dislike</code> and <code>dislike-filled</code>"
+          ],
           "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
         }
       ]
