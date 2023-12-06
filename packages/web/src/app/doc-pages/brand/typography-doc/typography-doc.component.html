@@ -236,6 +236,8 @@
   </app-component-section>
 
   <app-component-section [sectionTitle]="'Changelog'">
-    <app-component-changelog [elvisComponentToFilter]="'Typography'"></app-component-changelog>
+    @defer (on immediate) {
+      <app-component-changelog [elvisComponentToFilter]="'Typography'" />
+    }
   </app-component-section>
 </div>

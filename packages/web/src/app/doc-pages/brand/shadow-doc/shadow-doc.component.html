@@ -28,6 +28,8 @@
 
   <!--Changelog-->
   <app-component-section [sectionTitle]="'Changelog'">
-    <app-component-changelog [elvisComponentToFilter]="'Shadow'"></app-component-changelog>
+    @defer (on immediate) {
+      <app-component-changelog [elvisComponentToFilter]="'Shadow'" />
+    }
   </app-component-section>
 </div>

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'ChangelogTypePipe' })
+@Pipe({ name: 'ChangelogTypePipe', standalone: true })
 export class ChangelogTypePipe implements PipeTransform {
   transform(value: string): string {
     switch (value) {

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'FrontPageChangelogDatePipe' })
+@Pipe({ name: 'FrontPageChangelogDatePipe', standalone: true })
 export class FrontPageChangelogDatePipe implements PipeTransform {
   transform(date?: Date): string {
     try {
