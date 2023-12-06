@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "15.4.2",
+      "date": "December 6, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed incorrect font weight for links"],
+          "components": [{ "displayName": "Link", "url": "https://design.elvia.io/components/link" }]
+        }
+      ]
+    },
+    {
       "version": "15.4.1",
       "date": "December 5, 2023",
       "changelog": [
