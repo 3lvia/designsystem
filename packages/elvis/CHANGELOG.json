@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "15.5.0",
+      "date": "December 6, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the new icons <code>like</code> and <code>dislike</code>"],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "15.4.1",
       "date": "December 5, 2023",
       "changelog": [

@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.8.0 (06.12.23)
+
+### New feature
+
+- Added the `like` and `dislike` icons.
+
 ## 3.7.0 (01.12.23)
 
 ### New feature
