@@ -67,10 +67,12 @@
   <ng-content select="[configuration]" />
 
   <!--CHANGELOG-->
-  <app-component-section #changelog sectionTitle="Changelog">
-    @defer (on viewport(changelog)) {
+  <app-component-section sectionTitle="Changelog">
+    @defer (on viewport) {
       <app-component-changelog *ngIf="!isElvis && componentData" [changelog]="componentData.changelog" />
       <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title" />
+    } @placeholder {
+      <div class="e-content-loader" style="width: 100%; height: 550px"></div>
     }
   </app-component-section>
 
