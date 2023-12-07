@@ -12,8 +12,6 @@ import {
   PrimaryButton,
 } from './styledComponents';
 import { getThemeColor } from '@elvia/elvis-colors';
-import { useClickOutside } from './useClickOutside';
-import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import { useFocusTrap, useSlot, IconWrapper, IconButton, Overlay } from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
@@ -40,7 +38,6 @@ export const Modal: FC<ModalProps> = function ({
   ...rest
 }) {
   const overlayRef = useRef<HTMLDivElement>(null);
-  const modalWrapperRef = useRef<HTMLDivElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const { lockBodyScroll, releaseBodyScroll } = useLockBodyScroll();
 
@@ -92,19 +89,12 @@ export const Modal: FC<ModalProps> = function ({
     webcomponent?.triggerEvent('onClose');
   };
 
-  /**
-   * Starts listener for click outside modal, closes modal when clicked
-   * Starts listener for escape click, closes modal when clicked
-   */
-  !disableClose && useClickOutside(modalWrapperRef, () => isShowing && handleOnClose());
-  useKeyPress('Escape', handleOnClose);
-
   useEffect(() => {
     if (!isShowing) {
       return;
     }
     const originalFocusedElement = document.activeElement as HTMLElement;
-    trapFocus(modalWrapperRef);
+    trapFocus(overlayRef);
 
     if (hasLockBodyScroll) {
       lockBodyScroll();
@@ -124,9 +114,8 @@ export const Modal: FC<ModalProps> = function ({
     isShowing && (
       <>
         {!disableBackdrop && <ModalBackdrop />}
-        <Overlay ref={overlayRef} onClose={handleOnClose}>
+        <Overlay ref={overlayRef} onClose={handleOnClose} hasBackdrop={!disableClose}>
           <ModalWrapper
-            ref={modalWrapperRef}
             hasIllustration={hasIllustration}
             className={className}
             style={inlineStyle}
