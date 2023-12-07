@@ -6,7 +6,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-documentation/co
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
-import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
+import { ComponentChangelogComponent } from 'src/app/shared/component-documentation/component-changelog/component-changelog.component';
 import { TypographyExampleExhibitComponent } from './typography-example-exhibit/typography-example-exhibit.component';
 import { TypographyArticleExampleComponent } from './typography-article-example/typography-article-example.component';
 import { TypographyTitleExampleComponent } from './typography-title-example/typography-title-example.component';
@@ -20,7 +20,7 @@ import { TypographyFontExampleComponent } from './typography-font-example/typogr
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
-    ComponentChangelogModule,
+    ComponentChangelogComponent,
     RouterModule,
     TypographyExampleExhibitComponent,
     TypographyFontExampleComponent,

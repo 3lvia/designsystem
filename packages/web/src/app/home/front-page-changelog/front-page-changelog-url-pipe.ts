@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'FrontPageChangelogUrlPipe' })
+@Pipe({ name: 'FrontPageChangelogUrlPipe', standalone: true })
 export class FrontPageChangelogUrlPipe implements PipeTransform {
   transform(name?: string): string {
     try {

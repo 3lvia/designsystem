@@ -460,6 +460,8 @@
 
   <!--Changelog-->
   <app-component-section [sectionTitle]="'Changelog'">
-    <app-component-changelog [elvisComponentToFilter]="'Icons'"></app-component-changelog>
+    @defer {
+      <app-component-changelog [elvisComponentToFilter]="'Icons'" />
+    }
   </app-component-section>
 </div>
