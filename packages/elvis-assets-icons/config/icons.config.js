@@ -306,6 +306,7 @@ module.exports = [
   { name: 'digging-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'dislike', terms: ['thumb', 'down', 'bad', 'vote', 'hand'] },
   { name: 'dislike-filled', terms: ['thumb', 'down', 'bad', 'vote', 'hand'] },
+  { name: 'dislike-filled-color', deprecated: '3.9.0', newIconName: 'dislike-filled' },
   { name: 'diversity', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'download', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'drag_handle', terms: ['drop', 'grab', 'sort', 'move'], thirdparty: { name: ['streamline'] } },
@@ -461,6 +462,7 @@ module.exports = [
   { name: 'lighting', terms: ['light', 'power'] },
   { name: 'like', terms: ['thumb', 'good', 'up', 'vote', 'hand'] },
   { name: 'like-filled', terms: ['thumb', 'good', 'up', 'vote', 'hand'] },
+  { name: 'like-filled-color', deprecated: '3.9.0', newIconName: 'like-filled' },
   { name: 'link', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'list', terms: [], thirdparty: { name: ['streamline'] } },
   {

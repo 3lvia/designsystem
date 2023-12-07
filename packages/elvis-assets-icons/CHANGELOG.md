@@ -1,10 +1,6 @@
 # Elvis-assets-icon
 
-## 4.0.0 (07.12.23)
-
-### Breaking changes
-
-- Removed the `like-filled-color` and `dislike-filled-color` icons.
+## 3.9.0 (07.12.23)
 
 ### New feature
 
