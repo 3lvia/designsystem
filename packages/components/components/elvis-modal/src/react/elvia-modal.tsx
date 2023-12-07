@@ -158,14 +158,8 @@ export const Modal: FC<ModalProps> = function ({
               </ModalText>
               {(hasPrimaryButton || hasSecondaryButton) && (
                 <ModalActions>
-                  <SecondaryButton>
-                    {secondaryButton ?? null}
-                    {webcomponent && hasSecondaryButton && <div ref={modalSecondaryBtn}></div>}
-                  </SecondaryButton>
-                  <PrimaryButton>
-                    {primaryButton ?? null}
-                    {webcomponent && hasPrimaryButton && <div ref={modalPrimaryBtn}></div>}
-                  </PrimaryButton>
+                  <SecondaryButton ref={modalSecondaryBtn}>{secondaryButton}</SecondaryButton>
+                  <PrimaryButton ref={modalPrimaryBtn}>{primaryButton}</PrimaryButton>
                 </ModalActions>
               )}
             </ModalContent>
