@@ -29,7 +29,7 @@ export const Modal: FC<ModalProps> = function ({
   inlineStyle,
   hasCloseButton = false,
   hasLockBodyScroll = true,
-  hasPadding = true, // TODO: Change to `noPadding`. MAJOR!
+  noPadding = false,
   disableClose = false,
   disableBackdrop = false,
   maxWidth,
@@ -147,7 +147,7 @@ export const Modal: FC<ModalProps> = function ({
               </CloseButtonContainer>
             )}
 
-            <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
+            <ModalContent hasIllustration={hasIllustration} hasPadding={!noPadding}>
               {hasHeading && (
                 <ModalHeading ref={modalHeading} hasIllustration={hasIllustration}>
                   {heading}
