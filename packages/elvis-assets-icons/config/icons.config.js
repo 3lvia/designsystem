@@ -304,6 +304,8 @@ module.exports = [
   { name: 'decent', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'design_process-color', deprecated: '7.5.0', newIconName: 'bookshelf' },
   { name: 'digging-color', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'dislike', terms: ['thumb', 'down', 'bad', 'vote', 'hand'] },
+  { name: 'dislike-filled-color', terms: ['thumb', 'down', 'bad', 'vote', 'hand'] },
   { name: 'diversity', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'download', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'drag_handle', terms: ['drop', 'grab', 'sort', 'move'], thirdparty: { name: ['streamline'] } },
@@ -457,6 +459,8 @@ module.exports = [
   { name: 'laws', terms: ['paragraph', 'paper'] },
   { name: 'laws-color', terms: ['paragraph', 'paper'] },
   { name: 'lighting', terms: ['light', 'power'] },
+  { name: 'like', terms: ['thumb', 'good', 'up', 'vote', 'hand'] },
+  { name: 'like-filled-color', terms: ['thumb', 'good', 'up', 'vote', 'hand'] },
   { name: 'link', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'list', terms: [], thirdparty: { name: ['streamline'] } },
   {
