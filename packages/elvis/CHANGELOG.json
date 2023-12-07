@@ -1,6 +1,27 @@
 {
   "content": [
     {
+      "version": "16.0.0",
+      "date": "December 7, 2023",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Removed the icons <code>like-filled-color</code> and <code>dislike-filled-color</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }],
+          "fixes": [
+            "Replace <code>like-filled-color</code> with <code>like-filled</code>, and <code>dislike-filled-color</code> with <code>dislike-filled</code>."
+          ]
+        },
+        {
+          "type": "new_feature",
+          "changes": ["Added the new icons <code>like-filled</code> and <code>dislike-filled</code>"],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "15.5.0",
       "date": "December 7, 2023",
       "changelog": [
