@@ -3015,7 +3015,6 @@ __metadata:
     gulp-tap: "npm:^2.0.0"
     gulp-terser: "npm:^2.1.0"
     jquery: "npm:^3.6.4"
-    mini-svg-data-uri: "npm:^1.4.4"
     popper.js: "npm:^1.16.1"
     resolve: "npm:^1.22.8"
     sass: "npm:^1.69.5"
@@ -14370,15 +14369,6 @@ __metadata:
   peerDependencies:
     webpack: ^5.0.0
   checksum: 1f718bfdcb7c2bf5e4336f694e5576432149d63f9dacaf94eae38ad046534050471a712a2d1bedf95e1722a2d3b56c3361d7352849e802e4875e716885e952c3
-  languageName: node
-  linkType: hard
-
-"mini-svg-data-uri@npm:^1.4.4":
-  version: 1.4.4
-  resolution: "mini-svg-data-uri@npm:1.4.4"
-  bin:
-    mini-svg-data-uri: cli.js
-  checksum: 1336c2b00b6a72b0ce3cf942f7ab074faf463b941042fbe51d7a70be119c5d4223880aaa29584d5a804496ca1dda9b6fff7dd5aa284721907519b646192d8aaa
   languageName: node
   linkType: hard
 
