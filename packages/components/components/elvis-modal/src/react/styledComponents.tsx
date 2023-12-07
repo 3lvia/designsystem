@@ -27,11 +27,6 @@ const modalDesktopWithIllustrationTitlePaddingBottom = '24px';
 
 const fadeIn = keyframes`0% {opacity: 0;} 100% {opacity: 1;}`;
 
-type ModalProps = {
-  isShowing: boolean;
-  disableBackdrop: boolean;
-};
-
 type WrapperProps = {
   hasIllustration: boolean;
   maxWidth?: string;
@@ -46,21 +41,11 @@ type HeadingProps = {
   hasIllustration: boolean;
 };
 
-export const Modal = styled.div<ModalProps>`
-  display: ${({ isShowing }) => (isShowing ? 'flex' : 'none')};
-  justify-content: center;
-  align-items: center;
+export const ModalBackdrop = styled.div`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: left;
-  ${({ disableBackdrop }) => !disableBackdrop && 'background: rgba(0, 0, 0, 0.25);'}
+  inset: 0;
   z-index: 99999;
-  pointer-events: auto;
-  box-sizing: border-box;
-  opacity: 1;
+  background: rgba(0, 0, 0, 0.25);
   animation: ${fadeIn} 300ms ease-in;
 `;
 
@@ -96,6 +81,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
     max-width: 100%;
     height: 100%;
     margin: 0;
+    inset: 0;
   }
 `;
 
