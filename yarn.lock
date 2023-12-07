@@ -2517,7 +2517,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-assets-icons@npm:*, @elvia/elvis-assets-icons@npm:^3.0.0, @elvia/elvis-assets-icons@npm:^3.3.1, @elvia/elvis-assets-icons@npm:^3.5.0, @elvia/elvis-assets-icons@npm:^3.5.1, @elvia/elvis-assets-icons@npm:^3.6.0, @elvia/elvis-assets-icons@workspace:*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@npm:*, @elvia/elvis-assets-icons@workspace:*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
@@ -2533,6 +2533,15 @@ __metadata:
     typescript: "npm:~5.2.2"
   languageName: unknown
   linkType: soft
+
+"@elvia/elvis-assets-icons@npm:^3.0.0, @elvia/elvis-assets-icons@npm:^3.3.1, @elvia/elvis-assets-icons@npm:^3.5.0, @elvia/elvis-assets-icons@npm:^3.5.1, @elvia/elvis-assets-icons@npm:^3.6.0":
+  version: 3.8.0
+  resolution: "@elvia/elvis-assets-icons@npm:3.8.0"
+  dependencies:
+    "@elvia/elvis-colors": "npm:^4.1.0"
+  checksum: 908a5fb63c325d4e3c199d1a2d772e380ffe02dbfa126e04fb6ff09e67637390085f852c902fe65e9a8b798fa47fd2c668a9dae3a82bb13ccc6211f811f0a50b
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis-assets-trademark@workspace:packages/elvis-assets-trademark":
   version: 0.0.0-use.local
