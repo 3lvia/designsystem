@@ -10,7 +10,6 @@ type PossibleEvent = {
 }[HandledEventsType];
 type Handler = (event: PossibleEvent) => void;
 
-// eslint-disable-next-line
 export function useKeyPress(targetKey: string, handler?: Handler | null) {
   const [keyPressed, setKeyPressed] = useState(false);
   useEffect(() => {
