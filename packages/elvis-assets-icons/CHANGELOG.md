@@ -1,6 +1,6 @@
 # Elvis-assets-icon
 
-## 3.8.0 (06.12.23)
+## 3.8.0 (07.12.23)
 
 ### New feature
 
