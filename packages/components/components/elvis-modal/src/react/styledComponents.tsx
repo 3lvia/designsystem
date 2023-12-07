@@ -203,36 +203,38 @@ export const ModalText = styled.div`
 `;
 
 export const ModalActions = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: [start-secondary-btn] 1fr [end-secondary-btn start-primary-btn] 1fr [end-primary-btn];
+  grid-template-rows: 1fr;
   padding-top: 32px;
   gap: 24px;
   margin: auto 0 0 0;
   position: relative;
 
   button {
-    width: 50%;
-  }
-
-  .webComponentBtn {
-    width: 50%;
-    button {
-      width: 100%;
-    }
+    width: 100%;
   }
 
   @media (max-width: ${mobileMax}) {
-    flex-direction: column;
-    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: [start-secondary-btn] 1fr [end-secondary-btn start-primary-btn] 1fr [end-primary-btn];
     gap: 16px;
+  }
+`;
 
-    button {
-      width: 100%;
-    }
+export const PrimaryButton = styled.div`
+  grid-column: start-primary-btn / end-primary-btn;
+  @media (max-width: ${mobileMax}) {
+    grid-column: unset;
+    grid-row: start-primary-btn / end-primary-btn;
+  }
+`;
 
-    .webComponentBtn {
-      width: 100%;
-    }
+export const SecondaryButton = styled.div`
+  grid-column: start-secondary-btn / end-secondary-btn;
+  @media (max-width: ${mobileMax}) {
+    grid-column: unset;
+    grid-row: start-secondary-btn / end-secondary-btn;
   }
 `;
 

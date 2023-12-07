@@ -8,6 +8,8 @@ import {
   ModalWrapper,
   ModalText,
   ModalActions,
+  SecondaryButton,
+  PrimaryButton,
 } from './styledComponents';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { useClickOutside } from './useClickOutside';
@@ -44,10 +46,7 @@ export const Modal: FC<ModalProps> = function ({
 
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
 
-  const hasHeading = useMemo(
-    () => !!heading || !!(webcomponent && !!webcomponent.getSlot('heading')),
-    [heading, webcomponent],
-  );
+  const hasHeading = useMemo(() => !!heading || !!webcomponent?.getSlot('heading'), [heading, webcomponent]);
 
   /** Get all slots */
   const { ref: modalHeading } = useSlot<HTMLHeadingElement>('heading', webcomponent, {
@@ -68,15 +67,14 @@ export const Modal: FC<ModalProps> = function ({
 
   usePositioning({ overlayRef, isShowing });
 
-  const hasIllustration = !!illustration || !!(webcomponent && !!webcomponent.getSlot('illustration'));
-  const hasPrimaryButton = !!primaryButton || !!(webcomponent && !!webcomponent.getSlot('primaryButton'));
-  const hasSecondaryButton =
-    !!secondaryButton || !!(webcomponent && !!webcomponent.getSlot('secondaryButton'));
+  const hasIllustration = !!illustration || !!webcomponent?.getSlot('illustration');
+  const hasPrimaryButton = !!primaryButton || !!webcomponent?.getSlot('primaryButton');
+  const hasSecondaryButton = !!secondaryButton || !!webcomponent?.getSlot('secondaryButton');
 
   const getAriaLabel = (): string => {
     if (heading && typeof heading === 'string') {
       return heading;
-    } else if (webcomponent && !!webcomponent.getSlot('heading')) {
+    } else if (webcomponent?.getSlot('heading')) {
       return webcomponent.getSlot('heading').textContent ?? 'Forgrunnsvindu';
     } else {
       return 'Forgrunnsvindu';
@@ -171,22 +169,14 @@ export const Modal: FC<ModalProps> = function ({
               </ModalText>
               {(hasPrimaryButton || hasSecondaryButton) && (
                 <ModalActions>
-                  {secondaryButton && (
-                    <secondaryButton.type {...secondaryButton.props}>
-                      {secondaryButton.props.children}
-                    </secondaryButton.type>
-                  )}
-                  {webcomponent && hasSecondaryButton && (
-                    <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
-                  )}
-                  {primaryButton ? (
-                    <primaryButton.type {...primaryButton.props}>
-                      {primaryButton.props.children}
-                    </primaryButton.type>
-                  ) : (
-                    !webcomponent && <div style={{ width: '50%' }}></div>
-                  )}
-                  {webcomponent && <div className="webComponentBtn" ref={modalPrimaryBtn}></div>}
+                  <SecondaryButton>
+                    {secondaryButton ?? null}
+                    {webcomponent && hasSecondaryButton && <div ref={modalSecondaryBtn}></div>}
+                  </SecondaryButton>
+                  <PrimaryButton>
+                    {primaryButton ?? (!webcomponent && <div style={{ width: '50%' }}></div>)}
+                    {webcomponent && <div ref={modalPrimaryBtn}></div>}
+                  </PrimaryButton>
                 </ModalActions>
               )}
             </ModalContent>
