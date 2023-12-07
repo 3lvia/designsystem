@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ComponentChangelogModule } from '../../../shared/component-documentation/component-changelog/component-changelog.module';
+import { ComponentChangelogComponent } from 'src/app/shared/component-documentation/component-changelog/component-changelog.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
@@ -29,7 +29,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     ComponentSectionModule,
     ComponentSubsectionModule,
     WhenToUseModule,
-    ComponentChangelogModule,
+    ComponentChangelogComponent,
     CegModule,
     SharedDocumentationModule,
   ],

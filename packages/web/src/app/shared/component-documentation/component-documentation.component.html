@@ -68,8 +68,10 @@
 
   <!--CHANGELOG-->
   <app-component-section sectionTitle="Changelog">
-    <app-component-changelog *ngIf="!isElvis && componentData" [changelog]="componentData.changelog" />
-    <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title" />
+    @defer {
+      <app-component-changelog *ngIf="!isElvis && componentData" [changelog]="componentData.changelog" />
+      <app-component-changelog *ngIf="isElvis" [elvisComponentToFilter]="title" />
+    }
   </app-component-section>
 
   <!--RELATED COMPONENTS-->
