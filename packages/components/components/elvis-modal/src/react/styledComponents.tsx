@@ -208,8 +208,6 @@ export const ModalActions = styled.div`
   grid-template-rows: 1fr;
   padding-top: 32px;
   gap: 24px;
-  margin: auto 0 0 0;
-  position: relative;
 
   button {
     width: 100%;
