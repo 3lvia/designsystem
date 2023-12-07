@@ -4,7 +4,7 @@
 
 ### New feature
 
-- Added the `like`, `like-filled`, `dislike` and `dislike-filled` icons.
+- Added the `like`, `like-filled-color`, `dislike` and `dislike-filled-color` icons.
 
 ## 3.7.0 (01.12.23)
 
