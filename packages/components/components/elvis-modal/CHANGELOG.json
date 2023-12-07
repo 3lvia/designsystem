@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "The modal is now created using a portal. It will be placed at the top level of the DOM. This may help with some z-index related issues."
+            "The modal is now created using a portal. It will be placed at the top level of the DOM. This may help with some z-index related issues. The modal no longer exists in the DOM when it is not open."
           ]
         }
       ]
