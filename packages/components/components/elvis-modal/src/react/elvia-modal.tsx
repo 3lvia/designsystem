@@ -122,7 +122,6 @@ export const Modal: FC<ModalProps> = function ({
             maxWidth={maxWidth}
             role="dialog"
             aria-label={getAriaLabel()}
-            data-testid="modal-wrapper"
             {...rest}
           >
             {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
@@ -153,9 +152,7 @@ export const Modal: FC<ModalProps> = function ({
                   {heading}
                 </ModalHeading>
               )}
-              <ModalText data-testid="modal-content" ref={modalText}>
-                {content}
-              </ModalText>
+              <ModalText ref={modalText}>{content}</ModalText>
               {(hasPrimaryButton || hasSecondaryButton) && (
                 <ModalActions>
                   <SecondaryButton ref={modalSecondaryBtn}>{secondaryButton}</SecondaryButton>
