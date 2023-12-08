@@ -236,7 +236,7 @@ export const SecondaryButton = styled.div`
   }
 `;
 
-export const CloseButtonContainer = styled.div`
+export const CloseButtonContainer = styled.div<{ hasIllustration: boolean }>`
   position: absolute;
   top: 24px;
   right: 24px;
@@ -245,4 +245,16 @@ export const CloseButtonContainer = styled.div`
     top: 16px;
     right: 16px;
   }
+
+  ${({ hasIllustration }) =>
+    hasIllustration &&
+    css`
+      svg {
+        filter: invert(1);
+      }
+
+      &:hover svg {
+        filter: invert(0);
+      }
+    `}
 `;

@@ -11,7 +11,6 @@ import {
   SecondaryButton,
   PrimaryButton,
 } from './styledComponents';
-import { getThemeColor } from '@elvia/elvis-colors';
 import { useLockBodyScroll } from './useLockBodyScroll';
 import { useFocusTrap, useSlot, IconWrapper, IconButton, Overlay } from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
@@ -41,7 +40,6 @@ export const Modal: FC<ModalProps> = function ({
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const { lockBodyScroll, releaseBodyScroll } = useLockBodyScroll();
 
-  const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(isShowing);
   const [fadeOut, setFadeOut] = useState(false);
 
@@ -139,19 +137,9 @@ export const Modal: FC<ModalProps> = function ({
               <ModalIllustration ref={modalIllustration}></ModalIllustration>
             )}
             {hasCloseButton && (
-              <CloseButtonContainer>
-                <IconButton
-                  onClick={() => setFadeOut(true)}
-                  onMouseEnter={() => setIsHoveringCloseButton(true)}
-                  onMouseLeave={() => setIsHoveringCloseButton(false)}
-                  aria-label="Lukk modal"
-                  name="Lukk modal"
-                >
-                  <IconWrapper
-                    icon={close}
-                    color={hasIllustration ? getThemeColor('static-white') : undefined}
-                    style={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
-                  />
+              <CloseButtonContainer hasIllustration={hasIllustration}>
+                <IconButton onClick={() => setFadeOut(true)} aria-label="Lukk modal" name="Lukk modal">
+                  <IconWrapper icon={close} />
                 </IconButton>
               </CloseButtonContainer>
             )}

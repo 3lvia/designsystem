@@ -14,6 +14,12 @@
   <div slot="illustration">
     <img alt="" src="/assets/modal/Empty state.png" />
   </div>
-  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primær</button>
+  <button
+    slot="primaryButton"
+    class="e-btn e-btn--primary e-btn--lg"
+    (click)="isModalShowing = !isModalShowing"
+  >
+    Primær
+  </button>
   <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg">Sekundær</button>
 </elvia-modal>
