@@ -1,25 +1,6 @@
-const gulp = require('gulp');
 const icons = require('@elvia/elvis-assets-icons/config/icons.config');
 const fs = require('fs');
 const svgIcons = require('@elvia/elvis-assets-icons/icons.cjs.js');
-const resolve = require('resolve');
-
-async function copyIconsConfig() {
-  const fileLocation = resolve.sync('@elvia/elvis-assets-icons/config/icons.config.js');
-
-  let iconsConfig = fs.readFileSync(fileLocation);
-  iconsConfig = `
-// THIS FILE IS AN EXACT COPY OF THE FILE FOUND IN @elvia/elvis-assets-icons. 
-// DO NOT CHANGE THIS ICON LIST MANUALLY.
-// ADD OR REMOVE ICONS IN icons.config.js in @elvia/elvis-assets-icons
-
-  ${iconsConfig}`;
-  if (!fs.existsSync('src/config')) {
-    fs.mkdirSync('src/config', { recursive: true });
-  }
-  fs.writeFileSync('src/config/icons.config.js', iconsConfig);
-  return true;
-}
 
 // Create embedded icons in elvis.js
 async function createEmbeddedIconsJS() {
@@ -105,5 +86,4 @@ function createCamelCase(original) {
   return newText;
 }
 
-const generateIcons = gulp.series(copyIconsConfig, createEmbeddedIconsJS);
-exports.generateIcons = generateIcons;
+exports.generateIcons = createEmbeddedIconsJS;
