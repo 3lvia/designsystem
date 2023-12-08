@@ -47,7 +47,7 @@ export const Modal: FC<ModalProps> = function ({
 
   /** Get all slots */
   const { ref: modalHeading } = useSlot<HTMLHeadingElement>('heading', webcomponent, {
-    useEffectDependencies: hasHeading,
+    useEffectDependencies: isShowing,
   });
   const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent, {
     useEffectDependencies: isShowing,
