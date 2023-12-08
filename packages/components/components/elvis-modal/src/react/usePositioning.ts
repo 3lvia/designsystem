@@ -3,10 +3,10 @@ import { RefObject, useEffect } from 'react';
 
 interface Props {
   overlayRef: RefObject<HTMLElement>;
-  isShowing: boolean;
+  isModalOpen: boolean;
 }
 
-export const usePositioning = ({ overlayRef, isShowing }: Props) => {
+export const usePositioning = ({ overlayRef, isModalOpen }: Props) => {
   const isGtMobile = useBreakpoint('gt-mobile');
 
   useEffect(() => {
@@ -47,5 +47,5 @@ export const usePositioning = ({ overlayRef, isShowing }: Props) => {
       mo.disconnect();
       ro.disconnect();
     };
-  }, [isShowing, isGtMobile]);
+  }, [isModalOpen, isGtMobile]);
 };

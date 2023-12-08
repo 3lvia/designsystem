@@ -90,7 +90,6 @@ describe('Elvis Modal', () => {
     });
 
     it('should have className and inlineStyle', () => {
-      // const wrapper = screen.getByTestId('modal-wrapper');
       const wrapper = screen.queryByRole('dialog', { hidden: true });
       expect(wrapper).toHaveStyle('margin: 24px');
       expect(wrapper).toHaveClass('test-class');

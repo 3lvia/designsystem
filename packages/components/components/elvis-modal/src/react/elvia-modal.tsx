@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect, useState, useMemo } from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import {
   CloseButtonContainer,
   ModalContent,
@@ -42,31 +42,32 @@ export const Modal: FC<ModalProps> = function ({
   const { lockBodyScroll, releaseBodyScroll } = useLockBodyScroll();
 
   const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
-
-  const hasHeading = useMemo(() => !!heading || !!webcomponent?.getSlot('heading'), [heading, webcomponent]);
+  const [isModalOpen, setIsModalOpen] = useState(isShowing);
+  const [fadeOut, setFadeOut] = useState(false);
 
   /** Get all slots */
   const { ref: modalHeading } = useSlot<HTMLHeadingElement>('heading', webcomponent, {
-    useEffectDependencies: isShowing,
+    useEffectDependencies: isModalOpen,
   });
   const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent, {
-    useEffectDependencies: isShowing,
+    useEffectDependencies: isModalOpen,
   });
   const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent, {
-    useEffectDependencies: isShowing,
+    useEffectDependencies: isModalOpen,
   });
   const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent, {
-    useEffectDependencies: isShowing,
+    useEffectDependencies: isModalOpen,
   });
   const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent, {
-    useEffectDependencies: isShowing,
+    useEffectDependencies: isModalOpen,
   });
 
-  usePositioning({ overlayRef, isShowing });
+  usePositioning({ overlayRef, isModalOpen });
 
   const hasIllustration = !!illustration || !!webcomponent?.getSlot('illustration');
   const hasPrimaryButton = !!primaryButton || !!webcomponent?.getSlot('primaryButton');
   const hasSecondaryButton = !!secondaryButton || !!webcomponent?.getSlot('secondaryButton');
+  const hasHeading = !!heading || !!webcomponent?.getSlot('heading');
 
   const getAriaLabel = (): string => {
     if (heading && typeof heading === 'string') {
@@ -78,8 +79,8 @@ export const Modal: FC<ModalProps> = function ({
     }
   };
 
-  /** Dispatch onClose events */
-  const handleOnClose = (): void => {
+  const dispatchOnClose = (): void => {
+    setIsModalOpen(false);
     if (!isShowing) {
       return;
     }
@@ -90,7 +91,7 @@ export const Modal: FC<ModalProps> = function ({
   };
 
   useEffect(() => {
-    if (!isShowing) {
+    if (!isModalOpen) {
       return;
     }
     const originalFocusedElement = document.activeElement as HTMLElement;
@@ -108,13 +109,22 @@ export const Modal: FC<ModalProps> = function ({
         releaseBodyScroll();
       }
     };
+  }, [isModalOpen]);
+
+  useEffect(() => {
+    if (isShowing) {
+      setIsModalOpen(isShowing);
+      setFadeOut(false);
+    } else {
+      setFadeOut(true);
+    }
   }, [isShowing]);
 
   return (
-    isShowing && (
+    isModalOpen && (
       <>
         {!disableBackdrop && <ModalBackdrop />}
-        <Overlay ref={overlayRef} onClose={handleOnClose} hasBackdrop={!disableClose}>
+        <Overlay ref={overlayRef} onClose={dispatchOnClose} hasBackdrop={!disableClose} startFade={fadeOut}>
           <ModalWrapper
             hasIllustration={hasIllustration}
             className={className}
@@ -131,7 +141,7 @@ export const Modal: FC<ModalProps> = function ({
             {hasCloseButton && (
               <CloseButtonContainer>
                 <IconButton
-                  onClick={() => handleOnClose()}
+                  onClick={() => setFadeOut(true)}
                   onMouseEnter={() => setIsHoveringCloseButton(true)}
                   onMouseLeave={() => setIsHoveringCloseButton(false)}
                   aria-label="Lukk modal"
