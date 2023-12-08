@@ -250,11 +250,11 @@ export const CloseButtonContainer = styled.div<{ hasIllustration: boolean }>`
     hasIllustration &&
     css`
       svg {
-        filter: invert(1);
+        --e-color-icon-stroke-1: white;
       }
 
       &:hover svg {
-        filter: invert(0);
+        --e-color-icon-stroke-1: black;
       }
     `}
 `;
