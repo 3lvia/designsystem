@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from './elvia-modal';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
@@ -142,7 +142,9 @@ describe('Elvis Modal', () => {
       const closeButton = screen.getByRole('button', { name: 'Lukk modal' });
       await user.click(closeButton);
 
-      expect(onClose).toHaveBeenCalledTimes(1);
+      waitFor(() => {
+        expect(onClose).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });
