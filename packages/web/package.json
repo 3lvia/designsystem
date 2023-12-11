@@ -86,7 +86,7 @@
     "contentful-management": "^11.6.1",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^8.55.0",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "typescript": "~5.2.2"
   }
 }
