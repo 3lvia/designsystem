@@ -9,7 +9,7 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed an issue the context menu was instantly closed if the context menu was toggled through the isShowing prop alone"
+            "Fixed an issue where the context menu could instantly close if the context menu was toggled through the isShowing prop alone"
           ]
         }
       ]
