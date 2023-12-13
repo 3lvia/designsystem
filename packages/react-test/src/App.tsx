@@ -553,27 +553,6 @@ function App() {
                 Update spotlight
               </button>
             </div>
-
-            {/* STEPPER */}
-            <div className="example-wrapper">
-              <h3>Stepper</h3>
-              <Stepper
-                type={'horizontal'}
-                steps={{
-                  1: { heading: 'Tittel 1', isCompleted: true },
-                  2: { heading: 'Tittel 2', isCompleted: true },
-                  3: { heading: 'Tittel 3' },
-                  4: { heading: 'Tittel 4', nextButtonText: 'Lagre' },
-                }}
-                content={[
-                  <div className="stepper-content-example">Trinn 1 innhold</div>,
-                  <div className="stepper-content-example">Trinn 2 innhold</div>,
-                  <div className="stepper-content-example">Trinn 3 innhold</div>,
-                  <div className="stepper-content-example">Trinn 4 innhold</div>,
-                ]}
-              />
-            </div>
-
             {/* TABS */}
             <div className="example-wrapper">
               <h3>Tabs</h3>
