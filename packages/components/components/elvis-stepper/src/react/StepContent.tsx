@@ -11,7 +11,7 @@ type StepContentProps = {
   steps?: StepStates;
   isForced?: boolean;
   content?: JSX.Element[];
-  contentRef: React.RefObject<HTMLDivElement>;
+  contentRef?: React.RefObject<HTMLDivElement>;
   type?: StepperType;
   handleStepChange: (step: number) => void;
 };
