@@ -16875,7 +16875,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     sass: "npm:^1.69.5"
     typescript: "npm:~5.2.2"
-    vite: "npm:^5.0.7"
+    vite: "npm:^5.0.8"
   languageName: unknown
   linkType: soft
 
@@ -20302,9 +20302,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.7":
-  version: 5.0.7
-  resolution: "vite@npm:5.0.7"
+"vite@npm:^5.0.8":
+  version: 5.0.8
+  resolution: "vite@npm:5.0.8"
   dependencies:
     esbuild: "npm:^0.19.3"
     fsevents: "npm:~2.3.3"
@@ -20338,7 +20338,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 27186e5b907484ed17a9cb803bb2127995a1659e1da9eab36bcd7bfac5d11ed41f7136d9913cc27a8c8c49c3fee5c791dee135c5d37653ddfa0153b69dc3f930
+  checksum: ea36e34fa45401d8e29317c3355f4d7081df09b412578bd7b6a26d44bccace9d130625f7f317a3cbc20ad2aadc5881d01d1508e8d9e36060ae44d974f505dd7e
   languageName: node
   linkType: hard
 
@@ -20399,7 +20399,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^4.5.2"
     sass: "npm:^1.69.5"
     typescript: "npm:~5.2.2"
-    vite: "npm:^5.0.7"
+    vite: "npm:^5.0.8"
     vue: "npm:^3.3.11"
     vue-router: "npm:^4.2.5"
     vue-tsc: "npm:^1.8.25"
