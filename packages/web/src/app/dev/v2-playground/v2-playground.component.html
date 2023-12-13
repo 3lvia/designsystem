@@ -4,44 +4,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-p-16 e-mb-24">
-      <elvia-context-menu
-        [isShowing]="showContextMenuContextMenu"
-        (onOpen)="showContextMenuContextMenu = true"
-        (onClose)="showContextMenuContextMenu = false"
-      >
-        <div slot="trigger" (click)="$event.stopPropagation()" (contextmenu)="openContextMenu($event)">
-          <button
-            class="e-btn e-btn--icon"
-            [ngClass]="{ 'e-btn---selected': showContextMenuContextMenu }"
-            aria-label="More menu"
-            aria-haspopup="menu"
-          >
-            <span class="e-btn__icon">
-              <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
-            </span>
-          </button>
-        </div>
-
-        <div slot="content">
-          <div class="ewc-context-menu__list-group">
-            <button role="menuitem">
-              <elvia-icon name="edit" size="xs"></elvia-icon>
-              <span>Oppdater og valider på nytt</span>
-            </button>
-            <button role="menuitem">
-              <elvia-icon name="bin" size="xs"></elvia-icon>
-              <span>Slett</span>
-            </button>
-          </div>
-          <div class="ewc-context-menu__list-group">
-            <a href="#" role="menuitem">
-              <span>Endre passord</span>
-            </a>
-          </div>
-        </div>
-      </elvia-context-menu>
-    </div>
+    <div class="e-p-16 e-mb-24"></div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark"></div>
 

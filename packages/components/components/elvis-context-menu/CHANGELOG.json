@@ -4,6 +4,7 @@
     {
       "date": "13.12.23",
       "version": "1.3.6",
+      "private": true,
       "changelog": [
         {
           "type": "bug_fix",
