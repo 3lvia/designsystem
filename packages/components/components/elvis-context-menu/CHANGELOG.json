@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "13.12.23",
+      "version": "1.3.6",
+      "private": true,
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the context menu could instantly close if the context menu was toggled through the isShowing prop alone"
+          ]
+        }
+      ]
+    },
+    {
       "date": "03.11.23",
       "version": "1.3.5",
       "changelog": [
