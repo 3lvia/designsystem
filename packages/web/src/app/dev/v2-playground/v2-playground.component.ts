@@ -34,6 +34,11 @@ export class v2PlaygroundComponent {
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';
   accordionHtmlContent = `<div>HTML content<div>`;
+  showContextMenuContextMenu = false;
+  openContextMenu(event: Event) {
+    event.preventDefault();
+    this.showContextMenuContextMenu = true;
+  }
   isOpen = false;
 
   //autocomplete

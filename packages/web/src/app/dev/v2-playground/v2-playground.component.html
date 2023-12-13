@@ -4,7 +4,44 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-p-16 e-mb-24"></div>
+    <div class="e-p-16 e-mb-24">
+      <elvia-context-menu
+        [isShowing]="showContextMenuContextMenu"
+        (onOpen)="showContextMenuContextMenu = true"
+        (onClose)="showContextMenuContextMenu = false"
+      >
+        <div slot="trigger" (click)="$event.stopPropagation()" (contextmenu)="openContextMenu($event)">
+          <button
+            class="e-btn e-btn--icon"
+            [ngClass]="{ 'e-btn---selected': showContextMenuContextMenu }"
+            aria-label="More menu"
+            aria-haspopup="menu"
+          >
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+
+        <div slot="content">
+          <div class="ewc-context-menu__list-group">
+            <button role="menuitem">
+              <elvia-icon name="edit" size="xs"></elvia-icon>
+              <span>Oppdater og valider på nytt</span>
+            </button>
+            <button role="menuitem">
+              <elvia-icon name="bin" size="xs"></elvia-icon>
+              <span>Slett</span>
+            </button>
+          </div>
+          <div class="ewc-context-menu__list-group">
+            <a href="#" role="menuitem">
+              <span>Endre passord</span>
+            </a>
+          </div>
+        </div>
+      </elvia-context-menu>
+    </div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark"></div>
 
@@ -485,32 +522,7 @@
             </button>
           </elvia-modal>
           <h4>Illustration</h4>
-          <button (click)="isIllustrationModalShowing = true" class="e-btn">Show illustration modal</button>
-          <div>
-            <elvia-modal
-              [hasCloseButton]="true"
-              (onClose)="isIllustrationModalShowing = false"
-              [isShowing]="isIllustrationModalShowing"
-              [heading]="'Title of content'"
-            >
-              <div slot="content">
-                <div>
-                  Body text comes here and can go over several lines. It looks like this when it is two lines.
-                </div>
-              </div>
-              <button
-                slot="secondaryButton"
-                class="e-btn e-btn--secondary e-btn--lg"
-                (click)="isIllustrationModalShowing = false"
-              >
-                Cancel
-              </button>
-              <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary</button>
-              <div slot="illustration">
-                <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png" />
-              </div>
-            </elvia-modal>
-          </div>
+
           <h4>Multiple pages</h4>
           <button (click)="isMultiPageModalShowing = true" class="e-btn">Show multi-page modal</button>
           <elvia-modal
