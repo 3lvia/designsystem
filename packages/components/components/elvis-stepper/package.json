@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-stepper",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/stepper",
   "source": "src/react/elvia-stepper.tsx",
@@ -13,11 +13,11 @@
     "dist"
   ],
   "dependencies": {
-    "@elvia/elvis-assets-icons": "^3.3.1",
+    "@elvia/elvis-assets-icons": "^3.9.0",
     "@elvia/elvis-colors": "^4.1.0",
-    "@elvia/elvis-component-wrapper": "^4.1.2",
-    "@elvia/elvis-toolbox": "^11.0.0",
-    "@elvia/elvis-typography": "^2.5.0",
+    "@elvia/elvis-component-wrapper": "^4.2.0",
+    "@elvia/elvis-toolbox": "^11.1.0",
+    "@elvia/elvis-typography": "^2.7.0",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {

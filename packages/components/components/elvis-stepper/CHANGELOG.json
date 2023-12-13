@@ -2,6 +2,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "13.12.23",
+      "version": "1.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed so that event listeners that are added to elements inside the content slot will work (e.g. buttons with click listeners).",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "06.10.23",
       "version": "1.1.1",
       "changelog": [

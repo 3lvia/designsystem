@@ -59,8 +59,9 @@ export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
     },
     content: {
       isRequired: true,
-      type: 'HTMLElement | JSX.Element',
-      description: 'Text, images, tables or any other content (slot in web component).',
+      type: 'HTMLElement | JSX.Element[]',
+      description:
+        'Text, images, tables or any other content. For React, an array of elements. For web component, a slot with element children.',
     },
     value: {
       type: 'number',
