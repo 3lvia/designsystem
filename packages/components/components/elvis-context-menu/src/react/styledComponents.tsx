@@ -3,7 +3,6 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
 export const TriggerContainer = styled.div<{ isShowing: boolean }>`
-  display: inline-block;
   user-select: none;
 
   ${({ isShowing }) =>
