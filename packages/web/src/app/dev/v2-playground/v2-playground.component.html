@@ -226,7 +226,11 @@
     <!-- Context menu -->
     <div class="example-wrapper">
       <h3>Context menu</h3>
-      <elvia-context-menu (onOpen)="isContextMenuShowing = true" (onClose)="isContextMenuShowing = false" gs>
+      <elvia-context-menu
+        (onOpen)="isContextMenuShowing = true"
+        (onClose)="isContextMenuShowing = false"
+        display="flex"
+      >
         <button
           slot="trigger"
           class="e-btn e-btn--icon"

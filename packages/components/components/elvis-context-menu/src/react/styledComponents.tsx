@@ -2,8 +2,9 @@ import { getThemeColor, getShadow } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
-export const TriggerContainer = styled.div<{ isShowing: boolean }>`
+export const TriggerContainer = styled.div<{ isShowing: boolean; triggerDisplay: string }>`
   user-select: none;
+  display: ${(props) => props.triggerDisplay};
 
   ${({ isShowing }) =>
     isShowing &&
