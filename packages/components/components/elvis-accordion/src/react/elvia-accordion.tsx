@@ -191,11 +191,23 @@ export const Accordion: FC<AccordionProps> = ({
             isFullWidth={isFullWidth}
           >
             {isOpenState ? (
-              <AccordionLabelText size={size} typography={typography} ref={closeLabelRef}>
+              <AccordionLabelText
+                size={size}
+                typography={typography}
+                isFullWidth={isFullWidth}
+                hasDetailText={!!openDetailText || !!closeDetailText}
+                ref={closeLabelRef}
+              >
                 {closeLabel}
               </AccordionLabelText>
             ) : (
-              <AccordionLabelText size={size} typography={typography} ref={openLabelRef}>
+              <AccordionLabelText
+                size={size}
+                typography={typography}
+                isFullWidth={isFullWidth}
+                hasDetailText={!!openDetailText || !!closeDetailText}
+                ref={openLabelRef}
+              >
                 {openLabel}
               </AccordionLabelText>
             )}

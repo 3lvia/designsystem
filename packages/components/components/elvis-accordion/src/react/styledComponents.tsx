@@ -88,6 +88,7 @@ export const AccordionLabel = styled.div<AccordionLabelProps>`
   align-items: baseline;
   margin-left: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '8px' : '0')};
   margin-right: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '0' : '8px')};
+  ${({ isFullWidth }) => isFullWidth && 'flex-grow: 1;'}
 `;
 
 const decideTypography = (size: AccordionSize) => {
@@ -111,11 +112,14 @@ const decideTypography = (size: AccordionSize) => {
 interface AccordionTextProps {
   size: AccordionSize;
   typography?: TypographyName;
+  isFullWidth: boolean;
+  hasDetailText: boolean;
 }
 
 export const AccordionLabelText = styled.div<AccordionTextProps>`
   display: flex;
   ${({ typography, size }) => (typography ? getTypographyCss(typography) : decideTypography(size))}
+  ${({ isFullWidth, hasDetailText }) => isFullWidth && !hasDetailText && 'flex-grow: 1;'}
 `;
 
 const decideDetailTextSize = (size: AccordionSize): string => {
