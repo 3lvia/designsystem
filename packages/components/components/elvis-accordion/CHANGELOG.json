@@ -2,6 +2,17 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "14.12.23",
+      "version": "3.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed svg icons in the open and close label rotating when they weren't supposed to."]
+        },
+        { "type": "patch", "changes": ["Updated internal dependencies."] }
+      ]
+    },
+    {
       "date": "10.11.23",
       "version": "3.0.0",
       "changelog": [
