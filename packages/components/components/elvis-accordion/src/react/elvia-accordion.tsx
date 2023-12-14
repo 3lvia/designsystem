@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { outlineListener, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
+import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
 import { AccordionProps, AccordionSize } from './elvia-accordion.types';
 import {
   AccordionArea,
@@ -9,6 +9,7 @@ import {
   AccordionLabelText,
   AccordionDetailText,
   AccordionContent,
+  StyledIconWrapper,
 } from './styledComponents';
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
@@ -179,7 +180,7 @@ export const Accordion: FC<AccordionProps> = ({
           aria-label={decideButtonAriaLabel()}
         >
           {shouldShowLeftIcon() && (
-            <IconWrapper
+            <StyledIconWrapper
               icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
               size={getIconSize(size)}
             />
@@ -190,11 +191,23 @@ export const Accordion: FC<AccordionProps> = ({
             isFullWidth={isFullWidth}
           >
             {isOpenState ? (
-              <AccordionLabelText size={size} typography={typography} ref={closeLabelRef}>
+              <AccordionLabelText
+                size={size}
+                typography={typography}
+                isFullWidth={isFullWidth}
+                hasDetailText={!!openDetailText || !!closeDetailText}
+                ref={closeLabelRef}
+              >
                 {closeLabel}
               </AccordionLabelText>
             ) : (
-              <AccordionLabelText size={size} typography={typography} ref={openLabelRef}>
+              <AccordionLabelText
+                size={size}
+                typography={typography}
+                isFullWidth={isFullWidth}
+                hasDetailText={!!openDetailText || !!closeDetailText}
+                ref={openLabelRef}
+              >
                 {openLabel}
               </AccordionLabelText>
             )}
@@ -203,7 +216,7 @@ export const Accordion: FC<AccordionProps> = ({
             </AccordionDetailText>
           </AccordionLabel>
           {shouldShowRightIcon() && (
-            <IconWrapper
+            <StyledIconWrapper
               icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
               size={getIconSize(size)}
             />

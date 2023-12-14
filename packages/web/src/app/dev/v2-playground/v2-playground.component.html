@@ -4,7 +4,68 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <!--Normal version-->
-    <div class="e-p-16 e-mb-24"></div>
+    <div class="e-p-16 e-mb-24">
+      <elvia-accordion
+        openLabel="Show"
+        closeLabel="Hide"
+        isFullWidth
+        openDetailText="Details open"
+        closeDetailText="Details close"
+        size="medium"
+        type="normal"
+        typography="title-caps"
+      >
+        <div slot="openLabel" class="e-w-100" style="background: yellow">
+          <i class="e-icon e-icon--box e-icon--sm"></i> Open with detail text
+        </div>
+        <div slot="closeLabel" class="e-w-100" style="background: green">
+          <i class="e-icon e-icon--box e-icon--sm"></i> Close with detail text
+        </div>
+        <div slot="content">
+          <div class="e-text-lg" style="display: flex; flex-direction: column; justify-content: flex-start">
+            <label class="e-checkbox" for="elvis-checkbox">
+              <input type="checkbox" id="elvis-checkbox" />
+              <span class="e-checkbox__mark"></span>
+              <span class="e-checkbox__label">Checkbox option 1</span>
+            </label>
+            <label class="e-checkbox" for="elvis-checkbox2">
+              <input type="checkbox" id="elvis-checkbox2" />
+              <span class="e-checkbox__mark"></span>
+              <span class="e-checkbox__label">Checkbox option 2</span>
+            </label>
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-accordion
+        openLabel="Show"
+        closeLabel="Hide"
+        isFullWidth
+        size="medium"
+        type="normal"
+        typography="title-caps"
+      >
+        <div slot="openLabel" class="e-w-100" style="background: yellow">
+          <i class="e-icon e-icon--box e-icon--sm"></i> Open
+        </div>
+        <div slot="closeLabel" class="e-w-100" style="background: green">
+          <i class="e-icon e-icon--box e-icon--sm"></i> Close
+        </div>
+        <div slot="content">
+          <div class="e-text-lg" style="display: flex; flex-direction: column; justify-content: flex-start">
+            <label class="e-checkbox" for="elvis-checkbox">
+              <input type="checkbox" id="elvis-checkbox" />
+              <span class="e-checkbox__mark"></span>
+              <span class="e-checkbox__label">Checkbox option 1</span>
+            </label>
+            <label class="e-checkbox" for="elvis-checkbox2">
+              <input type="checkbox" id="elvis-checkbox2" />
+              <span class="e-checkbox__mark"></span>
+              <span class="e-checkbox__label">Checkbox option 2</span>
+            </label>
+          </div>
+        </div>
+      </elvia-accordion>
+    </div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark"></div>
 
@@ -22,6 +83,8 @@
         (onOpen)="onOpen()"
         (onClose)="onClose()"
       >
+        <div slot="openLabel"><i class="e-icon e-icon--box e-icon--sm"></i> Open</div>
+        <div slot="closeLabel"><i class="e-icon e-icon--box e-icon--sm"></i> Close</div>
         <div slot="content">
           <div class="e-text-lg" style="display: flex; flex-direction: column; justify-content: flex-start">
             <label class="e-checkbox" for="elvis-checkbox">
