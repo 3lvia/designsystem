@@ -15,6 +15,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   onOpen,
   trigger,
   inlineStyle,
+  display = 'inline-block',
   className,
   webcomponent,
   ...rest
@@ -85,7 +86,12 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
   return (
     <>
-      <TriggerContainer onClick={toggleVisibility} ref={triggerRef} isShowing={isOverlayShowing}>
+      <TriggerContainer
+        onClick={toggleVisibility}
+        ref={triggerRef}
+        triggerDisplay={display}
+        isShowing={isOverlayShowing}
+      >
         {trigger}
       </TriggerContainer>
 

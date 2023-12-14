@@ -2,10 +2,15 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "13.12.23",
-      "version": "1.3.6",
-      "private": true,
+      "date": "14.12.23",
+      "version": "1.4.0",
       "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Add prop <code>display</code> to set the CSS display property on the trigger container."
+          ]
+        },
         {
           "type": "bug_fix",
           "changes": [
