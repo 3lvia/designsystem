@@ -7,6 +7,7 @@ import {
   AccordionType,
 } from './elvia-accordion.types';
 import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
+import { IconWrapper } from '@elvia/elvis-toolbox';
 
 const bezierCurve = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
@@ -48,6 +49,8 @@ interface AccordionButtonProps {
   currType: AccordionType;
 }
 
+export const StyledIconWrapper = styled(IconWrapper)``;
+
 export const AccordionButton = styled.button<AccordionButtonProps>`
   border: none;
   background: transparent;
@@ -61,7 +64,7 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
     isFullWidth && currType === 'normal' ? 'space-between' : 'inherit'};
   align-items: center;
 
-  svg {
+  ${StyledIconWrapper} {
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
 
