@@ -154,7 +154,7 @@ export const Accordion: FC<AccordionProps> = ({
     >
       {type === 'overflow' ? (
         <AccordionContent
-          type={type}
+          $type={type}
           spacingAboveContent={spacingAboveContent}
           spacingBelowContent={spacingBelowContent}
           isOpenState={isOpenState}
@@ -167,10 +167,10 @@ export const Accordion: FC<AccordionProps> = ({
           {content}
         </AccordionContent>
       ) : null}
-      <AccordionButtonArea labelPosition={labelPosition} type={type}>
+      <AccordionButtonArea labelPosition={labelPosition} $type={type}>
         <AccordionButton
           aria-expanded={isOpenState}
-          currType={type}
+          $type={type}
           isFullWidth={isFullWidth}
           isOpenState={isOpenState}
           onClick={() => handleOnClick()}
@@ -225,7 +225,7 @@ export const Accordion: FC<AccordionProps> = ({
       </AccordionButtonArea>
       {type === 'normal' ? (
         <AccordionContent
-          type={type}
+          $type={type}
           spacingAboveContent={spacingAboveContent}
           spacingBelowContent={spacingBelowContent}
           isOpenState={isOpenState}
