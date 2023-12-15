@@ -159,7 +159,6 @@ export const Accordion: FC<AccordionProps> = ({
           contentHeight={contentHeight}
           hasContent={hasContent}
           ref={accordionContentRef}
-          data-testid="accordion-content-overflow"
         >
           {content}
         </AccordionContent>
@@ -173,7 +172,6 @@ export const Accordion: FC<AccordionProps> = ({
           onClick={() => handleOnClick()}
           onMouseEnter={() => setIsHoveringButton(true)}
           onMouseLeave={() => setIsHoveringButton(false)}
-          data-testid="accordion-button-label"
           aria-label={decideButtonAriaLabel()}
         >
           {shouldShowLeftIcon() && (
@@ -229,7 +227,6 @@ export const Accordion: FC<AccordionProps> = ({
           hasContent={hasContent}
           contentHeight={contentHeight}
           overflowHeight={overflowHeight}
-          data-testid="accordion-content-normal"
           ref={accordionContentRef}
         >
           {content}
