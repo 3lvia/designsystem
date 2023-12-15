@@ -49,11 +49,11 @@ export const Accordion: FC<AccordionProps> = ({
 
   /** Start outline listener */
   useEffect(() => {
-    if (accordionRef && accordionRef.current) {
+    if (accordionRef?.current) {
       outlineListener(accordionRef.current);
     }
     return () => {
-      if (accordionRef && accordionRef.current) {
+      if (accordionRef?.current) {
         outlineListener(accordionRef.current, true);
       }
     };
