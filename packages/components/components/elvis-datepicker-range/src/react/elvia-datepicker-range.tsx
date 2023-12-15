@@ -222,9 +222,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const handleEndDatepickerValueOnChange = (newDate: Date | null, change: 'date' | 'time') => {
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
     if (newDate) {
-      const date = newDate;
+      let date = newDate;
       if (change === 'date' && !selectedDateRange.end && !isTouched('endTime')) {
-        setTime(newDate, 'endOfDay');
+        date = setTime(newDate, 'endOfDay');
       } else if (change === 'time' && !selectedDateRange.end && !isTouched('endDate') && maxDate) {
         date.setFullYear(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate());
       }
