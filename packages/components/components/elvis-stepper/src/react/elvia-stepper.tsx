@@ -22,10 +22,23 @@ export const Stepper: FC<StepperProps> = function ({
 
   useEffect(() => {
     const elem = webcomponent?.getSlot('content');
-    if (elem && contentRef.current) {
-      setNumberOfSteps(elem.children.length);
-      contentRef.current.innerHTML = elem?.children[currentStep - 1].outerHTML;
+    if (!(elem && contentRef.current)) {
+      return;
     }
+
+    setNumberOfSteps(elem.children.length);
+
+    const newStepElement = elem.children[currentStep - 1];
+    const previousStepIndex = Array.from(elem.children).indexOf(newStepElement);
+
+    contentRef.current.innerHTML = '';
+    contentRef.current.appendChild(newStepElement);
+    return () => {
+      // Put the now old step back into the slot object
+      if (contentRef.current && newStepElement) {
+        elem.insertBefore(newStepElement, elem.children[previousStepIndex]);
+      }
+    };
   }, [webcomponent, contentRef, currentStep, type]);
 
   useEffect(() => {

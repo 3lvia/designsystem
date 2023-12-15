@@ -42,11 +42,11 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.43",
+    "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
     "sass": "^1.69.5",
     "typescript": "~5.2.2",
-    "vite": "^5.0.7"
+    "vite": "^5.0.9"
   }
 }

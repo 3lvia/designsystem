@@ -15,6 +15,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   onOpen,
   trigger,
   inlineStyle,
+  display = 'inline-block',
   className,
   webcomponent,
   ...rest
@@ -64,6 +65,12 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     if (isShowing !== isOverlayShowing) {
       setIsOverlayShowing(isShowing);
     }
+
+    // Sync internal state with prop, if the context menu is only toggled
+    // through the prop (and not through a regular click on the trigger element.)
+    if (isShowing) {
+      setFadeOut(false);
+    }
   }, [isShowing]);
 
   useUpdateEffect(() => {
@@ -79,7 +86,12 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
   return (
     <>
-      <TriggerContainer onClick={toggleVisibility} ref={triggerRef} isShowing={isOverlayShowing}>
+      <TriggerContainer
+        onClick={toggleVisibility}
+        ref={triggerRef}
+        triggerDisplay={display}
+        isShowing={isOverlayShowing}
+      >
         {trigger}
       </TriggerContainer>
 
