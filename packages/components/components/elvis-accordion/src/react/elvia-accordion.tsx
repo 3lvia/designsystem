@@ -75,7 +75,7 @@ export const Accordion: FC<AccordionProps> = ({
   }, [isOpen]);
 
   useEffect(() => {
-    type === 'single' ? setHasContent(false) : setHasContent(true);
+    setHasContent(type !== 'single');
   }, [type]);
 
   useEffect(() => {
@@ -105,9 +105,6 @@ export const Accordion: FC<AccordionProps> = ({
   }, [accordionContentRef, accordionContentRef.current]);
 
   const handleOnClick = () => {
-    if (type === 'single') {
-      return;
-    }
     if (!isOpenState) {
       onOpen?.();
       webcomponent?.triggerEvent('onOpen');
