@@ -29,7 +29,7 @@ export const configurationProps: ComponentData = {
       isRequired: false,
       type: '"positive" | "informative" | "negative"',
       default: '"positive"',
-      description: 'The toast status, which changes its appearance',
+      description: 'The toast status, which changes its appearance.',
     },
     customIcon: {
       isRequired: false,
