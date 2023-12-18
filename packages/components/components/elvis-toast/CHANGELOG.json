@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Add support for error toast"]
+          "changes": ["Add support for negative toast"]
         }
       ]
     },

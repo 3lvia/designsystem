@@ -68,7 +68,7 @@ export const ToastContainer = styled.output<{
     `};
 
   ${({ toastType }) =>
-    toastType === 'error' &&
+    toastType === 'negative' &&
     css`
       border-color: ${getThemeColor('signal-danger')};
     `};

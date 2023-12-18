@@ -28,7 +28,7 @@ export class ToastCegComponent extends TypescriptComponentExample implements Com
           radios: [
             { label: 'Positive', value: 'positive' },
             { label: 'Informative', value: 'informative' },
-            { label: 'Error', value: 'error' },
+            { label: 'Negative', value: 'negative' },
           ],
           excludedFromDOM: true,
         },
