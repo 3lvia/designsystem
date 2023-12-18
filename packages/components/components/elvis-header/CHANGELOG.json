@@ -3,6 +3,16 @@
   "content": [
     {
       "date": "15.12.23",
+      "version": "1.7.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Incorrect entry point for web components."]
+        }
+      ]
+    },
+    {
+      "date": "15.12.23",
       "version": "1.7.0",
       "changelog": [
         {
