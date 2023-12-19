@@ -40,7 +40,7 @@ export const usePositioning = ({ overlayRef, isModalOpen }: Props) => {
 
     const mo = new MutationObserver(positionOverlay);
     const ro = new ResizeObserver(positionOverlay);
-    mo.observe(current, { childList: true, attributes: true, subtree: true });
+    mo.observe(current, { childList: true, subtree: true });
     ro.observe(document.body);
 
     return () => {
