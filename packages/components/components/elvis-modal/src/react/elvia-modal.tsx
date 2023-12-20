@@ -15,7 +15,6 @@ import { useLockBodyScroll } from './useLockBodyScroll';
 import { useFocusTrap, useSlot, IconWrapper, IconButton, Overlay } from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { ModalProps } from './elvia-modal.types';
-import { usePositioning } from './usePositioning';
 
 export const Modal: FC<ModalProps> = function ({
   isShowing,
@@ -59,8 +58,6 @@ export const Modal: FC<ModalProps> = function ({
   const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent, {
     useEffectDependencies: isModalOpen,
   });
-
-  usePositioning({ overlayRef, isModalOpen });
 
   const hasIllustration = !!illustration || !!webcomponent?.getSlot('illustration');
   const hasPrimaryButton = !!primaryButton || !!webcomponent?.getSlot('primaryButton');
@@ -122,7 +119,13 @@ export const Modal: FC<ModalProps> = function ({
     isModalOpen && (
       <>
         {!disableBackdrop && <ModalBackdrop />}
-        <Overlay ref={overlayRef} onClose={dispatchOnClose} hasBackdrop={!disableClose} startFade={fadeOut}>
+        <Overlay
+          ref={overlayRef}
+          onClose={dispatchOnClose}
+          center
+          hasBackdrop={!disableClose}
+          startFade={fadeOut}
+        >
           <ModalWrapper
             hasIllustration={hasIllustration}
             className={className}

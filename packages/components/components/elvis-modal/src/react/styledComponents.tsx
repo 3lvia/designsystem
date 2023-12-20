@@ -54,9 +54,9 @@ export const ModalWrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: ${({ hasIllustration }) => (hasIllustration ? 'row-reverse' : 'column')};
   height: ${({ hasIllustration }) => (hasIllustration ? '550px' : 'auto')};
-  width: ${({ hasIllustration }) => (hasIllustration ? '1090px' : 'auto')};
+  width: ${({ hasIllustration }) => (hasIllustration ? '1090px' : 'max-content')};
   max-width: ${({ maxWidth, hasIllustration }) =>
-    maxWidth ? maxWidth : hasIllustration ? '1090px' : modalMaxWidth};
+    maxWidth ? maxWidth : hasIllustration ? 'min(100vw, 1090px)' : modalMaxWidth};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
   background: ${getThemeColor('background-element-4')};
@@ -69,7 +69,6 @@ export const ModalWrapper = styled.div<WrapperProps>`
         flex-direction: column;
         margin: 0;
         max-width: ${modalTabletMaxWidth};
-        width: 100%;
         height: auto;
       }
     `};
@@ -77,9 +76,9 @@ export const ModalWrapper = styled.div<WrapperProps>`
   @media (max-width: ${mobileMax}) {
     flex-direction: column;
     border-radius: 0;
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
-    height: 100%;
+    height: 100vh;
     margin: 0;
     inset: 0;
   }
