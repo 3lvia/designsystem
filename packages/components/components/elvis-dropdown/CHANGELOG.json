@@ -2,6 +2,20 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.12.23",
+      "version": "9.3.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["An empty option dropdown item will now have the correct placeholder text color. "]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "29.11.23",
       "version": "9.3.0",
       "changelog": [
