@@ -35,7 +35,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   focusedItem,
   setFocusedItem,
   setHoveredItem,
-  inputIsKeyboard: inputIsKeyboard,
+  inputIsKeyboard,
   onItemSelect,
   onClick,
   pressedKey,
@@ -167,6 +167,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         isDisabled={item.isDisabled}
         isGtMobile={isGtMobile}
         isMulti={isMulti}
+        isPlaceholderItem={item.value === null}
         onClick={() => onItemClick()}
         onMouseEnter={() => onMouseOver()}
         onMouseDown={(ev) => ev.preventDefault()}
