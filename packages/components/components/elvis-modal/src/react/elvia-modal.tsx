@@ -1,19 +1,18 @@
-import React, { FC, useRef, useEffect, useState, useMemo } from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import {
   CloseButtonContainer,
   ModalContent,
   ModalIllustration,
-  Modal as StyledModal,
+  ModalBackdrop,
   ModalHeading,
   ModalWrapper,
   ModalText,
   ModalActions,
+  SecondaryButton,
+  PrimaryButton,
 } from './styledComponents';
-import { getThemeColor } from '@elvia/elvis-colors';
-import { useClickOutside } from './useClickOutside';
-import { useKeyPress } from './useKeyPress';
 import { useLockBodyScroll } from './useLockBodyScroll';
-import { useFocusTrap, useSlot, IconWrapper, IconButton } from '@elvia/elvis-toolbox';
+import { useFocusTrap, useSlot, IconWrapper, IconButton, Overlay } from '@elvia/elvis-toolbox';
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { ModalProps } from './elvia-modal.types';
 
@@ -28,7 +27,7 @@ export const Modal: FC<ModalProps> = function ({
   inlineStyle,
   hasCloseButton = false,
   hasLockBodyScroll = true,
-  hasPadding = true, // TODO: Change to `noPadding`. MAJOR!
+  noPadding = false,
   disableClose = false,
   disableBackdrop = false,
   maxWidth,
@@ -36,43 +35,47 @@ export const Modal: FC<ModalProps> = function ({
   webcomponent,
   ...rest
 }) {
-  const modalWrapperRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const { lockBodyScroll, releaseBodyScroll } = useLockBodyScroll();
 
-  const [isHoveringCloseButton, setIsHoveringCloseButton] = useState(false);
-
-  const hasHeading = useMemo(
-    () => !!heading || !!(webcomponent && !!webcomponent.getSlot('heading')),
-    [heading, webcomponent],
-  );
+  const [isModalOpen, setIsModalOpen] = useState(isShowing);
+  const [fadeOut, setFadeOut] = useState(false);
 
   /** Get all slots */
   const { ref: modalHeading } = useSlot<HTMLHeadingElement>('heading', webcomponent, {
-    useEffectDependencies: hasHeading,
+    useEffectDependencies: isModalOpen,
   });
-  const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent);
-  const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent);
-  const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent);
-  const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent);
+  const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent, {
+    useEffectDependencies: isModalOpen,
+  });
+  const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent, {
+    useEffectDependencies: isModalOpen,
+  });
+  const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent, {
+    useEffectDependencies: isModalOpen,
+  });
+  const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent, {
+    useEffectDependencies: isModalOpen,
+  });
 
-  const hasIllustration = !!illustration || !!(webcomponent && !!webcomponent.getSlot('illustration'));
-  const hasPrimaryButton = !!primaryButton || !!(webcomponent && !!webcomponent.getSlot('primaryButton'));
-  const hasSecondaryButton =
-    !!secondaryButton || !!(webcomponent && !!webcomponent.getSlot('secondaryButton'));
+  const hasIllustration = !!illustration || !!webcomponent?.getSlot('illustration');
+  const hasPrimaryButton = !!primaryButton || !!webcomponent?.getSlot('primaryButton');
+  const hasSecondaryButton = !!secondaryButton || !!webcomponent?.getSlot('secondaryButton');
+  const hasHeading = !!heading || !!webcomponent?.getSlot('heading');
 
   const getAriaLabel = (): string => {
     if (heading && typeof heading === 'string') {
       return heading;
-    } else if (webcomponent && !!webcomponent.getSlot('heading')) {
+    } else if (webcomponent?.getSlot('heading')) {
       return webcomponent.getSlot('heading').textContent ?? 'Forgrunnsvindu';
     } else {
       return 'Forgrunnsvindu';
     }
   };
 
-  /** Dispatch onClose events */
-  const handleOnClose = (): void => {
+  const dispatchOnClose = (): void => {
+    setIsModalOpen(false);
     if (!isShowing) {
       return;
     }
@@ -82,19 +85,12 @@ export const Modal: FC<ModalProps> = function ({
     webcomponent?.triggerEvent('onClose');
   };
 
-  /**
-   * Starts listener for click outside modal, closes modal when clicked
-   * Starts listener for escape click, closes modal when clicked
-   */
-  !disableClose && useClickOutside(modalWrapperRef, () => isShowing && handleOnClose());
-  useKeyPress('Escape', handleOnClose);
-
   useEffect(() => {
-    if (!isShowing) {
+    if (!isModalOpen) {
       return;
     }
     const originalFocusedElement = document.activeElement as HTMLElement;
-    trapFocus(modalWrapperRef);
+    trapFocus(overlayRef);
 
     if (hasLockBodyScroll) {
       lockBodyScroll();
@@ -108,78 +104,67 @@ export const Modal: FC<ModalProps> = function ({
         releaseBodyScroll();
       }
     };
+  }, [isModalOpen]);
+
+  useEffect(() => {
+    if (isShowing) {
+      setIsModalOpen(isShowing);
+      setFadeOut(false);
+    } else {
+      setFadeOut(true);
+    }
   }, [isShowing]);
 
   return (
-    <StyledModal
-      aria-modal
-      tabIndex={-1}
-      role="dialog"
-      aria-label={getAriaLabel()}
-      isShowing={isShowing}
-      disableBackdrop={disableBackdrop}
-      {...rest}
-    >
-      <ModalWrapper
-        ref={modalWrapperRef}
-        hasIllustration={hasIllustration}
-        className={className}
-        style={inlineStyle}
-        maxWidth={maxWidth}
-        data-testid="modal-wrapper"
-      >
-        {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
-        {!illustration && hasIllustration && <ModalIllustration ref={modalIllustration}></ModalIllustration>}
-        {hasCloseButton && (
-          <CloseButtonContainer>
-            <IconButton
-              onClick={() => handleOnClose()}
-              onMouseEnter={() => setIsHoveringCloseButton(true)}
-              onMouseLeave={() => setIsHoveringCloseButton(false)}
-              aria-label="Lukk modal"
-              name="Lukk modal"
-            >
-              <IconWrapper
-                icon={close}
-                color={hasIllustration ? getThemeColor('static-white') : undefined}
-                style={{ filter: isHoveringCloseButton && hasIllustration ? 'invert(1)' : undefined }}
-              />
-            </IconButton>
-          </CloseButtonContainer>
-        )}
+    isModalOpen && (
+      <>
+        {!disableBackdrop && <ModalBackdrop />}
+        <Overlay
+          ref={overlayRef}
+          onClose={dispatchOnClose}
+          center
+          hasBackdrop={!disableClose}
+          startFade={fadeOut}
+        >
+          <ModalWrapper
+            hasIllustration={hasIllustration}
+            className={className}
+            style={inlineStyle}
+            maxWidth={maxWidth}
+            role="dialog"
+            aria-label={getAriaLabel()}
+            {...rest}
+          >
+            {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
+            {!illustration && hasIllustration && (
+              <ModalIllustration ref={modalIllustration}></ModalIllustration>
+            )}
+            {hasCloseButton && (
+              <CloseButtonContainer hasIllustration={hasIllustration}>
+                <IconButton onClick={() => setFadeOut(true)} aria-label="Lukk modal" name="Lukk modal">
+                  <IconWrapper icon={close} />
+                </IconButton>
+              </CloseButtonContainer>
+            )}
 
-        <ModalContent hasIllustration={hasIllustration} hasPadding={hasPadding}>
-          {hasHeading && (
-            <ModalHeading ref={modalHeading} hasIllustration={hasIllustration}>
-              {heading}
-            </ModalHeading>
-          )}
-          <ModalText data-testid="modal-content" ref={modalText}>
-            {content}
-          </ModalText>
-          {(hasPrimaryButton || hasSecondaryButton) && (
-            <ModalActions>
-              {secondaryButton && (
-                <secondaryButton.type {...secondaryButton.props}>
-                  {secondaryButton.props.children}
-                </secondaryButton.type>
+            <ModalContent hasIllustration={hasIllustration} hasPadding={!noPadding}>
+              {hasHeading && (
+                <ModalHeading ref={modalHeading} hasIllustration={hasIllustration}>
+                  {heading}
+                </ModalHeading>
               )}
-              {webcomponent && hasSecondaryButton && (
-                <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
+              <ModalText ref={modalText}>{content}</ModalText>
+              {(hasPrimaryButton || hasSecondaryButton) && (
+                <ModalActions>
+                  <SecondaryButton ref={modalSecondaryBtn}>{secondaryButton}</SecondaryButton>
+                  <PrimaryButton ref={modalPrimaryBtn}>{primaryButton}</PrimaryButton>
+                </ModalActions>
               )}
-              {primaryButton ? (
-                <primaryButton.type {...primaryButton.props}>
-                  {primaryButton.props.children}
-                </primaryButton.type>
-              ) : (
-                !webcomponent && <div style={{ width: '50%' }}></div>
-              )}
-              {webcomponent && <div className="webComponentBtn" ref={modalPrimaryBtn}></div>}
-            </ModalActions>
-          )}
-        </ModalContent>
-      </ModalWrapper>
-    </StyledModal>
+            </ModalContent>
+          </ModalWrapper>
+        </Overlay>
+      </>
+    )
   );
 };
 

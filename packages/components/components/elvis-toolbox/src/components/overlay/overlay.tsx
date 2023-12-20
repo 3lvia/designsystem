@@ -6,6 +6,7 @@ import { exitDuration, OverlayContainer, OverlayDOMPosition } from './overlaySty
 
 interface OverlayProps {
   onClose: () => void;
+  center?: boolean;
   startFade?: boolean;
   hasBackdrop?: boolean;
   hasAnimation?: boolean;
@@ -42,7 +43,15 @@ interface OverlayProps {
  */
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
   (
-    { onClose, startFade = false, hasBackdrop = true, hasAnimation = true, useGlobalTheme, children },
+    {
+      onClose,
+      startFade = false,
+      hasBackdrop = true,
+      hasAnimation = true,
+      center = false,
+      useGlobalTheme,
+      children,
+    },
     ref,
   ) => {
     const [fadeOut, setFadeOut] = useState(false);
@@ -90,6 +99,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
               ref={ref}
               fadeOut={fadeOut}
               noAnimation={!hasAnimation}
+              center={center}
               className={!useGlobalTheme ? themeClass : ''}
             >
               {children}
