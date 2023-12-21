@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import classnames from 'classnames';
-import styles from './elvia-badge.module.css';
+import styles from './elvia-badge.module.scss';
 import { BadgeProps } from './elvia-badge.types';
 
 export const Badge: React.FC<BadgeProps> = ({

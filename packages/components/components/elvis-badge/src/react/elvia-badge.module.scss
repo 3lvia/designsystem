@@ -4,14 +4,11 @@
 }
 
 .badge-circle {
+  font-size: 9px;
+  color: var(--e-color-text-4);
   background-color: var(--e-color-background-element-5);
   border-radius: 50px;
-  color: var(--e-color-text-4);
   display: grid;
-  font-size: 9px;
-  font-weight: 600;
-  height: 16px;
-  line-height: 9px;
   padding: 4px 0;
   place-items: center;
   position: absolute;
