@@ -32,9 +32,7 @@ function generateElvisStyle() {
     .src('./src/main.scss')
     .pipe(
       tap(function (file) {
-        file.contents = Buffer.from(
-          sass.renderSync({ file: file.path, includePaths: ['node_modules'] }).css.toString(),
-        );
+        file.contents = Buffer.from(sass.compile(file.path, { loadPaths: ['node_modules'] }).css.toString());
       }),
     )
     .pipe(autoprefixer({ cascade: false }))
