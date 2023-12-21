@@ -114,7 +114,8 @@ Glossary:
 
 #### **Step 1 - Running project**
 
-1. Run `yarn build` to build the classes
+1. Run `yarn build` to build the classes. If you want stylelint errors to be fixed automatically, add the
+   `--fix` flag.
 2. Run `yarn start` to start/watch for changes while developing
 3. Test your changes by [running the main project](https://github.com/3lvia/designsystem#setup) at the same
    time and using the classes in the doc-pages in `packages/web`. E.g.

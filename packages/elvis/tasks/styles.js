@@ -14,13 +14,16 @@ function clean() {
 }
 
 function lintScssTask() {
-  return gulp.src('./src/**/*.scss').pipe(
-    gulpStylelint({
-      failAfterError: true,
-      fix: false,
-      reporters: [{ formatter: 'string', console: true }],
-    }),
-  );
+  return gulp
+    .src('./src/**/*.scss')
+    .pipe(
+      gulpStylelint({
+        failAfterError: true,
+        fix: process.argv.includes('--fix'),
+        reporters: [{ formatter: 'string', console: true }],
+      }),
+    )
+    .pipe(gulp.dest('./src/'));
 }
 
 // Generate elvis.css from scss files
@@ -29,9 +32,7 @@ function generateElvisStyle() {
     .src('./src/main.scss')
     .pipe(
       tap(function (file) {
-        file.contents = Buffer.from(
-          sass.renderSync({ file: file.path, includePaths: ['node_modules'] }).css.toString(),
-        );
+        file.contents = Buffer.from(sass.compile(file.path, { loadPaths: ['node_modules'] }).css.toString());
       }),
     )
     .pipe(autoprefixer({ cascade: false }))
