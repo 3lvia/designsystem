@@ -307,6 +307,5 @@ declare class ElviaComponent extends ElvisComponentWrapper {
   getComponentData(): {
     name: string;
     attributes: { name: string; type: string }[];
-    subComponents?: { name: string; attributes: { name: string; type: string }[] }[];
   };
 }
