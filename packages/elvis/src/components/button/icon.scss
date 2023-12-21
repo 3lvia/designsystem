@@ -16,7 +16,7 @@
     @include icons.icon-size('sm');
 
     i {
-      visibility: visible;
+      visibility: unset;
 
       @include icons.icon-currentcolor();
     }
@@ -120,7 +120,7 @@
     }
 
     .e-btn__icon i[class*='filled-color'] {
-      visibility: visible; // Showing hover icon
+      visibility: unset; // Showing hover icon
     }
   }
 }

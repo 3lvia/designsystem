@@ -494,7 +494,7 @@ $table-invalid-padding: 8px 16px;
     }
 
     .e-link__icon i[class*='filled-color'] {
-      visibility: visible;
+      visibility: unset;
     }
 
     .e-link__icon i:not([class*='filled-color']) {
