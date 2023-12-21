@@ -83,7 +83,7 @@
     "@types/prismjs": "^1.26.3",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
-    "contentful-management": "^11.6.1",
+    "contentful-management": "^11.7.0",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^8.56.0",
     "ts-node": "^10.9.2",
