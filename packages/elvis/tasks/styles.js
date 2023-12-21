@@ -14,13 +14,16 @@ function clean() {
 }
 
 function lintScssTask() {
-  return gulp.src('./src/**/*.scss').pipe(
-    gulpStylelint({
-      failAfterError: true,
-      fix: false,
-      reporters: [{ formatter: 'string', console: true }],
-    }),
-  );
+  return gulp
+    .src('./src/**/*.scss')
+    .pipe(
+      gulpStylelint({
+        failAfterError: true,
+        fix: process.argv.includes('--fix'),
+        reporters: [{ formatter: 'string', console: true }],
+      }),
+    )
+    .pipe(gulp.dest('./src/'));
 }
 
 // Generate elvis.css from scss files
