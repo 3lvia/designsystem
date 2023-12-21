@@ -23,7 +23,7 @@ export class ModalCegComponent implements ComponentExample {
         hasCloseButton: { type: 'switch', group: 'Options', label: 'Close Button' },
       },
       staticProps: {
-        heading: 'Title of content',
+        heading: 'Er du sikker på at du vil kansellere?',
       },
       groupOrder: ['Options'],
     },

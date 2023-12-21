@@ -3,17 +3,14 @@
 <elvia-modal
   (onClose)="isModalShowing = !isModalShowing"
   [isShowing]="isModalShowing"
-  [heading]="'Overskrift av innhold'"
+  [heading]="'Er du sikker på at du vil kansellere?'"
 >
   <div slot="content">
-    <div>
-      Brødtekst kommer her og kan gå over flere linjer. Det ser slik ut når teksten er lang og det er to
-      linjer.
-    </div>
+    <div>Din forespørsel blir da avbrutt.</div>
   </div>
   <div slot="illustration">
     <img alt="" src="/assets/modal/Empty state.png" />
   </div>
-  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primær</button>
-  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg">Sekundær</button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Kanseller</button>
+  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg">Avbryt</button>
 </elvia-modal>
