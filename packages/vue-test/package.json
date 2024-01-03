@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
-    "@vitejs/plugin-vue": "^4.6.2",
+    "@vitejs/plugin-vue": "^5.0.2",
     "sass": "^1.69.7",
     "typescript": "~5.2.2",
     "vite": "^5.0.10",
