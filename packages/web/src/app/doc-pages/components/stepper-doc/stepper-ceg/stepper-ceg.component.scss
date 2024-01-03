@@ -1,10 +1,10 @@
 @use '@elvia/elvis/src/utilities/mixins.scss';
 
-div {
-  @include mixins.typography('text-caps');
-  border: 2px dashed var(--e-color-border-3);
-  color: var(--e-color-text-2);
-  display: grid;
-  height: 150px;
-  place-items: center;
-}
+// div {
+//   @include mixins.typography('text-caps');
+//   border: 2px dashed var(--e-color-border-3);
+//   color: var(--e-color-text-2);
+//   display: grid;
+//   height: 150px;
+//   place-items: center;
+// }
