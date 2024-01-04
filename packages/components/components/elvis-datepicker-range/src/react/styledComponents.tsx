@@ -1,8 +1,10 @@
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import styled, { css } from 'styled-components';
 
 interface DatepickerRangeWrapperProps {
   readonly isVertical: boolean;
   readonly isFullWidth: boolean;
+  readonly size: FormFieldSizes | undefined;
 }
 
 export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
@@ -10,7 +12,7 @@ export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 16px;
+  gap: ${({ size }) => (size === 'small' ? '8px' : '16px')};
 
   @media (max-width: 767px) {
     flex-direction: column;
