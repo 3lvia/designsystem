@@ -34,16 +34,16 @@
       display: flex;
       width: 24px;
       height: 24px;
-      visibility: visible;
+      visibility: unset;
     }
 
     &.e-search--searched {
       .e-btn.e-btn--icon {
-        visibility: visible;
+        visibility: unset;
 
         .e-btn__icon {
           i[class*='e-icon--close-bold'] {
-            visibility: visible;
+            visibility: unset;
           }
         }
       }
@@ -89,11 +89,11 @@
 
     &.e-search--searched {
       .e-btn.e-btn--icon {
-        visibility: visible;
+        visibility: unset;
 
         .e-btn__icon {
           i[class*='e-icon--close-bold'] {
-            visibility: visible;
+            visibility: unset;
           }
         }
       }
@@ -151,7 +151,7 @@
         width: 16px;
         height: 16px;
         transform: translateY(-50%);
-        visibility: visible;
+        visibility: unset;
       }
 
       .e-btn {
