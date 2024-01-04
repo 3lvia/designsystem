@@ -42,12 +42,12 @@ export class AutocompleteCegComponent implements ComponentExample {
           group: 'Label',
           type: 'text',
           label: 'Label',
-          value: 'Postnummer og sted',
+          value: 'Adresse',
         },
       },
       staticProps: {
         items: this.autocompleteItems,
-        placeholder: 'Ditt postnummer...',
+        placeholder: 'Bogstadveien 1',
         valueOnChange: () => '',
       },
       groupOrder: ['Size', 'Options', 'State', 'Label'],
@@ -63,16 +63,9 @@ export class AutocompleteCegComponent implements ComponentExample {
   }
 
   getAutoCompleteItems(): { value: string; label: string }[] {
-    return this.data
-      .map((item) => {
-        const postal = `${item.zipCode.padStart(4, '0')} ${
-          item.city.charAt(0).toUpperCase() + item.city.slice(1)
-        }`;
-        return {
-          value: postal,
-          label: postal,
-        };
-      })
-      .sort((a, b) => a.label.localeCompare(b.label));
+    return this.data.map((item) => ({
+      value: item,
+      label: item,
+    }));
   }
 }
