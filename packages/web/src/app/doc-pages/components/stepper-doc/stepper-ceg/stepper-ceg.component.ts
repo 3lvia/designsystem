@@ -14,7 +14,6 @@ interface StepStates {
 @Component({
   selector: 'app-stepper-ceg',
   templateUrl: './stepper-ceg.component.html',
-  styleUrls: ['./stepper-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: StepperCegComponent }],
 })
 export class StepperCegComponent implements ComponentExample {

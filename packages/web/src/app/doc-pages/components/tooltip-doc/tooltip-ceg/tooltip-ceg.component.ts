@@ -37,7 +37,7 @@ export class TooltipCegComponent implements ComponentExample {
           type: 'text',
           group: 'Content',
           label: 'Tooltip content',
-          value: 'Bruker-instillinger',
+          value: 'Brukerinnstillinger',
         },
       },
       groupOrder: ['Position', 'Delay', 'State', 'Content'],

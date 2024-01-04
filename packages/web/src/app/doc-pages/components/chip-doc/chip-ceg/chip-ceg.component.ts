@@ -69,7 +69,7 @@ export class ChipCegComponent implements ComponentExample {
         },
         value: {
           type: 'text',
-          value: 'Chip',
+          value: '2024',
           label: 'Value',
           group: 'Text',
           inputType: 'input',
@@ -85,7 +85,7 @@ export class ChipCegComponent implements ComponentExample {
       controls: {
         value: {
           type: 'text',
-          value: 'Chip',
+          value: '2024',
           label: 'Value',
           group: 'Text',
           inputType: 'input',

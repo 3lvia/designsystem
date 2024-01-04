@@ -60,7 +60,7 @@ export class CardCegComponent implements ComponentExample {
           type: 'text',
           group: 'Description',
           label: 'Description',
-          value: 'Data om prognoser ved lyn og hvordan dette påvirker strømnettet',
+          value: 'Data om prognoser ved lyn og hvordan dette påvirker strømnettet.',
           inputType: 'textarea',
         },
         tag: {
