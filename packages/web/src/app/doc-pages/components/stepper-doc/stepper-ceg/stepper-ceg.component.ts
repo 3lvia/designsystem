@@ -19,8 +19,8 @@ interface StepStates {
 export class StepperCegComponent implements ComponentExample {
   elementName = 'stepper';
   stepperStates: BaseStepperProps['steps'] = {
-    '1': { heading: 'Kontakt', isCompleted: true },
-    '2': { heading: 'Kontakt', isCompleted: true },
+    '1': { heading: 'Kontakt' },
+    '2': { heading: 'Kontakt' },
     '3': { heading: 'Kontakt' },
     '4': { heading: 'Kontakt', nextButtonText: 'Lagre' },
   };

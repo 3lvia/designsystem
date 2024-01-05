@@ -33,13 +33,18 @@ export class SpotlightCegComponent implements ComponentExample, AfterViewInit {
       },
     },
   ]);
+  isSpotlight = false;
 
   ngAfterViewInit() {
-    this.toggleSpotlight();
+    this.toggleSpotlight(true);
     this.updateSpotlightPosition();
   }
 
-  toggleSpotlight() {
+  toggleSpotlight(isInitial?: boolean) {
+    if (!isInitial) {
+      this.isSpotlight = !this.isSpotlight;
+    }
+
     const isHidden = this.spotlight.nativeElement.classList.toggle('e-none');
     this.spotlight.nativeElement.setProps({ hasLockBodyScroll: !isHidden });
     this.updateSpotlightPosition();
