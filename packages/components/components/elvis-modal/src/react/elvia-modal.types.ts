@@ -7,7 +7,7 @@ export interface BaseModalProps extends BaseProps {
   disableClose?: boolean;
   hasCloseButton?: boolean;
   hasLockBodyScroll?: boolean;
-  hasPadding?: boolean;
+  noPadding?: boolean;
   heading?: string | JSX.Element;
   illustration?: JSX.Element;
   isShowing: boolean;

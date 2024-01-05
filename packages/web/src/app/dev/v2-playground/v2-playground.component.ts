@@ -98,7 +98,7 @@ export class v2PlaygroundComponent {
   };
   labelOptions = { start: 'Start-dato', end: 'Sluttdato' };
   minDateRange = new Date(2022, 6, 26, 14, 0);
-  maxDateRange = new Date(2022, 6, 30, 23, 0);
+  maxDateRange = new Date(2022, 6, 30, 20, 0);
   disableDates = {
     start: (date: Date) => date.getDate() % 3 === 0,
     end: (date: Date) => date.getDate() % 7 === 0,

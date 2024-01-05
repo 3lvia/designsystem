@@ -5,12 +5,12 @@ export const exitDuration = 200;
 const fadeInAnimation = keyframes`
   0% {
     opacity: 0;
-    translate: 0 -4px;
+    transform: translate(0 -4px);
   }
   
   100% {
     opacity: 1;
-    translate: 0 0;
+    transform: translate(0);
   }
 `;
 
@@ -26,7 +26,7 @@ const fadeOutAnimation = keyframes`
   }
 `;
 
-export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: boolean }>`
+export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: boolean; center: boolean }>`
   position: absolute;
   top: 0;
   z-index: 99999;
@@ -44,6 +44,16 @@ export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: bool
     css`
       animation-duration: 0ms;
     `};
+
+  ${({ center }) =>
+    center &&
+    css`
+      position: fixed;
+      max-width: unset;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+    `}
 `;
 
 export const OverlayDOMPosition = styled.div`
