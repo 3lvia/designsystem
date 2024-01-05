@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 interface DatepickerRangeWrapperProps {
   readonly isVertical: boolean;
   readonly isFullWidth: boolean;
-  readonly size: FormFieldSizes | undefined;
+  readonly size?: FormFieldSizes;
 }
 
 export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
@@ -40,8 +40,8 @@ export const DatepickerRangeWrapper = styled.div<DatepickerRangeWrapperProps>`
     `};
 `;
 
-export const RowContainer = styled.div`
+export const RowContainer = styled.div<{ size?: FormFieldSizes }>`
   display: flex;
-  gap: 0 8px;
+  gap: 0 ${({ size }) => (size === 'small' ? '4px' : '8px')};
   align-items: flex-end;
 `;
