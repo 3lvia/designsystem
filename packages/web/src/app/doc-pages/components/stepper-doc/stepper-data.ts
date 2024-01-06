@@ -72,6 +72,12 @@ export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
       type: '(stepIndex: number) => void',
       description: 'Emits when the step index changes.',
     },
+    onFinish: {
+      isEvent: true,
+      type: '() => void',
+      description: 'Callback function for when the final "next" button is clicked.',
+      default: 'false',
+    },
   },
 
   does: [
