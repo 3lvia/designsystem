@@ -11,6 +11,7 @@ export const Stepper: FC<StepperProps> = function ({
   content,
   value,
   valueOnChange,
+  onFinish,
   className,
   inlineStyle,
   webcomponent,
@@ -61,6 +62,12 @@ export const Stepper: FC<StepperProps> = function ({
       } else if (webcomponent) {
         webcomponent.setProps({ value: updateCurrentStep }, true);
         webcomponent.triggerEvent('valueOnChange', updateCurrentStep);
+      }
+    } else if (updateCurrentStep - 1 === numberOfSteps) {
+      if (!webcomponent && onFinish) {
+        onFinish();
+      } else if (webcomponent) {
+        webcomponent.triggerEvent('onFinish');
       }
     }
   };
