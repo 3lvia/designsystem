@@ -493,6 +493,27 @@
       </button>
     </div>
 
+    <div class="example-wrapper">
+      <h3>Stepper</h3>
+      <elvia-stepper
+        [steps]="{
+          '1': { heading: 'Tittel 1', isCompleted: true },
+          '2': { heading: 'Tittel 2', isCompleted: true },
+          '3': { heading: 'Tittel 3' },
+          '4': { heading: 'Tittel 4', nextButtonText: 'Lagre' }
+        }"
+        (onFinish)="log('Stepper onFinish()')"
+        (valueOnChange)="logValue('Stepper', $any($event).detail.value)"
+      >
+        <div slot="content">
+          <div>Trinn 1 innhold</div>
+          <div>Trinn 2 innhold</div>
+          <div>Trinn 3 innhold</div>
+          <div>Trinn 4 innhold</div>
+        </div>
+      </elvia-stepper>
+    </div>
+
     <!--Tabs-->
     <div class="example-wrapper">
       <h3>Tabs</h3>
