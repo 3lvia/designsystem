@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added a <code>onFinish</code> event that emits when the user clicks the final 'next' button."
+            "Added an <code>onFinish</code> event that emits when the user clicks the final 'next' button."
           ]
         },
         {
