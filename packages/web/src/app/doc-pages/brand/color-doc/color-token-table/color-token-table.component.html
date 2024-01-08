@@ -95,11 +95,22 @@
 >
   <div class="e-alert e-alert--info e-alert--no-title e-mt-32" role="note">
     <div class="e-alert__icon">
-      <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"> </i>
+      <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
     </div>
     <div class="e-alert__content">
       <div class="e-alert__text">
-        <p class="e-m-0">If you need color token for an icon state, use text tokens.</p>
+        <p class="e-m-0">
+          To apply a custom color, you can overwrite the CSS-variables used in the icon. The variables used
+          are typically:
+        </p>
+        <ul class="e-list">
+          <li><code>--e-color-icon-stroke-1</code></li>
+          <li><code>--e-color-icon-filled-background-1</code></li>
+          <li><code>--e-color-icon-filled-foreground-1</code></li>
+        </ul>
+        <p class="e-m-0">
+          To see what specific variable is used for an icon, inspect the icon in the browser.
+        </p>
       </div>
     </div>
   </div>
