@@ -76,7 +76,6 @@ export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
       isEvent: true,
       type: '() => void',
       description: 'Callback function for when the final "next" button is clicked.',
-      default: 'false',
     },
   },
 
