@@ -314,13 +314,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     <DatepickerRangeWrapper
       isFullWidth={isFullWidth ?? false}
       isVertical={isVertical ?? false}
+      size={size}
       className={className}
       style={inlineStyle}
       data-testid="datepicker-range-wrapper"
       {...rest}
     >
       <FormFieldContainer>
-        <RowContainer>
+        <RowContainer size={size}>
           <Datepicker
             {...passThroughProps}
             label={labelOptions?.start ?? defaultLabelOptions.start}
@@ -387,7 +388,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         {currentErrorMessages.start && <DatepickerRangeError errorText={currentErrorMessages.start} />}
       </FormFieldContainer>
       <FormFieldContainer>
-        <RowContainer>
+        <RowContainer size={size}>
           <Datepicker
             {...passThroughProps}
             label={labelOptions?.end ?? defaultLabelOptions.end}

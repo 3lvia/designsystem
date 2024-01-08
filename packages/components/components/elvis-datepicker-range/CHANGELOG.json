@@ -2,8 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.01.24",
+      "version": "5.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["The component will now take up slightly less space when <code>size='small'</code>."]
+        }
+      ]
+    },
+    {
       "date": "18.12.23",
-      "version": "5.0.2",
+      "version": "5.0.3",
       "changelog": [
         {
           "type": "bug_fix",
