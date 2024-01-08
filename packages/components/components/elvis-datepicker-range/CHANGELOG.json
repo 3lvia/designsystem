@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "patch",
-          "changes": ["Change padding on size small."]
+          "changes": ["The component will now take up slightly less space when <code>size="small"</code>."]
         }
       ]
     },
