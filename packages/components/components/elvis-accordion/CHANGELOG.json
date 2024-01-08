@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.01.24",
+      "version": "3.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The <code>single</code Accordion type now responds to the <code>isOpen</code> prop along with the <code>onOpen</code> and <code>onClose</code> events."
+          ]
+        }
+      ]
+    },
+    {
       "date": "14.12.23",
       "version": "3.0.1",
       "changelog": [

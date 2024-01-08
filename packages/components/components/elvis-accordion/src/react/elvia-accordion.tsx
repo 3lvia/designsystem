@@ -49,11 +49,11 @@ export const Accordion: FC<AccordionProps> = ({
 
   /** Start outline listener */
   useEffect(() => {
-    if (accordionRef && accordionRef.current) {
+    if (accordionRef?.current) {
       outlineListener(accordionRef.current);
     }
     return () => {
-      if (accordionRef && accordionRef.current) {
+      if (accordionRef?.current) {
         outlineListener(accordionRef.current, true);
       }
     };
@@ -75,7 +75,7 @@ export const Accordion: FC<AccordionProps> = ({
   }, [isOpen]);
 
   useEffect(() => {
-    type === 'single' ? setHasContent(false) : setHasContent(true);
+    setHasContent(type !== 'single');
   }, [type]);
 
   useEffect(() => {
@@ -105,9 +105,6 @@ export const Accordion: FC<AccordionProps> = ({
   }, [accordionContentRef, accordionContentRef.current]);
 
   const handleOnClick = () => {
-    if (type === 'single') {
-      return;
-    }
     if (!isOpenState) {
       onOpen?.();
       webcomponent?.triggerEvent('onOpen');
@@ -154,7 +151,7 @@ export const Accordion: FC<AccordionProps> = ({
     >
       {type === 'overflow' ? (
         <AccordionContent
-          type={type}
+          $type={type}
           spacingAboveContent={spacingAboveContent}
           spacingBelowContent={spacingBelowContent}
           isOpenState={isOpenState}
@@ -162,21 +159,19 @@ export const Accordion: FC<AccordionProps> = ({
           contentHeight={contentHeight}
           hasContent={hasContent}
           ref={accordionContentRef}
-          data-testid="accordion-content-overflow"
         >
           {content}
         </AccordionContent>
       ) : null}
-      <AccordionButtonArea labelPosition={labelPosition} type={type}>
+      <AccordionButtonArea labelPosition={labelPosition} $type={type}>
         <AccordionButton
           aria-expanded={isOpenState}
-          currType={type}
+          $type={type}
           isFullWidth={isFullWidth}
           isOpenState={isOpenState}
           onClick={() => handleOnClick()}
           onMouseEnter={() => setIsHoveringButton(true)}
           onMouseLeave={() => setIsHoveringButton(false)}
-          data-testid="accordion-button-label"
           aria-label={decideButtonAriaLabel()}
         >
           {shouldShowLeftIcon() && (
@@ -225,14 +220,13 @@ export const Accordion: FC<AccordionProps> = ({
       </AccordionButtonArea>
       {type === 'normal' ? (
         <AccordionContent
-          type={type}
+          $type={type}
           spacingAboveContent={spacingAboveContent}
           spacingBelowContent={spacingBelowContent}
           isOpenState={isOpenState}
           hasContent={hasContent}
           contentHeight={contentHeight}
           overflowHeight={overflowHeight}
-          data-testid="accordion-content-normal"
           ref={accordionContentRef}
         >
           {content}

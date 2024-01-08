@@ -19,29 +19,29 @@ describe('Elvis Accordion', () => {
     });
 
     it('should show open label if not opened', () => {
-      const accordionButton = screen.getByTestId('accordion-button-label');
-      expect(accordionButton).toHaveTextContent('open');
+      const accordionButton = screen.getByLabelText('open');
+      expect(accordionButton).toBeInTheDocument();
     });
 
     it('should show close label if opened', async () => {
       const user = userEvent.setup();
-      const accordionButton = screen.getByTestId('accordion-button-label');
+      const accordionButton = screen.getByLabelText('open');
       await user.click(accordionButton);
       expect(accordionButton).toHaveTextContent('close');
     });
 
     it('should not show content if not opened', () => {
-      const accordionButtonNormal = screen.getByTestId('accordion-content-normal');
-      expect(accordionButtonNormal).toHaveStyle('opacity: 0');
+      const accordionButtonNormal = screen.getByText(/textcontent/i);
+      expect(accordionButtonNormal).not.toBeVisible();
     });
 
     it('should show content if opened', async () => {
       const user = userEvent.setup();
-      const accordionButton = screen.getByTestId('accordion-button-label');
+      const accordionButton = screen.getByLabelText('open');
       await user.click(accordionButton);
 
-      const accordionButtonNormal = screen.getByTestId('accordion-content-normal');
-      expect(accordionButtonNormal).toHaveStyle('opacity: 1');
+      const accordionButtonNormal = screen.getByText(/textcontent/i);
+      expect(accordionButtonNormal).toBeVisible();
     });
   });
 
@@ -54,30 +54,28 @@ describe('Elvis Accordion', () => {
           closeLabel="close"
           content="TextContent"
           type="overflow"
-        ></Accordion>,
+        />,
       );
     });
 
     it('should show content if not opened', () => {
-      const accordionContentOverflow = screen.getByTestId('accordion-content-overflow');
-      expect(accordionContentOverflow).toHaveStyle('opacity: 1');
+      const accordionContentOverflow = screen.getByText(/textcontent/i);
+      expect(accordionContentOverflow).toBeVisible();
     });
 
     it('should show content if opened', async () => {
       const user = userEvent.setup();
-      const accordionButton = screen.getByTestId('accordion-button-label');
+      const accordionButton = screen.getByLabelText('open');
       await user.click(accordionButton);
 
-      const accordionContentOverflow = screen.getByTestId('accordion-content-overflow');
-      expect(accordionContentOverflow).toHaveStyle('opacity: 1');
+      const accordionContentOverflow = screen.getByText(/textcontent/i);
+      expect(accordionContentOverflow).toBeVisible();
     });
   });
 
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(
-        <Accordion content="TextContent" className="test-class" inlineStyle={{ margin: '24px' }}></Accordion>,
-      );
+      render(<Accordion content="TextContent" className="test-class" inlineStyle={{ margin: '24px' }} />);
     });
 
     it('should have className and inlineStyle', () => {
@@ -104,7 +102,7 @@ describe('Elvis Accordion', () => {
 
     it('onOpenEvent: should emit the onOpen event when user presses the accordion button', async () => {
       const user = userEvent.setup();
-      const accordionButton = screen.getByTestId('accordion-button-label');
+      const accordionButton = screen.getByRole('button');
       await user.click(accordionButton);
 
       await waitFor(() => expect(onOpenEvent).toHaveBeenCalledTimes(1));
@@ -112,7 +110,7 @@ describe('Elvis Accordion', () => {
 
     it('onCloseEvent: should emit the onClose event when user presses the accordion button when open', async () => {
       const user = userEvent.setup();
-      const accordionButton = screen.getByTestId('accordion-button-label');
+      const accordionButton = screen.getByRole('button');
       await user.click(accordionButton); //open it first
       await user.click(accordionButton); //then close it
 
