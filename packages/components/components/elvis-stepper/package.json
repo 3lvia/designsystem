@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-stepper",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/stepper",
   "source": "src/react/elvia-stepper.tsx",
