@@ -64,11 +64,8 @@ export const Stepper: FC<StepperProps> = function ({
         webcomponent.triggerEvent('valueOnChange', updateCurrentStep);
       }
     } else if (updateCurrentStep - 1 === numberOfSteps) {
-      if (!webcomponent && onFinish) {
-        onFinish();
-      } else if (webcomponent) {
-        webcomponent.triggerEvent('onFinish');
-      }
+      onFinish?.();
+      webcomponent?.triggerEvent('onFinish');
     }
   };
 
