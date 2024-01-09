@@ -8,7 +8,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "The <code>single</code Accordion type now responds to the <code>isOpen</code> prop along with the <code>onOpen</code> and <code>onClose</code> events."
+            "The <code>single</code> Accordion type now responds to the <code>isOpen</code> prop along with the <code>onOpen</code> and <code>onClose</code> events."
           ]
         }
       ]
