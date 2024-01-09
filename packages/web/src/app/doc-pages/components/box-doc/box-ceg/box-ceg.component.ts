@@ -23,7 +23,6 @@ export class BoxCegComponent implements ComponentExample {
           type: 'text',
           label: 'Heading',
           placeholder: 'Heading for the box',
-          value: 'Målerinfo',
         },
       },
       groupOrder: ['Options', 'Heading'],

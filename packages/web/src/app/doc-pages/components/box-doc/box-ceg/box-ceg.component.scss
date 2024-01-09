@@ -1,13 +1,11 @@
 @use '@elvia/elvis/src/utilities/mixins.scss';
 
 div {
+  @include mixins.typography('text-caps');
+  border: 2px dashed var(--e-color-border-3);
+  color: var(--e-color-text-2);
   display: grid;
-  grid-template-columns: 1fr 1fr;
   min-height: 100px;
   min-width: 100px;
-  gap: 18px;
-
-  .e-text-sm {
-    text-align: right;
-  }
+  place-items: center;
 }
