@@ -5,13 +5,56 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-p-16 e-mb-24">
-      <elvia-datepicker-range
-        hasTimepickers
-        hasSelectDateOnOpen="false"
-        [minDate]="minDateRange"
-        [maxDate]="maxDateRange"
-        (valueOnChangeISOString)="writeDate($any($event).detail.value)"
-      ></elvia-datepicker-range>
+      <div class="e-form-field">
+        <label class="e-form-field__label" for="validationExample"> Passord </label>
+        <div class="e-input e-input---invalid">
+          <button class="e-btn e-btn--icon" aria-label="Vis/skjul passord">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--view_on" aria-hidden="true"> </i>
+            </span>
+          </button>
+          <input
+            aria-errormessage="error-message-example"
+            aria-invalid="true"
+            id="validationExample"
+            invalid
+            required
+            type="password"
+            value="PassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassord"
+          />
+        </div>
+        <span class="e-form-field__error e-form-field__error--visible">
+          <span>
+            <i class="e-icon e-icon--remove_circle e-icon--color-error e-icon--xs" aria-hidden="true"> </i>
+          </span>
+          <span id="error-message-example"> Passord må inneholde både bokstaver og tall </span>
+        </span>
+      </div>
+      <div class="e-form-field e-form-field--small">
+        <label class="e-form-field__label" for="validationExample"> Passord </label>
+        <div class="e-input e-input---invalid">
+          <button class="e-btn e-btn--icon" aria-label="Vis/skjul passord">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--view_on" aria-hidden="true"> </i>
+            </span>
+          </button>
+          <input
+            aria-errormessage="error-message-example"
+            aria-invalid="true"
+            id="validationExample"
+            invalid
+            required
+            type="password"
+            value="PassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassordPassord"
+          />
+        </div>
+        <span class="e-form-field__error e-form-field__error--visible">
+          <span>
+            <i class="e-icon e-icon--remove_circle e-icon--color-error e-icon--xs" aria-hidden="true"> </i>
+          </span>
+          <span id="error-message-example"> Passord må inneholde både bokstaver og tall </span>
+        </span>
+      </div>
     </div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark"></div>
