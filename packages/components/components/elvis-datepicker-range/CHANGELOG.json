@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.01.24",
+      "version": "5.0.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the <code>isFullWidth</code> prop not properly making the component take up full width."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.01.24",
       "version": "5.0.4",
       "changelog": [
