@@ -39,6 +39,7 @@ export class ToastCegComponent extends TypescriptComponentExample implements Com
           group: 'Title',
           label: 'Title',
           value: '',
+          placeholder: 'Title for the toast',
           excludedFromDOM: true,
         },
         body: {
