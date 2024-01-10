@@ -9,7 +9,12 @@
         "transform": "typescript-plugin-styled-components",
         "type": "config"
       },
-      { "name": "typescript-plugin-css-modules" }
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "allowUnknownClassnames": true
+        }
+      }
     ]
   }
 }

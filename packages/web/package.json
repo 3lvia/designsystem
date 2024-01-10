@@ -64,7 +64,7 @@
     "rxjs": "^7.8.1",
     "sass": "^1.69.7",
     "tslib": "^2.6.2",
-    "zone.js": "~0.14.2"
+    "zone.js": "~0.14.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.9",
@@ -83,7 +83,7 @@
     "@types/prismjs": "^1.26.3",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
-    "contentful-management": "^11.8.1",
+    "contentful-management": "^11.9.0",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^8.56.0",
     "ts-node": "^10.9.2",
