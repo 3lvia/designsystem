@@ -1,6 +1,97 @@
 {
   "content": [
     {
+      "version": "15.6.1",
+      "date": "December 21, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where it was not possible to hide icons through <code>visibility: hidden</code>"
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "15.6.0",
+      "date": "December 7, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the new icons <code>like-filled</code> and <code>dislike-filled</code>"],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "15.5.0",
+      "date": "December 7, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the new icons <code>like</code>, <code>like-filled-color</code>, <code>dislike</code> and <code>dislike-filled-color</code>"
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "15.4.2",
+      "date": "December 6, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed incorrect font weight for links"],
+          "components": [{ "displayName": "Link", "url": "https://design.elvia.io/components/link" }]
+        }
+      ]
+    },
+    {
+      "version": "15.4.1",
+      "date": "December 5, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Added a missing <code>position: relative;</code> to the checkbox container element."],
+          "components": [{ "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" }]
+        }
+      ]
+    },
+    {
+      "version": "15.4.0",
+      "date": "December 1, 2023",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the icons <code>equal-bold</code>, <code>forward_circle-color</code>, <code>forward_circle-filled</code>, <code>stop_circle-color</code>, <code>stop_circle-filled</code> and <code>undo</code>"
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "15.3.2",
+      "date": "November 16, 2023",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where a disabled text field with an icon button wouldn't properly visually disable the button.",
+            "Fixed a bug where disabled icon buttons could still sometimes get active hover state.",
+            "Fixed the <code>e-icon--search</code> and corresponding colored icons being slightly different sizes."
+          ],
+          "components": [
+            { "displayName": "Button", "url": "https://design.elvia.io/components/button" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "15.3.1",
       "date": "November 10, 2023",
       "changelog": [

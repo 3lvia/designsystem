@@ -1,23 +1,23 @@
 components:
-  - packages/components/components/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/components/components/**/*
 
 dependencies:
-  - yarn.lock
+  - changed-files:
+      - any-glob-to-any-file: yarn.lock
 
 design.elvia.io:
-  - any:
-      [
-        'packages/web/**/*',
-        '!packages/web/src/assets/changelogs/**/*',
-        '!packages/web/src/assets/js/elvis.js',
-      ]
+  - changed-files:
+      - any-glob-to-any-file: 'packages/web/**/*'
 
 elvis:
-  - packages/elvis/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/elvis/**/*
 
 tokens:
-  - packages/elvis-*/**/*
+  - changed-files:
+      - any-glob-to-any-file: packages/elvis-*/**/*
 
 ci/cd:
-  - .github/workflows/**/*
-  - .github/labels.yml
+  - changed-files:
+      - any-glob-to-any-file: [.github/workflows/**/*, .github/labels.yml]

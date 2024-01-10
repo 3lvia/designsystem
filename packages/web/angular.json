@@ -14,13 +14,16 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "skipTests": true
+          "skipTests": true,
+          "standalone": true
         },
         "@schematics/angular:directive": {
-          "skipTests": true
+          "skipTests": true,
+          "standalone": true
         },
         "@schematics/angular:pipe": {
-          "skipTests": true
+          "skipTests": true,
+          "standalone": true
         },
         "@schematics/angular:service": {
           "skipTests": true
@@ -42,13 +45,13 @@
               "json5",
               "lodash.isequal",
               "lodash.throttle",
+              "lodash.uniqueid",
               "natural-compare-lite",
               "prismjs",
               "react-dom/client",
-              "@elvia/elvis-toolbox",
               "dompurify",
               "shallowequal",
-              "lodash.uniqueid"
+              "classnames"
             ],
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -113,7 +116,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "10kb",
-                  "maximumError": "25kb"
+                  "maximumError": "20kb"
                 }
               ]
             }

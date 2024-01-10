@@ -56,4 +56,10 @@ export const IconRotator = styled.div<{ isRotated: boolean }>`
 
 export const DropdownIconContainer = styled.div`
   display: flex;
+
+  & .e-dropdown__image {
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+  }
 `;

@@ -309,6 +309,45 @@ describe('Elvis Dropdown', () => {
       });
     });
 
+    describe('isRequired', () => {
+      beforeEach(() => {
+        render(<Dropdown isRequired items={items}></Dropdown>);
+      });
+
+      it('should have required = true', () => {
+        const input = screen.getByRole('combobox');
+        expect(input).toHaveAttribute('required');
+      });
+
+      it('should give an error if no value is provided after blur', async () => {
+        const user = userEvent.setup();
+        const input = screen.getByRole('combobox');
+
+        await user.click(input);
+        await user.tab();
+
+        waitFor(() => {
+          const error = screen.getByText('Påkrevd');
+          expect(error).toBeInTheDocument();
+        });
+      });
+    });
+
+    describe('labelTransformation', () => {
+      const labelTransformer = (val: string) => {
+        const label = items.find((item) => item.value === val)?.label || '';
+        return `${label} transformed`;
+      };
+      const value = items[0].value as string;
+
+      it('should transform the selected item value', async () => {
+        render(<Dropdown value={value} labelTransformation={labelTransformer} items={items}></Dropdown>);
+
+        const input = screen.getByRole('combobox');
+        expect(input).toHaveValue(labelTransformer(value));
+      });
+    });
+
     describe('className and inlineStyle passed to wrapper', () => {
       beforeEach(() => {
         render(<Dropdown className="test-class" inlineStyle={{ margin: '24px' }} items={[]}></Dropdown>);
@@ -326,6 +365,7 @@ describe('Elvis Dropdown', () => {
     const valueOnChangeEvent = jest.fn();
     const onItemHoverEvent = jest.fn();
     const onLoadMoreItemsEvent = jest.fn();
+    const errorOnChangeEvent = jest.fn();
 
     beforeEach(() => {
       jest.clearAllMocks();
@@ -333,9 +373,11 @@ describe('Elvis Dropdown', () => {
         <Dropdown
           hasLoadMoreItemsButton={true}
           items={items}
+          isRequired={true}
           onItemHover={onItemHoverEvent}
           onLoadMoreItems={onLoadMoreItemsEvent}
           valueOnChange={valueOnChangeEvent}
+          errorOnChange={errorOnChangeEvent}
         />,
       );
     });
@@ -344,6 +386,7 @@ describe('Elvis Dropdown', () => {
       await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(onItemHoverEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(onLoadMoreItemsEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(errorOnChangeEvent).not.toHaveBeenCalled());
     });
 
     it('valueOnChange: should emit when an item is clicked', async () => {
@@ -381,6 +424,18 @@ describe('Elvis Dropdown', () => {
       }
 
       await waitFor(() => expect(onLoadMoreItemsEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('errorOnChange: should emit when an error state is triggered', async () => {
+      const user = userEvent.setup();
+      const input = screen.getByRole('combobox');
+
+      await user.click(input);
+      await user.tab();
+
+      waitFor(() => {
+        expect(errorOnChangeEvent).toHaveBeenCalledTimes(1);
+      });
     });
   });
 

@@ -1,8 +1,8 @@
 @use '../../utilities/icons';
-@use '../../utilities/typography';
+@use '../../utilities/mixins';
 
 .e-search {
-  @include typography.typography('text-md');
+  @include mixins.typography('text-md');
   position: relative;
 
   &::-ms-clear {
@@ -32,16 +32,16 @@
       display: flex;
       width: 24px;
       height: 24px;
-      visibility: visible;
+      visibility: unset;
     }
 
     &.e-search--searched {
       .e-btn.e-btn--icon {
-        visibility: visible;
+        visibility: unset;
 
         .e-btn__icon {
           i[class*='e-icon--close-bold'] {
-            visibility: visible;
+            visibility: unset;
           }
         }
       }
@@ -85,11 +85,11 @@
 
     &.e-search--searched {
       .e-btn.e-btn--icon {
-        visibility: visible;
+        visibility: unset;
 
         .e-btn__icon {
           i[class*='e-icon--close-bold'] {
-            visibility: visible;
+            visibility: unset;
           }
         }
       }
@@ -120,7 +120,7 @@
   &.e-form-field--compact,
   &.e-form-field--small {
     .e-search--instant {
-      @include typography.typography('text-sm');
+      @include mixins.typography('text-sm');
 
       .e-input,
       .e-input:has(input:invalid),
@@ -145,7 +145,7 @@
         width: 16px;
         height: 16px;
         transform: translateY(-50%);
-        visibility: visible;
+        visibility: unset;
       }
 
       .e-btn {
@@ -155,7 +155,7 @@
     }
 
     .e-search--on-submit {
-      @include typography.typography('text-sm');
+      @include mixins.typography('text-sm');
 
       .e-input,
       .e-input:has(input:invalid),

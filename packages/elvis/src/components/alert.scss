@@ -1,4 +1,4 @@
-@use '../utilities/typography.scss';
+@use '../utilities/mixins';
 @use '../utilities/icons.scss';
 @use '../utilities/breakpoints';
 @use '../utilities/helpers';
@@ -47,7 +47,7 @@ $global-mobile-notitle-padding: 14px; // -2px border
     }
 
     .e-alert__text {
-      @include typography.typography('text-md');
+      @include mixins.typography('text-md');
       max-width: 758px;
       color: var(--e-color-text-1);
 
@@ -97,7 +97,7 @@ $global-mobile-notitle-padding: 14px; // -2px border
     }
 
     .e-alert__content .e-alert__title {
-      @include typography.typography('title-xs');
+      @include mixins.typography('title-xs');
       color: var(--e-color-text-1);
     }
 
@@ -245,11 +245,11 @@ $global-mobile-notitle-padding: 14px; // -2px border
 
         .e-alert__title {
           margin: 1px 0;
-          @include typography.typography('text-small-strong');
+          @include mixins.typography('text-small-strong');
         }
 
         .e-alert__text {
-          @include typography.typography('text-small');
+          @include mixins.typography('text-small');
         }
       }
 
@@ -279,7 +279,7 @@ $global-mobile-notitle-padding: 14px; // -2px border
     }
 
     .e-alert__title {
-      @include typography.typography('text-md-strong');
+      @include mixins.typography('text-md-strong');
       margin: 0;
       color: var(--e-color-text-1);
     }

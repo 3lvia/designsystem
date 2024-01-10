@@ -1,3 +1,5 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss';
+
 :host {
   line-height: normal;
 
@@ -17,6 +19,10 @@
 
   pre {
     margin: 0;
+  }
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    padding: 16px;
   }
 }
 

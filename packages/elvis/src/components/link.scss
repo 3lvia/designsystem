@@ -1,7 +1,7 @@
 @use '../utilities/outline';
 @use '../utilities/icons';
 @use '../utilities/helpers';
-@use '../utilities/typography';
+@use '../utilities/mixins';
 
 $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
@@ -16,10 +16,10 @@ $link-jumbo-phone-width: 287px;
   box-sizing: border-box;
   border-bottom: 2px solid var(--e-color-border-1);
 
-  @include typography.typography('text-interactive-md');
+  @include mixins.typography('text-interactive-md');
   color: var(--e-color-text-1);
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   @include helpers.hover() {
     &:hover {
@@ -45,18 +45,18 @@ $link-jumbo-phone-width: 287px;
   }
 
   &.e-link--lg {
-    @include typography.typography('text-interactive-lg');
-    font-weight: 600;
+    @include mixins.typography('text-interactive-lg');
+    font-weight: 700;
   }
 
   &.e-link--md {
-    @include typography.typography('text-interactive-md');
-    font-weight: 600;
+    @include mixins.typography('text-interactive-md');
+    font-weight: 700;
   }
 
   &.e-link--sm {
-    @include typography.typography('text-interactive-sm');
-    font-weight: 600;
+    @include mixins.typography('text-interactive-sm');
+    font-weight: 700;
   }
 
   &:active,
@@ -80,7 +80,7 @@ $link-jumbo-phone-width: 287px;
   &.e-link--inline {
     display: inline;
     font-size: inherit;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 100%;
   }
 
@@ -106,7 +106,7 @@ $link-jumbo-phone-width: 287px;
     @include helpers.hover() {
       &:hover {
         .e-link__icon i[class*='filled-color'] {
-          visibility: visible;
+          visibility: unset;
         }
 
         .e-link__icon i:not([class*='filled-color']) {
@@ -139,8 +139,8 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--lg {
-      @include typography.typography('text-interactive-lg');
-      font-weight: 600;
+      @include mixins.typography('text-interactive-lg');
+      font-weight: 700;
 
       .e-link__icon {
         @include icons.icon-size('sm');
@@ -148,8 +148,8 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--md {
-      @include typography.typography('text-interactive-lg');
-      font-weight: 600;
+      @include mixins.typography('text-interactive-lg');
+      font-weight: 700;
 
       .e-link__icon {
         @include icons.icon-size('sm');
@@ -157,8 +157,8 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--sm {
-      @include typography.typography('text-interactive-md');
-      font-weight: 600;
+      @include mixins.typography('text-interactive-md');
+      font-weight: 700;
 
       .e-link__icon {
         @include icons.icon-size('xs');
@@ -168,7 +168,7 @@ $link-jumbo-phone-width: 287px;
     &:active,
     &.e-link---hover {
       .e-link__icon i[class*='filled-color'] {
-        visibility: visible;
+        visibility: unset;
       }
 
       .e-link__icon i:not([class*='filled-color']) {

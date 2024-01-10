@@ -1,7 +1,7 @@
-@use '@elvia/elvis/src/utilities/typography.scss' as typography;
+@use '@elvia/elvis/src/utilities/mixins.scss';
 
 div {
-  @include typography.typography('text-caps');
+  @include mixins.typography('text-caps');
   border: 2px dashed var(--e-color-border-3);
   color: var(--e-color-text-2);
   display: grid;

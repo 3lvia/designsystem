@@ -77,6 +77,8 @@
   </app-component-section>
 
   <app-component-section sectionTitle="Changelog">
-    <app-component-changelog [changelog]="changelog"></app-component-changelog>
+    @defer {
+      <app-component-changelog [changelog]="changelog" />
+    }
   </app-component-section>
 </div>

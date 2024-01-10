@@ -2,6 +2,45 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.12.23",
+      "version": "4.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "The modal is now created using a portal. It will be placed at the top level of the DOM. This may help with some z-index related issues. The modal no longer exists in the DOM when it is not open.",
+            "Renamed the prop <code>hasPadding</code> to <code>noPadding</code>, and inverted it."
+          ],
+          "fixes": [
+            "Because the modal no longer is in the DOM at all times, if you have any components inside a slot, their lifecycle hooks (e.g. <code>ngOnInit</code>) may be called every time the component is shown and not just when mounted the first time.",
+            "If you are using it, replace <code>hasPadding</code> with <code>noPadding</code> and invert it."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "27.11.23",
+      "version": "3.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["The heading inside the modal can now be passed as a slot."]
+        }
+      ]
+    },
+    {
+      "date": "20.11.23",
+      "version": "3.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Support the attribute <code>elvisFocusInitial</code> to set the initially focused element."
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.10.23",
       "version": "3.1.9",
       "changelog": [

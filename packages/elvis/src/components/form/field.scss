@@ -1,4 +1,4 @@
-@use '../../utilities/typography';
+@use '../../utilities/mixins';
 @use '../../utilities/icons.scss';
 
 .e-form-field {
@@ -10,7 +10,7 @@
   text-align: left;
 
   &__label {
-    @include typography.typography('text-md-strong');
+    @include mixins.typography('text-md-strong');
     display: block;
     margin-bottom: 4px;
     color: var(--e-color-text-1);
@@ -27,13 +27,13 @@
     display: flex;
     align-items: center;
     margin-top: 2px;
-    @include typography.typography('text-sm');
+    @include mixins.typography('text-sm');
     color: var(--e-color-text-1);
 
     visibility: hidden;
 
     &.e-form-field__error--visible {
-      visibility: visible;
+      visibility: unset;
     }
 
     span:first-of-type {
@@ -54,7 +54,7 @@
   &.e-form-field--compact,
   &.e-form-field--small {
     .e-form-field__label {
-      @include typography.typography('text-sm-strong');
+      @include mixins.typography('text-sm-strong');
       margin-bottom: 4px;
     }
   }

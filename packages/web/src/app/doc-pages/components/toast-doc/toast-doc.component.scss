@@ -12,17 +12,13 @@
   .alert-icons {
     display: flex;
     margin-right: 48px;
+
     @media screen and (-ms-high-contrast: none) {
       margin-right: 48px + 48px;
     }
+
     @include breakpoints.breakpoint-up(Mobile) {
       margin-right: 0px;
-    }
-    .status-positive {
-      background-color: var(--e-color-signal-positive);
-    }
-    .status-informative {
-      background-color: var(--e-color-signal-info);
     }
   }
   .title {
@@ -31,5 +27,24 @@
     @include breakpoints.breakpoint-up(Mobile) {
       margin-top: 16px;
     }
+  }
+}
+
+.status-circle {
+  padding: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 24px;
+
+  &.positive {
+    background-color: var(--e-color-signal-positive);
+  }
+
+  &.informative {
+    background-color: var(--e-color-signal-info);
+  }
+
+  &.negative {
+    background-color: var(--e-color-signal-danger);
   }
 }

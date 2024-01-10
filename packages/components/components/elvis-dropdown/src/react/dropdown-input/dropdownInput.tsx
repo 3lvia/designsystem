@@ -5,10 +5,12 @@ import DOMPurify from 'dompurify';
 
 import { Input } from './dropdownInputStyles';
 import { DropdownIconContainer } from '../styledComponents';
+import { DropdownProps } from '../elviaDropdown.types';
 
 interface Props {
   placeholder?: string;
   placeholderIcon?: string;
+  isRequired: boolean;
   allOptionsSelectedLabel: string;
   isEditable: boolean;
   isDisabled: boolean;
@@ -21,11 +23,13 @@ interface Props {
   focusedItem?: DropdownItem;
   id?: string;
   ariaLabel?: string;
+  labelTransformation?: DropdownProps['labelTransformation'];
 }
 
 export const DropdownInput: React.FC<Props> = ({
   placeholder,
   placeholderIcon,
+  isRequired,
   allOptionsSelectedLabel,
   isEditable,
   onChange,
@@ -34,6 +38,7 @@ export const DropdownInput: React.FC<Props> = ({
   onKeyPress,
   dropdownIsOpen,
   onOpenDropdown,
+  labelTransformation,
   currentVal,
   focusedItem,
   id,
@@ -57,7 +62,7 @@ export const DropdownInput: React.FC<Props> = ({
   };
 
   const updateCurrentValIcon = (): void => {
-    if (typeof currentVal === 'string') {
+    if (typeof currentVal === 'string' || typeof currentVal === 'number') {
       setCurrentValIcon(flattenTree(items).find((item) => item.value === currentVal)?.icon);
     } else {
       setCurrentValIcon(undefined);
@@ -84,7 +89,13 @@ export const DropdownInput: React.FC<Props> = ({
         } else if (selectedItems.length >= 2) {
           setInputValue(`${selectedItems.length} valgte`);
         } else if (selectedItems.length === 1) {
-          setInputValue(selectedItems[0].label);
+          // A value of null is specifically used when a dropdown item is used as a
+          // "no item selected"-option. It should therefore set the input value to empty.
+          if (selectedItems[0].value === null) {
+            setInputValue('');
+          } else {
+            setInputValue(labelTransformation?.(selectedItems[0].value) ?? selectedItems[0].label);
+          }
         } else {
           setInputValue('');
         }
@@ -108,6 +119,7 @@ export const DropdownInput: React.FC<Props> = ({
         ></DropdownIconContainer>
       )}
       <Input
+        required={isRequired}
         aria-activedescendant={focusedItem ? getDropdownItemId(focusedItem.value) : undefined}
         disabled={isDisabled}
         placeholder={placeholder}

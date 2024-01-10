@@ -102,10 +102,6 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       return itemList;
     }, [filteredItems, isGtMobile, selectAllOption, hasLoadMoreItemsButton]);
 
-    const allItemsHaveIcons = useMemo(() => {
-      return filteredItems.every((item) => item.icon);
-    }, [filteredItems]);
-
     const focusIsOnDirectDescendant = useMemo(() => {
       return fullTabList.some((item) => focusedItem?.value === item.value);
     }, [fullTabList, focusedItem]);
@@ -267,7 +263,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
               )}
               {filteredItems.map((item) => (
                 <DropdownItem
-                  key={item.value}
+                  key={item.value ?? item.label} // Use label if value is null
                   item={item}
                   focusedItem={focusedItem}
                   setFocusedItem={(item) => {
@@ -278,7 +274,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                     }
                   }}
                   setHoveredItem={(item) => {
-                    setHoveredItem && setHoveredItem(item);
+                    setHoveredItem?.(item);
                   }}
                   size={size}
                   isMulti={isMulti}
@@ -295,10 +291,10 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                   listRef={listRef}
                   isGtMobile={isGtMobile}
                 >
-                  {item.icon && !isMulti && allItemsHaveIcons && (
+                  {item.icon && !isMulti && (
                     <DropdownIconContainer
                       dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.icon) }}
-                    ></DropdownIconContainer>
+                    />
                   )}
                   <ItemValue item={item} focusedValue={focusedItem} isRootOverlay={isRootOverlay} />
                 </DropdownItem>

@@ -13,11 +13,12 @@ export type StepperTypeProps = Omit<StepperProps, 'webcomponent' | 'type'> & {
 };
 
 export interface BaseStepperProps extends HasValue<number>, BaseProps {
-  type?: StepperType;
-  steps?: StepStates;
-  isForced?: boolean;
-  typography?: TypographyName;
   content?: JSX.Element[];
+  isForced?: boolean;
+  onFinish?: () => void;
+  steps?: StepStates;
+  type?: StepperType;
+  typography?: TypographyName;
 }
 
 export interface StepperProps extends BaseStepperProps, Omit<ComponentPropsWithoutRef<'div'>, 'content'> {}

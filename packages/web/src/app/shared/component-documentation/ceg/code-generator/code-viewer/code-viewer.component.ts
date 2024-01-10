@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, Output, booleanAttribute } from '@angular/core';
 import { Language, Tab } from '../types';
 import { FormatCodePipe } from '../formatCode.pipe';
-
-let CODE_GENERATOR_TAB_ID = 0;
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-code-viewer',
@@ -18,7 +17,6 @@ export class CodeViewerComponent {
   @Input({ transform: booleanAttribute }) hideTabs = false;
   @Output() tabIndexChange = new EventEmitter<number>();
 
-  tabGroupId = `ceg-tabs-id-${CODE_GENERATOR_TAB_ID++}`;
   copyMessage = '';
 
   get language(): Language {
@@ -39,7 +37,10 @@ export class CodeViewerComponent {
     return this.tabs[this.activeTabIndex];
   }
 
-  constructor(private codeFormatter: FormatCodePipe) {}
+  constructor(
+    private codeFormatter: FormatCodePipe,
+    public breakpointService: BreakpointService,
+  ) {}
 
   async copyCode() {
     await navigator.clipboard

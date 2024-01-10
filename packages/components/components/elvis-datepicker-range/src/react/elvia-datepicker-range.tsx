@@ -90,7 +90,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const setTime = (date: Date | number, when: 'startOfDay' | 'endOfDay'): Date => {
     const dateCopy = new Date(date);
     if (when === 'startOfDay') {
-      if (minDate) {
+      if (minDate && isSameDate(dateCopy, minDate)) {
         dateCopy.setHours(
           minDate.getHours(),
           minDate.getMinutes(),
@@ -101,7 +101,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         dateCopy.setHours(0, 0, 0, 0);
       }
     } else {
-      if (maxDate) {
+      if (maxDate && isSameDate(dateCopy, maxDate)) {
         dateCopy.setHours(
           maxDate.getHours(),
           maxDate.getMinutes(),
@@ -222,9 +222,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
   const handleEndDatepickerValueOnChange = (newDate: Date | null, change: 'date' | 'time') => {
     // If end datepicker is set to a date before the start date, set both to end datepicker value.
     if (newDate) {
-      const date = newDate;
+      let date = newDate;
       if (change === 'date' && !selectedDateRange.end && !isTouched('endTime')) {
-        setTime(newDate, 'endOfDay');
+        date = setTime(newDate, 'endOfDay');
       } else if (change === 'time' && !selectedDateRange.end && !isTouched('endDate') && maxDate) {
         date.setFullYear(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate());
       }
@@ -314,13 +314,14 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     <DatepickerRangeWrapper
       isFullWidth={isFullWidth ?? false}
       isVertical={isVertical ?? false}
+      size={size}
       className={className}
       style={inlineStyle}
       data-testid="datepicker-range-wrapper"
       {...rest}
     >
-      <FormFieldContainer>
-        <RowContainer>
+      <FormFieldContainer isFullWidth={isFullWidth}>
+        <RowContainer size={size}>
           <Datepicker
             {...passThroughProps}
             label={labelOptions?.start ?? defaultLabelOptions.start}
@@ -386,8 +387,8 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         </RowContainer>
         {currentErrorMessages.start && <DatepickerRangeError errorText={currentErrorMessages.start} />}
       </FormFieldContainer>
-      <FormFieldContainer>
-        <RowContainer>
+      <FormFieldContainer isFullWidth={isFullWidth}>
+        <RowContainer size={size}>
           <Datepicker
             {...passThroughProps}
             label={labelOptions?.end ?? defaultLabelOptions.end}

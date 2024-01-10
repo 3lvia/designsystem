@@ -7,6 +7,7 @@ import {
   AccordionType,
 } from './elvia-accordion.types';
 import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
+import { IconWrapper } from '@elvia/elvis-toolbox';
 
 const bezierCurve = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
@@ -32,7 +33,7 @@ const decideLabelPosition = (prop: AccordionLabelPosition) => {
 
 export interface AccordionButtonAreaProps {
   labelPosition: AccordionLabelPosition;
-  type: AccordionType;
+  $type: AccordionType;
 }
 
 export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
@@ -45,8 +46,10 @@ export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
 interface AccordionButtonProps {
   isFullWidth: boolean;
   isOpenState: boolean;
-  currType: AccordionType;
+  $type: AccordionType;
 }
+
+export const StyledIconWrapper = styled(IconWrapper)``;
 
 export const AccordionButton = styled.button<AccordionButtonProps>`
   border: none;
@@ -56,12 +59,12 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   text-align: left;
   cursor: pointer;
   color: ${getThemeColor('text-1')};
-  width: ${({ isFullWidth, currType }) => (isFullWidth && currType === 'normal' ? '100%' : 'auto')};
-  justify-content: ${({ isFullWidth, currType }) =>
-    isFullWidth && currType === 'normal' ? 'space-between' : 'inherit'};
+  width: ${({ isFullWidth, $type }) => (isFullWidth && $type === 'normal' ? '100%' : 'auto')};
+  justify-content: ${({ isFullWidth, $type }) =>
+    isFullWidth && $type === 'normal' ? 'space-between' : 'inherit'};
   align-items: center;
 
-  svg {
+  ${StyledIconWrapper} {
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
 
@@ -85,6 +88,7 @@ export const AccordionLabel = styled.div<AccordionLabelProps>`
   align-items: baseline;
   margin-left: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '8px' : '0')};
   margin-right: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '0' : '8px')};
+  ${({ isFullWidth }) => isFullWidth && 'flex-grow: 1;'}
 `;
 
 const decideTypography = (size: AccordionSize) => {
@@ -108,11 +112,14 @@ const decideTypography = (size: AccordionSize) => {
 interface AccordionTextProps {
   size: AccordionSize;
   typography?: TypographyName;
+  isFullWidth: boolean;
+  hasDetailText: boolean;
 }
 
 export const AccordionLabelText = styled.div<AccordionTextProps>`
   display: flex;
   ${({ typography, size }) => (typography ? getTypographyCss(typography) : decideTypography(size))}
+  ${({ isFullWidth, hasDetailText }) => isFullWidth && !hasDetailText && 'flex-grow: 1;'}
 `;
 
 const decideDetailTextSize = (size: AccordionSize): string => {
@@ -182,7 +189,7 @@ const decideContentTransitionDuration = (contentHeight: number): string => {
 
 interface AccordionContentProps {
   isOpenState: boolean;
-  type: AccordionType;
+  $type: AccordionType;
   spacingAboveContent: AccordionSpacingContent;
   spacingBelowContent: AccordionSpacingContent;
   overflowHeight?: number;
@@ -192,16 +199,16 @@ interface AccordionContentProps {
 
 export const AccordionContent = styled.div<AccordionContentProps>`
   display: ${({ hasContent }) => (hasContent ? 'block' : 'none')};
-  visibility: ${({ type, isOpenState }) => (type === 'normal' && !isOpenState ? `hidden` : `visible`)};
+  visibility: ${({ $type, isOpenState }) => ($type === 'normal' && !isOpenState ? `hidden` : `visible`)};
   background: transparent;
-  margin-top: ${({ type, hasContent, spacingAboveContent }) =>
-    decideContentMarginTop(type, hasContent, spacingAboveContent)};
-  margin-bottom: ${({ type, spacingBelowContent }) => (type === 'overflow' ? spacingBelowContent : 0)};
+  margin-top: ${({ $type, hasContent, spacingAboveContent }) =>
+    decideContentMarginTop($type, hasContent, spacingAboveContent)};
+  margin-bottom: ${({ $type, spacingBelowContent }) => ($type === 'overflow' ? spacingBelowContent : 0)};
   pointer-events: ${({ isOpenState }) => (isOpenState ? 'auto' : 'none')};
-  max-height: ${({ isOpenState, type, contentHeight, overflowHeight }) =>
-    decideContentMaxHeight(isOpenState, type, contentHeight, overflowHeight)};
+  max-height: ${({ isOpenState, $type, contentHeight, overflowHeight }) =>
+    decideContentMaxHeight(isOpenState, $type, contentHeight, overflowHeight)};
   width: 100%;
-  opacity: ${({ isOpenState, type }) => decideContentOpacity(isOpenState, type)};
+  opacity: ${({ isOpenState, $type }) => decideContentOpacity(isOpenState, $type)};
   overflow-y: hidden;
   transition: all ${({ contentHeight }) => decideContentTransitionDuration(contentHeight)} ${bezierCurve};
   transition-property: opacity, max-height, visibility;

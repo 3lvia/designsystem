@@ -27,11 +27,6 @@ const modalDesktopWithIllustrationTitlePaddingBottom = '24px';
 
 const fadeIn = keyframes`0% {opacity: 0;} 100% {opacity: 1;}`;
 
-type ModalProps = {
-  isShowing: boolean;
-  disableBackdrop: boolean;
-};
-
 type WrapperProps = {
   hasIllustration: boolean;
   maxWidth?: string;
@@ -46,21 +41,11 @@ type HeadingProps = {
   hasIllustration: boolean;
 };
 
-export const Modal = styled.div<ModalProps>`
-  display: ${({ isShowing }) => (isShowing ? 'flex' : 'none')};
-  justify-content: center;
-  align-items: center;
+export const ModalBackdrop = styled.div`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: left;
-  ${({ disableBackdrop }) => !disableBackdrop && 'background: rgba(0, 0, 0, 0.25);'}
+  inset: 0;
   z-index: 99999;
-  pointer-events: auto;
-  box-sizing: border-box;
-  opacity: 1;
+  background: rgba(0, 0, 0, 0.25);
   animation: ${fadeIn} 300ms ease-in;
 `;
 
@@ -69,9 +54,9 @@ export const ModalWrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: ${({ hasIllustration }) => (hasIllustration ? 'row-reverse' : 'column')};
   height: ${({ hasIllustration }) => (hasIllustration ? '550px' : 'auto')};
-  width: ${({ hasIllustration }) => (hasIllustration ? '1090px' : 'auto')};
+  width: ${({ hasIllustration }) => (hasIllustration ? '1090px' : 'max-content')};
   max-width: ${({ maxWidth, hasIllustration }) =>
-    maxWidth ? maxWidth : hasIllustration ? '1090px' : modalMaxWidth};
+    maxWidth ? maxWidth : hasIllustration ? 'min(100vw, 1090px)' : modalMaxWidth};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
   background: ${getThemeColor('background-element-4')};
@@ -84,7 +69,6 @@ export const ModalWrapper = styled.div<WrapperProps>`
         flex-direction: column;
         margin: 0;
         max-width: ${modalTabletMaxWidth};
-        width: 100%;
         height: auto;
       }
     `};
@@ -92,10 +76,11 @@ export const ModalWrapper = styled.div<WrapperProps>`
   @media (max-width: ${mobileMax}) {
     flex-direction: column;
     border-radius: 0;
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
-    height: 100%;
+    height: 100vh;
     margin: 0;
+    inset: 0;
   }
 `;
 
@@ -217,40 +202,40 @@ export const ModalText = styled.div`
 `;
 
 export const ModalActions = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: [start-secondary-btn] 1fr [end-secondary-btn start-primary-btn] 1fr [end-primary-btn];
+  grid-template-rows: 1fr;
   padding-top: 32px;
   gap: 24px;
-  margin: auto 0 0 0;
-  position: relative;
 
   button {
-    width: 50%;
-  }
-
-  .webComponentBtn {
-    width: 50%;
-    button {
-      width: 100%;
-    }
+    width: 100%;
   }
 
   @media (max-width: ${mobileMax}) {
-    flex-direction: column;
-    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: [start-secondary-btn] 1fr [end-secondary-btn start-primary-btn] 1fr [end-primary-btn];
     gap: 16px;
-
-    button {
-      width: 100%;
-    }
-
-    .webComponentBtn {
-      width: 100%;
-    }
   }
 `;
 
-export const CloseButtonContainer = styled.div`
+export const PrimaryButton = styled.div`
+  grid-column: start-primary-btn / end-primary-btn;
+  @media (max-width: ${mobileMax}) {
+    grid-column: unset;
+    grid-row: start-primary-btn / end-primary-btn;
+  }
+`;
+
+export const SecondaryButton = styled.div`
+  grid-column: start-secondary-btn / end-secondary-btn;
+  @media (max-width: ${mobileMax}) {
+    grid-column: unset;
+    grid-row: start-secondary-btn / end-secondary-btn;
+  }
+`;
+
+export const CloseButtonContainer = styled.div<{ hasIllustration: boolean }>`
   position: absolute;
   top: 24px;
   right: 24px;
@@ -259,4 +244,16 @@ export const CloseButtonContainer = styled.div`
     top: 16px;
     right: 16px;
   }
+
+  ${({ hasIllustration }) =>
+    hasIllustration &&
+    css`
+      svg {
+        --e-color-icon-stroke-1: ${getThemeColor('static-white')};
+      }
+
+      &:hover svg {
+        --e-color-icon-stroke-1: ${getThemeColor('static-black')};
+      }
+    `}
 `;

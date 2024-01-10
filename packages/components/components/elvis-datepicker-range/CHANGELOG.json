@@ -2,6 +2,44 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "09.01.24",
+      "version": "5.0.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the <code>isFullWidth</code> prop not properly making the component take up full width."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "08.01.24",
+      "version": "5.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["The component will now take up slightly less space when <code>size='small'</code>."]
+        }
+      ]
+    },
+    {
+      "date": "18.12.23",
+      "version": "5.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "No longer use the time from <code>minDate</code> if the first date that is selected is not the actual <code>minDate</code>, or likewise for <code>maxDate</code>. It will now default to <code>00:00:00</code> or <code>23:59:59</code>, depending on if it is the start or end date."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "08.11.23",
       "version": "5.0.2",
       "changelog": [

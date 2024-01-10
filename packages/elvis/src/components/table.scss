@@ -1,4 +1,4 @@
-@use '../utilities/typography';
+@use '../utilities/mixins';
 @use '../utilities/icons';
 @use '../utilities/helpers';
 @use '../utilities/breakpoints';
@@ -49,7 +49,7 @@ $table-invalid-padding: 8px 16px;
 .e-table-footnote,
 .e-table__footnote {
   margin-top: 8px;
-  @include typography.typography('text-sm');
+  @include mixins.typography('text-sm');
 
   &.e-table__footnote--compact,
   &.e-table__footnote--small {
@@ -86,7 +86,7 @@ $table-invalid-padding: 8px 16px;
     }
 
     th {
-      @include typography.typography('title-xs');
+      @include mixins.typography('title-xs');
     }
 
     th,
@@ -98,7 +98,7 @@ $table-invalid-padding: 8px 16px;
 
   td,
   th {
-    @include typography.typography('text-md');
+    @include mixins.typography('text-md');
 
     padding: $table-padding;
     background: var(--e-table-row-background);
@@ -201,7 +201,7 @@ $table-invalid-padding: 8px 16px;
       @extend %header-style;
 
       th {
-        @include typography.typography('title-xxs');
+        @include mixins.typography('title-xxs');
         color: var(--e-color-text-1);
       }
     }
@@ -212,7 +212,7 @@ $table-invalid-padding: 8px 16px;
 
     td,
     th {
-      @include typography.typography('text-sm');
+      @include mixins.typography('text-sm');
       padding: $table-compact-padding;
       color: var(--e-color-text-1);
     }
@@ -267,14 +267,14 @@ $table-invalid-padding: 8px 16px;
     }
 
     th {
-      @include typography.typography('title-xs');
+      @include mixins.typography('title-xs');
       color: var(--e-color-text-1);
     }
   }
 
   th,
   td {
-    @include typography.typography('text-md');
+    @include mixins.typography('text-md');
     padding: $table-padding;
     color: var(--e-color-text-1);
     text-align: left;
@@ -299,7 +299,7 @@ $table-invalid-padding: 8px 16px;
   }
 
   tbody tr:first-of-type th {
-    @include typography.typography('text-md-strong');
+    @include mixins.typography('text-md-strong');
     background: var(--e-color-background-element-2);
   }
 
@@ -325,19 +325,19 @@ $table-invalid-padding: 8px 16px;
       }
 
       th {
-        @include typography.typography('title-xxs');
+        @include mixins.typography('title-xxs');
       }
     }
 
     td,
     th {
-      @include typography.typography('text-sm');
+      @include mixins.typography('text-sm');
       padding: $table-compact-padding;
       color: var(--e-color-text-1);
     }
 
     tbody tr:first-of-type th {
-      @include typography.typography('text-sm-strong');
+      @include mixins.typography('text-sm-strong');
       color: var(--e-color-text-1);
     }
   }
@@ -494,7 +494,7 @@ $table-invalid-padding: 8px 16px;
     }
 
     .e-link__icon i[class*='filled-color'] {
-      visibility: visible;
+      visibility: unset;
     }
 
     .e-link__icon i:not([class*='filled-color']) {

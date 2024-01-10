@@ -2,6 +2,21 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "21.11.23",
+      "version": "2.5.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The progressbar now supports a new size, <code>small</code>. The old <code>medium</code> is now <code>large</code>, and the old <code>small</code> is now <code>medium</code>. The default size has also been updated from <code>small</code> to <code>medium</code>, which does not introduce any visual change."
+          ],
+          "fixes": [
+            "While this version is not marked as breaking, depending on what <code>size</code> you may have defined, the size of the progressbar may change slightly. If you have not defined any size, it will not change."
+          ]
+        }
+      ]
+    },
+    {
       "date": "06.10.23",
       "version": "2.4.1",
       "changelog": [

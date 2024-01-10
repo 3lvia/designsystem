@@ -22,3 +22,22 @@ h3 {
   font-size: 22px;
   margin-bottom: 32px;
 }
+
+.toggle-hover {
+  width: fit-content;
+  & :first-child {
+    display: block;
+  }
+  & :not(:first-child) {
+    display: none;
+  }
+
+  &:hover {
+    & :first-child {
+      display: none;
+    }
+    & :not(:first-child) {
+      display: block;
+    }
+  }
+}

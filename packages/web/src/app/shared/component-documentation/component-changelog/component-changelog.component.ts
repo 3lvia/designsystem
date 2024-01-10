@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
 import { FuseResultMatch } from 'fuse.js';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 import { ChangelogIdPipe } from './component-changelog-id-pipe';
@@ -8,8 +8,23 @@ import { Changelog, ChangelogEntry, ChangelogRadioFilter } from './changelogType
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Searcher } from '../../searcher';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ComponentDocumentationDatePipe } from '../component-documentation-date-pipe';
+import '@elvia/elvis-accordion';
 
 @Component({
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ComponentDocumentationDatePipe,
+    ChangelogIdPipe,
+    ChangelogTypePipe,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-component-changelog',
   templateUrl: './component-changelog.component.html',
   styleUrls: ['./component-changelog.component.scss'],

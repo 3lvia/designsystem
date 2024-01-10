@@ -1,9 +1,11 @@
 import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
+import { TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  padding: 0 16px;
+  position: relative;
+  padding: 0 16px 24px;
 `;
 
 export const CalendarHeader = styled.div`
@@ -94,4 +96,10 @@ export const DayButton = styled.button<Partial<DayButtonProps>>`
         transform: translateX(-50%);
       }
     `};
+`;
+
+export const ResetButton = styled(TertiaryButton)`
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
 `;
