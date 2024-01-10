@@ -5749,13 +5749,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "@vitejs/plugin-vue@npm:5.0.2"
+"@vitejs/plugin-vue@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "@vitejs/plugin-vue@npm:5.0.3"
   peerDependencies:
     vite: ^5.0.0
     vue: ^3.2.25
-  checksum: 6155aaf3f488762d91b8191b32edfc6fa59ad034abd85faa6b9a52f0291c7d8d58658f5b0dbfc752bec2346c703bbe4138395d5d84626210640dd32a8ae099e0
+  checksum: fc744003c48841c8ace5f462cba23576df3a362e3c492c0396f7d0047db3bb6320dd401f805432e1d4344bcfebe9d0770330cbff39990b387ab15a2c86e34cf9
   languageName: node
   linkType: hard
 
@@ -20116,7 +20116,7 @@ __metadata:
     "@elvia/elvis-toast": "npm:*"
     "@elvia/elvis-tooltip": "npm:*"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
-    "@vitejs/plugin-vue": "npm:^5.0.2"
+    "@vitejs/plugin-vue": "npm:^5.0.3"
     sass: "npm:^1.69.7"
     typescript: "npm:~5.2.2"
     vite: "npm:^5.0.11"
