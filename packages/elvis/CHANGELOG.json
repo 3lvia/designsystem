@@ -1,6 +1,20 @@
 {
   "content": [
     {
+      "version": "15.6.2",
+      "date": "January 10, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the text would overflow over an icon button in text field.",
+            "Fixed an issue causing an icon button not to be vertically centered inside small text fields."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "15.6.1",
       "date": "December 21, 2023",
       "changelog": [
