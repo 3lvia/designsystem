@@ -1,4 +1,4 @@
 <button #trigger class="e-btn" style="position: relative; z-index: 999999" (click)="toggleSpotlight()">
-  Søkelys
+  {{ isSpotlight ? 'Lukk spotlight' : 'Åpne spotlight' }}
 </button>
 <elvia-spotlight #spotlight />

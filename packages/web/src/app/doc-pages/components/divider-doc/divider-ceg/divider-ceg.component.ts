@@ -40,7 +40,7 @@ export class DividerCegComponent implements ComponentExample {
       },
       groupOrder: ['Typography'],
       staticProps: {
-        heading: 'Overskrift',
+        heading: 'Hva er nettleie?',
       },
     },
     {

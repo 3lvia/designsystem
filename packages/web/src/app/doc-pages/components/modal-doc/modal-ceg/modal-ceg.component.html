@@ -1,15 +1,8 @@
 <button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
 
-<elvia-modal
-  (onClose)="isModalShowing = !isModalShowing"
-  [isShowing]="isModalShowing"
-  [heading]="'Overskrift av innhold'"
->
+<elvia-modal (onClose)="isModalShowing = !isModalShowing" [isShowing]="isModalShowing">
   <div slot="content">
-    <div>
-      Brødtekst kommer her og kan gå over flere linjer. Det ser slik ut når teksten er lang og det er to
-      linjer.
-    </div>
+    <div>Er du sikker på at du vil du godkjenne at Google bruker data om deg?</div>
   </div>
   <div slot="illustration">
     <img alt="" src="/assets/modal/Empty state.png" />
@@ -19,7 +12,13 @@
     class="e-btn e-btn--primary e-btn--lg"
     (click)="isModalShowing = !isModalShowing"
   >
-    Primær
+    Godkjenn
   </button>
-  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg">Sekundær</button>
+  <button
+    slot="secondaryButton"
+    class="e-btn e-btn--secondary e-btn--lg"
+    (click)="isModalShowing = !isModalShowing"
+  >
+    Avbryt
+  </button>
 </elvia-modal>
