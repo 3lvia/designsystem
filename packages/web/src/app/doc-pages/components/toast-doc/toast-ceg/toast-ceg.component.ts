@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { openElviaToast, ToastConfig } from '@elvia/elvis-toast';
+import { pairwise } from 'rxjs';
 import {
   CegControlManager,
   ComponentExample,
@@ -37,14 +38,15 @@ export class ToastCegComponent extends TypescriptComponentExample implements Com
           type: 'text',
           group: 'Title',
           label: 'Title',
-          value: 'Vellykket',
+          value: '',
+          placeholder: 'Title for the toast',
           excludedFromDOM: true,
         },
         body: {
           type: 'text',
           group: 'Body',
           label: 'Body',
-          value: 'Status satt til vellykket',
+          value: 'Handlingen var vellykket',
           excludedFromDOM: true,
         },
       },
@@ -71,6 +73,33 @@ export class ToastCegComponent extends TypescriptComponentExample implements Com
           export const showToast = () => {
             openElviaToast(${JSON.stringify(this.toastConfig)});
           }`);
+        }
+      });
+
+    this.cegContent
+      .getCurrentControls()
+      .pipe(takeUntilDestroyed(), pairwise())
+      .subscribe(([prevControls, newControls]) => {
+        if (prevControls?.status?.value !== newControls?.status?.value) {
+          if (!newControls?.body!.value || !newControls.status?.value) {
+            return;
+          }
+          switch (newControls.status.value) {
+            case 'positive':
+              // Set value of object to update the CEG control
+              newControls.body.value = 'Handlingen var vellykket';
+              // Call setPropValue to update the value in the generated code
+              this.cegContent.setPropValue('body', `Handlingen var vellykket`);
+              break;
+            case 'informative':
+              newControls.body.value = 'Ny kommentar på målenummer 9823';
+              this.cegContent.setPropValue('body', `Ny kommentar på målenummer 9823`);
+              break;
+            case 'negative':
+              newControls.body.value = 'Status satt til uløst';
+              this.cegContent.setPropValue('body', `Status satt til uløst`);
+              break;
+          }
         }
       });
   }
