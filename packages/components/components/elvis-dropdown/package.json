@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-dropdown",
-  "version": "9.3.1",
+  "version": "9.3.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/dropdown",
   "source": "src/react/elvia-dropdown.tsx",
