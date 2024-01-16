@@ -50,7 +50,7 @@ export class AccordionCegComponent implements ComponentExample {
           value: 'Hva er nettleie?',
         },
       },
-      groupOrder: ['Position', 'Size', 'Options', 'Label When Closed', 'Label When Open'],
+      groupOrder: ['Position', 'Size', 'Options', 'Label While Closed', 'Label While Open'],
     },
     {
       type: 'Overflow',

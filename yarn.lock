@@ -2809,9 +2809,7 @@ __metadata:
     "@elvia/elvis-component-wrapper": "npm:^4.1.3"
     "@elvia/elvis-toolbox": "npm:^11.0.0"
     "@elvia/elvis-typography": "npm:^2.7.0"
-    "@types/lodash.uniqueid": "npm:^4.0.7"
     dompurify: "npm:^3.0.3"
-    lodash.uniqueid: "npm:^4.0.1"
     styled-components: "npm:^5.3.3"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -5117,15 +5115,6 @@ __metadata:
   dependencies:
     "@types/lodash": "npm:*"
   checksum: 6e1b3836488fecbdc537b6ad9b3fe4855c7336b0fa388773cd57d486619f565a48cabc04b28677fd3819be3f2d13d2bb8f9d4428aa5632885c86cb99729bfd69
-  languageName: node
-  linkType: hard
-
-"@types/lodash.uniqueid@npm:^4.0.7":
-  version: 4.0.7
-  resolution: "@types/lodash.uniqueid@npm:4.0.7"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 30e537775e312f1bd559608f03d952bae1b7b46211e47e05e176d99bd1d08a1059f2c91f43ddf9fcf2ad56c2fb30c0b8052a8a68bb5b9df924e4b058191dfeeb
   languageName: node
   linkType: hard
 
@@ -14042,13 +14031,6 @@ __metadata:
   version: 4.4.2
   resolution: "lodash.truncate@npm:4.4.2"
   checksum: 7a495616121449e5d2288c606b1025d42ab9979e8c93ba885e5c5802ffd4f1ebad4428c793ccc12f73e73237e85a9f5b67dd6415757546fbd5a4653ba83e25ac
-  languageName: node
-  linkType: hard
-
-"lodash.uniqueid@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "lodash.uniqueid@npm:4.0.1"
-  checksum: f8a66b34c2a8df74aeab22a018c9247c96346dc449506278e6f651030166b74959a4f8e6fae60d392a4c00a40758677547b6e969e4cb6893d8fcd1cb0d2b4ba1
   languageName: node
   linkType: hard
 
