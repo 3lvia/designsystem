@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import styles from './elvia-badge.module.scss';
 import { BadgeProps } from './elvia-badge.types';
+import { useSlot } from '@elvia/elvis-toolbox';
 
 export const Badge: React.FC<BadgeProps> = ({
   badgeColor = 'green',
@@ -12,17 +13,7 @@ export const Badge: React.FC<BadgeProps> = ({
   webcomponent,
   ...rest
 }) => {
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!webcomponent) {
-      return;
-    }
-    if (contentRef.current && webcomponent.getSlot('content')) {
-      contentRef.current.innerHTML = '';
-      contentRef.current.appendChild(webcomponent.getSlot('content'));
-    }
-  }, [webcomponent]);
+  const { ref: contentRef } = useSlot<HTMLDivElement>('content', webcomponent);
 
   const getCount = (count?: number | string) => {
     if (!count) {
