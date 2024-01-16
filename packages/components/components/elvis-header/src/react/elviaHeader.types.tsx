@@ -11,11 +11,14 @@ export interface UserMenuProps {
   username: string;
   email: string;
   hideThemeSwitch?: boolean;
+  menuContent?: JSX.Element;
+  webcomponent: BaseProps['webcomponent'];
 }
 
 export interface HeaderProps extends BaseProps {
   appContent?: JSX.Element;
   appTitle?: string;
+  menuContent?: JSX.Element;
   email: string;
   navItems?: JSX.Element;
   onLogoClick?: () => void;
