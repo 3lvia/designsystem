@@ -36,6 +36,11 @@ export const headerData: ComponentData<HeaderProps> = {
       default: 'undefined',
       description: 'The page content. Usually a div, wrapping a router outlet.',
     },
+    menuContent: {
+      type: 'string | HTMLElement | JSX.Element',
+      default: 'undefined',
+      description: '...',
+    },
     hideThemeSwitch: {
       type: 'boolean',
       default: 'false',
