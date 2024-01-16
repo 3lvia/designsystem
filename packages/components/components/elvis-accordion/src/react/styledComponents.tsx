@@ -63,6 +63,7 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   justify-content: ${({ isFullWidth, $type }) =>
     isFullWidth && $type === 'normal' ? 'space-between' : 'inherit'};
   align-items: center;
+  user-select: text;
 
   ${StyledIconWrapper} {
     transform: rotate(0deg);
