@@ -68,6 +68,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
     $type === 'text' &&
     css`
       &::after {
+        will-change: left;
         content: '';
         position: absolute;
         width: ${100 / numberOfControls}%;
@@ -82,6 +83,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
 `;
 
 export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
+  will-change: color, border;
   position: relative;
   white-space: nowrap;
   background-color: transparent;
@@ -96,7 +98,7 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   transition:
     color 250ms ${controlAnimation},
     border 200ms linear,
-    text-shadow 200ms ${controlAnimation};
+    font-weight 200ms ${controlAnimation};
 
   &:hover {
     font-weight: 500;
