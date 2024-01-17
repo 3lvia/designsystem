@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 const fadeIn = keyframes`
   from {
@@ -24,6 +25,7 @@ export const FormFieldErrorContainer = styled.div`
 `;
 
 export const FormFieldError = styled.span`
-  ${getTypographyCss('text-sm')}
+  ${getTypographyCss('text-sm')};
+  color: ${getThemeColor('text-1')};
   white-space: nowrap;
 `;
