@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { UserMenuProps } from '../elviaHeader.types';
 import { IconButton } from '../styledComponents';
@@ -14,6 +14,7 @@ import {
   AppListContainer,
   TextMdStrong,
   MobileMenuFooter,
+  MobileMenuSlot,
 } from './mobileMenuStyles';
 import { IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
 import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
@@ -39,8 +40,10 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
   onSignOutClick,
   onMenuToggle,
   onThemeChange,
+  menuContent,
+  webcomponent,
 }) => {
-  const [view, setView] = useState<'mainPage' | 'appSelector' | 'themeSelector'>('mainPage');
+  const [view, setView] = useState<'mainPage' | 'appSelector'>('mainPage');
   const [backButtonIsHovered, setBackButtonIsHovered] = useState(false);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef(null);
@@ -48,6 +51,14 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
     triggerButtonRef,
     popoverRef,
   );
+
+  const menuContentRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (menuContentRef.current && webcomponent?.getSlot('menuContent')) {
+      menuContentRef.current.innerHTML = '';
+      menuContentRef.current.appendChild(webcomponent.getSlot('menuContent'));
+    }
+  }, [userMenuIsOpen, view]);
 
   const onMobileMenuToggle = (isShowing: boolean) => {
     setIsShowing(isShowing);
@@ -87,6 +98,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   </ImageContainer>
                   <TextSmallStrong>{username}</TextSmallStrong>
                   <TextSmall>{email}</TextSmall>
+                  <MobileMenuSlot ref={menuContentRef}>{menuContent}</MobileMenuSlot>
                   <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
                   {!hideThemeSwitch && <ThemePicker onThemeChange={onThemeChange} />}
                   <MobileMenuFooter>
