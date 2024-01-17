@@ -39,7 +39,7 @@ export const headerData: ComponentData<HeaderProps> = {
     menuContent: {
       type: 'string | HTMLElement | JSX.Element',
       default: 'undefined',
-      description: '...',
+      description: 'Additional content to be placed inside the User Menu',
     },
     hideThemeSwitch: {
       type: 'boolean',
