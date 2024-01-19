@@ -121,7 +121,7 @@ export const Modal: FC<ModalProps> = function ({
         ref={overlayRef}
         onClose={dispatchOnClose}
         center
-        hasBackdrop={!disableClose}
+        disableClose={isShowing && disableClose} // Can still be closed programmatically, but not from backdrop click
         backdrop={!disableBackdrop ? <ModalBackdrop /> : undefined}
         startFade={fadeOut}
       >

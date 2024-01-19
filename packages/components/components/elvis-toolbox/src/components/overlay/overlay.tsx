@@ -8,6 +8,7 @@ interface OverlayProps {
   onClose: () => void;
   center?: boolean;
   startFade?: boolean;
+  disableClose?: boolean;
   hasBackdrop?: boolean;
   backdrop?: JSX.Element;
   hasAnimation?: boolean;
@@ -48,6 +49,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       onClose,
       startFade = false,
       hasBackdrop = true,
+      disableClose = false,
       hasAnimation = true,
       center = false,
       useGlobalTheme,
@@ -63,6 +65,9 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
     const { themeClass } = useCurrentTheme(overlayDOMPositionRef);
 
     const animateOut = (): void => {
+      if (disableClose) {
+        return;
+      }
       setFadeOut(true);
       setTimeout(
         () => {
