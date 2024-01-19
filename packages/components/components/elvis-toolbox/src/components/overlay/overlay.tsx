@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal, flushSync } from 'react-dom';
 import { useCurrentTheme } from '../../hooks/useCurrentTheme';
-import { Backdrop } from '../backdrop/backdrop';
+import { TransparentBackdrop } from '../backdrop/transparentBackdrop';
 import { exitDuration, OverlayContainer, OverlayDOMPosition } from './overlayStyles';
 
 interface OverlayProps {
@@ -106,7 +106,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
                   }}
                 />
               ) : (
-                <Backdrop onClick={() => animateOut()} data-testid="backdrop" />
+                <TransparentBackdrop onClick={() => animateOut()} data-testid="backdrop" />
               ))}
             <OverlayContainer
               ref={ref}
