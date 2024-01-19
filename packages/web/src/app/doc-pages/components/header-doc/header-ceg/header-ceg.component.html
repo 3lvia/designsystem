@@ -24,4 +24,9 @@
       <div class="e-sidenav__item-text">Analyse</div>
     </a>
   </div>
+  <div slot="menuContent"><button class="e-btn" (click)="showModal = !showModal">Open modal</button></div>
 </elvia-header>
+
+<elvia-modal [isShowing]="showModal" [heading]="'Testmodal'" hasCloseButton (onClose)="showModal = false">
+  <div slot="content">Modal content</div>
+</elvia-modal>

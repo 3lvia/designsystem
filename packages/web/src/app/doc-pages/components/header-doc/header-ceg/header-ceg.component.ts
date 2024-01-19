@@ -35,4 +35,6 @@ export class HeaderCegComponent implements ComponentExample {
       bodyElement.style.background = 'transparent';
     }
   }
+
+  showModal = false;
 }
