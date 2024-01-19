@@ -27,8 +27,6 @@ export class HeaderCegComponent implements ComponentExample {
     this.headerIsVisible = !this.headerIsVisible;
     const externalHeader = document.getElementById('header');
     externalHeader?.classList.toggle('e-none', this.headerIsVisible);
-    const appPageWithSidenav = document.querySelector('app-page-with-sidenav');
-    appPageWithSidenav?.classList.toggle('e-pt-64', this.headerIsVisible);
 
     const bodyElement = document.body;
     if (bodyElement && this.headerIsVisible) {
