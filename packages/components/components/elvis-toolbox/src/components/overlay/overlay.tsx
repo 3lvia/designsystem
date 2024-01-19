@@ -9,6 +9,7 @@ interface OverlayProps {
   center?: boolean;
   startFade?: boolean;
   hasBackdrop?: boolean;
+  backdrop?: JSX.Element;
   hasAnimation?: boolean;
   useGlobalTheme?: boolean;
   children: ReactNode;
@@ -50,6 +51,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       hasAnimation = true,
       center = false,
       useGlobalTheme,
+      backdrop,
       children,
     },
     ref,
@@ -94,7 +96,18 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       <OverlayDOMPosition ref={overlayDOMPositionRef}>
         {createPortal(
           <>
-            {hasBackdrop && <Backdrop onClick={() => animateOut()} data-testid="backdrop" />}
+            {hasBackdrop &&
+              (backdrop ? (
+                <backdrop.type
+                  {...backdrop.props}
+                  onClick={() => {
+                    backdrop.props['onClick']?.();
+                    animateOut();
+                  }}
+                />
+              ) : (
+                <Backdrop onClick={() => animateOut()} data-testid="backdrop" />
+              ))}
             <OverlayContainer
               ref={ref}
               fadeOut={fadeOut}
