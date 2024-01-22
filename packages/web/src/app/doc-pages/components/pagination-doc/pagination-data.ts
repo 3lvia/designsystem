@@ -43,7 +43,7 @@ export const paginationData: ComponentData<BasePaginationProps> = {
       default: '"left"',
     },
     dropdownItems: {
-      type: 'object',
+      type: 'object[]',
       description:
         'Options available in the pagination dropdown menu, set as array of objects with keys of:  {value: string, label: string}',
       default: `[
