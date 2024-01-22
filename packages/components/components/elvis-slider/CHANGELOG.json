@@ -7,7 +7,9 @@
       "changelog": [
         {
           "type": "breaking_changes",
-          "changes": ["Updated typographies and padding."]
+          "changes": [
+            "Updated typographies and padding. This causes the size of small slider with label to be bigger."
+          ]
         }
       ]
     },
