@@ -2,12 +2,12 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
-      "date": "19.01.24",
-      "version": "4.0.1",
+      "date": "22.01.24",
+      "version": "5.0.0",
       "changelog": [
         {
-          "type": "patch",
-          "changes": ["Updated typographies."]
+          "type": "breaking_changes",
+          "changes": ["Updated typographies and padding."]
         }
       ]
     },
