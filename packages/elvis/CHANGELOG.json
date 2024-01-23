@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "16.0.0",
+      "date": "January 25, 2024",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Move border on text field component from the input element to the input container."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "15.6.3",
       "date": "January 19, 2024",
       "changelog": [
