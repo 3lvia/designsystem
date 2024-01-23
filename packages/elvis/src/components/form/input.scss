@@ -20,16 +20,16 @@ $form-input-padding-compact-active: 3px 9px;
 }
 
 .e-input {
-  display: flex;
-  align-items: center;
   position: relative;
+  display: flex;
   width: 100%;
   max-width: 448px;
-  text-align: left;
+  align-items: center;
   border: $form-input-border;
   border-radius: $form-input-border-radius;
   background: var(--e-color-background-element-1);
   gap: 8px;
+  text-align: left;
 
   > input,
   > textarea {
@@ -37,11 +37,11 @@ $form-input-padding-compact-active: 3px 9px;
     width: 100%;
     max-width: 448px;
     box-sizing: border-box;
-    margin: 0;
-    color: var(--e-color-text-1);
-    background: transparent;
-    border: none;
     padding: $form-input-padding;
+    border: none;
+    margin: 0;
+    background: transparent;
+    color: var(--e-color-text-1);
   }
 
   > textarea {
@@ -66,10 +66,10 @@ $form-input-padding-compact-active: 3px 9px;
   }
 
   .e-btn.e-btn--icon {
-    margin-right: 2px;
     top: 4px;
     right: 4px;
     order: 2;
+    margin-right: 2px;
   }
 
   &.e-input---invalid {
