@@ -1,4 +1,5 @@
 @use '../../utilities/mixins';
+@use '../../utilities/outline';
 @use '../../utilities/helpers';
 @use '../../utilities/icons';
 
@@ -84,8 +85,10 @@ $form-input-padding-compact-active: 3px 9px;
     }
 
     .e-btn.e-btn--icon {
-      margin-right: 1px;
-      margin-left: 1px;
+      margin-right: 2px;
+      margin-left: 2px;
+      width: 28px;
+      height: 28px;
     }
   }
 
@@ -104,9 +107,15 @@ $form-input-padding-compact-active: 3px 9px;
     }
 
     .e-btn.e-btn--icon {
-      margin-right: 1px;
-      margin-left: 1px;
+      margin-right: 2px;
+      margin-left: 2px;
+      width: 28px;
+      height: 28px;
     }
+  }
+
+  &.e-input---focus {
+    @include outline.e-outline-pseudoclass();
   }
 
   &.e-input---focus,
@@ -124,8 +133,10 @@ $form-input-padding-compact-active: 3px 9px;
     }
 
     .e-btn.e-btn--icon {
-      margin-right: 1px;
-      margin-left: 1px;
+      margin-right: 2px;
+      margin-left: 2px;
+      width: 28px;
+      height: 28px;
     }
   }
 
@@ -308,10 +319,13 @@ $form-input-padding-compact-active: 3px 9px;
       padding: $form-input-padding-compact-active;
     }
   }
+}
 
+.e-form-field.e-form-field--compact,
+.e-form-field.e-form-field--small {
   .e-btn.e-btn--icon {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
 
     .e-btn__icon {
       width: 16px;

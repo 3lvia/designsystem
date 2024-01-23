@@ -21,7 +21,7 @@
 
       &.e-input---invalid input,
       &.e-input---focus input,
-      &.e-input---loading input,
+      &.e-input---loading input:not(:focus),
       input:focus {
         padding: 11px 47px 11px 55px;
       }
