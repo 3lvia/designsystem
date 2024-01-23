@@ -1,5 +1,4 @@
 @use '../../utilities/mixins';
-@use '../../utilities/outline';
 @use '../../utilities/helpers';
 @use '../../utilities/icons';
 
@@ -39,6 +38,8 @@ $form-input-padding-compact-active: 3px 9px;
     box-sizing: border-box;
     padding: $form-input-padding;
     border: none;
+    border-radius: 2px;
+    outline-offset: 4px;
     margin: 0;
     background: transparent;
     color: var(--e-color-text-1);
@@ -66,8 +67,6 @@ $form-input-padding-compact-active: 3px 9px;
   }
 
   .e-btn.e-btn--icon {
-    top: 4px;
-    right: 4px;
     order: 2;
     margin-right: 2px;
   }
@@ -78,6 +77,15 @@ $form-input-padding-compact-active: 3px 9px;
     > input,
     > textarea {
       padding: $form-input-padding-active;
+    }
+
+    > textarea {
+      height: 87px;
+    }
+
+    .e-btn.e-btn--icon {
+      margin-right: 1px;
+      margin-left: 1px;
     }
   }
 
@@ -90,25 +98,29 @@ $form-input-padding-compact-active: 3px 9px;
     > textarea {
       padding: $form-input-padding-active;
     }
-  }
 
-  &.e-input---focus {
-    border: 2px solid var(--e-color-border-selected-1);
-
-    > input,
     > textarea {
-      padding: $form-input-padding-active;
-      @include outline.e-outline-pseudoclass();
+      height: 87px;
+    }
+
+    .e-btn.e-btn--icon {
+      margin-right: 1px;
+      margin-left: 1px;
     }
   }
 
-  &:focus-within {
+  &.e-input---focus,
+  &:has(input:focus),
+  &:has(textarea:focus) {
     border: 2px solid var(--e-color-border-selected-1);
 
     > input,
     > textarea {
-      @include outline.e-outline();
       padding: $form-input-padding-active;
+    }
+
+    > textarea {
+      height: 87px;
     }
 
     .e-btn.e-btn--icon {
@@ -297,13 +309,7 @@ $form-input-padding-compact-active: 3px 9px;
     }
   }
 
-  &:has(.e-btn.e-btn--icon) > input {
-    padding-right: 32px;
-  }
-
   .e-btn.e-btn--icon {
-    top: 0;
-    right: 0;
     width: 32px;
     height: 32px;
 
