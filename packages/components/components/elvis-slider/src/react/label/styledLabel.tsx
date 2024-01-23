@@ -12,13 +12,8 @@ export const Label = styled.p<{ size: FormFieldSizes }>`
   ${({ size }) => {
     return size === 'small'
       ? css`
+          ${getTypographyCss('text-sm-strong')}
           color: ${getThemeColor('text-1')};
-          font-family: 'Red Hat Text', Verdana, sans-serif;
-          font-size: 10px;
-          font-weight: 500;
-          height: 10px;
-          letter-spacing: 0;
-          line-height: 100%;
           text-align: left;
         `
       : css`
