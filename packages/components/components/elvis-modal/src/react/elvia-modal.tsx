@@ -117,53 +117,50 @@ export const Modal: FC<ModalProps> = function ({
 
   return (
     isModalOpen && (
-      <>
-        {!disableBackdrop && <ModalBackdrop />}
-        <Overlay
-          ref={overlayRef}
-          onClose={dispatchOnClose}
-          center
-          hasBackdrop={!disableClose}
-          startFade={fadeOut}
+      <Overlay
+        ref={overlayRef}
+        onClose={dispatchOnClose}
+        center
+        disableClose={isShowing && disableClose} // Can still be closed programmatically, but not from backdrop click
+        backdrop={!disableBackdrop ? <ModalBackdrop /> : undefined}
+        startFade={fadeOut}
+      >
+        <ModalWrapper
+          hasIllustration={hasIllustration}
+          className={className}
+          style={inlineStyle}
+          maxWidth={maxWidth}
+          role="dialog"
+          aria-label={getAriaLabel()}
+          {...rest}
         >
-          <ModalWrapper
-            hasIllustration={hasIllustration}
-            className={className}
-            style={inlineStyle}
-            maxWidth={maxWidth}
-            role="dialog"
-            aria-label={getAriaLabel()}
-            {...rest}
-          >
-            {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
-            {!illustration && hasIllustration && (
-              <ModalIllustration ref={modalIllustration}></ModalIllustration>
+          {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
+          {!illustration && hasIllustration && (
+            <ModalIllustration ref={modalIllustration}></ModalIllustration>
+          )}
+          {hasCloseButton && (
+            <CloseButtonContainer hasIllustration={hasIllustration}>
+              <IconButton onClick={() => setFadeOut(true)} aria-label="Lukk modal" name="Lukk modal">
+                <IconWrapper icon={close} />
+              </IconButton>
+            </CloseButtonContainer>
+          )}
+          <ModalContent hasIllustration={hasIllustration} hasPadding={!noPadding}>
+            {hasHeading && (
+              <ModalHeading ref={modalHeading} hasIllustration={hasIllustration}>
+                {heading}
+              </ModalHeading>
             )}
-            {hasCloseButton && (
-              <CloseButtonContainer hasIllustration={hasIllustration}>
-                <IconButton onClick={() => setFadeOut(true)} aria-label="Lukk modal" name="Lukk modal">
-                  <IconWrapper icon={close} />
-                </IconButton>
-              </CloseButtonContainer>
+            <ModalText ref={modalText}>{content}</ModalText>
+            {(hasPrimaryButton || hasSecondaryButton) && (
+              <ModalActions>
+                <SecondaryButton ref={modalSecondaryBtn}>{secondaryButton}</SecondaryButton>
+                <PrimaryButton ref={modalPrimaryBtn}>{primaryButton}</PrimaryButton>
+              </ModalActions>
             )}
-
-            <ModalContent hasIllustration={hasIllustration} hasPadding={!noPadding}>
-              {hasHeading && (
-                <ModalHeading ref={modalHeading} hasIllustration={hasIllustration}>
-                  {heading}
-                </ModalHeading>
-              )}
-              <ModalText ref={modalText}>{content}</ModalText>
-              {(hasPrimaryButton || hasSecondaryButton) && (
-                <ModalActions>
-                  <SecondaryButton ref={modalSecondaryBtn}>{secondaryButton}</SecondaryButton>
-                  <PrimaryButton ref={modalPrimaryBtn}>{primaryButton}</PrimaryButton>
-                </ModalActions>
-              )}
-            </ModalContent>
-          </ModalWrapper>
-        </Overlay>
-      </>
+          </ModalContent>
+        </ModalWrapper>
+      </Overlay>
     )
   );
 };

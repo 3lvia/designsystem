@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "16.01.24",
+      "version": "3.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Now allowing the text content of the open/close button to be highlighted and copied."]
+        }
+      ]
+    },
+    {
       "date": "08.01.24",
       "version": "3.1.0",
       "changelog": [

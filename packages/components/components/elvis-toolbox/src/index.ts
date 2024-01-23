@@ -4,7 +4,7 @@ export { warnDeprecatedProps } from './warnDeprecatedProps';
 export type { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './componentConfig.types';
 
 export { device } from './breakpoints';
-export { Backdrop } from './components/backdrop/backdrop';
+export { TransparentBackdrop } from './components/backdrop/transparentBackdrop';
 export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
 export { VisuallyHidden } from './components/visually-hidden/visuallyHidden';
 export { IconButton } from './components/button/iconButton';

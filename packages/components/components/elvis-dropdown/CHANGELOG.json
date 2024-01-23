@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.01.24",
+      "version": "9.3.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The type <code>DropdownItem</code> now correctly allows its <code>value</code> to have the type <code>null</code>. "
+          ]
+        }
+      ]
+    },
+    {
       "date": "21.12.23",
       "version": "9.3.1",
       "changelog": [

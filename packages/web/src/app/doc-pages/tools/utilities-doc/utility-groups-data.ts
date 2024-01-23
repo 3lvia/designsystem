@@ -368,17 +368,17 @@ export const utilityGroups: UtilityGroup[] = [
       {
         className: 'e-text-left',
         description: 'Aligns text to the left.',
-        styling: 'text-transform: left',
+        styling: 'text-align: left',
       },
       {
         className: 'e-text-center',
         description: 'Aligns text to the center.',
-        styling: 'text-transform: center',
+        styling: 'text-align: center',
       },
       {
         className: 'e-text-right',
         description: 'Aligns text to the right.',
-        styling: 'text-transform: right',
+        styling: 'text-align: right',
       },
     ],
   },

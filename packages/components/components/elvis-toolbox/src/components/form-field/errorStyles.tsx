@@ -1,5 +1,6 @@
-import { getThemeColor } from '@elvia/elvis-colors';
 import styled, { keyframes } from 'styled-components';
+import { getTypographyCss } from '@elvia/elvis-typography';
+import { getThemeColor } from '@elvia/elvis-colors';
 
 const fadeIn = keyframes`
   from {
@@ -20,14 +21,11 @@ export const FormFieldErrorContainer = styled.div`
   gap: 8px;
   align-items: center;
   animation: ${fadeIn} 200ms;
+  margin-top: 2px;
 `;
 
 export const FormFieldError = styled.span`
+  ${getTypographyCss('text-sm')};
   color: ${getThemeColor('text-1')};
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* ≈ 140% */
   white-space: nowrap;
 `;

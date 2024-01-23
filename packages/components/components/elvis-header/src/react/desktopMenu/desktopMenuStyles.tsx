@@ -56,3 +56,10 @@ export const ImageContainer = styled.div<{ thumbnail?: boolean }>`
     height: 100%;
   }
 `;
+
+export const DesktopMenuSlot = styled.div`
+  :not(:empty) {
+    width: 100%;
+    margin-top: 32px;
+  }
+`;

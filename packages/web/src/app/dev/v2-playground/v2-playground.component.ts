@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { openElviaToast } from '@elvia/elvis-toast';
 import { dropdownData } from './dropdown-data';
+import type { DropdownItem } from '@elvia/elvis-dropdown';
 
 interface StepState {
   heading: string;
@@ -107,7 +108,8 @@ export class v2PlaygroundComponent {
   // Dropdown
   selectedDropdownItem = 'sverige';
   longDropdownList = dropdownData;
-  dropdownItems = [
+  dropdownItems: DropdownItem[] = [
+    { value: null, label: '- Posisjon -' },
     {
       value: 'norge',
       label: 'Norge',

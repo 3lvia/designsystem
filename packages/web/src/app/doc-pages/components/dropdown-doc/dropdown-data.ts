@@ -5,7 +5,7 @@ import { DropdownProps, DropdownItem } from '@elvia/elvis-dropdown/react';
 type DropdownPropsWithStubbedItems = {
   items: (DropdownItem & { children: any })[];
 };
-export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithStubbedItems, 'isCompact'>> = {
+export const dropdownData: ComponentData<DropdownProps & DropdownPropsWithStubbedItems> = {
   changelog: changelogJson.content,
   name: 'Dropdown',
   attributes: {
@@ -16,8 +16,7 @@ export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithS
       children: {
         icon: {
           type: 'string',
-          description:
-            'HTML for icon that should be displayed with the dropdown item. No icons are displayed if one or more dropdown item are missing an icon.',
+          description: 'HTML for icon that should be displayed with the dropdown item.',
         },
         isDisabled: {
           type: 'boolean',
@@ -36,7 +35,7 @@ export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithS
           description: 'A tooltip that should be displayed on the dropdown item.',
         },
         value: {
-          type: 'string | number',
+          type: 'string | number | null',
           description:
             'The value associated with the dropdown item. This is what is emitted from the dropdown component when selecting an item.',
         },

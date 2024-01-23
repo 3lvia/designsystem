@@ -153,3 +153,10 @@ export const AppListContainer = styled.div`
 export const MobileMenuFooter = styled.section`
   margin-top: 32px;
 `;
+
+export const MobileMenuSlot = styled.div`
+  :not(:empty) {
+    width: 100%;
+    margin-top: 24px;
+  }
+`;

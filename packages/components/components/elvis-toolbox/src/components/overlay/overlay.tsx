@@ -1,14 +1,16 @@
 import React, { forwardRef, ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal, flushSync } from 'react-dom';
 import { useCurrentTheme } from '../../hooks/useCurrentTheme';
-import { Backdrop } from '../backdrop/backdrop';
+import { TransparentBackdrop } from '../backdrop/transparentBackdrop';
 import { exitDuration, OverlayContainer, OverlayDOMPosition } from './overlayStyles';
 
 interface OverlayProps {
   onClose: () => void;
   center?: boolean;
   startFade?: boolean;
+  disableClose?: boolean;
   hasBackdrop?: boolean;
+  backdrop?: JSX.Element;
   hasAnimation?: boolean;
   useGlobalTheme?: boolean;
   children: ReactNode;
@@ -47,9 +49,11 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       onClose,
       startFade = false,
       hasBackdrop = true,
+      disableClose = false,
       hasAnimation = true,
       center = false,
       useGlobalTheme,
+      backdrop,
       children,
     },
     ref,
@@ -61,6 +65,9 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
     const { themeClass } = useCurrentTheme(overlayDOMPositionRef);
 
     const animateOut = (): void => {
+      if (disableClose) {
+        return;
+      }
       setFadeOut(true);
       setTimeout(
         () => {
@@ -94,7 +101,18 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       <OverlayDOMPosition ref={overlayDOMPositionRef}>
         {createPortal(
           <>
-            {hasBackdrop && <Backdrop onClick={() => animateOut()} data-testid="backdrop" />}
+            {hasBackdrop &&
+              (backdrop ? (
+                <backdrop.type
+                  {...backdrop.props}
+                  onClick={() => {
+                    backdrop.props['onClick']?.();
+                    animateOut();
+                  }}
+                />
+              ) : (
+                <TransparentBackdrop onClick={() => animateOut()} data-testid="backdrop" />
+              ))}
             <OverlayContainer
               ref={ref}
               fadeOut={fadeOut}

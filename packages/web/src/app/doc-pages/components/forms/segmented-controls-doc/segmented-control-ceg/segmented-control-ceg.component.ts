@@ -53,7 +53,7 @@ export class SegmentedControlCegComponent implements ComponentExample {
           },
           {
             icon: '<i class="e-icon e-icon--list"></i>',
-            iconSelected: '<i class="e-icon e-icon--list_color"></i>',
+            iconSelected: '<i class="e-icon e-icon--list--color"></i>',
             ariaLabel: 'Segmentert kontrolleksempeletikett',
           },
         ],

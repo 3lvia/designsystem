@@ -25,6 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
   pageTitle,
   navItems,
   appContent,
+  menuContent,
   hideThemeSwitch,
   onLogoClick,
   onSignOutClick,
@@ -106,6 +107,8 @@ export const Header: React.FC<HeaderProps> = ({
               onSignOutClick={signOutClick}
               onThemeChange={(themeName) => themeChange(themeName)}
               onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
+              menuContent={menuContent}
+              webcomponent={webcomponent}
             />
           </SquareContainer>
         )}
@@ -119,6 +122,8 @@ export const Header: React.FC<HeaderProps> = ({
               hideThemeSwitch={hideThemeSwitch}
               onSignOutClick={signOutClick}
               onThemeChange={themeChange}
+              menuContent={menuContent}
+              webcomponent={webcomponent}
             />
           </>
         )}
