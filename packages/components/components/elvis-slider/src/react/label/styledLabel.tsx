@@ -7,7 +7,7 @@ export const Label = styled.p<{ size: FormFieldSizes }>`
   align-items: center;
   display: flex;
   margin: 0 0 -2px;
-  padding: 0 0 2px 0;
+  padding: 0;
 
   ${({ size }) => {
     return size === 'small'
