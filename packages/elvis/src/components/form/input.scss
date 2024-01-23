@@ -313,7 +313,9 @@ $form-input-padding-compact-active: 3px 9px;
 }
 
 .e-form-field.e-form-field--compact,
-.e-form-field.e-form-field--small {
+.e-form-field.e-form-field--small,
+.e-input.e-input--compact,
+.e-input.e-input--small {
   .e-btn.e-btn--icon {
     width: 30px;
     height: 30px;
@@ -328,6 +330,20 @@ $form-input-padding-compact-active: 3px 9px;
     }
   }
 
+  // For .e-input--compact and .e-input--small
+  &.e-input---invalid,
+  &.e-input---focus,
+  &:has(:user-invalid),
+  &:has(input:focus),
+  &:has(textarea:focus) {
+    .e-btn.e-btn--icon {
+      width: 28px;
+      height: 28px;
+      margin-inline: 2px;
+    }
+  }
+
+  // For the usual .e-form-field--small
   .e-input {
     &.e-input---invalid,
     &.e-input---focus,
