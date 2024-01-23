@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "15.7.0",
+      "date": "January 23, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Icon buttons in textarea are now placed in the bottom right corner."],
+          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "15.6.3",
       "date": "January 19, 2024",
       "changelog": [
