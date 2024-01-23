@@ -3,7 +3,7 @@
   "version": "15.6.3",
   "description": "Elvia design system",
   "license": "ISC",
-  "homepage": "https://design.elvia.io/",
+  "homepage": "https://design.elvia.io/components/css-library",
   "main": "elvis.js",
   "style": "css/elvis.min.css",
   "scripts": {
