@@ -1,8 +1,7 @@
 import React from 'react';
 import { DividerProps } from './elvia-divider.types';
 import { DividerArea, DividerHeading } from './styledComponents';
-import { useSlot, warnDeprecatedProps } from '@elvia/elvis-toolbox';
-import { config } from './config';
+import { useSlot } from '@elvia/elvis-toolbox';
 
 export const Divider: React.FC<DividerProps> = function ({
   type = 'simple',
@@ -14,8 +13,6 @@ export const Divider: React.FC<DividerProps> = function ({
   webcomponent,
   ...rest
 }) {
-  warnDeprecatedProps(config, arguments[0]);
-
   const { ref: dividerHeadingRef } = useSlot<HTMLDivElement>('heading', webcomponent);
 
   return (

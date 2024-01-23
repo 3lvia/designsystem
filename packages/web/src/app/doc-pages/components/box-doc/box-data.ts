@@ -2,7 +2,7 @@ import changelogJson from '@elvia/elvis-box/CHANGELOG.json';
 import ComponentData from '../component-data.interface';
 import { BaseBoxProps } from '@elvia/elvis-box/react';
 
-const boxData: ComponentData<Omit<BaseBoxProps, 'hasBorder' | 'title'>> = {
+const boxData: ComponentData<BaseBoxProps> = {
   changelog: changelogJson.content,
   name: 'Box',
   attributes: {

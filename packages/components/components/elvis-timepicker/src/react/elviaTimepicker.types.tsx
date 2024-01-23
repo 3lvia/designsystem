@@ -4,10 +4,6 @@ import { MinuteInterval } from './publicApi.public';
 export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasError {
   minuteInterval: MinuteInterval;
   isDisabled: boolean;
-  /**
-   * @deprecated Removed in version 3.0.0. Replaced by `size`.
-   */
-  isCompact: boolean;
   size: FormFieldSizes;
   hasSecondPicker: boolean;
   isFullWidth: boolean;
