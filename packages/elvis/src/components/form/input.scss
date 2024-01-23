@@ -85,10 +85,7 @@ $form-input-padding-compact-active: 3px 9px;
     }
 
     .e-btn.e-btn--icon {
-      width: 28px;
-      height: 28px;
-      margin-right: 2px;
-      margin-left: 2px;
+      margin-inline: 1px;
     }
   }
 
@@ -107,10 +104,7 @@ $form-input-padding-compact-active: 3px 9px;
     }
 
     .e-btn.e-btn--icon {
-      width: 28px;
-      height: 28px;
-      margin-right: 2px;
-      margin-left: 2px;
+      margin-inline: 1px;
     }
   }
 
@@ -133,10 +127,7 @@ $form-input-padding-compact-active: 3px 9px;
     }
 
     .e-btn.e-btn--icon {
-      width: 28px;
-      height: 28px;
-      margin-right: 2px;
-      margin-left: 2px;
+      margin-inline: 1px;
     }
   }
 
@@ -242,7 +233,7 @@ $form-input-padding-compact-active: 3px 9px;
       }
     }
 
-    &.e-input---loading:not(:has(*:focus)) {
+    &.e-input---loading:not(:focus-within) {
       border: solid 2px var(--e-color-brand-accent);
       animation: 1s eInputLoadingAnimation ease alternate infinite;
 
@@ -333,6 +324,20 @@ $form-input-padding-compact-active: 3px 9px;
 
       i {
         @include icons.icon-size('xs');
+      }
+    }
+  }
+
+  .e-input {
+    &.e-input---invalid,
+    &.e-input---focus,
+    &:has(:user-invalid),
+    &:has(input:focus),
+    &:has(textarea:focus) {
+      .e-btn.e-btn--icon {
+        width: 28px;
+        height: 28px;
+        margin-inline: 2px;
       }
     }
   }
