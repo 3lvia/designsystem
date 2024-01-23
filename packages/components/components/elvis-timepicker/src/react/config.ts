@@ -18,10 +18,5 @@ export const config: ComponentConfig = {
     { name: 'label', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
-    {
-      name: 'isCompact',
-      type: 'boolean',
-      deprecatedDetails: { version: '3.0.0', newProp: 'size', isDirectReplacement: false },
-    },
   ],
 };

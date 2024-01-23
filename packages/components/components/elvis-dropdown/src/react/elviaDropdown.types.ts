@@ -15,10 +15,6 @@ export interface DropdownProps extends BaseProps, HasValue<DropdownValue>, HasEr
   menuPosition?: DropdownMenuPosition;
   placeholder?: string;
   placeholderIcon?: string;
-  /**
-   * @deprecated Removed in version 7.0.0. Replaced by `size`.
-   */
-  isCompact?: boolean;
   size?: FormFieldSizes;
   isDisabled?: boolean;
   isMulti?: boolean;

@@ -5,7 +5,7 @@ import { DropdownProps, DropdownItem } from '@elvia/elvis-dropdown/react';
 type DropdownPropsWithStubbedItems = {
   items: (DropdownItem & { children: any })[];
 };
-export const dropdownData: ComponentData<Omit<DropdownProps & DropdownPropsWithStubbedItems, 'isCompact'>> = {
+export const dropdownData: ComponentData<DropdownProps & DropdownPropsWithStubbedItems> = {
   changelog: changelogJson.content,
   name: 'Dropdown',
   attributes: {
