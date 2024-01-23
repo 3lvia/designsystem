@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.01.24",
+      "version": "11.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["The Overlay component now accepts a custom backdrop component that can be styled."]
+        }
+      ]
+    },
+    {
       "date": "17.01.24",
       "version": "11.2.1",
       "changelog": [

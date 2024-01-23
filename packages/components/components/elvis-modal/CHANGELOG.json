@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.01.23",
+      "version": "4.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Improved the way the backdrop fades out the background of the modal."]
+        }
+      ]
+    },
+    {
       "date": "20.12.23",
       "version": "4.0.0",
       "changelog": [
