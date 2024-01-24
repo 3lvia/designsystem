@@ -7,7 +7,7 @@
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fixed the elvia curve in modal with illustration on dark theme."]
+          "changes": ["Fixed the Elvia curve in modal with illustration on dark theme."]
         },
         {
           "type": "patch",
