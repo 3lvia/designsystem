@@ -375,7 +375,6 @@ $table-invalid-padding: 8px 16px;
     background: transparent;
 
     &.e-input---focus,
-    &.e-input---focus,
     &:has(input:focus),
     &:has(textarea:focus) {
       border-color: var(--e-color-background-hover-1);
