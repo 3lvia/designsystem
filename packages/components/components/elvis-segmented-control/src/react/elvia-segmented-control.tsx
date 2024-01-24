@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   TextSegmentedControl,
   IconSegmentedControl,
@@ -11,8 +11,9 @@ import {
   SegmentedControlIconContainer,
   BoldControlTextPlaceholder,
 } from './styledComponents';
-import uniqueId from 'lodash.uniqueid';
 import DOMPurify from 'dompurify';
+
+let UNIQUE_SEGMENTED_CONTROL_ID = 0;
 
 export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   items,
@@ -26,19 +27,17 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   ...rest
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(value);
-  const segmentedControlId = uniqueId('ewc-segmented-control-');
+  const segmentedControlId = useRef(`ewc-segmented-control-${UNIQUE_SEGMENTED_CONTROL_ID++}`);
 
-  const setSelected = (selectedIndex: number): void => {
+  const setSelected = useCallback((selectedIndex: number): void => {
     setSelectedIndex(selectedIndex);
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(selectedIndex);
-    } else if (webcomponent) {
-      webcomponent.setProps({ value: selectedIndex }, true);
-      webcomponent.triggerEvent('valueOnChange', selectedIndex);
-    }
-  };
 
-  const getIconString = (icon: string): string => {
+    valueOnChange?.(selectedIndex);
+    webcomponent?.setProps({ value: selectedIndex }, true);
+    webcomponent?.triggerEvent('valueOnChange', selectedIndex);
+  }, []);
+
+  const getIconString = useCallback((icon: string): string => {
     let newIconString = icon;
     if (icon.includes('e-icon ')) {
       if (size === 'large') {
@@ -48,7 +47,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       }
     }
     return newIconString;
-  };
+  }, []);
 
   useEffect(() => {
     setSelectedIndex(value);
@@ -63,7 +62,6 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       role="radiogroup"
       className={className ?? ''}
       style={inlineStyle}
-      data-testid="segmented-control-container"
       {...rest}
     >
       {items?.map((control, index) => (
@@ -72,18 +70,17 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
           size={size}
           isSelected={index === selectedIndex}
           key={index}
-          htmlFor={segmentedControlId + index}
+          htmlFor={segmentedControlId.current + index}
           aria-label={type === 'icon' ? (control as IconSegmentedControl).ariaLabel : undefined}
           data-testid="segmented-control-label"
         >
           <SegmentedControlInput
             type="radio"
-            id={segmentedControlId + index}
-            name={segmentedControlId}
+            id={segmentedControlId.current + index}
+            name={segmentedControlId.current}
             checked={index === selectedIndex}
             onChange={() => setSelected(index)}
-            data-testid="segmented-control-input"
-          ></SegmentedControlInput>
+          />
           {type === 'text' && (
             <div data-testid="segmented-control-text">
               <span>{(control as TextSegmentedControl).label}</span>
@@ -99,14 +96,14 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
                   __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).icon)),
                 }}
                 data-testid="segmented-control-icon"
-              ></SegmentedControlIconContainer>
+              />
             ) : (
               <SegmentedControlIconContainer
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).iconSelected)),
                 }}
                 data-testid="segmented-control-icon"
-              ></SegmentedControlIconContainer>
+              />
             ))}
         </SegmentedControlLabel>
       ))}

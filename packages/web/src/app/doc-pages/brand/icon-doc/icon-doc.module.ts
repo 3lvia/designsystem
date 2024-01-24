@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 import '@elvia/elvis-icon';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
-import { ComponentChangelogModule } from 'src/app/shared/component-documentation/component-changelog/component-changelog.module';
+import { ComponentChangelogComponent } from 'src/app/shared/component-documentation/component-changelog/component-changelog.component';
 import '@elvia/elvis-radio-filter';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { IconCegComponent } from './icon-ceg/icon-ceg.component';
@@ -33,7 +33,7 @@ import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.compon
     RouterModule,
     ComponentPropertiesTableModule,
     ComponentInstallationModule,
-    ComponentChangelogModule,
+    ComponentChangelogComponent,
     CegModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

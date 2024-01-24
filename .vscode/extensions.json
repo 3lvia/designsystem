@@ -1,7 +1,8 @@
 {
   "recommendations": [
-    "figma.figma-vscode-extension",
+    "esbenp.prettier-vscode",
     "bierner.comment-tagged-templates",
+    "styled-components.vscode-styled-components",
     "ms-playwright.playwright"
   ]
 }

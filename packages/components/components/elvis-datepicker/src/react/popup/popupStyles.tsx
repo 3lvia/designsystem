@@ -25,16 +25,17 @@ export const SelectedDateName = styled.div`
   &::first-letter {
     text-transform: capitalize;
   }
+
+  // If no text content, insert empty before-element to ensure
+  // element height still equals line-height
+  &:empty::before {
+    content: '';
+    display: inline-block;
+  }
 `;
 
 export const PopoverBody = styled.div`
   position: relative;
-`;
-
-export const PopoverFooter = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding: 16px 24px;
 `;
 
 export interface RotatingContainerProps {

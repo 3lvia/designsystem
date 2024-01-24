@@ -14,13 +14,16 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "skipTests": true
+          "skipTests": true,
+          "standalone": true
         },
         "@schematics/angular:directive": {
-          "skipTests": true
+          "skipTests": true,
+          "standalone": true
         },
         "@schematics/angular:pipe": {
-          "skipTests": true
+          "skipTests": true,
+          "standalone": true
         },
         "@schematics/angular:service": {
           "skipTests": true
@@ -42,7 +45,6 @@
               "json5",
               "lodash.isequal",
               "lodash.throttle",
-              "lodash.uniqueid",
               "natural-compare-lite",
               "prismjs",
               "react-dom/client",

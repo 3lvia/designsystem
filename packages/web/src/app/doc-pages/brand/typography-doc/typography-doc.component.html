@@ -1,245 +1,243 @@
-<!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">{{ locale === 'nb-NO' ? titleNo : title }}</ng-container>
   <div ngProjectAs="headerDescription" [innerHTML]="locale === 'nb-NO' ? descriptionNo : description"></div>
 </app-component-header>
 
-<!--BODY-->
 <div class="page-body">
-  <!--PREVIEW-->
   <app-component-subsection>
-    <div class="e-mt-72 e-mb-24">
-      <div class="e-flex e-justify-content-center e-w-100" *ngIf="!loadedImg">
-        <div class="e-content-loader" style="width: 80%"></div>
-      </div>
-      <img
-        class="header-img"
-        [ngClass]="!loadedImg ? 'e-none' : ''"
-        src="/assets/doc-page-icons/pages-icons/RedHat.jpeg"
-        alt="Red Hat typography anatomy"
-        (load)="hideContentLoader($event)"
-      />
-    </div>
+    <app-typography-example-exhibit />
   </app-component-subsection>
 
-  <!--Types-->
-  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Typer' : 'Types'">
-    <div class="e-text-lg e-mb-72">
-      <ng-container *ngIf="locale === 'en-GB'">
-        All typography can be used through a set of classes. The font-classes set multiple attributes, like
-        font-size, line-height and font-weight.
-      </ng-container>
-      <ng-container *ngIf="locale === 'nb-NO'">
-        All typografi kan brukes gjennom et sett med klasser. Skrifttypeklassene angir flere attributter, som
-        skriftstørrelse, linjehøyde og skriftvekt.
-      </ng-container>
-    </div>
-
-    <div width="100%" style="width: 100; overflow-x: auto">
-      <iframe
-        style="border: 1px solid var(--e-color-border-2)"
-        width="100%"
-        height="500"
-        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FhvQucRpSHYZtSiIKM7NgBo%2FTypography%3Fnode-id%3D1854%253A2747"
-        allowfullscreen
-        title="Embedded sketch from Figma showing all typographies with information."
-      ></iframe>
-    </div>
-  </app-component-section>
-
-  <!--USAGE-->
-  <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Bruk' : 'Usage'">
-    <app-component-subsection [sectionTitle]="'Red Hat Display VS Red Hat Text'">
-      <ng-container *ngIf="locale === 'en-GB'">
-        <strong>Red Hat Display</strong>
-        has denser letter space and higher x-height and is suitable in large sizes, for example in titles.
-        <strong>Red Hat Text</strong>
-        has a slightly smaller x-height, more space and is designed for good readability in smaller sizes.
-      </ng-container>
-      <ng-container *ngIf="locale === 'nb-NO'">
-        <strong>Red Hat Display</strong>
-        har tettere bokstavrom og større x-høyde og egner seg på store størrelser, for eksempel i titler.
-        <strong>Red Hat Text</strong>
-        har litt mindre x-høyde, mer plass og er designet for god lesbarhet i mindre størrelser.
-      </ng-container>
+  <app-component-section #fontFamily [sectionTitle]="locale === 'nb-NO' ? 'Font family' : 'Font family'">
+    @defer (on viewport(fontFamily)) {
+      <app-typography-font-example />
+    } @placeholder {
+      <div class="e-content-loader" style="width: 80%"></div>
+    }
+    <app-component-subsection
+      [sectionTitle]="locale === 'nb-NO' ? 'Red Hat Display, Text og Mono' : 'Red Hat Display, Text and Mono'"
+    >
+      @if (locale === 'en-GB') {
+        <p>
+          <strong>Red Hat Display</strong> has denser letter space and higher x-height and is suitable in
+          large sizes, for example in titles.
+        </p>
+        <p>
+          <strong>Red Hat Text</strong> has a slightly smaller x-height, more space and is designed for good
+          readability in smaller sizes.
+        </p>
+        <p>
+          <strong>Red Hat Mono</strong> has characters that take the same amount of horizontal space. Mono are
+          used to make it easier to comparing numbers and to distinguish code from natural-language text.
+        </p>
+        <p>
+          You can download all the fonts via
+          <a
+            class="e-link e-link--inline e-link--new-tab"
+            href="https://fonts.google.com/?query=red+hat"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="e-link__title">Google Fonts</span>
+            <span class="e-link__icon"
+              ><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span></a
+          >.
+        </p>
+      } @else {
+        <p>
+          <strong>Red Hat Display</strong> har tettere karakteravstand og høyere x-høyde og egner seg i store
+          størrelser, for eksempel i titler.
+        </p>
+        <p>
+          <strong>Red Hat Text</strong> har en litt mindre x-høyde, mer plass og er designet for god lesbarhet
+          i mindre størrelser.
+        </p>
+        <p>
+          <strong>Red Hat Mono</strong> har tegn som tar like mye horisontal plass. Mono brukes for å gjøre
+          det enklere å sammenligne tall og for å skille kode fra naturlig tekst.
+        </p>
+        <p>
+          Du kan laste ned alle fonter på
+          <a
+            class="e-link e-link--inline e-link--new-tab"
+            href="https://fonts.google.com/?query=red+hat"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="e-link__title">Google Fonts</span>
+            <span class="e-link__icon"
+              ><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span></a
+          >.
+        </p>
+      }
     </app-component-subsection>
-
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Farger' : 'Colors'">
-      <ng-container *ngIf="locale === 'en-GB'">
-        The typographies can be used together with our color tokens. The available text colors are listed
-        under the text category in the
-        <a class="e-link" [routerLink]="'/brand/color'" fragment="Tokens">tokens overview</a>
-        .
-      </ng-container>
-      <ng-container *ngIf="locale === 'nb-NO'">
-        Typografiene kan brukes sammen med våre farge-tokens. De tilgjengelige tekstfargene er oppført under
-        tekstkategorien i
-        <a class="e-link" [routerLink]="'/brand/color'" fragment="Tokens">tokensoversikten</a>
-        .
-      </ng-container>
-    </app-component-subsection>
-
     <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Alternativ font' : 'Alternative font'">
-      <ng-container *ngIf="locale === 'en-GB'">
-        We use
-        <strong>Verdana</strong>
-        as an alternative system font. It’s only used in the cases where it isn’t possible to use the profile
-        font, for example digital documents and templates that are shared with people outside of Elvia who
-        might not have the profile font installed. Verdana is less dense than Red Hat, but to simulate Red Hat
-        in the best way you can pinch the text by reducing the letter spacing.
-      </ng-container>
-      <ng-container *ngIf="locale === 'nb-NO'">
-        Vi bruker
-        <strong>Verdana</strong>
-        som en alternativ systemfont. Den brukes bare i tilfeller der det ikke er mulig å bruke profilskrift,
-        for eksempel digitale dokumenter og maler som deles med folk utenfor Elvia som kanskje ikke har
-        profilfonten installert. Verdana er mindre tett enn Red Hat, men for å simulere Red Hat på best mulig
-        vis kan du redusere bokstavavstanden for teksten.
-      </ng-container>
+      @if (locale === 'en-GB') {
+        We use <strong>Verdana</strong> as an alternative system font. It’s only used in the cases where it
+        isn’t possible to use the profile font, for example digital documents and templates that are shared
+        with people outside of Elvia who might not have the profile font installed. Verdana is less dense than
+        Red Hat, but to simulate Red Hat in the best way you can pinch the text by reducing the letter
+        spacing.
+      } @else {
+        Vi bruker <strong>Verdana</strong> som en alternativ systemfont. Den brukes bare i tilfeller der det
+        ikke er mulig å bruke profilfonten, for eksempel i digitale dokumenter og maler som deles med personer
+        utenfor Elvia som kanskje ikke har profilfonten installert. Verdana er mindre tett enn Red Hat, men
+        for å simulere Red Hat på best mulig måte kan du knipe sammen teksten ved å redusere bokstavavstanden.
+      }
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section #brandTitles [sectionTitle]="locale === 'nb-NO' ? 'Brand titles' : 'Brand titles'">
+    <app-component-subsection>
+      <p>
+        @if (locale === 'en-GB') {
+          Red Hat Display Black should be used in all titles. Titles should be clear and easy to recognize. As
+          a rule, they should be uppercase, but in the case of longer texts, lower case letters should be used
+          to ensure good readability.
+        } @else {
+          Red Hat Display Black skal brukes i alle titler. Titler skal være tydlige og lett å oppfatte. Som
+          regel skal de bestå av versaler (store bokstaver), men ved lengre tekster brukes minuskler (små
+          bokstaver) for å sikre god lesbarhet.
+        }
+      </p>
+      @defer (on viewport(brandTitles)) {
+        <app-typography-title-example />
+      } @placeholder {
+        <div class="e-content-loader" style="width: 701px; width: 128px"></div>
+      }
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Titler' : 'Titles'">
-      <ng-container *ngIf="locale === 'en-GB'">
-        <div>
-          <strong>Titles (lg, md, sm, xs)</strong>
-          are used as headings for your content. They will stand out from the rest with their heavyweight and
-          enhance visual hierarchy. We have 4 headings in different sizes.
-        </div>
-        <div class="e-mt-16">
-          <strong>Title Caps</strong>
-          can be used as a small subheading. Caps will not stand out the same way as titles but will enhance
-          visual hierarchy together with text medium or small.
-        </div>
-      </ng-container>
-      <ng-container *ngIf="locale === 'nb-NO'">
-        <div>
-          <strong>Titler (lg, md, sm, xs)</strong>
-          brukes som overskrifter for innholdet ditt. De vil skille seg ut fra resten med sin tungvekt og
-          forbedre det visuelle hierarki. Vi har 4 overskrifter i forskjellige størrelser.
-        </div>
-        <div class="e-mt-16">
-          <strong>Tittel Caps</strong>
-          kan brukes som små underoverskrifter. Caps vil ikke skille seg ut på samme måte som titler, men vil
-          forbedre det visuelle hierarkiet sammen med tekst medium eller liten.
-        </div>
-      </ng-container>
+    <app-component-subsection #outline [sectionTitle]="locale === 'nb-NO' ? 'Outline' : 'Outline'">
+      <p class="e-mb-32">
+        @if (locale === 'en-GB') {
+          Brand titles can be activated to show that Elvia is ON and fully charged. To do this, we use text
+          with outline (OFF) in combination with filled text (ON) and our green dot at the end (fully
+          charged).
+        } @else {
+          Merkevaretitler kan aktiveres for å vise at Elvia er PÅ og fulladet. For å gjøre dette bruker vi
+          tekst med omriss (AV) i kombinasjon med fylt tekst (PÅ) og vår grønne prikk på slutten (fulladet).
+        }
+      </p>
+
+      @defer (on viewport(outline)) {
+        <app-typography-outline-example class="e-mb-32" />
+      } @placeholder {
+        <div class="e-content-loader" style="width: 447px; width: 174px"></div>
+      }
+
+      <p>
+        @if (locale === 'en-GB') {
+          The activated text should always be filled in solid black or white, depending on which gives best
+          contrast to the background. The deactivated text should have an stroke width (black or white,
+          depending on the background), with a thickness following the following formulas:
+        } @else {
+          Den aktiverte teksten skal alltid fylles ut i svart eller hvitt, avhengig av hva som gir best
+          kontrast til bakgrunnen. Den deaktiverte teksten skal ha en strekbredde (svart eller hvit, avhengig
+          av bakgrunnen), med en tykkelse som følger følgende formler:
+        }
+      </p>
     </app-component-subsection>
 
+    <app-component-subsection
+      [sectionTitle]="locale === 'nb-NO' ? 'Digital strektykkelse' : 'Digital stroke width'"
+    >
+      @if (locale === 'en-GB') {
+        Pixel size of the text x 0.02 = line thickness on the outline measured in pixels.
+      } @else {
+        Pikselstørrelse på teksten x 0,02 = linjetykkelse på omrisset målt i piksler.
+      }
+    </app-component-subsection>
+
+    <app-component-subsection
+      [sectionTitle]="locale === 'nb-NO' ? 'Print strektykkelse' : 'Print stroke width'"
+    >
+      @if (locale === 'en-GB') {
+        Point size of the text x 0.017 = line thickness on the outline measured in points.
+      } @else {
+        Punktstørrelse på teksten x 0,017 = linjetykkelse på omrisset målt i punkter.
+      }
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section #articles [sectionTitle]="locale === 'nb-NO' ? 'Artikler' : 'Articles'">
+    @defer (on viewport(articles)) {
+      <app-typography-article-example />
+    } @placeholder {
+      <div class="e-content-loader" style="width: 100%; aspect-ratio: 1/1"></div>
+    }
+
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Tittel' : 'Title'">
+      @if (locale === 'en-GB') {
+        Can be written in capitals or lower case. The entire text can be outlined. If parts of the text are to
+        be highlighted, the highlighted part can be set as filled. We mainly use Red Hat Display Bold in
+        titles.
+      } @else {
+        Kan skrives i VERSALER eller minuskler. Hele teksten kan settes med omriss. Skal deler av teksten
+        utheves kan den uthevede delen settes som fylt. Vi bruker hovedsaklig Red Hat Display Bold i titler.
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Ingress' : 'Ingress'">
+      @if (locale === 'en-GB') {
+        Use Red Hat Text Medium, and should always be smaller than the title. Ingress should have a larger
+        point size than the body text, to create a hierarchical relationship between them.
+      } @else {
+        Settes i Red Hat Text Medium, og skal alltid være mindre enn tittelen. Ingress skal ha en større
+        punktstørrelse enn brødteksten, for å skape et hierarkisk forhold mellom disse.
+      }
+    </app-component-subsection>
     <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Brødtekst' : 'Body text'">
-      <ng-container *ngIf="locale === 'en-GB'">
-        <div>
-          <strong>Text Lead</strong>
-          is our biggest text option and used for introduction of an article between heading and for
-          paragraphs as a brief summary of the content.
-        </div>
-        <div class="e-mt-16">
-          <strong>Text Large</strong>
-          is our main option for longer text in articles at external webpages.
-        </div>
-        <div class="e-mt-16">
-          <strong>Text Medium</strong>
-          is our main option for both long and short text in internal applications.
-        </div>
-        <div class="e-mt-16">
-          <strong>Text Small</strong>
-          is the smallest variant of body text and can be used in addition to text large and medium.
-        </div>
-      </ng-container>
-      <ng-container *ngIf="locale === 'nb-NO'">
-        <div>
-          <strong>Tekst Lead</strong>
-          er vårt største tekstalternativ og brukes for introduksjon av en artikkel mellom overskrift og for
-          avsnitt som en kort oppsummering av innholdet.
-        </div>
-        <div class="e-mt-16">
-          <strong>Tekst Large</strong>
-          er vårt hovedalternativ for lengre tekster i artikler på eksterne nettsider.
-        </div>
-        <div class="e-mt-16">
-          <strong>Tekst Medium</strong>
-          er vårt hovedalternativ for både lange og korte tekster i interne applikasjoner.
-        </div>
-        <div class="e-mt-16">
-          <strong>Tekst Small</strong>
-          er den minste varianten av brødtekst og kan brukes i tillegg til large og medium tekst.
-        </div>
-      </ng-container>
+      @if (locale === 'en-GB') {
+        Must always be set in an easily readable size. This text should have a smaller point size than the
+        title and preamble. We mainly use Red Hat Text Regular in body text, but we can emphasise important
+        content with italic, underlined or bold.
+      } @else {
+        Skal alltid settes i en godt lesbar størrelse. Denne teksten skal ha en mindre punktstørrelse enn
+        tittel og ingress. Vi bruker hovedsaklig Red Hat Text Regular i brødtekst, men vi kan utheve viktig
+        innhold med italic, understreket eller bold
+      }
     </app-component-subsection>
-
-    <app-component-subsection [sectionTitle]="'Special text'">
-      <ng-container *ngIf="locale === 'en-GB'">
-        <div>
-          <strong>Text Quote</strong>
-          is only used when you have quotes in articles.
-        </div>
-        <div class="e-mt-16">
-          <strong>Text Image</strong>
-          is only used together with an image for caption to provide more context.
-        </div>
-        <div class="e-mt-16">
-          <strong>Text Micro</strong>
-          is used as small descriptive text such as dates and values. Should not be used in long paragraphs,
-          as it is very small.
-        </div>
-      </ng-container>
-      <ng-container *ngIf="locale === 'nb-NO'">
-        <div>
-          <strong>Tekst Quote</strong>
-          brukes kun når du har sitater i artikler.
-        </div>
-        <div class="e-mt-16">
-          <strong>Tekst Image</strong>
-          brukes bare sammen med et bilde som bildetekst for å gi mer kontekst.
-        </div>
-        <div class="e-mt-16">
-          <strong>Tekst Micro</strong>
-          brukes som en liten beskrivende tekst f.eks. datoer og verdier. Bør ikke brukes på lange avsnitt, da
-          den er veldig liten.
-        </div>
-      </ng-container>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Mellomtittel' : 'Middle text'">
+      @if (locale === 'en-GB') {
+        Always set in bold, and is 0-2 points larger than the body text that follows.
+      } @else {
+        Settes alltid i bold, og er 0-2 punkt større enn brødteksten som følger.
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale === 'nb-NO' ? 'Avsluttende punktum' : 'Closing sentence'"
+    >
+      @if (locale === 'en-GB') {
+        We end titles with a green full stop.
+      } @else {
+        Vi avslutter titler med et grønt punktum.
+      }
     </app-component-subsection>
   </app-component-section>
 
-  <!--Implemenation-->
   <app-component-section [sectionTitle]="'Implementation'">
-    All typography can be used through a set of classes. The classes set multiple attributes, like font-size,
-    line-height and font-weight. These are all available when using Elvis.
+    <p>
+      All typography can be used through a set of classes. The classes set multiple attributes, like
+      font-size, line-height and font-weight. These are all available when using Elvis. All of our typography
+      classes are listed at the top of this page.
+    </p>
+    <span class="e-tag">e-text-lead</span>
 
-    <app-component-subsection [sectionTitle]="'Code examples'">
-      <app-component-subsubsection [sectionTitle]="'Titles'">
-        <app-static-ceg>
-          <app-typography-titles-ceg />
-        </app-static-ceg>
-      </app-component-subsubsection>
-
-      <app-component-subsubsection [sectionTitle]="'Body text'">
-        <app-static-ceg>
-          <app-typography-body-ceg />
-        </app-static-ceg>
-      </app-component-subsubsection>
-
-      <app-component-subsubsection [sectionTitle]="'Special text'">
-        <app-static-ceg>
-          <app-typography-special-ceg />
-        </app-static-ceg>
-      </app-component-subsubsection>
+    <app-component-subsection [sectionTitle]="'Colors'">
+      The typographies can be used together with our color tokens. The available text colors are listed under
+      the text category in the
+      <a class="e-link e-link--inline" [routerLink]="['/brand/color']" fragment="Tokens">tokens overview.</a>
     </app-component-subsection>
-
-    <app-component-subsubsection [sectionTitle]="'Text alignment'">
-      <app-static-ceg>
-        <app-typography-alignment-ceg />
-      </app-static-ceg>
-    </app-component-subsubsection>
-
-    <app-component-subsubsection [sectionTitle]="'Text emphasis'">
-      <app-static-ceg>
-        <app-typography-emphasis-ceg />
-      </app-static-ceg>
-    </app-component-subsubsection>
+    <app-component-subsection [sectionTitle]="'Alignment'">
+      You can find different alignment classes that can be applied on elements in the
+      <a class="e-link e-link--inline" [routerLink]="['/tools/utility-classes']" fragment="Text"
+        >utility overview.</a
+      >
+    </app-component-subsection>
   </app-component-section>
 
-  <!--Changelog-->
   <app-component-section [sectionTitle]="'Changelog'">
-    <app-component-changelog [elvisComponentToFilter]="'Typography'"></app-component-changelog>
+    @defer {
+      <app-component-changelog [elvisComponentToFilter]="'Typography'" />
+    }
   </app-component-section>
 </div>

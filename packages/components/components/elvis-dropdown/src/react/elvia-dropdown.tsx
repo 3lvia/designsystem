@@ -61,6 +61,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   hasLoadMoreItemsButton,
   onLoadMoreItems,
   isLoadingMoreItems,
+  labelTransformation,
   className,
   inlineStyle,
   webcomponent,
@@ -219,6 +220,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
             onKeyPress={setPressedKey}
             currentVal={currentVal}
             focusedItem={focusedItem}
+            labelTransformation={labelTransformation}
             id={id}
             ariaLabel={ariaLabel}
           />

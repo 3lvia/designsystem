@@ -1,5 +1,5 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
-import { ComponentPropsWithoutRef } from 'react';
+import { CSSProperties, ComponentPropsWithoutRef } from 'react';
 
 export type VerticalPosition = 'bottom' | 'top';
 export type HorizontalPosition = 'left' | 'right';
@@ -13,6 +13,9 @@ export interface BaseContextMenuProps extends BaseProps {
   onOpen?: () => void;
   trigger?: JSX.Element;
   verticalPosition?: VerticalPosition;
+  display?: CSSProperties['display'];
 }
 
-export interface ContextMenuProps extends BaseContextMenuProps, ComponentPropsWithoutRef<'div'> {}
+export interface ContextMenuProps
+  extends BaseContextMenuProps,
+    Omit<ComponentPropsWithoutRef<'div'>, 'content'> {}

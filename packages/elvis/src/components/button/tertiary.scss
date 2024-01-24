@@ -15,7 +15,7 @@
 
     i {
       @include icons.icon-currentcolor(var(--e-color-text-1--contrast));
-      visibility: visible;
+      visibility: unset;
     }
   }
 
@@ -39,7 +39,7 @@
     color: var(--e-color-text-1);
 
     .e-btn__icon i {
-      visibility: visible;
+      visibility: unset;
     }
   }
 
@@ -54,7 +54,7 @@
     }
 
     .e-btn__icon i {
-      visibility: visible;
+      visibility: unset;
     }
   }
 

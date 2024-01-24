@@ -1,0 +1,8 @@
+<app-typography-example-exhibit-filter
+  [activeCategory]="selectedCategory"
+  (newActiveCategory)="selectedCategory = $event"
+  [modifiers]="availableModifiers"
+  (newModifiers)="selectedModifier = $event"
+/>
+
+<app-typography-example-exhibit-list [typographies]="activeTypography" [modifier]="selectedModifier" />

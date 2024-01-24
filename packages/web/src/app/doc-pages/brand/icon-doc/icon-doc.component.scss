@@ -183,7 +183,7 @@ $maxIconContainerMobile: 450px;
       align-items: center;
       width: 82px;
       .copy-text {
-        visibility: visible;
+        visibility: unset;
         position: absolute;
         display: flex;
         justify-content: center;

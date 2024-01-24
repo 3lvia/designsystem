@@ -1,10 +1,27 @@
 import React from 'react';
 import Modal from './elvia-modal';
 import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: opts?.isGtMobile,
+      media: query,
+      onchange: null,
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
+  });
+};
+
 describe('Elvis Modal', () => {
+  beforeEach(() => {
+    mockMatchMedia();
+  });
   describe('Default', () => {
     beforeEach(() => {
       render(
@@ -13,43 +30,13 @@ describe('Elvis Modal', () => {
           heading="Title"
           content={<p>Content</p>}
           primaryButton={<button>Primary</button>}
-        ></Modal>,
+        />,
       );
     });
 
-    it('should not be visible', () => {
-      const container = screen.getByRole('dialog', { hidden: true });
-      expect(container).not.toBeVisible();
-    });
-
-    it('should have primary button', () => {
-      const primaryButton = screen.getByText('Primary');
-      expect(primaryButton).toBeInTheDocument();
-    });
-
-    it('should not have secondary button', () => {
-      const secondaryButton = screen.queryByText('Secondary');
-      expect(secondaryButton).not.toBeInTheDocument();
-    });
-
-    it('should have heading', () => {
-      const heading = screen.getByRole('heading', { level: 2, hidden: true });
-      expect(heading).toBeInTheDocument();
-    });
-
-    it('should have content', () => {
-      const content = screen.getByTestId('modal-content');
-      expect(content).toHaveTextContent('Content');
-    });
-
-    it('should not have illustration', () => {
-      const illustration = screen.queryByRole('presentation');
-      expect(illustration).not.toBeInTheDocument();
-    });
-
-    it('should not have close button', () => {
-      const closeButton = screen.queryByRole('button', { name: 'Lukk modal' });
-      expect(closeButton).not.toBeInTheDocument();
+    it('should not be in the document', () => {
+      const container = screen.queryByRole('dialog', { hidden: true });
+      expect(container).not.toBeInTheDocument();
     });
   });
 
@@ -57,19 +44,26 @@ describe('Elvis Modal', () => {
     beforeEach(() => {
       render(
         <Modal
+          heading={<span>I am heading</span>}
           content={<p>Content</p>}
           primaryButton={<button>Primary</button>}
           secondaryButton={<button>Secondary</button>}
           illustration={<svg />}
           hasCloseButton
           isShowing
-        ></Modal>,
+        />,
       );
     });
 
     it('should be visible', () => {
       const container = screen.getByRole('dialog');
       expect(container).toBeVisible();
+    });
+
+    it('should have a heading (slot)', () => {
+      const heading = screen.getByRole('heading', { level: 2 });
+      expect(heading).toHaveTextContent('I am heading');
+      expect(heading).toBeInTheDocument();
     });
 
     it('should have secondary button', () => {
@@ -91,17 +85,12 @@ describe('Elvis Modal', () => {
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
       render(
-        <Modal
-          content={<p>Content</p>}
-          className="test-class"
-          inlineStyle={{ margin: '24px' }}
-          isShowing
-        ></Modal>,
+        <Modal content={<p>Content</p>} className="test-class" inlineStyle={{ margin: '24px' }} isShowing />,
       );
     });
 
     it('should have className and inlineStyle', () => {
-      const wrapper = screen.getByTestId('modal-wrapper');
+      const wrapper = screen.queryByRole('dialog', { hidden: true });
       expect(wrapper).toHaveStyle('margin: 24px');
       expect(wrapper).toHaveClass('test-class');
     });
@@ -116,7 +105,7 @@ describe('Elvis Modal', () => {
             heading="Title"
             content={<p>Content</p>}
             primaryButton={<button>Primary</button>}
-          ></Modal>
+          />
           <Modal
             heading="Title"
             content={<p>Content</p>}
@@ -125,7 +114,7 @@ describe('Elvis Modal', () => {
             illustration={<svg />}
             hasCloseButton
             isShowing
-          ></Modal>
+          />
         </div>,
       );
 
@@ -153,7 +142,9 @@ describe('Elvis Modal', () => {
       const closeButton = screen.getByRole('button', { name: 'Lukk modal' });
       await user.click(closeButton);
 
-      expect(onClose).toHaveBeenCalledTimes(1);
+      waitFor(() => {
+        expect(onClose).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });

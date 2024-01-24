@@ -1,0 +1,33 @@
+<div class="filters">
+  <elvia-segmented-control
+    size="large"
+    [inlineStyle]="(breakpointService.matches(['xs', 'sm']) | async) ? { width: '100%' } : {}"
+    [items]="displayCategories"
+    [value]="activeCategoryIndex"
+    (valueOnChange)="emitNewActiveCategory($any($event).detail.value)"
+  />
+  @if (modifierRadioFilters.length > 1) {
+    <elvia-radio-filter
+      [items]="modifierRadioFilters"
+      [value]="currentModifier"
+      (valueOnChange)="emitNewModifier($any($event).detail.value)"
+    />
+  }
+</div>
+
+@switch (currentModifier) {
+  @case ('italic') {
+    <div class="information e-text-lg-light">
+      <i class="e-icon e-icon--information_circle-filled-color e-icon--lg"></i>
+      Italic is used to emphasize particular parts of a text when the meaning of the sentence may otherwise be
+      lost or misread. Should be used sparingly.
+    </div>
+  }
+  @case ('mono') {
+    <div class="information e-text-lg-light">
+      <i class="e-icon e-icon--information_circle-filled-color e-icon--lg"></i>
+      Mono can be used to make comparing data easier, for example comparing numbers in tables. It’s also used
+      for displaying code.
+    </div>
+  }
+}

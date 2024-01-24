@@ -27,6 +27,15 @@ const contextMenuData: ComponentData<BaseContextMenuProps> = {
       description: 'Determines whether the context menu is selectable',
       default: 'false',
     },
+    display: {
+      type: 'string',
+      default: '"inline-block"',
+      description:
+        'The display property for the trigger container. Change this if the default display property interferes with your app layout.',
+      example: /* ts */ `//use the display CSS property
+        display = "block"; 
+        display = "flex";`,
+    },
     onOpen: {
       isEvent: true,
       type: '() => void',

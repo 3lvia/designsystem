@@ -5,6 +5,7 @@ import DOMPurify from 'dompurify';
 
 import { Input } from './dropdownInputStyles';
 import { DropdownIconContainer } from '../styledComponents';
+import { DropdownProps } from '../elviaDropdown.types';
 
 interface Props {
   placeholder?: string;
@@ -22,6 +23,7 @@ interface Props {
   focusedItem?: DropdownItem;
   id?: string;
   ariaLabel?: string;
+  labelTransformation?: DropdownProps['labelTransformation'];
 }
 
 export const DropdownInput: React.FC<Props> = ({
@@ -36,6 +38,7 @@ export const DropdownInput: React.FC<Props> = ({
   onKeyPress,
   dropdownIsOpen,
   onOpenDropdown,
+  labelTransformation,
   currentVal,
   focusedItem,
   id,
@@ -59,7 +62,7 @@ export const DropdownInput: React.FC<Props> = ({
   };
 
   const updateCurrentValIcon = (): void => {
-    if (typeof currentVal === 'string') {
+    if (typeof currentVal === 'string' || typeof currentVal === 'number') {
       setCurrentValIcon(flattenTree(items).find((item) => item.value === currentVal)?.icon);
     } else {
       setCurrentValIcon(undefined);
@@ -91,7 +94,7 @@ export const DropdownInput: React.FC<Props> = ({
           if (selectedItems[0].value === null) {
             setInputValue('');
           } else {
-            setInputValue(selectedItems[0].label);
+            setInputValue(labelTransformation?.(selectedItems[0].value) ?? selectedItems[0].label);
           }
         } else {
           setInputValue('');

@@ -1,4 +1,6 @@
-export const dropdownData = [
+import type { DropdownItem } from '@elvia/elvis-dropdown';
+
+export const dropdownData: DropdownItem[] = [
   {
     value: '01.130',
     label: 'Dyrking av grønnsaker, meloner, rot- og knollvekster',

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { stepperData } from './stepper-data';
-import { configurationProps } from './stepper-configuration-props';
 
 @Component({
   selector: 'app-stepper-doc',
@@ -9,7 +8,6 @@ import { configurationProps } from './stepper-configuration-props';
 })
 export class StepperDocComponent {
   componentData = stepperData;
-  stepperConfigurationProps = configurationProps;
   does = stepperData.does;
   donts = stepperData.donts;
 }

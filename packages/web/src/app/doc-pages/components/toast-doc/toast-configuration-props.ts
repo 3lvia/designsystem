@@ -27,9 +27,9 @@ export const configurationProps: ComponentData = {
     },
     status: {
       isRequired: false,
-      type: '"positive" | "informative"',
+      type: '"positive" | "informative" | "negative"',
       default: '"positive"',
-      description: 'The toast status, which changes its appearance',
+      description: 'The toast status, which changes its appearance.',
     },
     customIcon: {
       isRequired: false,

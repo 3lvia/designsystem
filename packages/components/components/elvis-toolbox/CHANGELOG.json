@@ -2,6 +2,38 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.01.24",
+      "version": "11.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["The Overlay component now accepts a custom backdrop component that can be styled."]
+        }
+      ]
+    },
+    {
+      "date": "17.01.24",
+      "version": "11.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated typography and padding in form field error."]
+        }
+      ]
+    },
+    {
+      "date": "20.12.23",
+      "version": "11.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The overlay component now supports a new prop <code>center</code> that will center the overlay on the viewport."
+          ]
+        }
+      ]
+    },
+    {
       "date": "20.11.23",
       "version": "11.1.0",
       "changelog": [

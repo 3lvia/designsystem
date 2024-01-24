@@ -8,11 +8,20 @@ import {
 } from '../dateHelpers';
 import { DatepickerRangeProps, DateRange } from '../elviaDatepicker.types';
 
-import { Container, CalendarHeader, DayButton, DayName, GridContainer, MonthName } from './calendarStyles';
+import {
+  Container,
+  CalendarHeader,
+  DayButton,
+  DayName,
+  GridContainer,
+  MonthName,
+  ResetButton,
+} from './calendarStyles';
 import { DateRangeHighlighter } from './DateRangeHighlighter';
 import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
 import arrowLongLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeftBold';
 import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
+import reset from '@elvia/elvis-assets-icons/dist/icons/reset';
 
 interface Props {
   selectedDate?: Date | null;
@@ -22,6 +31,8 @@ interface Props {
   minDate?: Date;
   maxDate?: Date;
   disableDate?: (date: Date) => boolean;
+  resetDate: () => void;
+  clearButtonText: string;
   dateRangeProps?: DatepickerRangeProps;
 }
 
@@ -33,6 +44,8 @@ export const Calendar: React.FC<Props> = ({
   minDate,
   maxDate,
   disableDate,
+  resetDate,
+  clearButtonText,
   dateRangeProps,
 }) => {
   const [calendarHasFocus, setCalendarHasFocus] = useState(false);
@@ -52,8 +65,10 @@ export const Calendar: React.FC<Props> = ({
         return new Date(viewedDate.getFullYear(), viewedDate.getMonth(), index + 1, 0, 0, 0, 0);
       }),
     ];
+    // Add rest of days as null to ensure there are always six rows of height in the calendar grid
+    const lastDayPlaceholders = new Array(7 * 6 - dayList.length).fill(null);
 
-    return dayList;
+    return [...dayList, ...lastDayPlaceholders];
   };
 
   const [daysInMonth, setDaysInMonth] = useState<(Date | null)[]>(createListOfDays);
@@ -213,6 +228,10 @@ export const Calendar: React.FC<Props> = ({
           </DateRangeHighlighter>
         ))}
       </GridContainer>
+      <ResetButton onClick={resetDate} aria-label="Nullstill dato" size="sm">
+        <IconWrapper icon={reset} size="xs" />
+        {clearButtonText}
+      </ResetButton>
     </Container>
   );
 };

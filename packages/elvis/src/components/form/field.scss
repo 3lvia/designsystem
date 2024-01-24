@@ -33,7 +33,7 @@
     visibility: hidden;
 
     &.e-form-field__error--visible {
-      visibility: visible;
+      visibility: unset;
     }
 
     span:first-of-type {

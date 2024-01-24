@@ -54,9 +54,10 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
   isMulti?: boolean;
   isInvisible?: boolean;
   isGtMobile?: boolean;
+  isPlaceholderItem?: boolean;
 }>`
   display: flex;
-  gap: 16px;
+  gap: 8px;
   border: none;
   margin: 0;
   width: 100%;
@@ -101,6 +102,12 @@ export const DropdownItemStyles = styled.div.attrs(() => ({
       ${getTypographyCss('text-md')};
     `;
   }};
+
+  ${({ isPlaceholderItem }) =>
+    isPlaceholderItem &&
+    css`
+      color: ${getThemeColor('text-placeholder-1')};
+    `}
 
   ${({ isDisabled }) => {
     if (isDisabled) {

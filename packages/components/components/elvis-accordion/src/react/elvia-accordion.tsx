@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { outlineListener, useSlot, IconWrapper } from '@elvia/elvis-toolbox';
+import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
 import { AccordionProps, AccordionSize } from './elvia-accordion.types';
 import {
   AccordionArea,
@@ -9,6 +9,7 @@ import {
   AccordionLabelText,
   AccordionDetailText,
   AccordionContent,
+  StyledIconWrapper,
 } from './styledComponents';
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
@@ -48,11 +49,11 @@ export const Accordion: FC<AccordionProps> = ({
 
   /** Start outline listener */
   useEffect(() => {
-    if (accordionRef && accordionRef.current) {
+    if (accordionRef?.current) {
       outlineListener(accordionRef.current);
     }
     return () => {
-      if (accordionRef && accordionRef.current) {
+      if (accordionRef?.current) {
         outlineListener(accordionRef.current, true);
       }
     };
@@ -74,7 +75,7 @@ export const Accordion: FC<AccordionProps> = ({
   }, [isOpen]);
 
   useEffect(() => {
-    type === 'single' ? setHasContent(false) : setHasContent(true);
+    setHasContent(type !== 'single');
   }, [type]);
 
   useEffect(() => {
@@ -104,9 +105,6 @@ export const Accordion: FC<AccordionProps> = ({
   }, [accordionContentRef, accordionContentRef.current]);
 
   const handleOnClick = () => {
-    if (type === 'single') {
-      return;
-    }
     if (!isOpenState) {
       onOpen?.();
       webcomponent?.triggerEvent('onOpen');
@@ -153,7 +151,7 @@ export const Accordion: FC<AccordionProps> = ({
     >
       {type === 'overflow' ? (
         <AccordionContent
-          type={type}
+          $type={type}
           spacingAboveContent={spacingAboveContent}
           spacingBelowContent={spacingBelowContent}
           isOpenState={isOpenState}
@@ -161,25 +159,23 @@ export const Accordion: FC<AccordionProps> = ({
           contentHeight={contentHeight}
           hasContent={hasContent}
           ref={accordionContentRef}
-          data-testid="accordion-content-overflow"
         >
           {content}
         </AccordionContent>
       ) : null}
-      <AccordionButtonArea labelPosition={labelPosition} type={type}>
+      <AccordionButtonArea labelPosition={labelPosition} $type={type}>
         <AccordionButton
           aria-expanded={isOpenState}
-          currType={type}
+          $type={type}
           isFullWidth={isFullWidth}
           isOpenState={isOpenState}
           onClick={() => handleOnClick()}
           onMouseEnter={() => setIsHoveringButton(true)}
           onMouseLeave={() => setIsHoveringButton(false)}
-          data-testid="accordion-button-label"
           aria-label={decideButtonAriaLabel()}
         >
           {shouldShowLeftIcon() && (
-            <IconWrapper
+            <StyledIconWrapper
               icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
               size={getIconSize(size)}
             />
@@ -190,11 +186,23 @@ export const Accordion: FC<AccordionProps> = ({
             isFullWidth={isFullWidth}
           >
             {isOpenState ? (
-              <AccordionLabelText size={size} typography={typography} ref={closeLabelRef}>
+              <AccordionLabelText
+                size={size}
+                typography={typography}
+                isFullWidth={isFullWidth}
+                hasDetailText={!!openDetailText || !!closeDetailText}
+                ref={closeLabelRef}
+              >
                 {closeLabel}
               </AccordionLabelText>
             ) : (
-              <AccordionLabelText size={size} typography={typography} ref={openLabelRef}>
+              <AccordionLabelText
+                size={size}
+                typography={typography}
+                isFullWidth={isFullWidth}
+                hasDetailText={!!openDetailText || !!closeDetailText}
+                ref={openLabelRef}
+              >
                 {openLabel}
               </AccordionLabelText>
             )}
@@ -203,7 +211,7 @@ export const Accordion: FC<AccordionProps> = ({
             </AccordionDetailText>
           </AccordionLabel>
           {shouldShowRightIcon() && (
-            <IconWrapper
+            <StyledIconWrapper
               icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
               size={getIconSize(size)}
             />
@@ -212,14 +220,13 @@ export const Accordion: FC<AccordionProps> = ({
       </AccordionButtonArea>
       {type === 'normal' ? (
         <AccordionContent
-          type={type}
+          $type={type}
           spacingAboveContent={spacingAboveContent}
           spacingBelowContent={spacingBelowContent}
           isOpenState={isOpenState}
           hasContent={hasContent}
           contentHeight={contentHeight}
           overflowHeight={overflowHeight}
-          data-testid="accordion-content-normal"
           ref={accordionContentRef}
         >
           {content}

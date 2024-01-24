@@ -6,6 +6,7 @@ import * as template from 'html-loader!./input-ceg.component.html';
 @Component({
   selector: 'app-input-ceg',
   templateUrl: './input-ceg.component.html',
+  styleUrls: ['./input-ceg.component.scss'],
   providers: [{ provide: StaticComponentExample, useExisting: InputCegComponent }],
 })
 export class InputCegComponent implements StaticComponentExample {

@@ -9,6 +9,7 @@ import path from 'path';
 import chalk from 'chalk';
 import { toInOutTuple } from './utils';
 import cleanDistFolders from './cleanDist';
+import { sassPlugin, postcssModules } from 'esbuild-sass-plugin';
 
 interface ComponentData {
   component: string;
@@ -58,6 +59,7 @@ export const build = async () => {
     plugins: [
       dtsPlugin({ watchMode: watchMode }),
       styledComponentsPlugin({ ssr: true, displayName: true }),
+      sassPlugin({ transform: postcssModules({}) }),
       writeFilesAndInjectCssPlugin,
     ],
   };

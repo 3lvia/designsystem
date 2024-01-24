@@ -2,13 +2,17 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import SegmentedControl from './elvia-segmented-control';
 import userEvent from '@testing-library/user-event';
-import { IconSegmentedControl } from './elviaSegmentedControl.types';
+import { IconSegmentedControl, SegmentedControlProps } from './elviaSegmentedControl.types';
 import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
 
 describe('Elvia Segmented Control', () => {
   describe('The default segmented control', () => {
-    const items = [{ label: 'Weekly' }, { label: 'Monthly' }, { label: 'Yearly' }];
+    const items: SegmentedControlProps['items'] = [
+      { label: 'Weekly' },
+      { label: 'Monthly' },
+      { label: 'Yearly' },
+    ];
 
     test('should contain text', () => {
       render(<SegmentedControl items={items} />);
@@ -21,16 +25,16 @@ describe('Elvia Segmented Control', () => {
 
     test('should have value = 0', () => {
       render(<SegmentedControl items={items} />);
-      const segmentedControlSelectedInput = screen.queryAllByTestId('segmented-control-input');
+      const controls = screen.getAllByRole('radio');
 
-      expect(segmentedControlSelectedInput[0]).toBeChecked();
+      expect(controls[0]).toBeChecked();
     });
 
     test('should have value = 1, when prop value={1}', () => {
       render(<SegmentedControl items={items} value={1} />);
-      const segmentedControlSelectedInput = screen.queryAllByTestId('segmented-control-input');
+      const controls = screen.getAllByRole('radio');
 
-      expect(segmentedControlSelectedInput[1]).toBeChecked();
+      expect(controls[1]).toBeChecked();
     });
 
     test('should have label text = item.label', () => {
@@ -43,10 +47,10 @@ describe('Elvia Segmented Control', () => {
     test('should change value when clicked', async () => {
       const user = userEvent.setup();
       render(<SegmentedControl items={items} />);
-      const segmentedControlSelectedInput = screen.queryAllByTestId('segmented-control-input');
+      const controls = screen.getAllByRole('radio');
 
-      await user.click(segmentedControlSelectedInput[2]);
-      expect(segmentedControlSelectedInput[2]).toBeChecked();
+      await user.click(controls[2]);
+      expect(controls[2]).toBeChecked();
     });
   });
 

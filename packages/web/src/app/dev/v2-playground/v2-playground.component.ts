@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { openElviaToast } from '@elvia/elvis-toast';
 import { dropdownData } from './dropdown-data';
+import type { DropdownItem } from '@elvia/elvis-dropdown';
 
 interface StepState {
   heading: string;
@@ -98,7 +99,7 @@ export class v2PlaygroundComponent {
   };
   labelOptions = { start: 'Start-dato', end: 'Sluttdato' };
   minDateRange = new Date(2022, 6, 26, 14, 0);
-  maxDateRange = new Date(2022, 6, 30, 23, 0);
+  maxDateRange = new Date(2022, 6, 30, 20, 0);
   disableDates = {
     start: (date: Date) => date.getDate() % 3 === 0,
     end: (date: Date) => date.getDate() % 7 === 0,
@@ -107,27 +108,28 @@ export class v2PlaygroundComponent {
   // Dropdown
   selectedDropdownItem = 'sverige';
   longDropdownList = dropdownData;
-  dropdownItems = [
+  dropdownItems: DropdownItem[] = [
+    { value: null, label: '- Posisjon -' },
     {
-      value: 0,
+      value: 'norge',
       label: 'Norge',
-      children: [
-        { label: 'Oslo', value: 'oslo' },
-        {
-          label: 'Bergen',
-          value: 'bergen',
-          children: [
-            { label: 'Arna', value: 'arna' },
-            { label: 'Bergenhus', value: 'bergenhus' },
-            { label: 'Fana', value: 'fana' },
-            { label: 'Fyllingsdalen', value: 'fyllingsdalen' },
-            { label: 'Laksevåg', value: 'Laksevåg' },
-          ],
-        },
-        { label: 'Trondheim', value: 'trondheim' },
-        { label: 'Stavanger', value: 'stavanger' },
-        { label: 'Kristiansand', value: 'kristiansand' },
-      ],
+      // children: [
+      //   { label: 'Oslo', value: 'oslo' },
+      //   {
+      //     label: 'Bergen',
+      //     value: 'bergen',
+      //     children: [
+      //       { label: 'Arna', value: 'arna' },
+      //       { label: 'Bergenhus', value: 'bergenhus' },
+      //       { label: 'Fana', value: 'fana' },
+      //       { label: 'Fyllingsdalen', value: 'fyllingsdalen' },
+      //       { label: 'Laksevåg', value: 'Laksevåg' },
+      //     ],
+      //   },
+      //   { label: 'Trondheim', value: 'trondheim' },
+      //   { label: 'Stavanger', value: 'stavanger' },
+      //   { label: 'Kristiansand', value: 'kristiansand' },
+      // ],
     },
     {
       value: 1,
@@ -146,13 +148,19 @@ export class v2PlaygroundComponent {
     {
       value: 'england',
       label: 'England',
-      children: [
-        { value: 'london', label: 'London', icon: 'adjust' },
-        { value: 'manchester', label: 'Manchester', icon: 'addCircle' },
-        { value: 'birmingham', label: 'Birmingham', icon: 'search' },
-      ],
+      // children: [
+      //   { value: 'london', label: 'London' },
+      //   { value: 'manchester', label: 'Manchester' },
+      //   { value: 'birmingham', label: 'Birmingham' },
+      // ],
     },
   ];
+
+  labelTransformation = (val: string): string => {
+    const label = this.dropdownItems.find((item) => item.value === val)?.label as string;
+    return `${label.substring(0, 6)}${label.length > 6 ? '...' : ''}`;
+  };
+
   isLoadingMoreItems = false;
   setLoading = () => {
     this.isLoadingMoreItems = true;

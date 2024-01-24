@@ -11,6 +11,7 @@ export const Stepper: FC<StepperProps> = function ({
   content,
   value,
   valueOnChange,
+  onFinish,
   className,
   inlineStyle,
   webcomponent,
@@ -22,10 +23,23 @@ export const Stepper: FC<StepperProps> = function ({
 
   useEffect(() => {
     const elem = webcomponent?.getSlot('content');
-    if (elem && contentRef.current) {
-      setNumberOfSteps(elem.children.length);
-      contentRef.current.innerHTML = elem?.children[currentStep - 1].outerHTML;
+    if (!(elem && contentRef.current)) {
+      return;
     }
+
+    setNumberOfSteps(elem.children.length);
+
+    const newStepElement = elem.children[currentStep - 1];
+    const previousStepIndex = Array.from(elem.children).indexOf(newStepElement);
+
+    contentRef.current.innerHTML = '';
+    contentRef.current.appendChild(newStepElement);
+    return () => {
+      // Put the now old step back into the slot object
+      if (contentRef.current && newStepElement) {
+        elem.insertBefore(newStepElement, elem.children[previousStepIndex]);
+      }
+    };
   }, [webcomponent, contentRef, currentStep, type]);
 
   useEffect(() => {
@@ -41,7 +55,7 @@ export const Stepper: FC<StepperProps> = function ({
   }, [value]);
 
   const handleStepChange = (updateCurrentStep: number) => {
-    if (updateCurrentStep >= 1 && updateCurrentStep <= numberOfSteps) {
+    if (updateCurrentStep >= 1 && updateCurrentStep <= numberOfSteps && updateCurrentStep !== currentStep) {
       setCurrentStep(updateCurrentStep);
       if (!webcomponent && valueOnChange) {
         valueOnChange(updateCurrentStep);
@@ -49,6 +63,9 @@ export const Stepper: FC<StepperProps> = function ({
         webcomponent.setProps({ value: updateCurrentStep }, true);
         webcomponent.triggerEvent('valueOnChange', updateCurrentStep);
       }
+    } else if (updateCurrentStep - 1 === numberOfSteps) {
+      onFinish?.();
+      webcomponent?.triggerEvent('onFinish');
     }
   };
 

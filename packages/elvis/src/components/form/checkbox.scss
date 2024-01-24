@@ -18,6 +18,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     --e-checkbox-border-checked-color: transparent;
   }
 
+  position: relative;
   display: flex;
   width: fit-content;
   box-sizing: border-box;

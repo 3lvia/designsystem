@@ -314,6 +314,22 @@
       <app-static-ceg>
         <app-icon-colors-ceg />
       </app-static-ceg>
+      <p>
+        <ng-container *ngIf="locale === 'en-GB'">
+          If you need to further customize the colors of icons, this can be done by overwriting the
+          CSS-variables used to color the icon. For most icons, the variables used are
+          <code>--e-color-icon-stroke-1</code>, <code>--e-color-icon-filled-background-1</code>, and
+          <code>--e-color-icon-filled-foreground-1</code>. Which variable is used can be seen by inspecting
+          the SVG in the browser.
+        </ng-container>
+        <ng-container *ngIf="locale === 'nb-NO'">
+          Om du trenger å tilpasse fargene på ikoner enda mer så kan det gjøres ved å overskrive
+          CSS-variablene som er brukt til å farge ikonene. Det er hovedsaklig
+          <code>--e-color-icon-stroke-1</code>, <code>--e-color-icon-filled-background-1</code> og
+          <code>--e-color-icon-filled-foreground-1</code> som er brukt. Hvilke variabler som er brukt kan
+          sjekkes ved å inspisere SVGen i nettleseren.
+        </ng-container>
+      </p>
     </app-component-subsection>
 
     <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Deaktivert' : 'Disabled'">
@@ -460,6 +476,8 @@
 
   <!--Changelog-->
   <app-component-section [sectionTitle]="'Changelog'">
-    <app-component-changelog [elvisComponentToFilter]="'Icons'"></app-component-changelog>
+    @defer {
+      <app-component-changelog [elvisComponentToFilter]="'Icons'" />
+    }
   </app-component-section>
 </div>

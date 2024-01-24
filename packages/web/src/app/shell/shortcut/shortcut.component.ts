@@ -76,7 +76,9 @@ export class ShortcutComponent {
 
     return fromEvent<KeyboardEvent>(document, 'keyup').pipe(
       takeUntilDestroyed(),
-      filter((event) => !(event.target instanceof HTMLInputElement)),
+      filter(
+        (event) => !(event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement),
+      ),
       tap((event) => {
         if (triggeringKeys.has(event.key)) {
           this.lastTriggerTimestamp = Date.now();

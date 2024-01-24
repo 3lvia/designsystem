@@ -2,6 +2,37 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "08.01.24",
+      "version": "1.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added an <code>onFinish</code> event that emits when the user clicks the final 'next' button."
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue with the <code>valueOnChange</code> event, ensuring it now only triggers if the new value is different from the previous one."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "13.12.23",
+      "version": "1.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed so that event listeners that are added to elements inside the content slot will work (e.g. buttons with click listeners).",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "06.10.23",
       "version": "1.1.1",
       "changelog": [

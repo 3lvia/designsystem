@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ProfileButton } from '../styledComponents';
 import { UserMenuProps } from '../elviaHeader.types';
 import {
@@ -7,6 +7,7 @@ import {
   ImageContainer,
   MenuContainer,
   MenuHr,
+  DesktopMenuSlot,
   UserGrid,
   Username,
 } from './desktopMenuStyles';
@@ -27,6 +28,8 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
   hideThemeSwitch,
   onSignOutClick,
   onThemeChange,
+  menuContent,
+  webcomponent,
 }) => {
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const connectedElementRef = useRef<HTMLButtonElement>(null);
@@ -37,6 +40,14 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
     verticalPosition: 'bottom',
     alignWidths: false,
   });
+
+  const menuContentRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (menuContentRef.current && webcomponent?.getSlot('menuContent')) {
+      menuContentRef.current.innerHTML = '';
+      menuContentRef.current.appendChild(webcomponent.getSlot('menuContent'));
+    }
+  }, [isShowing]);
 
   const togglePopupVisibility = (isShowing: boolean): void => {
     setIsShowing(isShowing);
@@ -76,6 +87,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
               <Username>{username}</Username>
               <Email>{email}</Email>
             </UserGrid>
+            <DesktopMenuSlot ref={menuContentRef}>{menuContent}</DesktopMenuSlot>
             {!hideThemeSwitch && <ThemePicker onThemeChange={onThemeChange} />}
             <MenuHr></MenuHr>
             <Footer>

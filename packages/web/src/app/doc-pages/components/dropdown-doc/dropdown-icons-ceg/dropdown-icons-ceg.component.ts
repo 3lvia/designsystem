@@ -11,7 +11,7 @@ import * as template from 'html-loader!./dropdown-icons-ceg.component.html';
 export class DropdownIconsCegComponent implements StaticComponentExample {
   html = template.default;
 
-  comment = `Define the items in Typescript:
+  comment = ` Define the items in Typescript:
   items = [
     {
       value: 'Powerline',

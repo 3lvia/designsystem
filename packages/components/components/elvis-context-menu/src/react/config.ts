@@ -11,6 +11,7 @@ export const config: ComponentConfig = {
     { name: 'isSelectable', type: 'boolean' },
     { name: 'isShowing', type: 'boolean' },
     { name: 'trigger', type: 'boolean' },
+    { name: 'display', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
   ],

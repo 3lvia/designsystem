@@ -7,10 +7,6 @@ export interface ComponentConfig {
    * All attributes of the component.
    */
   attributes: ComponentAttribute[];
-  /**
-   * Components can have multiple sub components.
-   */
-  subComponents?: ComponentConfig[];
 }
 
 export interface ComponentAttribute {

@@ -276,14 +276,14 @@ type SliderTrackProps = {
 export const SliderWrapper = styled.div<SliderWrapperProps>`
   align-items: center;
   display: flex;
-  height: 52px;
+  height: 50px;
   position: relative;
   padding: 12px 0 4px 0;
 
   ${({ size }) =>
     size === 'small' &&
     css`
-      height: 36px;
+      height: 34px;
     `}
 
   ${({ isDisabled }) =>

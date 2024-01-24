@@ -7,20 +7,14 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
-  styleUrls: ['./typography-doc.component.scss'],
 })
 export class TypographyDocComponent {
-  loadedImg = false;
-  typographyClasses = [];
   title = getDocPagesNotFromCMS('typography')?.title;
   titleNo = getDocPagesNotFromCMS('typography')?.titleNo;
   description = getDocPagesNotFromCMS('typography')?.description;
   descriptionNo = getDocPagesNotFromCMS('typography')?.descriptionNo;
   figmaUrl = getDocPagesNotFromCMS('typography')?.figmaUrl;
   locale: Locale = 'en-GB';
-
-  isDesktop = true;
-  isMobile = false;
 
   constructor(
     private titleService: Title,
@@ -35,11 +29,5 @@ export class TypographyDocComponent {
           ((this.locale === 'nb-NO' && this.titleNo) || this.title) + ' | Elvia design system',
         );
       });
-  }
-
-  hideContentLoader(evt: Event): void {
-    if (evt?.target) {
-      this.loadedImg = true;
-    }
   }
 }
