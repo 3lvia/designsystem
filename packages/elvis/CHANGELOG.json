@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "15.6.4",
+      "date": "January 25, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where a list nested in a numbered list would become a numbered list and keep counting on the outer list. It will now correctly be a non-numbered list, unless <code>e-list--numbers</code> is applied to the inner list also."
+          ],
+          "components": [{ "displayName": "List", "url": "https://design.elvia.io/components/list" }]
+        }
+      ]
+    },
+    {
       "version": "15.6.3",
       "date": "January 19, 2024",
       "changelog": [
