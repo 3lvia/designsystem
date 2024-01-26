@@ -371,13 +371,13 @@ $table-invalid-padding: 8px 16px;
   padding: 6px;
 
   .e-input {
-    border-color: var(--e-color-border-6);
+    --border-color: var(--e-color-border-6);
     background: transparent;
 
     &.e-input---focus,
     &:has(input:focus),
     &:has(textarea:focus) {
-      border-color: var(--e-color-background-hover-1);
+      --border-color: var(--e-color-background-hover-1);
     }
   }
 }
