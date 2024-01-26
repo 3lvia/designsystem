@@ -14,8 +14,7 @@
       input,
       input:invalid,
       input:disabled,
-      &.e-input---disabled input,
-      &.e-input---loading input {
+      &.e-input---disabled input {
         padding-inline: 57px 49px;
       }
     }
@@ -60,6 +59,10 @@
         }
       }
     }
+
+    > .e-input.e-input---loading:not(:focus-within) input {
+      padding-inline: 55px 47px;
+    }
   }
 
   &--on-submit {
@@ -67,9 +70,8 @@
       input,
       input:invalid,
       input:disabled,
-      &.e-input---loading input,
       &.e-input---disabled input {
-        padding-inline: 13px 49px;
+        padding-right: 49px;
       }
     }
 
@@ -103,6 +105,10 @@
         }
       }
     }
+
+    > .e-input.e-input---loading:not(:focus-within) input {
+      padding-right: 47px;
+    }
   }
 }
 
@@ -134,7 +140,7 @@
       }
 
       .e-btn {
-        top: 1px;
+        top: 0px;
         right: 4px;
       }
     }
@@ -148,12 +154,12 @@
         input:disabled,
         &.e-input---disabled input,
         &.e-input---loading input {
-          padding-inline: 11px 33px;
+          padding-right: 33px;
         }
       }
 
       .e-btn {
-        top: 1px;
+        top: 0px;
         right: 4px;
       }
     }
