@@ -3,16 +3,6 @@
 @use '../../utilities/helpers';
 @use '../../utilities/icons';
 
-$form-input-padding: 12px 16px;
-$form-input-padding-active: 11px 15px;
-$form-input-padding-with-icon: 12px 44px 12px 16px;
-$form-input-padding-with-icon-active: 11px 43px 11px 15px;
-$form-input-border-radius: 4px;
-$form-input-border: 1px solid var(--e-color-border-1);
-
-$form-input-padding-compact: 4px 10px;
-$form-input-padding-compact-active: 3px 9px;
-
 @property --e-input---loading-angle {
   inherits: false;
   initial-value: 0deg;
@@ -20,34 +10,35 @@ $form-input-padding-compact-active: 3px 9px;
 }
 
 .e-input {
+  --border-width: 1px;
+  --border-color: var(--e-color-border-1);
   position: relative;
   display: flex;
   width: 100%;
   max-width: 448px;
   align-items: center;
-  border: $form-input-border;
-  border-radius: $form-input-border-radius;
+  border-radius: 4px;
   background: var(--e-color-background-element-1);
-  gap: 8px;
+  box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   text-align: left;
 
   > input,
   > textarea {
     @include mixins.typography('text-option');
-    width: 100%;
+    min-width: 0;
     max-width: 448px;
     box-sizing: content-box;
-    padding: $form-input-padding;
+    flex: 1;
+    padding: 13px 16px;
     border: none;
     border-radius: 2px;
     margin: 0;
     background: transparent;
     color: var(--e-color-text-1);
-    outline-offset: 4px;
   }
 
   > textarea {
-    height: 89px;
+    height: 65px;
     min-height: 16px;
     overflow-y: auto;
     resize: vertical;
@@ -67,45 +58,41 @@ $form-input-padding-compact-active: 3px 9px;
     justify-content: center;
   }
 
-  .e-btn.e-btn--icon {
-    order: 2;
-    margin-right: 2px;
+  > .e-icon {
+    width: 24px;
+    height: 24px;
+    flex: none;
+    margin-left: 16px;
+  }
+
+  > .e-btn.e-btn--icon {
+    width: 40px;
+    height: 40px;
+    flex: none;
+    order: 3;
+    margin-right: 8px;
+
+    .e-btn__icon {
+      width: 24px;
+      height: 24px;
+
+      i {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 
   &.e-input---invalid {
-    border: 2px solid var(--e-color-signal-danger);
-
-    > input,
-    > textarea {
-      padding: $form-input-padding-active;
-    }
-
-    > textarea {
-      height: 87px;
-    }
-
-    .e-btn.e-btn--icon {
-      margin-inline: 1px;
-    }
+    --border-width: 2px;
+    --border-color: var(--e-color-signal-danger);
   }
 
   //duplication needed as unsupported browsers fail to read the :user-invalid selector
   &:has(input:user-invalid),
   &:has(textarea:user-invalid) {
-    border: 2px solid var(--e-color-signal-danger);
-
-    > input,
-    > textarea {
-      padding: $form-input-padding-active;
-    }
-
-    > textarea {
-      height: 87px;
-    }
-
-    .e-btn.e-btn--icon {
-      margin-inline: 1px;
-    }
+    --border-width: 2px;
+    --border-color: var(--e-color-signal-danger);
   }
 
   &.e-input---focus {
@@ -115,26 +102,15 @@ $form-input-padding-compact-active: 3px 9px;
   &.e-input---focus,
   &:has(input:focus),
   &:has(textarea:focus) {
-    border: 2px solid var(--e-color-border-selected-1);
-
-    > input,
-    > textarea {
-      padding: $form-input-padding-active;
-    }
-
-    > textarea {
-      height: 87px;
-    }
-
-    .e-btn.e-btn--icon {
-      margin-inline: 1px;
-    }
+    --border-width: 2px;
+    --border-color: var(--e-color-border-selected-1);
   }
 
   &.e-input---disabled,
   &:has(input:disabled),
   &:has(textarea:disabled) {
-    border-color: var(--e-color-border-disabled-1);
+    --border-width: 2px;
+    --border-color: var(--e-color-border-disabled-1);
 
     > input,
     > textarea {
@@ -159,7 +135,7 @@ $form-input-padding-compact-active: 3px 9px;
   }
 
   &.e-input---readonly {
-    border: 1px solid transparent;
+    --border-color: transparent;
     background: var(--e-color-background-element-2);
 
     > input,
@@ -170,7 +146,6 @@ $form-input-padding-compact-active: 3px 9px;
     > textarea:read-only,
     > textarea:focus,
     > textarea:read-only:focus {
-      padding: $form-input-padding;
       color: var(--e-color-text-2);
 
       &[type='number'] {
@@ -197,9 +172,9 @@ $form-input-padding-compact-active: 3px 9px;
       }
     }
 
-    &.e-input---loading:not(:has(*:focus)) {
-      border: solid 2px transparent;
-      border-radius: $form-input-border-radius;
+    &.e-input---loading:not(:focus-within) {
+      --border-color: transparent;
+      border: 2px solid transparent;
       animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
       background-clip: padding-box, border-box;
       background-image: linear-gradient(var(--e-color-background-1), var(--e-color-background-1)),
@@ -213,7 +188,7 @@ $form-input-padding-compact-active: 3px 9px;
 
       > input:not(:focus),
       > textarea:not(:focus) {
-        padding: $form-input-padding-active;
+        padding: 11px 15px;
         cursor: wait;
       }
     }
@@ -221,25 +196,23 @@ $form-input-padding-compact-active: 3px 9px;
   @supports not (background: paint(something)) {
     @keyframes eInputLoadingAnimation {
       0% {
-        border-color: var(--e-color-brand-accent);
+        --border-color: var(--e-color-brand-accent);
       }
 
       40% {
-        border-color: var(--e-color-brand-accent);
+        --border-color: var(--e-color-brand-accent);
       }
 
       100% {
-        border-color: color-mix(in srgb, var(--e-color-brand-accent) 20%, transparent);
+        --border-color: color-mix(in srgb, var(--e-color-brand-accent) 20%, transparent);
       }
     }
 
     &.e-input---loading:not(:focus-within) {
-      border: solid 2px var(--e-color-brand-accent);
       animation: 1s eInputLoadingAnimation ease alternate infinite;
 
       > input:not(:focus),
       > textarea:not(:focus) {
-        padding: $form-input-padding-active;
         cursor: wait;
       }
     }
@@ -270,87 +243,32 @@ $form-input-padding-compact-active: 3px 9px;
   input,
   textarea {
     @include mixins.typography('text-sm');
-    padding: $form-input-padding-compact;
-  }
-
-  &.e-input---invalid input,
-  &.e-input---invalid textarea {
-    padding: $form-input-padding-compact-active;
-  }
-
-  //duplication needed as unsupported browsers fail to read the :user-invalid selector
-  input:user-invalid,
-  textarea:user-invalid {
-    padding: $form-input-padding-compact-active;
-  }
-
-  &.e-input---focus input,
-  &.e-input---focus textarea,
-  > input:focus,
-  > textarea:focus {
-    padding: $form-input-padding-compact-active;
-  }
-
-  &.e-input---readonly {
-    > input,
-    > input:focus,
-    > input:read-only,
-    > input:read-only:focus,
-    > textarea,
-    > textarea:read-only,
-    > textarea:focus,
-    > textarea:read-only:focus {
-      padding: $form-input-padding-compact-active;
-    }
-  }
-
-  &.e-input---loading {
-    > input,
-    > textarea {
-      padding: $form-input-padding-compact-active;
-    }
+    padding: 5px 10px;
   }
 }
 
-.e-form-field.e-form-field--compact,
-.e-form-field.e-form-field--small,
+.e-form-field.e-form-field--compact .e-input,
+.e-form-field.e-form-field--small .e-input,
 .e-input.e-input--compact,
 .e-input.e-input--small {
-  .e-btn.e-btn--icon {
-    width: 30px;
-    height: 30px;
+  > .e-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+  }
+
+  > .e-btn.e-btn--icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 4px;
 
     .e-btn__icon {
       width: 16px;
       height: 16px;
 
       i {
-        @include icons.icon-size('xs');
-      }
-    }
-  }
-
-  // For .e-input--compact and .e-input--small
-  &.e-input---invalid,
-  &.e-input---focus {
-    .e-btn.e-btn--icon {
-      width: 28px;
-      height: 28px;
-      margin-inline: 2px;
-    }
-  }
-
-  // For the usual .e-form-field--small
-  .e-input {
-    &.e-input---invalid,
-    &.e-input---focus,
-    &:has(:user-invalid),
-    &:has(input:focus),
-    &:has(textarea:focus) {
-      .e-btn.e-btn--icon {
-        width: 28px;
-        height: 28px;
-        margin-inline: 2px;
+        width: 16px;
+        height: 16px;
       }
     }
   }
