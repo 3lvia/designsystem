@@ -245,12 +245,7 @@
     @include mixins.typography('text-sm');
     padding: 5px 10px;
   }
-}
 
-.e-form-field.e-form-field--compact .e-input,
-.e-form-field.e-form-field--small .e-input,
-.e-input.e-input--compact,
-.e-input.e-input--small {
   > .e-icon {
     width: 16px;
     height: 16px;
