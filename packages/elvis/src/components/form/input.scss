@@ -109,7 +109,7 @@
   &.e-input---disabled,
   &:has(input:disabled),
   &:has(textarea:disabled) {
-    --border-width: 2px;
+    --border-width: 1px;
     --border-color: var(--e-color-border-disabled-1);
 
     > input,
@@ -193,18 +193,20 @@
       }
     }
   }
+
   @supports not (background: paint(something)) {
+    /** We're not animating the custom properties here, since Firefox does not like to animate them **/
     @keyframes eInputLoadingAnimation {
       0% {
-        --border-color: var(--e-color-brand-accent);
+        box-shadow: inset 0 0 0 2px var(--e-color-brand-accent);
       }
 
       40% {
-        --border-color: var(--e-color-brand-accent);
+        box-shadow: inset 0 0 0 2px var(--e-color-brand-accent);
       }
 
       100% {
-        --border-color: color-mix(in srgb, var(--e-color-brand-accent) 20%, transparent);
+        box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--e-color-brand-accent) 20%, transparent);
       }
     }
 
