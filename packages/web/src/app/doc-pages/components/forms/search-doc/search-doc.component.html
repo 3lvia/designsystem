@@ -9,17 +9,10 @@
     or list. Instant search is typically used when filtering among content, while search on submit is for
     typical search functions (when content isn’t displayed before searching).
     <app-component-subsection [sectionTitle]="'Instant'">
-      For use cases were the search result should appear "instant".
+      For use cases were the search result should appear "instant". Use the class <code>.e-invisible</code> to
+      hide the clear-button before the user has started typing.
       <app-static-ceg>
         <app-search-instant-ceg />
-      </app-static-ceg>
-      <div class="e-mt-40">
-        Use the
-        <span class="code-text">e-search--searched</span>
-        class when the search input field has a valid search input.
-      </div>
-      <app-static-ceg>
-        <app-search-instant-searched-ceg />
       </app-static-ceg>
     </app-component-subsection>
     <app-component-subsection [sectionTitle]="'On Submit'">
@@ -32,8 +25,8 @@
         <app-search-on-submit-ceg />
       </app-static-ceg>
       <div class="e-mt-40">
-        Use the
-        <span class="code-text">e-search--searched</span>
+        Remove the
+        <span class="code-text">.e-invisible</span>
         class when the search input field has a valid search input.
       </div>
       <app-static-ceg>
