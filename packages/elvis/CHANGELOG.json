@@ -8,7 +8,7 @@
           "type": "breaking_changes",
           "changes": [
             "Move border on text field component from the input element to the input container.",
-            "Deprecated the CSS class <code>.e-search</code> and it's modifier classes"
+            "Deprecated the CSS class <code>.e-search</code> and it's modifier classes."
           ],
           "components": [
             { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
