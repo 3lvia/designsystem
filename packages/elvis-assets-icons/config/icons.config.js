@@ -228,7 +228,7 @@ module.exports = [
   { name: 'checklist-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'cleaning_vacuum', terms: ['tidy', 'washing'], thirdparty: { name: ['streamline'] } },
   { name: 'clock', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'close', deprecated: '7.5.0', newIconName: 'close-bold' },
+  { name: 'close', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
   { name: 'close-bold', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
   { name: 'close_menu', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
   { name: 'cloud_upload', terms: ['upload', 'cloud', 'import'], thirdparty: { name: ['streamline'] } },
