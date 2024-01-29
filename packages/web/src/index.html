@@ -8,6 +8,16 @@
     <link id="favicon" rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
   <body class="e-color-background-1">
+    <form hidden name="role" netlify netlify-honeypot="bot-field">
+      <input type="radio" name="bruker" value="har-bruker" />
+      <input type="radio" name="bruker" value="mangler-bruker" />
+      <input type="text" name="rolle" />
+      <input type="text" name="annetRolle" />
+    </form>
+    <form hidden name="feedback" netlify netlify-honeypot="bot-field">
+      <input type="text" name="tilbakemelding" />
+      <input type="email" name="epost" />
+    </form>
     <app-root></app-root>
   </body>
 </html>
