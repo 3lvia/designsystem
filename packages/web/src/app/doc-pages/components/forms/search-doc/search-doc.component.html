@@ -3,19 +3,18 @@
     <app-search-ceg></app-search-ceg>
   </app-static-ceg>
 
-  <!--TYPE-->
-  <app-component-section type [sectionTitle]="'Type'">
+  <app-component-section type sectionTitle="Type">
     We have two types of search: instant and on submit. These are typically used in connection to a data table
     or list. Instant search is typically used when filtering among content, while search on submit is for
     typical search functions (when content isn’t displayed before searching).
-    <app-component-subsection [sectionTitle]="'Instant'">
+    <app-component-subsection sectionTitle="Instant">
       For use cases were the search result should appear "instant". Use the class <code>.e-invisible</code> to
       hide the clear-button before the user has started typing.
       <app-static-ceg>
         <app-search-instant-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'On Submit'">
+    <app-component-subsection sectionTitle="On Submit">
       For use cases where the search result should appear "on submit". Use a large button for medium search,
       and a small button for small. You can find button documentation
       <a class="e-link e-link--inline" [routerLink]="['/components/button']">here</a>
@@ -35,9 +34,8 @@
     </app-component-subsection>
   </app-component-section>
 
-  <!-- OPTIONS -->
-  <app-component-section options [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'Full width'">
+  <app-component-section options sectionTitle="Options">
+    <app-component-subsection sectionTitle="Full width">
       When a search field needs to take up the entire available width, give the field the
       <span class="code-text">e-form-field—-full-width</span>
       class.
@@ -47,34 +45,37 @@
     </app-component-subsection>
   </app-component-section>
 
-  <!--SIZE-->
-  <app-component-section size [sectionTitle]="'Size'">
-    <app-component-subsection [sectionTitle]="'Medium'">
+  <app-component-section size sectionTitle="Size">
+    <app-component-subsection sectionTitle="Medium">
       <app-static-ceg>
         <app-search-size-medium-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Small'">
+    <app-component-subsection sectionTitle="Small">
       <app-static-ceg>
         <app-search-size-small-ceg />
       </app-static-ceg>
     </app-component-subsection>
   </app-component-section>
 
-  <!-- USAGE -->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-    <app-component-subsection [sectionTitle]="'Placeholder'">
+    <app-component-subsection sectionTitle="Placeholder">
       Include a placeholder to suggest to users what they can search for, but try to keep it short.
     </app-component-subsection>
   </app-component-section>
 
-  <!-- ACCESSIBILITY -->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'aria-label'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="aria-label">
       You don’t need to show label in search, but add an
       <span class="code-text">aria-label</span>
       as an explicit invisable label to the search form code that can accommodate screen reader users.
     </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section api sectionTitle="API">
+    The search component is a design-component that technically uses the <code>.e-input</code> Elvis component
+    behind the scenes. To see more details, please see the
+    <a routerLink="../input" class="e-link e-link--inline">input documentation</a>.
   </app-component-section>
 </app-component-documentation>

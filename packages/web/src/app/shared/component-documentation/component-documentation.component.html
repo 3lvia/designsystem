@@ -53,16 +53,22 @@
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section *ngIf="!isElvis && componentData" sectionTitle="API">
-    <app-component-properties-table [componentData]="componentData" />
-  </app-component-section>
-  <app-component-section
-    *ngIf="isElvis && elvisClassName"
-    sectionTitle="API"
-    [propertiesClass]="elvisClassName"
-  >
-    <app-component-properties [componentName]="elvisClassName" />
-  </app-component-section>
+  <div #customApiDocs>
+    <ng-content select="[api]" />
+  </div>
+
+  @if (!customApiDocs.children.length) {
+    <app-component-section *ngIf="!isElvis && componentData" sectionTitle="API">
+      <app-component-properties-table [componentData]="componentData" />
+    </app-component-section>
+    <app-component-section
+      *ngIf="isElvis && elvisClassName"
+      sectionTitle="API"
+      [propertiesClass]="elvisClassName"
+    >
+      <app-component-properties [componentName]="elvisClassName" />
+    </app-component-section>
+  }
 
   <ng-content select="[configuration]" />
 
