@@ -6,18 +6,21 @@
       (valueOnChange)="radioFilterValue = $any($event).detail.value; searchChangelog()"
     ></elvia-radio-filter>
     <div class="e-form-field">
-      <div class="e-search e-search--instant" [ngClass]="{ 'e-search--searched': searchValue.length > 0 }">
-        <div class="e-input">
-          <input
-            aria-label="Search changelog"
-            type="search"
-            placeholder="Search"
-            [(ngModel)]="searchValue"
-            (ngModelChange)="searchChangelog()"
-          />
-        </div>
+      <div class="e-input">
         <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
-        <button class="e-btn e-btn--icon e-btn--lg" (click)="clearSearch()" aria-label="Clear search">
+        <input
+          aria-label="Search changelog"
+          type="search"
+          placeholder="Search"
+          [(ngModel)]="searchValue"
+          (ngModelChange)="searchChangelog()"
+        />
+        <button
+          class="e-btn e-btn--icon e-btn--lg"
+          (click)="clearSearch()"
+          aria-label="Clear search"
+          [ngClass]="{ 'e-invisible': searchValue.length === 0 }"
+        >
           <span class="e-btn__icon"><i class="e-icon e-icon--close-bold" aria-hidden="true"></i></span>
         </button>
       </div>
