@@ -1,5 +1,5 @@
 <button class="e-btn" (click)="isOpen = true; step = 'role'">Open questionnaire (for debug)</button>
-<elvia-modal hasCloseButton (onClose)="onModalClose()" [isShowing]="isOpen">
+<elvia-modal #modal hasCloseButton (onClose)="onModalClose()" [isShowing]="isOpen">
   <div slot="heading">
     @switch (step) {
       @case ('role') {
@@ -10,7 +10,7 @@
       }
     }
   </div>
-  <app-user-questionnaire-illustration slot="illustration" />
+  <app-user-questionnaire-illustration slot="illustration" *ngIf="step === 'role'" />
 
   <div slot="content" class="e-text-lg">
     <p class="e-m-0 e-mb-24">
@@ -28,12 +28,12 @@
       <div [hidden]="step !== 'role'">
         <div class="e-form-field e-flex e-gap-16 e-mb-16">
           <label class="e-radio">
-            <input type="radio" name="bruker" value="har-bruker" checked />
+            <input type="radio" name="bruker" value="har-bruker" checked (change)="hasElviaAccount = true" />
             <span class="e-radio__mark"></span>
             <span class="e-radio__label">Jeg har en Elvia-bruker</span>
           </label>
           <label class="e-radio">
-            <input type="radio" name="bruker" value="mangler-bruker" />
+            <input type="radio" name="bruker" value="mangler-bruker" (change)="hasElviaAccount = false" />
             <span class="e-radio__mark"></span>
             <span class="e-radio__label">Jeg har ikke en Elvia-bruker</span>
           </label>
@@ -73,18 +73,20 @@
           </div>
         </div>
 
-        <div class="e-form-field">
-          <label class="e-form-field__label e-form-field__label--optional" for="email">E-postadresse</label>
-          <div class="e-input">
-            <input placeholder="ola.nordmann@elvia.no" name="epost" type="email" id="email" />
-          </div>
-          <span class="e-form-field__error e-form-field__error--visible">
-            <span>
-              <i class="e-icon e-icon--question_circle e-icon--xs" aria-hidden="true"></i>
+        @if (hasElviaAccount) {
+          <div class="e-form-field">
+            <label class="e-form-field__label e-form-field__label--optional" for="email">E-postadresse</label>
+            <div class="e-input">
+              <input placeholder="ola.nordmann@elvia.no" name="epost" type="email" id="email" />
+            </div>
+            <span class="e-form-field__error e-form-field__error--visible">
+              <span>
+                <i class="e-icon e-icon--question_circle e-icon--xs" aria-hidden="true"></i>
+              </span>
+              <span>Lar oss kontakte deg for flere spørsmål.</span>
             </span>
-            <span>Lar oss kontakte deg for flere spørsmål.</span>
-          </span>
-        </div>
+          </div>
+        }
 
         <button class="e-btn e-btn--primary e-btn--lg e-mt-32">Send tilbakemelding</button>
       </div>

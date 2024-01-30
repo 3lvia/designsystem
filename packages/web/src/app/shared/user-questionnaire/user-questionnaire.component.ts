@@ -5,6 +5,8 @@ import { UserQuestionnaireIllustrationComponent } from './user-questionnaire-ill
 import { UserQuestionnaireService } from './user-questionnaire.service';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-dropdown';
+import { CommonModule } from '@angular/common';
+import { type ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 type FormName = 'role' | 'feedback';
 
@@ -17,13 +19,14 @@ const USER_QUESTIONNAIRE_STORAGE_KEY = 'hasCompletedUserQuestionnaire-30.01.2024
 @Component({
   selector: 'app-user-questionnaire',
   standalone: true,
-  imports: [UserQuestionnaireIllustrationComponent],
+  imports: [CommonModule, UserQuestionnaireIllustrationComponent],
   templateUrl: './user-questionnaire.component.html',
   styleUrl: './user-questionnaire.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class UserQuestionnaireComponent {
   @ViewChild('form') form: ElementRef<HTMLFormElement>;
+  @ViewChild('modal') modal: ElementRef<ElvisComponentWrapper>;
   roles: DropdownItem[] = [
     { label: 'UX / UI designer', value: 'uxui-desiger' },
     { label: 'Tjenestedesigner', value: 'tjenestedesigner' },
@@ -39,6 +42,7 @@ export class UserQuestionnaireComponent {
     { label: 'Annet', value: 'annet' },
   ];
   role: string | undefined;
+  hasElviaAccount = true;
   step: FormName = 'role';
   dropdownErrorState?: DropdownProps['errorOptions'];
 
@@ -54,6 +58,12 @@ export class UserQuestionnaireComponent {
       this.dropdownErrorState = { isErrorState: true, text: 'Velg din rolle' };
       return;
     }
+
+    // Hack to remove / hide illustration for 2nd page
+    const slots = this.modal.nativeElement.getAllSlots();
+    delete slots['illustration'];
+    this.modal.nativeElement.setProps({ illustration: undefined });
+
     this.dropdownErrorState = undefined;
     this.step = 'feedback';
   };
