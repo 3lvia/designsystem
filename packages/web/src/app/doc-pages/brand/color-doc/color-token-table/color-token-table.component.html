@@ -1,16 +1,15 @@
-<div class="e-form-field e-mb-32">
-  <div
-    class="e-search e-search--instant"
-    [ngClass]="{ 'e-search--searched': filterInput.value.length > 0 }"
-    style="width: 250px"
-  >
-    <div class="e-input">
-      <input aria-label="Search" type="search" placeholder="Filter tokens" #filterInput (keyup)="(0)" />
-    </div>
+<div class="e-form-field e-mb-32" style="width: 250px">
+  <div class="e-input">
     <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
-    <button class="e-btn e-btn--icon" aria-label="Clear filter" (click)="filterInput.value = ''">
+    <input aria-label="Search" type="search" placeholder="Filter tokens" #filterInput (keyup)="(0)" />
+    <button
+      class="e-btn e-btn--icon"
+      aria-label="Clear filter"
+      (click)="filterInput.value = ''"
+      [ngClass]="{ 'e-invisible': filterInput.value.length === 0 }"
+    >
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
+        <i class="e-icon e-icon--close" aria-hidden="true"></i>
       </span>
     </button>
   </div>

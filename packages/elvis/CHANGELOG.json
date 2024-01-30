@@ -1,6 +1,42 @@
 {
   "content": [
     {
+      "version": "16.0.0",
+      "date": "January 30, 2024",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Moved the border on the text field component from the input element to the input container.",
+            "Deprecated the CSS class <code>.e-search</code> and its modifier classes.",
+            "The text field CSS now relies on usage of the :has selector. Be aware of this if you need to support old browsers."
+          ],
+          "components": [
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Search", "url": "https://design.elvia.io/components/search" }
+          ],
+          "fixes": [
+            "The dimensions of the text field component may differ slightly. Check that the text field instances in your app looks like they should.",
+            "The <code>.e-search</code> CSS class and its modifier classes have been deprecated. Look at the DOM examples for the search component to update your code.",
+            "The text field component now uses <code>box-shadow</code> for its border. If you have modified the CSS for the text field component (which is not recommended), you must update it accordingly."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "15.6.4",
+      "date": "January 25, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where a list nested in a numbered list would become a numbered list and keep counting on the outer list. It will now correctly be a non-numbered list, unless <code>e-list--numbers</code> is applied to the inner list also."
+          ],
+          "components": [{ "displayName": "List", "url": "https://design.elvia.io/components/list" }]
+        }
+      ]
+    },
+    {
       "version": "15.6.3",
       "date": "January 19, 2024",
       "changelog": [

@@ -57,7 +57,7 @@
   counter-reset: elvis-item;
   gap: 16px;
 
-  li {
+  > li {
     counter-increment: elvis-item;
 
     &::before {
