@@ -13,25 +13,31 @@ export class SearchCegComponent implements StaticComponentExample, AfterViewInit
 
   constructor(private element: ElementRef<HTMLElement>) {}
 
+  get buttonElement() {
+    return this.element.nativeElement.querySelector('button') as HTMLButtonElement | undefined;
+  }
+
+  get inputElement() {
+    return this.element.nativeElement.querySelector('input') as HTMLInputElement | undefined;
+  }
+
   ngAfterViewInit(): void {
     // Add event listeners like this, as they can't be added in the template because of the StaticCeg
-    this.element.nativeElement.querySelector('button')?.addEventListener('click', this.clearInput);
-    this.element.nativeElement.querySelector('input')?.addEventListener('keyup', this.onInput);
+    this.buttonElement?.addEventListener('click', this.clearInput);
+    this.inputElement?.addEventListener('keyup', this.onInput);
   }
 
   onInput = (event: KeyboardEvent) => {
     if (event.target && 'value' in event.target && typeof event.target.value === 'string') {
-      this.element.nativeElement
-        .querySelector('.e-search')
-        ?.classList.toggle('e-search--searched', event.target.value.length > 0);
+      this.buttonElement?.classList.toggle('e-invisible', event.target.value.length === 0);
     }
   };
 
   clearInput = () => {
-    const input = this.element.nativeElement.querySelector('input');
+    const input = this.inputElement;
     if (input) {
       input.value = '';
     }
-    this.element.nativeElement.querySelector('.e-search')?.classList.remove('e-search--searched');
+    this.buttonElement?.classList.add('e-invisible');
   };
 }

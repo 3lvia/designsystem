@@ -451,7 +451,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Search',
     description:
-      'Search allows the user to find specific information by search terms as an alternative to the main navigation menu.',
+      'Search allows the user to find specific information by search terms as an alternative to the main navigation menu. Search results can either be displayed when the user presses the button or by instant search, where the results appear as you type.',
     docUrl: Pages.Search,
     absolutePath: '/components/' + Pages.Search,
     status: DocPageStatus.Done,

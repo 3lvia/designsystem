@@ -114,17 +114,16 @@
 
   <!-- SIZE -->
   <app-component-section size [sectionTitle]="'Size'">
-    There are two different sizes of input. The width of the container should be proportional to the expected
-    user input and can be changes by setting the width on the container of the input.
+    There are two different sizes of the search component; medium and small. The small text fields are
+    typically used in Elvia's internal systems, where screen real estate is an important factor. Regardless of
+    which style you use for text fields, you should always stick with the same type throughout the page and
+    never mix the two.
     <app-component-subsection [sectionTitle]="'Medium'">
       <app-static-ceg>
         <app-input-size-medium-ceg />
       </app-static-ceg>
     </app-component-subsection>
     <app-component-subsection [sectionTitle]="'Small'">
-      Small text fields are typically used in Elvia’s internal systems, where screen real estate is an
-      important factor. Regardless of which style you use for text fields, you should always stick with the
-      same type throughout the page and never mix the two.
       <app-static-ceg>
         <app-input-size-small-ceg />
       </app-static-ceg>

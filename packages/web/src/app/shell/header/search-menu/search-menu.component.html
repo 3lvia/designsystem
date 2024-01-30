@@ -3,29 +3,31 @@
   <div>
     <div class="elvis-search-header e-mt-8">
       <h2 class="e-title-md search-title">What are you looking for?</h2>
-      <div class="search-wrapper">
-        <div
-          class="e-search e-text-md e-search--global"
-          [ngClass]="{ 'e-search--searched': searchString !== '' }"
-        >
-          <div class="e-input">
-            <input
-              #searchInput
-              [(ngModel)]="searchString"
-              type="text"
-              placeholder="Search"
-              autocomplete="off"
-              (ngModelChange)="onSearch()"
-              (keydown)="onKeydown($event)"
-              aria-label="Search through site content"
-            />
-          </div>
-          <button class="e-btn e-btn--icon" (click)="clearSearch()" aria-label="Empty search field">
+      <div class="e-form-field page-search e-mt-40">
+        <div class="e-input">
+          <input
+            #searchInput
+            [(ngModel)]="searchString"
+            type="search"
+            placeholder="Search"
+            autocomplete="off"
+            (ngModelChange)="onSearch()"
+            (keydown)="onKeydown($event)"
+            aria-label="Search through site content"
+          />
+          <button
+            class="e-btn e-btn--icon e-mr-0"
+            (click)="clearSearch()"
+            aria-label="Empty search field"
+            [ngClass]="{ 'e-invisible': searchString === '' }"
+          >
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
+              <i class="e-icon e-icon--close" aria-hidden="true"></i>
             </span>
           </button>
         </div>
+      </div>
+      <div class="search-results">
         <p
           class="component-suggestions e-text-md"
           *ngIf="searchStatus === 'ready' && synonymComponents.length > 0"
