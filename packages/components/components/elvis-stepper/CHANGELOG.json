@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "30.01.24",
+      "version": "1.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue with the <code>nextButtonText</code> and <code>previousButtonText</code> props, ensuring it is possible to set the button texts of each step."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.01.24",
       "version": "1.2.0",
       "changelog": [

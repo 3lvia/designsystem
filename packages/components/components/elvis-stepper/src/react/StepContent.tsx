@@ -7,7 +7,6 @@ import { StepStates } from './publicApi.public';
 
 type StepContentProps = {
   currentStep: number;
-  numberOfSteps: number;
   steps?: StepStates;
   isForced?: boolean;
   content?: JSX.Element[];
@@ -18,7 +17,6 @@ type StepContentProps = {
 
 export const StepContent: FC<StepContentProps> = function ({
   currentStep,
-  numberOfSteps,
   steps,
   isForced = false,
   content,
@@ -34,9 +32,7 @@ export const StepContent: FC<StepContentProps> = function ({
       <StepperActions>
         {currentStep !== 1 ? (
           <SecondaryButton onClick={() => handleStepChange(currentStep - 1)}>
-            {steps?.[currentStep]?.previousButtonText && currentStep === numberOfSteps
-              ? steps?.[currentStep]?.previousButtonText
-              : 'Tilbake'}
+            {steps?.[currentStep]?.previousButtonText ?? 'Tilbake'}
           </SecondaryButton>
         ) : (
           <div></div>
@@ -47,9 +43,7 @@ export const StepContent: FC<StepContentProps> = function ({
             handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
           }
         >
-          {steps?.[currentStep]?.nextButtonText && currentStep === numberOfSteps
-            ? steps?.[currentStep]?.nextButtonText
-            : 'Neste'}
+          {steps?.[currentStep]?.nextButtonText ?? 'Neste'}
         </PrimaryButton>
       </StepperActions>
     </StepperContent>
