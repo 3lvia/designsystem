@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
 import { type DropdownItem } from '@elvia/elvis-dropdown';
+import { type DropdownProps } from '@elvia/elvis-dropdown/react';
 import { UserQuestionnaireIllustrationComponent } from './user-questionnaire-illustration/user-questionnaire-illustration.component';
 import { UserQuestionnaireService } from './user-questionnaire.service';
 import '@elvia/elvis-modal';
@@ -32,6 +33,7 @@ export class UserQuestionnaireComponent {
   ];
   role: string | undefined;
   step: FormName = 'role';
+  dropdownErrorState?: DropdownProps['errorOptions'];
 
   private hasPreviouslyBeenCompleted = localStorage.getItem(USER_QUESTIONNAIRE_STORAGE_KEY) === 'true';
 
@@ -39,6 +41,15 @@ export class UserQuestionnaireComponent {
   isOpen = !this.hasPreviouslyBeenCompleted;
 
   constructor(private userQuestionnaireService: UserQuestionnaireService) {}
+
+  goToFeedback = () => {
+    if (!this.role) {
+      this.dropdownErrorState = { isErrorState: true, text: 'Velg din rolle' };
+      return;
+    }
+    this.dropdownErrorState = undefined;
+    this.step = 'feedback';
+  };
 
   onSubmit = (event: SubmitEvent) => {
     event.preventDefault();

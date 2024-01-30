@@ -43,7 +43,8 @@
           placeholder="Hva jobber du med?"
           [items]="roles"
           [value]="role"
-          (valueOnChange)="role = $any($event).detail.value"
+          (valueOnChange)="role = $any($event).detail.value; dropdownErrorState = undefined"
+          [errorOptions]="dropdownErrorState"
         />
         <input hidden name="rolle" type="text" [value]="role ?? ''" />
 
@@ -55,7 +56,7 @@
           </div>
         }
 
-        <button type="button" (click)="step = 'feedback'" class="e-btn e-btn--primary e-btn--lg e-mt-32">
+        <button type="button" (click)="goToFeedback()" class="e-btn e-btn--primary e-btn--lg e-mt-32">
           Send inn
         </button>
       </div>
