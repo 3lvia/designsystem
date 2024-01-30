@@ -1,5 +1,5 @@
-<button class="e-btn" (click)="isOpen = true">Open questionnaire</button>
-<elvia-modal hasCloseButton (onClose)="isOpen = !isOpen" [isShowing]="isOpen">
+<button class="e-btn" (click)="isOpen = true; step = 'role'">Open questionnaire (for debug)</button>
+<elvia-modal hasCloseButton (onClose)="onModalClose()" [isShowing]="isOpen">
   <div slot="heading">Heisann 😊</div>
   <app-user-questionnaire-illustration slot="illustration" />
 
