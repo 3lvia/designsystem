@@ -254,13 +254,13 @@ export class CMSService {
     // todo replace this with tools icons (the same as component, brand and patters)
     const accessibilityIcon = {} as Record<string, string>;
     const accessibilityCard = await this.getEntry<IOverviewCard>('1Xz4n9usk2Z1VeugbnfsI5');
-    let accessibilityUrl = `https:${extractLocale(
-      extractLocale(accessibilityCard.fields.pageIcon)!.fields.file,
-    )?.url}`;
+    let accessibilityUrl = `https:${
+      extractLocale(extractLocale(accessibilityCard.fields.pageIcon)!.fields.file)?.url
+    }`;
     if (this.currentTheme === 'dark' && accessibilityCard.fields.pageIconDarkTheme) {
-      accessibilityUrl = `https:${extractLocale(
-        extractLocale(accessibilityCard.fields.pageIconDarkTheme)!.fields.file,
-      )?.url}`;
+      accessibilityUrl = `https:${
+        extractLocale(extractLocale(accessibilityCard.fields.pageIconDarkTheme)!.fields.file)?.url
+      }`;
     }
     accessibilityIcon['accessibility'] = accessibilityUrl;
 
