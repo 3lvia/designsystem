@@ -1,5 +1,6 @@
 <app-header></app-header>
 <elvia-toast></elvia-toast>
+<app-user-questionnaire />
 
 <main [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
   <ng-container *ngIf="currentRoute !== 'pageWithSidenav'; else pageWithSidenav">

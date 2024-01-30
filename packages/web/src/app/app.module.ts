@@ -9,6 +9,7 @@ import { ErrorModule } from './shared/error/error.module';
 import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
 import { HomeModule } from './home/home.module';
 import '@elvia/elvis-outline';
+import { UserQuestionnaireComponent } from './shared/user-questionnaire/user-questionnaire.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import '@elvia/elvis-outline';
     ShellModule,
     ErrorModule,
     CMSPageModule,
+    UserQuestionnaireComponent,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

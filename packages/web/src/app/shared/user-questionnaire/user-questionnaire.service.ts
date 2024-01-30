@@ -12,7 +12,6 @@ export class UserQuestionnaireService {
   submitForm(formState: Record<string, string>): Observable<string> {
     const entry = new HttpParams({
       fromObject: {
-        'form-name': 'feedbackForm',
         ...formState,
       },
     });

@@ -36,7 +36,6 @@ import '@elvia/elvis-tabs';
 import '@elvia/elvis-timepicker';
 import '@elvia/elvis-toast';
 import '@elvia/elvis-tooltip';
-import { UserQuestionnaireComponent } from 'src/app/shared/user-questionnaire/user-questionnaire.component';
 
 @NgModule({
   imports: [
@@ -46,7 +45,6 @@ import { UserQuestionnaireComponent } from 'src/app/shared/user-questionnaire/us
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
     RouterModule,
-    UserQuestionnaireComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [v2PlaygroundComponent],
