@@ -2602,6 +2602,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
+    "@elvia/elvis-assets-icons": "npm:^3.9.0"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
     "@elvia/elvis-datepicker": "npm:^9.0.4"
     "@elvia/elvis-timepicker": "npm:^5.1.1"
