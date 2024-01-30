@@ -55,11 +55,9 @@
           </div>
         }
 
-        <div class="buttons e-mt-32">
-          <button type="button" (click)="step = 'feedback'" class="e-btn e-btn--primary e-btn--lg">
-            Send inn
-          </button>
-        </div>
+        <button type="button" (click)="step = 'feedback'" class="e-btn e-btn--primary e-btn--lg e-mt-32">
+          Send inn
+        </button>
       </div>
 
       <div [hidden]="step !== 'feedback'">
@@ -87,9 +85,7 @@
           </span>
         </div>
 
-        <div class="buttons e-mt-32">
-          <button class="e-btn e-btn--primary e-btn--lg">Send tilbakemelding</button>
-        </div>
+        <button class="e-btn e-btn--primary e-btn--lg e-mt-32">Send tilbakemelding</button>
       </div>
     </form>
   </div>

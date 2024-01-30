@@ -1,6 +1,9 @@
 form {
-  .buttons {
-    display: flex;
-    justify-content: end;
+  .e-btn {
+    float: right;
+  }
+
+  .e-radio:not(:last-child) {
+    margin-bottom: 0;
   }
 }
