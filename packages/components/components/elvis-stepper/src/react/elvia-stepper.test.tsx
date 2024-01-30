@@ -144,7 +144,7 @@ describe('Elvis Stepper', () => {
       expect(screenReader).toBeInTheDocument();
     });
 
-    it('should have the right next button text', async () => {
+    it('should have the right next and previous button text', async () => {
       const user = userEvent.setup();
       const nextButton = screen.getByRole('button', { name: /neste/i });
       await user.click(nextButton);
