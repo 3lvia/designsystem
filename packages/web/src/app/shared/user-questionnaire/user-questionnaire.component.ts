@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
 import { type DropdownItem } from '@elvia/elvis-dropdown';
 import { UserQuestionnaireIllustrationComponent } from './user-questionnaire-illustration/user-questionnaire-illustration.component';
 import { UserQuestionnaireService } from './user-questionnaire.service';
@@ -22,6 +22,7 @@ const USER_QUESTIONNAIRE_STORAGE_KEY = 'hasCompletedUserQuestionnaire-30.01.2024
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class UserQuestionnaireComponent {
+  @ViewChild('form') form: ElementRef<HTMLFormElement>;
   roles: DropdownItem[] = [
     { label: 'UX / UI designer', value: 'uxui-desiger' },
     { label: 'Tjenestedesigner', value: 'tjenestedesigner' },
@@ -32,41 +33,35 @@ export class UserQuestionnaireComponent {
   role: string | undefined;
   step: FormName = 'role';
 
-  private hasBeenCompleted = localStorage.getItem(USER_QUESTIONNAIRE_STORAGE_KEY) === 'true';
+  private hasPreviouslyBeenCompleted = localStorage.getItem(USER_QUESTIONNAIRE_STORAGE_KEY) === 'true';
 
   // Only open modal on mount if the questionnaire hasn't been completed before
-  isOpen = !this.hasBeenCompleted;
+  isOpen = !this.hasPreviouslyBeenCompleted;
 
   constructor(private userQuestionnaireService: UserQuestionnaireService) {}
 
   onSubmit = (event: SubmitEvent) => {
     event.preventDefault();
-
-    const formData = new FormData(event.target as HTMLFormElement);
-    const formState = Object.fromEntries(formData as any);
-
-    console.log(formState);
-    this.userQuestionnaireService.submitForm(formState).subscribe(() => {
-      if (this.step === 'role') {
-        this.step = 'feedback';
-        this.setHasCompletedOrClosedQuestionnaire();
-      } else if (this.step === 'feedback') {
-        this.isOpen = false;
-      }
-    });
-
-    // Debugging, make submit send to next form even when submit fails
-    // if (this.step === 'role') {
-    //   this.step = 'feedback';
-    //   this.setHasCompletedOrClosedQuestionnaire();
-    // } else if (this.step === 'feedback') {
-    //   this.isOpen = false;
-    // }
+    this.triggerSubmitForm(event.target as HTMLFormElement);
   };
 
   onModalClose = () => {
+    // Submit form if modal is closed after the first page is filled, but without filling the 2nd page
+    if (this.step !== 'role') {
+      this.triggerSubmitForm(this.form.nativeElement);
+    }
     this.isOpen = !this.isOpen;
     this.setHasCompletedOrClosedQuestionnaire();
+  };
+
+  private triggerSubmitForm = (formElement: HTMLFormElement) => {
+    if (this.hasPreviouslyBeenCompleted) {
+      return;
+    }
+    const formData = new FormData(formElement);
+    const formState = Object.fromEntries(formData as any);
+
+    this.userQuestionnaireService.submitForm(formState).subscribe();
   };
 
   private setHasCompletedOrClosedQuestionnaire = () => {

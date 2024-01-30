@@ -1,19 +1,29 @@
 <button class="e-btn" (click)="isOpen = true; step = 'role'">Open questionnaire (for debug)</button>
 <elvia-modal hasCloseButton (onClose)="onModalClose()" [isShowing]="isOpen">
-  <div slot="heading">Heisann 😊</div>
+  <div slot="heading">
+    @switch (step) {
+      @case ('role') {
+        Heisann 😊
+      }
+      @case ('feedback') {
+        Takk for hjelpen!
+      }
+    }
+  </div>
   <app-user-questionnaire-illustration slot="illustration" />
 
   <div slot="content" class="e-text-lg">
-    @if (step === 'role') {
-      <p class="e-m-0 e-mb-16">
-        Vi vil gjerne bli mer kjent med brukerene våre. Kan du fortelle oss om hvilken rolle du har?
-      </p>
-    } @else if (step === 'feedback') {
-      <p class="e-m-0 e-mb-16">
-        Legg gjerne også ved en tilbakemelding på hvordan du opplever designsystemet.
-      </p>
-    }
-    <form name="user-questionnaire" method="POST" (submit)="onSubmit($event)">
+    <p class="e-m-0 e-mb-16">
+      @switch (step) {
+        @case ('role') {
+          Vi vil gjerne bli mer kjent med brukerene våre. Kan du fortelle oss om hvilken rolle du har?
+        }
+        @case ('feedback') {
+          Legg gjerne også ved en tilbakemelding på hvordan du opplever designsystemet.
+        }
+      }
+    </p>
+    <form #form name="user-questionnaire" method="POST" (submit)="onSubmit($event)">
       <input type="hidden" name="form-name" value="user-questionnaire" />
       <div [hidden]="step !== 'role'">
         <div class="e-form-field e-flex e-gap-16 e-mb-16">
