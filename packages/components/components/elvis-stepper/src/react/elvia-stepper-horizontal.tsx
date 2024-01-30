@@ -70,7 +70,6 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
       <StepContent
         currentStep={currentStep}
         handleStepChange={handleStepChange}
-        numberOfSteps={numberOfSteps}
         content={content}
         contentRef={contentRef}
         isForced={isForced}
