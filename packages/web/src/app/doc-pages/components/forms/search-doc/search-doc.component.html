@@ -8,15 +8,17 @@
     or list. Instant search is typically used when filtering among content, while search on submit is for
     typical search functions (when content isn’t displayed before searching).
     <app-component-subsection sectionTitle="Instant">
-      For use cases were the search result should appear "instant". Use the class <code>.e-invisible</code> to
-      hide the clear-button before the user has started typing.
+      Instant search is typically used when filtering among content as you can se the results right away.
+      Results will be displayed on the fly. Use the class
+      <code>.e-invisible</code> to hide the clear-button before the user has started typing.
       <app-static-ceg>
         <app-search-instant-ceg />
       </app-static-ceg>
     </app-component-subsection>
     <app-component-subsection sectionTitle="On Submit">
-      For use cases where the search result should appear "on submit". Use a large button for medium search,
-      and a small button for small. You can find button documentation
+      In search on submit you have to click the button before the search is executed. Use a large button for
+      normal search, and a small button for compact. Use a large button for medium search, and a small button
+      for small. You can find button documentation
       <a class="e-link e-link--inline" [routerLink]="['/components/button']">here</a>
       .
 
@@ -25,7 +27,7 @@
       </app-static-ceg>
       <div class="e-mt-40">
         Remove the
-        <span class="code-text">.e-invisible</span>
+        <code>.e-invisible</code>
         class when the search input field has a valid search input.
       </div>
       <app-static-ceg>
@@ -37,7 +39,7 @@
   <app-component-section options sectionTitle="Options">
     <app-component-subsection sectionTitle="Full width">
       When a search field needs to take up the entire available width, give the field the
-      <span class="code-text">e-form-field—-full-width</span>
+      <code>e-form-field—-full-width</code>
       class.
       <app-static-ceg>
         <app-search-fullwidth-ceg />
@@ -60,6 +62,10 @@
 
   <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-component-subsection sectionTitle="Label">
+      You don't need to show label in search, but add an aria-label to the search form code that can
+      accommodate screen reader users.
+    </app-component-subsection>
     <app-component-subsection sectionTitle="Placeholder">
       Include a placeholder to suggest to users what they can search for, but try to keep it short.
     </app-component-subsection>
@@ -67,8 +73,8 @@
 
   <app-component-section accessibility sectionTitle="Accessibility">
     <app-component-subsection sectionTitle="aria-label">
-      You don’t need to show label in search, but add an
-      <span class="code-text">aria-label</span>
+      You don't need to show label in search, but add an
+      <code>aria-label</code>
       as an explicit invisable label to the search form code that can accommodate screen reader users.
     </app-component-subsection>
   </app-component-section>

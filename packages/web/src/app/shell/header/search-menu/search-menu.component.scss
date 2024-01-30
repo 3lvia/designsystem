@@ -40,7 +40,7 @@
     align-items: center;
 
     @include breakpoints.breakpoint-up(Tablet) {
-      margin-top: 0px;
+      margin-top: 0;
     }
 
     .page-search,
@@ -68,7 +68,7 @@
     }
 
     .search-title {
-      margin: 0px;
+      margin: 0;
       @include breakpoints.breakpoint-up(Mobile) {
         display: none;
       }
@@ -105,7 +105,7 @@
     }
     @include breakpoints.breakpoint-up(Mobile) {
       width: auto;
-      margin: 0px;
+      margin: 0;
       margin-top: 32px;
     }
 
