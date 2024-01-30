@@ -22,14 +22,14 @@ const USER_QUESTIONNAIRE_STORAGE_KEY = 'hasCompletedUserQuestionnaire-30.01.2024
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class UserQuestionnaireComponent {
-  roller: DropdownItem[] = [
+  roles: DropdownItem[] = [
     { label: 'UX / UI designer', value: 'uxui-desiger' },
     { label: 'Tjenestedesigner', value: 'tjenestedesigner' },
     { label: 'Grafisk designer (Branding)', value: 'grafisk-designer' },
     { label: 'Frontend-utvikler', value: 'frontend-utvikler' },
     { label: 'Annet', value: 'annet' },
   ];
-  rolle: string | undefined;
+  role: string | undefined;
   step: FormName = 'role';
 
   private hasBeenCompleted = localStorage.getItem(USER_QUESTIONNAIRE_STORAGE_KEY) === 'true';
@@ -45,6 +45,7 @@ export class UserQuestionnaireComponent {
     const formData = new FormData(event.target as HTMLFormElement);
     const formState = Object.fromEntries(formData as any);
 
+    console.log(formState);
     this.userQuestionnaireService.submitForm(formState).subscribe(() => {
       if (this.step === 'role') {
         this.step = 'feedback';
@@ -69,6 +70,6 @@ export class UserQuestionnaireComponent {
   };
 
   private setHasCompletedOrClosedQuestionnaire = () => {
-    localStorage.setItem(USER_QUESTIONNAIRE_STORAGE_KEY, 'true');
+    // localStorage.setItem(USER_QUESTIONNAIRE_STORAGE_KEY, 'true');
   };
 }

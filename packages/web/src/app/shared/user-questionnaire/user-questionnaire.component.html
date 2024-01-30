@@ -4,83 +4,83 @@
   <app-user-questionnaire-illustration slot="illustration" />
 
   <div slot="content" class="e-text-lg">
-    @switch (step) {
-      @case ('role') {
-        <p class="e-m-0 e-mb-16">
-          Vi vil gjerne bli mer kjent med brukerene våre. Kan du fortelle oss om hvilken rolle du har?
-        </p>
-        <form name="role" method="POST" (submit)="onSubmit($event)">
-          <input type="hidden" name="form-name" value="role" />
-          <div class="e-form-field e-flex e-gap-16 e-mb-16">
-            <label class="e-radio">
-              <input type="radio" name="bruker" value="har-bruker" checked />
-              <span class="e-radio__mark"></span>
-              <span class="e-radio__label">Jeg har en Elvia-bruker</span>
-            </label>
-            <label class="e-radio">
-              <input type="radio" name="bruker" value="mangler-bruker" />
-              <span class="e-radio__mark"></span>
-              <span class="e-radio__label">Jeg har ikke en Elvia-bruker</span>
-            </label>
-          </div>
-
-          <elvia-dropdown
-            placeholder="Hva jobber du med?"
-            [items]="roller"
-            [value]="rolle"
-            (valueOnChange)="rolle = $any($event).detail.value"
-          />
-          <input hidden name="rolle" type="text" [value]="rolle ?? ''" />
-
-          @if (rolle === 'annet') {
-            <div class="e-form-field">
-              <div class="e-input">
-                <input placeholder="Skriv inn din rolle" name="annetRolle" autocomplete="off" />
-              </div>
-            </div>
-          }
-
-          <div class="buttons e-mt-32">
-            <button class="e-btn e-btn--primary e-btn--lg">Send inn</button>
-          </div>
-        </form>
-      }
-
-      @case ('feedback') {
-        <p class="e-m-0 e-mb-16">
-          Legg gjerne også ved en tilbakemelding på hvordan du opplever designsystemet.
-        </p>
-        <form name="feedback" method="POST" (submit)="onSubmit($event)">
-          <input type="hidden" name="form-name" value="feedback" />
-          <div class="e-form-field e-mb-32">
-            <label class="e-form-field__label" for="tilbakemelding">Gi oss din tilbakemelding</label>
-            <div class="e-input">
-              <textarea
-                name="tilbakemelding"
-                id="tilbakemelding"
-                placeholder="Noe du savner? Noe som fungerer bra/dårlig?"
-              ></textarea>
-            </div>
-          </div>
-
-          <div class="e-form-field">
-            <label class="e-form-field__label e-form-field__label--optional" for="email">E-postadresse</label>
-            <div class="e-input">
-              <input placeholder="ola.nordmann@elvia.no" name="epost" type="email" id="email" />
-            </div>
-            <span class="e-form-field__error e-form-field__error--visible">
-              <span>
-                <i class="e-icon e-icon--question_circle e-icon--xs" aria-hidden="true"></i>
-              </span>
-              <span>Lar oss kontakte deg for flere spørsmål.</span>
-            </span>
-          </div>
-
-          <div class="buttons e-mt-32">
-            <button class="e-btn e-btn--primary e-btn--lg">Send tilbakemelding</button>
-          </div>
-        </form>
-      }
+    @if (step === 'role') {
+      <p class="e-m-0 e-mb-16">
+        Vi vil gjerne bli mer kjent med brukerene våre. Kan du fortelle oss om hvilken rolle du har?
+      </p>
+    } @else if (step === 'feedback') {
+      <p class="e-m-0 e-mb-16">
+        Legg gjerne også ved en tilbakemelding på hvordan du opplever designsystemet.
+      </p>
     }
+    <form name="user-questionnaire" method="POST" (submit)="onSubmit($event)">
+      <input type="hidden" name="form-name" value="user-questionnaire" />
+      <div [hidden]="step !== 'role'">
+        <div class="e-form-field e-flex e-gap-16 e-mb-16">
+          <label class="e-radio">
+            <input type="radio" name="bruker" value="har-bruker" checked />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Jeg har en Elvia-bruker</span>
+          </label>
+          <label class="e-radio">
+            <input type="radio" name="bruker" value="mangler-bruker" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Jeg har ikke en Elvia-bruker</span>
+          </label>
+        </div>
+
+        <elvia-dropdown
+          placeholder="Hva jobber du med?"
+          [items]="roles"
+          [value]="role"
+          (valueOnChange)="role = $any($event).detail.value"
+        />
+        <input hidden name="rolle" type="text" [value]="role ?? ''" />
+
+        @if (role === 'annet') {
+          <div class="e-form-field">
+            <div class="e-input">
+              <input placeholder="Skriv inn din rolle" name="annet-rolle" autocomplete="off" />
+            </div>
+          </div>
+        }
+
+        <div class="buttons e-mt-32">
+          <button type="button" (click)="step = 'feedback'" class="e-btn e-btn--primary e-btn--lg">
+            Send inn
+          </button>
+        </div>
+      </div>
+
+      <div [hidden]="step !== 'feedback'">
+        <div class="e-form-field e-mb-32">
+          <label class="e-form-field__label" for="tilbakemelding">Gi oss din tilbakemelding</label>
+          <div class="e-input">
+            <textarea
+              name="tilbakemelding"
+              id="tilbakemelding"
+              placeholder="Noe du savner? Noe som fungerer bra/dårlig?"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="e-form-field">
+          <label class="e-form-field__label e-form-field__label--optional" for="email">E-postadresse</label>
+          <div class="e-input">
+            <input placeholder="ola.nordmann@elvia.no" name="epost" type="email" id="email" />
+          </div>
+          <span class="e-form-field__error e-form-field__error--visible">
+            <span>
+              <i class="e-icon e-icon--question_circle e-icon--xs" aria-hidden="true"></i>
+            </span>
+            <span>Lar oss kontakte deg for flere spørsmål.</span>
+          </span>
+        </div>
+
+        <div class="buttons e-mt-32">
+          <button class="e-btn e-btn--primary e-btn--lg">Send tilbakemelding</button>
+        </div>
+      </div>
+    </form>
   </div>
 </elvia-modal>
