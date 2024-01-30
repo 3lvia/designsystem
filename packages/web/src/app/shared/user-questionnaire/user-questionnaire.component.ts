@@ -29,6 +29,13 @@ export class UserQuestionnaireComponent {
     { label: 'Tjenestedesigner', value: 'tjenestedesigner' },
     { label: 'Grafisk designer (Branding)', value: 'grafisk-designer' },
     { label: 'Frontend-utvikler', value: 'frontend-utvikler' },
+    { label: 'Backend-utvikler', value: 'backend-utvikler' },
+    { label: 'Innholdsprodusent', value: 'innholdsprodusent' },
+    { label: 'Salg og markedsføring', value: 'salg-og-markedsføring' },
+    { label: 'HR (Human Resources)', value: 'hr-(human-resources)' },
+    { label: 'Produkteier', value: 'produkteier' },
+    { label: 'Prosjektleder', value: 'prosjektleder' },
+    { label: 'Ledelse', value: 'ledelse' },
     { label: 'Annet', value: 'annet' },
   ];
   role: string | undefined;
