@@ -71,6 +71,8 @@ export class UserQuestionnaireComponent {
   onSubmit = (event: SubmitEvent) => {
     event.preventDefault();
     this.triggerSubmitForm(event.target as HTMLFormElement);
+    this.isOpen = false;
+    this.setHasCompletedOrClosedQuestionnaire();
   };
 
   onModalClose = () => {
@@ -78,7 +80,7 @@ export class UserQuestionnaireComponent {
     if (this.step !== 'role') {
       this.triggerSubmitForm(this.form.nativeElement);
     }
-    this.isOpen = !this.isOpen;
+    this.isOpen = false;
     this.setHasCompletedOrClosedQuestionnaire();
   };
 
