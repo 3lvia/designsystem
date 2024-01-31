@@ -13,7 +13,8 @@ type FormName = 'role' | 'feedback';
 const USER_QUESTIONNAIRE_STORAGE_KEY = 'hasCompletedUserQuestionnaire-30.01.2024';
 
 /**
- * Remember to delete the empty <form>-elements from index.html when this component is removed!
+ * Remember to delete the form-element from index.html when this component is removed!
+ * It is only there for Netlify Forms to function.
  */
 
 @Component({
@@ -45,13 +46,14 @@ export class UserQuestionnaireComponent {
   hasElviaAccount = true;
   step: FormName = 'role';
   dropdownErrorState?: DropdownProps['errorOptions'];
-
+  isOpen = false;
   private hasPreviouslyBeenCompleted = localStorage.getItem(USER_QUESTIONNAIRE_STORAGE_KEY) === 'true';
 
-  // Only open modal on mount if the questionnaire hasn't been completed before
-  isOpen = !this.hasPreviouslyBeenCompleted;
-
-  constructor(private userQuestionnaireService: UserQuestionnaireService) {}
+  constructor(private userQuestionnaireService: UserQuestionnaireService) {
+    if (!this.hasPreviouslyBeenCompleted) {
+      setTimeout(() => (this.isOpen = true), 1500);
+    }
+  }
 
   goToFeedback = () => {
     if (!this.role) {
