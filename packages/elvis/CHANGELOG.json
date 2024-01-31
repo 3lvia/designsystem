@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "16.0.1",
+      "date": "January 31, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the new box-sizing model on text fields caused unexpected layout breaks in some applications."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "16.0.0",
       "date": "January 30, 2024",
       "changelog": [
