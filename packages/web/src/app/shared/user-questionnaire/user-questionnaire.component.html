@@ -1,4 +1,3 @@
-<button class="e-btn" (click)="isOpen = true; step = 'role'">Open questionnaire (for debug)</button>
 <elvia-modal #modal hasCloseButton (onClose)="onModalClose()" [isShowing]="isOpen">
   <div slot="heading">
     @switch (step) {
@@ -25,7 +24,7 @@
     </p>
     <form #form name="user-questionnaire" method="POST" (submit)="onSubmit($event)">
       <input type="hidden" name="form-name" value="user-questionnaire" />
-      <div [hidden]="step !== 'role'">
+      <div [hidden]="step !== 'role'" class="form-field-wrapper">
         <div class="e-form-field e-flex e-gap-16 e-mb-16">
           <label class="e-radio">
             <input type="radio" name="bruker" value="har-bruker" checked (change)="hasElviaAccount = true" />
@@ -45,11 +44,12 @@
           [value]="role"
           (valueOnChange)="role = $any($event).detail.value; dropdownErrorState = undefined"
           [errorOptions]="dropdownErrorState"
+          isFullwidth
         />
         <input hidden name="rolle" type="text" [value]="role ?? ''" />
 
         @if (role === 'annet') {
-          <div class="e-form-field">
+          <div class="e-form-field e-form-field--full-width">
             <div class="e-input">
               <input placeholder="Skriv inn din rolle" name="annet-rolle" autocomplete="off" />
             </div>
@@ -57,12 +57,15 @@
         }
 
         <button type="button" (click)="goToFeedback()" class="e-btn e-btn--primary e-btn--lg e-mt-32">
-          Send inn
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"> </i>
+          </span>
+          <span class="e-btn__title">Send inn</span>
         </button>
       </div>
 
-      <div [hidden]="step !== 'feedback'">
-        <div class="e-form-field e-mb-32">
+      <div [hidden]="step !== 'feedback'" class="form-field-wrapper">
+        <div class="e-form-field e-form-field--full-width e-mb-32">
           <label class="e-form-field__label" for="tilbakemelding">Gi oss din tilbakemelding</label>
           <div class="e-input">
             <textarea
@@ -88,7 +91,12 @@
           </div>
         }
 
-        <button class="e-btn e-btn--primary e-btn--lg e-mt-32">Send tilbakemelding</button>
+        <button class="e-btn e-btn--primary e-btn--lg e-mt-32">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download" aria-hidden="true"> </i>
+          </span>
+          <span class="e-btn__title">Send tilbakemelding</span>
+        </button>
       </div>
     </form>
   </div>

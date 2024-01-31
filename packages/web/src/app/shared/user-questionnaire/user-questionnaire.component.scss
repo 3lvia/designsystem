@@ -1,6 +1,10 @@
 form {
-  .e-btn {
-    float: right;
+  .form-field-wrapper:not([hidden]) {
+    display: grid;
+
+    .e-btn {
+      margin-left: auto;
+    }
   }
 
   .e-radio:not(:last-child) {
