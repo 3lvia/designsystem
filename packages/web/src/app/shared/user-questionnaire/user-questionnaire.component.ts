@@ -31,12 +31,12 @@ export class UserQuestionnaireComponent {
   roles: DropdownItem[] = [
     { label: 'UX / UI designer', value: 'uxui-desiger' },
     { label: 'Tjenestedesigner', value: 'tjenestedesigner' },
-    { label: 'Grafisk designer (Branding)', value: 'grafisk-designer' },
+    { label: 'Grafisk designer / Branding', value: 'grafisk-designer-branding' },
     { label: 'Frontend-utvikler', value: 'frontend-utvikler' },
     { label: 'Backend-utvikler', value: 'backend-utvikler' },
     { label: 'Innholdsprodusent', value: 'innholdsprodusent' },
     { label: 'Salg og markedsføring', value: 'salg-og-markedsføring' },
-    { label: 'HR (Human Resources)', value: 'hr-(human-resources)' },
+    { label: 'Human Resources', value: 'human-resources' },
     { label: 'Produkteier', value: 'produkteier' },
     { label: 'Prosjektleder', value: 'prosjektleder' },
     { label: 'Ledelse', value: 'ledelse' },
@@ -55,26 +55,29 @@ export class UserQuestionnaireComponent {
     }
   }
 
-  goToFeedback = () => {
-    if (!this.role) {
-      this.dropdownErrorState = { isErrorState: true, text: 'Velg din rolle' };
-      return;
+  handleButtonClick = () => {
+    switch (this.step) {
+      case 'role':
+        if (!this.role) {
+          this.dropdownErrorState = { isErrorState: true, text: 'Velg din rolle' };
+          return;
+        }
+
+        // Hack to remove / hide illustration for 2nd page
+        const slots = this.modal.nativeElement.getAllSlots();
+        delete slots['illustration'];
+        this.modal.nativeElement.setProps({ illustration: undefined });
+
+        this.dropdownErrorState = undefined;
+        this.step = 'feedback';
+        break;
+
+      case 'feedback':
+        this.triggerSubmitForm(this.form.nativeElement);
+        this.isOpen = false;
+        this.setHasCompletedOrClosedQuestionnaire();
+        break;
     }
-
-    // Hack to remove / hide illustration for 2nd page
-    const slots = this.modal.nativeElement.getAllSlots();
-    delete slots['illustration'];
-    this.modal.nativeElement.setProps({ illustration: undefined });
-
-    this.dropdownErrorState = undefined;
-    this.step = 'feedback';
-  };
-
-  onSubmit = (event: SubmitEvent) => {
-    event.preventDefault();
-    this.triggerSubmitForm(event.target as HTMLFormElement);
-    this.isOpen = false;
-    this.setHasCompletedOrClosedQuestionnaire();
   };
 
   onModalClose = () => {

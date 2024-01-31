@@ -11,7 +11,7 @@
   </div>
   <app-user-questionnaire-illustration slot="illustration" *ngIf="step === 'role'" />
 
-  <div slot="content" class="e-text-lg">
+  <div slot="content" class="e-text-md">
     <p class="e-m-0 e-mb-24">
       @switch (step) {
         @case ('role') {
@@ -22,10 +22,10 @@
         }
       }
     </p>
-    <form #form name="user-questionnaire" method="POST" (submit)="onSubmit($event)">
+    <form #form name="user-questionnaire">
       <input type="hidden" name="form-name" value="user-questionnaire" />
       <div [hidden]="step !== 'role'" class="form-field-wrapper">
-        <div class="e-form-field e-flex e-gap-16 e-mb-16">
+        <div class="e-form-field radios e-mb-16">
           <label class="e-radio">
             <input type="radio" name="bruker" value="har-bruker" checked (change)="hasElviaAccount = true" />
             <span class="e-radio__mark"></span>
@@ -55,10 +55,6 @@
             </div>
           </div>
         }
-
-        <button type="button" (click)="goToFeedback()" class="e-btn e-btn--primary e-btn--lg e-mt-32">
-          Send inn
-        </button>
       </div>
 
       <div [hidden]="step !== 'feedback'" class="form-field-wrapper">
@@ -87,9 +83,17 @@
             </span>
           </div>
         }
-
-        <button class="e-btn e-btn--primary e-btn--lg e-mt-32">Send tilbakemelding</button>
       </div>
     </form>
   </div>
+  <button slot="primaryButton" class="e-btn e-btn--lg" type="button" (click)="handleButtonClick()">
+    @switch (step) {
+      @case ('role') {
+        Send inn
+      }
+      @case ('feedback') {
+        Send tilbakemelding
+      }
+    }
+  </button>
 </elvia-modal>
