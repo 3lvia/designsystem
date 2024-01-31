@@ -90,7 +90,7 @@ export class UserQuestionnaireComponent {
     }
     const formData = new FormData(formElement);
     const formState = Object.fromEntries(formData as any);
-
+    console.log('submitting form', formState);
     this.userQuestionnaireService.submitForm(formState).subscribe();
   };
 
