@@ -22,7 +22,7 @@
     "@types/jest": "^29.5.11",
     "@types/jest-axe": "^3.5.9",
     "@types/styled-components": "^5.1.34",
-    "esbuild": "^0.19.12",
+    "esbuild": "^0.20.0",
     "esbuild-plugin-styled-components": "^3.0.1",
     "esbuild-sass-plugin": "^2.16.1",
     "identity-obj-proxy": "^3.0.0",

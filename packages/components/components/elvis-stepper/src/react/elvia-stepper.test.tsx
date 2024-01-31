@@ -6,8 +6,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 describe('Elvis Stepper', () => {
   const steps = {
     1: { isCompleted: true, heading: 'Title 1' },
-    2: { heading: 'Title 2' },
-    3: { isError: true, heading: 'Title 3' },
+    2: { heading: 'Title 2', nextButtonText: 'Videre' },
+    3: { isError: true, heading: 'Title 3', previousButtonText: 'Forrige' },
     4: { isError: true, heading: 'Title 4' },
     5: { heading: 'Title 5' },
   };
@@ -74,6 +74,17 @@ describe('Elvis Stepper', () => {
         'På steg 2. Det forrige steget var vellykket. Steg 3 og 4 var ugyldig.',
       );
       expect(screenReader).toBeInTheDocument();
+    });
+
+    it('should have the right next and previous button text', async () => {
+      const user = userEvent.setup();
+      const nextButton = screen.getByRole('button', { name: /neste/i });
+      await user.click(nextButton);
+      const newNextButton = screen.getByRole('button', { name: /videre/i });
+      expect(newNextButton).toBeDefined();
+      await user.click(newNextButton);
+      const previousButton = screen.getByRole('button', { name: /forrige/i });
+      expect(previousButton).toBeDefined();
     });
   });
 
