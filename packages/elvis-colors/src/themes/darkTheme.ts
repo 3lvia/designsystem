@@ -160,6 +160,10 @@ export const darkThemeColors = {
       color: '#C4C4C4',
       contrastText: '#171717',
     },
+    'grey-05': {
+      color: '#DFDFDF',
+      contrastText: '#171717',
+    },
   },
   'internal-colors': {
     'focus-outline': {
