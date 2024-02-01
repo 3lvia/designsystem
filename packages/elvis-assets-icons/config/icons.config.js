@@ -397,7 +397,7 @@ module.exports = [
   { name: 'graph_bar', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'graph_bar-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['graph_bar'] } },
   { name: 'graph_down', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'graph_down-color', terms: [], thirdparty: { name: ['streamline'] }, duplicate: ['graph_down'] },
+  { name: 'graph_down-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['graph_down'] } },
   { name: 'graph_up', terms: ['chart', 'cost'], thirdparty: { name: ['streamline'] } },
   { name: 'ground_fault', terms: ['breakdown', 'electricity'], thirdparty: { name: ['streamline'] } },
   {
@@ -562,7 +562,7 @@ module.exports = [
   { name: 'open', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'open_menu', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'office', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'office-color', terms: [], thirdparty: { name: ['streamline'] }, duplicate: ['office'] },
+  { name: 'office-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['office'] } },
   {
     name: 'paper_plane_speed_color',
     terms: ['send', 'message'],
@@ -708,7 +708,7 @@ module.exports = [
   },
   { name: 'quotation-color', terms: ['quote', 'reference'], thirdparty: { name: ['streamline'] } },
   { name: 'recycle', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'recycle-color', terms: [], thirdparty: { name: ['streamline'] }, duplicate: ['recycle'] },
+  { name: 'recycle-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['recycle'] } },
   { name: 'refresh', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'remove_circle', terms: ['delete', 'dismiss', 'discard'], thirdparty: { name: ['streamline'] } },
   {
