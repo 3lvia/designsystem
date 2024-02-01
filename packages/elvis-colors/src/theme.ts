@@ -64,7 +64,31 @@ export type SignalLabels =
   | 'signal-warning'
   | 'signal-danger'
   | 'signal-info';
-export type DataLabels = 'data-1' | 'data-2' | 'data-3' | 'data-4' | 'data-5' | 'data-6';
+export type DataLabels =
+  | 'data-1'
+  | 'data-2'
+  | 'data-3'
+  | 'data-4'
+  | 'data-5'
+  | 'data-6'
+  | 'data-1-50'
+  | 'data-2-50'
+  | 'data-3-50'
+  | 'data-4-50'
+  | 'data-5-50'
+  | 'data-6-50'
+  | 'data-1-30'
+  | 'data-2-30'
+  | 'data-3-30'
+  | 'data-4-30'
+  | 'data-5-30'
+  | 'data-6-30'
+  | 'data-1-10'
+  | 'data-2-10'
+  | 'data-3-10'
+  | 'data-4-10'
+  | 'data-5-10'
+  | 'data-6-10';
 export type IconColors =
   | 'icon-stroke-1'
   | 'icon-filled-foreground-1'
