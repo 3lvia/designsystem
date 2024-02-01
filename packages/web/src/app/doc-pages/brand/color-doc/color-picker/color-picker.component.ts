@@ -15,7 +15,7 @@ export class ColorPickerComponent {
   colorList = this.theme === 'dark' ? darkColors : lightColors;
   currentColor: ColorElement | undefined = this.colorList.primary[0];
   previousColor: ColorElement | undefined;
-  categories = ['primary', 'secondary', 'data', 'grey'] as const;
+  categories = ['primary', 'secondary', 'tertiary', 'grey'] as const;
 
   handleChangeThemeEvent = (newTheme: ThemeName) => {
     this.theme = newTheme;
