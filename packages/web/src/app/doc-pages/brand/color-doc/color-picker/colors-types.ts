@@ -11,7 +11,7 @@ export interface ColorElement {
 export interface ColorsObject {
   primary: ColorElement[];
   secondary: ColorElement[];
-  data: ColorElement[];
+  tertiary: ColorElement[];
   grey: ColorElement[];
 }
 
