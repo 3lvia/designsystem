@@ -27,7 +27,7 @@
     @include mixins.typography('text-option');
     min-width: 0;
     max-width: 448px;
-    box-sizing: content-box;
+    box-sizing: border-box;
     flex: 1;
     padding: 13px 16px;
     border: none;
