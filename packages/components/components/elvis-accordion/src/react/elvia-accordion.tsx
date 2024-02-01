@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
 import { AccordionProps, AccordionSize } from './elvia-accordion.types';
 import {
@@ -10,6 +10,7 @@ import {
   AccordionDetailText,
   AccordionContent,
   StyledIconWrapper,
+  AccordionHeightAnimator,
 } from './styledComponents';
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
@@ -40,10 +41,17 @@ export const Accordion: FC<AccordionProps> = ({
   webcomponent,
   ...rest
 }) => {
+  const getClosedHeight = () => {
+    if (type === 'overflow') {
+      return overflowHeight ? `${overflowHeight}px` : '2.6em';
+    }
+    return `0px`;
+  };
+
   const [isOpenState, setIsOpenState] = useState(isOpen);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
-  const [hasContent, setHasContent] = useState(false);
-  const [contentHeight, setContentHeight] = useState(0);
+  const [contentHeight, setContentHeight] = useState(getClosedHeight());
+  const [visibility, setVisibility] = useState<'hidden' | 'unset'>(type === 'overflow' ? 'unset' : 'hidden');
 
   const accordionRef = useRef<HTMLDivElement>(null);
 
@@ -66,43 +74,37 @@ export const Accordion: FC<AccordionProps> = ({
     useEffectDependencies: useMemo(() => [isOpenState], [isOpenState]),
   });
   const { ref: accordionContentRef } = useSlot<HTMLDivElement>('content', webcomponent, {
-    callback: useCallback((foundSlot: boolean) => setHasContent(foundSlot), []),
     useEffectDependencies: useMemo(() => [type], [type]),
   });
+  const slotContentHeight = accordionContentRef.current?.getBoundingClientRect().height ?? 0;
+
+  const setOpenState = (isOpen: boolean) => {
+    if (isOpen === isOpenState) {
+      return;
+    }
+
+    if (isOpen) {
+      setVisibility('unset');
+      setContentHeight(`${slotContentHeight}px`);
+    } else {
+      setContentHeight(`${slotContentHeight}px`);
+
+      setTimeout(() => setContentHeight(getClosedHeight()));
+    }
+
+    setIsOpenState(isOpen);
+  };
 
   useEffect(() => {
-    setIsOpenState(isOpen);
+    setOpenState(isOpen);
   }, [isOpen]);
 
   useEffect(() => {
-    setHasContent(type !== 'single');
-  }, [type]);
-
-  useEffect(() => {
-    if (content) {
-      setHasContent(true);
+    if (type === 'overflow' && !isOpenState) {
+      setVisibility('unset');
+      setContentHeight(getClosedHeight());
     }
-  }, [content]);
-
-  useEffect(() => {
-    const { current } = accordionContentRef;
-    if (!current) return;
-
-    const updateContentHeight = () => {
-      const height = Math.ceil(current.scrollHeight / 2) * 2;
-      setContentHeight((prev) => (Math.abs(prev - height) === 2 ? prev : height));
-    };
-    const observer = new MutationObserver(updateContentHeight);
-    const ro = new ResizeObserver(updateContentHeight);
-    observer.observe(current, { childList: true, subtree: true });
-    ro.observe(current);
-    updateContentHeight();
-
-    return () => {
-      observer.disconnect();
-      ro.disconnect();
-    };
-  }, [accordionContentRef, accordionContentRef.current]);
+  }, [type]);
 
   const handleOnClick = () => {
     if (!isOpenState) {
@@ -112,7 +114,9 @@ export const Accordion: FC<AccordionProps> = ({
       onClose?.();
       webcomponent?.triggerEvent('onClose');
     }
-    setIsOpenState((prevIsOpenState) => !prevIsOpenState);
+
+    const newState = !isOpenState;
+    setOpenState(newState);
   };
 
   const decideButtonAriaLabel = (): string => {
@@ -121,14 +125,6 @@ export const Accordion: FC<AccordionProps> = ({
     } else {
       return openAriaLabel ?? openLabel ?? 'Åpne';
     }
-  };
-
-  const shouldShowRightIcon = (): boolean => {
-    return (isStartAligned && isFullWidth) || !isStartAligned;
-  };
-
-  const shouldShowLeftIcon = (): boolean => {
-    return isStartAligned && !isFullWidth;
   };
 
   const getIconSize = (size: AccordionSize): string => {
@@ -141,50 +137,38 @@ export const Accordion: FC<AccordionProps> = ({
     }
   };
 
+  const onTransitionEnd = () => {
+    if (isOpenState) {
+      setContentHeight('auto');
+    } else if (type === 'normal') {
+      setVisibility('hidden');
+    }
+  };
+
   return (
     <AccordionArea
       className={className}
       style={inlineStyle}
       data-testid="accordion-area"
+      isOverflow={type === 'overflow'}
+      normalSpacing={spacingAboveContent}
+      overflowSpacing={spacingBelowContent}
       ref={accordionRef}
       {...rest}
     >
-      {type === 'overflow' ? (
-        <AccordionContent
-          $type={type}
-          spacingAboveContent={spacingAboveContent}
-          spacingBelowContent={spacingBelowContent}
-          isOpenState={isOpenState}
-          overflowHeight={overflowHeight}
-          contentHeight={contentHeight}
-          hasContent={hasContent}
-          ref={accordionContentRef}
-        >
-          {content}
-        </AccordionContent>
-      ) : null}
-      <AccordionButtonArea labelPosition={labelPosition} $type={type}>
+      <AccordionButtonArea labelPosition={labelPosition}>
         <AccordionButton
           aria-expanded={isOpenState}
-          $type={type}
+          accordionType={type}
           isFullWidth={isFullWidth}
           isOpenState={isOpenState}
           onClick={() => handleOnClick()}
           onMouseEnter={() => setIsHoveringButton(true)}
           onMouseLeave={() => setIsHoveringButton(false)}
           aria-label={decideButtonAriaLabel()}
+          reverseLayout={isStartAligned && !isFullWidth}
         >
-          {shouldShowLeftIcon() && (
-            <StyledIconWrapper
-              icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
-              size={getIconSize(size)}
-            />
-          )}
-          <AccordionLabel
-            hasLabel={type !== 'single'}
-            isStartAligned={isStartAligned}
-            isFullWidth={isFullWidth}
-          >
+          <AccordionLabel hasLabel={type !== 'single'} isFullWidth={isFullWidth}>
             {isOpenState ? (
               <AccordionLabelText
                 size={size}
@@ -210,28 +194,23 @@ export const Accordion: FC<AccordionProps> = ({
               {!isOpenState ? openDetailText : closeDetailText}
             </AccordionDetailText>
           </AccordionLabel>
-          {shouldShowRightIcon() && (
-            <StyledIconWrapper
-              icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
-              size={getIconSize(size)}
-            />
-          )}
+          <StyledIconWrapper
+            icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
+            size={getIconSize(size)}
+          />
         </AccordionButton>
       </AccordionButtonArea>
-      {type === 'normal' ? (
-        <AccordionContent
-          $type={type}
-          spacingAboveContent={spacingAboveContent}
-          spacingBelowContent={spacingBelowContent}
-          isOpenState={isOpenState}
-          hasContent={hasContent}
-          contentHeight={contentHeight}
-          overflowHeight={overflowHeight}
-          ref={accordionContentRef}
+      {type !== 'single' && (
+        <AccordionHeightAnimator
+          contentHeight={slotContentHeight}
+          isOpen={isOpenState}
+          isOverflow={type === 'overflow'}
+          onTransitionEnd={onTransitionEnd}
+          style={{ visibility: visibility, height: contentHeight }}
         >
-          {content}
-        </AccordionContent>
-      ) : null}
+          <AccordionContent ref={accordionContentRef}>{content}</AccordionContent>
+        </AccordionHeightAnimator>
+      )}
     </AccordionArea>
   );
 };
