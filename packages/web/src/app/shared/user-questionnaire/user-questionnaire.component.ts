@@ -29,17 +29,17 @@ export class UserQuestionnaireComponent {
   @ViewChild('form') form: ElementRef<HTMLFormElement>;
   @ViewChild('modal') modal: ElementRef<ElvisComponentWrapper>;
   roles: DropdownItem[] = [
-    { label: 'UX / UI designer', value: 'uxui-desiger' },
-    { label: 'Tjenestedesigner', value: 'tjenestedesigner' },
-    { label: 'Grafisk designer / Branding', value: 'grafisk-designer-branding' },
-    { label: 'Frontend-utvikler', value: 'frontend-utvikler' },
     { label: 'Backend-utvikler', value: 'backend-utvikler' },
-    { label: 'Innholdsprodusent', value: 'innholdsprodusent' },
-    { label: 'Salg og markedsføring', value: 'salg-og-markedsføring' },
+    { label: 'Frontend-utvikler', value: 'frontend-utvikler' },
+    { label: 'Grafisk designer / Branding', value: 'grafisk-designer-branding' },
     { label: 'Human Resources', value: 'human-resources' },
+    { label: 'Innholdsprodusent', value: 'innholdsprodusent' },
+    { label: 'Ledelse', value: 'ledelse' },
     { label: 'Produkteier', value: 'produkteier' },
     { label: 'Prosjektleder', value: 'prosjektleder' },
-    { label: 'Ledelse', value: 'ledelse' },
+    { label: 'Salg og markedsføring', value: 'salg-og-markedsføring' },
+    { label: 'Tjenestedesigner', value: 'tjenestedesigner' },
+    { label: 'UX / UI designer', value: 'uxui-desiger' },
     { label: 'Annet', value: 'annet' },
   ];
   role: string | undefined;
@@ -57,7 +57,7 @@ export class UserQuestionnaireComponent {
 
   handleButtonClick = () => {
     switch (this.step) {
-      case 'role':
+      case 'role': {
         if (!this.role) {
           this.dropdownErrorState = { isErrorState: true, text: 'Velg din rolle' };
           return;
@@ -71,12 +71,14 @@ export class UserQuestionnaireComponent {
         this.dropdownErrorState = undefined;
         this.step = 'feedback';
         break;
+      }
 
-      case 'feedback':
+      case 'feedback': {
         this.triggerSubmitForm(this.form.nativeElement);
         this.isOpen = false;
         this.setHasCompletedOrClosedQuestionnaire();
         break;
+      }
     }
   };
 
