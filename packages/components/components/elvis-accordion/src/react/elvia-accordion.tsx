@@ -78,12 +78,12 @@ export const Accordion: FC<AccordionProps> = ({
   });
   const slotContentHeight = accordionContentRef.current?.getBoundingClientRect().height ?? 0;
 
-  const setOpenState = (isOpen: boolean) => {
-    if (isOpen === isOpenState) {
+  const updateOpenState = (newIsOpenState: boolean) => {
+    if (newIsOpenState === isOpenState) {
       return;
     }
 
-    if (isOpen) {
+    if (newIsOpenState) {
       setVisibility('unset');
       setContentHeight(`${slotContentHeight}px`);
     } else {
@@ -92,11 +92,11 @@ export const Accordion: FC<AccordionProps> = ({
       setTimeout(() => setContentHeight(getClosedHeight()));
     }
 
-    setIsOpenState(isOpen);
+    setIsOpenState(newIsOpenState);
   };
 
   useEffect(() => {
-    setOpenState(isOpen);
+    updateOpenState(isOpen);
   }, [isOpen]);
 
   useEffect(() => {
@@ -115,8 +115,7 @@ export const Accordion: FC<AccordionProps> = ({
       webcomponent?.triggerEvent('onClose');
     }
 
-    const newState = !isOpenState;
-    setOpenState(newState);
+    updateOpenState(!isOpenState);
   };
 
   const decideButtonAriaLabel = (): string => {
