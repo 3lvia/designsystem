@@ -2240,7 +2240,7 @@ __metadata:
     "@elvia/elvis-colors": "npm:^4.1.0"
     "@types/gulp": "npm:^4.0.17"
     "@types/gulp-svgmin": "npm:^1.2.4"
-    "@types/node": "npm:^20.11.15"
+    "@types/node": "npm:^20.11.16"
     del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     gulp-svgmin: "npm:^4.1.0"
@@ -2438,7 +2438,7 @@ __metadata:
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.11.15"
+    "@types/node": "npm:^20.11.16"
     del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.2"
@@ -2476,7 +2476,7 @@ __metadata:
     "@testing-library/react": "npm:14.2.0"
     "@testing-library/user-event": "npm:14.5.2"
     "@types/identity-obj-proxy": "npm:^3.0.2"
-    "@types/jest": "npm:^29.5.11"
+    "@types/jest": "npm:^29.5.12"
     "@types/jest-axe": "npm:^3.5.9"
     "@types/styled-components": "npm:^5.1.34"
     esbuild: "npm:^0.20.0"
@@ -3025,7 +3025,7 @@ __metadata:
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.11.15"
+    "@types/node": "npm:^20.11.16"
     del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.2"
@@ -4905,13 +4905,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*, @types/jest@npm:^29.5.11":
+"@types/jest@npm:*":
   version: 29.5.11
   resolution: "@types/jest@npm:29.5.11"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
   checksum: 10/798f4c89407d9457bea1256de74c26f2b279f6c789c0e3311cd604cc75cdab333b9a29b00c51b0090d31abdf11cc788b4103282851a653bef6daf72edf97eef2
+  languageName: node
+  linkType: hard
+
+"@types/jest@npm:^29.5.12":
+  version: 29.5.12
+  resolution: "@types/jest@npm:29.5.12"
+  dependencies:
+    expect: "npm:^29.0.0"
+    pretty-format: "npm:^29.0.0"
+  checksum: 10/312e8dcf92cdd5a5847d6426f0940829bca6fe6b5a917248f3d7f7ef5d85c9ce78ef05e47d2bbabc40d41a930e0e36db2d443d2610a9e3db9062da2d5c904211
   languageName: node
   linkType: hard
 
@@ -4993,12 +5003,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.11.15, @types/node@npm:^20.11.15":
+"@types/node@npm:*":
   version: 20.11.15
   resolution: "@types/node@npm:20.11.15"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10/ec670ab67382b3a45511de0ff1a57640eb51e62dd2f2c3b4484ee35caef18c1d346bba64bd58189e9445cecbfcf9b458ca7850635eb56df2c49472dac656029f
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.11.16, @types/node@npm:^20.11.16":
+  version: 20.11.16
+  resolution: "@types/node@npm:20.11.16"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10/751f50ec5c9332b11515e82fe37c71479ac4449b711280aa3c7910edf67b1e3f5ac00041512add543f9a892096a68356406998bf02a2c809a73d176c44c28414
   languageName: node
   linkType: hard
 
@@ -5078,7 +5097,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.28, @types/react@npm:^18.2.50":
+"@types/react@npm:*, @types/react@npm:^18.2.28":
   version: 18.2.50
   resolution: "@types/react@npm:18.2.50"
   dependencies:
@@ -5086,6 +5105,17 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10/86ff44b88d09119df86e84d86a685fbc1f5371a45b65fbc891eb12bda420138405342a23bd52ee48d71d8adb9c6815bbb2a501ef153b031388922c65d150fb94
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.2.51":
+  version: 18.2.51
+  resolution: "@types/react@npm:18.2.51"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10/af2935027172ea40695b90b02e98520a097160fa8517f6022e2e2cf8518017e0b84991cc34ee8d72cd91dcb7c5404784d4bada7a4836edf2727c3d6703c16ff8
   languageName: node
   linkType: hard
 
@@ -8839,7 +8869,7 @@ __metadata:
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
     "@types/natural-compare-lite": "npm:^1.4.2"
-    "@types/node": "npm:20.11.15"
+    "@types/node": "npm:20.11.16"
     "@types/prismjs": "npm:^1.26.3"
     "@typescript-eslint/eslint-plugin": "npm:^6.20.0"
     "@typescript-eslint/parser": "npm:^6.20.0"
@@ -15896,7 +15926,7 @@ __metadata:
     "@elvia/elvis-toolbox": "npm:*"
     "@elvia/elvis-tooltip": "npm:*"
     "@elvia/elvis-typography": "npm:*"
-    "@types/react": "npm:^18.2.50"
+    "@types/react": "npm:^18.2.51"
     "@types/react-dom": "npm:^18.2.18"
     "@vitejs/plugin-react": "npm:^4.2.1"
     react: "npm:^18.2.0"
