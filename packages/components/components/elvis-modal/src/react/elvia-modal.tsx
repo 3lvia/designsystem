@@ -134,9 +134,10 @@ export const Modal: FC<ModalProps> = function ({
           aria-label={getAriaLabel()}
           {...rest}
         >
-          {illustration && <ModalIllustration>{illustration}</ModalIllustration>}
-          {!illustration && hasIllustration && (
-            <ModalIllustration ref={modalIllustration}></ModalIllustration>
+          {hasIllustration && (
+            <ModalIllustration role="presentation" ref={modalIllustration}>
+              {illustration}
+            </ModalIllustration>
           )}
           {hasCloseButton && (
             <CloseButtonContainer hasIllustration={hasIllustration}>
