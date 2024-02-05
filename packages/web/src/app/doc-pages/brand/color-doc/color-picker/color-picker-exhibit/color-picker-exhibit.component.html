@@ -10,6 +10,30 @@
     }"
   ></div>
 
+  @if (opacityColors.length > 1) {
+    <ul class="opacity-colors">
+      <li
+        *ngFor="let opacityColor of opacityColors"
+        class="color-circle"
+        [style.background-color]="opacityColor.hex"
+        (click)="currentColor = opacityColor"
+        [ngClass]="{
+          chosen: opacityColor === currentColor
+        }"
+      >
+        <input type="radio" />
+        @if (opacityColor === currentColor) {
+          <div class="checkmark-left" [style.background-color]="getContrast(opacityColor)"></div>
+          <div class="checkmark-right" [style.background-color]="getContrast(opacityColor)"></div>
+        } @else {
+          <span class="e-text-micro" [style.color]="getContrast(opacityColor)">{{
+            getOpacityLevel(opacityColor.name)
+          }}</span>
+        }
+      </li>
+    </ul>
+  }
+
   <div class="info" *ngIf="currentColorExistsInCurrentTheme; else nonExistentColor">
     <p class="e-title-md e-capitalize title">{{ currentColor.name | replace: '-' : ' ' }}</p>
 

@@ -5,14 +5,14 @@
   <div class="header-container">
     <app-color-picker-header (changeThemeEvent)="handleChangeThemeEvent($event)" [currentTheme]="theme" />
   </div>
-  <app-color-picker-exhibit [currentColor]="currentColor" [theme]="theme" />
+  <app-color-picker-exhibit [currentColor]="currentColor" [theme]="theme" [colorList]="colorList" />
   <div class="color-list-container" appColorListBase>
     <app-color-picker-color-list
       *ngFor="let category of categories"
       [currentColor]="currentColor"
       [colorList]="colorList"
       [category]="category"
-      [isDarkTheme]="theme === 'dark'"
+      [theme]="theme"
       (chooseColor)="chooseColor($event)"
     />
   </div>
