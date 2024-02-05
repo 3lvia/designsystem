@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ColorElement, ColorsObject } from '../colors-types';
-import { convertContrastValueToNumber, getColorElement } from '../colors-util';
+import { getHighestContrast, getOpacityColors } from '../colors-util';
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-color-picker-color-list',
@@ -8,12 +9,32 @@ import { convertContrastValueToNumber, getColorElement } from '../colors-util';
   styleUrls: ['./color-picker-color-list.component.scss'],
 })
 export class ColorPickerColorListComponent {
-  @Input({ required: true }) currentColor: ColorElement | undefined;
   @Input({ required: true }) colorList: ColorsObject;
   @Input({ required: true }) category: 'primary' | 'secondary' | 'tertiary' | 'grey';
-  @Input({ required: true }) isDarkTheme: boolean;
+  @Input({ required: true }) readonly theme: ThemeName;
   @Output() chooseColor = new EventEmitter<ColorElement>();
   @Output() userChoosesColor = new EventEmitter<void>();
+  @Input({ required: true })
+  get currentColor(): ColorElement {
+    return this._currentColor;
+  }
+
+  set currentColor(value: ColorElement | undefined) {
+    if (value) {
+      this._currentColor = value;
+    } else {
+      this._currentColor = {
+        ...this._currentColor,
+
+        //an empty color element, but keep the name for the empty state
+        contrast: { black: '', white: '' },
+        hex: '',
+        rgb: [-1, -1, -1],
+        tokens: [],
+      };
+    }
+  }
+  private _currentColor: ColorElement;
 
   chooseNewColor(color: ColorElement) {
     this.chooseColor.emit(color);
@@ -21,20 +42,25 @@ export class ColorPickerColorListComponent {
   }
 
   getColorsFromCategory = () => {
+    if (this.category === 'tertiary') {
+      return this.colorList?.[this.category].slice(0, 6);
+    }
     return this.colorList?.[this.category];
   };
 
   isChosen = (color: ColorElement) => {
-    return this.currentColor?.hex === color.hex;
+    return this._currentColor?.hex === color.hex;
   };
 
-  getHighestContrast = (color: ColorElement) => {
-    const white = convertContrastValueToNumber(color.contrast.white);
-    const black = convertContrastValueToNumber(color.contrast.black);
-    if (white > black) {
-      return getColorElement('white', this.isDarkTheme ? 'dark' : 'light');
-    } else {
-      return getColorElement('black', this.isDarkTheme ? 'dark' : 'light');
-    }
+  getOpacityColors(color: ColorElement) {
+    return getOpacityColors(color.name, this.colorList).slice(1).reverse();
+  }
+
+  getOpacityColor(i: number) {
+    return this.colorList?.[this.category][i];
+  }
+
+  getContrast = (color: ColorElement) => {
+    return getHighestContrast(color, this.theme);
   };
 }

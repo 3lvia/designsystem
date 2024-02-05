@@ -1,19 +1,29 @@
 .color-list {
-  position: relative;
-  height: 60px;
+  height: 64px;
   display: flex;
   align-items: flex-end;
   list-style-type: none;
   padding: unset;
-  margin-right: 24px;
-  margin-left: 5px;
+  margin: 24px 24px 16px 8px;
   z-index: 0;
+
+  .color-container {
+    position: relative;
+    display: flex;
+    height: 100%;
+    margin-left: -8px;
+    width: 40px;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+
   .color-circle {
-    margin: -5px;
+    position: absolute;
     width: 40px;
     height: 40px;
     border-radius: 40px;
     transition: height 200ms ease-in-out;
+
     input[type='radio'] {
       cursor: pointer;
       margin: 0;
@@ -21,15 +31,21 @@
       height: 100%;
       width: 100%;
     }
+
     &.border {
       border: 0.5px solid var(--e-color-border-3);
     }
+
     &:hover {
-      height: 100%;
+      &:not(.opacity-color) {
+        height: 100%;
+      }
     }
+
     &.chosen {
       height: 100%;
       position: relative;
+
       .checkmark-left {
         position: absolute;
         top: 12px;

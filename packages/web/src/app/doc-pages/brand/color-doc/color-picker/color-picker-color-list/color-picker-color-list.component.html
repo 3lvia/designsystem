@@ -1,26 +1,42 @@
 <ul class="color-list">
-  <li
+  <div
+    class="color-container"
     *ngFor="let color of getColorsFromCategory(); let i = index"
-    class="color-circle"
-    [ngClass]="{
-      border: color.name | needsBorder: (isDarkTheme ? 'dark' : 'light'),
-      chosen: isChosen(color)
-    }"
     [style.z-index]="i"
-    [style.background-color]="color.hex"
-    (click)="chooseNewColor(color)"
   >
-    <input type="radio" />
-    <div
-      *ngIf="isChosen(color)"
-      class="checkmark-left"
-      [style.background-color]="getHighestContrast(color)?.hex"
-    ></div>
-    <div
-      *ngIf="isChosen(color)"
-      class="checkmark-right"
-      [style.background-color]="getHighestContrast(color)?.hex"
-    ></div>
-  </li>
+    @if (category === 'tertiary' && getOpacityColors(color).length > 1) {
+      <li
+        *ngFor="let opacityColor of getOpacityColors(color); let j = index"
+        class="color-circle opacity-color"
+        [ngClass]="{
+          border: opacityColor.name | needsBorder: theme,
+          chosen: isChosen(opacityColor)
+        }"
+        [style.bottom]="(getOpacityColors(color).length - j) * 8 + 'px'"
+        [style.background-color]="opacityColor.hex"
+      ></li>
+    }
+    <li
+      class="color-circle"
+      [ngClass]="{
+        border: color.name | needsBorder: theme,
+        chosen: isChosen(color)
+      }"
+      [style.background-color]="color.hex"
+      (click)="chooseNewColor(color)"
+    >
+      <input type="radio" />
+      <div
+        *ngIf="isChosen(color)"
+        class="checkmark-left"
+        [style.background-color]="getContrast(color)?.hex"
+      ></div>
+      <div
+        *ngIf="isChosen(color)"
+        class="checkmark-right"
+        [style.background-color]="getContrast(color)?.hex"
+      ></div>
+    </li>
+  </div>
 </ul>
 <span class="color-category-title e-title-caps">{{ category }}</span>
