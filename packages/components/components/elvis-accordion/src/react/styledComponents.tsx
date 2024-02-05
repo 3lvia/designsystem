@@ -9,11 +9,22 @@ import {
 import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
 import { IconWrapper } from '@elvia/elvis-toolbox';
 
-const bezierCurve = 'cubic-bezier(0.71, 0, 0.31, 1)';
+interface AccordionAreaProps {
+  normalSpacing?: AccordionSpacingContent;
+  overflowSpacing?: AccordionSpacingContent;
+  isOverflow: boolean;
+}
 
-export const AccordionArea = styled.div`
+export const AccordionArea = styled.div<AccordionAreaProps>`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({ isOverflow }) => (isOverflow ? 'column-reverse' : 'column')};
+  gap: ${({ normalSpacing, overflowSpacing, isOverflow }) => {
+    if (isOverflow) {
+      return overflowSpacing ?? '8px';
+    } else {
+      return normalSpacing ?? '8px';
+    }
+  }};
   width: 100%;
 `;
 
@@ -31,12 +42,7 @@ const decideLabelPosition = (prop: AccordionLabelPosition) => {
   return 'flex-start';
 };
 
-export interface AccordionButtonAreaProps {
-  labelPosition: AccordionLabelPosition;
-  $type: AccordionType;
-}
-
-export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
+export const AccordionButtonArea = styled.div<{ labelPosition: AccordionLabelPosition }>`
   display: flex;
   justify-content: ${({ labelPosition }) => decideLabelPosition(labelPosition)};
   flex-direction: row;
@@ -46,7 +52,8 @@ export const AccordionButtonArea = styled.div<AccordionButtonAreaProps>`
 interface AccordionButtonProps {
   isFullWidth: boolean;
   isOpenState: boolean;
-  $type: AccordionType;
+  accordionType: AccordionType;
+  reverseLayout: boolean;
 }
 
 export const StyledIconWrapper = styled(IconWrapper)``;
@@ -59,9 +66,11 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   text-align: left;
   cursor: pointer;
   color: ${getThemeColor('text-1')};
-  width: ${({ isFullWidth, $type }) => (isFullWidth && $type === 'normal' ? '100%' : 'auto')};
-  justify-content: ${({ isFullWidth, $type }) =>
-    isFullWidth && $type === 'normal' ? 'space-between' : 'inherit'};
+  width: ${({ isFullWidth, accordionType }) => (isFullWidth && accordionType === 'normal' ? '100%' : 'auto')};
+  justify-content: ${({ isFullWidth, accordionType }) =>
+    isFullWidth && accordionType === 'normal' ? 'space-between' : 'inherit'};
+  flex-direction: ${({ reverseLayout }) => (reverseLayout ? 'row-reverse' : 'row')};
+  gap: 8px;
   align-items: center;
   user-select: text;
 
@@ -77,18 +86,10 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   }
 `;
 
-interface AccordionLabelProps {
-  hasLabel: boolean;
-  isStartAligned: boolean | undefined;
-  isFullWidth: boolean | undefined;
-}
-
-export const AccordionLabel = styled.div<AccordionLabelProps>`
+export const AccordionLabel = styled.div<{ hasLabel: boolean; isFullWidth: boolean | undefined }>`
   display: ${({ hasLabel }) => (hasLabel ? 'flex' : 'none')};
   flex-direction: row;
   align-items: baseline;
-  margin-left: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '8px' : '0')};
-  margin-right: ${({ isStartAligned, isFullWidth }) => (isStartAligned && !isFullWidth ? '0' : '8px')};
   ${({ isFullWidth }) => isFullWidth && 'flex-grow: 1;'}
 `;
 
@@ -133,12 +134,7 @@ const decideDetailTextSize = (size: AccordionSize): string => {
   }
 };
 
-interface AccordionDetailTextProps {
-  size: AccordionSize;
-  openDetailText: string | undefined;
-}
-
-export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
+export const AccordionDetailText = styled.div<{ size: AccordionSize; openDetailText: string | undefined }>`
   ${({ size }) => decideDetailTextSize(size)};
   display: flex;
   text-align: left;
@@ -146,39 +142,9 @@ export const AccordionDetailText = styled.div<AccordionDetailTextProps>`
   margin-left: ${({ openDetailText }) => (openDetailText !== undefined ? '8px;' : '0;')};
 `;
 
-const decideContentMarginTop = (
-  type: AccordionType,
-  hasContent: boolean,
-  spacingAboveContent: AccordionSpacingContent,
-): string => {
-  if (type === 'overflow' || !hasContent) {
-    return '0';
-  }
-  return spacingAboveContent;
-};
-
-const decideContentMaxHeight = (
-  contentOpen: boolean,
-  type: AccordionType,
-  contentHeight: number,
-  overflowHeight?: number,
-): string => {
-  if (contentOpen) {
-    return `${contentHeight}px`;
-  } else {
-    if (type === 'overflow') {
-      return overflowHeight ? `${overflowHeight}px` : 'calc(2em * 1.3)';
-    }
-    return '0';
-  }
-};
-
-const decideContentOpacity = (contentOpen: boolean, type: AccordionType): string => {
-  if (contentOpen || type === 'overflow') {
-    return '1';
-  }
-  return '0';
-};
+export const AccordionContent = styled.div`
+  overflow-x: auto;
+`;
 
 const decideContentTransitionDuration = (contentHeight: number): string => {
   const pixelsPerSecond = 1000;
@@ -188,35 +154,14 @@ const decideContentTransitionDuration = (contentHeight: number): string => {
   return `${Math.max(minDuration, Math.min(transitionDuration, maxDuration))}s`;
 };
 
-interface AccordionContentProps {
-  isOpenState: boolean;
-  $type: AccordionType;
-  spacingAboveContent: AccordionSpacingContent;
-  spacingBelowContent: AccordionSpacingContent;
-  overflowHeight?: number;
+export const AccordionHeightAnimator = styled.div<{
   contentHeight: number;
-  hasContent: boolean;
-}
-
-export const AccordionContent = styled.div<AccordionContentProps>`
-  display: ${({ hasContent }) => (hasContent ? 'block' : 'none')};
-  visibility: ${({ $type, isOpenState }) => ($type === 'normal' && !isOpenState ? `hidden` : `visible`)};
-  background: transparent;
-  margin-top: ${({ $type, hasContent, spacingAboveContent }) =>
-    decideContentMarginTop($type, hasContent, spacingAboveContent)};
-  margin-bottom: ${({ $type, spacingBelowContent }) => ($type === 'overflow' ? spacingBelowContent : 0)};
-  pointer-events: ${({ isOpenState }) => (isOpenState ? 'auto' : 'none')};
-  max-height: ${({ isOpenState, $type, contentHeight, overflowHeight }) =>
-    decideContentMaxHeight(isOpenState, $type, contentHeight, overflowHeight)};
-  width: 100%;
-  opacity: ${({ isOpenState, $type }) => decideContentOpacity(isOpenState, $type)};
-  overflow-y: hidden;
-  transition: all ${({ contentHeight }) => decideContentTransitionDuration(contentHeight)} ${bezierCurve};
-  transition-property: opacity, max-height, visibility;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  position: relative;
+  isOpen: boolean;
+  isOverflow: boolean;
+}>`
+  overflow: hidden;
+  opacity: ${({ isOpen, isOverflow }) => (isOpen || isOverflow ? 1 : 0)};
+  transition: ${({ contentHeight }) =>
+    `all ${decideContentTransitionDuration(contentHeight)} cubic-bezier(0.71, 0, 0.31, 1)`};
+  transition-property: height, opacity;
 `;
