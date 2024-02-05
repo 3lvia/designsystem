@@ -113,23 +113,13 @@ export const getOpacityColors = (
   colorName: DarkThemeColorName | LightThemeColorName,
   colorList: ColorsObject,
 ) => {
-  return colorList['tertiary'].filter((color) => isSameOrOpacityColor(colorName, color.name));
+  return colorList['tertiary'].filter(
+    (color) => getBaseColorName(colorName) === getBaseColorName(color.name),
+  );
 };
 
-const isSameOrOpacityColor = (
-  colorName1: DarkThemeColorName | LightThemeColorName,
-  colorName2: DarkThemeColorName | LightThemeColorName,
-) => {
-  if (colorName1 === colorName2) {
-    return true;
-  } else if (colorName1 + '-10' === colorName2) {
-    return true;
-  } else if (colorName1 + '-30' === colorName2) {
-    return true;
-  } else if (colorName1 + '-50' === colorName2) {
-    return true;
-  }
-  return false;
+const getBaseColorName = (colorName: DarkThemeColorName | LightThemeColorName) => {
+  return colorName.split('-').slice(0, 2).join('-');
 };
 
 export const getColorElement = (
