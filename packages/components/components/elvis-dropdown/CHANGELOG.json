@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "05.02.24",
+      "version": "9.3.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the <code>ariaLabel</code> prop not working for web components."]
+        }
+      ]
+    },
+    {
       "date": "12.01.24",
       "version": "9.3.2",
       "changelog": [
