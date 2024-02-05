@@ -8,6 +8,7 @@
   display: block;
   box-sizing: border-box;
   text-align: left;
+  min-width: 0;
 
   &__label {
     @include mixins.typography('text-md-strong');
