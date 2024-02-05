@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "16.0.2",
+      "date": "February 5, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where text fields would have an unexpected width in an inline container"
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "16.0.1",
       "date": "January 31, 2024",
       "changelog": [
