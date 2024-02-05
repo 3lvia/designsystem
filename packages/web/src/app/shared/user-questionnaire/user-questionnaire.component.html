@@ -40,6 +40,7 @@
 
         <elvia-dropdown
           placeholder="Hva jobber du med?"
+          ariaLabel="Hva jobber du med?"
           [items]="roles"
           [value]="role"
           (valueOnChange)="role = $any($event).detail.value; dropdownErrorState = undefined"
@@ -51,7 +52,12 @@
         @if (role === 'annet') {
           <div class="e-form-field e-form-field--full-width">
             <div class="e-input">
-              <input placeholder="Skriv inn din rolle" name="annet-rolle" autocomplete="off" />
+              <input
+                placeholder="Skriv inn din rolle"
+                aria-label="Skriv inn din rolle"
+                name="annet-rolle"
+                autocomplete="off"
+              />
             </div>
           </div>
         }
@@ -92,7 +98,7 @@
         Send inn
       }
       @case ('feedback') {
-        Send tilbakemelding
+        Gi tilbakemelding
       }
     }
   </button>
