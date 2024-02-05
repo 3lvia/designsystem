@@ -46,28 +46,27 @@
       height: 100%;
       position: relative;
 
-      .checkmark-left {
+      .checkmark {
         position: absolute;
-        top: 12px;
-        left: 7px;
-        width: 2px;
-        height: 8px;
         border-radius: 15px;
-        transform: translateX(10px) rotate(-43deg);
         transform-origin: left bottom;
         transition: height 200ms ease-in-out;
-      }
 
-      .checkmark-right {
-        position: absolute;
-        top: 4px;
-        left: 6px;
-        width: 2px;
-        height: 15px;
-        border-radius: 15px;
-        transform: translateX(10px) rotate(43deg);
-        transform-origin: left bottom;
-        transition: height 200ms ease-in-out;
+        &.left {
+          top: 12px;
+          left: 7px;
+          width: 2px;
+          height: 8px;
+          transform: translateX(10px) rotate(-43deg);
+        }
+
+        &.right {
+          top: 4px;
+          left: 6px;
+          width: 2px;
+          height: 15px;
+          transform: translateX(10px) rotate(43deg);
+        }
       }
     }
   }

@@ -64,28 +64,27 @@ $circle-size-mobile: 152px;
         &.chosen {
           position: relative;
 
-          .checkmark-left {
+          .checkmark {
             position: absolute;
-            top: 14px;
-            left: 3px;
-            width: 2px;
-            height: 8px;
             border-radius: 15px;
-            transform: translateX(10px) rotate(-43deg);
             transform-origin: left bottom;
             transition: height 200ms ease-in-out;
-          }
 
-          .checkmark-right {
-            position: absolute;
-            top: 6px;
-            left: 2px;
-            width: 2px;
-            height: 15px;
-            border-radius: 15px;
-            transform: translateX(10px) rotate(43deg);
-            transform-origin: left bottom;
-            transition: height 200ms ease-in-out;
+            &.left {
+              top: 14px;
+              left: 3px;
+              width: 2px;
+              height: 8px;
+              transform: translateX(10px) rotate(-43deg);
+            }
+
+            &.right {
+              top: 6px;
+              left: 2px;
+              width: 2px;
+              height: 15px;
+              transform: translateX(10px) rotate(43deg);
+            }
           }
         }
       }

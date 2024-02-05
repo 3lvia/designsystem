@@ -23,8 +23,8 @@
         >
           <input type="radio" />
           @if (opacityColor === currentColor) {
-            <div class="checkmark-left" [style.background-color]="getContrast(opacityColor)"></div>
-            <div class="checkmark-right" [style.background-color]="getContrast(opacityColor)"></div>
+            <div class="checkmark left" [style.background-color]="getContrast(opacityColor)"></div>
+            <div class="checkmark right" [style.background-color]="getContrast(opacityColor)"></div>
           } @else {
             <span class="e-text-micro" [style.color]="getContrast(opacityColor)">{{
               getOpacityLevel(opacityColor.name)
