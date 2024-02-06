@@ -5,38 +5,18 @@
     <h3>Test your component here</h3>
     <!--Normal version-->
     <div class="e-p-16 e-mb-24">
-      <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
-      <elvia-modal
-        (onClose)="isModalShowing = !isModalShowing"
-        [isShowing]="isModalShowing"
-        [disableClose]="false"
-      >
-        <div slot="illustration">
-          <img alt="" src="/assets/modal/Empty state.png" />
+      <div class="e-form-field" style="width: 300px">
+        <div class="e-input">
+          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+          <input aria-label="Søk" type="search" placeholder="Søk" />
+          <button class="e-btn e-btn--icon e-btn--circled" aria-label="Tøm søkefelt">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--add_circle-filled-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--add_circle" aria-hidden="true"></i>
+            </span>
+          </button>
         </div>
-        <div slot="heading" class="e-flex e-align-items-center e-gap-8">
-          Jeg er en heading (slot)
-          <i class="e-icon e-icon--move_truck-color e-icon--sm" aria-hidden="true"> </i>
-        </div>
-        <div slot="content">
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
-        </div>
-        <!-- <button
-          slot="secondaryButton"
-          class="e-btn e-btn--secondary e-btn--lg"
-          (click)="isModalShowing = false"
-        >
-          Avbryt
-        </button> -->
-        <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">
-          Lagre
-        </button>
-      </elvia-modal>
+      </div>
     </div>
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark"></div>
