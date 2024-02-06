@@ -26,7 +26,7 @@ const createIllustrationsPlugin: esbuild.Plugin = {
 
       const fileContent = templateFile
         .replace(/{{INSERT_SVG}}/, optimizedSvg)
-        .replace(/{{INSERT_COMPONENT_NAME}}/, `elvis-illustration-${illustrationName}`)
+        .replace(/{{INSERT_COMPONENT_NAME}}/, `elvis-illustrations-${illustrationName}`)
         .replace(/INSERT_ILLUSTRATION_CLASS_NAME/g, `ElvisIllustration${makePascalCase(illustrationName)}`);
 
       return {

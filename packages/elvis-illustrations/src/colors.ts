@@ -11,8 +11,8 @@ export const greyColors: IllustrationColors = {
   $white: 'static-white',
 };
 export const purpleColors: IllustrationColors = {
-  $background: 'data-2',
-  '$brand-accent': 'brand-accent',
+  $background: 'data-2-30',
+  '$brand-accent': 'data-2-50',
   $white: 'static-white',
 };
 
