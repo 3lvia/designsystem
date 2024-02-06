@@ -12,8 +12,8 @@ export const build = async () => {
   const watchMode = process.argv.includes('--watch');
 
   const baseConfig: esbuild.BuildOptions = {
-    entryPoints: ['src/*'],
-    outdir: 'dist',
+    entryPoints: ['src/**/*.ts'],
+    outdir: './dist/common',
     bundle: false,
     format: 'esm',
     write: true,
@@ -24,7 +24,6 @@ export const build = async () => {
     console.log('👀 Starting watch...');
     const esBuildContext = await esbuild.context({
       ...baseConfig,
-      sourcemap: true,
       logLevel: 'info',
     });
 
@@ -33,12 +32,18 @@ export const build = async () => {
     console.log('🧹 Removing old dist folder...');
     await cleanDistFolder();
 
+    const numberOfIllustrations = (await fs.readdir('src/illustrations')).filter((name) =>
+      name.endsWith('.svg'),
+    ).length;
+
     console.log('📦 Building illustrations...');
     const start = Date.now();
     return Promise.all([
       esbuild.build(baseConfig),
       generateIllustrations({ outDir: 'dist', watch: watchMode }),
-    ]).then(() => console.log(chalk.green(`⚡️ Built N illustrations in ${Date.now() - start}ms`)));
+    ]).then(() =>
+      console.log(chalk.green(`⚡️ Built ${numberOfIllustrations} illustrations in ${Date.now() - start}ms`)),
+    );
   }
 };
 build();

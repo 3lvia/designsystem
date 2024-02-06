@@ -2,6 +2,7 @@ import esbuild from 'esbuild';
 import fs from 'fs/promises';
 import path from 'path';
 import { optimize } from 'svgo';
+import { colorIllustration } from './colorIllustration';
 
 const makePascalCase = (kebabCase: string) => {
   const clearAndUpper = (text: string) => {
@@ -17,7 +18,7 @@ const createIllustrationsPlugin: esbuild.Plugin = {
 
     build.onLoad({ filter: /\.svg$/ }, async (args) => {
       const svgFile = await fs.readFile(args.path, 'utf8');
-      const optimizedSvg = optimize(svgFile).data;
+      const optimizedSvg = optimize(colorIllustration(svgFile)).data;
 
       const illustrationName = path.parse(
         args.path.split(path.sep).find((str) => str.endsWith('.svg')) || '',
