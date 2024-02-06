@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ColorElement } from '../colors-types';
-import { getColorElement } from '../colors-util';
+import { ColorElement, ColorsObject } from '../colors-types';
+import { getColorElement, getHighestContrast, getOpacityColors } from '../colors-util';
 import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
@@ -10,10 +10,12 @@ import { ThemeName } from '@elvia/elvis-colors';
 })
 export class ColorPickerExhibitComponent {
   @Input({ required: true }) readonly theme: ThemeName;
+  @Input({ required: true }) readonly colorList: ColorsObject;
   @Input({ required: true })
   get currentColor(): ColorElement {
     return this._currentColor;
   }
+
   set currentColor(value: ColorElement | undefined) {
     if (value) {
       this._currentColor = value;
@@ -33,5 +35,21 @@ export class ColorPickerExhibitComponent {
 
   get currentColorExistsInCurrentTheme(): boolean {
     return !!getColorElement(this.currentColor?.name, this.theme);
+  }
+
+  get opacityColors() {
+    return getOpacityColors(this._currentColor.name, this.colorList);
+  }
+
+  getContrast = (color: ColorElement) => {
+    return getHighestContrast(color, this.theme);
+  };
+
+  getOpacityLevel(colorName: string) {
+    const colorLevel = colorName.split('-').pop();
+    if (colorLevel != '10' && colorLevel != '30' && colorLevel != '50') {
+      return '100';
+    }
+    return colorLevel;
   }
 }

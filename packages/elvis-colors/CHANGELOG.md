@@ -1,5 +1,12 @@
 # Elvia Colors Changelog
 
+## 4.2.0 (06.02.24)
+
+### New feature
+
+- New opacity data colors added.
+- New base token `dark-grey-05`.
+
 ## 4.1.0 (02.10.23)
 
 ### New feature
