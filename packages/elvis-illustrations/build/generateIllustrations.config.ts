@@ -1,11 +1,12 @@
 import esbuild from 'esbuild';
 import fs from 'fs/promises';
 import path from 'path';
+import { optimize } from 'svgo';
 
 const makePascalCase = (kebabCase: string) => {
-  function clearAndUpper(text: string) {
+  const clearAndUpper = (text: string) => {
     return text.replace(/-/, '').toUpperCase();
-  }
+  };
   return kebabCase.replace(/(^\w|-\w)/g, clearAndUpper);
 };
 
@@ -13,13 +14,11 @@ const createIllustrationsPlugin: esbuild.Plugin = {
   name: 'create-illustrations-plugin',
   async setup(build) {
     const templateFile = await fs.readFile('./build/illustration.template.js', 'utf-8');
-    // Mark all web component imports as external. This makes esbuild ignore them and leave unresolved imports in the bundle
-    // build.onResolve({ filter: /component-wrapper$|react.js$/ }, (args) => {
-    //   return { path: args.path, external: true };
-    // });
 
     build.onLoad({ filter: /\.svg$/ }, async (args) => {
       const svgFile = await fs.readFile(args.path, 'utf8');
+      const optimizedSvg = optimize(svgFile).data;
+
       const illustrationName = path.parse(
         args.path.split(path.sep).find((str) => str.endsWith('.svg')) || '',
       ).name;
@@ -27,7 +26,7 @@ const createIllustrationsPlugin: esbuild.Plugin = {
       console.log(illustrationName);
 
       const fileContent = templateFile
-        .replace(/{{INSERT_SVG}}/, svgFile)
+        .replace(/{{INSERT_SVG}}/, optimizedSvg)
         .replace(/{{INSERT_COMPONENT_NAME}}/, `elvis-illustration-${illustrationName}`)
         .replace(/INSERT_ILLUSTRATION_CLASS_NAME/g, `ElvisIllustration${makePascalCase(illustrationName)}`);
 
