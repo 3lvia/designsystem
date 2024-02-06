@@ -2,7 +2,7 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { convertStringToIllustrationColor, greyColors, purpleColors, type IllustrationColor } from './colors';
 
 export class ElvisIllustration extends HTMLElement {
-  static observedAttributes = ['size', 'color'];
+  static readonly observedAttributes = ['size', 'color'];
   size?: string;
 
   private wrapper: HTMLSpanElement;
