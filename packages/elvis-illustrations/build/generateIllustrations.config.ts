@@ -24,8 +24,6 @@ const createIllustrationsPlugin: esbuild.Plugin = {
         args.path.split(path.sep).find((str) => str.endsWith('.svg')) || '',
       ).name;
 
-      console.log(illustrationName);
-
       const fileContent = templateFile
         .replace(/{{INSERT_SVG}}/, optimizedSvg)
         .replace(/{{INSERT_COMPONENT_NAME}}/, `elvis-illustration-${illustrationName}`)

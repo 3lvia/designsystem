@@ -24,6 +24,7 @@ import '@elvia/elvis-header';
 import '@elvia/elvis-icon';
 import '@elvia/elvis-illustrations/went-wrong';
 import '@elvia/elvis-illustrations/hello';
+import '@elvia/elvis-illustrations/data-is-coming';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-outline';
 import '@elvia/elvis-pagination';
