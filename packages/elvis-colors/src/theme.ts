@@ -64,7 +64,9 @@ export type SignalLabels =
   | 'signal-warning'
   | 'signal-danger'
   | 'signal-info';
-export type DataLabels = 'data-1' | 'data-2' | 'data-3' | 'data-4' | 'data-5' | 'data-6';
+type BaseDataLabels = 'data-1' | 'data-2' | 'data-3' | 'data-4' | 'data-5' | 'data-6';
+export type DataLabels = BaseDataLabels | `${BaseDataLabels}-${'10' | '30' | '50'}`;
+
 export type IconColors =
   | 'icon-stroke-1'
   | 'icon-filled-foreground-1'
