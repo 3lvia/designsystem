@@ -2666,6 +2666,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-illustrations@workspace:*, @elvia/elvis-illustrations@workspace:packages/elvis-illustrations":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-illustrations@workspace:packages/elvis-illustrations"
+  dependencies:
+    "@elvia/elvis-colors": "npm:^4.1.0"
+    tsup: "npm:^8.0.1"
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-modal@npm:*, @elvia/elvis-modal@workspace:*, @elvia/elvis-modal@workspace:packages/components/components/elvis-modal":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
@@ -8854,6 +8863,7 @@ __metadata:
     "@elvia/elvis-dropdown": "workspace:*"
     "@elvia/elvis-header": "workspace:*"
     "@elvia/elvis-icon": "workspace:*"
+    "@elvia/elvis-illustrations": "workspace:*"
     "@elvia/elvis-modal": "workspace:*"
     "@elvia/elvis-outline": "workspace:*"
     "@elvia/elvis-pagination": "workspace:*"
