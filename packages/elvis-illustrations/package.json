@@ -1,0 +1,22 @@
+{
+  "name": "@elvia/elvis-illustrations",
+  "version": "1.0.0",
+  "description": "Elvia illustrations",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./*": "./dist/*.js"
+  },
+  "scripts": {
+    "build": "tsup src/* --format esm --clean"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@elvia/elvis-colors": "^4.1.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1"
+  }
+}
