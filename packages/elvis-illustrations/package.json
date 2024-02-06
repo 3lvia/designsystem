@@ -8,7 +8,8 @@
     "./*": "./dist/*.js"
   },
   "scripts": {
-    "build": "tsup src/* --format esm --clean"
+    "build": "tsx ./build/esbuild.config.ts",
+    "start": "tsx ./build/esbuild.config.ts --watch"
   },
   "files": [
     "dist"
@@ -17,6 +18,9 @@
     "@elvia/elvis-colors": "^4.1.0"
   },
   "devDependencies": {
-    "tsup": "^8.0.1"
+    "chalk": "^5.3.0",
+    "esbuild": "^0.20.0",
+    "tsx": "^4.7.0",
+    "typescript": "~5.3.3"
   }
 }
