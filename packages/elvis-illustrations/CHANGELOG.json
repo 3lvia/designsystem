@@ -1,0 +1,10 @@
+{
+  "$schema": "../components/changelogSchema.json",
+  "content": [
+    {
+      "version": "1.0.0",
+      "date": "TBD",
+      "changelog": [{ "type": "breaking_changes", "changes": ["Initial release of component."] }]
+    }
+  ]
+}
