@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "16.1.0",
+      "date": "February 7, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new color css variables for illustrations."],
+          "pages": [{ "displayName": "Color", "url": "https://design.elvia.io/brand/color" }]
+        }
+      ]
+    },
+    {
       "version": "16.0.3",
       "date": "February 6, 2024",
       "changelog": [
