@@ -102,6 +102,6 @@ export class UserQuestionnaireComponent {
   };
 
   private setHasCompletedOrClosedQuestionnaire = () => {
-    // localStorage.setItem(USER_QUESTIONNAIRE_STORAGE_KEY, 'true');
+    localStorage.setItem(USER_QUESTIONNAIRE_STORAGE_KEY, 'true');
   };
 }
