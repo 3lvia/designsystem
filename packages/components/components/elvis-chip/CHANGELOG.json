@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.02.24",
+      "version": "2.5.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using new colors from elvis-colors."]
+        }
+      ]
+    },
+    {
       "date": "10.11.23",
       "version": "2.5.1",
       "changelog": [
