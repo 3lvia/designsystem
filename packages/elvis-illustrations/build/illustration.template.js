@@ -1,4 +1,4 @@
-import { ElvisIllustration } from './common/ElvisIllustration';
+import { ElvisIllustration } from './common/elvisIllustration';
 
 const illustration = `{{INSERT_SVG}}`;
 
