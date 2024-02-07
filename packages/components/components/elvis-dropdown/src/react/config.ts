@@ -17,6 +17,7 @@ export const config: ComponentConfig = {
     { name: 'size', type: 'string' },
     { name: 'isDisabled', type: 'boolean' },
     { name: 'isMulti', type: 'boolean' },
+    { name: 'ariaLabel', type: 'string' },
     { name: 'hasSelectAllOption', type: 'boolean' },
     { name: 'selectAllOption', type: 'string' },
     { name: 'noOptionsMessage', type: 'string' },

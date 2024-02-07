@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "16.0.3",
+      "date": "February 6, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed an issue where circled buttons in text fields would be misaligned."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "16.0.2",
       "date": "February 5, 2024",
       "changelog": [
