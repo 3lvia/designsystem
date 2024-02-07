@@ -172,11 +172,12 @@ export const darkThemeColors = {
   },
 } as const satisfies BaseColors;
 
-export type DarkThemeColorName = typeof darkThemeColors extends Record<string, infer Category>
-  ? Category extends Record<string, any>
-    ? keyof Category
-    : never
-  : never;
+export type DarkThemeColorName =
+  typeof darkThemeColors extends Record<string, infer Category>
+    ? Category extends Record<string, any>
+      ? keyof Category
+      : never
+    : never;
 
 export const darkTheme = {
   text: {
@@ -496,6 +497,68 @@ export const darkTheme = {
     },
     'focus-outline': {
       hex: darkThemeColors['internal-colors']['focus-outline'].color,
+    },
+  },
+  illustration: {
+    'illustration-main-1': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
+    },
+    'illustration-main-2': {
+      hex: darkThemeColors['primary-colors']['white'].color,
+      contrast: darkThemeColors['primary-colors']['white'].contrastText,
+    },
+    'illustration-main-3': {
+      hex: darkThemeColors['primary-colors']['white'].color,
+      contrast: darkThemeColors['primary-colors']['white'].contrastText,
+    },
+    'illustration-main-4': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
+    },
+    'illustration-main-5': {
+      hex: darkThemeColors['primary-colors']['green'].color,
+      contrast: darkThemeColors['primary-colors']['green'].contrastText,
+    },
+    'illustration-shade-1': {
+      hex: darkThemeColors['grey-colors']['grey-05'].color,
+      contrast: darkThemeColors['grey-colors']['grey-05'].contrastText,
+    },
+    'illustration-shade-2': {
+      hex: darkThemeColors['grey-colors']['grey-10'].color,
+      contrast: darkThemeColors['grey-colors']['grey-10'].contrastText,
+    },
+    'illustration-shade-3': {
+      hex: darkThemeColors['grey-colors']['grey-20'].color,
+      contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
+    },
+    'illustration-shade-4': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+    },
+    'illustration-background-1': {
+      hex: darkThemeColors['grey-colors']['grey-10'].color,
+      contrast: darkThemeColors['grey-colors']['grey-10'].contrastText,
+    },
+    'illustration-background-2': {
+      hex: darkThemeColors['data-colors']['green-apple-30'].color,
+      contrast: darkThemeColors['data-colors']['green-apple-30'].contrastText,
+    },
+    'illustration-background-3': {
+      hex: darkThemeColors['data-colors']['blue-berry-30'].color,
+      contrast: darkThemeColors['data-colors']['blue-berry-30'].contrastText,
+    },
+    'illustration-background-4': {
+      hex: darkThemeColors['data-colors']['purple-plum-30'].color,
+      contrast: darkThemeColors['data-colors']['purple-plum-30'].contrastText,
+    },
+    'illustration-background-5': {
+      hex: darkThemeColors['data-colors']['red-tomato-30'].color,
+      contrast: darkThemeColors['data-colors']['red-tomato-30'].contrastText,
+    },
+    'illustration-background-6': {
+      hex: darkThemeColors['data-colors']['orange-mango-30'].color,
+      contrast: darkThemeColors['data-colors']['orange-mango-30'].contrastText,
     },
   },
 } as const satisfies Theme;
