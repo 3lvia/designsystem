@@ -72,15 +72,17 @@
     order: 3;
     margin-right: 8px;
 
-    .e-btn__icon {
+    .e-btn__icon,
+    .e-btn__icon i {
       width: 24px;
       height: 24px;
-
-      i {
-        width: 24px;
-        height: 24px;
-      }
     }
+  }
+
+  > .e-btn.e-btn--icon.e-btn--circled {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
   }
 
   &.e-input---invalid {
@@ -261,15 +263,17 @@
     height: 32px;
     margin-right: 4px;
 
-    .e-btn__icon {
+    .e-btn__icon,
+    .e-btn__icon i {
       width: 16px;
       height: 16px;
-
-      i {
-        width: 16px;
-        height: 16px;
-      }
     }
+  }
+
+  > .e-btn.e-btn--icon.e-btn--circled {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
   }
 
   &.e-input---loading:not(:focus-within) {

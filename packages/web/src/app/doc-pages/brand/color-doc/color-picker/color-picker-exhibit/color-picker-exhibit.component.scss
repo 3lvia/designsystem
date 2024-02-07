@@ -12,8 +12,11 @@ $circle-size-mobile: 152px;
   }
 
   &--container {
-    display: flex;
-    gap: 56px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 56px;
+    height: 320px;
 
     @include breakpoints.breakpoint-up(MinDesktop) {
       gap: 32px;
@@ -24,11 +27,72 @@ $circle-size-mobile: 152px;
     }
 
     @include breakpoints.breakpoint-up(Mobile) {
+      display: flex;
       flex-direction: column;
       gap: 16px;
+      height: 480px;
+    }
+
+    .opacity-colors {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      gap: 8px;
+      padding: 0;
+      margin-block: 14px;
+
+      .color-circle {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 40px;
+        transition: height 200ms ease-in-out;
+        cursor: pointer;
+
+        input[type='radio'] {
+          position: absolute;
+          cursor: pointer;
+          margin: 0;
+          opacity: 0;
+          height: 100%;
+          width: 100%;
+        }
+
+        &.chosen {
+          position: relative;
+
+          .checkmark {
+            position: absolute;
+            border-radius: 15px;
+            transform-origin: left bottom;
+            transition: height 200ms ease-in-out;
+
+            &.left {
+              top: 14px;
+              left: 3px;
+              width: 2px;
+              height: 8px;
+              transform: translateX(10px) rotate(-43deg);
+            }
+
+            &.right {
+              top: 6px;
+              left: 2px;
+              width: 2px;
+              height: 15px;
+              transform: translateX(10px) rotate(43deg);
+            }
+          }
+        }
+      }
     }
 
     .circle {
+      grid-column: 1;
+      grid-row: 1/-1;
       border-radius: 50%;
       flex-shrink: 0;
       height: $circle-size-desktop;

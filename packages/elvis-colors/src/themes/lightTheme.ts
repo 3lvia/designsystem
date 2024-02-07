@@ -58,6 +58,78 @@ export const lightThemeColors = {
       color: '#B90202',
       contrastText: '#FFFFFF',
     },
+    'green-apple-50': {
+      color: '#94D787',
+      contrastText: '#000000',
+    },
+    'violet-grape-50': {
+      color: '#A885CB',
+      contrastText: '#000000',
+    },
+    'blue-berry-50': {
+      color: '#85B9EE',
+      contrastText: '#000000',
+    },
+    'purple-plum-50': {
+      color: '#DCB9FF',
+      contrastText: '#000000',
+    },
+    'orange-mango-50': {
+      color: '#EEB985',
+      contrastText: '#000000',
+    },
+    'red-tomato-50': {
+      color: '#DD8686',
+      contrastText: '#000000',
+    },
+    'green-apple-30': {
+      color: '#CCF4C3',
+      contrastText: '#000000',
+    },
+    'violet-grape-30': {
+      color: '#D3C2E5',
+      contrastText: '#000000',
+    },
+    'blue-berry-30': {
+      color: '#C2DCF6',
+      contrastText: '#000000',
+    },
+    'purple-plum-30': {
+      color: '#EDDCFF',
+      contrastText: '#000000',
+    },
+    'orange-mango-30': {
+      color: '#FFE8C2',
+      contrastText: '#000000',
+    },
+    'red-tomato-30': {
+      color: '#FBC3C2',
+      contrastText: '#000000',
+    },
+    'green-apple-10': {
+      color: '#EEFBEB',
+      contrastText: '#000000',
+    },
+    'violet-grape-10': {
+      color: '#F0EBF6',
+      contrastText: '#000000',
+    },
+    'blue-berry-10': {
+      color: '#EBF3FC',
+      contrastText: '#000000',
+    },
+    'purple-plum-10': {
+      color: '#F9F3FF',
+      contrastText: '#000000',
+    },
+    'orange-mango-10': {
+      color: '#FFF7EB',
+      contrastText: '#000000',
+    },
+    'red-tomato-10': {
+      color: '#FEEBEB',
+      contrastText: '#000000',
+    },
   },
   'grey-colors': {
     'grey-90': {
@@ -315,6 +387,78 @@ export const lightTheme = {
     'data-6': {
       hex: lightThemeColors['data-colors']['red-tomato'].color,
       contrast: lightThemeColors['data-colors']['red-tomato'].contrastText,
+    },
+    'data-1-50': {
+      hex: lightThemeColors['data-colors']['green-apple-50'].color,
+      contrast: lightThemeColors['data-colors']['green-apple-50'].contrastText,
+    },
+    'data-2-50': {
+      hex: lightThemeColors['data-colors']['violet-grape-50'].color,
+      contrast: lightThemeColors['data-colors']['violet-grape-50'].contrastText,
+    },
+    'data-3-50': {
+      hex: lightThemeColors['data-colors']['blue-berry-50'].color,
+      contrast: lightThemeColors['data-colors']['blue-berry-50'].contrastText,
+    },
+    'data-4-50': {
+      hex: lightThemeColors['data-colors']['purple-plum-50'].color,
+      contrast: lightThemeColors['data-colors']['purple-plum-50'].contrastText,
+    },
+    'data-5-50': {
+      hex: lightThemeColors['data-colors']['orange-mango-50'].color,
+      contrast: lightThemeColors['data-colors']['orange-mango-50'].contrastText,
+    },
+    'data-6-50': {
+      hex: lightThemeColors['data-colors']['red-tomato-50'].color,
+      contrast: lightThemeColors['data-colors']['red-tomato-50'].contrastText,
+    },
+    'data-1-30': {
+      hex: lightThemeColors['data-colors']['green-apple-30'].color,
+      contrast: lightThemeColors['data-colors']['green-apple-30'].contrastText,
+    },
+    'data-2-30': {
+      hex: lightThemeColors['data-colors']['violet-grape-30'].color,
+      contrast: lightThemeColors['data-colors']['violet-grape-30'].contrastText,
+    },
+    'data-3-30': {
+      hex: lightThemeColors['data-colors']['blue-berry-30'].color,
+      contrast: lightThemeColors['data-colors']['blue-berry-30'].contrastText,
+    },
+    'data-4-30': {
+      hex: lightThemeColors['data-colors']['purple-plum-30'].color,
+      contrast: lightThemeColors['data-colors']['purple-plum-30'].contrastText,
+    },
+    'data-5-30': {
+      hex: lightThemeColors['data-colors']['orange-mango-30'].color,
+      contrast: lightThemeColors['data-colors']['orange-mango-30'].contrastText,
+    },
+    'data-6-30': {
+      hex: lightThemeColors['data-colors']['red-tomato-30'].color,
+      contrast: lightThemeColors['data-colors']['red-tomato-30'].contrastText,
+    },
+    'data-1-10': {
+      hex: lightThemeColors['data-colors']['green-apple-10'].color,
+      contrast: lightThemeColors['data-colors']['green-apple-10'].contrastText,
+    },
+    'data-2-10': {
+      hex: lightThemeColors['data-colors']['violet-grape-10'].color,
+      contrast: lightThemeColors['data-colors']['violet-grape-10'].contrastText,
+    },
+    'data-3-10': {
+      hex: lightThemeColors['data-colors']['blue-berry-10'].color,
+      contrast: lightThemeColors['data-colors']['blue-berry-10'].contrastText,
+    },
+    'data-4-10': {
+      hex: lightThemeColors['data-colors']['purple-plum-10'].color,
+      contrast: lightThemeColors['data-colors']['purple-plum-10'].contrastText,
+    },
+    'data-5-10': {
+      hex: lightThemeColors['data-colors']['orange-mango-10'].color,
+      contrast: lightThemeColors['data-colors']['orange-mango-10'].contrastText,
+    },
+    'data-6-10': {
+      hex: lightThemeColors['data-colors']['red-tomato-10'].color,
+      contrast: lightThemeColors['data-colors']['red-tomato-10'].contrastText,
     },
   },
   icon: {

@@ -7,7 +7,7 @@ import {
   getBaseColor,
   lightTheme,
 } from '@elvia/elvis-colors';
-import { ColorElement, ContrastType, RGB } from './colors-types';
+import { ColorElement, ColorsObject, ContrastType, RGB } from './colors-types';
 
 const hexToRgb = (hex: string): RGB => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -76,6 +76,16 @@ export const convertContrastValueToNumber = (contrast: ContrastType) => {
   }
 };
 
+export const getHighestContrast = (color: ColorElement, theme: ThemeName) => {
+  const white = convertContrastValueToNumber(color.contrast.white);
+  const black = convertContrastValueToNumber(color.contrast.black);
+  if (white > black) {
+    return getColorElement('white', theme);
+  } else {
+    return getColorElement('black', theme);
+  }
+};
+
 const getTokens = (hex: string, theme?: ThemeName) => {
   const foundLabels: ColorLabel[] = [];
   if (theme === 'dark') {
@@ -97,6 +107,19 @@ const getTokens = (hex: string, theme?: ThemeName) => {
     );
     return foundLabels;
   }
+};
+
+export const getOpacityColors = (
+  colorName: DarkThemeColorName | LightThemeColorName,
+  colorList: ColorsObject,
+) => {
+  return colorList['tertiary'].filter(
+    (color) => getBaseColorName(colorName) === getBaseColorName(color.name),
+  );
+};
+
+const getBaseColorName = (colorName: DarkThemeColorName | LightThemeColorName) => {
+  return colorName.split('-').slice(0, 2).join('-');
 };
 
 export const getColorElement = (
