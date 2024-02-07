@@ -1,10 +1,8 @@
-import { getThemeColor } from '@elvia/elvis-colors';
-import { convertStringToIllustrationColor, greyColors, purpleColors, type IllustrationColor } from './colors';
+import { convertStringToIllustrationColor, grey, type IllustrationColor, replaceColors } from './colors';
 
 export class ElvisIllustration extends HTMLElement {
   static readonly observedAttributes = ['color'];
   private wrapper: HTMLSpanElement;
-
   private _color: IllustrationColor = 'grey';
 
   constructor(private illustration: string) {
@@ -36,25 +34,22 @@ export class ElvisIllustration extends HTMLElement {
   }
 
   private getIllustration(color: string | null) {
-    let colors = greyColors;
+    let colors = grey;
     switch (convertStringToIllustrationColor(color)) {
       case 'grey': {
-        colors = greyColors;
+        colors = grey;
         break;
       }
-      case 'purple': {
-        colors = purpleColors;
-        break;
-      }
+      // case 'purple': {
+      //   colors = purpleColors;
+      //   break;
+      // }
       default: {
-        colors = greyColors;
+        colors = grey;
         break;
       }
     }
-    return this.illustration
-      .replace(/fill="\$background"/g, `fill="${getThemeColor(colors['$background'])}"`)
-      .replace(/fill="\$white"/g, `fill="${getThemeColor(colors['$white'])}"`)
-      .replace(/fill="\$brand-accent"/g, `fill="${getThemeColor(colors['$brand-accent'])}"`);
+    return replaceColors(this.illustration, colors);
   }
 
   private attachDefaultStyling() {
