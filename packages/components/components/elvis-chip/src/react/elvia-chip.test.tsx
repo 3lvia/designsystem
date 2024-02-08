@@ -4,12 +4,6 @@ import { axe } from 'jest-axe';
 import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { setOpacity } from './styledComponents';
-
-const colors = {
-  green: getBaseColor('green-apple', 'light'),
-  blue: getBaseColor('blue-berry', 'light'),
-};
 
 describe('Elvis Chip', () => {
   describe('Default', () => {
@@ -52,7 +46,7 @@ describe('Elvis Chip', () => {
 
     it('should be selected', () => {
       const chipButton = screen.getByTestId('chip-button');
-      expect(chipButton).toHaveStyle(`background-color: ${setOpacity(colors.green, 30)};`);
+      expect(chipButton).toHaveStyle(`background-color: ${getBaseColor('green-apple-30', 'light')};`);
     });
   });
 
@@ -74,7 +68,7 @@ describe('Elvis Chip', () => {
 
     it('should be selected', () => {
       const chipButton = screen.getByTestId('chip-button');
-      expect(chipButton).toHaveStyle(`background-color: ${setOpacity(colors.green, 30)};`);
+      expect(chipButton).toHaveStyle(`background-color: ${getBaseColor('green-apple-30', 'light')};`);
     });
   });
 
@@ -85,7 +79,7 @@ describe('Elvis Chip', () => {
 
     it('should have color blue', () => {
       const chipButton = screen.getByTestId('chip-button');
-      expect(chipButton).toHaveStyle(`background-color: ${setOpacity(colors.blue, 30)};`);
+      expect(chipButton).toHaveStyle(`background-color: ${getBaseColor('blue-berry-30', 'light')};`);
     });
   });
 
