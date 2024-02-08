@@ -39,6 +39,7 @@ import '@elvia/elvis-illustrations/explanation';
 import '@elvia/elvis-illustrations/connected';
 import '@elvia/elvis-illustrations/financial-aid';
 import '@elvia/elvis-illustrations/hidden';
+import '@elvia/elvis-illustrations/spotpris';
 import '@elvia/elvis-illustrations/fastleddstrinn';
 import '@elvia/elvis-illustrations/business';
 import '@elvia/elvis-illustrations/lock-key';
