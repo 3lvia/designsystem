@@ -1,22 +1,22 @@
 import styled, { keyframes } from 'styled-components';
 import { ColorType, ChipType } from './elvia-chip.types';
-import { getThemeColor, getBaseColor, LightThemeColorName, DarkThemeColorName } from '@elvia/elvis-colors';
+import { getThemeColor, getBaseColor, LightThemeColorName } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
-const getColorName = (color: ColorType) => {
+const mapChipColor = (color: ColorType, opacity?: 10 | 30 | 50): LightThemeColorName => {
   switch (color) {
     case 'green':
-      return 'green-apple';
+      return ('green-apple' + (opacity ? '-' + opacity : '')) as LightThemeColorName;
     case 'violet':
-      return 'violet-grape';
+      return ('violet-grape' + (opacity ? '-' + opacity : '')) as LightThemeColorName;
     case 'blue':
-      return 'blue-berry';
+      return ('blue-berry' + (opacity ? '-' + opacity : '')) as LightThemeColorName;
     case 'purple':
-      return 'purple-plum';
+      return ('purple-plum' + (opacity ? '-' + opacity : '')) as LightThemeColorName;
     case 'orange':
-      return 'orange-mango';
+      return ('orange-mango' + (opacity ? '-' + opacity : '')) as LightThemeColorName;
     case 'red':
-      return 'red-tomato';
+      return ('red-tomato' + (opacity ? '-' + opacity : '')) as LightThemeColorName;
   }
 };
 
@@ -28,28 +28,26 @@ const getChipBackgroundLight = (
   isLoading: boolean,
   type: ChipType,
 ): string => {
-  const baseColorName = getColorName(color);
-
   switch (type) {
     case 'removable':
       if (isHovering && !isDisabled) {
         return getBaseColor('green');
       } else if (isDisabled) {
-        return getBaseColor((baseColorName + '-10') as LightThemeColorName);
+        return getBaseColor(mapChipColor(color, 10));
       }
-      return getBaseColor((baseColorName + '-30') as LightThemeColorName);
+      return getBaseColor(mapChipColor(color, 30));
     case 'choice':
       if (isSelected && isHovering) {
-        return getBaseColor('green-apple-10');
+        return getBaseColor(mapChipColor('green', 10));
       } else if (isSelected) {
-        return getBaseColor('green-apple-30');
+        return getBaseColor(mapChipColor('green', 30));
       }
       return 'transparent';
     case 'legend':
       if (isSelected && isHovering && !isLoading) {
-        return getBaseColor((baseColorName + '-10') as LightThemeColorName);
+        return getBaseColor(mapChipColor(color, 10));
       } else if (isSelected && !isLoading) {
-        return getBaseColor((baseColorName + '-30') as LightThemeColorName);
+        return getBaseColor(mapChipColor(color, 30));
       }
       return 'transparent';
   }
@@ -70,28 +68,26 @@ const getChipBorderDark = (
   isLoading: boolean,
   type: ChipType,
 ): string => {
-  const baseColorName = getColorName(color);
-
   switch (type) {
     case 'removable':
       if (isDisabled) {
-        return `${getBaseColor((baseColorName + '-30') as DarkThemeColorName, 'dark')}`;
+        return `${getBaseColor(mapChipColor(color, 30), 'dark')}`;
       } else if (isHovering) {
         return 'transparent';
       }
-      return `${getBaseColor(baseColorName, 'dark')}`;
+      return `${getBaseColor(mapChipColor(color), 'dark')}`;
     case 'choice':
       if (isSelected && isHovering) {
-        return `${getBaseColor((baseColorName + '-50') as DarkThemeColorName, 'dark')}`;
+        return `${getBaseColor(mapChipColor(color, 50), 'dark')}`;
       } else if (isSelected) {
-        return `${getBaseColor('green-apple-30', 'dark')}`;
+        return `${getBaseColor(mapChipColor('green', 30), 'dark')}`;
       }
       return `${getBaseColor('grey-60', 'dark')}`;
     case 'legend':
       if (isSelected && isHovering && !isLoading) {
-        return `${getBaseColor((baseColorName + '-50') as DarkThemeColorName, 'dark')}`;
+        return `${getBaseColor(mapChipColor(color, 50), 'dark')}`;
       } else if (isSelected && !isLoading) {
-        return `${getBaseColor(baseColorName, 'dark')}`;
+        return `${getBaseColor(mapChipColor(color), 'dark')}`;
       }
       return `${getBaseColor('grey-60', 'dark')}`;
   }
@@ -170,7 +166,7 @@ export const ChipLoading = styled.div<ChipLoadingProps>`
   > span {
     width: 10px;
     height: 10px;
-    background-color: ${({ color }) => getBaseColor(getColorName(color))};
+    background-color: ${({ color }) => getBaseColor(mapChipColor(color))};
     border-radius: 100%;
     display: inline-block;
     animation: ${loadingDotsAnimation} 1s infinite ease-in-out both;
@@ -199,7 +195,7 @@ export const ChipDot = styled.span<ChipDotProps>`
   border-radius: 50%;
   transition: background-color 150ms ease-in;
   background-color: ${({ showDot, color }) =>
-    showDot ? getBaseColor(getColorName(color)) : getThemeColor('border-4')};
+    showDot ? getBaseColor(mapChipColor(color)) : getThemeColor('border-4')};
   opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
 `;
