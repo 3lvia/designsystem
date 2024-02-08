@@ -48,7 +48,7 @@
       <!-- RGB -->
       <p class="e-title-caps">rgb</p>
       <p class="e-text-sm e-capitalize rgb">
-        @for (rgbValue of currentColor?.rgb; track rgbValue; let isLast = $last) {
+        @for (rgbValue of currentColor.rgb; track rgbValue; let isLast = $last) {
           {{ rgbValue }}
           @if (!isLast) {
             <ng-container>/</ng-container>
@@ -59,7 +59,7 @@
       <!-- CONTRAST -->
       <p class="e-title-caps contrast--heading">contrast</p>
       <div class="contrast--container">
-        @for (contrast of currentColor?.contrast | keyvalue; track contrast.value) {
+        @for (contrast of currentColor.contrast | keyvalue; track contrast.value) {
           <div class="contrast">
             @if (contrast.value) {
               <i class="e-icon e-icon--check_circle-color e-icon--xs" aria-hidden="true"></i>
@@ -81,14 +81,14 @@
       </p>
 
       <div class="tokens--container" appColorListBase>
-        @for (token of currentColor?.tokens; track token) {
+        @for (token of currentColor.tokens; track token) {
           <app-copy [message]="token">
             <div class="token e-tag e-lowercase">
               {{ token }}
             </div>
           </app-copy>
         }
-        @if (!currentColor?.tokens?.length) {
+        @if (!currentColor.tokens.length) {
           <p class="e-text-micro-light no-tokens">No tokens available.</p>
         }
       </div>
