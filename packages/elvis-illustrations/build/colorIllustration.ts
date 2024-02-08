@@ -8,7 +8,7 @@ const idToColorLabel = (id: ColorId): ColorLabel => {
 export const colorIllustration = (illustration: string): string => {
   const lines = illustration.split('\n');
   const linesWithNewColors = lines.map((line) => {
-    const id = line.match(/<path.*id="(?<id>.*?)(_d)?"/)?.['groups']?.['id'];
+    const id = line.match(/id="(?<id>.*?)(_d)?"/)?.['groups']?.['id'];
     const cleanId = id?.split('_')[0]?.toLowerCase();
     if (!cleanId) {
       return line;
