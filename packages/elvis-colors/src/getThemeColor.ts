@@ -23,6 +23,7 @@ const getThemeColorObject = (label: ColorLabel, themeName: ThemeName) => {
     theme.data[label as keyof typeof theme.data] ??
     theme.icon[label as keyof typeof theme.icon] ??
     theme.assorted[label as keyof typeof theme.assorted] ??
+    theme.illustration[label as keyof typeof theme.illustration] ??
     null;
   if (!color) {
     return null;

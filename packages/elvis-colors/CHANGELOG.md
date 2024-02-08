@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 4.3.0 (08.02.24)
+
+### New feature
+
+- New illustration color tokens added.
+
 ## 4.2.0 (06.02.24)
 
 ### New feature
