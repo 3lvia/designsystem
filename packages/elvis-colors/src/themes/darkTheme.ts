@@ -537,8 +537,8 @@ export const darkTheme = {
       contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
     },
     'illustration-background-1': {
-      hex: darkThemeColors['grey-colors']['grey-10'].color,
-      contrast: darkThemeColors['grey-colors']['grey-10'].contrastText,
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
     },
     'illustration-background-2': {
       hex: darkThemeColors['data-colors']['green-apple-30'].color,
