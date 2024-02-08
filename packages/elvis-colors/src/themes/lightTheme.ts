@@ -184,11 +184,12 @@ export const lightThemeColors = {
   },
 } as const satisfies BaseColors;
 
-export type LightThemeColorName = typeof lightThemeColors extends Record<string, infer Category>
-  ? Category extends Record<string, any>
-    ? keyof Category
-    : never
-  : never;
+export type LightThemeColorName =
+  typeof lightThemeColors extends Record<string, infer Category>
+    ? Category extends Record<string, any>
+      ? keyof Category
+      : never
+    : never;
 
 export const lightTheme = {
   text: {
@@ -510,6 +511,68 @@ export const lightTheme = {
     },
     'focus-outline': {
       hex: lightThemeColors['internal-colors']['focus-outline'].color,
+    },
+  },
+  illustration: {
+    'illustration-main-1': {
+      hex: lightThemeColors['primary-colors']['grey'].color,
+      contrast: lightThemeColors['primary-colors']['grey'].contrastText,
+    },
+    'illustration-main-2': {
+      hex: lightThemeColors['primary-colors']['white'].color,
+      contrast: lightThemeColors['primary-colors']['white'].contrastText,
+    },
+    'illustration-main-3': {
+      hex: lightThemeColors['primary-colors']['grey'].color,
+      contrast: lightThemeColors['primary-colors']['grey'].contrastText,
+    },
+    'illustration-main-4': {
+      hex: lightThemeColors['primary-colors']['white'].color,
+      contrast: lightThemeColors['primary-colors']['white'].contrastText,
+    },
+    'illustration-main-5': {
+      hex: lightThemeColors['primary-colors']['green'].color,
+      contrast: lightThemeColors['primary-colors']['green'].contrastText,
+    },
+    'illustration-shade-1': {
+      hex: lightThemeColors['grey-colors']['grey-05'].color,
+      contrast: lightThemeColors['grey-colors']['grey-05'].contrastText,
+    },
+    'illustration-shade-2': {
+      hex: lightThemeColors['grey-colors']['grey-10'].color,
+      contrast: lightThemeColors['grey-colors']['grey-10'].contrastText,
+    },
+    'illustration-shade-3': {
+      hex: lightThemeColors['grey-colors']['grey-20'].color,
+      contrast: lightThemeColors['grey-colors']['grey-20'].contrastText,
+    },
+    'illustration-shade-4': {
+      hex: lightThemeColors['grey-colors']['grey-30'].color,
+      contrast: lightThemeColors['grey-colors']['grey-30'].contrastText,
+    },
+    'illustration-background-1': {
+      hex: lightThemeColors['grey-colors']['grey-10'].color,
+      contrast: lightThemeColors['grey-colors']['grey-10'].contrastText,
+    },
+    'illustration-background-2': {
+      hex: lightThemeColors['data-colors']['green-apple-30'].color,
+      contrast: lightThemeColors['data-colors']['green-apple-30'].contrastText,
+    },
+    'illustration-background-3': {
+      hex: lightThemeColors['data-colors']['blue-berry-30'].color,
+      contrast: lightThemeColors['data-colors']['blue-berry-30'].contrastText,
+    },
+    'illustration-background-4': {
+      hex: lightThemeColors['data-colors']['purple-plum-30'].color,
+      contrast: lightThemeColors['data-colors']['purple-plum-30'].contrastText,
+    },
+    'illustration-background-5': {
+      hex: lightThemeColors['data-colors']['red-tomato-30'].color,
+      contrast: lightThemeColors['data-colors']['red-tomato-30'].contrastText,
+    },
+    'illustration-background-6': {
+      hex: lightThemeColors['data-colors']['orange-mango-30'].color,
+      contrast: lightThemeColors['data-colors']['orange-mango-30'].contrastText,
     },
   },
 } as const satisfies Theme;

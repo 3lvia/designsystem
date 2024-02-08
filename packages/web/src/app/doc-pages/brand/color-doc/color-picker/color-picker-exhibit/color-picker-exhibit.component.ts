@@ -34,11 +34,11 @@ export class ColorPickerExhibitComponent {
   private _currentColor: ColorElement;
 
   get currentColorExistsInCurrentTheme(): boolean {
-    return !!getColorElement(this.currentColor?.name, this.theme);
+    return !!getColorElement(this.currentColor.name, this.theme);
   }
 
   get opacityColors() {
-    return getOpacityColors(this._currentColor.name, this.colorList);
+    return getOpacityColors(this.currentColor.name, this.colorList);
   }
 
   getContrast = (color: ColorElement) => {

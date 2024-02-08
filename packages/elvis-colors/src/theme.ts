@@ -73,6 +73,22 @@ export type IconColors =
   | 'icon-filled-background-1'
   | (SignalLabels extends `signal-${infer T}` ? `icon-${T}` : never);
 export type AssortedLabels = 'static-white' | 'static-black' | 'brand-accent' | 'focus-outline';
+export type IllustrationLabels =
+  | 'illustration-main-1'
+  | 'illustration-main-2'
+  | 'illustration-main-3'
+  | 'illustration-main-4'
+  | 'illustration-main-5'
+  | 'illustration-shade-1'
+  | 'illustration-shade-2'
+  | 'illustration-shade-3'
+  | 'illustration-shade-4'
+  | 'illustration-background-1'
+  | 'illustration-background-2'
+  | 'illustration-background-3'
+  | 'illustration-background-4'
+  | 'illustration-background-5'
+  | 'illustration-background-6';
 
 export type ColorLabel =
   | TextLabels
@@ -81,7 +97,8 @@ export type ColorLabel =
   | SignalLabels
   | DataLabels
   | IconColors
-  | AssortedLabels;
+  | AssortedLabels
+  | IllustrationLabels;
 
 export interface Theme {
   text: { [label in TextLabels]: Color };
@@ -91,6 +108,7 @@ export interface Theme {
   data: { [label in DataLabels]: Color };
   icon: { [label in IconColors]: Color };
   assorted: { [label in AssortedLabels]: Color };
+  illustration: { [label in IllustrationLabels]: Color };
 }
 
 export type ThemeName = 'light' | 'dark';
