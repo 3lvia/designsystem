@@ -15,7 +15,7 @@
     "dist"
   ],
   "dependencies": {
-    "@elvia/elvis-colors": "^4.1.0"
+    "@elvia/elvis-colors": "^4.2.0"
   },
   "devDependencies": {
     "chalk": "^5.3.0",

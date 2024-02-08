@@ -1,4 +1,4 @@
-import { convertStringToIllustrationColor, grey, type IllustrationColor, replaceColors } from './colors';
+import { convertStringToIllustrationColor, type IllustrationColor, replaceColors } from './colors';
 
 export class ElvisIllustration extends HTMLElement {
   static readonly observedAttributes = ['color'];
@@ -33,23 +33,8 @@ export class ElvisIllustration extends HTMLElement {
     }
   }
 
-  private getIllustration(color: string | null) {
-    let colors = grey;
-    switch (convertStringToIllustrationColor(color)) {
-      case 'grey': {
-        colors = grey;
-        break;
-      }
-      // case 'purple': {
-      //   colors = purpleColors;
-      //   break;
-      // }
-      default: {
-        colors = grey;
-        break;
-      }
-    }
-    return replaceColors(this.illustration, colors);
+  private getIllustration(color: IllustrationColor) {
+    return replaceColors(this.illustration, color);
   }
 
   private attachDefaultStyling() {

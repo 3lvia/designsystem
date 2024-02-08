@@ -22,7 +22,7 @@ const createIllustrationsPlugin: esbuild.Plugin = {
       ).name;
 
       const svgFile = await fs.readFile(args.path, 'utf8');
-      const optimizedSvg = optimize(colorIllustration(svgFile, illustrationName)).data;
+      const optimizedSvg = optimize(colorIllustration(svgFile)).data;
 
       const fileContent = templateFile
         .replace(/{{INSERT_SVG}}/, optimizedSvg)
