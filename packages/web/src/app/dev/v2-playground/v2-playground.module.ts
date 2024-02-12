@@ -6,6 +6,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { RouterModule } from '@angular/router';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
+import { V2PlaygroundIllustrationsComponent } from './v2-playground-illustrations/v2-playground-illustrations.component';
 
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-autocomplete';
@@ -22,32 +23,6 @@ import '@elvia/elvis-divider';
 import '@elvia/elvis-dropdown';
 import '@elvia/elvis-header';
 import '@elvia/elvis-icon';
-import '@elvia/elvis-illustrations/went-wrong';
-import '@elvia/elvis-illustrations/hello';
-import '@elvia/elvis-illustrations/no-results';
-import '@elvia/elvis-illustrations/data-is-coming';
-import '@elvia/elvis-illustrations/no-connection';
-import '@elvia/elvis-illustrations/nothing-new';
-import '@elvia/elvis-illustrations/photo';
-import '@elvia/elvis-illustrations/new';
-import '@elvia/elvis-illustrations/no-notifications';
-import '@elvia/elvis-illustrations/no-position';
-import '@elvia/elvis-illustrations/statistics';
-import '@elvia/elvis-illustrations/confirmation';
-import '@elvia/elvis-illustrations/cant-load-data';
-import '@elvia/elvis-illustrations/explanation';
-import '@elvia/elvis-illustrations/connected';
-import '@elvia/elvis-illustrations/power-line';
-import '@elvia/elvis-illustrations/power-station';
-import '@elvia/elvis-illustrations/heating';
-import '@elvia/elvis-illustrations/financial-aid';
-import '@elvia/elvis-illustrations/hidden';
-import '@elvia/elvis-illustrations/spotpris';
-import '@elvia/elvis-illustrations/fastleddstrinn';
-import '@elvia/elvis-illustrations/business';
-import '@elvia/elvis-illustrations/lock-key';
-import '@elvia/elvis-illustrations/waiting';
-import '@elvia/elvis-illustrations/sharing';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-outline';
 import '@elvia/elvis-pagination';
@@ -71,6 +46,7 @@ import '@elvia/elvis-tooltip';
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
     RouterModule,
+    V2PlaygroundIllustrationsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [v2PlaygroundComponent],

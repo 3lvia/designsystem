@@ -169,28 +169,6 @@ export class v2PlaygroundComponent {
   onDropdownSelect = (value: string | number) =>
     console.log(typeof value === 'number' ? value + value : value, typeof value);
 
-  // Illustration
-  illustrationColor = 'grey';
-  toggleIllustrationColor = () => {
-    switch (this.illustrationColor) {
-      case 'grey':
-        this.illustrationColor = 'purple';
-        break;
-      case 'purple':
-        this.illustrationColor = 'green';
-        break;
-      case 'green':
-        this.illustrationColor = 'blue';
-        break;
-      case 'blue':
-        this.illustrationColor = 'orange';
-        break;
-      case 'orange':
-        this.illustrationColor = 'grey';
-        break;
-    }
-  };
-
   // Modal
   isModalShowing = false;
   isIllustrationModalShowing = false;
