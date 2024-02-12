@@ -39,12 +39,12 @@ export const transformSvgString = (illustration: string): string => {
         return line;
       }
       if (/(fill|stroke)=".*?"/.exec(line)?.length) {
-        return line.replace(/(fill|stroke)=".*?"/g, `fill="${cleanGroupId}"`);
+        return line.replace(/(fill|stroke)=".*?"/g, `$1="${cleanGroupId}"`);
       } else {
         return line.slice(0, 2) + ` fill="${cleanGroupId}" ` + line.slice(2);
       }
     }
-    return line.replace(/(fill|stroke)=".*?"/g, `fill="${cleanId}"`);
+    return line.replace(/(fill|stroke)=".*?"/g, `$1="${cleanId}"`);
   });
 
   return linesWithNewColors.join('\n');
