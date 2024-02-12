@@ -86,15 +86,10 @@ const getColorPalette = (color: IllustrationColor): ColorMap => {
 
 export const replaceColors = (illustration: string, color: IllustrationColor): string => {
   const colors = getColorPalette(color);
-  return illustration
-    .replace(/(fill|stroke)="main-1"/g, `$1="${getThemeColor(colors['main-1'])}"`)
-    .replace(/(fill|stroke)="main-2"/g, `$1="${getThemeColor(colors['main-2'])}"`)
-    .replace(/(fill|stroke)="main-3"/g, `$1="${getThemeColor(colors['main-3'])}"`)
-    .replace(/(fill|stroke)="main-4"/g, `$1="${getThemeColor(colors['main-4'])}"`)
-    .replace(/(fill|stroke)="main-5"/g, `$1="${getThemeColor(colors['main-5'])}"`)
-    .replace(/(fill|stroke)="background-1"/g, `$1="${getThemeColor(colors['background-1'])}"`)
-    .replace(/(fill|stroke)="shade-1"/g, `$1="${getThemeColor(colors['shade-1'])}"`)
-    .replace(/(fill|stroke)="shade-2"/g, `$1="${getThemeColor(colors['shade-2'])}"`)
-    .replace(/(fill|stroke)="shade-3"/g, `$1="${getThemeColor(colors['shade-3'])}"`)
-    .replace(/(fill|stroke)="shade-4"/g, `$1="${getThemeColor(colors['shade-4'])}"`);
+  return illustration.replace(
+    /(fill|stroke)="(main-1|main-2|main-3|main-4|main-5|background-1|shade-1|shade-2|shade-3|shade-4)"/g,
+    (_match, p1, p2) => {
+      return `${p1}="${getThemeColor(colors[p2 as ColorId])}"`;
+    },
+  );
 };
