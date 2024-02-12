@@ -2681,7 +2681,7 @@ __metadata:
     chalk: "npm:^5.3.0"
     esbuild: "npm:^0.20.0"
     svgo: "npm:^3.2.0"
-    tsx: "npm:^4.7.0"
+    tsx: "npm:^4.7.1"
   languageName: unknown
   linkType: soft
 
