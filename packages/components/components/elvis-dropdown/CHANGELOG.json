@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "12.02.24",
+      "version": "9.3.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where thumbnail images in Dropdown with <code>size = 'small'</code> overflows when selected."
+          ]
+        }
+      ]
+    },
+    {
       "date": "07.02.24",
       "version": "9.3.3",
       "changelog": [
