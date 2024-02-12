@@ -1,4 +1,4 @@
-import { ColorLabel, getThemeColor } from '@elvia/elvis-colors';
+import { ColorLabel, getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 
 export type IllustrationColor = 'grey' | 'purple' | 'green' | 'blue' | 'orange';
 type ColorId =
@@ -87,9 +87,12 @@ const getColorPalette = (color: IllustrationColor): ColorMap => {
 export const replaceColors = (illustration: string, color: IllustrationColor): string => {
   const colors = getColorPalette(color);
   return illustration.replace(
-    /(fill|stroke)="(main-1|main-2|main-3|main-4|main-5|background-1|shade-1|shade-2|shade-3|shade-4)"/g,
-    (_match, p1, p2) => {
-      return `${p1}="${getThemeColor(colors[p2 as ColorId])}"`;
+    /(fill|stroke)="(main-1|main-2|main-3|main-4|main-5|main-5--contrast|background-1|shade-1|shade-2|shade-3|shade-4)"/g,
+    (_match: string, g1: string, g2: string) => {
+      if (g2.includes('--contrast')) {
+        return `${g1}="${getThemeColorContrast(colors[g2.slice(0, g2.indexOf('--contrast')) as ColorId])}"`;
+      }
+      return `${g1}="${getThemeColor(colors[g2 as ColorId])}"`;
     },
   );
 };
