@@ -15999,7 +15999,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     sass: "npm:^1.70.0"
     typescript: "npm:~5.3.3"
-    vite: "npm:^5.0.12"
+    vite: "npm:^5.1.1"
   languageName: unknown
   linkType: soft
 
@@ -19453,7 +19453,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.0.12, vite@npm:^5.0.12":
+"vite@npm:5.0.12":
   version: 5.0.12
   resolution: "vite@npm:5.0.12"
   dependencies:
@@ -19490,6 +19490,46 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10/ed0bb26a0d0c8e1dae0b70af9e36adffd7e15d80297443fe4da762596dc81570bad7f0291f590a57c1553f5e435338d8c7ffc483bd9431a95c09d9ac90665fad
+  languageName: node
+  linkType: hard
+
+"vite@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "vite@npm:5.1.1"
+  dependencies:
+    esbuild: "npm:^0.19.3"
+    fsevents: "npm:~2.3.3"
+    postcss: "npm:^8.4.35"
+    rollup: "npm:^4.2.0"
+  peerDependencies:
+    "@types/node": ^18.0.0 || >=20.0.0
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/bdb8e683caddaa0a9adcbf40144ca8ea3660836b208862b07d43787ea867845919af16e58745365bd13ed3b7f66bbf9788a6869ee22cfaacac01645b59729c34
   languageName: node
   linkType: hard
 
@@ -19550,7 +19590,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^5.0.4"
     sass: "npm:^1.70.0"
     typescript: "npm:~5.3.3"
-    vite: "npm:^5.0.12"
+    vite: "npm:^5.1.1"
     vue: "npm:^3.4.18"
     vue-router: "npm:^4.2.5"
     vue-tsc: "npm:^1.8.27"
