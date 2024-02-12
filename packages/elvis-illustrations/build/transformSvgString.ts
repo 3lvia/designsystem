@@ -1,4 +1,20 @@
-export const colorIllustration = (illustration: string): string => {
+/**
+ * Transforms an svg exported from Figma (with IDs) to be ready for coloring.
+ * Replaces a path's `fill` with it's `id`, which is later used to apply the correct color.
+ * Also handles groups `<g>` that should have a shared `fill`.
+ *
+ * Example:
+ * ```xml
+ * <path id="Main-1" d="M109.707 68.0002C109.707 ..." fill="#262626"/>
+ * ```
+ * will be transformed into
+ * ```xml
+ * <path id="Main-1" d="M109.707 68.0002C109.707 ..." fill="main-1"/>
+ * ```
+ * @param illustration svg as string
+ * @returns
+ */
+export const transformSvgString = (illustration: string): string => {
   const lines = illustration.split('\n');
   const linesWithNewColors = lines.map((line, i) => {
     const id = /id="(?<id>.*?)(_d)?"/.exec(line)?.['groups']?.['id'];
@@ -22,7 +38,7 @@ export const colorIllustration = (illustration: string): string => {
       if (!cleanGroupId) {
         return line;
       }
-      if (/(fill|stroke)/.exec(line)?.length) {
+      if (/(fill|stroke)=".*?"/.exec(line)?.length) {
         return line.replace(/(fill|stroke)=".*?"/g, `fill="${cleanGroupId}"`);
       } else {
         return line.slice(0, 2) + ` fill="${cleanGroupId}" ` + line.slice(2);
