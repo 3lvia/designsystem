@@ -15,10 +15,9 @@ const createIllustrationsPlugin: esbuild.Plugin = {
   name: 'create-illustrations-plugin',
   async setup(build) {
     const templateFile = await fs.readFile('./build/illustration.template.js', 'utf-8');
-    // const styleFile = await fs.readFile('./build/colors.css', 'utf-8');
 
     const minifiedStyle = (
-      await esbuild.build({ entryPoints: ['build/colors.css'], write: false, minify: true })
+      await esbuild.build({ entryPoints: ['build/colors.css'], bundle: true, write: false, minify: true })
     ).outputFiles[0].text;
 
     build.onLoad({ filter: /\.svg$/ }, async (args) => {

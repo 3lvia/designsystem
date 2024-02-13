@@ -1,3 +1,12 @@
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
+
+const getFallbackColor = (color: string) => {
+  if (color.includes('--contrast')) {
+    return getThemeColorContrast(`illustration-${color.slice(0, color.indexOf('--contrast'))}` as any);
+  }
+  return getThemeColor(`illustration-${color}` as any);
+};
+
 /**
  * Transforms an svg exported from Figma (with IDs) to be ready for coloring.
  * Replaces a path's `fill` with it's `id`, which is later used to apply the correct color.
@@ -39,12 +48,17 @@ export const transformSvgString = (illustration: string): string => {
         return line;
       }
       if (/(fill|stroke)=".*?"/.exec(line)?.length) {
-        return line.replace(/(fill|stroke)=".*?"/g, `$1="var(--${cleanGroupId})"`);
+        return line.replace(
+          /(fill|stroke)=".*?"/g,
+          `$1="var(--${cleanGroupId}, ${getFallbackColor(cleanId)})"`,
+        );
       } else {
-        return line.slice(0, 2) + ` fill="var(--${cleanGroupId})" ` + line.slice(2);
+        return (
+          line.slice(0, 2) + ` fill="var(--${cleanGroupId}, ${getFallbackColor(cleanId)})" ` + line.slice(2)
+        );
       }
     }
-    return line.replace(/(fill|stroke)=".*?"/g, `$1="var(--${cleanId})"`);
+    return line.replace(/(fill|stroke)=".*?"/g, `$1="var(--${cleanId}, ${getFallbackColor(cleanId)})"`);
   });
 
   return linesWithNewColors.join('\n');
