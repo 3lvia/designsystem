@@ -299,6 +299,10 @@ export const lightTheme = {
       hex: lightThemeColors['grey-colors']['grey-10'].color,
       contrast: lightThemeColors['grey-colors']['grey-10'].contrastText,
     },
+    'background-readonly-1': {
+      hex: lightThemeColors['grey-colors']['grey-02'].color,
+      contrast: lightThemeColors['grey-colors']['grey-02'].contrastText,
+    },
   },
   border: {
     'border-1': {

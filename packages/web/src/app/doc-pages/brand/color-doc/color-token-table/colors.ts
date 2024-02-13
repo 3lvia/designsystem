@@ -327,6 +327,13 @@ export const backgroundColorsStates = [
       { title: 'Date picker', path: '/components/datepicker' },
     ],
   },
+  {
+    token: 'background-readonly-1',
+    role: 'Read-only color for backgrounds',
+    light: { hex: getColor('background-readonly-1', 'light'), label: 'Grey-02' },
+    dark: { hex: getColor('background-readonly-1', 'dark'), label: 'Dark-grey-60' },
+    links: [{ title: 'Input', path: '/components/input' }],
+  },
 ] as const satisfies TableColorArray<BackgroundLabels>;
 
 export const borderColors = [
