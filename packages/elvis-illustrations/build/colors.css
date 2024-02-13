@@ -1,0 +1,35 @@
+:host:not([hidden]) {
+  display: block;
+}
+:host > span {
+  display: contents;
+}
+span {
+  --main-1: var(--e-color-illustration-main-1);
+  --main-2: var(--e-color-illustration-main-2);
+  --main-3: var(--e-color-illustration-main-3);
+  --main-4: var(--e-color-illustration-main-4);
+  --main-5: var(--e-color-illustration-main-5);
+  --main-5--contrast: var(--e-color-illustration-main-5--contrast);
+  --shade-1: var(--e-color-illustration-shade-1);
+  --shade-2: var(--e-color-illustration-shade-2);
+  --shade-3: var(--e-color-illustration-shade-3);
+  --shade-4: var(--e-color-illustration-shade-4);
+  --background-1: var(--e-color-illustration-background-1);
+}
+.purple {
+  --main-5: var(--e-color-data-4);
+  --background-1: var(--e-color-illustration-background-4);
+}
+.green {
+  --background-1: var(--e-color-illustration-background-2);
+}
+.blue {
+  --main-5: var(--e-color-data-3);
+  --main-5--contrast: var(--e-color-data-3--contrast);
+  --background-1: var(--e-color-illustration-background-3);
+}
+.orange {
+  --main-5: var(--e-color-signal-warning);
+  --background-1: var(--e-color-illustration-background-6);
+}

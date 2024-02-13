@@ -15,6 +15,11 @@ const createIllustrationsPlugin: esbuild.Plugin = {
   name: 'create-illustrations-plugin',
   async setup(build) {
     const templateFile = await fs.readFile('./build/illustration.template.js', 'utf-8');
+    // const styleFile = await fs.readFile('./build/colors.css', 'utf-8');
+
+    const minifiedStyle = (
+      await esbuild.build({ entryPoints: ['build/colors.css'], write: false, minify: true })
+    ).outputFiles[0].text;
 
     build.onLoad({ filter: /\.svg$/ }, async (args) => {
       const illustrationName = path.parse(
@@ -26,6 +31,7 @@ const createIllustrationsPlugin: esbuild.Plugin = {
 
       const fileContent = templateFile
         .replace(/{{INSERT_SVG}}/, optimizedSvg)
+        .replace(/{{INSERT_STYLE}}/, minifiedStyle)
         .replace(/{{INSERT_COMPONENT_NAME}}/, `elvis-illustrations-${illustrationName}`)
         .replace(/INSERT_ILLUSTRATION_CLASS_NAME/g, `ElvisIllustration${makePascalCase(illustrationName)}`);
 

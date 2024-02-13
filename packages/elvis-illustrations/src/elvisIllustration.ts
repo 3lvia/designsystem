@@ -1,11 +1,15 @@
-import { convertStringToIllustrationColor, type IllustrationColor, replaceColors } from './colors';
+import { convertStringToIllustrationColor, type IllustrationColor } from './colors';
 
 export class ElvisIllustration extends HTMLElement {
   static readonly observedAttributes = ['color'];
   private wrapper: HTMLSpanElement;
+  private shadow: ShadowRoot;
   private _color: IllustrationColor = 'grey';
 
-  constructor(private illustration: string) {
+  constructor(
+    private illustration: string,
+    private css: string,
+  ) {
     super();
   }
 
@@ -15,38 +19,31 @@ export class ElvisIllustration extends HTMLElement {
   set color(newColor: string) {
     const convertedColor = convertStringToIllustrationColor(newColor);
     this._color = convertedColor;
-    this.wrapper.innerHTML = this.getIllustration(convertedColor);
+    this.wrapper.classList.remove('grey', 'purple', 'green', 'blue', 'orange');
+    this.wrapper.classList.add(convertedColor);
   }
 
   connectedCallback() {
+    this.shadow = this.attachShadow({ mode: 'open' });
     this.wrapper = document.createElement('span');
-    this.wrapper.innerHTML = this.getIllustration(this.color);
-    this.appendChild(this.wrapper);
+    this.wrapper.innerHTML = this.illustration;
+    this.shadow.appendChild(this.wrapper);
 
-    this.attachDefaultStyling();
+    this.attachStyles();
   }
 
   attributeChangedCallback(name: string, _oldValue: string, newValue: string) {
-    this.attachDefaultStyling();
     if (name === 'color') {
       this.color = convertStringToIllustrationColor(newValue);
     }
   }
 
-  private getIllustration(color: IllustrationColor) {
-    return replaceColors(this.illustration, color);
-  }
-
-  private attachDefaultStyling() {
-    if (this.querySelector(':scope > style')) {
+  private attachStyles() {
+    if (this.shadow.querySelector(':host > style')) {
       return;
     }
     const styleElement = document.createElement('style');
-    styleElement.textContent = `
-      ${this.tagName.toLowerCase()} { display: block }
-      ${this.tagName.toLowerCase()}[hidden] { display: none }
-      ${this.tagName.toLowerCase()} > span { display: contents }
-    `;
-    this.appendChild(styleElement);
+    styleElement.textContent = this.css;
+    this.shadow.appendChild(styleElement);
   }
 }
