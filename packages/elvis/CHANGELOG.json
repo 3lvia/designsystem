@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "16.1.1",
+      "date": "February 14, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Use new purpose token color <code>background-readonly-1</code> in ready-only text field and text area."
+          ],
+          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/brand/input" }]
+        }
+      ]
+    },
+    {
       "version": "16.1.0",
       "date": "February 8, 2024",
       "changelog": [
