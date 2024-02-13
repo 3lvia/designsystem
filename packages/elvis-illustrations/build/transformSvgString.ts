@@ -2,9 +2,12 @@ import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 
 const getFallbackColor = (color: string) => {
   if (color.includes('--contrast')) {
-    return getThemeColorContrast(`illustration-${color.slice(0, color.indexOf('--contrast'))}` as any);
+    return getThemeColorContrast(`illustration-${color.slice(0, color.indexOf('--contrast'))}` as any).slice(
+      -8,
+      -1,
+    );
   }
-  return getThemeColor(`illustration-${color}` as any);
+  return getThemeColor(`illustration-${color}` as any).slice(-8, -1);
 };
 
 /**
