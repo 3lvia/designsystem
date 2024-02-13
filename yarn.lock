@@ -8788,6 +8788,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:^16.4.3":
+  version: 16.4.3
+  resolution: "dotenv@npm:16.4.3"
+  checksum: 10/f07db902c62c239aef7a7b696b21dfab8e95bf5883bcf23c6b9b55f42578d18b842e6257b4f4ecfdbd024a3ee9949fbaaa4c84807de7ba037c74fe3c70785198
+  languageName: node
+  linkType: hard
+
 "dotenv@npm:~16.3.1":
   version: 16.3.1
   resolution: "dotenv@npm:16.3.1"
@@ -8922,7 +8929,7 @@ __metadata:
     contentful: "npm:^9.3.5"
     contentful-management: "npm:^11.15.0"
     contentful-typescript-codegen: "npm:^3.4.0"
-    dotenv: "npm:^16.4.2"
+    dotenv: "npm:^16.4.3"
     eslint: "npm:^8.56.0"
     fuse.js: "npm:^7.0.0"
     html-loader: "npm:^5.0.0"
