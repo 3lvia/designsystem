@@ -84,7 +84,6 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
         }
 
         ${FormFieldInputContainer} {
-          gap: 4px;
           padding: 0 4px 0 8px;
           height: 32px;
         }

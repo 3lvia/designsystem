@@ -209,6 +209,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           <DropdownInput
             placeholder={placeholder}
             placeholderIcon={placeholderIcon}
+            size={size}
             isRequired={isRequired}
             allOptionsSelectedLabel={allOptionsSelectedLabel}
             isEditable={isSearchable}

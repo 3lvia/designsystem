@@ -46,7 +46,8 @@ export type BackgroundLabels =
   | 'background-hover-1'
   | 'background-hover-2'
   | 'background-selected-1'
-  | 'background-selected-2';
+  | 'background-selected-2'
+  | 'background-readonly-1';
 export type BorderLabels =
   | 'border-1'
   | 'border-2'

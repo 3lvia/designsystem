@@ -6,10 +6,12 @@ import DOMPurify from 'dompurify';
 import { Input } from './dropdownInputStyles';
 import { DropdownIconContainer } from '../styledComponents';
 import { DropdownProps } from '../elviaDropdown.types';
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 
 interface Props {
   placeholder?: string;
   placeholderIcon?: string;
+  size?: FormFieldSizes;
   isRequired: boolean;
   allOptionsSelectedLabel: string;
   isEditable: boolean;
@@ -29,6 +31,7 @@ interface Props {
 export const DropdownInput: React.FC<Props> = ({
   placeholder,
   placeholderIcon,
+  size,
   isRequired,
   allOptionsSelectedLabel,
   isEditable,
@@ -110,11 +113,13 @@ export const DropdownInput: React.FC<Props> = ({
     <>
       {placeholderIcon && !inputValue && (
         <DropdownIconContainer
+          size={size}
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(placeholderIcon) }}
         ></DropdownIconContainer>
       )}
       {!!currentValIcon && (
         <DropdownIconContainer
+          size={size}
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(currentValIcon) }}
         ></DropdownIconContainer>
       )}
