@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
 
-export type ContactInfo = {
+type ContactInfo = {
   firstName: string;
   lastName: string;
   image: string;
@@ -36,7 +36,7 @@ export class ContactComponent {
       firstName: 'Fride',
       lastName: 'Skarseth',
       image: 'assets/contact/Fride.jpg',
-      title: 'Developer',
+      title: 'Designer',
       email: 'fride.skarseth@elvia.no',
       slackUrl: 'slack://user?team=TU3R0B42K&id=U01BLN1QTHD',
       emoji: '🦙',
@@ -50,16 +50,6 @@ export class ContactComponent {
       email: 'trygve.scheline.urdahl@elvia.no',
       slackUrl: 'slack://user?team=TU3R0B42K&id=U02M1T23PJM',
       emoji: '🐐',
-      loadedImg: false,
-    },
-    {
-      firstName: 'Viljar',
-      lastName: 'Tornøe',
-      image: 'assets/contact/Viljar.png',
-      title: 'Designer',
-      email: 'viljar.tornoe@elvia.no',
-      slackUrl: 'slack://user?team=TU3R0B42K&id=U02HB13D551',
-      emoji: '🦥',
       loadedImg: false,
     },
     {
