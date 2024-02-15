@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 4.4.0 (15.02.24)
+
+### New feature
+
+- New purpose color token `background-readonly-1`.
+
 ## 4.3.0 (08.02.24)
 
 ### New feature

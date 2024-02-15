@@ -2276,7 +2276,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@npm:^4.1.0, @elvia/elvis-colors@npm:^4.2.0, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@npm:^4.1.0, @elvia/elvis-colors@npm:^4.2.0, @elvia/elvis-colors@npm:^4.4.0, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -2882,7 +2882,7 @@ __metadata:
   resolution: "@elvia/elvis@workspace:packages/elvis"
   dependencies:
     "@elvia/elvis-assets-icons": "npm:*"
-    "@elvia/elvis-colors": "npm:^4.1.0"
+    "@elvia/elvis-colors": "npm:^4.4.0"
     "@elvia/elvis-typography": "npm:^2.7.0"
     bootstrap: "npm:4.6.1"
     del: "npm:^6.1.1"
