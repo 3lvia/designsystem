@@ -41,7 +41,7 @@ export const appList = [
   {
     name: 'FortelVia',
     iconLetters: 'Ai',
-    url: 'ai',
+    url: 'fortelvia',
     rotation: -22.5,
   },
   {
