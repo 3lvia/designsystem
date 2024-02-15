@@ -73,7 +73,43 @@
 <app-color-token-subtable
   [title]="'Data'"
   [subtitle]="'Used to represent some data in visualizations, like tables or graphs'"
-  [colors]="[{ colors: dataColors }]"
+  [colors]="[
+    { colors: dataColors },
+    {
+      title: '50%',
+      description: 'Should be used to differentiate between elements',
+      colors: dataColors50
+    },
+    {
+      title: '30%',
+      description: 'Should be used to differentiate between elements',
+      colors: dataColors30
+    },
+    {
+      title: '10%',
+      description: 'Should be used to differentiate between elements',
+      colors: dataColors10
+    }
+  ]"
+  [searchValue]="filterInput.value"
+/>
+
+<app-color-token-subtable
+  [title]="'Illustrations'"
+  [subtitle]="'Colors for all parts of illustrations'"
+  [colors]="[
+    { colors: illustrationColors },
+    {
+      title: 'Shade',
+      description: 'Can be used when more depth is needed in the illustration',
+      colors: illustrationColorsShade
+    },
+    {
+      title: 'Background',
+      description: 'These colors are used for the circled background on illustrations',
+      colors: illustrationColorsBackground
+    }
+  ]"
   [searchValue]="filterInput.value"
 />
 
