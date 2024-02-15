@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { FormFieldContainer, FormFieldInputContainer } from '@elvia/elvis-toolbox';
+import { FormFieldContainer, FormFieldInputContainer, FormFieldSizes } from '@elvia/elvis-toolbox';
 
 export const DropdownContainer = styled(FormFieldContainer)`
   width: 100%;
@@ -54,12 +54,19 @@ export const IconRotator = styled.div<{ isRotated: boolean }>`
     `}
 `;
 
-export const DropdownIconContainer = styled.div`
+export const DropdownIconContainer = styled.div<{ size?: FormFieldSizes }>`
   display: flex;
 
   & .e-dropdown__image {
     width: 32px;
     height: 32px;
     border-radius: 9999px;
+
+    ${({ size }) =>
+      size === 'small' &&
+      css`
+        width: 24px;
+        height: 24px;
+      `};
   }
 `;
