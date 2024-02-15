@@ -2,7 +2,6 @@ import esbuild from 'esbuild';
 import fs from 'fs/promises';
 import path from 'path';
 import { optimize } from 'svgo';
-import { transformSvgString } from './transformSvgString';
 
 const makePascalCase = (kebabCase: string) => {
   const clearAndUpper = (text: string) => {
@@ -26,9 +25,6 @@ const createIllustrationsPlugin: esbuild.Plugin = {
       ).name;
 
       const svgString = await fs.readFile(args.path, 'utf8');
-
-      // await fs.writeFile(`src/illustrations/${path.parse(args.path).name}.svg`, transformSvgString(svgString));
-
       const optimizedSvg = optimize(svgString).data;
 
       const fileContent = templateFile
