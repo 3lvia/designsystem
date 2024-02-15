@@ -2,6 +2,18 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "15.02.24",
+      "version": "11.3.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Updated gap to <code>8px</code> between elements in form fields with <code>size = 'small'</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.01.24",
       "version": "11.3.0",
       "changelog": [
