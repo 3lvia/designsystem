@@ -498,6 +498,96 @@ export const dataColors = [
     light: { hex: getColor('data-6', 'light'), label: 'Red-tomato' },
     dark: { hex: getColor('data-6', 'dark'), label: 'Dark-red-tomato' },
   },
+  {
+    token: 'data-1-50',
+    light: { hex: getColor('data-1-50', 'light'), label: 'Green-apple-50' },
+    dark: { hex: getColor('data-1-50', 'dark'), label: 'Dark-green-apple-50' },
+  },
+  {
+    token: 'data-2-50',
+    light: { hex: getColor('data-2-50', 'light'), label: 'Violet-grape-50' },
+    dark: { hex: getColor('data-2-50', 'dark'), label: 'Dark-violet-grape-50' },
+  },
+  {
+    token: 'data-3-50',
+    light: { hex: getColor('data-3-50', 'light'), label: 'Blue-berry-50' },
+    dark: { hex: getColor('data-3-50', 'dark'), label: 'Dark-blue-berry-50' },
+  },
+  {
+    token: 'data-4-50',
+    light: { hex: getColor('data-4-50', 'light'), label: 'Purple-plum-50' },
+    dark: { hex: getColor('data-4-50', 'dark'), label: 'Dark-purple-plum-50' },
+  },
+  {
+    token: 'data-5-50',
+    light: { hex: getColor('data-5-50', 'light'), label: 'Orange-mango-50' },
+    dark: { hex: getColor('data-5-50', 'dark'), label: 'Dark-orange-mango-50' },
+  },
+  {
+    token: 'data-6-50',
+    light: { hex: getColor('data-6-50', 'light'), label: 'Red-tomato-50' },
+    dark: { hex: getColor('data-6-50', 'dark'), label: 'Dark-red-tomato-50' },
+  },
+  {
+    token: 'data-1-30',
+    light: { hex: getColor('data-1-30', 'light'), label: 'Green-apple-30' },
+    dark: { hex: getColor('data-1-30', 'dark'), label: 'Dark-green-apple-30' },
+  },
+  {
+    token: 'data-2-30',
+    light: { hex: getColor('data-2-30', 'light'), label: 'Violet-grape-30' },
+    dark: { hex: getColor('data-2-30', 'dark'), label: 'Dark-violet-grape-30' },
+  },
+  {
+    token: 'data-3-30',
+    light: { hex: getColor('data-3-30', 'light'), label: 'Blue-berry-30' },
+    dark: { hex: getColor('data-3-30', 'dark'), label: 'Dark-blue-berry-30' },
+  },
+  {
+    token: 'data-4-30',
+    light: { hex: getColor('data-4-30', 'light'), label: 'Purple-plum-30' },
+    dark: { hex: getColor('data-4-30', 'dark'), label: 'Dark-purple-plum-30' },
+  },
+  {
+    token: 'data-5-30',
+    light: { hex: getColor('data-5-30', 'light'), label: 'Orange-mango-30' },
+    dark: { hex: getColor('data-5-30', 'dark'), label: 'Dark-orange-mango-30' },
+  },
+  {
+    token: 'data-6-30',
+    light: { hex: getColor('data-6-30', 'light'), label: 'Red-tomato-30' },
+    dark: { hex: getColor('data-6-30', 'dark'), label: 'Dark-red-tomato-30' },
+  },
+  {
+    token: 'data-1-10',
+    light: { hex: getColor('data-1-10', 'light'), label: 'Green-apple-10' },
+    dark: { hex: getColor('data-1-10', 'dark'), label: 'Dark-green-apple-10' },
+  },
+  {
+    token: 'data-2-10',
+    light: { hex: getColor('data-2-10', 'light'), label: 'Violet-grape-10' },
+    dark: { hex: getColor('data-2-10', 'dark'), label: 'Dark-violet-grape-10' },
+  },
+  {
+    token: 'data-3-10',
+    light: { hex: getColor('data-3-10', 'light'), label: 'Blue-berry-10' },
+    dark: { hex: getColor('data-3-10', 'dark'), label: 'Dark-blue-berry-10' },
+  },
+  {
+    token: 'data-4-10',
+    light: { hex: getColor('data-4-10', 'light'), label: 'Purple-plum-10' },
+    dark: { hex: getColor('data-4-10', 'dark'), label: 'Dark-purple-plum-10' },
+  },
+  {
+    token: 'data-5-10',
+    light: { hex: getColor('data-5-10', 'light'), label: 'Orange-mango-10' },
+    dark: { hex: getColor('data-5-10', 'dark'), label: 'Dark-orange-mango-10' },
+  },
+  {
+    token: 'data-6-10',
+    light: { hex: getColor('data-6-10', 'light'), label: 'Red-tomato-10' },
+    dark: { hex: getColor('data-6-10', 'dark'), label: 'Dark-red-tomato-10' },
+  },
 ] as const satisfies TableColorArray<DataLabels>;
 
 export const iconColors = [
