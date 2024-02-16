@@ -14,8 +14,13 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "@elvia/elvis-colors": "^4.2.0"
+  "peerDependencies": {
+    "@elvia/elvis": ">=16.1.2"
+  },
+  "peerDependenciesMeta": {
+    "@elvia/elvis": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "chalk": "^5.3.0",

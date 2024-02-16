@@ -1,5 +1,11 @@
 # Elvia Colors Changelog
 
+## 4.4.1 (16.02.24)
+
+### New feature
+
+- Fixed the dark theme color for `illustration-background-1`.
+
 ## 4.4.0 (15.02.24)
 
 ### New feature
