@@ -103,6 +103,7 @@ export const ModalContent = styled.div<ContentProps>`
   flex-direction: column;
   z-index: 1;
   background: transparent;
+  max-height: calc(100vh - 64px);
 
   ${({ hasIllustration }) =>
     hasIllustration &&
