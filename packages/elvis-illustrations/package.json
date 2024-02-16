@@ -15,7 +15,7 @@
     "dist"
   ],
   "peerDependencies": {
-    "@elvia/elvis": ">=16.1.2"
+    "@elvia/elvis": ">=16.2.1"
   },
   "peerDependenciesMeta": {
     "@elvia/elvis": {

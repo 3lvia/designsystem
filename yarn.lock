@@ -2518,7 +2518,7 @@ __metadata:
     svgo: "npm:^3.2.0"
     tsx: "npm:^4.7.1"
   peerDependencies:
-    "@elvia/elvis": ">=16.1.2"
+    "@elvia/elvis": ">=16.2.1"
   peerDependenciesMeta:
     "@elvia/elvis":
       optional: true
