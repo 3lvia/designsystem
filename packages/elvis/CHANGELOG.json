@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "16.2.1",
+      "date": "February 16, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the dark theme color for <code>illustration-background-1</code>."],
+          "pages": [{ "displayName": "Color", "url": "https://design.elvia.io/brand/color" }]
+        }
+      ]
+    },
+    {
       "version": "16.2.0",
       "date": "February 16, 2024",
       "changelog": [

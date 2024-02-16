@@ -40,6 +40,7 @@
     "@elvia/elvis-dropdown": "workspace:*",
     "@elvia/elvis-header": "workspace:*",
     "@elvia/elvis-icon": "workspace:*",
+    "@elvia/elvis-illustrations": "workspace:*",
     "@elvia/elvis-modal": "workspace:*",
     "@elvia/elvis-outline": "workspace:*",
     "@elvia/elvis-pagination": "workspace:*",

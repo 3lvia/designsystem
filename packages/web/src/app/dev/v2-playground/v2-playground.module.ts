@@ -6,6 +6,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { RouterModule } from '@angular/router';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
+import { V2PlaygroundIllustrationsComponent } from './v2-playground-illustrations/v2-playground-illustrations.component';
 
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-autocomplete';
@@ -45,6 +46,7 @@ import '@elvia/elvis-tooltip';
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
     RouterModule,
+    V2PlaygroundIllustrationsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [v2PlaygroundComponent],

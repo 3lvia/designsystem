@@ -1,0 +1,40 @@
+:host(:not([hidden])) {
+  display: block;
+}
+:host > span {
+  display: contents;
+}
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+span {
+  --main-1: var(--e-color-illustration-main-1, #262626);
+  --main-2: var(--e-color-illustration-main-2, #ffffff);
+  --main-3: var(--e-color-illustration-main-3), #ffffff;
+  --main-4: var(--e-color-illustration-main-4), #262626;
+  --main-5: var(--e-color-illustration-main-5, #29d305);
+  --main-5--contrast: var(--e-color-illustration-main-5--contrast, #000000);
+  --shade-1: var(--e-color-illustration-shade-1, #f4f4f4);
+  --shade-2: var(--e-color-illustration-shade-2, #e9e9e9);
+  --shade-3: var(--e-color-illustration-shade-3, #d3d3d3);
+  --shade-4: var(--e-color-illustration-shade-4, #bdbdbd);
+  --background-1: var(--e-color-illustration-background-1, #e9e9e9);
+}
+.purple {
+  --main-5: var(--e-color-data-4, #b66dff);
+  --background-1: var(--e-color-illustration-background-4, #eddcff);
+}
+.green {
+  --background-1: var(--e-color-illustration-background-2, #ccf4c3);
+}
+.blue {
+  --main-5: var(--e-color-data-3, #006ddb);
+  --main-5--contrast: var(--e-color-data-3--contrast, #ffffff);
+  --background-1: var(--e-color-illustration-background-3, #c2dcf6);
+}
+.orange {
+  --main-5: var(--e-color-signal-warning, #ffa000);
+  --background-1: var(--e-color-illustration-background-6, #ffe8c2);
+}
