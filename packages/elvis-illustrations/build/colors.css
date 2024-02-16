@@ -1,4 +1,4 @@
-:host:not([hidden]) {
+:host {
   display: block;
 }
 :host > span {
