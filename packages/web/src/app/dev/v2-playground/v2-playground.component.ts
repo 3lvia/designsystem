@@ -198,7 +198,7 @@ export class v2PlaygroundComponent {
     console.log(typeof value === 'number' ? value + value : value, typeof value);
 
   // Modal
-  isModalShowing = false;
+  isModalShowing = true;
   isIllustrationModalShowing = false;
   isMultiPageModalShowing = false;
 
