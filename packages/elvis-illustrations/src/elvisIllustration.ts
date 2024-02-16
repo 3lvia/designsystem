@@ -2,7 +2,7 @@ import { convertStringToIllustrationColor, type IllustrationColor } from './colo
 
 export class ElvisIllustration extends HTMLElement {
   static readonly observedAttributes = ['color'];
-  private wrapper: HTMLSpanElement;
+  private wrapper?: HTMLSpanElement;
   private shadow?: ShadowRoot;
   private _color: IllustrationColor = 'grey';
 
@@ -19,8 +19,7 @@ export class ElvisIllustration extends HTMLElement {
   set color(newColor: string) {
     const convertedColor = convertStringToIllustrationColor(newColor);
     this._color = convertedColor;
-    this.wrapper.classList.remove('grey', 'purple', 'green', 'blue', 'orange');
-    this.wrapper.classList.add(convertedColor);
+    this.updateClassList();
   }
 
   connectedCallback() {
@@ -32,6 +31,7 @@ export class ElvisIllustration extends HTMLElement {
     }
 
     this.attachStyles();
+    this.updateClassList();
   }
 
   attributeChangedCallback(name: string, _oldValue: string, newValue: string) {
@@ -47,5 +47,12 @@ export class ElvisIllustration extends HTMLElement {
     const styleElement = document.createElement('style');
     styleElement.textContent = this.css;
     this.shadow.appendChild(styleElement);
+  }
+
+  private updateClassList() {
+    if (this.wrapper) {
+      this.wrapper.classList.remove('grey', 'purple', 'green', 'blue', 'orange');
+      this.wrapper.classList.add(this.color);
+    }
   }
 }
