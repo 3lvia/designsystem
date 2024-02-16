@@ -584,6 +584,7 @@ module.exports = [
     terms: ['stop', 'video'],
     thirdparty: { name: ['streamline'], duplicate: ['pause_circle-color'] },
   },
+  { name: 'person_add', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'phone', terms: ['mobile'], thirdparty: { name: ['streamline'] } },
   { name: 'phone_comment', terms: ['mobile'], thirdparty: { name: ['streamline'] } },
   {
@@ -781,6 +782,7 @@ module.exports = [
     deprecated: '7.14.1',
     newIconName: 'configurations',
   },
+  { name: 'share', terms: ['link', 'forward', 'send'] },
   { name: 'shortcut', terms: ['keyboard'], thirdparty: { name: ['streamline'] } },
   { name: 'shovel', terms: ['scoop', 'dig'], thirdparty: { name: ['streamline'] } },
   {

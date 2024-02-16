@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.10.0 (16.02.24)
+
+### New feature
+
+- Added the `person_add` and `share` icons.
+
 ## 3.9.0 (07.12.23)
 
 ### New feature
