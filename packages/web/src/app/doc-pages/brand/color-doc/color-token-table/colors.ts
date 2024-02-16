@@ -11,6 +11,7 @@ import {
   LightThemeColorName,
   getThemeColor,
   AssortedLabels,
+  IllustrationLabels,
 } from '@elvia/elvis-colors';
 
 /**
@@ -507,6 +508,105 @@ export const dataColors = [
   },
 ] as const satisfies TableColorArray<DataLabels>;
 
+export const dataColors50 = [
+  {
+    token: 'data-1-50',
+    light: { hex: getColor('data-1-50', 'light'), label: 'Green-apple-50' },
+    dark: { hex: getColor('data-1-50', 'dark'), label: 'Dark-green-apple-50' },
+  },
+  {
+    token: 'data-2-50',
+    light: { hex: getColor('data-2-50', 'light'), label: 'Violet-grape-50' },
+    dark: { hex: getColor('data-2-50', 'dark'), label: 'Dark-violet-grape-50' },
+  },
+  {
+    token: 'data-3-50',
+    light: { hex: getColor('data-3-50', 'light'), label: 'Blue-berry-50' },
+    dark: { hex: getColor('data-3-50', 'dark'), label: 'Dark-blue-berry-50' },
+  },
+  {
+    token: 'data-4-50',
+    light: { hex: getColor('data-4-50', 'light'), label: 'Purple-plum-50' },
+    dark: { hex: getColor('data-4-50', 'dark'), label: 'Dark-purple-plum-50' },
+  },
+  {
+    token: 'data-5-50',
+    light: { hex: getColor('data-5-50', 'light'), label: 'Orange-mango-50' },
+    dark: { hex: getColor('data-5-50', 'dark'), label: 'Dark-orange-mango-50' },
+  },
+  {
+    token: 'data-6-50',
+    light: { hex: getColor('data-6-50', 'light'), label: 'Red-tomato-50' },
+    dark: { hex: getColor('data-6-50', 'dark'), label: 'Dark-red-tomato-50' },
+  },
+] as const satisfies TableColorArray<DataLabels>;
+
+export const dataColors30 = [
+  {
+    token: 'data-1-30',
+    light: { hex: getColor('data-1-30', 'light'), label: 'Green-apple-30' },
+    dark: { hex: getColor('data-1-30', 'dark'), label: 'Dark-green-apple-30' },
+  },
+  {
+    token: 'data-2-30',
+    light: { hex: getColor('data-2-30', 'light'), label: 'Violet-grape-30' },
+    dark: { hex: getColor('data-2-30', 'dark'), label: 'Dark-violet-grape-30' },
+  },
+  {
+    token: 'data-3-30',
+    light: { hex: getColor('data-3-30', 'light'), label: 'Blue-berry-30' },
+    dark: { hex: getColor('data-3-30', 'dark'), label: 'Dark-blue-berry-30' },
+  },
+  {
+    token: 'data-4-30',
+    light: { hex: getColor('data-4-30', 'light'), label: 'Purple-plum-30' },
+    dark: { hex: getColor('data-4-30', 'dark'), label: 'Dark-purple-plum-30' },
+  },
+  {
+    token: 'data-5-30',
+    light: { hex: getColor('data-5-30', 'light'), label: 'Orange-mango-30' },
+    dark: { hex: getColor('data-5-30', 'dark'), label: 'Dark-orange-mango-30' },
+  },
+  {
+    token: 'data-6-30',
+    light: { hex: getColor('data-6-30', 'light'), label: 'Red-tomato-30' },
+    dark: { hex: getColor('data-6-30', 'dark'), label: 'Dark-red-tomato-30' },
+  },
+] as const satisfies TableColorArray<DataLabels>;
+
+export const dataColors10 = [
+  {
+    token: 'data-1-10',
+    light: { hex: getColor('data-1-10', 'light'), label: 'Green-apple-10' },
+    dark: { hex: getColor('data-1-10', 'dark'), label: 'Dark-green-apple-10' },
+  },
+  {
+    token: 'data-2-10',
+    light: { hex: getColor('data-2-10', 'light'), label: 'Violet-grape-10' },
+    dark: { hex: getColor('data-2-10', 'dark'), label: 'Dark-violet-grape-10' },
+  },
+  {
+    token: 'data-3-10',
+    light: { hex: getColor('data-3-10', 'light'), label: 'Blue-berry-10' },
+    dark: { hex: getColor('data-3-10', 'dark'), label: 'Dark-blue-berry-10' },
+  },
+  {
+    token: 'data-4-10',
+    light: { hex: getColor('data-4-10', 'light'), label: 'Purple-plum-10' },
+    dark: { hex: getColor('data-4-10', 'dark'), label: 'Dark-purple-plum-10' },
+  },
+  {
+    token: 'data-5-10',
+    light: { hex: getColor('data-5-10', 'light'), label: 'Orange-mango-10' },
+    dark: { hex: getColor('data-5-10', 'dark'), label: 'Dark-orange-mango-10' },
+  },
+  {
+    token: 'data-6-10',
+    light: { hex: getColor('data-6-10', 'light'), label: 'Red-tomato-10' },
+    dark: { hex: getColor('data-6-10', 'dark'), label: 'Dark-red-tomato-10' },
+  },
+] as const satisfies TableColorArray<DataLabels>;
+
 export const iconColors = [
   {
     token: 'icon-stroke-1',
@@ -566,3 +666,102 @@ export const assortedColors = [
     dark: { hex: getColor('focus-outline', 'dark'), label: 'Dark-focus-outline' },
   },
 ] as const satisfies TableColorArray<AssortedLabels>;
+
+export const illustrationColors = [
+  {
+    token: 'illustration-main-1',
+    role: 'Illustrations color option',
+    light: { hex: getColor('illustration-main-1', 'light'), label: 'Grey' },
+    dark: { hex: getColor('illustration-main-1', 'dark'), label: 'Dark-grey' },
+  },
+  {
+    token: 'illustration-main-2',
+    role: 'Illustrations color option',
+    light: { hex: getColor('illustration-main-2', 'light'), label: 'White' },
+    dark: { hex: getColor('illustration-main-2', 'dark'), label: 'Dark-white' },
+  },
+  {
+    token: 'illustration-main-3',
+    role: `Illustrations color option`,
+    light: { hex: getColor('illustration-main-3', 'light'), label: 'Grey' },
+    dark: { hex: getColor('illustration-main-3', 'dark'), label: 'Dark-white' },
+  },
+  {
+    token: 'illustration-main-4',
+    role: `Illustrations color option`,
+    light: { hex: getColor('illustration-main-4', 'light'), label: 'Grey' },
+    dark: { hex: getColor('illustration-main-4', 'dark'), label: 'Dark-white' },
+  },
+  {
+    token: 'illustration-main-5',
+    role: `Illustrations color for details`,
+    light: { hex: getColor('illustration-main-5', 'light'), label: 'Green' },
+    dark: { hex: getColor('illustration-main-5', 'dark'), label: 'Dark-green' },
+  },
+] as const satisfies TableColorArray<IllustrationLabels>;
+
+export const illustrationColorsShade = [
+  {
+    token: 'illustration-shade-1',
+    role: 'Illustration shade option',
+    light: { hex: getColor('illustration-shade-1', 'light'), label: 'Grey-05' },
+    dark: { hex: getColor('illustration-shade-1', 'dark'), label: 'Dark-grey-05' },
+  },
+  {
+    token: 'illustration-shade-2',
+    role: 'Illustration shade option',
+    light: { hex: getColor('illustration-shade-2', 'light'), label: 'Grey-10' },
+    dark: { hex: getColor('illustration-shade-2', 'dark'), label: 'Dark-grey-10' },
+  },
+  {
+    token: 'illustration-shade-3',
+    role: `Illustration shade option`,
+    light: { hex: getColor('illustration-shade-3', 'light'), label: 'Grey-20' },
+    dark: { hex: getColor('illustration-shade-3', 'dark'), label: 'Dark-grey-30' },
+  },
+  {
+    token: 'illustration-shade-4',
+    role: `Illustration shade option`,
+    light: { hex: getColor('illustration-shade-4', 'light'), label: 'Grey-30' },
+    dark: { hex: getColor('illustration-shade-4', 'dark'), label: 'Dark-grey-40' },
+  },
+] as const satisfies TableColorArray<IllustrationLabels>;
+
+export const illustrationColorsBackground = [
+  {
+    token: 'illustration-background-1',
+    role: 'Illustration background option (primary)',
+    light: { hex: getColor('illustration-background-1', 'light'), label: 'Grey-10' },
+    dark: { hex: getColor('illustration-background-1', 'dark'), label: 'Dark-grey-10' },
+  },
+  {
+    token: 'illustration-background-2',
+    role: 'Illustration background option (secondary)',
+    light: { hex: getColor('illustration-background-2', 'light'), label: 'Green-apple-30' },
+    dark: { hex: getColor('illustration-background-2', 'dark'), label: 'Dark-green-apple-30' },
+  },
+  {
+    token: 'illustration-background-3',
+    role: `Illustration background option (tertiary)`,
+    light: { hex: getColor('illustration-background-3', 'light'), label: 'Blue-berry-30' },
+    dark: { hex: getColor('illustration-background-3', 'dark'), label: 'Dark-blue-berry-30' },
+  },
+  {
+    token: 'illustration-background-4',
+    role: `Illustration background option (tertiary)`,
+    light: { hex: getColor('illustration-background-4', 'light'), label: 'Purple-plum-30' },
+    dark: { hex: getColor('illustration-background-4', 'dark'), label: 'Dark-purple-plum-30' },
+  },
+  {
+    token: 'illustration-background-5',
+    role: `Illustration background option (tertiary)`,
+    light: { hex: getColor('illustration-background-5', 'light'), label: 'Red-tomato-30' },
+    dark: { hex: getColor('illustration-background-5', 'dark'), label: 'Dark-red-tomato-30' },
+  },
+  {
+    token: 'illustration-background-6',
+    role: `Illustration background option (tertiary)`,
+    light: { hex: getColor('illustration-background-6', 'light'), label: 'Orange-mango-30' },
+    dark: { hex: getColor('illustration-background-6', 'dark'), label: 'Dark-orange-mango-30' },
+  },
+] as const satisfies TableColorArray<IllustrationLabels>;

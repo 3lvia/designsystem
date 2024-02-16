@@ -10,8 +10,14 @@ import {
   borderColorsStates,
   signalColors,
   dataColors,
+  dataColors50,
+  dataColors30,
+  dataColors10,
   iconColors,
   assortedColors,
+  illustrationColors,
+  illustrationColorsShade,
+  illustrationColorsBackground,
 } from './colors';
 
 @Component({
@@ -30,6 +36,12 @@ export class ColorTokenTableComponent {
   borderColorsStates = borderColorsStates;
   signalColors = signalColors;
   dataColors = dataColors;
+  dataColors50 = dataColors50;
+  dataColors30 = dataColors30;
+  dataColors10 = dataColors10;
   assortedColors = assortedColors;
   iconColors = iconColors;
+  illustrationColors = illustrationColors;
+  illustrationColorsShade = illustrationColorsShade;
+  illustrationColorsBackground = illustrationColorsBackground;
 }
