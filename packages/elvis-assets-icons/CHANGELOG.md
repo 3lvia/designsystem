@@ -1,6 +1,6 @@
 # Elvis-assets-icon
 
-## 3.10.0 (15.02.24)
+## 3.10.0 (16.02.24)
 
 ### New feature
 
