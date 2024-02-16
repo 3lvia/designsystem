@@ -3,7 +3,7 @@ import { convertStringToIllustrationColor, type IllustrationColor } from './colo
 export class ElvisIllustration extends HTMLElement {
   static readonly observedAttributes = ['color'];
   private wrapper: HTMLSpanElement;
-  private shadow: ShadowRoot;
+  private shadow?: ShadowRoot;
   private _color: IllustrationColor = 'grey';
 
   constructor(
@@ -24,10 +24,12 @@ export class ElvisIllustration extends HTMLElement {
   }
 
   connectedCallback() {
-    this.shadow = this.attachShadow({ mode: 'open' });
-    this.wrapper = document.createElement('span');
-    this.wrapper.innerHTML = this.illustration;
-    this.shadow.appendChild(this.wrapper);
+    if (!this.shadow) {
+      this.shadow = this.attachShadow({ mode: 'open' });
+      this.wrapper = document.createElement('span');
+      this.wrapper.innerHTML = this.illustration;
+      this.shadow.appendChild(this.wrapper);
+    }
 
     this.attachStyles();
   }
@@ -39,7 +41,7 @@ export class ElvisIllustration extends HTMLElement {
   }
 
   private attachStyles() {
-    if (this.shadow.querySelector(':host > style')) {
+    if (!this.shadow || this.shadow?.querySelector(':host > style')) {
       return;
     }
     const styleElement = document.createElement('style');
