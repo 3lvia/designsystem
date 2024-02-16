@@ -1,6 +1,17 @@
 {
   "content": [
     {
+      "version": "16.2.0",
+      "date": "February 16, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new icons <code>person_add</code> and <code>share</code>."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
       "version": "16.1.1",
       "date": "February 15, 2024",
       "changelog": [
