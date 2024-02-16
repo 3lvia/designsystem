@@ -835,8 +835,8 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Typography',
     titleNo: 'Typografi',
-    description: `Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family includes three types: Display, Text and Mono. `,
-    descriptionNo: `Elvia har en typografi kalt Red Hat som skal brukes i alt materiale. Skriftfamilien Red Hat inneholder tre typer: Display, Text og Mono. `,
+    description: `Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family includes three types: Display and Text. `,
+    descriptionNo: `Elvia har en typografi kalt Red Hat som skal brukes i alt materiale. Skriftfamilien Red Hat inneholder tre typer: Display and Text. `,
     docUrl: Pages.Typography,
     absolutePath: '/brand/' + Pages.Typography,
     status: DocPageStatus.Done,
