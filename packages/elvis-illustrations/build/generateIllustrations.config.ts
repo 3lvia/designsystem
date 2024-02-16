@@ -25,7 +25,10 @@ const createIllustrationsPlugin: esbuild.Plugin = {
       ).name;
 
       const svgString = await fs.readFile(args.path, 'utf8');
-      const optimizedSvg = optimize(svgString).data;
+      const svgWithoutStaticHeightAndWidth = svgString.replace(/<svg[^>]*>/, (svgTag) =>
+        svgTag.replace(/width="[^"]*"/, '').replace(/height="[^"]*"/, ''),
+      );
+      const optimizedSvg = optimize(svgWithoutStaticHeightAndWidth).data;
 
       const fileContent = templateFile
         .replace(/{{INSERT_SVG}}/, optimizedSvg)

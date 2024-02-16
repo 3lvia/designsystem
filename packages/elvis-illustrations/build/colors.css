@@ -4,6 +4,11 @@
 :host > span {
   display: contents;
 }
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 span {
   --main-1: var(--e-color-illustration-main-1, #262626);
   --main-2: var(--e-color-illustration-main-2, #ffffff);
