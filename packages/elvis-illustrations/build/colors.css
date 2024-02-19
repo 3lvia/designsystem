@@ -12,8 +12,8 @@ svg {
 span {
   --main-1: var(--e-color-illustration-main-1, #262626);
   --main-2: var(--e-color-illustration-main-2, #ffffff);
-  --main-3: var(--e-color-illustration-main-3), #ffffff;
-  --main-4: var(--e-color-illustration-main-4), #262626;
+  --main-3: var(--e-color-illustration-main-3, #262626);
+  --main-4: var(--e-color-illustration-main-4, #ffffff);
   --main-5: var(--e-color-illustration-main-5, #29d305);
   --main-5--contrast: var(--e-color-illustration-main-5--contrast, #000000);
   --shade-1: var(--e-color-illustration-shade-1, #f4f4f4);
