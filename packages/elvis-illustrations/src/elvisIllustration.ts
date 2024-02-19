@@ -3,14 +3,21 @@ import { convertStringToIllustrationColor, type IllustrationColor } from './colo
 export class ElvisIllustration extends HTMLElement {
   static readonly observedAttributes = ['color'];
   private wrapper?: HTMLSpanElement;
-  private shadow?: ShadowRoot;
   private _color: IllustrationColor = 'grey';
 
-  constructor(
-    private illustration: string,
-    private css: string,
-  ) {
+  constructor(illustration: string, css: string) {
     super();
+
+    const shadow = this.attachShadow({ mode: 'open' });
+    this.wrapper = document.createElement('span');
+    this.wrapper.innerHTML = illustration;
+    shadow.appendChild(this.wrapper);
+
+    const styleElement = document.createElement('style');
+    styleElement.textContent = css;
+    shadow.appendChild(styleElement);
+
+    this.updateClassList();
   }
 
   get color(): IllustrationColor {
@@ -23,14 +30,6 @@ export class ElvisIllustration extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this.shadow) {
-      this.shadow = this.attachShadow({ mode: 'open' });
-      this.wrapper = document.createElement('span');
-      this.wrapper.innerHTML = this.illustration;
-      this.shadow.appendChild(this.wrapper);
-    }
-
-    this.attachStyles();
     this.updateClassList();
   }
 
@@ -40,19 +39,8 @@ export class ElvisIllustration extends HTMLElement {
     }
   }
 
-  private attachStyles() {
-    if (!this.shadow || this.shadow?.querySelector(':host > style')) {
-      return;
-    }
-    const styleElement = document.createElement('style');
-    styleElement.textContent = this.css;
-    this.shadow.appendChild(styleElement);
-  }
-
   private updateClassList() {
-    if (this.wrapper) {
-      this.wrapper.classList.remove('grey', 'purple', 'green', 'blue', 'orange');
-      this.wrapper.classList.add(this.color);
-    }
+    this.wrapper?.classList.remove('grey', 'purple', 'green', 'blue', 'orange');
+    this.wrapper?.classList.add(this.color);
   }
 }
