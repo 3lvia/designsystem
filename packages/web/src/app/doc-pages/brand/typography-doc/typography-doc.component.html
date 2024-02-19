@@ -15,7 +15,7 @@
       <div class="e-content-loader" style="width: 80%"></div>
     }
     <app-component-subsection
-      [sectionTitle]="locale === 'nb-NO' ? 'Red Hat Display, Text og Mono' : 'Red Hat Display, Text and Mono'"
+      [sectionTitle]="locale === 'nb-NO' ? 'Red Hat Display og Text' : 'Red Hat Display and Text'"
     >
       @if (locale === 'en-GB') {
         <p>
@@ -25,10 +25,6 @@
         <p>
           <strong>Red Hat Text</strong> has a slightly smaller x-height, more space and is designed for good
           readability in smaller sizes.
-        </p>
-        <p>
-          <strong>Red Hat Mono</strong> has characters that take the same amount of horizontal space. Mono are
-          used to make it easier to comparing numbers and to distinguish code from natural-language text.
         </p>
         <p>
           You can download all the fonts via
@@ -51,10 +47,6 @@
         <p>
           <strong>Red Hat Text</strong> har en litt mindre x-høyde, mer plass og er designet for god lesbarhet
           i mindre størrelser.
-        </p>
-        <p>
-          <strong>Red Hat Mono</strong> har tegn som tar like mye horisontal plass. Mono brukes for å gjøre
-          det enklere å sammenligne tall og for å skille kode fra naturlig tekst.
         </p>
         <p>
           Du kan laste ned alle fonter på
@@ -83,6 +75,17 @@
         ikke er mulig å bruke profilfonten, for eksempel i digitale dokumenter og maler som deles med personer
         utenfor Elvia som kanskje ikke har profilfonten installert. Verdana er mindre tett enn Red Hat, men
         for å simulere Red Hat på best mulig måte kan du knipe sammen teksten ved å redusere bokstavavstanden.
+      }
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Red Hat Mono">
+      @if (locale === 'en-GB') {
+        <strong>Red Hat Mono</strong> has characters that take up the same amount of horizontal space. Mono is
+        used to make it easier to compare numbers and to distinguish code from natural-language text. Mono is
+        most used in tables and for displaying code.
+      } @else {
+        <strong>Red Hat Mono</strong> består av karakterer som tar opp like mye horisontal plass. Mono brukes
+        for å gjøre det lettere å sammenligne tall og for å skille kode fra brødtekst. Mono er mest brukt i
+        tabeller og for å vise kode.
       }
     </app-component-subsection>
   </app-component-section>
