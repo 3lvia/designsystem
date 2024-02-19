@@ -2,6 +2,14 @@
   "$schema": "../components/changelogSchema.json",
   "content": [
     {
+      "version": "1.0.1",
+      "date": "19.02.24",
+      "changelog": [
+        { "type": "patch", "changes": ["Improve the way the svg is mounted into the DOM."] },
+        { "type": "bug_fix", "changes": ["Fix some broken colors."] }
+      ]
+    },
+    {
       "version": "1.0.0",
       "date": "16.02.24",
       "changelog": [{ "type": "new_feature", "changes": ["Initial release of component."] }]
