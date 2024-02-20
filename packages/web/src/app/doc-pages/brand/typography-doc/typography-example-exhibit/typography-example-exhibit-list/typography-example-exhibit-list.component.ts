@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
-import { Modifier, Typographies } from '../typographies';
-
-import { FormsModule } from '@angular/forms';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
+
+import { Modifier, Typographies } from '../typographies';
 
 @Component({
   standalone: true,

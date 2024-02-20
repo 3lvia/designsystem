@@ -1,12 +1,13 @@
+import { NgIf } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RoutesRecognized } from '@angular/router';
-import { ScrollNotifierService } from './scroll-notifier.service';
+
+import { EmojiBadComponent } from './emoji-bad/emoji-bad.component';
 import { EmojiGoodComponent } from './emoji-good/emoji-good.component';
 import { EmojiNeutralComponent } from './emoji-neutral/emoji-neutral.component';
-import { EmojiBadComponent } from './emoji-bad/emoji-bad.component';
-import { NgIf } from '@angular/common';
+import { ScrollNotifierService } from './scroll-notifier.service';
 
 @Component({
   selector: 'app-feedback',

@@ -1,5 +1,6 @@
-import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
+
+import { BaseProps } from '@elvia/elvis-toolbox';
 
 export type BadgeColor = 'red' | 'green' | 'neutral';
 export interface BaseBadgeProps extends BaseProps {

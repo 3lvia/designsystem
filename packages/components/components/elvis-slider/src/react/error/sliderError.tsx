@@ -1,6 +1,8 @@
+import React, { useEffect, useState } from 'react';
+
 import { removeCircle } from '@elvia/elvis-assets-icons';
 import { FormFieldError, FormFieldErrorContainer, IconWrapper } from '@elvia/elvis-toolbox';
-import React, { useEffect, useState } from 'react';
+
 import { BothSliders, ErrorType, SliderProps } from '../elvia-slider.types';
 import { getErrorOptionsText, getInternalErrorText } from '../utils/getError';
 

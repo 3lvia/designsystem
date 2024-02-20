@@ -1,9 +1,10 @@
+import { LowerCasePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+import { CopyComponent } from '../../../../../shared/copy/copy.component';
 import { TableColorArray } from '../colors';
 import { ColorTokenSubtableColorCircleComponent } from './color-token-subtable-color-circle/color-token-subtable-color-circle.component';
-import { RouterLink } from '@angular/router';
-import { CopyComponent } from '../../../../../shared/copy/copy.component';
-import { NgIf, NgClass, NgFor, LowerCasePipe } from '@angular/common';
 
 type Colors = {
   colors: TableColorArray;

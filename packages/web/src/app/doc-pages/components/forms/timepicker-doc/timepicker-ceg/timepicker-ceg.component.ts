@@ -1,8 +1,10 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { TimepickerProps } from '@elvia/elvis-timepicker/react';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { TimepickerProps } from '@elvia/elvis-timepicker/react';
 
 @Component({
   selector: 'app-timepicker-ceg',

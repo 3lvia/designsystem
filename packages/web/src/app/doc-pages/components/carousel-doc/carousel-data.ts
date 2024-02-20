@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-carousel/CHANGELOG.json';
-import ComponentData, { NestedProp } from '../component-data.interface';
 import { BaseCarouselProps, CarouselItem } from '@elvia/elvis-carousel/react';
+
+import ComponentData, { NestedProp } from '../component-data.interface';
 
 // We force items to be CarouselItem, since it actually is a union of number and CarouselItem[], which is hard to type correctly.
 export const carouselData: ComponentData<BaseCarouselProps & { items: CarouselItem[] }> = {

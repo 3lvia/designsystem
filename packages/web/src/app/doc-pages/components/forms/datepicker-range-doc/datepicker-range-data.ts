@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-datepicker-range/CHANGELOG.json';
-import ComponentData from '../../component-data.interface';
 import { BaseDatepickerRangeProps } from '@elvia/elvis-datepicker-range/react';
+
+import ComponentData from '../../component-data.interface';
 
 const datepickerRangeData: ComponentData<BaseDatepickerRangeProps> = {
   changelog: changelogJson.content,

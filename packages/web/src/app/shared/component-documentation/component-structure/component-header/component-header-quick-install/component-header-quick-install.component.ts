@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
+import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 import { getPackageName } from '../../../component-installation/getPackageName';
-import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
   selector: 'app-component-header-quick-install',

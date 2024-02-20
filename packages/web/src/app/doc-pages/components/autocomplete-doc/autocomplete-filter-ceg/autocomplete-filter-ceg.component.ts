@@ -1,11 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+import { Observable, Subject, debounceTime, from, switchMap } from 'rxjs';
 
 import * as template from 'html-loader!./autocomplete-filter-ceg.component.html';
-import { HttpClient } from '@angular/common/http';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
+
 import { AutocompleteItem } from '@elvia/elvis-autocomplete/react';
-import { Observable, Subject, debounceTime, from, switchMap } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 interface Drink {
   strDrink: string;

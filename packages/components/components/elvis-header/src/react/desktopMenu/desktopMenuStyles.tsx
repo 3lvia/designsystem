@@ -1,6 +1,8 @@
-import { getThemeColor, getShadow } from '@elvia/elvis-colors';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
+
+import { getShadow, getThemeColor } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
+
 import { Hr } from '../styledComponents';
 
 export const MenuContainer = styled.div`

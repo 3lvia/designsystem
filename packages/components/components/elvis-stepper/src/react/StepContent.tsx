@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
+
+import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
+
 import { StepperType } from './elvia-stepper.types';
+import { StepStates } from './publicApi.public';
 import { StepperActions, StepperContent } from './styledComponents';
 import { isReachable } from './utils';
-import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
-import { StepStates } from './publicApi.public';
 
 type StepContentProps = {
   currentStep: number;

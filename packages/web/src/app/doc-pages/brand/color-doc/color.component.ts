@@ -1,19 +1,21 @@
-import { Component } from '@angular/core';
-import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
-import { Title } from '@angular/platform-browser';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
-import { ColorTokenTableComponent } from './color-token-table/color-token-table.component';
-import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
-import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
-import { DoDontTextComponent } from '../../../shared/do-dont-text/do-dont-text.component';
-import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { NgIf } from '@angular/common';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Title } from '@angular/platform-browser';
+
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+
+import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { DoDontTextComponent } from '../../../shared/do-dont-text/do-dont-text.component';
+import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { ColorTokenTableComponent } from './color-token-table/color-token-table.component';
+import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
+import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
 
 @Component({
   selector: 'app-color',

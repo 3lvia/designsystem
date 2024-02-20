@@ -1,3 +1,4 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
@@ -6,13 +7,14 @@ import {
   Output,
   booleanAttribute,
 } from '@angular/core';
-import { Language, Tab } from '../types';
-import { FormatCodePipe } from '../formatCode.pipe';
+
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
-import { HighlighterPipe } from '../highlighter.pipe';
-import { TabToSegmentedControlItemPipe } from './tabToSegmentedControlItem.pipe';
+
 import { IfViewportSizeDirective } from '../../../../viewport-size/if-viewport-size.directive';
-import { NgIf, AsyncPipe } from '@angular/common';
+import { FormatCodePipe } from '../formatCode.pipe';
+import { HighlighterPipe } from '../highlighter.pipe';
+import { Language, Tab } from '../types';
+import { TabToSegmentedControlItemPipe } from './tabToSegmentedControlItem.pipe';
 
 @Component({
   selector: 'app-code-viewer',

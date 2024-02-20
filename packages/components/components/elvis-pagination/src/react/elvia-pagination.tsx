@@ -1,12 +1,18 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+
+import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
+import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
+import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
+
+import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
 import {
   PaginationLabel,
   PaginationProps,
-  defaultPaginationValue,
+  VisibleElements,
   defaultPaginationDropdownItems,
   defaultPaginationLabelOptions,
-  VisibleElements,
+  defaultPaginationValue,
 } from './elvia-pagination.types';
 import {
   Paginator,
@@ -17,10 +23,6 @@ import {
   PaginatorSelectorArea,
   PaginatorSelectorArrowBtn,
 } from './styledComponents';
-import { useRovingFocus, IconWrapper } from '@elvia/elvis-toolbox';
-import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
-import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
-import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
 
 export const Pagination: FC<PaginationProps> = function ({
   // Value represents the current visible elements in the pagination

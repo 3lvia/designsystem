@@ -1,9 +1,11 @@
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { openElviaToast } from '@elvia/elvis-toast';
-import { dropdownData } from './dropdown-data';
+
 import type { DropdownItem } from '@elvia/elvis-dropdown';
-import { NgFor, NgIf, NgClass } from '@angular/common';
+import { openElviaToast } from '@elvia/elvis-toast';
+
+import { dropdownData } from './dropdown-data';
 import { V2PlaygroundIllustrationsComponent } from './v2-playground-illustrations/v2-playground-illustrations.component';
 
 interface StepState {

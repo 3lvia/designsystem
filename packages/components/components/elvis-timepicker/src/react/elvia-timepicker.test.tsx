@@ -1,8 +1,9 @@
-import React from 'react';
-import { Timepicker } from './elvia-timepicker';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen, waitFor } from '@testing-library/react';
+import React from 'react';
+
+import { Timepicker } from './elvia-timepicker';
 
 export const padDigit = (d: number): string => {
   const paddedNumber = `0${d}`;

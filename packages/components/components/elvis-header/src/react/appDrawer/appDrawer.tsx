@@ -1,9 +1,11 @@
-import { IconWrapper, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import React, { useRef } from 'react';
-import { TriggerButton } from '../styledComponents';
-import { SpinContainer, AppTitle } from './appDrawerStyles';
-import { AppOverlay } from './appOverlay';
+
 import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
+import { IconWrapper, useConnectedOverlay } from '@elvia/elvis-toolbox';
+
+import { TriggerButton } from '../styledComponents';
+import { AppTitle, SpinContainer } from './appDrawerStyles';
+import { AppOverlay } from './appOverlay';
 
 interface Props {
   appTitle?: string;

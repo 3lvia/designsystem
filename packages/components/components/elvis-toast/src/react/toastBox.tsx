@@ -1,20 +1,21 @@
-import { BaseProps, IconWrapper } from '@elvia/elvis-toolbox';
 import React, { AnimationEvent, useEffect, useState } from 'react';
+
+import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
+import { BaseProps, IconWrapper } from '@elvia/elvis-toolbox';
+
+import { usePauseableTimer } from './pauseableTimer';
 import { ToastWithId } from './publicApi.public';
 import {
-  animationDuration,
   CloseButton,
+  IconContainer,
   TextContent,
   ToastBody,
   ToastContainer,
   ToastTitle,
-  IconContainer,
+  animationDuration,
   fadeOut as fadeOutKeyframes,
 } from './styledComponents';
-
-import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
 import { ToastIcon } from './toastIcon';
-import { usePauseableTimer } from './pauseableTimer';
 
 interface Props extends BaseProps {
   toast: ToastWithId;

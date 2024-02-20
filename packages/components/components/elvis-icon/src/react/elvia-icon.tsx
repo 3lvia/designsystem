@@ -1,6 +1,8 @@
 import React, { CSSProperties, ComponentPropsWithoutRef } from 'react';
+
 import * as elvisIcons from '@elvia/elvis-assets-icons';
 import { IconName } from '@elvia/elvis-assets-icons';
+
 export type { IconName } from '@elvia/elvis-assets-icons';
 export type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 

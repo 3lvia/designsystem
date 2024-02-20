@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-popover/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BasePopoverProps } from '@elvia/elvis-popover/react';
+
+import ComponentData from '../component-data.interface';
 
 const popoverData: ComponentData<BasePopoverProps> = {
   changelog: changelogJson.content,

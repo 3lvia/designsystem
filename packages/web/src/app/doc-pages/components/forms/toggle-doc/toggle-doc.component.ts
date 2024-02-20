@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { ToggleSizeSmCegComponent } from './toggle-size-sm-ceg/toggle-size-sm-ceg.component';
-import { ToggleSizeMdCegComponent } from './toggle-size-md-ceg/toggle-size-md-ceg.component';
-import { ToggleLabelCegComponent } from './toggle-label-ceg/toggle-label-ceg.component';
-import { ToggleStatesCegComponent } from './toggle-states-ceg/toggle-states-ceg.component';
-import { ComponentSubsectionComponent } from '../../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { WhenToUseComponent } from '../../../../shared/when-to-use/when-to-use.component';
-import { ComponentSectionComponent } from '../../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { ToggleCegComponent } from './toggle-ceg/toggle-ceg.component';
+
 import { StaticCegComponent } from '../../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../../shared/when-to-use/when-to-use.component';
+import { ToggleCegComponent } from './toggle-ceg/toggle-ceg.component';
+import { ToggleLabelCegComponent } from './toggle-label-ceg/toggle-label-ceg.component';
+import { ToggleSizeMdCegComponent } from './toggle-size-md-ceg/toggle-size-md-ceg.component';
+import { ToggleSizeSmCegComponent } from './toggle-size-sm-ceg/toggle-size-sm-ceg.component';
+import { ToggleStatesCegComponent } from './toggle-states-ceg/toggle-states-ceg.component';
 
 @Component({
   selector: 'app-toggle-doc',

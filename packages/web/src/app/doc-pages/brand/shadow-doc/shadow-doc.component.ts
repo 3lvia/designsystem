@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import { Title } from '@angular/platform-browser';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { doAndDont, styleText } from './texts';
-import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
 import { NgFor } from '@angular/common';
-import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { ShadowViewerComponent } from './shadow-viewer/shadow-viewer.component';
+import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Title } from '@angular/platform-browser';
+
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+
+import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { ShadowViewerComponent } from './shadow-viewer/shadow-viewer.component';
+import { doAndDont, styleText } from './texts';
 
 @Component({
   selector: 'app-shadow-doc',

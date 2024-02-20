@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-stepper/CHANGELOG.json';
-import ComponentData, { NestedProp } from '../component-data.interface';
 import { BaseStepperProps, StepState } from '@elvia/elvis-stepper/react';
+
+import ComponentData, { NestedProp } from '../component-data.interface';
 
 type ContentMock = {
   content: string;

@@ -1,5 +1,6 @@
-import { getBaseColor } from '@elvia/elvis-colors';
 import styled, { createGlobalStyle, css } from 'styled-components';
+
+import { getBaseColor } from '@elvia/elvis-colors';
 
 export const StyledOutline = styled.div<{ animate: boolean }>`
   border: 2px solid ${getBaseColor('focus-outline', 'light')};

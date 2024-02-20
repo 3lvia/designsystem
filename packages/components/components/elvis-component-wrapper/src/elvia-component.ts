@@ -1,8 +1,8 @@
-import { FC, createElement } from 'react';
-import { createRoot, Root } from 'react-dom/client';
+import JSON5 from 'json5';
 import isEqual from 'lodash.isequal';
 import throttle from 'lodash.throttle';
-import JSON5 from 'json5';
+import { FC, createElement } from 'react';
+import { Root, createRoot } from 'react-dom/client';
 
 let ewcReactRootIdentifierPrefix = 0;
 export class ElvisComponentWrapper extends HTMLElement {

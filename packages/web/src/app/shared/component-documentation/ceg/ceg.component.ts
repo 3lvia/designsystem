@@ -1,3 +1,5 @@
+import { AsyncPipe, Location, NgClass, NgIf } from '@angular/common';
+import { HttpParams } from '@angular/common/http';
 import {
   AfterContentInit,
   AfterViewInit,
@@ -10,19 +12,20 @@ import {
   ViewChild,
   booleanAttribute,
 } from '@angular/core';
-import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { ComponentExample } from './component-example';
-import { Controls, ControlValue, SlotVisibility } from './controlType';
 import { ActivatedRoute } from '@angular/router';
-import { TypescriptComponentExample } from './typescript-component-example';
-import { HttpParams } from '@angular/common/http';
-import { Location, NgIf, NgClass, AsyncPipe } from '@angular/common';
+
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
+
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+
 import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
-import { ControlsComponent } from './controls/controls.component';
+import { ComponentExample } from './component-example';
+import { ControlValue, Controls, SlotVisibility } from './controlType';
 import { ControlsPopoverComponent } from './controls-popover/controls-popover.component';
+import { ControlsComponent } from './controls/controls.component';
 import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
+import { TypescriptComponentExample } from './typescript-component-example';
 
 interface Slot {
   name: string;

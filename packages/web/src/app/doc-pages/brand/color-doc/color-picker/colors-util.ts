@@ -7,6 +7,7 @@ import {
   getBaseColor,
   lightTheme,
 } from '@elvia/elvis-colors';
+
 import { ColorElement, ColorsObject, ContrastType, RGB } from './colors-types';
 
 const hexToRgb = (hex: string): RGB => {

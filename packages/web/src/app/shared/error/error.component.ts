@@ -1,10 +1,12 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { ThemeName } from '@elvia/elvis-colors';
-import { ThemeService } from 'src/app/core/services/theme.service';
 import { RouterLink } from '@angular/router';
-import { NgIf } from '@angular/common';
+
+import { ThemeService } from 'src/app/core/services/theme.service';
+
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-error',

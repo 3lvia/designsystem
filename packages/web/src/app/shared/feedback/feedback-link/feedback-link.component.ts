@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { ScrollNotifierService } from '../scroll-notifier.service';
 
 @Component({

@@ -1,6 +1,7 @@
+import { NgClass, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { Text } from '../../controlType';
-import { NgIf, NgClass } from '@angular/common';
 
 let CEG_INPUT_ID = 0;
 

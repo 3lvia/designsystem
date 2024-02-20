@@ -1,4 +1,10 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react';
+
+import arrowLongLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeftBold';
+import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
+import reset from '@elvia/elvis-assets-icons/dist/icons/reset';
+import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
+
 import {
   dateIsWithinMinMaxBoundary,
   formatDate,
@@ -6,22 +12,17 @@ import {
   getWeekDayNames,
   isSameDay,
 } from '../dateHelpers';
-import { DatepickerRangeProps, DateRange } from '../elviaDatepicker.types';
-
+import { DateRange, DatepickerRangeProps } from '../elviaDatepicker.types';
+import { DateRangeHighlighter } from './DateRangeHighlighter';
 import {
-  Container,
   CalendarHeader,
+  Container,
   DayButton,
   DayName,
   GridContainer,
   MonthName,
   ResetButton,
 } from './calendarStyles';
-import { DateRangeHighlighter } from './DateRangeHighlighter';
-import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
-import arrowLongLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeftBold';
-import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
-import reset from '@elvia/elvis-assets-icons/dist/icons/reset';
 
 interface Props {
   selectedDate?: Date | null;

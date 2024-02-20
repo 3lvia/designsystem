@@ -1,8 +1,10 @@
-import Divider from './elvia-divider';
-import React from 'react';
-import { axe } from 'jest-axe';
-import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import { getThemeColor } from '@elvia/elvis-colors';
+
+import Divider from './elvia-divider';
 
 describe('Elvis Divider', () => {
   describe('Type = Simple', () => {

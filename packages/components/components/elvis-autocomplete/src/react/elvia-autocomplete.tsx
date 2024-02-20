@@ -1,20 +1,22 @@
-import React, { useEffect, useMemo, useRef, useState, KeyboardEvent } from 'react';
-import { AutocompleteItem, AutocompleteProps, ErrorType } from './elvia-autocomplete.types';
+import React, { KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
+
 import {
-  FormFieldContainer,
-  FormFieldLabel,
-  FormFieldInputContainer,
-  FormFieldInput,
-  useConnectedOverlay,
   ErrorOptions,
+  FormFieldContainer,
+  FormFieldInput,
+  FormFieldInputContainer,
+  FormFieldLabel,
   VisuallyHidden,
+  useConnectedOverlay,
 } from '@elvia/elvis-toolbox';
+
 import { AutocompleteOverlay } from './autocomplete-overlay/autocompleteOverlay';
-import { filterItems } from './utils/filterItems';
+import { AutocompleteItem, AutocompleteProps, ErrorType } from './elvia-autocomplete.types';
 import { AutocompleteError } from './error/autocompleteError';
-import { useOutsideClickListener } from './utils/useOutsideClick';
+import { filterItems } from './utils/filterItems';
 import { getInternalErrorText } from './utils/getInternalErrorText';
 import { getStatusForScreenReader } from './utils/statusMessage';
+import { useOutsideClickListener } from './utils/useOutsideClick';
 
 const defaultErrorOptions = {
   hideText: false,

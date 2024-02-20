@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
-import { RouterService } from './router.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 import { LOCALE_CODE } from 'contentful/types';
+
+import { RouterService } from './router.service';
 
 export type Locale = LOCALE_CODE;
 

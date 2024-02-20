@@ -1,6 +1,7 @@
-import { getThemeColor, getShadow } from '@elvia/elvis-colors';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
+
+import { getShadow, getThemeColor } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const AppTitle = styled.h1`
   ${getTypographyCss('title-caps')}

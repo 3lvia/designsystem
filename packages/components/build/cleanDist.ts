@@ -1,5 +1,5 @@
-import tinyGlob from 'tiny-glob';
 import fs from 'fs/promises';
+import tinyGlob from 'tiny-glob';
 
 const cleanDistFolders = async () => {
   const paths = await tinyGlob('components/elvis-*/dist');

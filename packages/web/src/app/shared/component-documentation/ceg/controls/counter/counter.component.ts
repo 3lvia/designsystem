@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Counter } from '../../controlType';
 import { NgClass, NgStyle } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+import { Counter } from '../../controlType';
 
 @Component({
   selector: 'app-counter',

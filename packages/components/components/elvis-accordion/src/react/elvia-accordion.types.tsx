@@ -1,6 +1,7 @@
+import { ComponentPropsWithoutRef } from 'react';
+
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
-import { ComponentPropsWithoutRef } from 'react';
 
 export type AccordionLabelPosition = 'left' | 'center' | 'right';
 export type AccordionSize = 'small' | 'medium' | 'large';

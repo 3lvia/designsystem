@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
-import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider.types';
+
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+
+import { DividerOrientation, DividerType, DividerTypography } from './elvia-divider.types';
 
 type DividerAreaProps = {
   type: DividerType;

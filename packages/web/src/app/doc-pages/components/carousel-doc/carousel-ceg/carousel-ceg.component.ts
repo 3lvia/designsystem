@@ -1,5 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+
 import { BaseCarouselProps } from '@elvia/elvis-carousel/react';
 
 @Component({

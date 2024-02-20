@@ -1,4 +1,5 @@
 import { OverlayHorizontalPosition } from '@elvia/elvis-toolbox';
+
 import { HorizontalPosition } from './elviaPopover.types';
 
 export const mapPositionToHorizontalPosition = (position: HorizontalPosition): OverlayHorizontalPosition => {

@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components';
+
 import { getThemeColor } from '@elvia/elvis-colors';
-import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
+import { TypographyName, getTypographyCss } from '@elvia/elvis-typography';
+
 import { StepperType } from './elvia-stepper.types';
+
 interface StepperContainerProps {
   $type?: StepperType;
 }

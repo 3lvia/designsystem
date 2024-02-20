@@ -1,6 +1,7 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
+
 import { Locale } from 'src/app/core/services/localization.service';
-import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-when-to-use',

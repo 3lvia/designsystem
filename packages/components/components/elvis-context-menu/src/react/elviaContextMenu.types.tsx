@@ -1,5 +1,6 @@
-import { BaseProps } from '@elvia/elvis-toolbox';
 import { CSSProperties, ComponentPropsWithoutRef } from 'react';
+
+import { BaseProps } from '@elvia/elvis-toolbox';
 
 export type VerticalPosition = 'bottom' | 'top';
 export type HorizontalPosition = 'left' | 'right';

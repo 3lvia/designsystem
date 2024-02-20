@@ -1,5 +1,6 @@
 import { Directive, HostBinding } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 import { Subject, distinctUntilChanged, map, startWith, switchMap } from 'rxjs';
 
 import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';

@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
-import { getPackageName } from './getPackageName';
+
 import { CopyComponent } from '../../copy/copy.component';
+import { getPackageName } from './getPackageName';
 
 @Component({
   selector: 'app-component-installation',

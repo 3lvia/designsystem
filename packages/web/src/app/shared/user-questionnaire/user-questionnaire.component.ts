@@ -1,13 +1,15 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
+
+import { type ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { type DropdownItem } from '@elvia/elvis-dropdown';
+import '@elvia/elvis-dropdown';
 import { type DropdownProps } from '@elvia/elvis-dropdown/react';
+import '@elvia/elvis-modal';
+
 import { UserQuestionnaireIllustrationComponent } from './user-questionnaire-illustration/user-questionnaire-illustration.component';
 import { UserQuestionnaireService } from './user-questionnaire.service';
-import '@elvia/elvis-modal';
-import '@elvia/elvis-dropdown';
-import { CommonModule } from '@angular/common';
-import { type ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { HttpClientModule } from '@angular/common/http';
 
 type FormName = 'role' | 'feedback';
 

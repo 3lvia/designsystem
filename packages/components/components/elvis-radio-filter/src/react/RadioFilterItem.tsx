@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
 import DOMPurify from 'dompurify';
+import React, { FC, useEffect, useRef, useState } from 'react';
+
 import { RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
 
 interface RadioFilterItemProps {

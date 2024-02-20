@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
-import { autocompleteData } from './autocomplete-data';
-import { AutocompleteLabelCegComponent } from './autocomplete-label-ceg/autocomplete-label-ceg.component';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { AutocompleteFilterCegComponent } from './autocomplete-filter-ceg/autocomplete-filter-ceg.component';
-import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
-import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { AutocompleteCegComponent } from './autocomplete-ceg/autocomplete-ceg.component';
+
+import { getComponent } from 'src/app/shared/doc-pages';
+
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { AutocompleteCegComponent } from './autocomplete-ceg/autocomplete-ceg.component';
+import { autocompleteData } from './autocomplete-data';
+import { AutocompleteFilterCegComponent } from './autocomplete-filter-ceg/autocomplete-filter-ceg.component';
+import { AutocompleteLabelCegComponent } from './autocomplete-label-ceg/autocomplete-label-ceg.component';
 
 @Component({
   selector: 'app-autocomplete-doc',

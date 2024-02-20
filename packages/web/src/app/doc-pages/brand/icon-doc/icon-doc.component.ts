@@ -1,40 +1,43 @@
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import {
+  CUSTOM_ELEMENTS_SCHEMA,
   Component,
-  OnInit,
-  ViewChild,
   ElementRef,
-  Output,
   EventEmitter,
   HostListener,
-  CUSTOM_ELEMENTS_SCHEMA,
+  OnInit,
+  Output,
+  ViewChild,
 } from '@angular/core';
-import { Icon } from './icon.interface';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-// @ts-ignore
-import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
-import { elvisIconData } from './icon-data';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+
 import naturalCompare from 'natural-compare-lite';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IconSearchPipe } from './icon-search.pipe';
-import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
-import { ComponentPropertiesTableComponent } from '../../../shared/component-documentation/component-properties-table/component-properties-table.component';
-import { ComponentInstallationComponent } from '../../../shared/component-documentation/component-installation/component-installation.component';
-import { IconCegComponent } from './icon-ceg/icon-ceg.component';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+
+// @ts-ignore
+import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
+
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
-import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
-import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
-import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { CopyComponent } from '../../../shared/copy/copy.component';
-import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { NgFor, NgClass, NgIf } from '@angular/common';
+import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
+import { ComponentInstallationComponent } from '../../../shared/component-documentation/component-installation/component-installation.component';
+import { ComponentPropertiesTableComponent } from '../../../shared/component-documentation/component-properties-table/component-properties-table.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { CopyComponent } from '../../../shared/copy/copy.component';
+import { IconCegComponent } from './icon-ceg/icon-ceg.component';
+import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
+import { elvisIconData } from './icon-data';
+import { IconSearchPipe } from './icon-search.pipe';
+import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
+import { Icon } from './icon.interface';
 
 type IconArray = { pretty: string; title: string; terms: string[] }[];
 

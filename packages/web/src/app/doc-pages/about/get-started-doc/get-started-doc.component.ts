@@ -1,14 +1,17 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+
 import { combineLatest } from 'rxjs';
+
 import { VersionService } from 'src/app/core/services/version.service';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import { WebComponentIllustrationComponent } from './web-component-illustration/web-component-illustration.component';
-import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
-import { RouterLink } from '@angular/router';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
+import { WebComponentIllustrationComponent } from './web-component-illustration/web-component-illustration.component';
 
 @Component({
   selector: 'app-get-started',

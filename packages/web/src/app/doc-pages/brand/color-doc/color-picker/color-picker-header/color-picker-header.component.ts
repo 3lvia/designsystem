@@ -1,9 +1,12 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output } from '@angular/core';
-import { ThemeName } from '@elvia/elvis-colors';
-import { Observable } from 'rxjs';
-import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { RouterLink } from '@angular/router';
-import { NgIf, AsyncPipe } from '@angular/common';
+
+import { Observable } from 'rxjs';
+
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
+
+import { ThemeName } from '@elvia/elvis-colors';
 
 @Component({
   selector: 'app-color-picker-header',

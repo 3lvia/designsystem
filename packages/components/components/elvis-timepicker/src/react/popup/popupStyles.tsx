@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+
+import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 import { listButtonHeight } from './buttonHeight';
-import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 
 const typography = {
   numberPickerTitle: getTypographyCss('text-sm'),

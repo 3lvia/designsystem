@@ -1,6 +1,8 @@
+import styled, { css } from 'styled-components';
+
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+
 import { headerZIndex, sidebarAnimation, sidebarMaxWidth, toolbarHeight } from '../styledComponents';
 import { publicStyles } from './publicStyles';
 

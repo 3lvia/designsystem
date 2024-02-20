@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter, startWith, pairwise, map } from 'rxjs/operators';
+
+import { Observable } from 'rxjs';
+import { filter, map, pairwise, startWith } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',

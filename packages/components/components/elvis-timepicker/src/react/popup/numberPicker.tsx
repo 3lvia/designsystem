@@ -1,8 +1,12 @@
 import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
-import { padDigit } from '../padDigit';
-import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
-import arrowUpBold from '@elvia/elvis-assets-icons/dist/icons/arrowUpBold';
+
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
+import arrowUpBold from '@elvia/elvis-assets-icons/dist/icons/arrowUpBold';
+import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
+
+import { ChangeType } from '../elviaTimepicker.types';
+import { padDigit } from '../padDigit';
+import { listButtonHeight } from './buttonHeight';
 import {
   ArrowButtonContainer,
   HorizontalLine,
@@ -11,8 +15,6 @@ import {
   NumberPickerContainer,
   NumberPickerTitle,
 } from './popupStyles';
-import { listButtonHeight } from './buttonHeight';
-import { ChangeType } from '../elviaTimepicker.types';
 
 interface Props {
   title: string;

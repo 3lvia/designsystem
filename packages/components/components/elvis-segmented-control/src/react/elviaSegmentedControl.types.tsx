@@ -1,5 +1,6 @@
-import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
+
+import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 
 export type Type = 'text' | 'icon';
 export type Size = 'large' | 'medium' | 'small';

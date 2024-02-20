@@ -1,3 +1,5 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -7,18 +9,19 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { Subject, fromEvent, merge, switchMap, take, takeUntil } from 'rxjs';
-import { RouterService } from 'src/app/core/services/router.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavbarBase } from '../navbar-base';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
+import { Subject, fromEvent, merge, switchMap, take, takeUntil } from 'rxjs';
+
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
-import { FlexibleFullHeightDirective } from './flexible-full-height.directive';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { RouterService } from 'src/app/core/services/router.service';
+
 import { LocalePickerComponent } from '../locale-picker/locale-picker.component';
+import { NavbarBase } from '../navbar-base';
 import { SubMenuComponent } from '../sub-menu/sub-menu.component';
-import { RouterLinkActive, RouterLink } from '@angular/router';
-import { NgClass, NgIf, NgFor } from '@angular/common';
+import { FlexibleFullHeightDirective } from './flexible-full-height.directive';
 
 const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
 @Component({

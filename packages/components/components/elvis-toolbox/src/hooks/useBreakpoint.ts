@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { isSsr } from '../isSsr';
 
 type BreakPoint = 'gt-mobile' | 'gt-tablet';

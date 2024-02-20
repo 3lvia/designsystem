@@ -1,9 +1,10 @@
-import React from 'react';
-import { Dropdown } from './elvia-dropdown';
-import userEvent from '@testing-library/user-event';
-import { DropdownItem } from './publicApi.public';
-import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import { Dropdown } from './elvia-dropdown';
+import { DropdownItem } from './publicApi.public';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
   Object.defineProperty(window, 'matchMedia', {

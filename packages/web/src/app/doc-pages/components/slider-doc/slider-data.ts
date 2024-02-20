@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-slider/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseSliderProps } from '@elvia/elvis-slider/react';
+
+import ComponentData from '../component-data.interface';
 
 export const sliderData: ComponentData<BaseSliderProps> = {
   changelog: changelogJson.content,

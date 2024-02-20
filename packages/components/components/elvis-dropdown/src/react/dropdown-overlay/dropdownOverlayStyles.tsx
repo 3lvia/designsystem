@@ -1,7 +1,9 @@
+import styled, { css, keyframes } from 'styled-components';
+
 import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { FormFieldSizes, IconButton, TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css, keyframes } from 'styled-components';
+
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
 
 export const CursorCurve = styled.div`

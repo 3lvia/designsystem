@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
-import { getThemeColor, getShadow } from '@elvia/elvis-colors';
+
+import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 const mobileMax = '767px';

@@ -2,6 +2,7 @@ import esbuild from 'esbuild';
 import fs from 'fs';
 import fsPromises from 'fs/promises';
 import path from 'path';
+
 import { getComponentName, getMd5FromFile } from './utils';
 
 interface FileWithHash {

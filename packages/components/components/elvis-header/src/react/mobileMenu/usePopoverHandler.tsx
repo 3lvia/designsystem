@@ -1,6 +1,7 @@
-import { useFocusTrap } from '@elvia/elvis-toolbox';
 import { RefObject, useState } from 'react';
 import { flushSync } from 'react-dom';
+
+import { useFocusTrap } from '@elvia/elvis-toolbox';
 
 interface ReturnType {
   userMenuIsOpen: boolean;

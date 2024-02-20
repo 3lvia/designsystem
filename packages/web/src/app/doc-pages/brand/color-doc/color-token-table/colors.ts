@@ -1,17 +1,17 @@
 import {
-  ColorLabel,
+  AssortedLabels,
   BackgroundLabels,
   BorderLabels,
+  ColorLabel,
+  DarkThemeColorName,
   DataLabels,
+  IconColors as IconLabels,
+  IllustrationLabels,
+  LightThemeColorName,
   SignalLabels,
   TextLabels,
-  IconColors as IconLabels,
   ThemeName,
-  DarkThemeColorName,
-  LightThemeColorName,
   getThemeColor,
-  AssortedLabels,
-  IllustrationLabels,
 } from '@elvia/elvis-colors';
 
 /**

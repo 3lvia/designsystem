@@ -1,10 +1,12 @@
-import React from 'react';
-import { Datepicker } from './elvia-datepicker';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { dateIsWithinMinMaxBoundary, isAfter, isBefore, isValidDate, localISOTime } from './dateHelpers';
+import React from 'react';
+
 import { getThemeColor } from '@elvia/elvis-colors';
-import { render, screen, waitFor } from '@testing-library/react';
+
+import { dateIsWithinMinMaxBoundary, isAfter, isBefore, isValidDate, localISOTime } from './dateHelpers';
+import { Datepicker } from './elvia-datepicker';
 
 describe('Elvis Datepicker', () => {
   describe('Default', () => {

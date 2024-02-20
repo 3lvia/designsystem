@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useConnectedOverlay, useSlot, useFocusTrap, useUpdateEffect } from '@elvia/elvis-toolbox';
-import { ContextMenuProps } from './elviaContextMenu.types';
-import { TriggerContainer } from './styledComponents';
-import { mapPositionToHorizontalPosition } from './mapPosition';
+
+import { useConnectedOverlay, useFocusTrap, useSlot, useUpdateEffect } from '@elvia/elvis-toolbox';
+
 import { ContextMenuOverlay } from './contextMenuOverlay';
+import { ContextMenuProps } from './elviaContextMenu.types';
+import { mapPositionToHorizontalPosition } from './mapPosition';
+import { TriggerContainer } from './styledComponents';
 
 export const ContextMenu: React.FC<ContextMenuProps> = ({
   content = '',

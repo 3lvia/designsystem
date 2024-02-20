@@ -1,5 +1,6 @@
-import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import styled, { css } from 'styled-components';
+
+import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 
 export type Size = 'sm' | 'small' | 'md' | 'medium' | 'lg' | 'large';
 export interface ButtonProps {

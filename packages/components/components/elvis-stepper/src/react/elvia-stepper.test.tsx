@@ -1,7 +1,8 @@
-import Stepper from './elvia-stepper';
-import React from 'react';
-import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import React from 'react';
+
+import Stepper from './elvia-stepper';
 
 describe('Elvis Stepper', () => {
   const steps = {

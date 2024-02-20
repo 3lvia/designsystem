@@ -1,6 +1,8 @@
-import { useWebComponentState } from './useWebComponentState';
-import { renderHook, act } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
+
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+
+import { useWebComponentState } from './useWebComponentState';
 
 describe('useWebComponentState', () => {
   describe('with Web Component', () => {

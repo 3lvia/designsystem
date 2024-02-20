@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RadioGroup } from '../../controlType';
 import { NgFor } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+import { RadioGroup } from '../../controlType';
 
 let CEG_RADIO_GROUP_ID = 0;
 

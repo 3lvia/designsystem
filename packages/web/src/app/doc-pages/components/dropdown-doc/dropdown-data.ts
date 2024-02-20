@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-dropdown/CHANGELOG.json';
+import { DropdownItem, DropdownProps } from '@elvia/elvis-dropdown/react';
+
 import ComponentData from '../component-data.interface';
-import { DropdownProps, DropdownItem } from '@elvia/elvis-dropdown/react';
 
 type DropdownPropsWithStubbedItems = {
   items: (DropdownItem & { children: any })[];

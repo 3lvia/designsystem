@@ -1,10 +1,12 @@
+import { NgIf } from '@angular/common';
 import { Component, Input, booleanAttribute } from '@angular/core';
+
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
-import { ComponentDocumentationDatePipe } from '../../component-documentation-date-pipe';
+
 import { SubMenuComponent } from '../../../navbar/sub-menu/sub-menu.component';
 import { IfViewportSizeDirective } from '../../../viewport-size/if-viewport-size.directive';
+import { ComponentDocumentationDatePipe } from '../../component-documentation-date-pipe';
 import { ComponentHeaderQuickInstallComponent } from './component-header-quick-install/component-header-quick-install.component';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-component-header',

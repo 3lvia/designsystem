@@ -1,23 +1,25 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import { Title } from '@angular/platform-browser';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { RouterLink } from '@angular/router';
-import { LayoutMarginsCegComponent } from './layout-margins-ceg/layout-margins-ceg.component';
-import { LayoutGuttersNoCegComponent } from './layout-gutters-no-ceg/layout-gutters-no-ceg.component';
-import { LayoutGuttersCustomCegComponent } from './layout-gutters-custom-ceg/layout-gutters-custom-ceg.component';
-import { LayoutGuttersCegComponent } from './layout-gutters-ceg/layout-gutters-ceg.component';
-import { LayoutLevelsCegComponent } from './layout-levels-ceg/layout-levels-ceg.component';
-import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-ordering-ceg.component';
-import { LayoutAlignmentCegComponent } from './layout-alignment-ceg/layout-alignment-ceg.component';
-import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
-import { LayoutBreakpointsCegComponent } from './layout-breakpoints-ceg/layout-breakpoints-ceg.component';
-import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { NgIf } from '@angular/common';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+
+import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { LayoutAlignmentCegComponent } from './layout-alignment-ceg/layout-alignment-ceg.component';
+import { LayoutBreakpointsCegComponent } from './layout-breakpoints-ceg/layout-breakpoints-ceg.component';
+import { LayoutGuttersCegComponent } from './layout-gutters-ceg/layout-gutters-ceg.component';
+import { LayoutGuttersCustomCegComponent } from './layout-gutters-custom-ceg/layout-gutters-custom-ceg.component';
+import { LayoutGuttersNoCegComponent } from './layout-gutters-no-ceg/layout-gutters-no-ceg.component';
+import { LayoutLevelsCegComponent } from './layout-levels-ceg/layout-levels-ceg.component';
+import { LayoutMarginsCegComponent } from './layout-margins-ceg/layout-margins-ceg.component';
+import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-ordering-ceg.component';
 
 @Component({
   selector: 'app-layout-doc',

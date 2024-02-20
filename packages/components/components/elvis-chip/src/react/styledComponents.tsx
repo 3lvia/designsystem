@@ -1,7 +1,9 @@
 import styled, { keyframes } from 'styled-components';
-import { ColorType, ChipType } from './elvia-chip.types';
-import { getThemeColor, getBaseColor, LightThemeColorName } from '@elvia/elvis-colors';
+
+import { LightThemeColorName, getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+
+import { ChipType, ColorType } from './elvia-chip.types';
 
 const mapChipColor = (color: ColorType, opacity?: 10 | 30 | 50): LightThemeColorName => {
   switch (color) {

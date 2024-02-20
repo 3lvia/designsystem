@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
+
 import { getThemeColor } from '@elvia/elvis-colors';
-import { getTypographyCss } from '@elvia/elvis-typography';
-import { ScrollPosition } from './elvia-tabs.types';
 import { IconButton, device } from '@elvia/elvis-toolbox';
+import { getTypographyCss } from '@elvia/elvis-typography';
+
+import { ScrollPosition } from './elvia-tabs.types';
 
 export const TabsContainer = styled.div`
   display: flex;

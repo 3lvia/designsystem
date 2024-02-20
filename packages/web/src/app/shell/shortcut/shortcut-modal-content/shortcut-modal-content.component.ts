@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { shortcuts } from '../keys';
 import { NgFor, NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+
+import { shortcuts } from '../keys';
 
 @Component({
   selector: 'app-shortcut-modal-content',

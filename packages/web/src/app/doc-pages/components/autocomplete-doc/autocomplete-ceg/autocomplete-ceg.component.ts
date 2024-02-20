@@ -1,6 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { BaseAutocompleteProps } from '@elvia/elvis-autocomplete/react';
+
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+
+import { BaseAutocompleteProps } from '@elvia/elvis-autocomplete/react';
+
 import { data } from './autocomplete-items-data';
 
 @Component({

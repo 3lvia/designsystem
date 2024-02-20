@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { PaginatorPage } from './styledComponents';
 
 interface PageElementProps {

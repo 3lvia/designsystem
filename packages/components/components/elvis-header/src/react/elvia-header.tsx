@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { HeaderProps, Theme } from './elviaHeader.types';
-import { useBreakpoint, useSlot } from '@elvia/elvis-toolbox';
+
 import { getThemeColor } from '@elvia/elvis-colors';
+import { useBreakpoint, useSlot } from '@elvia/elvis-toolbox';
+
+import { AppDrawer } from './appDrawer/appDrawer';
+import { DesktopMenu } from './desktopMenu/desktopMenu';
+import { getActiveApp } from './elviaApps';
+import { HeaderProps, Theme } from './elviaHeader.types';
+import { MobileMenu } from './mobileMenu/mobileMenu';
+import { SideNav } from './sideNav/sideNav';
 import {
   AppContent,
-  StyledHeader,
   Hr,
   IconButton,
   LogoContainer,
   PageTitle,
   SquareContainer,
+  StyledHeader,
 } from './styledComponents';
-import { MobileMenu } from './mobileMenu/mobileMenu';
-import { DesktopMenu } from './desktopMenu/desktopMenu';
-import { SideNav } from './sideNav/sideNav';
-import { AppDrawer } from './appDrawer/appDrawer';
-import { getActiveApp } from './elviaApps';
 import { getStoredActiveTheme, setThemeClassOnDocument } from './themeUtils';
 
 export const Header: React.FC<HeaderProps> = ({

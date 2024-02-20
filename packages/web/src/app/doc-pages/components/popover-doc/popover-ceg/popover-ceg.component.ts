@@ -1,7 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { BasePopoverProps } from '@elvia/elvis-popover/react';
 import { NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+
+import { BasePopoverProps } from '@elvia/elvis-popover/react';
 
 @Component({
   selector: 'app-popover-ceg',

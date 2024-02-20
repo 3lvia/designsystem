@@ -1,8 +1,9 @@
+import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component, ContentChild, Input, booleanAttribute } from '@angular/core';
-import { StaticComponentExample } from './static-component-example';
+
 import { StaticCodeGeneratorComponent } from '../code-generator/static-code-generator/static-code-generator.component';
 import { PhoneShellComponent } from '../phone-shell/phone-shell.component';
-import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
+import { StaticComponentExample } from './static-component-example';
 
 @Component({
   selector: 'app-static-ceg',

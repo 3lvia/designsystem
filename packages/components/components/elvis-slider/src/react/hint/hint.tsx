@@ -1,5 +1,7 @@
-import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import React, { forwardRef } from 'react';
+
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
+
 import { Side } from '../elvia-slider.types';
 import { Hint as StyledHint } from './styledHint';
 

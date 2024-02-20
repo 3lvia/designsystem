@@ -1,31 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { UserMenuProps } from '../elviaHeader.types';
-import { IconButton } from '../styledComponents';
-import { usePopoverHandler } from './usePopoverHandler';
-import {
-  Backdrop,
-  TextSmall,
-  ImageContainer,
-  MenuContainer,
-  TextSmallStrong,
-  BackButton,
-  ButtonSpacer,
-  AppListContainer,
-  TextMdStrong,
-  MobileMenuFooter,
-  MobileMenuSlot,
-} from './mobileMenuStyles';
-import { IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
-import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
-import removeCircleColor from '@elvia/elvis-assets-icons/dist/icons/removeCircleColor';
-import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
+
 import arrowLeftCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleColor';
 import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleFilledColor';
-import { AppList } from '../appList/appList';
-import { AppSelector } from './appSelector';
+import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
+import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
+import removeCircleColor from '@elvia/elvis-assets-icons/dist/icons/removeCircleColor';
+import { IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
+
 import { ProfilePicture } from '../ProfilePicture';
+import { AppList } from '../appList/appList';
+import { UserMenuProps } from '../elviaHeader.types';
+import { IconButton } from '../styledComponents';
 import { ThemePicker } from '../themePicker/themePicker';
+import { AppSelector } from './appSelector';
+import {
+  AppListContainer,
+  BackButton,
+  Backdrop,
+  ButtonSpacer,
+  ImageContainer,
+  MenuContainer,
+  MobileMenuFooter,
+  MobileMenuSlot,
+  TextMdStrong,
+  TextSmall,
+  TextSmallStrong,
+} from './mobileMenuStyles';
+import { usePopoverHandler } from './usePopoverHandler';
 
 interface MobileUserMenuProps extends UserMenuProps {
   appTitle: string;

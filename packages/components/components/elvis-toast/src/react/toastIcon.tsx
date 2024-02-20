@@ -1,11 +1,12 @@
-import React from 'react';
 import DOMPurify from 'dompurify';
+import React from 'react';
 
-import { IconWrapper } from '@elvia/elvis-toolbox';
-import { ToastConfig } from './publicApi.public';
 import checkCircle from '@elvia/elvis-assets-icons/dist/icons/checkCircle';
 import informationCircle from '@elvia/elvis-assets-icons/dist/icons/informationCircle';
 import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
+import { IconWrapper } from '@elvia/elvis-toolbox';
+
+import { ToastConfig } from './publicApi.public';
 
 interface Props {
   toast: ToastConfig;

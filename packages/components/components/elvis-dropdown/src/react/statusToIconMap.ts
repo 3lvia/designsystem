@@ -1,8 +1,9 @@
 import type { IconType } from '@elvia/elvis-assets-icons/dist/icons/_iconType';
+import informationCircle from '@elvia/elvis-assets-icons/dist/icons/informationCircle';
 import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
 import warningCircle from '@elvia/elvis-assets-icons/dist/icons/warningCircle';
-import informationCircle from '@elvia/elvis-assets-icons/dist/icons/informationCircle';
 import { ColorLabel } from '@elvia/elvis-colors';
+
 import { DropdownItemStatus } from './publicApi.public';
 
 type StatusToIconMap = {

@@ -1,6 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { DropdownProps } from '@elvia/elvis-dropdown/react';
+
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+
+import { DropdownProps } from '@elvia/elvis-dropdown/react';
 
 @Component({
   selector: 'app-dropdown-ceg',

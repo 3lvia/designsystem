@@ -1,5 +1,6 @@
-import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
+
+import { BaseProps } from '@elvia/elvis-toolbox';
 
 export interface BaseModalProps extends BaseProps {
   content: JSX.Element;

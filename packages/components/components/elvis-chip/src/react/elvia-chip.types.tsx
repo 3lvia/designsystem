@@ -1,4 +1,5 @@
 import { ComponentPropsWithoutRef } from 'react';
+
 import { BaseProps } from '@elvia/elvis-toolbox';
 
 export type ChipType = 'removable' | 'legend' | 'choice';

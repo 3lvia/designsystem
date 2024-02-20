@@ -1,12 +1,14 @@
-import React from 'react';
 import '@testing-library/jest-dom';
-import Header from './elvia-header';
-import dashboard from '@elvia/elvis-assets-icons/dist/icons/dashboard';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { IconWrapper } from '@elvia/elvis-toolbox';
 import { UserEvent } from '@testing-library/user-event/dist/types/setup/setup';
 import { axe } from 'jest-axe';
-import { render, screen, within } from '@testing-library/react';
+import React from 'react';
+
+import dashboard from '@elvia/elvis-assets-icons/dist/icons/dashboard';
+import { IconWrapper } from '@elvia/elvis-toolbox';
+
+import Header from './elvia-header';
 
 const mockMatchMedia = (opts?: Partial<{ isGtMobile: boolean }>) => {
   Object.defineProperty(window, 'matchMedia', {

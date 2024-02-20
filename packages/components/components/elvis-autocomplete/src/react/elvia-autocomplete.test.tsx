@@ -1,8 +1,9 @@
-import React from 'react';
-import Autocomplete from './elvia-autocomplete';
+import { render, screen, waitFor, waitForElementToBeRemoved, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen, waitFor, waitForElementToBeRemoved, within } from '@testing-library/react';
+import React from 'react';
+
+import Autocomplete from './elvia-autocomplete';
 import { AutocompleteItem } from './elvia-autocomplete.types';
 
 const items: AutocompleteItem[] = [

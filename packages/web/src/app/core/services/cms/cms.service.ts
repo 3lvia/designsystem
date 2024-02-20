@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CMSTransformService } from './cms-transform.service';
-import { Locale } from '../localization.service';
-import { BehaviorSubject, Observable, Subject, distinctUntilChanged } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
+
+import { BehaviorSubject, Observable, Subject, distinctUntilChanged } from 'rxjs';
+
 import {
   IDocumentationPage,
   IEntry,
@@ -13,11 +14,14 @@ import {
   ISubMenu,
   LOCALE_CODE,
 } from 'contentful/types';
+
+import { ThemeName } from '@elvia/elvis-colors';
+
+import { Locale } from '../localization.service';
+import { ThemeService } from '../theme.service';
+import { CMSTransformService } from './cms-transform.service';
 import { CMSMenu, CMSNavbarItem, CMSSubMenu, TransformedDocPage } from './cms.interface';
 import { extractLocale } from './extractLocale';
-import { ThemeService } from '../theme.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ThemeName } from '@elvia/elvis-colors';
 
 @Injectable({
   providedIn: 'root',

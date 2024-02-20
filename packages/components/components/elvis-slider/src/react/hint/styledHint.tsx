@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
-import { FormFieldSizes } from '@elvia/elvis-toolbox';
-import { Side } from '../elvia-slider.types';
+
 import { getThemeColor } from '@elvia/elvis-colors';
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
+
+import { Side } from '../elvia-slider.types';
 
 type Props = {
   hasErrorPlaceholder: boolean;

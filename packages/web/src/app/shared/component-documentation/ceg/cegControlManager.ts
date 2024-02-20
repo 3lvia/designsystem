@@ -1,10 +1,11 @@
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, combineLatest } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
+
 import {
   CegControl,
   ComponentType,
-  Controls,
   ControlValue,
+  Controls,
   SlotVisibility,
   StaticProps,
 } from './controlType';

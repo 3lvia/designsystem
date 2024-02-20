@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ShowIfDarkTheme, ShowIfLightTheme } from './styledComponents';
 
 const ProfilePictureDark: React.FC = () => (

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { ErrorType } from '../publicApi.public';
-import { getErrorText } from '../getErrorText';
-import { FormFieldErrorContainer, FormFieldError, IconWrapper } from '@elvia/elvis-toolbox';
+
 import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
+import { FormFieldError, FormFieldErrorContainer, IconWrapper } from '@elvia/elvis-toolbox';
+
+import { getErrorText } from '../getErrorText';
+import { ErrorType } from '../publicApi.public';
 
 interface Props {
   errorType?: ErrorType;

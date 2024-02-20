@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
+import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
+import { IconWrapper, Overlay, TertiaryButton } from '@elvia/elvis-toolbox';
+
 import { Calendar } from '../calendar/calendar';
+import { formatDate, isAfter, isBefore } from '../dateHelpers';
+import { DatepickerRangeProps } from '../elviaDatepicker.types';
+import { YearPicker } from '../yearPicker/yearPicker';
 import {
   OverlayContainer as Container,
   PopoverBody,
@@ -8,11 +14,6 @@ import {
   RotatingContainer,
   SelectedDateName,
 } from './popupStyles';
-import { YearPicker } from '../yearPicker/yearPicker';
-import { formatDate, isAfter, isBefore } from '../dateHelpers';
-import { DatepickerRangeProps } from '../elviaDatepicker.types';
-import { TertiaryButton, Overlay, IconWrapper } from '@elvia/elvis-toolbox';
-import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
 
 interface Props {
   onClose: () => void;

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { getThemeColor, getShadow } from '@elvia/elvis-colors';
+import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
 
 export const OverlayContainer = styled.div`

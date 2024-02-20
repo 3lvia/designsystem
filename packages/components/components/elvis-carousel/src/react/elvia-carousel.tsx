@@ -1,24 +1,26 @@
-import React, { FC, useState, useRef, useEffect, TouchEvent, MouseEvent } from 'react';
-import {
-  CarouselContainer,
-  CarouselElements,
-  CarouselElementContainer,
-  CarouselElement,
-  CarouselHeading,
-  CarouselLeftButton,
-  CarouselListOfDots,
-  CarouselDot,
-  CarouselNavigationRow,
-  CarouselRightButton,
-  CarouselCheckButton,
-} from './StyledComponents';
-import { useRovingFocus, IconWrapper } from '@elvia/elvis-toolbox';
+import React, { FC, MouseEvent, TouchEvent, useEffect, useRef, useState } from 'react';
+
 import arrowLeftCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleColor';
 import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleFilledColor';
 import arrowRightCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleColor';
 import arrowRightCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleFilledColor';
 import checkCircleColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleColor';
 import checkCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleFilledColor';
+import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
+
+import {
+  CarouselCheckButton,
+  CarouselContainer,
+  CarouselDot,
+  CarouselElement,
+  CarouselElementContainer,
+  CarouselElements,
+  CarouselHeading,
+  CarouselLeftButton,
+  CarouselListOfDots,
+  CarouselNavigationRow,
+  CarouselRightButton,
+} from './StyledComponents';
 import { CarouselItem, CarouselProps, SlideDirection } from './elvia-carousel.types';
 
 let UNIQUE_CAROUSEL_ID = 0;

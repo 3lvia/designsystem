@@ -1,5 +1,6 @@
-import { BaseProps } from '@elvia/elvis-toolbox';
 import { CSSProperties, RefObject } from 'react';
+
+import { BaseProps } from '@elvia/elvis-toolbox';
 
 export type TooltipPosition = 'bottom' | 'top' | 'left' | 'right';
 

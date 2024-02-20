@@ -1,8 +1,10 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
+
+import { useSlot } from '@elvia/elvis-toolbox';
+
 import styles from './elvia-badge.module.scss';
 import { BadgeProps } from './elvia-badge.types';
-import { useSlot } from '@elvia/elvis-toolbox';
 
 export const Badge: React.FC<BadgeProps> = ({
   badgeColor = 'green',

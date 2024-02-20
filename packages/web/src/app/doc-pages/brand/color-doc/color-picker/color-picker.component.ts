@@ -1,14 +1,16 @@
+import { NgClass, NgFor } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { lightColors } from './colors-light';
-import { darkColors } from './colors-dark';
-import { ColorElement } from './colors-types';
-import { getColorElement } from './colors-util';
+
 import { ThemeName } from '@elvia/elvis-colors';
-import { ColorPickerColorListComponent } from './color-picker-color-list/color-picker-color-list.component';
+
 import { ColorListBaseDirective } from './color-list-base.directive';
+import { ColorPickerColorListComponent } from './color-picker-color-list/color-picker-color-list.component';
 import { ColorPickerExhibitComponent } from './color-picker-exhibit/color-picker-exhibit.component';
 import { ColorPickerHeaderComponent } from './color-picker-header/color-picker-header.component';
-import { NgClass, NgFor } from '@angular/common';
+import { darkColors } from './colors-dark';
+import { lightColors } from './colors-light';
+import { ColorElement } from './colors-types';
+import { getColorElement } from './colors-util';
 
 @Component({
   selector: 'app-color-picker',

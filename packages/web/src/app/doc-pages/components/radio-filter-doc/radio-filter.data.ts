@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-radio-filter/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseRadioFilterProps } from '@elvia/elvis-radio-filter/react';
+
+import ComponentData from '../component-data.interface';
 
 const radioFilterData: ComponentData<BaseRadioFilterProps> = {
   changelog: changelogJson.content,

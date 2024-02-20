@@ -1,13 +1,7 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
-import { RouterService } from './core/services/router.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ShortcutComponent } from './shell/shortcut/shortcut.component';
-import { FooterComponent } from './shell/footer/footer.component';
-import { PageWithSidenavComponent } from './shell/page-with-sidenav/page-with-sidenav.component';
-import { RouterOutlet } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
-import { UserQuestionnaireComponent } from './shared/user-questionnaire/user-questionnaire.component';
-import { HeaderComponent } from './shell/header/header.component';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterOutlet } from '@angular/router';
 
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-autocomplete';
@@ -38,6 +32,13 @@ import '@elvia/elvis-tabs';
 import '@elvia/elvis-timepicker';
 import '@elvia/elvis-toast';
 import '@elvia/elvis-tooltip';
+
+import { RouterService } from './core/services/router.service';
+import { UserQuestionnaireComponent } from './shared/user-questionnaire/user-questionnaire.component';
+import { FooterComponent } from './shell/footer/footer.component';
+import { HeaderComponent } from './shell/header/header.component';
+import { PageWithSidenavComponent } from './shell/page-with-sidenav/page-with-sidenav.component';
+import { ShortcutComponent } from './shell/shortcut/shortcut.component';
 
 type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
 
