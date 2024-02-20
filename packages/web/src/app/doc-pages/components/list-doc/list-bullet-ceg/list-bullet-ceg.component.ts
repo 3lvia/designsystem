@@ -7,6 +7,7 @@ import * as template from 'html-loader!./list-bullet-ceg.component.html';
   selector: 'app-list-bullet-ceg',
   templateUrl: './list-bullet-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: BulletListCegComponent }],
+  standalone: true,
 })
 export class BulletListCegComponent implements StaticComponentExample {
   html = template.default;

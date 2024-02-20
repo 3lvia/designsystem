@@ -7,6 +7,7 @@ import * as template from 'html-loader!./link-ceg.component.html';
   selector: 'app-link-ceg',
   templateUrl: './link-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: LinkCegComponent }],
+  standalone: true,
 })
 export class LinkCegComponent implements StaticComponentExample {
   html = template.default;

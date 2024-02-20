@@ -6,6 +6,7 @@ import * as template from 'html-loader!./icon-colors-ceg.component.html';
   selector: 'app-icon-colors-ceg',
   templateUrl: './icon-colors-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: IconColorsCegComponent }],
+  standalone: true,
 })
 export class IconColorsCegComponent implements StaticComponentExample {
   html = template.default;

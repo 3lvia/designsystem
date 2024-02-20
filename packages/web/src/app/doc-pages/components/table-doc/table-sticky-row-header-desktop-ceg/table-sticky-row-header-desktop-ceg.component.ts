@@ -7,6 +7,7 @@ import * as template from 'html-loader!./table-sticky-row-header-desktop-ceg.com
   selector: 'app-table-sticky-row-header-desktop-ceg',
   templateUrl: './table-sticky-row-header-desktop-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableStickyRowHeaderDesktopCegComponent }],
+  standalone: true,
 })
 export class TableStickyRowHeaderDesktopCegComponent implements StaticComponentExample {
   html = template.default;

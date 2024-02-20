@@ -7,6 +7,7 @@ import * as template from 'html-loader!./alert-role-note-ceg.component.html';
   selector: 'app-alert-role-note-ceg',
   templateUrl: './alert-role-note-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AlertRoleNoteCegComponent }],
+  standalone: true,
 })
 export class AlertRoleNoteCegComponent implements StaticComponentExample {
   html = template.default;

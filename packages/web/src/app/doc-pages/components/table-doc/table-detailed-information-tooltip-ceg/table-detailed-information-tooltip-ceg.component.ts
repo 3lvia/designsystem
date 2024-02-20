@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 import * as template from 'html-loader!./table-detailed-information-tooltip-ceg.component.html';
@@ -8,6 +8,8 @@ import * as template from 'html-loader!./table-detailed-information-tooltip-ceg.
   templateUrl: './table-detailed-information-tooltip-ceg.component.html',
   styleUrls: ['./table-detailed-information-tooltip-ceg.component.scss'],
   providers: [{ provide: StaticComponentExample, useExisting: TableExtraInformationTooltipCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TableExtraInformationTooltipCegComponent implements StaticComponentExample {
   html = template.default;

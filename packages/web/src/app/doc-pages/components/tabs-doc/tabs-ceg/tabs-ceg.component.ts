@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BaseTabsProps } from '@elvia/elvis-tabs/react';
@@ -7,6 +7,8 @@ import { BaseTabsProps } from '@elvia/elvis-tabs/react';
   selector: 'app-tabs-ceg',
   templateUrl: './tabs-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: TabsCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TabsCegComponent implements ComponentExample {
   elementName = 'tabs';

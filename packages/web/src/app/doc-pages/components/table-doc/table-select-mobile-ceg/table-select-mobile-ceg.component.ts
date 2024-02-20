@@ -7,6 +7,7 @@ import * as template from 'html-loader!./table-select-mobile-ceg.component.html'
   selector: 'app-table-select-mobile-ceg',
   templateUrl: './table-select-mobile-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableSelectMobileCegComponent }],
+  standalone: true,
 })
 export class TableSelectMobileCegComponent implements StaticComponentExample {
   html = template.default;

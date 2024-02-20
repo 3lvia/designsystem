@@ -7,6 +7,7 @@ import * as template from 'html-loader!./draganddrop-ceg.component.html';
   selector: 'app-draganddrop-ceg',
   templateUrl: './draganddrop-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: DraganddropCegComponent }],
+  standalone: true,
 })
 export class DraganddropCegComponent implements StaticComponentExample {
   html = template.default;

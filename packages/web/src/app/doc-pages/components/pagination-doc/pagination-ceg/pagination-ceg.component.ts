@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BasePaginationProps } from '@elvia/elvis-pagination/react';
 
@@ -6,6 +6,8 @@ import { BasePaginationProps } from '@elvia/elvis-pagination/react';
   selector: 'app-pagination-ceg',
   templateUrl: './pagination-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: PaginationCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PaginationCegComponent implements ComponentExample {
   elementName = 'pagination';

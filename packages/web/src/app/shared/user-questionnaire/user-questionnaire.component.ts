@@ -7,6 +7,7 @@ import '@elvia/elvis-modal';
 import '@elvia/elvis-dropdown';
 import { CommonModule } from '@angular/common';
 import { type ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { HttpClientModule } from '@angular/common/http';
 
 type FormName = 'role' | 'feedback';
 
@@ -20,7 +21,7 @@ const USER_QUESTIONNAIRE_STORAGE_KEY = 'hasCompletedUserQuestionnaire-30.01.2024
 @Component({
   selector: 'app-user-questionnaire',
   standalone: true,
-  imports: [CommonModule, UserQuestionnaireIllustrationComponent],
+  imports: [CommonModule, UserQuestionnaireIllustrationComponent, HttpClientModule],
   templateUrl: './user-questionnaire.component.html',
   styleUrl: './user-questionnaire.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

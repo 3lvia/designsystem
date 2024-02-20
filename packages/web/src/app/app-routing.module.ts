@@ -19,28 +19,27 @@ const routes: Routes = [
   // About section
   {
     path: 'about',
-    loadChildren: () => import('./doc-pages/about/about-routing.module').then((m) => m.BrandRoutingModule),
+    loadChildren: () => import('./doc-pages/about/about-routing').then((m) => m.routes),
   },
   // Brand section
   {
     path: 'brand',
-    loadChildren: () => import('./doc-pages/brand/brand-routing.module').then((m) => m.BrandRoutingModule),
+    loadChildren: () => import('./doc-pages/brand/brand-routing').then((m) => m.routes),
   },
   // Tools section
   {
     path: 'tools',
-    loadChildren: () => import('./doc-pages/tools/tools-routing.module').then((m) => m.ToolsRoutingModule),
+    loadChildren: () => import('./doc-pages/tools/tools-routing').then((m) => m.routes),
   },
   // Components section
   {
     path: 'components',
-    loadChildren: () =>
-      import('./doc-pages/components/components-routing.module').then((m) => m.ComponentsRoutingModule),
+    loadChildren: () => import('./doc-pages/components/components-routing').then((m) => m.routes),
   },
   // Dev section
   {
     path: Pages.DevelopmentStart,
-    loadChildren: () => import('./dev/dev-routing.module').then((m) => m.DevRoutingModule),
+    loadChildren: () => import('./dev/dev-routing').then((m) => m.routes),
   },
   { path: 'not-found', component: ErrorComponent },
   // From CMS

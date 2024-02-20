@@ -8,6 +8,7 @@ import * as template from 'html-loader!./layout-margins-ceg.component.html';
   templateUrl: './layout-margins-ceg.component.html',
   styleUrls: ['./../layout-doc.component.scss'],
   providers: [{ provide: StaticComponentExample, useExisting: LayoutMarginsCegComponent }],
+  standalone: true,
 })
 export class LayoutMarginsCegComponent implements StaticComponentExample {
   html = template.default;

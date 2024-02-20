@@ -7,6 +7,7 @@ import * as template from 'html-loader!./input-size-small-ceg.component.html';
   selector: 'app-input-size-small-ceg',
   templateUrl: './input-size-small-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: InputSizeSmallCegComponent }],
+  standalone: true,
 })
 export class InputSizeSmallCegComponent implements StaticComponentExample {
   html = template.default;

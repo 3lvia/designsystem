@@ -7,6 +7,7 @@ import * as template from 'html-loader!./table-validation-row-ceg.component.html
   selector: 'app-table-validation-row-ceg',
   templateUrl: './table-validation-row-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableValidationRowCegComponent }],
+  standalone: true,
 })
 export class TableValidationRowCegComponent implements StaticComponentExample {
   html = template.default;

@@ -3,11 +3,15 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { ThemeName } from '@elvia/elvis-colors';
 import { ThemeService } from 'src/app/core/services/theme.service';
+import { RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss'],
+  standalone: true,
+  imports: [NgIf, RouterLink],
 })
 export class ErrorComponent {
   currentTheme: ThemeName = 'light';

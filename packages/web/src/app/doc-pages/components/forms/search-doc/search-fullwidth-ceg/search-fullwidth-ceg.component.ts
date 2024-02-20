@@ -7,6 +7,7 @@ import * as template from 'html-loader!./search-fullwidth-ceg.component.html';
   selector: 'app-search-fullwidth-ceg',
   templateUrl: './search-fullwidth-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: SearchFullwidthCegComponent }],
+  standalone: true,
 })
 export class SearchFullwidthCegComponent implements StaticComponentExample {
   html = template.default;

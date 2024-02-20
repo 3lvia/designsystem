@@ -7,6 +7,7 @@ import * as template from 'html-loader!./input-options-full-width-ceg.component.
   selector: 'app-input-options-full-width-ceg',
   templateUrl: './input-options-full-width-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: InputOptionsFullWidthCegComponent }],
+  standalone: true,
 })
 export class InputOptionsFullWidthCegComponent implements StaticComponentExample {
   html = template.default;

@@ -7,6 +7,7 @@ import * as template from 'html-loader!./search-on-submit-ceg.component.html';
   selector: 'app-search-on-submit-ceg',
   templateUrl: './search-on-submit-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: SearchOnSubmitCegComponent }],
+  standalone: true,
 })
 export class SearchOnSubmitCegComponent implements StaticComponentExample {
   html = template.default;

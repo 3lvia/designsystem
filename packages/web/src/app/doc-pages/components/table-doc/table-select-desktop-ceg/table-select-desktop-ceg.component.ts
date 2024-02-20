@@ -7,6 +7,7 @@ import * as template from 'html-loader!./table-select-desktop-ceg.component.html
   selector: 'app-table-select-desktop-ceg',
   templateUrl: './table-select-desktop-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableSelectDesktopCegComponent }],
+  standalone: true,
 })
 export class TableSelectDesktopCegComponent implements StaticComponentExample {
   html = template.default;

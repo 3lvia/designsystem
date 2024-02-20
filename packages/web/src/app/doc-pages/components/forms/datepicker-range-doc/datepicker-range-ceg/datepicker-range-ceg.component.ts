@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BaseDatepickerRangeProps } from '@elvia/elvis-datepicker-range/react';
 /**
@@ -13,6 +13,8 @@ type DatepickerRangePropsWithFixedRequired = Omit<BaseDatepickerRangeProps, 'isR
   selector: 'app-datepicker-range-ceg',
   templateUrl: './datepicker-range-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: DatepickerRangeCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerRangeCegComponent implements ComponentExample {
   elementName = 'datepicker-range';

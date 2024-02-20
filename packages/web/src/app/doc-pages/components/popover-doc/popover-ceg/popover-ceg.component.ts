@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BasePopoverProps } from '@elvia/elvis-popover/react';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-popover-ceg',
   templateUrl: './popover-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: PopoverCegComponent }],
+  standalone: true,
+  imports: [NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PopoverCegComponent implements ComponentExample {
   elementName = 'popover';

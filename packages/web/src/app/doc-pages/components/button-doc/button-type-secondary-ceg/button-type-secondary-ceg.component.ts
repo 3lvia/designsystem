@@ -7,6 +7,7 @@ import * as template from 'html-loader!./button-type-secondary-ceg.component.htm
   selector: 'app-button-type-secondary-ceg',
   templateUrl: './button-type-secondary-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ButtonTypeSecondaryCegComponent }],
+  standalone: true,
 })
 export class ButtonTypeSecondaryCegComponent implements StaticComponentExample {
   html = template.default;

@@ -7,6 +7,7 @@ import * as template from 'html-loader!./button-type-icon-ceg.component.html';
   selector: 'app-button-type-icon-ceg',
   templateUrl: './button-type-icon-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ButtonTypeIconCegComponent }],
+  standalone: true,
 })
 export class ButtonTypeIconCegComponent implements StaticComponentExample {
   html = template.default;

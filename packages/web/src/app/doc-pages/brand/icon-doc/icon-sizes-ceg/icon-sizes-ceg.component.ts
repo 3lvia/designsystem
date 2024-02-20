@@ -6,6 +6,7 @@ import * as template from 'html-loader!./icon-sizes-ceg.component.html';
   selector: 'app-icon-sizes-ceg',
   templateUrl: './icon-sizes-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: IconSizesCegComponent }],
+  standalone: true,
 })
 export class IconSizesCegComponent implements StaticComponentExample {
   html = template.default;

@@ -7,6 +7,7 @@ import * as template from 'html-loader!./list-ceg.component.html';
   selector: 'app-list-ceg',
   templateUrl: './list-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ListCegComponent }],
+  standalone: true,
 })
 export class ListCegComponent implements StaticComponentExample {
   html = template.default;

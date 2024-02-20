@@ -7,6 +7,7 @@ import * as template from 'html-loader!./button-link-ceg.component.html';
   selector: 'app-button-link-ceg',
   templateUrl: './button-link-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ButtonLinkCegComponent }],
+  standalone: true,
 })
 export class ButtonLinkCegComponent implements StaticComponentExample {
   html = template.default;

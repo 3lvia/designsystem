@@ -7,6 +7,7 @@ import * as template from 'html-loader!./input-options-readonly-ceg.component.ht
   selector: 'app-input-options-readonly-ceg',
   templateUrl: './input-options-readonly-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: InputOptionsReadonlyCegComponent }],
+  standalone: true,
 })
 export class InputOptionsReadonlyCegComponent implements StaticComponentExample {
   html = template.default;

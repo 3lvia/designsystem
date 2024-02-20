@@ -2,7 +2,7 @@ import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/co
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
@@ -10,12 +10,17 @@ import { IDocumentationPage } from 'contentful/types';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeService } from 'src/app/core/services/theme.service';
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { NgIf, NgFor } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-cms-page',
   templateUrl: './cms-page.component.html',
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [NgIf, ComponentHeaderComponent, NgFor, RouterOutlet, HttpClientModule],
 })
 export class CMSPageComponent implements OnDestroy {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;

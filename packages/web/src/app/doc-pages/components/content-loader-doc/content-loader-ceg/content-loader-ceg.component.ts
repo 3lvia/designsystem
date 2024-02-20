@@ -7,6 +7,7 @@ import * as template from 'html-loader!./content-loader-ceg.component.html';
   selector: 'app-content-loader-ceg',
   templateUrl: './content-loader-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ContentLoaderCegComponent }],
+  standalone: true,
 })
 export class ContentLoaderCegComponent implements StaticComponentExample {
   html = template.default;

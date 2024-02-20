@@ -7,6 +7,7 @@ import * as template from 'html-loader!./thumbnail-ceg.component.html';
   selector: 'app-thumbnail-ceg',
   templateUrl: './thumbnail-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ThumbnailCegComponent }],
+  standalone: true,
 })
 export class ThumbnailCegComponent implements StaticComponentExample {
   html = template.default;

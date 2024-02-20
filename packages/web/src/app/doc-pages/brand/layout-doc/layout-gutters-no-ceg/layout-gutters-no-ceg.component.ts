@@ -8,6 +8,7 @@ import * as template from 'html-loader!./layout-gutters-no-ceg.component.html';
   templateUrl: './layout-gutters-no-ceg.component.html',
   styleUrls: ['./../layout-doc.component.scss'],
   providers: [{ provide: StaticComponentExample, useExisting: LayoutGuttersNoCegComponent }],
+  standalone: true,
 })
 export class LayoutGuttersNoCegComponent implements StaticComponentExample {
   html = template.default;

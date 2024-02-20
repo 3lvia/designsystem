@@ -1,10 +1,25 @@
 import { Component } from '@angular/core';
 import { paginationData } from './pagination-data';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { PaginationCegComponent } from './pagination-ceg/pagination-ceg.component';
+import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
   selector: 'app-pagination-doc',
   templateUrl: './pagination-doc.component.html',
   styleUrls: ['./pagination-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    PaginationCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class PaginationDocComponent {
   componentData = paginationData;

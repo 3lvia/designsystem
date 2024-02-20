@@ -7,6 +7,7 @@ import * as template from 'html-loader!./alert-local-no-title-ceg.component.html
   selector: 'app-alert-local-no-title-ceg',
   templateUrl: './alert-local-no-title-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AlertLocalNoTitleCegComponent }],
+  standalone: true,
 })
 export class AlertLocalNoTitleCegComponent implements StaticComponentExample {
   html = template.default;

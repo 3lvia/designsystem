@@ -7,6 +7,7 @@ import * as template from 'html-loader!./link-sizes-ceg.component.html';
   selector: 'app-link-sizes-ceg',
   templateUrl: './link-sizes-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: LinkSizesCegComponent }],
+  standalone: true,
 })
 export class LinkSizesCegComponent implements StaticComponentExample {
   html = template.default;

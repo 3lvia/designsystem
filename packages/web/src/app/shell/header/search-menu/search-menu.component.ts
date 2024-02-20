@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  CUSTOM_ELEMENTS_SCHEMA,
   Component,
   ElementRef,
   EventEmitter,
@@ -15,15 +16,22 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { SearchStatus, SearchItem } from './search-menu.interface';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SearchResult, Searcher } from 'src/app/shared/searcher';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
+import { SearchHighlighterPipe } from '../../../shared/search-highlighter.pipe';
+import { NgClass, NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CdkTrapFocus } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-search-menu',
   templateUrl: './search-menu.component.html',
   styleUrls: ['./search-menu.component.scss'],
+  standalone: true,
+  imports: [CdkTrapFocus, FormsModule, NgClass, NgIf, NgFor, RouterLink, AsyncPipe, SearchHighlighterPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchMenuComponent implements OnInit, AfterViewInit {
   @ViewChild('searchInput') searchInputElement: ElementRef<HTMLInputElement>;

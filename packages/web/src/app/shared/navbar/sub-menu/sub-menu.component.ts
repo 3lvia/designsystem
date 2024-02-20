@@ -5,7 +5,7 @@ import { trigger, transition, stagger, animate, style, query } from '@angular/an
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { Location, NgClass, NgFor } from '@angular/common';
 
 export interface Anchor {
   name: string;
@@ -32,6 +32,8 @@ export interface Anchor {
       ]),
     ]),
   ],
+  standalone: true,
+  imports: [NgClass, NgFor],
 })
 export class SubMenuComponent {
   anchors: Anchor[] = [];

@@ -7,6 +7,7 @@ import * as template from 'html-loader!./table-alignment-ceg.component.html';
   selector: 'app-table-alignment-ceg',
   templateUrl: './table-alignment-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableAlignmentCegComponent }],
+  standalone: true,
 })
 export class TableAlignmentCegComponent implements StaticComponentExample {
   html = template.default;

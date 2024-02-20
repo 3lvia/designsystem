@@ -2,11 +2,31 @@ import { Component, Input } from '@angular/core';
 import { ColorElement, ColorsObject } from '../colors-types';
 import { getColorElement, getHighestContrast, getOpacityColors } from '../colors-util';
 import { ThemeName } from '@elvia/elvis-colors';
+import { NeedsBorderPipe } from '../needs-border.pipe';
+import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
+import { RouterLink } from '@angular/router';
+import { ColorListBaseDirective } from '../color-list-base.directive';
+import { CopyComponent } from '../../../../../shared/copy/copy.component';
+import { NgStyle, NgClass, NgPlural, NgPluralCase, UpperCasePipe, KeyValuePipe } from '@angular/common';
 
 @Component({
   selector: 'app-color-picker-exhibit',
   templateUrl: './color-picker-exhibit.component.html',
   styleUrls: ['./color-picker-exhibit.component.scss'],
+  standalone: true,
+  imports: [
+    NgStyle,
+    NgClass,
+    CopyComponent,
+    NgPlural,
+    NgPluralCase,
+    ColorListBaseDirective,
+    RouterLink,
+    UpperCasePipe,
+    KeyValuePipe,
+    ReplacePipe,
+    NeedsBorderPipe,
+  ],
 })
 export class ColorPickerExhibitComponent {
   @Input({ required: true }) readonly theme: ThemeName;

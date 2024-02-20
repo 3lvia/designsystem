@@ -18,7 +18,11 @@ import { Controls, ControlValue, SlotVisibility } from './controlType';
 import { ActivatedRoute } from '@angular/router';
 import { TypescriptComponentExample } from './typescript-component-example';
 import { HttpParams } from '@angular/common/http';
-import { Location } from '@angular/common';
+import { Location, NgIf, NgClass, AsyncPipe } from '@angular/common';
+import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
+import { ControlsComponent } from './controls/controls.component';
+import { ControlsPopoverComponent } from './controls-popover/controls-popover.component';
+import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
 
 interface Slot {
   name: string;
@@ -34,6 +38,16 @@ interface SlotMap {
   selector: 'app-ceg',
   templateUrl: './ceg.component.html',
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    TypeSwitcherComponent,
+    NgClass,
+    ControlsPopoverComponent,
+    ControlsComponent,
+    DynamicCodeGeneratorComponent,
+    AsyncPipe,
+  ],
 })
 export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   @Input({ transform: booleanAttribute }) fullWidth = false;

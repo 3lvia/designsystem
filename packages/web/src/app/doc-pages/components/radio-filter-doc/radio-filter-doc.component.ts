@@ -1,10 +1,29 @@
 import { Component } from '@angular/core';
 import { radioFilterData } from './radio-filter.data';
+import { RadioFilterIconCegComponent } from './radio-filter-icon-ceg/radio-filter-icon-ceg.component';
+import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { RadioFilterCegComponent } from './radio-filter-ceg/radio-filter-ceg.component';
+import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
   selector: 'app-radio-filter-doc',
   templateUrl: './radio-filter-doc.component.html',
   styleUrls: ['./radio-filter-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    RadioFilterCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+    StaticCegComponent,
+    RadioFilterIconCegComponent,
+  ],
 })
 export class RadioFilterDocComponent {
   componentData = radioFilterData;

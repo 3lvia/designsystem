@@ -6,11 +6,26 @@ import changelogJson from '@elvia/elvis/CHANGELOG.json';
 import { VersionService } from '../../../core/services/version.service';
 import ComponentData from '../component-data.interface';
 import { getComponent } from 'src/app/shared/doc-pages';
+import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
+import { CopyComponent } from '../../../shared/copy/copy.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 @Component({
   selector: 'app-css-library-doc',
   templateUrl: './css-library-doc.component.html',
   styleUrls: ['./css-library-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSectionComponent,
+    CssLibraryIllustrationComponent,
+    ComponentSubsectionComponent,
+    CopyComponent,
+    ComponentChangelogComponent,
+  ],
 })
 export class CSSLibraryDocComponent {
   componentData: ComponentData = {

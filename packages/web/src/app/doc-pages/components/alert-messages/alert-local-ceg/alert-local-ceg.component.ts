@@ -7,6 +7,7 @@ import * as template from 'html-loader!./alert-local-ceg.component.html';
   selector: 'app-alert-local-ceg',
   templateUrl: './alert-local-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AlertLocalCegComponent }],
+  standalone: true,
 })
 export class AlertLocalCegComponent implements StaticComponentExample {
   html = template.default;

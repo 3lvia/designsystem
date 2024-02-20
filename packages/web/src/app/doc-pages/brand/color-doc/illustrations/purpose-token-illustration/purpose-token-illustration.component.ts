@@ -5,5 +5,6 @@ import { IllustrationBaseDirective } from '../illustration-base.directive';
   selector: 'app-purpose-token-illustration',
   templateUrl: './purpose-token-illustration.component.html',
   styleUrls: ['../shared-styles.scss', './purpose-token-illustration.component.scss'],
+  standalone: true,
 })
 export class PurposeTokenIllustrationComponent extends IllustrationBaseDirective {}

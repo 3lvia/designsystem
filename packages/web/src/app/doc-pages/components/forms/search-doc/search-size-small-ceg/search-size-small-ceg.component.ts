@@ -7,6 +7,7 @@ import * as template from 'html-loader!./search-size-small-ceg.component.html';
   selector: 'app-search-size-small-ceg',
   templateUrl: './search-size-small-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: SearchSizeSmallCegComponent }],
+  standalone: true,
 })
 export class SearchSizeSmallCegComponent implements StaticComponentExample {
   html = template.default;

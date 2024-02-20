@@ -7,6 +7,7 @@ import * as template from 'html-loader!./file-upload-dragover-ceg.component.html
   selector: 'app-file-upload-dragover-ceg',
   templateUrl: './file-upload-dragover-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: FileUploadDragoverCegComponent }],
+  standalone: true,
 })
 export class FileUploadDragoverCegComponent implements StaticComponentExample {
   html = template.default;

@@ -13,6 +13,7 @@ import { BreakpointService, ScreenSize } from 'src/app/core/services/breakpoint.
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[ifViewportSize]',
+  standalone: true,
 })
 export class IfViewportSizeDirective implements OnDestroy {
   private subscription = new Subscription();

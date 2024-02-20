@@ -7,6 +7,7 @@ import * as template from 'html-loader!./table-numbers-ceg.component.html';
   selector: 'app-table-numbers-ceg',
   templateUrl: './table-numbers-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableNumbersCegComponent }],
+  standalone: true,
 })
 export class TableNumbersCegComponent implements StaticComponentExample {
   html = template.default;

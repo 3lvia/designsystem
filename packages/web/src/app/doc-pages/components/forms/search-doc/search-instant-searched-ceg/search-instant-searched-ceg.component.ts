@@ -7,6 +7,7 @@ import * as template from 'html-loader!./search-instant-searched-ceg.component.h
   selector: 'app-search-instant-searched-ceg',
   templateUrl: './search-instant-searched-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: SearchInstantSearchedCegComponent }],
+  standalone: true,
 })
 export class SearchInstantSearchedCegComponent implements StaticComponentExample {
   html = template.default;

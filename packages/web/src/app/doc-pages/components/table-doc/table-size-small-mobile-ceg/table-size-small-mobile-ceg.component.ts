@@ -7,6 +7,7 @@ import * as template from 'html-loader!./table-size-small-mobile-ceg.component.h
   selector: 'app-table-size-small-mobile-ceg',
   templateUrl: './table-size-small-mobile-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableSizeSmallMobileCegComponent }],
+  standalone: true,
 })
 export class TableSizeSmallMobileCegComponent implements StaticComponentExample {
   html = template.default;

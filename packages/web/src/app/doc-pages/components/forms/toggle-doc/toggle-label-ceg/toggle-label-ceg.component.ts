@@ -7,6 +7,7 @@ import * as template from 'html-loader!./toggle-label-ceg.component.html';
   selector: 'app-toggle-label-ceg',
   templateUrl: './toggle-label-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ToggleLabelCegComponent }],
+  standalone: true,
 })
 export class ToggleLabelCegComponent implements StaticComponentExample {
   html = template.default;

@@ -7,6 +7,7 @@ import * as template from 'html-loader!./button-type-danger-ceg.component.html';
   selector: 'app-button-type-danger-ceg',
   templateUrl: './button-type-danger-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ButtonTypeDangerCegComponent }],
+  standalone: true,
 })
 export class ButtonTypeDangerCegComponent implements StaticComponentExample {
   html = template.default;

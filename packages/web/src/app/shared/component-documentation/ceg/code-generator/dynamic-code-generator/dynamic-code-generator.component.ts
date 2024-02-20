@@ -5,6 +5,8 @@ import { UnknownCegControlManager } from '../../cegControlManager';
 import { Controls, StaticProps } from '../../controlType';
 import { FrameworkSpec, frameworks } from './supportedFrameworks';
 import { transformAttributesBackToOriginalSyntaxAfterDomParser } from './slotAttributeTransforms';
+import { AsyncPipe } from '@angular/common';
+import { CodeGeneratorComponent } from '../code-generator.component';
 
 interface Prop {
   name: string;
@@ -16,6 +18,8 @@ interface Prop {
   selector: 'app-dynamic-code-generator',
   templateUrl: './dynamic-code-generator.component.html',
   styleUrls: ['./dynamic-code-generator.component.scss'],
+  standalone: true,
+  imports: [CodeGeneratorComponent, AsyncPipe],
 })
 export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();

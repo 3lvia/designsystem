@@ -1,4 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter,
+  HostListener,
+  CUSTOM_ELEMENTS_SCHEMA,
+} from '@angular/core';
 import { Icon } from './icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 // @ts-ignore
@@ -8,6 +17,24 @@ import { Title } from '@angular/platform-browser';
 import naturalCompare from 'natural-compare-lite';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { IconSearchPipe } from './icon-search.pipe';
+import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
+import { ComponentPropertiesTableComponent } from '../../../shared/component-documentation/component-properties-table/component-properties-table.component';
+import { ComponentInstallationComponent } from '../../../shared/component-documentation/component-installation/component-installation.component';
+import { IconCegComponent } from './icon-ceg/icon-ceg.component';
+import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
+import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
+import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { CopyComponent } from '../../../shared/copy/copy.component';
+import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { NgFor, NgClass, NgIf } from '@angular/common';
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 type IconArray = { pretty: string; title: string; terms: string[] }[];
 
@@ -15,6 +42,30 @@ type IconArray = { pretty: string; title: string; terms: string[] }[];
   selector: 'app-icon-doc',
   templateUrl: './icon-doc.component.html',
   styleUrls: ['./icon-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    NgFor,
+    NgClass,
+    ComponentSubsectionComponent,
+    FormsModule,
+    NgIf,
+    RouterLink,
+    CopyComponent,
+    ComponentSectionComponent,
+    StaticCegComponent,
+    IconSizesCegComponent,
+    IconColorsCegComponent,
+    ComponentSubsubsectionComponent,
+    CodeViewerComponent,
+    CegComponent,
+    IconCegComponent,
+    ComponentInstallationComponent,
+    ComponentPropertiesTableComponent,
+    ComponentChangelogComponent,
+    IconSearchPipe,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconDocComponent implements OnInit {
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;

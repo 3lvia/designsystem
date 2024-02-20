@@ -1,6 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { RouterService } from './core/services/router.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ShortcutComponent } from './shell/shortcut/shortcut.component';
+import { FooterComponent } from './shell/footer/footer.component';
+import { PageWithSidenavComponent } from './shell/page-with-sidenav/page-with-sidenav.component';
+import { RouterOutlet } from '@angular/router';
+import { NgClass, NgIf } from '@angular/common';
+import { UserQuestionnaireComponent } from './shared/user-questionnaire/user-questionnaire.component';
+import { HeaderComponent } from './shell/header/header.component';
+
+import '@elvia/elvis-accordion';
+import '@elvia/elvis-autocomplete';
+import '@elvia/elvis-badge';
+import '@elvia/elvis-box';
+import '@elvia/elvis-breadcrumb';
+import '@elvia/elvis-card';
+import '@elvia/elvis-carousel';
+import '@elvia/elvis-chip';
+import '@elvia/elvis-context-menu';
+import '@elvia/elvis-datepicker';
+import '@elvia/elvis-datepicker-range';
+import '@elvia/elvis-divider';
+import '@elvia/elvis-dropdown';
+import '@elvia/elvis-header';
+import '@elvia/elvis-icon';
+import '@elvia/elvis-modal';
+import '@elvia/elvis-outline';
+import '@elvia/elvis-pagination';
+import '@elvia/elvis-popover';
+import '@elvia/elvis-progress-linear';
+import '@elvia/elvis-radio-filter';
+import '@elvia/elvis-segmented-control';
+import '@elvia/elvis-slider';
+import '@elvia/elvis-spotlight';
+import '@elvia/elvis-stepper';
+import '@elvia/elvis-tabs';
+import '@elvia/elvis-timepicker';
+import '@elvia/elvis-toast';
+import '@elvia/elvis-tooltip';
 
 type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
 
@@ -8,6 +45,18 @@ type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [
+    HeaderComponent,
+    UserQuestionnaireComponent,
+    NgClass,
+    NgIf,
+    RouterOutlet,
+    PageWithSidenavComponent,
+    FooterComponent,
+    ShortcutComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent implements OnInit {
   currentRoute: PageLayout = 'standalonePage';

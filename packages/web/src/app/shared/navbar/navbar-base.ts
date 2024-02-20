@@ -13,7 +13,10 @@ import { RouterService } from 'src/app/core/services/router.service';
  * but needs to be registered as one to use Angular features. This is why
  * the eslint rule for directive names is disabled for this class.
  */
-@Directive({ selector: '[appNavbarBase]' })
+@Directive({
+  selector: '[appNavbarBase]',
+  standalone: true,
+})
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class NavbarBase {
   private navbarListChangedSubject = new Subject<void>();
