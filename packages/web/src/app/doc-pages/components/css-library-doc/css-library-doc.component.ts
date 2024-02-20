@@ -14,18 +14,18 @@ import { ComponentSectionComponent } from '../../../shared/component-documentati
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 @Component({
-    selector: 'app-css-library-doc',
-    templateUrl: './css-library-doc.component.html',
-    styleUrls: ['./css-library-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSectionComponent,
-        CssLibraryIllustrationComponent,
-        ComponentSubsectionComponent,
-        CopyComponent,
-        ComponentChangelogComponent,
-    ],
+  selector: 'app-css-library-doc',
+  templateUrl: './css-library-doc.component.html',
+  styleUrls: ['./css-library-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSectionComponent,
+    CssLibraryIllustrationComponent,
+    ComponentSubsectionComponent,
+    CopyComponent,
+    ComponentChangelogComponent,
+  ],
 })
 export class CSSLibraryDocComponent {
   componentData: ComponentData = {

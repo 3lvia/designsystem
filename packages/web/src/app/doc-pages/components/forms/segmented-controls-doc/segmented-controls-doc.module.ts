@@ -5,7 +5,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-segmented-control';
 
 @NgModule({
-    imports: [SharedDocumentationModule, SegmentedControlsDocComponent, SegmentedControlCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SharedDocumentationModule, SegmentedControlsDocComponent, SegmentedControlCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SegmentedControlsDocModule {}

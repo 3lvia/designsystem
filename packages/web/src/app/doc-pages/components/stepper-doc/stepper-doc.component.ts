@@ -8,18 +8,18 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-stepper-doc',
-    templateUrl: './stepper-doc.component.html',
-    styleUrls: ['./stepper-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        StepperCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-    ],
+  selector: 'app-stepper-doc',
+  templateUrl: './stepper-doc.component.html',
+  styleUrls: ['./stepper-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    StepperCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class StepperDocComponent {
   componentData = stepperData;

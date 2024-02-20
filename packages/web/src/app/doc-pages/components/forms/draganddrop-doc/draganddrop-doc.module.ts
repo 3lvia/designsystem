@@ -5,6 +5,11 @@ import { DraganddropDragoverCegComponent } from './draganddrop-dragover-ceg/drag
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, DraganddropDocComponent, DraganddropCegComponent, DraganddropDragoverCegComponent],
+  imports: [
+    SharedDocumentationModule,
+    DraganddropDocComponent,
+    DraganddropCegComponent,
+    DraganddropDragoverCegComponent,
+  ],
 })
 export class DraganddropDocModule {}

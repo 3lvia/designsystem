@@ -4,10 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./input-validation-ceg.component.html';
 
 @Component({
-    selector: 'app-input-validation-ceg',
-    templateUrl: './input-validation-ceg.component.html',
-    providers: [{ provide: StaticComponentExample, useExisting: InputValidationCegComponent }],
-    standalone: true,
+  selector: 'app-input-validation-ceg',
+  templateUrl: './input-validation-ceg.component.html',
+  providers: [{ provide: StaticComponentExample, useExisting: InputValidationCegComponent }],
+  standalone: true,
 })
 export class InputValidationCegComponent implements StaticComponentExample, AfterViewInit {
   html = template.default;

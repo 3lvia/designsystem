@@ -6,9 +6,12 @@ import { FileUploadDragoverCegComponent } from './file-upload-dragover-ceg/file-
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, FileUploadDocComponent,
-        DndDirective,
-        FileUploadCegComponent,
-        FileUploadDragoverCegComponent],
+  imports: [
+    SharedDocumentationModule,
+    FileUploadDocComponent,
+    DndDirective,
+    FileUploadCegComponent,
+    FileUploadDragoverCegComponent,
+  ],
 })
 export class FileUploadDocModule {}

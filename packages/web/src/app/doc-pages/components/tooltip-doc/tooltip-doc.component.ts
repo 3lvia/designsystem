@@ -8,17 +8,17 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-tooltip-doc',
-    templateUrl: './tooltip-doc.component.html',
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        TooltipCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-    ],
+  selector: 'app-tooltip-doc',
+  templateUrl: './tooltip-doc.component.html',
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    TooltipCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class TooltipDocComponent {
   componentData = tooltipData;

@@ -9,16 +9,11 @@ import { EmojiBadComponent } from './emoji-bad/emoji-bad.component';
 import { NgIf } from '@angular/common';
 
 @Component({
-    selector: 'app-feedback',
-    templateUrl: './feedback.component.html',
-    styleUrls: ['./feedback.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        EmojiBadComponent,
-        EmojiNeutralComponent,
-        EmojiGoodComponent,
-    ],
+  selector: 'app-feedback',
+  templateUrl: './feedback.component.html',
+  styleUrls: ['./feedback.component.scss'],
+  standalone: true,
+  imports: [NgIf, EmojiBadComponent, EmojiNeutralComponent, EmojiGoodComponent],
 })
 export class FeedbackComponent {
   @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;

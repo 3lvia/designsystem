@@ -8,17 +8,17 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-slider-doc',
-    templateUrl: './slider-doc.component.html',
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        SliderCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-    ],
+  selector: 'app-slider-doc',
+  templateUrl: './slider-doc.component.html',
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    SliderCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class SliderDocComponent {
   componentData = sliderData;

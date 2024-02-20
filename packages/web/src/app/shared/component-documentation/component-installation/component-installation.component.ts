@@ -4,10 +4,10 @@ import { getPackageName } from './getPackageName';
 import { CopyComponent } from '../../copy/copy.component';
 
 @Component({
-    selector: 'app-component-installation',
-    templateUrl: './component-installation.component.html',
-    standalone: true,
-    imports: [CopyComponent],
+  selector: 'app-component-installation',
+  templateUrl: './component-installation.component.html',
+  standalone: true,
+  imports: [CopyComponent],
 })
 export class ComponentInstallationComponent implements OnInit {
   @Input() componentData: ComponentData;

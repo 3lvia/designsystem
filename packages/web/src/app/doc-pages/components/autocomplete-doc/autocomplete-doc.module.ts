@@ -7,10 +7,14 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-autocomplete';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
-    imports: [SharedDocumentationModule, HttpClientModule, AutocompleteCegComponent,
-        AutocompleteDocComponent,
-        AutocompleteFilterCegComponent,
-        AutocompleteLabelCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    SharedDocumentationModule,
+    HttpClientModule,
+    AutocompleteCegComponent,
+    AutocompleteDocComponent,
+    AutocompleteFilterCegComponent,
+    AutocompleteLabelCegComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AutocompleteDocModule {}

@@ -5,7 +5,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-timepicker';
 
 @NgModule({
-    imports: [SharedDocumentationModule, TimepickerDocComponent, TimepickerCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SharedDocumentationModule, TimepickerDocComponent, TimepickerCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TimepickerDocModule {}

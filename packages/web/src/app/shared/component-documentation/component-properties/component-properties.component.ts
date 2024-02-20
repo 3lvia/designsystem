@@ -5,15 +5,11 @@ import { CopyComponent } from '../../copy/copy.component';
 import { NgIf, NgFor } from '@angular/common';
 
 @Component({
-    selector: 'app-component-properties',
-    templateUrl: './component-properties.component.html',
-    styleUrls: ['./component-properties.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        CopyComponent,
-        NgFor,
-    ],
+  selector: 'app-component-properties',
+  templateUrl: './component-properties.component.html',
+  styleUrls: ['./component-properties.component.scss'],
+  standalone: true,
+  imports: [NgIf, CopyComponent, NgFor],
 })
 export class ComponentPropertiesComponent implements OnInit {
   @Input() componentName: keyof typeof data.block;

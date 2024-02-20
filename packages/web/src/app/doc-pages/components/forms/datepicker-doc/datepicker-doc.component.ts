@@ -7,17 +7,17 @@ import { CegComponent } from '../../../../shared/component-documentation/ceg/ceg
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-datepicker-doc',
-    templateUrl: './datepicker-doc.component.html',
-    styleUrls: ['./datepicker-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        DatepickerCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-    ],
+  selector: 'app-datepicker-doc',
+  templateUrl: './datepicker-doc.component.html',
+  styleUrls: ['./datepicker-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    DatepickerCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class DatepickerDocComponent {
   date = new Date(2021, 4, 20);

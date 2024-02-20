@@ -11,22 +11,22 @@ import { StaticCegComponent } from '../../../../shared/component-documentation/c
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-toggle-doc',
-    templateUrl: './toggle-doc.component.html',
-    styleUrls: ['./toggle-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        ToggleCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-        ToggleStatesCegComponent,
-        ToggleLabelCegComponent,
-        ToggleSizeMdCegComponent,
-        ToggleSizeSmCegComponent,
-    ],
+  selector: 'app-toggle-doc',
+  templateUrl: './toggle-doc.component.html',
+  styleUrls: ['./toggle-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    ToggleCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+    ToggleStatesCegComponent,
+    ToggleLabelCegComponent,
+    ToggleSizeMdCegComponent,
+    ToggleSizeSmCegComponent,
+  ],
 })
 export class ToggleDocComponent {
   does = ['Single state that is either on or off.'];

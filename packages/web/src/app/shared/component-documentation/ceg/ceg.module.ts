@@ -23,8 +23,11 @@ import { TabToSegmentedControlItemPipe } from './code-generator/code-viewer/tabT
 import '@elvia/elvis-segmented-control';
 
 @NgModule({
-    exports: [CegComponent, StaticCegComponent, CodeViewerComponent],
-    imports: [CommonModule, TabToSegmentedControlItemPipe, CegComponent,
+  exports: [CegComponent, StaticCegComponent, CodeViewerComponent],
+  imports: [
+    CommonModule,
+    TabToSegmentedControlItemPipe,
+    CegComponent,
     StaticCegComponent,
     CodeGeneratorComponent,
     ControlsComponent,
@@ -40,8 +43,9 @@ import '@elvia/elvis-segmented-control';
     StaticCodeGeneratorComponent,
     DynamicCodeGeneratorComponent,
     PhoneShellComponent,
-    CodeViewerComponent],
-    providers: [FormatCodePipe],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    CodeViewerComponent,
+  ],
+  providers: [FormatCodePipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CegModule {}

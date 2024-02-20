@@ -14,8 +14,8 @@ import { RouterService } from 'src/app/core/services/router.service';
  * the eslint rule for directive names is disabled for this class.
  */
 @Directive({
-    selector: '[appNavbarBase]',
-    standalone: true
+  selector: '[appNavbarBase]',
+  standalone: true,
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class NavbarBase {

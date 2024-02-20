@@ -10,13 +10,16 @@ import { LinkSizesCegComponent } from './link-sizes-ceg/link-sizes-ceg.component
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, LinkDocComponent,
-        LinkCegComponent,
-        LinkActionCegComponent,
-        LinkInlineCegComponent,
-        LinkNewTabCegComponent,
-        LinkBackCegComponent,
-        LinkAsBtnCegComponent,
-        LinkSizesCegComponent],
+  imports: [
+    SharedDocumentationModule,
+    LinkDocComponent,
+    LinkCegComponent,
+    LinkActionCegComponent,
+    LinkInlineCegComponent,
+    LinkNewTabCegComponent,
+    LinkBackCegComponent,
+    LinkAsBtnCegComponent,
+    LinkSizesCegComponent,
+  ],
 })
 export class LinkDocModule {}

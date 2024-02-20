@@ -4,9 +4,6 @@ import { ColorComponent } from './color.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { ColorTokenTableComponent } from './color-token-table/color-token-table.component';
 
-
-
-
 import { RouterModule } from '@angular/router';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { ColorTokenSubtableComponent } from './color-token-table/color-token-subtable/color-token-subtable.component';
@@ -28,7 +25,7 @@ import '@elvia/elvis-tabs';
 import '@elvia/elvis-segmented-control';
 
 @NgModule({
-    imports: [
+  imports: [
     RouterModule,
     CommonModule,
     CegModule,
@@ -46,7 +43,7 @@ import '@elvia/elvis-segmented-control';
     ReplacePipe,
     NeedsBorderPipe,
     ColorPickerHeaderComponent,
-],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorModule {}

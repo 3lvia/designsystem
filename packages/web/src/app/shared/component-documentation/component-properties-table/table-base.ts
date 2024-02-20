@@ -10,8 +10,8 @@ interface TableGroup {
 }
 
 @Directive({
-    selector: '[appPropertyTableBase]',
-    standalone: true
+  selector: '[appPropertyTableBase]',
+  standalone: true,
 })
 export class PropertyTableBaseDirective implements OnChanges {
   @Input() props: SearchResult<ComponentProp>[] = [];

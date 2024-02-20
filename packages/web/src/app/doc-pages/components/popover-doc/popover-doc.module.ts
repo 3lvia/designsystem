@@ -5,7 +5,7 @@ import { PopoverCegComponent } from './popover-ceg/popover-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, PopoverDocComponent, PopoverCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SharedDocumentationModule, PopoverDocComponent, PopoverCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PopoverDocModule {}

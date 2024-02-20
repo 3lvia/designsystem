@@ -4,15 +4,11 @@ import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.servic
 import { NgFor, NgClass, AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-theme-switch',
-    templateUrl: './theme-switch.component.html',
-    styleUrls: ['./theme-switch.component.scss'],
-    standalone: true,
-    imports: [
-        NgFor,
-        NgClass,
-        AsyncPipe,
-    ],
+  selector: 'app-theme-switch',
+  templateUrl: './theme-switch.component.html',
+  styleUrls: ['./theme-switch.component.scss'],
+  standalone: true,
+  imports: [NgFor, NgClass, AsyncPipe],
 })
 export class ThemeSwitchComponent {
   @Output() preferredThemeSwitched = new EventEmitter<void>();

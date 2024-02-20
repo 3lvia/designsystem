@@ -5,7 +5,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-spotlight';
 
 @NgModule({
-    imports: [SharedDocumentationModule, SpotlightDocComponent, SpotlightCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SharedDocumentationModule, SpotlightDocComponent, SpotlightCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SpotlightDocModule {}

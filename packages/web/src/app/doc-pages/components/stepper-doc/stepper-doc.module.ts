@@ -5,7 +5,7 @@ import '@elvia/elvis-stepper';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, StepperDocComponent, StepperCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SharedDocumentationModule, StepperDocComponent, StepperCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class StepperDocModule {}

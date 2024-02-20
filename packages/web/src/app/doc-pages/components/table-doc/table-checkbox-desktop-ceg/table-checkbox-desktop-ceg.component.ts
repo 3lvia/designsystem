@@ -4,10 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./table-checkbox-desktop-ceg.component.html';
 
 @Component({
-    selector: 'app-table-checkbox-desktop-ceg',
-    templateUrl: './table-checkbox-desktop-ceg.component.html',
-    providers: [{ provide: StaticComponentExample, useExisting: TableCheckboxDesktopCegComponent }],
-    standalone: true,
+  selector: 'app-table-checkbox-desktop-ceg',
+  templateUrl: './table-checkbox-desktop-ceg.component.html',
+  providers: [{ provide: StaticComponentExample, useExisting: TableCheckboxDesktopCegComponent }],
+  standalone: true,
 })
 export class TableCheckboxDesktopCegComponent implements StaticComponentExample {
   html = template.default;

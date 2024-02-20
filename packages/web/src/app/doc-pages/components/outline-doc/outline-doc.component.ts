@@ -6,16 +6,16 @@ import { StaticCegComponent } from '../../../shared/component-documentation/ceg/
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-outline-doc',
-    templateUrl: './outline-doc.component.html',
-    styleUrls: ['./outline-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        OutlineCegComponent,
-        ComponentSectionComponent,
-    ],
+  selector: 'app-outline-doc',
+  templateUrl: './outline-doc.component.html',
+  styleUrls: ['./outline-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    OutlineCegComponent,
+    ComponentSectionComponent,
+  ],
 })
 export class OutlineDocComponent {
   componentData = outlineData;

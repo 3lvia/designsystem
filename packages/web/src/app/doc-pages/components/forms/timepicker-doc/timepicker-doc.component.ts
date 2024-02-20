@@ -7,17 +7,17 @@ import { CegComponent } from '../../../../shared/component-documentation/ceg/ceg
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-timepicker-doc',
-    templateUrl: './timepicker-doc.component.html',
-    styleUrls: ['./timepicker-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        TimepickerCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-    ],
+  selector: 'app-timepicker-doc',
+  templateUrl: './timepicker-doc.component.html',
+  styleUrls: ['./timepicker-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    TimepickerCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class TimepickerDocComponent {
   componentData = timepickerData;

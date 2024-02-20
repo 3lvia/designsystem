@@ -10,21 +10,21 @@ import { StaticCegComponent } from '../../../shared/component-documentation/ceg/
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-list-doc',
-    templateUrl: './list-doc.component.html',
-    styleUrls: ['./list-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        ListCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        BulletListCegComponent,
-        WhenToUseComponent,
-        NumberedListCegComponent,
-        IconListCegComponent,
-    ],
+  selector: 'app-list-doc',
+  templateUrl: './list-doc.component.html',
+  styleUrls: ['./list-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    ListCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    BulletListCegComponent,
+    WhenToUseComponent,
+    NumberedListCegComponent,
+    IconListCegComponent,
+  ],
 })
 export class ListDocComponent {
   doesExample1 = ['Items that are in no required order.'];

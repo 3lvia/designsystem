@@ -7,7 +7,13 @@ import { ChipImageCegComponent } from './chip-image-ceg/chip-image-ceg.component
 import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-empty-ceg.component';
 
 @NgModule({
-    imports: [SharedDocumentationModule, ChipDocComponent, ChipCegComponent, ChipImageCegComponent, ChipImageEmptyCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    SharedDocumentationModule,
+    ChipDocComponent,
+    ChipCegComponent,
+    ChipImageCegComponent,
+    ChipImageEmptyCegComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ChipDocModule {}

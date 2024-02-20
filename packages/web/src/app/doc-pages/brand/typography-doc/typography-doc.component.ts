@@ -15,21 +15,21 @@ import { ComponentSubsectionComponent } from '../../../shared/component-document
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 @Component({
-    selector: 'app-typography-doc',
-    templateUrl: './typography-doc.component.html',
-    standalone: true,
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSubsectionComponent,
-        TypographyExampleExhibitComponent,
-        ComponentSectionComponent,
-        TypographyFontExampleComponent,
-        TypographyTitleExampleComponent,
-        TypographyOutlineExampleComponent,
-        TypographyArticleExampleComponent,
-        RouterLink,
-        ComponentChangelogComponent,
-    ],
+  selector: 'app-typography-doc',
+  templateUrl: './typography-doc.component.html',
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSubsectionComponent,
+    TypographyExampleExhibitComponent,
+    ComponentSectionComponent,
+    TypographyFontExampleComponent,
+    TypographyTitleExampleComponent,
+    TypographyOutlineExampleComponent,
+    TypographyArticleExampleComponent,
+    RouterLink,
+    ComponentChangelogComponent,
+  ],
 })
 export class TypographyDocComponent {
   title = getDocPagesNotFromCMS('typography')?.title;

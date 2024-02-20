@@ -4,10 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./file-upload-dragover-ceg.component.html';
 
 @Component({
-    selector: 'app-file-upload-dragover-ceg',
-    templateUrl: './file-upload-dragover-ceg.component.html',
-    providers: [{ provide: StaticComponentExample, useExisting: FileUploadDragoverCegComponent }],
-    standalone: true,
+  selector: 'app-file-upload-dragover-ceg',
+  templateUrl: './file-upload-dragover-ceg.component.html',
+  providers: [{ provide: StaticComponentExample, useExisting: FileUploadDragoverCegComponent }],
+  standalone: true,
 })
 export class FileUploadDragoverCegComponent implements StaticComponentExample {
   html = template.default;

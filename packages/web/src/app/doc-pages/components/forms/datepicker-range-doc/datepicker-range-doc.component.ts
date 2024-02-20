@@ -9,19 +9,19 @@ import { CegComponent } from '../../../../shared/component-documentation/ceg/ceg
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-datepicker-range-doc',
-    templateUrl: './datepicker-range-doc.component.html',
-    styleUrls: ['./datepicker-range-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        DatepickerRangeCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        RouterLink,
-        DatepickerRangeShortcutExampleComponent,
-    ],
+  selector: 'app-datepicker-range-doc',
+  templateUrl: './datepicker-range-doc.component.html',
+  styleUrls: ['./datepicker-range-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    DatepickerRangeCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    RouterLink,
+    DatepickerRangeShortcutExampleComponent,
+  ],
 })
 export class DatepickerRangeDocComponent {
   componentData = datepickerRangeData;

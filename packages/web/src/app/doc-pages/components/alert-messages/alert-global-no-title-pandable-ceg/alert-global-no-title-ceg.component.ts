@@ -4,10 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./alert-global-no-title-ceg.component.html';
 
 @Component({
-    selector: 'app-alert-global-no-title-ceg',
-    templateUrl: './alert-global-no-title-ceg.component.html',
-    providers: [{ provide: StaticComponentExample, useExisting: AlertGlobalNoTitleCegComponent }],
-    standalone: true,
+  selector: 'app-alert-global-no-title-ceg',
+  templateUrl: './alert-global-no-title-ceg.component.html',
+  providers: [{ provide: StaticComponentExample, useExisting: AlertGlobalNoTitleCegComponent }],
+  standalone: true,
 })
 export class AlertGlobalNoTitleCegComponent implements StaticComponentExample {
   html = template.default;

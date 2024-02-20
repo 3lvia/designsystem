@@ -8,18 +8,18 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-pagination-doc',
-    templateUrl: './pagination-doc.component.html',
-    styleUrls: ['./pagination-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        PaginationCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-    ],
+  selector: 'app-pagination-doc',
+  templateUrl: './pagination-doc.component.html',
+  styleUrls: ['./pagination-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    PaginationCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class PaginationDocComponent {
   componentData = paginationData;

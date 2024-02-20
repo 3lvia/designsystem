@@ -17,20 +17,20 @@ interface Group {
 }
 
 @Component({
-    selector: 'app-controls',
-    templateUrl: './controls.component.html',
-    styleUrls: ['./controls.component.scss'],
-    standalone: true,
-    imports: [
-        NgFor,
-        NgIf,
-        RadioGroupComponent,
-        CheckboxComponent,
-        SwitchComponent,
-        CounterComponent,
-        TextComponent,
-        KeyValuePipe,
-    ],
+  selector: 'app-controls',
+  templateUrl: './controls.component.html',
+  styleUrls: ['./controls.component.scss'],
+  standalone: true,
+  imports: [
+    NgFor,
+    NgIf,
+    RadioGroupComponent,
+    CheckboxComponent,
+    SwitchComponent,
+    CounterComponent,
+    TextComponent,
+    KeyValuePipe,
+  ],
 })
 export class ControlsComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();

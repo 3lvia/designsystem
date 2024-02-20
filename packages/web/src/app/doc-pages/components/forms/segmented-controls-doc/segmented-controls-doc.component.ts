@@ -8,18 +8,18 @@ import { CegComponent } from '../../../../shared/component-documentation/ceg/ceg
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-segmented-controls-doc',
-    templateUrl: './segmented-controls-doc.component.html',
-    styleUrls: ['./segmented-controls-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        SegmentedControlCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-    ],
+  selector: 'app-segmented-controls-doc',
+  templateUrl: './segmented-controls-doc.component.html',
+  styleUrls: ['./segmented-controls-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    SegmentedControlCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class SegmentedControlsDocComponent {
   componentData = segmentedControlData;

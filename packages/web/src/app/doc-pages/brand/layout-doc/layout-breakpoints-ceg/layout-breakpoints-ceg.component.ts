@@ -4,11 +4,11 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./layout-breakpoints-ceg.component.html';
 
 @Component({
-    selector: 'app-layout-breakpoints-ceg',
-    templateUrl: './layout-breakpoints-ceg.component.html',
-    styleUrls: ['./../layout-doc.component.scss'],
-    providers: [{ provide: StaticComponentExample, useExisting: LayoutBreakpointsCegComponent }],
-    standalone: true,
+  selector: 'app-layout-breakpoints-ceg',
+  templateUrl: './layout-breakpoints-ceg.component.html',
+  styleUrls: ['./../layout-doc.component.scss'],
+  providers: [{ provide: StaticComponentExample, useExisting: LayoutBreakpointsCegComponent }],
+  standalone: true,
 })
 export class LayoutBreakpointsCegComponent implements StaticComponentExample {
   html = template.default;

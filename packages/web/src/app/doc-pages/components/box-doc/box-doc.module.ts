@@ -5,7 +5,7 @@ import { BoxDocComponent } from './box-doc.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, BoxDocComponent, BoxCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SharedDocumentationModule, BoxDocComponent, BoxCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BoxDocModule {}

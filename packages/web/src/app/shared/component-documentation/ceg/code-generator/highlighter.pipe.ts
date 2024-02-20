@@ -9,8 +9,8 @@ import 'prismjs/components/prism-scss';
 import { Language } from './types';
 
 @Pipe({
-    name: 'highlighter',
-    standalone: true,
+  name: 'highlighter',
+  standalone: true,
 })
 export class HighlighterPipe implements PipeTransform {
   transform(code: string | null, language: Language): string {

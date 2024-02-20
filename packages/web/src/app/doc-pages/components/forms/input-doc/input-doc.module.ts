@@ -16,19 +16,22 @@ import { InputValidationCegComponent } from './input-validation-ceg/input-valida
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, InputDocComponent,
-        InputCegComponent,
-        InputTypeNormalCegComponent,
-        InputTypeCombinedInlinedCegComponent,
-        InputTypeTextareaCegComponent,
-        InputOptionsButtonCegComponent,
-        InputOptionsNolabelCegComponent,
-        InputOptionsOptionalCegComponent,
-        InputOptionsFullWidthCegComponent,
-        InputOptionsReadonlyCegComponent,
-        InputOptionsLoadingCegComponent,
-        InputSizeMediumCegComponent,
-        InputSizeSmallCegComponent,
-        InputValidationCegComponent],
+  imports: [
+    SharedDocumentationModule,
+    InputDocComponent,
+    InputCegComponent,
+    InputTypeNormalCegComponent,
+    InputTypeCombinedInlinedCegComponent,
+    InputTypeTextareaCegComponent,
+    InputOptionsButtonCegComponent,
+    InputOptionsNolabelCegComponent,
+    InputOptionsOptionalCegComponent,
+    InputOptionsFullWidthCegComponent,
+    InputOptionsReadonlyCegComponent,
+    InputOptionsLoadingCegComponent,
+    InputSizeMediumCegComponent,
+    InputSizeSmallCegComponent,
+    InputValidationCegComponent,
+  ],
 })
 export class InputDocModule {}

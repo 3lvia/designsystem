@@ -4,10 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./input-options-nolabel-ceg.component.html';
 
 @Component({
-    selector: 'app-input-options-nolabel-ceg',
-    templateUrl: './input-options-nolabel-ceg.component.html',
-    providers: [{ provide: StaticComponentExample, useExisting: InputOptionsNolabelCegComponent }],
-    standalone: true,
+  selector: 'app-input-options-nolabel-ceg',
+  templateUrl: './input-options-nolabel-ceg.component.html',
+  providers: [{ provide: StaticComponentExample, useExisting: InputOptionsNolabelCegComponent }],
+  standalone: true,
 })
 export class InputOptionsNolabelCegComponent implements StaticComponentExample {
   html = template.default;

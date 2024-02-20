@@ -9,19 +9,19 @@ import { StaticCegComponent } from '../../../shared/component-documentation/ceg/
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-breadcrumb-doc',
-    templateUrl: './breadcrumb-doc.component.html',
-    styleUrls: ['./breadcrumb-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        BreadcrumbCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-        BreadcrumbEventCegComponent,
-    ],
+  selector: 'app-breadcrumb-doc',
+  templateUrl: './breadcrumb-doc.component.html',
+  styleUrls: ['./breadcrumb-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    BreadcrumbCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+    BreadcrumbEventCegComponent,
+  ],
 })
 export class BreadcrumbDocComponent {
   componentData = breadcrumbData;

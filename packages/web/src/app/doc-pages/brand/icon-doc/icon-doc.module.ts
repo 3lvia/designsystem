@@ -3,11 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconDocComponent } from './icon-doc.component';
 
-
 import { IconSearchPipe } from './icon-search.pipe';
-
-
-
 
 import { RouterModule } from '@angular/router';
 import '@elvia/elvis-icon';
@@ -21,7 +17,7 @@ import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component
 import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
 
 @NgModule({
-    imports: [
+  imports: [
     CommonModule,
     FormsModule,
     RouterModule,
@@ -33,7 +29,7 @@ import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.compon
     IconCegComponent,
     IconSizesCegComponent,
     IconColorsCegComponent,
-],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconDocModule {}

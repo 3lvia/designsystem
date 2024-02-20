@@ -15,26 +15,26 @@ import { StaticCegComponent } from '../../../shared/component-documentation/ceg/
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-link-doc',
-    templateUrl: './link-doc.component.html',
-    styleUrls: ['./link-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        LinkCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        LinkInlineCegComponent,
-        LinkNewTabCegComponent,
-        LinkActionCegComponent,
-        LinkBackCegComponent,
-        RouterLink,
-        LinkSizesCegComponent,
-        DoDontTextComponent,
-        ComponentSubsubsectionComponent,
-        LinkAsBtnCegComponent,
-    ],
+  selector: 'app-link-doc',
+  templateUrl: './link-doc.component.html',
+  styleUrls: ['./link-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    LinkCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    LinkInlineCegComponent,
+    LinkNewTabCegComponent,
+    LinkActionCegComponent,
+    LinkBackCegComponent,
+    RouterLink,
+    LinkSizesCegComponent,
+    DoDontTextComponent,
+    ComponentSubsubsectionComponent,
+    LinkAsBtnCegComponent,
+  ],
 })
 export class LinkDocComponent {
   doExample = `<a class="e-link e-link--lg" href="https://design.elvia.io/components/link#Overview">Se vårt strømsbruddskart</a>`;

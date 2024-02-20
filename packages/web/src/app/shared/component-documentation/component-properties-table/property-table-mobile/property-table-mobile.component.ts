@@ -8,16 +8,10 @@ import { PropertyExamplePopoverComponent } from '../property-example-popover/pro
 import { NgFor, NgIf } from '@angular/common';
 
 @Component({
-    selector: 'app-property-table-mobile',
-    templateUrl: './property-table-mobile.component.html',
-    standalone: true,
-    imports: [
-        NgFor,
-        NgIf,
-        PropertyExamplePopoverComponent,
-        SearchHighlighterPipe,
-        EscapeHTMLPipe,
-    ],
+  selector: 'app-property-table-mobile',
+  templateUrl: './property-table-mobile.component.html',
+  standalone: true,
+  imports: [NgFor, NgIf, PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
 })
 export class PropertyTableMobileComponent extends PropertyTableBaseDirective {
   get itemsWithoutChildren(): SearchResult<ComponentProp>[] {

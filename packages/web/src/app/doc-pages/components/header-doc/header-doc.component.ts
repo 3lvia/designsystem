@@ -8,18 +8,18 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-header-doc',
-    templateUrl: './header-doc.component.html',
-    styleUrls: ['./header-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        HeaderCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        RouterLink,
-    ],
+  selector: 'app-header-doc',
+  templateUrl: './header-doc.component.html',
+  styleUrls: ['./header-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    HeaderCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    RouterLink,
+  ],
 })
 export class HeaderDocComponent {
   componentData = headerData;

@@ -6,7 +6,12 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-radio-filter';
 
 @NgModule({
-    imports: [SharedDocumentationModule, RadioFilterDocComponent, RadioFilterCegComponent, RadioFilterIconCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    SharedDocumentationModule,
+    RadioFilterDocComponent,
+    RadioFilterCegComponent,
+    RadioFilterIconCegComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RadioFilterDocModule {}

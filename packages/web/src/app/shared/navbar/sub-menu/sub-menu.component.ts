@@ -13,23 +13,27 @@ export interface Anchor {
 }
 
 @Component({
-    selector: 'app-sub-menu',
-    templateUrl: './sub-menu.component.html',
-    styleUrls: ['./sub-menu.component.scss'],
-    animations: [
-        trigger('listAnimation', [
-            transition('* => *', [
-                query(':enter', [
-                    style({ opacity: 0, translate: '0 -2px' }),
-                    stagger(70, [animate('0.2s', style({ opacity: 1, translate: 0 }))]),
-                ], {
-                    optional: true,
-                }),
-            ]),
-        ]),
-    ],
-    standalone: true,
-    imports: [NgClass, NgFor],
+  selector: 'app-sub-menu',
+  templateUrl: './sub-menu.component.html',
+  styleUrls: ['./sub-menu.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0, translate: '0 -2px' }),
+            stagger(70, [animate('0.2s', style({ opacity: 1, translate: 0 }))]),
+          ],
+          {
+            optional: true,
+          },
+        ),
+      ]),
+    ]),
+  ],
+  standalone: true,
+  imports: [NgClass, NgFor],
 })
 export class SubMenuComponent {
   anchors: Anchor[] = [];

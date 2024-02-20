@@ -15,18 +15,21 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import { AlertLocalClosableCegComponent } from './alert-local-closable-ceg/alert-local-closable-ceg.component';
 
 @NgModule({
-    imports: [SharedDocumentationModule, AlertMessagesComponent,
-        AlertCegComponent,
-        AlertGlobalCegComponent,
-        AlertGlobalClosableCegComponent,
-        AlertGlobalExpandableCegComponent,
-        AlertGlobalActionsCegComponent,
-        AlertGlobalNoTitleCegComponent,
-        AlertLocalCegComponent,
-        AlertLocalNoTitleCegComponent,
-        AlertRoleAlertCegComponent,
-        AlertRoleStatusCegComponent,
-        AlertRoleNoteCegComponent,
-        AlertLocalClosableCegComponent],
+  imports: [
+    SharedDocumentationModule,
+    AlertMessagesComponent,
+    AlertCegComponent,
+    AlertGlobalCegComponent,
+    AlertGlobalClosableCegComponent,
+    AlertGlobalExpandableCegComponent,
+    AlertGlobalActionsCegComponent,
+    AlertGlobalNoTitleCegComponent,
+    AlertLocalCegComponent,
+    AlertLocalNoTitleCegComponent,
+    AlertRoleAlertCegComponent,
+    AlertRoleStatusCegComponent,
+    AlertRoleNoteCegComponent,
+    AlertLocalClosableCegComponent,
+  ],
 })
 export class AlertMessagesModule {}

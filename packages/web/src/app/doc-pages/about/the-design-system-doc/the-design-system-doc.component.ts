@@ -10,20 +10,20 @@ import { ComponentSectionComponent } from '../../../shared/component-documentati
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 @Component({
-    selector: 'app-the-design-system-doc',
-    templateUrl: './the-design-system-doc.component.html',
-    styleUrls: ['./the-design-system-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSectionComponent,
-        EasyIconComponent,
-        FlexibleIconComponent,
-        OpenIconComponent,
-        QualityIconComponent,
-        InnovativeIconComponent,
-        RouterLink,
-    ],
+  selector: 'app-the-design-system-doc',
+  templateUrl: './the-design-system-doc.component.html',
+  styleUrls: ['./the-design-system-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSectionComponent,
+    EasyIconComponent,
+    FlexibleIconComponent,
+    OpenIconComponent,
+    QualityIconComponent,
+    InnovativeIconComponent,
+    RouterLink,
+  ],
 })
 export class TheDesignSystemDocComponent {
   constructor(private titleService: Title) {

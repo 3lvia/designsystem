@@ -5,7 +5,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-slider';
 
 @NgModule({
-    imports: [SharedDocumentationModule, SliderDocComponent, SliderCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SharedDocumentationModule, SliderDocComponent, SliderCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SliderDocModule {}

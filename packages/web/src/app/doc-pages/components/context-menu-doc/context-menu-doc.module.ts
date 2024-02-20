@@ -9,12 +9,15 @@ import '@elvia/elvis-context-menu';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, ContextMenuDocComponent,
-        ContextMenuCegComponent,
-        ContextMenuHeadingsCegComponent,
-        ContextMenuIconsCegComponent,
-        ContextMenuSelectableCegComponent,
-        ContextMenuDisabledCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    SharedDocumentationModule,
+    ContextMenuDocComponent,
+    ContextMenuCegComponent,
+    ContextMenuHeadingsCegComponent,
+    ContextMenuIconsCegComponent,
+    ContextMenuSelectableCegComponent,
+    ContextMenuDisabledCegComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ContextMenuDocModule {}

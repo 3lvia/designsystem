@@ -7,17 +7,17 @@ import { ComponentHeaderQuickInstallComponent } from './component-header-quick-i
 import { NgIf } from '@angular/common';
 
 @Component({
-    selector: 'app-component-header',
-    templateUrl: './component-header.component.html',
-    styleUrls: ['./component-header.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        ComponentHeaderQuickInstallComponent,
-        IfViewportSizeDirective,
-        SubMenuComponent,
-        ComponentDocumentationDatePipe,
-    ],
+  selector: 'app-component-header',
+  templateUrl: './component-header.component.html',
+  styleUrls: ['./component-header.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    ComponentHeaderQuickInstallComponent,
+    IfViewportSizeDirective,
+    SubMenuComponent,
+    ComponentDocumentationDatePipe,
+  ],
 })
 export class ComponentHeaderComponent {
   @Input() figmaUrl?: string;

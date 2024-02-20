@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentChangelogComponent } from 'src/app/shared/component-documentation/component-changelog/component-changelog.component';
 
-
-
-
 import { ListDocComponent } from './list-doc.component';
 
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
@@ -15,7 +12,7 @@ import { ListCegComponent } from './list-ceg/list-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [
+  imports: [
     CommonModule,
     ComponentChangelogComponent,
     CegModule,
@@ -25,6 +22,6 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
     BulletListCegComponent,
     NumberedListCegComponent,
     IconListCegComponent,
-],
+  ],
 })
 export class ListDocModule {}

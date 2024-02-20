@@ -16,22 +16,22 @@ import { ColorPickerComponent } from './color-picker/color-picker.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 @Component({
-    selector: 'app-color',
-    templateUrl: './color.component.html',
-    standalone: true,
-    imports: [
-        ComponentHeaderComponent,
-        ColorPickerComponent,
-        ComponentSectionComponent,
-        NgIf,
-        ComponentSubsectionComponent,
-        ComponentSubsubsectionComponent,
-        DoDontTextComponent,
-        PurposeTokenIllustrationComponent,
-        ThemeTokenIllustrationComponent,
-        ColorTokenTableComponent,
-        CodeViewerComponent,
-    ],
+  selector: 'app-color',
+  templateUrl: './color.component.html',
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    ColorPickerComponent,
+    ComponentSectionComponent,
+    NgIf,
+    ComponentSubsectionComponent,
+    ComponentSubsubsectionComponent,
+    DoDontTextComponent,
+    PurposeTokenIllustrationComponent,
+    ThemeTokenIllustrationComponent,
+    ColorTokenTableComponent,
+    CodeViewerComponent,
+  ],
 })
 export class ColorComponent {
   purposeTokenExample = `.container {

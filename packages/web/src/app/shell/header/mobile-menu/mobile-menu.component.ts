@@ -8,15 +8,11 @@ import { RouterLink } from '@angular/router';
 import { NgFor } from '@angular/common';
 
 @Component({
-    selector: 'app-mobile-menu',
-    templateUrl: './mobile-menu.component.html',
-    styleUrls: ['./mobile-menu.component.scss'],
-    standalone: true,
-    imports: [
-        NgFor,
-        RouterLink,
-        ThemeSwitchComponent,
-    ],
+  selector: 'app-mobile-menu',
+  templateUrl: './mobile-menu.component.html',
+  styleUrls: ['./mobile-menu.component.scss'],
+  standalone: true,
+  imports: [NgFor, RouterLink, ThemeSwitchComponent],
 })
 export class MobileMenuComponent {
   @Output() closeMenu = new EventEmitter<void>();

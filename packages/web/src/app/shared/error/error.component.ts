@@ -7,11 +7,11 @@ import { RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 
 @Component({
-    selector: 'app-error',
-    templateUrl: './error.component.html',
-    styleUrls: ['./error.component.scss'],
-    standalone: true,
-    imports: [NgIf, RouterLink],
+  selector: 'app-error',
+  templateUrl: './error.component.html',
+  styleUrls: ['./error.component.scss'],
+  standalone: true,
+  imports: [NgIf, RouterLink],
 })
 export class ErrorComponent {
   currentTheme: ThemeName = 'light';

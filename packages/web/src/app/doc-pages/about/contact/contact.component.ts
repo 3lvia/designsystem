@@ -17,15 +17,11 @@ type ContactInfo = {
 };
 
 @Component({
-    selector: 'app-contact',
-    templateUrl: './contact.component.html',
-    styleUrls: ['./contact.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSubsectionComponent,
-        NgClass,
-    ],
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss'],
+  standalone: true,
+  imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass],
 })
 export class ContactComponent {
   description = getDocPagesNotFromCMS('contact')?.description;

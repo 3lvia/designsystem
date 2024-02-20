@@ -12,22 +12,22 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-modal-doc',
-    templateUrl: './modal-doc.component.html',
-    styleUrls: ['./modal-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        ModalCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        RouterLink,
-        ModalMultiplePagesCegComponent,
-        ModalInitialFocusCegComponent,
-        WhenToUseComponent,
-        ComponentSubsubsectionComponent,
-    ],
+  selector: 'app-modal-doc',
+  templateUrl: './modal-doc.component.html',
+  styleUrls: ['./modal-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    ModalCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    RouterLink,
+    ModalMultiplePagesCegComponent,
+    ModalInitialFocusCegComponent,
+    WhenToUseComponent,
+    ComponentSubsubsectionComponent,
+  ],
 })
 export class ModalDocComponent {
   componentData = modalData;

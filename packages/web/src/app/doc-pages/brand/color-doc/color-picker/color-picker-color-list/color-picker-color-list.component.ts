@@ -6,11 +6,11 @@ import { NeedsBorderPipe } from '../needs-border.pipe';
 import { NgClass } from '@angular/common';
 
 @Component({
-    selector: 'app-color-picker-color-list',
-    templateUrl: './color-picker-color-list.component.html',
-    styleUrls: ['./color-picker-color-list.component.scss'],
-    standalone: true,
-    imports: [NgClass, NeedsBorderPipe],
+  selector: 'app-color-picker-color-list',
+  templateUrl: './color-picker-color-list.component.html',
+  styleUrls: ['./color-picker-color-list.component.scss'],
+  standalone: true,
+  imports: [NgClass, NeedsBorderPipe],
 })
 export class ColorPickerColorListComponent {
   @Input({ required: true }) colorList: ColorsObject;

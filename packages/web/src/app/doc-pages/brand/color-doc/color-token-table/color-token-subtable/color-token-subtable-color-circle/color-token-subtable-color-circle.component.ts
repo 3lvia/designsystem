@@ -4,11 +4,11 @@ import { NgIf, NgClass } from '@angular/common';
 type ColorType = 'default' | 'black-white' | 'dark-black-white' | 'signal' | 'dark-signal';
 
 @Component({
-    selector: 'app-color-token-subtable-color-circle',
-    templateUrl: './color-token-subtable-color-circle.component.html',
-    styleUrls: ['./color-token-subtable-color-circle.component.scss'],
-    standalone: true,
-    imports: [NgIf, NgClass],
+  selector: 'app-color-token-subtable-color-circle',
+  templateUrl: './color-token-subtable-color-circle.component.html',
+  styleUrls: ['./color-token-subtable-color-circle.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgClass],
 })
 export class ColorTokenSubtableColorCircleComponent implements OnInit {
   @Input() hex: string;

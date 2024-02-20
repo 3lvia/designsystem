@@ -13,20 +13,20 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-autocomplete-doc',
-    templateUrl: './autocomplete-doc.component.html',
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        AutocompleteCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        StaticCegComponent,
-        AutocompleteFilterCegComponent,
-        ComponentSubsectionComponent,
-        AutocompleteLabelCegComponent,
-    ],
+  selector: 'app-autocomplete-doc',
+  templateUrl: './autocomplete-doc.component.html',
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    AutocompleteCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    StaticCegComponent,
+    AutocompleteFilterCegComponent,
+    ComponentSubsectionComponent,
+    AutocompleteLabelCegComponent,
+  ],
 })
 export class AutocompleteDocComponent {
   figmaUrl = getComponent('autocomplete')?.figmaUrl;

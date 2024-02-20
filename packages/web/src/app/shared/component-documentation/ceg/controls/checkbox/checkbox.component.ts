@@ -5,11 +5,11 @@ import { NgClass } from '@angular/common';
 let CEG_CHECKBOX_ID = 0;
 
 @Component({
-    selector: 'app-checkbox',
-    templateUrl: './checkbox.component.html',
-    styleUrls: ['./checkbox.component.scss'],
-    standalone: true,
-    imports: [NgClass],
+  selector: 'app-checkbox',
+  templateUrl: './checkbox.component.html',
+  styleUrls: ['./checkbox.component.scss'],
+  standalone: true,
+  imports: [NgClass],
 })
 export class CheckboxComponent {
   @Input() checkbox: Checkbox;

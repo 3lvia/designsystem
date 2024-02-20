@@ -14,24 +14,24 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-context-menu-doc',
-    templateUrl: './context-menu-doc.component.html',
-    styleUrls: ['./context-menu-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        ContextMenuCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsubsectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-        StaticCegComponent,
-        ContextMenuIconsCegComponent,
-        ContextMenuHeadingsCegComponent,
-        ContextMenuSelectableCegComponent,
-        ContextMenuDisabledCegComponent,
-    ],
+  selector: 'app-context-menu-doc',
+  templateUrl: './context-menu-doc.component.html',
+  styleUrls: ['./context-menu-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    ContextMenuCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsubsectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+    StaticCegComponent,
+    ContextMenuIconsCegComponent,
+    ContextMenuHeadingsCegComponent,
+    ContextMenuSelectableCegComponent,
+    ContextMenuDisabledCegComponent,
+  ],
 })
 export class ContextMenuDocComponent {
   componentData = contextMenuData;

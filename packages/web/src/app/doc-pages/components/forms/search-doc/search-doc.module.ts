@@ -11,14 +11,17 @@ import { SearchSizeSmallCegComponent } from './search-size-small-ceg/search-size
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, SearchDocComponent,
-        SearchCegComponent,
-        SearchInstantCegComponent,
-        SearchInstantSearchedCegComponent,
-        SearchOnSubmitCegComponent,
-        SearchOnSubmitSearchedCegComponent,
-        SearchFullwidthCegComponent,
-        SearchSizeMediumCegComponent,
-        SearchSizeSmallCegComponent],
+  imports: [
+    SharedDocumentationModule,
+    SearchDocComponent,
+    SearchCegComponent,
+    SearchInstantCegComponent,
+    SearchInstantSearchedCegComponent,
+    SearchOnSubmitCegComponent,
+    SearchOnSubmitSearchedCegComponent,
+    SearchFullwidthCegComponent,
+    SearchSizeMediumCegComponent,
+    SearchSizeSmallCegComponent,
+  ],
 })
 export class SearchDocModule {}

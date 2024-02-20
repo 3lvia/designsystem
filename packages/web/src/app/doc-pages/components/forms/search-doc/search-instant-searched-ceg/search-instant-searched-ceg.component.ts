@@ -4,10 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./search-instant-searched-ceg.component.html';
 
 @Component({
-    selector: 'app-search-instant-searched-ceg',
-    templateUrl: './search-instant-searched-ceg.component.html',
-    providers: [{ provide: StaticComponentExample, useExisting: SearchInstantSearchedCegComponent }],
-    standalone: true,
+  selector: 'app-search-instant-searched-ceg',
+  templateUrl: './search-instant-searched-ceg.component.html',
+  providers: [{ provide: StaticComponentExample, useExisting: SearchInstantSearchedCegComponent }],
+  standalone: true,
 })
 export class SearchInstantSearchedCegComponent implements StaticComponentExample {
   html = template.default;

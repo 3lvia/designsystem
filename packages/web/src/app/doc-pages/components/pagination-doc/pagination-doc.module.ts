@@ -5,7 +5,7 @@ import { PaginationCegComponent } from './pagination-ceg/pagination-ceg.componen
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, PaginationDocComponent, PaginationCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SharedDocumentationModule, PaginationDocComponent, PaginationCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PaginationDocModule {}

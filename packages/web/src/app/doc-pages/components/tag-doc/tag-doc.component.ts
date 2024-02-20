@@ -8,19 +8,19 @@ import { StaticCegComponent } from '../../../shared/component-documentation/ceg/
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-tag-doc',
-    templateUrl: './tag-doc.component.html',
-    styleUrls: ['./tag-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        TagCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        TagColoredCegComponent,
-        WhenToUseComponent,
-    ],
+  selector: 'app-tag-doc',
+  templateUrl: './tag-doc.component.html',
+  styleUrls: ['./tag-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    TagCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    TagColoredCegComponent,
+    WhenToUseComponent,
+  ],
 })
 export class TagDocComponent {
   headerDoes = ['When you need to categorize or view the status of items.'];

@@ -9,18 +9,18 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-box-doc',
-    templateUrl: './box-doc.component.html',
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        BoxCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-        ComponentSubsubsectionComponent,
-    ],
+  selector: 'app-box-doc',
+  templateUrl: './box-doc.component.html',
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    BoxCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+    ComponentSubsubsectionComponent,
+  ],
 })
 export class BoxDocComponent {
   componentData = boxData;

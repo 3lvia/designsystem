@@ -11,22 +11,22 @@ import { StaticCegComponent } from '../../../../shared/component-documentation/c
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-radiobutton-doc',
-    templateUrl: './radiobutton-doc.component.html',
-    styleUrls: ['./radiobutton-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        RadiobuttonCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        RadiobuttonMdCegComponent,
-        RadiobuttonSmCegComponent,
-        RadiobuttonStatesCegComponent,
-        WhenToUseComponent,
-        RouterLink,
-    ],
+  selector: 'app-radiobutton-doc',
+  templateUrl: './radiobutton-doc.component.html',
+  styleUrls: ['./radiobutton-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    RadiobuttonCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    RadiobuttonMdCegComponent,
+    RadiobuttonSmCegComponent,
+    RadiobuttonStatesCegComponent,
+    WhenToUseComponent,
+    RouterLink,
+  ],
 })
 export class RadiobuttonDocComponent {
   does = [

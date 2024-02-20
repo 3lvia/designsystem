@@ -9,18 +9,11 @@ import { ComponentSubsectionComponent } from '../../../shared/component-document
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 @Component({
-    selector: 'app-utilities-doc',
-    templateUrl: './utilities-doc.component.html',
-    styleUrls: ['./utilities-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSubsectionComponent,
-        NgFor,
-        NgIf,
-        RouterLink,
-        CopyComponent,
-    ],
+  selector: 'app-utilities-doc',
+  templateUrl: './utilities-doc.component.html',
+  styleUrls: ['./utilities-doc.component.scss'],
+  standalone: true,
+  imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgFor, NgIf, RouterLink, CopyComponent],
 })
 export class UtilitiesDocComponent {
   description = getDocPagesNotFromCMS('utility-classes')?.description;

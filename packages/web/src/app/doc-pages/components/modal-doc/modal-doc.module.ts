@@ -8,10 +8,13 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import { ModalInitialFocusCegComponent } from './modal-initial-focus-ceg/modal-initial-focus-ceg.component';
 
 @NgModule({
-    imports: [SharedDocumentationModule, ModalDocComponent,
-        ModalCegComponent,
-        ModalMultiplePagesCegComponent,
-        ModalInitialFocusCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    SharedDocumentationModule,
+    ModalDocComponent,
+    ModalCegComponent,
+    ModalMultiplePagesCegComponent,
+    ModalInitialFocusCegComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ModalDocModule {}

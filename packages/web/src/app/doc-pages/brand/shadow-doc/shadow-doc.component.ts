@@ -12,17 +12,17 @@ import { ShadowViewerComponent } from './shadow-viewer/shadow-viewer.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 @Component({
-    selector: 'app-shadow-doc',
-    templateUrl: './shadow-doc.component.html',
-    standalone: true,
-    imports: [
-        ComponentHeaderComponent,
-        ShadowViewerComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        NgFor,
-        ComponentChangelogComponent,
-    ],
+  selector: 'app-shadow-doc',
+  templateUrl: './shadow-doc.component.html',
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    ShadowViewerComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    NgFor,
+    ComponentChangelogComponent,
+  ],
 })
 export class ShadowDocComponent {
   figmaUrl = getDocPagesNotFromCMS('shadow')?.figmaUrl;

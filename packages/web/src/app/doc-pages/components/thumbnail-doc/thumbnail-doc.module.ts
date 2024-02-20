@@ -5,6 +5,11 @@ import { ThumbnailSelectedCegComponent } from './thumbnail-selected-ceg/thumbnai
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, ThumbnailDocComponent, ThumbnailCegComponent, ThumbnailSelectedCegComponent],
+  imports: [
+    SharedDocumentationModule,
+    ThumbnailDocComponent,
+    ThumbnailCegComponent,
+    ThumbnailSelectedCegComponent,
+  ],
 })
 export class ThumbnailDocModule {}

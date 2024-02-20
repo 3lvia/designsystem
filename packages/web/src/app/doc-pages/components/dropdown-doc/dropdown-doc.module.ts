@@ -11,14 +11,17 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import { DropdownEmptyCegComponent } from './dropdown-empty-ceg/dropdown-empty-ceg.component';
 
 @NgModule({
-    imports: [SharedDocumentationModule, DropdownDocComponent,
-        DropdownCegComponent,
-        DropdownIconsCegComponent,
-        DropdownImagesCegComponent,
-        DropdownTreeCegComponent,
-        DropdownLoadMoreCegComponent,
-        DropdownStatusCegComponent,
-        DropdownEmptyCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    SharedDocumentationModule,
+    DropdownDocComponent,
+    DropdownCegComponent,
+    DropdownIconsCegComponent,
+    DropdownImagesCegComponent,
+    DropdownTreeCegComponent,
+    DropdownLoadMoreCegComponent,
+    DropdownStatusCegComponent,
+    DropdownEmptyCegComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DropdownDocModule {}

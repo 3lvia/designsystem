@@ -8,18 +8,18 @@ import { StaticCegComponent } from '../../../shared/component-documentation/ceg/
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-file-upload-doc',
-    templateUrl: './file-upload-doc.component.html',
-    styleUrls: ['./file-upload-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        FileUploadCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        FileUploadDragoverCegComponent,
-        RouterLink,
-    ],
+  selector: 'app-file-upload-doc',
+  templateUrl: './file-upload-doc.component.html',
+  styleUrls: ['./file-upload-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    FileUploadCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    FileUploadDragoverCegComponent,
+    RouterLink,
+  ],
 })
 export class FileUploadDocComponent {}

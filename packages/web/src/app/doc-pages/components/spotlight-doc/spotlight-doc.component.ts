@@ -8,17 +8,17 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-spotlight-doc',
-    templateUrl: './spotlight-doc.component.html',
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        SpotlightCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        ComponentSubsubsectionComponent,
-    ],
+  selector: 'app-spotlight-doc',
+  templateUrl: './spotlight-doc.component.html',
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    SpotlightCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    ComponentSubsubsectionComponent,
+  ],
 })
 export class SpotlightDocComponent {
   componentData = spotlightData;

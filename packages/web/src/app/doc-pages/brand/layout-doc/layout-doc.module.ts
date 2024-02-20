@@ -2,9 +2,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutDocComponent } from './layout-doc.component';
 
-
-
-
 import { RouterModule } from '@angular/router';
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 import { LayoutMarginsCegComponent } from './layout-margins-ceg/layout-margins-ceg.component';
@@ -17,7 +14,7 @@ import { LayoutLevelsCegComponent } from './layout-levels-ceg/layout-levels-ceg.
 import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-ordering-ceg.component';
 
 @NgModule({
-    imports: [
+  imports: [
     CommonModule,
     RouterModule,
     CegModule,
@@ -30,7 +27,7 @@ import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-orderin
     LayoutAlignmentCegComponent,
     LayoutLevelsCegComponent,
     LayoutOrderingCegComponent,
-],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LayoutDocModule {}

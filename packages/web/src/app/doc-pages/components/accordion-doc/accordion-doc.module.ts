@@ -6,7 +6,12 @@ import '@elvia/elvis-accordion';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, AccordionDocComponent, AccordionCegComponent, AccordionGroupCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    SharedDocumentationModule,
+    AccordionDocComponent,
+    AccordionCegComponent,
+    AccordionGroupCegComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AccordionDocModule {}

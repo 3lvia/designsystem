@@ -13,22 +13,22 @@ import { FlexibleFullHeightDirective } from '../../shared/navbar/desktop-navbar/
 import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-size.directive';
 
 @Component({
-    selector: 'app-page-with-sidenav',
-    templateUrl: './page-with-sidenav.component.html',
-    styleUrls: ['./page-with-sidenav.component.scss'],
-    standalone: true,
-    imports: [
-        IfViewportSizeDirective,
-        FlexibleFullHeightDirective,
-        DesktopNavbarComponent,
-        NgIf,
-        RouterLink,
-        FeedbackLinkComponent,
-        LocalePickerComponent,
-        MobileNavbarComponent,
-        FeedbackComponent,
-        TitleCasePipe,
-    ],
+  selector: 'app-page-with-sidenav',
+  templateUrl: './page-with-sidenav.component.html',
+  styleUrls: ['./page-with-sidenav.component.scss'],
+  standalone: true,
+  imports: [
+    IfViewportSizeDirective,
+    FlexibleFullHeightDirective,
+    DesktopNavbarComponent,
+    NgIf,
+    RouterLink,
+    FeedbackLinkComponent,
+    LocalePickerComponent,
+    MobileNavbarComponent,
+    FeedbackComponent,
+    TitleCasePipe,
+  ],
 })
 export class PageWithSidenavComponent {
   @Input() isLandingPage = false;

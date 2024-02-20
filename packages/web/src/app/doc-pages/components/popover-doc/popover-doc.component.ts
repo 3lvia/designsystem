@@ -10,20 +10,20 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-popover-doc',
-    templateUrl: './popover-doc.component.html',
-    styleUrls: ['./popover-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        PopoverCegComponent,
-        ComponentSectionComponent,
-        NgIf,
-        ComponentSubsubsectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-    ],
+  selector: 'app-popover-doc',
+  templateUrl: './popover-doc.component.html',
+  styleUrls: ['./popover-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    PopoverCegComponent,
+    ComponentSectionComponent,
+    NgIf,
+    ComponentSubsubsectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class PopoverDocComponent {
   componentData = popoverData;

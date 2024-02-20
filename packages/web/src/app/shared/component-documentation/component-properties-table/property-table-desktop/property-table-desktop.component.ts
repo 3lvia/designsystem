@@ -8,19 +8,19 @@ import { PropertyExamplePopoverComponent } from '../property-example-popover/pro
 import { NgIf, NgFor, NgClass, NgStyle } from '@angular/common';
 
 @Component({
-    selector: 'app-property-table-desktop',
-    templateUrl: './property-table-desktop.component.html',
-    styleUrls: ['./property-table-desktop.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgFor,
-        NgClass,
-        NgStyle,
-        PropertyExamplePopoverComponent,
-        SearchHighlighterPipe,
-        EscapeHTMLPipe,
-    ],
+  selector: 'app-property-table-desktop',
+  templateUrl: './property-table-desktop.component.html',
+  styleUrls: ['./property-table-desktop.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    NgClass,
+    NgStyle,
+    PropertyExamplePopoverComponent,
+    SearchHighlighterPipe,
+    EscapeHTMLPipe,
+  ],
 })
 export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
   calculateMargin(i: number, propList: SearchResult<ComponentProp>[]) {

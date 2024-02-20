@@ -4,11 +4,11 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./thumbnail-selected-ceg.component.html';
 
 @Component({
-    selector: 'app-thumbnail-selected-ceg',
-    templateUrl: './thumbnail-selected-ceg.component.html',
-    styleUrls: ['./thumbnail-selected-ceg.component.scss'],
-    providers: [{ provide: StaticComponentExample, useExisting: ThumbnailSelectedCegComponent }],
-    standalone: true,
+  selector: 'app-thumbnail-selected-ceg',
+  templateUrl: './thumbnail-selected-ceg.component.html',
+  styleUrls: ['./thumbnail-selected-ceg.component.scss'],
+  providers: [{ provide: StaticComponentExample, useExisting: ThumbnailSelectedCegComponent }],
+  standalone: true,
 })
 export class ThumbnailSelectedCegComponent implements StaticComponentExample {
   html = template.default;

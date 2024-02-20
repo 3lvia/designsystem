@@ -9,19 +9,19 @@ import { StaticCegComponent } from '../../../shared/component-documentation/ceg/
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-content-loader-doc',
-    templateUrl: './content-loader-doc.component.html',
-    styleUrls: ['./content-loader-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        ContentLoaderCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        ContentLoaderBoxCegComponent,
-        ContentLoaderCircleCegComponent,
-        ContentLoaderTextCegComponent,
-    ],
+  selector: 'app-content-loader-doc',
+  templateUrl: './content-loader-doc.component.html',
+  styleUrls: ['./content-loader-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    ContentLoaderCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    ContentLoaderBoxCegComponent,
+    ContentLoaderCircleCegComponent,
+    ContentLoaderTextCegComponent,
+  ],
 })
 export class ContentLoaderDocComponent {}

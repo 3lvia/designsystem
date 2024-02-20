@@ -12,15 +12,18 @@ import { ButtonLinkCegComponent } from './button-link-ceg/button-link-ceg.compon
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, ButtonDocComponent,
-        ButtonCegComponent,
-        ButtonTypePrimaryCegComponent,
-        ButtonTypeSecondaryCegComponent,
-        ButtonTypeTertiaryCegComponent,
-        ButtonTypeDangerCegComponent,
-        ButtonTypeIconCegComponent,
-        ButtonTypeIconCircledCegComponent,
-        ButtonSizeCegComponent,
-        ButtonLinkCegComponent],
+  imports: [
+    SharedDocumentationModule,
+    ButtonDocComponent,
+    ButtonCegComponent,
+    ButtonTypePrimaryCegComponent,
+    ButtonTypeSecondaryCegComponent,
+    ButtonTypeTertiaryCegComponent,
+    ButtonTypeDangerCegComponent,
+    ButtonTypeIconCegComponent,
+    ButtonTypeIconCircledCegComponent,
+    ButtonSizeCegComponent,
+    ButtonLinkCegComponent,
+  ],
 })
 export class ButtonDocModule {}

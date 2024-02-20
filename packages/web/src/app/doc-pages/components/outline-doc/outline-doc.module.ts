@@ -4,7 +4,7 @@ import { OutlineCegComponent } from './outline-ceg/outline-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-    imports: [SharedDocumentationModule, OutlineDocComponent, OutlineCegComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SharedDocumentationModule, OutlineDocComponent, OutlineCegComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class OutlineDocModule {}

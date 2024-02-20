@@ -10,23 +10,23 @@ import { CopyComponent } from '../../../../../shared/copy/copy.component';
 import { NgStyle, NgClass, NgPlural, NgPluralCase, UpperCasePipe, KeyValuePipe } from '@angular/common';
 
 @Component({
-    selector: 'app-color-picker-exhibit',
-    templateUrl: './color-picker-exhibit.component.html',
-    styleUrls: ['./color-picker-exhibit.component.scss'],
-    standalone: true,
-    imports: [
-        NgStyle,
-        NgClass,
-        CopyComponent,
-        NgPlural,
-        NgPluralCase,
-        ColorListBaseDirective,
-        RouterLink,
-        UpperCasePipe,
-        KeyValuePipe,
-        ReplacePipe,
-        NeedsBorderPipe,
-    ],
+  selector: 'app-color-picker-exhibit',
+  templateUrl: './color-picker-exhibit.component.html',
+  styleUrls: ['./color-picker-exhibit.component.scss'],
+  standalone: true,
+  imports: [
+    NgStyle,
+    NgClass,
+    CopyComponent,
+    NgPlural,
+    NgPluralCase,
+    ColorListBaseDirective,
+    RouterLink,
+    UpperCasePipe,
+    KeyValuePipe,
+    ReplacePipe,
+    NeedsBorderPipe,
+  ],
 })
 export class ColorPickerExhibitComponent {
   @Input({ required: true }) readonly theme: ThemeName;

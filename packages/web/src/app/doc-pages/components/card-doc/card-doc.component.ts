@@ -11,21 +11,21 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-card-doc',
-    templateUrl: './card-doc.component.html',
-    styleUrls: ['./card-doc.component.scss'],
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        CardCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-        ComponentSubsubsectionComponent,
-        StaticCegComponent,
-        CardLinksCegComponent,
-    ],
+  selector: 'app-card-doc',
+  templateUrl: './card-doc.component.html',
+  styleUrls: ['./card-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    CardCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+    ComponentSubsubsectionComponent,
+    StaticCegComponent,
+    CardLinksCegComponent,
+  ],
 })
 export class CardDocComponent {
   componentData = cardData;

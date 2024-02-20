@@ -8,16 +8,11 @@ import { NgIf } from '@angular/common';
 import { PropertySearchInputComponent } from './property-search-input/property-search-input.component';
 
 @Component({
-    selector: 'app-component-properties-table',
-    templateUrl: './component-properties-table.component.html',
-    styleUrls: ['./component-properties-table.component.scss'],
-    standalone: true,
-    imports: [
-        PropertySearchInputComponent,
-        NgIf,
-        PropertyTableDesktopComponent,
-        PropertyTableMobileComponent,
-    ],
+  selector: 'app-component-properties-table',
+  templateUrl: './component-properties-table.component.html',
+  styleUrls: ['./component-properties-table.component.scss'],
+  standalone: true,
+  imports: [PropertySearchInputComponent, NgIf, PropertyTableDesktopComponent, PropertyTableMobileComponent],
 })
 export class ComponentPropertiesTableComponent implements OnInit {
   @Input() componentData: ComponentData;

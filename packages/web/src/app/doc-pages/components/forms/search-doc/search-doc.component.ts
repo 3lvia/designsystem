@@ -14,24 +14,24 @@ import { StaticCegComponent } from '../../../../shared/component-documentation/c
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-    selector: 'app-search-doc',
-    templateUrl: './search-doc.component.html',
-    standalone: true,
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        SearchCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        SearchInstantCegComponent,
-        RouterLink,
-        SearchOnSubmitCegComponent,
-        SearchOnSubmitSearchedCegComponent,
-        SearchFullwidthCegComponent,
-        SearchSizeMediumCegComponent,
-        SearchSizeSmallCegComponent,
-        WhenToUseComponent,
-    ],
+  selector: 'app-search-doc',
+  templateUrl: './search-doc.component.html',
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    SearchCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    SearchInstantCegComponent,
+    RouterLink,
+    SearchOnSubmitCegComponent,
+    SearchOnSubmitSearchedCegComponent,
+    SearchFullwidthCegComponent,
+    SearchSizeMediumCegComponent,
+    SearchSizeSmallCegComponent,
+    WhenToUseComponent,
+  ],
 })
 export class SearchDocComponent {
   does = [
