@@ -27,10 +27,10 @@
   &__error {
     display: flex;
     align-items: center;
+    min-height: 22px;
     margin-top: 2px;
     @include mixins.typography('text-sm');
     color: var(--e-color-text-1);
-    min-height: 22px;
 
     visibility: hidden;
 
