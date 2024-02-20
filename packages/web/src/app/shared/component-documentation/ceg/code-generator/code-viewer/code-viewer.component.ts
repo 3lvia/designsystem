@@ -8,13 +8,12 @@ import {
   booleanAttribute,
 } from '@angular/core';
 
-import { BreakpointService } from 'src/app/core/services/breakpoint.service';
-
 import { IfViewportSizeDirective } from '../../../../viewport-size/if-viewport-size.directive';
 import { FormatCodePipe } from '../formatCode.pipe';
 import { HighlighterPipe } from '../highlighter.pipe';
 import { Language, Tab } from '../types';
 import { TabToSegmentedControlItemPipe } from './tabToSegmentedControlItem.pipe';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-code-viewer',

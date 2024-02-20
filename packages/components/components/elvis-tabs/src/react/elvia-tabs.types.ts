@@ -1,6 +1,5 @@
-import { ComponentPropsWithoutRef } from 'react';
-
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type ScrollPosition = 'left' | 'center' | 'right' | 'no-scroll';
 

@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { useSlot } from '@elvia/elvis-toolbox';
+import React from 'react';
 
 import { DividerProps } from './elvia-divider.types';
 import { DividerArea, DividerHeading } from './styledComponents';

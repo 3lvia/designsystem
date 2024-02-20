@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { getComponent } from 'src/app/shared/doc-pages';
-
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
@@ -13,6 +11,7 @@ import { AutocompleteCegComponent } from './autocomplete-ceg/autocomplete-ceg.co
 import { autocompleteData } from './autocomplete-data';
 import { AutocompleteFilterCegComponent } from './autocomplete-filter-ceg/autocomplete-filter-ceg.component';
 import { AutocompleteLabelCegComponent } from './autocomplete-label-ceg/autocomplete-label-ceg.component';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-autocomplete-doc',

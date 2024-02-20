@@ -1,8 +1,7 @@
-import React, { FC, MouseEvent, useEffect, useState } from 'react';
-
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
+import React, { FC, MouseEvent, useEffect, useState } from 'react';
 
 import { TabsProps } from './elvia-tabs.types';
 import {

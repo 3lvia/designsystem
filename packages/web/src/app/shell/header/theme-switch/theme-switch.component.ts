@@ -1,6 +1,5 @@
 import { AsyncPipe, NgClass, NgFor } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-
 import { Observable } from 'rxjs';
 
 import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.service';

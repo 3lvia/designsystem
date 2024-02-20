@@ -1,5 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react';
-
 import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
 import {
   ErrorOptions,
@@ -12,6 +10,7 @@ import {
   useFocusTrap,
   useUpdateEffect,
 } from '@elvia/elvis-toolbox';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { TimepickerProps } from './elviaTimepicker.types';
 import { TimepickerError } from './error/timepickerError';

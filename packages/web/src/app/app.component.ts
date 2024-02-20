@@ -2,7 +2,6 @@ import { NgClass, NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
-
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-autocomplete';
 import '@elvia/elvis-badge';

@@ -1,6 +1,5 @@
-import { ComponentPropsWithoutRef } from 'react';
-
 import { BaseProps } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type ChipType = 'removable' | 'legend' | 'choice';
 export type ColorType = 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'violet';

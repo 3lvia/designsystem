@@ -1,8 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { BasePaginationProps } from '@elvia/elvis-pagination/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
-import { BasePaginationProps } from '@elvia/elvis-pagination/react';
 
 @Component({
   selector: 'app-pagination-ceg',

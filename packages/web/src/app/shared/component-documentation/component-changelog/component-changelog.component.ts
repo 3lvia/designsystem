@@ -3,12 +3,8 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-import { FuseResultMatch } from 'fuse.js';
-import { BreakpointService } from 'src/app/core/services/breakpoint.service';
-import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
-
 import '@elvia/elvis-accordion';
+import { FuseResultMatch } from 'fuse.js';
 
 import { Searcher } from '../../searcher';
 import { ComponentDocumentationDatePipe } from '../component-documentation-date-pipe';
@@ -16,6 +12,8 @@ import { Changelog, ChangelogEntry, ChangelogRadioFilter } from './changelogType
 import { ChangelogIdPipe } from './component-changelog-id-pipe';
 import { ChangelogTypePipe } from './component-changelog-pipe';
 import { createElvisFilteredChangelog } from './createElvisFilteredChangelog';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
+import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
   standalone: true,

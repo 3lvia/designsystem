@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
-
 import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css } from 'styled-components';
 
 interface TriggerContainerProps {
   overlayIsOpen: boolean;

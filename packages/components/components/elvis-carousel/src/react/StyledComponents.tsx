@@ -1,7 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
-
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css, keyframes } from 'styled-components';
 
 const typography = {
   textMd: getTypographyCss('text-md'),

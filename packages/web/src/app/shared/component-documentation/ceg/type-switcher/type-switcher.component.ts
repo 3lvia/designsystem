@@ -7,7 +7,6 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

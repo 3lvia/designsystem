@@ -1,5 +1,3 @@
-import { ComponentPropsWithoutRef } from 'react';
-
 import { MinuteInterval } from '@elvia/elvis-timepicker/react';
 import {
   BaseProps,
@@ -7,6 +5,7 @@ import {
   HasValue,
   ErrorOptions as SinglePickerErrorOptions,
 } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type BothDatepickers<T> = {
   start: T;

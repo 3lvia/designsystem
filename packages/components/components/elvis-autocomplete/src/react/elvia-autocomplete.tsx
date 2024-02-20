@@ -1,5 +1,3 @@
-import React, { KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
-
 import {
   ErrorOptions,
   FormFieldContainer,
@@ -9,6 +7,7 @@ import {
   VisuallyHidden,
   useConnectedOverlay,
 } from '@elvia/elvis-toolbox';
+import React, { KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { AutocompleteOverlay } from './autocomplete-overlay/autocompleteOverlay';
 import { AutocompleteItem, AutocompleteProps, ErrorType } from './elvia-autocomplete.types';

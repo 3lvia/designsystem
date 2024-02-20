@@ -3,7 +3,6 @@ import { Location, NgClass, NgFor } from '@angular/common';
 import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
-
 import { first, fromEvent, of, switchMap } from 'rxjs';
 
 import { CMSService } from 'src/app/core/services/cms/cms.service';

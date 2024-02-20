@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components';
-
 import { getThemeColor } from '@elvia/elvis-colors';
 import { TertiaryButton, device } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css } from 'styled-components';
 
 export const toolbarHeight = '64px';
 export const headerZIndex = 109;

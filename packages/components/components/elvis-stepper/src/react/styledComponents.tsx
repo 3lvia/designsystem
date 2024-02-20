@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
-
 import { getThemeColor } from '@elvia/elvis-colors';
 import { TypographyName, getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css } from 'styled-components';
 
 import { StepperType } from './elvia-stepper.types';
 

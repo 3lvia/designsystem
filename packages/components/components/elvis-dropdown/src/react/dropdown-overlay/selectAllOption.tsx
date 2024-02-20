@@ -1,6 +1,5 @@
-import React, { MouseEvent, useEffect, useState } from 'react';
-
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
+import React, { MouseEvent, useEffect, useState } from 'react';
 
 import { Checkbox } from '../checkbox/checkbox';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';

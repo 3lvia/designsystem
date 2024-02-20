@@ -1,8 +1,7 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
-
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
 import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 
 import { AccordionProps, AccordionSize } from './elvia-accordion.types';
 import {

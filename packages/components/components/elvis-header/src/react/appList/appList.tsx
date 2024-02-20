@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { getThemeColor } from '@elvia/elvis-colors';
+import React from 'react';
 
 import { appList, getActiveApp, getCurrentDomain } from '../elviaApps';
 import { AppLink, AppListContainer, Icon, IconContainer, IconLetters } from './appListStyles';

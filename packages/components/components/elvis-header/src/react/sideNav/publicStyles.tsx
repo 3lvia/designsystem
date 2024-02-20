@@ -1,7 +1,6 @@
-import { FlattenInterpolation, ThemeProps, css } from 'styled-components';
-
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import { FlattenInterpolation, ThemeProps, css } from 'styled-components';
 
 export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemeProps<any>> => {
   return css`

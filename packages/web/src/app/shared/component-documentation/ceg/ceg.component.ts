@@ -13,11 +13,9 @@ import {
   booleanAttribute,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
-
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 
 import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
 import { ComponentExample } from './component-example';

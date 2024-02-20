@@ -1,13 +1,12 @@
 import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 
-import { SearchResult } from 'src/app/shared/searcher';
-
 import { EscapeHTMLPipe } from '../../../pipes/escape-html.pipe';
 import { SearchHighlighterPipe } from '../../../search-highlighter.pipe';
 import { PropertyExamplePopoverComponent } from '../property-example-popover/property-example-popover.component';
 import { PropertyTableBaseDirective } from '../table-base';
 import { ComponentProp } from '../types';
+import { SearchResult } from 'src/app/shared/searcher';
 
 @Component({
   selector: 'app-property-table-desktop',

@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
+import React from 'react';
 
 import { BothSliders, Side } from '../elvia-slider.types';
 import { TooltipPopup, TooltipWrapper } from './tooltipStyles';

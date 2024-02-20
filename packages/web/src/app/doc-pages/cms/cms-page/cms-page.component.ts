@@ -4,19 +4,16 @@ import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/co
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
-
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { IDocumentationPage } from 'contentful/types';
 import { combineLatest } from 'rxjs';
 
-import { IDocumentationPage } from 'contentful/types';
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { environment } from 'src/environments/environment';
-
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-
-import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 @Component({
   selector: 'app-cms-page',

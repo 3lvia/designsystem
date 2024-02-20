@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-
 import { Observable } from 'rxjs';
 import { filter, map, pairwise, startWith } from 'rxjs/operators';
 

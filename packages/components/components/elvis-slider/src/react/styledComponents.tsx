@@ -1,11 +1,10 @@
-import styled, { css } from 'styled-components';
-
 import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 import {
   FormFieldInput as FormFieldInputBase,
   FormFieldLabel as FormFieldLabelBase,
   FormFieldSizes,
 } from '@elvia/elvis-toolbox';
+import styled, { css } from 'styled-components';
 
 import { BothSliders, Side, SliderType } from './elvia-slider.types';
 import { Hint } from './hint/styledHint';

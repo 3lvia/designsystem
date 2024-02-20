@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { FormFieldSizes, TooltipPopup as TooltipPopupBase } from '@elvia/elvis-toolbox';
+import styled from 'styled-components';
 
 import { Side } from '../elvia-slider.types';
 

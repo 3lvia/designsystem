@@ -1,8 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { BaseStepperProps } from '@elvia/elvis-stepper/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
-import { BaseStepperProps } from '@elvia/elvis-stepper/react';
 
 @Component({
   selector: 'app-stepper-ceg',

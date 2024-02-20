@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
+import styled, { css } from 'styled-components';
 
 interface DatepickerRangeWrapperProps {
   readonly isVertical: boolean;

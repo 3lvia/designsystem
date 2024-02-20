@@ -1,7 +1,6 @@
+import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
 import DOMPurify from 'dompurify';
 import React, { KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
-
-import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
 
 import { DropdownItem } from '../dropdown-item/dropdownItem';
 import { ItemValue } from '../dropdown-item/itemValue';

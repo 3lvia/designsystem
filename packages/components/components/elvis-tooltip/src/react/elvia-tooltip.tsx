@@ -1,7 +1,6 @@
+import { TooltipPopup, isSsr, useConnectedOverlay, useSlot } from '@elvia/elvis-toolbox';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-
-import { TooltipPopup, isSsr, useConnectedOverlay, useSlot } from '@elvia/elvis-toolbox';
 
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
 import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';

@@ -1,6 +1,5 @@
-import { ComponentPropsWithoutRef } from 'react';
-
 import { BaseProps } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type CardType = 'simple' | 'detail';
 export type BorderColor = 'none' | 'green' | 'blue-berry' | 'blueBerry' | 'blue' | 'red' | 'orange';

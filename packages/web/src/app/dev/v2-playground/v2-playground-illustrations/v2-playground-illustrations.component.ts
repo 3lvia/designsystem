@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-
 import '@elvia/elvis-illustrations/broken';
 import '@elvia/elvis-illustrations/clock';
 import '@elvia/elvis-illustrations/confirmation';

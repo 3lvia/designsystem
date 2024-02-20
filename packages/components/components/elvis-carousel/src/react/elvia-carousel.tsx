@@ -1,5 +1,3 @@
-import React, { FC, MouseEvent, TouchEvent, useEffect, useRef, useState } from 'react';
-
 import arrowLeftCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleColor';
 import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleFilledColor';
 import arrowRightCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleColor';
@@ -7,6 +5,7 @@ import arrowRightCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/ar
 import checkCircleColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleColor';
 import checkCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleFilledColor';
 import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
+import React, { FC, MouseEvent, TouchEvent, useEffect, useRef, useState } from 'react';
 
 import {
   CarouselCheckButton,

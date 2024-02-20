@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
 import { ThemeName } from '@elvia/elvis-colors';
 
 import { ColorElement, ColorsObject } from '../colors-types';

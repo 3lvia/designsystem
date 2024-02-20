@@ -1,5 +1,3 @@
-import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
-
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import {
   ErrorOptions,
@@ -11,6 +9,7 @@ import {
   useWebComponentState,
   warnDeprecatedProps,
 } from '@elvia/elvis-toolbox';
+import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { config } from './config';
 import { DropdownInput } from './dropdown-input/dropdownInput';

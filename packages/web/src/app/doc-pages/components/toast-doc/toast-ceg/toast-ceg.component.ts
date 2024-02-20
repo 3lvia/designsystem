@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-
+import { ToastConfig, openElviaToast } from '@elvia/elvis-toast';
 import { pairwise } from 'rxjs';
 
 import {
@@ -8,8 +8,6 @@ import {
   ComponentExample,
   TypescriptComponentExample,
 } from 'src/app/shared/component-documentation/ceg';
-
-import { ToastConfig, openElviaToast } from '@elvia/elvis-toast';
 
 @Component({
   selector: 'app-toast-ceg',

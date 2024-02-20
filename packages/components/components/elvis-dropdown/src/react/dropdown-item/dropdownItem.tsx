@@ -1,9 +1,8 @@
-import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
-
 import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRight';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { FormFieldSizes, IconWrapper, isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
+import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 
 import { Checkbox } from '../checkbox/checkbox';
 import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';

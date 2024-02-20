@@ -2,10 +2,6 @@ import { NgIf } from '@angular/common';
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
-
-import ComponentData from 'src/app/doc-pages/components/component-data.interface';
-import { getComponent } from 'src/app/shared/doc-pages';
-
 import data from '@elvia/elvis/.internal/classlist.json';
 
 import { DocPageName } from '../shared.enum';
@@ -17,6 +13,8 @@ import { ComponentPropertiesComponent } from './component-properties/component-p
 import { ComponentRelatedComponent } from './component-related/component-related.component';
 import { ComponentHeaderComponent } from './component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from './component-structure/component-section/component-section.component';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 /**
  * Builds a standard documentation page for a component.

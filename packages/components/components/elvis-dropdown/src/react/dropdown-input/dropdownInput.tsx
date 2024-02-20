@@ -1,7 +1,6 @@
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import DOMPurify from 'dompurify';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
-
-import { FormFieldSizes } from '@elvia/elvis-toolbox';
 
 import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
 import { DropdownProps } from '../elviaDropdown.types';

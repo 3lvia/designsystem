@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { IconButton, IconWrapper, Overlay, useFocusTrap, useSlot } from '@elvia/elvis-toolbox';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { ModalProps } from './elvia-modal.types';
 import {

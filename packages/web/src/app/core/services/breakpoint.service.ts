@@ -1,6 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
-
 import { Observable, distinctUntilChanged, map } from 'rxjs';
 
 export type ScreenSize = keyof typeof config;

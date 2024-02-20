@@ -1,10 +1,9 @@
-import DOMPurify from 'dompurify';
-import React from 'react';
-
 import checkCircle from '@elvia/elvis-assets-icons/dist/icons/checkCircle';
 import informationCircle from '@elvia/elvis-assets-icons/dist/icons/informationCircle';
 import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
 import { IconWrapper } from '@elvia/elvis-toolbox';
+import DOMPurify from 'dompurify';
+import React from 'react';
 
 import { ToastConfig } from './publicApi.public';
 

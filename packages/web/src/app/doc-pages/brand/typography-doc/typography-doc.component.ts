@@ -3,9 +3,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
@@ -15,6 +12,8 @@ import { TypographyExampleExhibitComponent } from './typography-example-exhibit/
 import { TypographyFontExampleComponent } from './typography-font-example/typography-font-example.component';
 import { TypographyOutlineExampleComponent } from './typography-outline-example/typography-outline-example.component';
 import { TypographyTitleExampleComponent } from './typography-title-example/typography-title-example.component';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-typography-doc',

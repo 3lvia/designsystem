@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-
 import { useConnectedOverlay, useFocusTrap, useSlot, useUpdateEffect } from '@elvia/elvis-toolbox';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { ContextMenuOverlay } from './contextMenuOverlay';
 import { ContextMenuProps } from './elviaContextMenu.types';

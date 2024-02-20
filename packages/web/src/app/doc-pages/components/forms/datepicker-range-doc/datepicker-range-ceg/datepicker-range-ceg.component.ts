@@ -1,8 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { BaseDatepickerRangeProps } from '@elvia/elvis-datepicker-range/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
-import { BaseDatepickerRangeProps } from '@elvia/elvis-datepicker-range/react';
 
 /**
  * The `isRequired` prop is of type `BothDatepicker<boolean> | boolean` which confuses the CEG,

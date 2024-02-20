@@ -1,12 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
-
 import arrowLeftCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleColor';
 import arrowLeftCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowLeftCircleFilledColor';
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 import moreMenu from '@elvia/elvis-assets-icons/dist/icons/moreMenu';
 import removeCircleColor from '@elvia/elvis-assets-icons/dist/icons/removeCircleColor';
 import { IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
+import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 import { ProfilePicture } from '../ProfilePicture';
 import { AppList } from '../appList/appList';

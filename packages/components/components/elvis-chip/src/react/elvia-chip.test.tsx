@@ -1,9 +1,8 @@
+import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import React from 'react';
-
-import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 
 import { Chip } from './elvia-chip';
 

@@ -1,5 +1,3 @@
-import React, { FocusEventHandler, useEffect, useRef, useState } from 'react';
-
 import calendar from '@elvia/elvis-assets-icons/dist/icons/calendar';
 import {
   ErrorOptions,
@@ -11,6 +9,7 @@ import {
   useConnectedOverlay,
   useFocusTrap,
 } from '@elvia/elvis-toolbox';
+import React, { FocusEventHandler, useEffect, useRef, useState } from 'react';
 
 import { copyDay, isSameDay, isValidDate, localISOTime } from './dateHelpers';
 import { DatepickerInput } from './datepickerInput';

@@ -2,13 +2,12 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { ThemeService } from 'src/app/core/services/theme.service';
-
 import { createChangelogs } from './changelogs';
 import { FrontPageChangelogDatePipe } from './front-page-changelog-date-pipe';
 import { FrontPageChangelogNamePipe } from './front-page-changelog-name-pipe';
 import { FrontPageChangelogUrlPipe } from './front-page-changelog-url-pipe';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   standalone: true,

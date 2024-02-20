@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
+import React from 'react';
 
 import { IndeterminateLine, StyledCheckbox } from './checkboxStyles';
 

@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components';
-
 import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css } from 'styled-components';
 
 export const AutocompletePopup = styled.div.attrs({ role: 'listbox' })<{ $size: FormFieldSizes }>`
   background-color: ${getThemeColor('background-overlay-1')};

@@ -1,7 +1,6 @@
-import React, { MouseEvent } from 'react';
-
 import sync from '@elvia/elvis-assets-icons/dist/icons/sync';
 import { FormFieldSizes, IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
+import React, { MouseEvent } from 'react';
 
 import { getDropdownItemId } from '../dropdownListUtils';
 import { DropdownItem, DropdownValueType } from '../publicApi.public';

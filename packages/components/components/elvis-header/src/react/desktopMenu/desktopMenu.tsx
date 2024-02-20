@@ -1,5 +1,3 @@
-import React, { useEffect, useRef } from 'react';
-
 import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 import {
   IconWrapper,
@@ -8,6 +6,7 @@ import {
   useConnectedOverlay,
   useFocusTrap,
 } from '@elvia/elvis-toolbox';
+import React, { useEffect, useRef } from 'react';
 
 import { ProfilePicture } from '../ProfilePicture';
 import { UserMenuProps } from '../elviaHeader.types';

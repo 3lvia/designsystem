@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components';
-
 import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import { TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   position: relative;

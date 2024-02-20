@@ -1,8 +1,7 @@
-import styled, { css } from 'styled-components';
-
 import { getThemeColor } from '@elvia/elvis-colors';
 import { IconWrapper } from '@elvia/elvis-toolbox';
 import { TypographyName, getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css } from 'styled-components';
 
 import {
   AccordionLabelPosition,

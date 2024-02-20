@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import { FormFieldInput } from '@elvia/elvis-toolbox';
+import styled, { css } from 'styled-components';
 
 export const Input = styled(FormFieldInput)<{ $isEditable: boolean }>`
   flex: 1;

@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
-
 import { useSlot } from '@elvia/elvis-toolbox';
+import React, { FC } from 'react';
 
 import { BoxProps } from './elvia-box.types';
 import { BoxArea, BoxColoredLine, BoxContent, BoxHeading } from './styledComponents';

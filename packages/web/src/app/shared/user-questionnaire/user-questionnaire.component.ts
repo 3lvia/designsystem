@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
-
 import { type ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { type DropdownItem } from '@elvia/elvis-dropdown';
 import '@elvia/elvis-dropdown';

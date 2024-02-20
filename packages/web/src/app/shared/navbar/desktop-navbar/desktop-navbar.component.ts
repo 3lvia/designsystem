@@ -11,17 +11,15 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-
 import { Subject, fromEvent, merge, switchMap, take, takeUntil } from 'rxjs';
-
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { LocalizationService } from 'src/app/core/services/localization.service';
-import { RouterService } from 'src/app/core/services/router.service';
 
 import { LocalePickerComponent } from '../locale-picker/locale-picker.component';
 import { NavbarBase } from '../navbar-base';
 import { SubMenuComponent } from '../sub-menu/sub-menu.component';
 import { FlexibleFullHeightDirective } from './flexible-full-height.directive';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { LocalizationService } from 'src/app/core/services/localization.service';
+import { RouterService } from 'src/app/core/services/router.service';
 
 const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
 @Component({

@@ -1,8 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { BaseDividerProps } from '@elvia/elvis-divider/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
-import { BaseDividerProps } from '@elvia/elvis-divider/react';
 
 @Component({
   selector: 'app-divider-ceg',

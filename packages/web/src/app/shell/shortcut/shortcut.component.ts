@@ -2,7 +2,6 @@ import { NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
-
 import { Observable, filter, fromEvent, map, tap } from 'rxjs';
 
 import { Shortcut, shortcuts } from './keys';

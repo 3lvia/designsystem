@@ -4,9 +4,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
@@ -20,6 +17,8 @@ import { LayoutGuttersNoCegComponent } from './layout-gutters-no-ceg/layout-gutt
 import { LayoutLevelsCegComponent } from './layout-levels-ceg/layout-levels-ceg.component';
 import { LayoutMarginsCegComponent } from './layout-margins-ceg/layout-margins-ceg.component';
 import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-ordering-ceg.component';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-layout-doc',

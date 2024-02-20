@@ -1,8 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { BaseModalProps } from '@elvia/elvis-modal/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
-import { BaseModalProps } from '@elvia/elvis-modal/react';
 
 @Component({
   selector: 'app-modal-ceg',

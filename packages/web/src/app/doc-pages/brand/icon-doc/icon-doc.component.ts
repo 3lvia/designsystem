@@ -13,13 +13,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
-
-import naturalCompare from 'natural-compare-lite';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-
 // @ts-ignore
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
+import naturalCompare from 'natural-compare-lite';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
@@ -38,6 +34,8 @@ import { elvisIconData } from './icon-data';
 import { IconSearchPipe } from './icon-search.pipe';
 import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
 import { Icon } from './icon.interface';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 type IconArray = { pretty: string; title: string; terms: string[] }[];
 

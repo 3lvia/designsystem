@@ -1,7 +1,6 @@
-import React, { AnimationEvent, useEffect, useState } from 'react';
-
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
 import { BaseProps, IconWrapper } from '@elvia/elvis-toolbox';
+import React, { AnimationEvent, useEffect, useState } from 'react';
 
 import { usePauseableTimer } from './pauseableTimer';
 import { ToastWithId } from './publicApi.public';

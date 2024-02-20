@@ -1,6 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-
 import data from '@elvia/elvis/.internal/classlist.json';
 import deprecated from '@elvia/elvis/.internal/deprecated-classes.json';
 

@@ -1,9 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
+import { HeaderProps } from '@elvia/elvis-header/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
-import { HeaderProps } from '@elvia/elvis-header/react';
 
 @Component({
   selector: 'app-header-ceg',

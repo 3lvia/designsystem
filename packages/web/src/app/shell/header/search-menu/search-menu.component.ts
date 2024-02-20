@@ -14,8 +14,10 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+import { SearchHighlighterPipe } from '../../../shared/search-highlighter.pipe';
+import { SearchItem, SearchStatus } from './search-menu.interface';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
@@ -23,9 +25,6 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
 import { componentsDocPages, docPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { SearchResult, Searcher } from 'src/app/shared/searcher';
-
-import { SearchHighlighterPipe } from '../../../shared/search-highlighter.pipe';
-import { SearchItem, SearchStatus } from './search-menu.interface';
 
 @Component({
   selector: 'app-search-menu',

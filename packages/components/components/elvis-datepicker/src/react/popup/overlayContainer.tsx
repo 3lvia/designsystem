@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-
 import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
 import { IconWrapper, Overlay, TertiaryButton } from '@elvia/elvis-toolbox';
+import React, { useEffect, useState } from 'react';
 
 import { Calendar } from '../calendar/calendar';
 import { formatDate, isAfter, isBefore } from '../dateHelpers';

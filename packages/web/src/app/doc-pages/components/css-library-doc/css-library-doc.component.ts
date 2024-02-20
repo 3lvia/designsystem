@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-
-import { combineLatest } from 'rxjs';
-
-import { getComponent } from 'src/app/shared/doc-pages';
-
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
+import { combineLatest } from 'rxjs';
 
 import { VersionService } from '../../../core/services/version.service';
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
@@ -16,6 +12,7 @@ import { ComponentSubsectionComponent } from '../../../shared/component-document
 import { CopyComponent } from '../../../shared/copy/copy.component';
 import ComponentData from '../component-data.interface';
 import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-css-library-doc',

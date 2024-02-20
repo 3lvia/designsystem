@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-
 import { getThemeColor } from '@elvia/elvis-colors';
 import { useBreakpoint, useSlot } from '@elvia/elvis-toolbox';
+import React, { useEffect, useState } from 'react';
 
 import { AppDrawer } from './appDrawer/appDrawer';
 import { DesktopMenu } from './desktopMenu/desktopMenu';

@@ -1,9 +1,8 @@
-import React, { KeyboardEvent, useEffect, useState } from 'react';
-
 import arrowLongLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeftBold';
 import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
 import reset from '@elvia/elvis-assets-icons/dist/icons/reset';
 import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
 
 import {
   dateIsWithinMinMaxBoundary,

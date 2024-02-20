@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-
 import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleColor';
 import arrowRightFilled from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleFilledColor';
 import { IconWrapper } from '@elvia/elvis-toolbox';
+import React, { useState } from 'react';
 
 import { AppSelectorTrigger, TextMicro, TextSmallStrong } from './mobileMenuStyles';
 

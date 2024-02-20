@@ -1,8 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { TooltipProps } from '@elvia/elvis-tooltip/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
-import { TooltipProps } from '@elvia/elvis-tooltip/react';
 
 @Component({
   selector: 'app-tooltip-ceg',

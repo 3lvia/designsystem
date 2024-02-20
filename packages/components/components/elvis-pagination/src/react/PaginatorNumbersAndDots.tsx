@@ -1,6 +1,5 @@
-import React, { FC, useMemo } from 'react';
-
 import { useBreakpoint } from '@elvia/elvis-toolbox';
+import React, { FC, useMemo } from 'react';
 
 import { BetweenPageNumbers } from './BetweenPageNumbers';
 import { FirstPageNumber, LastPageNumber } from './PageElement';

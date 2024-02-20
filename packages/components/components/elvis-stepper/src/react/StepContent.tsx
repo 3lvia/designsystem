@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
-
 import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
+import React, { FC } from 'react';
 
 import { StepperType } from './elvia-stepper.types';
 import { StepStates } from './publicApi.public';

@@ -1,5 +1,3 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
 import {
   IconButton,
@@ -10,6 +8,7 @@ import {
   useFocusTrap,
   useSlot,
 } from '@elvia/elvis-toolbox';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import type { PopoverProps } from './elviaPopover.types';
 import { mapPositionToHorizontalPosition } from './mapPosition';

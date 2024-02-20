@@ -1,6 +1,5 @@
-import React, { ComponentPropsWithoutRef, FC } from 'react';
-
 import { BaseProps, useWebComponentState } from '@elvia/elvis-toolbox';
+import React, { ComponentPropsWithoutRef, FC } from 'react';
 
 import { RadioFilterItem } from './RadioFilterItem';
 import { RadioFilterGroup } from './styledComponents';

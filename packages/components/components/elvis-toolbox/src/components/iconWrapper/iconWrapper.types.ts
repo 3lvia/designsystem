@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
-
 import { ColorLabel } from '@elvia/elvis-colors';
+import React, { FC } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type AnyString = string & {};

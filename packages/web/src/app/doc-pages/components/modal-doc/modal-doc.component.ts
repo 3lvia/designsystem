@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
-
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
@@ -12,6 +10,7 @@ import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.comp
 import { ModalCegComponent } from './modal-ceg/modal-ceg.component';
 import { ModalInitialFocusCegComponent } from './modal-initial-focus-ceg/modal-initial-focus-ceg.component';
 import { ModalMultiplePagesCegComponent } from './modal-multiple-pages-ceg/modal-multiple-pages-ceg.component';
+import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
 
 @Component({
   selector: 'app-modal-doc',

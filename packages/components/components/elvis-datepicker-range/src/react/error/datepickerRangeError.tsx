@@ -1,7 +1,6 @@
-import React from 'react';
-
 import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
 import { FormFieldError, FormFieldErrorContainer, IconWrapper } from '@elvia/elvis-toolbox';
+import React from 'react';
 
 interface Props {
   errorText?: string;

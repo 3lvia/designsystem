@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
-
 import { NodeRenderer, Options, documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { ThemeName } from '@elvia/elvis-colors';
 import {
   CONTENT_TYPE,
   ICenteredContent,
@@ -17,8 +17,6 @@ import {
   IWhenToUse,
   LOCALE_CODE,
 } from 'contentful/types';
-
-import { ThemeName } from '@elvia/elvis-colors';
 
 import { Locale } from '../localization.service';
 import { ThemeService } from '../theme.service';

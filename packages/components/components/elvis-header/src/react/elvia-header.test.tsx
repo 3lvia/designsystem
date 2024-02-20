@@ -1,12 +1,11 @@
+import dashboard from '@elvia/elvis-assets-icons/dist/icons/dashboard';
+import { IconWrapper } from '@elvia/elvis-toolbox';
 import '@testing-library/jest-dom';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { UserEvent } from '@testing-library/user-event/dist/types/setup/setup';
 import { axe } from 'jest-axe';
 import React from 'react';
-
-import dashboard from '@elvia/elvis-assets-icons/dist/icons/dashboard';
-import { IconWrapper } from '@elvia/elvis-toolbox';
 
 import Header from './elvia-header';
 

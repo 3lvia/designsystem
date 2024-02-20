@@ -1,9 +1,6 @@
 import { KeyValuePipe, NgClass, NgPlural, NgPluralCase, NgStyle, UpperCasePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
-import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
-
 import { ThemeName } from '@elvia/elvis-colors';
 
 import { CopyComponent } from '../../../../../shared/copy/copy.component';
@@ -11,6 +8,7 @@ import { ColorListBaseDirective } from '../color-list-base.directive';
 import { ColorElement, ColorsObject } from '../colors-types';
 import { getColorElement, getHighestContrast, getOpacityColors } from '../colors-util';
 import { NeedsBorderPipe } from '../needs-border.pipe';
+import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
 
 @Component({
   selector: 'app-color-picker-exhibit',

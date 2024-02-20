@@ -1,8 +1,7 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-
 import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
 import { IconWrapper, useIsOverflowing } from '@elvia/elvis-toolbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { CardProps } from './elvia-card.types';
 import {

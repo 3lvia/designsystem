@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-
 import {
   FormFieldContainer,
   FormFieldInputContainer,
   FormFieldInputSuffixText,
   useInputModeDetection,
 } from '@elvia/elvis-toolbox';
+import React, { useEffect, useState } from 'react';
 
 import { BothSliders, ErrorType, FormFieldInputValue, Side, SliderProps } from './elvia-slider.types';
 import { SliderError } from './error/sliderError';

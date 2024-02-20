@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
 import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis-colors';
 
 @Pipe({

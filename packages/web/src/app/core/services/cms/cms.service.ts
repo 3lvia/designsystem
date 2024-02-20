@@ -2,9 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
-
-import { BehaviorSubject, Observable, Subject, distinctUntilChanged } from 'rxjs';
-
+import { ThemeName } from '@elvia/elvis-colors';
 import {
   IDocumentationPage,
   IEntry,
@@ -14,8 +12,7 @@ import {
   ISubMenu,
   LOCALE_CODE,
 } from 'contentful/types';
-
-import { ThemeName } from '@elvia/elvis-colors';
+import { BehaviorSubject, Observable, Subject, distinctUntilChanged } from 'rxjs';
 
 import { Locale } from '../localization.service';
 import { ThemeService } from '../theme.service';

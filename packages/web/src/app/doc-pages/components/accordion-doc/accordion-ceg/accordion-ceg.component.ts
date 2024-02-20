@@ -1,8 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { BaseAccordionProps } from '@elvia/elvis-accordion/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
-import { BaseAccordionProps } from '@elvia/elvis-accordion/react';
 
 @Component({
   selector: 'app-accordion-ceg',

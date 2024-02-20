@@ -1,8 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { BaseChipProps } from '@elvia/elvis-chip/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
-import { BaseChipProps } from '@elvia/elvis-chip/react';
 
 @Component({
   selector: 'app-chip-ceg',

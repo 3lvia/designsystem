@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
 import { IconWrapper } from '@elvia/elvis-toolbox';
+import React, { useEffect, useState } from 'react';
 
 import { BreadcrumbProps } from './elvia-breadcrumb.types';
 import {

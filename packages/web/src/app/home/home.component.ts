@@ -3,18 +3,15 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
-
-import { Observable } from 'rxjs';
-
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { homeMenu } from 'src/app/shared/doc-pages';
-
 import { ThemeName } from '@elvia/elvis-colors';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
+import { Observable } from 'rxjs';
 
 import { BreakpointService } from '../core/services/breakpoint.service';
 import { ThemeService } from '../core/services/theme.service';
 import { FrontPageChangelogComponent } from './front-page-changelog/front-page-changelog.component';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { homeMenu } from 'src/app/shared/doc-pages';
 
 type Holiday = 'Birthday' | 'Christmas' | 'Halloween' | 'Pride' | 'ConstitutionDay' | 'None';
 

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-
 import { useInputModeDetection } from '@elvia/elvis-toolbox';
+import React, { useEffect, useState } from 'react';
 
 import { OutlineProps } from './elviaOutline.types';
 import { GlobalOutlineReset, StyledOutline } from './styledComponents';

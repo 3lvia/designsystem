@@ -1,7 +1,6 @@
+import { useSlot } from '@elvia/elvis-toolbox';
 import classnames from 'classnames';
 import React from 'react';
-
-import { useSlot } from '@elvia/elvis-toolbox';
 
 import styles from './elvia-badge.module.scss';
 import { BadgeProps } from './elvia-badge.types';

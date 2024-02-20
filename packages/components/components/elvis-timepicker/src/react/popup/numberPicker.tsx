@@ -1,8 +1,7 @@
-import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
-
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import arrowUpBold from '@elvia/elvis-assets-icons/dist/icons/arrowUpBold';
 import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
+import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
 
 import { ChangeType } from '../elviaTimepicker.types';
 import { padDigit } from '../padDigit';

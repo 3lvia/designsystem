@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
-
 import { useRovingFocus } from '@elvia/elvis-toolbox';
+import React, { FC } from 'react';
 
 import { StepContent } from './StepContent';
 import { StepDivider } from './StepDivider';

@@ -1,6 +1,5 @@
-import { act, renderHook } from '@testing-library/react';
-
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { act, renderHook } from '@testing-library/react';
 
 import { useWebComponentState } from './useWebComponentState';
 

@@ -1,13 +1,12 @@
 import { NgIf } from '@angular/common';
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
 
-import ComponentData, { NestedProp } from 'src/app/doc-pages/components/component-data.interface';
-
 import { SearchResult, Searcher } from '../../searcher';
 import { PropertySearchInputComponent } from './property-search-input/property-search-input.component';
 import { PropertyTableDesktopComponent } from './property-table-desktop/property-table-desktop.component';
 import { PropertyTableMobileComponent } from './property-table-mobile/property-table-mobile.component';
 import { ComponentProp } from './types';
+import ComponentData, { NestedProp } from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
   selector: 'app-component-properties-table',

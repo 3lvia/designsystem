@@ -1,6 +1,5 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 /**
  * Create a state that is synced with the webcomponent attribute state, and that triggers events (both in React and webcomponent) on changes.
