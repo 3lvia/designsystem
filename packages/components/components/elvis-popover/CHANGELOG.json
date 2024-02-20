@@ -2,6 +2,16 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "20.02.24",
+      "version": "7.3.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed an issue where the focused element could be set wrong when closing the popover."]
+        }
+      ]
+    },
+    {
       "date": "03.11.23",
       "version": "7.3.3",
       "changelog": [
