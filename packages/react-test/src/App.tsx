@@ -162,7 +162,7 @@ function App() {
     });
   };
 
-  const [currentTab, setCurrentTab] = useState(0);
+  const [currentab, setCurrentTab] = useState(0);
 
   return (
     <Header
@@ -202,78 +202,7 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white">
-                <Tabs className="e-pb-96" items={['A', 'B']} valueOnChange={(i) => setCurrentTab(i)} />
-                {/* <button className="e-btn" onClick={() => setCurrentTab(0)}>
-                  A
-                </button>
-                <button className="e-btn" onClick={() => setCurrentTab(1)}>
-                  B
-                </button> */}
-                {currentTab === 0 && (
-                  <div>
-                    Tab A Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo officiis consectetur
-                    illum reiciendis quam atque dignissimos molestias voluptatem nostrum minus, rerum sunt
-                    facere explicabo distinctio nam saepe ipsum recusandae provident.
-                    <div className="e-pt-96">
-                      Tab A Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo officiis
-                      consectetur illum reiciendis quam atque dignissimos molestias voluptatem nostrum minus,
-                      rerum sunt facere explicabo distinctio nam saepe ipsum recusandae provident.
-                    </div>
-                    <div className="e-pt-96">
-                      Tab A Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo officiis
-                      consectetur illum reiciendis quam atque dignissimos molestias voluptatem nostrum minus,
-                      rerum sunt facere explicabo distinctio nam saepe ipsum recusandae provident.
-                    </div>
-                    <div className="e-pt-96">
-                      Tab A Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo officiis
-                      consectetur illum reiciendis quam atque dignissimos molestias voluptatem nostrum minus,
-                      rerum sunt facere explicabo distinctio nam saepe ipsum recusandae provident.
-                    </div>
-                    <div className="e-pt-96">
-                      Tab A Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo officiis
-                      consectetur illum reiciendis quam atque dignissimos molestias voluptatem nostrum minus,
-                      rerum sunt facere explicabo distinctio nam saepe ipsum recusandae provident.
-                    </div>
-                    <Popover
-                      trigger={<button className="e-btn">Trigger</button>}
-                      content={<div>Popover content</div>}
-                      hasCloseButton
-                    />
-                    <ContextMenu
-                      verticalPosition={'bottom'}
-                      horizontalPosition={'left'}
-                      trigger={
-                        <>
-                          <button aria-haspopup="menu" aria-label="More menu" className="e-btn e-btn--icon">
-                            <span aria-hidden="true" className="e-btn__icon">
-                              <i className="e-icon e-icon--more_menu"></i>
-                            </span>
-                          </button>
-                        </>
-                      }
-                      content={
-                        <>
-                          <div>
-                            <div className="ewc-context-menu__list-group">
-                              <button role="menuitem">Be om tilgang</button>
-                              <button role="menuitem">Legg til bruker</button>
-                              <button role="menuitem">Fjern bruker</button>
-                            </div>
-                            <div className="ewc-context-menu__list-group">
-                              <a role="menuitem" href="#">
-                                Endre passord
-                              </a>
-                              <button role="menuitem">Innstillinger</button>
-                            </div>
-                          </div>
-                        </>
-                      }
-                    ></ContextMenu>
-                  </div>
-                )}
-                {currentTab === 1 && <div>Tab B</div>}
-              </div>
+              <div className="e-bg-white"></div>
               {/* Inverted version */}
               <div className="e-bg-grey"></div>
             </div>
