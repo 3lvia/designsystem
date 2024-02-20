@@ -1,7 +1,7 @@
+import { NgClass, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
-import { NgClass, NgFor } from '@angular/common';
 
 interface IconLink {
   url: string;

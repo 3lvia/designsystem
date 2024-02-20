@@ -6,9 +6,10 @@ import {
   HostListener,
   ViewChild,
 } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { BaseSpotlightProps } from '@elvia/elvis-spotlight/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { BaseSpotlightProps } from '@elvia/elvis-spotlight/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-spotlight-ceg',

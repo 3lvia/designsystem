@@ -1,18 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import '@elvia/elvis-accordion';
 import { FuseResultMatch } from 'fuse.js';
-import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
+
+import { Searcher } from '../../searcher';
+import { ComponentDocumentationDatePipe } from '../component-documentation-date-pipe';
+import { Changelog, ChangelogEntry, ChangelogRadioFilter } from './changelogTypes';
 import { ChangelogIdPipe } from './component-changelog-id-pipe';
 import { ChangelogTypePipe } from './component-changelog-pipe';
 import { createElvisFilteredChangelog } from './createElvisFilteredChangelog';
-import { Changelog, ChangelogEntry, ChangelogRadioFilter } from './changelogTypes';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Searcher } from '../../searcher';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { ComponentDocumentationDatePipe } from '../component-documentation-date-pipe';
-import '@elvia/elvis-accordion';
+import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
   standalone: true,

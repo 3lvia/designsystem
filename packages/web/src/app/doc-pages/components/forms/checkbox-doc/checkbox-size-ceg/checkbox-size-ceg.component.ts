@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 import * as template from 'html-loader!./checkbox-size-ceg.component.html';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-checkbox-size-ceg',

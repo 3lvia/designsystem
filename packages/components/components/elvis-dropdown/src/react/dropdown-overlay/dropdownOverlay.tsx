@@ -1,7 +1,12 @@
-import React, { useEffect, useState, KeyboardEvent, useRef, useMemo } from 'react';
+import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
+import DOMPurify from 'dompurify';
+import React, { KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
+
 import { DropdownItem } from '../dropdown-item/dropdownItem';
+import { ItemValue } from '../dropdown-item/itemValue';
 import { flattenTree, getValueAsList } from '../dropdownListUtils';
 import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../publicApi.public';
+import { DropdownIconContainer } from '../styledComponents';
 import { BackButton } from './backButton';
 import {
   CursorCurve,
@@ -12,10 +17,6 @@ import {
 } from './dropdownOverlayStyles';
 import { LoadMoreButton } from './loadMoreButton';
 import { SelectAllOption } from './selectAllOption';
-import { ItemValue } from '../dropdown-item/itemValue';
-import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
-import DOMPurify from 'dompurify';
-import { DropdownIconContainer } from '../styledComponents';
 
 interface DropdownOverlayProps {
   isRootOverlay?: boolean;

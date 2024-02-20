@@ -1,10 +1,11 @@
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import React, { MouseEvent, useEffect, useState } from 'react';
+
 import { Checkbox } from '../checkbox/checkbox';
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
 import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
 import { DropdownItem, DropdownValue, DropdownValueType } from '../publicApi.public';
 import { Divider } from './dropdownOverlayStyles';
-import { FormFieldSizes } from '@elvia/elvis-toolbox';
 
 interface SelectAllOptionProps {
   item: DropdownItem;

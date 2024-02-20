@@ -1,20 +1,21 @@
-import React, { FC, useRef, useEffect, useState } from 'react';
+import close from '@elvia/elvis-assets-icons/dist/icons/close';
+import { IconButton, IconWrapper, Overlay, useFocusTrap, useSlot } from '@elvia/elvis-toolbox';
+import React, { FC, useEffect, useRef, useState } from 'react';
+
+import { ModalProps } from './elvia-modal.types';
 import {
   CloseButtonContainer,
-  ModalContent,
-  ModalIllustration,
-  ModalBackdrop,
-  ModalHeading,
-  ModalWrapper,
-  ModalText,
   ModalActions,
-  SecondaryButton,
+  ModalBackdrop,
+  ModalContent,
+  ModalHeading,
+  ModalIllustration,
+  ModalText,
+  ModalWrapper,
   PrimaryButton,
+  SecondaryButton,
 } from './styledComponents';
 import { useLockBodyScroll } from './useLockBodyScroll';
-import { useFocusTrap, useSlot, IconWrapper, IconButton, Overlay } from '@elvia/elvis-toolbox';
-import close from '@elvia/elvis-assets-icons/dist/icons/close';
-import { ModalProps } from './elvia-modal.types';
 
 export const Modal: FC<ModalProps> = function ({
   isShowing,

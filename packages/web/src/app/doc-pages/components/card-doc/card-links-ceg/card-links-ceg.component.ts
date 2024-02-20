@@ -1,8 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { RouterLink } from '@angular/router';
 
 import * as template from 'html-loader!./card-links-ceg.component.html';
-import { RouterLink } from '@angular/router';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-card-links-ceg',

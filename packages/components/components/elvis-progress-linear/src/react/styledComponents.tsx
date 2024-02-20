@@ -1,5 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
 import { getThemeColor } from '@elvia/elvis-colors';
+import styled, { css, keyframes } from 'styled-components';
+
 import { ProgressLinearSize } from './elvia-progress-linear.types';
 
 const loading = keyframes`

@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
-import { StepperTypeProps } from './elvia-stepper.types';
-import { Steps, StepperContainer, StepperTitle, Step, StepNumber, StatusMessage } from './styledComponents';
-import { generateStatusMessage, isReachable, numberShouldBeVisible } from './utils';
-import { StepDivider } from './StepDivider';
-import { StepContent } from './StepContent';
 import { useRovingFocus } from '@elvia/elvis-toolbox';
+import React, { FC } from 'react';
+
+import { StepContent } from './StepContent';
+import { StepDivider } from './StepDivider';
+import { StepperTypeProps } from './elvia-stepper.types';
+import { StatusMessage, Step, StepNumber, StepperContainer, StepperTitle, Steps } from './styledComponents';
 import { useDynamicStepCount } from './useDynamicStepCount';
 import { useStepNumbers } from './useStepNumbers';
+import { generateStatusMessage, isReachable, numberShouldBeVisible } from './utils';
 
 export const StepperHorizontal: FC<StepperTypeProps> = function ({
   numberOfSteps,

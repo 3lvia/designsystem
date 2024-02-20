@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 import * as template from 'html-loader!./toggle-size-sm-ceg.component.html';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-toggle-size-sm-ceg',

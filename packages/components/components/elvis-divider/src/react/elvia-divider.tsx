@@ -1,7 +1,8 @@
+import { useSlot } from '@elvia/elvis-toolbox';
 import React from 'react';
+
 import { DividerProps } from './elvia-divider.types';
 import { DividerArea, DividerHeading } from './styledComponents';
-import { useSlot } from '@elvia/elvis-toolbox';
 
 export const Divider: React.FC<DividerProps> = function ({
   type = 'simple',

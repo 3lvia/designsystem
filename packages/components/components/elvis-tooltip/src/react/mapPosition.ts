@@ -1,4 +1,5 @@
 import { OverlayHorizontalPosition, OverlayVerticalPosition } from '@elvia/elvis-toolbox';
+
 import { TooltipPosition } from './elviaTooltip.types';
 
 export const mapPositionToVerticalPosition = (position: TooltipPosition): OverlayVerticalPosition => {

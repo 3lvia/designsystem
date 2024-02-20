@@ -1,12 +1,12 @@
-import React, { KeyboardEvent, useEffect, useState } from 'react';
-import { DropdownItem, DropdownValue } from '../publicApi.public';
-import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
-import DOMPurify from 'dompurify';
-
-import { Input } from './dropdownInputStyles';
-import { DropdownIconContainer } from '../styledComponents';
-import { DropdownProps } from '../elviaDropdown.types';
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
+import DOMPurify from 'dompurify';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
+
+import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
+import { DropdownProps } from '../elviaDropdown.types';
+import { DropdownItem, DropdownValue } from '../publicApi.public';
+import { DropdownIconContainer } from '../styledComponents';
+import { Input } from './dropdownInputStyles';
 
 interface Props {
   placeholder?: string;

@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from 'react';
+
+import { Theme, ThemeEvent, themeLocalStorageKey } from '../elviaHeader.types';
+import { getApplicableTheme, getStoredActiveTheme, setThemeClassOnDocument } from '../themeUtils';
+import { DarkThemeIcon } from './darkThemeIcon';
+import { LightThemeIcon } from './lightThemeIcon';
+import { SystemThemeIcon } from './systemThemeIcon';
 import {
   ThemeButton,
   ThemeContainer,
@@ -6,11 +12,6 @@ import {
   ThemeLabel,
   ThemeListContainer,
 } from './themePickerStyles';
-import { LightThemeIcon } from './lightThemeIcon';
-import { DarkThemeIcon } from './darkThemeIcon';
-import { SystemThemeIcon } from './systemThemeIcon';
-import { getApplicableTheme, getStoredActiveTheme, setThemeClassOnDocument } from '../themeUtils';
-import { ThemeEvent, Theme, themeLocalStorageKey } from '../elviaHeader.types';
 
 interface PickerTheme {
   theme: Theme;

@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
 import {
   FormFieldContainer,
   FormFieldInputContainer,
   FormFieldInputSuffixText,
   useInputModeDetection,
 } from '@elvia/elvis-toolbox';
-import { Tooltip } from './tooltip/tooltip';
-import { FormFieldInputValue, Side, SliderProps, BothSliders, ErrorType } from './elvia-slider.types';
+import React, { useEffect, useState } from 'react';
+
+import { BothSliders, ErrorType, FormFieldInputValue, Side, SliderProps } from './elvia-slider.types';
+import { SliderError } from './error/sliderError';
+import { Hint } from './hint/hint';
+import { Label } from './label/label';
+import { Measurement } from './measurement/measurement';
 import {
   FormFieldInput,
   FormFieldLabel,
@@ -17,6 +21,8 @@ import {
   SliderWrapper,
   StyledSlider,
 } from './styledComponents';
+import { Tooltip } from './tooltip/tooltip';
+import { calculateHintReplacement } from './utils/calculateHintReplacement';
 import { calculateThumbPosition } from './utils/calculateThumbPosition';
 import { getAriaLabel } from './utils/getAriaLabel';
 import {
@@ -28,13 +34,8 @@ import {
   getMergedErrorOptions,
   getShowErrorText,
 } from './utils/getError';
-import { SliderError } from './error/sliderError';
-import { isOnlyNumbers, isValidNumber } from './utils/validators';
 import { useContentRectWidth } from './utils/useContentRectWidth';
-import { Hint } from './hint/hint';
-import { Label } from './label/label';
-import { calculateHintReplacement } from './utils/calculateHintReplacement';
-import { Measurement } from './measurement/measurement';
+import { isOnlyNumbers, isValidNumber } from './utils/validators';
 
 let elvisSliderUniqueId = 0;
 

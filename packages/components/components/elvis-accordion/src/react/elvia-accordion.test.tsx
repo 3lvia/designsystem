@@ -1,8 +1,9 @@
-import { Accordion } from './elvia-accordion';
-import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
+import React from 'react';
+
+import { Accordion } from './elvia-accordion';
 
 describe('Elvis Accordion', () => {
   describe('Type = normal', () => {

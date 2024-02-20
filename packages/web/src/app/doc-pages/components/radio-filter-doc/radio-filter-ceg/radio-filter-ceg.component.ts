@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BaseRadioFilterProps } from '@elvia/elvis-radio-filter/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-radio-filter-ceg',

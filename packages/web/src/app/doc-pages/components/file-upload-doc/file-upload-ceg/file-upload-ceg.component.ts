@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 import * as template from 'html-loader!./file-upload-ceg.component.html';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-file-upload-ceg',

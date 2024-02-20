@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+
+import { Category, Modifier, specialTypographies, textTypographies, titleTypographies } from './typographies';
 import { TypographyExampleExhibitFilterComponent } from './typography-example-exhibit-filter/typography-example-exhibit-filter.component';
-import { Category, textTypographies, titleTypographies, specialTypographies, Modifier } from './typographies';
 import { TypographyExampleExhibitListComponent } from './typography-example-exhibit-list/typography-example-exhibit-list.component';
 
 @Component({

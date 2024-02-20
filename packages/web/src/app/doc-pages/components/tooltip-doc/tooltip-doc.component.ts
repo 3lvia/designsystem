@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { tooltipData } from './tooltip-data';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { TooltipCegComponent } from './tooltip-ceg/tooltip-ceg.component';
+
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { TooltipCegComponent } from './tooltip-ceg/tooltip-ceg.component';
+import { tooltipData } from './tooltip-data';
 
 @Component({
   selector: 'app-tooltip-doc',

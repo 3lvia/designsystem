@@ -1,4 +1,4 @@
-import { FormFieldSizes, BaseProps, HasValue, HasError } from '@elvia/elvis-toolbox';
+import { BaseProps, FormFieldSizes, HasError, HasValue } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
 export type AutocompleteMenuPosition = 'top' | 'bottom' | 'auto';

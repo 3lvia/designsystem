@@ -1,7 +1,8 @@
 import { BaseProps, HasValue } from '@elvia/elvis-toolbox';
 import { TypographyName } from '@elvia/elvis-typography';
-import { StepStates } from './publicApi.public';
 import { ComponentPropsWithoutRef } from 'react';
+
+import { StepStates } from './publicApi.public';
 
 export type StepperType = 'vertical' | 'horizontal';
 

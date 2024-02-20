@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { Pages } from 'src/app/shared/shared.enum';
 
 export const routes: Routes = [

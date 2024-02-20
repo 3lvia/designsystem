@@ -1,15 +1,16 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { chipData } from './chip-data';
-import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
-import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-empty-ceg.component';
-import { ChipImageCegComponent } from './chip-image-ceg/chip-image-ceg.component';
-import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { NgFor } from '@angular/common';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { ChipCegComponent } from './chip-ceg/chip-ceg.component';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { ChipCegComponent } from './chip-ceg/chip-ceg.component';
+import { chipData } from './chip-data';
+import { ChipImageCegComponent } from './chip-image-ceg/chip-image-ceg.component';
+import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-empty-ceg.component';
 
 @Component({
   selector: 'app-chips',

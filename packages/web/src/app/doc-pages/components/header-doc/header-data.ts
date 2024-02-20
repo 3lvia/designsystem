@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-header/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { HeaderProps } from '@elvia/elvis-header/react';
+
+import ComponentData from '../component-data.interface';
 
 export const headerData: ComponentData<HeaderProps> = {
   changelog: changelogJson.content,

@@ -1,5 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, ViewEncapsulation, booleanAttribute } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, ViewEncapsulation, booleanAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-copy',

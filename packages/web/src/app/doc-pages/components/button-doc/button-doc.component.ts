@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ButtonLinkCegComponent } from './button-link-ceg/button-link-ceg.component';
-import { DoDontTextComponent } from '../../../shared/do-dont-text/do-dont-text.component';
-import { ButtonSizeCegComponent } from './button-size-ceg/button-size-ceg.component';
-import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
-import { ButtonTypeIconCircledCegComponent } from './button-type-icon-circled-ceg/button-type-icon-circled-ceg.component';
-import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
-import { ButtonTypeIconCegComponent } from './button-type-icon-ceg/button-type-icon-ceg.component';
-import { ButtonTypeDangerCegComponent } from './button-type-danger-ceg/button-type-danger-ceg.component';
-import { ButtonTypeTertiaryCegComponent } from './button-type-tertiary-ceg/button-type-tertiary-ceg.component';
-import { ButtonTypeSecondaryCegComponent } from './button-type-secondary-ceg/button-type-secondary-ceg.component';
-import { ButtonTypePrimaryCegComponent } from './button-type-primary-ceg/button-type-primary-ceg.component';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { ButtonCegComponent } from './button-ceg/button-ceg.component';
+
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { DoDontTextComponent } from '../../../shared/do-dont-text/do-dont-text.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { ButtonCegComponent } from './button-ceg/button-ceg.component';
+import { ButtonLinkCegComponent } from './button-link-ceg/button-link-ceg.component';
+import { ButtonSizeCegComponent } from './button-size-ceg/button-size-ceg.component';
+import { ButtonTypeDangerCegComponent } from './button-type-danger-ceg/button-type-danger-ceg.component';
+import { ButtonTypeIconCegComponent } from './button-type-icon-ceg/button-type-icon-ceg.component';
+import { ButtonTypeIconCircledCegComponent } from './button-type-icon-circled-ceg/button-type-icon-circled-ceg.component';
+import { ButtonTypePrimaryCegComponent } from './button-type-primary-ceg/button-type-primary-ceg.component';
+import { ButtonTypeSecondaryCegComponent } from './button-type-secondary-ceg/button-type-secondary-ceg.component';
+import { ButtonTypeTertiaryCegComponent } from './button-type-tertiary-ceg/button-type-tertiary-ceg.component';
 
 @Component({
   selector: 'app-button-doc',

@@ -1,5 +1,5 @@
+import { NgClass, NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { NgIf, NgClass } from '@angular/common';
 
 type ColorType = 'default' | 'black-white' | 'dark-black-white' | 'signal' | 'dark-signal';
 

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
+
 import { CodeGeneratorComponent } from '../code-generator.component';
 
 @Component({

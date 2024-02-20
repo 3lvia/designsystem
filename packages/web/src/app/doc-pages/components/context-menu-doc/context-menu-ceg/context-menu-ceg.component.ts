@@ -1,7 +1,8 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-import { BaseContextMenuProps } from '@elvia/elvis-context-menu/react';
 import { NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { BaseContextMenuProps } from '@elvia/elvis-context-menu/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-context-menu-ceg',

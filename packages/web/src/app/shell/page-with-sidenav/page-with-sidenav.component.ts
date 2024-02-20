@@ -1,15 +1,15 @@
+import { NgIf, TitleCasePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
 
 import { RouterService } from '../../core/services/router.service';
-import { FeedbackComponent } from '../../shared/feedback/feedback.component';
-import { MobileNavbarComponent } from '../../shared/navbar/mobile-navbar/mobile-navbar.component';
-import { LocalePickerComponent } from '../../shared/navbar/locale-picker/locale-picker.component';
 import { FeedbackLinkComponent } from '../../shared/feedback/feedback-link/feedback-link.component';
-import { RouterLink } from '@angular/router';
-import { NgIf, TitleCasePipe } from '@angular/common';
+import { FeedbackComponent } from '../../shared/feedback/feedback.component';
 import { DesktopNavbarComponent } from '../../shared/navbar/desktop-navbar/desktop-navbar.component';
 import { FlexibleFullHeightDirective } from '../../shared/navbar/desktop-navbar/flexible-full-height.directive';
+import { LocalePickerComponent } from '../../shared/navbar/locale-picker/locale-picker.component';
+import { MobileNavbarComponent } from '../../shared/navbar/mobile-navbar/mobile-navbar.component';
 import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-size.directive';
 
 @Component({

@@ -1,9 +1,10 @@
-import { Chip } from './elvia-chip';
-import React from 'react';
-import { axe } from 'jest-axe';
 import { getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import { Chip } from './elvia-chip';
 
 describe('Elvis Chip', () => {
   describe('Default', () => {

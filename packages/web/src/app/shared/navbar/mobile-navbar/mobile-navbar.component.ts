@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { NavbarBase } from '../navbar-base';
-import { RouterLink } from '@angular/router';
 import { NgFor } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+import { NavbarBase } from '../navbar-base';
 
 @Component({
   selector: 'app-mobile-navbar',

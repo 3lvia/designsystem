@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { popoverData } from './popover-data';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
-import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
 import { NgIf } from '@angular/common';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { PopoverCegComponent } from './popover-ceg/popover-ceg.component';
+import { Component } from '@angular/core';
+
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { PopoverCegComponent } from './popover-ceg/popover-ceg.component';
+import { popoverData } from './popover-data';
 
 @Component({
   selector: 'app-popover-doc',

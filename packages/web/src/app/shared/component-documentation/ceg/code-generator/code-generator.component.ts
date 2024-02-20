@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, booleanAttribute } from '@angular/core';
 
-import { Tab } from './types';
 import { CodeViewerComponent } from './code-viewer/code-viewer.component';
+import { Tab } from './types';
 
 const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 

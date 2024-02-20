@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { LocalizationService } from 'src/app/core/services/localization.service';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ThemeSwitchComponent } from '../theme-switch/theme-switch.component';
-import { RouterLink } from '@angular/router';
 import { NgFor } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
+
+import { ThemeSwitchComponent } from '../theme-switch/theme-switch.component';
+import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { LocalizationService } from 'src/app/core/services/localization.service';
 
 @Component({
   selector: 'app-mobile-menu',

@@ -1,4 +1,5 @@
 import data from '@elvia/elvis/.internal/classlist.json';
+
 import { DocPageName } from './shared.enum';
 
 export interface DocPage {

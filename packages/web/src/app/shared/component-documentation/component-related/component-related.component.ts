@@ -1,9 +1,10 @@
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { DocPageName } from '../../shared.enum';
-import { getDocPage } from '../../doc-pages';
 import { RouterLink } from '@angular/router';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+
+import { getDocPage } from '../../doc-pages';
+import { DocPageName } from '../../shared.enum';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
 
 @Component({
   selector: 'app-component-related',

@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { SpotlightArea, SpotlightCircle, SpotlightMask, SpotlightRect } from './styledComponents';
 
-import { useLockBodyScroll } from './useLockBodyScroll';
 import { SpotlightProps } from './elvia-spotlight.types';
+import { SpotlightArea, SpotlightCircle, SpotlightMask, SpotlightRect } from './styledComponents';
+import { useLockBodyScroll } from './useLockBodyScroll';
 
 export const Spotlight: FC<SpotlightProps> = ({
   position,

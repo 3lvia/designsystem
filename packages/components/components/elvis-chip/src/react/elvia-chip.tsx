@@ -4,6 +4,7 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { IconWrapper, useSlot, useWebComponentState } from '@elvia/elvis-toolbox';
 import { useHover } from '@react-aria/interactions';
 import React, { FC } from 'react';
+
 import { ChipProps } from './elvia-chip.types';
 import { ChipComponent, ChipDot, ChipImageContainer, ChipLoading, ChipTitle } from './styledComponents';
 

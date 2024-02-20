@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-tabs/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseTabsProps } from '@elvia/elvis-tabs/react';
+
+import ComponentData from '../component-data.interface';
 
 export const tabsData: ComponentData<BaseTabsProps> = {
   changelog: changelogJson.content,

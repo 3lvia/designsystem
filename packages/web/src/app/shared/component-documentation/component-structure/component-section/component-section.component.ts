@@ -1,6 +1,7 @@
+import { NgClass, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgClass, NgIf } from '@angular/common';
+
 import { CopyComponent } from '../../../copy/copy.component';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { ThemeName as Theme } from '@elvia/elvis-colors';
 import { BehaviorSubject, Observable, distinctUntilChanged, map } from 'rxjs';
 
-import { ThemeName as Theme } from '@elvia/elvis-colors';
 export { ThemeName as Theme } from '@elvia/elvis-colors';
 
 export type PreferredTheme = Theme | 'system';

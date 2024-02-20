@@ -1,6 +1,7 @@
 import { renderHook } from '@testing-library/react';
-import { useInputModeDetection } from './useInputModeDetection';
 import userEvent from '@testing-library/user-event';
+
+import { useInputModeDetection } from './useInputModeDetection';
 
 describe('useInputModeDetection', () => {
   it('should set mouse as input mode when document is clicked', async () => {

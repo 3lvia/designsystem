@@ -1,4 +1,4 @@
-import { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './componentConfig.types';
+import { ComponentAttribute, ComponentConfig, DeprecatedDetails } from './componentConfig.types';
 import { isSsr } from './isSsr';
 
 interface PropInfo {

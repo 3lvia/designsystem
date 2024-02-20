@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import naturalCompare from 'natural-compare-lite';
+import { BehaviorSubject, Observable, timer } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable({

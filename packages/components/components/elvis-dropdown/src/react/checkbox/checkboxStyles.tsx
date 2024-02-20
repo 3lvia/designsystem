@@ -1,5 +1,6 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import styled, { css } from 'styled-components';
+
 import { CheckboxProps, IndeterminateLineProps } from './checkbox';
 
 const checkMarkLeaveDuration = '100ms';

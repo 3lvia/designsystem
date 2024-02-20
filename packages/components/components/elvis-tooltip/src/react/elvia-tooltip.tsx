@@ -1,9 +1,10 @@
+import { TooltipPopup, isSsr, useConnectedOverlay, useSlot } from '@elvia/elvis-toolbox';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useConnectedOverlay, isSsr, TooltipPopup, useSlot } from '@elvia/elvis-toolbox';
+
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
-import { TriggerContainer } from './styledComponents';
 import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';
+import { TriggerContainer } from './styledComponents';
 
 export const Tooltip: React.FC<TooltipProps> = ({
   content = '',

@@ -1,7 +1,8 @@
+import { BaseProps, useWebComponentState } from '@elvia/elvis-toolbox';
 import React, { ComponentPropsWithoutRef, FC } from 'react';
-import { useWebComponentState, BaseProps } from '@elvia/elvis-toolbox';
-import { RadioFilterGroup } from './styledComponents';
+
 import { RadioFilterItem } from './RadioFilterItem';
+import { RadioFilterGroup } from './styledComponents';
 
 export interface Option {
   label: string;

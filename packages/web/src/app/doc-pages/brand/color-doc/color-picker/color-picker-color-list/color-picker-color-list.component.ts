@@ -1,9 +1,10 @@
+import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ThemeName } from '@elvia/elvis-colors';
+
 import { ColorElement, ColorsObject } from '../colors-types';
 import { getHighestContrast, getOpacityColors } from '../colors-util';
-import { ThemeName } from '@elvia/elvis-colors';
 import { NeedsBorderPipe } from '../needs-border.pipe';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-color-picker-color-list',

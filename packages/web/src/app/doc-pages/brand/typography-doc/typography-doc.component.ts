@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
 import { RouterLink } from '@angular/router';
+
+import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { TypographyArticleExampleComponent } from './typography-article-example/typography-article-example.component';
+import { TypographyExampleExhibitComponent } from './typography-example-exhibit/typography-example-exhibit.component';
+import { TypographyFontExampleComponent } from './typography-font-example/typography-font-example.component';
 import { TypographyOutlineExampleComponent } from './typography-outline-example/typography-outline-example.component';
 import { TypographyTitleExampleComponent } from './typography-title-example/typography-title-example.component';
-import { TypographyFontExampleComponent } from './typography-font-example/typography-font-example.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { TypographyExampleExhibitComponent } from './typography-example-exhibit/typography-example-exhibit.component';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-typography-doc',

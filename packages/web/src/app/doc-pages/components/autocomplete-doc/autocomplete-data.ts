@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-autocomplete/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseAutocompleteProps } from '@elvia/elvis-autocomplete/react';
+
+import ComponentData from '../component-data.interface';
 
 export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
   changelog: changelogJson.content,

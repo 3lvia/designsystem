@@ -1,17 +1,18 @@
+import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { Component } from '@angular/core';
-import { combineLatest } from 'rxjs';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
+import { combineLatest } from 'rxjs';
+
 import { VersionService } from '../../../core/services/version.service';
-import ComponentData from '../component-data.interface';
-import { getComponent } from 'src/app/shared/doc-pages';
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
-import { CopyComponent } from '../../../shared/copy/copy.component';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { CopyComponent } from '../../../shared/copy/copy.component';
+import ComponentData from '../component-data.interface';
+import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-css-library-doc',

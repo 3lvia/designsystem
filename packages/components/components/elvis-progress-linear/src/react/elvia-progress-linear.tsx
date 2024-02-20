@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
+
 import { ProgressLinearProps } from './elvia-progress-linear.types';
-import { ProgressLinearWrapper, ProgressLinearProgress } from './styledComponents';
+import { ProgressLinearProgress, ProgressLinearWrapper } from './styledComponents';
 
 export const ProgressLinear: FC<ProgressLinearProps> = ({
   value = 0,

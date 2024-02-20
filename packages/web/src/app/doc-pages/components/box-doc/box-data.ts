@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-box/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseBoxProps } from '@elvia/elvis-box/react';
+
+import ComponentData from '../component-data.interface';
 
 const boxData: ComponentData<BaseBoxProps> = {
   changelog: changelogJson.content,

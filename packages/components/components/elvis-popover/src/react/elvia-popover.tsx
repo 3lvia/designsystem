@@ -1,24 +1,25 @@
+import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
+import {
+  IconButton,
+  IconWrapper,
+  Overlay,
+  outlineListener,
+  useConnectedOverlay,
+  useFocusTrap,
+  useSlot,
+} from '@elvia/elvis-toolbox';
 import React, { FC, useEffect, useRef, useState } from 'react';
+
 import type { PopoverProps } from './elviaPopover.types';
 import { mapPositionToHorizontalPosition } from './mapPosition';
 import {
   CloseButtonContainer,
   Heading,
   PopoverContainer,
+  PopoverContent,
   PopoverTypography,
   TriggerContainer,
-  PopoverContent,
 } from './styledComponents';
-import {
-  Overlay,
-  IconButton,
-  outlineListener,
-  useConnectedOverlay,
-  useFocusTrap,
-  useSlot,
-  IconWrapper,
-} from '@elvia/elvis-toolbox';
-import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
 
 export const Popover: FC<PopoverProps> = function ({
   heading,

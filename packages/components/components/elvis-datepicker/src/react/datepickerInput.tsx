@@ -8,9 +8,9 @@ import React, {
   useRef,
   useState,
 } from 'react';
+
 import { formatDate, isSameDay } from './dateHelpers';
 import { ErrorType } from './elviaDatepicker.types';
-
 import { Input } from './styledComponents';
 import { validateDate } from './validateDate';
 

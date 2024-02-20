@@ -1,9 +1,10 @@
+import sync from '@elvia/elvis-assets-icons/dist/icons/sync';
+import { FormFieldSizes, IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
 import React, { MouseEvent } from 'react';
-import { TertiaryButton, IconWrapper, FormFieldSizes } from '@elvia/elvis-toolbox';
+
+import { getDropdownItemId } from '../dropdownListUtils';
 import { DropdownItem, DropdownValueType } from '../publicApi.public';
 import { LoadMoreButtonStyles, SpinContainer } from './dropdownOverlayStyles';
-import { getDropdownItemId } from '../dropdownListUtils';
-import sync from '@elvia/elvis-assets-icons/dist/icons/sync';
 
 interface LoadMoreProps {
   item: DropdownItem;

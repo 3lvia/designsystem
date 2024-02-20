@@ -1,5 +1,5 @@
+import { ThemeClassName, ThemeName } from '@elvia/elvis-colors';
 import React, { useCallback, useLayoutEffect, useMemo, useState } from 'react';
-import { ThemeName, ThemeClassName } from '@elvia/elvis-colors';
 
 interface UseCurrentThemeApi {
   currentTheme: ThemeName;

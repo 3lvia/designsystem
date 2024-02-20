@@ -1,8 +1,9 @@
-import React from 'react';
-import { ContextMenu } from './elvia-context-menu';
+import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import React from 'react';
+
+import { ContextMenu } from './elvia-context-menu';
 
 describe('Elvis Context Menu', () => {
   describe('default', () => {

@@ -1,5 +1,5 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({

@@ -1,6 +1,7 @@
-import React from 'react';
-import { IndeterminateLine, StyledCheckbox } from './checkboxStyles';
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
+import React from 'react';
+
+import { IndeterminateLine, StyledCheckbox } from './checkboxStyles';
 
 export interface CheckboxProps {
   isChecked?: boolean;

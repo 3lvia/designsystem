@@ -1,5 +1,6 @@
 import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import styled, { css } from 'styled-components';
+
 import { ButtonProps, Size } from './button';
 
 const getSize = (size: Size) => {

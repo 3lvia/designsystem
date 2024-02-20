@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { LightThemeColorName, DarkThemeColorName, ThemeName } from '@elvia/elvis-colors';
+import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis-colors';
 
 @Pipe({
   name: 'needsBorder',

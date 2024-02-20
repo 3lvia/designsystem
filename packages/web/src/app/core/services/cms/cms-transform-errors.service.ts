@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ICenteredContent, IDownloadContent, IGrid, IImage, IWhenToUse, LOCALE_CODE } from 'contentful/types';
+
 import { CMSDocPageError } from './cms.interface';
 import { extractLocale } from './extractLocale';
 

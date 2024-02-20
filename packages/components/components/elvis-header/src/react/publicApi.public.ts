@@ -1,4 +1,5 @@
 import { ThemeName } from '@elvia/elvis-colors';
+
 import { getApplicableTheme, getStoredActiveTheme } from './themeUtils';
 
 /**

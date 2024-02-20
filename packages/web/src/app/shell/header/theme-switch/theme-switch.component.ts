@@ -1,7 +1,8 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { AsyncPipe, NgClass, NgFor } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.service';
-import { NgFor, NgClass, AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-theme-switch',

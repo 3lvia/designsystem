@@ -1,8 +1,9 @@
-import React from 'react';
-import ProgressLinear from './elvia-progress-linear';
-import { axe } from 'jest-axe';
-import { render, screen } from '@testing-library/react';
 import { getThemeColor } from '@elvia/elvis-colors';
+import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import ProgressLinear from './elvia-progress-linear';
 
 describe('Elvis Progress Linear', () => {
   describe('Value = 48', () => {

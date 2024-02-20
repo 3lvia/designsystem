@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-segmented-control/CHANGELOG.json';
-import ComponentData from '../../component-data.interface';
 import { BaseSegmentedControlProps } from '@elvia/elvis-segmented-control/react';
+
+import ComponentData from '../../component-data.interface';
 
 export const segmentedControlData: ComponentData<BaseSegmentedControlProps> = {
   changelog: changelogJson.content,

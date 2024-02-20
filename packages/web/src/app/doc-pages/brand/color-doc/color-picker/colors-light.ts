@@ -1,6 +1,7 @@
 import { lightThemeColors } from '@elvia/elvis-colors';
-import { getColorElement } from './colors-util';
+
 import { ColorsObject } from './colors-types';
+import { getColorElement } from './colors-util';
 
 type LightThemeColors = typeof lightThemeColors;
 

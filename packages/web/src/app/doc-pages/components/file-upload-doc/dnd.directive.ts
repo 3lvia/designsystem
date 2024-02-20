@@ -1,4 +1,4 @@
-import { Directive, Output, EventEmitter, HostBinding, HostListener } from '@angular/core';
+import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
 
 @Directive({
   selector: '[appDnd]',
