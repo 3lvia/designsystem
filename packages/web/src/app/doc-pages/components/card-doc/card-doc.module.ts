@@ -6,8 +6,7 @@ import { CardLinksCegComponent } from './card-links-ceg/card-links-ceg.component
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  imports: [SharedDocumentationModule],
-  declarations: [CardDocComponent, CardCegComponent, CardLinksCegComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, CardDocComponent, CardCegComponent, CardLinksCegComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CardDocModule {}

@@ -11,14 +11,11 @@ import { OpenIconComponent } from './open-icon/open-icon.component';
 import { QualityIconComponent } from './quality-icon/quality-icon.component';
 
 @NgModule({
-  imports: [CommonModule, ComponentHeaderModule, ComponentSectionModule, RouterModule],
-  declarations: [
-    TheDesignSystemDocComponent,
-    EasyIconComponent,
-    FlexibleIconComponent,
-    InnovativeIconComponent,
-    OpenIconComponent,
-    QualityIconComponent,
-  ],
+    imports: [CommonModule, ComponentHeaderModule, ComponentSectionModule, RouterModule, TheDesignSystemDocComponent,
+        EasyIconComponent,
+        FlexibleIconComponent,
+        InnovativeIconComponent,
+        OpenIconComponent,
+        QualityIconComponent],
 })
 export class TheDesignSystemDocModule {}

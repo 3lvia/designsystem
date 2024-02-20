@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, ElementRef, NgZone, OnDestroy, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  CUSTOM_ELEMENTS_SCHEMA,
+  Component,
+  ElementRef,
+  NgZone,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { Subject, fromEvent, merge, switchMap, take, takeUntil } from 'rxjs';
 import { RouterService } from 'src/app/core/services/router.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -7,6 +15,10 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { FlexibleFullHeightDirective } from './flexible-full-height.directive';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { LocalePickerComponent } from '../locale-picker/locale-picker.component';
+import { SubMenuComponent } from '../sub-menu/sub-menu.component';
+import { RouterLinkActive, RouterLink } from '@angular/router';
+import { NgClass, NgIf, NgFor } from '@angular/common';
 
 const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
 @Component({
@@ -22,6 +34,9 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
       transition(':leave', [animate(animationMotion, style({ height: 0 }))]),
     ]),
   ],
+  standalone: true,
+  imports: [NgClass, NgIf, NgFor, RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit, OnDestroy {
   private unsubscriber = new Subject<void>();

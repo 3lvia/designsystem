@@ -4,9 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./alert-ceg.component.html';
 
 @Component({
-  selector: 'app-alert-ceg',
-  templateUrl: './alert-ceg.component.html',
-  providers: [{ provide: StaticComponentExample, useExisting: AlertCegComponent }],
+    selector: 'app-alert-ceg',
+    templateUrl: './alert-ceg.component.html',
+    providers: [{ provide: StaticComponentExample, useExisting: AlertCegComponent }],
+    standalone: true,
 })
 export class AlertCegComponent implements StaticComponentExample {
   html = template.default;

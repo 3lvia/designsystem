@@ -6,8 +6,7 @@ import { ButtonBadgeCegComponent } from './button-badge-ceg/button-badge-ceg.com
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  imports: [SharedDocumentationModule],
-  declarations: [BadgeDocComponent, BadgeCegComponent, ButtonBadgeCegComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, BadgeDocComponent, BadgeCegComponent, ButtonBadgeCegComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BadgeDocModule {}

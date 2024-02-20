@@ -1,12 +1,16 @@
-import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, booleanAttribute } from '@angular/core';
 
 import { Tab } from './types';
+import { CodeViewerComponent } from './code-viewer/code-viewer.component';
 
 const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 
 @Component({
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',
+  standalone: true,
+  imports: [CodeViewerComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeGeneratorComponent implements OnInit {
   @Input() angularCode = '';

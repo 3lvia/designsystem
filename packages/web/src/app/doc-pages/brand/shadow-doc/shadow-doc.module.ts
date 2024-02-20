@@ -12,16 +12,16 @@ import '@elvia/elvis-icon';
 import '@elvia/elvis-segmented-control';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    WhenToUseModule,
-    CopyModule,
-    ComponentChangelogComponent,
-  ],
-  declarations: [ShadowDocComponent, ShadowViewerComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [
+        CommonModule,
+        ComponentHeaderModule,
+        ComponentSectionModule,
+        ComponentSubsectionModule,
+        WhenToUseModule,
+        CopyModule,
+        ComponentChangelogComponent,
+        ShadowDocComponent, ShadowViewerComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShadowDocModule {}

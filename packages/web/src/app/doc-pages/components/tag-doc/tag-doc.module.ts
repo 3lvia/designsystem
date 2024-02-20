@@ -5,7 +5,6 @@ import { TagColoredCegComponent } from './tag-colored-ceg/tag-colored-ceg.compon
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  declarations: [TagDocComponent, TagCegComponent, TagColoredCegComponent],
-  imports: [SharedDocumentationModule],
+    imports: [SharedDocumentationModule, TagDocComponent, TagCegComponent, TagColoredCegComponent],
 })
 export class TagDocModule {}

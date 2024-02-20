@@ -8,15 +8,15 @@ import { ViewportSizeModule } from '../../../viewport-size/viewport-size.module'
 import { ComponentHeaderQuickInstallComponent } from './component-header-quick-install/component-header-quick-install.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    ComponentDocumentationDatePipe,
-    NavbarModule,
-    ViewportSizeModule,
-    ComponentHeaderQuickInstallComponent,
-  ],
-  exports: [ComponentHeaderComponent],
-  declarations: [ComponentHeaderComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        ComponentDocumentationDatePipe,
+        NavbarModule,
+        ViewportSizeModule,
+        ComponentHeaderQuickInstallComponent,
+        ComponentHeaderComponent,
+    ],
+    exports: [ComponentHeaderComponent],
 })
 export class ComponentHeaderModule {}

@@ -5,8 +5,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-tooltip';
 
 @NgModule({
-  imports: [SharedDocumentationModule],
-  declarations: [TooltipDocComponent, TooltipCegComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, TooltipDocComponent, TooltipCegComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TooltipDocModule {}

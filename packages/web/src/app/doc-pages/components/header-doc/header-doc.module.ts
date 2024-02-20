@@ -5,8 +5,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-header';
 
 @NgModule({
-  imports: [SharedDocumentationModule],
-  declarations: [HeaderDocComponent, HeaderCegComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, HeaderDocComponent, HeaderCegComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderDocModule {}

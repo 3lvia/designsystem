@@ -4,8 +4,7 @@ import { ToastCegComponent } from './toast-ceg/toast-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  imports: [SharedDocumentationModule],
-  declarations: [ToastDocComponent, ToastCegComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, ToastDocComponent, ToastCegComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ToastDocModule {}

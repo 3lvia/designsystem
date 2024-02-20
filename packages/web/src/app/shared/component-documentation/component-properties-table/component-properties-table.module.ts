@@ -12,17 +12,14 @@ import { PropertyExamplePopoverComponent } from './property-example-popover/prop
 import { CegModule } from 'src/app/shared/component-documentation/ceg/ceg.module';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, SearchHighlighterPipe, CegModule],
-  declarations: [
-    EscapeHTMLPipe,
-    ComponentPropertiesTableComponent,
-    PropertySearchInputComponent,
-    PropertyTableDesktopComponent,
-    PropertyTableMobileComponent,
-    PropertyTableBaseDirective,
-    PropertyExamplePopoverComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [ComponentPropertiesTableComponent],
+    imports: [CommonModule, FormsModule, SearchHighlighterPipe, CegModule, EscapeHTMLPipe,
+        ComponentPropertiesTableComponent,
+        PropertySearchInputComponent,
+        PropertyTableDesktopComponent,
+        PropertyTableMobileComponent,
+        PropertyTableBaseDirective,
+        PropertyExamplePopoverComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    exports: [ComponentPropertiesTableComponent],
 })
 export class ComponentPropertiesTableModule {}

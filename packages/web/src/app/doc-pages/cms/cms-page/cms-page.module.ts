@@ -9,15 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import '@elvia/elvis-tooltip';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    RouterModule,
-    HttpClientModule,
-  ],
-  declarations: [CMSPageComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [
+        CommonModule,
+        ComponentHeaderModule,
+        ComponentSectionModule,
+        ComponentSubsectionModule,
+        RouterModule,
+        HttpClientModule,
+        CMSPageComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CMSPageModule {}

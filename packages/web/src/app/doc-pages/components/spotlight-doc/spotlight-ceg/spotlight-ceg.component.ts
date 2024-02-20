@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  CUSTOM_ELEMENTS_SCHEMA,
+  Component,
+  ElementRef,
+  HostListener,
+  ViewChild,
+} from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BaseSpotlightProps } from '@elvia/elvis-spotlight/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
@@ -7,6 +14,8 @@ import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
   selector: 'app-spotlight-ceg',
   templateUrl: './spotlight-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: SpotlightCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SpotlightCegComponent implements ComponentExample, AfterViewInit {
   @ViewChild('spotlight') spotlight: ElementRef<ElvisComponentWrapper>;

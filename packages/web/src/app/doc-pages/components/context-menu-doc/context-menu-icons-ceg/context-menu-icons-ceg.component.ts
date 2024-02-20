@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 import * as template from 'html-loader!./context-menu-icons-ceg.component.html';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-context-menu-icons-ceg',
   templateUrl: './context-menu-icons-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ContextMenuIconsCegComponent }],
+  standalone: true,
+  imports: [NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ContextMenuIconsCegComponent implements StaticComponentExample {
   html = template.default;

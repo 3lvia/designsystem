@@ -8,15 +8,12 @@ import { NavbarBase } from './navbar-base';
 import { LocalePickerComponent } from './locale-picker/locale-picker.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
-  declarations: [
-    DesktopNavbarComponent,
-    MobileNavbarComponent,
-    SubMenuComponent,
-    NavbarBase,
-    LocalePickerComponent,
-  ],
-  exports: [DesktopNavbarComponent, MobileNavbarComponent, SubMenuComponent, LocalePickerComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [CommonModule, RouterModule, DesktopNavbarComponent,
+        MobileNavbarComponent,
+        SubMenuComponent,
+        NavbarBase,
+        LocalePickerComponent],
+    exports: [DesktopNavbarComponent, MobileNavbarComponent, SubMenuComponent, LocalePickerComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class NavbarModule {}

@@ -8,14 +8,14 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    CopyModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    RouterModule,
-  ],
-  declarations: [UtilitiesDocComponent],
+    imports: [
+        CommonModule,
+        ComponentHeaderModule,
+        CopyModule,
+        ComponentSectionModule,
+        ComponentSubsectionModule,
+        RouterModule,
+        UtilitiesDocComponent,
+    ],
 })
 export class UtilitiesDocModule {}

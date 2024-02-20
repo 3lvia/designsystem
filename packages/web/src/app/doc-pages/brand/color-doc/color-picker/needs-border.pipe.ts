@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { LightThemeColorName, DarkThemeColorName, ThemeName } from '@elvia/elvis-colors';
 
 @Pipe({
-  name: 'needsBorder',
+    name: 'needsBorder',
+    standalone: true,
 })
 export class NeedsBorderPipe implements PipeTransform {
   transform(colorName: LightThemeColorName | DarkThemeColorName, theme: ThemeName): boolean {

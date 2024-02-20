@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 import { getPackageName } from './getPackageName';
+import { CopyComponent } from '../../copy/copy.component';
 
 @Component({
-  selector: 'app-component-installation',
-  templateUrl: './component-installation.component.html',
+    selector: 'app-component-installation',
+    templateUrl: './component-installation.component.html',
+    standalone: true,
+    imports: [CopyComponent],
 })
 export class ComponentInstallationComponent implements OnInit {
   @Input() componentData: ComponentData;

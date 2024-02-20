@@ -8,7 +8,8 @@ import pluginEstree from 'prettier/plugins/estree';
 import { Language } from './types';
 
 @Pipe({
-  name: 'formatCode',
+    name: 'formatCode',
+    standalone: true,
 })
 export class FormatCodePipe implements PipeTransform {
   async transform(code: string, language: Language): Promise<string> {

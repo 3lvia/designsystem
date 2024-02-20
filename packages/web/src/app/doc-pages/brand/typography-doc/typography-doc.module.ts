@@ -14,20 +14,20 @@ import { TypographyOutlineExampleComponent } from './typography-outline-example/
 import { TypographyFontExampleComponent } from './typography-font-example/typography-font-example.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    ComponentSubsubsectionModule,
-    ComponentChangelogComponent,
-    RouterModule,
-    TypographyExampleExhibitComponent,
-    TypographyFontExampleComponent,
-    TypographyTitleExampleComponent,
-    TypographyOutlineExampleComponent,
-    TypographyArticleExampleComponent,
-  ],
-  declarations: [TypographyDocComponent],
+    imports: [
+        CommonModule,
+        ComponentHeaderModule,
+        ComponentSectionModule,
+        ComponentSubsectionModule,
+        ComponentSubsubsectionModule,
+        ComponentChangelogComponent,
+        RouterModule,
+        TypographyExampleExhibitComponent,
+        TypographyFontExampleComponent,
+        TypographyTitleExampleComponent,
+        TypographyOutlineExampleComponent,
+        TypographyArticleExampleComponent,
+        TypographyDocComponent,
+    ],
 })
 export class TypographyDocModule {}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 import * as template from 'html-loader!./dropdown-status-ceg.component.html';
@@ -7,6 +7,8 @@ import * as template from 'html-loader!./dropdown-status-ceg.component.html';
   selector: 'app-dropdown-status-ceg',
   templateUrl: './dropdown-status-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: DropdownStatusCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DropdownStatusCegComponent implements StaticComponentExample {
   html = template.default;

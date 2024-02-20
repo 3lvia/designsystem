@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BaseSegmentedControlProps } from '@elvia/elvis-segmented-control/react';
 
@@ -6,6 +6,8 @@ import { BaseSegmentedControlProps } from '@elvia/elvis-segmented-control/react'
   selector: 'app-segmented-control-ceg',
   templateUrl: './segmented-control-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: SegmentedControlCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SegmentedControlCegComponent implements ComponentExample {
   elementName = 'segmented-control';

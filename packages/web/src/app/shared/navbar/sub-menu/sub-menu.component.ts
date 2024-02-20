@@ -5,7 +5,7 @@ import { trigger, transition, stagger, animate, style, query } from '@angular/an
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { Location, NgClass, NgFor } from '@angular/common';
 
 export interface Anchor {
   name: string;
@@ -13,25 +13,23 @@ export interface Anchor {
 }
 
 @Component({
-  selector: 'app-sub-menu',
-  templateUrl: './sub-menu.component.html',
-  styleUrls: ['./sub-menu.component.scss'],
-  animations: [
-    trigger('listAnimation', [
-      transition('* => *', [
-        query(
-          ':enter',
-          [
-            style({ opacity: 0, translate: '0 -2px' }),
-            stagger(70, [animate('0.2s', style({ opacity: 1, translate: 0 }))]),
-          ],
-          {
-            optional: true,
-          },
-        ),
-      ]),
-    ]),
-  ],
+    selector: 'app-sub-menu',
+    templateUrl: './sub-menu.component.html',
+    styleUrls: ['./sub-menu.component.scss'],
+    animations: [
+        trigger('listAnimation', [
+            transition('* => *', [
+                query(':enter', [
+                    style({ opacity: 0, translate: '0 -2px' }),
+                    stagger(70, [animate('0.2s', style({ opacity: 1, translate: 0 }))]),
+                ], {
+                    optional: true,
+                }),
+            ]),
+        ]),
+    ],
+    standalone: true,
+    imports: [NgClass, NgFor],
 })
 export class SubMenuComponent {
   anchors: Anchor[] = [];

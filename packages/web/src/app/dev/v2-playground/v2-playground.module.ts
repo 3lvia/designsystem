@@ -39,16 +39,16 @@ import '@elvia/elvis-toast';
 import '@elvia/elvis-tooltip';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    ComponentSubsubsectionModule,
-    RouterModule,
-    V2PlaygroundIllustrationsComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [v2PlaygroundComponent],
+    imports: [
+        CommonModule,
+        ComponentHeaderModule,
+        ComponentSectionModule,
+        ComponentSubsectionModule,
+        ComponentSubsubsectionModule,
+        RouterModule,
+        V2PlaygroundIllustrationsComponent,
+        v2PlaygroundComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundModule {}

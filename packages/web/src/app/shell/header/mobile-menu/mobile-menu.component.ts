@@ -3,11 +3,20 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeSwitchComponent } from '../theme-switch/theme-switch.component';
+import { RouterLink } from '@angular/router';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-mobile-menu',
-  templateUrl: './mobile-menu.component.html',
-  styleUrls: ['./mobile-menu.component.scss'],
+    selector: 'app-mobile-menu',
+    templateUrl: './mobile-menu.component.html',
+    styleUrls: ['./mobile-menu.component.scss'],
+    standalone: true,
+    imports: [
+        NgFor,
+        RouterLink,
+        ThemeSwitchComponent,
+    ],
 })
 export class MobileMenuComponent {
   @Output() closeMenu = new EventEmitter<void>();

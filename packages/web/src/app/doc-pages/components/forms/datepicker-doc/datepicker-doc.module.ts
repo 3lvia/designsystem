@@ -5,8 +5,7 @@ import { DatepickerCegComponent } from './datepicker-ceg/datepicker-ceg.componen
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  imports: [SharedDocumentationModule],
-  declarations: [DatepickerDocComponent, DatepickerCegComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, DatepickerDocComponent, DatepickerCegComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerDocModule {}

@@ -8,15 +8,12 @@ import { CheckboxStatesCegComponent } from './checkbox-states-ceg/checkbox-state
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  declarations: [
-    CheckboxDocComponent,
-    CheckboxCegComponent,
-    CheckboxStandardCegComponent,
-    CheckboxNestedCegComponent,
-    CheckboxSizeCegComponent,
-    CheckboxStatesCegComponent,
-  ],
-  imports: [SharedDocumentationModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, CheckboxDocComponent,
+        CheckboxCegComponent,
+        CheckboxStandardCegComponent,
+        CheckboxNestedCegComponent,
+        CheckboxSizeCegComponent,
+        CheckboxStatesCegComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CheckboxDocModule {}

@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { openElviaToast } from '@elvia/elvis-toast';
 import { dropdownData } from './dropdown-data';
 import type { DropdownItem } from '@elvia/elvis-dropdown';
+import { NgFor, NgIf, NgClass } from '@angular/common';
+import { V2PlaygroundIllustrationsComponent } from './v2-playground-illustrations/v2-playground-illustrations.component';
 
 interface StepState {
   heading: string;
@@ -16,6 +18,9 @@ interface StepStates {
   selector: 'app-v2-playground',
   templateUrl: './v2-playground.component.html',
   styleUrls: ['./v2-playground.component.scss'],
+  standalone: true,
+  imports: [V2PlaygroundIllustrationsComponent, NgFor, NgIf, NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {
   //her

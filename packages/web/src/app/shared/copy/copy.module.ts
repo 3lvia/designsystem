@@ -4,9 +4,8 @@ import { CopyComponent } from './copy.component';
 import '@elvia/elvis-tooltip';
 
 @NgModule({
-  imports: [CommonModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [CopyComponent],
-  declarations: [CopyComponent],
+    imports: [CommonModule, CopyComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    exports: [CopyComponent],
 })
 export class CopyModule {}

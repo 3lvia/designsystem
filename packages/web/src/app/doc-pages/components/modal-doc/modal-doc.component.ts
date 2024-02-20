@@ -1,10 +1,33 @@
 import { Component } from '@angular/core';
 import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { ModalInitialFocusCegComponent } from './modal-initial-focus-ceg/modal-initial-focus-ceg.component';
+import { ModalMultiplePagesCegComponent } from './modal-multiple-pages-ceg/modal-multiple-pages-ceg.component';
+import { RouterLink } from '@angular/router';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ModalCegComponent } from './modal-ceg/modal-ceg.component';
+import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-  selector: 'app-modal-doc',
-  templateUrl: './modal-doc.component.html',
-  styleUrls: ['./modal-doc.component.scss'],
+    selector: 'app-modal-doc',
+    templateUrl: './modal-doc.component.html',
+    styleUrls: ['./modal-doc.component.scss'],
+    standalone: true,
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        ModalCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        RouterLink,
+        ModalMultiplePagesCegComponent,
+        ModalInitialFocusCegComponent,
+        WhenToUseComponent,
+        ComponentSubsubsectionComponent,
+    ],
 })
 export class ModalDocComponent {
   componentData = modalData;

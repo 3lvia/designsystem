@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
+import { NgClass } from '@angular/common';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 
 type ContactInfo = {
   firstName: string;
@@ -14,9 +17,15 @@ type ContactInfo = {
 };
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styleUrls: ['./contact.component.scss'],
+    standalone: true,
+    imports: [
+        ComponentHeaderComponent,
+        ComponentSubsectionComponent,
+        NgClass,
+    ],
 })
 export class ContactComponent {
   description = getDocPagesNotFromCMS('contact')?.description;

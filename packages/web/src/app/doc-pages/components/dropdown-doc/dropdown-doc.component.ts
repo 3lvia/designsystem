@@ -1,9 +1,40 @@
 import { Component } from '@angular/core';
 import { dropdownData } from './dropdown-data';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { DropdownEmptyCegComponent } from './dropdown-empty-ceg/dropdown-empty-ceg.component';
+import { DropdownLoadMoreCegComponent } from './dropdown-load-more-ceg/dropdown-load-more-ceg.component';
+import { DropdownStatusCegComponent } from './dropdown-status-ceg/dropdown-status-ceg.component';
+import { DropdownTreeCegComponent } from './dropdown-tree-ceg/dropdown-tree-ceg.component';
+import { DropdownImagesCegComponent } from './dropdown-images-ceg/dropdown-images-ceg.component';
+import { DropdownIconsCegComponent } from './dropdown-icons-ceg/dropdown-icons-ceg.component';
+import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
+import { RouterLink } from '@angular/router';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { DropdownCegComponent } from './dropdown-ceg/dropdown-ceg.component';
+import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 @Component({
-  selector: 'app-dropdown-doc',
-  templateUrl: './dropdown-doc.component.html',
-  styleUrls: ['./dropdown-doc.component.scss'],
+    selector: 'app-dropdown-doc',
+    templateUrl: './dropdown-doc.component.html',
+    styleUrls: ['./dropdown-doc.component.scss'],
+    standalone: true,
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        DropdownCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        RouterLink,
+        StaticCegComponent,
+        DropdownIconsCegComponent,
+        DropdownImagesCegComponent,
+        DropdownTreeCegComponent,
+        DropdownStatusCegComponent,
+        DropdownLoadMoreCegComponent,
+        DropdownEmptyCegComponent,
+        WhenToUseComponent,
+    ],
 })
 export class DropdownDocComponent {
   componentData = dropdownData;

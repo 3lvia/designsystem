@@ -5,6 +5,15 @@ import { getComponent } from 'src/app/shared/doc-pages';
 import { DocPageName } from '../shared.enum';
 import { createElvisFilteredChangelog } from './component-changelog/createElvisFilteredChangelog';
 import { Title } from '@angular/platform-browser';
+import { ComponentRelatedComponent } from './component-related/component-related.component';
+import { ComponentChangelogComponent } from './component-changelog/component-changelog.component';
+import { ComponentPropertiesComponent } from './component-properties/component-properties.component';
+import { ComponentPropertiesTableComponent } from './component-properties-table/component-properties-table.component';
+import { RouterLink } from '@angular/router';
+import { ComponentInstallationComponent } from './component-installation/component-installation.component';
+import { NgIf } from '@angular/common';
+import { ComponentSectionComponent } from './component-structure/component-section/component-section.component';
+import { ComponentHeaderComponent } from './component-structure/component-header/component-header.component';
 
 /**
  * Builds a standard documentation page for a component.
@@ -22,8 +31,20 @@ import { Title } from '@angular/platform-browser';
  * @see [Angular Content Projection Guide](https://angular.io/guide/content-projection)
  */
 @Component({
-  selector: 'app-component-documentation',
-  templateUrl: './component-documentation.component.html',
+    selector: 'app-component-documentation',
+    templateUrl: './component-documentation.component.html',
+    standalone: true,
+    imports: [
+        ComponentHeaderComponent,
+        ComponentSectionComponent,
+        NgIf,
+        ComponentInstallationComponent,
+        RouterLink,
+        ComponentPropertiesTableComponent,
+        ComponentPropertiesComponent,
+        ComponentChangelogComponent,
+        ComponentRelatedComponent,
+    ],
 })
 export class ComponentDocumentationComponent implements OnInit {
   @Input({ required: true }) docUrl: DocPageName;

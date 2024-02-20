@@ -9,12 +9,13 @@ import {
 } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
-  selector: 'app-toast-ceg',
-  templateUrl: './toast-ceg.component.html',
-  providers: [
-    { provide: ComponentExample, useExisting: ToastCegComponent },
-    { provide: TypescriptComponentExample, useExisting: ToastCegComponent },
-  ],
+    selector: 'app-toast-ceg',
+    templateUrl: './toast-ceg.component.html',
+    providers: [
+        { provide: ComponentExample, useExisting: ToastCegComponent },
+        { provide: TypescriptComponentExample, useExisting: ToastCegComponent },
+    ],
+    standalone: true,
 })
 export class ToastCegComponent extends TypescriptComponentExample implements ComponentExample {
   elementName = 'toast';

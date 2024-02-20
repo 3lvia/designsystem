@@ -5,7 +5,6 @@ import { ComponentHeaderModule } from 'src/app/shared/component-documentation/co
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 
 @NgModule({
-  imports: [CommonModule, ComponentHeaderModule, ComponentSubsectionModule],
-  declarations: [ContactComponent],
+    imports: [CommonModule, ComponentHeaderModule, ComponentSubsectionModule, ContactComponent],
 })
 export class ContactModule {}

@@ -6,12 +6,9 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import { DatepickerRangeShortcutExampleComponent } from './datepicker-range-shortcut-example/datepicker-range-shortcut-example.component';
 
 @NgModule({
-  imports: [SharedDocumentationModule],
-  declarations: [
-    DatepickerRangeDocComponent,
-    DatepickerRangeCegComponent,
-    DatepickerRangeShortcutExampleComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, DatepickerRangeDocComponent,
+        DatepickerRangeCegComponent,
+        DatepickerRangeShortcutExampleComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerRangeDocModule {}

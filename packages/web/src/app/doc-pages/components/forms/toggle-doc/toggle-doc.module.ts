@@ -8,14 +8,11 @@ import { ToggleSizeSmCegComponent } from './toggle-size-sm-ceg/toggle-size-sm-ce
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  declarations: [
-    ToggleDocComponent,
-    ToggleCegComponent,
-    ToggleLabelCegComponent,
-    ToggleStatesCegComponent,
-    ToggleSizeMdCegComponent,
-    ToggleSizeSmCegComponent,
-  ],
-  imports: [SharedDocumentationModule],
+    imports: [SharedDocumentationModule, ToggleDocComponent,
+        ToggleCegComponent,
+        ToggleLabelCegComponent,
+        ToggleStatesCegComponent,
+        ToggleSizeMdCegComponent,
+        ToggleSizeSmCegComponent],
 })
 export class ToggleDocModule {}

@@ -15,23 +15,21 @@ import { ListCegComponent } from './list-ceg/list-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  declarations: [
-    ListDocComponent,
-    ListCegComponent,
-    BulletListCegComponent,
-    NumberedListCegComponent,
-    IconListCegComponent,
-  ],
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    ComponentPropertiesModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    WhenToUseModule,
-    ComponentChangelogComponent,
-    CegModule,
-    SharedDocumentationModule,
-  ],
+    imports: [
+        CommonModule,
+        ComponentHeaderModule,
+        ComponentPropertiesModule,
+        ComponentSectionModule,
+        ComponentSubsectionModule,
+        WhenToUseModule,
+        ComponentChangelogComponent,
+        CegModule,
+        SharedDocumentationModule,
+        ListDocComponent,
+        ListCegComponent,
+        BulletListCegComponent,
+        NumberedListCegComponent,
+        IconListCegComponent,
+    ],
 })
 export class ListDocModule {}

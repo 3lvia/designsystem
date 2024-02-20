@@ -1,12 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Checkbox } from '../../controlType';
+import { NgClass } from '@angular/common';
 
 let CEG_CHECKBOX_ID = 0;
 
 @Component({
-  selector: 'app-checkbox',
-  templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss'],
+    selector: 'app-checkbox',
+    templateUrl: './checkbox.component.html',
+    styleUrls: ['./checkbox.component.scss'],
+    standalone: true,
+    imports: [NgClass],
 })
 export class CheckboxComponent {
   @Input() checkbox: Checkbox;

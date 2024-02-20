@@ -1,10 +1,31 @@
 import { Component } from '@angular/core';
 import { cardData } from './card-data';
+import { CardLinksCegComponent } from './card-links-ceg/card-links-ceg.component';
+import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { CardCegComponent } from './card-ceg/card-ceg.component';
+import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
-  selector: 'app-card-doc',
-  templateUrl: './card-doc.component.html',
-  styleUrls: ['./card-doc.component.scss'],
+    selector: 'app-card-doc',
+    templateUrl: './card-doc.component.html',
+    styleUrls: ['./card-doc.component.scss'],
+    standalone: true,
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        CardCegComponent,
+        ComponentSectionComponent,
+        WhenToUseComponent,
+        ComponentSubsectionComponent,
+        ComponentSubsubsectionComponent,
+        StaticCegComponent,
+        CardLinksCegComponent,
+    ],
 })
 export class CardDocComponent {
   componentData = cardData;

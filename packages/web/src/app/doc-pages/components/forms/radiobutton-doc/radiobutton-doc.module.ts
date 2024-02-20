@@ -6,13 +6,10 @@ import { RadiobuttonMdCegComponent } from './radiobutton-md-ceg/radiobutton-md-c
 import { RadiobuttonStatesCegComponent } from './radiobutton-states-ceg/radiobutton-states-ceg.component';
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 @NgModule({
-  declarations: [
-    RadiobuttonDocComponent,
-    RadiobuttonCegComponent,
-    RadiobuttonSmCegComponent,
-    RadiobuttonMdCegComponent,
-    RadiobuttonStatesCegComponent,
-  ],
-  imports: [SharedDocumentationModule],
+    imports: [SharedDocumentationModule, RadiobuttonDocComponent,
+        RadiobuttonCegComponent,
+        RadiobuttonSmCegComponent,
+        RadiobuttonMdCegComponent,
+        RadiobuttonStatesCegComponent],
 })
 export class RadiobuttonDocModule {}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BaseModalProps } from '@elvia/elvis-modal/react';
@@ -7,6 +7,8 @@ import { BaseModalProps } from '@elvia/elvis-modal/react';
   selector: 'app-modal-ceg',
   templateUrl: './modal-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ModalCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ModalCegComponent implements ComponentExample {
   isModalShowing = false;

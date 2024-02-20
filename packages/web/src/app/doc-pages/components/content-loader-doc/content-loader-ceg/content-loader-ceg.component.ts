@@ -4,9 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./content-loader-ceg.component.html';
 
 @Component({
-  selector: 'app-content-loader-ceg',
-  templateUrl: './content-loader-ceg.component.html',
-  providers: [{ provide: StaticComponentExample, useExisting: ContentLoaderCegComponent }],
+    selector: 'app-content-loader-ceg',
+    templateUrl: './content-loader-ceg.component.html',
+    providers: [{ provide: StaticComponentExample, useExisting: ContentLoaderCegComponent }],
+    standalone: true,
 })
 export class ContentLoaderCegComponent implements StaticComponentExample {
   html = template.default;

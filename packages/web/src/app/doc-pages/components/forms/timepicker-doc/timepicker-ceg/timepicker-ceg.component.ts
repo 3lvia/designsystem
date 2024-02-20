@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { TimepickerProps } from '@elvia/elvis-timepicker/react';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
@@ -8,6 +8,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: 'app-timepicker-ceg',
   templateUrl: './timepicker-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: TimepickerCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TimepickerCegComponent implements ComponentExample {
   @ViewChild('timepicker') timepicker: ElementRef<ElvisComponentWrapper>;

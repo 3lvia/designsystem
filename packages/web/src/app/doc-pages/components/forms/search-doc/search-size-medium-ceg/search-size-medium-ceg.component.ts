@@ -4,9 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./search-size-medium-ceg.component.html';
 
 @Component({
-  selector: 'app-search-size-medium-ceg',
-  templateUrl: './search-size-medium-ceg.component.html',
-  providers: [{ provide: StaticComponentExample, useExisting: SearchSizeMediumCegComponent }],
+    selector: 'app-search-size-medium-ceg',
+    templateUrl: './search-size-medium-ceg.component.html',
+    providers: [{ provide: StaticComponentExample, useExisting: SearchSizeMediumCegComponent }],
+    standalone: true,
 })
 export class SearchSizeMediumCegComponent implements StaticComponentExample {
   html = template.default;

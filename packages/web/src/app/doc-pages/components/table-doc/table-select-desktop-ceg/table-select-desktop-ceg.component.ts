@@ -4,9 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./table-select-desktop-ceg.component.html';
 
 @Component({
-  selector: 'app-table-select-desktop-ceg',
-  templateUrl: './table-select-desktop-ceg.component.html',
-  providers: [{ provide: StaticComponentExample, useExisting: TableSelectDesktopCegComponent }],
+    selector: 'app-table-select-desktop-ceg',
+    templateUrl: './table-select-desktop-ceg.component.html',
+    providers: [{ provide: StaticComponentExample, useExisting: TableSelectDesktopCegComponent }],
+    standalone: true,
 })
 export class TableSelectDesktopCegComponent implements StaticComponentExample {
   html = template.default;

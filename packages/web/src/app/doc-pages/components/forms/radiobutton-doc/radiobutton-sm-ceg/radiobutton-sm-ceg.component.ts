@@ -4,9 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./radiobutton-sm-ceg.component.html';
 
 @Component({
-  selector: 'app-radiobutton-sm-ceg',
-  templateUrl: './radiobutton-sm-ceg.component.html',
-  providers: [{ provide: StaticComponentExample, useExisting: RadiobuttonSmCegComponent }],
+    selector: 'app-radiobutton-sm-ceg',
+    templateUrl: './radiobutton-sm-ceg.component.html',
+    providers: [{ provide: StaticComponentExample, useExisting: RadiobuttonSmCegComponent }],
+    standalone: true,
 })
 export class RadiobuttonSmCegComponent implements StaticComponentExample {
   html = template.default;

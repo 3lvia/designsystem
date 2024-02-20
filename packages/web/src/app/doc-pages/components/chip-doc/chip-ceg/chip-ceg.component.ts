@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BaseChipProps } from '@elvia/elvis-chip/react';
 
@@ -6,6 +6,8 @@ import { BaseChipProps } from '@elvia/elvis-chip/react';
   selector: 'app-chip-ceg',
   templateUrl: './chip-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ChipCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ChipCegComponent implements ComponentExample {
   elementName = 'chip';

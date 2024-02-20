@@ -6,8 +6,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-breadcrumb';
 
 @NgModule({
-  imports: [SharedDocumentationModule],
-  declarations: [BreadcrumbDocComponent, BreadcrumbCegComponent, BreadcrumbEventCegComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, BreadcrumbDocComponent, BreadcrumbCegComponent, BreadcrumbEventCegComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BreadcrumbDocModule {}

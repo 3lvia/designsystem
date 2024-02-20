@@ -5,8 +5,7 @@ import { SharedDocumentationModule } from 'src/app/shared/component-documentatio
 import '@elvia/elvis-tabs';
 
 @NgModule({
-  imports: [SharedDocumentationModule],
-  declarations: [TabsDocComponent, TabsCegComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SharedDocumentationModule, TabsDocComponent, TabsCegComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TabsDocModule {}

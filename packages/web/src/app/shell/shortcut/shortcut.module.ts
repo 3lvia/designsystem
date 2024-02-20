@@ -4,9 +4,8 @@ import { ShortcutComponent } from './shortcut.component';
 import { ShortcutModalContentComponent } from './shortcut-modal-content/shortcut-modal-content.component';
 
 @NgModule({
-  declarations: [ShortcutComponent, ShortcutModalContentComponent],
-  exports: [ShortcutComponent],
-  imports: [CommonModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    exports: [ShortcutComponent],
+    imports: [CommonModule, ShortcutComponent, ShortcutModalContentComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShortcutModule {}

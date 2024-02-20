@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BaseContextMenuProps } from '@elvia/elvis-context-menu/react';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-context-menu-ceg',
   templateUrl: './context-menu-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ContextMenuCegComponent }],
+  standalone: true,
+  imports: [NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ContextMenuCegComponent implements ComponentExample {
   elementName = 'context-menu';

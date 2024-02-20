@@ -7,14 +7,11 @@ import { EmojiNeutralComponent } from './emoji-neutral/emoji-neutral.component';
 import { EmojiGoodComponent } from './emoji-good/emoji-good.component';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [
-    FeedbackComponent,
-    FeedbackLinkComponent,
-    EmojiBadComponent,
-    EmojiNeutralComponent,
-    EmojiGoodComponent,
-  ],
-  exports: [FeedbackComponent, FeedbackLinkComponent],
+    imports: [CommonModule, FeedbackComponent,
+        FeedbackLinkComponent,
+        EmojiBadComponent,
+        EmojiNeutralComponent,
+        EmojiGoodComponent],
+    exports: [FeedbackComponent, FeedbackLinkComponent],
 })
 export class FeedbackModule {}

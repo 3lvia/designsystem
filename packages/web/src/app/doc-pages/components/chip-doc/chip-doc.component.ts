@@ -1,10 +1,34 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { chipData } from './chip-data';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-empty-ceg.component';
+import { ChipImageCegComponent } from './chip-image-ceg/chip-image-ceg.component';
+import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
+import { NgFor } from '@angular/common';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ChipCegComponent } from './chip-ceg/chip-ceg.component';
+import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
 
 @Component({
   selector: 'app-chips',
   templateUrl: './chip-doc.component.html',
   styleUrls: ['./chip-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    ChipCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    NgFor,
+    StaticCegComponent,
+    ChipImageCegComponent,
+    ChipImageEmptyCegComponent,
+    WhenToUseComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ChipDocComponent {
   does = chipData.does;

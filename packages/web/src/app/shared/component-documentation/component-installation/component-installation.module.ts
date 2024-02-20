@@ -4,8 +4,7 @@ import { ComponentInstallationComponent } from './component-installation.compone
 import { CopyModule } from '../../copy/copy.module';
 
 @NgModule({
-  imports: [CommonModule, CopyModule],
-  declarations: [ComponentInstallationComponent],
-  exports: [ComponentInstallationComponent],
+    imports: [CommonModule, CopyModule, ComponentInstallationComponent],
+    exports: [ComponentInstallationComponent],
 })
 export class ComponentInstallationModule {}

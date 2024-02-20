@@ -5,9 +5,8 @@ import '@elvia/elvis-card';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [ComponentRelatedComponent],
-  exports: [ComponentRelatedComponent],
-  imports: [CommonModule, RouterModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    exports: [ComponentRelatedComponent],
+    imports: [CommonModule, RouterModule, ComponentRelatedComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentRelatedModule {}

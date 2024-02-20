@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IfViewportSizeDirective } from './if-viewport-size.directive';
 
 @NgModule({
-  declarations: [IfViewportSizeDirective],
-  imports: [CommonModule],
-  exports: [IfViewportSizeDirective],
+    imports: [CommonModule, IfViewportSizeDirective],
+    exports: [IfViewportSizeDirective],
 })
 export class ViewportSizeModule {}

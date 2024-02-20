@@ -4,6 +4,12 @@ import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
 import { UnknownCegControlManager } from '../cegControlManager';
 import { Controls, ControlValue } from '../controlType';
+import { TextComponent } from './text/text.component';
+import { CounterComponent } from './counter/counter.component';
+import { SwitchComponent } from './switch/switch.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { RadioGroupComponent } from './radio-group/radio-group.component';
+import { NgFor, NgIf, KeyValuePipe } from '@angular/common';
 
 interface Group {
   name: string;
@@ -11,9 +17,20 @@ interface Group {
 }
 
 @Component({
-  selector: 'app-controls',
-  templateUrl: './controls.component.html',
-  styleUrls: ['./controls.component.scss'],
+    selector: 'app-controls',
+    templateUrl: './controls.component.html',
+    styleUrls: ['./controls.component.scss'],
+    standalone: true,
+    imports: [
+        NgFor,
+        NgIf,
+        RadioGroupComponent,
+        CheckboxComponent,
+        SwitchComponent,
+        CounterComponent,
+        TextComponent,
+        KeyValuePipe,
+    ],
 })
 export class ControlsComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();

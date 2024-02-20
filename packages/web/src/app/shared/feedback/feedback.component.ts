@@ -3,11 +3,22 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RoutesRecognized } from '@angular/router';
 import { ScrollNotifierService } from './scroll-notifier.service';
+import { EmojiGoodComponent } from './emoji-good/emoji-good.component';
+import { EmojiNeutralComponent } from './emoji-neutral/emoji-neutral.component';
+import { EmojiBadComponent } from './emoji-bad/emoji-bad.component';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-feedback',
-  templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.scss'],
+    selector: 'app-feedback',
+    templateUrl: './feedback.component.html',
+    styleUrls: ['./feedback.component.scss'],
+    standalone: true,
+    imports: [
+        NgIf,
+        EmojiBadComponent,
+        EmojiNeutralComponent,
+        EmojiGoodComponent,
+    ],
 })
 export class FeedbackComponent {
   @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;

@@ -6,9 +6,8 @@ import { FrontPageChangelogComponent } from './front-page-changelog/front-page-c
 import '@elvia/elvis-card';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, FrontPageChangelogComponent],
-  declarations: [HomeComponent],
-  exports: [HomeComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [CommonModule, RouterModule, FrontPageChangelogComponent, HomeComponent],
+    exports: [HomeComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule {}

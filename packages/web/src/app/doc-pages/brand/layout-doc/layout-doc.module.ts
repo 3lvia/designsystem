@@ -17,26 +17,24 @@ import { LayoutLevelsCegComponent } from './layout-levels-ceg/layout-levels-ceg.
 import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-ordering-ceg.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    ComponentSubsubsectionModule,
-    RouterModule,
-    CegModule,
-  ],
-  declarations: [
-    LayoutDocComponent,
-    LayoutBreakpointsCegComponent,
-    LayoutMarginsCegComponent,
-    LayoutGuttersCegComponent,
-    LayoutGuttersNoCegComponent,
-    LayoutGuttersCustomCegComponent,
-    LayoutAlignmentCegComponent,
-    LayoutLevelsCegComponent,
-    LayoutOrderingCegComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [
+        CommonModule,
+        ComponentHeaderModule,
+        ComponentSectionModule,
+        ComponentSubsectionModule,
+        ComponentSubsubsectionModule,
+        RouterModule,
+        CegModule,
+        LayoutDocComponent,
+        LayoutBreakpointsCegComponent,
+        LayoutMarginsCegComponent,
+        LayoutGuttersCegComponent,
+        LayoutGuttersNoCegComponent,
+        LayoutGuttersCustomCegComponent,
+        LayoutAlignmentCegComponent,
+        LayoutLevelsCegComponent,
+        LayoutOrderingCegComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LayoutDocModule {}

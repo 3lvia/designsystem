@@ -4,9 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./draganddrop-ceg.component.html';
 
 @Component({
-  selector: 'app-draganddrop-ceg',
-  templateUrl: './draganddrop-ceg.component.html',
-  providers: [{ provide: StaticComponentExample, useExisting: DraganddropCegComponent }],
+    selector: 'app-draganddrop-ceg',
+    templateUrl: './draganddrop-ceg.component.html',
+    providers: [{ provide: StaticComponentExample, useExisting: DraganddropCegComponent }],
+    standalone: true,
 })
 export class DraganddropCegComponent implements StaticComponentExample {
   html = template.default;

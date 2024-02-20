@@ -7,13 +7,10 @@ import { ContentLoaderTextCegComponent } from './content-loader-text-ceg/content
 import { SharedDocumentationModule } from 'src/app/shared/component-documentation/shared-component-documentation.module';
 
 @NgModule({
-  declarations: [
-    ContentLoaderDocComponent,
-    ContentLoaderCegComponent,
-    ContentLoaderBoxCegComponent,
-    ContentLoaderCircleCegComponent,
-    ContentLoaderTextCegComponent,
-  ],
-  imports: [SharedDocumentationModule],
+    imports: [SharedDocumentationModule, ContentLoaderDocComponent,
+        ContentLoaderCegComponent,
+        ContentLoaderBoxCegComponent,
+        ContentLoaderCircleCegComponent,
+        ContentLoaderTextCegComponent],
 })
 export class ContentLoaderDocModule {}

@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'escapeHTML',
+    name: 'escapeHTML',
+    standalone: true,
 })
 export class EscapeHTMLPipe implements PipeTransform {
   transform(value: string | undefined): string {

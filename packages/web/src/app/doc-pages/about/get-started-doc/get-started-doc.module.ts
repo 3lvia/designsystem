@@ -14,17 +14,17 @@ import { CssLibraryIllustrationComponent } from './css-library-illustration/css-
 import { WebComponentIllustrationComponent } from './web-component-illustration/web-component-illustration.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    CopyModule,
-    ComponentSectionModule,
-    ComponentSubsectionModule,
-    ComponentSubsubsectionModule,
-    RouterModule,
-    CegModule,
-  ],
-  declarations: [GetStartedDocComponent, CssLibraryIllustrationComponent, WebComponentIllustrationComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [
+        CommonModule,
+        ComponentHeaderModule,
+        CopyModule,
+        ComponentSectionModule,
+        ComponentSubsectionModule,
+        ComponentSubsubsectionModule,
+        RouterModule,
+        CegModule,
+        GetStartedDocComponent, CssLibraryIllustrationComponent, WebComponentIllustrationComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class GetStartedDocModule {}

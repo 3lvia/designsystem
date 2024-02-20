@@ -2,11 +2,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ColorElement, ColorsObject } from '../colors-types';
 import { getHighestContrast, getOpacityColors } from '../colors-util';
 import { ThemeName } from '@elvia/elvis-colors';
+import { NeedsBorderPipe } from '../needs-border.pipe';
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-color-picker-color-list',
-  templateUrl: './color-picker-color-list.component.html',
-  styleUrls: ['./color-picker-color-list.component.scss'],
+    selector: 'app-color-picker-color-list',
+    templateUrl: './color-picker-color-list.component.html',
+    styleUrls: ['./color-picker-color-list.component.scss'],
+    standalone: true,
+    imports: [NgClass, NeedsBorderPipe],
 })
 export class ColorPickerColorListComponent {
   @Input({ required: true }) colorList: ColorsObject;

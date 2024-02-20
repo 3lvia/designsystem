@@ -7,9 +7,8 @@ import { RouterModule } from '@angular/router';
 import { ViewportSizeModule } from '../../shared/viewport-size/viewport-size.module';
 
 @NgModule({
-  declarations: [PageWithSidenavComponent],
-  imports: [CommonModule, RouterModule, FeedbackModule, NavbarModule, ViewportSizeModule],
-  exports: [PageWithSidenavComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [CommonModule, RouterModule, FeedbackModule, NavbarModule, ViewportSizeModule, PageWithSidenavComponent],
+    exports: [PageWithSidenavComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PageWithSidenavModule {}

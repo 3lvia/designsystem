@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { ThemeName } from '@elvia/elvis-colors';
 import { Observable } from 'rxjs';
 
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CopyComponent } from '../../../../shared/copy/copy.component';
+import { NgClass, NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 interface Shadow {
   title: string;
@@ -17,6 +19,9 @@ interface Shadow {
   selector: 'app-shadow-viewer',
   templateUrl: './shadow-viewer.component.html',
   styleUrls: ['./shadow-viewer.component.scss'],
+  standalone: true,
+  imports: [NgClass, NgIf, NgFor, CopyComponent, AsyncPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShadowViewerComponent {
   currentLocale: Locale = 'en-GB';

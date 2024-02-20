@@ -1,10 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgClass, NgIf } from '@angular/common';
+import { CopyComponent } from '../../../copy/copy.component';
 
 @Component({
-  selector: 'app-component-section',
-  templateUrl: './component-section.component.html',
-  styleUrls: ['./component-section.component.scss'],
+    selector: 'app-component-section',
+    templateUrl: './component-section.component.html',
+    styleUrls: ['./component-section.component.scss'],
+    standalone: true,
+    imports: [
+        CopyComponent,
+        NgClass,
+        NgIf,
+    ],
 })
 export class ComponentSectionComponent {
   @Input() sectionTitle = '';

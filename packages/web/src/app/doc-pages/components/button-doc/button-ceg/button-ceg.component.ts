@@ -4,9 +4,10 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 import * as template from 'html-loader!./button-ceg.component.html';
 
 @Component({
-  selector: 'app-button-ceg',
-  templateUrl: './button-ceg.component.html',
-  providers: [{ provide: StaticComponentExample, useExisting: ButtonCegComponent }],
+    selector: 'app-button-ceg',
+    templateUrl: './button-ceg.component.html',
+    providers: [{ provide: StaticComponentExample, useExisting: ButtonCegComponent }],
+    standalone: true,
 })
 export class ButtonCegComponent implements StaticComponentExample {
   html = template.default;
