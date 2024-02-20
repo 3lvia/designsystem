@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "16.2.2",
+      "date": "February 20, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Deprecated the <code>.e-alert--no-title</code> class. Its styles are now automatically applied using the <code>:has()</code> selector."
+          ],
+          "pages": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        }
+      ]
+    },
+    {
       "version": "16.2.1",
       "date": "February 16, 2024",
       "changelog": [
