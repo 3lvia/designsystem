@@ -26,8 +26,8 @@
 
   &__error {
     display: flex;
-    align-items: center;
     min-height: 22px;
+    align-items: center;
     margin-top: 2px;
     @include mixins.typography('text-sm');
     color: var(--e-color-text-1);
