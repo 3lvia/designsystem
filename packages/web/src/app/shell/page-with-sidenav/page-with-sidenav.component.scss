@@ -19,6 +19,7 @@
 .page-container {
   display: grid;
   margin: 0 104px;
+  max-width: 1440px;
   padding-right: min(80px, 4vw); // This shifts the content to the right to make it feel more centered
 
   // minmax(0, 1fr) prevents CEGs from overflowing: https://css-tricks.com/preventing-a-grid-blowout/
@@ -33,6 +34,10 @@
 
   @include breakpoints.breakpoint-up(Mobile) {
     margin: 0 16px 16px;
+  }
+
+  @include breakpoints.breakpoint-up(MaxDesktop) {
+    margin: auto;
   }
 }
 

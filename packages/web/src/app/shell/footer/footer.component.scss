@@ -6,22 +6,28 @@
 }
 
 .footer {
-  --footer-height: 136px;
+  width: 100%;
 
-  height: var(--footer-height);
-  display: grid;
-  padding: 48px;
-  grid-template-areas: 'copyright contact contact contact links';
-  gap: 32px 0;
-  align-items: center;
-  background-color: var(--footer-background);
+  .footer-content {
+    --footer-height: 136px;
 
-  @include breakpoints.breakpoint-up(Mobile) {
-    --footer-height: 225px;
+    height: var(--footer-height);
+    display: grid;
+    padding: 48px;
+    grid-template-areas: 'copyright contact contact contact links';
+    gap: 32px 0;
+    align-items: center;
+    background-color: var(--footer-background);
+    max-width: 1440px;
+    margin: auto;
 
-    grid-template-areas:
-      'contact contact'
-      'copyright links';
+    @include breakpoints.breakpoint-up(Mobile) {
+      --footer-height: 225px;
+
+      grid-template-areas:
+        'contact contact'
+        'copyright links';
+    }
   }
 }
 

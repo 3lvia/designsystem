@@ -1,35 +1,37 @@
 <div class="elvia-curve"></div>
 <footer class="footer e-color-background-3" [ngClass]="bgClass">
-  <div class="e-text-sm contact">
-    Have questions? Reach out to us on Slack
-    <a
-      class="e-link e-link--inline e-link--new-tab e-link--sm"
-      href="https://elvia-group.slack.com/archives/C01C1DU9X1Q"
-      target="_blank"
-      rel="noopener"
-    >
-      <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon">
-        <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
-      </span>
-    </a>
-    or
-    <a class="e-link e-link--inline e-link--sm" [routerLink]="['/about/contact']">contact</a>
-    one of us in the team.
-  </div>
+  <div class="footer-content">
+    <div class="e-text-sm contact">
+      Have questions? Reach out to us on Slack
+      <a
+        class="e-link e-link--inline e-link--new-tab e-link--sm"
+        href="https://elvia-group.slack.com/archives/C01C1DU9X1Q"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title">#designsystemet</span>
+        <span class="e-link__icon">
+          <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+        </span>
+      </a>
+      or
+      <a class="e-link e-link--inline e-link--sm" [routerLink]="['/about/contact']">contact</a>
+      one of us in the team.
+    </div>
 
-  <div class="e-text-micro copyright">Copyright © {{ currentYear }} Elvia</div>
+    <div class="e-text-micro copyright">Copyright © {{ currentYear }} Elvia</div>
 
-  <div class="links">
-    <a
-      *ngFor="let link of links"
-      class="e-btn e-btn--icon e-btn--sm"
-      [href]="link.url"
-      target="_blank"
-      rel="noopener"
-    >
-      <img class="default-img" [src]="link.defaultImgSrc" [alt]="link.alt" />
-      <img class="inverted-img" [src]="link.invertedImgSrc" [alt]="link.alt" />
-    </a>
+    <div class="links">
+      <a
+        *ngFor="let link of links"
+        class="e-btn e-btn--icon e-btn--sm"
+        [href]="link.url"
+        target="_blank"
+        rel="noopener"
+      >
+        <img class="default-img" [src]="link.defaultImgSrc" [alt]="link.alt" />
+        <img class="inverted-img" [src]="link.invertedImgSrc" [alt]="link.alt" />
+      </a>
+    </div>
   </div>
 </footer>
