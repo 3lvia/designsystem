@@ -79,6 +79,9 @@ export const Popover: FC<PopoverProps> = function ({
   /* Saving the original focused element before the popover is opened, and then returning focus to that
   element when the popover is closed. */
   useEffect(() => {
+    if (!isShowingConnectedOverlayState) {
+      return;
+    }
     const originalFocusedElement = document.activeElement as HTMLElement;
     return () => {
       originalFocusedElement && originalFocusedElement.focus();
