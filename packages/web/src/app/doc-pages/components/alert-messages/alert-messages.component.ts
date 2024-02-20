@@ -4,7 +4,6 @@ import { AlertRoleStatusCegComponent } from './alert-role-status-ceg/alert-role-
 import { AlertRoleAlertCegComponent } from './alert-role-alert-ceg/alert-role-alert-ceg.component';
 import { CopyComponent } from '../../../shared/copy/copy.component';
 import { AlertLocalClosableCegComponent } from './alert-local-closable-ceg/alert-local-closable-ceg.component';
-import { AlertLocalNoTitleCegComponent } from './alert-local-no-title-ceg/alert-local-no-title-ceg.component';
 import { AlertLocalCegComponent } from './alert-local-ceg/alert-local-ceg.component';
 import { AlertGlobalNoTitleCegComponent } from './alert-global-no-title-pandable-ceg/alert-global-no-title-ceg.component';
 import { AlertGlobalActionsCegComponent } from './alert-global-actions-ceg/alert-global-actions-ceg.component';
@@ -37,7 +36,6 @@ import { ComponentDocumentationComponent } from '../../../shared/component-docum
     AlertGlobalActionsCegComponent,
     AlertGlobalNoTitleCegComponent,
     AlertLocalCegComponent,
-    AlertLocalNoTitleCegComponent,
     AlertLocalClosableCegComponent,
     CopyComponent,
     AlertRoleAlertCegComponent,
