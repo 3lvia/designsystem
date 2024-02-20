@@ -27,6 +27,7 @@ import { NgIf, AsyncPipe } from '@angular/common';
     FormatCodePipe,
     HighlighterPipe,
   ],
+  providers: [FormatCodePipe, HighlighterPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeViewerComponent {

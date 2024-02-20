@@ -19,7 +19,7 @@ const routes: Routes = [
   // About section
   {
     path: 'about',
-    loadChildren: () => import('./doc-pages/about/about-routing.module').then((m) => m.BrandRoutingModule),
+    loadChildren: () => import('./doc-pages/about/about-routing').then((m) => m.AboutRoutes),
   },
   // Brand section
   {

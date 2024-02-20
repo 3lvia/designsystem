@@ -45,7 +45,6 @@ import { TagDocComponent } from './tag-doc/tag-doc.component';
 import { ThumbnailDocComponent } from './thumbnail-doc/thumbnail-doc.component';
 import { ToastDocComponent } from './toast-doc/toast-doc.component';
 import { TooltipDocComponent } from './tooltip-doc/tooltip-doc.component';
-import { ComponentsModule } from './components.module';
 import { CSSLibraryDocComponent } from './css-library-doc/css-library-doc.component';
 
 const routes: Routes = [
@@ -237,7 +236,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), ComponentsModule],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class ComponentsRoutingModule {}

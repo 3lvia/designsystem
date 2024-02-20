@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrandModule } from './brand.module';
 import { CMSPageComponent } from '../cms/cms-page/cms-page.component';
 import { ColorComponent } from './color-doc/color.component';
 import { IconDocComponent } from './icon-doc/icon-doc.component';
@@ -37,7 +36,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), BrandModule],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class BrandRoutingModule {}
