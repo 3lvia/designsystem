@@ -162,8 +162,6 @@ function App() {
     });
   };
 
-  const [currentab, setCurrentTab] = useState(0);
-
   return (
     <Header
       appTitle="Louvre"
