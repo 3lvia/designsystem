@@ -18,29 +18,29 @@ import { StaticCodeGeneratorComponent } from './code-generator/static-code-gener
 import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
 import { PhoneShellComponent } from './phone-shell/phone-shell.component';
 import { CodeViewerComponent } from './code-generator/code-viewer/code-viewer.component';
-import { ViewportSizeModule } from '../../viewport-size/viewport-size.module';
+
 import { TabToSegmentedControlItemPipe } from './code-generator/code-viewer/tabToSegmentedControlItem.pipe';
 import '@elvia/elvis-segmented-control';
 
 @NgModule({
     exports: [CegComponent, StaticCegComponent, CodeViewerComponent],
-    imports: [CommonModule, ViewportSizeModule, TabToSegmentedControlItemPipe, CegComponent,
-        StaticCegComponent,
-        CodeGeneratorComponent,
-        ControlsComponent,
-        FormatCodePipe,
-        RadioGroupComponent,
-        CheckboxComponent,
-        SwitchComponent,
-        CounterComponent,
-        TypeSwitcherComponent,
-        HighlighterPipe,
-        ControlsPopoverComponent,
-        TextComponent,
-        StaticCodeGeneratorComponent,
-        DynamicCodeGeneratorComponent,
-        PhoneShellComponent,
-        CodeViewerComponent],
+    imports: [CommonModule, TabToSegmentedControlItemPipe, CegComponent,
+    StaticCegComponent,
+    CodeGeneratorComponent,
+    ControlsComponent,
+    FormatCodePipe,
+    RadioGroupComponent,
+    CheckboxComponent,
+    SwitchComponent,
+    CounterComponent,
+    TypeSwitcherComponent,
+    HighlighterPipe,
+    ControlsPopoverComponent,
+    TextComponent,
+    StaticCodeGeneratorComponent,
+    DynamicCodeGeneratorComponent,
+    PhoneShellComponent,
+    CodeViewerComponent],
     providers: [FormatCodePipe],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

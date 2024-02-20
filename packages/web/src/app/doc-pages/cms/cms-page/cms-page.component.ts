@@ -12,19 +12,15 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { NgIf, NgFor } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-    selector: 'app-cms-page',
-    templateUrl: './cms-page.component.html',
-    styleUrls: ['./cms-page.component.scss'],
-    encapsulation: ViewEncapsulation.None,
-    standalone: true,
-    imports: [
-        NgIf,
-        ComponentHeaderComponent,
-        NgFor,
-        RouterOutlet,
-    ],
+  selector: 'app-cms-page',
+  templateUrl: './cms-page.component.html',
+  styleUrls: ['./cms-page.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [NgIf, ComponentHeaderComponent, NgFor, RouterOutlet, HttpClientModule],
 })
 export class CMSPageComponent implements OnDestroy {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;

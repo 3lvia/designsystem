@@ -9,9 +9,11 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { CdkTrapFocus } from '@angular/cdk/a11y';
-import { NgClass, NgIf, NgFor } from '@angular/common';
+import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
+import { A11yModule, CdkTrapFocus } from '@angular/cdk/a11y';
+import { NgClass, NgIf, NgFor, CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { SearchHighlighterPipe } from 'src/app/shared/search-highlighter.pipe';
 
 type MenuType = 'search' | 'mobileMenu' | null;
 
@@ -30,6 +32,11 @@ type MenuType = 'search' | 'mobileMenu' | null;
     ThemeSwitchComponent,
     SearchMenuComponent,
     MobileMenuComponent,
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    SearchHighlighterPipe,
+    A11yModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
