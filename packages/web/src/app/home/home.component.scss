@@ -8,22 +8,29 @@
 }
 
 .home-top {
-  display: grid;
-  gap: 6vw;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 0 80px;
+  width: 100%;
   background-color: var(--home-background-color);
-  height: 32vw;
-  min-height: 477px;
-  max-height: 520px;
-  place-items: center;
 
-  @include breakpoints.breakpoint-up(MinDesktop) {
-    gap: 5vw;
+  .home-top-wrapper {
+    display: grid;
+    gap: 6vw;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 80px;
 
-    .top-image img {
-      top: 32px;
-      width: 135%;
+    height: 32vw;
+    min-height: 477px;
+    max-height: 520px;
+    place-items: center;
+    max-width: 1440px;
+    margin: auto;
+
+    @include breakpoints.breakpoint-up(MinDesktop) {
+      gap: 5vw;
+
+      .top-image img {
+        top: 32px;
+        width: 135%;
+      }
     }
   }
 
