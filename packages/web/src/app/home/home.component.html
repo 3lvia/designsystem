@@ -1,44 +1,48 @@
 <div class="home-top">
-  <div class="title-desktop e-theme-dark e-color-text-1 e-none-sm e-none-md">
-    <h1 class="big-header e-m-0">
-      <div *ngIf="fontLoaded">
-        <span class="title" [ngClass]="{ 'green-dot': holiday !== 'ConstitutionDay' }">{{ pageTitle }}</span>
-        <span *ngIf="holiday === 'ConstitutionDay'" class="e-text-green e-ml-8">!</span>
+  <div class="home-top-wrapper">
+    <div class="title-desktop e-theme-dark e-color-text-1 e-none-sm e-none-md">
+      <h1 class="big-header e-m-0">
+        <div *ngIf="fontLoaded">
+          <span class="title" [ngClass]="{ 'green-dot': holiday !== 'ConstitutionDay' }">{{
+            pageTitle
+          }}</span>
+          <span *ngIf="holiday === 'ConstitutionDay'" class="e-text-green e-ml-8">!</span>
+        </div>
+        <div class="content-loader-title" *ngIf="!fontLoaded">
+          <span class="e-content-loader e-w-75" style="height: 60px"></span>
+          <span class="e-content-loader e-w-50 e-mt-24" style="height: 60px"></span>
+        </div>
+      </h1>
+      <div class="e-text-lead e-mt-32">
+        <div *ngIf="fontLoaded">
+          <span *ngIf="locale === 'en-GB'">
+            A scalable system of visual language, components and design assets so we can work together towards
+            an ultimate brand experience.
+          </span>
+          <span *ngIf="locale === 'nb-NO'">
+            Et skalerbart system av visuelt språk, komponenter og designelementer så vi sammen kan jobbe mot
+            den ultimate brandopplevelsen.
+          </span>
+        </div>
+        <div *ngIf="!fontLoaded" class="content-loader-text">
+          <span class="e-content-loader e-content-loader--text"></span>
+          <span class="e-content-loader e-content-loader--text e-mt-24"></span>
+          <span class="e-content-loader e-content-loader--text e-w-75 e-mt-24"></span>
+        </div>
       </div>
-      <div class="content-loader-title" *ngIf="!fontLoaded">
-        <span class="e-content-loader e-w-75" style="height: 60px"></span>
-        <span class="e-content-loader e-w-50 e-mt-24" style="height: 60px"></span>
-      </div>
-    </h1>
-    <div class="e-text-lead e-mt-32">
-      <div *ngIf="fontLoaded">
-        <span *ngIf="locale === 'en-GB'">
-          A scalable system of visual language, components and design assets so we can work together towards
-          an ultimate brand experience.
+      <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
+        <span class="e-btn__title">
+          <div>Get started</div>
         </span>
-        <span *ngIf="locale === 'nb-NO'">
-          Et skalerbart system av visuelt språk, komponenter og designelementer så vi sammen kan jobbe mot den
-          ultimate brandopplevelsen.
-        </span>
-      </div>
-      <div *ngIf="!fontLoaded" class="content-loader-text">
-        <span class="e-content-loader e-content-loader--text"></span>
-        <span class="e-content-loader e-content-loader--text e-mt-24"></span>
-        <span class="e-content-loader e-content-loader--text e-w-75 e-mt-24"></span>
+      </a>
+      <div class="e-mt-48" *ngIf="!fontLoaded">
+        <span class="e-content-loader" style="width: 160px; height: 48px"></span>
       </div>
     </div>
-    <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
-      <span class="e-btn__title">
-        <div>Get started</div>
-      </span>
-    </a>
-    <div class="e-mt-48" *ngIf="!fontLoaded">
-      <span class="e-content-loader" style="width: 160px; height: 48px"></span>
-    </div>
-  </div>
 
-  <div class="top-image home-image-animation">
-    <img class="image" [src]="topImagePath" alt="" />
+    <div class="top-image home-image-animation">
+      <img class="image" [src]="topImagePath" alt="" />
+    </div>
   </div>
 </div>
 <div class="elvia-curve"></div>
