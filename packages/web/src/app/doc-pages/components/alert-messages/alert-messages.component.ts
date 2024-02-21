@@ -75,6 +75,6 @@ export class AlertMessagesComponent {
   ];
   dontsAriaRoleStatusDefault = ['If an alert requires focus to be moved'];
 
-  doesAriaRoleNoteDefault = ['The alert messages is supplementary', 'The alert is visable on page load'];
-  dontsAriaRoleNoteDefault = ['The alert needs to interupt the user', 'The alert is important'];
+  doesAriaRoleNoteDefault = ['The alert messages is supplementary', 'The alert is visible on page load'];
+  dontsAriaRoleNoteDefault = ['The alert needs to interrupt the user', 'The alert is important'];
 }
