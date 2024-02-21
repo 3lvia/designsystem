@@ -32,21 +32,21 @@
         width: 135%;
       }
     }
-  }
 
-  @include breakpoints.breakpoint-up(Tablet) {
-    grid-template-columns: 1fr;
-    padding: 0;
-    height: 40vw;
-    min-height: 196px;
-    max-height: 378px;
+    @include breakpoints.breakpoint-up(Tablet) {
+      grid-template-columns: 1fr;
+      padding: 0;
+      height: 40vw;
+      min-height: 196px;
+      max-height: 378px;
 
-    .top-image {
-      width: 80vw;
+      .top-image {
+        width: 80vw;
 
-      .image {
-        inset: 0;
-        width: 100%;
+        .image {
+          inset: 0;
+          width: 100%;
+        }
       }
     }
   }
