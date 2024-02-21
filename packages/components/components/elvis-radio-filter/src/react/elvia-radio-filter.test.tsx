@@ -1,8 +1,9 @@
-import React from 'react';
-import RadioFilter, { Option } from './elvia-radio-filter';
-import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import RadioFilter, { Option } from './elvia-radio-filter';
 
 describe('Elvis RadioFilter', () => {
   const items: Option[] = [

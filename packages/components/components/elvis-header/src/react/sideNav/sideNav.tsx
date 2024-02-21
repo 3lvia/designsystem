@@ -1,8 +1,9 @@
-import { useBreakpoint, IconWrapper } from '@elvia/elvis-toolbox';
-import React from 'react';
-import { IconContainer, SideNavContainer, ToggleWidthButton } from './sideNavStyles';
-import openMenu from '@elvia/elvis-assets-icons/dist/icons/openMenu';
 import closeMenu from '@elvia/elvis-assets-icons/dist/icons/closeMenu';
+import openMenu from '@elvia/elvis-assets-icons/dist/icons/openMenu';
+import { IconWrapper, useBreakpoint } from '@elvia/elvis-toolbox';
+import React from 'react';
+
+import { IconContainer, SideNavContainer, ToggleWidthButton } from './sideNavStyles';
 
 interface SideNavProps {
   isExpanded: boolean;

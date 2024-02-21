@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { IconListCegComponent } from './list-icon-ceg/list-icon-ceg.component';
-import { NumberedListCegComponent } from './list-numbered-ceg/list-numbered-ceg.component';
-import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
-import { BulletListCegComponent } from './list-bullet-ceg/list-bullet-ceg.component';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { ListCegComponent } from './list-ceg/list-ceg.component';
+
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { BulletListCegComponent } from './list-bullet-ceg/list-bullet-ceg.component';
+import { ListCegComponent } from './list-ceg/list-ceg.component';
+import { IconListCegComponent } from './list-icon-ceg/list-icon-ceg.component';
+import { NumberedListCegComponent } from './list-numbered-ceg/list-numbered-ceg.component';
 
 @Component({
   selector: 'app-list-doc',

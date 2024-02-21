@@ -2,6 +2,7 @@ import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { IconButton, device } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css, keyframes } from 'styled-components';
+
 import { ToastType } from './publicApi.public';
 
 export const animationDuration = 200;

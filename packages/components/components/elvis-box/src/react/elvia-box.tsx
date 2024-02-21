@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
-import { BoxArea, BoxColoredLine, BoxHeading, BoxContent } from './styledComponents';
 import { useSlot } from '@elvia/elvis-toolbox';
+import React, { FC } from 'react';
+
 import { BoxProps } from './elvia-box.types';
+import { BoxArea, BoxColoredLine, BoxContent, BoxHeading } from './styledComponents';
 
 export const Box: FC<BoxProps> = function ({
   heading,

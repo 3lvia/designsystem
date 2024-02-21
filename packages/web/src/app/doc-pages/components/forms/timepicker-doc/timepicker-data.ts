@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-timepicker/CHANGELOG.json';
-import ComponentData from '../../component-data.interface';
 import { TimepickerProps } from '@elvia/elvis-timepicker/react';
+
+import ComponentData from '../../component-data.interface';
 
 export const timepickerData: ComponentData<Omit<TimepickerProps, 'dateRangeProps' | 'onFocus'>> = {
   changelog: changelogJson.content,

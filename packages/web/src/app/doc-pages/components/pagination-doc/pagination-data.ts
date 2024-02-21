@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-pagination/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BasePaginationProps } from '@elvia/elvis-pagination/react';
+
+import ComponentData from '../component-data.interface';
 
 export const paginationData: ComponentData<BasePaginationProps> = {
   changelog: changelogJson.content,

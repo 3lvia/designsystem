@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { CopyComponent } from '../../../copy/copy.component';
 import { NgIf } from '@angular/common';
+import { Component, Input } from '@angular/core';
+
+import { CopyComponent } from '../../../copy/copy.component';
 
 @Component({
   selector: 'app-component-subsection',

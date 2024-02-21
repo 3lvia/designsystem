@@ -26,6 +26,7 @@
 
   &__error {
     display: flex;
+    min-height: 22px;
     align-items: center;
     margin-top: 2px;
     @include mixins.typography('text-sm');

@@ -1,6 +1,7 @@
 import { Directive, Input, OnChanges } from '@angular/core';
-import { ComponentProp } from './types';
+
 import { SearchResult } from '../../searcher';
+import { ComponentProp } from './types';
 
 interface TableGroup {
   title: string;

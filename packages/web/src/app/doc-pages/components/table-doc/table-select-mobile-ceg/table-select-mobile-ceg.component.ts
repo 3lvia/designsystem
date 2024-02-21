@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 import * as template from 'html-loader!./table-select-mobile-ceg.component.html';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-table-select-mobile-ceg',

@@ -1,5 +1,6 @@
 import { Overlay, useFocusTrap } from '@elvia/elvis-toolbox';
 import React, { useEffect, useRef, useState } from 'react';
+
 import { AppList } from '../appList/appList';
 import { AppListContainer } from './appDrawerStyles';
 

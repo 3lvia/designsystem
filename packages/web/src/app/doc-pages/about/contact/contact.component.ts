@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import { Title } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 type ContactInfo = {
   firstName: string;

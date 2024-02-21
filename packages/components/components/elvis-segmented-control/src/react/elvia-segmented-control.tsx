@@ -1,17 +1,18 @@
+import DOMPurify from 'dompurify';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+
 import {
-  TextSegmentedControl,
   IconSegmentedControl,
   SegmentedControlProps,
+  TextSegmentedControl,
 } from './elviaSegmentedControl.types';
 import {
-  SegmentedControlContainer,
-  SegmentedControlLabel,
-  SegmentedControlInput,
-  SegmentedControlIconContainer,
   BoldControlTextPlaceholder,
+  SegmentedControlContainer,
+  SegmentedControlIconContainer,
+  SegmentedControlInput,
+  SegmentedControlLabel,
 } from './styledComponents';
-import DOMPurify from 'dompurify';
 
 let UNIQUE_SEGMENTED_CONTROL_ID = 0;
 

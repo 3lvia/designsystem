@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css } from 'styled-components';
 
 export const BoundaryWidthMeasurement = styled.span<{ $size: FormFieldSizes }>`
   ${getTypographyCss('text-md')}

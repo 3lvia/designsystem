@@ -1,18 +1,19 @@
+import { A11yModule, CdkTrapFocus } from '@angular/cdk/a11y';
+import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { LocalizationService } from 'src/app/core/services/localization.service';
-import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Theme, ThemeService } from 'src/app/core/services/theme.service';
+import { FormsModule } from '@angular/forms';
+import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { ThemeClassName } from '@elvia/elvis-colors';
-import { BreakpointService } from 'src/app/core/services/breakpoint.service';
+
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
-import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
-import { A11yModule, CdkTrapFocus } from '@angular/cdk/a11y';
-import { NgClass, NgIf, NgFor, CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
+import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { LocalizationService } from 'src/app/core/services/localization.service';
+import { Theme, ThemeService } from 'src/app/core/services/theme.service';
 import { SearchHighlighterPipe } from 'src/app/shared/search-highlighter.pipe';
 
 type MenuType = 'search' | 'mobileMenu' | null;

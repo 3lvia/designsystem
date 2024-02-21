@@ -1,6 +1,7 @@
 import esbuild from 'esbuild';
-import ts from 'typescript';
 import path from 'path';
+import ts from 'typescript';
+
 import { getMd5 } from './utils';
 
 interface Props {

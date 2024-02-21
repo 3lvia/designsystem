@@ -1,15 +1,15 @@
+import { KeyValuePipe, NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { combineLatest, Subject } from 'rxjs';
+import { Subject, combineLatest } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
 import { UnknownCegControlManager } from '../cegControlManager';
-import { Controls, ControlValue } from '../controlType';
-import { TextComponent } from './text/text.component';
-import { CounterComponent } from './counter/counter.component';
-import { SwitchComponent } from './switch/switch.component';
+import { ControlValue, Controls } from '../controlType';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { CounterComponent } from './counter/counter.component';
 import { RadioGroupComponent } from './radio-group/radio-group.component';
-import { NgFor, NgIf, KeyValuePipe } from '@angular/common';
+import { SwitchComponent } from './switch/switch.component';
+import { TextComponent } from './text/text.component';
 
 interface Group {
   name: string;

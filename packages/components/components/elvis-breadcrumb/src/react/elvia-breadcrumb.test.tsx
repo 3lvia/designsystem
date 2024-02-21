@@ -1,8 +1,9 @@
-import { Breadcrumb } from './elvia-breadcrumb';
-import React from 'react';
-import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import { Breadcrumb } from './elvia-breadcrumb';
 
 const breadcumbsLinksTest = [
   {

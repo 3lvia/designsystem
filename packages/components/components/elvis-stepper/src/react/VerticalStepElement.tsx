@@ -1,8 +1,9 @@
+import { TypographyName } from '@elvia/elvis-typography';
 import React, { FC } from 'react';
+
+import { StepStates } from './publicApi.public';
 import { StepHeader, StepNumber, StepperTitle } from './styledComponents';
 import { isReachable } from './utils';
-import { TypographyName } from '@elvia/elvis-typography';
-import { StepStates } from './publicApi.public';
 
 type VerticalStepElementProps = {
   stepNumber: number;

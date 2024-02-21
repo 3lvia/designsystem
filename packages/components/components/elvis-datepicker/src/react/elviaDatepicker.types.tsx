@@ -1,5 +1,6 @@
+import { BaseProps, FormFieldSizes, HasError, HasValue } from '@elvia/elvis-toolbox';
+
 export type ErrorType = 'invalidDate' | 'required' | 'beforeMinDate' | 'afterMaxDate';
-import { BaseProps, HasError, HasValue, FormFieldSizes } from '@elvia/elvis-toolbox';
 
 export interface DateRange {
   start: Date | null;

@@ -1,8 +1,9 @@
-import React, { forwardRef, ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, forwardRef, useEffect, useRef, useState } from 'react';
 import { createPortal, flushSync } from 'react-dom';
+
 import { useCurrentTheme } from '../../hooks/useCurrentTheme';
 import { TransparentBackdrop } from '../backdrop/transparentBackdrop';
-import { exitDuration, OverlayContainer, OverlayDOMPosition } from './overlayStyles';
+import { OverlayContainer, OverlayDOMPosition, exitDuration } from './overlayStyles';
 
 interface OverlayProps {
   onClose: () => void;

@@ -1,4 +1,5 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
+
 import { ScrollPosition } from './elvia-tabs.types';
 
 export const useScrollPositionDetection = (ref: RefObject<HTMLElement>): ScrollPosition => {

@@ -1,5 +1,6 @@
-import { BaseProps, useSlot, useRovingFocus, Overlay } from '@elvia/elvis-toolbox';
+import { BaseProps, Overlay, useRovingFocus, useSlot } from '@elvia/elvis-toolbox';
 import React from 'react';
+
 import { ItemList } from './styledComponents';
 
 interface Props extends BaseProps {

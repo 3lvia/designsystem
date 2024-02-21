@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { datepickerData } from './datepicker-data';
-import { ComponentSubsectionComponent } from '../../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { ComponentSectionComponent } from '../../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { DatepickerCegComponent } from './datepicker-ceg/datepicker-ceg.component';
+
 import { CegComponent } from '../../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { DatepickerCegComponent } from './datepicker-ceg/datepicker-ceg.component';
+import { datepickerData } from './datepicker-data';
 
 @Component({
   selector: 'app-datepicker-doc',

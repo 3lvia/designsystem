@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { StepLineDashed, StepLine, LineDash } from './styledComponents';
+
 import { StepperType } from './elvia-stepper.types';
+import { LineDash, StepLine, StepLineDashed } from './styledComponents';
 
 type StepDividerProps = { type?: StepperType; isSelected: boolean; isActive?: boolean; isDots: boolean };
 

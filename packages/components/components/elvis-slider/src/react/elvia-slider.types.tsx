@@ -1,10 +1,10 @@
-import { ComponentPropsWithoutRef } from 'react';
 import {
   BaseProps,
+  FormFieldSizes,
   HasValue,
   ErrorOptions as SingleSliderErrorOptions,
-  FormFieldSizes,
 } from '@elvia/elvis-toolbox';
+import { ComponentPropsWithoutRef } from 'react';
 
 export type BaseSliderProps = {
   errorOnChange?: (error: string) => void;

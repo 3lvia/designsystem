@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { sliderData } from './slider-data';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { SliderCegComponent } from './slider-ceg/slider-ceg.component';
+
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
+import { SliderCegComponent } from './slider-ceg/slider-ceg.component';
+import { sliderData } from './slider-data';
 
 @Component({
   selector: 'app-slider-doc',

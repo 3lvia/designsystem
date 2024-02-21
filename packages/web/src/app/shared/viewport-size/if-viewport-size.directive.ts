@@ -1,5 +1,6 @@
-import { Directive, OnDestroy, Input, ViewContainerRef, TemplateRef } from '@angular/core';
+import { Directive, Input, OnDestroy, TemplateRef, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 import { BreakpointService, ScreenSize } from 'src/app/core/services/breakpoint.service';
 
 /**

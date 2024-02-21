@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 import data from '@elvia/elvis/.internal/classlist.json';
 import deprecated from '@elvia/elvis/.internal/deprecated-classes.json';
+
 import { CopyComponent } from '../../copy/copy.component';
-import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-component-properties',

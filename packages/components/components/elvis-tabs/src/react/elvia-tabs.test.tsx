@@ -1,8 +1,9 @@
-import React from 'react';
-import Tabs from './elvia-tabs';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen, waitFor } from '@testing-library/react';
+import React from 'react';
+
+import Tabs from './elvia-tabs';
 
 describe('Elvis Tabs', () => {
   const items = ['Oranges', 'Apples', 'Pears'];

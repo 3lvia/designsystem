@@ -1,8 +1,8 @@
+import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-locale-picker',

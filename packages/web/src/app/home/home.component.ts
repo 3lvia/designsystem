@@ -1,16 +1,17 @@
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
-import { homeMenu } from 'src/app/shared/doc-pages';
+import { RouterLink } from '@angular/router';
+import { ThemeName } from '@elvia/elvis-colors';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 import { Observable } from 'rxjs';
+
 import { BreakpointService } from '../core/services/breakpoint.service';
 import { ThemeService } from '../core/services/theme.service';
-import { ThemeName } from '@elvia/elvis-colors';
 import { FrontPageChangelogComponent } from './front-page-changelog/front-page-changelog.component';
-import { RouterLink } from '@angular/router';
-import { NgIf, NgClass, NgFor, AsyncPipe } from '@angular/common';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { homeMenu } from 'src/app/shared/doc-pages';
 
 type Holiday = 'Birthday' | 'Christmas' | 'Halloween' | 'Pride' | 'ConstitutionDay' | 'None';
 

@@ -1,14 +1,15 @@
-import { isSsr, useConnectedOverlay, IconWrapper, FormFieldSizes } from '@elvia/elvis-toolbox';
-import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
-import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
-import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../publicApi.public';
-import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
-import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdownItemStyles';
-import { Checkbox } from '../checkbox/checkbox';
-import { Tooltip } from '@elvia/elvis-tooltip/react';
-import { statusToIconMap } from '../statusToIconMap';
-import { getThemeColor } from '@elvia/elvis-colors';
 import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRight';
+import { getThemeColor } from '@elvia/elvis-colors';
+import { FormFieldSizes, IconWrapper, isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
+import { Tooltip } from '@elvia/elvis-tooltip/react';
+import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
+
+import { Checkbox } from '../checkbox/checkbox';
+import { DropdownOverlay } from '../dropdown-overlay/dropdownOverlay';
+import { flattenTree, getDropdownItemId, getValueAsList } from '../dropdownListUtils';
+import { DropdownItem as DropdownItemOption, DropdownValue, DropdownValueType } from '../publicApi.public';
+import { statusToIconMap } from '../statusToIconMap';
+import { DropdownItemStyles, IconContainer, OpenOverlayButton } from './dropdownItemStyles';
 
 interface DropdownItemProps {
   item: DropdownItemOption;

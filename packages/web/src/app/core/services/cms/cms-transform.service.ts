@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
-import { documentToHtmlString, NodeRenderer, Options } from '@contentful/rich-text-html-renderer';
-import { Locale } from '../localization.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
+import { NodeRenderer, Options, documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { ThemeName } from '@elvia/elvis-colors';
 import {
   CONTENT_TYPE,
   ICenteredContent,
@@ -16,12 +17,12 @@ import {
   IWhenToUse,
   LOCALE_CODE,
 } from 'contentful/types';
-import { CMSSubMenu, TransformedDocPage } from './cms.interface';
-import { CMSTransformErrorsService } from './cms-transform-errors.service';
-import { extractLocale } from './extractLocale';
+
+import { Locale } from '../localization.service';
 import { ThemeService } from '../theme.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ThemeName } from '@elvia/elvis-colors';
+import { CMSTransformErrorsService } from './cms-transform-errors.service';
+import { CMSSubMenu, TransformedDocPage } from './cms.interface';
+import { extractLocale } from './extractLocale';
 
 /**
  * This class transforms an entry from Contentful to an object containing all the needed information to be shown on design.elvia.io by the Angular cms-page.component.

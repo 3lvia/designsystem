@@ -1,6 +1,7 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
-import { CodeViewerComponent } from '../../ceg/code-generator/code-viewer/code-viewer.component';
 import { NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+
+import { CodeViewerComponent } from '../../ceg/code-generator/code-viewer/code-viewer.component';
 
 @Component({
   selector: 'app-property-example-popover',

@@ -1,7 +1,8 @@
 import esbuild from 'esbuild';
-import tinyGlob from 'tiny-glob';
 import fs from 'fs/promises';
 import path from 'path';
+import tinyGlob from 'tiny-glob';
+
 import { toInOutTuple } from './utils';
 
 interface Config {

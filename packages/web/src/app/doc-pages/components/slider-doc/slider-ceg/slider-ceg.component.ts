@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 import { BaseSliderProps } from '@elvia/elvis-slider/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-slider-ceg',

@@ -1,17 +1,18 @@
-import React, { FC, MouseEvent, useEffect, useState } from 'react';
-import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
-import {
-  TabsContainer,
-  ScrollContainer,
-  Tab,
-  LeftButton,
-  RightButton,
-  BoldTabTextPlaceholder,
-  TabText,
-} from './styledComponents';
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
+import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
+import React, { FC, MouseEvent, useEffect, useState } from 'react';
+
 import { TabsProps } from './elvia-tabs.types';
+import {
+  BoldTabTextPlaceholder,
+  LeftButton,
+  RightButton,
+  ScrollContainer,
+  Tab,
+  TabText,
+  TabsContainer,
+} from './styledComponents';
 import { useScrollPositionDetection } from './useScrollPositionDetection';
 
 export const Tabs: FC<TabsProps> = ({

@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
-import { Title } from '@angular/platform-browser';
-import { utilityGroups } from './utility-groups-data';
-import { CopyComponent } from '../../../shared/copy/copy.component';
-import { RouterLink } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { CopyComponent } from '../../../shared/copy/copy.component';
+import { utilityGroups } from './utility-groups-data';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-utilities-doc',

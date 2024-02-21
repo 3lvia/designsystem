@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { IllustrationBaseDirective } from '../illustration-base.directive';
 
 @Component({

@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-badge/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseBadgeProps } from '@elvia/elvis-badge/react';
+
+import ComponentData from '../component-data.interface';
 
 export const badgeData: ComponentData<BaseBadgeProps> = {
   changelog: changelogJson.content,

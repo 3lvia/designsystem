@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-icon/CHANGELOG.json';
-import ComponentData from '../../components/component-data.interface';
 import { BaseIconProps } from '@elvia/elvis-icon/react';
+
+import ComponentData from '../../components/component-data.interface';
 
 const elvisIconData: ComponentData<Omit<BaseIconProps, 'children'>> = {
   changelog: changelogJson.content,
