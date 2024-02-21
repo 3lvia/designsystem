@@ -2,7 +2,7 @@
   "content": [
     {
       "version": "16.2.2",
-      "date": "February 20, 2024",
+      "date": "February 21, 2024",
       "changelog": [
         {
           "type": "patch",
@@ -10,6 +10,11 @@
             "Deprecated the <code>.e-alert--no-title</code> class. Its styles are now automatically applied using the <code>:has()</code> selector."
           ],
           "pages": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Corrected the height of an empty error placeholder for the text fields."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         }
       ]
     },
