@@ -8,7 +8,6 @@
 }
 
 .home-top {
-  width: 100%;
   background-color: var(--home-background-color);
 
   .home-top-wrapper {
@@ -21,7 +20,7 @@
     min-height: 477px;
     max-height: 520px;
     place-items: center;
-    max-width: 1440px;
+    max-width: var(--max-desktop-width);
     margin: auto;
 
     @include breakpoints.breakpoint-up(MinDesktop) {

@@ -7,24 +7,20 @@
 }
 
 .header {
-  width: 100%;
+  --header-height: 64px;
+  display: flex;
+  height: var(--header-height);
+  padding-inline: 32px;
+  box-sizing: border-box;
+  max-width: var(--max-desktop-width);
+  margin: auto;
 
-  .header-content {
-    --header-height: 64px;
-    display: flex;
-    height: var(--header-height);
-    padding-inline: 32px;
-    box-sizing: border-box;
-    max-width: 1440px;
-    margin: auto;
+  @include breakpoints.breakpoint-up(Tablet) {
+    padding-inline: 24px;
+  }
 
-    @include breakpoints.breakpoint-up(Tablet) {
-      padding-inline: 24px;
-    }
-
-    @include breakpoints.breakpoint-up(Mobile) {
-      padding-inline: 16px;
-    }
+  @include breakpoints.breakpoint-up(Mobile) {
+    padding-inline: 16px;
   }
 }
 
