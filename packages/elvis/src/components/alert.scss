@@ -299,7 +299,8 @@ $global-mobile-notitle-padding: 14px; // -2px border
   }
 
   // NO TITLE
-  &.e-alert--no-title {
+  &.e-alert--no-title, //deprecated
+  &:not(:has(.e-alert__title)) {
     &.e-alert--global {
       @include breakpoints.breakpoint-up(Mobile) {
         padding: $global-mobile-notitle-padding;
