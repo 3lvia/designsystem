@@ -6825,16 +6825,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.0":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
-  dependencies:
-    follow-redirects: "npm:^1.14.9"
-    form-data: "npm:^4.0.0"
-  checksum: 10/2efaf18dd0805f7bc772882bc86f004abd92d51007b54c5081f74db0d08ce3593e2c010261896d25a14318eeaa2e966fd825e34f810e8a3339dc64b9d177cf70
-  languageName: node
-  linkType: hard
-
 "axios@npm:^1.5.1, axios@npm:^1.6.2":
   version: 1.6.2
   resolution: "axios@npm:1.6.2"
@@ -6843,6 +6833,17 @@ __metadata:
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
   checksum: 10/612bc93f8f738a518e7c5f9de9cc782bcd36aac6bae279160ef6a10260378e21c1786520eab3336898e3d66e0839ebdf739f327fb6d0431baa4d3235703a7652
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.6.7":
+  version: 1.6.7
+  resolution: "axios@npm:1.6.7"
+  dependencies:
+    follow-redirects: "npm:^1.15.4"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10/a1932b089ece759cd261f175d9ebf4d41c8994cf0c0767cda86055c7a19bcfdade8ae3464bf4cec4c8b142f4a657dc664fb77a41855e8376cf38b86d7a86518f
   languageName: node
   linkType: hard
 
@@ -8086,17 +8087,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful@npm:^9.3.5":
-  version: 9.3.5
-  resolution: "contentful@npm:9.3.5"
+"contentful@npm:^9.3.6":
+  version: 9.3.6
+  resolution: "contentful@npm:9.3.6"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.0.2"
-    axios: "npm:^0.27.0"
+    axios: "npm:^1.6.7"
     contentful-resolve-response: "npm:^1.3.12"
     contentful-sdk-core: "npm:^7.0.5"
     fast-copy: "npm:^2.1.7"
     json-stringify-safe: "npm:^5.0.1"
-  checksum: 10/cf6525b41220f94b869a7c999bcbb2669a404d9dfb9124169753ed2f7c489716414ee8046707befdebbe610fa7b59338adef092544620678f4541517b1a39039
+  checksum: 10/ee4b619f227201856e9b140c6223220c3957c2b6ce990223d3e9a81178a595d39ae69dbb14a8c70a90b5581ce6774294f770e190efb4641791019e748d4bbe4a
   languageName: node
   linkType: hard
 
@@ -9114,7 +9115,7 @@ __metadata:
     "@types/prismjs": "npm:^1.26.3"
     "@typescript-eslint/eslint-plugin": "npm:^7.0.2"
     "@typescript-eslint/parser": "npm:^7.0.2"
-    contentful: "npm:^9.3.5"
+    contentful: "npm:^9.3.6"
     contentful-management: "npm:^11.19.0"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
@@ -10505,13 +10506,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.15.0":
   version: 1.15.4
   resolution: "follow-redirects@npm:1.15.4"
   peerDependenciesMeta:
     debug:
       optional: true
   checksum: 10/2e8f5f259a6b02dfa8dc199e08431848a7c3beed32eb4c19945966164a52c89f07b86c3afcc32ebe4279cf0a960520e45a63013d6350309c5ec90133c5d9351a
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.4":
+  version: 1.15.5
+  resolution: "follow-redirects@npm:1.15.5"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 10/d467f13c1c6aa734599b8b369cd7a625b20081af358f6204ff515f6f4116eb440de9c4e0c49f10798eeb0df26c95dd05d5e0d9ddc5786ab1a8a8abefe92929b4
   languageName: node
   linkType: hard
 
