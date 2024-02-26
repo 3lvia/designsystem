@@ -43,6 +43,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       setFadeOut(false);
       setIsShowing(true);
     } else {
+      window.clearTimeout(timeoutId);
       timeoutId = window.setTimeout(
         () => {
           if (!isDestroyed.current) {
