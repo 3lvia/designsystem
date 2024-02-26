@@ -6,7 +6,7 @@
       "version": "1.3.3",
       "changelog": [
         {
-          "type": "patch",
+          "type": "bug_fix",
           "changes": [
             "Fixed tooltip activating twice when the trigger is a component with a mouseenter listener."
           ]
