@@ -2016,13 +2016,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:^1.0.0":
-  version: 1.7.1
-  resolution: "@bufbuild/protobuf@npm:1.7.1"
-  checksum: 10/bf9276a455e1601b071901ffad6a7aef155e985a6dba3086e66f0914748f96ac0604599f8e50f77d0dd748ed60970628791c197df03a7f689a3db00dd9c7bb94
-  languageName: node
-  linkType: hard
-
 "@contentful/rich-text-html-renderer@npm:^16.3.4":
   version: 16.3.4
   resolution: "@contentful/rich-text-html-renderer@npm:16.3.4"
@@ -2363,7 +2356,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.34"
     esbuild: "npm:^0.20.1"
     esbuild-plugin-styled-components: "npm:^3.0.1"
-    esbuild-sass-plugin: "npm:^3.0.0"
+    esbuild-sass-plugin: "npm:^3.1.0"
     identity-obj-proxy: "npm:^3.0.0"
     jest: "npm:^29.7.0"
     jest-axe: "npm:^8.0.0"
@@ -7215,13 +7208,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer-builder@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "buffer-builder@npm:0.2.0"
-  checksum: 10/16bd9eb8ac6630a05441bcb56522e956ae6a0724371ecc49b9a6bc10d35690489140df73573d0577e1e85c875737e560a4e2e67521fddd14714ddf4e0097d0ec
-  languageName: node
-  linkType: hard
-
 "buffer-equal@npm:^1.0.0":
   version: 1.0.1
   resolution: "buffer-equal@npm:1.0.1"
@@ -9455,15 +9441,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-sass-plugin@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "esbuild-sass-plugin@npm:3.0.0"
+"esbuild-sass-plugin@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "esbuild-sass-plugin@npm:3.1.0"
   dependencies:
-    resolve: "npm:^1.22.6"
-    sass-embedded: "npm:^1.70.0"
+    resolve: "npm:^1.22.8"
+    sass: "npm:^1.71.1"
   peerDependencies:
-    esbuild: ^0.20.0
-  checksum: 10/610ea2993a548425ad812b6a345d21344bd98675270e77ce5c7fa97d348000f3bcf40adb2828e93256ebdf474073b58626a4cb8d3e21a78917d122edf9e92856
+    esbuild: ^0.20.1
+    sass-embedded: ^1.71.1
+  checksum: 10/6ea90eb6c6c786ece2a6557c1f0a331b32eb009ae2380fe0073852f63ae78e7b6f4c4f0ec44e594df2ff31d4fcb72a98e60cede409979389e8ea05da97cd1dbd
   languageName: node
   linkType: hard
 
@@ -16815,7 +16802,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:1.22.8, resolve@npm:^1.1.6, resolve@npm:^1.1.7, resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.20.0, resolve@npm:^1.22.6, resolve@npm:^1.22.8, resolve@npm:^1.4.0":
+"resolve@npm:1.22.8, resolve@npm:^1.1.6, resolve@npm:^1.1.7, resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.20.0, resolve@npm:^1.22.8, resolve@npm:^1.4.0":
   version: 1.22.8
   resolution: "resolve@npm:1.22.8"
   dependencies:
@@ -16841,7 +16828,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.1.6#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.6#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.8#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.4.0#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.1.6#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.8#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.4.0#optional!builtin<compat/resolve>":
   version: 1.22.8
   resolution: "resolve@patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
   dependencies:
@@ -17028,7 +17015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:7.8.1, rxjs@npm:^7.4.0, rxjs@npm:^7.8.1":
+"rxjs@npm:7.8.1, rxjs@npm:^7.8.1":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1"
   dependencies:
@@ -17094,205 +17081,6 @@ __metadata:
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: 10/7eaf7a0cf37cc27b42fb3ef6a9b1df6e93a1c6d98c6c6702b02fe262d5fcbd89db63320793b99b21cb5348097d0a53de81bd5f4e8b86e20cc9412e3f1cfb4e83
-  languageName: node
-  linkType: hard
-
-"sass-embedded-android-arm64@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-android-arm64@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=android & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"sass-embedded-android-arm@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-android-arm@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=android & cpu=arm
-  languageName: node
-  linkType: hard
-
-"sass-embedded-android-ia32@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-android-ia32@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=android & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"sass-embedded-android-x64@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-android-x64@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=android & cpu=x64
-  languageName: node
-  linkType: hard
-
-"sass-embedded-darwin-arm64@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-darwin-arm64@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"sass-embedded-darwin-x64@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-darwin-x64@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
-"sass-embedded-linux-arm64@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-linux-arm64@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"sass-embedded-linux-arm@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-linux-arm@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"sass-embedded-linux-ia32@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-linux-ia32@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=linux & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"sass-embedded-linux-musl-arm64@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-linux-musl-arm64@npm:1.70.0"
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"sass-embedded-linux-musl-arm@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-linux-musl-arm@npm:1.70.0"
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"sass-embedded-linux-musl-ia32@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-linux-musl-ia32@npm:1.70.0"
-  conditions: os=linux & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"sass-embedded-linux-musl-x64@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-linux-musl-x64@npm:1.70.0"
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
-"sass-embedded-linux-x64@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-linux-x64@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
-"sass-embedded-win32-ia32@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-win32-ia32@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass.bat
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"sass-embedded-win32-x64@npm:1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded-win32-x64@npm:1.70.0"
-  bin:
-    sass: dart-sass/sass.bat
-  conditions: os=win32 & (cpu=arm64 | cpu=x64)
-  languageName: node
-  linkType: hard
-
-"sass-embedded@npm:^1.70.0":
-  version: 1.70.0
-  resolution: "sass-embedded@npm:1.70.0"
-  dependencies:
-    "@bufbuild/protobuf": "npm:^1.0.0"
-    buffer-builder: "npm:^0.2.0"
-    immutable: "npm:^4.0.0"
-    rxjs: "npm:^7.4.0"
-    sass-embedded-android-arm: "npm:1.70.0"
-    sass-embedded-android-arm64: "npm:1.70.0"
-    sass-embedded-android-ia32: "npm:1.70.0"
-    sass-embedded-android-x64: "npm:1.70.0"
-    sass-embedded-darwin-arm64: "npm:1.70.0"
-    sass-embedded-darwin-x64: "npm:1.70.0"
-    sass-embedded-linux-arm: "npm:1.70.0"
-    sass-embedded-linux-arm64: "npm:1.70.0"
-    sass-embedded-linux-ia32: "npm:1.70.0"
-    sass-embedded-linux-musl-arm: "npm:1.70.0"
-    sass-embedded-linux-musl-arm64: "npm:1.70.0"
-    sass-embedded-linux-musl-ia32: "npm:1.70.0"
-    sass-embedded-linux-musl-x64: "npm:1.70.0"
-    sass-embedded-linux-x64: "npm:1.70.0"
-    sass-embedded-win32-ia32: "npm:1.70.0"
-    sass-embedded-win32-x64: "npm:1.70.0"
-    supports-color: "npm:^8.1.1"
-    varint: "npm:^6.0.0"
-  dependenciesMeta:
-    sass-embedded-android-arm:
-      optional: true
-    sass-embedded-android-arm64:
-      optional: true
-    sass-embedded-android-ia32:
-      optional: true
-    sass-embedded-android-x64:
-      optional: true
-    sass-embedded-darwin-arm64:
-      optional: true
-    sass-embedded-darwin-x64:
-      optional: true
-    sass-embedded-linux-arm:
-      optional: true
-    sass-embedded-linux-arm64:
-      optional: true
-    sass-embedded-linux-ia32:
-      optional: true
-    sass-embedded-linux-musl-arm:
-      optional: true
-    sass-embedded-linux-musl-arm64:
-      optional: true
-    sass-embedded-linux-musl-ia32:
-      optional: true
-    sass-embedded-linux-musl-x64:
-      optional: true
-    sass-embedded-linux-x64:
-      optional: true
-    sass-embedded-win32-ia32:
-      optional: true
-    sass-embedded-win32-x64:
-      optional: true
-  checksum: 10/6bd41ebe2c14631208369cf59cb9d5e5ce1e49568295c3ad6d5b897962ba171fc042a1c0d79500851ddf373dbadfd5d36d7abf92ee5fc57578d5e950c4757aa7
   languageName: node
   linkType: hard
 
@@ -18644,7 +18432,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^8.0.0, supports-color@npm:^8.1.1":
+"supports-color@npm:^8.0.0":
   version: 8.1.1
   resolution: "supports-color@npm:8.1.1"
   dependencies:
@@ -19775,13 +19563,6 @@ __metadata:
   version: 3.0.0
   resolution: "value-or-function@npm:3.0.0"
   checksum: 10/2b901d05b82deb8565d4edeba02e0737be73e7fb2c640b79fa64152aae8b450f790a46c86bf7039f91938c1b69d2cc0908cd18c4695b120293bb442179061fac
-  languageName: node
-  linkType: hard
-
-"varint@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "varint@npm:6.0.0"
-  checksum: 10/7684113c9d497c01e40396e50169c502eb2176203219b96e1c5ac965a3e15b4892bd22b7e48d87148e10fffe638130516b6dbeedd0efde2b2d0395aa1772eea7
   languageName: node
   linkType: hard
 
