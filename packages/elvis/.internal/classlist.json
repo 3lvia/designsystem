@@ -264,7 +264,6 @@
 			},
 			"modifier": {
 				"e-input--placeholder": {},
-				"e-input--centered": {},
 				"e-input--compact": {},
 				"e-input--small": {}
 			}
@@ -1142,7 +1141,6 @@
 		"e-fileupload__input": {},
 		"e-fileupload--dragover": {},
 		"e-input--placeholder": {},
-		"e-input--centered": {},
 		"e-input---invalid": {},
 		"e-input---disabled": {},
 		"e-input---readonly": {},
