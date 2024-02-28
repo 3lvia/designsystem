@@ -25,6 +25,7 @@ import '@elvia/elvis-illustrations/sharing';
 import '@elvia/elvis-illustrations/statistics';
 import '@elvia/elvis-illustrations/support';
 import '@elvia/elvis-illustrations/unplugged';
+import '@elvia/elvis-illustrations/user';
 
 @Component({
   selector: 'app-v2-playground-illustrations',
