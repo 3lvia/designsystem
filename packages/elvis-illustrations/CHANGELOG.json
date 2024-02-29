@@ -3,7 +3,7 @@
   "content": [
     {
       "version": "1.1.0",
-      "date": "28.02.24",
+      "date": "29.02.24",
       "changelog": [
         { "type": "new_feature", "changes": ["Added a new illustration <code>user</code>."] },
         {
