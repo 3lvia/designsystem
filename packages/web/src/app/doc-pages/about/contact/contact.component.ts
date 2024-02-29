@@ -29,16 +29,6 @@ export class ContactComponent {
   title = getDocPagesNotFromCMS('contact')?.title;
   contactList: ContactInfo[] = [
     {
-      firstName: 'Kari',
-      lastName: 'Clifford',
-      image: 'assets/contact/Kari.jpg',
-      title: 'Product lead',
-      email: 'kari.clifford@elvia.no',
-      slackUrl: 'slack://user?team=TU3R0B42K&id=U03NGQQJK16',
-      emoji: '🐧',
-      loadedImg: false,
-    },
-    {
       firstName: 'Fride',
       lastName: 'Skarseth',
       image: 'assets/contact/Fride.jpg',
