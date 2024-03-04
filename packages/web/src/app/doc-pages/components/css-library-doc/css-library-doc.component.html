@@ -52,27 +52,27 @@
       </ol>
     </app-component-subsection>
     <app-component-subsection sectionTitle="CDN">
-      The CDN can also be used. Note that this is not recommended, since you miss out on typings and automatic
-      updates through Renovate.
+      We have deprecated the use of the CDN, and it is no longer recommended to use. This is because you miss
+      out on automatic updates through Renovate. We recommend using NPM instead.
 
-      <ol class="e-list e-list--numbers">
+      <p class="e-my-16">
+        If you are still using the CDN, please note that the latest version available is
+        <code>16.2.2</code>. Newer versions will not be available through the CDN.
+      </p>
+
+      To migrate to NPM, first remove any old reference to Elvis from the CDN. This should be:
+      <ul class="e-list e-my-8">
         <li>
-          <strong>Add stylesheet</strong>
-          <div class="e-title-caps">Head</div>
-          <app-copy [message]="linkTagCode" autoOverflow>
-            <code class="e-flex">{{ linkTagCode }}</code>
-          </app-copy>
-          <p class="e-text-md e-mt-8">This should be added to the head element.</p>
+          <code>&lt;link&gt;</code> to the <code>elvis.css</code> stylesheet in the
+          <code>&lt;head&gt;</code> of your HTML file.
         </li>
         <li>
-          <strong>Add script</strong>
-          <div class="e-title-caps">Body</div>
-          <app-copy [message]="scriptTagCode" autoOverflow>
-            <code class="e-flex">{{ scriptTagCode }}</code>
-          </app-copy>
-          <p class="e-text-md e-mt-8">This should be added to the body element.</p>
+          <code>&lt;script&gt;</code> to the <code>elvis.js</code> script at the bottom of your
+          <code>&lt;body&gt;</code>.
         </li>
-      </ol>
+      </ul>
+      Then follow the instructions in the NPM section above. To simplify the transition, it is possible to
+      install the same version that was being used through the CDN.
     </app-component-subsection>
   </app-component-section>
 
