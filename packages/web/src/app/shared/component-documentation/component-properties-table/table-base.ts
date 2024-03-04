@@ -32,6 +32,13 @@ export class PropertyTableBaseDirective implements OnChanges {
         rows: this.getEventProps(this.props),
         description: 'Events let the component communicate with your app, notifying it of changes.',
       },
+      {
+        title: 'Functions',
+        expanded: true,
+        rows: this.getFunctionProps(this.props),
+        description:
+          'Functions are necessary or available for some components. A function can also have parameters.',
+      },
     ];
   }
 
@@ -40,6 +47,10 @@ export class PropertyTableBaseDirective implements OnChanges {
   }
 
   private getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => !prop.item.isEvent);
+    return props.filter((prop) => !prop.item.isEvent && !prop.item.isFunction);
+  }
+
+  private getFunctionProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
+    return props.filter((prop) => prop.item.isFunction);
   }
 }

@@ -31,6 +31,7 @@ interface PropBase {
  */
 export interface ChildlessProp extends PropBase {
   isEvent?: boolean;
+  isFunction?: boolean;
   type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | 'Date' | (string & {});
   description: string;
 }

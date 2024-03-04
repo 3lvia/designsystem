@@ -10,6 +10,7 @@ export interface ComponentProp {
   description?: string;
   default?: string | number | boolean;
   isEvent?: boolean;
+  isFunction?: boolean;
   isRequired?: boolean;
   example?: string;
 }

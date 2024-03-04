@@ -62,5 +62,10 @@ export const headerData: ComponentData<HeaderProps> = {
       type: '(theme: Theme) => void',
       description: 'An event that is triggered when the theme is switched.',
     },
+    getCurrentTheme: {
+      isFunction: true,
+      type: "() => 'light' | 'dark' ",
+      description: 'A function that tells you what the current theme is.',
+    },
   },
 };
