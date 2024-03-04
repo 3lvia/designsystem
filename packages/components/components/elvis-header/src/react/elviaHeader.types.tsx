@@ -28,3 +28,7 @@ export interface HeaderProps extends BaseProps {
   username: string;
   hideThemeSwitch?: boolean;
 }
+
+export interface HeaderFunctions {
+  getCurrentTheme?: () => Theme;
+}
