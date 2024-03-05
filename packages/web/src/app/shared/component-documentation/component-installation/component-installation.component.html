@@ -1,23 +1,13 @@
-<div class="e-alert e-alert--info" role="alert">
-  <div class="e-alert__icon">
-    <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
-  </div>
-  <div class="e-alert__content">
-    <div class="e-alert__title">Angular</div>
-    <div class="e-alert__text">
-      <div>Add CUSTOM_ELEMENTS_SCHEMA to the component module to enable support for web components.</div>
-      <div class="e-mt-16">
-        <app-copy message="schemas: [ CUSTOM_ELEMENTS_SCHEMA ]">
-          <code>schemas: [ CUSTOM_ELEMENTS_SCHEMA ]</code>
-        </app-copy>
-      </div>
-    </div>
-  </div>
-</div>
+<elvia-segmented-control
+  [type]="'text'"
+  [size]="'large'"
+  [items]="[{ label: 'Angular' }, { label: 'React' }, { label: 'Vue' }]"
+  (valueOnChange)="setFramework($any($event).detail.value)"
+></elvia-segmented-control>
 
-<ol class="e-list e-list--numbers e-mt-56">
+<ol class="e-list e-list--numbers e-mt-40">
   <li>
-    <strong>Install package:</strong>
+    <strong>Install package</strong>
     <div class="e-mt-16">
       <app-copy message="npm install {{ packageName }}">
         <code>npm install {{ packageName }}</code>
@@ -31,23 +21,50 @@
     </div>
   </li>
   <li>
-    <strong>Import package:</strong>
-    <h4 class="e-title-caps e-mt-24 e-mb-8">Web component</h4>
-    <app-copy message="import '{{ packageName }}';">
-      <code>import '{{ packageName }}';</code>
-    </app-copy>
-    <div class="e-text-md">(Angular - Should be imported in module.ts not component.ts)</div>
-    <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
-    <app-copy message="import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';">
-      <code>import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';</code>
-    </app-copy>
+    <strong>Import component</strong>
+    <div class="e-mt-16">
+      @if (frameworkName === 'react') {
+        <app-copy message="import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';">
+          <code>import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';</code>
+        </app-copy>
+      } @else {
+        <app-copy message="import '{{ packageName }}';">
+          <code>import '{{ packageName }}';</code>
+        </app-copy>
+      }
+      <div class="e-text-md e-mt-8">
+        <strong>NB!</strong> The component should only be imported once, e.g. in the main.ts file.
+      </div>
+    </div>
   </li>
   <li>
-    <strong>Import types (optional):</strong>
-    <h4 class="e-title-caps e-mt-16 e-mb-8">Types</h4>
-    <app-copy message="import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';">
-      <code>import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';</code>
-    </app-copy>
-    <div class="e-text-md">Typescript interfaces for the component properties are available.</div>
+    <strong>Import types</strong><span class="e-text-small-light e-ml-8">(Optional)</span>
+    <div class="e-mt-16">
+      @if (frameworkName === 'react') {
+        <app-copy message="import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';">
+          <code>import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';</code>
+        </app-copy>
+      } @else {
+        <app-copy message="import type &#123; ... &#125; from '{{ packageName }}';">
+          <code>import type &#123; ... &#125; from '{{ packageName }}';</code>
+        </app-copy>
+      }
+      <div class="e-text-md e-mt-8">Advanced type interfaces can be imported from the component package.</div>
+    </div>
   </li>
+  @if (frameworkName === 'angular') {
+    <li>
+      <strong>Import schemas</strong>
+      <div class="e-mt-16">
+        <app-copy message="import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';">
+          <code>import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';</code>
+        </app-copy>
+      </div>
+      <div class="e-mt-8">
+        <app-copy message="schemas: [ CUSTOM_ELEMENTS_SCHEMA ]">
+          <code>schemas: [ CUSTOM_ELEMENTS_SCHEMA ]</code>
+        </app-copy>
+      </div>
+    </li>
+  }
 </ol>
