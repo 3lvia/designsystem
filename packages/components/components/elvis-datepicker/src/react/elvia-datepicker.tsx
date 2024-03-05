@@ -260,9 +260,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
   useEffect(() => {
     if (isInitialized) {
-      validateMinMax(value);
+      validateMinMax(date);
     }
-  }, [value, maxDateWithoutTime, minDateWithoutTime]);
+  }, [date, maxDateWithoutTime, minDateWithoutTime]);
 
   // Allows app to open the datepicker programmatically
   useEffect(() => {

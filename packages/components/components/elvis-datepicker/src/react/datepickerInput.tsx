@@ -157,13 +157,11 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
       }
 
       const [day, month, year] = inputValue.split('.');
-      const isValid = validateInputValue(parseInt(day), parseInt(month), parseInt(year));
+      validateInputValue(parseInt(day), parseInt(month), parseInt(year));
 
-      if (isValid) {
-        const newValue = new Date(date ? date : new Date());
-        newValue.setFullYear(+year, +month - 1, +day);
-        emitNewValue(newValue);
-      }
+      const newValue = new Date(date ? date : new Date());
+      newValue.setFullYear(+year, +month - 1, +day);
+      emitNewValue(newValue);
     };
 
     const getFormattedInputValue = (date?: Date | null): string => {
