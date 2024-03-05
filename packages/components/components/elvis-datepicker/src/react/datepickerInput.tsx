@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 
-import { formatDate, isSameDay } from './dateHelpers';
+import { formatDate, isSameDay, isValidDate } from './dateHelpers';
 import { ErrorType } from './elviaDatepicker.types';
 import { Input } from './styledComponents';
 import { validateDate } from './validateDate';
@@ -115,8 +115,8 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
     };
 
     const emitNewValue = (newValue: Date | null): void => {
-      if (!isSameDay(newValue, date) && newValue !== date) {
-        onChange(newValue);
+      if (!isSameDay(newValue, date) && newValue != date) {
+        onChange(isValidDate(newValue) ? newValue : null);
       }
     };
 
@@ -178,6 +178,9 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
     };
 
     useEffect(() => {
+      if (!isValidDate(date)) {
+        return;
+      }
       setInputValue(getFormattedInputValue(date));
 
       if (touched && getFormattedInputValue(date) !== inputValue) {
