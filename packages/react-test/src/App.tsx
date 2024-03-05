@@ -395,12 +395,8 @@ function App() {
             <div className="example-wrapper">
               <h3>Datepicker</h3>
               <Datepicker
-                value={new Date(new Date().setDate(new Date().getDate() - 1))}
                 valueOnChange={(value) => console.log(value)}
-                errorOnChange={(error) => console.log(error)}
                 hasSelectDateOnOpen={false}
-                maxDate={new Date()}
-                isRequired={false}
               ></Datepicker>
             </div>
             {/* DATE RANGE PICKER */}
