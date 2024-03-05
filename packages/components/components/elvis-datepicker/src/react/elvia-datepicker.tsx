@@ -278,7 +278,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (minDate) {
       const d = new Date(minDate);
       d.setHours(0, 0, 0, 0);
-      if (!isSameDay(d, minDate)) {
+      if (!isSameDay(d, minDateWithoutTime)) {
         setMinDateWithoutTime(d);
       }
     } else {
@@ -290,7 +290,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (maxDate) {
       const d = new Date(maxDate);
       d.setHours(23, 59, 59, 59); // End of day
-      if (!isSameDay(d, maxDate)) {
+      if (!isSameDay(d, maxDateWithoutTime)) {
         setMaxDateWithoutTime(d);
       }
     } else {
