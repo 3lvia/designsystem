@@ -18,26 +18,23 @@
 
 .page-container {
   display: grid;
-  margin: 0 104px;
-  max-width: var(--max-desktop-width);
+  padding: 0 104px;
+  max-width: calc(var(--max-desktop-width) + 208px);
   padding-right: min(80px, 4vw); // This shifts the content to the right to make it feel more centered
 
   // minmax(0, 1fr) prevents CEGs from overflowing: https://css-tricks.com/preventing-a-grid-blowout/
   grid-template-columns: min(220px, 22%) minmax(0, 1fr);
   gap: min(64px, 4%);
+  margin: auto;
 
   @include breakpoints.breakpoint-up(Tablet) {
     grid-template-columns: minmax(0, 1fr);
     padding-right: 0;
-    margin: 0 64px 32px;
+    padding: 0 64px 32px;
   }
 
   @include breakpoints.breakpoint-up(Mobile) {
-    margin: 0 16px 16px;
-  }
-
-  @media (min-width: 2108px) {
-    margin: auto;
+    padding: 0 16px 16px;
   }
 }
 
