@@ -15,13 +15,13 @@ export const toastData: ComponentData<ToastProps> = {
         title: {
           isRequired: false,
           type: 'string',
-          description: 'The title showed in the toast.',
+          description: 'The title is shown in the toast.',
           specialType: 'function',
         },
         body: {
           isRequired: false,
           type: 'string',
-          description: 'The body showed in the toast.',
+          description: 'The body is shown in the toast.',
           specialType: 'function',
         },
         duration: {
