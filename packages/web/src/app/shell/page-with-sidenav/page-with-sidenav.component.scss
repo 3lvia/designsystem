@@ -36,7 +36,7 @@
     margin: 0 16px 16px;
   }
 
-  @include breakpoints.breakpoint-up(MaxDesktop) {
+  @media (min-width: 2108px) {
     margin: auto;
   }
 }
