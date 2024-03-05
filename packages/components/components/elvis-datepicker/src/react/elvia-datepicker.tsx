@@ -243,25 +243,11 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
     let newDate: Date | null = new Date(`${year}/${month}/${day}`);
     newDate = isValidDate(newDate) ? newDate : null;
-    switch (error) {
-      case 'required':
-        if (!isSameDay(newDate, date) && newDate !== date) {
-          updateValue(newDate);
-        }
-        onError(error);
-        break;
-      case 'invalidDate':
-      case 'beforeMinDate':
-      case 'afterMaxDate':
-        onError(error);
-        break;
-      case 'valid':
-        if (!isSameDay(newDate, date) && newDate !== date) {
-          updateValue(newDate);
-        }
-        onError();
-        break;
+
+    if (!isSameDay(newDate, date) && newDate !== date) {
+      updateValue(newDate);
     }
+    onError(error === 'valid' ? undefined : error);
   };
 
   // Needed for webcomponent -> To update the default value
