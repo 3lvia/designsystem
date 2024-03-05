@@ -79,6 +79,7 @@
     "@angular/language-service": "^17.2.3",
     "@babel/core": "^7.24.0",
     "@babel/eslint-parser": "^7.23.10",
+    "@ngx-env/builder": "17.2.3",
     "@types/natural-compare-lite": "^1.4.2",
     "@types/node": "20.11.24",
     "@types/prismjs": "^1.26.3",

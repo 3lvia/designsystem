@@ -2286,6 +2286,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dotenv-run/core@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "@dotenv-run/core@npm:1.3.4"
+  dependencies:
+    chalk: "npm:^4.1.0"
+    dotenv: "npm:^16.1.4"
+    dotenv-expand: "npm:^10.0.0"
+    find-up: "npm:^5.0.0"
+  checksum: 10/5bfa98e63b9c730c1cf637b017645550bb4b77a651b714791b3d9f070332c06a2ebe70d62f92ce7bd7455af17946f17e28acee480c9177e5435ee60be3a1487c
+  languageName: node
+  linkType: hard
+
+"@dotenv-run/esbuild@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "@dotenv-run/esbuild@npm:1.3.4"
+  dependencies:
+    "@dotenv-run/core": "npm:^1.3.4"
+  peerDependencies:
+    esbuild: 0.19.5
+  checksum: 10/bb5f49478b304102aff9f2a7d18f11dbbe63a55631b53da8b726143eab97502128466f0828ebb2b7171f02f2a4330f044ba0b405f32457c1651fc1be485d1029
+  languageName: node
+  linkType: hard
+
+"@dotenv-run/webpack@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "@dotenv-run/webpack@npm:1.3.4"
+  dependencies:
+    "@dotenv-run/core": "npm:^1.3.4"
+  peerDependencies:
+    webpack: ^5.0.0
+  checksum: 10/1cc75a746b29bcc51b0c65409dcef41d6b5b5118f5ecfe777e9f7090032ce114d8340ee911994f08d3927b84129eee31ae3a0283f3ce4edb9fd5d1b2c4c5d231
+  languageName: node
+  linkType: hard
+
 "@elvia/elvis-accordion@npm:*, @elvia/elvis-accordion@workspace:*, @elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion"
@@ -4271,6 +4305,17 @@ __metadata:
     typescript: ">=5.2 <5.4"
     webpack: ^5.54.0
   checksum: 10/e2e837379401be2e5e0201868b3a3273fee58227c789ae67d04afb0423b96b743535eed9b71ca790a5bbddc67e8cf2b22e3d082ee19b461feba506b5e2c67beb
+  languageName: node
+  linkType: hard
+
+"@ngx-env/builder@npm:17.2.3":
+  version: 17.2.3
+  resolution: "@ngx-env/builder@npm:17.2.3"
+  dependencies:
+    "@dotenv-run/esbuild": "npm:^1.3.4"
+    "@dotenv-run/webpack": "npm:^1.3.4"
+    glob: "npm:^10.3.10"
+  checksum: 10/535ff8ef7f1da56ac42861ad7a1dfcbe111302c8dbb6f40b9710803356921473451380d84e90b8c3df755df8fff4fa158fb686538e978cf4b403fa8588719dee
   languageName: node
   linkType: hard
 
@@ -9189,10 +9234,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-expand@npm:~10.0.0":
+"dotenv-expand@npm:^10.0.0, dotenv-expand@npm:~10.0.0":
   version: 10.0.0
   resolution: "dotenv-expand@npm:10.0.0"
   checksum: 10/b41eb278bc96b92cbf3037ca5f3d21e8845bf165dc06b6f9a0a03d278c2bd5a01c0cfbb3528ae3a60301ba1a8a9cace30e748c54b460753bc00d4c014b675597
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.1.4, dotenv@npm:^16.4.5":
+  version: 16.4.5
+  resolution: "dotenv@npm:16.4.5"
+  checksum: 10/55a3134601115194ae0f924e54473459ed0d9fc340ae610b676e248cca45aa7c680d86365318ea964e6da4e2ea80c4514c1adab5adb43d6867fb57ff068f95c8
   languageName: node
   linkType: hard
 
@@ -9200,13 +9252,6 @@ __metadata:
   version: 16.4.2
   resolution: "dotenv@npm:16.4.2"
   checksum: 10/a6069f3bed960f9bdb5c2e55df8b4d121e7f151441b1ce129600597d7717f7bfda7fa250706b1fbe06bc05b2e764d6649ecedb46dd95455f490882bd324a3ac1
-  languageName: node
-  linkType: hard
-
-"dotenv@npm:^16.4.5":
-  version: 16.4.5
-  resolution: "dotenv@npm:16.4.5"
-  checksum: 10/55a3134601115194ae0f924e54473459ed0d9fc340ae610b676e248cca45aa7c680d86365318ea964e6da4e2ea80c4514c1adab5adb43d6867fb57ff068f95c8
   languageName: node
   linkType: hard
 
@@ -9337,6 +9382,7 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
+    "@ngx-env/builder": "npm:17.2.3"
     "@types/natural-compare-lite": "npm:^1.4.2"
     "@types/node": "npm:20.11.24"
     "@types/prismjs": "npm:^1.26.3"
