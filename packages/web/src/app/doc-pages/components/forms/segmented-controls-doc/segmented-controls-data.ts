@@ -48,7 +48,7 @@ export const segmentedControlData: ComponentData<BaseSegmentedControlProps> = {
       default: '"medium"',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: Number) => void',
       description: 'Gets called every time the value is changed and returns the new selected control.',
     },

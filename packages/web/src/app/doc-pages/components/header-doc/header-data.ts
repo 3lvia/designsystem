@@ -48,22 +48,22 @@ export const headerData: ComponentData<HeaderProps | HeaderFunctions> = {
       description: 'Hides the theme switch in the profile menu if set to true.',
     },
     onLogoClick: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'An event that is triggered when the Elvia logo is clicked.',
     },
     onSignOutClick: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'An event that is triggered when the sign out button is clicked.',
     },
     onThemeChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(theme: Theme) => void',
       description: 'An event that is triggered when the theme is switched.',
     },
     getCurrentTheme: {
-      isFunction: true,
+      specialType: 'function',
       type: "() => 'light' | 'dark' ",
       description: 'A function that tells you what the current theme is.',
     },

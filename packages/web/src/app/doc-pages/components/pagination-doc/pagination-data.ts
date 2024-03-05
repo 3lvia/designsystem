@@ -75,7 +75,7 @@ export const paginationData: ComponentData<BasePaginationProps> = {
       default: '0',
     },
     dropdownSelectedItemIndexOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: number) => void',
       description: `Gets called every time a new value in the pagination dropdown is chosen, returns the index of the chosen value from the available dropdownItems.`,
     },
@@ -101,7 +101,7 @@ export const paginationData: ComponentData<BasePaginationProps> = {
       },
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: object) => void',
       description: `Gets called every time a selection range is updated and returns a value object with start and end key-value pairs.`,
     },

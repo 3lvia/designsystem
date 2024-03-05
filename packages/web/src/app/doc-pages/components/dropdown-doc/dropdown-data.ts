@@ -101,7 +101,7 @@ export const dropdownData: ComponentData<DropdownProps & DropdownPropsWithStubbe
       default: 'false',
     },
     errorOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(error: string) => void',
       description: 'Gets called every time the internal validation error is changed. ',
     },
@@ -157,12 +157,12 @@ export const dropdownData: ComponentData<DropdownProps & DropdownPropsWithStubbe
         'Use the <i> element for the icon in the placeholder. E.g. <i class="e-icon e-icon--electricity_tower e-icon--sm">',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(values: string | string[]) => void',
       description: `Gets called every time an option(s) is selected and returns an array of selected objects.`,
     },
     onItemHover: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: string | undefined) => void',
       description: `Gets called every time an option is hovered and returns the hovered object.`,
     },
@@ -171,7 +171,7 @@ export const dropdownData: ComponentData<DropdownProps & DropdownPropsWithStubbe
       description: 'Add a button to the bottom of the dropdown menu to load more items.',
     },
     onLoadMoreItems: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Function that is called when the "Load more"-button is clicked.',
     },

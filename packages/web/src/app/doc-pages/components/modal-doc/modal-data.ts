@@ -62,7 +62,7 @@ const modalData: ComponentData<BaseModalProps> = {
       default: 'false',
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       isRequired: true,
       type: '() => void',
       description: 'Callback for every time the modal is being closed.',

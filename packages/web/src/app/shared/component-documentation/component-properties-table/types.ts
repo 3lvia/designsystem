@@ -9,8 +9,7 @@ export interface ComponentProp {
   type: string;
   description?: string;
   default?: string | number | boolean;
-  isEvent?: boolean;
-  isFunction?: boolean;
+  specialType?: 'event' | 'function';
   isRequired?: boolean;
   example?: string;
 }

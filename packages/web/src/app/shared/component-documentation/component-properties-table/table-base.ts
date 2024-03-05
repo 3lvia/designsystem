@@ -43,14 +43,14 @@ export class PropertyTableBaseDirective implements OnChanges {
   }
 
   private getEventProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => prop.item.isEvent);
+    return props.filter((prop) => prop.item.specialType === 'event');
   }
 
   private getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => !prop.item.isEvent && !prop.item.isFunction);
+    return props.filter((prop) => prop.item.specialType !== 'event' && prop.item.specialType !== 'function');
   }
 
   private getFunctionProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => prop.item.isFunction);
+    return props.filter((prop) => prop.item.specialType === 'function');
   }
 }

@@ -38,7 +38,7 @@ export const tabsData: ComponentData<BaseTabsProps> = {
         'If you have more than one set of tabs on your page you need to add a prefix for the tab-ids so that the sets can be differentiated.',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: number) => void',
       description:
         'Gets called every time the value is changed. Value is the index of the clicked tab in items.',

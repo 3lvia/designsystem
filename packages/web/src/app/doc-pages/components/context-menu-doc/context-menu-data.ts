@@ -38,12 +38,12 @@ const contextMenuData: ComponentData<BaseContextMenuProps> = {
         display = "flex";`,
     },
     onOpen: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the context menu is opened.',
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the context menu is closed.',
     },
