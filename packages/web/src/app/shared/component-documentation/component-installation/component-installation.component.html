@@ -1,8 +1,9 @@
 <elvia-segmented-control
   [type]="'text'"
   [size]="'large'"
+  [value]="activeTabIndex"
   [items]="[{ label: 'Angular' }, { label: 'React' }, { label: 'Vue' }]"
-  (valueOnChange)="setFramework($any($event).detail.value)"
+  (valueOnChange)="setActiveTab($any($event).detail.value)"
 ></elvia-segmented-control>
 
 <ol class="e-list e-list--numbers e-mt-40">
@@ -23,7 +24,7 @@
   <li>
     <strong>Import component</strong>
     <div class="e-mt-16">
-      @if (frameworkName === 'react') {
+      @if (activeTabIndex === 1) {
         <app-copy message="import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';">
           <code>import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';</code>
         </app-copy>
@@ -40,7 +41,7 @@
   <li>
     <strong>Import types</strong><span class="e-text-small-light e-ml-8">(Optional)</span>
     <div class="e-mt-16">
-      @if (frameworkName === 'react') {
+      @if (activeTabIndex === 1) {
         <app-copy message="import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';">
           <code>import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';</code>
         </app-copy>
@@ -52,7 +53,7 @@
       <div class="e-text-md e-mt-8">Advanced type interfaces can be imported from the component package.</div>
     </div>
   </li>
-  @if (frameworkName === 'angular') {
+  @if (activeTabIndex === 0) {
     <li>
       <strong>Import schemas</strong>
       <div class="e-mt-16">

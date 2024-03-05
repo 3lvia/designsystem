@@ -4,6 +4,8 @@ import { CopyComponent } from '../../copy/copy.component';
 import { getPackageName } from './getPackageName';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
+const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
+
 @Component({
   selector: 'app-component-installation',
   templateUrl: './component-installation.component.html',
@@ -15,24 +17,17 @@ export class ComponentInstallationComponent implements OnInit {
   @Input() componentData: ComponentData;
   reactElementName: string;
   packageName: string;
-  frameworkName: 'angular' | 'react' | 'vue' = 'angular';
+  activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
+    ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
+    : 0;
 
   ngOnInit() {
     this.reactElementName = this.componentData.name;
     this.packageName = getPackageName(this.componentData.name);
   }
 
-  setFramework(activeTabIndex: number): void {
-    switch (activeTabIndex) {
-      case 1:
-        this.frameworkName = 'react';
-        break;
-      case 2:
-        this.frameworkName = 'vue';
-        break;
-      default:
-        this.frameworkName = 'angular';
-        break;
-    }
+  setActiveTab(newIndex: number): void {
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, newIndex.toString());
+    this.activeTabIndex = newIndex;
   }
 }
