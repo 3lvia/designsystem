@@ -260,9 +260,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
   useEffect(() => {
     if (isInitialized) {
-      validateMinMax(date);
+      validateMinMax(value);
     }
-  }, [date, maxDateWithoutTime, minDateWithoutTime]);
+  }, [value, maxDateWithoutTime, minDateWithoutTime]);
 
   // Allows app to open the datepicker programmatically
   useEffect(() => {
@@ -278,7 +278,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (minDate) {
       const d = new Date(minDate);
       d.setHours(0, 0, 0, 0);
-      setMinDateWithoutTime(d);
+      if (!isSameDay(d, minDate)) {
+        setMinDateWithoutTime(d);
+      }
     } else {
       setMinDateWithoutTime(undefined);
     }
@@ -288,7 +290,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (maxDate) {
       const d = new Date(maxDate);
       d.setHours(23, 59, 59, 59); // End of day
-      setMaxDateWithoutTime(d);
+      if (!isSameDay(d, maxDate)) {
+        setMaxDateWithoutTime(d);
+      }
     } else {
       setMaxDateWithoutTime(undefined);
     }
