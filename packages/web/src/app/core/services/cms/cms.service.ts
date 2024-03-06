@@ -280,7 +280,7 @@ export class CMSService {
    */
   async getEntryFromCMS(pageId: string): Promise<IEntry> {
     return this.http
-      .get(`/.netlify/functions/services?id=${pageId}`)
+      .get(`/.netlify/functions/cmspreview?id=${pageId}`)
       .toPromise()
       .then((entry: any) => {
         return entry;
