@@ -7,7 +7,7 @@ export default async (req: Request, context: Context) => {
   }
 
   const request = await req.json();
-  const message = request.body;
+  const message = request;
 
   console.log('Posting to Slack:', message);
 
