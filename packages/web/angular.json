@@ -5,9 +5,7 @@
     "cache": {
       "enabled": false
     },
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ],
+    "schematicCollections": ["@angular-eslint/schematics"],
     "analytics": false
   },
   "version": 1,
@@ -38,7 +36,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@ngx-env/builder:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/elvia-designsystem",
             "allowedCommonJsDependencies": [
@@ -82,12 +80,8 @@
                 "output": "./assets/contentful/dist/"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": [
-              "../../node_modules/@elvia/elvis/elvis.js"
-            ],
+            "styles": ["src/styles.scss"],
+            "scripts": ["../../node_modules/@elvia/elvis/elvis.js"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -130,7 +124,7 @@
           }
         },
         "serve": {
-          "builder": "@ngx-env/builder:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "buildTarget": "elvia-designsystem:build"
           },
@@ -141,7 +135,7 @@
           }
         },
         "extract-i18n": {
-          "builder": "@ngx-env/builder:extract-i18n",
+          "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "buildTarget": "elvia-designsystem:build"
           }
@@ -149,10 +143,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
