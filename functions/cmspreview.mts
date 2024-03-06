@@ -8,7 +8,6 @@ export const handler: Handler = async (event) => {
   if (!space || !accessToken) {
     return {
       statusCode: 500,
-      headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true },
       body: 'Missing environment variables',
     };
   }
@@ -17,7 +16,6 @@ export const handler: Handler = async (event) => {
   if (!id) {
     return {
       statusCode: 400,
-      headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true },
       body: 'Missing id',
     };
   }
@@ -32,7 +30,6 @@ export const handler: Handler = async (event) => {
     .then((entryResult) => {
       return {
         statusCode: 200,
-        headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true },
         body: safeJsonStringify(entryResult),
       };
     })
@@ -41,7 +38,6 @@ export const handler: Handler = async (event) => {
   if (!result) {
     return {
       statusCode: 404,
-      headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true },
       body: 'Not found',
     };
   }
