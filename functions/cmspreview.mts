@@ -4,7 +4,7 @@ import safeJsonStringify from 'safe-json-stringify';
 
 export const handler: Handler = async (event) => {
   const space = process.env.CONTENTFUL_SPACE;
-  const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
+  const accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
   if (!space || !accessToken) {
     return {
       statusCode: 500,
