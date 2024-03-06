@@ -13,7 +13,7 @@ export default async (req: Request, context: Context) => {
 
   const res = await fetch(url, {
     method: 'POST',
-    body: JSON.stringify({ text: message }),
+    body: JSON.stringify(message),
     headers: { 'Content-Type': 'application/json' },
   });
 
