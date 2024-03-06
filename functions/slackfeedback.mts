@@ -1,7 +1,5 @@
-import type { Context } from '@netlify/functions';
-
-export default async (req: Request, context: Context) => {
-  const url = Netlify.env.get('SLACK_WEBHOOK_URL');
+export default async (req: Request) => {
+  const url = process.env.SLACK_WEBHOOK_URL;
   if (!url) {
     return new Response('No Slack webhook URL found', { status: 500 });
   }
