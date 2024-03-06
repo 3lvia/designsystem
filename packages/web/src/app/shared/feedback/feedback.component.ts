@@ -18,7 +18,6 @@ import { ScrollNotifierService } from './scroll-notifier.service';
 })
 export class FeedbackComponent {
   @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;
-  private slackFeedbackUrl = import.meta.env.NG_APP_SLACK_FEEDBACK_URL;
 
   isEmoji = true;
   isComment = false;
@@ -101,12 +100,11 @@ export class FeedbackComponent {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
     };
 
-    if (!this.slackFeedbackUrl) {
-      console.log('Slack feedback URL is not set.\nFeedback message:', message.text);
-      return;
-    }
     this.http
-      .post(this.slackFeedbackUrl, JSON.stringify(message), { ...options, responseType: 'text' })
+      .post('/.netlify/functions/slackfeedback', JSON.stringify(message), {
+        ...options,
+        responseType: 'text',
+      })
       .subscribe();
   }
 }
