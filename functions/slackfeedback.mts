@@ -13,8 +13,8 @@ export default async (req: Request, context: Context) => {
 
   const res = await fetch(url, {
     method: 'POST',
-    body: JSON.stringify(message),
-    headers: { 'Content-Type': 'application/json' },
+    body: req.body,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   });
 
   if (!res.ok) {
