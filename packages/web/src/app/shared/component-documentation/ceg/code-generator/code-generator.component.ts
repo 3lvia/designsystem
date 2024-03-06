@@ -1,9 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import { Subscription } from 'rxjs';
 
+import { LocalStorageService } from '../../localstorage.service';
 import { CodeViewerComponent } from './code-viewer/code-viewer.component';
 import { Tab } from './types';
-
-const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 
 @Component({
   selector: 'app-code-generator',
@@ -13,6 +13,8 @@ const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeGeneratorComponent implements OnInit {
+  private storageSubscription: Subscription;
+
   @Input() angularCode = '';
   @Input() reactCode = '';
   @Input() vueCode = '';
@@ -33,10 +35,12 @@ export class CodeGeneratorComponent implements OnInit {
     }
   }
 
-  activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
-    ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
-    : 0;
+  activeTabIndex: number = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
+
+  constructor(private localStorageService: LocalStorageService) {
+    this.activeTabIndex = this.localStorageService.getItem();
+  }
 
   ngOnInit(): void {
     if (this.hideReact) {
@@ -50,6 +54,10 @@ export class CodeGeneratorComponent implements OnInit {
     if (this.activeTabIndex > this.tabs.length - 1) {
       this.setActiveTab(this.tabs.length - 1);
     }
+
+    this.storageSubscription = this.localStorageService.storageChanged.subscribe((value) => {
+      this.activeTabIndex = value;
+    });
   }
 
   get activeTab() {
@@ -69,7 +77,7 @@ export class CodeGeneratorComponent implements OnInit {
   }
 
   setActiveTab(newIndex: number): void {
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, newIndex.toString());
+    this.localStorageService.setItem(newIndex);
     this.activeTabIndex = newIndex;
   }
 }

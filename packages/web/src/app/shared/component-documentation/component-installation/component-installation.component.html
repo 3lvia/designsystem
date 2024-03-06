@@ -1,6 +1,6 @@
 <elvia-segmented-control
   [type]="'text'"
-  [size]="'large'"
+  size="large"
   [value]="activeTabIndex"
   [items]="[{ label: 'Angular' }, { label: 'React' }, { label: 'Vue' }]"
   (valueOnChange)="setActiveTab($any($event).detail.value)"
@@ -38,21 +38,6 @@
       </div>
     </div>
   </li>
-  <li>
-    <strong>Import types</strong><span class="e-text-small-light e-ml-8">(Optional)</span>
-    <div class="e-mt-16">
-      @if (activeTabIndex === 1) {
-        <app-copy message="import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';">
-          <code>import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';</code>
-        </app-copy>
-      } @else {
-        <app-copy message="import type &#123; ... &#125; from '{{ packageName }}';">
-          <code>import type &#123; ... &#125; from '{{ packageName }}';</code>
-        </app-copy>
-      }
-      <div class="e-text-md e-mt-8">Advanced type interfaces can be imported from the component package.</div>
-    </div>
-  </li>
   @if (activeTabIndex === 0) {
     <li>
       <strong>Import schemas</strong>
@@ -68,4 +53,19 @@
       </div>
     </li>
   }
+  <li>
+    <strong>Import types</strong><span class="e-text-small-light e-ml-8">(Optional)</span>
+    <div class="e-mt-16">
+      @if (activeTabIndex === 1) {
+        <app-copy message="import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';">
+          <code>import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';</code>
+        </app-copy>
+      } @else {
+        <app-copy message="import type &#123; ... &#125; from '{{ packageName }}';">
+          <code>import type &#123; ... &#125; from '{{ packageName }}';</code>
+        </app-copy>
+      }
+      <div class="e-text-md e-mt-8">Advanced type interfaces can be imported from the component package.</div>
+    </div>
+  </li>
 </ol>

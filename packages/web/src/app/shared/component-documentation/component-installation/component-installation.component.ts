@@ -1,10 +1,10 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { CopyComponent } from '../../copy/copy.component';
+import { LocalStorageService } from '../localstorage.service';
 import { getPackageName } from './getPackageName';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
-
-const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 
 @Component({
   selector: 'app-component-installation',
@@ -13,21 +13,33 @@ const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
   imports: [CopyComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ComponentInstallationComponent implements OnInit {
+export class ComponentInstallationComponent implements OnInit, OnDestroy {
+  private storageSubscription: Subscription;
+
   @Input() componentData: ComponentData;
   reactElementName: string;
   packageName: string;
-  activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
-    ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
-    : 0;
+  activeTabIndex: number = 0;
+
+  constructor(private localStorageService: LocalStorageService) {
+    this.activeTabIndex = this.localStorageService.getItem();
+  }
 
   ngOnInit() {
     this.reactElementName = this.componentData.name;
     this.packageName = getPackageName(this.componentData.name);
+
+    this.storageSubscription = this.localStorageService.storageChanged.subscribe((value) => {
+      this.activeTabIndex = value;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.storageSubscription.unsubscribe();
   }
 
   setActiveTab(newIndex: number): void {
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, newIndex.toString());
+    this.localStorageService.setItem(newIndex);
     this.activeTabIndex = newIndex;
   }
 }
