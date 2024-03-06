@@ -18,7 +18,7 @@
 
 .page-container {
   display: grid;
-  padding: 0 calc(min(80px, 4vw) + 104px) 0 104px; // This shifts the content to the right to make it feel more centered
+  padding-inline: calc(min(80px, 4vw) + 104px) 104px; // This shifts the content to the right to make it feel more centered
   max-width: calc(var(--max-desktop-width) + 208px);
 
   // minmax(0, 1fr) prevents CEGs from overflowing: https://css-tricks.com/preventing-a-grid-blowout/
