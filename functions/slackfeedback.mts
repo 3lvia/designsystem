@@ -6,14 +6,10 @@ export default async (req: Request, context: Context) => {
     return new Response('No Slack webhook URL found', { status: 500 });
   }
 
-  const request = await req.json();
-  const message = request;
-
-  console.log('Posting to Slack:', message);
-
+  const body = await req.json();
   const res = await fetch(url, {
     method: 'POST',
-    body: JSON.stringify(message),
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   });
 
