@@ -37,7 +37,7 @@ export class PropertyTableBaseDirective implements OnChanges {
         expanded: true,
         rows: this.getFunctionProps(this.props),
         description:
-          'Functions are necessary or available for some components. A function can also have parameters.',
+          'Functions can be imported separately from the component, and can sometimes be required for the component to work.',
       },
     ];
   }
