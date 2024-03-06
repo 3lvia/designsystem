@@ -178,9 +178,6 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
     };
 
     useEffect(() => {
-      if (!isValidDate(date)) {
-        return;
-      }
       setInputValue(getFormattedInputValue(date));
 
       if (touched && getFormattedInputValue(date) !== inputValue) {
