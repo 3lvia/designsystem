@@ -9,7 +9,7 @@
 <ol class="e-list e-list--numbers e-mt-40">
   <li>
     <strong>Install package</strong>
-    <div class="e-mt-16">
+    <div class="e-mt-8">
       <app-copy message="npm install {{ packageName }}">
         <code>npm install {{ packageName }}</code>
       </app-copy>
@@ -23,7 +23,7 @@
   </li>
   <li>
     <strong>Import component</strong>
-    <div class="e-mt-16">
+    <div class="e-mt-8">
       @if (activeTabIndex === 1) {
         <app-copy message="import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';">
           <code>import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';</code>
@@ -41,7 +41,7 @@
   @if (activeTabIndex === 0) {
     <li @heightAnimation>
       <strong>Import schemas</strong>
-      <div class="e-mt-16">
+      <div class="e-mt-8">
         <app-copy message="import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';">
           <code>import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';</code>
         </app-copy>
@@ -55,7 +55,7 @@
   }
   <li>
     <strong>Import types</strong><span class="e-text-small-light e-ml-8">(Optional)</span>
-    <div class="e-mt-16">
+    <div class="e-mt-8">
       @if (activeTabIndex === 1) {
         <app-copy message="import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';">
           <code>import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';</code>
