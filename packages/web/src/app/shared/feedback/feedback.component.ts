@@ -18,7 +18,6 @@ import { ScrollNotifierService } from './scroll-notifier.service';
 })
 export class FeedbackComponent {
   @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;
-  webHook = 'https://hooks.slack.com/services/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';
 
   isEmoji = true;
   isComment = false;
@@ -101,6 +100,11 @@ export class FeedbackComponent {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
     };
 
-    this.http.post(this.webHook, JSON.stringify(message), { ...options, responseType: 'text' }).subscribe();
+    this.http
+      .post('/.netlify/functions/slackfeedback', JSON.stringify(message), {
+        ...options,
+        responseType: 'text',
+      })
+      .subscribe();
   }
 }
