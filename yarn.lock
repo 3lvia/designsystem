@@ -5462,6 +5462,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/safe-json-stringify@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "@types/safe-json-stringify@npm:1.1.5"
+  checksum: 10/ea91cc1f439093fd1356fe2d4bf98e8a2cc34bd1d9ccfcdb5afae918fea51737a2be5ae78abc5c7bc8f02f42ea492658aaa88a537efa88c4b1e1bc5a2a6113b7
+  languageName: node
+  linkType: hard
+
 "@types/scheduler@npm:*":
   version: 0.16.4
   resolution: "@types/scheduler@npm:0.16.4"
@@ -9363,9 +9370,11 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
+    "@netlify/functions": "npm:^2.6.0"
     "@types/natural-compare-lite": "npm:^1.4.2"
     "@types/node": "npm:20.11.25"
     "@types/prismjs": "npm:^1.26.3"
+    "@types/safe-json-stringify": "npm:^1.1.5"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.1"
     "@typescript-eslint/parser": "npm:^7.1.1"
     contentful: "npm:^9.3.6"
@@ -9379,6 +9388,7 @@ __metadata:
     prettier: "npm:^3.2.5"
     prismjs: "npm:^1.29.0"
     rxjs: "npm:^7.8.1"
+    safe-json-stringify: "npm:^1.2.0"
     sass: "npm:^1.71.1"
     ts-node: "npm:^10.9.2"
     tslib: "npm:^2.6.2"
@@ -17498,7 +17508,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@netlify/functions": "npm:^2.6.0"
     "@trivago/prettier-plugin-sort-imports": "npm:^4.3.0"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.1"
     "@typescript-eslint/parser": "npm:^7.1.1"
@@ -17513,7 +17522,6 @@ __metadata:
     react: "npm:^16.8.0 || ^17.0.0 || ^18.0.0"
     react-dom: "npm:^16.8.0 || ^17.0.0 || ^18.0.0"
     react-is: "npm:^16.8.0 || ^17.0.0 || ^18.0.0"
-    safe-json-stringify: "npm:^1.2.0"
     stylelint: "npm:^15.11.0"
     stylelint-config-idiomatic-order: "npm:^10.0.0"
     stylelint-config-prettier-scss: "npm:^1.0.0"
