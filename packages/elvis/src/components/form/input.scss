@@ -81,6 +81,12 @@
     margin-right: 16px;
   }
 
+  > .e-input__suffix {
+    @include mixins.typography('text-medium');
+    margin-right: 16px;
+    color: var(--e-color-text-2);
+  }
+
   &.e-input---invalid {
     --border-width: 2px;
     --border-color: var(--e-color-signal-danger);
@@ -270,6 +276,12 @@
     width: 16px;
     height: 16px;
     margin-right: 8px;
+  }
+
+  > .e-input__suffix {
+    @include mixins.typography('text-small');
+    margin-right: 10px;
+    color: var(--e-color-text-2);
   }
 
   &.e-input---loading:not(:focus-within) {

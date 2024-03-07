@@ -266,6 +266,9 @@
 				"e-input--placeholder": {},
 				"e-input--compact": {},
 				"e-input--small": {}
+			},
+			"element": {
+				"e-input__suffix": {}
 			}
 		},
 		"e-checkbox": {
@@ -1141,6 +1144,7 @@
 		"e-fileupload__input": {},
 		"e-fileupload--dragover": {},
 		"e-input--placeholder": {},
+		"e-input__suffix": {},
 		"e-input---invalid": {},
 		"e-input---disabled": {},
 		"e-input---readonly": {},
