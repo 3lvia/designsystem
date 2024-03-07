@@ -18,6 +18,6 @@ export class PreferredLanguageService {
   }
 
   getPreferredLanguage(): LanguageType {
-    return JSON.parse(localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'angular') as LanguageType;
+    return JSON.parse(localStorage.getItem(LANGUAGE_STORAGE_KEY) ?? 'angular') as LanguageType;
   }
 }
