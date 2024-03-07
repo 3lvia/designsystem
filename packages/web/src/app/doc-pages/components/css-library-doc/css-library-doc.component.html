@@ -18,40 +18,44 @@
   </app-component-section>
 
   <app-component-section sectionTitle="Installation">
-    <app-component-subsection sectionTitle="NPM">
-      Npm is the recommended method of installing Elvis.
+    <app-component-subsection>
       <ol class="e-list e-list--numbers">
         <li>
-          <strong>Install package:</strong>
-          <app-copy [message]="npmInstall">
-            <code>{{ npmInstall }}</code>
-          </app-copy>
+          <strong>Install package</strong>
+          <div class="e-mt-8">
+            <app-copy [message]="npmInstall">
+              <code>{{ npmInstall }}</code>
+            </app-copy>
+          </div>
           <p class="e-text-md e-my-8">or</p>
           <app-copy [message]="yarnAdd">
             <code>{{ yarnAdd }}</code>
           </app-copy>
         </li>
         <li>
-          <strong>Import stylesheet:</strong>
-          <app-copy [message]="importStylesheet">
-            <code>{{ importStylesheet }}</code>
-          </app-copy>
-          <p class="e-text-md e-mt-8">Add this import to your main stylesheet, for example "styles.scss".</p>
-        </li>
-        <li>
-          <strong>Import script:</strong>
-          <app-copy [message]="importScript">
-            <code>{{ importScript }}</code>
-          </app-copy>
+          <strong>Import stylesheet and script</strong>
+          <div class="e-mt-8">
+            <app-copy [message]="importStylesheet">
+              <code>{{ importStylesheet }}</code>
+            </app-copy>
+          </div>
+          <div class="e-mt-8">
+            <app-copy [message]="importScript">
+              <code>{{ importScript }}</code>
+            </app-copy>
+          </div>
           <p class="e-text-md e-mt-8">
-            Please note that elvis.js should be imported only once, somewhere at the base-level of your app,
-            for example "main.ts". Depending on what framework you are using, the method of doing this may
-            differ.
+            <strong>NB!</strong> The script should only be imported once, somewhere at the base-level of your
+            app. Depending on what framework you are using, the method of doing this may differ.
           </p>
         </li>
       </ol>
     </app-component-subsection>
-    <app-component-subsection sectionTitle="CDN">
+    <app-component-subsection>
+      <h3 class="e-title-sm e-flex e-align-items-center e-mt-0 e-mb-16">
+        <span>CDN</span>
+        <label class="e-tag e-ml-16">Deprecated</label>
+      </h3>
       We have deprecated the use of the CDN, and it is no longer recommended to use. This is because you miss
       out on automatic updates through Renovate. We recommend using NPM instead.
 
