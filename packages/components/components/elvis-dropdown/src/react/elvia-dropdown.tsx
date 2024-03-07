@@ -89,6 +89,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     horizontalPosition: 'center',
     verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
     alignWidths: true,
+    allowHorizontalGrowth: true,
   });
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
