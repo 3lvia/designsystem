@@ -2501,7 +2501,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@npm:^4.1.0, @elvia/elvis-colors@npm:^4.2.0, @elvia/elvis-colors@npm:^4.4.0, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@npm:^4.1.0, @elvia/elvis-colors@npm:^4.2.0, @elvia/elvis-colors@npm:^4.4.0, @elvia/elvis-colors@npm:^4.4.1, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -2668,10 +2668,10 @@ __metadata:
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
     "@elvia/elvis-assets-icons": "npm:^3.10.0"
-    "@elvia/elvis-colors": "npm:^4.1.0"
+    "@elvia/elvis-colors": "npm:^4.4.1"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^11.3.1"
-    "@elvia/elvis-tooltip": "npm:^1.3.2"
+    "@elvia/elvis-toolbox": "npm:^11.4.0"
+    "@elvia/elvis-tooltip": "npm:^1.3.3"
     "@elvia/elvis-typography": "npm:^2.7.0"
     dompurify: "npm:^3.0.3"
     styled-components: "npm:^5.3.3"
@@ -3059,7 +3059,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@npm:*, @elvia/elvis-toolbox@npm:^11.0.0, @elvia/elvis-toolbox@npm:^11.0.1, @elvia/elvis-toolbox@npm:^11.0.2, @elvia/elvis-toolbox@npm:^11.1.0, @elvia/elvis-toolbox@npm:^11.2.0, @elvia/elvis-toolbox@npm:^11.3.0, @elvia/elvis-toolbox@npm:^11.3.1, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@npm:*, @elvia/elvis-toolbox@npm:^11.0.0, @elvia/elvis-toolbox@npm:^11.0.1, @elvia/elvis-toolbox@npm:^11.0.2, @elvia/elvis-toolbox@npm:^11.1.0, @elvia/elvis-toolbox@npm:^11.2.0, @elvia/elvis-toolbox@npm:^11.3.0, @elvia/elvis-toolbox@npm:^11.4.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
@@ -3083,7 +3083,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-tooltip@npm:*, @elvia/elvis-tooltip@npm:^1.2.3, @elvia/elvis-tooltip@npm:^1.3.2, @elvia/elvis-tooltip@workspace:*, @elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip":
+"@elvia/elvis-tooltip@npm:*, @elvia/elvis-tooltip@npm:^1.2.3, @elvia/elvis-tooltip@npm:^1.3.3, @elvia/elvis-tooltip@workspace:*, @elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-tooltip@workspace:packages/components/components/elvis-tooltip"
   dependencies:
