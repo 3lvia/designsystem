@@ -2,7 +2,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnDestroy, OnInit } from '@an
 import { Subscription } from 'rxjs';
 
 import { CopyComponent } from '../../copy/copy.component';
-import { LocalStorageService } from '../localstorage.service';
+import { PreferredLanguageService } from '../preferredLanguage.service';
+import { TabToSegmentedControlItemPipe } from '../tabToSegmentedControlItem.pipe';
+import { LanguageType, Tab } from '../types';
 import { getPackageName } from './getPackageName';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
@@ -10,36 +12,34 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   selector: 'app-component-installation',
   templateUrl: './component-installation.component.html',
   standalone: true,
-  imports: [CopyComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [CopyComponent, TabToSegmentedControlItemPipe],
 })
 export class ComponentInstallationComponent implements OnInit, OnDestroy {
-  private storageSubscription: Subscription;
+  private languageSubscription: Subscription;
 
   @Input() componentData: ComponentData;
   reactElementName: string;
   packageName: string;
   activeTabIndex: number = 0;
+  tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
-  constructor(private localStorageService: LocalStorageService) {
-    this.activeTabIndex = this.localStorageService.getItem();
-  }
+  constructor(private preferredLanguageService: PreferredLanguageService) {}
 
   ngOnInit() {
     this.reactElementName = this.componentData.name;
     this.packageName = getPackageName(this.componentData.name);
 
-    this.storageSubscription = this.localStorageService.storageChanged.subscribe((value) => {
-      this.activeTabIndex = value;
+    this.languageSubscription = this.preferredLanguageService.preferredLanguage$.subscribe((value) => {
+      this.activeTabIndex = this.tabs.findIndex((tab) => tab.toLowerCase() === value);
     });
   }
 
   ngOnDestroy(): void {
-    this.storageSubscription.unsubscribe();
+    this.languageSubscription.unsubscribe();
   }
 
   setActiveTab(newIndex: number): void {
-    this.localStorageService.setItem(newIndex);
-    this.activeTabIndex = newIndex;
+    this.preferredLanguageService.setPreferredLanguage(this.tabs[newIndex].toLowerCase() as LanguageType);
   }
 }

@@ -2,7 +2,7 @@
   [type]="'text'"
   size="large"
   [value]="activeTabIndex"
-  [items]="[{ label: 'Angular' }, { label: 'React' }, { label: 'Vue' }]"
+  [items]="tabs | tabToSegmentedControlItem"
   (valueOnChange)="setActiveTab($any($event).detail.value)"
 ></elvia-segmented-control>
 

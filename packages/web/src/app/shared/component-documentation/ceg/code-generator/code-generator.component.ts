@@ -1,9 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnDestroy, OnInit, booleanAttribute } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { LocalStorageService } from '../../localstorage.service';
+import { PreferredLanguageService } from '../../preferredLanguage.service';
+import { LanguageType, Tab } from '../../types';
 import { CodeViewerComponent } from './code-viewer/code-viewer.component';
-import { Tab } from './types';
 
 @Component({
   selector: 'app-code-generator',
@@ -12,8 +12,8 @@ import { Tab } from './types';
   imports: [CodeViewerComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class CodeGeneratorComponent implements OnInit {
-  private storageSubscription: Subscription;
+export class CodeGeneratorComponent implements OnInit, OnDestroy {
+  private languageSubscription: Subscription;
 
   @Input() angularCode = '';
   @Input() reactCode = '';
@@ -38,9 +38,7 @@ export class CodeGeneratorComponent implements OnInit {
   activeTabIndex: number = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
-  constructor(private localStorageService: LocalStorageService) {
-    this.activeTabIndex = this.localStorageService.getItem();
-  }
+  constructor(private preferredLanguageService: PreferredLanguageService) {}
 
   ngOnInit(): void {
     if (this.hideReact) {
@@ -55,9 +53,13 @@ export class CodeGeneratorComponent implements OnInit {
       this.setActiveTab(this.tabs.length - 1);
     }
 
-    this.storageSubscription = this.localStorageService.storageChanged.subscribe((value) => {
-      this.activeTabIndex = value;
+    this.preferredLanguageService.preferredLanguage$.subscribe((value) => {
+      this.setTabIndex(value);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.languageSubscription.unsubscribe();
   }
 
   get activeTab() {
@@ -76,8 +78,11 @@ export class CodeGeneratorComponent implements OnInit {
     }
   }
 
+  setTabIndex(value: LanguageType) {
+    this.activeTabIndex = this.tabs.findIndex((tab) => tab.toLowerCase() === value);
+  }
+
   setActiveTab(newIndex: number): void {
-    this.localStorageService.setItem(newIndex);
-    this.activeTabIndex = newIndex;
+    this.preferredLanguageService.setPreferredLanguage(this.tabs[newIndex].toLowerCase() as LanguageType);
   }
 }
