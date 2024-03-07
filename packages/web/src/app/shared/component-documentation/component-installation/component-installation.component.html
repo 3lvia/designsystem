@@ -39,7 +39,7 @@
     </div>
   </li>
   @if (activeTabIndex === 0) {
-    <li>
+    <li @heightAnimation>
       <strong>Import schemas</strong>
       <div class="e-mt-16">
         <app-copy message="import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';">

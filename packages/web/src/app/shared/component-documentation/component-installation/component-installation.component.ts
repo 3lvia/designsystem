@@ -5,6 +5,7 @@ import { CopyComponent } from '../../copy/copy.component';
 import { PreferredLanguageService } from '../preferredLanguage.service';
 import { TabToSegmentedControlItemPipe } from '../tabToSegmentedControlItem.pipe';
 import { LanguageType, Tab } from '../types';
+import { heightAnimation } from './animations';
 import { getPackageName } from './getPackageName';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
@@ -13,6 +14,7 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   templateUrl: './component-installation.component.html',
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  animations: [heightAnimation],
   imports: [CopyComponent, TabToSegmentedControlItemPipe],
 })
 export class ComponentInstallationComponent implements OnInit, OnDestroy {
