@@ -1,14 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
-import { combineLatest } from 'rxjs';
 
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
 import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
 import { WebComponentIllustrationComponent } from './web-component-illustration/web-component-illustration.component';
-import { VersionService } from 'src/app/core/services/version.service';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
@@ -28,41 +25,10 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 export class GetStartedDocComponent {
   description = getDocPagesNotFromCMS('get-started')?.description;
   title = getDocPagesNotFromCMS('get-started')?.title;
-  linkTagCode = '';
-  scriptTagCode = '';
-  fullHTMLExample = '';
   elvisCssImport = "@use '@elvia/elvis/css/elvis.min.css';";
   elvisJsImport = "import '@elvia/elvis/elvis.js';";
 
-  constructor(
-    private versionService: VersionService,
-    private titleService: Title,
-  ) {
+  constructor(private titleService: Title) {
     this.titleService.setTitle('Get started | Elvia design system');
-
-    combineLatest([this.versionService.getCDNScriptFile(), this.versionService.getCDNStyleFile()])
-      .pipe(takeUntilDestroyed())
-      .subscribe(([scriptFile, styleFile]) => {
-        this.scriptTagCode = scriptFile;
-        this.linkTagCode = styleFile;
-        this.fullHTMLExample = this.createFullExample(scriptFile, styleFile);
-      });
-  }
-
-  private createFullExample(scriptFile: string, styleFile: string): string {
-    if (styleFile !== '' && scriptFile !== '') {
-      return `<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    ${styleFile}
-</head>
-<body>
-    ${scriptFile}
-</body>
-</html>`;
-    }
-
-    return '';
   }
 }
