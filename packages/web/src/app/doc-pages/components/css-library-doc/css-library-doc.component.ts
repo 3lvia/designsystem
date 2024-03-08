@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
-import { combineLatest } from 'rxjs';
 
-import { VersionService } from '../../../core/services/version.service';
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
@@ -38,22 +35,10 @@ export class CSSLibraryDocComponent {
   yarnAdd = 'yarn add @elvia/elvis';
   importStylesheet = "@use '@elvia/elvis/css/elvis.min.css';";
   importScript = "import '@elvia/elvis/elvis.js';";
-  linkTagCode = '';
-  scriptTagCode = '';
   title = getComponent('css-library')?.title;
   description = getComponent('css-library')?.description;
 
-  constructor(
-    private versionService: VersionService,
-    private titleService: Title,
-  ) {
+  constructor(private titleService: Title) {
     this.titleService.setTitle('CSS Library | Elvia design system');
-
-    combineLatest([this.versionService.getCDNScriptFile(), this.versionService.getCDNStyleFile()])
-      .pipe(takeUntilDestroyed())
-      .subscribe(([scriptFile, styleFile]) => {
-        this.scriptTagCode = scriptFile;
-        this.linkTagCode = styleFile;
-      });
   }
 }

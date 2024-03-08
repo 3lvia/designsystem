@@ -1,8 +1,3 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router';
-
-import './styles.scss';
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-autocomplete';
 import '@elvia/elvis-badge';
@@ -31,5 +26,11 @@ import '@elvia/elvis-tabs';
 import '@elvia/elvis-timepicker';
 import '@elvia/elvis-toast';
 import '@elvia/elvis-tooltip';
+import '@elvia/elvis/elvis.js';
+import { createApp } from 'vue';
+
+import App from './App.vue';
+import router from './router';
+import './styles.scss';
 
 createApp(App).use(router).mount('#app');

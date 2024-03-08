@@ -61,8 +61,8 @@ export class ComponentChangelogComponent implements OnInit {
   filteredChangelog: Changelog | undefined = [];
   accordionIsOpen = false;
 
-  changelogIdPipe = new ChangelogIdPipe();
-  changelogTypePipe = new ChangelogTypePipe();
+  private changelogIdPipe = new ChangelogIdPipe();
+  private changelogTypePipe = new ChangelogTypePipe();
 
   private searcher: Searcher<ChangelogEntry>;
 

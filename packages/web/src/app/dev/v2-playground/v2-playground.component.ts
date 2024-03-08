@@ -147,7 +147,8 @@ export class v2PlaygroundComponent {
     { value: 'danmark', label: 'Danmark' },
     {
       value: 'finland',
-      label: 'Finland  med en veldig lang tekst som kommer til å overflowe',
+      label:
+        'Finland  med en veldig lang tekst som kommer til å overflowe overflowe overflowe overflowe som kommer til å overflowe overflowe overflowe overflowe som kommer til å overflowe overflowe overflowe overflowe',
     },
     { value: 'spania', label: 'Spania' },
     { value: 'tyskland', label: 'Tyskland' },

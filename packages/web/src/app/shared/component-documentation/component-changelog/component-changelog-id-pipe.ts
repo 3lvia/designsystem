@@ -8,9 +8,9 @@ export class ChangelogIdPipe implements PipeTransform {
 
   private encodeHTML(txt: string): string {
     return txt
+      .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
-      .replace(/&/g, '&amp;')
       .replace(/'/g, '&apos;')
       .replace(/"/g, '&quot;')
       .replace(/\s/g, '-');

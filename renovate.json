@@ -23,6 +23,12 @@
       "matchPackagePatterns": ["^@types/"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "groupName": "common dependencies",
+      "matchPackagePatterns": ["^contentful", "^vue-tsc", "^vite", "^vue", "^sass"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ],
   "ignoreDeps": ["styled-components", "bootstrap", "jquery", "react", "react-dom"],

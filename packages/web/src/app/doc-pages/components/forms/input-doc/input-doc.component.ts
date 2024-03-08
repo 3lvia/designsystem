@@ -16,6 +16,7 @@ import { InputOptionsOptionalCegComponent } from './input-options-optional-ceg/i
 import { InputOptionsReadonlyCegComponent } from './input-options-readonly-ceg/input-options-readonly-ceg.component';
 import { InputSizeMediumCegComponent } from './input-size-medium-ceg/input-size-medium-ceg.component';
 import { InputSizeSmallCegComponent } from './input-size-small-ceg/input-size-small-ceg.component';
+import { InputSuffixCegComponent } from './input-suffix-ceg/input-suffix-ceg.component';
 import { InputTypeCombinedInlinedCegComponent } from './input-type-combined-inlined-ceg/input-type-combined-inlined-ceg.component';
 import { InputTypeNormalCegComponent } from './input-type-normal-ceg/input-type-normal-ceg.component';
 import { InputTypeTextareaCegComponent } from './input-type-textarea-ceg/input-type-textarea-ceg.component';
@@ -43,6 +44,7 @@ import { InputValidationCegComponent } from './input-validation-ceg/input-valida
     InputOptionsLoadingCegComponent,
     InputSizeMediumCegComponent,
     InputSizeSmallCegComponent,
+    InputSuffixCegComponent,
     WhenToUseComponent,
     RouterLink,
     CopyComponent,
