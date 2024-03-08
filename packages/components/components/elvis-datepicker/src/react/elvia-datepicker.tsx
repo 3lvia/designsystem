@@ -243,25 +243,11 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
     let newDate: Date | null = new Date(`${year}/${month}/${day}`);
     newDate = isValidDate(newDate) ? newDate : null;
-    switch (error) {
-      case 'required':
-        if (!isSameDay(newDate, date) && newDate !== date) {
-          updateValue(newDate);
-        }
-        onError(error);
-        break;
-      case 'invalidDate':
-      case 'beforeMinDate':
-      case 'afterMaxDate':
-        onError(error);
-        break;
-      case 'valid':
-        if (!isSameDay(newDate, date) && newDate !== date) {
-          updateValue(newDate);
-        }
-        onError();
-        break;
+
+    if (!isSameDay(newDate, date) && newDate !== date) {
+      updateValue(newDate);
     }
+    onError(error === 'valid' ? undefined : error);
   };
 
   // Needed for webcomponent -> To update the default value
@@ -292,7 +278,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (minDate) {
       const d = new Date(minDate);
       d.setHours(0, 0, 0, 0);
-      setMinDateWithoutTime(d);
+      if (!isSameDay(d, minDateWithoutTime)) {
+        setMinDateWithoutTime(d);
+      }
     } else {
       setMinDateWithoutTime(undefined);
     }
@@ -302,7 +290,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (maxDate) {
       const d = new Date(maxDate);
       d.setHours(23, 59, 59, 59); // End of day
-      setMaxDateWithoutTime(d);
+      if (!isSameDay(d, maxDateWithoutTime)) {
+        setMaxDateWithoutTime(d);
+      }
     } else {
       setMaxDateWithoutTime(undefined);
     }

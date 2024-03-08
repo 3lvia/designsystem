@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import './App.scss';
 import { Accordion } from '@elvia/elvis-accordion/react';
 import { Autocomplete } from '@elvia/elvis-autocomplete/react';
 import { Badge } from '@elvia/elvis-badge/react';
@@ -9,8 +7,8 @@ import { Card } from '@elvia/elvis-card/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
 import { Chip } from '@elvia/elvis-chip/react';
 import { ContextMenu } from '@elvia/elvis-context-menu/react';
-import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
+import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Header } from '@elvia/elvis-header/react';
@@ -28,6 +26,9 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
 import { Toast, openElviaToast } from '@elvia/elvis-toast/react';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
+import { useState } from 'react';
+
+import './App.scss';
 
 function App() {
   const logValue = (component: string, value: string | number) => {
