@@ -14,7 +14,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-css-library-doc',
   templateUrl: './css-library-doc.component.html',
-  styleUrls: ['./css-library-doc.component.scss'],
   standalone: true,
   imports: [
     ComponentHeaderComponent,
