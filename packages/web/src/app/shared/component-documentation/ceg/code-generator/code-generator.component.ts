@@ -1,5 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnDestroy, OnInit, booleanAttribute } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { PreferredLanguageService } from '../../preferredLanguage.service';
 import { LanguageType, Tab } from '../../types';
@@ -12,9 +12,7 @@ import { CodeViewerComponent } from './code-viewer/code-viewer.component';
   imports: [CodeViewerComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class CodeGeneratorComponent implements OnInit, OnDestroy {
-  private languageSubscription: Subscription;
-
+export class CodeGeneratorComponent implements OnInit {
   @Input() angularCode = '';
   @Input() reactCode = '';
   @Input() vueCode = '';
@@ -38,7 +36,11 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
   activeTabIndex: number = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
-  constructor(private preferredLanguageService: PreferredLanguageService) {}
+  constructor(private preferredLanguageService: PreferredLanguageService) {
+    this.preferredLanguageService.preferredLanguage$.pipe(takeUntilDestroyed()).subscribe((value) => {
+      this.setTabIndex(value);
+    });
+  }
 
   ngOnInit(): void {
     if (this.hideReact) {
@@ -52,14 +54,6 @@ export class CodeGeneratorComponent implements OnInit, OnDestroy {
     if (this.activeTabIndex > this.tabs.length - 1) {
       this.setActiveTab(this.tabs.length - 1);
     }
-
-    this.preferredLanguageService.preferredLanguage$.subscribe((value) => {
-      this.setTabIndex(value);
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.languageSubscription.unsubscribe();
   }
 
   get activeTab() {
