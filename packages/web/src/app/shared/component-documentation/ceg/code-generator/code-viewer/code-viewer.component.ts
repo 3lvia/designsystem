@@ -9,10 +9,11 @@ import {
 } from '@angular/core';
 
 import { IfViewportSizeDirective } from '../../../../viewport-size/if-viewport-size.directive';
+import { TabToSegmentedControlItemPipe } from '../../../tabToSegmentedControlItem.pipe';
+import { Tab } from '../../../types';
 import { FormatCodePipe } from '../formatCode.pipe';
 import { HighlighterPipe } from '../highlighter.pipe';
-import { Language, Tab } from '../types';
-import { TabToSegmentedControlItemPipe } from './tabToSegmentedControlItem.pipe';
+import { Language } from '../types';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({

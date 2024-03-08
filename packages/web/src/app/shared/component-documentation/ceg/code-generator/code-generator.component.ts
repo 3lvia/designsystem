@@ -1,9 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
+import { PreferredLanguageService } from '../../preferredLanguage.service';
+import { LanguageType, Tab } from '../../types';
 import { CodeViewerComponent } from './code-viewer/code-viewer.component';
-import { Tab } from './types';
-
-const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 
 @Component({
   selector: 'app-code-generator',
@@ -33,10 +33,14 @@ export class CodeGeneratorComponent implements OnInit {
     }
   }
 
-  activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
-    ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
-    : 0;
+  activeTabIndex: number = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
+
+  constructor(private preferredLanguageService: PreferredLanguageService) {
+    this.preferredLanguageService.preferredLanguage$.pipe(takeUntilDestroyed()).subscribe((value) => {
+      this.setTabIndex(value);
+    });
+  }
 
   ngOnInit(): void {
     if (this.hideReact) {
@@ -68,8 +72,11 @@ export class CodeGeneratorComponent implements OnInit {
     }
   }
 
+  setTabIndex(value: LanguageType) {
+    this.activeTabIndex = this.tabs.findIndex((tab) => tab.toLowerCase() === value);
+  }
+
   setActiveTab(newIndex: number): void {
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, newIndex.toString());
-    this.activeTabIndex = newIndex;
+    this.preferredLanguageService.setPreferredLanguage(this.tabs[newIndex].toLowerCase() as LanguageType);
   }
 }
