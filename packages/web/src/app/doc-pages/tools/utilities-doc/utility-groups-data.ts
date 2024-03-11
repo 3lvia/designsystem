@@ -380,6 +380,27 @@ export const utilityGroups: UtilityGroup[] = [
         description: 'Aligns text to the right.',
         styling: 'text-align: right',
       },
+      {
+        className: 'e-text-wrap-wrap',
+        description: 'Wraps the text.',
+        styling: 'text-wrap: wrap',
+      },
+      {
+        className: 'e-text-wrap-nowrap',
+        description: 'Disable text wrapping.',
+        styling: 'text-wrap: nowrap',
+      },
+      {
+        className: 'e-text-wrap-balance',
+        description: 'Wraps the text and balances the number of characters in each line.',
+        styling: 'text-wrap: balance',
+      },
+      {
+        className: 'e-text-wrap-pretty',
+        description:
+          'Wraps the text in a similar way to normal text wrapping, but with a more even distribution of words across lines. NB: slower performance than normal text wrapping.',
+        styling: 'text-wrap: pretty',
+      },
     ],
   },
   {
