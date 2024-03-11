@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { SpotlightProps } from './elvia-spotlight.types';
 import { SpotlightArea, SpotlightCircle, SpotlightMask, SpotlightRect } from './styledComponents';
@@ -17,6 +17,17 @@ export const Spotlight: FC<SpotlightProps> = ({
 }) => {
   const hasPosition = position && position.horizontal !== undefined && position.vertical !== undefined;
   useLockBodyScroll(hasLockBodyScroll);
+
+  // This is a workaround to force the mask to re-render when the window is resized,
+  // as the mask size 100% does not update when the window is resized.
+  const [backgroundSize, setBackgroundSize] = useState('100%');
+  useEffect(() => {
+    const handleResize = () => {
+      setBackgroundSize((old) => (old === '100%' ? '101%' : '100%'));
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return hasPosition ? (
     <div className={className} style={inlineStyle} {...rest}>
@@ -46,7 +57,7 @@ export const Spotlight: FC<SpotlightProps> = ({
             )}
           </mask>
         </defs>
-        <SpotlightMask mask="url(#hole)" />
+        <SpotlightMask maskSize={backgroundSize} mask="url(#hole)" />
       </SpotlightArea>
     </div>
   ) : (
