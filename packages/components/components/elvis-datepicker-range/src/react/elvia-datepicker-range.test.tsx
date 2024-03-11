@@ -113,6 +113,16 @@ describe('Elvis DatepickerRange', () => {
 
       await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
       await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalledTimes(1));
+
+      await waitFor(() =>
+        expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: new Date('08/11/2022'), end: null }),
+      );
+      await waitFor(() =>
+        expect(valueOnChangeISOStringEvent).toHaveBeenCalledWith({
+          start: '2022-08-11',
+          end: null,
+        }),
+      );
     });
 
     it('errorOnChangeEvent: should emit when an error is shown', async () => {
