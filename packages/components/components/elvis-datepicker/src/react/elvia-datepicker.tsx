@@ -76,7 +76,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   const handleValueOnChangeISOString = (newDate: Date | null): void => {
     let dateISO: string | null = null;
     if (newDate && isValidDate(newDate)) {
-      dateISO = localISOTime(newDate);
+      dateISO = localISOTime(newDate).substring(0, 10);
     } else if (newDate === null) {
       dateISO = null;
     } else {
