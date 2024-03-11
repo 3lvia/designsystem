@@ -2598,7 +2598,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-assets-icons": "npm:^3.10.0"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-datepicker": "npm:^9.0.4"
+    "@elvia/elvis-datepicker": "npm:^9.0.6"
     "@elvia/elvis-timepicker": "npm:^5.1.1"
     "@elvia/elvis-toolbox": "npm:^11.2.0"
     styled-components: "npm:^5.3.3"
@@ -2616,7 +2616,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-datepicker@npm:*, @elvia/elvis-datepicker@npm:^9.0.4, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@npm:*, @elvia/elvis-datepicker@npm:^9.0.6, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
