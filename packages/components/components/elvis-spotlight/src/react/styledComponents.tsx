@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const SpotlightArea = styled.svg`
   position: fixed;
@@ -24,7 +24,7 @@ export const SpotlightRect = styled.rect<SpotlightRectProps>`
   transition: all ${({ transitionDuration }) => transitionDuration} ease-in-out;
 `;
 
-export const SpotlightMask = styled.rect<{ maskSize: string }>`
+export const SpotlightMask = styled.rect`
   --ewc-spotlight-mask-fill: 0.25;
   .e-color-background-3 &&,
   .e-theme-dark &&,
@@ -33,8 +33,6 @@ export const SpotlightMask = styled.rect<{ maskSize: string }>`
   }
 
   fill: rgba(0, 0, 0, var(--ewc-spotlight-mask-fill));
-  ${({ maskSize }) => css`
-    width: ${maskSize};
-    height: ${maskSize};
-  `}
+  width: 100vw;
+  height: 100vh;
 `;
