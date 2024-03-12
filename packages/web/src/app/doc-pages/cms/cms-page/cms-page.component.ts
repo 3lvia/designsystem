@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
@@ -21,6 +21,7 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [NgIf, ComponentHeaderComponent, NgFor, RouterOutlet, HttpClientModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CMSPageComponent implements OnDestroy {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;
@@ -42,7 +43,7 @@ export class CMSPageComponent implements OnDestroy {
     private router: Router,
     private elementRef: ElementRef,
     private titleService: Title,
-    private themeService: ThemeService,
+    themeService: ThemeService,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
