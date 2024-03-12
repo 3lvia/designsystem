@@ -13,7 +13,6 @@ import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/c
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cms-page',
