@@ -2,6 +2,22 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "07.03.24",
+      "version": "11.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The <code>useConnectedOverlay</code> hook now supports a new prop <code>allowHorizontalGrowth</code> that will allow the overlay to grow horizontally if the content is wider than the trigger, while maintaining a minimum width of the width of the trigger."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "15.02.24",
       "version": "11.3.1",
       "changelog": [

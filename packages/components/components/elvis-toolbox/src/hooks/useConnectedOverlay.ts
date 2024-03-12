@@ -14,6 +14,7 @@ export type OverlayHorizontalPosition = 'left' | 'left-inside' | 'center' | 'rig
 interface Options {
   offset: number;
   alignWidths: boolean;
+  allowHorizontalGrowth: boolean;
   verticalPosition: OverlayVerticalPosition;
   horizontalPosition: OverlayHorizontalPosition;
 }
@@ -21,6 +22,7 @@ interface Options {
 const defaultOptions: Options = {
   offset: 8,
   alignWidths: true,
+  allowHorizontalGrowth: false,
   verticalPosition: 'bottom',
   horizontalPosition: 'center',
 };
@@ -254,6 +256,11 @@ export const useConnectedOverlay = (
     if (overlayStyle && overlayRect && hostRect && windowRect) {
       if (opts.alignWidths) {
         overlayStyle.width = `${hostRect.width}px`;
+      }
+      if (opts.allowHorizontalGrowth) {
+        overlayStyle.width = 'unset';
+        overlayStyle.minWidth = `${hostRect.width}px`;
+        overlayStyle.maxWidth = `${windowRect.width - hostRect.left - 16}px`;
       }
 
       alignVertically(overlayStyle, hostRect, overlayRect, windowRect);

@@ -1,6 +1,30 @@
 {
   "content": [
     {
+      "version": "16.4.0",
+      "date": "March 11, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new utility classes for text-wrap."],
+          "pages": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "16.3.0",
+      "date": "March 07, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for suffix in text fields."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "16.2.2",
       "date": "February 21, 2024",
       "changelog": [

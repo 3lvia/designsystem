@@ -10,34 +10,39 @@
 <div class="page-body">
   <!--TABLE OF CLASSES-->
   <app-component-subsection>
-    <div *ngFor="let group of utilityGroups">
+    @for (group of utilityGroups; track $index) {
       <div class="utility-container">
-        <h3 class="rowTitle e-title-xs" *ngIf="group.path">
-          <a
-            class="e-link e-link--lg"
-            [routerLink]="[group.path]"
-            [fragment]="group.fragment"
-            data-url-fragment
-          >
+        @if (group.path) {
+          <h3 class="rowTitle e-title-xs">
+            <a
+              class="e-link e-link--lg"
+              [routerLink]="[group.path]"
+              [fragment]="group.fragment"
+              data-url-fragment
+            >
+              {{ group.title }}
+            </a>
+          </h3>
+        } @else {
+          <h3 class="rowTitle e-title-xs" data-url-fragment>
             {{ group.title }}
-          </a>
-        </h3>
-        <h3 class="rowTitle e-title-xs" *ngIf="!group.path" data-url-fragment>
-          {{ group.title }}
-        </h3>
+          </h3>
+        }
         <div class="e-text-md" style="width: 100%">
-          <div class="tableRow" *ngFor="let class of group.classes">
-            <span class="class">
-              <app-copy [message]="class.className">
-                <code class="code-text">{{ class.className }}</code>
-              </app-copy>
-            </span>
-            <span class="description">{{ class.description }}</span>
-            <span class="cssContent">{{ class.styling }}</span>
-          </div>
+          @for (class of group.classes; track $index) {
+            <div class="tableRow">
+              <span class="class">
+                <app-copy [message]="class.className">
+                  <code class="code-text">{{ class.className }}</code>
+                </app-copy>
+              </span>
+              <span class="description">{{ class.description }}</span>
+              <span class="cssContent">{{ class.styling }}</span>
+            </div>
+          }
         </div>
       </div>
       <div class="e-my-48 divider-style"></div>
-    </div>
+    }
   </app-component-subsection>
 </div>

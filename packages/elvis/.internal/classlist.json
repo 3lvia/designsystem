@@ -266,6 +266,9 @@
 				"e-input--placeholder": {},
 				"e-input--compact": {},
 				"e-input--small": {}
+			},
+			"element": {
+				"e-input__suffix": {}
 			}
 		},
 		"e-checkbox": {
@@ -828,6 +831,10 @@
 		"e-text-right": {},
 		"e-text-left": {},
 		"e-text-center": {},
+		"e-text-wrap-wrap": {},
+		"e-text-wrap-nowrap": {},
+		"e-text-wrap-balance": {},
+		"e-text-wrap-pretty": {},
 		"e-none": {},
 		"e-none-xl": {},
 		"e-none-lg": {},
@@ -1141,6 +1148,7 @@
 		"e-fileupload__input": {},
 		"e-fileupload--dragover": {},
 		"e-input--placeholder": {},
+		"e-input__suffix": {},
 		"e-input---invalid": {},
 		"e-input---disabled": {},
 		"e-input---readonly": {},
@@ -1618,6 +1626,10 @@
 		"e-text-right": {},
 		"e-text-left": {},
 		"e-text-center": {},
+		"e-text-wrap-wrap": {},
+		"e-text-wrap-nowrap": {},
+		"e-text-wrap-balance": {},
+		"e-text-wrap-pretty": {},
 		"e-none": {},
 		"e-none-xl": {},
 		"e-none-lg": {},
