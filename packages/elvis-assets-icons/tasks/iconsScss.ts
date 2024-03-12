@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as gulp from 'gulp';
-import { getThemeColorContrast, getThemeColor, ColorLabel } from '@elvia/elvis-colors';
+import { ColorLabel, getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
+import { mkdir, writeFile } from 'fs/promises';
+import { series } from 'gulp';
 
 /** All the possible labels that can be used as css variables for icon colors. */
 export type IconLabels =
@@ -90,7 +90,7 @@ const colorIsContrastColor = (color: ColorLabelOrContrast): color is ColorLabelC
 
 const getScssColors = (colors: IconClassToThemeColor[keyof IconClassToThemeColor]) => {
   let scssColors = '';
-  for (const [label, color] of Object.entries(colors)) {
+  Object.entries(colors).forEach(([label, color]) => {
     if (colorIsCurrentColor(color)) {
       scssColors += `'${label}': ${color}, `;
     } else if (colorIsContrastColor(color)) {
@@ -98,19 +98,20 @@ const getScssColors = (colors: IconClassToThemeColor[keyof IconClassToThemeColor
     } else {
       scssColors += `'${label}': ${getThemeColor(color)}, `;
     }
-  }
+  });
   return scssColors;
 };
 
 const generateIconColorClassesMap = () => {
   let fileContent = `$icon-theme-classes: (\n`;
-  for (const [label, colors] of Object.entries(iconClassToThemeColor)) {
+  Object.entries(iconClassToThemeColor).forEach(([label, colors]) => {
     if (label === 'inverted') {
       fileContent += `\t'${label}': ( ${getScssColors(colors)} ),\n`;
     } else {
       fileContent += `\t'color-${label}': ( ${getScssColors(colors)} ),\n`;
     }
-  }
+  });
+
   fileContent += `);\n\n`;
 
   return fileContent;
@@ -118,18 +119,14 @@ const generateIconColorClassesMap = () => {
 
 const writeIconThemeVariables = async () => {
   const fileContent = WARNING + generateIconColorClassesMap();
-  fs.writeFileSync('./dist/scss/themeVariables.scss', fileContent);
-  return true;
+  return writeFile('./dist/scss/themeVariables.scss', fileContent);
 };
 
 const makeDistFolder = async () => {
   const dir = './dist/scss';
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  return true;
+  return mkdir(dir, { recursive: true });
 };
 
-const generateIconsScss = gulp.series(makeDistFolder, writeIconThemeVariables);
+const generateIconsScss = series(makeDistFolder, writeIconThemeVariables);
 
 export { generateIconsScss };

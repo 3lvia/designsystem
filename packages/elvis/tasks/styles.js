@@ -1,6 +1,6 @@
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
-const del = require('del');
+const fs = require('fs/promises');
 const gulp = require('gulp');
 const gulpStylelint = require('gulp-stylelint');
 const rename = require('gulp-rename');
@@ -8,9 +8,8 @@ const sass = require('sass');
 const tap = require('gulp-tap');
 
 // Delete old css
-function clean() {
-  let filesToDelete = ['css/'];
-  return del(filesToDelete);
+async function clean() {
+  return fs.rm('css/', { force: true, recursive: true });
 }
 
 function lintScssTask() {

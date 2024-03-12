@@ -1,18 +1,12 @@
+import { series, task, watch } from 'gulp';
+
 import { generateIcons } from './tasks/icons';
 import { generateIconsScss } from './tasks/iconsScss';
-import * as gulp from 'gulp';
 
 // Run gulp tasks
-gulp.task(
-  'default',
-  gulp.series(generateIcons, generateIconsScss, function (done) {
-    done();
-    /* eslint-disable-next-line no-console*/
-    console.log('Elvis Icons built!');
-  }),
-);
+task('default', series(generateIcons, generateIconsScss));
 
 // Run gulp watch
-gulp.task('watch', function () {
-  gulp.watch(['./icons/svg/src/*.svg', './config/**.*'], gulp.series('default'));
+task('watch', function () {
+  watch(['./icons/svg/src/*.svg', './config/**.*'], series('default'));
 });

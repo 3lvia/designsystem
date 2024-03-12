@@ -1,8 +1,9 @@
-const dotenv = require('dotenv').config();
-const contentful = require('contentful');
-const del = require('del');
-const fs = require('fs');
-const safeJsonStringify = require('safe-json-stringify');
+import contentful from 'contentful';
+import dotenv from 'dotenv';
+import { mkdir, rm, writeFile } from 'fs/promises';
+import safeJsonStringify from 'safe-json-stringify';
+
+dotenv.config();
 
 const CONFIG = {
   space: process.env.CONTENTFUL_SPACE ? process.env.CONTENTFUL_SPACE : dotenv.parsed.CONTENTFUL_SPACE,
@@ -24,6 +25,7 @@ syncContentfulEntries();
 
 async function syncContentfulEntries() {
   await cleanup();
+  await createDistFolder();
   await getContentfulEntries({ locale: '*', limit: 1000, skip: 0, include: 10 });
   console.log('Successfully synced contentful entries');
   // Max 8MB per contentfulClient.getEntries call, reduce limit if requests get too big.
@@ -34,10 +36,12 @@ async function syncContentfulEntries() {
 async function getContentfulEntries(query) {
   return contentfulClient
     .getEntries(query)
-    .then((entries) => {
-      entries.items.forEach((item) => {
-        fs.writeFileSync(`dist/entries/${item.sys.id}.json`, createFileContentFromEntry(item));
-      });
+    .then(async (entries) => {
+      await Promise.all(
+        entries.items.map(async (item) => {
+          writeFile(`dist/entries/${item.sys.id}.json`, createFileContentFromEntry(item));
+        }),
+      );
       // If there are more entries left to get from Contentful, recursively call getContentfulEntries
       if (entries.total > query.limit + query.skip) {
         query.skip = query.skip + query.limit;
@@ -56,5 +60,9 @@ function createFileContentFromEntry(entry) {
 }
 
 function cleanup() {
-  return del(['dist/entries/**/*.json'], { force: true });
+  return rm('dist/entries', { force: true, recursive: true });
+}
+
+async function createDistFolder() {
+  await mkdir('dist/entries', { recursive: true });
 }
