@@ -12,7 +12,7 @@ import {
   ISubMenu,
   LOCALE_CODE,
 } from 'contentful/types';
-import { BehaviorSubject, Observable, Subject, distinctUntilChanged } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, distinctUntilChanged, firstValueFrom } from 'rxjs';
 
 import { Locale } from '../localization.service';
 import { ThemeService } from '../theme.service';
@@ -279,12 +279,7 @@ export class CMSService {
    * @returns Object from Netlify.
    */
   async getEntryFromCMS(pageId: string): Promise<IEntry> {
-    return this.http
-      .get(`/.netlify/functions/cmspreview?id=${pageId}`)
-      .toPromise()
-      .then((entry: any) => {
-        return entry;
-      });
+    return firstValueFrom(this.http.get(`/.netlify/functions/cmspreview?id=${pageId}`)) as Promise<IEntry>;
   }
 
   private async syncEntries(): Promise<void> {

@@ -13,7 +13,6 @@ import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/c
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cms-page',
@@ -63,8 +62,6 @@ export class CMSPageComponent implements OnDestroy {
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
             this.getDocPageFromCMS(locale, secondRoute);
-          } else if (!environment.production) {
-            this.getDocPageFromCMS(locale);
           } else {
             this.getDocPageFromPreGeneratedList(locale);
           }
