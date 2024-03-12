@@ -63,8 +63,6 @@ export class CMSPageComponent implements OnDestroy {
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
             this.getDocPageFromCMS(locale, secondRoute);
-          } else if (!environment.production) {
-            this.getDocPageFromCMS(locale);
           } else {
             this.getDocPageFromPreGeneratedList(locale);
           }
