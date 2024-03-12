@@ -18,9 +18,4 @@
   @include breakpoints.breakpoint-up(Tablet) {
     max-width: 550px;
   }
-
-  .error-illustration {
-    width: 70%;
-    max-width: 304px;
-  }
 }

@@ -17,6 +17,8 @@ import '@elvia/elvis-divider';
 import '@elvia/elvis-dropdown';
 import '@elvia/elvis-header';
 import '@elvia/elvis-icon';
+import '@elvia/elvis-illustrations/broken';
+import '@elvia/elvis-illustrations/no-results';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-outline';
 import '@elvia/elvis-pagination';
