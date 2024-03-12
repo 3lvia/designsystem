@@ -67,6 +67,10 @@ export const build = async () => {
 
   if (watchMode) {
     console.log('👀 Starting watch...');
+    if (process.argv.includes('--clean')) {
+      console.log('🧹 Removing old dist folders...');
+      await cleanDistFolders();
+    }
     const esBuildContext = await esbuild.context({
       ...baseConfig,
       sourcemap: true,
