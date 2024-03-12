@@ -59,7 +59,7 @@ export const formatDate = (date?: Date | null, options?: Intl.DateTimeFormatOpti
   return date.toLocaleString('nb-NO', options);
 };
 
-export const isValidDate = (date: unknown): boolean => {
+export const isValidDate = (date: unknown): date is Date => {
   return !isNaN(date as number) && date instanceof Date;
 };
 
