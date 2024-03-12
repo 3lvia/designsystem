@@ -68,9 +68,13 @@
         [description]="(isMobileScreenWidth | async) ? null : page.description"
         [heading]="page.title"
       >
-        <img slot="icon" src="{{ currentTheme === 'dark' ? page.imageUrlDark : page.imageUrl }}" alt="" />
+        <img
+          slot="icon"
+          src="{{ (currentTheme | async) === 'dark' ? page.imageUrlDark : page.imageUrl }}"
+          alt=""
+        />
         <div slot="iconHover">
-          <img src="{{ currentTheme === 'dark' ? page.imageUrlOnDark : page.imageUrlOn }}" alt="" />
+          <img src="{{ (currentTheme | async) === 'dark' ? page.imageUrlOnDark : page.imageUrlOn }}" alt="" />
         </div>
       </elvia-card>
     </a>
