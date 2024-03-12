@@ -3005,7 +3005,6 @@ __metadata:
   dependencies:
     "@types/gulp": "npm:^4.0.17"
     "@types/node": "npm:^20.11.26"
-    del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.2"
     tsup: "npm:^8.0.2"
