@@ -16,9 +16,7 @@
       <tr *ngIf="group.rows.length > 0" class="group-title-row">
         <th scope="row" class="title-cell">
           <h2 class="e-title-caps e-m-0">{{ group.title }}</h2>
-          <div class="e-text-small e-mt-8">
-            {{ group.description }}
-          </div>
+          <div class="group-description e-text-small e-mt-8" [innerHTML]="group.description"></div>
         </th>
         <td></td>
         <td></td>
