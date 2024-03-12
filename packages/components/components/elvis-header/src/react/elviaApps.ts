@@ -81,6 +81,12 @@ export const appList = [
     rotation: -180,
   },
   {
+    name: 'OneTime',
+    iconLetters: 'On',
+    url: 'onetime',
+    rotation: -11.25,
+  },
+  {
     name: 'Refi',
     iconLetters: 'Re',
     url: 'refi',
