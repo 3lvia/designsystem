@@ -2213,7 +2213,6 @@ __metadata:
     "@types/gulp": "npm:^4.0.17"
     "@types/gulp-svgmin": "npm:^1.2.4"
     "@types/node": "npm:^20.11.26"
-    del: "npm:^6.1.1"
     gulp: "npm:^4.0.2"
     gulp-svgmin: "npm:^4.1.0"
     sharp: "npm:^0.33.2"
