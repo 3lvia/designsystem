@@ -3,27 +3,25 @@
 @use '../utilities/helpers';
 @use '../utilities/mixins';
 
-$link-jumbo-desktop-padding: 30px 40px;
-$link-jumbo-desktop-width: 545px;
-$link-jumbo-phone-padding: 30px 24px;
-$link-jumbo-phone-width: 287px;
-
 .e-link {
   // Default for links is md
   @extend .e-link--md;
   position: relative;
   display: inline;
   box-sizing: border-box;
-  border-bottom: 2px solid var(--e-color-border-1);
+  text-decoration: underline solid var(--e-color-border-1);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  padding-bottom: 2px;
 
   @include mixins.typography('text-interactive-md');
   color: var(--e-color-text-1);
   cursor: pointer;
   font-weight: 700;
-  text-decoration: none;
+
   @include helpers.hover() {
     &:hover {
-      border-bottom-color: var(--e-color-border-hover-1);
+      text-decoration-color: var(--e-color-border-hover-1);
     }
   }
 
@@ -61,12 +59,11 @@ $link-jumbo-phone-width: 287px;
 
   &:active,
   &.e-link---hover {
-    border-bottom-color: var(--e-color-border-hover-1);
+    text-decoration-color: var(--e-color-border-hover-1);
   }
 
   &:active {
-    padding-bottom: 1px;
-    border-bottom-width: 1px;
+    text-decoration-thickness: 1px;
   }
 
   &.e-link---focus {
@@ -102,7 +99,7 @@ $link-jumbo-phone-width: 287px;
   &.e-link--action {
     display: inline-flex;
     align-items: center;
-    border: transparent;
+    text-decoration: none;
     @include helpers.hover() {
       &:hover {
         .e-link__icon i[class*='filled-color'] {
