@@ -2442,7 +2442,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.34"
     esbuild: "npm:^0.20.1"
     esbuild-plugin-styled-components: "npm:^3.0.1"
-    esbuild-sass-plugin: "npm:^3.1.0"
+    esbuild-sass-plugin: "npm:^3.2.0"
     identity-obj-proxy: "npm:^3.0.0"
     jest: "npm:^29.7.0"
     jest-axe: "npm:^8.0.0"
@@ -9425,16 +9425,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-sass-plugin@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "esbuild-sass-plugin@npm:3.1.0"
+"esbuild-sass-plugin@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "esbuild-sass-plugin@npm:3.2.0"
   dependencies:
     resolve: "npm:^1.22.8"
     sass: "npm:^1.71.1"
   peerDependencies:
     esbuild: ^0.20.1
     sass-embedded: ^1.71.1
-  checksum: 10/6ea90eb6c6c786ece2a6557c1f0a331b32eb009ae2380fe0073852f63ae78e7b6f4c4f0ec44e594df2ff31d4fcb72a98e60cede409979389e8ea05da97cd1dbd
+  checksum: 10/1f27c7c41ded4e6ea815419951cdd6c5f8d748a6c8cf28e02347111b2192448314ab00be7b6e6b9640b8e3d14530bc075a1f12805c60d02fdbe10f4e19785371
   languageName: node
   linkType: hard
 

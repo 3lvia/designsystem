@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
@@ -13,7 +13,6 @@ import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/c
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cms-page',
@@ -22,6 +21,7 @@ import { environment } from 'src/environments/environment';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [NgIf, ComponentHeaderComponent, NgFor, RouterOutlet, HttpClientModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CMSPageComponent implements OnDestroy {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;
@@ -43,7 +43,7 @@ export class CMSPageComponent implements OnDestroy {
     private router: Router,
     private elementRef: ElementRef,
     private titleService: Title,
-    private themeService: ThemeService,
+    themeService: ThemeService,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
@@ -63,8 +63,6 @@ export class CMSPageComponent implements OnDestroy {
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
             this.getDocPageFromCMS(locale, secondRoute);
-          } else if (!environment.production) {
-            this.getDocPageFromCMS(locale);
           } else {
             this.getDocPageFromPreGeneratedList(locale);
           }
