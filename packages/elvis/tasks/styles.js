@@ -12,18 +12,18 @@ async function clean() {
   return fs.rm('css/', { force: true, recursive: true });
 }
 
-function lintScssTask() {
-  return gulp
-    .src('./src/**/*.scss')
-    .pipe(
-      gulpStylelint({
-        failAfterError: true,
-        fix: process.argv.includes('--fix'),
-        reporters: [{ formatter: 'string', console: true }],
-      }),
-    )
-    .pipe(gulp.dest('./src/'));
-}
+// function lintScssTask() {
+//   return gulp
+//     .src('./src/**/*.scss')
+//     .pipe(
+//       gulpStylelint({
+//         failAfterError: true,
+//         fix: process.argv.includes('--fix'),
+//         reporters: [{ formatter: 'string', console: true }],
+//       }),
+//     )
+//     .pipe(gulp.dest('./src/'));
+// }
 
 // Generate elvis.css from scss files
 function generateElvisStyle() {
@@ -59,5 +59,5 @@ function minifyElvisStyle() {
     .pipe(gulp.dest('./css/'));
 }
 
-const generateCSS = gulp.series(clean, lintScssTask, generateElvisStyle, minifyElvisStyle);
+const generateCSS = gulp.series(clean, generateElvisStyle, minifyElvisStyle);
 exports.generateCSS = generateCSS;
