@@ -84,6 +84,37 @@
         </ng-container>
       </app-component-subsubsection>
     </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Fargenyanser' : 'Shades of colors'">
+      @switch (locale) {
+        @case ('en-GB') {
+          <p class="e-mb-40">
+            Some of the Elvia colors can be used in lighter shades, but the original clear colors are almost
+            always preferred. The lighter versions can be useful to differentiate or make illustrations and
+            content more lively and bring attention to them.
+          </p>
+          <p class="e-mt-0 e-mb-40">
+            All lighter shade colors are available as
+            <a class="e-link e-link--inline" [routerLink]="[]" fragment="Tokens">tokens</a>. Example of a
+            shade token is <span class="e-tag e-lowercase">e-data-1-50</span>, where “50” represents the shade
+            value (opacity) of the color <span class="e-tag e-lowercase">e-data-1</span>.
+          </p>
+        }
+        @case ('nb-NO') {
+          <p class="e-mb-40">
+            Noen av Elvia-fargene kan brukes i lysere nyanser, men de opprinnelige klare fargene foretrekkes
+            nesten alltid. De lysere versjonene kan være nyttige for å differensiere eller gjøre
+            illustrasjoner og innhold mer livlige og trekke oppmerksomhet til dem.
+          </p>
+          <p class="e-mt-0 e-mb-40">
+            Alle lysere nyanser er tilgjengelige som
+            <a class="e-link e-link--inline" [routerLink]="[]" fragment="Tokens">tokens</a>. Eksempel på en
+            nyansetoken er <span class="e-tag e-lowercase">e-data-1-50</span>, der “50” representerer nyansens
+            verdi (gjennomsiktighet) av fargen <span class="e-tag e-lowercase">e-data-1</span>.
+          </p>
+        }
+      }
+      <app-color-shade-illustration />
+    </app-component-subsection>
     <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Mørkt tema' : 'Dark Theme'">
       <ng-container *ngIf="locale === 'en-GB'">
         We offer a dark theme for internal applications. We have created a separate palette for the dark theme

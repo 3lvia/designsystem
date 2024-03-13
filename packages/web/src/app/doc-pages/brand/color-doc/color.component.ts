@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
 
 import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
@@ -10,6 +11,7 @@ import { ComponentSubsectionComponent } from '../../../shared/component-document
 import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
 import { DoDontTextComponent } from '../../../shared/do-dont-text/do-dont-text.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { ColorShadeIllustrationComponent } from './color-shade-illustration/color-shade-illustration.component';
 import { ColorTokenTableComponent } from './color-token-table/color-token-table.component';
 import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
@@ -30,8 +32,10 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
     DoDontTextComponent,
     PurposeTokenIllustrationComponent,
     ThemeTokenIllustrationComponent,
+    ColorShadeIllustrationComponent,
     ColorTokenTableComponent,
     CodeViewerComponent,
+    RouterLink,
   ],
 })
 export class ColorComponent {
