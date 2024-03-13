@@ -21,6 +21,7 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
+  styleUrls: ['./color.component.scss'],
   standalone: true,
   imports: [
     ComponentHeaderComponent,
