@@ -7,7 +7,6 @@ import '@elvia/elvis-illustrations/consumption';
 import '@elvia/elvis-illustrations/explain';
 import '@elvia/elvis-illustrations/heating';
 import '@elvia/elvis-illustrations/hello';
-import '@elvia/elvis-illustrations/hidden';
 import '@elvia/elvis-illustrations/installation';
 import '@elvia/elvis-illustrations/meter-reading';
 import '@elvia/elvis-illustrations/new';

@@ -2,6 +2,24 @@
   "$schema": "../components/changelogSchema.json",
   "content": [
     {
+      "version": "1.2.0",
+      "date": "13.03.24",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Re-exported several illustrations that have been updated. Some have had their dimensions changed."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Deleted the <code>hidden</code> illustration. Because it has not been previously documented, this change is not considered a breaking change."
+          ]
+        }
+      ]
+    },
+    {
       "version": "1.1.0",
       "date": "01.03.24",
       "changelog": [
