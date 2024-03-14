@@ -9,7 +9,9 @@
   position: relative;
   display: inline;
   box-sizing: border-box;
-  text-decoration: underline solid var(--e-color-border-1);
+  text-decoration-line: underline;
+  --webkit-text-decoration-line: underline;
+  text-decoration-color: var(--e-color-border-1);
   text-decoration-thickness: 2px;
   text-underline-offset: 6px;
 
