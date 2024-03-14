@@ -37,7 +37,7 @@ export const carouselData: ComponentData<BaseCarouselProps & { items: CarouselIt
       default: 'false',
     },
     onFinish: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description:
         'Callback function for when the checkmark button is clicked. This requires the type to be "linear" and hasConfirmationCheckmark to be true.',
@@ -49,7 +49,7 @@ export const carouselData: ComponentData<BaseCarouselProps & { items: CarouselIt
       default: '0',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: number) => void',
       description: 'Gets called every time the value is changed.',
     },

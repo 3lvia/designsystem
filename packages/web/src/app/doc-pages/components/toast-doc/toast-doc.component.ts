@@ -7,7 +7,6 @@ import { ComponentPropertiesTableComponent } from '../../../shared/component-doc
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
 import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
 import { ToastCegComponent } from './toast-ceg/toast-ceg.component';
-import { configurationProps } from './toast-configuration-props';
 import { toastData } from './toast-data';
 
 @Component({
@@ -27,7 +26,6 @@ import { toastData } from './toast-data';
 })
 export class ToastDocComponent {
   componentData = toastData;
-  toastConfigurationProps = configurationProps;
 
   does = ['Confirmation message after an user action', 'Notification message'];
   donts = ['Error messages'];

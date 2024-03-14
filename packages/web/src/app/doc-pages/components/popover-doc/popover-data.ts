@@ -38,12 +38,12 @@ const popoverData: ComponentData<BasePopoverProps> = {
       default: 'false',
     },
     onOpen: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the popover is being opened.',
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the popover is being closed.',
     },

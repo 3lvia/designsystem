@@ -30,7 +30,7 @@ interface PropBase {
  * Represents props that are "primitive", which means that they have no child props.
  */
 export interface ChildlessProp extends PropBase {
-  isEvent?: boolean;
+  specialType?: 'event' | 'function';
   type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | 'Date' | (string & {});
   description: string;
 }
@@ -39,6 +39,7 @@ export interface ChildlessProp extends PropBase {
  * Represents props that are nested.
  */
 export interface NestedProp<TObjectProp> extends PropBase {
+  specialType?: 'event' | 'function';
   type: 'object' | 'object[]' | (string & {});
   description?: string;
   children: Required<{

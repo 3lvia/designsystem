@@ -12,13 +12,13 @@ export const timepickerData: ComponentData<Omit<TimepickerProps, 'dateRangeProps
       description: 'The value of the time picker.',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: Date) => void',
       description:
         'Gets called every time the value is changed. Returns null if input field is empty, or Invalid Date if input is not a valid date.',
     },
     errorOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(error: string) => void',
       description: 'Gets called every time the internal time validation error is changed. ',
     },
@@ -96,12 +96,12 @@ export const timepickerData: ComponentData<Omit<TimepickerProps, 'dateRangeProps
         'Makes the time after the provided maximum time disabled. (The validation uses only the time part of this prop value)',
     },
     onOpen: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the time picker is being opened.',
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the time picker is being closed.',
     },

@@ -87,12 +87,12 @@ export const sliderData: ComponentData<BaseSliderProps> = {
       },
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: number | {left: number, right: number} ) => void',
       description: 'Gets called every time the value is changed. Only returns a value if the input is valid.',
     },
     errorOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: string ) => void',
       description: 'Gets called every time the internal error is changed.',
     },

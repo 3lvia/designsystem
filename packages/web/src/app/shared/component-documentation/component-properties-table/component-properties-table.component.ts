@@ -70,6 +70,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
         attribute: prop,
         ...propData,
         description: propData.description || '',
+        specialType: nestedComponentProp.specialType,
         level,
       };
       componentProps.push({ item: componentProp });

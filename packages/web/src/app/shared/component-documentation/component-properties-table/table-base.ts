@@ -32,14 +32,25 @@ export class PropertyTableBaseDirective implements OnChanges {
         rows: this.getEventProps(this.props),
         description: 'Events let the component communicate with your app, notifying it of changes.',
       },
+      {
+        title: 'Functions',
+        expanded: true,
+        rows: this.getFunctionProps(this.props),
+        description:
+          'Functions can be imported separately from the component, and can sometimes \nbe required for the component to work.',
+      },
     ];
   }
 
   private getEventProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => prop.item.isEvent);
+    return props.filter((prop) => prop.item.specialType === 'event');
   }
 
   private getInputProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
-    return props.filter((prop) => !prop.item.isEvent);
+    return props.filter((prop) => prop.item.specialType !== 'event' && prop.item.specialType !== 'function');
+  }
+
+  private getFunctionProps(props: SearchResult<ComponentProp>[]): SearchResult<ComponentProp>[] {
+    return props.filter((prop) => prop.item.specialType === 'function');
   }
 }

@@ -25,7 +25,7 @@ const breadcrumbData: ComponentData<BaseBreadcrumbProps> = {
       },
     },
     onLinkClick: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: number) => void',
       description:
         'Gets called every time a breadcrumb is clicked. The value is the index of the clicked breadcrumb in items.',

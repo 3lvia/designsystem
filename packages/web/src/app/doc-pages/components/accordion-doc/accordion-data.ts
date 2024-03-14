@@ -94,12 +94,12 @@ const accordionData: ComponentData<BaseAccordionProps> = {
       description: `Sets the accordion icon at the start, before the accordion label.`,
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Event that emits when an accordion closes.',
     },
     onOpen: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Event that emits when an accordion opens.',
     },
