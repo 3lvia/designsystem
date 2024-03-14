@@ -2,7 +2,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const fs = require('fs/promises');
 const gulp = require('gulp');
-const gulpStylelint = require('gulp-stylelint');
 const rename = require('gulp-rename');
 const sass = require('sass');
 const tap = require('gulp-tap');
@@ -10,19 +9,6 @@ const tap = require('gulp-tap');
 // Delete old css
 async function clean() {
   return fs.rm('css/', { force: true, recursive: true });
-}
-
-function lintScssTask() {
-  return gulp
-    .src('./src/**/*.scss')
-    .pipe(
-      gulpStylelint({
-        failAfterError: true,
-        fix: process.argv.includes('--fix'),
-        reporters: [{ formatter: 'string', console: true }],
-      }),
-    )
-    .pipe(gulp.dest('./src/'));
 }
 
 // Generate elvis.css from scss files
@@ -59,5 +45,5 @@ function minifyElvisStyle() {
     .pipe(gulp.dest('./css/'));
 }
 
-const generateCSS = gulp.series(clean, lintScssTask, generateElvisStyle, minifyElvisStyle);
+const generateCSS = gulp.series(clean, generateElvisStyle, minifyElvisStyle);
 exports.generateCSS = generateCSS;
