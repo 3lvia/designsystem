@@ -12,9 +12,9 @@
   text-decoration: underline solid var(--e-color-border-1);
   text-decoration-thickness: 2px;
   text-underline-offset: 6px;
-  padding-bottom: 2px;
 
   @include mixins.typography('text-interactive-md');
+  line-height: 24px;
   color: var(--e-color-text-1);
   cursor: pointer;
   font-weight: 700;
@@ -45,16 +45,19 @@
   &.e-link--lg {
     @include mixins.typography('text-interactive-lg');
     font-weight: 700;
+    line-height: 26px;
   }
 
   &.e-link--md {
     @include mixins.typography('text-interactive-md');
     font-weight: 700;
+    line-height: 24px;
   }
 
   &.e-link--sm {
     @include mixins.typography('text-interactive-sm');
     font-weight: 700;
+    line-height: 22px;
   }
 
   &:active,
