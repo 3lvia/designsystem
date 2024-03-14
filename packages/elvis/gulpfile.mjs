@@ -51,8 +51,5 @@ gulp.task(
 
 // Run gulp watch
 gulp.task('watch', function () {
-  gulp.watch(
-    ['./src/**/*.scss', './src/templates/**.*', './src/config/**.*', '!./src/config/icons.config.mjs'],
-    gulp.series('default'),
-  );
+  gulp.watch(['./src/**/*.scss', './src/templates/**.*', './src/config/**.*'], gulp.series('default'));
 });
