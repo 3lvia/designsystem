@@ -2913,7 +2913,7 @@ __metadata:
     "@elvia/elvis-typography": "npm:^2.7.0"
     bootstrap: "npm:4.6.1"
     gulp: "npm:^4.0.2"
-    gulp-autoprefixer: "npm:^8.0.0"
+    gulp-autoprefixer: "npm:^9.0.0"
     gulp-clean-css: "npm:^4.3.0"
     gulp-rename: "npm:^2.0.0"
     gulp-tap: "npm:^2.0.0"
@@ -5198,6 +5198,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/vinyl@npm:^2.0.9":
+  version: 2.0.11
+  resolution: "@types/vinyl@npm:2.0.11"
+  dependencies:
+    "@types/expect": "npm:^1.20.4"
+    "@types/node": "npm:*"
+  checksum: 10/0f69e2d44748d0e55c3fcd4c2b5b59f0dc70b46fd5b9081abb1b81045543fbeb16e33d6ba2a21fb61d2182d91d99ba1c78be65311d1095857834827e2084417c
+  languageName: node
+  linkType: hard
+
 "@types/ws@npm:^8.5.5":
   version: 8.5.7
   resolution: "@types/ws@npm:8.5.7"
@@ -6500,7 +6510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.4.18":
+"autoprefixer@npm:10.4.18, autoprefixer@npm:^10.4.16":
   version: 10.4.18
   resolution: "autoprefixer@npm:10.4.18"
   dependencies:
@@ -6515,24 +6525,6 @@ __metadata:
   bin:
     autoprefixer: bin/autoprefixer
   checksum: 10/c5bc0b539451557ac0b531bd6dad2db50499cf3d5daff9ead57d0d90d8f63ea6aa0e0556cbda3fbd3d081ec1199202f14533d54494ea47f42b239852d6bde16f
-  languageName: node
-  linkType: hard
-
-"autoprefixer@npm:^10.2.6":
-  version: 10.4.17
-  resolution: "autoprefixer@npm:10.4.17"
-  dependencies:
-    browserslist: "npm:^4.22.2"
-    caniuse-lite: "npm:^1.0.30001578"
-    fraction.js: "npm:^4.3.7"
-    normalize-range: "npm:^0.1.2"
-    picocolors: "npm:^1.0.0"
-    postcss-value-parser: "npm:^4.2.0"
-  peerDependencies:
-    postcss: ^8.1.0
-  bin:
-    autoprefixer: bin/autoprefixer
-  checksum: 10/ac4416e72643bf92c2a346af5a6a437eb39e3b852e5d48e1a0a3204a81cbf8eecc5489a9386cf63a288b7183fae3ad52cf3c24c458d7cbb5463e55e21dc7e6ed
   languageName: node
   linkType: hard
 
@@ -7136,7 +7128,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001565, caniuse-lite@npm:^1.0.30001578":
+"caniuse-lite@npm:^1.0.30001565":
   version: 1.0.30001587
   resolution: "caniuse-lite@npm:1.0.30001587"
   checksum: 10/960e26927ad876971021186337df1df2d37d7ed4fc7907098c060f56ae8de737d471791e51387ca55bea07f56b0a76553a90125f88a2f958ca1f4f715013cf71
@@ -8655,6 +8647,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"easy-transform-stream@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "easy-transform-stream@npm:1.0.1"
+  checksum: 10/3d783ad3ffa21690c9e84ee54a9993a882f07e86416f15fe8dfcfb2c93ea28ce79f10775c2e56d846bba6a9e85e64f9f867c085d5906031c06c97c5a5234be46
+  languageName: node
+  linkType: hard
+
 "ee-first@npm:1.1.1":
   version: 1.1.1
   resolution: "ee-first@npm:1.1.1"
@@ -9756,7 +9755,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fancy-log@npm:^1.3.2, fancy-log@npm:^1.3.3":
+"fancy-log@npm:^1.3.2":
   version: 1.3.3
   resolution: "fancy-log@npm:1.3.3"
   dependencies:
@@ -10665,22 +10664,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-autoprefixer@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "gulp-autoprefixer@npm:8.0.0"
+"gulp-autoprefixer@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "gulp-autoprefixer@npm:9.0.0"
   dependencies:
-    autoprefixer: "npm:^10.2.6"
-    fancy-log: "npm:^1.3.3"
-    plugin-error: "npm:^1.0.1"
-    postcss: "npm:^8.3.0"
-    through2: "npm:^4.0.2"
+    autoprefixer: "npm:^10.4.16"
+    gulp-plugin-extras: "npm:^0.2.2"
+    postcss: "npm:^8.4.31"
     vinyl-sourcemaps-apply: "npm:^0.2.1"
   peerDependencies:
     gulp: ">=4"
   peerDependenciesMeta:
     gulp:
       optional: true
-  checksum: 10/4187d2dcabbe8618e3162b5e3effdb44d9d8d070a40947f2d9770b39566ce1d11caaf447ea1d853bba0b537b0dec189345eeae83f198c6b39a2eaeb39777cfc9
+  checksum: 10/cb27cf948e4769504959d51d7f6c53fe2106fc2561bff915aead51df53d42053c70fa578a7f2d04366ba9c70c8babd3225e91b89a6d32a0c5ec7e7b52f6e8183
   languageName: node
   linkType: hard
 
@@ -10721,6 +10718,17 @@ __metadata:
   bin:
     gulp: bin/gulp.js
   checksum: 10/d1a47535b6aba7167d42fcca341939e3b5a907976dd8a5fcc6a0c03723f9d74156d49cf4b82aa3e30d6d56cfbb54dd145874b58ad4bb859666c1ee537933d65b
+  languageName: node
+  linkType: hard
+
+"gulp-plugin-extras@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "gulp-plugin-extras@npm:0.2.2"
+  dependencies:
+    "@types/vinyl": "npm:^2.0.9"
+    chalk: "npm:^5.3.0"
+    easy-transform-stream: "npm:^1.0.1"
+  checksum: 10/96ce1f063f67891d3a02e30c5c63c2d2f41606816700102b289179cbffee4201e59f6e607355638852a42f7936e6de4ab2ecff22013ff62775a2ba2d873fc39e
   languageName: node
   linkType: hard
 
@@ -15338,7 +15346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.35, postcss@npm:^8.0.0, postcss@npm:^8.2.14, postcss@npm:^8.3.0, postcss@npm:^8.4.23, postcss@npm:^8.4.33, postcss@npm:^8.4.35":
+"postcss@npm:8.4.35, postcss@npm:^8.0.0, postcss@npm:^8.2.14, postcss@npm:^8.4.23, postcss@npm:^8.4.31, postcss@npm:^8.4.33, postcss@npm:^8.4.35":
   version: 8.4.35
   resolution: "postcss@npm:8.4.35"
   dependencies:
