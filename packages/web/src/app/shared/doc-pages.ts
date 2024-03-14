@@ -33,16 +33,6 @@ export const homeMenu: DocPage[] = [
     imageUrlDark: 'assets/doc-page-icons/shortcut-icons/AccessibilityDark.svg',
     imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/AccessibilityOnDark.svg',
   },
-  {
-    title: 'Contribute',
-    description: 'Help us get better',
-    docUrl: Pages.Contribute,
-    absolutePath: '/about/' + Pages.Contribute,
-    imageUrl: 'assets/doc-page-icons/shortcut-icons/Contribute.svg',
-    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ContributeOn.svg',
-    imageUrlDark: 'assets/doc-page-icons/shortcut-icons/ContributeDark.svg',
-    imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/ContributeOnDark.svg',
-  },
 ];
 
 export const componentsDocPages: DocPage[] = [
