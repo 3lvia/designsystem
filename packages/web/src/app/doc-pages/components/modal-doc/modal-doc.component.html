@@ -3,6 +3,16 @@
     <app-modal-ceg></app-modal-ceg>
   </app-ceg>
 
+  <!--USAGE-->
+  <app-component-section usage sectionTitle="Usage">
+    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-component-subsection sectionTitle="Short and concise content">
+      Modal content should be as short and concise as possible. The modal window is meant to catch the users
+      attention for quick actions or short messages. Avoid comprehensive information, focus on relevance and
+      information that can be scanned quickly be the users.
+    </app-component-subsection>
+  </app-component-section>
+
   <!--OPTIONS-->
   <app-component-section options sectionTitle="Options">
     <app-component-subsection sectionTitle="With illustration">
@@ -25,11 +35,6 @@
         <app-modal-initial-focus-ceg />
       </app-ceg>
     </app-component-subsection>
-  </app-component-section>
-
-  <!--USAGE-->
-  <app-component-section usage sectionTitle="Usage">
-    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
   </app-component-section>
 
   <!--IMPLEMENTATION-->
