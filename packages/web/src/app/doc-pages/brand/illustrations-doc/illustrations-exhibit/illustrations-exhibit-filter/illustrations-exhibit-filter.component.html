@@ -8,7 +8,12 @@
       type="search"
       placeholder="Search through all illustrations"
     />
-    <button class="e-btn e-btn--icon e-invisible" aria-label="Clear search field">
+    <button
+      class="e-btn e-btn--icon"
+      [ngClass]="{ 'e-invisible': !((searchValue | async) ?? '').length }"
+      (click)="handleClearSearch()"
+      aria-label="Clear search field"
+    >
       <span class="e-btn__icon">
         <i class="e-icon e-icon--close" aria-hidden="true"> </i>
       </span>

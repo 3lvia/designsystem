@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, inject, output } from '@angular/core';
 import { Option } from '@elvia/elvis-radio-filter/react';
 
@@ -8,7 +8,7 @@ import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 @Component({
   selector: 'app-illustrations-exhibit-filter',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, NgClass],
   templateUrl: './illustrations-exhibit-filter.component.html',
   styleUrl: './illustrations-exhibit-filter.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -35,5 +35,9 @@ export class IllustrationsExhibitFilterComponent {
   handleColorFilterChange = (event: CustomEvent<{ value: IllustrationColor }>) => {
     const newColor = event.detail.value;
     this.state.setColorValue(newColor);
+  };
+
+  handleClearSearch = () => {
+    this.state.setSearchValue('');
   };
 }
