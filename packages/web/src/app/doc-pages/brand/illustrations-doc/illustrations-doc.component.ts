@@ -2,24 +2,39 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
 import { illustrationsData } from './illustrations-data';
+import { IllustrationsInstallationComponent } from './illustrations-installation/illustrations-installation.component';
 import { LocalizationService } from 'src/app/core/services/localization.service';
+import { ComponentChangelogComponent } from 'src/app/shared/component-documentation/component-changelog/component-changelog.component';
+import { ComponentPropertiesTableComponent } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.component';
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+
+const illustrationDocPage = getDocPagesNotFromCMS('illustration');
 
 @Component({
   selector: 'app-illustrations-doc',
   templateUrl: './illustrations-doc.component.html',
   styleUrls: ['./illustrations-doc.component.scss'],
   standalone: true,
-  imports: [ComponentHeaderComponent, AsyncPipe],
+  imports: [
+    AsyncPipe,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    ComponentHeaderComponent,
+    IllustrationsInstallationComponent,
+    ComponentPropertiesTableComponent,
+    ComponentChangelogComponent,
+  ],
 })
 export class IllustrationsDocComponent {
   componentData = illustrationsData;
-  title = getDocPagesNotFromCMS('illustration')?.title;
-  titleNo = getDocPagesNotFromCMS('illustration')?.titleNo;
-  description = getDocPagesNotFromCMS('illustration')?.description;
-  descriptionNo = getDocPagesNotFromCMS('illustration')?.descriptionNo;
-  figmaUrl = getDocPagesNotFromCMS('illustration')?.figmaUrl;
+  title = illustrationDocPage?.title;
+  titleNo = illustrationDocPage?.titleNo;
+  description = illustrationDocPage?.description;
+  descriptionNo = illustrationDocPage?.descriptionNo;
+  figmaUrl = illustrationDocPage?.figmaUrl;
 
   locale = inject(LocalizationService).listenLocalization();
 }
