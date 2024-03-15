@@ -1,0 +1,10 @@
+@for (illustration of illustrationsExhibitData; track $index) {
+  <div
+    class="illustration-example"
+    [ngClass]="{ active: (activeIllustration | async) === illustration.name }"
+    (click)="setActiveIllustration(illustration.name)"
+  >
+    <app-illustrations-generator [illustrationName]="illustration.name"></app-illustrations-generator>
+    <span class="e-text-md">{{ illustration.name | titlecase }}</span>
+  </div>
+}
