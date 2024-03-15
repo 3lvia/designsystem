@@ -29,7 +29,7 @@ export class IllustrationsExhibitComponent {
   constructor(illustrationsExhibitService: IllustrationsExhibitService, overlay: Overlay) {
     const overlayRef = overlay.create({
       positionStrategy: overlay.position().global().centerHorizontally().bottom('16px'),
-      maxWidth: 'calc(100% - 32px)',
+      maxWidth: 'calc(100vw - 32px)',
       scrollStrategy: overlay.scrollStrategies.reposition(),
     });
 
@@ -45,8 +45,9 @@ export class IllustrationsExhibitComponent {
       .pipe(takeUntilDestroyed())
       .subscribe((selectedIllustration) => {
         if (selectedIllustration) {
-          overlayRef.detach();
-          overlayRef.attach(this.portal);
+          if (!overlayRef.hasAttached()) {
+            overlayRef.attach(this.portal);
+          }
         } else {
           overlayRef.detach();
         }
