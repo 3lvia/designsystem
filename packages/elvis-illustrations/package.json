@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "exports": {
+    "./CHANGELOG.json": "./CHANGELOG.json",
     "./*": "./dist/*.js"
   },
   "scripts": {
