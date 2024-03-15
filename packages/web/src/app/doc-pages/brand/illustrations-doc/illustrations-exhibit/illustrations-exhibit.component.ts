@@ -1,5 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Overlay, OverlayModule } from '@angular/cdk/overlay';
+import { CdkPortal, PortalModule } from '@angular/cdk/portal';
+import { AsyncPipe } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
+import { IllustrationsExhibitDetailsComponent } from './illustrations-exhibit-details/illustrations-exhibit-details.component';
 import { IllustrationsExhibitFilterComponent } from './illustrations-exhibit-filter/illustrations-exhibit-filter.component';
 import { IllustrationsExhibitListComponent } from './illustrations-exhibit-list/illustrations-exhibit-list.component';
 import { IllustrationsExhibitService } from './illustrations-exhibit.service';
@@ -7,11 +12,44 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
 @Component({
   selector: 'app-illustrations-exhibit',
   standalone: true,
-  imports: [IllustrationsExhibitFilterComponent, IllustrationsExhibitListComponent],
+  imports: [
+    AsyncPipe,
+    OverlayModule,
+    PortalModule,
+    IllustrationsExhibitFilterComponent,
+    IllustrationsExhibitListComponent,
+    IllustrationsExhibitDetailsComponent,
+  ],
   templateUrl: './illustrations-exhibit.component.html',
   styleUrl: './illustrations-exhibit.component.scss',
 })
 export class IllustrationsExhibitComponent {
-  searchValue = inject(IllustrationsExhibitService).searchValue;
-  colorValue = inject(IllustrationsExhibitService).colorValue;
+  @ViewChild(CdkPortal) portal: CdkPortal;
+
+  constructor(illustrationsExhibitService: IllustrationsExhibitService, overlay: Overlay) {
+    const overlayRef = overlay.create({
+      positionStrategy: overlay.position().global().centerHorizontally().bottom('16px'),
+      maxWidth: 'calc(100% - 32px)',
+      scrollStrategy: overlay.scrollStrategies.reposition(),
+    });
+
+    overlayRef.outsidePointerEvents().subscribe((e) => {
+      // Do not close if the click is on another illustration example
+      if ((e.target as HTMLElement)?.closest('.illustration-example')) {
+        return;
+      }
+      illustrationsExhibitService.setSelectedIllustration(null);
+    });
+
+    illustrationsExhibitService.selectedIllustration
+      .pipe(takeUntilDestroyed())
+      .subscribe((selectedIllustration) => {
+        if (selectedIllustration) {
+          overlayRef.detach();
+          overlayRef.attach(this.portal);
+        } else {
+          overlayRef.detach();
+        }
+      });
+  }
 }
