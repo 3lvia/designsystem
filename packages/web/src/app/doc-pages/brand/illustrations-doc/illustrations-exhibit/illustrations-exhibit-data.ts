@@ -7,106 +7,106 @@ export type IllustrationName = (typeof illustrationsExhibitData)[number]['name']
 export const illustrationsExhibitData = [
   {
     name: 'broken',
-    searchKeywords: [],
+    searchKeywords: ['light', 'electricity', 'bulb', 'wire', 'error', '404'],
   },
   {
     name: 'clock',
-    searchKeywords: [],
+    searchKeywords: ['waiting', 'time', 'data'],
   },
   {
     name: 'confirmation',
-    searchKeywords: [],
+    searchKeywords: ['send', 'done', 'approval', 'success'],
   },
   {
     name: 'connected',
-    searchKeywords: [],
+    searchKeywords: ['electricity', 'outlet', 'wire', 'success'],
   },
   {
     name: 'consumption',
-    searchKeywords: [],
+    searchKeywords: ['clock', 'money', 'data'],
   },
   {
     name: 'explain',
-    searchKeywords: [],
+    searchKeywords: ['light', 'electricity', 'bulb', 'information', 'wire'],
   },
   {
     name: 'heating',
-    searchKeywords: [],
+    searchKeywords: ['electricity', 'warm', 'heater', 'equipment'],
   },
   {
     name: 'hello',
-    searchKeywords: [],
+    searchKeywords: ['woman', 'profile', 'person', 'welcome', 'greeting'],
   },
   {
     name: 'installation',
-    searchKeywords: [],
+    searchKeywords: ['electricity', 'house', 'building', 'wire'],
   },
   {
     name: 'meter-reading',
-    searchKeywords: [],
+    searchKeywords: ['graph', 'fastledd', 'usage', 'data'],
   },
   {
     name: 'new',
-    searchKeywords: [],
+    searchKeywords: ['light', 'electricity', 'bulb', 'information', 'wire', 'success'],
   },
   {
     name: 'no-connection',
-    searchKeywords: [],
+    searchKeywords: ['light', 'electricity', 'outlet', 'wrong', 'wire', 'error', '404'],
   },
   {
     name: 'no-notifications',
-    searchKeywords: [],
+    searchKeywords: ['bell', 'sleep', 'empty'],
   },
   {
     name: 'no-position',
-    searchKeywords: [],
+    searchKeywords: ['broken', 'place', 'error'],
   },
   {
     name: 'no-results',
-    searchKeywords: [],
+    searchKeywords: ['search', 'information', 'empty', 'data', 'document'],
   },
   {
     name: 'nothing-new',
-    searchKeywords: [],
+    searchKeywords: ['mail', 'empty', 'inbox'],
   },
   {
     name: 'office',
-    searchKeywords: [],
+    searchKeywords: ['business', 'building', 'organization'],
   },
   {
     name: 'photo',
-    searchKeywords: [],
+    searchKeywords: ['camera', 'image'],
   },
   {
     name: 'power-line',
-    searchKeywords: [],
+    searchKeywords: ['electricity', 'wire'],
   },
   {
     name: 'price',
-    searchKeywords: [],
+    searchKeywords: ['money', 'spotpris', 'graph', 'cost', 'data'],
   },
   {
     name: 'secret',
-    searchKeywords: [],
+    searchKeywords: ['key', 'lock', 'encrypted'],
   },
   {
     name: 'sharing',
-    searchKeywords: [],
+    searchKeywords: ['people', 'person', 'communication'],
   },
   {
     name: 'statistics',
-    searchKeywords: [],
+    searchKeywords: ['graph', 'usage', 'data'],
   },
   {
     name: 'support',
-    searchKeywords: [],
+    searchKeywords: ['money', 'contribute', 'success'],
   },
   {
     name: 'unplugged',
-    searchKeywords: [],
+    searchKeywords: ['electricity', 'outlet', 'wire', 'error'],
   },
   {
     name: 'user',
-    searchKeywords: [],
+    searchKeywords: ['profile', 'person', 'avatar', 'account'],
   },
 ] as const satisfies IllustrationExhibitEntry[];
