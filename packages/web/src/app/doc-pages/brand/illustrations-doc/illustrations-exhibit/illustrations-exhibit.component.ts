@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { CdkPortal, PortalModule } from '@angular/cdk/portal';
 import { AsyncPipe } from '@angular/common';
@@ -22,6 +23,12 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
   ],
   templateUrl: './illustrations-exhibit.component.html',
   styleUrl: './illustrations-exhibit.component.scss',
+  animations: [
+    trigger('entranceAnimation', [
+      transition(':enter', [style({ opacity: 0 }), animate('200ms ease-in', style({ opacity: 1 }))]),
+      transition(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class IllustrationsExhibitComponent {
   @ViewChild(CdkPortal) portal: CdkPortal;
