@@ -29,7 +29,7 @@
 </ng-template>
 
 <ng-template #changelogTemplateHeader>
-  <p *ngIf="!isFrontpage && elvisComponentToFilter" class="e-m-0 e-mb-48 e-text-sm">
+  <p *ngIf="elvisComponentToFilter" class="e-m-0 e-mb-48 e-text-sm">
     This changelog only contains Elvis versions that affected the
     {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the
     <a class="e-link e-link--inline" routerLink="/components/css-library" fragment="Changelog">
@@ -37,7 +37,7 @@
     </a>
     .
   </p>
-  <ng-container *ngIf="!isFrontpage" [ngTemplateOutlet]="changelogFilter"></ng-container>
+  <ng-container [ngTemplateOutlet]="changelogFilter"></ng-container>
 </ng-template>
 
 <ng-template #changelogTemplateContent>
@@ -51,11 +51,7 @@
     </tr>
     <tbody>
       <tr
-        *ngFor="
-          let el of isFrontpage ? filteredChangelog.slice(0, 1) : filteredChangelog;
-          last as isLast;
-          first as isFirst
-        "
+        *ngFor="let el of filteredChangelog; last as isLast; first as isFirst"
         class="changelog-row"
         [ngClass]="{ 'changelog-row--skipped': el.skipped }"
       >
