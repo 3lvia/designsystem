@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
 import { IllustrationName, illustrationsExhibitData } from '../illustrations-exhibit-data';
