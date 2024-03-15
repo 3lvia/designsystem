@@ -2346,7 +2346,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-is: "npm:^18.2.0"
     resize-observer-polyfill: "npm:^1.5.1"
-    sass: "npm:^1.71.1"
+    sass: "npm:^1.72.0"
     styled-components: "npm:^5.3.3"
     tiny-glob: "npm:^0.2.9"
     tsx: "npm:^4.7.1"
@@ -2921,7 +2921,7 @@ __metadata:
     jquery: "npm:^3.6.4"
     popper.js: "npm:^1.16.1"
     resolve: "npm:^1.22.8"
-    sass: "npm:^1.71.1"
+    sass: "npm:^1.72.0"
   languageName: unknown
   linkType: soft
 
@@ -8794,7 +8794,7 @@ __metadata:
     prismjs: "npm:^1.29.0"
     rxjs: "npm:^7.8.1"
     safe-json-stringify: "npm:^1.2.0"
-    sass: "npm:^1.71.1"
+    sass: "npm:^1.72.0"
     ts-node: "npm:^10.9.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.4.2"
@@ -15693,9 +15693,9 @@ __metadata:
     "@vitejs/plugin-react": "npm:^4.2.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    sass: "npm:^1.71.1"
+    sass: "npm:^1.72.0"
     typescript: "npm:~5.4.2"
-    vite: "npm:^5.1.5"
+    vite: "npm:^5.1.6"
   languageName: unknown
   linkType: soft
 
@@ -16441,6 +16441,19 @@ __metadata:
   bin:
     sass: sass.js
   checksum: 10/51e3c667e262a80db9c80f31109dabd8d5b9a6f79e8e8aa627d83564607036ee0b13b1921d14fd317437d8cf7030d7c8cf1c3b7e11b1f4537a4a4029f6cb63a3
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.72.0":
+  version: 1.72.0
+  resolution: "sass@npm:1.72.0"
+  dependencies:
+    chokidar: "npm:>=3.0.0 <4.0.0"
+    immutable: "npm:^4.0.0"
+    source-map-js: "npm:>=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 10/637b002f9ca7888c4535a51819a3983a4638dd0a1f31aab817ae276b7fc2c3a7ab2a268d8249131810fbbd6d2cb9bd25d045008b01eda53c3ff8aa843850348d
   languageName: node
   linkType: hard
 
@@ -18675,7 +18688,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.1.5, vite@npm:^5.1.5":
+"vite@npm:5.1.5":
   version: 5.1.5
   resolution: "vite@npm:5.1.5"
   dependencies:
@@ -18712,6 +18725,46 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10/ada0a9138ca541723008ee261d80a97f6b70173508ded0f87834e2142660f45dff9801d143551aa3a8979ed446f0aec71ae114ab3ae978b3fbd5cf1f8c4bc331
+  languageName: node
+  linkType: hard
+
+"vite@npm:^5.1.6":
+  version: 5.1.6
+  resolution: "vite@npm:5.1.6"
+  dependencies:
+    esbuild: "npm:^0.19.3"
+    fsevents: "npm:~2.3.3"
+    postcss: "npm:^8.4.35"
+    rollup: "npm:^4.2.0"
+  peerDependencies:
+    "@types/node": ^18.0.0 || >=20.0.0
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/f48073e93ead62fa58034398442de4517c824b3e50184f8b4059fb24077a26f2c04e910e29d7fb7ec51ea53eb61b9c7d94d56b14a38851de80c67480094cc79d
   languageName: node
   linkType: hard
 
@@ -18770,9 +18823,9 @@ __metadata:
     "@elvia/elvis-tooltip": "npm:*"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@vitejs/plugin-vue": "npm:^5.0.4"
-    sass: "npm:^1.71.1"
+    sass: "npm:^1.72.0"
     typescript: "npm:~5.4.2"
-    vite: "npm:^5.1.5"
+    vite: "npm:^5.1.6"
     vue: "npm:^3.4.21"
     vue-router: "npm:^4.3.0"
     vue-tsc: "npm:^2.0.6"
