@@ -1,4 +1,4 @@
-type IllustrationExhibitEntry = {
+export type IllustrationExhibitEntry = {
   name: string;
   searchKeywords: string[];
 };

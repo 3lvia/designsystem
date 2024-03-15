@@ -4,17 +4,25 @@ import { Component, inject } from '@angular/core';
 import { IllustrationName, illustrationsExhibitData } from '../illustrations-exhibit-data';
 import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 import { IllustrationsGeneratorComponent } from '../illustrations-generator/illustrations-generator.component';
+import { IllustrationsExhibitListDisplayNamePipe } from './illustrations-exhibit-list-display-name.pipe';
+import { IllustrationsExhibitListSearchPipe } from './illustrations-exhibit-list-search.pipe';
 
 @Component({
   selector: 'app-illustrations-exhibit-list',
   standalone: true,
-  imports: [AsyncPipe, TitleCasePipe, NgClass, IllustrationsGeneratorComponent],
+  imports: [
+    AsyncPipe,
+    NgClass,
+    IllustrationsGeneratorComponent,
+    IllustrationsExhibitListSearchPipe,
+    IllustrationsExhibitListDisplayNamePipe,
+  ],
   templateUrl: './illustrations-exhibit-list.component.html',
   styleUrl: './illustrations-exhibit-list.component.scss',
 })
 export class IllustrationsExhibitListComponent {
   private illustrationExhibitService = inject(IllustrationsExhibitService);
-  filterValue = this.illustrationExhibitService.searchValue;
+  searchValue = this.illustrationExhibitService.searchValue;
   colorValue = this.illustrationExhibitService.colorValue;
   activeIllustration = this.illustrationExhibitService.selectedIllustration;
 
