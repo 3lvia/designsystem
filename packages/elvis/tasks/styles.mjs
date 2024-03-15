@@ -1,14 +1,14 @@
-const autoprefixer = require('gulp-autoprefixer');
-const cleanCSS = require('gulp-clean-css');
-const fs = require('fs/promises');
-const gulp = require('gulp');
-const rename = require('gulp-rename');
-const sass = require('sass');
-const tap = require('gulp-tap');
+import { rm } from 'fs/promises';
+import gulp from 'gulp';
+import autoprefixer from 'gulp-autoprefixer';
+import cleanCSS from 'gulp-clean-css';
+import rename from 'gulp-rename';
+import tap from 'gulp-tap';
+import { compile } from 'sass';
 
 // Delete old css
 async function clean() {
-  return fs.rm('css/', { force: true, recursive: true });
+  return rm('css/', { force: true, recursive: true });
 }
 
 // Generate elvis.css from scss files
@@ -17,7 +17,7 @@ function generateElvisStyle() {
     .src('./src/main.scss')
     .pipe(
       tap(function (file) {
-        file.contents = Buffer.from(sass.compile(file.path, { loadPaths: ['node_modules'] }).css.toString());
+        file.contents = Buffer.from(compile(file.path, { loadPaths: ['node_modules'] }).css.toString());
       }),
     )
     .pipe(autoprefixer({ cascade: false }))
@@ -46,4 +46,4 @@ function minifyElvisStyle() {
 }
 
 const generateCSS = gulp.series(clean, generateElvisStyle, minifyElvisStyle);
-exports.generateCSS = generateCSS;
+export { generateCSS };
