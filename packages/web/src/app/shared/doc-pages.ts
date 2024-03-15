@@ -817,7 +817,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/twcgKk3NMXmi2uBjMdZSKo/?node-id=1%3A11',
     absolutePath: '/brand/' + Pages.Illustration,
     description: `An illustration can help to communicate a message visually and add personality to the page. Using illustration is a powerful tool when users are frustrated, lost or something went wrong. See <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for guidelines.`,
-    descriptionNo: `En illustrasjon kan hjelpe til med å kommunisere et budskap visuelt og legge til personlighet på siden. Bruk av illustrasjon er et kraftig verktøy når brukere er frustrerte, har gått seg bort eller noe har gått galt. Se <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for retningslinjer.`,
+    descriptionNo: `En illustrasjon kan bidra til å formidle et budskap visuelt og gi siden personlighet. Bruk av illustrasjoner er et effektivt verktøy når brukerne er frustrerte, har gått seg vill eller noe har gått galt. Se <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for retningslinjer.`,
     searchTerms: [],
     relatedPages: [],
   },
