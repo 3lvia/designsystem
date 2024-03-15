@@ -1,30 +1,33 @@
-import { AfterViewInit, Component, ElementRef, input } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AfterViewInit, Component, ElementRef, OnChanges, input } from '@angular/core';
 
 import { IllustrationColor } from '../../illustrations-data';
 import { IllustrationName } from '../illustrations-exhibit-data';
-import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 
 @Component({
   selector: 'app-illustrations-generator',
   standalone: true,
   template: '',
 })
-export class IllustrationsGeneratorComponent implements AfterViewInit {
+export class IllustrationsGeneratorComponent implements AfterViewInit, OnChanges {
   private illustrationName = input.required<IllustrationName>();
+  private color = input<IllustrationColor | null>();
 
-  constructor(
-    private el: ElementRef,
-    illustrationExhibitService: IllustrationsExhibitService,
-  ) {
-    illustrationExhibitService.colorValue.pipe(takeUntilDestroyed()).subscribe((color) => {
-      this.el.nativeElement.firstChild?.setAttribute('color', color);
-    });
-  }
+  constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
+    this.updateIllustration();
+  }
+
+  ngOnChanges(): void {
+    this.updateIllustration();
+  }
+
+  private updateIllustration = () => {
     const illustrationElement = document.createElement(`elvia-illustrations-${this.illustrationName()}`);
+    if (this.color()) {
+      illustrationElement.setAttribute('color', this.color() ?? 'grey');
+    }
     this.el.nativeElement.innerHTML = '';
     this.el.nativeElement.appendChild(illustrationElement);
-  }
+  };
 }
