@@ -1,13 +1,14 @@
-const fs = require('fs');
-const deprecatedElvisClasses = require('@elvia/elvis/.internal/deprecated-classes.json');
+import { readFileSync, writeFileSync } from 'fs';
+
+const deprecatedElvisClasses = JSON.parse(readFileSync('.internal/deprecated-classes.json', 'utf8'));
 
 // Creating classlist.json
 async function createClassListOverview() {
-  const elvisCSS = fs.readFileSync('./css/elvis.css').toString();
+  const elvisCSS = readFileSync('./css/elvis.css').toString();
 
   const classlist = getAllClasses(elvisCSS);
 
-  fs.writeFileSync('.internal/classlist.json', JSON.stringify(classlist, null, '\t'), 'utf8');
+  writeFileSync('.internal/classlist.json', JSON.stringify(classlist, null, '\t'), 'utf8');
   return true;
 }
 
@@ -155,7 +156,7 @@ function generateDeprecatedClass(className, child = false) {
  * getChildren('e-card'); //returns [e-card--header, e-card--body, e-card--footer etc..]
  */
 function getChildren(parentToMatch) {
-  const elvisCSS = fs.readFileSync('./css/elvis.css').toString();
+  const elvisCSS = readFileSync('./css/elvis.css').toString();
   const classlist = getAllClasses(elvisCSS);
   const propertyNames = Object.keys(classlist.flat);
   const matches = propertyNames.filter(
@@ -193,12 +194,11 @@ const injectDeprecatedElvisClasses = async () => {
 ];`;
 
   // Write to elvis.js at "//[[INJECT_DEPRECATED_ELVIS_CLASSES]]"
-  const template = fs.readFileSync('elvis.js').toString();
+  const template = readFileSync('elvis.js').toString();
   const newContent = template.replace('//[[INJECT_DEPRECATED_ELVIS_CLASSES]]', embeddedJs);
-  fs.writeFileSync('elvis.js', newContent);
+  writeFileSync('elvis.js', newContent);
 
   return true;
 };
 
-exports.createClassListOverview = createClassListOverview;
-exports.injectDeprecatedElvisClasses = injectDeprecatedElvisClasses;
+export { createClassListOverview, injectDeprecatedElvisClasses };

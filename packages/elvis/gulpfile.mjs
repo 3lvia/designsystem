@@ -1,11 +1,10 @@
-'use strict';
+import gulp from 'gulp';
+import tap from 'gulp-tap';
+import terser from 'gulp-terser';
 
-const styles = require('./tasks/styles.js');
-const icons = require('./tasks/icons.js');
-const classList = require('./tasks/classlist.js');
-const gulp = require('gulp');
-const terser = require('gulp-terser');
-const tap = require('gulp-tap');
+import { createClassListOverview, injectDeprecatedElvisClasses } from './tasks/classlist.mjs';
+import { generateIcons } from './tasks/icons.mjs';
+import { generateCSS } from './tasks/styles.mjs';
 
 function copyElvisToElvisFull() {
   const elvisSrc = 'elvis.js';
@@ -36,10 +35,10 @@ function minifyElvisJs() {
 gulp.task(
   'default',
   gulp.series(
-    styles.generateCSS,
-    classList.createClassListOverview,
-    icons.generateIcons,
-    classList.injectDeprecatedElvisClasses,
+    generateCSS,
+    createClassListOverview,
+    generateIcons,
+    injectDeprecatedElvisClasses,
     copyElvisToElvisFull,
     minifyElvisJs,
     function (done) {
@@ -52,8 +51,5 @@ gulp.task(
 
 // Run gulp watch
 gulp.task('watch', function () {
-  gulp.watch(
-    ['./src/**/*.scss', './src/templates/**.*', './src/config/**.*', '!./src/config/icons.config.js'],
-    gulp.series('default'),
-  );
+  gulp.watch(['./src/**/*.scss', './src/templates/**.*', './src/config/**.*'], gulp.series('default'));
 });
