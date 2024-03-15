@@ -2,7 +2,9 @@ import changelogJson from '@elvia/elvis-illustrations/CHANGELOG.json';
 
 import ComponentData from '../../components/component-data.interface';
 
-export const illustrationsData: ComponentData<{ color: 'grey' | 'purple' | 'green' | 'blue' | 'orange' }> = {
+export type IllustrationColor = 'grey' | 'purple' | 'green' | 'blue' | 'orange';
+
+export const illustrationsData: ComponentData<{ color: IllustrationColor }> = {
   changelog: changelogJson.content,
   name: 'Illustrations',
   attributes: {

@@ -2,6 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
 import { illustrationsData } from './illustrations-data';
+import { IllustrationsExhibitComponent } from './illustrations-exhibit/illustrations-exhibit.component';
 import { IllustrationsInstallationComponent } from './illustrations-installation/illustrations-installation.component';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { ComponentChangelogComponent } from 'src/app/shared/component-documentation/component-changelog/component-changelog.component';
@@ -23,6 +24,7 @@ const illustrationDocPage = getDocPagesNotFromCMS('illustration');
     ComponentSectionComponent,
     ComponentSubsectionComponent,
     ComponentHeaderComponent,
+    IllustrationsExhibitComponent,
     IllustrationsInstallationComponent,
     ComponentPropertiesTableComponent,
     ComponentChangelogComponent,
