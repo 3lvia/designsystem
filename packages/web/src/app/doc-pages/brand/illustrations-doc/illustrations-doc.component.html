@@ -1,0 +1,7 @@
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ (locale | async) === 'nb-NO' ? titleNo : title }}</ng-container>
+  <div
+    ngProjectAs="headerDescription"
+    [innerHTML]="(locale | async) === 'nb-NO' ? descriptionNo : description"
+  ></div>
+</app-component-header>

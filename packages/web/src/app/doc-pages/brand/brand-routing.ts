@@ -16,6 +16,11 @@ export const routes: Routes = [
     loadComponent: () => import('./icon-doc/icon-doc.component').then((m) => m.IconDocComponent),
   },
   {
+    path: Pages.Illustration,
+    loadComponent: () =>
+      import('./illustrations-doc/illustrations-doc.component').then((m) => m.IllustrationsDocComponent),
+  },
+  {
     path: Pages.Layout,
     loadComponent: () => import('./layout-doc/layout-doc.component').then((m) => m.LayoutDocComponent),
   },
