@@ -2106,7 +2106,7 @@ __metadata:
     "@elvia/elvis-colors": "npm:^4.1.0"
     "@types/gulp": "npm:^4.0.17"
     "@types/gulp-svgmin": "npm:^1.2.4"
-    "@types/node": "npm:^20.11.27"
+    "@types/node": "npm:^20.11.28"
     gulp: "npm:^4.0.2"
     gulp-svgmin: "npm:^4.1.0"
     sharp: "npm:^0.33.2"
@@ -2294,7 +2294,7 @@ __metadata:
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.11.27"
+    "@types/node": "npm:^20.11.28"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.2"
     tsup: "npm:^8.0.2"
@@ -2896,7 +2896,7 @@ __metadata:
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.11.27"
+    "@types/node": "npm:^20.11.28"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.2"
     tsup: "npm:^8.0.2"
@@ -5118,12 +5118,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.27, @types/node@npm:^20.11.27":
-  version: 20.11.27
-  resolution: "@types/node@npm:20.11.27"
+"@types/node@npm:20.11.28, @types/node@npm:^20.11.28":
+  version: 20.11.28
+  resolution: "@types/node@npm:20.11.28"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/4be53485d499dd7c7896190e76a0ce1f6c6917d1f4d0b4b240b3670160fcbc548daed32beaac0fc92429b37dbeaa2496fc56f460acaab969bddb77394318a89b
+  checksum: 10/b03f69213ac6e7cd5f7efa86139f24e23ff70a12fed04adeac5413b62d6982343ce94906f74c401c5afefda48d36ae0efd6a575240996b15a5cf80b456ab4221
   languageName: node
   linkType: hard
 
@@ -8937,7 +8937,7 @@ __metadata:
     "@elvia/elvis-typography": "workspace:*"
     "@netlify/functions": "npm:^2.6.0"
     "@types/natural-compare-lite": "npm:^1.4.2"
-    "@types/node": "npm:20.11.27"
+    "@types/node": "npm:20.11.28"
     "@types/prismjs": "npm:^1.26.3"
     "@types/safe-json-stringify": "npm:^1.1.5"
     "@typescript-eslint/eslint-plugin": "npm:^7.2.0"
