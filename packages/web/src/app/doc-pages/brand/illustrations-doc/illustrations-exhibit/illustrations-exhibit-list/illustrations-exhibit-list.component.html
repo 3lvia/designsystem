@@ -2,7 +2,7 @@
   illustration of illustrationsExhibitData | illustrationsExhibitListSearch: (searchValue | async);
   track $index
 ) {
-  <div
+  <button
     class="illustration-example"
     [ngClass]="{ active: (activeIllustration | async) === illustration.name }"
     (click)="setActiveIllustration(illustration.name)"
@@ -12,5 +12,5 @@
       [color]="colorValue | async"
     ></app-illustrations-generator>
     <span class="e-text-md">{{ illustration.name | illustrationsExhibitListDisplayName }}</span>
-  </div>
+  </button>
 }
