@@ -9,9 +9,10 @@
     (click)="setActiveIllustration(illustration.name)"
   >
     <app-illustrations-generator
+      class="illustration"
       [illustrationName]="illustration.name"
       [color]="colorValue | async"
-    ></app-illustrations-generator>
+    />
     <span class="e-text-md">{{ illustration.name | illustrationsExhibitListDisplayName }}</span>
   </button>
 }

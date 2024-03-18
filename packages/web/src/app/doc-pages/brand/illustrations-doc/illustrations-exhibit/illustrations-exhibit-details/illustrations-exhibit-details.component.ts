@@ -14,7 +14,7 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 })
 export class IllustrationsExhibitDetailsComponent {
   private illustrationExhibitService = inject(IllustrationsExhibitService);
-  selectedIllustration = toSignal(inject(IllustrationsExhibitService).selectedIllustration);
+  selectedIllustration = toSignal(this.illustrationExhibitService.selectedIllustration);
 
   get importString() {
     return `@elvia/illustrations/${this.selectedIllustration()}`;
