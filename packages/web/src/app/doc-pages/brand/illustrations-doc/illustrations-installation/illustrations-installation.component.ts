@@ -12,7 +12,6 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   standalone: true,
   imports: [CopyComponent, TabToSegmentedControlItemPipe],
   templateUrl: './illustrations-installation.component.html',
-  styleUrl: './illustrations-installation.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   animations: [heightAnimation],
 })

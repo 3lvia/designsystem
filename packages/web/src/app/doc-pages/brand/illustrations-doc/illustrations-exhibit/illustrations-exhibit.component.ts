@@ -23,7 +23,6 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
     IllustrationsExhibitDetailsComponent,
   ],
   templateUrl: './illustrations-exhibit.component.html',
-  styleUrl: './illustrations-exhibit.component.scss',
   animations: [
     trigger('entranceAnimation', [
       transition(':enter', [

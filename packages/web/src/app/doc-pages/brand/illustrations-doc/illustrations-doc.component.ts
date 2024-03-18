@@ -17,7 +17,6 @@ const illustrationDocPage = getDocPagesNotFromCMS('illustration');
 @Component({
   selector: 'app-illustrations-doc',
   templateUrl: './illustrations-doc.component.html',
-  styleUrls: ['./illustrations-doc.component.scss'],
   standalone: true,
   imports: [
     AsyncPipe,
