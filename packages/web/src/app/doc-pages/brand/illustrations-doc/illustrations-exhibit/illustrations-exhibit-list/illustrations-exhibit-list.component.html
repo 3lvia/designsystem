@@ -1,5 +1,6 @@
 @for (
-  illustration of illustrationsExhibitData | illustrationsExhibitListSearch: (searchValue | async);
+  illustration of illustrationsExhibitData
+    | illustrationsExhibitListSearch: (searchValue | async) : (locale | async);
   track $index
 ) {
   <button
