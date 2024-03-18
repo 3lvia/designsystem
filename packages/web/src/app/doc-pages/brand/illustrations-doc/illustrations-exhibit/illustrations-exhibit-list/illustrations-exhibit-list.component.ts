@@ -1,34 +1,46 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 import { IllustrationName, illustrationsExhibitData } from '../illustrations-exhibit-data';
 import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 import { IllustrationsGeneratorComponent } from '../illustrations-generator/illustrations-generator.component';
 import { IllustrationsExhibitListDisplayNamePipe } from './illustrations-exhibit-list-display-name.pipe';
-import { IllustrationsExhibitListSearchPipe } from './illustrations-exhibit-list-search.pipe';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 
 @Component({
   selector: 'app-illustrations-exhibit-list',
   standalone: true,
-  imports: [
-    AsyncPipe,
-    NgClass,
-    IllustrationsGeneratorComponent,
-    IllustrationsExhibitListSearchPipe,
-    IllustrationsExhibitListDisplayNamePipe,
-  ],
+  imports: [AsyncPipe, NgClass, IllustrationsGeneratorComponent, IllustrationsExhibitListDisplayNamePipe],
   templateUrl: './illustrations-exhibit-list.component.html',
   styleUrl: './illustrations-exhibit-list.component.scss',
 })
 export class IllustrationsExhibitListComponent {
   private illustrationExhibitService = inject(IllustrationsExhibitService);
-  locale = inject(LocalizationService).listenLocalization();
-  searchValue = this.illustrationExhibitService.searchValue;
-  colorValue = this.illustrationExhibitService.colorValue;
-  activeIllustration = this.illustrationExhibitService.selectedIllustration;
+  locale = toSignal(inject(LocalizationService).listenLocalization());
+  searchValue = toSignal(this.illustrationExhibitService.searchValue);
+  colorValue = toSignal(this.illustrationExhibitService.colorValue);
+  activeIllustration = toSignal(this.illustrationExhibitService.selectedIllustration);
 
-  illustrationsExhibitData = illustrationsExhibitData;
+  filteredIllustrationData = illustrationsExhibitData;
+  private displayNamePipe = new IllustrationsExhibitListDisplayNamePipe();
+  constructor() {
+    effect(() => {
+      const searchValue = this.searchValue();
+      this.filteredIllustrationData = illustrationsExhibitData.filter((entry) => {
+        if (!searchValue) {
+          return true;
+        }
+        const searchValueLower = searchValue.toLowerCase();
+        const searchKeyWords =
+          this.locale() === 'nb-NO' ? entry.searchKeywordsNO ?? entry.searchKeywords : entry.searchKeywords;
+        return (
+          this.displayNamePipe.transform(entry.name).toLowerCase().includes(searchValueLower) ||
+          searchKeyWords.some((keyword) => keyword.toLowerCase().includes(searchValueLower))
+        );
+      }) as typeof illustrationsExhibitData;
+    });
+  }
 
   setActiveIllustration = (name: IllustrationName) => {
     this.illustrationExhibitService.setSelectedIllustration(name);

@@ -1,17 +1,13 @@
-@for (
-  illustration of illustrationsExhibitData
-    | illustrationsExhibitListSearch: (searchValue | async) : (locale | async);
-  track illustration.name
-) {
+@for (illustration of filteredIllustrationData; track illustration.name) {
   <button
     class="illustration-example"
-    [ngClass]="{ active: (activeIllustration | async) === illustration.name }"
+    [ngClass]="{ active: activeIllustration() === illustration.name }"
     (click)="setActiveIllustration(illustration.name)"
   >
     <app-illustrations-generator
       class="illustration"
       [illustrationName]="illustration.name"
-      [color]="colorValue | async"
+      [color]="colorValue()"
     />
     <span class="e-text-md">{{ illustration.name | illustrationsExhibitListDisplayName }}</span>
   </button>
