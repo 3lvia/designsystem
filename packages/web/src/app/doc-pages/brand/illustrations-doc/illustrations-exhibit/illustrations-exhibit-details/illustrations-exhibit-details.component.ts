@@ -23,7 +23,7 @@ export class IllustrationsExhibitDetailsComponent {
     return `import '@elvia/illustrations/${this.selectedIllustration()}';`;
   }
   get usageString() {
-    return `<elvia-illustrations-${this.selectedIllustration()}>`;
+    return `<elvia-illustrations-${this.selectedIllustration()}/>`;
   }
   get usageCopyString() {
     return `<elvia-illustrations-${this.selectedIllustration()}></elvia-illustrations-${this.selectedIllustration()}>`;
