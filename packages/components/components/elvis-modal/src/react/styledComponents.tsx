@@ -124,6 +124,7 @@ export const ModalContent = styled.div<ContentProps>`
     width: 100%;
     height: ${({ hasIllustration }) =>
       hasIllustration ? `calc(100% - ${modalMobileIllustrationHeight})` : '100%'};
+    max-height: 100vh;
   }
 `;
 
