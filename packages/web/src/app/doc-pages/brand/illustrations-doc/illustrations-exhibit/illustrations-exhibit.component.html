@@ -1,3 +1,5 @@
 <app-illustrations-exhibit-filter class="e-mb-24" />
-<app-illustrations-exhibit-list #exhibitList />
-<app-illustrations-exhibit-details *cdkPortal @entranceAnimation />
+<app-illustrations-exhibit-list />
+@if (selectedIllustration()) {
+  <app-illustrations-exhibit-details @entranceAnimation />
+}
