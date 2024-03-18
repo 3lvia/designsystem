@@ -6,7 +6,9 @@
       (keyup)="handleSearchChange($event)"
       aria-label="Search"
       type="search"
-      placeholder="Search through all illustrations"
+      [placeholder]="
+        (locale | async) === 'en-GB' ? 'Search through all illustrations' : 'Søk gjennom alle illustrasjoner'
+      "
     />
     <button
       class="e-btn e-btn--icon"

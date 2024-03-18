@@ -4,6 +4,7 @@ import { Option } from '@elvia/elvis-radio-filter/react';
 
 import { IllustrationColor } from '../../illustrations-data';
 import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
+import { LocalizationService } from 'src/app/core/services/localization.service';
 
 @Component({
   selector: 'app-illustrations-exhibit-filter',
@@ -18,6 +19,7 @@ export class IllustrationsExhibitFilterComponent {
 
   searchValue = inject(IllustrationsExhibitService).searchValue;
   colorFilterValue = inject(IllustrationsExhibitService).colorValue;
+  locale = inject(LocalizationService).listenLocalization();
 
   readonly colorFilters = [
     { label: 'Grey', value: 'grey' },
