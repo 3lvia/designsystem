@@ -1,10 +1,10 @@
 <elvia-segmented-control
-  [type]="'text'"
+  type="text"
   size="large"
   [value]="activeTabIndex"
   [items]="tabs | tabToSegmentedControlItem"
   (valueOnChange)="setActiveTab($any($event).detail.value)"
-></elvia-segmented-control>
+/>
 
 <ol class="e-list e-list--numbers e-mt-40">
   <li>
