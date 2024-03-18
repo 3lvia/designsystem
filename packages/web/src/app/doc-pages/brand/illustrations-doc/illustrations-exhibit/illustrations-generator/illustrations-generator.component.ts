@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnChanges, input } from '@angular/core';
+import { Component, ElementRef, effect, input } from '@angular/core';
 
 import { IllustrationColor } from '../../illustrations-data';
 import { IllustrationName } from '../illustrations-exhibit-data';
@@ -8,18 +8,17 @@ import { IllustrationName } from '../illustrations-exhibit-data';
   standalone: true,
   template: '',
 })
-export class IllustrationsGeneratorComponent implements AfterViewInit, OnChanges {
+export class IllustrationsGeneratorComponent {
   private illustrationName = input.required<IllustrationName | undefined | null>();
   private color = input<IllustrationColor | null>();
 
-  constructor(private el: ElementRef) {}
-
-  ngAfterViewInit(): void {
-    this.updateIllustration();
-  }
-
-  ngOnChanges(): void {
-    this.updateIllustration();
+  constructor(private el: ElementRef) {
+    effect(() => {
+      this.updateIllustration();
+    });
+    effect(() => {
+      this.updateColor();
+    });
   }
 
   private updateIllustration = () => {
@@ -27,10 +26,16 @@ export class IllustrationsGeneratorComponent implements AfterViewInit, OnChanges
       return;
     }
     const illustrationElement = document.createElement(`elvia-illustrations-${this.illustrationName()}`);
-    if (this.color()) {
-      illustrationElement.setAttribute('color', this.color() ?? 'grey');
-    }
     this.el.nativeElement.innerHTML = '';
     this.el.nativeElement.appendChild(illustrationElement);
+  };
+
+  private updateColor = () => {
+    const illustrationElement = this.el.nativeElement.querySelector(
+      `elvia-illustrations-${this.illustrationName()}`,
+    );
+    if (illustrationElement) {
+      illustrationElement.setAttribute('color', this.color() ?? 'grey');
+    }
   };
 }
