@@ -1,7 +1,7 @@
 @for (
   illustration of illustrationsExhibitData
     | illustrationsExhibitListSearch: (searchValue | async) : (locale | async);
-  track $index
+  track illustration.name
 ) {
   <button
     class="illustration-example"
