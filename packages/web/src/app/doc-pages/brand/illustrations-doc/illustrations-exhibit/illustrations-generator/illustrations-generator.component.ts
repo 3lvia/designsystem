@@ -9,7 +9,7 @@ import { IllustrationName } from '../illustrations-exhibit-data';
   template: '',
 })
 export class IllustrationsGeneratorComponent implements AfterViewInit, OnChanges {
-  private illustrationName = input.required<IllustrationName>();
+  private illustrationName = input.required<IllustrationName | undefined>();
   private color = input<IllustrationColor | null>();
 
   constructor(private el: ElementRef) {}
@@ -23,6 +23,9 @@ export class IllustrationsGeneratorComponent implements AfterViewInit, OnChanges
   }
 
   private updateIllustration = () => {
+    if (!this.illustrationName()) {
+      return;
+    }
     const illustrationElement = document.createElement(`elvia-illustrations-${this.illustrationName()}`);
     if (this.color()) {
       illustrationElement.setAttribute('color', this.color() ?? 'grey');
