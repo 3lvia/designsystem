@@ -15,18 +15,26 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 export class IllustrationsExhibitDetailsComponent {
   private illustrationExhibitService = inject(IllustrationsExhibitService);
   selectedIllustration = toSignal(this.illustrationExhibitService.selectedIllustration);
+  colorValue = toSignal(this.illustrationExhibitService.colorValue);
 
   get importString() {
     return `@elvia/illustrations/${this.selectedIllustration()}`;
   }
+
   get importStatement() {
     return `import '@elvia/illustrations/${this.selectedIllustration()}';`;
   }
+
+  get colorString() {
+    const color = this.colorValue();
+    return !color || color === 'grey' ? '' : ` color="${color}"`;
+  }
+
   get usageString() {
-    return `<elvia-illustrations-${this.selectedIllustration()}/>`;
+    return `<elvia-illustrations-${this.selectedIllustration()}${this.colorString} />`;
   }
   get usageCopyString() {
-    return `<elvia-illustrations-${this.selectedIllustration()}></elvia-illustrations-${this.selectedIllustration()}>`;
+    return `<elvia-illustrations-${this.selectedIllustration()}${this.colorString}></elvia-illustrations-${this.selectedIllustration()}>`;
   }
 
   clearSelection() {

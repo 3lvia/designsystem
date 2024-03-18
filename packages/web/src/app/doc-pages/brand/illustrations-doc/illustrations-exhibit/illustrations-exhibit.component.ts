@@ -48,8 +48,11 @@ export class IllustrationsExhibitComponent {
     });
 
     overlayRef.outsidePointerEvents().subscribe((e) => {
-      // Do not close if the click is on another illustration example
-      if ((e.target as HTMLElement)?.closest('.illustration-example')) {
+      // Do not close if the click is on another illustration example, or changing color
+      if (
+        (e.target as HTMLElement)?.closest('.illustration-example') ||
+        (e.target as HTMLElement)?.closest('elvia-radio-filter')
+      ) {
         return;
       }
       illustrationsExhibitService.setSelectedIllustration(null);
