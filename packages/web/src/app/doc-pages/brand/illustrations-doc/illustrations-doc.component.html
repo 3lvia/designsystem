@@ -5,19 +5,20 @@
     [innerHTML]="(locale | async) === 'nb-NO' ? descriptionNo : description"
   ></div>
 </app-component-header>
+<div class="page-body">
+  <app-component-subsection>
+    <app-illustrations-exhibit />
+  </app-component-subsection>
 
-<app-component-subsection>
-  <app-illustrations-exhibit />
-</app-component-subsection>
+  <app-component-section [sectionTitle]="(locale | async) === 'nb-NO' ? 'Installasjon' : 'Installation'">
+    <app-illustrations-installation />
+  </app-component-section>
 
-<app-component-section [sectionTitle]="(locale | async) === 'nb-NO' ? 'Installasjon' : 'Installation'">
-  <app-illustrations-installation />
-</app-component-section>
+  <app-component-section sectionTitle="API">
+    <app-component-properties-table ignoreDefaultProps [componentData]="componentData" />
+  </app-component-section>
 
-<app-component-section sectionTitle="API">
-  <app-component-properties-table ignoreDefaultProps [componentData]="componentData" />
-</app-component-section>
-
-<app-component-section sectionTitle="Changelog">
-  <app-component-changelog [changelog]="componentData.changelog" />
-</app-component-section>
+  <app-component-section sectionTitle="Changelog">
+    <app-component-changelog [changelog]="componentData.changelog" />
+  </app-component-section>
+</div>
