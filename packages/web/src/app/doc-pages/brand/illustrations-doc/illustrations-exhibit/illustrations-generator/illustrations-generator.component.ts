@@ -9,7 +9,7 @@ import { IllustrationName } from '../illustrations-exhibit-data';
   template: '',
 })
 export class IllustrationsGeneratorComponent implements AfterViewInit, OnChanges {
-  private illustrationName = input.required<IllustrationName | undefined>();
+  private illustrationName = input.required<IllustrationName | undefined | null>();
   private color = input<IllustrationColor | null>();
 
   constructor(private el: ElementRef) {}

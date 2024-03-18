@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
-import { filter } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 import { IllustrationsGeneratorComponent } from '../illustrations-generator/illustrations-generator.component';
@@ -14,10 +13,8 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   styleUrl: './illustrations-exhibit-details.component.scss',
 })
 export class IllustrationsExhibitDetailsComponent {
-  selectedIllustration = toSignal(
-    inject(IllustrationsExhibitService).selectedIllustration.pipe(takeUntilDestroyed(), filter(Boolean)),
-  );
-  illustrationExhibitService = inject(IllustrationsExhibitService);
+  private illustrationExhibitService = inject(IllustrationsExhibitService);
+  selectedIllustration = toSignal(inject(IllustrationsExhibitService).selectedIllustration);
 
   get importString() {
     return `@elvia/illustrations/${this.selectedIllustration()}`;
