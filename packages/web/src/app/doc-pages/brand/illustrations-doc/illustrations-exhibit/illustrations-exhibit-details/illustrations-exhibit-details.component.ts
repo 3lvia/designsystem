@@ -17,6 +17,7 @@ export class IllustrationsExhibitDetailsComponent {
   selectedIllustration = toSignal(
     inject(IllustrationsExhibitService).selectedIllustration.pipe(takeUntilDestroyed(), filter(Boolean)),
   );
+  illustrationExhibitService = inject(IllustrationsExhibitService);
 
   get importString() {
     return `@elvia/illustrations/${this.selectedIllustration()}`;
@@ -25,6 +26,13 @@ export class IllustrationsExhibitDetailsComponent {
     return `import '@elvia/illustrations/${this.selectedIllustration()}';`;
   }
   get usageString() {
+    return `<elvia-illustrations-${this.selectedIllustration()}>`;
+  }
+  get usageCopyString() {
     return `<elvia-illustrations-${this.selectedIllustration()}></elvia-illustrations-${this.selectedIllustration()}>`;
+  }
+
+  clearSelection() {
+    this.illustrationExhibitService.setSelectedIllustration(null);
   }
 }

@@ -3,21 +3,23 @@
 </div>
 
 <div class="info">
-  <div>
-    <span class="step-title e-text-md-strong"><i class="e-icon e-icon--step_1 e-icon--sm"></i> Import</span>
-    <app-copy [message]="importStatement">
-      <span class="e-flex e-flex-direction-row e-align-items-center e-gap-8">
-        {{ importString }} <i class="e-icon e-icon--copy e-icon--xs copy-icon"></i>
-      </span>
-    </app-copy>
-  </div>
-  <div>
-    <span class="step-title e-text-md-strong"><i class="e-icon e-icon--step_2 e-icon--sm"></i>HTML</span>
-    <app-copy [message]="usageString">
-      <span class="e-flex e-flex-direction-row e-align-items-center e-gap-8">
-        {{ usageString }} <i class="e-icon e-icon--copy e-icon--xs copy-icon"></i>
-      </span>
-    </app-copy>
+  <div class="installation-guide">
+    <div>
+      <span class="step-title e-text-md-strong"><i class="e-icon e-icon--step_1 e-icon--sm"></i> Import</span>
+      <app-copy [message]="importStatement">
+        <span class="e-flex e-flex-direction-row e-align-items-center e-gap-8">
+          {{ importString }} <i class="e-icon e-icon--copy e-icon--xs copy-icon"></i>
+        </span>
+      </app-copy>
+    </div>
+    <div>
+      <span class="step-title e-text-md-strong"><i class="e-icon e-icon--step_2 e-icon--sm"></i>HTML</span>
+      <app-copy [message]="usageCopyString">
+        <span class="e-flex e-flex-direction-row e-align-items-center e-gap-8">
+          {{ usageString }} <i class="e-icon e-icon--copy e-icon--xs copy-icon"></i>
+        </span>
+      </app-copy>
+    </div>
   </div>
   <div class="download">
     <span class="step-title e-text-md-strong">Download</span>
@@ -37,3 +39,12 @@
     </span>
   </div>
 </div>
+<button
+  class="e-btn e-btn--icon e-btn--sm close-button"
+  aria-label="Close detail panel"
+  (click)="clearSelection()"
+>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--close" aria-hidden="true"> </i>
+  </span>
+</button>

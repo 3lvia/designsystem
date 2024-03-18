@@ -2,13 +2,14 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { CdkPortal, PortalModule } from '@angular/cdk/portal';
 import { AsyncPipe } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { IllustrationsExhibitDetailsComponent } from './illustrations-exhibit-details/illustrations-exhibit-details.component';
 import { IllustrationsExhibitFilterComponent } from './illustrations-exhibit-filter/illustrations-exhibit-filter.component';
 import { IllustrationsExhibitListComponent } from './illustrations-exhibit-list/illustrations-exhibit-list.component';
 import { IllustrationsExhibitService } from './illustrations-exhibit.service';
+import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-illustrations-exhibit',
@@ -36,7 +37,11 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
 export class IllustrationsExhibitComponent {
   @ViewChild(CdkPortal) portal: CdkPortal;
 
-  constructor(illustrationsExhibitService: IllustrationsExhibitService, overlay: Overlay) {
+  constructor(
+    private illustrationsExhibitService: IllustrationsExhibitService,
+    overlay: Overlay,
+    breakpointService: BreakpointService,
+  ) {
     const overlayRef = overlay.create({
       positionStrategy: overlay.position().global().centerHorizontally().bottom('16px'),
       maxWidth: 'calc(100vw - 32px)',
@@ -62,5 +67,25 @@ export class IllustrationsExhibitComponent {
           overlayRef.detach();
         }
       });
+
+    breakpointService
+      .matches(['sm'])
+      .pipe(takeUntilDestroyed())
+      .subscribe((isMobile) => {
+        overlayRef.updatePositionStrategy(
+          isMobile
+            ? overlay.position().global().centerHorizontally().bottom('0')
+            : overlay.position().global().centerHorizontally().bottom('16px'),
+        );
+        overlayRef.updateSize({
+          maxWidth: isMobile ? '100vw' : 'calc(100vw - 32px)',
+          width: isMobile ? '100vw' : undefined,
+        });
+        overlayRef.updatePosition();
+      });
   }
+
+  @HostListener('document:keydown.escape') closeOverlay = () => {
+    this.illustrationsExhibitService.setSelectedIllustration(null);
+  };
 }
