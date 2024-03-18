@@ -21,9 +21,9 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
     trigger('entranceAnimation', [
       transition(':enter', [
         style({ opacity: 0, translate: '0 24px' }),
-        animate('200ms ease-in', style({ opacity: 1, translate: '0' })),
+        animate('200ms ease-in-out', style({ opacity: 1, translate: '0' })),
       ]),
-      transition(':leave', [animate('200ms ease-in', style({ opacity: 0, translate: '0 24px' }))]),
+      transition(':leave', [animate('200ms ease-in-out', style({ opacity: 0, translate: '0 24px' }))]),
     ]),
   ],
 })
