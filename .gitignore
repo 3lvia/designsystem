@@ -60,6 +60,7 @@ Thumbs.db
 
 # Local Netlify folder
 .netlify
+!.netlify/blobs
 
 # Angular cache
 packages/web/.angular/*
