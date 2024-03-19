@@ -296,4 +296,17 @@
   &:has(textarea:disabled) {
     color: var(--e-color-text-disabled-1);
   }
+
+  &.e-input---readonly {
+    > input,
+    > input:focus,
+    > input:read-only,
+    > input:read-only:focus,
+    > textarea,
+    > textarea:read-only,
+    > textarea:focus,
+    > textarea:read-only:focus {
+      color: var(--e-color-text-2);
+    }
+  }
 }
