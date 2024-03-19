@@ -38,14 +38,22 @@ export const StepContent: FC<StepContentProps> = function ({
         ) : (
           <div></div>
         )}
-        <PrimaryButton
-          disabled={!isReachable(isForced, currentStep + 1, steps)}
-          onClick={() =>
-            handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
-          }
-        >
-          {steps?.[currentStep]?.nextButtonText ?? 'Neste'}
-        </PrimaryButton>
+        {steps?.[currentStep]?.nextButtonState === 'loading' ? (
+          <PrimaryButton isLoading disabled={!isReachable(isForced, currentStep + 1, steps)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </PrimaryButton>
+        ) : (
+          <PrimaryButton
+            disabled={!isReachable(isForced, currentStep + 1, steps)}
+            onClick={() =>
+              handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
+            }
+          >
+            {steps?.[currentStep]?.nextButtonText ?? 'Neste'}
+          </PrimaryButton>
+        )}
       </StepperActions>
     </StepperContent>
   );
