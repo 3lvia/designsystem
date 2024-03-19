@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { HomeComponent } from './home/home.component';
 import { Pages } from './shared/shared.enum';
 
