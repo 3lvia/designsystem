@@ -61,7 +61,6 @@
             "assets": [
               "src/robots.txt",
               "src/sitemap.xml",
-              "src/favicon.ico",
               "src/assets",
               "src/_redirects",
               {

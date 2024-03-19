@@ -1,5 +1,5 @@
 import { NgClass, NgIf, ViewportScroller } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
 import '@elvia/elvis-accordion';
@@ -60,7 +60,7 @@ type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   currentRoute: PageLayout = 'standalonePage';
   isLandingPage = false;
 
@@ -71,11 +71,6 @@ export class AppComponent implements OnInit {
     viewportScroller.setOffset([0, 80]);
     this.setCurrentRouteFromUrl(location.pathname);
     this.listenForCurrentPageLayout();
-  }
-
-  ngOnInit(): void {
-    const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
-    this.handleMode(darkMode.matches);
   }
 
   private listenForCurrentPageLayout(): void {
@@ -95,19 +90,6 @@ export class AppComponent implements OnInit {
       this.currentRoute = 'standalonePage';
     } else {
       this.currentRoute = 'pageWithSidenav';
-    }
-  }
-
-  private handleMode(darkMode: boolean): void {
-    const favicon = document.querySelector('link[rel="icon"]');
-    if (!favicon) {
-      console.warn('Cant find favicon element');
-      return;
-    }
-    if (darkMode) {
-      favicon.setAttribute('href', './../assets/favicon/favicon_final_white/favicon.ico');
-    } else {
-      favicon.setAttribute('href', './../assets/favicon/favicon_final_black/favicon.ico');
     }
   }
 }
