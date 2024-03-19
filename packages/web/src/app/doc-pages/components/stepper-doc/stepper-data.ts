@@ -44,6 +44,10 @@ export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
           description: 'The text that should be visible in the previous-step button.',
           default: 'Tilbake',
         },
+        nextButtonState: {
+          type: '"loading"',
+          description: 'The state of the next-step button.',
+        },
       },
     } as NestedProp<StepState>,
     isForced: {

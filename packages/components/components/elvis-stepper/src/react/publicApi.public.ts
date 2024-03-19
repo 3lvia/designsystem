@@ -4,6 +4,7 @@ export interface StepState {
   isCompleted: boolean;
   nextButtonText: string;
   previousButtonText: string;
+  nextButtonState: 'loading';
 }
 
 export interface StepStates {
