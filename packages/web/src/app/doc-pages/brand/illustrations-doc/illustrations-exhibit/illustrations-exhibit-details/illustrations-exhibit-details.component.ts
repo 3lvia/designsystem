@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 
 import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 import { IllustrationsGeneratorComponent } from '../illustrations-generator/illustrations-generator.component';
+import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
@@ -14,8 +15,9 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 })
 export class IllustrationsExhibitDetailsComponent {
   private illustrationExhibitService = inject(IllustrationsExhibitService);
-  selectedIllustration = toSignal(this.illustrationExhibitService.selectedIllustration);
-  colorValue = toSignal(this.illustrationExhibitService.colorValue);
+  protected selectedIllustration = toSignal(this.illustrationExhibitService.selectedIllustration);
+  protected colorValue = toSignal(this.illustrationExhibitService.colorValue);
+  protected locale = toSignal(inject(LocalizationService).listenLocalization());
 
   get importString() {
     return `@elvia/illustrations/${this.selectedIllustration()}`;

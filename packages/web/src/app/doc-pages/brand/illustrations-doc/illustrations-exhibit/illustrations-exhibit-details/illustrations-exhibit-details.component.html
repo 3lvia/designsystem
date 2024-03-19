@@ -26,20 +26,34 @@
     </div>
   </div>
   <div class="download">
-    <span class="step-title e-text-md-strong e-mb-16">Download</span>
+    <span class="step-title e-text-md-strong e-mb-16">
+      @if (locale() === 'nb-NO') {
+        Last ned
+      } @else {
+        Download
+      }
+    </span>
     <span class="actions">
-      <button class="e-btn e-btn--sm e-btn--tertiary">
+      <a
+        class="e-btn e-btn--sm e-btn--tertiary"
+        [href]="'/assets/elvis-illustrations/svg/' + selectedIllustration() + '.svg'"
+        download
+      >
         <span class="e-btn__title">SVG</span>
         <span class="e-btn__icon">
           <i class="e-icon e-icon--download" aria-hidden="true"> </i>
         </span>
-      </button>
-      <button class="e-btn e-btn--sm e-btn--tertiary">
+      </a>
+      <a
+        class="e-btn e-btn--sm e-btn--tertiary"
+        [href]="'/assets/elvis-illustrations/png/' + selectedIllustration() + '.png'"
+        download
+      >
         <span class="e-btn__title">PNG</span>
         <span class="e-btn__icon">
           <i class="e-icon e-icon--download" aria-hidden="true"> </i>
         </span>
-      </button>
+      </a>
     </span>
   </div>
 </div>
