@@ -2106,7 +2106,7 @@ __metadata:
     "@elvia/elvis-colors": "npm:^4.1.0"
     "@types/gulp": "npm:^4.0.17"
     "@types/gulp-svgmin": "npm:^1.2.4"
-    "@types/node": "npm:^20.11.28"
+    "@types/node": "npm:^20.11.29"
     gulp: "npm:^4.0.2"
     gulp-svgmin: "npm:^4.1.0"
     sharp: "npm:^0.33.2"
@@ -2294,7 +2294,7 @@ __metadata:
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.11.28"
+    "@types/node": "npm:^20.11.29"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.2"
     tsup: "npm:^8.0.2"
@@ -2896,7 +2896,7 @@ __metadata:
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.11.28"
+    "@types/node": "npm:^20.11.29"
     gulp: "npm:^4.0.2"
     ts-node: "npm:^10.9.2"
     tsup: "npm:^8.0.2"
@@ -5119,12 +5119,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.28, @types/node@npm:^20.11.28":
-  version: 20.11.28
-  resolution: "@types/node@npm:20.11.28"
+"@types/node@npm:20.11.29, @types/node@npm:^20.11.29":
+  version: 20.11.29
+  resolution: "@types/node@npm:20.11.29"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/b03f69213ac6e7cd5f7efa86139f24e23ff70a12fed04adeac5413b62d6982343ce94906f74c401c5afefda48d36ae0efd6a575240996b15a5cf80b456ab4221
+  checksum: 10/eca2c87c1e583bcd4d73dc7a49643c6b793008d8aeefb93ba22c84d70b61388d6cacf8c44af0fcd35820a92121249437689afe48f42b228e281ecc64c22b0a67
   languageName: node
   linkType: hard
 
@@ -5224,14 +5224,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.66":
-  version: 18.2.66
-  resolution: "@types/react@npm:18.2.66"
+"@types/react@npm:^18.2.67":
+  version: 18.2.67
+  resolution: "@types/react@npm:18.2.67"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/8a82bda6c254681536fa8348dc15d52345d8203d5d322406feef865f74ebfe2475ebde0be4e2f9a18ffbb587dac946dfb5d0974b598779ff282259aff7e8209a
+  checksum: 10/d7e248dbe8d9d3b05f0d8e128d615fc9c85aa2c5d15634271d20cb9b343dbeffb0875f31a44e7ac63b42afc25949bd4c3633b7ebee45ee4666591ca934a8dffb
   languageName: node
   linkType: hard
 
@@ -8869,7 +8869,7 @@ __metadata:
     "@elvia/elvis-typography": "workspace:*"
     "@netlify/functions": "npm:^2.6.0"
     "@types/natural-compare-lite": "npm:^1.4.2"
-    "@types/node": "npm:20.11.28"
+    "@types/node": "npm:20.11.29"
     "@types/prismjs": "npm:^1.26.3"
     "@types/safe-json-stringify": "npm:^1.1.5"
     "@typescript-eslint/eslint-plugin": "npm:^7.2.0"
@@ -15880,7 +15880,7 @@ __metadata:
     "@elvia/elvis-toolbox": "npm:*"
     "@elvia/elvis-tooltip": "npm:*"
     "@elvia/elvis-typography": "npm:*"
-    "@types/react": "npm:^18.2.66"
+    "@types/react": "npm:^18.2.67"
     "@types/react-dom": "npm:^18.2.22"
     "@vitejs/plugin-react": "npm:^4.2.1"
     react: "npm:^18.2.0"
