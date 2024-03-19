@@ -34,21 +34,13 @@
       }
     </span>
     <span class="actions">
-      <a
-        class="e-btn e-btn--sm e-btn--tertiary"
-        [href]="'/assets/elvis-illustrations/svg/' + selectedIllustration() + '.svg'"
-        download
-      >
+      <a class="e-btn e-btn--sm e-btn--tertiary" [href]="svgBlobUrl" [download]="imageFileName('svg')">
         <span class="e-btn__title">SVG</span>
         <span class="e-btn__icon">
           <i class="e-icon e-icon--download" aria-hidden="true"> </i>
         </span>
       </a>
-      <a
-        class="e-btn e-btn--sm e-btn--tertiary"
-        [href]="'/assets/elvis-illustrations/png/' + selectedIllustration() + '.png'"
-        download
-      >
+      <a class="e-btn e-btn--sm e-btn--tertiary" [href]="pngBlobUrl" [download]="imageFileName('png')">
         <span class="e-btn__title">PNG</span>
         <span class="e-btn__icon">
           <i class="e-icon e-icon--download" aria-hidden="true"> </i>
