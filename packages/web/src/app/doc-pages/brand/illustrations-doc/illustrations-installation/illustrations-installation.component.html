@@ -44,7 +44,7 @@
       </app-copy>
     </div>
   </li>
-  @if (activeTabIndex === 0) {
+  @if (activeTabIndex() === 0) {
     <li @heightAnimation>
       <strong>Import schemas</strong>
       <div class="e-mt-8">
@@ -60,7 +60,7 @@
     </li>
   }
 </ol>
-@if (activeTabIndex === 1) {
+@if (activeTabIndex() === 1) {
   <div class="e-alert e-alert--info e-mt-16" role="note" @heightAnimation>
     <div class="e-alert__icon">
       <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>

@@ -1,5 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 import { heightAnimation } from 'src/app/shared/component-documentation/component-installation/animations';
 import { PreferredLanguageService } from 'src/app/shared/component-documentation/preferredLanguage.service';
@@ -16,14 +16,15 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   animations: [heightAnimation],
 })
 export class IllustrationsInstallationComponent {
-  activeTabIndex: number = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
-  constructor(private preferredLanguageService: PreferredLanguageService) {
-    this.preferredLanguageService.preferredLanguage$.pipe(takeUntilDestroyed()).subscribe((value) => {
-      this.activeTabIndex = this.tabs.findIndex((tab) => tab.toLowerCase() === value);
-    });
-  }
+  private preferredLanguageService = inject(PreferredLanguageService);
+  private preferredLanguage = toSignal(this.preferredLanguageService.preferredLanguage$);
+
+  activeTabIndex = computed(() => {
+    const preferredLanguage = this.preferredLanguage();
+    return this.tabs.findIndex((tab) => tab.toLowerCase() === preferredLanguage);
+  });
 
   setActiveTab(newIndex: number): void {
     this.preferredLanguageService.setPreferredLanguage(this.tabs[newIndex].toLowerCase() as LanguageType);
