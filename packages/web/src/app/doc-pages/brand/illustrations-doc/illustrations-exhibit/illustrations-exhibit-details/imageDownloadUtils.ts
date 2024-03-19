@@ -13,7 +13,7 @@ export const createSvgBlobFromElement = (
 
   const newSvgElement = svgElement.cloneNode(true) as SVGElement;
   newSvgElement.insertBefore(styleElement.cloneNode(true), newSvgElement.firstChild);
-  newSvgElement.classList.add(colorValue || '');
+  newSvgElement.classList.add(colorValue ?? '');
 
   const svgString = new XMLSerializer().serializeToString(newSvgElement);
   const blob = new Blob([svgString], { type: 'image/svg+xml' });
