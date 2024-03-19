@@ -39,7 +39,7 @@ export const StepContent: FC<StepContentProps> = function ({
           <div></div>
         )}
         {steps?.[currentStep]?.nextButtonState === 'loading' ? (
-          <PrimaryButton isLoading aria-disabled aria-label="isLoading">
+          <PrimaryButton isLoading aria-disabled aria-label="Laster inn">
             <span></span>
             <span></span>
             <span></span>
