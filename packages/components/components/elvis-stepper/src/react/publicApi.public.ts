@@ -1,10 +1,10 @@
 export interface StepState {
-  heading?: string;
-  isError?: boolean;
-  isCompleted?: boolean;
-  nextButtonText?: string;
-  previousButtonText?: string;
-  nextButtonState?: 'loading';
+  heading: string;
+  isError: boolean;
+  isCompleted: boolean;
+  nextButtonText: string;
+  previousButtonText: string;
+  nextButtonState: 'loading';
 }
 
 export interface StepStates {
