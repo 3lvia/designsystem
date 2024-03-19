@@ -1,4 +1,4 @@
-import { Component, ElementRef, effect, inject } from '@angular/core';
+import { Component, ElementRef, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
@@ -21,9 +21,6 @@ export class IllustrationsExhibitDetailsComponent {
   colorValue = toSignal(this.illustrationExhibitService.colorValue);
   locale = toSignal(inject(LocalizationService).listenLocalization());
 
-  svgBlobUrl = '';
-  pngBlobUrl = '';
-
   get importString() {
     return `@elvia/illustrations/${this.selectedIllustration()}`;
   }
@@ -45,18 +42,25 @@ export class IllustrationsExhibitDetailsComponent {
     this.illustrationExhibitService.setSelectedIllustration(null);
   }
 
-  constructor() {
-    effect(() => {
-      this.svgBlobUrl = this.createSvgBlobFromElement();
-      this.createPngBlobFromSvg();
-    });
-  }
-
   imageFileName = (format: 'svg' | 'png') => {
     if (this.colorValue() === 'grey' || !this.colorValue()) {
       return `${this.selectedIllustration()}.${format}`;
     }
     return `${this.selectedIllustration()}_${this.colorValue()}.${format}`;
+  };
+
+  downloadSvg = () => {
+    const a = document.createElement('a');
+    a.href = this.createSvgBlobFromElement();
+    a.download = this.imageFileName('svg');
+    a.click();
+  };
+
+  downloadPng = async () => {
+    const a = document.createElement('a');
+    a.href = await this.createPngBlob();
+    a.download = this.imageFileName('png');
+    a.click();
   };
 
   private createSvgBlobFromElement = () => {
@@ -76,7 +80,7 @@ export class IllustrationsExhibitDetailsComponent {
     }
 
     const newSvgElement = svgElement.cloneNode(true) as SVGElement;
-    newSvgElement.insertBefore(styleElement?.cloneNode(true) as Node, newSvgElement.firstChild);
+    newSvgElement.insertBefore(styleElement.cloneNode(true), newSvgElement.firstChild);
     newSvgElement.classList.add(this.colorValue() || '');
 
     const svgString = new XMLSerializer().serializeToString(newSvgElement);
@@ -84,26 +88,39 @@ export class IllustrationsExhibitDetailsComponent {
     return URL.createObjectURL(blob);
   };
 
-  private createPngBlobFromSvg = () => {
-    const img = new Image();
-    img.src = this.svgBlobUrl;
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      if (!ctx) {
-        console.error('Could not get 2d context');
-        return;
+  private createPngBlob = (): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const svgBlobUrl = this.createSvgBlobFromElement();
+
+      if (!svgBlobUrl) {
+        console.error('No SVG blob url found');
+        reject(new Error('No SVG blob url found'));
       }
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-      canvas.toBlob((blob) => {
-        if (!blob) {
-          console.error('Could not create blob');
+
+      const img = new Image();
+      img.src = svgBlobUrl;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          console.error('Could not get 2d context');
+          reject(new Error('Could not get 2d context'));
           return;
         }
-        this.pngBlobUrl = URL.createObjectURL(blob);
-      });
-    };
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+
+        canvas.toBlob((blob) => {
+          if (!blob) {
+            console.error('Could not create blob');
+            reject(new Error('Could not create blob'));
+            return;
+          }
+
+          resolve(URL.createObjectURL(blob));
+        });
+      };
+    });
   };
 }

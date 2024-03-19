@@ -34,13 +34,13 @@
       }
     </span>
     <span class="actions">
-      <a class="e-btn e-btn--sm e-btn--tertiary" [href]="svgBlobUrl" [download]="imageFileName('svg')">
+      <a class="e-btn e-btn--sm e-btn--tertiary" (click)="downloadSvg()">
         <span class="e-btn__title">SVG</span>
         <span class="e-btn__icon">
           <i class="e-icon e-icon--download" aria-hidden="true"> </i>
         </span>
       </a>
-      <a class="e-btn e-btn--sm e-btn--tertiary" [href]="pngBlobUrl" [download]="imageFileName('png')">
+      <a class="e-btn e-btn--sm e-btn--tertiary" (click)="downloadPng()">
         <span class="e-btn__title">PNG</span>
         <span class="e-btn__icon">
           <i class="e-icon e-icon--download" aria-hidden="true"> </i>
