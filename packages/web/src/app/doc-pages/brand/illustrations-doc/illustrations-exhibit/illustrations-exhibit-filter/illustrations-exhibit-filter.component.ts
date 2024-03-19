@@ -1,5 +1,6 @@
-import { AsyncPipe, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Option } from '@elvia/elvis-radio-filter/react';
 
 import { IllustrationColor } from '../../illustrations-data';
@@ -9,17 +10,16 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 @Component({
   selector: 'app-illustrations-exhibit-filter',
   standalone: true,
-  imports: [AsyncPipe, NgClass],
+  imports: [NgClass],
   templateUrl: './illustrations-exhibit-filter.component.html',
   styleUrl: './illustrations-exhibit-filter.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IllustrationsExhibitFilterComponent {
-  constructor(private state: IllustrationsExhibitService) {}
-
-  searchValue = inject(IllustrationsExhibitService).searchValue;
-  colorFilterValue = inject(IllustrationsExhibitService).colorValue;
-  locale = inject(LocalizationService).listenLocalization();
+  private illustrationExhibitService = inject(IllustrationsExhibitService);
+  searchValue = toSignal(this.illustrationExhibitService.searchValue);
+  colorFilterValue = toSignal(this.illustrationExhibitService.colorValue);
+  locale = toSignal(inject(LocalizationService).listenLocalization());
 
   readonly colorFilters = [
     { label: 'Grey', value: 'grey' },
@@ -31,15 +31,15 @@ export class IllustrationsExhibitFilterComponent {
 
   handleSearchChange = (event: Event) => {
     const newSearch = (event.target as HTMLInputElement).value;
-    this.state.setSearchValue(newSearch);
+    this.illustrationExhibitService.setSearchValue(newSearch);
   };
 
   handleColorFilterChange = (event: CustomEvent<{ value: IllustrationColor }>) => {
     const newColor = event.detail.value;
-    this.state.setColorValue(newColor);
+    this.illustrationExhibitService.setColorValue(newColor);
   };
 
   handleClearSearch = () => {
-    this.state.setSearchValue('');
+    this.illustrationExhibitService.setSearchValue('');
   };
 }

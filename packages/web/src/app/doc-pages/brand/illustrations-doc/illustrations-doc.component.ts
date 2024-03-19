@@ -1,5 +1,5 @@
-import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 import { illustrationsData } from './illustrations-data';
 import { IllustrationsExhibitComponent } from './illustrations-exhibit/illustrations-exhibit.component';
@@ -19,7 +19,6 @@ const illustrationDocPage = getDocPagesNotFromCMS('illustration');
   templateUrl: './illustrations-doc.component.html',
   standalone: true,
   imports: [
-    AsyncPipe,
     ComponentSectionComponent,
     ComponentSubsectionComponent,
     ComponentHeaderComponent,
@@ -37,5 +36,5 @@ export class IllustrationsDocComponent {
   descriptionNo = illustrationDocPage?.descriptionNo;
   figmaUrl = illustrationDocPage?.figmaUrl;
 
-  locale = inject(LocalizationService).listenLocalization();
+  locale = toSignal(inject(LocalizationService).listenLocalization());
 }

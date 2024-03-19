@@ -2,17 +2,17 @@
   <div class="e-input">
     <i class="e-icon e-icon--search-color" aria-hidden="true"> </i>
     <input
-      [value]="searchValue | async"
+      [value]="searchValue()"
       (keyup)="handleSearchChange($event)"
       aria-label="Search"
       type="search"
       [placeholder]="
-        (locale | async) === 'en-GB' ? 'Search through all illustrations' : 'Søk gjennom alle illustrasjoner'
+        locale() === 'en-GB' ? 'Search through all illustrations' : 'Søk gjennom alle illustrasjoner'
       "
     />
     <button
       class="e-btn e-btn--icon"
-      [ngClass]="{ 'e-invisible': !((searchValue | async) ?? '').length }"
+      [ngClass]="{ 'e-invisible': !(searchValue() ?? '').length }"
       (click)="handleClearSearch()"
       aria-label="Clear search field"
     >
@@ -25,6 +25,6 @@
 <elvia-radio-filter
   name="Illustration color"
   [items]="colorFilters"
-  [value]="colorFilterValue | async"
+  [value]="colorFilterValue()"
   (valueOnChange)="handleColorFilterChange($any($event))"
 />

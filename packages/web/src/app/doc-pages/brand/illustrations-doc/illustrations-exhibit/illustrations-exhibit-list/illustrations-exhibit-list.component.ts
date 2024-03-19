@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, effect, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -11,7 +11,7 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 @Component({
   selector: 'app-illustrations-exhibit-list',
   standalone: true,
-  imports: [AsyncPipe, NgClass, IllustrationsGeneratorComponent, IllustrationsExhibitListDisplayNamePipe],
+  imports: [NgClass, IllustrationsGeneratorComponent, IllustrationsExhibitListDisplayNamePipe],
   templateUrl: './illustrations-exhibit-list.component.html',
   styleUrl: './illustrations-exhibit-list.component.scss',
 })
