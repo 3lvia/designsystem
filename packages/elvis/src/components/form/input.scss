@@ -142,14 +142,8 @@
     --border-color: transparent;
     background: var(--e-color-background-readonly-1);
 
-    > input,
-    > input:focus,
-    > input:read-only,
-    > input:read-only:focus,
-    > textarea,
-    > textarea:read-only,
-    > textarea:focus,
-    > textarea:read-only:focus {
+    > :is(input, textarea),
+    > :is(input, textarea):is(:focus, :read-only, :read-only:focus) {
       color: var(--e-color-text-2);
 
       &[type='number'] {
@@ -298,14 +292,8 @@
   }
 
   &.e-input---readonly {
-    > input,
-    > input:focus,
-    > input:read-only,
-    > input:read-only:focus,
-    > textarea,
-    > textarea:read-only,
-    > textarea:focus,
-    > textarea:read-only:focus {
+    > :is(input, textarea),
+    > :is(input, textarea):is(:focus, :read-only, :read-only:focus) {
       color: var(--e-color-text-2);
     }
   }
