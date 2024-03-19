@@ -107,8 +107,8 @@ export class IllustrationsExhibitDetailsComponent {
           reject(new Error('Could not get 2d context'));
           return;
         }
-        canvas.width = img.width;
-        canvas.height = img.height;
+        canvas.width = 8 * img.width;
+        canvas.height = 8 * img.height;
         ctx.drawImage(img, 0, 0);
 
         canvas.toBlob((blob) => {
