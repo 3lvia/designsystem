@@ -1,12 +1,9 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
-import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { HomeComponent } from './home/home.component';
-import { ErrorComponent } from './shared/error/error.component';
 import { Pages } from './shared/shared.enum';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: Pages.Index,
     pathMatch: 'full',
@@ -41,31 +38,24 @@ const routes: Routes = [
     path: Pages.DevelopmentStart,
     loadChildren: () => import('./dev/dev-routing').then((m) => m.routes),
   },
-  { path: 'not-found', component: ErrorComponent },
+  {
+    path: 'not-found',
+    loadComponent: () => import('./shared/error/error.component').then((m) => m.ErrorComponent),
+  },
   // From CMS
   {
     path: ':submenu',
-    component: CMSPageComponent,
+    loadComponent: () =>
+      import('./doc-pages/cms/cms-page/cms-page.component').then((m) => m.CMSPageComponent),
   },
   {
     path: ':submenu/:page',
-    component: CMSPageComponent,
+    loadComponent: () =>
+      import('./doc-pages/cms/cms-page/cms-page.component').then((m) => m.CMSPageComponent),
   },
   {
     path: 'preview/:entryId',
-    component: CMSPageComponent,
+    loadComponent: () =>
+      import('./doc-pages/cms/cms-page/cms-page.component').then((m) => m.CMSPageComponent),
   },
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules,
-      scrollPositionRestoration: 'enabled',
-      anchorScrolling: 'enabled',
-      scrollOffset: [0, 80],
-    }),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

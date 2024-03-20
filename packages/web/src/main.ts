@@ -2,8 +2,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading } from '@angular/router';
 
-import { AppRoutingModule } from './app/app-routing.module';
+import { routes } from './app/app-routing';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 
@@ -12,5 +13,13 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(BrowserModule, AppRoutingModule, HttpClientModule), provideAnimations()],
+  providers: [
+    importProvidersFrom(BrowserModule, HttpClientModule),
+    provideAnimations(),
+    provideRouter(
+      routes,
+      withPreloading(PreloadAllModules),
+      withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' }),
+    ),
+  ],
 }).catch((err) => console.error(err));

@@ -1,4 +1,4 @@
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass, NgIf, ViewportScroller } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
@@ -64,7 +64,11 @@ export class AppComponent {
   currentRoute: PageLayout = 'standalonePage';
   isLandingPage = false;
 
-  constructor(private routerService: RouterService) {
+  constructor(
+    private routerService: RouterService,
+    viewportScroller: ViewportScroller,
+  ) {
+    viewportScroller.setOffset([0, 80]);
     this.setCurrentRouteFromUrl(location.pathname);
     this.listenForCurrentPageLayout();
   }
