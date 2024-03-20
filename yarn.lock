@@ -16685,7 +16685,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.37":
+"postcss@npm:^8.4.36, postcss@npm:^8.4.37":
   version: 8.4.37
   resolution: "postcss@npm:8.4.37"
   dependencies:
