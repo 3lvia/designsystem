@@ -38,7 +38,12 @@ export class CodeGeneratorComponent implements OnInit {
 
   constructor(private preferredLanguageService: PreferredLanguageService) {
     this.preferredLanguageService.preferredLanguage$.pipe(takeUntilDestroyed()).subscribe((value) => {
-      this.setTabIndex(value);
+      const index = this.tabs.findIndex((tab) => tab.toLowerCase() === value);
+      if (index !== -1) {
+        this.activeTabIndex = index;
+      } else {
+        this.activeTabIndex = 0;
+      }
     });
   }
 
@@ -70,10 +75,6 @@ export class CodeGeneratorComponent implements OnInit {
     } else {
       return this.vueCode;
     }
-  }
-
-  setTabIndex(value: LanguageType) {
-    this.activeTabIndex = this.tabs.findIndex((tab) => tab.toLowerCase() === value);
   }
 
   setActiveTab(newIndex: number): void {
