@@ -19,7 +19,9 @@ export class IllustrationsInstallationComponent {
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
   private preferredLanguageService = inject(PreferredLanguageService);
-  private preferredLanguage = toSignal(this.preferredLanguageService.preferredLanguage$);
+  private preferredLanguage = toSignal(
+    this.preferredLanguageService.listenLanguage(this.tabs.map((tab) => tab.toLowerCase() as LanguageType)),
+  );
 
   activeTabIndex = computed(() => {
     const preferredLanguage = this.preferredLanguage();
