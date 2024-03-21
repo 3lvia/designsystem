@@ -10,8 +10,8 @@
     "test:coverage": "jest --coverage --colors"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.1",
-    "@babel/preset-env": "^7.24.1",
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
     "@testing-library/dom": "9.3.3",
