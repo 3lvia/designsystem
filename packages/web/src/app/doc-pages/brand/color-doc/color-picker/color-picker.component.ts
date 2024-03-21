@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { ThemeName } from '@elvia/elvis-colors';
 
@@ -21,7 +21,6 @@ import { getColorElement } from './colors-util';
     ColorPickerHeaderComponent,
     ColorPickerExhibitComponent,
     ColorListBaseDirective,
-    NgFor,
     ColorPickerColorListComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

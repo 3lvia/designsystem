@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { RadioGroup } from '../../controlType';
@@ -9,7 +8,7 @@ let CEG_RADIO_GROUP_ID = 0;
   selector: 'app-radio-group',
   templateUrl: './radio-group.component.html',
   standalone: true,
-  imports: [NgFor],
+  imports: [],
 })
 export class RadioGroupComponent {
   @Input() radioGroup: RadioGroup;

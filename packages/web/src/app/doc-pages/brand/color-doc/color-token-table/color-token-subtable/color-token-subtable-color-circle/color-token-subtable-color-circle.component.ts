@@ -1,4 +1,4 @@
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 type ColorType = 'default' | 'black-white' | 'dark-black-white' | 'signal' | 'dark-signal';
@@ -8,7 +8,7 @@ type ColorType = 'default' | 'black-white' | 'dark-black-white' | 'signal' | 'da
   templateUrl: './color-token-subtable-color-circle.component.html',
   styleUrls: ['./color-token-subtable-color-circle.component.scss'],
   standalone: true,
-  imports: [NgIf, NgClass],
+  imports: [NgClass],
 })
 export class ColorTokenSubtableColorCircleComponent implements OnInit {
   @Input() hex: string;

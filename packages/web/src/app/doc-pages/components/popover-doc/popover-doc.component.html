@@ -7,7 +7,9 @@
   <app-component-section structure [sectionTitle]="'Structure'">
     A popover is a shell with options like close button, heading and text. Content like text and inputs are
     added inside. Popover closes after clicking outside the popover, “X” or ESC KEY.
-    <div class="e-content-loader e-mb-32 e-w-100 responsive-height" *ngIf="!loadedPopoverStructure"></div>
+    @if (!loadedPopoverStructure) {
+      <div class="e-content-loader e-mb-32 e-w-100 responsive-height"></div>
+    }
     <img
       alt="Informative popover structure"
       src="./../../../../assets/popover/Group 2791.svg"

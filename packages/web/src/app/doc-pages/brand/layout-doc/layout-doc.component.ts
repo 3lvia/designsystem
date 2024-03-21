@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
@@ -28,7 +27,6 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
   imports: [
     ComponentHeaderComponent,
     ComponentSectionComponent,
-    NgIf,
     ComponentSubsectionComponent,
     StaticCegComponent,
     LayoutBreakpointsCegComponent,

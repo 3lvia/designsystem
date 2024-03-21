@@ -22,16 +22,12 @@
     <div class="e-text-micro copyright">Copyright © {{ currentYear }} Elvia</div>
 
     <div class="links">
-      <a
-        *ngFor="let link of links"
-        class="e-btn e-btn--icon e-btn--sm"
-        [href]="link.url"
-        target="_blank"
-        rel="noopener"
-      >
-        <img class="default-img" [src]="link.defaultImgSrc" [alt]="link.alt" />
-        <img class="inverted-img" [src]="link.invertedImgSrc" [alt]="link.alt" />
-      </a>
+      @for (link of links; track link) {
+        <a class="e-btn e-btn--icon e-btn--sm" [href]="link.url" target="_blank" rel="noopener">
+          <img class="default-img" [src]="link.defaultImgSrc" [alt]="link.alt" />
+          <img class="inverted-img" [src]="link.invertedImgSrc" [alt]="link.alt" />
+        </a>
+      }
     </div>
   </div>
 </footer>

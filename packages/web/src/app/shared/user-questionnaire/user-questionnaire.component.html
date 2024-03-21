@@ -9,7 +9,9 @@
       }
     }
   </div>
-  <app-user-questionnaire-illustration slot="illustration" *ngIf="step === 'role'" />
+  @if (step === 'role') {
+    <app-user-questionnaire-illustration slot="illustration" />
+  }
 
   <div slot="content" class="e-text-md">
     <p class="e-m-0 e-mb-24">

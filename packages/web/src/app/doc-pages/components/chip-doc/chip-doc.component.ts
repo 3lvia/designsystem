@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
@@ -23,7 +22,6 @@ import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-em
     ChipCegComponent,
     ComponentSectionComponent,
     ComponentSubsectionComponent,
-    NgFor,
     StaticCegComponent,
     ChipImageCegComponent,
     ChipImageEmptyCegComponent,

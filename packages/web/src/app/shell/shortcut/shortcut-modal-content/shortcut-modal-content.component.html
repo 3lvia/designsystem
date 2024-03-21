@@ -1,9 +1,13 @@
 <div class="grid-container">
-  <div class="e-flex e-align-items-center e-capitalize" *ngFor="let shortcut of shortcuts">
-    <ng-container *ngFor="let key of shortcut.keys; let isLast = last">
-      <kbd>{{ key }}</kbd>
-      <span *ngIf="!isLast">+</span>
-    </ng-container>
-    <span class="e-ml-8">{{ shortcut.description }}</span>
-  </div>
+  @for (shortcut of shortcuts; track shortcut) {
+    <div class="e-flex e-align-items-center e-capitalize">
+      @for (key of shortcut.keys; track key; let isLast = $last) {
+        <kbd>{{ key }}</kbd>
+        @if (!isLast) {
+          <span>+</span>
+        }
+      }
+      <span class="e-ml-8">{{ shortcut.description }}</span>
+    </div>
+  }
 </div>

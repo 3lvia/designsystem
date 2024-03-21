@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
@@ -21,7 +20,6 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
     ShadowViewerComponent,
     ComponentSectionComponent,
     WhenToUseComponent,
-    NgFor,
     ComponentChangelogComponent,
   ],
 })

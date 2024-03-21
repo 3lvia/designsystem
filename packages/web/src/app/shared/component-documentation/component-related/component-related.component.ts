@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
   templateUrl: './component-related.component.html',
   styleUrls: ['./component-related.component.scss'],
   standalone: true,
-  imports: [NgIf, NgFor, RouterLink, AsyncPipe],
+  imports: [RouterLink, AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentRelatedComponent {

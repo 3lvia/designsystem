@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -14,7 +13,7 @@ import { ScrollNotifierService } from './scroll-notifier.service';
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss'],
   standalone: true,
-  imports: [NgIf, EmojiBadComponent, EmojiNeutralComponent, EmojiGoodComponent],
+  imports: [EmojiBadComponent, EmojiNeutralComponent, EmojiGoodComponent],
 })
 export class FeedbackComponent {
   @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;

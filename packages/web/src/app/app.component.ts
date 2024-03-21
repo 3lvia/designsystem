@@ -1,4 +1,4 @@
-import { NgClass, NgIf, ViewportScroller } from '@angular/common';
+import { NgClass, ViewportScroller } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
@@ -52,7 +52,6 @@ type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
     HeaderComponent,
     UserQuestionnaireComponent,
     NgClass,
-    NgIf,
     RouterOutlet,
     PageWithSidenavComponent,
     FooterComponent,

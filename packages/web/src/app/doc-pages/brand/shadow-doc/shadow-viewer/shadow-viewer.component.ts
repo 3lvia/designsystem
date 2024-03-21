@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeName } from '@elvia/elvis-colors';
@@ -20,7 +20,7 @@ interface Shadow {
   templateUrl: './shadow-viewer.component.html',
   styleUrls: ['./shadow-viewer.component.scss'],
   standalone: true,
-  imports: [NgClass, NgIf, NgFor, CopyComponent, AsyncPipe],
+  imports: [NgClass, CopyComponent, AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShadowViewerComponent {

@@ -1,4 +1,3 @@
-import { NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 import { Locale } from 'src/app/core/services/localization.service';
@@ -8,7 +7,7 @@ import { Locale } from 'src/app/core/services/localization.service';
   templateUrl: './when-to-use.component.html',
   styleUrls: ['./when-to-use.component.scss'],
   standalone: true,
-  imports: [NgIf, NgFor],
+  imports: [],
 })
 export class WhenToUseComponent {
   @Input() whens? = [''];
