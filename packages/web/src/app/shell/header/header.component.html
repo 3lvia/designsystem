@@ -7,9 +7,6 @@
       <img [src]="logoUrl" class="elvia-logo" alt="Elvia Logo" />
     </a>
 
-    @if (menuContentLoader) {
-      <div class="tabs-content-loader e-none-sm e-none-md e-content-loader e-ml-48"></div>
-    }
     @if (mainMenu) {
       <nav class="tabs e-ml-32 e-none-sm e-none-md" aria-label="tabs navigation" role="tablist">
         @for (menuItem of mainMenu.pages; track menuItem) {
