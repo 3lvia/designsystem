@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, HostListener, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Component, inject } from '@angular/core';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { filter, fromEvent } from 'rxjs';
 
 import { IllustrationsExhibitDetailsComponent } from './illustrations-exhibit-details/illustrations-exhibit-details.component';
 import { IllustrationsExhibitFilterComponent } from './illustrations-exhibit-filter/illustrations-exhibit-filter.component';
@@ -31,20 +32,28 @@ export class IllustrationsExhibitComponent {
   private illustrationsExhibitService = inject(IllustrationsExhibitService);
   selectedIllustration = toSignal(this.illustrationsExhibitService.selectedIllustration);
 
-  @HostListener('document:keydown.escape')
-  closeOverlay = () => {
-    this.illustrationsExhibitService.setSelectedIllustration(null);
-  };
-
-  @HostListener('document:click', ['$event'])
-  closeOverlayOnClick = (event: MouseEvent) => {
-    if (
-      (event.target as HTMLElement)?.closest(
-        'app-illustrations-exhibit-details, .illustration-example, elvia-radio-filter',
+  constructor() {
+    fromEvent(document, 'keydown')
+      .pipe(
+        takeUntilDestroyed(),
+        filter((event) => event instanceof KeyboardEvent && event.key === 'Escape'),
       )
-    ) {
-      return;
-    }
-    this.illustrationsExhibitService.setSelectedIllustration(null);
-  };
+      .subscribe(() => {
+        this.illustrationsExhibitService.setSelectedIllustration(null);
+      });
+
+    fromEvent(document, 'click')
+      .pipe(
+        takeUntilDestroyed(),
+        filter(
+          (event) =>
+            !(event.target as HTMLElement)?.closest(
+              'app-illustrations-exhibit-details, .illustration-example, elvia-radio-filter',
+            ),
+        ),
+      )
+      .subscribe(() => {
+        this.illustrationsExhibitService.setSelectedIllustration(null);
+      });
+  }
 }
