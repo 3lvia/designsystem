@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
@@ -20,7 +19,6 @@ import { popoverData } from './popover-data';
     CegComponent,
     PopoverCegComponent,
     ComponentSectionComponent,
-    NgIf,
     ComponentSubsubsectionComponent,
     WhenToUseComponent,
     ComponentSubsectionComponent,

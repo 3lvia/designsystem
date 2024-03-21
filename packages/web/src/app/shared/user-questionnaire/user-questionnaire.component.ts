@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
 import { type ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
@@ -22,7 +21,7 @@ const USER_QUESTIONNAIRE_STORAGE_KEY = 'hasCompletedUserQuestionnaire-30.01.2024
 @Component({
   selector: 'app-user-questionnaire',
   standalone: true,
-  imports: [CommonModule, UserQuestionnaireIllustrationComponent, HttpClientModule],
+  imports: [UserQuestionnaireIllustrationComponent, HttpClientModule],
   templateUrl: './user-questionnaire.component.html',
   styleUrl: './user-questionnaire.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

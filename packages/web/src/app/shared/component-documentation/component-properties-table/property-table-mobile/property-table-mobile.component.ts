@@ -1,4 +1,3 @@
-import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { EscapeHTMLPipe } from '../../../pipes/escape-html.pipe';
@@ -12,7 +11,7 @@ import { SearchResult } from 'src/app/shared/searcher';
   selector: 'app-property-table-mobile',
   templateUrl: './property-table-mobile.component.html',
   standalone: true,
-  imports: [NgFor, NgIf, PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
+  imports: [PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
 })
 export class PropertyTableMobileComponent extends PropertyTableBaseDirective {
   get itemsWithoutChildren(): SearchResult<ComponentProp>[] {

@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass, NgFor } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.servic
   templateUrl: './theme-switch.component.html',
   styleUrls: ['./theme-switch.component.scss'],
   standalone: true,
-  imports: [NgFor, NgClass, AsyncPipe],
+  imports: [NgClass, AsyncPipe],
 })
 export class ThemeSwitchComponent {
   @Output() preferredThemeSwitched = new EventEmitter<void>();

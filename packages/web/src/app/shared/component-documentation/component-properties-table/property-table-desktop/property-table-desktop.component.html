@@ -1,102 +1,110 @@
-<table
-  class="e-table e-table--small e-table--no-stripes e-table--sticky-header e-table--sticky-column-header"
-  *ngIf="props.length > 0"
-  aria-label="Property details and descriptions"
->
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Type</th>
-      <th scope="col">Description</th>
-      <th scope="col">Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngFor="let group of groupedProps">
-      <tr *ngIf="group.rows.length > 0" class="group-title-row">
-        <th scope="row" class="title-cell">
-          <h2 class="e-title-caps e-m-0">{{ group.title }}</h2>
-          <div class="group-description e-text-small e-mt-8" [innerHTML]="group.description"></div>
-        </th>
-        <td></td>
-        <td></td>
-        <td class="sticky-right">
-          <div class="e-flex e-justify-content-end">
-            <button
-              class="e-btn e-btn--icon e-btn--circled"
-              [attr.aria-label]="group.expanded ? 'Collapse prop group' : 'Expand prop group'"
-              (click)="group.expanded = !group.expanded"
-            >
-              <span class="e-btn__icon">
-                <i
-                  class="e-icon"
-                  [ngClass]="group.expanded ? 'e-icon--collapse_circle-color' : 'e-icon--expand_circle-color'"
-                  aria-hidden="true"
-                ></i>
-                <i
-                  class="e-icon"
-                  [ngClass]="
-                    group.expanded
-                      ? 'e-icon--collapse_circle-filled-color'
-                      : 'e-icon--expand_circle-filled-color'
-                  "
-                  aria-hidden="true"
-                ></i>
-              </span>
-            </button>
-          </div>
-        </td>
+@if (props.length > 0) {
+  <table
+    class="e-table e-table--small e-table--no-stripes e-table--sticky-header e-table--sticky-column-header"
+    aria-label="Property details and descriptions"
+  >
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">Default</th>
       </tr>
-      <tr
-        *ngFor="let prop of group.rows; let isLast = last; let i = index"
-        class="prop-row"
-        [ngClass]="{ expanded: group.expanded, last: isLast }"
-      >
-        <th scope="row" class="table-code-text">
-          <div
-            class="height-changer e-flex e-gap-8"
-            [ngStyle]="{
-              'margin-left.px': calculateMargin(i, group.rows),
-              'padding-left.px': calculatePadding(i, group.rows)
-            }"
-          >
-            <div class="example-width" *ngIf="prop.item.level === 0">
-              <app-property-example-popover
-                *ngIf="prop.item.example"
-                [attribute]="prop.item.attribute"
-                [example]="prop.item.example"
-              />
-            </div>
-            <div>
-              <strong
-                [innerHTML]="prop.item.attribute | searchHighlighter: 'attribute' : prop.matches"
-              ></strong>
-              <strong>{{ prop.item.isRequired ? '*' : '' }}</strong>
-            </div>
-          </div>
-        </th>
-        <td class="table-code-text e-table__cell--multiline-small">
-          <div
-            class="height-changer"
-            [innerHTML]="prop.item.type | searchHighlighter: 'type' : prop.matches"
-          ></div>
-        </td>
-        <td class="e-table__cell--multiline-small">
-          <p
-            class="e-m-0 height-changer"
-            [innerHTML]="prop.item.description | escapeHTML | searchHighlighter: 'description' : prop.matches"
-          ></p>
-        </td>
-        <td class="table-code-text">
-          <div
-            class="height-changer"
-            [innerHTML]="
-              (isLeafProp(i, group.rows) ? prop.item.default : '')
-                | searchHighlighter: 'default' : prop.matches
-            "
-          ></div>
-        </td>
-      </tr>
-    </ng-container>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      @for (group of groupedProps; track group) {
+        @if (group.rows.length > 0) {
+          <tr class="group-title-row">
+            <th scope="row" class="title-cell">
+              <h2 class="e-title-caps e-m-0">{{ group.title }}</h2>
+              <div class="group-description e-text-small e-mt-8" [innerHTML]="group.description"></div>
+            </th>
+            <td></td>
+            <td></td>
+            <td class="sticky-right">
+              <div class="e-flex e-justify-content-end">
+                <button
+                  class="e-btn e-btn--icon e-btn--circled"
+                  [attr.aria-label]="group.expanded ? 'Collapse prop group' : 'Expand prop group'"
+                  (click)="group.expanded = !group.expanded"
+                >
+                  <span class="e-btn__icon">
+                    <i
+                      class="e-icon"
+                      [ngClass]="
+                        group.expanded ? 'e-icon--collapse_circle-color' : 'e-icon--expand_circle-color'
+                      "
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      class="e-icon"
+                      [ngClass]="
+                        group.expanded
+                          ? 'e-icon--collapse_circle-filled-color'
+                          : 'e-icon--expand_circle-filled-color'
+                      "
+                      aria-hidden="true"
+                    ></i>
+                  </span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        }
+        @for (prop of group.rows; track prop; let isLast = $last; let i = $index) {
+          <tr class="prop-row" [ngClass]="{ expanded: group.expanded, last: isLast }">
+            <th scope="row" class="table-code-text">
+              <div
+                class="height-changer e-flex e-gap-8"
+                [ngStyle]="{
+                  'margin-left.px': calculateMargin(i, group.rows),
+                  'padding-left.px': calculatePadding(i, group.rows)
+                }"
+              >
+                @if (prop.item.level === 0) {
+                  <div class="example-width">
+                    @if (prop.item.example) {
+                      <app-property-example-popover
+                        [attribute]="prop.item.attribute"
+                        [example]="prop.item.example"
+                      />
+                    }
+                  </div>
+                }
+                <div>
+                  <strong
+                    [innerHTML]="prop.item.attribute | searchHighlighter: 'attribute' : prop.matches"
+                  ></strong>
+                  <strong>{{ prop.item.isRequired ? '*' : '' }}</strong>
+                </div>
+              </div>
+            </th>
+            <td class="table-code-text e-table__cell--multiline-small">
+              <div
+                class="height-changer"
+                [innerHTML]="prop.item.type | searchHighlighter: 'type' : prop.matches"
+              ></div>
+            </td>
+            <td class="e-table__cell--multiline-small">
+              <p
+                class="e-m-0 height-changer"
+                [innerHTML]="
+                  prop.item.description | escapeHTML | searchHighlighter: 'description' : prop.matches
+                "
+              ></p>
+            </td>
+            <td class="table-code-text">
+              <div
+                class="height-changer"
+                [innerHTML]="
+                  (isLeafProp(i, group.rows) ? prop.item.default : '')
+                    | searchHighlighter: 'default' : prop.matches
+                "
+              ></div>
+            </td>
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+}

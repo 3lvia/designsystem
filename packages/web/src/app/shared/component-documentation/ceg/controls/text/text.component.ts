@@ -1,4 +1,4 @@
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Text } from '../../controlType';
@@ -10,7 +10,7 @@ let CEG_INPUT_ID = 0;
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss'],
   standalone: true,
-  imports: [NgIf, NgClass],
+  imports: [NgClass],
 })
 export class TextComponent {
   @Input() input: Text;

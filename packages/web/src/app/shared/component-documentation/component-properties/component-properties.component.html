@@ -16,67 +16,85 @@
   .
 </p>
 
-<div *ngIf="elements.length > 0 || modifiers.length !== 0 || pseudos.length !== 0">
-  <div *ngIf="container">
-    <h3 class="e-title-sm e-mt-48 e-mb-16">Container</h3>
-    <ul class="e-list">
-      <li>
-        <app-copy [message]="container">
-          <span class="prop-element-title code-text">{{ container }}</span>
-        </app-copy>
-      </li>
-    </ul>
-  </div>
-
-  <div *ngIf="elements.length !== 0">
-    <h3 class="e-title-sm e-mt-48 e-mb-16">Elements</h3>
-    <ul class="e-list">
-      <div *ngFor="let el of elements">
-        <li *ngIf="el.name">
-          <app-copy [message]="el.name">
-            <span class="prop-element-title code-text">{{ el.name }}</span>
-          </app-copy>
-        </li>
+@if (elements.length > 0 || modifiers.length !== 0 || pseudos.length !== 0) {
+  <div>
+    @if (container) {
+      <div>
+        <h3 class="e-title-sm e-mt-48 e-mb-16">Container</h3>
+        <ul class="e-list">
+          <li>
+            <app-copy [message]="container">
+              <span class="prop-element-title code-text">{{ container }}</span>
+            </app-copy>
+          </li>
+        </ul>
       </div>
-    </ul>
-  </div>
-
-  <div *ngIf="allElementModifiers.length !== 0">
-    <h4 class="e-title-xs e-mt-48 e-mb-8">Element modifiers</h4>
-    <ul class="e-list">
-      <div *ngFor="let elMod of allElementModifiers" class="prop-element">
-        <li>
-          <app-copy [message]="elMod">
-            <span class="prop-element-title code-text">{{ elMod }}</span>
-          </app-copy>
-        </li>
+    }
+    @if (elements.length !== 0) {
+      <div>
+        <h3 class="e-title-sm e-mt-48 e-mb-16">Elements</h3>
+        <ul class="e-list">
+          @for (el of elements; track el) {
+            <div>
+              @if (el.name) {
+                <li>
+                  <app-copy [message]="el.name">
+                    <span class="prop-element-title code-text">{{ el.name }}</span>
+                  </app-copy>
+                </li>
+              }
+            </div>
+          }
+        </ul>
       </div>
-    </ul>
-  </div>
-
-  <div *ngIf="modifiers.length !== 0">
-    <h3 class="e-title-sm e-mt-48 e-mb-16">Modifiers</h3>
-    <ul class="e-list">
-      <div *ngFor="let mod of modifiers" class="prop-element">
-        <li>
-          <app-copy [message]="mod">
-            <span class="prop-element-title code-text">{{ mod }}</span>
-          </app-copy>
-        </li>
+    }
+    @if (allElementModifiers.length !== 0) {
+      <div>
+        <h4 class="e-title-xs e-mt-48 e-mb-8">Element modifiers</h4>
+        <ul class="e-list">
+          @for (elMod of allElementModifiers; track elMod) {
+            <div class="prop-element">
+              <li>
+                <app-copy [message]="elMod">
+                  <span class="prop-element-title code-text">{{ elMod }}</span>
+                </app-copy>
+              </li>
+            </div>
+          }
+        </ul>
       </div>
-    </ul>
-  </div>
-
-  <div *ngIf="pseudos.length !== 0">
-    <h3 class="e-title-sm e-mt-48 e-mb-16">Pseudos</h3>
-    <ul class="e-list">
-      <div *ngFor="let psu of pseudos" class="prop-element">
-        <li>
-          <app-copy [message]="psu">
-            <span class="prop-element-title code-text">{{ psu }}</span>
-          </app-copy>
-        </li>
+    }
+    @if (modifiers.length !== 0) {
+      <div>
+        <h3 class="e-title-sm e-mt-48 e-mb-16">Modifiers</h3>
+        <ul class="e-list">
+          @for (mod of modifiers; track mod) {
+            <div class="prop-element">
+              <li>
+                <app-copy [message]="mod">
+                  <span class="prop-element-title code-text">{{ mod }}</span>
+                </app-copy>
+              </li>
+            </div>
+          }
+        </ul>
       </div>
-    </ul>
+    }
+    @if (pseudos.length !== 0) {
+      <div>
+        <h3 class="e-title-sm e-mt-48 e-mb-16">Pseudos</h3>
+        <ul class="e-list">
+          @for (psu of pseudos; track psu) {
+            <div class="prop-element">
+              <li>
+                <app-copy [message]="psu">
+                  <span class="prop-element-title code-text">{{ psu }}</span>
+                </app-copy>
+              </li>
+            </div>
+          }
+        </ul>
+      </div>
+    }
   </div>
-</div>
+}

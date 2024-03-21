@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,7 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './component-subsubsection.component.html',
   styleUrls: ['./component-subsubsection.component.scss'],
   standalone: true,
-  imports: [NgIf],
+  imports: [],
 })
 export class ComponentSubsubsectionComponent {
   @Input() sectionTitle = '';

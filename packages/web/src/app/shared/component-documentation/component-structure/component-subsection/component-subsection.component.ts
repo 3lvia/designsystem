@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 import { CopyComponent } from '../../../copy/copy.component';
@@ -8,7 +7,7 @@ import { CopyComponent } from '../../../copy/copy.component';
   templateUrl: './component-subsection.component.html',
   styleUrls: ['./component-subsection.component.scss'],
   standalone: true,
-  imports: [NgIf, CopyComponent],
+  imports: [CopyComponent],
 })
 export class ComponentSubsectionComponent {
   @Input() sectionTitle = '';

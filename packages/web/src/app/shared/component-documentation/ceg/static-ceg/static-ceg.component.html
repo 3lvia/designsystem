@@ -4,13 +4,13 @@
     #componentContainer
     [ngClass]="{ 'ceg-non-interactive': nonInteractive }"
   >
-    <app-phone-shell *ngIf="phoneExample; else desktopExample">
+    @if (phoneExample) {
+      <app-phone-shell>
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+      </app-phone-shell>
+    } @else {
       <ng-container *ngTemplateOutlet="content"></ng-container>
-    </app-phone-shell>
-
-    <ng-template #desktopExample>
-      <ng-container *ngTemplateOutlet="content"></ng-container>
-    </ng-template>
+    }
 
     <ng-template #content>
       <ng-content></ng-content>

@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, Input, booleanAttribute } from '@angular/core';
 
 import { SubMenuComponent } from '../../../navbar/sub-menu/sub-menu.component';
@@ -13,7 +12,6 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   styleUrls: ['./component-header.component.scss'],
   standalone: true,
   imports: [
-    NgIf,
     ComponentHeaderQuickInstallComponent,
     IfViewportSizeDirective,
     SubMenuComponent,

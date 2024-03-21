@@ -1,4 +1,4 @@
-import { KeyValuePipe, NgFor, NgIf } from '@angular/common';
+import { KeyValuePipe } from '@angular/common';
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
@@ -22,8 +22,6 @@ interface Group {
   styleUrls: ['./controls.component.scss'],
   standalone: true,
   imports: [
-    NgFor,
-    NgIf,
     RadioGroupComponent,
     CheckboxComponent,
     SwitchComponent,

@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
@@ -46,11 +46,9 @@ type IconArray = { pretty: string; title: string; terms: string[] }[];
   standalone: true,
   imports: [
     ComponentHeaderComponent,
-    NgFor,
     NgClass,
     ComponentSubsectionComponent,
     FormsModule,
-    NgIf,
     RouterLink,
     CopyComponent,
     ComponentSectionComponent,

@@ -1,38 +1,54 @@
 <div class="when e-mt-48 e-mb-n16">
-  <div class="when-to-use" *ngIf="whens && whens[0] !== ''">
-    <div class="e-title-caps" style="display: flex; flex-direction: row">
-      <div class="e-mr-8">
-        <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-positive" aria-hidden="true"></i>
+  @if (whens && whens[0] !== '') {
+    <div class="when-to-use">
+      <div class="e-title-caps" style="display: flex; flex-direction: row">
+        <div class="e-mr-8">
+          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-positive" aria-hidden="true"></i>
+        </div>
+        <div>
+          @if (locale === 'en-GB') {
+            When to use:
+          }
+          @if (locale === 'nb-NO') {
+            Riktig bruk:
+          }
+        </div>
       </div>
-      <div>
-        <ng-container *ngIf="locale === 'en-GB'">When to use:</ng-container>
-        <ng-container *ngIf="locale === 'nb-NO'">Riktig bruk:</ng-container>
-      </div>
+      <span class="e-text-md">
+        <ul>
+          @for (when of whens; track when) {
+            <li>
+              {{ when }}
+            </li>
+          }
+        </ul>
+      </span>
     </div>
-    <span class="e-text-md">
-      <ul>
-        <li *ngFor="let when of whens">
-          {{ when }}
-        </li>
-      </ul>
-    </span>
-  </div>
-  <div class="when-not-to-use" *ngIf="whenNots && whenNots[0] !== ''">
-    <div class="e-title-caps" style="display: flex; flex-direction: row">
-      <div class="e-mr-8">
-        <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-error" aria-hidden="true"></i>
+  }
+  @if (whenNots && whenNots[0] !== '') {
+    <div class="when-not-to-use">
+      <div class="e-title-caps" style="display: flex; flex-direction: row">
+        <div class="e-mr-8">
+          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-error" aria-hidden="true"></i>
+        </div>
+        <div>
+          @if (locale === 'en-GB') {
+            When not to use:
+          }
+          @if (locale === 'nb-NO') {
+            Ikke riktig bruk:
+          }
+        </div>
       </div>
-      <div>
-        <ng-container *ngIf="locale === 'en-GB'">When not to use:</ng-container>
-        <ng-container *ngIf="locale === 'nb-NO'">Ikke riktig bruk:</ng-container>
-      </div>
+      <span class="e-text-md">
+        <ul>
+          @for (whenNot of whenNots; track whenNot) {
+            <li>
+              {{ whenNot }}
+            </li>
+          }
+        </ul>
+      </span>
     </div>
-    <span class="e-text-md">
-      <ul>
-        <li *ngFor="let whenNot of whenNots">
-          {{ whenNot }}
-        </li>
-      </ul>
-    </span>
-  </div>
+  }
 </div>

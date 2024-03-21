@@ -1,4 +1,4 @@
-import { NgIf, TitleCasePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
@@ -21,7 +21,6 @@ import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-
     IfViewportSizeDirective,
     FlexibleFullHeightDirective,
     DesktopNavbarComponent,
-    NgIf,
     RouterLink,
     FeedbackLinkComponent,
     LocalePickerComponent,
