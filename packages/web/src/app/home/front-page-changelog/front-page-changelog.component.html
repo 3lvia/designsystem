@@ -1,5 +1,5 @@
 @for (changelog of changelogs | async; track changelog; let isLast = $last) {
-  <tr class="changelog-container">
+  <div class="changelog-container">
     <div class="changelog-name-and-icon">
       @if ((componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)]) {
         <img
@@ -28,7 +28,7 @@
         {{ changelog.date | FrontPageChangelogDatePipe }}
       </span>
     </div>
-  </tr>
+  </div>
   @if (!isLast) {
     <elvia-divider />
   }
