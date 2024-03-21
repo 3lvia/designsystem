@@ -206,8 +206,9 @@
     <div class="example-wrapper">
       <h3>Deletable chips</h3>
       <div style="display: flex; flex-direction: row">
-        <div *ngFor="let chip of deletableChipsList">
-          <!-- <elvia-chip
+        @for (chip of deletableChipsList; track chip) {
+          <div>
+            <!-- <elvia-chip
             [value]="chip.value"
             [color]="chip.color"
             [ariaLabel]="'Fjern filtrering for ' + chip.value"
@@ -215,8 +216,9 @@
             (onDelete)="handleOnDelete($any($event).detail.value)"
             (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
             [inlineStyle]="{ margin: '8px' }"
-          /> -->
-        </div>
+            /> -->
+          </div>
+        }
       </div>
       Value deleted: {{ deleteValue }}
 
@@ -224,20 +226,26 @@
         <h3>Clickable chips</h3>
         <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
         <div style="display: flex; flex-direction: row">
-          <div *ngFor="let chip of filteredKeys">
-            <elvia-chip
-              [value]="chip"
-              [isSelected]="filteredValues[chip]"
-              color="orange"
-              type="legend"
-              (isSelectedOnChange)="handleOnChange($any($event))"
-            ></elvia-chip>
-          </div>
+          @for (chip of filteredKeys; track chip) {
+            <div>
+              <elvia-chip
+                [value]="chip"
+                [isSelected]="filteredValues[chip]"
+                color="orange"
+                type="legend"
+                (isSelectedOnChange)="handleOnChange($any($event))"
+              ></elvia-chip>
+            </div>
+          }
 
           Selected values:
-          <span *ngFor="let key of filteredKeys">
-            <span *ngIf="filteredValues[key]">{{ key }},</span>
-          </span>
+          @for (key of filteredKeys; track key) {
+            <span>
+              @if (filteredValues[key]) {
+                <span>{{ key }},</span>
+              }
+            </span>
+          }
         </div>
       </div>
     </div>
@@ -501,11 +509,9 @@
     <!--Spotlight-->
     <div class="example-wrapper">
       <h3>Spotlight</h3>
-      <elvia-spotlight
-        *ngIf="showSpotlight"
-        [position]="{ horizontal: 450, vertical: 300 }"
-        [radius]="150"
-      ></elvia-spotlight>
+      @if (showSpotlight) {
+        <elvia-spotlight [position]="{ horizontal: 450, vertical: 300 }" [radius]="150"></elvia-spotlight>
+      }
       <button class="e-btn" style="position: relative; z-index: 999999" (click)="toggleSpotlight()">
         Toggle spotlight
       </button>

@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
@@ -13,7 +12,7 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
   templateUrl: './mobile-menu.component.html',
   styleUrls: ['./mobile-menu.component.scss'],
   standalone: true,
-  imports: [NgFor, RouterLink, ThemeSwitchComponent],
+  imports: [RouterLink, ThemeSwitchComponent],
 })
 export class MobileMenuComponent {
   @Output() closeMenu = new EventEmitter<void>();

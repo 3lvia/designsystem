@@ -1,31 +1,32 @@
 <ul class="scroll-container" [ngClass]="{ 'bottom-gradient': listOverflows }" #scrollContainer>
-  <ng-container *ngIf="navbarList.length; else contentLoader">
-    <ng-container *ngFor="let navbarItem of navbarList">
+  @if (navbarList.length) {
+    @for (navbarItem of navbarList; track navbarItem) {
       <li>
         <a [routerLink]="navbarItem.fullPath" routerLinkActive="active" class="navbar-item__link">
           <div class="navbar-item__link-text e-text-sm-strong">{{ navbarItem.title }}</div>
         </a>
-        <app-sub-menu
-          class="e-ml-24 overflow-hidden"
-          #subMenu
-          [@animateHeightOnItemEnter]="subMenu.anchors.length > 0 ? 'true' : 'false'"
-          *ngIf="navbarItem.fullPath === activeRoute"
-        />
+        @if (navbarItem.fullPath === activeRoute) {
+          <app-sub-menu
+            class="e-ml-24 overflow-hidden"
+            #subMenu
+            [@animateHeightOnItemEnter]="subMenu.anchors.length > 0 ? 'true' : 'false'"
+          />
+        }
       </li>
-      <div class="e-ml-16 e-mr-64" *ngIf="navbarItem.isMainPage">
-        <elvia-divider />
-      </div>
-    </ng-container>
-  </ng-container>
+      @if (navbarItem.isMainPage) {
+        <div class="e-ml-16 e-mr-64">
+          <elvia-divider />
+        </div>
+      }
+    }
+  } @else {
+    <span class="e-content-loader content-loader"></span>
+  }
 </ul>
 
-<ng-container *ngIf="activeLandingPage === 'brand'">
+@if (activeLandingPage === 'brand') {
   <div class="e-ml-16 e-mr-64 e-my-16">
     <elvia-divider />
   </div>
   <app-locale-picker class="e-pl-16" />
-</ng-container>
-
-<ng-template #contentLoader>
-  <span class="e-content-loader content-loader"></span>
-</ng-template>
+}

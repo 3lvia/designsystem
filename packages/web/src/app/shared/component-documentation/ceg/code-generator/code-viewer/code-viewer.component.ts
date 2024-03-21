@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
@@ -22,7 +22,6 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
   styleUrls: ['./code-viewer.component.scss'],
   standalone: true,
   imports: [
-    NgIf,
     IfViewportSizeDirective,
     AsyncPipe,
     TabToSegmentedControlItemPipe,

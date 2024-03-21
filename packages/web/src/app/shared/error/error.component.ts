@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -8,7 +7,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss'],
   standalone: true,
-  imports: [NgIf, RouterLink],
+  imports: [RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ErrorComponent {

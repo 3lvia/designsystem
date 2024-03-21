@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -18,7 +18,6 @@ import { ThumbnailSelectedCegComponent } from './thumbnail-selected-ceg/thumbnai
     ThumbnailCegComponent,
     ComponentSectionComponent,
     ThumbnailSelectedCegComponent,
-    NgFor,
     NgClass,
     ComponentSubsectionComponent,
   ],

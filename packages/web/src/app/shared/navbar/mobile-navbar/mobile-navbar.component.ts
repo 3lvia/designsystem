@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -9,6 +8,6 @@ import { NavbarBase } from '../navbar-base';
   templateUrl: './mobile-navbar.component.html',
   styleUrls: ['./mobile-navbar.component.scss'],
   standalone: true,
-  imports: [NgFor, RouterLink],
+  imports: [RouterLink],
 })
 export class MobileNavbarComponent extends NavbarBase {}

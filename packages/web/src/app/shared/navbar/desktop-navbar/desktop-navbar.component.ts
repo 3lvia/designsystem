@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -36,7 +36,7 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
     ]),
   ],
   standalone: true,
-  imports: [NgClass, NgIf, NgFor, RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent],
+  imports: [NgClass, RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit, OnDestroy {

@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -38,7 +37,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
   imports: [
     ComponentHeaderComponent,
     ComponentSectionComponent,
-    NgIf,
     ComponentInstallationComponent,
     RouterLink,
     ComponentPropertiesTableComponent,

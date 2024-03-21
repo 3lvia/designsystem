@@ -13,48 +13,48 @@
   />
 
   <div class="shadow-list e-mt-56">
-    <ng-container *ngIf="(isMobile | async) && activeTheme === 'dark'; else shadowList">
+    @if ((isMobile | async) && activeTheme === 'dark') {
       <div class="color">
         <div class="color-example"></div>
       </div>
-    </ng-container>
-
-    <ng-template #shadowList>
-      <div class="color" *ngFor="let shadow of shadows">
-        <div class="color-example" [ngClass]="shadow.token"></div>
-        <ng-container *ngIf="activeTheme === 'light'">
-          <h3 class="e-title-md e-mb-16">{{ shadow.title }}</h3>
-          <table class="shadow-table" aria-label="Shadow details">
-            <tbody>
-              <tr>
-                <th class="e-title-caps">Blur</th>
-                <td class="e-text-sm">{{ shadow.blur }}</td>
-              </tr>
-              <tr>
-                <th class="e-title-caps">Opacity</th>
-                <td class="e-text-sm">{{ shadow.opacity }}%</td>
-              </tr>
-              <tr>
-                <th class="e-title-caps">Token</th>
-                <td>
-                  <app-copy [message]="shadow.token">
-                    <div class="e-tag e-lowercase">
-                      {{ shadow.token }}
-                    </div>
-                  </app-copy>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </ng-container>
-      </div>
-    </ng-template>
+    } @else {
+      @for (shadow of shadows; track shadow) {
+        <div class="color">
+          <div class="color-example" [ngClass]="shadow.token"></div>
+          @if (activeTheme === 'light') {
+            <h3 class="e-title-md e-mb-16">{{ shadow.title }}</h3>
+            <table class="shadow-table" aria-label="Shadow details">
+              <tbody>
+                <tr>
+                  <th class="e-title-caps">Blur</th>
+                  <td class="e-text-sm">{{ shadow.blur }}</td>
+                </tr>
+                <tr>
+                  <th class="e-title-caps">Opacity</th>
+                  <td class="e-text-sm">{{ shadow.opacity }}%</td>
+                </tr>
+                <tr>
+                  <th class="e-title-caps">Token</th>
+                  <td>
+                    <app-copy [message]="shadow.token">
+                      <div class="e-tag e-lowercase">
+                        {{ shadow.token }}
+                      </div>
+                    </app-copy>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          }
+        </div>
+      }
+    }
   </div>
 
-  <ng-container *ngIf="activeTheme === 'dark'">
+  @if (activeTheme === 'dark') {
     <h3 class="e-title-md e-m-0 e-mb-16">{{ noShadowOnDarkThemeTexts.title[currentLocale] }}</h3>
     <p class="e-text-sm e-m-0 e-mb-24">{{ noShadowOnDarkThemeTexts.body[currentLocale] }}</p>
     <h4 class="e-title-caps e-mb-8">{{ noShadowOnDarkThemeTexts.exampleTitle[currentLocale] }}</h4>
     <div class="dark-theme-layer-illustration"></div>
-  </ng-container>
+  }
 </div>

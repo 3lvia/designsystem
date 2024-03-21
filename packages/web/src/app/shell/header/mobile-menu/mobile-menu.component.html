@@ -2,23 +2,22 @@
 <div class="content">
   @if (!isLoaded && !mainMenu) {
     <div class="menu">
-      <div class="links e-py-24" *ngFor="let _ of [].constructor(5)">
-        <div class="e-content-loader e-content-loader--text" style="height: 17px"></div>
-      </div>
+      @for (_ of [].constructor(5); track _) {
+        <div class="links e-py-24">
+          <div class="e-content-loader e-content-loader--text" style="height: 17px"></div>
+        </div>
+      }
     </div>
   } @else {
     <div class="menu">
-      <a
-        class="links e-py-24"
-        [routerLink]="menuItem.path"
-        (click)="closeMenu.emit()"
-        *ngFor="let menuItem of mainMenu.pages"
-      >
-        <span class="e-title-caps">{{ menuItem.title }}</span>
-        <span class="links-icon">
-          <i class="e-icon e-icon--arrow_right-bold e-icon--xxs" aria-hidden="true"></i>
-        </span>
-      </a>
+      @for (menuItem of mainMenu.pages; track menuItem) {
+        <a class="links e-py-24" [routerLink]="menuItem.path" (click)="closeMenu.emit()">
+          <span class="e-title-caps">{{ menuItem.title }}</span>
+          <span class="links-icon">
+            <i class="e-icon e-icon--arrow_right-bold e-icon--xxs" aria-hidden="true"></i>
+          </span>
+        </a>
+      }
       @if (devMode) {
         <a class="links e-py-24" [routerLink]="'dev'" (click)="closeMenu.emit()">
           <span class="e-title-caps">Dev</span>
