@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import type { DropdownItem } from '@elvia/elvis-dropdown';
@@ -19,7 +19,7 @@ interface StepStates {
   templateUrl: './v2-playground.component.html',
   styleUrls: ['./v2-playground.component.scss'],
   standalone: true,
-  imports: [NgFor, NgIf, NgClass],
+  imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {

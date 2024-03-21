@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { EscapeHTMLPipe } from '../../../pipes/escape-html.pipe';
@@ -13,15 +13,7 @@ import { SearchResult } from 'src/app/shared/searcher';
   templateUrl: './property-table-desktop.component.html',
   styleUrls: ['./property-table-desktop.component.scss'],
   standalone: true,
-  imports: [
-    NgIf,
-    NgFor,
-    NgClass,
-    NgStyle,
-    PropertyExamplePopoverComponent,
-    SearchHighlighterPipe,
-    EscapeHTMLPipe,
-  ],
+  imports: [NgClass, NgStyle, PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
 })
 export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
   calculateMargin(i: number, propList: SearchResult<ComponentProp>[]) {

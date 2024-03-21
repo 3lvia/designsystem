@@ -1,5 +1,5 @@
-@for (changelog of changelogs | async; track $index; let isLast = $last) {
-  <div class="changelog-container">
+@for (changelog of changelogs | async; track changelog; let isLast = $last) {
+  <tr class="changelog-container">
     <div class="changelog-name-and-icon">
       @if ((componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)]) {
         <img
@@ -10,18 +10,25 @@
       } @else {
         <div class="e-content-loader e-mr-24" style="width: 40px; height: 40px"></div>
       }
-      <a class="e-link e-link--lg" [routerLink]="changelog.url" fragment="Changelog">
+      <a
+        class="e-link e-link--lg"
+        [routerLink]="
+          changelog.name === 'elvis'
+            ? '/components/css-library'
+            : '/components/' + (changelog.name | FrontPageChangelogUrlPipe)
+        "
+        fragment="Changelog"
+      >
         {{ changelog.name === 'elvis' ? 'CSS Library' : (changelog.name | FrontPageChangelogNamePipe) }}
       </a>
     </div>
-
     <div class="changelog-version-and-date">
       <span class="e-title-xs">{{ changelog.version }}</span>
       <span class="front-page-changelog-date e-text-sm">
         {{ changelog.date | FrontPageChangelogDatePipe }}
       </span>
     </div>
-  </div>
+  </tr>
   @if (!isLast) {
     <elvia-divider />
   }

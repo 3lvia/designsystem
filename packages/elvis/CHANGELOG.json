@@ -1,6 +1,19 @@
 {
   "content": [
     {
+      "version": "16.4.1",
+      "date": "March 19, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the color of the input text in <code>.e-form-field--small</code> when they are disabled and read only."
+          ],
+          "pages": [{ "displayName": "Input", "url": "https://design.elvia.io/brand/input" }]
+        }
+      ]
+    },
+    {
       "version": "16.4.0",
       "date": "March 11, 2024",
       "changelog": [

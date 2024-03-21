@@ -1,5 +1,5 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { Location, NgClass, NgFor } from '@angular/common';
+import { Location, NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
@@ -34,7 +34,7 @@ export interface Anchor {
     ]),
   ],
   standalone: true,
-  imports: [NgClass, NgFor],
+  imports: [NgClass],
 })
 export class SubMenuComponent {
   anchors: Anchor[] = [];

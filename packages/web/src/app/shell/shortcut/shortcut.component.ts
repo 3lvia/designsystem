@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
@@ -12,7 +11,7 @@ import { ShortcutModalContentComponent } from './shortcut-modal-content/shortcut
   templateUrl: './shortcut.component.html',
   styleUrls: ['./shortcut.component.scss'],
   standalone: true,
-  imports: [NgIf, ShortcutModalContentComponent],
+  imports: [ShortcutModalContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShortcutComponent {

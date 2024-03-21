@@ -1,4 +1,4 @@
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { CopyComponent } from '../../../copy/copy.component';
   templateUrl: './component-section.component.html',
   styleUrls: ['./component-section.component.scss'],
   standalone: true,
-  imports: [CopyComponent, NgClass, NgIf],
+  imports: [CopyComponent, NgClass],
 })
 export class ComponentSectionComponent {
   @Input() sectionTitle = '';

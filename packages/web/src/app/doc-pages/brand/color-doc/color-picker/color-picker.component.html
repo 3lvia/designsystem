@@ -7,13 +7,14 @@
   </div>
   <app-color-picker-exhibit [currentColor]="currentColor" [theme]="theme" [colorList]="colorList" />
   <div class="color-list-container" appColorListBase>
-    <app-color-picker-color-list
-      *ngFor="let category of categories"
-      [currentColor]="currentColor"
-      [colorList]="colorList"
-      [category]="category"
-      [theme]="theme"
-      (chooseColor)="chooseColor($event)"
-    />
+    @for (category of categories; track category) {
+      <app-color-picker-color-list
+        [currentColor]="currentColor"
+        [colorList]="colorList"
+        [category]="category"
+        [theme]="theme"
+        (chooseColor)="chooseColor($event)"
+      />
+    }
   </div>
 </div>

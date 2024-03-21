@@ -3,15 +3,13 @@
 <app-user-questionnaire />
 
 <main [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
-  <ng-container *ngIf="currentRoute !== 'pageWithSidenav'; else pageWithSidenav">
+  @if (currentRoute !== 'pageWithSidenav') {
     <router-outlet></router-outlet>
-  </ng-container>
-
-  <ng-template #pageWithSidenav>
+  } @else {
     <app-page-with-sidenav class="page-with-sidenav" [isLandingPage]="isLandingPage">
       <router-outlet></router-outlet>
     </app-page-with-sidenav>
-  </ng-template>
+  }
 </main>
 
 <app-footer class="e-pt-80"></app-footer>

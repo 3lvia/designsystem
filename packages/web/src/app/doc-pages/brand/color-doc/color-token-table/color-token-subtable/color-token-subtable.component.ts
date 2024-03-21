@@ -1,4 +1,4 @@
-import { LowerCasePipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { LowerCasePipe, NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -17,15 +17,7 @@ type Colors = {
   templateUrl: './color-token-subtable.component.html',
   styleUrls: ['./color-token-subtable.component.scss'],
   standalone: true,
-  imports: [
-    NgIf,
-    NgClass,
-    NgFor,
-    CopyComponent,
-    RouterLink,
-    ColorTokenSubtableColorCircleComponent,
-    LowerCasePipe,
-  ],
+  imports: [NgClass, CopyComponent, RouterLink, ColorTokenSubtableColorCircleComponent, LowerCasePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorTokenSubtableComponent implements OnInit {

@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, booleanAttribute } from '@angular/core';
 
 import { SearchResult, Searcher } from '../../searcher';
@@ -13,7 +12,7 @@ import ComponentData, { NestedProp } from 'src/app/doc-pages/components/componen
   templateUrl: './component-properties-table.component.html',
   styleUrls: ['./component-properties-table.component.scss'],
   standalone: true,
-  imports: [PropertySearchInputComponent, NgIf, PropertyTableDesktopComponent, PropertyTableMobileComponent],
+  imports: [PropertySearchInputComponent, PropertyTableDesktopComponent, PropertyTableMobileComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentPropertiesTableComponent implements OnInit {

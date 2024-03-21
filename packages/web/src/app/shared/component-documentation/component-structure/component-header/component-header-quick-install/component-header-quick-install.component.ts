@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 import { getPackageName } from '../../../component-installation/getPackageName';
@@ -10,7 +9,7 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   templateUrl: './component-header-quick-install.component.html',
   styleUrls: ['./component-header-quick-install.component.scss'],
   standalone: true,
-  imports: [CommonModule, CopyComponent],
+  imports: [CopyComponent],
 })
 export class ComponentHeaderQuickInstallComponent {
   @Input({ required: true }) componentData: ComponentData;

@@ -1,5 +1,5 @@
 import { CdkTrapFocus } from '@angular/cdk/a11y';
-import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -31,7 +31,7 @@ import { SearchResult, Searcher } from 'src/app/shared/searcher';
   templateUrl: './search-menu.component.html',
   styleUrls: ['./search-menu.component.scss'],
   standalone: true,
-  imports: [CdkTrapFocus, FormsModule, NgClass, NgIf, NgFor, RouterLink, AsyncPipe, SearchHighlighterPipe],
+  imports: [CdkTrapFocus, FormsModule, NgClass, RouterLink, AsyncPipe, SearchHighlighterPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchMenuComponent implements OnInit, AfterViewInit {

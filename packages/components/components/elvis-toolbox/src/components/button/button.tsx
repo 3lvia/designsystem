@@ -1,10 +1,11 @@
 import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export type Size = 'sm' | 'small' | 'md' | 'medium' | 'lg' | 'large';
 export interface ButtonProps {
   isActive: boolean;
   size: Size;
+  isLoading?: boolean;
 }
 
 const getTypography = (size: Size) => {
@@ -41,6 +42,16 @@ const getTypography = (size: Size) => {
   }
 };
 
+const loadingAnimation = keyframes`
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+`;
+
 const ButtonBase = styled.button.attrs({ type: 'button' })<Partial<ButtonProps>>`
   ${({ size }) => getTypography(size ?? 'md')};
   font-weight: 500;
@@ -55,13 +66,37 @@ const ButtonBase = styled.button.attrs({ type: 'button' })<Partial<ButtonProps>>
     cursor: default;
   }
 
-  &:not(:disabled) {
-    cursor: pointer;
+  ${({ isLoading }) =>
+    isLoading
+      ? css`
+          display: inline-block;
+          cursor: progress;
 
-    &::selection {
-      background-color: ${getThemeColor('background-selected-1')};
-    }
-  }
+          span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            animation: ${loadingAnimation} 1s infinite ease-in-out both;
+          }
+
+          span:nth-of-type(1) {
+            animation-delay: -0.32s;
+          }
+
+          span:nth-of-type(2) {
+            animation-delay: -0.16s;
+          }
+        `
+      : css`
+          &:not(:disabled) {
+            cursor: pointer;
+
+            &::selection {
+              background-color: ${getThemeColor('background-selected-1')};
+            }
+          }
+        `}
 `;
 
 const getButtonHeight = (size?: Size) => {
@@ -107,18 +142,27 @@ export const PrimaryButton = styled(ButtonBase)`
   transition: transform 100ms;
   border-radius: 99px;
 
-  &:not(:disabled) {
-    &:hover {
-      background-color: ${getThemeColor('background-hover-1')};
-      border-color: ${getThemeColor('border-hover-1')};
-      color: ${getThemeColorContrast('background-hover-1')};
-    }
+  ${({ isLoading }) =>
+    isLoading
+      ? css`
+          span {
+            background-color: var(--e-color-text-4);
+          }
+        `
+      : css`
+          &:not(:disabled) {
+            &:hover {
+              background-color: ${getThemeColor('background-hover-1')};
+              border-color: ${getThemeColor('border-hover-1')};
+              color: ${getThemeColorContrast('background-hover-1')};
+            }
 
-    &:active {
-      border-color: transparent;
-      background-clip: padding-box;
-    }
-  }
+            &:active {
+              border-color: transparent;
+              background-clip: padding-box;
+            }
+          }
+        `}
 
   &:disabled {
     border-color: transparent;
@@ -137,6 +181,14 @@ export const SecondaryButton = styled(PrimaryButton)`
     border-color: ${getThemeColor('border-disabled-1')};
     color: ${getThemeColor('text-disabled-1')};
   }
+
+  ${({ isLoading }) =>
+    isLoading &&
+    css`
+      span {
+        background-color: var(--e-color-text-1);
+      }
+    `}
 `;
 
 export const TertiaryButton = styled(ButtonBase)`
@@ -164,15 +216,24 @@ export const TertiaryButton = styled(ButtonBase)`
       transform 100ms;
   }
 
-  &:not(:disabled) {
-    &:hover:after {
-      background-color: ${getThemeColor('background-hover-1')};
-    }
+  ${({ isLoading }) =>
+    isLoading
+      ? css`
+          span {
+            background-color: var(--e-color-text-1);
+          }
+        `
+      : css`
+          &:not(:disabled) {
+            &:hover:after {
+              background-color: ${getThemeColor('background-hover-1')};
+            }
 
-    &:active:after {
-      transform: scaleY(0.5);
-    }
-  }
+            &:active:after {
+              transform: scaleY(0.5);
+            }
+          }
+        `}
 
   &:disabled {
     color: ${getThemeColor('background-disabled-1')};

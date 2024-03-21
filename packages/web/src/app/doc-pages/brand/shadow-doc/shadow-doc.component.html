@@ -20,10 +20,10 @@
 
   <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Style' : 'Stil'">
     <p class="e-text-lg e-mb-40">{{ styleText[locale].description }}</p>
-    <ng-container *ngFor="let shadow of styleText[locale].shadows">
+    @for (shadow of styleText[locale].shadows; track shadow) {
       <h3 class="e-title-sm e-mb-16">{{ shadow.title }}</h3>
       <h3 class="e-text-lg e-mb-48">{{ shadow.description }}</h3>
-    </ng-container>
+    }
   </app-component-section>
 
   <!--Changelog-->
