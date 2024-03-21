@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+
+  .e-form-field {
+    flex: 1;
+    min-width: 250px;
+  }
+}

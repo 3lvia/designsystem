@@ -5,7 +5,6 @@ import type { DropdownItem } from '@elvia/elvis-dropdown';
 import { openElviaToast } from '@elvia/elvis-toast';
 
 import { dropdownData } from './dropdown-data';
-import { V2PlaygroundIllustrationsComponent } from './v2-playground-illustrations/v2-playground-illustrations.component';
 
 interface StepState {
   heading: string;
@@ -20,7 +19,7 @@ interface StepStates {
   templateUrl: './v2-playground.component.html',
   styleUrls: ['./v2-playground.component.scss'],
   standalone: true,
-  imports: [V2PlaygroundIllustrationsComponent, NgClass],
+  imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {

@@ -1,6 +1,7 @@
+import { FrontPageChangelogUrlPipe } from './front-page-changelog-url-pipe';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 
-type ChangelogArrayType = (Omit<ComponentChangelog, 'date'> & { name: string; date: Date })[];
+type ChangelogArrayType = (Omit<ComponentChangelog, 'date'> & { name: string; date: Date; url: string })[];
 
 const changelogNames = [
   'elvis',
@@ -19,6 +20,7 @@ const changelogNames = [
   'elvis-dropdown',
   'elvis-header',
   'elvis-icon',
+  'elvis-illustrations',
   'elvis-modal',
   'elvis-outline',
   'elvis-pagination',
@@ -47,14 +49,16 @@ export const createChangelogs = async () => {
   const changelogs = await changelogNames.reduce(
     async (changelogPromise, name) => {
       const changelogs = await changelogPromise;
-      const entry = await import(`@elvia/${name}/CHANGELOG.json`).then((changelog) => {
-        const filteredChangelogs = changelog.content.filter(
-          (changelogEntry: ComponentChangelog) =>
-            changelogEntry.version.endsWith('.0') && !changelogEntry.private,
-        );
-        return filteredChangelogs[0];
-      });
-      entry && changelogs.push({ ...entry, name: name, date: toDateObject(entry.date) });
+      const entry = await import(`@elvia/${name}/CHANGELOG.json`).then(
+        (changelog: { content: ComponentChangelog[] }) => {
+          const filteredChangelogs = changelog.content.filter(
+            (changelogEntry) => changelogEntry.version.endsWith('.0') && !changelogEntry.private,
+          );
+          return filteredChangelogs[0];
+        },
+      );
+      entry &&
+        changelogs.push({ ...entry, name: name, date: toDateObject(entry.date), url: getChangelogUrl(name) });
       return changelogs;
     },
     Promise.resolve([] as ChangelogArrayType),
@@ -63,4 +67,19 @@ export const createChangelogs = async () => {
     return a.date < b.date ? 1 : -1;
   });
   return sortedChangelogs.slice(0, 5);
+};
+
+const getChangelogUrl = (name: string) => {
+  switch (name) {
+    case 'elvis': {
+      return '/components/css-library';
+    }
+    case 'elvis-illustrations': {
+      return '/brand/illustration';
+    }
+    default: {
+      const pipe = new FrontPageChangelogUrlPipe();
+      return `/components/${pipe.transform(name)}`;
+    }
+  }
 };

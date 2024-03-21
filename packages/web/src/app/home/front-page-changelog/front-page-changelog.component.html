@@ -1,6 +1,6 @@
 @for (changelog of changelogs | async; track changelog; let isLast = $last) {
-  <tr class="changelog-container">
-    <td class="changelog-name-and-icon">
+  <div class="changelog-container">
+    <div class="changelog-name-and-icon">
       @if ((componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)]) {
         <img
           class="e-mr-24"
@@ -21,14 +21,14 @@
       >
         {{ changelog.name === 'elvis' ? 'CSS Library' : (changelog.name | FrontPageChangelogNamePipe) }}
       </a>
-    </td>
-    <td class="changelog-version-and-date">
+    </div>
+    <div class="changelog-version-and-date">
       <span class="e-title-xs">{{ changelog.version }}</span>
       <span class="front-page-changelog-date e-text-sm">
         {{ changelog.date | FrontPageChangelogDatePipe }}
       </span>
-    </td>
-  </tr>
+    </div>
+  </div>
   @if (!isLast) {
     <elvia-divider />
   }
