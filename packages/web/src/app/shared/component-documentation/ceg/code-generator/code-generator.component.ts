@@ -44,13 +44,13 @@ export class CodeGeneratorComponent implements OnInit {
   tabs = signal<Tab[]>(['Angular', 'React', 'Vue']);
 
   constructor(private preferredLanguageService: PreferredLanguageService) {
-    effect(() => {
+    effect((cleanup) => {
       const subscription = this.preferredLanguageService
         .listenLanguage(this.tabs().map((tab) => tab.toLowerCase() as LanguageType))
         .subscribe((value) => {
           this.activeTabIndex = this.tabs().findIndex((tab) => tab.toLowerCase() === value);
         });
-      return () => subscription.unsubscribe();
+      cleanup(() => subscription.unsubscribe());
     });
   }
 
