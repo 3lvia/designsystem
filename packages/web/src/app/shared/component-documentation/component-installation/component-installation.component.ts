@@ -25,9 +25,12 @@ export class ComponentInstallationComponent implements OnInit {
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
   constructor(private preferredLanguageService: PreferredLanguageService) {
-    this.preferredLanguageService.preferredLanguage$.pipe(takeUntilDestroyed()).subscribe((value) => {
-      this.activeTabIndex = this.tabs.findIndex((tab) => tab.toLowerCase() === value);
-    });
+    this.preferredLanguageService
+      .listenLanguage(this.tabs.map((tab) => tab.toLowerCase() as LanguageType))
+      .pipe(takeUntilDestroyed())
+      .subscribe((value) => {
+        this.activeTabIndex = this.tabs.findIndex((tab) => tab.toLowerCase() === value);
+      });
   }
 
   ngOnInit() {
