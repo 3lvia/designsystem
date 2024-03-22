@@ -91,6 +91,6 @@ const componentsInfo: ComponentInfoList = {
 
 const allComponents: DocPageName[] = Object.values(componentsInfo)
   .flatMap((category: ComponentInfo[]) => category.flatMap((component) => component.components))
-  .sort();
+  .sort((a, b) => a.localeCompare(b));
 
 export { componentsInfo, allComponents };
