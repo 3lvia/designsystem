@@ -51,7 +51,8 @@ export class UserQuestionnaireComponent {
   private hasPreviouslyBeenCompleted = localStorage.getItem(USER_QUESTIONNAIRE_STORAGE_KEY) === 'true';
 
   constructor(private userQuestionnaireService: UserQuestionnaireService) {
-    if (!this.hasPreviouslyBeenCompleted) {
+    const isProdDomain = window.location.hostname.includes('design.elvia.io');
+    if (!this.hasPreviouslyBeenCompleted && isProdDomain) {
       setTimeout(() => (this.isOpen = true), 1500);
     }
   }

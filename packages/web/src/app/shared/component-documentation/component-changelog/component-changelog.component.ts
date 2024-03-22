@@ -37,10 +37,6 @@ export class ComponentChangelogComponent implements OnInit {
    */
   @Input() hasAccordion = true;
   /**
-   * Will hide all but first element, and hide the changelog filter
-   */
-  @Input() isFrontpage = false;
-  /**
    * The Elvis component to filter for (only display changelog for this component).
    * When set, the component will automatically use the Elvis Changelog.
    *

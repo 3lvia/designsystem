@@ -85,6 +85,10 @@ export const routes: Routes = [
     loadComponent: () => import('./dropdown-doc/dropdown-doc.component').then((m) => m.DropdownDocComponent),
   },
   {
+    path: Pages.Illustration,
+    redirectTo: `/brand/${Pages.Illustration}`,
+  },
+  {
     path: Pages.Tabs,
     loadComponent: () => import('./tabs-doc/tabs-doc.component').then((m) => m.TabsDocComponent),
   },

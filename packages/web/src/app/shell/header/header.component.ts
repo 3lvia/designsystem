@@ -41,8 +41,21 @@ type MenuType = 'search' | 'mobileMenu' | null;
 })
 export class HeaderComponent {
   visibleMenuType: MenuType = null;
-  mainMenu: CMSMenu;
-  menuContentLoader = true;
+  mainMenu: CMSMenu = {
+    title: 'Main menu',
+    pages: [
+      { title: 'About', path: '/about', entry_id: '"4QCCWwLq5R3TQZRhFjxT96"', entry: undefined as any },
+      { title: 'Brand', path: '/brand', entry_id: '"2p2DsRycYl2iqVBJ8UFMay"', entry: undefined as any },
+      {
+        title: 'Components',
+        path: '/components',
+        entry_id: '"6RHCZ59jMvJZjcCMMsjvKk"',
+        entry: undefined as any,
+      },
+      { title: 'Patterns', path: '/patterns', entry_id: '"5oUsPjHfF6bNDHqub1EaFl"', entry: undefined as any },
+      { title: 'Tools', path: '/tools', entry_id: '"6zwtCTRgovdJkF91Fkh4jN"', entry: undefined as any },
+    ],
+  };
   themeMenuIsOpen = false;
   currentTheme: Theme = 'light';
 
@@ -77,10 +90,8 @@ export class HeaderComponent {
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
-        // The main menu is only available in english until more pages are translated
         this.cmsService.getMenu('en-GB').then((data) => {
           this.mainMenu = data;
-          this.menuContentLoader = false;
         });
       });
 

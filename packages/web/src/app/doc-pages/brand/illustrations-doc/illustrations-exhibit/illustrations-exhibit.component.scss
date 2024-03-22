@@ -1,0 +1,16 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+app-illustrations-exhibit-details {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 32px);
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    width: 100vw;
+    max-width: 100vw;
+    bottom: 0;
+  }
+}

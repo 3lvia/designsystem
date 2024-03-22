@@ -1,0 +1,14 @@
+@for (illustration of filteredIllustrationData; track illustration.name) {
+  <button
+    class="illustration-example"
+    [ngClass]="{ active: activeIllustration() === illustration.name }"
+    (click)="setActiveIllustration(illustration.name)"
+  >
+    <app-illustrations-generator
+      class="illustration"
+      [illustrationName]="illustration.name"
+      [color]="colorValue()"
+    />
+    <span class="e-text-md">{{ illustration.name | illustrationsExhibitListDisplayName }}</span>
+  </button>
+}
