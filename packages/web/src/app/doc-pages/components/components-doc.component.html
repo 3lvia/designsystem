@@ -1,0 +1,85 @@
+<div class="e-title-md e-mb-40">Components</div>
+
+<elvia-radio-filter
+  [value]="filterValue"
+  [name]="'componentFilter'"
+  [items]="[
+    { label: 'All', value: 'all' },
+    { label: 'Navigation', value: 'navigation' },
+    { label: 'Action', value: 'action' },
+    { label: 'Input', value: 'input' },
+    { label: 'Data display', value: 'dataDisplay' },
+    { label: 'Feedback', value: 'feedback' },
+    { label: 'Layout', value: 'layout' }
+  ]"
+  (valueOnChange)="handleCategoryChange($any($event).target.value)"
+></elvia-radio-filter>
+
+<div class="e-mt-16">
+  @if (filterValue === 'all') {
+    <div class="components-container">
+      @for (component of allComponents; track component) {
+        <ng-container *ifViewportSize="['lg', 'xl']">
+          <a [routerLink]="getComponentPath(component)">
+            <elvia-card [heading]="getComponentTitle(component)" [maxHeadingLines]="2">
+              <div slot="icon">
+                @if ((componentIcons | async)?.[component]) {
+                  <img alt="" [src]="(componentIcons | async)?.[component]" />
+                } @else {
+                  <div class="e-content-loader" style="width: 40px; height: 40px"></div>
+                }
+              </div>
+            </elvia-card>
+          </a>
+        </ng-container>
+        <ng-container *ifViewportSize="['sm', 'md']">
+          <a
+            class="e-link e-link--action e-flex e-justify-content-between e-py-24 bottom-border"
+            [routerLink]="getComponentPath(component)"
+          >
+            <span class="e-link__title">{{ getComponentTitle(component) }}</span>
+            <span class="e-link__icon">
+              <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+              <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+            </span>
+          </a>
+        </ng-container>
+      }
+    </div>
+  } @else {
+    @for (componentCategory of componentsInfo[filterValue]; track componentCategory) {
+      @if (componentCategory.title) {
+        <div class="e-title-caps e-mt-40">{{ componentCategory.title }}</div>
+      }
+      <div class="components-container">
+        @for (component of componentCategory.components; track component) {
+          <ng-container *ifViewportSize="['lg', 'xl']">
+            <a [routerLink]="getComponentPath(component)">
+              <elvia-card [heading]="getComponentTitle(component)" [maxHeadingLines]="2">
+                <div slot="icon">
+                  @if ((componentIcons | async)?.[component]) {
+                    <img alt="" [src]="(componentIcons | async)?.[component]" />
+                  } @else {
+                    <div class="e-content-loader" style="width: 40px; height: 40px"></div>
+                  }
+                </div>
+              </elvia-card>
+            </a>
+          </ng-container>
+          <ng-container *ifViewportSize="['sm', 'md']">
+            <a
+              class="e-link e-link--action e-flex e-justify-content-between e-py-24 bottom-border"
+              [routerLink]="getComponentPath(component)"
+            >
+              <span class="e-link__title">{{ getComponentTitle(component) }}</span>
+              <span class="e-link__icon">
+                <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
+                <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
+              </span>
+            </a>
+          </ng-container>
+        }
+      </div>
+    }
+  }
+</div>
