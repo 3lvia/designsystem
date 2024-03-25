@@ -29,7 +29,7 @@
     "@types/node": "^20.11.30",
     "gulp": "^4.0.2",
     "gulp-svgmin": "^4.1.0",
-    "sharp": "^0.33.2",
+    "sharp": "^0.33.3",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.3"
   }
