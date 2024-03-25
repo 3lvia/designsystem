@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as template from 'html-loader!./file-upload-dragover-ceg.component.html';
+import * as template from './file-upload-dragover-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({

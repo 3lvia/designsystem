@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as template from 'html-loader!./table-sticky-column-header-desktop-ceg.component.html';
+import * as template from './table-sticky-column-header-desktop-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({

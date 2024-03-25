@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as template from 'html-loader!./search-size-medium-ceg.component.html';
+import * as template from './search-size-medium-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({

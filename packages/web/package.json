@@ -58,7 +58,6 @@
     "contentful": "^9.3.6",
     "dotenv": "^16.4.5",
     "fuse.js": "^7.0.0",
-    "html-loader": "^5.0.0",
     "natural-compare-lite": "^1.4.0",
     "prettier": "^3.2.5",
     "prismjs": "^1.29.0",

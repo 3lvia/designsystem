@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import * as template from 'html-loader!./card-links-ceg.component.html';
+import * as template from './card-links-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
