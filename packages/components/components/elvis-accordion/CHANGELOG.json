@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-accordion",
   "content": [
     {
       "date": "05.02.24",

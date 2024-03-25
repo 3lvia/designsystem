@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-segmented-control",
   "content": [
     {
       "date": "16.01.24",

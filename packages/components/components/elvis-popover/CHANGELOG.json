@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-popover",
   "content": [
     {
       "date": "20.02.24",

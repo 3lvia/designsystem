@@ -1,4 +1,6 @@
 {
+  "$schema": "../components/changelogSchema.json",
+  "name": "elvis",
   "content": [
     {
       "version": "16.4.1",

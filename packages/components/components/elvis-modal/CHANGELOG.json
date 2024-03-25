@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-modal",
   "content": [
     {
       "date": "18.03.24",

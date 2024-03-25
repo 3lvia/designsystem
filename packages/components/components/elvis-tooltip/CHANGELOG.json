@@ -1,4 +1,5 @@
 {
+  "name": "elvis-tooltip",
   "$schema": "../../changelogSchema.json",
   "content": [
     {
