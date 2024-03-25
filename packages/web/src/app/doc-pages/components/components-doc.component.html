@@ -1,8 +1,8 @@
-<div class="e-title-md e-mb-40">Components</div>
+<h1 class="e-title-md e-mb-40">Components</h1>
 
 <elvia-radio-filter
   [value]="filterValue"
-  [name]="'componentFilter'"
+  name="componentFilter"
   [items]="[
     { label: 'All', value: 'all' },
     { label: 'Navigation', value: 'navigation' },
@@ -12,7 +12,7 @@
     { label: 'Feedback', value: 'feedback' },
     { label: 'Layout', value: 'layout' }
   ]"
-  (valueOnChange)="handleCategoryChange($any($event).target.value)"
+  (valueOnChange)="filterValue = $any($event).target.value"
 ></elvia-radio-filter>
 
 <div class="e-mt-16">

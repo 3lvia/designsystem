@@ -1,15 +1,17 @@
 import { DocPageName, Pages } from 'src/app/shared/shared.enum';
 
-interface ComponentInfo {
+interface CategoryComponentInfo {
   title?: string;
   components: DocPageName[];
 }
 
-interface ComponentInfoList {
-  [category: string]: ComponentInfo[];
-}
+export type Category = 'navigation' | 'action' | 'input' | 'dataDisplay' | 'feedback' | 'layout';
 
-const componentsInfo: ComponentInfoList = {
+type ComponentInfo = {
+  [category in Category]: CategoryComponentInfo[];
+};
+
+const componentsInfo: ComponentInfo = {
   navigation: [
     {
       title: 'Between pages',
@@ -90,7 +92,7 @@ const componentsInfo: ComponentInfoList = {
 };
 
 const allComponents: DocPageName[] = Object.values(componentsInfo)
-  .flatMap((category: ComponentInfo[]) => category.flatMap((component) => component.components))
+  .flatMap((category: CategoryComponentInfo[]) => category.flatMap((component) => component.components))
   .sort((a, b) => a.localeCompare(b));
 
 export { componentsInfo, allComponents };
