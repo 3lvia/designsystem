@@ -1,0 +1,18 @@
+name: Yarn Dedupe
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 5 * * 1
+jobs:
+  release:
+    name: Dedupe dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dedupe dependencies
+        uses: technote-space/create-pr-action@v2
+        with:
+          EXECUTE_COMMANDS: |
+            yarn dedupe
+          COMMIT_MESSAGE: 'chore(deps): dedupe dependencies'
+          PR_BRANCH_NAME: 'chore-yarn-dedupe-${PR_ID}'
+          PR_TITLE: 'chore(deps): dedupe dependencies'
