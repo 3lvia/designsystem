@@ -49,7 +49,10 @@
               "lodash.throttle",
               "natural-compare-lite",
               "prismjs",
+              "react",
+              "react-dom",
               "react-dom/client",
+              "react-is",
               "dompurify",
               "shallowequal",
               "classnames"
