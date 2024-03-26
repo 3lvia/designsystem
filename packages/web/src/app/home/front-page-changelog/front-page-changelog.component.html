@@ -1,4 +1,4 @@
-@for (changelog of changelogs | async; track changelog; let isLast = $last) {
+@for (changelog of changelogs; track changelog; let isLast = $last) {
   <div class="changelog-container">
     <div class="changelog-name-and-icon">
       @if ((componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)]) {

@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { RadioFilterProps } from '@elvia/elvis-radio-filter/react';
 
-import * as template from 'html-loader!./radio-filter-icon-ceg.component.html';
+import * as template from './radio-filter-icon-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({

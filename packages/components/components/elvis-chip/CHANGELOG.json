@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-chip",
   "content": [
     {
       "date": "08.02.24",

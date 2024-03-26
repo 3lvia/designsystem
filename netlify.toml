@@ -1,3 +1,4 @@
 [build]
     functions = "packages/web/functions"
     command = "yarn build"
+    publish = "packages/web/dist/elvia-designsystem/browser"

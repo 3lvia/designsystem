@@ -2,6 +2,10 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "title": "ChangelogTemplate",
   "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the component."
+    },
     "content": {
       "type": "array",
       "items": {
@@ -36,5 +40,5 @@
       }
     }
   },
-  "required": ["content"]
+  "required": ["name", "content"]
 }

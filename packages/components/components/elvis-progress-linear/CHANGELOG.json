@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-progress-linear",
   "content": [
     {
       "date": "21.11.23",

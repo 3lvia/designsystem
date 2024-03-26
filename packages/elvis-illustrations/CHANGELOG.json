@@ -1,5 +1,6 @@
 {
   "$schema": "../components/changelogSchema.json",
+  "name": "elvis-illustrations",
   "content": [
     {
       "version": "1.2.0",

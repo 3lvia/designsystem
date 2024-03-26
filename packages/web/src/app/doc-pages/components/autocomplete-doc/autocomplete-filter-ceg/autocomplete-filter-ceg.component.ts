@@ -4,7 +4,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AutocompleteItem } from '@elvia/elvis-autocomplete/react';
 import { Observable, Subject, debounceTime, from, switchMap } from 'rxjs';
 
-import * as template from 'html-loader!./autocomplete-filter-ceg.component.html';
+import * as template from './autocomplete-filter-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 interface Drink {

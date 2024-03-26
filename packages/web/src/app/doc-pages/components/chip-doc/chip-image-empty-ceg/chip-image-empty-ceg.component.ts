@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-import * as template from 'html-loader!./chip-image-empty-ceg.component.html';
+import * as template from './chip-image-empty-ceg.component.html';
 import { Theme, ThemeService } from 'src/app/core/services/theme.service';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 

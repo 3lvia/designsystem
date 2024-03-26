@@ -5,7 +5,7 @@ export abstract class StaticComponentExample {
    * ```ts
    * import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
    *
-   * import * as template from 'html-loader!./my-example.component.html';
+   * import * as template from './my-example.component.html';
    *
    * ...
    *   providers: [{ provide: StaticComponentExample, useExisting: MyExampleComponent }],

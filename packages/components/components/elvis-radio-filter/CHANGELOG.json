@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-radio-filter",
   "content": [
     {
       "date": "10.11.23",
