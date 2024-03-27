@@ -5331,7 +5331,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.28, @types/react@npm:^18.2.71":
+"@types/react@npm:*, @types/react@npm:^18.2.28":
   version: 18.2.71
   resolution: "@types/react@npm:18.2.71"
   dependencies:
@@ -5339,6 +5339,16 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10/b9473a30b541de7ddd603fef65240c09459c04ede28959f9499d779c3dfb6bcb8fd969b377e097eb5b6bc3182ff094548bff47a2c8b8f57a7b601de22a225eb6
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.2.72":
+  version: 18.2.72
+  resolution: "@types/react@npm:18.2.72"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10/0c15461eeb8cd5153b48446d4aae681ae1d4f45fa5828fc53c12aaac9dfe426a64259a284737f6abfc3bea36df9507c129d7065ebb390b21349ad30128385ac1
   languageName: node
   linkType: hard
 
@@ -15917,7 +15927,7 @@ __metadata:
     "@elvia/elvis-toolbox": "npm:*"
     "@elvia/elvis-tooltip": "npm:*"
     "@elvia/elvis-typography": "npm:*"
-    "@types/react": "npm:^18.2.71"
+    "@types/react": "npm:^18.2.72"
     "@types/react-dom": "npm:^18.2.22"
     "@vitejs/plugin-react": "npm:^4.2.1"
     react: "npm:^18.2.0"
