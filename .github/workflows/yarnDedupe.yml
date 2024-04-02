@@ -3,6 +3,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: 0 5 * * 1
+  push:
+    branches:
+      - master
+    paths:
+      - 'yarn.lock'
 permissions: write-all
 jobs:
   release:
