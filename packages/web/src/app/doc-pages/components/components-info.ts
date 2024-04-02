@@ -5,7 +5,7 @@ interface CategoryComponentInfo {
   components: DocPageName[];
 }
 
-export type Category = 'navigation' | 'action' | 'input' | 'dataDisplay' | 'feedback' | 'layout';
+type Category = 'navigation' | 'action' | 'input' | 'dataDisplay' | 'feedback' | 'layout';
 
 type ComponentInfo = {
   [category in Category]: CategoryComponentInfo[];
@@ -95,4 +95,22 @@ const allComponents: DocPageName[] = Object.values(componentsInfo)
   .flatMap((category: CategoryComponentInfo[]) => category.flatMap((component) => component.components))
   .sort((a, b) => a.localeCompare(b));
 
-export { componentsInfo, allComponents };
+const sortComponents = (components: CategoryComponentInfo[]): CategoryComponentInfo[] => {
+  return components.map((item) => ({
+    ...item,
+    components: item.components.sort(),
+  }));
+};
+
+const sortComponentsInfo = (componentsInfo: ComponentInfo): ComponentInfo => {
+  for (const key in componentsInfo) {
+    if (componentsInfo.hasOwnProperty(key)) {
+      componentsInfo[key as Category] = sortComponents(componentsInfo[key as Category]);
+    }
+  }
+  return componentsInfo;
+};
+
+const sortedComponentsInfo: ComponentInfo = sortComponentsInfo(componentsInfo);
+
+export { Category, sortedComponentsInfo, allComponents };
