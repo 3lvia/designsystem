@@ -98,7 +98,7 @@ const allComponents: DocPageName[] = Object.values(componentsInfo)
 const sortComponents = (components: CategoryComponentInfo[]): CategoryComponentInfo[] => {
   return components.map((item) => ({
     ...item,
-    components: item.components.sort(),
+    components: item.components.sort((a, b) => a.localeCompare(b)),
   }));
 };
 
