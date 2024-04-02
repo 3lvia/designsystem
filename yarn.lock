@@ -5246,16 +5246,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 20.11.30
-  resolution: "@types/node@npm:20.11.30"
-  dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10/78515bc768d2b878e2e06a1c20eb4f5840072b79b8d28ff3dd0a7feaaf48fd3a2ac03cfa5bc7564da82db5906b43e9ba0e5df9f43d870b7aae2942306e208815
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:20.12.2, @types/node@npm:^20.12.2":
+"@types/node@npm:*, @types/node@npm:20.12.2, @types/node@npm:^20.12.2":
   version: 20.12.2
   resolution: "@types/node@npm:20.12.2"
   dependencies:
@@ -5331,16 +5322,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.13":
-  version: 18.2.22
-  resolution: "@types/react-dom@npm:18.2.22"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 10/310da22244c1bb65a7f213f8727bda821dd211cfb2dd62d1f9b28dd50ef1c196d59e908494bd5f25c13a3844343f3a6135f39fb830aca6f79646fa56c1b56c08
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:^18.2.23":
+"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.13, @types/react-dom@npm:^18.2.23":
   version: 18.2.23
   resolution: "@types/react-dom@npm:18.2.23"
   dependencies:
@@ -5349,17 +5331,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.28":
-  version: 18.2.72
-  resolution: "@types/react@npm:18.2.72"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10/0c15461eeb8cd5153b48446d4aae681ae1d4f45fa5828fc53c12aaac9dfe426a64259a284737f6abfc3bea36df9507c129d7065ebb390b21349ad30128385ac1
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^18.2.73":
+"@types/react@npm:*, @types/react@npm:^18.2.28, @types/react@npm:^18.2.73":
   version: 18.2.73
   resolution: "@types/react@npm:18.2.73"
   dependencies:
