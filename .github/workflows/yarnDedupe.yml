@@ -22,7 +22,7 @@ jobs:
           cache: 'yarn'
           node-version-file: '.nvmrc'
       - name: Yarn Dedupe
-        run: yarn install --immutable && yarn dedupe
+        run: yarn dedupe --mode="update-lockfile"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
