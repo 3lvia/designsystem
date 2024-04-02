@@ -9,8 +9,8 @@ import { IllustrationName } from '../illustrations-exhibit-data';
   template: '',
 })
 export class IllustrationsGeneratorComponent {
-  private illustrationName = input.required<IllustrationName | undefined | null>();
-  private color = input<IllustrationColor | null>();
+  protected illustrationName = input.required<IllustrationName | undefined | null>();
+  protected color = input<IllustrationColor | null>();
 
   constructor(private el: ElementRef) {
     effect(() => {
