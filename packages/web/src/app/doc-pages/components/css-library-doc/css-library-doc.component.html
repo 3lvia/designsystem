@@ -3,6 +3,69 @@
   <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
 </app-component-header>
 
+<app-component-section sectionTitle="Installation">
+  <app-component-subsection>
+    <ol class="e-list e-list--numbers">
+      <li>
+        <strong>Install package</strong>
+        <div class="e-mt-8">
+          <app-copy message="{{ npmInstall }}">
+            <code>{{ npmInstall }}</code>
+          </app-copy>
+          <span class="e-text-md e-mt-8 e-mb-8 e-mr-8 e-ml-8">or</span>
+          <app-copy message="{{ yarnAdd }}">
+            <code>{{ yarnAdd }}</code>
+          </app-copy>
+        </div>
+      </li>
+      <li>
+        <strong>Import stylesheet and script</strong>
+        <div class="e-mt-8">
+          <app-copy [message]="importStylesheet">
+            <code>{{ importStylesheet }}</code>
+          </app-copy>
+        </div>
+        <div class="e-mt-8">
+          <app-copy [message]="importScript">
+            <code>{{ importScript }}</code>
+          </app-copy>
+        </div>
+        <p class="e-text-md e-mt-8">
+          <strong>NB!</strong> The script should only be imported once, somewhere at the base-level of your
+          app. Depending on what framework you are using, the method of doing this may differ.
+        </p>
+      </li>
+    </ol>
+  </app-component-subsection>
+  <app-component-subsection>
+    <h3 class="e-title-sm e-flex e-align-items-center e-mt-0 e-mb-16">
+      <span>CDN</span>
+      <span class="e-tag e-ml-16">Deprecated</span>
+    </h3>
+    We have deprecated the use of the CDN, and it is no longer recommended to use. This is because you miss
+    out on automatic updates through Renovate. We recommend using NPM instead.
+
+    <p class="e-my-16">
+      If you are still using the CDN, please note that the latest version available is
+      <code>16.2.2</code>. Newer versions will not be available through the CDN.
+    </p>
+
+    To migrate to NPM, first remove any old reference to Elvis from the CDN. This should be:
+    <ul class="e-list e-my-8">
+      <li>
+        <code>&lt;link&gt;</code> to the <code>elvis.css</code> stylesheet in the <code>&lt;head&gt;</code> of
+        your HTML file.
+      </li>
+      <li>
+        <code>&lt;script&gt;</code> to the <code>elvis.js</code> script at the bottom of your
+        <code>&lt;body&gt;</code>.
+      </li>
+    </ul>
+    Then follow the instructions in the NPM section above. To simplify the transition, it is possible to
+    install the same version that was being used through the CDN.
+  </app-component-subsection>
+</app-component-section>
+
 <div class="page-body e-mt-72">
   <app-component-section sectionTitle="What is the CSS library?">
     <app-css-library-illustration class="e-mb-88" />
@@ -14,69 +77,6 @@
     <app-component-subsection sectionTitle="Utilities">
       Different utilities are also available through this library. These include tokens like colors and
       typography, as well as assets like icons and logos.
-    </app-component-subsection>
-  </app-component-section>
-
-  <app-component-section sectionTitle="Installation">
-    <app-component-subsection>
-      <ol class="e-list e-list--numbers">
-        <li>
-          <strong>Install package</strong>
-          <div class="e-mt-8">
-            <app-copy [message]="npmInstall">
-              <code>{{ npmInstall }}</code>
-            </app-copy>
-          </div>
-          <p class="e-text-md e-my-8">or</p>
-          <app-copy [message]="yarnAdd">
-            <code>{{ yarnAdd }}</code>
-          </app-copy>
-        </li>
-        <li>
-          <strong>Import stylesheet and script</strong>
-          <div class="e-mt-8">
-            <app-copy [message]="importStylesheet">
-              <code>{{ importStylesheet }}</code>
-            </app-copy>
-          </div>
-          <div class="e-mt-8">
-            <app-copy [message]="importScript">
-              <code>{{ importScript }}</code>
-            </app-copy>
-          </div>
-          <p class="e-text-md e-mt-8">
-            <strong>NB!</strong> The script should only be imported once, somewhere at the base-level of your
-            app. Depending on what framework you are using, the method of doing this may differ.
-          </p>
-        </li>
-      </ol>
-    </app-component-subsection>
-    <app-component-subsection>
-      <h3 class="e-title-sm e-flex e-align-items-center e-mt-0 e-mb-16">
-        <span>CDN</span>
-        <span class="e-tag e-ml-16">Deprecated</span>
-      </h3>
-      We have deprecated the use of the CDN, and it is no longer recommended to use. This is because you miss
-      out on automatic updates through Renovate. We recommend using NPM instead.
-
-      <p class="e-my-16">
-        If you are still using the CDN, please note that the latest version available is
-        <code>16.2.2</code>. Newer versions will not be available through the CDN.
-      </p>
-
-      To migrate to NPM, first remove any old reference to Elvis from the CDN. This should be:
-      <ul class="e-list e-my-8">
-        <li>
-          <code>&lt;link&gt;</code> to the <code>elvis.css</code> stylesheet in the
-          <code>&lt;head&gt;</code> of your HTML file.
-        </li>
-        <li>
-          <code>&lt;script&gt;</code> to the <code>elvis.js</code> script at the bottom of your
-          <code>&lt;body&gt;</code>.
-        </li>
-      </ul>
-      Then follow the instructions in the NPM section above. To simplify the transition, it is possible to
-      install the same version that was being used through the CDN.
     </app-component-subsection>
   </app-component-section>
 
