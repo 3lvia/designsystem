@@ -2,12 +2,7 @@ name: Yarn Dedupe
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 5 * * 1
-  push:
-    branches:
-      - master
-    paths:
-      - 'yarn.lock'
+    - cron: 0 5 1,15 * *
 permissions: write-all
 jobs:
   release:
