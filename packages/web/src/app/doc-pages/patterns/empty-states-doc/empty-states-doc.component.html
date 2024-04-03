@@ -1,1 +1,22 @@
-<p>empty-states-doc works!</p>
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-subsection>
+    <app-empty-states-top-example />
+  </app-component-subsection>
+
+  <app-component-section sectionTitle="Illustration">
+    Browse through our
+    <a class="e-link e-link--inline" [routerLink]="['/brand/illustration']">illustrations</a> to find the
+    right one for your case.
+    <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact us</a> if you need help to
+    create new illustrations.
+  </app-component-section>
+
+  <app-component-section sectionTitle="Usage"></app-component-section>
+
+  <app-component-section sectionTitle="Examples"></app-component-section>
+</div>
