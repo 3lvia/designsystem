@@ -28,6 +28,10 @@ export const routes: Routes = [
     path: 'tools',
     loadChildren: () => import('./doc-pages/tools/tools-routing').then((m) => m.routes),
   },
+  {
+    path: 'patterns',
+    loadChildren: () => import('./doc-pages/patterns/patterns-routing').then((m) => m.routes),
+  },
   // Components section
   {
     path: 'components',
