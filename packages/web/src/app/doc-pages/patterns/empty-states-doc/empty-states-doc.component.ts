@@ -30,7 +30,6 @@ const emptyStatesDocPage = getDocPagesNotFromCMS('empty-states');
     EmptyStatesTopExampleComponent,
   ],
   templateUrl: './empty-states-doc.component.html',
-  styleUrl: './empty-states-doc.component.scss',
 })
 export class EmptyStatesDocComponent {
   title = emptyStatesDocPage?.title;
