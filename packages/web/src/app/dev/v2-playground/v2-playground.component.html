@@ -520,13 +520,15 @@
       <h3>Stepper</h3>
       <elvia-stepper
         [steps]="{
-          '1': { heading: 'Tittel 1', isCompleted: true, nextButtonState: 'loading' },
-          '2': { heading: 'Tittel 2', isCompleted: true },
+          '1': { heading: 'Tittel 1', isCompleted: true },
+          '2': { heading: 'Tittel 2', isCompleted: false },
           '3': { heading: 'Tittel 3' },
           '4': { heading: 'Tittel 4', nextButtonText: 'Lagre' }
         }"
+        isForced
         (onFinish)="log('Stepper onFinish()')"
         (valueOnChange)="logValue('Stepper', $any($event).detail.value)"
+        (onNextClick)="log('Stepper onNextClick')"
       >
         <div slot="content">
           <div>Trinn 1 innhold</div>
