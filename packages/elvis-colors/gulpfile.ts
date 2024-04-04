@@ -107,4 +107,33 @@ const generateElvisShadowMapScss = async () => {
   return writeFile('./dist/elvisShadowMap.scss', fileContent);
 };
 
-task('default', series(cleanup, makeDistFolder, generateElvisShadowMapScss, generateElvisColorsCss));
+const generateIllustrationDarkThemeVariables = async () => {
+  let fileContent = `.e-theme-dark {\n`;
+
+  const darkVariables = getPurposeColorCssVariables(darkTheme);
+  Object.entries(darkVariables)
+    .filter(
+      ([name]) =>
+        name.includes('illustration') ||
+        name.includes('data') ||
+        name.includes('signal-warning') ||
+        name.includes('background-1'),
+    )
+    .forEach(([name, color]) => {
+      fileContent += `\t${name}: ${color};\n`;
+    });
+  fileContent += `}\n`;
+
+  return writeFile('./dist/elvisIllustrationVariables.css', fileContent);
+};
+
+task(
+  'default',
+  series(
+    cleanup,
+    makeDistFolder,
+    generateElvisShadowMapScss,
+    generateElvisColorsCss,
+    generateIllustrationDarkThemeVariables,
+  ),
+);
