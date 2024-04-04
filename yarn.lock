@@ -2248,9 +2248,9 @@ __metadata:
   resolution: "@elvia/elvis-accordion@workspace:packages/components/components/elvis-accordion"
   dependencies:
     "@elvia/elvis-assets-icons": "npm:^3.10.0"
-    "@elvia/elvis-colors": "npm:^4.1.0"
+    "@elvia/elvis-colors": "npm:^4.4.1"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^11.1.0"
+    "@elvia/elvis-toolbox": "npm:^11.5.0"
     "@elvia/elvis-typography": "npm:^2.7.0"
     styled-components: "npm:^5.3.3"
   peerDependencies:
@@ -3016,7 +3016,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@npm:*, @elvia/elvis-toolbox@npm:^11.0.0, @elvia/elvis-toolbox@npm:^11.0.1, @elvia/elvis-toolbox@npm:^11.0.2, @elvia/elvis-toolbox@npm:^11.1.0, @elvia/elvis-toolbox@npm:^11.2.0, @elvia/elvis-toolbox@npm:^11.3.0, @elvia/elvis-toolbox@npm:^11.3.1, @elvia/elvis-toolbox@npm:^11.4.0, @elvia/elvis-toolbox@npm:^11.5.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@npm:*, @elvia/elvis-toolbox@npm:^11.0.0, @elvia/elvis-toolbox@npm:^11.0.1, @elvia/elvis-toolbox@npm:^11.0.2, @elvia/elvis-toolbox@npm:^11.2.0, @elvia/elvis-toolbox@npm:^11.3.0, @elvia/elvis-toolbox@npm:^11.3.1, @elvia/elvis-toolbox@npm:^11.4.0, @elvia/elvis-toolbox@npm:^11.5.0, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
