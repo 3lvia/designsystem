@@ -5,6 +5,7 @@ import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 import { IllustrationsGeneratorComponent } from '../illustrations-generator/illustrations-generator.component';
 import { createPngBlob, createSvgBlobFromElement } from './imageDownloadUtils';
 import { LocalizationService } from 'src/app/core/services/localization.service';
+import { ThemeService } from 'src/app/core/services/theme.service';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
@@ -21,6 +22,7 @@ export class IllustrationsExhibitDetailsComponent {
   selectedIllustration = toSignal(this.illustrationExhibitService.selectedIllustration);
   colorValue = toSignal(this.illustrationExhibitService.colorValue);
   locale = toSignal(inject(LocalizationService).listenLocalization());
+  private theme = toSignal(inject(ThemeService).listenTheme());
 
   get importString() {
     return `@elvia/illustrations/${this.selectedIllustration()}`;
@@ -43,25 +45,24 @@ export class IllustrationsExhibitDetailsComponent {
     this.illustrationExhibitService.setSelectedIllustration(null);
   }
 
-  imageFileName = (format: 'svg' | 'png') => {
+  downloadImage = async (format: 'svg' | 'png') => {
+    const a = document.createElement('a');
+    a.href = await (format === 'svg'
+      ? createSvgBlobFromElement(this.getIllustrationElement(), this.colorValue(), {
+          isDarkTheme: this.theme() === 'dark',
+        })
+      : createPngBlob(this.getIllustrationElement(), this.colorValue(), {
+          isDarkTheme: this.theme() === 'dark',
+        }));
+    a.download = this.imageFileName(format);
+    a.click();
+  };
+
+  private imageFileName = (format: 'svg' | 'png') => {
     if (this.colorValue() === 'grey' || !this.colorValue()) {
       return `${this.selectedIllustration()}.${format}`;
     }
     return `${this.selectedIllustration()}_${this.colorValue()}.${format}`;
-  };
-
-  downloadSvg = () => {
-    const a = document.createElement('a');
-    a.href = createSvgBlobFromElement(this.getIllustrationElement(), this.colorValue());
-    a.download = this.imageFileName('svg');
-    a.click();
-  };
-
-  downloadPng = async () => {
-    const a = document.createElement('a');
-    a.href = await createPngBlob(this.getIllustrationElement(), this.colorValue());
-    a.download = this.imageFileName('png');
-    a.click();
   };
 
   private getIllustrationElement = () => {
