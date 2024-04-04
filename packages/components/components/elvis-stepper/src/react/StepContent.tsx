@@ -14,6 +14,7 @@ type StepContentProps = {
   contentRef: React.RefObject<HTMLDivElement>;
   type?: StepperType;
   handleStepChange: (step: number) => void;
+  onNextClick?: () => void;
 };
 
 export const StepContent: FC<StepContentProps> = function ({
@@ -24,6 +25,7 @@ export const StepContent: FC<StepContentProps> = function ({
   contentRef,
   type = 'horizontal',
   handleStepChange,
+  onNextClick,
 }) {
   return (
     <StepperContent $type={type}>
@@ -39,7 +41,7 @@ export const StepContent: FC<StepContentProps> = function ({
           <div></div>
         )}
         {steps?.[currentStep]?.nextButtonState === 'loading' ? (
-          <PrimaryButton isLoading aria-disabled aria-label="Laster inn">
+          <PrimaryButton onClick={() => onNextClick?.()} isLoading aria-disabled aria-label="Laster inn">
             <span></span>
             <span></span>
             <span></span>
@@ -47,9 +49,10 @@ export const StepContent: FC<StepContentProps> = function ({
         ) : (
           <PrimaryButton
             aria-disabled={!isReachable(isForced, currentStep + 1, steps)}
-            onClick={() =>
-              handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
-            }
+            onClick={() => {
+              onNextClick?.();
+              handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep);
+            }}
           >
             {steps?.[currentStep]?.nextButtonText ?? 'Neste'}
           </PrimaryButton>

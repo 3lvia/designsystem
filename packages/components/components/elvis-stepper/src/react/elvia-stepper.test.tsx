@@ -149,6 +149,7 @@ describe('Elvis Stepper', () => {
   describe('Events', () => {
     const onFinishEvent = jest.fn();
     const valueOnChangeEvent = jest.fn();
+    const onNextClickEvent = jest.fn();
 
     beforeEach(() => {
       jest.clearAllMocks();
@@ -158,6 +159,7 @@ describe('Elvis Stepper', () => {
           onFinish={onFinishEvent}
           steps={steps}
           valueOnChange={valueOnChangeEvent}
+          onNextClick={onNextClickEvent}
         />,
       );
     });
@@ -165,6 +167,7 @@ describe('Elvis Stepper', () => {
     it('should not emit events when idle', async () => {
       await waitFor(() => expect(onFinishEvent).not.toHaveBeenCalled());
       await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+      await waitFor(() => expect(onNextClickEvent).not.toHaveBeenCalled());
     });
 
     it('valueOnChangeEvent: should emit the value change event when the user goes to the next or previous page, or clicks on a number', async () => {
@@ -180,6 +183,7 @@ describe('Elvis Stepper', () => {
       await user.click(page);
 
       expect(valueOnChangeEvent).toHaveBeenCalledTimes(3);
+      expect(onNextClickEvent).toHaveBeenCalledTimes(1);
     });
 
     it('onFinishEvent: should emit the finish event when the user clicks the final "next" button', async () => {
@@ -191,6 +195,36 @@ describe('Elvis Stepper', () => {
       await user.click(nextButton);
 
       expect(onFinishEvent).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  // Separate describe block for forced stepper
+  describe('Events', () => {
+    it('onNextClickEvent: should emit the next click event when the user clicks the next button on a forced stepper', async () => {
+      const onNextClickEvent = jest.fn();
+      let step: number | null = null;
+      render(
+        <Stepper
+          isForced
+          content={content}
+          steps={steps}
+          valueOnChange={(newValue) => (step = newValue)}
+          onNextClick={onNextClickEvent}
+        />,
+      );
+
+      const user = userEvent.setup();
+      const nextButton = screen.getByRole('button', { name: /neste/i });
+
+      await user.click(nextButton);
+      await user.click(nextButton);
+      await user.click(nextButton);
+      await user.click(nextButton);
+      await user.click(nextButton);
+
+      // onNextClickEvent should be called even though the step is not changing
+      expect(onNextClickEvent).toHaveBeenCalledTimes(5);
+      expect(step).toEqual(2);
     });
   });
 });
