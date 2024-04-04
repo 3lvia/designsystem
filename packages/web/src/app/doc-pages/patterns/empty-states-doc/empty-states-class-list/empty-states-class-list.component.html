@@ -1,0 +1,54 @@
+<div>
+  <span class="e-title-caps">Desktop</span>
+  <ul class="e-list">
+    @if (classes().desktop.illustrationSize) {
+      <li>
+        Illustration-size:
+        <code>{{ classes().desktop.illustrationSize }}</code>
+      </li>
+    }
+    @if (classes().desktop.typographies) {
+      <li>
+        Typographies:
+        @for (typography of classes().desktop.typographies; track typography; let last = $last) {
+          <code [ngClass]="{ 'e-mr-8': !last }">{{ typography }}</code>
+        }
+      </li>
+    }
+    @if (classes().desktop.action) {
+      <li>
+        Action:
+        @for (action of classes().desktop.action; track action; let last = $last) {
+          <code [ngClass]="{ 'e-mr-8': !last }">{{ action }}</code>
+        }
+      </li>
+    }
+  </ul>
+</div>
+<div>
+  <span class="e-title-caps">Mobile</span>
+  <ul class="e-list">
+    @if (classes().mobile.illustrationSize) {
+      <li>
+        Illustration-size:
+        <code>{{ classes().mobile.illustrationSize }}</code>
+      </li>
+    }
+    @if (classes().mobile.typographies) {
+      <li>
+        Typographies:
+        @for (typography of classes().mobile.typographies; track typography; let last = $last) {
+          <code [ngClass]="{ 'e-mr-8': !last }">{{ typography }}</code>
+        }
+      </li>
+    }
+    @if (classes().mobile.action) {
+      <li>
+        Action:
+        @for (action of classes().mobile.action; track action; let last = $last) {
+          <code [ngClass]="{ 'e-mr-8': !last }">{{ action }}</code>
+        }
+      </li>
+    }
+  </ul>
+</div>

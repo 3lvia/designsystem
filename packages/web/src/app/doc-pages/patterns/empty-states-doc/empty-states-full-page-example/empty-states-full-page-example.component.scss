@@ -1,0 +1,19 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+:host {
+  --overflow-amount: 120px;
+
+  margin-left: calc(-1 * var(--overflow-amount));
+  width: calc(100% + calc(2 * var(--overflow-amount)));
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
