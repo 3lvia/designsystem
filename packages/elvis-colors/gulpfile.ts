@@ -107,6 +107,7 @@ const generateElvisShadowMapScss = async () => {
   return writeFile('./dist/elvisShadowMap.scss', fileContent);
 };
 
+// This generated file is used to create dark theme illustrations to download in the brand documentation
 const generateIllustrationDarkThemeVariables = async () => {
   let fileContent = `.e-theme-dark {\n`;
 
