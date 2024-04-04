@@ -79,17 +79,16 @@ export const Accordion: FC<AccordionProps> = ({
   });
   const slotContentHeight = accordionContentRef.current?.getBoundingClientRect().height ?? 0;
 
-  const updateOpenState = (newIsOpenState: boolean) => {
-    if (newIsOpenState === isOpenState) {
-      return;
-    }
+  useEffect(() => {
+    updateOpenState(isOpenState);
+  }, [accordionContentRef, accordionContentRef.current]);
 
+  const updateOpenState = (newIsOpenState: boolean) => {
     if (newIsOpenState) {
       setVisibility('unset');
       setContentHeight(`${slotContentHeight}px`);
     } else {
       setContentHeight(`${slotContentHeight}px`);
-
       setTimeout(() => setContentHeight(getClosedHeight()));
     }
 
