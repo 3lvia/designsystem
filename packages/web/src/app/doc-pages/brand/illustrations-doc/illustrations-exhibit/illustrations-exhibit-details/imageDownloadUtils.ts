@@ -7,7 +7,7 @@ interface Opts {
   isDarkTheme?: boolean;
 }
 
-export const createSvgBlobFromElement = async (
+export const createSvgBlobFromElement = (
   illustrationElement: Element,
   colorValue: IllustrationColor | undefined,
   opts?: Opts,
@@ -49,8 +49,8 @@ export const createPngBlob = (
   colorValue: IllustrationColor | undefined,
   opts?: Omit<Opts, 'isPng'>,
 ): Promise<string> => {
-  return new Promise(async (resolve, reject) => {
-    const svgBlobUrl = await createSvgBlobFromElement(illustrationElement, colorValue, {
+  return new Promise((resolve, reject) => {
+    const svgBlobUrl = createSvgBlobFromElement(illustrationElement, colorValue, {
       isPng: true,
       isDarkTheme: opts?.isDarkTheme,
     });
