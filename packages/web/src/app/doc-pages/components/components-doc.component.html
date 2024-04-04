@@ -44,7 +44,7 @@
 
 <div class="e-mt-16">
   @if (filterValue === 'all') {
-    <div class="components-container">
+    <div class="components-container without-title">
       @for (component of allComponents; track component) {
         <ng-container
           *ifViewportSize="['lg', 'xl']"
@@ -61,9 +61,9 @@
   } @else {
     @for (componentCategory of componentsInfo[filterValue]; track componentCategory) {
       @if (componentCategory.title) {
-        <div class="e-title-caps e-mt-40">{{ componentCategory.title }}</div>
+        <div class="e-title-caps e-mt-32">{{ componentCategory.title }}</div>
       }
-      <div class="components-container">
+      <div class="components-container" [ngClass]="{ 'without-title': !componentCategory.title }">
         @for (component of componentCategory.components; track component) {
           <ng-container
             *ifViewportSize="['lg', 'xl']"

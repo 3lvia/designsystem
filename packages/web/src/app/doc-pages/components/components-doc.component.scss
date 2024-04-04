@@ -6,11 +6,19 @@
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   margin-top: 16px;
 
+  &.without-title {
+    margin-top: 65px;
+  }
+
   @include breakpoints.breakpoint-up(Tablet) {
     display: flex;
     flex-direction: column;
     gap: 0;
     margin-top: 8px;
+
+    &.without-title {
+      margin-top: initial;
+    }
 
     .bottom-border {
       border-bottom: 1px solid var(--e-color-border-2);
