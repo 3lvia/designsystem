@@ -13,6 +13,7 @@ export const Stepper: FC<StepperProps> = function ({
   value,
   valueOnChange,
   onFinish,
+  onNextClick,
   className,
   inlineStyle,
   webcomponent,
@@ -70,6 +71,11 @@ export const Stepper: FC<StepperProps> = function ({
     }
   };
 
+  const handleNextClick = () => {
+    webcomponent?.triggerEvent('onNextClick');
+    onNextClick?.();
+  };
+
   return (
     <>
       {type === 'vertical' ? (
@@ -78,6 +84,7 @@ export const Stepper: FC<StepperProps> = function ({
           currentStep={currentStep}
           isForced={isForced}
           handleStepChange={handleStepChange}
+          onNextClick={handleNextClick}
           typography={typography}
           contentRef={contentRef}
           content={content}
@@ -92,6 +99,7 @@ export const Stepper: FC<StepperProps> = function ({
           currentStep={currentStep}
           isForced={isForced}
           handleStepChange={handleStepChange}
+          onNextClick={handleNextClick}
           typography={typography}
           contentRef={contentRef}
           content={content}
