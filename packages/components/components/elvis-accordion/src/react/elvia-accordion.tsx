@@ -52,7 +52,9 @@ export const Accordion: FC<AccordionProps> = ({
   const [isOpenState, setIsOpenState] = useState(isOpen);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
   const [contentHeight, setContentHeight] = useState(getClosedHeight());
-  const [visibility, setVisibility] = useState<'hidden' | 'unset'>(type === 'overflow' ? 'unset' : 'hidden');
+  const [visibility, setVisibility] = useState<'hidden' | 'unset'>(
+    isOpen ? 'unset' : type === 'overflow' ? 'unset' : 'hidden',
+  );
 
   const accordionRef = useRef<HTMLDivElement>(null);
 
