@@ -3068,15 +3068,12 @@ __metadata:
     "@elvia/elvis-assets-icons": "npm:*"
     "@elvia/elvis-colors": "npm:^4.4.0"
     "@elvia/elvis-typography": "npm:^2.7.0"
-    bootstrap: "npm:4.6.1"
     gulp: "npm:^5.0.0"
     gulp-autoprefixer: "npm:^9.0.0"
     gulp-clean-css: "npm:^4.3.0"
     gulp-rename: "npm:^2.0.0"
     gulp-tap: "npm:^2.0.0"
     gulp-terser: "npm:^2.1.0"
-    jquery: "npm:^3.6.4"
-    popper.js: "npm:^1.16.1"
     resolve: "npm:^1.22.8"
     sass: "npm:^1.72.0"
   languageName: unknown
@@ -7032,16 +7029,6 @@ __metadata:
   version: 1.0.0
   resolution: "boolbase@npm:1.0.0"
   checksum: 10/3e25c80ef626c3a3487c73dbfc70ac322ec830666c9ad915d11b701142fab25ec1e63eff2c450c74347acfd2de854ccde865cd79ef4db1683f7c7b046ea43bb0
-  languageName: node
-  linkType: hard
-
-"bootstrap@npm:4.6.1":
-  version: 4.6.1
-  resolution: "bootstrap@npm:4.6.1"
-  peerDependencies:
-    jquery: 1.9.1 - 3
-    popper.js: ^1.16.1
-  checksum: 10/3930f7309a753c85942dc0d71745d82a23c6181ed8049eb414bb3437e87f75069f4ef70a3e5f2ee92a62de9080e09c3dea22ee96119d73ee32b17cdecc482533
   languageName: node
   linkType: hard
 
@@ -12210,13 +12197,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery@npm:^3.6.4":
-  version: 3.7.1
-  resolution: "jquery@npm:3.7.1"
-  checksum: 10/17be9929f5fa37697d9848284f0d108c543318ef79ec794e130cd0c49f6c050d60c803a69e8cfa16fa19f5ff7cdb814a6905cceab0831186560c65ed113cd579
-  languageName: node
-  linkType: hard
-
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -14369,13 +14349,6 @@ __metadata:
     arr-union: "npm:^3.1.0"
     extend-shallow: "npm:^3.0.2"
   checksum: 10/5cacd34372b909f07125829c2876707f4add64dcdf0dd8bd23d7ceac70eeb961c038a9707a998cc498bf8d478cc81f8d85b82584313926fe61a8fa294f79f3e4
-  languageName: node
-  linkType: hard
-
-"popper.js@npm:^1.16.1":
-  version: 1.16.1
-  resolution: "popper.js@npm:1.16.1"
-  checksum: 10/71338c86faf9b66ce60c3cdd7fb2ed742944e5d2765a188f269239fee2980aa6223b77b41302d1b6eb7d724e611092f9a2576d0048ac2071b605291abc72c0cf
   languageName: node
   linkType: hard
 

@@ -1,0 +1,101 @@
+@use 'breakpoints';
+
+@mixin create-spacing-set($breakpoint, $size) {
+  // Margin
+  .m-#{$breakpoint}-#{$size} {
+    margin: calc(0.25rem * $size) !important;
+  }
+
+  .mt-#{$breakpoint}-#{$size},
+  .my-#{$breakpoint}-#{$size} {
+    margin-top: calc(0.25rem * $size) !important;
+  }
+
+  .mr-#{$breakpoint}-#{$size},
+  .mx-#{$breakpoint}-#{$size} {
+    margin-right: calc(0.25rem * $size) !important;
+  }
+
+  .mb-#{$breakpoint}-#{$size},
+  .my-#{$breakpoint}-#{$size} {
+    margin-bottom: calc(0.25rem * $size) !important;
+  }
+
+  .ml-#{$breakpoint}-#{$size},
+  .mx-#{$breakpoint}-#{$size} {
+    margin-left: calc(0.25rem * $size) !important;
+  }
+
+  // Negative margin
+  .m-#{$breakpoint}-n#{$size} {
+    margin: calc(-0.25rem * $size) !important;
+  }
+
+  .mt-#{$breakpoint}-n#{$size},
+  .my-#{$breakpoint}-n#{$size} {
+    margin-top: calc(-0.25rem * $size) !important;
+  }
+
+  .mr-#{$breakpoint}-n#{$size},
+  .mx-#{$breakpoint}-n#{$size} {
+    margin-right: calc(-0.25rem * $size) !important;
+  }
+
+  .mb-#{$breakpoint}-n#{$size},
+  .my-#{$breakpoint}-n#{$size} {
+    margin-bottom: calc(-0.25rem * $size) !important;
+  }
+
+  .ml-#{$breakpoint}-n#{$size},
+  .mx-#{$breakpoint}-n#{$size} {
+    margin-left: calc(-0.25rem * $size) !important;
+  }
+
+  // Padding
+  .p-#{$breakpoint}-#{$size} {
+    padding: calc(0.25rem * $size) !important;
+  }
+
+  .pt-#{$breakpoint}-#{$size},
+  .py-#{$breakpoint}-#{$size} {
+    padding-top: calc(0.25rem * $size) !important;
+  }
+
+  .pr-#{$breakpoint}-#{$size},
+  .px-#{$breakpoint}-#{$size} {
+    padding-right: calc(0.25rem * $size) !important;
+  }
+
+  .pb-#{$breakpoint}-#{$size},
+  .py-#{$breakpoint}-#{$size} {
+    padding-bottom: calc(0.25rem * $size) !important;
+  }
+
+  .pl-#{$breakpoint}-#{$size},
+  .px-#{$breakpoint}-#{$size} {
+    padding-left: calc(0.25rem * $size) !important;
+  }
+}
+
+.e-grid {
+  @for $i from 0 through 5 {
+    @include breakpoints.breakpoint-up(MaxDesktop) {
+      @include create-spacing-set(xl, $i);
+    }
+  }
+  @for $i from 0 through 5 {
+    @include breakpoints.breakpoint-up(MinDesktop) {
+      @include create-spacing-set(lg, $i);
+    }
+  }
+  @for $i from 0 through 5 {
+    @include breakpoints.breakpoint-up(Tablet) {
+      @include create-spacing-set(md, $i);
+    }
+  }
+  @for $i from 0 through 5 {
+    @include breakpoints.breakpoint-up(Mobile) {
+      @include create-spacing-set(sm, $i);
+    }
+  }
+}

@@ -1,183 +1,153 @@
-/*
-
-The CSSen for this grid-system is based on https://getbootstrap.com/docs/4.4/layout/grid/, using the following license:
-
-The MIT License (MIT)
-
-Copyright (c) 2011-2018 Twitter, Inc.
-Copyright (c) 2011-2018 The Bootstrap Authors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-*/
-
 @use 'breakpoints';
-@use 'bootstrap/scss/bootstrap-grid.scss' with (
-  // Defining variables for grid that will overwrite bootstraps variables
-  $grid-breakpoints: (xs: 0, sm: 320px, md: 768px, lg: 1024px, xl: 1440px),
-  $grid-columns: 12,
-  $grid-gutter-width: 48px
-);
 
-// Making custom margin classes
+@mixin create-breakpoint-classes($size, $breakpoint: '') {
+  .col-#{$breakpoint}#{$size} {
+    width: calc(100% / 12 * $size);
+  }
+
+  .order-#{$breakpoint}#{$size} {
+    order: $size;
+  }
+
+  .offset-#{$breakpoint}#{$size} {
+    margin-left: calc(100% / 12 * $size);
+  }
+
+  .row-cols-#{$breakpoint}#{$size} > * {
+    width: calc(100% / $size);
+  }
+}
+
 .e-grid {
   box-sizing: border-box;
 
-  // Adding margin to rows
-  @include breakpoints.breakpoint-up(MinDesktop) {
-    $grid-gutter-width-ext: 56px;
-    $grid-margin-ext: 120px;
+  .row {
+    --offset: 24px;
 
-    $grid-gutter-width-int: 24px;
-    $grid-margin-left-int: 88px;
-    $grid-margin-right-int: 32px;
-    .row.e-grid-gutters-ext {
-      margin: 0 calc((#{$grid-gutter-width-ext} / 2) * -1) !important;
-      [class^='col'] {
-        padding-right: calc((#{$grid-gutter-width-ext} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width-ext} / 2)) !important;
-      }
-      &.e-grid-gutters-vertical [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width-ext} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width-ext} / 2)) !important;
-      }
-    }
-    .row.e-grid-gutters-int {
-      margin: 0 calc((#{$grid-gutter-width-int} / 2) * -1) !important;
-      [class^='col'] {
-        padding-right: calc((#{$grid-gutter-width-int} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width-int} / 2)) !important;
-      }
-      &.e-grid-gutters-vertical [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width-int} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width-int} / 2)) !important;
-      }
-    }
-    .row {
-      &.e-grid-margin-ext {
-        margin: calc(#{$grid-margin-ext} - #{$grid-gutter-width-ext}) !important;
-      }
-      &.e-grid-margin-int {
-        margin-right: calc(#{$grid-margin-right-int} - #{$grid-gutter-width-int}) !important;
-        margin-left: calc(#{$grid-margin-left-int} - #{$grid-gutter-width-int}) !important;
-      }
-    }
-  }
-  @include breakpoints.breakpoint-up(MaxDesktop) {
-    $grid-gutter-width-ext: 56px;
-    $grid-margin-ext: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(var(--offset) * -1);
 
-    $grid-gutter-width-int: 24px;
-    $grid-margin-left-int: 88px;
-    $grid-margin-right-int: 32px;
-    .row.e-grid-gutters-ext {
-      margin: 0 calc((#{$grid-gutter-width-ext} / 2) * -1) !important;
-      [class^='col'] {
-        padding-right: calc((#{$grid-gutter-width-ext} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width-ext} / 2)) !important;
-      }
-      &.e-grid-gutters-vertical [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width-ext} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width-ext} / 2)) !important;
-      }
+    &.e-grid-gutters-ext.e-grid-gutters-vertical [class^='col'],
+    &.e-grid-gutters-int.e-grid-gutters-vertical [class^='col'] {
+      padding-block: var(--offset) !important;
     }
-    .row.e-grid-gutters-int {
-      margin: 0 calc((#{$grid-gutter-width-int} / 2) * -1) !important;
-      [class^='col'] {
-        padding-right: calc((#{$grid-gutter-width-int} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width-int} / 2)) !important;
-      }
-      &.e-grid-gutters-vertical [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width-int} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width-int} / 2)) !important;
-      }
-    }
-    .row {
-      &.e-grid-margin-ext {
-        margin: calc(#{$grid-margin-ext} - #{$grid-gutter-width-ext}) !important;
-      }
-      &.e-grid-margin-int {
-        margin-right: calc(#{$grid-margin-right-int} - #{$grid-gutter-width-int}) !important;
-        margin-left: calc(#{$grid-margin-left-int} - #{$grid-gutter-width-int}) !important;
-      }
-    }
-  }
-  @include breakpoints.breakpoint-up(Tablet) {
-    $grid-gutter-width-ext: 32px;
-    $grid-margin-ext: 32px;
 
-    $grid-gutter-width-int: 24px;
-    $grid-margin-left-int: 88px;
-    $grid-margin-right-int: 24px;
-    .row.e-grid-gutters-ext {
-      margin: 0 calc((#{$grid-gutter-width-ext} / 2) * -1) !important;
-      [class^='col'] {
-        padding-right: calc((#{$grid-gutter-width-ext} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width-ext} / 2)) !important;
+    &.e-grid-margin-ext {
+      margin: var(--external-margin, 64px) !important;
+    }
+
+    &.e-grid-margin-int {
+      margin-left: var(--internal-margin-right, 64px) !important;
+      margin-right: var(--internal-margin-right, 8px) !important;
+    }
+
+    @include breakpoints.breakpoint-up(MaxDesktop) {
+      --external-margin: 64px;
+      --internal-margin-left: 64px;
+      --internal-margin-right: 8px;
+
+      &.e-grid-gutters-ext {
+        --offset: 28px;
       }
-      &.e-grid-gutters-vertical [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width-ext} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width-ext} / 2)) !important;
+      &.e-grid-gutters-int {
+        --offset: 12px;
       }
     }
-    .row.e-grid-gutters-int {
-      margin: 0 calc((#{$grid-gutter-width-int} / 2) * -1) !important;
-      [class^='col'] {
-        padding-right: calc((#{$grid-gutter-width-int} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width-int} / 2)) !important;
+
+    @include breakpoints.breakpoint-up(MinDesktop) {
+      --external-margin: 64px;
+      --internal-margin-left: 64px;
+      --internal-margin-right: 8px;
+
+      &.e-grid-gutters-ext {
+        --offset: 28px;
       }
-      &.e-grid-gutters-vertical [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width-int} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width-int} / 2)) !important;
+      &.e-grid-gutters-int {
+        --offset: 12px;
       }
     }
-    .row {
-      &.e-grid-margin-ext {
-        margin: calc(#{$grid-margin-ext} - #{$grid-gutter-width-ext}) !important;
+
+    @include breakpoints.breakpoint-up(Tablet) {
+      --external-margin: 0px;
+      --internal-margin-left: 64px;
+      --internal-margin-right: 0px;
+
+      &.e-grid-gutters-ext {
+        --offset: 16px;
       }
-      &.e-grid-margin-int {
-        margin-right: calc(#{$grid-margin-right-int} - #{$grid-gutter-width-int}) !important;
-        margin-left: calc(#{$grid-margin-left-int} - #{$grid-gutter-width-int}) !important;
+      &.e-grid-gutters-int {
+        --offset: 12px;
+      }
+    }
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      --external-margin: 0px;
+      --internal-margin-left: 0px;
+      --internal-margin-right: 0px;
+
+      &.e-grid-gutters-ext,
+      &.e-grid-gutters-int {
+        --offset: 8px;
       }
     }
   }
 
-  @include breakpoints.breakpoint-up(Mobile) {
-    $grid-gutter-width: 16px;
-    $grid-margin: 16px;
-    .row.e-grid-gutters-ext,
-    .row.e-grid-gutters-int {
-      margin: 0 calc((#{$grid-gutter-width} / 2) * -1) !important;
-      [class^='col'] {
-        padding-right: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width} / 2)) !important;
-      }
-      &.e-grid-gutters-vertical [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
-      }
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .no-gutters > .col,
+  .no-gutters > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .col,
+  [class^='col-'] {
+    position: relative;
+    width: 100%;
+    padding-inline: var(--offset);
+  }
+
+  .col {
+    flex: 1 0 0%;
+  }
+
+  [class^='col-'] {
+    flex: 0 0 auto;
+  }
+
+  // Create a bunch of classes within the 12 column grid
+  // The order of these matter. It's important that we first
+  // generate CSS for max desktop, then min desktop, then tablet
+  // and finally mobile, because of specificity.
+  @for $i from 1 through 12 {
+    @include breakpoints.breakpoint-up(MaxDesktop) {
+      @include create-breakpoint-classes($i, xl-);
     }
-    .row {
-      &.e-grid-margin-ext,
-      &.e-grid-margin-int {
-        margin: calc(#{$grid-margin} - #{$grid-gutter-width}) !important;
-      }
+  }
+
+  @for $i from 1 through 12 {
+    @include breakpoints.breakpoint-up(MinDesktop) {
+      @include create-breakpoint-classes($i, lg-);
     }
+  }
+
+  @for $i from 1 through 12 {
+    @include breakpoints.breakpoint-up(Tablet) {
+      @include create-breakpoint-classes($i, md-);
+    }
+  }
+
+  @for $i from 1 through 12 {
+    @include breakpoints.breakpoint-up(Mobile) {
+      @include create-breakpoint-classes($i, sm-);
+    }
+  }
+
+  @for $i from 1 through 12 {
+    @include create-breakpoint-classes($i);
   }
 }
