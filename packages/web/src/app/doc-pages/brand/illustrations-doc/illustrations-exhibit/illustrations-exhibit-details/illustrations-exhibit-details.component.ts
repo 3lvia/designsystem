@@ -48,21 +48,18 @@ export class IllustrationsExhibitDetailsComponent {
   downloadImage = async (format: 'svg' | 'png') => {
     const a = document.createElement('a');
     a.href = await (format === 'svg'
-      ? createSvgBlobFromElement(this.getIllustrationElement(), this.colorValue(), {
-          isDarkTheme: this.theme() === 'dark',
-        })
-      : createPngBlob(this.getIllustrationElement(), this.colorValue(), {
-          isDarkTheme: this.theme() === 'dark',
-        }));
+      ? createSvgBlobFromElement(this.getIllustrationElement(), this.colorValue(), this.theme())
+      : createPngBlob(this.getIllustrationElement(), this.colorValue(), this.theme()));
     a.download = this.imageFileName(format);
     a.click();
   };
 
   private imageFileName = (format: 'svg' | 'png') => {
+    const theme = this.theme() ?? 'light';
     if (this.colorValue() === 'grey' || !this.colorValue()) {
-      return `${this.selectedIllustration()}.${format}`;
+      return `${this.selectedIllustration()}_${theme}.${format}`;
     }
-    return `${this.selectedIllustration()}_${this.colorValue()}.${format}`;
+    return `${this.selectedIllustration()}_${theme}_${this.colorValue()}.${format}`;
   };
 
   private getIllustrationElement = () => {

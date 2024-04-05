@@ -3,14 +3,13 @@ import styleTokens from '@elvia/elvis-colors/dist/elvisIllustrationVariables.css
 import { IllustrationColor } from '../../illustrations-data';
 
 interface Opts {
-  isPng?: boolean;
   isDarkTheme?: boolean;
 }
 
 export const createSvgBlobFromElement = (
   illustrationElement: Element,
   colorValue: IllustrationColor | undefined,
-  opts?: Opts,
+  theme?: 'light' | 'dark',
 ) => {
   const svgElement = illustrationElement?.shadowRoot?.querySelector('svg');
   const styleElement = illustrationElement?.shadowRoot?.querySelector('style');
@@ -22,12 +21,9 @@ export const createSvgBlobFromElement = (
   const newSvgElement = svgElement.cloneNode(true) as SVGElement;
   const newStyleElement = styleElement.cloneNode(true);
 
-  if (opts?.isDarkTheme) {
+  if (theme === 'dark') {
     newSvgElement.classList.add('e-theme-dark');
     newStyleElement.textContent = newStyleElement.textContent + styleTokens;
-  }
-  if (opts?.isPng && opts?.isDarkTheme) {
-    newSvgElement.style.backgroundColor = 'var(--e-color-background-1)';
   }
   newSvgElement.insertBefore(newStyleElement, newSvgElement.firstChild);
   newSvgElement.classList.add(colorValue ?? '');
@@ -47,13 +43,10 @@ export const createSvgBlobFromElement = (
 export const createPngBlob = (
   illustrationElement: Element,
   colorValue: IllustrationColor | undefined,
-  opts?: Omit<Opts, 'isPng'>,
+  theme?: 'light' | 'dark',
 ): Promise<string> => {
   return new Promise((resolve, reject) => {
-    const svgBlobUrl = createSvgBlobFromElement(illustrationElement, colorValue, {
-      isPng: true,
-      isDarkTheme: opts?.isDarkTheme,
-    });
+    const svgBlobUrl = createSvgBlobFromElement(illustrationElement, colorValue, theme);
 
     if (!svgBlobUrl) {
       reject(new Error('No SVG blob url found'));
@@ -70,6 +63,7 @@ export const createPngBlob = (
       }
       canvas.width = img.width;
       canvas.height = img.height;
+      ctx.fillStyle = 'transparent';
       ctx.drawImage(img, 0, 0);
 
       canvas.toBlob((blob) => {
