@@ -2283,12 +2283,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-assets-trademark@workspace:packages/elvis-assets-trademark":
-  version: 0.0.0-use.local
-  resolution: "@elvia/elvis-assets-trademark@workspace:packages/elvis-assets-trademark"
-  languageName: unknown
-  linkType: soft
-
 "@elvia/elvis-autocomplete@npm:*, @elvia/elvis-autocomplete@workspace:*, @elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete"
