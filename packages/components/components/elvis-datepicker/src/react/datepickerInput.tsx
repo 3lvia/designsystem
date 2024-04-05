@@ -100,10 +100,23 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
       const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
         (ev.nativeEvent as InputEvent).inputType,
       );
+      const isPaste = (ev.nativeEvent as InputEvent).inputType === 'insertFromPaste';
 
       const newInputValue = ev.target.value;
       if (isModifierKey) {
         setInputValue(newInputValue);
+      } else if (isPaste) {
+        const [day, month, year] = newInputValue.split('.');
+        if (isNaN(parseInt(day)) || isNaN(parseInt(month)) || isNaN(parseInt(year))) {
+          return;
+        }
+        const error = validateDate({
+          inputValue: { day: parseInt(day), month: parseInt(month), year: parseInt(year) },
+        });
+
+        if (error === 'valid') {
+          setInputValue(newInputValue);
+        }
       } else {
         if (inputValue.length === 10 && !hasSelectedText) {
           return;
