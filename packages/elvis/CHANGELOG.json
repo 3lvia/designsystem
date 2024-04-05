@@ -12,7 +12,10 @@
             "Removed the dependency on <code>Bootstrap</code>, <code>jquery</code> and <code>popper.js</code>. This has been done by implementing the CSS-classes necessary to create a grid layout ourselves."
           ],
           "fixes": [
-            "Most of the Bootstrap classes has been reimplemented, and should work like before. The exception is that we have removed the Bootstrap classes for flexbox, padding and margins. We already have utility classes for this, which should be used instead. If your application uses a lot of undocumented Bootstrap classes, you can consider installing Bootstrap temporarily until you have migrated to the Elvis utility classes successfully."
+            "Most of the Bootstrap classes has been reimplemented, and should work like before. The exception is that we have removed the Bootstrap classes for flexbox, padding and margins. We already have utility classes for this, which should be used instead. If your application uses a lot of undocumented Bootstrap classes, please consider installing Bootstrap temporarily until you have migrated to the Elvis utility classes successfully."
+          ],
+          "pages": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
           ]
         },
         {
