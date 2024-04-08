@@ -26,7 +26,6 @@
 
     display: flex;
     flex-wrap: wrap;
-    margin-inline: calc(var(--offset) * -1);
 
     &.e-grid-gutters-ext.e-grid-gutters-vertical [class^='col'],
     &.e-grid-gutters-int.e-grid-gutters-vertical [class^='col'] {
@@ -109,6 +108,14 @@
     position: relative;
     width: 100%;
     padding-inline: var(--offset);
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
   }
 
   .col {
