@@ -83,7 +83,8 @@
               }
             ],
             "loader": {
-              ".html": "text"
+              ".html": "text",
+              ".css": "text"
             },
             "styles": ["src/styles.scss"],
             "scripts": ["../../node_modules/@elvia/elvis/elvis.js"],

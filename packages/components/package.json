@@ -10,8 +10,8 @@
     "test:coverage": "jest --coverage --colors"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.3",
-    "@babel/preset-env": "^7.24.3",
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
     "@testing-library/dom": "9.3.3",
@@ -35,12 +35,12 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "resize-observer-polyfill": "^1.5.1",
-    "sass": "^1.72.0",
-    "sass-embedded": "^1.72.0",
+    "sass": "^1.74.1",
+    "sass-embedded": "^1.74.1",
     "styled-components": "^5.3.3",
     "tiny-glob": "^0.2.9",
-    "tsx": "^4.7.1",
-    "typescript": "~5.4.3",
+    "tsx": "^4.7.2",
+    "typescript": "~5.4.4",
     "typescript-plugin-css-modules": "^5.1.0",
     "typescript-plugin-styled-components": "^3.0.0"
   }

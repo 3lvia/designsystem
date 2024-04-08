@@ -26,11 +26,11 @@
   "devDependencies": {
     "@types/gulp": "^4.0.17",
     "@types/gulp-svgmin": "^1.2.4",
-    "@types/node": "^20.12.3",
+    "@types/node": "^20.12.5",
     "gulp": "^5.0.0",
     "gulp-svgmin": "^4.1.0",
     "sharp": "^0.33.3",
     "ts-node": "^10.9.2",
-    "typescript": "~5.4.3"
+    "typescript": "~5.4.4"
   }
 }

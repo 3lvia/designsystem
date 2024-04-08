@@ -754,6 +754,15 @@ export const docPagesNotFromCMS: DocPage[] = [
     status: DocPageStatus.Done,
   },
   {
+    title: 'Empty States',
+    docUrl: Pages.EmptyStates,
+    absolutePath: '/patterns/' + Pages.EmptyStates,
+    description:
+      'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=0%3A1',
+    status: DocPageStatus.Done,
+  },
+  {
     title: 'Get started',
     description: `We are an open-source design system to be used for Elvia’s external and internal systems to provide a
     comprehensive and user-friendly experience. We offer classes, variables and components, as well as tools

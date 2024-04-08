@@ -19,7 +19,9 @@
           @if (currentRoute === 'brand') {
             <app-locale-picker class="e-mb-16 e-justify-content-end" />
           }
-          <app-mobile-navbar />
+          @if (currentRoute !== 'components') {
+            <app-mobile-navbar />
+          }
         </div>
       }
     </ng-container>

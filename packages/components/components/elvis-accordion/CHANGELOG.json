@@ -3,6 +3,18 @@
   "name": "elvis-accordion",
   "content": [
     {
+      "date": "05.04.24",
+      "version": "3.2.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The accordion will not correctly be open on initial render when the <code>isOpen</code> prop is set to <code>true</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.02.24",
       "version": "3.2.1",
       "changelog": [
