@@ -1,11 +1,25 @@
-:host {
+.illustration-exhibit-filter {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 32px;
 
   .e-form-field {
     flex: 1;
-    min-width: 250px;
+    min-width: 200px;
   }
+}
+.local-theme-switch-toggles {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.local-theme-switch-toggles-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  width: min(100%, max-content);
 }
