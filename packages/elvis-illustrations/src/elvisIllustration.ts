@@ -1,4 +1,4 @@
-import { convertStringToIllustrationColor, type IllustrationColor } from './colors';
+import { type IllustrationColor, convertStringToIllustrationColor } from './colors';
 
 export class ElvisIllustration extends HTMLElement {
   static readonly observedAttributes = ['color'];
@@ -40,7 +40,8 @@ export class ElvisIllustration extends HTMLElement {
   }
 
   private updateClassList() {
-    this.wrapper?.classList.remove('grey', 'purple', 'green', 'blue', 'orange');
-    this.wrapper?.classList.add(this.color);
+    const svgElement = this.wrapper?.querySelector('svg');
+    svgElement?.classList.remove('grey', 'purple', 'green', 'blue', 'orange');
+    svgElement?.classList.add(this.color);
   }
 }
