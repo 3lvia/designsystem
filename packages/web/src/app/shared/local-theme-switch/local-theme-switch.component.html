@@ -1,0 +1,18 @@
+<elvia-segmented-control
+  [type]="'icon'"
+  [size]="'medium'"
+  [items]="[
+    {
+      icon: '<i class=\'e-icon e-icon--light_theme\'></i>',
+      iconSelected: '<i class=\'e-icon e-icon--light_theme\'></i>',
+      ariaLabel: 'Lyst tema'
+    },
+    {
+      icon: '<i class=\'e-icon e-icon--dark_theme\'></i>',
+      iconSelected: '<i class=\'e-icon e-icon--dark_theme\'></i>',
+      ariaLabel: 'Mørkt tema'
+    }
+  ]"
+  (valueOnChange)="handleThemeChange($any($event))"
+  [value]="theme() === 'dark' ? 1 : 0"
+/>
