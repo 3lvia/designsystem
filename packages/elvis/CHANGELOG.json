@@ -4,7 +4,7 @@
   "content": [
     {
       "version": "17.0.0",
-      "date": "April x, 2024",
+      "date": "April 8, 2024",
       "changelog": [
         {
           "type": "breaking_changes",
@@ -13,12 +13,18 @@
             "Removed the `.container` Bootstrap class, along with Bootstrap utility classes for flexbox, margins and paddings."
           ],
           "fixes": [
-            "Most of the Bootstrap classes has been reimplemented, and should work like before. The exception is that we have removed the Bootstrap classes for container, flexbox, padding and margins. We already have utility classes for this, which should be used instead. If your application uses a lot of undocumented Bootstrap classes, please consider installing Bootstrap temporarily until you have migrated to the Elvis utility classes successfully."
+            "Most Bootstrap classes have been reimplemented and should work like before. The exception is that we have removed the Bootstrap classes for container, flexbox, padding and margins. We already have utility classes for this, which should be used instead. If your application uses a lot of undocumented Bootstrap classes, please consider installing Bootstrap temporarily until you have migrated to the Elvis utility classes successfully."
           ],
           "pages": [
             { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "version": "16.4.1",
+      "date": "March 19, 2024",
+      "changelog": [
         {
           "type": "bug_fix",
           "changes": [
