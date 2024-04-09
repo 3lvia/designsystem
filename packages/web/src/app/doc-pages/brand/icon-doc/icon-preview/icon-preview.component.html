@@ -8,16 +8,18 @@
   }"
 >
   @for (icon of visibleIcons; track icon.title; let i = $index) {
-    <button
-      class="icon-card"
-      [ngClass]="{ selected: selectedIcon()?.title === icon.title }"
-      (click)="selectedIcon.set(icon)"
-    >
-      <i [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" aria-hidden="true"></i>
-      <span class="e-text-sm e-text-center">
-        {{ icon.pretty }}
-      </span>
-    </button>
+    <div class="icon-container">
+      <button
+        class="icon-card"
+        [ngClass]="{ selected: selectedIcon()?.title === icon.title }"
+        (click)="selectedIcon.set(icon)"
+      >
+        <i [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" aria-hidden="true"></i>
+        <span class="e-text-sm e-text-center">
+          {{ icon.pretty }}
+        </span>
+      </button>
+    </div>
   } @empty {
     <div class="no-results">
       <p class="e-m-0">
