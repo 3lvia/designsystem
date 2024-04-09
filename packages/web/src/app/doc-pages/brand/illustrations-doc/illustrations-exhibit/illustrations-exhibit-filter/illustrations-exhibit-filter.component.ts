@@ -24,7 +24,9 @@ export class IllustrationsExhibitFilterComponent {
   searchValue = toSignal(this.illustrationExhibitService.searchValue);
   colorFilterValue = toSignal(this.illustrationExhibitService.colorValue);
   locale = toSignal(inject(LocalizationService).listenLocalization());
-  theme = toSignal(this.illustrationExhibitService.theme);
+  theme = toSignal(this.illustrationExhibitService.theme, {
+    initialValue: 'light',
+  });
 
   readonly colorFilters = [
     { label: 'Grey', value: 'grey' },

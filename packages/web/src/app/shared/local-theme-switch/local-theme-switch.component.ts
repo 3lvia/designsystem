@@ -10,7 +10,7 @@ import { Theme } from 'src/app/core/services/theme.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LocalThemeSwitchComponent {
-  theme = model<Theme | undefined>('light');
+  theme = model<Theme>('light');
 
   protected handleThemeChange = (event: CustomEvent<{ value: number }>) => {
     const newTheme = event.detail.value;
