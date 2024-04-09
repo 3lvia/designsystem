@@ -33,25 +33,14 @@
       padding-block: var(--offset) !important;
     }
 
-    @include breakpoints.breakpoint-up(MaxDesktop) {
-      &.e-grid-gutters-ext {
-        --offset: 28px;
-      }
+    @include breakpoints.lt-mobile() {
+      &.e-grid-gutters-ext,
       &.e-grid-gutters-int {
-        --offset: 12px;
+        --offset: 8px;
       }
     }
 
-    @include breakpoints.breakpoint-up(MinDesktop) {
-      &.e-grid-gutters-ext {
-        --offset: 28px;
-      }
-      &.e-grid-gutters-int {
-        --offset: 12px;
-      }
-    }
-
-    @include breakpoints.breakpoint-up(Tablet) {
+    @include breakpoints.gt-mobile() {
       &.e-grid-gutters-ext {
         --offset: 16px;
       }
@@ -60,10 +49,21 @@
       }
     }
 
-    @include breakpoints.breakpoint-up(Mobile) {
-      &.e-grid-gutters-ext,
+    @include breakpoints.gt-tablet() {
+      &.e-grid-gutters-ext {
+        --offset: 28px;
+      }
       &.e-grid-gutters-int {
-        --offset: 8px;
+        --offset: 12px;
+      }
+    }
+
+    @include breakpoints.gt-desktop() {
+      &.e-grid-gutters-ext {
+        --offset: 28px;
+      }
+      &.e-grid-gutters-int {
+        --offset: 12px;
       }
     }
   }
@@ -107,30 +107,30 @@
   // generate CSS for max desktop, then min desktop, then tablet
   // and finally mobile, because of specificity.
   @for $i from 1 through 12 {
-    @include breakpoints.breakpoint-up(MaxDesktop) {
-      @include create-breakpoint-classes($i, xl-);
-    }
+    @include create-breakpoint-classes($i);
   }
 
   @for $i from 1 through 12 {
-    @include breakpoints.breakpoint-up(MinDesktop) {
-      @include create-breakpoint-classes($i, lg-);
-    }
-  }
-
-  @for $i from 1 through 12 {
-    @include breakpoints.breakpoint-up(Tablet) {
-      @include create-breakpoint-classes($i, md-);
-    }
-  }
-
-  @for $i from 1 through 12 {
-    @include breakpoints.breakpoint-up(Mobile) {
+    @include breakpoints.lt-mobile() {
       @include create-breakpoint-classes($i, sm-);
     }
   }
 
   @for $i from 1 through 12 {
-    @include create-breakpoint-classes($i);
+    @include breakpoints.gt-mobile() {
+      @include create-breakpoint-classes($i, md-);
+    }
+  }
+
+  @for $i from 1 through 12 {
+    @include breakpoints.gt-tablet() {
+      @include create-breakpoint-classes($i, lg-);
+    }
+  }
+
+  @for $i from 1 through 12 {
+    @include breakpoints.gt-desktop() {
+      @include create-breakpoint-classes($i, xl-);
+    }
   }
 }
