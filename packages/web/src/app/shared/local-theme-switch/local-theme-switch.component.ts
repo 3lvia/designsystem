@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, input, model, output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, model } from '@angular/core';
 
 import { Theme } from 'src/app/core/services/theme.service';
 
