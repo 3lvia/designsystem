@@ -1,24 +1,6 @@
 @use '../../../shared/shared-animations';
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
-$maxIconContainer: 600px;
-$maxIconContainerMobile: 450px;
-
-.sizes-container {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  margin: 0 -16px;
-
-  .sizes-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 16px;
-  }
-}
-
 .doDontIcons {
   display: flex;
   flex-direction: row;
