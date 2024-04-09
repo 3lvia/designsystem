@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ViewEncapsulation, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Option } from '@elvia/elvis-radio-filter/react';
 
@@ -17,7 +17,6 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
   templateUrl: './illustrations-exhibit-filter.component.html',
   styleUrl: './illustrations-exhibit-filter.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  encapsulation: ViewEncapsulation.None,
 })
 export class IllustrationsExhibitFilterComponent {
   private illustrationExhibitService = inject(IllustrationsExhibitService);

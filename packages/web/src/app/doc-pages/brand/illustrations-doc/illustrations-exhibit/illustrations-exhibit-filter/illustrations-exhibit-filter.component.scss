@@ -1,4 +1,4 @@
-.illustration-exhibit-filter {
+:host {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,12 +14,4 @@
   display: flex;
   justify-content: space-between;
   gap: 32px;
-}
-
-.local-theme-switch-toggles-mobile {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-
-  width: min(100%, max-content);
 }
