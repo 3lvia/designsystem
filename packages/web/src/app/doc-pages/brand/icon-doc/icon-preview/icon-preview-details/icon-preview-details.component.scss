@@ -1,0 +1,63 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+:host {
+  background: var(--e-color-background-element-4);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 32px;
+  padding: 32px;
+  position: relative;
+  z-index: 100;
+
+  border: 1px solid var(--e-color-border-selected-1);
+  border-radius: 8px;
+  box-shadow: var(--e-shadow-soft);
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    border-radius: 0;
+    border-width: 0;
+    border-top-width: 1px;
+  }
+
+  .info {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: none;
+    @include breakpoints.breakpoint-up(Mobile) {
+      display: block;
+    }
+  }
+}

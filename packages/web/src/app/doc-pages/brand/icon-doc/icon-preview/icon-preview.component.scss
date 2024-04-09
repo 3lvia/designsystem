@@ -1,0 +1,86 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
+
+.icons {
+  --container-height: 600px;
+  --padding-y: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-rows: auto;
+  gap: 8px;
+
+  padding: var(--padding-y) 8px;
+  border: 1px solid var(--e-color-border-2);
+  border-radius: 8px;
+  transition: background-color 500ms ease-in-out;
+
+  max-height: var(--container-height);
+  height: var(--container-height);
+  overflow-y: auto;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    --container-height: 450px;
+  }
+
+  &:has(> .no-results) {
+    align-items: flex-start;
+    grid-template-columns: unset;
+  }
+
+  .icon-card {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+    padding: 16px 8px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: border-color 200ms ease-in-out;
+
+    &.selected {
+      border-color: var(--e-color-border-selected-1);
+    }
+
+    cursor: pointer;
+    .e-icon {
+      transition: transform 300ms ease-in-out;
+    }
+    &:hover .e-icon {
+      transform: scale(1.15);
+    }
+
+    span {
+      text-wrap: balance;
+    }
+  }
+}
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 72px;
+  margin-top: 104px;
+  text-align: center;
+  @include breakpoints.breakpoint-up(Mobile) {
+    margin: 0 8px;
+    margin-top: 72px;
+  }
+}
+
+app-icon-preview-details {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 32px);
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    width: 100vw;
+    max-width: 100vw;
+    bottom: 0;
+  }
+}

@@ -5,6 +5,8 @@ import { Theme } from 'src/app/core/services/theme.service';
 import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/local-theme-switch.component';
 import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewport-size.directive';
 
+export type FilterValue = 'all' | 'outline' | 'filled' | 'colored';
+
 @Component({
   selector: 'app-icon-preview-filter',
   standalone: true,
@@ -15,10 +17,10 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
 })
 export class IconPreviewFilterComponent {
   term = model('');
-  filter = model('all');
+  filter = model<FilterValue>('all');
   theme = model<Theme>('light');
 
-  protected filterItems = [
+  protected filterItems: { label: string; value: FilterValue }[] = [
     { label: 'All', value: 'all' },
     { label: 'Outline', value: 'outline' },
     { label: 'Filled', value: 'filled' },
