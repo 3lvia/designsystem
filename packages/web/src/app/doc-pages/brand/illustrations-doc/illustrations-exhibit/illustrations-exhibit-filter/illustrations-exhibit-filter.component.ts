@@ -50,7 +50,7 @@ export class IllustrationsExhibitFilterComponent {
     this.illustrationExhibitService.setSearchValue('');
   };
 
-  handleNewTheme = (theme?: Theme) => {
-    theme && this.illustrationExhibitService.setTheme(theme);
+  handleNewTheme = (theme: Theme) => {
+    this.illustrationExhibitService.setTheme(theme);
   };
 }
