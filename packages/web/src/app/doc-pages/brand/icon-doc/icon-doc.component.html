@@ -82,7 +82,10 @@
     <div class="icon-accordion-container">
       <div
         class="overview-icons-container e-color-background-1"
-        [ngClass]="{ 'e-theme-dark': iconPreviewTheme === 'dark' }"
+        [ngClass]="{
+          'e-theme-dark': iconPreviewTheme === 'dark',
+          'e-theme-light': iconPreviewTheme === 'light'
+        }"
         #icons
       >
         @for (icon of visibleIcons | iconSearchPipe: term; track icon; let i = $index) {
