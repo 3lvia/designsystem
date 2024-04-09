@@ -1,16 +1,16 @@
 <div class="illustration">
-  <i [ngClass]="['e-icon', 'e-icon--' + selectedIcon().title]" aria-hidden="true"></i>
+  <i [ngClass]="['e-icon', 'e-icon--' + selectedIcon()?.title]" aria-hidden="true"></i>
 </div>
 
 <div class="info">
   <div class="text">
-    <h3 class="e-text-md-strong e-m-0">{{ selectedIcon().pretty }}</h3>
+    <h3 class="e-text-md-strong e-m-0">{{ selectedIcon()?.pretty }}</h3>
     <span class="e-text-sm e-color-text-2 e-none-sm"
-      >e-icon e-icon--{{ selectedIcon().title }} e-icon--sm</span
+      >e-icon e-icon--{{ selectedIcon()?.title }} e-icon--sm</span
     >
   </div>
   <div class="actions">
-    <app-copy [message]="'e-icon e-icon--' + selectedIcon().title + ' e-icon--sm'">
+    <app-copy [message]="'e-icon e-icon--' + selectedIcon()?.title + ' e-icon--sm'">
       <button class="e-btn e-btn--tertiary e-btn--sm">
         <span class="e-btn__icon">
           <i class="e-icon e-icon--copy" aria-hidden="true"> </i>
@@ -21,7 +21,7 @@
     <a
       class="e-btn e-btn--tertiary e-btn--sm"
       download
-      [href]="'/assets/elvis/icons/svg/dist/' + selectedIcon().title + '.svg'"
+      [href]="'/assets/elvis/icons/svg/dist/' + selectedIcon()?.title + '.svg'"
     >
       <span class="e-btn__icon">
         <i class="e-icon e-icon--download" aria-hidden="true"> </i>
@@ -31,7 +31,7 @@
     <a
       class="e-btn e-btn--tertiary e-btn--sm"
       download
-      [href]="'/assets/elvis/icons/png/dist/' + selectedIcon().title + '.png'"
+      [href]="'/assets/elvis/icons/png/dist/' + selectedIcon()?.title + '.png'"
     >
       <span class="e-btn__icon">
         <i class="e-icon e-icon--download" aria-hidden="true"> </i>
@@ -41,7 +41,11 @@
   </div>
 </div>
 
-<button class="e-btn e-btn--icon e-btn--sm close-button" aria-label="Close detail panel">
+<button
+  class="e-btn e-btn--icon e-btn--sm close-button"
+  aria-label="Close detail panel"
+  (click)="selectedIcon.set(null)"
+>
   <span class="e-btn__icon">
     <i class="e-icon e-icon--close" aria-hidden="true"> </i>
   </span>

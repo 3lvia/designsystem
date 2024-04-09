@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, model, output } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { Icon } from '../utils';
@@ -14,7 +14,7 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   styleUrl: './icon-preview-details.component.scss',
 })
 export class IconPreviewDetailsComponent {
-  selectedIcon = input.required<Icon>();
+  selectedIcon = model.required<Icon | null>();
 
   locale = toSignal(inject(LocalizationService).listenLocalization());
 }

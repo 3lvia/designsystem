@@ -33,5 +33,5 @@
 </div>
 
 @if (selectedIcon()) {
-  <app-icon-preview-details [selectedIcon]="selectedIcon()!" @entranceAnimation />
+  <app-icon-preview-details [(selectedIcon)]="selectedIcon" @entranceAnimation />
 }
