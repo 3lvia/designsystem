@@ -5,7 +5,6 @@ import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 import { IllustrationsGeneratorComponent } from '../illustrations-generator/illustrations-generator.component';
 import { createPngBlob, createSvgBlobFromElement } from './imageDownloadUtils';
 import { LocalizationService } from 'src/app/core/services/localization.service';
-import { ThemeService } from 'src/app/core/services/theme.service';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
@@ -22,7 +21,7 @@ export class IllustrationsExhibitDetailsComponent {
   selectedIllustration = toSignal(this.illustrationExhibitService.selectedIllustration);
   colorValue = toSignal(this.illustrationExhibitService.colorValue);
   locale = toSignal(inject(LocalizationService).listenLocalization());
-  private theme = toSignal(inject(ThemeService).listenTheme());
+  private theme = toSignal(this.illustrationExhibitService.theme);
 
   get importString() {
     return `@elvia/illustrations/${this.selectedIllustration()}`;

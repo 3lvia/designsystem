@@ -48,7 +48,7 @@ export class IllustrationsExhibitComponent {
         filter(
           (event) =>
             !(event.target as HTMLElement)?.closest(
-              'app-illustrations-exhibit-details, .illustration-example, elvia-radio-filter',
+              'app-illustrations-exhibit-details, .illustration-example, elvia-radio-filter, elvia-segmented-control',
             ),
         ),
       )

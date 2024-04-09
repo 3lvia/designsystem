@@ -1,17 +1,26 @@
 :host {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: 32px;
+  flex-wrap: wrap;
 
   .e-form-field {
     flex: 1;
     min-width: 200px;
+    margin-top: -28px;
+  }
+
+  .dark-mode-toggle {
+    margin-left: auto;
   }
 }
-.local-theme-switch-toggles {
+
+.filters {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   gap: 32px;
 }
