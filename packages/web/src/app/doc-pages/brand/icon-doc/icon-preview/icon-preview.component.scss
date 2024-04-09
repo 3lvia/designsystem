@@ -44,6 +44,7 @@
     border: 1px solid transparent;
     border-radius: 8px;
     transition: border-color 200ms ease-in-out;
+    cursor: pointer;
 
     &.selected {
       border-color: var(--e-color-border-selected-1);
