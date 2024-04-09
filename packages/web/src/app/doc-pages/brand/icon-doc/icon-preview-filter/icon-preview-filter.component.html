@@ -15,12 +15,7 @@
 
 <div class="filters e-none-sm">
   <elvia-radio-filter
-    [items]="[
-      { label: 'All', value: 'all' },
-      { label: 'Outline', value: 'outline' },
-      { label: 'Filled', value: 'filled' },
-      { label: 'Two colored', value: 'colored' }
-    ]"
+    [items]="filterItems"
     [value]="filter()"
     [name]="'iconRadioFilters'"
     [inlineStyle]="{ flexWrap: 'noWrap' }"
@@ -34,12 +29,7 @@
     <div class="e-mb-16">
       <span class="e-text-md-strong">Filter</span>
       <elvia-radio-filter
-        [items]="[
-          { label: 'All', value: 'all' },
-          { label: 'Outline', value: 'outline' },
-          { label: 'Filled', value: 'filled' },
-          { label: 'Two colored', value: 'colored' }
-        ]"
+        [items]="filterItems"
         [value]="filter()"
         [name]="'iconRadioFilters'"
         [inlineStyle]="{ flexWrap: 'noWrap' }"

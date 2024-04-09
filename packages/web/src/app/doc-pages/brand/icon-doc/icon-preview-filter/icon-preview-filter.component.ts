@@ -17,4 +17,11 @@ export class IconPreviewFilterComponent {
   term = model('');
   filter = model('all');
   theme = model<Theme>('light');
+
+  protected filterItems = [
+    { label: 'All', value: 'all' },
+    { label: 'Outline', value: 'outline' },
+    { label: 'Filled', value: 'filled' },
+    { label: 'Two colored', value: 'colored' },
+  ];
 }
