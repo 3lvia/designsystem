@@ -10,16 +10,13 @@
         locale() === 'en-GB' ? 'Search through all illustrations' : 'Søk gjennom alle illustrasjoner'
       "
     />
-    <button
-      class="e-btn e-btn--icon"
-      [ngClass]="{ 'e-invisible': !(searchValue() ?? '').length }"
-      (click)="handleClearSearch()"
-      aria-label="Clear search field"
-    >
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--close" aria-hidden="true"> </i>
-      </span>
-    </button>
+    @if (searchValue()) {
+      <button class="e-btn e-btn--icon" (click)="handleClearSearch()" aria-label="Clear search field">
+        <span class="e-btn__icon">
+          <i class="e-icon e-icon--close" aria-hidden="true"> </i>
+        </span>
+      </button>
+    }
   </div>
 </div>
 <div class="local-theme-switch-toggles e-none-sm">
