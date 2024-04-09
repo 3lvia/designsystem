@@ -19,11 +19,11 @@
 }
 
 .e-grid {
+  --offset: 24px;
   box-sizing: border-box;
+  padding-inline: var(--offset);
 
   .row {
-    --offset: 24px;
-
     display: flex;
     flex-wrap: wrap;
     margin-inline: calc(var(--offset) * -1);
@@ -31,40 +31,6 @@
     &.e-grid-gutters-ext.e-grid-gutters-vertical [class^='col'],
     &.e-grid-gutters-int.e-grid-gutters-vertical [class^='col'] {
       padding-block: var(--offset) !important;
-    }
-
-    @include breakpoints.lt-mobile() {
-      &.e-grid-gutters-ext,
-      &.e-grid-gutters-int {
-        --offset: 8px;
-      }
-    }
-
-    @include breakpoints.gt-mobile() {
-      &.e-grid-gutters-ext {
-        --offset: 16px;
-      }
-      &.e-grid-gutters-int {
-        --offset: 12px;
-      }
-    }
-
-    @include breakpoints.gt-tablet() {
-      &.e-grid-gutters-ext {
-        --offset: 28px;
-      }
-      &.e-grid-gutters-int {
-        --offset: 12px;
-      }
-    }
-
-    @include breakpoints.gt-desktop() {
-      &.e-grid-gutters-ext {
-        --offset: 28px;
-      }
-      &.e-grid-gutters-int {
-        --offset: 12px;
-      }
     }
   }
 
@@ -84,14 +50,6 @@
     position: relative;
     width: 100%;
     padding-inline: var(--offset);
-
-    // &:first-of-type {
-    //   padding-left: 0;
-    // }
-
-    // &:last-of-type {
-    //   padding-right: 0;
-    // }
   }
 
   .col {
@@ -103,9 +61,7 @@
   }
 
   // Create a bunch of classes within the 12 column grid
-  // The order of these matter. It's important that we first
-  // generate CSS for max desktop, then min desktop, then tablet
-  // and finally mobile, because of specificity.
+  // The order of these matter, because of specificity.
   @for $i from 1 through 12 {
     @include create-breakpoint-classes($i);
   }
@@ -131,6 +87,40 @@
   @for $i from 1 through 12 {
     @include breakpoints.gt-desktop() {
       @include create-breakpoint-classes($i, xl-);
+    }
+  }
+
+  @include breakpoints.lt-mobile() {
+    &:has(.e-grid-gutters-ext),
+    &:has(.e-grid-gutters-int) {
+      --offset: 8px;
+    }
+  }
+
+  @include breakpoints.gt-mobile() {
+    &:has(.e-grid-gutters-ext) {
+      --offset: 16px;
+    }
+    &:has(.e-grid-gutters-int) {
+      --offset: 12px;
+    }
+  }
+
+  @include breakpoints.gt-tablet() {
+    &:has(.e-grid-gutters-ext) {
+      --offset: 28px;
+    }
+    &:has(.e-grid-gutters-int) {
+      --offset: 12px;
+    }
+  }
+
+  @include breakpoints.gt-desktop() {
+    &:has(.e-grid-gutters-ext) {
+      --offset: 28px;
+    }
+    &:has(.e-grid-gutters-int) {
+      --offset: 12px;
     }
   }
 }

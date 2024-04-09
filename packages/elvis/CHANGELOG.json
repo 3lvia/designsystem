@@ -13,7 +13,8 @@
             "Removed the <code>.container</code> Bootstrap class, along with Bootstrap utility classes for flexbox, margins and paddings.",
             "Removed the CSS classes <code>.e-grid-margin-int</code> and <code>.e-grid-margin-ext</code> since they are not used in any Elvia projects.",
             "Removed negative margins from the <code>.row</code> class. If you have compensated for this in your project, your layout may change.",
-            "Scoped down all CSS selectors for grid layouts. They will now only work within a <code>.e-grid</code> container."
+            "Scoped down all CSS selectors for grid layouts. They will now only work within a <code>.e-grid</code> container.",
+            "Added inline padding to the class <code>.e-grid</code>."
           ],
           "fixes": [
             "Most Bootstrap classes have been reimplemented and should work like before. The exception is the changes mentioned in this changelog.",
