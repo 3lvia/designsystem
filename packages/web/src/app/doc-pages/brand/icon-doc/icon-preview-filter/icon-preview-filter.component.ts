@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, effect, output, signal } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Theme } from 'src/app/core/services/theme.service';
@@ -14,22 +14,7 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconPreviewFilterComponent {
-  searchChange = output<string>();
-  filterChange = output<string>();
-  themeChange = output<Theme>();
-  protected term = signal('');
-  protected filter = signal('all');
-  protected theme = signal<Theme>('light');
-
-  constructor() {
-    effect(() => {
-      this.searchChange.emit(this.term());
-    });
-    effect(() => {
-      this.filterChange.emit(this.filter());
-    });
-    effect(() => {
-      this.themeChange.emit(this.theme());
-    });
-  }
+  term = model('');
+  filter = model('all');
+  theme = model<Theme>('light');
 }

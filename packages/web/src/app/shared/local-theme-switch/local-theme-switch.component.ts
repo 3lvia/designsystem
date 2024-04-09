@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, input, output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input, model, output } from '@angular/core';
 
 import { Theme } from 'src/app/core/services/theme.service';
 
@@ -10,16 +10,15 @@ import { Theme } from 'src/app/core/services/theme.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LocalThemeSwitchComponent {
-  themeChange = output<Theme>();
-  theme = input<Theme>();
+  theme = model<Theme | undefined>('light');
 
   protected handleThemeChange = (event: CustomEvent<{ value: number }>) => {
     const newTheme = event.detail.value;
     if (newTheme === 0) {
-      this.themeChange.emit('light');
+      this.theme.set('light');
     }
     if (newTheme === 1) {
-      this.themeChange.emit('dark');
+      this.theme.set('dark');
     }
   };
 }

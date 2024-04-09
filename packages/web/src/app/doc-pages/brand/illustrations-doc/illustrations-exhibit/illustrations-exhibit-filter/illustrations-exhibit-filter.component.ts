@@ -1,4 +1,4 @@
-import { CommonModule, NgClass, NgTemplateOutlet } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ViewEncapsulation, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Option } from '@elvia/elvis-radio-filter/react';
@@ -48,7 +48,7 @@ export class IllustrationsExhibitFilterComponent {
     this.illustrationExhibitService.setSearchValue('');
   };
 
-  handleNewTheme = (theme: Theme) => {
-    this.illustrationExhibitService.setTheme(theme);
+  handleNewTheme = (theme?: Theme) => {
+    theme && this.illustrationExhibitService.setTheme(theme);
   };
 }
