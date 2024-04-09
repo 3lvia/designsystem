@@ -42,6 +42,7 @@
         ]"
         [value]="filter()"
         [name]="'iconRadioFilters'"
+        [inlineStyle]="{ flexWrap: 'noWrap' }"
         (valueOnChange)="filter.set($any($event).detail.value)"
       />
     </div>
