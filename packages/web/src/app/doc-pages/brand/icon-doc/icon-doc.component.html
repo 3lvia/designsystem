@@ -74,38 +74,17 @@
 <div class="page-body">
   <!--ICONS PREVIEW-->
   <app-component-subsection>
-    <div class="overview-search-container">
-      <div class="e-form-field">
-        <label class="e-form-field__label" for="searchIcons">Search</label>
-        <div class="e-input">
-          <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
-          <input id="searchIcons" type="text" placeholder="Search through all icons" [(ngModel)]="term" />
-          @if (term.length > 0) {
-            <button class="e-btn e-btn--icon" (click)="removeSearch()" aria-label="Empty search field">
-              <span class="e-btn__icon">
-                <i class="e-icon e-icon--close" aria-hidden="true" aria-hidden="true"></i>
-              </span>
-            </button>
-          }
-        </div>
-      </div>
-
-      <elvia-radio-filter
-        [items]="[
-          { label: 'All', value: 'all' },
-          { label: 'Outline', value: 'outline' },
-          { label: 'Filled', value: 'filled' },
-          { label: 'Two colored', value: 'colored' }
-        ]"
-        [value]="'all'"
-        [name]="'iconRadioFilters'"
-        [inlineStyle]="{ flexWrap: 'noWrap' }"
-        [className]="'icons-doc-radio-filter'"
-        (valueOnChange)="selectFilter($any($event).detail.value)"
-      ></elvia-radio-filter>
-    </div>
+    <app-icon-preview-filter
+      (searchChange)="term = $event"
+      (filterChange)="selectFilter($event)"
+      (themeChange)="iconPreviewTheme = $event"
+    />
     <div class="icon-accordion-container">
-      <div class="overview-icons-container" #icons>
+      <div
+        class="overview-icons-container e-color-background-1"
+        [ngClass]="{ 'e-theme-dark': iconPreviewTheme === 'dark' }"
+        #icons
+      >
         @for (icon of visibleIcons | iconSearchPipe: term; track icon; let i = $index) {
           <div [class.margin-auto]="icon === -1">
             @if (icon === -1) {

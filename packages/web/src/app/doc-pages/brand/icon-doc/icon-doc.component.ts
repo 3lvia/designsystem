@@ -31,10 +31,12 @@ import { CopyComponent } from '../../../shared/copy/copy.component';
 import { IconCegComponent } from './icon-ceg/icon-ceg.component';
 import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
 import { elvisIconData } from './icon-data';
+import { IconPreviewFilterComponent } from './icon-preview-filter/icon-preview-filter.component';
 import { IconSearchPipe } from './icon-search.pipe';
 import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
 import { Icon } from './icon.interface';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { Theme } from 'src/app/core/services/theme.service';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 type IconArray = { pretty: string; title: string; terms: string[] }[];
@@ -63,6 +65,7 @@ type IconArray = { pretty: string; title: string; terms: string[] }[];
     ComponentPropertiesTableComponent,
     ComponentChangelogComponent,
     IconSearchPipe,
+    IconPreviewFilterComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
@@ -91,6 +94,7 @@ export class IconDocComponent implements OnInit {
 
   term = '';
   IconClassList: Icon[] = [];
+  iconPreviewTheme: Theme = 'light';
 
   constructor(
     private titleService: Title,
@@ -130,10 +134,6 @@ export class IconDocComponent implements OnInit {
       (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
     );
   };
-
-  removeSearch(): void {
-    this.term = '';
-  }
 
   private getShortIconName(iconName: string): string {
     const short = iconName.split(/[-_]/).join(' ');
