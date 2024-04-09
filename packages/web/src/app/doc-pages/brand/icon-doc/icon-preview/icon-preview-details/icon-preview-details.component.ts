@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, input, model, output } from '@angular/core';
+import { Component, inject, model } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { Icon } from '../utils';
