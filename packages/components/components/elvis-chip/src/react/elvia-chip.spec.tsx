@@ -1,7 +1,8 @@
-import { test, expect } from '@playwright/experimental-ct-react';
 import percySnapshot from '@percy/playwright';
-import { Chip } from '../../react';
+import { expect, test } from '@playwright/experimental-ct-react';
 import React from 'react';
+
+import { Chip } from '../../react';
 
 test.use({ viewport: { width: 130, height: 70 } });
 

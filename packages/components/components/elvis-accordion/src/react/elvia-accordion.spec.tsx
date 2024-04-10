@@ -1,7 +1,8 @@
-import { test, expect } from '@playwright/experimental-ct-react';
 import percySnapshot from '@percy/playwright';
-import { Accordion } from '../../react';
+import { expect, test } from '@playwright/experimental-ct-react';
 import React from 'react';
+
+import { Accordion } from '../../react';
 
 test.use({ viewport: { width: 500, height: 150 } });
 
