@@ -31,14 +31,6 @@ export default defineConfig({
   testIgnore: [/\.test\.ts(x?)/],
   testMatch: ['*spec.ts', '*spec.tsx'],
 
-  /* Rename snapshot images to not contain OS (so the same images can be used in CI and locally, even though that is bad practice) */
-  snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{testName}{-projectName}{ext}',
-  expect: {
-    toHaveScreenshot: {
-      maxDiffPixelRatio: process.env.CI ? 0.02 : 0,
-    },
-  },
-
   /* Configure projects for major browsers */
   projects: [
     {
