@@ -1,5 +1,4 @@
 //DEPRECATED
-@use '../utilities/helpers';
 @use '../utilities/mixins';
 
 .e-stepper {
@@ -152,12 +151,10 @@
       &.e-stepper__step--active ~ .e-stepper__step,
       &.e-stepper__step--active-done ~ .e-stepper__step {
         .e-stepper__step-number {
-          @include helpers.hover() {
-            &:hover {
-              border-color: var(--e-light-theme-grey-30);
-              color: var(--e-light-theme-grey-30);
-              cursor: not-allowed;
-            }
+          &:hover {
+            border-color: var(--e-light-theme-grey-30);
+            color: var(--e-light-theme-grey-30);
+            cursor: not-allowed;
           }
         }
 
@@ -198,7 +195,7 @@
   .e-stepper__step.e-stepper__step--done {
     .e-stepper__step-number {
       @extend %checkbox-mark;
-      @include helpers.user-select(none);
+      user-select: none;
       border-color: black;
       background: black;
       color: transparent;
@@ -212,7 +209,7 @@
   .e-stepper__step.e-stepper__step--active-done {
     .e-stepper__step-number {
       @extend %checkbox-mark;
-      @include helpers.user-select(none);
+      user-select: none;
       border-color: var(--e-color-brand-accent);
       background: black;
       color: transparent;
@@ -241,8 +238,8 @@
   position: relative;
 
   &::before {
-    @include helpers.transform(translateX(10px) rotate(-43deg));
-    @include helpers.transform-origin(left bottom);
+    transform: translateX(10px) rotate(-43deg);
+    transform-origin: left bottom;
     position: absolute;
     top: 12px;
     left: 2px;
@@ -254,8 +251,8 @@
   }
 
   &::after {
-    @include helpers.transform(translateX(10px) rotate(43deg));
-    @include helpers.transform-origin(left bottom);
+    transform: translateX(10px) rotate(43deg);
+    transform-origin: left bottom;
     position: absolute;
     top: 4px;
     left: 1px;

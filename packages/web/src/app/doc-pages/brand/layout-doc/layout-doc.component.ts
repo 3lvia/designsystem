@@ -14,7 +14,6 @@ import { LayoutGuttersCegComponent } from './layout-gutters-ceg/layout-gutters-c
 import { LayoutGuttersCustomCegComponent } from './layout-gutters-custom-ceg/layout-gutters-custom-ceg.component';
 import { LayoutGuttersNoCegComponent } from './layout-gutters-no-ceg/layout-gutters-no-ceg.component';
 import { LayoutLevelsCegComponent } from './layout-levels-ceg/layout-levels-ceg.component';
-import { LayoutMarginsCegComponent } from './layout-margins-ceg/layout-margins-ceg.component';
 import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-ordering-ceg.component';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
@@ -37,7 +36,6 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
     LayoutGuttersCegComponent,
     LayoutGuttersCustomCegComponent,
     LayoutGuttersNoCegComponent,
-    LayoutMarginsCegComponent,
     RouterLink,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

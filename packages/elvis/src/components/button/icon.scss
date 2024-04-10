@@ -1,5 +1,4 @@
 @use './button-helpers.scss' as buttonHelper;
-@use '../../utilities/helpers.scss';
 @use '../../utilities/icons.scss';
 
 .e-btn.e-btn--icon {
@@ -50,7 +49,7 @@
   }
 
   @include buttonHelper.active() {
-    @include helpers.transform(scale(0.95));
+    transform: scale(0.95);
   }
 
   @include buttonHelper.disabled() {

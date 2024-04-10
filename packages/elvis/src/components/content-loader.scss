@@ -1,11 +1,9 @@
-@use '../utilities/helpers';
-
 .e-content-loader {
   display: flex;
   width: 260px;
   height: 260px;
 
-  @include helpers.keyframes(wave) {
+  @keyframes wave {
     from {
       opacity: 0.3;
     }

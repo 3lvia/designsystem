@@ -166,7 +166,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
 
   &::before,
   &::after {
-    @include helpers.transform-origin(left bottom);
+    transform-origin: left bottom;
     position: absolute;
     border-radius: 15px;
     background-color: $checkbox-mark-color;
@@ -175,7 +175,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
 }
 %checkbox-mark-checked {
   &::before {
-    @include helpers.transform(translateX(10px) rotate(-45deg));
+    transform: translateX(10px) rotate(-45deg);
     top: 12px;
     left: -2px;
     width: 2px;
@@ -184,7 +184,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 
   &::after {
-    @include helpers.transform(translateX(10px) rotate(-55deg));
+    transform: translateX(10px) rotate(-55deg);
     bottom: 3px;
     left: -1px;
     width: 0%;
@@ -194,7 +194,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
 }
 %checkbox-mark-checked-small {
   &::before {
-    @include helpers.transform(translateX(10px) rotate(-45deg));
+    transform: translateX(10px) rotate(-45deg);
     top: 50%;
     left: -28%;
     width: 1px;
@@ -203,7 +203,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 
   &::after {
-    @include helpers.transform(translateX(10px) rotate(-55deg));
+    transform: translateX(10px) rotate(-55deg);
     bottom: 15%;
     left: -28%;
     width: 0%;
@@ -254,7 +254,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
 }
 
 // Animations
-@include helpers.keyframes(checkmarkHeight) {
+@keyframes checkmarkHeight {
   0% {
     left: -31%;
     height: 0%;
@@ -266,7 +266,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 }
 
-@include helpers.keyframes(checkmarkWidth) {
+@keyframes checkmarkWidth {
   0% {
     width: 0%;
   }
@@ -276,7 +276,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 }
 
-@include helpers.keyframes(checkmarkHeightSmall) {
+@keyframes checkmarkHeightSmall {
   0% {
     left: -55%;
     height: 0%;
@@ -288,7 +288,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 }
 
-@include helpers.keyframes(checkmarkWidthSmall) {
+@keyframes checkmarkWidthSmall {
   0% {
     width: 0%;
   }
