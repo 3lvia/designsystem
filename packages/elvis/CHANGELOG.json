@@ -4,7 +4,7 @@
   "content": [
     {
       "version": "17.0.0",
-      "date": "April 8, 2024",
+      "date": "April 10, 2024",
       "changelog": [
         {
           "type": "breaking_changes",
@@ -12,16 +12,16 @@
             "Removed the dependency on <code>Bootstrap</code>, <code>jquery</code> and <code>popper.js</code>. This has been done by implementing the CSS-classes necessary to create a grid layout ourselves.",
             "Removed the <code>.container</code> Bootstrap class, along with Bootstrap utility classes for flexbox, margins and paddings.",
             "Removed the CSS classes <code>.e-grid-margin-int</code> and <code>.e-grid-margin-ext</code> since they are not used in any Elvia projects.",
-            "Removed negative margins from the <code>.row</code> class. If you have compensated for this in your project, your layout may change.",
             "Scoped down all CSS selectors for grid layouts. They will now only work within a <code>.e-grid</code> container.",
-            "Added inline padding to the class <code>.e-grid</code>."
+            "Added inline padding to the class <code>.e-grid</code> to prevent horizontal overflow."
           ],
           "fixes": [
             "Most Bootstrap classes have been reimplemented and should work like before. The exception is the changes mentioned in this changelog.",
             "The Bootstrap flexbox classes have been removed. We already have utility classes for this, which should be used instead.",
-            " If your application uses a lot of undocumented Bootstrap classes, please consider installing Bootstrap temporarily until you have migrated to the Elvis utility classes successfully."
+            "If your application uses a lot of undocumented Bootstrap classes, please consider installing Bootstrap temporarily until you have migrated to the Elvis utility classes successfully."
           ],
           "pages": [
+            { "displayName": "Layout", "url": "https://design.elvia.io/brand/layout" },
             { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
           ]
         }
