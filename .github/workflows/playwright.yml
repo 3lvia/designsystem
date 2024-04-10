@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: yarn build:tokens && yarn build:elvis && yarn build:components
       - name: Run Playwright Tests
-        run: env HOME=/root npx @percy/cli exec -- yarn test-ct
+        run: npx @percy/cli exec -- yarn test-ct
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       - uses: actions/upload-artifact@v3
