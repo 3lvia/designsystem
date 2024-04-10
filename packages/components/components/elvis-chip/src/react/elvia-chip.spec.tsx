@@ -25,5 +25,5 @@ test('should pass visual diff check', async ({ mount, page }) => {
       <Chip value="Chip" type="removable" />
     </div>,
   );
-  await percySnapshot(page, 'Choice chip');
+  await percySnapshot(page, 'Chips');
 });
