@@ -24,25 +24,25 @@ $maxdesktop-min: 1440px;
 }
 
 @mixin lt-mobile() {
-  @media (width <= #{$mobile-max}) {
+  @media (max-width: #{$mobile-max}) {
     @content;
   }
 }
 
 @mixin gt-mobile() {
-  @media (width > #{$mobile-max}) {
+  @media (min-width: #{$mobile-max + 1}) {
     @content;
   }
 }
 
 @mixin gt-tablet() {
-  @media (width > #{$tablet-max}) {
+  @media (min-width: #{$tablet-max + 1}) {
     @content;
   }
 }
 
 @mixin gt-desktop() {
-  @media (width > #{$mindesktop-max}) {
+  @media (min-width: #{$mindesktop-max + 1}) {
     @content;
   }
 }
