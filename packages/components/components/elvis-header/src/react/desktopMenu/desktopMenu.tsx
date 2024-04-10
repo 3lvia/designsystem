@@ -1,16 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { ProfileButton } from '../styledComponents';
-import { UserMenuProps } from '../elviaHeader.types';
-import {
-  Email,
-  Footer,
-  ImageContainer,
-  MenuContainer,
-  MenuHr,
-  DesktopMenuSlot,
-  UserGrid,
-  Username,
-} from './desktopMenuStyles';
+import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
 import {
   IconWrapper,
   Overlay,
@@ -18,9 +6,22 @@ import {
   useConnectedOverlay,
   useFocusTrap,
 } from '@elvia/elvis-toolbox';
-import logout from '@elvia/elvis-assets-icons/dist/icons/logout';
+import React, { useEffect, useRef } from 'react';
+
 import { ProfilePicture } from '../ProfilePicture';
+import { UserMenuProps } from '../elviaHeader.types';
+import { ProfileButton } from '../styledComponents';
 import { ThemePicker } from '../themePicker/themePicker';
+import {
+  DesktopMenuSlot,
+  Email,
+  Footer,
+  ImageContainer,
+  MenuContainer,
+  MenuHr,
+  UserGrid,
+  Username,
+} from './desktopMenuStyles';
 
 export const DesktopMenu: React.FC<UserMenuProps> = ({
   username,

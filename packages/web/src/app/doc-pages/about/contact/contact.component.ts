@@ -1,8 +1,12 @@
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { Title } from '@angular/platform-browser';
 
-export type ContactInfo = {
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+
+type ContactInfo = {
   firstName: string;
   lastName: string;
   image: string;
@@ -17,26 +21,18 @@ export type ContactInfo = {
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
+  standalone: true,
+  imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass],
 })
 export class ContactComponent {
   description = getDocPagesNotFromCMS('contact')?.description;
   title = getDocPagesNotFromCMS('contact')?.title;
   contactList: ContactInfo[] = [
     {
-      firstName: 'Kari',
-      lastName: 'Clifford',
-      image: 'assets/contact/Kari.jpg',
-      title: 'Product lead',
-      email: 'kari.clifford@elvia.no',
-      slackUrl: 'slack://user?team=TU3R0B42K&id=U03NGQQJK16',
-      emoji: '🐧',
-      loadedImg: false,
-    },
-    {
       firstName: 'Fride',
       lastName: 'Skarseth',
       image: 'assets/contact/Fride.jpg',
-      title: 'Developer',
+      title: 'Designer',
       email: 'fride.skarseth@elvia.no',
       slackUrl: 'slack://user?team=TU3R0B42K&id=U01BLN1QTHD',
       emoji: '🦙',
@@ -50,16 +46,6 @@ export class ContactComponent {
       email: 'trygve.scheline.urdahl@elvia.no',
       slackUrl: 'slack://user?team=TU3R0B42K&id=U02M1T23PJM',
       emoji: '🐐',
-      loadedImg: false,
-    },
-    {
-      firstName: 'Viljar',
-      lastName: 'Tornøe',
-      image: 'assets/contact/Viljar.png',
-      title: 'Designer',
-      email: 'viljar.tornoe@elvia.no',
-      slackUrl: 'slack://user?team=TU3R0B42K&id=U02HB13D551',
-      emoji: '🦥',
       loadedImg: false,
     },
     {

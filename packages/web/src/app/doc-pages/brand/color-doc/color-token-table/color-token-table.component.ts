@@ -1,23 +1,35 @@
-import { Component } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+
+import { ColorTokenSubtableComponent } from './color-token-subtable/color-token-subtable.component';
 import {
-  textColorsDefault,
-  textColorsState,
+  assortedColors,
   backgroundColorsDefault,
   backgroundColorsElement,
   backgroundColorsOverlay,
   backgroundColorsStates,
   borderColors,
   borderColorsStates,
-  signalColors,
   dataColors,
+  dataColors10,
+  dataColors30,
+  dataColors50,
   iconColors,
-  assortedColors,
+  illustrationColors,
+  illustrationColorsBackground,
+  illustrationColorsShade,
+  signalColors,
+  textColorsDefault,
+  textColorsState,
 } from './colors';
 
 @Component({
   selector: 'app-color-token-table',
   templateUrl: './color-token-table.component.html',
   styleUrls: ['./color-token-table.component.scss'],
+  standalone: true,
+  imports: [NgClass, ColorTokenSubtableComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorTokenTableComponent {
   textColorsDefault = textColorsDefault;
@@ -30,6 +42,12 @@ export class ColorTokenTableComponent {
   borderColorsStates = borderColorsStates;
   signalColors = signalColors;
   dataColors = dataColors;
+  dataColors50 = dataColors50;
+  dataColors30 = dataColors30;
+  dataColors10 = dataColors10;
   assortedColors = assortedColors;
   iconColors = iconColors;
+  illustrationColors = illustrationColors;
+  illustrationColorsShade = illustrationColorsShade;
+  illustrationColorsBackground = illustrationColorsBackground;
 }

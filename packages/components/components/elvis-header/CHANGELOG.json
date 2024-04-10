@@ -1,6 +1,27 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-header",
   "content": [
+    {
+      "date": "12.03.24",
+      "version": "1.9.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added OneTime (On) to the app drawer."]
+        }
+      ]
+    },
+    {
+      "date": "13.02.24",
+      "version": "1.8.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the link to FortelVia."]
+        }
+      ]
+    },
     {
       "date": "17.01.24",
       "version": "1.8.0",

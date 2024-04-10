@@ -1,15 +1,16 @@
+import chalk from 'chalk';
 import esbuild from 'esbuild';
-import dtsPlugin from './dts.plugin';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
-import writeFilesAndInjectCssPlugin from './write.plugin';
-import buildWebComponents from './web-component-build.config';
-import tinyGlob from 'tiny-glob';
+import { postcssModules, sassPlugin } from 'esbuild-sass-plugin';
 import fs from 'fs';
 import path from 'path';
-import chalk from 'chalk';
-import { toInOutTuple } from './utils';
+import tinyGlob from 'tiny-glob';
+
 import cleanDistFolders from './cleanDist';
-import { sassPlugin, postcssModules } from 'esbuild-sass-plugin';
+import dtsPlugin from './dts.plugin';
+import { toInOutTuple } from './utils';
+import buildWebComponents from './web-component-build.config';
+import writeFilesAndInjectCssPlugin from './write.plugin';
 
 interface ComponentData {
   component: string;
@@ -66,6 +67,10 @@ export const build = async () => {
 
   if (watchMode) {
     console.log('👀 Starting watch...');
+    if (process.argv.includes('--clean')) {
+      console.log('🧹 Removing old dist folders...');
+      await cleanDistFolders();
+    }
     const esBuildContext = await esbuild.context({
       ...baseConfig,
       sourcemap: true,

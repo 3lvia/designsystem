@@ -92,7 +92,7 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
   // Checked
   &.e-toggle---checked .e-toggle__input::after,
   input:checked.e-toggle__input::after {
-    @include helpers.transform(translateX(16px));
+    transform: translateX(16px);
     background: var(--e-color-background-selected-1);
   }
 
@@ -134,7 +134,7 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
   &.e-toggle---checked.e-toggle---disabled .e-toggle__input,
   input:checked:disabled.e-toggle__input {
     &::after {
-      @include helpers.transform(translateX(16px));
+      transform: translateX(16px);
       background: var(--e-toggle-checked-disabled-switch);
     }
   }

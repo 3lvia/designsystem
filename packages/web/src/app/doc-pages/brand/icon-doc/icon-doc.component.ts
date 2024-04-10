@@ -1,13 +1,43 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
-import { Icon } from './icon.interface';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { NgClass } from '@angular/common';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormsModule } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
 // @ts-ignore
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
-import { elvisIconData } from './icon-data';
-import { Title } from '@angular/platform-browser';
 import naturalCompare from 'natural-compare-lite';
+
+import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
+import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
+import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
+import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
+import { ComponentInstallationComponent } from '../../../shared/component-documentation/component-installation/component-installation.component';
+import { ComponentPropertiesTableComponent } from '../../../shared/component-documentation/component-properties-table/component-properties-table.component';
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { CopyComponent } from '../../../shared/copy/copy.component';
+import { IconCegComponent } from './icon-ceg/icon-ceg.component';
+import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
+import { elvisIconData } from './icon-data';
+import { IconPreviewFilterComponent } from './icon-preview-filter/icon-preview-filter.component';
+import { IconSearchPipe } from './icon-search.pipe';
+import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
+import { Icon } from './icon.interface';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Theme } from 'src/app/core/services/theme.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 type IconArray = { pretty: string; title: string; terms: string[] }[];
 
@@ -15,6 +45,29 @@ type IconArray = { pretty: string; title: string; terms: string[] }[];
   selector: 'app-icon-doc',
   templateUrl: './icon-doc.component.html',
   styleUrls: ['./icon-doc.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    NgClass,
+    ComponentSubsectionComponent,
+    FormsModule,
+    RouterLink,
+    CopyComponent,
+    ComponentSectionComponent,
+    StaticCegComponent,
+    IconSizesCegComponent,
+    IconColorsCegComponent,
+    ComponentSubsubsectionComponent,
+    CodeViewerComponent,
+    CegComponent,
+    IconCegComponent,
+    ComponentInstallationComponent,
+    ComponentPropertiesTableComponent,
+    ComponentChangelogComponent,
+    IconSearchPipe,
+    IconPreviewFilterComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconDocComponent implements OnInit {
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
@@ -41,6 +94,7 @@ export class IconDocComponent implements OnInit {
 
   term = '';
   IconClassList: Icon[] = [];
+  iconPreviewTheme: Theme = 'light';
 
   constructor(
     private titleService: Title,
@@ -80,10 +134,6 @@ export class IconDocComponent implements OnInit {
       (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
     );
   };
-
-  removeSearch(): void {
-    this.term = '';
-  }
 
   private getShortIconName(iconName: string): string {
     const short = iconName.split(/[-_]/).join(' ');

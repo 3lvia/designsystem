@@ -1,6 +1,17 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-chip",
   "content": [
+    {
+      "date": "08.02.24",
+      "version": "2.5.2 ",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Now using new colors from elvis-colors."]
+        }
+      ]
+    },
     {
       "date": "10.11.23",
       "version": "2.5.1",

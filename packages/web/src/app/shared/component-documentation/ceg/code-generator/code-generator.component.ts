@@ -1,12 +1,23 @@
-import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  Component,
+  Input,
+  OnInit,
+  booleanAttribute,
+  effect,
+  signal,
+} from '@angular/core';
 
-import { Tab } from './types';
-
-const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
+import { PreferredLanguageService } from '../../preferredLanguage.service';
+import { LanguageType, Tab } from '../../types';
+import { CodeViewerComponent } from './code-viewer/code-viewer.component';
 
 @Component({
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',
+  standalone: true,
+  imports: [CodeViewerComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeGeneratorComponent implements OnInit {
   @Input() angularCode = '';
@@ -22,34 +33,43 @@ export class CodeGeneratorComponent implements OnInit {
   set typeScriptCode(code: string) {
     this._typeScriptCode = code;
 
-    if (code?.length && !this.tabs.includes('Typescript')) {
-      this.tabs.push('Typescript');
-    } else if (!code?.length && this.tabs.includes('Typescript')) {
-      this.tabs.splice(this.tabs.indexOf('Typescript'), 1);
+    if (code?.length && !this.tabs().includes('Typescript')) {
+      this.tabs.update((old) => [...old, 'Typescript']);
+    } else if (!code?.length && this.tabs().includes('Typescript')) {
+      this.tabs.update((old) => old.filter((tab) => tab !== 'Typescript'));
     }
   }
 
-  activeTabIndex = localStorage.getItem(LANGUAGE_STORAGE_KEY)
-    ? parseInt(localStorage.getItem(LANGUAGE_STORAGE_KEY)!)
-    : 0;
-  tabs: Tab[] = ['Angular', 'React', 'Vue'];
+  activeTabIndex: number = 0;
+  tabs = signal<Tab[]>(['Angular', 'React', 'Vue']);
+
+  constructor(private preferredLanguageService: PreferredLanguageService) {
+    effect((cleanup) => {
+      const subscription = this.preferredLanguageService
+        .listenLanguage(this.tabs().map((tab) => tab.toLowerCase() as LanguageType))
+        .subscribe((value) => {
+          this.activeTabIndex = this.tabs().findIndex((tab) => tab.toLowerCase() === value);
+        });
+      cleanup(() => subscription.unsubscribe());
+    });
+  }
 
   ngOnInit(): void {
     if (this.hideReact) {
-      this.tabs.splice(this.tabs.indexOf('React'), 1);
+      this.tabs.update((old) => old.filter((tab) => tab !== 'React'));
     }
 
     /**
      * Prevent that no tab is selected if user navigates from a page with
      * the typescript tab selected, to a page without the typescript tab.
      */
-    if (this.activeTabIndex > this.tabs.length - 1) {
-      this.setActiveTab(this.tabs.length - 1);
+    if (this.activeTabIndex > this.tabs().length - 1) {
+      this.setActiveTab(this.tabs().length - 1);
     }
   }
 
   get activeTab() {
-    return this.tabs[this.activeTabIndex];
+    return this.tabs()[this.activeTabIndex];
   }
 
   get activeCode() {
@@ -65,7 +85,6 @@ export class CodeGeneratorComponent implements OnInit {
   }
 
   setActiveTab(newIndex: number): void {
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, newIndex.toString());
-    this.activeTabIndex = newIndex;
+    this.preferredLanguageService.setPreferredLanguage(this.tabs()[newIndex].toLowerCase() as LanguageType);
   }
 }

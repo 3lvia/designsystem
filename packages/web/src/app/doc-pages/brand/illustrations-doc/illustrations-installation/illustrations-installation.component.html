@@ -1,0 +1,72 @@
+<elvia-segmented-control
+  type="text"
+  size="large"
+  [value]="activeTabIndex"
+  [items]="tabs | tabToSegmentedControlItem"
+  (valueOnChange)="setActiveTab($any($event).detail.value)"
+/>
+
+<ol class="e-list e-list--numbers e-mt-40">
+  <li>
+    <strong>Install package</strong>
+    <div class="e-mt-8">
+      <app-copy message="npm install @elvia/elvis-illustrations">
+        <code>npm install &#64;elvia/elvis-illustrations</code>
+      </app-copy>
+      <span class="e-text-md e-m-8">or</span>
+      <app-copy message="yarn add @elvia/elvis-illustrations">
+        <code>yarn add &#64;elvia/elvis-illustrations</code>
+      </app-copy>
+    </div>
+  </li>
+  <li>
+    <strong>Import component</strong>
+    <div class="e-mt-8">
+      <app-copy message="import '@elvia/elvis-illustrations/ILLUSTRATION-NAME';">
+        <code>import '&#64;elvia/elvis-illustrations/ILLUSTRATION-NAME';</code>
+      </app-copy>
+      <div class="e-text-md e-mt-8">
+        <strong>NB!</strong> The component should only be imported once, e.g. in the main.ts file.
+      </div>
+    </div>
+  </li>
+  <li>
+    <strong>Use in HTML</strong>
+    <div class="e-mt-8">
+      <app-copy
+        message="&lt;elvia-illustrations-ILLUSTRATION-NAME&gt;&lt;/elvia-illustrations-ILLUSTRATION-NAME&gt;"
+      >
+        <code
+          >&lt;elvia-illustrations-ILLUSTRATION-NAME&gt;&lt;/elvia-illustrations-ILLUSTRATION-NAME&gt;</code
+        >
+      </app-copy>
+    </div>
+  </li>
+  @if (activeTabIndex() === 0) {
+    <li @heightAnimation>
+      <strong>Import schemas</strong>
+      <div class="e-mt-8">
+        <app-copy message="import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';">
+          <code>import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';</code>
+        </app-copy>
+      </div>
+      <div class="e-mt-8">
+        <app-copy message="schemas: [ CUSTOM_ELEMENTS_SCHEMA ]">
+          <code>schemas: [ CUSTOM_ELEMENTS_SCHEMA ]</code>
+        </app-copy>
+      </div>
+    </li>
+  }
+</ol>
+@if (activeTabIndex() === 1) {
+  <div class="e-alert e-alert--info e-mt-16" role="note" @heightAnimation>
+    <div class="e-alert__icon">
+      <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
+    </div>
+    <div class="e-alert__content">
+      <div class="e-alert__text">
+        The illustration component is only available as a web component, even in React.
+      </div>
+    </div>
+  </div>
+}

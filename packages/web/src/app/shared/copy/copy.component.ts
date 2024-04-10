@@ -1,10 +1,14 @@
-import { Component, Input, ViewEncapsulation, booleanAttribute } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, ViewEncapsulation, booleanAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-copy',
   templateUrl: './copy.component.html',
   styleUrls: ['./copy.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CopyComponent {
   @Input() message = '';

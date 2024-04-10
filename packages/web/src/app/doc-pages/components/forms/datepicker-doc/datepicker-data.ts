@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-datepicker/CHANGELOG.json';
-import ComponentData from '../../component-data.interface';
 import { DatepickerProps } from '@elvia/elvis-datepicker/react';
+
+import ComponentData from '../../component-data.interface';
 
 const datepickerData: ComponentData<Omit<DatepickerProps, 'dateRangeProps' | 'onFocus'>> = {
   changelog: changelogJson.content,
@@ -11,13 +12,13 @@ const datepickerData: ComponentData<Omit<DatepickerProps, 'dateRangeProps' | 'on
       description: 'Preselected date.',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: Date) => void',
       description:
         'Gets called every time the value is changed. Returns null if input field is empty, or Invalid Date if input is not a valid date.',
     },
     valueOnChangeISOString: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: string | null) => void',
       description: `Gets called every time the value is changed. Returns a string containing the chosen date, without time, in ISO format (e.g. '2022-06-20'), or null if no date is selected.`,
     },
@@ -65,17 +66,17 @@ const datepickerData: ComponentData<Omit<DatepickerProps, 'dateRangeProps' | 'on
       description: 'Makes dates after the provided maximum date disabled.',
     },
     onOpen: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the datepicker is being opened.',
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the datepicker is being closed.',
     },
     onReset: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the datepicker reset button is clicked.',
     },
@@ -121,7 +122,7 @@ const datepickerData: ComponentData<Omit<DatepickerProps, 'dateRangeProps' | 'on
       },
     },
     errorOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(error: string) => void',
       description: 'Gets called every time the internal date validation error is changed. ',
     },

@@ -1,27 +1,17 @@
-import { Component } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ThemeName } from '@elvia/elvis-colors';
-import { ThemeService } from 'src/app/core/services/theme.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss'],
+  standalone: true,
+  imports: [RouterLink],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ErrorComponent {
-  currentTheme: ThemeName = 'light';
-
-  constructor(
-    private titleService: Title,
-    private themeService: ThemeService,
-  ) {
-    this.themeService
-      .listenTheme()
-      .pipe(takeUntilDestroyed())
-      .subscribe((theme) => {
-        this.currentTheme = theme;
-      });
+  constructor(private titleService: Title) {
     this.titleService.setTitle('404: Not Found | Elvia design system');
   }
 }

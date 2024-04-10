@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { ErrorType } from './publicApi.public';
 
 import { padDigit } from './padDigit';
+import { ErrorType } from './publicApi.public';
 import { Input } from './styledComponents';
 import { getFormattedInputValue } from './timeHelpers';
 

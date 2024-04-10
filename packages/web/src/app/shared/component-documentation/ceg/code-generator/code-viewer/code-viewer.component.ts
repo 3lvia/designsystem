@@ -1,12 +1,35 @@
-import { Component, EventEmitter, Input, Output, booleanAttribute } from '@angular/core';
-import { Language, Tab } from '../types';
+import { AsyncPipe } from '@angular/common';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  booleanAttribute,
+} from '@angular/core';
+
+import { IfViewportSizeDirective } from '../../../../viewport-size/if-viewport-size.directive';
+import { TabToSegmentedControlItemPipe } from '../../../tabToSegmentedControlItem.pipe';
+import { Tab } from '../../../types';
 import { FormatCodePipe } from '../formatCode.pipe';
+import { HighlighterPipe } from '../highlighter.pipe';
+import { Language } from '../types';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
   selector: 'app-code-viewer',
   templateUrl: './code-viewer.component.html',
   styleUrls: ['./code-viewer.component.scss'],
+  standalone: true,
+  imports: [
+    IfViewportSizeDirective,
+    AsyncPipe,
+    TabToSegmentedControlItemPipe,
+    FormatCodePipe,
+    HighlighterPipe,
+  ],
+  providers: [FormatCodePipe, HighlighterPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeViewerComponent {
   @Input() tabs: Tab[] = ['HTML'];

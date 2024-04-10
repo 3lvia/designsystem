@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { BaseBadgeProps } from '@elvia/elvis-badge/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-badge-ceg',
   templateUrl: './badge-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: BadgeCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BadgeCegComponent implements ComponentExample {
   elementName = 'badge';

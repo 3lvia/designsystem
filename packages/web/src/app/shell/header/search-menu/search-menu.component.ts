@@ -1,5 +1,8 @@
+import { CdkTrapFocus } from '@angular/cdk/a11y';
+import { AsyncPipe, NgClass } from '@angular/common';
 import {
   AfterViewInit,
+  CUSTOM_ELEMENTS_SCHEMA,
   Component,
   ElementRef,
   EventEmitter,
@@ -8,22 +11,28 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
-import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { SearchStatus, SearchItem } from './search-menu.interface';
-import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { SearchResult, Searcher } from 'src/app/shared/searcher';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+import { SearchHighlighterPipe } from '../../../shared/search-highlighter.pipe';
+import { SearchItem, SearchStatus } from './search-menu.interface';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
+import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
+import { componentsDocPages, docPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { SearchResult, Searcher } from 'src/app/shared/searcher';
 
 @Component({
   selector: 'app-search-menu',
   templateUrl: './search-menu.component.html',
   styleUrls: ['./search-menu.component.scss'],
+  standalone: true,
+  imports: [CdkTrapFocus, FormsModule, NgClass, RouterLink, AsyncPipe, SearchHighlighterPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchMenuComponent implements OnInit, AfterViewInit {
   @ViewChild('searchInput') searchInputElement: ElementRef<HTMLInputElement>;

@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-context-menu/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseContextMenuProps } from '@elvia/elvis-context-menu/react';
+
+import ComponentData from '../component-data.interface';
 
 const contextMenuData: ComponentData<BaseContextMenuProps> = {
   changelog: changelogJson.content,
@@ -37,12 +38,12 @@ const contextMenuData: ComponentData<BaseContextMenuProps> = {
         display = "flex";`,
     },
     onOpen: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the context menu is opened.',
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the context menu is closed.',
     },

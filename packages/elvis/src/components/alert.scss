@@ -1,7 +1,6 @@
 @use '../utilities/mixins';
 @use '../utilities/icons.scss';
 @use '../utilities/breakpoints';
-@use '../utilities/helpers';
 
 $local-padding: 22px 30px 22px 22px; // -2px for border;
 $local-mobile-padding: 14px; // -2px for border;
@@ -148,13 +147,13 @@ $global-mobile-notitle-padding: 14px; // -2px border
           margin-left: 24px;
           animation: rotate-center-forward 0.2s ease-in-out both;
 
-          @include helpers.keyframes(rotate-center-forward) {
+          @keyframes rotate-center-forward {
             0% {
-              @include helpers.transform(rotate(180deg));
+              transform: rotate(180deg);
             }
 
             100% {
-              @include helpers.transform(rotate(0));
+              transform: rotate(0);
             }
           }
 
@@ -192,13 +191,13 @@ $global-mobile-notitle-padding: 14px; // -2px border
       &.e-alert--open {
         .e-alert__accordion {
           animation: rotate-center-back 0.2s ease-in-out both;
-          @include helpers.keyframes(rotate-center-back) {
+          @keyframes rotate-center-back {
             0% {
-              @include helpers.transform(rotate(0));
+              transform: rotate(0);
             }
 
             100% {
-              @include helpers.transform(rotate(180deg));
+              transform: rotate(180deg);
             }
           }
         }
@@ -299,7 +298,8 @@ $global-mobile-notitle-padding: 14px; // -2px border
   }
 
   // NO TITLE
-  &.e-alert--no-title {
+  &.e-alert--no-title, //deprecated
+  &:not(:has(.e-alert__title)) {
     &.e-alert--global {
       @include breakpoints.breakpoint-up(Mobile) {
         padding: $global-mobile-notitle-padding;

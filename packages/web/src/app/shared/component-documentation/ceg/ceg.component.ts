@@ -1,3 +1,5 @@
+import { AsyncPipe, Location, NgClass } from '@angular/common';
+import { HttpParams } from '@angular/common/http';
 import {
   AfterContentInit,
   AfterViewInit,
@@ -10,15 +12,18 @@ import {
   ViewChild,
   booleanAttribute,
 } from '@angular/core';
-import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { ComponentExample } from './component-example';
-import { Controls, ControlValue, SlotVisibility } from './controlType';
 import { ActivatedRoute } from '@angular/router';
+import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
+
+import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
+import { ComponentExample } from './component-example';
+import { ControlValue, Controls, SlotVisibility } from './controlType';
+import { ControlsPopoverComponent } from './controls-popover/controls-popover.component';
+import { ControlsComponent } from './controls/controls.component';
+import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
 import { TypescriptComponentExample } from './typescript-component-example';
-import { HttpParams } from '@angular/common/http';
-import { Location } from '@angular/common';
 
 interface Slot {
   name: string;
@@ -34,6 +39,15 @@ interface SlotMap {
   selector: 'app-ceg',
   templateUrl: './ceg.component.html',
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
+  standalone: true,
+  imports: [
+    TypeSwitcherComponent,
+    NgClass,
+    ControlsPopoverComponent,
+    ControlsComponent,
+    DynamicCodeGeneratorComponent,
+    AsyncPipe,
+  ],
 })
 export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   @Input({ transform: booleanAttribute }) fullWidth = false;

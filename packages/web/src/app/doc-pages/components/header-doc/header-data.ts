@@ -1,8 +1,9 @@
 import changelogJson from '@elvia/elvis-header/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
-import { HeaderProps } from '@elvia/elvis-header/react';
+import { HeaderFunctions, HeaderProps } from '@elvia/elvis-header/react';
 
-export const headerData: ComponentData<HeaderProps> = {
+import ComponentData from '../component-data.interface';
+
+export const headerData: ComponentData<HeaderProps | HeaderFunctions> = {
   changelog: changelogJson.content,
   name: 'Header',
   attributes: {
@@ -47,19 +48,24 @@ export const headerData: ComponentData<HeaderProps> = {
       description: 'Hides the theme switch in the profile menu if set to true.',
     },
     onLogoClick: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'An event that is triggered when the Elvia logo is clicked.',
     },
     onSignOutClick: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'An event that is triggered when the sign out button is clicked.',
     },
     onThemeChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(theme: Theme) => void',
       description: 'An event that is triggered when the theme is switched.',
+    },
+    getCurrentTheme: {
+      specialType: 'function',
+      type: "() => 'light' | 'dark' ",
+      description: 'A function that tells you what the current theme is.',
     },
   },
 };

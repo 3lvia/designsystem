@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-card/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseCardProps } from '@elvia/elvis-card/react';
+
+import ComponentData from '../component-data.interface';
 
 const cardData: ComponentData<BaseCardProps> = {
   changelog: changelogJson.content,

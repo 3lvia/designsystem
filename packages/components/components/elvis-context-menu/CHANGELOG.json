@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-context-menu",
   "content": [
     {
       "date": "14.12.23",

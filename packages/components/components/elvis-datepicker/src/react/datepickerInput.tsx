@@ -8,9 +8,9 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { formatDate, isSameDay } from './dateHelpers';
-import { ErrorType } from './elviaDatepicker.types';
 
+import { formatDate, isSameDay, isValidDate } from './dateHelpers';
+import { ErrorType } from './elviaDatepicker.types';
 import { Input } from './styledComponents';
 import { validateDate } from './validateDate';
 
@@ -100,10 +100,23 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
       const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
         (ev.nativeEvent as InputEvent).inputType,
       );
+      const isPaste = (ev.nativeEvent as InputEvent).inputType === 'insertFromPaste';
 
       const newInputValue = ev.target.value;
       if (isModifierKey) {
         setInputValue(newInputValue);
+      } else if (isPaste) {
+        const [day, month, year] = newInputValue.split('.');
+        if (isNaN(parseInt(day)) || isNaN(parseInt(month)) || isNaN(parseInt(year))) {
+          return;
+        }
+        const error = validateDate({
+          inputValue: { day: parseInt(day), month: parseInt(month), year: parseInt(year) },
+        });
+
+        if (error === 'valid') {
+          setInputValue(newInputValue);
+        }
       } else {
         if (inputValue.length === 10 && !hasSelectedText) {
           return;
@@ -115,8 +128,8 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
     };
 
     const emitNewValue = (newValue: Date | null): void => {
-      if (!isSameDay(newValue, date) && newValue !== date) {
-        onChange(newValue);
+      if (!isSameDay(newValue, date) && newValue != date) {
+        onChange(isValidDate(newValue) ? newValue : null);
       }
     };
 
@@ -157,13 +170,11 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
       }
 
       const [day, month, year] = inputValue.split('.');
-      const isValid = validateInputValue(parseInt(day), parseInt(month), parseInt(year));
+      validateInputValue(parseInt(day), parseInt(month), parseInt(year));
 
-      if (isValid) {
-        const newValue = new Date(date ? date : new Date());
-        newValue.setFullYear(+year, +month - 1, +day);
-        emitNewValue(newValue);
-      }
+      const newValue = new Date(date ? date : new Date());
+      newValue.setFullYear(+year, +month - 1, +day);
+      emitNewValue(newValue);
     };
 
     const getFormattedInputValue = (date?: Date | null): string => {

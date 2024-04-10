@@ -1,84 +1,99 @@
 <div class="page-body feedback-container" #feedbackContainer>
   <div class="feedback-inner-container">
     <!--CHOOSE EMOJI-->
-    <div class="emoji-section" *ngIf="isEmoji">
-      <div class="text-section">
-        <div class="text-title e-text-md">Feed us feedback! What do you think?</div>
-        <div class="e-text-sm">
-          All feedback is good feedback. We are always eager to make it better for everyone to use, so let’s
-          just keep it real.
+    @if (isEmoji) {
+      <div class="emoji-section">
+        <div class="text-section">
+          <div class="text-title e-text-md">Feed us feedback! What do you think?</div>
+          <div class="e-text-sm">
+            All feedback is good feedback. We are always eager to make it better for everyone to use, so let’s
+            just keep it real.
+          </div>
+        </div>
+        <div class="emojis">
+          <div class="section" (click)="chooseEmoji('bad')">
+            <button class="emoji e-mb-16" aria-label="bad">
+              <app-emoji-bad />
+            </button>
+            <div class="e-text-sm">Bad</div>
+          </div>
+          <div class="section" (click)="chooseEmoji('neutral')">
+            <button class="emoji e-mb-16" aria-label="neutral">
+              <app-emoji-neutral />
+            </button>
+            <div class="e-text-sm">Neutral</div>
+          </div>
+          <div class="section" (click)="chooseEmoji('good')">
+            <button class="emoji e-mb-16" aria-label="good">
+              <app-emoji-good />
+            </button>
+            <div class="e-text-sm">Good</div>
+          </div>
         </div>
       </div>
-      <div class="emojis">
-        <div class="section" (click)="chooseEmoji('bad')">
-          <button class="emoji e-mb-16" aria-label="bad">
-            <app-emoji-bad />
-          </button>
-          <div class="e-text-sm">Bad</div>
-        </div>
-        <div class="section" (click)="chooseEmoji('neutral')">
-          <button class="emoji e-mb-16" aria-label="neutral">
-            <app-emoji-neutral />
-          </button>
-          <div class="e-text-sm">Neutral</div>
-        </div>
-        <div class="section" (click)="chooseEmoji('good')">
-          <button class="emoji e-mb-16" aria-label="good">
-            <app-emoji-good />
-          </button>
-          <div class="e-text-sm">Good</div>
-        </div>
-      </div>
-    </div>
+    }
     <!--COMMENT-->
-    <div class="comment-section" *ngIf="isComment">
-      <div class="top">
-        <div class="left">
-          <button class="e-btn e-btn--tertiary" (click)="resetFeedback()">
-            <span class="e-btn__icon">
-              <i class="e-icon e-icon--arrow_left" aria-hidden="true"></i>
-            </span>
-            <span class="e-btn__title">Back</span>
-          </button>
-        </div>
-        <div class="center">
-          <div class="emoji-chosen" *ngIf="currentEmoji === 'good'">
-            <app-emoji-good />
-            <div class="e-text-lg e-ml-8" style="font-weight: 500">Good</div>
+    @if (isComment) {
+      <div class="comment-section">
+        <div class="top">
+          <div class="left">
+            <button class="e-btn e-btn--tertiary" (click)="resetFeedback()">
+              <span class="e-btn__icon">
+                <i class="e-icon e-icon--arrow_left" aria-hidden="true"></i>
+              </span>
+              <span class="e-btn__title">Back</span>
+            </button>
           </div>
-          <div class="emoji-chosen" *ngIf="currentEmoji === 'neutral'">
-            <app-emoji-neutral />
-            <div class="e-text-lg e-ml-8" style="font-weight: 500">Neutral</div>
+          <div class="center">
+            @if (currentEmoji === 'good') {
+              <div class="emoji-chosen">
+                <app-emoji-good />
+                <div class="e-text-lg e-ml-8" style="font-weight: 500">Good</div>
+              </div>
+            }
+            @if (currentEmoji === 'neutral') {
+              <div class="emoji-chosen">
+                <app-emoji-neutral />
+                <div class="e-text-lg e-ml-8" style="font-weight: 500">Neutral</div>
+              </div>
+            }
+            @if (currentEmoji === 'bad') {
+              <div class="emoji-chosen">
+                <app-emoji-bad />
+                <div class="e-text-lg e-ml-8" style="font-weight: 500">Bad</div>
+              </div>
+            }
           </div>
-          <div class="emoji-chosen" *ngIf="currentEmoji === 'bad'">
-            <app-emoji-bad />
-            <div class="e-text-lg e-ml-8" style="font-weight: 500">Bad</div>
+          <div class="right"></div>
+        </div>
+        @if (currentEmoji !== 'bad') {
+          <div class="e-text-md">Want to add a comment to your feedback?</div>
+        }
+        @if (currentEmoji === 'bad') {
+          <div class="e-text-md">
+            Sorry to hear you did not find it helpful. Would you like to tell us why?
+          </div>
+        }
+        <div class="e-form-field e-mt-24">
+          <label class="e-form-field__label" for="textarea">
+            Comment
+            <span class="e-color-text-2" style="font-weight: 400">(optional)</span>
+          </label>
+          <div class="e-input">
+            <textarea #commentTextArea id="textarea" type="text"></textarea>
           </div>
         </div>
-        <div class="right"></div>
-      </div>
-
-      <div class="e-text-md" *ngIf="currentEmoji !== 'bad'">Want to add a comment to your feedback?</div>
-      <div class="e-text-md" *ngIf="currentEmoji === 'bad'">
-        Sorry to hear you did not find it helpful. Would you like to tell us why?
-      </div>
-      <div class="e-form-field e-mt-24">
-        <label class="e-form-field__label" for="textarea">
-          Comment
-          <span class="e-color-text-2" style="font-weight: 400">(optional)</span>
-        </label>
-        <div class="e-input">
-          <textarea #commentTextArea id="textarea" type="text"></textarea>
+        <div class="e-mt-24">
+          <button class="e-btn" (click)="sendFeedback(commentTextArea.value)">Submit</button>
         </div>
       </div>
-      <div class="e-mt-24">
-        <button class="e-btn" (click)="sendFeedback(commentTextArea.value)">Submit</button>
-      </div>
-    </div>
+    }
     <!--THANKS-->
-    <div class="thanks-section" *ngIf="isSent">
-      <i class="e-icon e-icon--check_circle-filled-color" aria-hidden="true"></i>
-      <p class="e-m-0 e-mt-16 e-text-md-strong">Thanks for your feedback!</p>
-    </div>
+    @if (isSent) {
+      <div class="thanks-section">
+        <i class="e-icon e-icon--check_circle-filled-color" aria-hidden="true"></i>
+        <p class="e-m-0 e-mt-16 e-text-md-strong">Thanks for your feedback!</p>
+      </div>
+    }
   </div>
 </div>

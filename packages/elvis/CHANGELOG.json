@@ -1,5 +1,144 @@
 {
+  "$schema": "../components/changelogSchema.json",
+  "name": "elvis",
   "content": [
+    {
+      "version": "17.0.0",
+      "date": "April 10, 2024",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Removed the dependency on <code>Bootstrap</code>, <code>jquery</code> and <code>popper.js</code>. This has been done by implementing the CSS-classes necessary to create a grid layout ourselves.",
+            "Removed the <code>.container</code> Bootstrap class, along with Bootstrap utility classes for flexbox, margins and paddings.",
+            "Removed the CSS classes <code>.e-grid-margin-int</code> and <code>.e-grid-margin-ext</code> since they are not used in any Elvia projects.",
+            "Scoped down all CSS selectors for grid layouts. They will now only work within a <code>.e-grid</code> container.",
+            "Added inline padding to the class <code>.e-grid</code> to prevent horizontal overflow."
+          ],
+          "fixes": [
+            "Most Bootstrap classes have been reimplemented and should work like before. The exception is the changes mentioned in this changelog.",
+            "The Bootstrap flexbox classes have been removed. We already have utility classes for this, which should be used instead.",
+            "If your application uses a lot of undocumented Bootstrap classes, please consider installing Bootstrap temporarily until you have migrated to the Elvis utility classes successfully."
+          ],
+          "pages": [
+            { "displayName": "Layout", "url": "https://design.elvia.io/brand/layout" },
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "16.4.1",
+      "date": "March 19, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the color of the input text in <code>.e-form-field--small</code> when they are disabled and read only."
+          ],
+          "pages": [{ "displayName": "Input", "url": "https://design.elvia.io/brand/input" }]
+        }
+      ]
+    },
+    {
+      "version": "16.4.0",
+      "date": "March 11, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new utility classes for text-wrap."],
+          "pages": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "16.3.0",
+      "date": "March 07, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added support for suffix in text fields."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
+      "version": "16.2.2",
+      "date": "February 21, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Deprecated the <code>.e-alert--no-title</code> class. Its styles are now automatically applied using the <code>:has()</code> selector."
+          ],
+          "pages": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Corrected the height of an empty error placeholder for the text fields."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
+      "version": "16.2.1",
+      "date": "February 16, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the dark theme color for <code>illustration-background-1</code>."],
+          "pages": [{ "displayName": "Color", "url": "https://design.elvia.io/brand/color" }]
+        }
+      ]
+    },
+    {
+      "version": "16.2.0",
+      "date": "February 16, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new icons <code>person_add</code> and <code>share</code>."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/brand/icon" }]
+        }
+      ]
+    },
+    {
+      "version": "16.1.1",
+      "date": "February 15, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Uses new purpose token color <code>background-readonly-1</code> in ready-only text field and text area."
+          ],
+          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/brand/input" }]
+        }
+      ]
+    },
+    {
+      "version": "16.1.0",
+      "date": "February 8, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new color css variables for illustrations."],
+          "pages": [{ "displayName": "Color", "url": "https://design.elvia.io/brand/color" }]
+        }
+      ]
+    },
+    {
+      "version": "16.0.3",
+      "date": "February 6, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed an issue where circled buttons in text fields would be misaligned."],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
     {
       "version": "16.0.2",
       "date": "February 5, 2024",

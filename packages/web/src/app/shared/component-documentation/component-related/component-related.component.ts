@@ -1,12 +1,18 @@
-import { Component, Input } from '@angular/core';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { DocPageName } from '../../shared.enum';
+import { AsyncPipe } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
 import { getDocPage } from '../../doc-pages';
+import { DocPageName } from '../../shared.enum';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
 
 @Component({
   selector: 'app-component-related',
   templateUrl: './component-related.component.html',
   styleUrls: ['./component-related.component.scss'],
+  standalone: true,
+  imports: [RouterLink, AsyncPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentRelatedComponent {
   @Input({ required: true }) relatedPages: DocPageName[];

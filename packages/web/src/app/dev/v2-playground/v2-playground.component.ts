@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { openElviaToast } from '@elvia/elvis-toast';
-import { dropdownData } from './dropdown-data';
 import type { DropdownItem } from '@elvia/elvis-dropdown';
+import { openElviaToast } from '@elvia/elvis-toast';
+
+import { dropdownData } from './dropdown-data';
 
 interface StepState {
   heading: string;
@@ -16,6 +18,9 @@ interface StepStates {
   selector: 'app-v2-playground',
   templateUrl: './v2-playground.component.html',
   styleUrls: ['./v2-playground.component.scss'],
+  standalone: true,
+  imports: [NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {
   //her
@@ -141,7 +146,8 @@ export class v2PlaygroundComponent {
     { value: 'danmark', label: 'Danmark' },
     {
       value: 'finland',
-      label: 'Finland  med en veldig lang tekst som kommer til å overflowe',
+      label:
+        'Finland  med en veldig lang tekst som kommer til å overflowe overflowe overflowe overflowe som kommer til å overflowe overflowe overflowe overflowe som kommer til å overflowe overflowe overflowe overflowe',
     },
     { value: 'spania', label: 'Spania' },
     { value: 'tyskland', label: 'Tyskland' },
@@ -153,6 +159,34 @@ export class v2PlaygroundComponent {
       //   { value: 'manchester', label: 'Manchester' },
       //   { value: 'birmingham', label: 'Birmingham' },
       // ],
+    },
+  ];
+
+  dropdownImageItems = [
+    {
+      value: 'mats',
+      label: 'Mats',
+      icon: '<img src="assets/dropdown/images/mats.png" class="e-dropdown__image" width="32" height="32">',
+    },
+    {
+      value: 'peder',
+      label: 'Peder',
+      icon: '<img src="assets/dropdown/images/peder.png" class="e-dropdown__image" width="32" height="32">',
+    },
+    {
+      value: 'katrine',
+      label: 'Katrine',
+      icon: '<img src="assets/dropdown/images/katrine.png" class="e-dropdown__image" width="32" height="32">',
+    },
+    {
+      value: 'sofie',
+      label: 'Sofie',
+      icon: '<img src="assets/dropdown/images/sofie.png" class="e-dropdown__image" width="32" height="32">',
+    },
+    {
+      value: 'trine',
+      label: 'Trine Marie',
+      icon: '<img src="assets/dropdown/images/trine.png" class="e-dropdown__image" width="32" height="32">',
     },
   ];
 

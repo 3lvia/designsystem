@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-divider/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseDividerProps } from '@elvia/elvis-divider/react';
+
+import ComponentData from '../component-data.interface';
 
 export const dividerData: ComponentData<BaseDividerProps> = {
   changelog: changelogJson.content,

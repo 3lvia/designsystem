@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-modal/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseModalProps } from '@elvia/elvis-modal/react';
+
+import ComponentData from '../component-data.interface';
 
 const modalData: ComponentData<BaseModalProps> = {
   changelog: changelogJson.content,
@@ -61,7 +62,7 @@ const modalData: ComponentData<BaseModalProps> = {
       default: 'false',
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       isRequired: true,
       type: '() => void',
       description: 'Callback for every time the modal is being closed.',

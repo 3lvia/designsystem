@@ -1,14 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { format } from 'prettier/standalone';
-import pluginHtml from 'prettier/plugins/html';
 import pluginBabel from 'prettier/plugins/babel';
-import pluginTypescript from 'prettier/plugins/typescript';
-import pluginPostCss from 'prettier/plugins/postcss';
 import pluginEstree from 'prettier/plugins/estree';
+import pluginHtml from 'prettier/plugins/html';
+import pluginPostCss from 'prettier/plugins/postcss';
+import pluginTypescript from 'prettier/plugins/typescript';
+import { format } from 'prettier/standalone';
+
 import { Language } from './types';
 
 @Pipe({
   name: 'formatCode',
+  standalone: true,
 })
 export class FormatCodePipe implements PipeTransform {
   async transform(code: string, language: Language): Promise<string> {

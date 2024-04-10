@@ -1,20 +1,21 @@
-import React, { FC, useRef, useEffect, useState } from 'react';
+import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
+import { IconWrapper, useIsOverflowing } from '@elvia/elvis-toolbox';
+import { Tooltip } from '@elvia/elvis-tooltip/react';
+import React, { FC, useEffect, useRef, useState } from 'react';
+
 import { CardProps } from './elvia-card.types';
 import {
   CardArea,
-  CardContent,
-  CardHeading,
-  CardDescription,
-  CardIcon,
   CardColoredLine,
-  CardTag,
-  CardHoverArrow,
-  CardCornerIcon,
   CardColoredLineContainer,
+  CardContent,
+  CardCornerIcon,
+  CardDescription,
+  CardHeading,
+  CardHoverArrow,
+  CardIcon,
+  CardTag,
 } from './styledComponents';
-import { useIsOverflowing, IconWrapper } from '@elvia/elvis-toolbox';
-import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
-import { Tooltip } from '@elvia/elvis-tooltip/react';
 
 export const Card: FC<CardProps> = function ({
   icon,

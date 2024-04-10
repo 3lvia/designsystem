@@ -1,14 +1,15 @@
+import { useBreakpoint } from '@elvia/elvis-toolbox';
 import React, { FC, useMemo } from 'react';
+
 import { BetweenPageNumbers } from './BetweenPageNumbers';
+import { FirstPageNumber, LastPageNumber } from './PageElement';
 import {
   maxVisiblePageNumbers,
   maxVisiblePageNumbersSm,
   visibleDotsBreakingPoint,
   visibleDotsBreakingPointSm,
 } from './constants';
-import { FirstPageNumber, LastPageNumber } from './PageElement';
 import { PaginatorDots, PaginatorNumbersArea } from './styledComponents';
-import { useBreakpoint } from '@elvia/elvis-toolbox';
 
 interface PaginatorNumbersAndDotsProps {
   numberOfPages: number;

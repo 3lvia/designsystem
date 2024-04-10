@@ -1,0 +1,32 @@
+{
+  "name": "@elvia/elvis-illustrations",
+  "version": "1.2.1",
+  "description": "Elvia illustrations",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./CHANGELOG.json": "./CHANGELOG.json",
+    "./*": "./dist/*.js"
+  },
+  "scripts": {
+    "build": "tsx ./build/esbuild.config.ts",
+    "start": "tsx ./build/esbuild.config.ts --watch"
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "@elvia/elvis": ">=16.2.1"
+  },
+  "peerDependenciesMeta": {
+    "@elvia/elvis": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "chalk": "^5.3.0",
+    "esbuild": "^0.20.2",
+    "svgo": "^3.2.0",
+    "tsx": "^4.7.2"
+  }
+}

@@ -1,23 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { OverlayContainer } from './popup/overlayContainer';
-import { TimepickerProps } from './elviaTimepicker.types';
-import { ChangeType, ErrorType } from './publicApi.public';
+import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
 import {
+  ErrorOptions,
+  FormFieldContainer,
+  FormFieldInputContainer,
+  FormFieldLabel,
+  IconButton,
+  IconWrapper,
   useConnectedOverlay,
   useFocusTrap,
-  IconButton,
-  FormFieldContainer,
-  FormFieldLabel,
-  FormFieldInputContainer,
-  IconWrapper,
-  ErrorOptions,
   useUpdateEffect,
 } from '@elvia/elvis-toolbox';
-import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
-import { TimepickerInput } from './timepickerInput';
+import React, { useEffect, useRef, useState } from 'react';
+
+import { TimepickerProps } from './elviaTimepicker.types';
 import { TimepickerError } from './error/timepickerError';
 import { getErrorText } from './getErrorText';
+import { OverlayContainer } from './popup/overlayContainer';
+import { ChangeType, ErrorType } from './publicApi.public';
 import { isAfter, isBefore } from './timeHelpers';
+import { TimepickerInput } from './timepickerInput';
 
 const defaultErrorOptions = {
   hideText: false,

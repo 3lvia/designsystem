@@ -12,6 +12,8 @@
   height: var(--header-height);
   padding-inline: 32px;
   box-sizing: border-box;
+  max-width: var(--max-desktop-width);
+  margin: auto;
 
   @include breakpoints.breakpoint-up(Tablet) {
     padding-inline: 24px;

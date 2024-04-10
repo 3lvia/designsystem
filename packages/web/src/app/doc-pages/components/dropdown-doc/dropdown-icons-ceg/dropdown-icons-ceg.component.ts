@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
-import * as template from 'html-loader!./dropdown-icons-ceg.component.html';
+import * as template from './dropdown-icons-ceg.component.html';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-dropdown-icons-ceg',
   templateUrl: './dropdown-icons-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: DropdownIconsCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DropdownIconsCegComponent implements StaticComponentExample {
   html = template.default;

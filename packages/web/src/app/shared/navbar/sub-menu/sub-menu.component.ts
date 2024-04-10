@@ -1,11 +1,12 @@
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { Location, NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
-import { first, fromEvent, of, switchMap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { trigger, transition, stagger, animate, style, query } from '@angular/animations';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { first, fromEvent, of, switchMap } from 'rxjs';
+
+import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 
 export interface Anchor {
   name: string;
@@ -32,6 +33,8 @@ export interface Anchor {
       ]),
     ]),
   ],
+  standalone: true,
+  imports: [NgClass],
 })
 export class SubMenuComponent {
   anchors: Anchor[] = [];

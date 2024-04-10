@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+
+  .e-form-field {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+.local-theme-switch-toggles {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}

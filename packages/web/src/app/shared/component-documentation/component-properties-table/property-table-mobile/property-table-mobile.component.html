@@ -8,42 +8,42 @@
       <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
   </thead>
-  <tbody *ngFor="let prop of itemsWithoutChildren">
-    <tr>
-      <th class="e-table-mobile__cell" scope="col" colspan="2">
-        <div class="e-flex e-gap-8">
-          <div>
-            <span [innerHTML]="prop.item.attribute | searchHighlighter: 'attribute' : prop.matches"></span>
-            <span>{{ prop.item.isRequired ? '*' : '' }}</span>
+  @for (prop of itemsWithoutChildren; track prop) {
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col" colspan="2">
+          <div class="e-flex e-gap-8">
+            <div>
+              <span [innerHTML]="prop.item.attribute | searchHighlighter: 'attribute' : prop.matches"></span>
+              <span>{{ prop.item.isRequired ? '*' : '' }}</span>
+            </div>
+            @if (prop.item.example) {
+              <app-property-example-popover [attribute]="prop.item.attribute" [example]="prop.item.example" />
+            }
           </div>
-          <app-property-example-popover
-            *ngIf="prop.item.example"
-            [attribute]="prop.item.attribute"
-            [example]="prop.item.example"
-          />
-        </div>
-      </th>
-    </tr>
-    <tr>
-      <th class="e-table-mobile__cell" scope="row">Type</th>
-      <td
-        class="e-table-mobile__cell"
-        [innerHTML]="prop.item.type | searchHighlighter: 'type' : prop.matches"
-      ></td>
-    </tr>
-    <tr>
-      <th class="e-table-mobile__cell" scope="row">Description</th>
-      <td
-        class="e-table-mobile__cell"
-        [innerHTML]="prop.item.description | escapeHTML | searchHighlighter: 'description' : prop.matches"
-      ></td>
-    </tr>
-    <tr>
-      <th class="e-table-mobile__cell" scope="row">Default</th>
-      <td
-        class="e-table-mobile__cell"
-        [innerHTML]="prop.item.default | searchHighlighter: 'default' : prop.matches"
-      ></td>
-    </tr>
-  </tbody>
+        </th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Type</th>
+        <td
+          class="e-table-mobile__cell"
+          [innerHTML]="prop.item.type | searchHighlighter: 'type' : prop.matches"
+        ></td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Description</th>
+        <td
+          class="e-table-mobile__cell"
+          [innerHTML]="prop.item.description | escapeHTML | searchHighlighter: 'description' : prop.matches"
+        ></td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Default</th>
+        <td
+          class="e-table-mobile__cell"
+          [innerHTML]="prop.item.default | searchHighlighter: 'default' : prop.matches"
+        ></td>
+      </tr>
+    </tbody>
+  }
 </table>

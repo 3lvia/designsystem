@@ -1,5 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { LowerCasePipe, NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+import { CopyComponent } from '../../../../../shared/copy/copy.component';
 import { TableColorArray } from '../colors';
+import { ColorTokenSubtableColorCircleComponent } from './color-token-subtable-color-circle/color-token-subtable-color-circle.component';
 
 type Colors = {
   colors: TableColorArray;
@@ -11,6 +16,9 @@ type Colors = {
   selector: 'app-color-token-subtable',
   templateUrl: './color-token-subtable.component.html',
   styleUrls: ['./color-token-subtable.component.scss'],
+  standalone: true,
+  imports: [NgClass, CopyComponent, RouterLink, ColorTokenSubtableColorCircleComponent, LowerCasePipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorTokenSubtableComponent implements OnInit {
   @Input({ required: true }) colors: Colors;

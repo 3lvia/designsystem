@@ -1,8 +1,38 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+import { StaticCegComponent } from '../../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
+import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
+import { ComponentSectionComponent } from '../../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { WhenToUseComponent } from '../../../../shared/when-to-use/when-to-use.component';
+import { SearchCegComponent } from './search-ceg/search-ceg.component';
+import { SearchFullwidthCegComponent } from './search-fullwidth-ceg/search-fullwidth-ceg.component';
+import { SearchInstantCegComponent } from './search-instant-ceg/search-instant-ceg.component';
+import { SearchOnSubmitCegComponent } from './search-on-submit-ceg/search-on-submit-ceg.component';
+import { SearchOnSubmitSearchedCegComponent } from './search-on-submit-searched-ceg/search-on-submit-searched-ceg.component';
+import { SearchSizeMediumCegComponent } from './search-size-medium-ceg/search-size-medium-ceg.component';
+import { SearchSizeSmallCegComponent } from './search-size-small-ceg/search-size-small-ceg.component';
 
 @Component({
   selector: 'app-search-doc',
   templateUrl: './search-doc.component.html',
+  standalone: true,
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    SearchCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    SearchInstantCegComponent,
+    RouterLink,
+    SearchOnSubmitCegComponent,
+    SearchOnSubmitSearchedCegComponent,
+    SearchFullwidthCegComponent,
+    SearchSizeMediumCegComponent,
+    SearchSizeSmallCegComponent,
+    WhenToUseComponent,
+  ],
 })
 export class SearchDocComponent {
   does = [

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import removeCircle from '@elvia/elvis-assets-icons/dist/icons/removeCircle';
-import { ErrorType } from '../elvia-autocomplete.types';
-import { FormFieldErrorContainer, FormFieldError, IconWrapper } from '@elvia/elvis-toolbox';
+import { FormFieldError, FormFieldErrorContainer, IconWrapper } from '@elvia/elvis-toolbox';
 import { ErrorOptions } from '@elvia/elvis-toolbox/src';
+import React, { useEffect, useState } from 'react';
+
+import { ErrorType } from '../elvia-autocomplete.types';
 import { getInternalErrorText } from '../utils/getInternalErrorText';
 
 interface Props {

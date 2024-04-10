@@ -1,7 +1,8 @@
-import { Directive, Output, EventEmitter, HostBinding, HostListener } from '@angular/core';
+import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
 
 @Directive({
   selector: '[appDnd]',
+  standalone: true,
 })
 export class DndDirective {
   @HostBinding('class.e-fileupload---hover') fileOver: boolean;

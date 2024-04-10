@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { BaseCarouselProps } from '@elvia/elvis-carousel/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-carousel-ceg',
   templateUrl: './carousel-ceg.component.html',
   styleUrls: ['./carousel-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: CarouselCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CarouselCegComponent implements ComponentExample<BaseCarouselProps> {
   elementName = 'carousel';

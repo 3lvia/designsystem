@@ -1,15 +1,17 @@
-import React, { KeyboardEvent, useEffect, useState } from 'react';
-import { DropdownItem, DropdownValue } from '../publicApi.public';
-import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import DOMPurify from 'dompurify';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
 
-import { Input } from './dropdownInputStyles';
-import { DropdownIconContainer } from '../styledComponents';
+import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
 import { DropdownProps } from '../elviaDropdown.types';
+import { DropdownItem, DropdownValue } from '../publicApi.public';
+import { DropdownIconContainer } from '../styledComponents';
+import { Input } from './dropdownInputStyles';
 
 interface Props {
   placeholder?: string;
   placeholderIcon?: string;
+  size?: FormFieldSizes;
   isRequired: boolean;
   allOptionsSelectedLabel: string;
   isEditable: boolean;
@@ -29,6 +31,7 @@ interface Props {
 export const DropdownInput: React.FC<Props> = ({
   placeholder,
   placeholderIcon,
+  size,
   isRequired,
   allOptionsSelectedLabel,
   isEditable,
@@ -110,11 +113,13 @@ export const DropdownInput: React.FC<Props> = ({
     <>
       {placeholderIcon && !inputValue && (
         <DropdownIconContainer
+          size={size}
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(placeholderIcon) }}
         ></DropdownIconContainer>
       )}
       {!!currentValIcon && (
         <DropdownIconContainer
+          size={size}
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(currentValIcon) }}
         ></DropdownIconContainer>
       )}

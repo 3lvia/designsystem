@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  border: 1px solid var(--e-color-border-2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.illustrations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 40px;
+
+  overflow-y: auto;
+  max-height: 700px;
+  padding: 40px;
+
+  transition: background-color 500ms ease-in-out;
+}
+
+.illustration-example {
+  all: unset;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  cursor: pointer;
+
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border-color 200ms ease-in-out;
+
+  &.active {
+    border-color: var(--e-color-border-selected-1);
+  }
+
+  .illustration {
+    margin: auto 0;
+  }
+}

@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-slider",
   "content": [
     {
       "date": "23.01.24",

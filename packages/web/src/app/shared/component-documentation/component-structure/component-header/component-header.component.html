@@ -1,27 +1,31 @@
 <div class="page-body e-mb-16">
   <div class="title-container e-mb-32">
     <h1 class="big-header e-m-0 title" data-url-fragment>
-      <ng-content select="headerTitle"></ng-content>
-      <a class="e-ml-16" *ngIf="figmaUrl" [href]="figmaUrl" target="_blank" rel="noopener">
-        <img src="assets/icons/figma-logo.svg" alt="Figma icon" />
-      </a>
+      <ng-content select="headerTitle" />
+      @if (figmaUrl) {
+        <a class="e-ml-16" [href]="figmaUrl" target="_blank" rel="noopener">
+          <img src="assets/icons/figma-logo.svg" alt="Figma icon" />
+        </a>
+      }
     </h1>
-    <div *ngIf="lastUpdated" class="e-text-micro e-color-text-2 last-updated">
-      Last updated {{ lastUpdated | DocumentationDatePipe }}
-    </div>
+    <ng-content select="headerLink" *ifViewportSize="['md', 'lg', 'xl']" />
+    @if (lastUpdated) {
+      <div class="e-text-micro e-color-text-2 last-updated">
+        Last updated {{ lastUpdated | DocumentationDatePipe }}
+      </div>
+    }
     <div>
-      <app-component-header-quick-install
-        class="e-none-sm"
-        *ngIf="componentData; else cssLibraryTag"
-        [componentData]="componentData"
-      />
-      <ng-template #cssLibraryTag>
-        <div class="e-tag" *ngIf="showCssLibraryTag">CSS Library</div>
-      </ng-template>
+      @if (componentData) {
+        <app-component-header-quick-install class="e-none-sm" [componentData]="componentData" />
+      } @else {
+        @if (showCssLibraryTag) {
+          <div class="e-tag">CSS Library</div>
+        }
+      }
     </div>
   </div>
   <div class="description-container e-text-lead">
-    <ng-content select="headerDescription"></ng-content>
+    <ng-content select="headerDescription" />
   </div>
   <app-sub-menu *ifViewportSize="['sm', 'md']" class="e-mt-40 e-mb-16 full-width" />
 </div>

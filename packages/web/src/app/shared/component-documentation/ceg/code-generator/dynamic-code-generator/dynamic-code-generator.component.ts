@@ -1,10 +1,13 @@
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subject, Observable, combineLatest } from 'rxjs';
+import { Observable, Subject, combineLatest } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
 import { UnknownCegControlManager } from '../../cegControlManager';
 import { Controls, StaticProps } from '../../controlType';
-import { FrameworkSpec, frameworks } from './supportedFrameworks';
+import { CodeGeneratorComponent } from '../code-generator.component';
 import { transformAttributesBackToOriginalSyntaxAfterDomParser } from './slotAttributeTransforms';
+import { FrameworkSpec, frameworks } from './supportedFrameworks';
 
 interface Prop {
   name: string;
@@ -16,6 +19,8 @@ interface Prop {
   selector: 'app-dynamic-code-generator',
   templateUrl: './dynamic-code-generator.component.html',
   styleUrls: ['./dynamic-code-generator.component.scss'],
+  standalone: true,
+  imports: [CodeGeneratorComponent, AsyncPipe],
 })
 export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();

@@ -1,9 +1,10 @@
+import arrowLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLeft';
 import { FormFieldSizes, IconButton, IconWrapper } from '@elvia/elvis-toolbox';
 import React, { MouseEvent } from 'react';
+
 import { getDropdownItemId } from '../dropdownListUtils';
 import { DropdownItem, DropdownValueType } from '../publicApi.public';
 import { BackButtonStyles } from './dropdownOverlayStyles';
-import arrowLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLeft';
 
 interface SelectAllOptionProps {
   item: DropdownItem;

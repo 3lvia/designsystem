@@ -1,10 +1,11 @@
-import React from 'react';
 import '@testing-library/jest-dom';
-import SegmentedControl from './elvia-segmented-control';
-import userEvent from '@testing-library/user-event';
-import { IconSegmentedControl, SegmentedControlProps } from './elviaSegmentedControl.types';
-import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import SegmentedControl from './elvia-segmented-control';
+import { IconSegmentedControl, SegmentedControlProps } from './elviaSegmentedControl.types';
 
 describe('Elvia Segmented Control', () => {
   describe('The default segmented control', () => {

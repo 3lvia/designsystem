@@ -1,13 +1,18 @@
-import { Component, HostListener } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
-import { Shortcut, shortcuts } from './keys';
 import { Observable, filter, fromEvent, map, tap } from 'rxjs';
+
+import { Shortcut, shortcuts } from './keys';
+import { ShortcutModalContentComponent } from './shortcut-modal-content/shortcut-modal-content.component';
 
 @Component({
   selector: 'app-shortcut',
   templateUrl: './shortcut.component.html',
   styleUrls: ['./shortcut.component.scss'],
+  standalone: true,
+  imports: [ShortcutModalContentComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShortcutComponent {
   showShortcutGlossary = false;

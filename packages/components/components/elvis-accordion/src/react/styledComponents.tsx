@@ -1,13 +1,14 @@
-import styled, { css } from 'styled-components';
 import { getThemeColor } from '@elvia/elvis-colors';
+import { IconWrapper } from '@elvia/elvis-toolbox';
+import { TypographyName, getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css } from 'styled-components';
+
 import {
   AccordionLabelPosition,
   AccordionSize,
   AccordionSpacingContent,
   AccordionType,
 } from './elvia-accordion.types';
-import { getTypographyCss, TypographyName } from '@elvia/elvis-typography';
-import { IconWrapper } from '@elvia/elvis-toolbox';
 
 interface AccordionAreaProps {
   normalSpacing?: AccordionSpacingContent;

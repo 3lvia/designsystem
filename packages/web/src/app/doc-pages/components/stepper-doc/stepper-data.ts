@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-stepper/CHANGELOG.json';
-import ComponentData, { NestedProp } from '../component-data.interface';
 import { BaseStepperProps, StepState } from '@elvia/elvis-stepper/react';
+
+import ComponentData, { NestedProp } from '../component-data.interface';
 
 type ContentMock = {
   content: string;
@@ -43,6 +44,10 @@ export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
           description: 'The text that should be visible in the previous-step button.',
           default: 'Tilbake',
         },
+        nextButtonState: {
+          type: '"loading"',
+          description: 'The state of the next-step button.',
+        },
       },
     } as NestedProp<StepState>,
     isForced: {
@@ -68,14 +73,19 @@ export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
       description: 'The index of the current step',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(stepIndex: number) => void',
       description: 'Emits when the step index changes.',
     },
     onFinish: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback function for when the final "next" button is clicked.',
+    },
+    onNextClick: {
+      specialType: 'event',
+      type: '() => void',
+      description: 'Callback function for when the "next" button is clicked.',
     },
   },
 

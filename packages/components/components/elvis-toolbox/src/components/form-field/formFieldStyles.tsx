@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css } from 'styled-components';
 
 export type FormFieldSizes = 'small' | 'medium';
 
@@ -84,7 +84,6 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
         }
 
         ${FormFieldInputContainer} {
-          gap: 4px;
           padding: 0 4px 0 8px;
           height: 32px;
         }

@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { BaseAccordionProps } from '@elvia/elvis-accordion/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-accordion-ceg',
   templateUrl: './accordion-ceg.component.html',
   styleUrls: ['./accordion-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: AccordionCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AccordionCegComponent implements ComponentExample {
   elementName = 'accordion';

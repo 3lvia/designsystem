@@ -1,5 +1,30 @@
 # Elvia Colors Changelog
 
+## 4.4.1 (16.02.24)
+
+### New feature
+
+- Fixed the dark theme color for `illustration-background-1`.
+
+## 4.4.0 (15.02.24)
+
+### New feature
+
+- New purpose color token `background-readonly-1`.
+
+## 4.3.0 (08.02.24)
+
+### New feature
+
+- New illustration color tokens added.
+
+## 4.2.0 (06.02.24)
+
+### New feature
+
+- New opacity data colors added.
+- New base token `dark-grey-05`.
+
 ## 4.1.0 (02.10.23)
 
 ### New feature

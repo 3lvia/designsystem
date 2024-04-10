@@ -1,7 +1,8 @@
-import React from 'react';
-import { TooltipPopup, TooltipWrapper } from './tooltipStyles';
-import { BothSliders, Side } from '../elvia-slider.types';
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
+import React from 'react';
+
+import { BothSliders, Side } from '../elvia-slider.types';
+import { TooltipPopup, TooltipWrapper } from './tooltipStyles';
 
 interface Props {
   value: BothSliders<number>;

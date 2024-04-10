@@ -1,9 +1,10 @@
-import { Card } from './elvia-card';
-import React from 'react';
-import userEvent from '@testing-library/user-event';
-import { axe } from 'jest-axe';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import { Card } from './elvia-card';
 
 describe('Elvis Card', () => {
   describe('Type = simple square', () => {

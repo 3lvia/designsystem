@@ -3,6 +3,10 @@ declare module '*.html' {
   const content: string;
   export default content;
 }
+declare module '*.css' {
+  const content: string;
+  export default content;
+}
 
 /**
  * Fixes https://github.com/microsoft/TypeScript/issues/16655 for `Array.prototype.filter()`

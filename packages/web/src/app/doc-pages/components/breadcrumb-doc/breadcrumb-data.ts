@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-breadcrumb/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseBreadcrumbProps } from '@elvia/elvis-breadcrumb/react';
+
+import ComponentData from '../component-data.interface';
 
 const breadcrumbData: ComponentData<BaseBreadcrumbProps> = {
   changelog: changelogJson.content,
@@ -24,7 +25,7 @@ const breadcrumbData: ComponentData<BaseBreadcrumbProps> = {
       },
     },
     onLinkClick: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: number) => void',
       description:
         'Gets called every time a breadcrumb is clicked. The value is the index of the clicked breadcrumb in items.',

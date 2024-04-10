@@ -1,8 +1,8 @@
 {
   "name": "@elvia/elvis-assets-icons",
-  "version": "3.9.0",
+  "version": "3.10.0",
   "description": "Elvia icons",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "main": "icons.js",
   "types": "icons.d.ts",
   "scripts": {
@@ -15,6 +15,7 @@
     "icons.d.ts",
     "CHANGELOG.md",
     "README.md",
+    "LICENSE",
     "config/icons.config.js",
     "dist/**/*",
     "icons/**/*"
@@ -25,12 +26,11 @@
   "devDependencies": {
     "@types/gulp": "^4.0.17",
     "@types/gulp-svgmin": "^1.2.4",
-    "@types/node": "^20.11.16",
-    "del": "^6.1.1",
-    "gulp": "^4.0.2",
+    "@types/node": "^20.12.7",
+    "gulp": "^5.0.0",
     "gulp-svgmin": "^4.1.0",
-    "sharp": "^0.33.2",
+    "sharp": "^0.33.3",
     "ts-node": "^10.9.2",
-    "typescript": "~5.3.3"
+    "typescript": "~5.4.4"
   }
 }

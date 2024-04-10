@@ -1,0 +1,30 @@
+name: Yarn Dedupe
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 5 1,15 * *
+permissions: write-all
+jobs:
+  release:
+    name: Dedupe dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Get Yarn Cache
+        uses: actions/setup-node@v4
+        with:
+          cache: 'yarn'
+          node-version-file: '.nvmrc'
+      - name: Yarn Dedupe
+        run: yarn dedupe --mode="update-lockfile"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'chore(deps): dedupe dependencies'
+          title: 'chore(deps): dedupe dependencies'
+          body: |
+            chore(deps): dedupe dependencies
+          branch: 'chore/dedupe-dependencies'
+          base: 'master'
+          delete-branch: true

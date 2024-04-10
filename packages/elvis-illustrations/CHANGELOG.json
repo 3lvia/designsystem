@@ -1,0 +1,60 @@
+{
+  "$schema": "../components/changelogSchema.json",
+  "name": "elvis-illustrations",
+  "content": [
+    {
+      "version": "1.2.1",
+      "date": "08.04.24",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "The css variables for coloring illustrations are now attached to the <code>svg</code> element. It should not cause any notable changes."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.2.0",
+      "date": "13.03.24",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Re-exported several illustrations that have been updated. Some have had their dimensions changed."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Deleted the <code>hidden</code> illustration. Because it has not been previously documented, this change is not considered a breaking change."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "date": "01.03.24",
+      "changelog": [
+        { "type": "new_feature", "changes": ["Added a new illustration <code>user</code>."] },
+        {
+          "type": "patch",
+          "changes": ["Updated the <code>hello</code> and <code>hidden</code> illustrations."]
+        }
+      ]
+    },
+    {
+      "version": "1.0.1",
+      "date": "19.02.24",
+      "changelog": [
+        { "type": "patch", "changes": ["Improve the way the svg is mounted into the DOM."] },
+        { "type": "bug_fix", "changes": ["Fix some broken colors."] }
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "date": "16.02.24",
+      "changelog": [{ "type": "new_feature", "changes": ["Initial release of component."] }]
+    }
+  ]
+}

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
-import * as template from 'html-loader!./table-numbers-ceg.component.html';
+import * as template from './table-numbers-ceg.component.html';
+import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-table-numbers-ceg',
   templateUrl: './table-numbers-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableNumbersCegComponent }],
+  standalone: true,
 })
 export class TableNumbersCegComponent implements StaticComponentExample {
   html = template.default;

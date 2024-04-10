@@ -1,8 +1,9 @@
-import React from 'react';
-import { DatepickerRange } from './elvia-datepicker-range';
-import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import { DatepickerRange } from './elvia-datepicker-range';
 
 describe('Elvis DatepickerRange', () => {
   describe('Default', () => {
@@ -112,6 +113,16 @@ describe('Elvis DatepickerRange', () => {
 
       await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
       await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalledTimes(1));
+
+      await waitFor(() =>
+        expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: new Date('08/11/2022'), end: null }),
+      );
+      await waitFor(() =>
+        expect(valueOnChangeISOStringEvent).toHaveBeenCalledWith({
+          start: '2022-08-11',
+          end: null,
+        }),
+      );
     });
 
     it('errorOnChangeEvent: should emit when an error is shown', async () => {

@@ -33,6 +33,6 @@ export const SpotlightMask = styled.rect`
   }
 
   fill: rgba(0, 0, 0, var(--ewc-spotlight-mask-fill));
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 `;

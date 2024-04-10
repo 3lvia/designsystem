@@ -1,9 +1,15 @@
+import { KeyValuePipe } from '@angular/common';
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { combineLatest, Subject } from 'rxjs';
+import { Subject, combineLatest } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
 import { UnknownCegControlManager } from '../cegControlManager';
-import { Controls, ControlValue } from '../controlType';
+import { ControlValue, Controls } from '../controlType';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { CounterComponent } from './counter/counter.component';
+import { RadioGroupComponent } from './radio-group/radio-group.component';
+import { SwitchComponent } from './switch/switch.component';
+import { TextComponent } from './text/text.component';
 
 interface Group {
   name: string;
@@ -14,6 +20,15 @@ interface Group {
   selector: 'app-controls',
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss'],
+  standalone: true,
+  imports: [
+    RadioGroupComponent,
+    CheckboxComponent,
+    SwitchComponent,
+    CounterComponent,
+    TextComponent,
+    KeyValuePipe,
+  ],
 })
 export class ControlsComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();

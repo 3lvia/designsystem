@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
-import { AutocompleteItemStyles } from './styledAutocompleteItem';
-import { AutocompleteItem } from '../elvia-autocomplete.types';
 import { FormFieldSizes, useIsOverflowing } from '@elvia/elvis-toolbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
+import React, { useRef } from 'react';
+
+import { AutocompleteItem } from '../elvia-autocomplete.types';
+import { AutocompleteItemStyles } from './styledAutocompleteItem';
 
 interface AutocompleteItemProps {
   isFocused: boolean;

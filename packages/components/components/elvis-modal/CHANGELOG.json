@@ -1,6 +1,29 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-modal",
   "content": [
+    {
+      "date": "18.03.24",
+      "version": "4.0.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug on mobile where the max height should be full view height."]
+        }
+      ]
+    },
+    {
+      "date": "16.02.24",
+      "version": "4.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Added a max height to the modal so that it won't become taller than the screen height."
+          ]
+        }
+      ]
+    },
     {
       "date": "02.02.24",
       "version": "4.0.3",

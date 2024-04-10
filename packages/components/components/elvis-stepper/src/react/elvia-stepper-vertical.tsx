@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
-import { StepperTypeProps } from './elvia-stepper.types';
-import { Step, Steps, StepperContainer, StepperContentWrapper, StatusMessage } from './styledComponents';
-import { StepDivider } from './StepDivider';
-import { StepContent } from './StepContent';
-import { VerticalStepElement } from './VerticalStepElement';
-import { generateStatusMessage, numberShouldBeVisible } from './utils';
 import { useRovingFocus } from '@elvia/elvis-toolbox';
+import React, { FC } from 'react';
+
+import { StepContent } from './StepContent';
+import { StepDivider } from './StepDivider';
+import { VerticalStepElement } from './VerticalStepElement';
+import { StepperTypeProps } from './elvia-stepper.types';
+import { StatusMessage, Step, StepperContainer, StepperContentWrapper, Steps } from './styledComponents';
 import { useStepNumbers } from './useStepNumbers';
+import { generateStatusMessage, numberShouldBeVisible } from './utils';
 
 export const StepperVertical: FC<StepperTypeProps> = function ({
   numberOfSteps,
@@ -14,6 +15,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   steps,
   isForced = false,
   handleStepChange,
+  onNextClick,
   typography,
   contentRef,
   content,
@@ -63,6 +65,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
                     <StepContent
                       currentStep={currentStep}
                       handleStepChange={handleStepChange}
+                      onNextClick={onNextClick}
                       content={content}
                       contentRef={contentRef}
                       isForced={isForced}

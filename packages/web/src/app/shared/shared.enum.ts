@@ -62,7 +62,6 @@ export enum Pages {
 
   // Pages not from CMS
   Contact = 'contact',
-  Contribute = 'contribute',
   Faq = 'faq',
   GetStarted = 'get-started',
   Shadow = 'shadow',

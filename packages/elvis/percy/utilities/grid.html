@@ -1,0 +1,126 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elvia Percytest</title>
+    <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
+    <script src="../../elvis.js"></script>
+  </head>
+  <body class="e-color-background-1">
+    <style>
+      body {
+        margin: 0px;
+      }
+
+      .example-content {
+        display: grid;
+        place-content: center;
+        border-radius: 8px;
+        padding: 16px;
+        background: var(--e-color-data-3-10);
+      }
+    </style>
+    <main>
+      <div class="e-grid">
+        <h1 class="e-title-lg e-mt-24 e-mb-80">Grid</h1>
+
+        <h2 class="e-title-md">Breakpoints</h2>
+        <div class="e-mb-40">
+          <div class="row">
+            <div class="col-sm-7 col-md-6 col-lg-8">
+              <div class="example-content">
+                <div>LG: 8/12</div>
+                <div>MD: 6/12</div>
+                <div>SM: 7/12</div>
+              </div>
+            </div>
+            <div class="col-sm-5 col-md-6 col-lg-4">
+              <div class="example-content">
+                <div>LG: 4/12</div>
+                <div>MD: 6/12</div>
+                <div>SM: 5/12</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="e-title-md">Layout</h2>
+        <div class="e-mb-40">
+          <div class="row e-justify-content-center">
+            <div class="col-5">
+              <div class="example-content">5/12</div>
+            </div>
+            <div class="col-5">
+              <div class="example-content">5/12</div>
+            </div>
+          </div>
+          <div class="row e-align-items-end">
+            <div class="col-5">
+              <div class="example-content">5/12</div>
+            </div>
+            <div class="col-5">
+              <div class="example-content">5/12</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <div class="example-content">5/12</div>
+            </div>
+            <div class="col-5 offset-3">
+              <div class="example-content">5/12</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-grid">
+        <h2 class="e-title-md">Gutters (internal + vertical)</h2>
+
+        <div class="row e-grid-gutters-int e-grid-gutters-vertical">
+          <div class="col">
+            <div class="example-content">4/12</div>
+          </div>
+          <div class="col">
+            <div class="example-content">4/12</div>
+          </div>
+          <div class="col">
+            <div class="example-content">4/12</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-grid">
+        <h2 class="e-title-md">Gutters custom padding</h2>
+        <div class="row mx-lg-3 mx-md-2 mx-sm-1 mx-1">
+          <div class="col px-lg-3 px-md-2 px-sm-1 px-1">
+            <div class="example-content">4/12</div>
+          </div>
+          <div class="col px-lg-3 px-md-2 px-sm-1 px-1">
+            <div class="example-content">4/12</div>
+          </div>
+          <div class="col px-lg-3 px-md-2 px-sm-1 px-1">
+            <div class="example-content">4/12</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-grid">
+        <h2 class="e-title-md">No gutters</h2>
+        <div class="row no-gutters">
+          <div class="col">
+            <div class="example-content">3/12</div>
+          </div>
+          <div class="col">
+            <div class="example-content">3/12</div>
+          </div>
+          <div class="col">
+            <div class="example-content">3/12</div>
+          </div>
+          <div class="col">
+            <div class="example-content">3/12</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

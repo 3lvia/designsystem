@@ -1,4 +1,4 @@
-import { useEffect, RefObject } from 'react';
+import { RefObject, useEffect } from 'react';
 
 /**
  * Custom hook to execute a callback function when clicking _outside_ of a list of given refs.

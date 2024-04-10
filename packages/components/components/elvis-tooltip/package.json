@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-tooltip",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/tooltip",
   "source": "src/react/elvia-tooltip.tsx",

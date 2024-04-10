@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-accordion/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseAccordionProps } from '@elvia/elvis-accordion/react';
+
+import ComponentData from '../component-data.interface';
 
 const accordionData: ComponentData<BaseAccordionProps> = {
   changelog: changelogJson.content,
@@ -93,12 +94,12 @@ const accordionData: ComponentData<BaseAccordionProps> = {
       description: `Sets the accordion icon at the start, before the accordion label.`,
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Event that emits when an accordion closes.',
     },
     onOpen: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Event that emits when an accordion opens.',
     },

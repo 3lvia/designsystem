@@ -1,10 +1,11 @@
-import React from 'react';
-import { Datepicker } from './elvia-datepicker';
-import userEvent from '@testing-library/user-event';
-import { axe } from 'jest-axe';
-import { dateIsWithinMinMaxBoundary, isAfter, isBefore, isValidDate, localISOTime } from './dateHelpers';
 import { getThemeColor } from '@elvia/elvis-colors';
 import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import { dateIsWithinMinMaxBoundary, isAfter, isBefore, isValidDate, localISOTime } from './dateHelpers';
+import { Datepicker } from './elvia-datepicker';
 
 describe('Elvis Datepicker', () => {
   describe('Default', () => {
@@ -258,6 +259,7 @@ describe('Elvis Datepicker', () => {
           errorOnChange={errorOnChangeEvent}
           hasSelectDateOnOpen={false}
           minDate={new Date('08/11/2022')}
+          value={new Date('10/11/2022')}
           onClose={onCloseEvent}
           onFocus={onFocusEvent}
           onOpen={onOpenEvent}
@@ -322,12 +324,15 @@ describe('Elvis Datepicker', () => {
 
       await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
       await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith(new Date('10/15/2022')));
+      await waitFor(() => expect(valueOnChangeISOStringEvent).toHaveBeenCalledWith('2022-10-15'));
     });
 
     it('errorOnChangeEvent: should emit when an error is shown', async () => {
       const user = userEvent.setup();
       const input = screen.getByRole('textbox', { name: /velg dato/i });
       await user.click(input);
+      await user.clear(input);
       await user.type(input, '26.03.2000');
       // Tab twice to get outside the whole datepicker (input field and overlay trigger)
       await user.tab();

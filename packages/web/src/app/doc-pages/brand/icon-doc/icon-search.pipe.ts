@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'iconSearchPipe',
   pure: false,
+  standalone: true,
 })
 export class IconSearchPipe implements PipeTransform {
   static filter(IconList: Array<{ [key: string]: any }>, searchTerm: string): Array<{ [key: string]: any }> {

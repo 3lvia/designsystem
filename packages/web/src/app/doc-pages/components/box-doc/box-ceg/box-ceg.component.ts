@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { BaseBoxProps } from '@elvia/elvis-box/react';
+
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
@@ -7,6 +8,8 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   templateUrl: './box-ceg.component.html',
   styleUrls: ['./box-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: BoxCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BoxCegComponent implements ComponentExample {
   elementName = 'box';

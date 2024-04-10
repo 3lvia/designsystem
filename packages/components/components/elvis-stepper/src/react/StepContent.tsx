@@ -1,9 +1,10 @@
+import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
 import React, { FC } from 'react';
+
 import { StepperType } from './elvia-stepper.types';
+import { StepStates } from './publicApi.public';
 import { StepperActions, StepperContent } from './styledComponents';
 import { isReachable } from './utils';
-import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
-import { StepStates } from './publicApi.public';
 
 type StepContentProps = {
   currentStep: number;
@@ -13,6 +14,7 @@ type StepContentProps = {
   contentRef: React.RefObject<HTMLDivElement>;
   type?: StepperType;
   handleStepChange: (step: number) => void;
+  onNextClick?: () => void;
 };
 
 export const StepContent: FC<StepContentProps> = function ({
@@ -23,6 +25,7 @@ export const StepContent: FC<StepContentProps> = function ({
   contentRef,
   type = 'horizontal',
   handleStepChange,
+  onNextClick,
 }) {
   return (
     <StepperContent $type={type}>
@@ -37,14 +40,23 @@ export const StepContent: FC<StepContentProps> = function ({
         ) : (
           <div></div>
         )}
-        <PrimaryButton
-          disabled={!isReachable(isForced, currentStep + 1, steps)}
-          onClick={() =>
-            handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep)
-          }
-        >
-          {steps?.[currentStep]?.nextButtonText ?? 'Neste'}
-        </PrimaryButton>
+        {steps?.[currentStep]?.nextButtonState === 'loading' ? (
+          <PrimaryButton onClick={() => onNextClick?.()} isLoading aria-disabled aria-label="Laster inn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </PrimaryButton>
+        ) : (
+          <PrimaryButton
+            aria-disabled={!isReachable(isForced, currentStep + 1, steps)}
+            onClick={() => {
+              onNextClick?.();
+              handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep);
+            }}
+          >
+            {steps?.[currentStep]?.nextButtonText ?? 'Neste'}
+          </PrimaryButton>
+        )}
       </StepperActions>
     </StepperContent>
   );

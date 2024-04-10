@@ -1,4 +1,5 @@
 import { RangeSliderErrorOptions, SliderProps } from '../elvia-slider.types';
+
 /**
  * Checks if the provided error options object is an instance of RangeSliderErrorOptions.
  * @example 

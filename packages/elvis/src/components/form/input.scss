@@ -1,7 +1,13 @@
 @use '../../utilities/mixins';
 @use '../../utilities/outline';
-@use '../../utilities/helpers';
 @use '../../utilities/icons';
+
+@mixin placeholder() {
+  &::placeholder {
+    @content;
+    opacity: 1;
+  }
+}
 
 @property --e-input---loading-angle {
   inherits: false;
@@ -45,17 +51,13 @@
   }
 
   > input {
-    @include helpers.placeholder() {
+    @include placeholder() {
       color: var(--e-color-text-placeholder-1);
     }
   }
 
   .e-input--placeholder {
     color: var(--e-color-text-placeholder-1) !important;
-  }
-
-  &.e-input--centered > input {
-    justify-content: center;
   }
 
   > .e-icon {
@@ -72,15 +74,23 @@
     order: 3;
     margin-right: 8px;
 
-    .e-btn__icon {
+    .e-btn__icon,
+    .e-btn__icon i {
       width: 24px;
       height: 24px;
-
-      i {
-        width: 24px;
-        height: 24px;
-      }
     }
+  }
+
+  > .e-btn.e-btn--icon.e-btn--circled {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+  }
+
+  > .e-input__suffix {
+    @include mixins.typography('text-medium');
+    margin-right: 16px;
+    color: var(--e-color-text-2);
   }
 
   &.e-input---invalid {
@@ -118,7 +128,7 @@
       cursor: not-allowed;
       opacity: 1;
 
-      @include helpers.placeholder() {
+      @include placeholder() {
         color: var(--e-color-text-disabled-1);
       }
 
@@ -136,16 +146,10 @@
 
   &.e-input---readonly {
     --border-color: transparent;
-    background: var(--e-color-background-element-2);
+    background: var(--e-color-background-readonly-1);
 
-    > input,
-    > input:focus,
-    > input:read-only,
-    > input:read-only:focus,
-    > textarea,
-    > textarea:read-only,
-    > textarea:focus,
-    > textarea:read-only:focus {
+    > :is(input, textarea),
+    > :is(input, textarea):is(:focus, :read-only, :read-only:focus) {
       color: var(--e-color-text-2);
 
       &[type='number'] {
@@ -232,7 +236,7 @@
   input[type='search']::-webkit-search-cancel-button,
   input[type='search']::-webkit-search-results-button,
   input[type='search']::-webkit-search-results-decoration {
-    -webkit-appearance: none; /* stylelint-disable-line */
+    -webkit-appearance: none;
   }
 }
 
@@ -261,21 +265,42 @@
     height: 32px;
     margin-right: 4px;
 
-    .e-btn__icon {
+    .e-btn__icon,
+    .e-btn__icon i {
       width: 16px;
       height: 16px;
-
-      i {
-        width: 16px;
-        height: 16px;
-      }
     }
+  }
+
+  > .e-btn.e-btn--icon.e-btn--circled {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+
+  > .e-input__suffix {
+    @include mixins.typography('text-small');
+    margin-right: 10px;
+    color: var(--e-color-text-2);
   }
 
   &.e-input---loading:not(:focus-within) {
     input,
     textarea {
       padding: 3px 8px;
+    }
+  }
+
+  &.e-input---disabled,
+  &:has(input:disabled),
+  &:has(textarea:disabled) {
+    color: var(--e-color-text-disabled-1);
+  }
+
+  &.e-input---readonly {
+    > :is(input, textarea),
+    > :is(input, textarea):is(:focus, :read-only, :read-only:focus) {
+      color: var(--e-color-text-2);
     }
   }
 }

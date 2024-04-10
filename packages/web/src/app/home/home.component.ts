@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { AsyncPipe, NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
-import { homeMenu } from 'src/app/shared/doc-pages';
-import changelogJson from '@elvia/elvis/CHANGELOG.json';
-import { Observable } from 'rxjs';
+import { RouterLink } from '@angular/router';
+
 import { BreakpointService } from '../core/services/breakpoint.service';
 import { ThemeService } from '../core/services/theme.service';
-import { ThemeName } from '@elvia/elvis-colors';
+import { FrontPageChangelogComponent } from './front-page-changelog/front-page-changelog.component';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { homeMenu } from 'src/app/shared/doc-pages';
 
 type Holiday = 'Birthday' | 'Christmas' | 'Halloween' | 'Pride' | 'ConstitutionDay' | 'None';
 
@@ -15,15 +16,17 @@ type Holiday = 'Birthday' | 'Christmas' | 'Halloween' | 'Pride' | 'ConstitutionD
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  standalone: true,
+  imports: [NgClass, RouterLink, FrontPageChangelogComponent, AsyncPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeComponent implements OnInit {
   pages = homeMenu;
   fontLoaded = false;
   holiday: Holiday = 'None';
   locale: Locale;
-  currentTheme: ThemeName = 'light';
-  changelog = changelogJson.content;
-  isMobileScreenWidth: Observable<boolean>;
+  currentTheme = inject(ThemeService).listenTheme();
+  isMobileScreenWidth = inject(BreakpointService).matches(['xs']);
 
   get topImagePath(): string {
     if (this.holiday === 'Birthday') {
@@ -55,29 +58,19 @@ export class HomeComponent implements OnInit {
 
   constructor(
     localizationService: LocalizationService,
-    breakpointService: BreakpointService,
-    private themeService: ThemeService,
     private titleService: Title,
   ) {
-    this.isMobileScreenWidth = breakpointService.matches(['xs']);
-
     localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
         this.locale = locale;
       });
-    this.themeService
-      .listenTheme()
-      .pipe(takeUntilDestroyed())
-      .subscribe((theme) => {
-        this.currentTheme = theme;
-      });
   }
 
   ngOnInit(): void {
     this.setHoliday();
-    (document as any).fonts.ready.then(() => {
+    document.fonts.ready.then(() => {
       this.fontLoaded = true;
     });
     this.titleService.setTitle('Elvia design system');

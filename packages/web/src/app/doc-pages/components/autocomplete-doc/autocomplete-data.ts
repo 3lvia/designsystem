@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-autocomplete/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseAutocompleteProps } from '@elvia/elvis-autocomplete/react';
+
+import ComponentData from '../component-data.interface';
 
 export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
   changelog: changelogJson.content,
@@ -88,32 +89,32 @@ export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
       description: 'Placeholder value for the autocomplete input.',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(values: string) => void',
       description: 'Gets called every time the user types inside the autocomplete input',
     },
     onOpen: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Gets called when the autocomplete popup opens',
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Gets called when the autocomplete popup closes',
     },
     onFocus: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Gets called when the autocomplete receives focus',
     },
     errorOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(error: string) => void',
       description: 'Gets called every time the internal date validation error is changed. ',
     },
     onSelectItem: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: string) => void',
       description: 'Gets called when the user selects an item from the autocomplete popup',
     },

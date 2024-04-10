@@ -53,6 +53,8 @@ $maxIconContainerMobile: 450px;
     padding: 8px;
     border-radius: 8px;
     border: 1px solid var(--e-color-border-2);
+    transition: background-color 500ms ease-in-out;
+
     @include breakpoints.breakpoint-up(Mobile) {
       min-height: $maxIconContainerMobile;
       max-height: $maxIconContainerMobile;
@@ -64,6 +66,7 @@ $maxIconContainerMobile: 450px;
       height: 35px;
       background-color: transparent;
       box-shadow: inset 0px -20px 35px 0px var(--e-color-background-1);
+      transition: box-shadow 500ms ease-in-out;
     }
 
     .desktop-copy {

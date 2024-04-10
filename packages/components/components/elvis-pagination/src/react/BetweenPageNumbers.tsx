@@ -1,4 +1,6 @@
-import React, { FC, Dispatch, SetStateAction, useMemo } from 'react';
+import React, { Dispatch, FC, SetStateAction, useMemo } from 'react';
+
+import { PageElement } from './PageElement';
 import {
   maxVisiblePageNumbers,
   maxVisiblePageNumbersSm,
@@ -9,7 +11,6 @@ import {
   visibleDotsBreakingPoint,
   visibleDotsBreakingPointSm,
 } from './constants';
-import { PageElement } from './PageElement';
 
 interface BetweenPageNumbersProps {
   numberOfPages: number;

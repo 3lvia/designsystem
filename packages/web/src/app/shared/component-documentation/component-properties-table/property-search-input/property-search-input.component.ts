@@ -1,9 +1,13 @@
+import { NgClass } from '@angular/common';
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-property-search-input',
   templateUrl: './property-search-input.component.html',
   styleUrls: ['./property-search-input.component.scss'],
+  standalone: true,
+  imports: [FormsModule, NgClass],
 })
 export class PropertySearchInputComponent {
   @ViewChild('searchInputElement') inputElement: ElementRef<HTMLInputElement>;

@@ -13,15 +13,19 @@
         </button>
       </app-copy>
       {{ sectionTitle }}
-      <span *ngIf="figmaOnly" class="e-ml-16">
-        <label class="e-tag e-tag--orange">Figma only</label>
-      </span>
+      @if (figmaOnly) {
+        <span class="e-ml-16">
+          <label class="e-tag e-tag--orange">Figma only</label>
+        </span>
+      }
       <ng-content select="headerIcon"></ng-content>
     </h2>
 
-    <app-copy class="e-ml-16" *ngIf="propertiesClass !== ''" [message]="propertiesClass">
-      <code class="e-flex">{{ propertiesClass }}</code>
-    </app-copy>
+    @if (propertiesClass !== '') {
+      <app-copy class="e-ml-16" [message]="propertiesClass">
+        <code class="e-flex">{{ propertiesClass }}</code>
+      </app-copy>
+    }
   </div>
 
   <div class="component-section__content e-text-lg">

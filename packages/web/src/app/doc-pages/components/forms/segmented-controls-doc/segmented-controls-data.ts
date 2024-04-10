@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-segmented-control/CHANGELOG.json';
-import ComponentData from '../../component-data.interface';
 import { BaseSegmentedControlProps } from '@elvia/elvis-segmented-control/react';
+
+import ComponentData from '../../component-data.interface';
 
 export const segmentedControlData: ComponentData<BaseSegmentedControlProps> = {
   changelog: changelogJson.content,
@@ -47,7 +48,7 @@ export const segmentedControlData: ComponentData<BaseSegmentedControlProps> = {
       default: '"medium"',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: Number) => void',
       description: 'Gets called every time the value is changed and returns the new selected control.',
     },

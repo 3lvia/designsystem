@@ -1,10 +1,19 @@
 import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
-import ComponentData from 'src/app/doc-pages/components/component-data.interface';
-import data from '@elvia/elvis/.internal/classlist.json';
-import { getComponent } from 'src/app/shared/doc-pages';
-import { DocPageName } from '../shared.enum';
-import { createElvisFilteredChangelog } from './component-changelog/createElvisFilteredChangelog';
 import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+import data from '@elvia/elvis/.internal/classlist.json';
+
+import { DocPageName } from '../shared.enum';
+import { ComponentChangelogComponent } from './component-changelog/component-changelog.component';
+import { createElvisFilteredChangelog } from './component-changelog/createElvisFilteredChangelog';
+import { ComponentInstallationComponent } from './component-installation/component-installation.component';
+import { ComponentPropertiesTableComponent } from './component-properties-table/component-properties-table.component';
+import { ComponentPropertiesComponent } from './component-properties/component-properties.component';
+import { ComponentRelatedComponent } from './component-related/component-related.component';
+import { ComponentHeaderComponent } from './component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from './component-structure/component-section/component-section.component';
+import ComponentData from 'src/app/doc-pages/components/component-data.interface';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 /**
  * Builds a standard documentation page for a component.
@@ -24,6 +33,17 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-component-documentation',
   templateUrl: './component-documentation.component.html',
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSectionComponent,
+    ComponentInstallationComponent,
+    RouterLink,
+    ComponentPropertiesTableComponent,
+    ComponentPropertiesComponent,
+    ComponentChangelogComponent,
+    ComponentRelatedComponent,
+  ],
 })
 export class ComponentDocumentationComponent implements OnInit {
   @Input({ required: true }) docUrl: DocPageName;

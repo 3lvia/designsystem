@@ -1,109 +1,112 @@
 <header
-  class="header"
   [ngClass]="visibleMenuType ? 'e-color-background-overlay-1' : 'e-color-background-3'"
   [cdkTrapFocus]="visibleMenuType !== null"
 >
-  <a class="e-flex e-align-items-center" [routerLink]="['', 'home']">
-    <img [src]="logoUrl" class="elvia-logo" alt="Elvia Logo" />
-  </a>
-
-  <div
-    *ngIf="menuContentLoader"
-    class="tabs-content-loader e-none-sm e-none-md e-content-loader e-ml-48"
-  ></div>
-  <nav class="tabs e-ml-32 e-none-sm e-none-md" aria-label="tabs navigation" role="tablist" *ngIf="mainMenu">
-    <a
-      *ngFor="let menuItem of mainMenu.pages"
-      class="e-title-caps hover-underline tabs-links"
-      [routerLink]="['/' + menuItem.path]"
-      routerLinkActive="active"
-      role="tab"
-      (click)="closeOverlay()"
-    >
-      {{ menuItem.title }}
+  <div class="header">
+    <a class="e-flex e-align-items-center" [routerLink]="['', 'home']">
+      <img [src]="logoUrl" class="elvia-logo" alt="Elvia Logo" />
     </a>
-    <ng-container *ngIf="devMode">
-      <a
-        class="e-title-caps hover-underline tabs-links"
-        [routerLink]="['/dev']"
-        routerLinkActive="active"
-        role="tab"
-        (click)="closeOverlay()"
-      >
-        Dev
-      </a>
-      <a
-        class="e-title-caps hover-underline tabs-links"
-        target="_blank"
-        rel="noopener"
-        href="/react-preview"
-        role="tab"
-        (click)="closeOverlay()"
-      >
-        React
-      </a>
-    </ng-container>
-  </nav>
 
-  <div class="header-aside-actions e-none-sm e-none-md">
-    <elvia-popover
-      (onClose)="closeThemeMenu()"
-      [isShowing]="themeMenuIsOpen"
-      hasCloseButton="false"
-      horizontalPosition="right"
-      verticalPosition="bottom"
-    >
+    @if (mainMenu) {
+      <nav class="tabs e-ml-32 e-none-sm e-none-md" aria-label="tabs navigation" role="tablist">
+        @for (menuItem of mainMenu.pages; track menuItem) {
+          <a
+            class="e-title-caps hover-underline tabs-links"
+            [routerLink]="['/' + menuItem.path]"
+            routerLinkActive="active"
+            role="tab"
+            (click)="closeOverlay()"
+          >
+            {{ menuItem.title }}
+          </a>
+        }
+        @if (devMode) {
+          <a
+            class="e-title-caps hover-underline tabs-links"
+            [routerLink]="['/dev']"
+            routerLinkActive="active"
+            role="tab"
+            (click)="closeOverlay()"
+          >
+            Dev
+          </a>
+          <a
+            class="e-title-caps hover-underline tabs-links"
+            target="_blank"
+            rel="noopener"
+            href="/react-preview"
+            role="tab"
+            (click)="closeOverlay()"
+          >
+            React
+          </a>
+        }
+      </nav>
+    }
+
+    <div class="header-aside-actions e-none-sm e-none-md">
+      <elvia-popover
+        (onClose)="closeThemeMenu()"
+        [isShowing]="themeMenuIsOpen"
+        hasCloseButton="false"
+        horizontalPosition="right"
+        verticalPosition="bottom"
+      >
+        <button
+          class="header-button hover-underline"
+          slot="trigger"
+          (click)="openThemeMenu()"
+          [ngClass]="{ active: themeMenuIsOpen }"
+        >
+          <i class="e-icon e-icon--{{ currentTheme }}_theme e-icon--xs" aria-hidden="true"></i>
+          <span class="e-text-md">Theme</span>
+        </button>
+        <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()"></app-theme-switch>
+      </elvia-popover>
+
+      <elvia-divider orientation="vertical" className="e-mx-24" inlineStyle="{ maxHeight: '20px' }" />
+
       <button
         class="header-button hover-underline"
-        slot="trigger"
-        (click)="openThemeMenu()"
-        [ngClass]="{ active: themeMenuIsOpen }"
+        [ngClass]="{ active: visibleMenuType === 'search' }"
+        (click)="visibleMenuType ? closeOverlay() : openOverlay('search')"
+        aria-label="Open search"
+        id="search-button"
       >
-        <i class="e-icon e-icon--{{ currentTheme }}_theme e-icon--xs" aria-hidden="true"></i>
-        <span class="e-text-md">Theme</span>
+        <i class="e-icon e-icon--search-bold e-icon--xs" aria-hidden="true"></i>
+        <span class="e-text-md e-none-sm">Search</span>
       </button>
-      <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()"></app-theme-switch>
-    </elvia-popover>
+    </div>
 
-    <elvia-divider orientation="vertical" className="e-mx-24" inlineStyle="{ maxHeight: '20px' }" />
-
-    <button
-      class="header-button hover-underline"
-      [ngClass]="{ active: visibleMenuType === 'search' }"
-      (click)="visibleMenuType ? closeOverlay() : openOverlay('search')"
-      aria-label="Open search"
-      id="search-button"
-    >
-      <i class="e-icon e-icon--search-bold e-icon--xs" aria-hidden="true"></i>
-      <span class="e-text-md e-none-sm">Search</span>
-    </button>
+    <div class="mobile-menu e-none-lg e-none-xl">
+      @if (visibleMenuType) {
+        <button
+          class="e-btn e-btn--icon e-btn--circled e-btn--lg"
+          (click)="closeOverlay()"
+          aria-label="Close search"
+        >
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--remove_circle-color" aria-hidden="true"></i>
+            <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true"></i>
+          </span>
+        </button>
+      } @else {
+        <button (click)="openOverlay('search')" aria-label="Open search">
+          <span class="elvis-search__icon">
+            <i class="e-icon e-icon--search-bold e-icon--sm" aria-hidden="true"></i>
+          </span>
+        </button>
+        <button (click)="openOverlay('mobileMenu')" aria-label="Show menu">
+          <i class="e-icon e-icon--menu-bold e-icon--sm" aria-hidden="true"></i>
+        </button>
+      }
+    </div>
   </div>
 
-  <div class="mobile-menu e-none-lg e-none-xl">
-    <button
-      *ngIf="visibleMenuType; else mobileMenu"
-      class="e-btn e-btn--icon e-btn--circled e-btn--lg"
-      (click)="closeOverlay()"
-      aria-label="Close search"
-    >
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--remove_circle-color" aria-hidden="true"></i>
-        <i class="e-icon e-icon--remove_circle-filled-color" aria-hidden="true"></i>
-      </span>
-    </button>
-
-    <ng-template #mobileMenu>
-      <button (click)="openOverlay('search')" aria-label="Open search">
-        <span class="elvis-search__icon">
-          <i class="e-icon e-icon--search-bold e-icon--sm" aria-hidden="true"></i>
-        </span>
-      </button>
-      <button (click)="openOverlay('mobileMenu')" aria-label="Show menu">
-        <i class="e-icon e-icon--menu-bold e-icon--sm" aria-hidden="true"></i>
-      </button>
-    </ng-template>
-  </div>
-
-  <app-search-menu (closeSearchMenu)="closeOverlay()" *ngIf="visibleMenuType === 'search'" />
-  <app-mobile-menu (closeMenu)="closeOverlay()" *ngIf="visibleMenuType === 'mobileMenu'" />
+  @if (visibleMenuType === 'search') {
+    <app-search-menu (closeSearchMenu)="closeOverlay()" />
+  }
+  @if (visibleMenuType === 'mobileMenu') {
+    <app-mobile-menu (closeMenu)="closeOverlay()" />
+  }
 </header>

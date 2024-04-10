@@ -2,6 +2,7 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { FormFieldSizes, IconButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import styled, { css } from 'styled-components';
+
 import { StyledCheckbox } from '../checkbox/checkboxStyles';
 
 export const TooltipContainer = styled.div<{ noRightContent: boolean; isRootOverlay?: boolean }>`

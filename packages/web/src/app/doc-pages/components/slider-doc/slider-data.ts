@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-slider/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseSliderProps } from '@elvia/elvis-slider/react';
+
+import ComponentData from '../component-data.interface';
 
 export const sliderData: ComponentData<BaseSliderProps> = {
   changelog: changelogJson.content,
@@ -86,12 +87,12 @@ export const sliderData: ComponentData<BaseSliderProps> = {
       },
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: number | {left: number, right: number} ) => void',
       description: 'Gets called every time the value is changed. Only returns a value if the input is valid.',
     },
     errorOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: string ) => void',
       description: 'Gets called every time the internal error is changed.',
     },

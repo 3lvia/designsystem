@@ -41,7 +41,7 @@ export const appList = [
   {
     name: 'FortelVia',
     iconLetters: 'Ai',
-    url: 'ai',
+    url: 'fortelvia',
     rotation: -22.5,
   },
   {
@@ -79,6 +79,12 @@ export const appList = [
     iconLetters: 'Ms',
     url: 'msim',
     rotation: -180,
+  },
+  {
+    name: 'OneTime',
+    iconLetters: 'On',
+    url: 'onetime',
+    rotation: 11.25,
   },
   {
     name: 'Refi',

@@ -1,14 +1,16 @@
-import { Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
-import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
-import { IDocumentationPage } from 'contentful/types';
-import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
+import { IDocumentationPage } from 'contentful/types';
+import { combineLatest } from 'rxjs';
+
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { CMSDocPageError, TransformedDocPage } from 'src/app/core/services/cms/cms.interface';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
@@ -16,6 +18,9 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   templateUrl: './cms-page.component.html',
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ComponentHeaderComponent, RouterOutlet, HttpClientModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CMSPageComponent implements OnDestroy {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;
@@ -37,7 +42,7 @@ export class CMSPageComponent implements OnDestroy {
     private router: Router,
     private elementRef: ElementRef,
     private titleService: Title,
-    private themeService: ThemeService,
+    themeService: ThemeService,
   ) {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
@@ -57,8 +62,6 @@ export class CMSPageComponent implements OnDestroy {
         if (this.hasChecked && this.isCmsPage) {
           if (firstRoute === 'preview' && secondRoute) {
             this.getDocPageFromCMS(locale, secondRoute);
-          } else if (!environment.production) {
-            this.getDocPageFromCMS(locale);
           } else {
             this.getDocPageFromPreGeneratedList(locale);
           }

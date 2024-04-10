@@ -1,5 +1,6 @@
 import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
-import { buttonHeight, ScrollContainer, YearButton, YearPickerContainer } from './yearPickerStyles';
+
+import { ScrollContainer, YearButton, YearPickerContainer, buttonHeight } from './yearPickerStyles';
 
 interface Props {
   selectedDate?: Date | null;

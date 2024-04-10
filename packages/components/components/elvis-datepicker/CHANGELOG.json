@@ -1,6 +1,45 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-datepicker",
   "content": [
+    {
+      "date": "05.04.24",
+      "version": "9.0.7",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "It now works to paste a date of the format <code>dd.mm.yyyy</code> into the datepicker input."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "11.03.24",
+      "version": "9.0.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where <code>valueOnChangeISOString</code> would emit a string containing time."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "08.03.24",
+      "version": "9.0.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed an issue where the datepicker would not emit a new value if it was invalid."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
     {
       "date": "27.11.23",
       "version": "9.0.4",

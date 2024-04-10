@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { BaseSliderProps } from '@elvia/elvis-slider/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-slider-ceg',
   templateUrl: './slider-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: SliderCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SliderCegComponent implements ComponentExample {
   elementName = 'slider';

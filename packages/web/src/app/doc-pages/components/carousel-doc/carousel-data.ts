@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-carousel/CHANGELOG.json';
-import ComponentData, { NestedProp } from '../component-data.interface';
 import { BaseCarouselProps, CarouselItem } from '@elvia/elvis-carousel/react';
+
+import ComponentData, { NestedProp } from '../component-data.interface';
 
 // We force items to be CarouselItem, since it actually is a union of number and CarouselItem[], which is hard to type correctly.
 export const carouselData: ComponentData<BaseCarouselProps & { items: CarouselItem[] }> = {
@@ -36,7 +37,7 @@ export const carouselData: ComponentData<BaseCarouselProps & { items: CarouselIt
       default: 'false',
     },
     onFinish: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description:
         'Callback function for when the checkmark button is clicked. This requires the type to be "linear" and hasConfirmationCheckmark to be true.',
@@ -48,7 +49,7 @@ export const carouselData: ComponentData<BaseCarouselProps & { items: CarouselIt
       default: '0',
     },
     valueOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: number) => void',
       description: 'Gets called every time the value is changed.',
     },

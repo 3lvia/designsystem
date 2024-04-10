@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { StepperProps } from './elvia-stepper.types';
-import { StepperVertical } from './elvia-stepper-vertical';
+
 import { StepperHorizontal } from './elvia-stepper-horizontal';
+import { StepperVertical } from './elvia-stepper-vertical';
+import { StepperProps } from './elvia-stepper.types';
 
 export const Stepper: FC<StepperProps> = function ({
   type = 'horizontal',
@@ -12,6 +13,7 @@ export const Stepper: FC<StepperProps> = function ({
   value,
   valueOnChange,
   onFinish,
+  onNextClick,
   className,
   inlineStyle,
   webcomponent,
@@ -69,6 +71,11 @@ export const Stepper: FC<StepperProps> = function ({
     }
   };
 
+  const handleNextClick = () => {
+    webcomponent?.triggerEvent('onNextClick');
+    onNextClick?.();
+  };
+
   return (
     <>
       {type === 'vertical' ? (
@@ -77,6 +84,7 @@ export const Stepper: FC<StepperProps> = function ({
           currentStep={currentStep}
           isForced={isForced}
           handleStepChange={handleStepChange}
+          onNextClick={handleNextClick}
           typography={typography}
           contentRef={contentRef}
           content={content}
@@ -91,6 +99,7 @@ export const Stepper: FC<StepperProps> = function ({
           currentStep={currentStep}
           isForced={isForced}
           handleStepChange={handleStepChange}
+          onNextClick={handleNextClick}
           typography={typography}
           contentRef={contentRef}
           content={content}

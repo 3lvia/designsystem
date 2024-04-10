@@ -3,41 +3,41 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
-    <!--Normal version-->
-    <div class="e-p-16 e-mb-24">
-      <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
-      <elvia-modal
-        (onClose)="isModalShowing = !isModalShowing"
-        [isShowing]="isModalShowing"
-        [disableClose]="false"
-      >
-        <div slot="illustration">
-          <img alt="" src="/assets/modal/Empty state.png" />
+    <div class="example-wrapper">
+      <elvia-accordion [isOpen]="true" isFullWidth size="small">
+        <div slot="openLabel">
+          <p>openLabel 1</p>
         </div>
-        <div slot="heading" class="e-flex e-align-items-center e-gap-8">
-          Jeg er en heading (slot)
-          <i class="e-icon e-icon--move_truck-color e-icon--sm" aria-hidden="true"> </i>
+        <div slot="closeLabel">
+          <p>closeLabel 1</p>
         </div>
         <div slot="content">
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
-          <elvia-dropdown></elvia-dropdown>
+          <elvia-accordion [isOpen]="true" isFullWidth size="small">
+            <div slot="openLabel">
+              <p>openLabel 2</p>
+            </div>
+            <div slot="closeLabel">
+              <p>closeLabel 2</p>
+            </div>
+            <div slot="content">
+              <elvia-autocomplete
+                (valueOnChange)="handleOnChange($any($event))"
+                errorOptions="{ text: 'Skriv inn noe godt' }"
+                label="Lunch"
+                [items]="[
+                  { value: 'lange', label: 'Lange' },
+                  { value: 'torsk', label: 'Torsk' },
+                  { value: 'sjampinjong', label: 'sjampinjong' }
+                ]"
+              />
+              Accordion content
+            </div>
+          </elvia-accordion>
         </div>
-        <!-- <button
-          slot="secondaryButton"
-          class="e-btn e-btn--secondary e-btn--lg"
-          (click)="isModalShowing = false"
-        >
-          Avbryt
-        </button> -->
-        <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">
-          Lagre
-        </button>
-      </elvia-modal>
+      </elvia-accordion>
     </div>
+
+    <!--Normal version-->
     <!--Inverted version-->
     <div class="e-color-background-1 e-theme-dark"></div>
 
@@ -222,8 +222,9 @@
     <div class="example-wrapper">
       <h3>Deletable chips</h3>
       <div style="display: flex; flex-direction: row">
-        <div *ngFor="let chip of deletableChipsList">
-          <!-- <elvia-chip
+        @for (chip of deletableChipsList; track chip) {
+          <div>
+            <!-- <elvia-chip
             [value]="chip.value"
             [color]="chip.color"
             [ariaLabel]="'Fjern filtrering for ' + chip.value"
@@ -231,8 +232,9 @@
             (onDelete)="handleOnDelete($any($event).detail.value)"
             (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
             [inlineStyle]="{ margin: '8px' }"
-          /> -->
-        </div>
+            /> -->
+          </div>
+        }
       </div>
       Value deleted: {{ deleteValue }}
 
@@ -240,20 +242,26 @@
         <h3>Clickable chips</h3>
         <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
         <div style="display: flex; flex-direction: row">
-          <div *ngFor="let chip of filteredKeys">
-            <elvia-chip
-              [value]="chip"
-              [isSelected]="filteredValues[chip]"
-              color="orange"
-              type="legend"
-              (isSelectedOnChange)="handleOnChange($any($event))"
-            ></elvia-chip>
-          </div>
+          @for (chip of filteredKeys; track chip) {
+            <div>
+              <elvia-chip
+                [value]="chip"
+                [isSelected]="filteredValues[chip]"
+                color="orange"
+                type="legend"
+                (isSelectedOnChange)="handleOnChange($any($event))"
+              ></elvia-chip>
+            </div>
+          }
 
           Selected values:
-          <span *ngFor="let key of filteredKeys">
-            <span *ngIf="filteredValues[key]">{{ key }},</span>
-          </span>
+          @for (key of filteredKeys; track key) {
+            <span>
+              @if (filteredValues[key]) {
+                <span>{{ key }},</span>
+              }
+            </span>
+          }
         </div>
       </div>
     </div>
@@ -355,6 +363,13 @@
         (valueOnChange)="onDropdownSelect($any($event).detail.value)"
         [errorOptions]="errorOptions"
       ></elvia-dropdown>
+      <elvia-dropdown
+        [items]="dropdownImageItems"
+        label="Tilordne"
+        placeholder="Tilordne person"
+        size="small"
+        (valueOnChange)="onDropdownSelect($any($event).detail.value)"
+      ></elvia-dropdown>
     </div>
 
     <!--Icon-->
@@ -368,7 +383,7 @@
     <div class="example-wrapper">
       <h3>Modal</h3>
       <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
-      <!-- <elvia-modal
+      <elvia-modal
         (onClose)="isModalShowing = !isModalShowing"
         [isShowing]="isModalShowing"
         [disableClose]="false"
@@ -388,7 +403,7 @@
         <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">
           Lagre
         </button>
-      </elvia-modal> -->
+      </elvia-modal>
       <h4>Illustration</h4>
 
       <h4>Multiple pages</h4>
@@ -510,11 +525,9 @@
     <!--Spotlight-->
     <div class="example-wrapper">
       <h3>Spotlight</h3>
-      <elvia-spotlight
-        *ngIf="showSpotlight"
-        [position]="{ horizontal: 450, vertical: 300 }"
-        [radius]="150"
-      ></elvia-spotlight>
+      @if (showSpotlight) {
+        <elvia-spotlight [position]="{ horizontal: 450, vertical: 300 }" [radius]="150"></elvia-spotlight>
+      }
       <button class="e-btn" style="position: relative; z-index: 999999" (click)="toggleSpotlight()">
         Toggle spotlight
       </button>
@@ -525,12 +538,14 @@
       <elvia-stepper
         [steps]="{
           '1': { heading: 'Tittel 1', isCompleted: true },
-          '2': { heading: 'Tittel 2', isCompleted: true },
+          '2': { heading: 'Tittel 2', isCompleted: false },
           '3': { heading: 'Tittel 3' },
           '4': { heading: 'Tittel 4', nextButtonText: 'Lagre' }
         }"
+        isForced
         (onFinish)="log('Stepper onFinish()')"
         (valueOnChange)="logValue('Stepper', $any($event).detail.value)"
+        (onNextClick)="log('Stepper onNextClick')"
       >
         <div slot="content">
           <div>Trinn 1 innhold</div>
@@ -620,6 +635,10 @@
             This is custom content!
           </p>
           <div slot="trigger">Tooltip trigger with custom content</div>
+        </elvia-tooltip>
+
+        <elvia-tooltip content="This should not be visible if mouseleave before delay">
+          <elvia-accordion slot="trigger" openLabel="Accordion as tooltip trigger"></elvia-accordion>
         </elvia-tooltip>
       </div>
     </div>

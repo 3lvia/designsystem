@@ -1,8 +1,9 @@
 import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
 import React, { forwardRef } from 'react';
+
+import { AutocompletePopupItem } from '../autocomplete-item/autocompleteItem';
 import { AutocompleteItem } from '../elvia-autocomplete.types';
 import { AutocompletePopup, NoItemsMessage } from './styledAutocompleteOverlay';
-import { AutocompletePopupItem } from '../autocomplete-item/autocompleteItem';
 
 interface AutocompleteOverlayProps {
   fadeOut: boolean;

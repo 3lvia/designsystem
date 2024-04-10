@@ -58,6 +58,78 @@ export const darkThemeColors = {
       color: '#9E1111',
       contrastText: '#EDEDED',
     },
+    'green-apple-50': {
+      color: '#3C7230',
+      contrastText: '#EDEDED',
+    },
+    'violet-grape-50': {
+      color: '#583B75',
+      contrastText: '#EDEDED',
+    },
+    'blue-berry-50': {
+      color: '#2A5785',
+      contrastText: '#EDEDED',
+    },
+    'purple-plum-50': {
+      color: '#6F5689',
+      contrastText: '#EDEDED',
+    },
+    'orange-mango-50': {
+      color: '#85572C',
+      contrastText: '#EDEDED',
+    },
+    'red-tomato-50': {
+      color: '#722E2E',
+      contrastText: '#EDEDED',
+    },
+    'green-apple-30': {
+      color: '#8AAB83',
+      contrastText: '#171717',
+    },
+    'violet-grape-30': {
+      color: '#9788A6',
+      contrastText: '#171717',
+    },
+    'blue-berry-30': {
+      color: '#8096AE',
+      contrastText: '#171717',
+    },
+    'purple-plum-30': {
+      color: '#A396B0',
+      contrastText: '#171717',
+    },
+    'orange-mango-30': {
+      color: '#B6A281',
+      contrastText: '#171717',
+    },
+    'red-tomato-30': {
+      color: '#AE8685',
+      contrastText: '#171717',
+    },
+    'green-apple-10': {
+      color: '#444F41',
+      contrastText: '#EDEDED',
+    },
+    'violet-grape-10': {
+      color: '#453F4B',
+      contrastText: '#EDEDED',
+    },
+    'blue-berry-10': {
+      color: '#404850',
+      contrastText: '#EDEDED',
+    },
+    'purple-plum-10': {
+      color: '#4C4851',
+      contrastText: '#EDEDED',
+    },
+    'orange-mango-10': {
+      color: '#534C41',
+      contrastText: '#EDEDED',
+    },
+    'red-tomato-10': {
+      color: '#504242',
+      contrastText: '#EDEDED',
+    },
   },
   'grey-colors': {
     'grey-70': {
@@ -88,6 +160,10 @@ export const darkThemeColors = {
       color: '#C4C4C4',
       contrastText: '#171717',
     },
+    'grey-05': {
+      color: '#DFDFDF',
+      contrastText: '#171717',
+    },
   },
   'internal-colors': {
     'focus-outline': {
@@ -96,11 +172,12 @@ export const darkThemeColors = {
   },
 } as const satisfies BaseColors;
 
-export type DarkThemeColorName = typeof darkThemeColors extends Record<string, infer Category>
-  ? Category extends Record<string, any>
-    ? keyof Category
-    : never
-  : never;
+export type DarkThemeColorName =
+  typeof darkThemeColors extends Record<string, infer Category>
+    ? Category extends Record<string, any>
+      ? keyof Category
+      : never
+    : never;
 
 export const darkTheme = {
   text: {
@@ -209,6 +286,10 @@ export const darkTheme = {
       hex: darkThemeColors['grey-colors']['grey-40'].color,
       contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
     },
+    'background-readonly-1': {
+      hex: darkThemeColors['grey-colors']['grey-60'].color,
+      contrast: darkThemeColors['grey-colors']['grey-60'].contrastText,
+    },
   },
   border: {
     'border-1': {
@@ -298,6 +379,78 @@ export const darkTheme = {
       hex: darkThemeColors['data-colors']['red-tomato'].color,
       contrast: darkThemeColors['data-colors']['red-tomato'].contrastText,
     },
+    'data-1-50': {
+      hex: darkThemeColors['data-colors']['green-apple-50'].color,
+      contrast: darkThemeColors['data-colors']['green-apple-50'].contrastText,
+    },
+    'data-2-50': {
+      hex: darkThemeColors['data-colors']['violet-grape-50'].color,
+      contrast: darkThemeColors['data-colors']['violet-grape-50'].contrastText,
+    },
+    'data-3-50': {
+      hex: darkThemeColors['data-colors']['blue-berry-50'].color,
+      contrast: darkThemeColors['data-colors']['blue-berry-50'].contrastText,
+    },
+    'data-4-50': {
+      hex: darkThemeColors['data-colors']['purple-plum-50'].color,
+      contrast: darkThemeColors['data-colors']['purple-plum-50'].contrastText,
+    },
+    'data-5-50': {
+      hex: darkThemeColors['data-colors']['orange-mango-50'].color,
+      contrast: darkThemeColors['data-colors']['orange-mango-50'].contrastText,
+    },
+    'data-6-50': {
+      hex: darkThemeColors['data-colors']['red-tomato-50'].color,
+      contrast: darkThemeColors['data-colors']['red-tomato-50'].contrastText,
+    },
+    'data-1-30': {
+      hex: darkThemeColors['data-colors']['green-apple-30'].color,
+      contrast: darkThemeColors['data-colors']['green-apple-30'].contrastText,
+    },
+    'data-2-30': {
+      hex: darkThemeColors['data-colors']['violet-grape-30'].color,
+      contrast: darkThemeColors['data-colors']['violet-grape-30'].contrastText,
+    },
+    'data-3-30': {
+      hex: darkThemeColors['data-colors']['blue-berry-30'].color,
+      contrast: darkThemeColors['data-colors']['blue-berry-30'].contrastText,
+    },
+    'data-4-30': {
+      hex: darkThemeColors['data-colors']['purple-plum-30'].color,
+      contrast: darkThemeColors['data-colors']['purple-plum-30'].contrastText,
+    },
+    'data-5-30': {
+      hex: darkThemeColors['data-colors']['orange-mango-30'].color,
+      contrast: darkThemeColors['data-colors']['orange-mango-30'].contrastText,
+    },
+    'data-6-30': {
+      hex: darkThemeColors['data-colors']['red-tomato-30'].color,
+      contrast: darkThemeColors['data-colors']['red-tomato-30'].contrastText,
+    },
+    'data-1-10': {
+      hex: darkThemeColors['data-colors']['green-apple-10'].color,
+      contrast: darkThemeColors['data-colors']['green-apple-10'].contrastText,
+    },
+    'data-2-10': {
+      hex: darkThemeColors['data-colors']['violet-grape-10'].color,
+      contrast: darkThemeColors['data-colors']['violet-grape-10'].contrastText,
+    },
+    'data-3-10': {
+      hex: darkThemeColors['data-colors']['blue-berry-10'].color,
+      contrast: darkThemeColors['data-colors']['blue-berry-10'].contrastText,
+    },
+    'data-4-10': {
+      hex: darkThemeColors['data-colors']['purple-plum-10'].color,
+      contrast: darkThemeColors['data-colors']['purple-plum-10'].contrastText,
+    },
+    'data-5-10': {
+      hex: darkThemeColors['data-colors']['orange-mango-10'].color,
+      contrast: darkThemeColors['data-colors']['orange-mango-10'].contrastText,
+    },
+    'data-6-10': {
+      hex: darkThemeColors['data-colors']['red-tomato-10'].color,
+      contrast: darkThemeColors['data-colors']['red-tomato-10'].contrastText,
+    },
   },
   icon: {
     'icon-stroke-1': {
@@ -348,6 +501,68 @@ export const darkTheme = {
     },
     'focus-outline': {
       hex: darkThemeColors['internal-colors']['focus-outline'].color,
+    },
+  },
+  illustration: {
+    'illustration-main-1': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
+    },
+    'illustration-main-2': {
+      hex: darkThemeColors['primary-colors']['white'].color,
+      contrast: darkThemeColors['primary-colors']['white'].contrastText,
+    },
+    'illustration-main-3': {
+      hex: darkThemeColors['primary-colors']['white'].color,
+      contrast: darkThemeColors['primary-colors']['white'].contrastText,
+    },
+    'illustration-main-4': {
+      hex: darkThemeColors['primary-colors']['grey'].color,
+      contrast: darkThemeColors['primary-colors']['grey'].contrastText,
+    },
+    'illustration-main-5': {
+      hex: darkThemeColors['primary-colors']['green'].color,
+      contrast: darkThemeColors['primary-colors']['green'].contrastText,
+    },
+    'illustration-shade-1': {
+      hex: darkThemeColors['grey-colors']['grey-05'].color,
+      contrast: darkThemeColors['grey-colors']['grey-05'].contrastText,
+    },
+    'illustration-shade-2': {
+      hex: darkThemeColors['grey-colors']['grey-10'].color,
+      contrast: darkThemeColors['grey-colors']['grey-10'].contrastText,
+    },
+    'illustration-shade-3': {
+      hex: darkThemeColors['grey-colors']['grey-20'].color,
+      contrast: darkThemeColors['grey-colors']['grey-20'].contrastText,
+    },
+    'illustration-shade-4': {
+      hex: darkThemeColors['grey-colors']['grey-40'].color,
+      contrast: darkThemeColors['grey-colors']['grey-40'].contrastText,
+    },
+    'illustration-background-1': {
+      hex: darkThemeColors['grey-colors']['grey-50'].color,
+      contrast: darkThemeColors['grey-colors']['grey-50'].contrastText,
+    },
+    'illustration-background-2': {
+      hex: darkThemeColors['data-colors']['green-apple-30'].color,
+      contrast: darkThemeColors['data-colors']['green-apple-30'].contrastText,
+    },
+    'illustration-background-3': {
+      hex: darkThemeColors['data-colors']['blue-berry-30'].color,
+      contrast: darkThemeColors['data-colors']['blue-berry-30'].contrastText,
+    },
+    'illustration-background-4': {
+      hex: darkThemeColors['data-colors']['purple-plum-30'].color,
+      contrast: darkThemeColors['data-colors']['purple-plum-30'].contrastText,
+    },
+    'illustration-background-5': {
+      hex: darkThemeColors['data-colors']['red-tomato-30'].color,
+      contrast: darkThemeColors['data-colors']['red-tomato-30'].contrastText,
+    },
+    'illustration-background-6': {
+      hex: darkThemeColors['data-colors']['orange-mango-30'].color,
+      contrast: darkThemeColors['data-colors']['orange-mango-30'].contrastText,
     },
   },
 } as const satisfies Theme;

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
-    "build:production": "yarn build && mv ./dist ../web/dist/elvia-designsystem/react-preview",
+    "build:production": "yarn build && mv ./dist ../web/dist/elvia-designsystem/browser/react-preview",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -42,11 +42,11 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.53",
-    "@types/react-dom": "^18.2.18",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.24",
     "@vitejs/plugin-react": "^4.2.1",
-    "sass": "^1.70.0",
-    "typescript": "~5.3.3",
-    "vite": "^5.0.12"
+    "sass": "^1.74.1",
+    "typescript": "~5.4.4",
+    "vite": "^5.2.8"
   }
 }

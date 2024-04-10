@@ -2,16 +2,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RoutesRecognized } from '@angular/router';
+
+import { EmojiBadComponent } from './emoji-bad/emoji-bad.component';
+import { EmojiGoodComponent } from './emoji-good/emoji-good.component';
+import { EmojiNeutralComponent } from './emoji-neutral/emoji-neutral.component';
 import { ScrollNotifierService } from './scroll-notifier.service';
 
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss'],
+  standalone: true,
+  imports: [EmojiBadComponent, EmojiNeutralComponent, EmojiGoodComponent],
 })
 export class FeedbackComponent {
   @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;
-  webHook = 'https://hooks.slack.com/services/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';
 
   isEmoji = true;
   isComment = false;
@@ -94,6 +99,11 @@ export class FeedbackComponent {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
     };
 
-    this.http.post(this.webHook, JSON.stringify(message), { ...options, responseType: 'text' }).subscribe();
+    this.http
+      .post('/.netlify/functions/slackfeedback', JSON.stringify(message), {
+        ...options,
+        responseType: 'text',
+      })
+      .subscribe();
   }
 }

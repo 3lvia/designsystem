@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
-import { getThemeColor, getShadow } from '@elvia/elvis-colors';
+import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
+import styled, { css, keyframes } from 'styled-components';
 
 const mobileMax = '767px';
 const desktopMin = '1024px';
@@ -103,6 +103,7 @@ export const ModalContent = styled.div<ContentProps>`
   flex-direction: column;
   z-index: 1;
   background: transparent;
+  max-height: calc(100vh - 64px);
 
   ${({ hasIllustration }) =>
     hasIllustration &&
@@ -123,6 +124,7 @@ export const ModalContent = styled.div<ContentProps>`
     width: 100%;
     height: ${({ hasIllustration }) =>
       hasIllustration ? `calc(100% - ${modalMobileIllustrationHeight})` : '100%'};
+    max-height: 100vh;
   }
 `;
 

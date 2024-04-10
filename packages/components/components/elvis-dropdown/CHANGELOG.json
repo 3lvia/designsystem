@@ -1,6 +1,45 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-dropdown",
   "content": [
+    {
+      "date": "07.03.24",
+      "version": "9.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The dropdown overlay will now grow to the right if an option is too long to fit in the overlay."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "15.02.24",
+      "version": "9.3.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where thumbnail images in Dropdown with <code>size = 'small'</code> overflows when selected."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "07.02.24",
+      "version": "9.3.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the <code>ariaLabel</code> prop not working for web components."]
+        }
+      ]
+    },
     {
       "date": "12.01.24",
       "version": "9.3.2",

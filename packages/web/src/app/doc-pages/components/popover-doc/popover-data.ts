@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-popover/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BasePopoverProps } from '@elvia/elvis-popover/react';
+
+import ComponentData from '../component-data.interface';
 
 const popoverData: ComponentData<BasePopoverProps> = {
   changelog: changelogJson.content,
@@ -37,12 +38,12 @@ const popoverData: ComponentData<BasePopoverProps> = {
       default: 'false',
     },
     onOpen: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the popover is being opened.',
     },
     onClose: {
-      isEvent: true,
+      specialType: 'event',
       type: '() => void',
       description: 'Callback for every time the popover is being closed.',
     },

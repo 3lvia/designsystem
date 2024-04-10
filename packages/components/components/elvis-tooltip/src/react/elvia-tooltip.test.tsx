@@ -1,9 +1,10 @@
-import React from 'react';
-import { Tooltip } from './elvia-tooltip';
-import userEvent from '@testing-library/user-event';
-import { TooltipProps } from './elviaTooltip.types';
-import { axe } from 'jest-axe';
 import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
+import React from 'react';
+
+import { Tooltip } from './elvia-tooltip';
+import { TooltipProps } from './elviaTooltip.types';
 
 const tooltipContent = 'Tooltip content';
 const triggerText = 'Trigger';

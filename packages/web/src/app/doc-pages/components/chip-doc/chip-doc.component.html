@@ -9,14 +9,16 @@
       Removable chip is used to show what filter the user have selected and can easily be removed by clicking
       on them.
       <div style="display: flex; flex-direction: ChCrow" class="e-ml-n8">
-        <div *ngFor="let chip of deletableChipsListInType" class="e-m-8">
-          <elvia-chip
-            [value]="chip.value"
-            [color]="chip.color"
-            [isDisabled]="chip.isDisabled"
-            (onDelete)="handleOnDeleteInType($any($event).target.value)"
-          ></elvia-chip>
-        </div>
+        @for (chip of deletableChipsListInType; track chip) {
+          <div class="e-m-8">
+            <elvia-chip
+              [value]="chip.value"
+              [color]="chip.color"
+              [isDisabled]="chip.isDisabled"
+              (onDelete)="handleOnDeleteInType($any($event).target.value)"
+            ></elvia-chip>
+          </div>
+        }
       </div>
     </app-component-subsection>
 
@@ -82,13 +84,15 @@
     <app-component-subsection [sectionTitle]="'Default color'">
       The default color is green. It is the main color to use when there is only one category.
       <div style="display: flex; flex-direction: row; flex-wrap: wrap" class="e-ml-n8">
-        <div *ngFor="let chip of deletableChipsListInType" class="e-m-8">
-          <elvia-chip
-            [value]="chip.value"
-            [color]="chip.color"
-            (onDelete)="handleOnDeleteInType($any($event).detail.value)"
-          ></elvia-chip>
-        </div>
+        @for (chip of deletableChipsListInType; track chip) {
+          <div class="e-m-8">
+            <elvia-chip
+              [value]="chip.value"
+              [color]="chip.color"
+              (onDelete)="handleOnDeleteInType($any($event).detail.value)"
+            ></elvia-chip>
+          </div>
+        }
       </div>
     </app-component-subsection>
 
@@ -96,14 +100,16 @@
       To categorize chips, different colors can be used to distinguish them from each other. All chips in the
       same color should be placed together. See the properties table at the bottom for all available colors.
       <div style="display: flex; flex-direction: row; flex-wrap: wrap" class="e-ml-n8">
-        <div *ngFor="let chip of colorChips" class="e-m-8">
-          <elvia-chip
-            [value]="chip.value"
-            [color]="chip.color"
-            [isDisabled]="chip.disabled"
-            (onDelete)="handleOnDeleteColor($any($event).detail.value)"
-          ></elvia-chip>
-        </div>
+        @for (chip of colorChips; track chip) {
+          <div class="e-m-8">
+            <elvia-chip
+              [value]="chip.value"
+              [color]="chip.color"
+              [isDisabled]="chip.disabled"
+              (onDelete)="handleOnDeleteColor($any($event).detail.value)"
+            ></elvia-chip>
+          </div>
+        }
       </div>
     </app-component-subsection>
   </app-component-section>

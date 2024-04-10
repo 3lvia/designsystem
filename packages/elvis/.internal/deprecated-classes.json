@@ -1,4 +1,9 @@
 {
+  "e-alert--no-title": {
+    "deprecateChildren": true,
+    "version": "16.2.2",
+    "sunset": "August 2024"
+  },
   "e-search": {
     "deprecateChildren": true,
     "version": "16.0.0",

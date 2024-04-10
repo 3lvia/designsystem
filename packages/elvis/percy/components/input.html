@@ -57,6 +57,32 @@
       </div>
     </div>
 
+    <div class="e-title-sm e-mt-16">Circled icon</div>
+    <div class="e-form-field e-mb-16" style="width: 300px">
+      <div class="e-input">
+        <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+        <input aria-label="Circled icon" placeholder="Circled icon" />
+        <button class="e-btn e-btn--icon e-btn--circled" aria-label="Legg til">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--add_circle-filled-color" aria-hidden="true"></i>
+            <i class="e-icon e-icon--add_circle" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="e-form-field e-form-field--small" style="width: 300px">
+      <div class="e-input">
+        <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+        <input aria-label="Small circled icon" placeholder="Small circled icon" />
+        <button class="e-btn e-btn--icon e-btn--circled" aria-label="Legg til">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--add_circle-filled-color" aria-hidden="true"></i>
+            <i class="e-icon e-icon--add_circle" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+
     <div class="e-title-sm e-mt-16">Search</div>
     <div class="e-form-field e-form-field--small e-mt-16" style="width: 240px">
       <div class="e-input">
@@ -254,6 +280,60 @@
           <label class="e-form-field__label">Small textarea readonly</label>
           <div class="e-input e-input---readonly">
             <textarea readonly>Text</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disabled input -->
+    <div class="e-mt-16">
+      <div class="e-title-xs e-my-16">Disabled state</div>
+      <div class="e-form-field e-mb-32">
+        <label class="e-form-field__label">medium disabled</label>
+        <div class="e-input e-input---disabled">
+          <input type="text" value="Text" disabled />
+        </div>
+      </div>
+      <div style="width: 240px">
+        <div class="e-form-field e-form-field--small">
+          <label class="e-form-field__label">small disabled</label>
+          <div class="e-input e-input---disabled">
+            <input type="text" value="Text" disabled />
+          </div>
+        </div>
+      </div>
+      <div class="e-form-field e-mb-32">
+        <label class="e-form-field__label">Medium textarea disabled</label>
+        <div class="e-input e-input---disabled">
+          <textarea disabled>Text</textarea>
+        </div>
+      </div>
+      <div style="width: 240px">
+        <div class="e-form-field e-form-field--small">
+          <label class="e-form-field__label">Small textarea disabled</label>
+          <div class="e-input e-input---disabled">
+            <textarea disabled>Text</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suffix input -->
+    <div class="e-mt-16">
+      <div class="e-title-xs e-my-16">Suffix</div>
+      <div class="e-form-field e-mb-32">
+        <label class="e-form-field__label">medium with suffix</label>
+        <div class="e-input">
+          <input type="text" placeholder="Placeholder text" />
+          <span class="e-input__suffix">suffix</span>
+        </div>
+      </div>
+      <div style="width: 240px">
+        <div class="e-form-field e-form-field--small">
+          <label class="e-form-field__label">small with suffix</label>
+          <div class="e-input">
+            <input type="text" placeholder="Placeholder text" />
+            <span class="e-input__suffix">suffix</span>
           </div>
         </div>
       </div>

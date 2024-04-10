@@ -1,25 +1,25 @@
+import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
+import {
+  ErrorOptions,
+  FormFieldLabel,
+  IconWrapper,
+  useBreakpoint,
+  useConnectedOverlay,
+  useInputModeDetection,
+  useWebComponentState,
+  warnDeprecatedProps,
+} from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import { config } from './config';
-import { DropdownProps, ErrorType } from './elviaDropdown.types';
-import { DropdownItem, DropdownValueType } from './publicApi.public';
-import {
-  warnDeprecatedProps,
-  FormFieldLabel,
-  useConnectedOverlay,
-  useInputModeDetection,
-  useBreakpoint,
-  useWebComponentState,
-  IconWrapper,
-  ErrorOptions,
-} from '@elvia/elvis-toolbox';
-import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import { DropdownInput } from './dropdown-input/dropdownInput';
-import { DropdownContainer, DropdownInputContainer, IconRotator } from './styledComponents';
-import { DropdownError } from './error/dropdownError';
 import { DropdownOverlay } from './dropdown-overlay/dropdownOverlay';
 import { flattenTree, getValueAsList } from './dropdownListUtils';
+import { DropdownProps, ErrorType } from './elviaDropdown.types';
+import { DropdownError } from './error/dropdownError';
 import { getInternalErrorText } from './getInternalErrorText';
+import { DropdownItem, DropdownValueType } from './publicApi.public';
+import { DropdownContainer, DropdownInputContainer, IconRotator } from './styledComponents';
 
 const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   if (!filter) {
@@ -89,6 +89,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     horizontalPosition: 'center',
     verticalPosition: menuPosition === 'top' ? 'top' : 'bottom',
     alignWidths: true,
+    allowHorizontalGrowth: true,
   });
 
   const mergedErrorOptions: Partial<ErrorOptions> = { ...defaultErrorOptions, ...errorOptions };
@@ -209,6 +210,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           <DropdownInput
             placeholder={placeholder}
             placeholderIcon={placeholderIcon}
+            size={size}
             isRequired={isRequired}
             allOptionsSelectedLabel={allOptionsSelectedLabel}
             isEditable={isSearchable}

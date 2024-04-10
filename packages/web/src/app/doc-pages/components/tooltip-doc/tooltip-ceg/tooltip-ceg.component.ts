@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { TooltipProps } from '@elvia/elvis-tooltip/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-tooltip-ceg',
   templateUrl: './tooltip-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: TooltipCegComponent }],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TooltipCegComponent implements ComponentExample {
   elementName = 'tooltip';

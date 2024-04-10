@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
-import { getTypographyCss } from '@elvia/elvis-typography';
 import { getThemeColor } from '@elvia/elvis-colors';
+import { getTypographyCss } from '@elvia/elvis-typography';
+import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
   from {

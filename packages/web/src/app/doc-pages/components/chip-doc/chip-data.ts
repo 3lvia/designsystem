@@ -1,6 +1,7 @@
 import changelogJson from '@elvia/elvis-chip/CHANGELOG.json';
-import ComponentData from '../component-data.interface';
 import { BaseChipProps } from '@elvia/elvis-chip/react';
+
+import ComponentData from '../component-data.interface';
 
 export const chipData: ComponentData<BaseChipProps> = {
   changelog: changelogJson.content,
@@ -45,12 +46,12 @@ export const chipData: ComponentData<BaseChipProps> = {
       description: 'Add an image to the left side of the chip. NB: only available in removable chips.',
     },
     isSelectedOnChange: {
-      isEvent: true,
+      specialType: 'event',
       type: '(isSelected: boolean) => void',
       description: 'Gets called every time the selected state is changed.',
     },
     onDelete: {
-      isEvent: true,
+      specialType: 'event',
       type: '(value: string) => void',
       description:
         'Gets called if an item is clicked and it should be deleted. Required on removable type and not necessary on any of the other types.',

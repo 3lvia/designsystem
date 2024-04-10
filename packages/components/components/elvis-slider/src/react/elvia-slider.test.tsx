@@ -1,9 +1,10 @@
 import '@testing-library/jest-dom';
-import React from 'react';
-import Slider from './elvia-slider';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { render, screen, fireEvent, act, waitFor } from '@testing-library/react';
+import React from 'react';
+
+import Slider from './elvia-slider';
 
 // Simple Slider
 describe('Elvia Slider', () => {

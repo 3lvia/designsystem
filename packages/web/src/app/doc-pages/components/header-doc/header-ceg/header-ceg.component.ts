@@ -1,12 +1,15 @@
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
-
 import { HeaderProps } from '@elvia/elvis-header/react';
+
+import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
   selector: 'app-header-ceg',
   templateUrl: './header-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: HeaderCegComponent }],
+  standalone: true,
+  imports: [NgClass],
 })
 export class HeaderCegComponent implements ComponentExample {
   headerIsVisible = false;

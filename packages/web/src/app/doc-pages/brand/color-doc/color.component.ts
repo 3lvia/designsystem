@@ -1,12 +1,41 @@
 import { Component } from '@angular/core';
-import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
-import { Title } from '@angular/platform-browser';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+
+import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
+import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { DoDontTextComponent } from '../../../shared/do-dont-text/do-dont-text.component';
+import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { ColorShadeIllustrationComponent } from './color-shade-illustration/color-shade-illustration.component';
+import { ColorTokenTableComponent } from './color-token-table/color-token-table.component';
+import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
+import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
+import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
+  styleUrls: ['./color.component.scss'],
+  standalone: true,
+  imports: [
+    ComponentHeaderComponent,
+    ColorPickerComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    ComponentSubsubsectionComponent,
+    DoDontTextComponent,
+    PurposeTokenIllustrationComponent,
+    ThemeTokenIllustrationComponent,
+    ColorShadeIllustrationComponent,
+    ColorTokenTableComponent,
+    CodeViewerComponent,
+    RouterLink,
+  ],
 })
 export class ColorComponent {
   purposeTokenExample = `.container {

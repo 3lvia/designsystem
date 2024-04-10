@@ -1,5 +1,5 @@
+import { DocPageName, DocPageStatus, Pages } from './shared.enum';
 import { DocPage } from './shared.interface';
-import { Pages, DocPageStatus, DocPageName } from './shared.enum';
 
 // Used for shortcuts at home page
 export const homeMenu: DocPage[] = [
@@ -32,16 +32,6 @@ export const homeMenu: DocPage[] = [
     imageUrlOn: 'assets/doc-page-icons/shortcut-icons/AccessibilityOn.svg',
     imageUrlDark: 'assets/doc-page-icons/shortcut-icons/AccessibilityDark.svg',
     imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/AccessibilityOnDark.svg',
-  },
-  {
-    title: 'Contribute',
-    description: 'Help us get better',
-    docUrl: Pages.Contribute,
-    absolutePath: '/about/' + Pages.Contribute,
-    imageUrl: 'assets/doc-page-icons/shortcut-icons/Contribute.svg',
-    imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ContributeOn.svg',
-    imageUrlDark: 'assets/doc-page-icons/shortcut-icons/ContributeDark.svg',
-    imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/ContributeOnDark.svg',
   },
 ];
 
@@ -764,6 +754,15 @@ export const docPagesNotFromCMS: DocPage[] = [
     status: DocPageStatus.Done,
   },
   {
+    title: 'Empty States',
+    docUrl: Pages.EmptyStates,
+    absolutePath: '/patterns/' + Pages.EmptyStates,
+    description:
+      'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=0%3A1',
+    status: DocPageStatus.Done,
+  },
+  {
     title: 'Get started',
     description: `We are an open-source design system to be used for Elvia’s external and internal systems to provide a
     comprehensive and user-friendly experience. We offer classes, variables and components, as well as tools
@@ -821,6 +820,17 @@ export const docPagesNotFromCMS: DocPage[] = [
     type: 'Brand',
   },
   {
+    title: 'Illustrations',
+    titleNo: 'Illustrasjoner',
+    docUrl: Pages.Illustration,
+    figmaUrl: 'https://www.figma.com/file/twcgKk3NMXmi2uBjMdZSKo/?node-id=1%3A11',
+    absolutePath: '/brand/' + Pages.Illustration,
+    description: `An illustration can help to communicate a message visually and add personality to the page. Using illustration is a powerful tool when users are frustrated, lost or something went wrong. See <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for guidelines.`,
+    descriptionNo: `En illustrasjon kan bidra til å formidle et budskap visuelt og gi siden personlighet. Bruk av illustrasjoner er et effektivt verktøy når brukerne er frustrerte, har gått seg vill eller når noe har gått galt. Se <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for retningslinjer.`,
+    searchTerms: [],
+    relatedPages: [],
+  },
+  {
     title: 'Layout',
     titleNo: 'Layout',
     description:
@@ -835,8 +845,8 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Typography',
     titleNo: 'Typografi',
-    description: `Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family includes three types: Display, Text and Mono. `,
-    descriptionNo: `Elvia har en typografi kalt Red Hat som skal brukes i alt materiale. Skriftfamilien Red Hat inneholder tre typer: Display, Text og Mono. `,
+    description: `Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family includes two types: Display and Text. `,
+    descriptionNo: `Elvia har en typografi kalt Red Hat som skal brukes i alt materiale. Skriftfamilien Red Hat inneholder tre typer: Display and Text. `,
     docUrl: Pages.Typography,
     absolutePath: '/brand/' + Pages.Typography,
     status: DocPageStatus.Done,

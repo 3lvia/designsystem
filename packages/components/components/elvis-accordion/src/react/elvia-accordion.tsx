@@ -1,19 +1,20 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
+import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
+import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
 import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
+
 import { AccordionProps, AccordionSize } from './elvia-accordion.types';
 import {
   AccordionArea,
-  AccordionButtonArea,
   AccordionButton,
+  AccordionButtonArea,
+  AccordionContent,
+  AccordionDetailText,
+  AccordionHeightAnimator,
   AccordionLabel,
   AccordionLabelText,
-  AccordionDetailText,
-  AccordionContent,
   StyledIconWrapper,
-  AccordionHeightAnimator,
 } from './styledComponents';
-import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
-import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
 
 export const Accordion: FC<AccordionProps> = ({
   content,
@@ -51,7 +52,9 @@ export const Accordion: FC<AccordionProps> = ({
   const [isOpenState, setIsOpenState] = useState(isOpen);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
   const [contentHeight, setContentHeight] = useState(getClosedHeight());
-  const [visibility, setVisibility] = useState<'hidden' | 'unset'>(type === 'overflow' ? 'unset' : 'hidden');
+  const [visibility, setVisibility] = useState<'hidden' | 'unset'>(
+    isOpen ? 'unset' : type === 'overflow' ? 'unset' : 'hidden',
+  );
 
   const accordionRef = useRef<HTMLDivElement>(null);
 
@@ -78,17 +81,16 @@ export const Accordion: FC<AccordionProps> = ({
   });
   const slotContentHeight = accordionContentRef.current?.getBoundingClientRect().height ?? 0;
 
-  const updateOpenState = (newIsOpenState: boolean) => {
-    if (newIsOpenState === isOpenState) {
-      return;
-    }
+  useEffect(() => {
+    updateOpenState(isOpenState);
+  }, [accordionContentRef, accordionContentRef.current]);
 
+  const updateOpenState = (newIsOpenState: boolean) => {
     if (newIsOpenState) {
       setVisibility('unset');
       setContentHeight(`${slotContentHeight}px`);
     } else {
       setContentHeight(`${slotContentHeight}px`);
-
       setTimeout(() => setContentHeight(getClosedHeight()));
     }
 

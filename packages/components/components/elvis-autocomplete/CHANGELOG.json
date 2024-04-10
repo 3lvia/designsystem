@@ -1,5 +1,6 @@
 {
   "$schema": "../../changelogSchema.json",
+  "name": "elvis-autocomplete",
   "content": [
     {
       "date": "26.10.23",

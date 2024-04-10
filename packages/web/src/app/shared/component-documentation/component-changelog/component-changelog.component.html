@@ -29,124 +29,158 @@
 </ng-template>
 
 <ng-template #changelogTemplateHeader>
-  <p *ngIf="!isFrontpage && elvisComponentToFilter" class="e-m-0 e-mb-48 e-text-sm">
-    This changelog only contains Elvis versions that affected the
-    {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the
-    <a class="e-link e-link--inline" routerLink="/components/css-library" fragment="Changelog">
-      complete CSS library changelog here
-    </a>
-    .
-  </p>
-  <ng-container *ngIf="!isFrontpage" [ngTemplateOutlet]="changelogFilter"></ng-container>
+  @if (elvisComponentToFilter) {
+    <p class="e-m-0 e-mb-48 e-text-sm">
+      This changelog only contains Elvis versions that affected the
+      {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the
+      <a class="e-link e-link--inline" routerLink="/components/css-library" fragment="Changelog">
+        complete CSS library changelog here
+      </a>
+      .
+    </p>
+  }
+  <ng-container [ngTemplateOutlet]="changelogFilter"></ng-container>
 </ng-template>
 
 <ng-template #changelogTemplateContent>
-  <table *ngIf="filteredChangelog && filteredChangelog.length > 0">
-    <caption class="e-sr-only">
-      Component changes
-    </caption>
-    <tr class="e-sr-only">
-      <th class="changelog-date py-0" scope="col">Date and version</th>
-      <th class="changelog-content py-0" scope="col">Changes</th>
-    </tr>
-    <tbody>
-      <tr
-        *ngFor="
-          let el of isFrontpage ? filteredChangelog.slice(0, 1) : filteredChangelog;
-          last as isLast;
-          first as isFirst
-        "
-        class="changelog-row"
-        [ngClass]="{ 'changelog-row--skipped': el.skipped }"
-      >
-        <ng-container *ngIf="!el.skipped">
-          <td class="changelog-date">
-            <span class="e-title-sm">{{ el.version }}</span>
-            <span class="changelog-date-span">{{ el.date | DocumentationDatePipe }}</span>
-          </td>
-          <td class="changelog-content" *ngIf="!el.skipped">
-            <div class="changelog-section" *ngFor="let changelog of el.changelog">
-              <div
-                class="changelog-section-title"
-                [id]="el.date | ChangelogIdPipe: el.version : (changelog.type | ChangelogTypePipe) : ''"
-              >
-                {{ changelog.type | ChangelogTypePipe }}
-              </div>
-              <div *ngIf="changelog.components && changelog.components.length > 0">
-                Components:
-                <ng-container
-                  *ngFor="let component of changelog.components; let last = last; let first = first"
-                >
-                  <!-- prettier-ignore -->
-                  <span *ngIf="!last && !first">, </span>
-                  <!-- prettier-ignore -->
-                  <span *ngIf="last && !first"> & </span>
-                  <a
-                    class="e-link e-link--inline"
-                    [href]="component.url"
-                    [id]="el.date | ChangelogIdPipe: el.version : component.displayName : changelog.type"
-                  >
-                    {{ component.displayName }}
-                  </a>
-                </ng-container>
-              </div>
-
-              <div *ngIf="changelog.pages && changelog.pages.length > 0">
-                Pages:
-                <ng-container *ngFor="let component of changelog.pages; let last = last; let first = first">
-                  <!-- prettier-ignore -->
-                  <span *ngIf="!last && !first">, </span>
-                  <!-- prettier-ignore -->
-                  <span *ngIf="last && !first"> & </span>
-                  <a
-                    class="e-link e-link--inline"
-                    [href]="component.url"
-                    [id]="el.date | ChangelogIdPipe: el.version : component.displayName : changelog.type"
-                  >
-                    {{ component.displayName }}
-                  </a>
-                </ng-container>
-              </div>
-              <ul class="e-list">
-                <li *ngFor="let change of changelog.changes">
-                  <p [innerHTML]="change" [id]="el.date | ChangelogIdPipe: el.version : change : 'entry'"></p>
-                </li>
-              </ul>
-              <ng-container *ngIf="changelog.fixes && changelog.fixes.length > 0">
-                <strong>How to fix</strong>
-                <ul>
-                  <li *ngFor="let fix of changelog.fixes" [innerHTML]="fix">{{ fix }}</li>
-                </ul>
-              </ng-container>
-            </div>
-          </td>
-        </ng-container>
-
-        <ng-container *ngIf="el.skipped && el.skipped > 0 && !isFirst" [ngPlural]="el.skipped">
-          <ng-template ngPluralCase="1">
-            <p class="e-text-micro e-my-16">{{ el.skipped }} unrelated release</p>
-          </ng-template>
-          <ng-template ngPluralCase="other">
-            <p class="e-text-micro e-my-16">{{ el.skipped }} unrelated releases</p>
-          </ng-template>
-        </ng-container>
+  @if (filteredChangelog && filteredChangelog.length > 0) {
+    <table>
+      <caption class="e-sr-only">
+        Component changes
+      </caption>
+      <tr class="e-sr-only">
+        <th class="changelog-date py-0" scope="col">Date and version</th>
+        <th class="changelog-content py-0" scope="col">Changes</th>
       </tr>
-    </tbody>
-  </table>
-  <div class="no-properties-found" *ngIf="filteredChangelog && filteredChangelog.length === 0">
-    <img src="assets/not-found/NoResults.svg" alt="" aria-hidden="true" />
-    <span class="e-title-caps e-text-center">No entries found matching your search</span>
-  </div>
+      <tbody>
+        @for (el of filteredChangelog; track el; let isLast = $last; let isFirst = $first) {
+          <tr class="changelog-row" [ngClass]="{ 'changelog-row--skipped': el.skipped }">
+            @if (!el.skipped) {
+              <td class="changelog-date">
+                <span class="e-title-sm">{{ el.version }}</span>
+                <span class="changelog-date-span">{{ el.date | DocumentationDatePipe }}</span>
+              </td>
+              @if (!el.skipped) {
+                <td class="changelog-content">
+                  @for (changelog of el.changelog; track changelog) {
+                    <div class="changelog-section">
+                      <div
+                        class="changelog-section-title"
+                        [id]="
+                          el.date | ChangelogIdPipe: el.version : (changelog.type | ChangelogTypePipe) : ''
+                        "
+                      >
+                        {{ changelog.type | ChangelogTypePipe }}
+                      </div>
+                      @if (changelog.components && changelog.components.length > 0) {
+                        <div>
+                          Components:
+                          @for (
+                            component of changelog.components;
+                            track component;
+                            let last = $last;
+                            let first = $first
+                          ) {
+                            <!-- prettier-ignore -->
+                            @if (!last && !first) {
+                              <span>, </span>
+                            }
+                            <!-- prettier-ignore -->
+                            @if (last && !first) {
+                              <span> & </span>
+                            }
+                            <a
+                              class="e-link e-link--inline"
+                              [href]="component.url"
+                              [id]="
+                                el.date | ChangelogIdPipe: el.version : component.displayName : changelog.type
+                              "
+                            >
+                              {{ component.displayName }}
+                            </a>
+                          }
+                        </div>
+                      }
+                      @if (changelog.pages && changelog.pages.length > 0) {
+                        <div>
+                          Pages:
+                          @for (
+                            component of changelog.pages;
+                            track component;
+                            let last = $last;
+                            let first = $first
+                          ) {
+                            <!-- prettier-ignore -->
+                            @if (!last && !first) {
+                              <span>, </span>
+                            }
+                            <!-- prettier-ignore -->
+                            @if (last && !first) {
+                              <span> & </span>
+                            }
+                            <a
+                              class="e-link e-link--inline"
+                              [href]="component.url"
+                              [id]="
+                                el.date | ChangelogIdPipe: el.version : component.displayName : changelog.type
+                              "
+                            >
+                              {{ component.displayName }}
+                            </a>
+                          }
+                        </div>
+                      }
+                      <ul class="e-list">
+                        @for (change of changelog.changes; track change) {
+                          <li>
+                            <p
+                              [innerHTML]="change"
+                              [id]="el.date | ChangelogIdPipe: el.version : change : 'entry'"
+                            ></p>
+                          </li>
+                        }
+                      </ul>
+                      @if (changelog.fixes && changelog.fixes.length > 0) {
+                        <strong>How to fix</strong>
+                        <ul>
+                          @for (fix of changelog.fixes; track fix) {
+                            <li [innerHTML]="fix">{{ fix }}</li>
+                          }
+                        </ul>
+                      }
+                    </div>
+                  }
+                </td>
+              }
+            }
+            @if (el.skipped && el.skipped > 0 && !isFirst) {
+              <ng-container [ngPlural]="el.skipped">
+                <ng-template ngPluralCase="1">
+                  <p class="e-text-micro e-my-16">{{ el.skipped }} unrelated release</p>
+                </ng-template>
+                <ng-template ngPluralCase="other">
+                  <p class="e-text-micro e-my-16">{{ el.skipped }} unrelated releases</p>
+                </ng-template>
+              </ng-container>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+  @if (filteredChangelog && filteredChangelog.length === 0) {
+    <div class="no-properties-found">
+      <elvia-illustrations-no-results />
+      <span class="e-title-caps e-text-center">No entries found matching your search</span>
+    </div>
+  }
 </ng-template>
 
 <!-- No accordion  -->
-<ng-container *ngIf="!hasAccordion || (changelog && changelog.length <= 2); else accordionTemplate">
+@if (!hasAccordion || (changelog && changelog.length <= 2)) {
   <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
   <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
-</ng-container>
-
-<!-- With accordion -->
-<ng-template #accordionTemplate>
+} @else {
   <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
   <elvia-accordion
     type="overflow"
@@ -163,4 +197,6 @@
       <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
     </div>
   </elvia-accordion>
-</ng-template>
+}
+
+<!-- With accordion -->
