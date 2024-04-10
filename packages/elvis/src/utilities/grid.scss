@@ -19,11 +19,14 @@
 }
 
 .e-grid {
-  --offset: 24px;
   box-sizing: border-box;
-  padding-inline: var(--offset);
+
+  // We're intentionally not using the --offset prop here
+  // We don't want it to adapt when --offset changes.
+  padding-inline: 24px;
 
   .row {
+    --offset: 24px;
     display: flex;
     flex-wrap: wrap;
     margin-inline: calc(var(--offset) * -1);
@@ -31,6 +34,40 @@
     &.e-grid-gutters-ext.e-grid-gutters-vertical [class^='col'],
     &.e-grid-gutters-int.e-grid-gutters-vertical [class^='col'] {
       padding-block: var(--offset) !important;
+    }
+
+    @include breakpoints.lt-mobile() {
+      &.e-grid-gutters-ext,
+      &.e-grid-gutters-int {
+        --offset: 8px;
+      }
+    }
+
+    @include breakpoints.gt-mobile() {
+      &.e-grid-gutters-ext {
+        --offset: 16px;
+      }
+      &.e-grid-gutters-int {
+        --offset: 12px;
+      }
+    }
+
+    @include breakpoints.gt-tablet() {
+      &.e-grid-gutters-ext {
+        --offset: 28px;
+      }
+      &.e-grid-gutters-int {
+        --offset: 12px;
+      }
+    }
+
+    @include breakpoints.gt-desktop() {
+      &.e-grid-gutters-ext {
+        --offset: 28px;
+      }
+      &.e-grid-gutters-int {
+        --offset: 12px;
+      }
     }
   }
 
@@ -87,40 +124,6 @@
   @for $i from 1 through 12 {
     @include breakpoints.gt-desktop() {
       @include create-breakpoint-classes($i, xl-);
-    }
-  }
-
-  @include breakpoints.lt-mobile() {
-    &:has(.e-grid-gutters-ext),
-    &:has(.e-grid-gutters-int) {
-      --offset: 8px;
-    }
-  }
-
-  @include breakpoints.gt-mobile() {
-    &:has(.e-grid-gutters-ext) {
-      --offset: 16px;
-    }
-    &:has(.e-grid-gutters-int) {
-      --offset: 12px;
-    }
-  }
-
-  @include breakpoints.gt-tablet() {
-    &:has(.e-grid-gutters-ext) {
-      --offset: 28px;
-    }
-    &:has(.e-grid-gutters-int) {
-      --offset: 12px;
-    }
-  }
-
-  @include breakpoints.gt-desktop() {
-    &:has(.e-grid-gutters-ext) {
-      --offset: 28px;
-    }
-    &:has(.e-grid-gutters-int) {
-      --offset: 12px;
     }
   }
 }
