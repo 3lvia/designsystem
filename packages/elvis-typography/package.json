@@ -20,7 +20,7 @@
   ],
   "devDependencies": {
     "@types/gulp": "^4.0.17",
-    "@types/node": "^20.12.6",
+    "@types/node": "^20.12.7",
     "gulp": "^5.0.0",
     "ts-node": "^10.9.2",
     "tsup": "^8.0.2",
