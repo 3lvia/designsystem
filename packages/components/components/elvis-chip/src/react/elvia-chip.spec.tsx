@@ -13,7 +13,9 @@ test('should render', async ({ mount }) => {
 
 test('should pass visual diff check', async ({ mount, page }) => {
   await mount(
-    <div style={{ display: 'grid', gap: '32px' }}>
+    <div
+      style={{ display: 'grid', gap: '32px', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))' }}
+    >
       <Chip value="Chip" type="choice" isSelected />
       <Chip color="green" value="Chip" type="legend" isSelected />
       <Chip color="blue" value="Chip" type="legend" isSelected />
