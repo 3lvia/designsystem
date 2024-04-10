@@ -1,3 +1,4 @@
+import { Tooltip } from '@elvia/elvis-tooltip/react';
 import DOMPurify from 'dompurify';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -75,37 +76,44 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
           aria-label={type === 'icon' ? (control as IconSegmentedControl).ariaLabel : undefined}
           data-testid="segmented-control-label"
         >
-          <SegmentedControlInput
-            type="radio"
-            id={segmentedControlId.current + index}
-            name={segmentedControlId.current}
-            checked={index === selectedIndex}
-            onChange={() => setSelected(index)}
+          <Tooltip
+            display="block"
+            content={(control as IconSegmentedControl).tooltip ?? ''}
+            isDisabled={!(control as IconSegmentedControl).tooltip}
+            trigger={
+              <>
+                <SegmentedControlInput
+                  type="radio"
+                  id={segmentedControlId.current + index}
+                  name={segmentedControlId.current}
+                  checked={index === selectedIndex}
+                  onChange={() => setSelected(index)}
+                />
+                {type === 'text' && (
+                  <div data-testid="segmented-control-text">
+                    <span>{(control as TextSegmentedControl).label}</span>
+                    <BoldControlTextPlaceholder aria-hidden="true">
+                      {(control as TextSegmentedControl).label}
+                    </BoldControlTextPlaceholder>
+                  </div>
+                )}
+                {type === 'icon' && (
+                  <SegmentedControlIconContainer
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(
+                        getIconString(
+                          (control as IconSegmentedControl)[
+                            index === selectedIndex ? 'iconSelected' : 'icon'
+                          ],
+                        ),
+                      ),
+                    }}
+                    data-testid="segmented-control-icon"
+                  />
+                )}
+              </>
+            }
           />
-          {type === 'text' && (
-            <div data-testid="segmented-control-text">
-              <span>{(control as TextSegmentedControl).label}</span>
-              <BoldControlTextPlaceholder aria-hidden="true">
-                {(control as TextSegmentedControl).label}
-              </BoldControlTextPlaceholder>
-            </div>
-          )}
-          {type === 'icon' &&
-            (index !== selectedIndex ? (
-              <SegmentedControlIconContainer
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).icon)),
-                }}
-                data-testid="segmented-control-icon"
-              />
-            ) : (
-              <SegmentedControlIconContainer
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(getIconString((control as IconSegmentedControl).iconSelected)),
-                }}
-                data-testid="segmented-control-icon"
-              />
-            ))}
         </SegmentedControlLabel>
       ))}
     </SegmentedControlContainer>
