@@ -30,6 +30,10 @@ export const segmentedControlData: ComponentData<BaseSegmentedControlProps> = {
           description:
             'HTML for the icon visible when the segmented control is active. Only used in icon segmented controls.',
         },
+        tooltip: {
+          type: 'string',
+          description: 'Adds a tooltip to the segmented control. Only used in icon segmented controls.',
+        },
       },
     },
     value: {
