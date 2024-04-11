@@ -63,7 +63,10 @@ const getConfigObject = (file: string): Config => {
 const createWebComponentPlugin: esbuild.Plugin = {
   name: 'create-webcomponent-plugin',
   async setup(build) {
-    const templateFile = await fs.readFile('./build/template/elvia-component.template.js', 'utf-8');
+    const templateFile = await fs.readFile(
+      `.${path.sep}build${path.sep}template${path.sep}elvia-component.template.js`,
+      'utf-8',
+    );
 
     // Mark all web component imports as external. This makes esbuild ignore them and leave unresolved imports in the bundle
     build.onResolve({ filter: /component-wrapper$|react.js$/ }, (args) => {
@@ -105,10 +108,12 @@ const buildWebComponents = async (config: {
   outDir: string;
   watch: boolean;
 }): Promise<esbuild.BuildResult | void> => {
-  const paths = await tinyGlob('components/elvis-*/src/react/config.ts');
+  const paths = await tinyGlob(
+    `components${path.sep}elvis-*${path.sep}src${path.sep}react${path.sep}config.ts`,
+  );
 
   const baseConfig: esbuild.BuildOptions = {
-    entryPoints: paths.map((path) => toInOutTuple(path, 'dist/main', 'web-component')),
+    entryPoints: paths.map((configPath) => toInOutTuple(configPath, `dist${path.sep}main`, 'web-component')),
     outdir: config.outDir,
     bundle: true,
     format: 'esm',

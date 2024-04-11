@@ -20,10 +20,10 @@ interface ComponentData {
 const rootDir = 'components';
 
 const getComponentData = async () => {
-  const paths = await tinyGlob('components/*/package.json');
-  return paths.map((path) => {
-    const file = fs.readFileSync(path, 'utf-8');
-    return { content: JSON.parse(file), component: path.split('/')[1] };
+  const paths = await tinyGlob(`components${path.sep}*${path.sep}package.json`);
+  return paths.map((packageJsonPath) => {
+    const file = fs.readFileSync(packageJsonPath, 'utf-8');
+    return { content: JSON.parse(file), component: packageJsonPath.split(path.sep)[1] };
   });
 };
 
@@ -45,7 +45,9 @@ const getAllDependencies = (componentDataList: ComponentData[]) => {
 export const build = async () => {
   const watchMode = process.argv.includes('--watch');
 
-  const typePaths = await tinyGlob('components/elvis-*/src/react/*.{public,types}.ts*');
+  const typePaths = await tinyGlob(
+    `components${path.sep}elvis-*${path.sep}src${path.sep}react${path.sep}*.{public,types}.ts*`,
+  );
   const componentDataList = await getComponentData();
   const paths = typePaths.concat(componentDataList.map(getEntryPoint)).map((path) => toInOutTuple(path));
   const dependencies = getAllDependencies(componentDataList);

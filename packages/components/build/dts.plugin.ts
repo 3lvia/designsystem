@@ -14,7 +14,7 @@ interface Props {
 // outPath for our types.
 const resolveImportsOfPublicApi = (text: string): string => {
   return text.replace(
-    /\.\/([\w-]+.public)/g,
+    /\.[\\\/]([\w-]+.public)/g,
     (_match, fileName) => `..${path.sep}public-api${path.sep}${fileName}`,
   );
 };
