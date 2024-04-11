@@ -31,6 +31,6 @@
     "gulp-svgmin": "^4.1.0",
     "sharp": "^0.33.3",
     "ts-node": "^10.9.2",
-    "typescript": "~5.4.4"
+    "typescript": "~5.4.5"
   }
 }
