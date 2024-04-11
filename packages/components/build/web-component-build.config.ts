@@ -53,9 +53,24 @@ const setGetList = (attributes: Attribute[]) => {
 const getConfigObject = (file: string): Config => {
   const content = /export.*({[\w\W]*})/.exec(file)?.[1] as string;
 
+  /**
+   * Content comes as a string in the shape of
+   * {
+   *   name: 'Accordion',
+   *   attributes: [
+   *     { name: 'content', type: 'string' },
+   *     { name: 'isOpen', type: 'boolean' },
+   *     ...
+   *   ],
+   * }
+   **/
+
   // Remove quotes, new lines and spaces
   console.log('🐞 DEBUG --- Content is: ', content);
-  const cleanContent = content.replace(/'/g, '').replace(/\n/g, '').replace(/ /g, '');
+  const cleanContent = content
+    .replace(/'/g, '')
+    .replace(/[\r\n]/g, '')
+    .replace(/ /g, '');
   console.log('🐞 DEBUG --- Clean content is: ', cleanContent);
   const contentWithDoubleQuotes = cleanContent.replace(/([\w.]+)/g, '"$1"');
   console.log('🐞 DEBUG --- Content with double quotes is: ', contentWithDoubleQuotes);
