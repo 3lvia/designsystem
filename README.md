@@ -94,12 +94,11 @@ Setup for development environment:
 0. Clone repository, checkout new branch from master, and run `yarn`.
 1. Navigate to `packages/web/contentful` and follow the instructions in the `.env.template` file.
 2. Building projects:
-   1. Run `yarn build` to build all projects for productions. This commando will run on push.
+   1. Run `yarn build` to build all projects for productions.
    1. Run `yarn build:web` to build the web project.
    1. Run `yarn build:components` to build the components (includes more steps than start:components like
       testing).
-   1. Run `yarn build:tokens` at root to build the two token packages. These are also built once (not watched)
-      when using `yarn start:components`.
+   1. Run `yarn build:tokens` at root to build the token packages.
 3. Running projects:
    1. Run `yarn start:web` at root to run the main documentation page (design.elvia.io).
    2. Run `yarn start:components` at root to watch for the components (every time components are changed).
@@ -113,14 +112,12 @@ Setup for development environment:
    3. Prettier
    4. vscode-styled-components
    5. Volar
-   6. Angular Files
 5. Less useful, but still nice extensions:
    1. Color Highlight
-   2. Auto Rename Tag
-   3. GitLense
-   4. npm Intellisense
-   5. Template string converter
-   6. Angular Snippets
+   2. GitLense
+   3. npm Intellisense
+   4. Template string converter
+   5. Angular Snippets
 
 ### Start developing
 
@@ -143,13 +140,6 @@ automatically be published to npm. If you wish to publish beta versions of packa
 If for some reason a package publishing fails, you can publish all the packages to npm at once by using
 `yarn publish --otp <INSERT_OTP>` from root. It will publish all packages where the version number is updated
 from what is currently published and the package is not marked as private in the `package.json`.
-
-### Updating Yarn
-
-We use Yarn 3 (berry) for this project. To update Yarn, run `yarn set version stable`. This will update the
-Yarn version in the `.yarn/releases`-folder, as well as the `.yarnrc.yml` and `package.json` files. If the
-`netlify.toml` doesn't automatically update the `[build.environment] YARN_VERSION`, this must be changed too.
-Commit the changes (including the `yarn-3.x.x.cjs`-file) and push to the repository.
 
 ## 🤝 Contribute
 
