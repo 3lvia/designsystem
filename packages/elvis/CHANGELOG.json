@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "17.0.1",
+      "date": "April 11, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Reimplemented the <code>.container</code> class from Bootstrap, since it was used in some Elvia applications. Note that this only works on <code>.e-grid</code> elements and as a child of an <code>.e-grid</code> element."
+          ],
+          "pages": [{ "displayName": "Layout", "url": "https://design.elvia.io/brand/layout" }]
+        }
+      ]
+    },
+    {
       "version": "17.0.0",
       "date": "April 10, 2024",
       "changelog": [

@@ -1,0 +1,35 @@
+@use 'breakpoints';
+
+.e-grid:is(.container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl),
+.e-grid :is(.container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl) {
+  width: 100%;
+  margin-inline: auto;
+}
+
+@include breakpoints.lt-mobile() {
+  .e-grid:is(.container, .container-sm),
+  .e-grid :is(.container, .container-sm) {
+    max-width: 540px;
+  }
+}
+
+@include breakpoints.gt-mobile() {
+  .e-grid:is(.container, .container-md, .container-sm),
+  .e-grid :is(.container, .container-md, .container-sm) {
+    max-width: 720px;
+  }
+}
+
+@include breakpoints.gt-tablet() {
+  .e-grid:is(.container, .container-lg, .container-md, .container-sm),
+  .e-grid :is(.container, .container-lg, .container-md, .container-sm) {
+    max-width: 960px;
+  }
+}
+
+@include breakpoints.gt-desktop() {
+  .e-grid:is(.container, .container-lg, .container-md, .container-sm, .container-xl),
+  .e-grid :is(.container, .container-lg, .container-md, .container-sm, .container-xl) {
+    max-width: 1140px;
+  }
+}
