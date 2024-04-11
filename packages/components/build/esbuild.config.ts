@@ -21,6 +21,13 @@ const rootDir = 'components';
 
 const getComponentData = async () => {
   const paths = await tinyGlob(`components${path.sep}*${path.sep}package.json`);
+  const pathsAlt = await tinyGlob('components/*/package.json');
+  console.log(
+    chalk.blueBright(
+      `🐞 DEBUG -- Found ${paths.length} package.json files with path.sep. With default string it found ${pathsAlt.length} files.`,
+    ),
+  );
+
   return paths.map((packageJsonPath) => {
     const file = fs.readFileSync(packageJsonPath, 'utf-8');
     return { content: JSON.parse(file), component: packageJsonPath.split(path.sep)[1] };
