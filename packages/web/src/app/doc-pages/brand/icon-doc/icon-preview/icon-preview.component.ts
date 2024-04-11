@@ -1,10 +1,10 @@
-import { animate, style, transition, trigger } from '@angular/animations';
 import { NgClass } from '@angular/common';
-import { Component, effect, model, signal } from '@angular/core';
+import { Component, computed, model, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { filter, fromEvent } from 'rxjs';
 
+import { entranceAnimation } from '../../exhibit-detail-animation';
 import { IconPreviewDetailsComponent } from './icon-preview-details/icon-preview-details.component';
 import { FilterValue, IconPreviewFilterComponent } from './icon-preview-filter/icon-preview-filter.component';
 import { Icon, getIconList } from './utils';
@@ -19,51 +19,46 @@ const allIcons = getIconList();
   imports: [NgClass, RouterLink, CopyComponent, IconPreviewFilterComponent, IconPreviewDetailsComponent],
   templateUrl: './icon-preview.component.html',
   styleUrl: './icon-preview.component.scss',
-  animations: [
-    trigger('entranceAnimation', [
-      transition(':enter', [
-        style({ opacity: 0, translate: '0 24px' }),
-        animate('200ms ease-in-out', style({ opacity: 1, translate: '0' })),
-      ]),
-      transition(':leave', [animate('200ms ease-in-out', style({ opacity: 0, translate: '0 24px' }))]),
-    ]),
-  ],
+  animations: [entranceAnimation],
 })
 export class IconPreviewComponent {
   searchTerm = model('');
   theme = model<Theme>('light');
   filter = model<FilterValue>('all');
-  visibleIcons = allIcons;
+  visibleIcons = computed(() =>
+    allIcons
+      .filter((icon) => {
+        const searchTerm = this.searchTerm().toLowerCase();
+        return (
+          icon.title.toLowerCase().includes(searchTerm) ||
+          icon.terms.some((term) => term.toLowerCase().includes(searchTerm))
+        );
+      })
+      .filter((icon) => {
+        if (this.filter() === 'all') {
+          return true;
+        }
+        if (this.filter() === 'outline') {
+          return !icon.title.includes('-filled') && !icon.title.includes('-color');
+        }
+        if (this.filter() === 'filled') {
+          return icon.title.includes('-filled');
+        }
+        if (this.filter() === 'colored') {
+          return icon.title.includes('-color');
+        }
+        return false;
+      }),
+  );
 
   selectedIcon = signal<Icon | null>(null);
 
   constructor() {
-    effect(() => {
-      this.visibleIcons = allIcons
-        .filter((icon) => {
-          const searchTerm = this.searchTerm().toLowerCase();
-          return (
-            icon.title.toLowerCase().includes(searchTerm) ||
-            icon.terms.some((term) => term.toLowerCase().includes(searchTerm))
-          );
-        })
-        .filter((icon) => {
-          if (this.filter() === 'all') {
-            return true;
-          }
-          if (this.filter() === 'outline') {
-            return !icon.title.includes('-filled') && !icon.title.includes('-color');
-          }
-          if (this.filter() === 'filled') {
-            return icon.title.includes('-filled');
-          }
-          if (this.filter() === 'colored') {
-            return icon.title.includes('-color');
-          }
-          return false;
-        });
-    });
+    this.closeOnEscape();
+    this.closeOnClickOutside();
+  }
 
+  private closeOnEscape = () => {
     fromEvent(document, 'keydown')
       .pipe(
         takeUntilDestroyed(),
@@ -72,7 +67,9 @@ export class IconPreviewComponent {
       .subscribe(() => {
         this.selectedIcon.set(null);
       });
+  };
 
+  private closeOnClickOutside = () => {
     fromEvent(document, 'click')
       .pipe(
         takeUntilDestroyed(),
@@ -86,5 +83,5 @@ export class IconPreviewComponent {
       .subscribe(() => {
         this.selectedIcon.set(null);
       });
-  }
+  };
 }

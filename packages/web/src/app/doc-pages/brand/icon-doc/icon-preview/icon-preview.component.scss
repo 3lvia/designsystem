@@ -2,13 +2,12 @@
 
 .icons {
   --container-height: 600px;
-  --padding-y: 16px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   grid-template-rows: auto;
   gap: 8px;
 
-  padding: var(--padding-y) 8px;
+  padding: 16px 8px;
   border: 1px solid var(--e-color-border-2);
   border-radius: 8px;
   transition: background-color 500ms ease-in-out;
