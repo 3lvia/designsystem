@@ -20,13 +20,7 @@ interface ComponentData {
 const rootDir = 'components';
 
 const getComponentData = async () => {
-  const paths = await tinyGlob(`components${path.sep}*${path.sep}package.json`);
-  const pathsAlt = await tinyGlob('components/*/package.json');
-  console.log(
-    chalk.blueBright(
-      `🐞 DEBUG -- Found ${paths.length} package.json files with path.sep. With default string it found ${pathsAlt.length} files.`,
-    ),
-  );
+  const paths = await tinyGlob('components/*/package.json');
 
   return paths.map((packageJsonPath) => {
     const file = fs.readFileSync(packageJsonPath, 'utf-8');
@@ -52,9 +46,7 @@ const getAllDependencies = (componentDataList: ComponentData[]) => {
 export const build = async () => {
   const watchMode = process.argv.includes('--watch');
 
-  const typePaths = await tinyGlob(
-    `components${path.sep}elvis-*${path.sep}src${path.sep}react${path.sep}*.{public,types}.ts*`,
-  );
+  const typePaths = await tinyGlob('components/elvis-*/src/react/*.{public,types}.ts*');
   const componentDataList = await getComponentData();
   const paths = typePaths.concat(componentDataList.map(getEntryPoint)).map((path) => toInOutTuple(path));
   const dependencies = getAllDependencies(componentDataList);
