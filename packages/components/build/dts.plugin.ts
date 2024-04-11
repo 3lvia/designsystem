@@ -1,5 +1,5 @@
 import esbuild from 'esbuild';
-import path from 'path';
+import path from 'node:path';
 import ts from 'typescript';
 
 import { getMd5 } from './utils';

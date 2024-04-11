@@ -2,8 +2,8 @@ import chalk from 'chalk';
 import esbuild from 'esbuild';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
 import { postcssModules, sassPlugin } from 'esbuild-sass-plugin';
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import tinyGlob from 'tiny-glob';
 
 import cleanDistFolders from './cleanDist';
