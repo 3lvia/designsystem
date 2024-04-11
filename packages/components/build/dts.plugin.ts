@@ -13,6 +13,7 @@ interface Props {
 // This and writeTypingsToDisc can be removed if we figure out how to define a more granular
 // outPath for our types.
 const resolveImportsOfPublicApi = (text: string): string => {
+  // [\\\/] matches for both forwards (UNIX) - and backwards (Windows)-slash
   return text.replace(
     /\.[\\\/]([\w-]+.public)/g,
     (_match, fileName) => `..${path.sep}public-api${path.sep}${fileName}`,
