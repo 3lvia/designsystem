@@ -66,27 +66,15 @@ const getConfigObject = (file: string): Config => {
    **/
 
   // Remove quotes, new lines and spaces
-  console.log('🐞 DEBUG --- Content is: ', content);
   const cleanContent = content
     .replace(/'/g, '')
-    .replace(/[\r\n]/g, '')
+    .replace(/[\r\n]/g, '') // Windows uses \r\n for new lines, while unix uses \n
     .replace(/ /g, '');
-  console.log('🐞 DEBUG --- Clean content is: ', cleanContent);
+
   const contentWithDoubleQuotes = cleanContent.replace(/([\w.]+)/g, '"$1"');
-  console.log('🐞 DEBUG --- Content with double quotes is: ', contentWithDoubleQuotes);
   const contentWithoutTrailingCommas = contentWithDoubleQuotes.replace(/([\]}]),(?=[\]}])/g, '$1');
-  console.log('🐞 DEBUG --- Content without trailing commas: ', contentWithoutTrailingCommas);
 
-  try {
-    return JSON.parse(contentWithoutTrailingCommas);
-  } catch (err: any) {
-    console.error(err);
-
-    return {
-      attributes: [],
-      name: '',
-    };
-  }
+  return JSON.parse(contentWithoutTrailingCommas);
 };
 
 const createWebComponentPlugin: esbuild.Plugin = {
