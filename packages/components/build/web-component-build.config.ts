@@ -61,7 +61,17 @@ const getConfigObject = (file: string): Config => {
   console.log('🐞 DEBUG --- Content with double quotes is: ', contentWithDoubleQuotes);
   const contentWithoutTrailingCommas = contentWithDoubleQuotes.replace(/([\]}]),(?=[\]}])/g, '$1');
   console.log('🐞 DEBUG --- Content without trailing commas: ', contentWithoutTrailingCommas);
-  return JSON.parse(contentWithoutTrailingCommas);
+
+  try {
+    return JSON.parse(contentWithoutTrailingCommas);
+  } catch (err: any) {
+    console.error(err);
+
+    return {
+      attributes: [],
+      name: '',
+    };
+  }
 };
 
 const createWebComponentPlugin: esbuild.Plugin = {
