@@ -95,7 +95,7 @@
 
 .e-grid {
   @for $i from 0 through 5 {
-    @include breakpoints.lt-mobile() {
+    @include breakpoints.xs-mobile() {
       @include create-spacing-set(sm, $i);
     }
   }
