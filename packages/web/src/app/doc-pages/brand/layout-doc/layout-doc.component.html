@@ -311,19 +311,9 @@
 
     <app-component-subsection [sectionTitle]="'Implementation'">
       <div>
-        Our grid-system is based off of Bootstraps grid-system and works almost the same. Read the
-        <a
-          class="e-link e-link--inline e-link--new-tab"
-          target="_blank"
-          href="https://getbootstrap.com/docs/4.4/layout/grid/"
-          rel="noopener"
-        >
-          <span class="e-link__title">Bootstrap documentation</span>
-          <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-        </a>
-        . All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid
-        class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will
-        therefore not break any other potential grid-systems.
+        Our grid-system shares the same philosophy as the Bootstrap grid-system and works almost the same. To
+        use the grid-system add the e-grid class on a wrapper element. The grid-system classes will only work
+        inside this wrapper, and will therefore not break any other potential grid-systems.
       </div>
 
       <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
@@ -427,23 +417,6 @@
                 <app-layout-gutters-no-ceg />
               </app-static-ceg>
             </app-component-subsubsection>
-          </div>
-        </elvia-accordion>
-        <elvia-divider />
-
-        <!--Margins-->
-        <elvia-accordion closeLabel="Breakpoints" isFullWidth="true" openLabel="Breakpoints" size="large">
-          <div slot="content">
-            <div>
-              Use the class
-              <code>e-grid-margin-ext</code>
-              (for external systems) or
-              <code>e-grid-margin-int</code>
-              (for internal systems) to add dynamic margin on rows.
-            </div>
-            <app-static-ceg>
-              <app-layout-margins-ceg />
-            </app-static-ceg>
           </div>
         </elvia-accordion>
         <elvia-divider />

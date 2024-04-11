@@ -1,7 +1,13 @@
 @use '../../utilities/mixins';
 @use '../../utilities/outline';
-@use '../../utilities/helpers';
 @use '../../utilities/icons';
+
+@mixin placeholder() {
+  &::placeholder {
+    @content;
+    opacity: 1;
+  }
+}
 
 @property --e-input---loading-angle {
   inherits: false;
@@ -45,7 +51,7 @@
   }
 
   > input {
-    @include helpers.placeholder() {
+    @include placeholder() {
       color: var(--e-color-text-placeholder-1);
     }
   }
@@ -122,7 +128,7 @@
       cursor: not-allowed;
       opacity: 1;
 
-      @include helpers.placeholder() {
+      @include placeholder() {
         color: var(--e-color-text-disabled-1);
       }
 

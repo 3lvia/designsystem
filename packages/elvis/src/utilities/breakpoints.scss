@@ -22,3 +22,27 @@ $maxdesktop-min: 1440px;
     }
   }
 }
+
+@mixin lt-mobile() {
+  @media (max-width: #{$mobile-max}) {
+    @content;
+  }
+}
+
+@mixin gt-mobile() {
+  @media (min-width: #{$mobile-max + 1}) {
+    @content;
+  }
+}
+
+@mixin gt-tablet() {
+  @media (min-width: #{$tablet-max + 1}) {
+    @content;
+  }
+}
+
+@mixin gt-desktop() {
+  @media (min-width: #{$mindesktop-max + 1}) {
+    @content;
+  }
+}

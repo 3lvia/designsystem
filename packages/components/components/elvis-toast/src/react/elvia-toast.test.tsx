@@ -94,8 +94,10 @@ describe('Elvis Toast', () => {
     openToast({ closable: true });
 
     const toast = screen.getByRole('status');
-    const results = await axe(toast);
 
-    expect(results).toHaveNoViolations();
+    await act(async () => {
+      const results = await axe(toast);
+      expect(results).toHaveNoViolations();
+    });
   });
 });
