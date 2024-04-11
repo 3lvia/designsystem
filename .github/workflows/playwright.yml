@@ -3,6 +3,11 @@ on:
   pull_request:
     paths:
       - 'packages/components/components/**'
+  push:
+    branches:
+      - master
+    paths:
+      - 'packages/components/components/**'
 jobs:
   componentTest:
     runs-on: ubuntu-latest
