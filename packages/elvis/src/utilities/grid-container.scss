@@ -6,7 +6,7 @@
   margin-inline: auto;
 }
 
-@include breakpoints.lt-mobile() {
+@include breakpoints.xs-mobile() {
   .e-grid:is(.container, .container-sm),
   .e-grid :is(.container, .container-sm) {
     max-width: 540px;
