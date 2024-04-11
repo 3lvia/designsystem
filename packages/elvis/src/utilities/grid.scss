@@ -2,7 +2,8 @@
 
 @mixin create-breakpoint-classes($size, $breakpoint: '') {
   .col-#{$breakpoint}#{$size} {
-    width: calc(100% / 12 * $size);
+    flex: 0 0 calc(100% / 12 * $size);
+    max-width: calc(100% / 12 * $size);
   }
 
   .order-#{$breakpoint}#{$size} {
@@ -14,7 +15,8 @@
   }
 
   .row-cols-#{$breakpoint}#{$size} > * {
-    width: calc(100% / $size);
+    flex: 0 0 calc(100% / $size);
+    max-width: calc(100% / $size);
   }
 }
 
@@ -36,7 +38,7 @@
       padding-block: var(--offset) !important;
     }
 
-    @include breakpoints.lt-mobile() {
+    @include breakpoints.xs-mobile() {
       &.e-grid-gutters-ext,
       &.e-grid-gutters-int {
         --offset: 8px;
@@ -104,7 +106,7 @@
   }
 
   @for $i from 1 through 12 {
-    @include breakpoints.lt-mobile() {
+    @include breakpoints.xs-mobile() {
       @include create-breakpoint-classes($i, sm-);
     }
   }
