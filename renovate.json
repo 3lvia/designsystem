@@ -29,8 +29,14 @@
       "matchPackagePatterns": ["^contentful", "^vue-tsc", "^vite", "^vue", "^sass", "^postcss", "^express"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "groupName": "all playwright dependencies",
+      "matchPackagePatterns": ["^@playwright"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ],
-  "ignoreDeps": ["styled-components", "bootstrap", "jquery", "react", "react-dom"],
+  "ignoreDeps": ["styled-components", "react", "react-dom"],
   "ignorePaths": ["**/node_modules/**", "packages/components/components/**", "packages/elvis*"]
 }
