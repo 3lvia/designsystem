@@ -1,4 +1,4 @@
-import fs from 'fs/promises';
+import fs from 'node:fs/promises';
 import tinyGlob from 'tiny-glob';
 
 const cleanDistFolders = async () => {

@@ -1,6 +1,6 @@
 import crypto from 'crypto';
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 // We create a hash of the new output to see if it differs from the old
 // If the file content is the same, we don't move it. This increases performance.
