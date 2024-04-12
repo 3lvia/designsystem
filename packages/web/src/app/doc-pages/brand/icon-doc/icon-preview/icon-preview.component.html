@@ -7,7 +7,7 @@
     'e-theme-light': theme() === 'light'
   }"
 >
-  @for (icon of visibleIcons(); track icon.title; let i = $index) {
+  @for (icon of visibleIcons(); track icon.title) {
     <div class="icon-container">
       <button
         class="icon-card"

@@ -35,19 +35,18 @@ export class IconPreviewComponent {
         );
       })
       .filter((icon) => {
-        if (this.filter() === 'all') {
-          return true;
+        switch (this.filter()) {
+          case 'all':
+            return true;
+          case 'outline':
+            return !icon.title.includes('-filled') && !icon.title.includes('-color');
+          case 'filled':
+            return icon.title.includes('-filled');
+          case 'colored':
+            return icon.title.includes('-color');
+          default:
+            return false;
         }
-        if (this.filter() === 'outline') {
-          return !icon.title.includes('-filled') && !icon.title.includes('-color');
-        }
-        if (this.filter() === 'filled') {
-          return icon.title.includes('-filled');
-        }
-        if (this.filter() === 'colored') {
-          return icon.title.includes('-color');
-        }
-        return false;
       }),
   );
 
