@@ -2,8 +2,8 @@ import chalk from 'chalk';
 import esbuild from 'esbuild';
 import styledComponentsPlugin from 'esbuild-plugin-styled-components';
 import { postcssModules, sassPlugin } from 'esbuild-sass-plugin';
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import tinyGlob from 'tiny-glob';
 
 import cleanDistFolders from './cleanDist';
@@ -21,9 +21,10 @@ const rootDir = 'components';
 
 const getComponentData = async () => {
   const paths = await tinyGlob('components/*/package.json');
-  return paths.map((path) => {
-    const file = fs.readFileSync(path, 'utf-8');
-    return { content: JSON.parse(file), component: path.split('/')[1] };
+
+  return paths.map((packageJsonPath) => {
+    const file = fs.readFileSync(packageJsonPath, 'utf-8');
+    return { content: JSON.parse(file), component: packageJsonPath.split(path.sep)[1] };
   });
 };
 

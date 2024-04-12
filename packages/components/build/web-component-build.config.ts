@@ -1,6 +1,6 @@
 import esbuild from 'esbuild';
-import fs from 'fs/promises';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import tinyGlob from 'tiny-glob';
 
 import { toInOutTuple } from './utils';
@@ -53,17 +53,37 @@ const setGetList = (attributes: Attribute[]) => {
 const getConfigObject = (file: string): Config => {
   const content = /export.*({[\w\W]*})/.exec(file)?.[1] as string;
 
+  /**
+   * Content comes as a string in the shape of
+   * {
+   *   name: 'Accordion',
+   *   attributes: [
+   *     { name: 'content', type: 'string' },
+   *     { name: 'isOpen', type: 'boolean' },
+   *     ...
+   *   ],
+   * }
+   **/
+
   // Remove quotes, new lines and spaces
-  const cleanContent = content.replace(/'/g, '').replace(/\n/g, '').replace(/ /g, '');
+  const cleanContent = content
+    .replace(/'/g, '')
+    .replace(/[\r\n]/g, '') // Windows uses \r\n for new lines, while unix uses \n
+    .replace(/ /g, '');
+
   const contentWithDoubleQuotes = cleanContent.replace(/([\w.]+)/g, '"$1"');
   const contentWithoutTrailingCommas = contentWithDoubleQuotes.replace(/([\]}]),(?=[\]}])/g, '$1');
+
   return JSON.parse(contentWithoutTrailingCommas);
 };
 
 const createWebComponentPlugin: esbuild.Plugin = {
   name: 'create-webcomponent-plugin',
   async setup(build) {
-    const templateFile = await fs.readFile('./build/template/elvia-component.template.js', 'utf-8');
+    const templateFile = await fs.readFile(
+      `.${path.sep}build${path.sep}template${path.sep}elvia-component.template.js`,
+      'utf-8',
+    );
 
     // Mark all web component imports as external. This makes esbuild ignore them and leave unresolved imports in the bundle
     build.onResolve({ filter: /component-wrapper$|react.js$/ }, (args) => {
@@ -108,7 +128,7 @@ const buildWebComponents = async (config: {
   const paths = await tinyGlob('components/elvis-*/src/react/config.ts');
 
   const baseConfig: esbuild.BuildOptions = {
-    entryPoints: paths.map((path) => toInOutTuple(path, 'dist/main', 'web-component')),
+    entryPoints: paths.map((configPath) => toInOutTuple(configPath, `dist${path.sep}main`, 'web-component')),
     outdir: config.outDir,
     bundle: true,
     format: 'esm',
