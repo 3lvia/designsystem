@@ -32,7 +32,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = function ({
     return () => {
       window.removeEventListener('resize', getWindowDimensions);
     };
-  });
+  }, []);
 
   const handleOnClick = (value: number) => {
     if (!webcomponent && onLinkClick) {
