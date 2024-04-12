@@ -1,4 +1,4 @@
-import calendar from '@elvia/elvis-assets-icons/dist/icons/calendar';
+import clock from '@elvia/elvis-assets-icons/dist/icons/clock';
 import {
   ErrorOptions,
   FormFieldContainer,
@@ -349,7 +349,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             aria-haspopup="dialog"
           >
             <IconWrapper
-              icon={calendar}
+              icon={clock}
               color={isDisabled ? 'text-disabled-1' : undefined}
               size={size === 'small' ? 'xs' : 'sm'}
             />
