@@ -1,6 +1,6 @@
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
-import { IconWrapper } from '@elvia/elvis-toolbox';
+import { IconWrapper, isSsr } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
 
 import { BreadcrumbProps } from './elvia-breadcrumb.types';
@@ -20,18 +20,10 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = function ({
   webcomponent,
   ...rest
 }) {
-  const [childrenLength, setChildrenLength] = useState<number>(0);
-  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(isSsr() ? undefined : window.innerWidth);
 
   useEffect(() => {
-    setChildrenLength(items.length);
-  }, [items]);
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
-
-  useEffect(() => {
+    if (isSsr()) return;
     const getWindowDimensions = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -50,7 +42,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = function ({
     }
   };
 
-  if (childrenLength === 0) {
+  if (items.length === 0) {
     return null;
   }
 
@@ -65,13 +57,13 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = function ({
           }}
         />
         <BreadcrumbLinkStyle
-          href={items[childrenLength - 2].href}
+          href={items[items.length - 2].href}
           onClick={() => {
-            handleOnClick(childrenLength - 2);
+            handleOnClick(items.length - 2);
           }}
           isClickable={true}
         >
-          {items[childrenLength - 2].text}
+          {items[items.length - 2].text}
         </BreadcrumbLinkStyle>
       </BreadcrumbWrapper>
     );
@@ -79,7 +71,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = function ({
 
   const DesktopBreadcrumb = () => {
     return items.map((item, index) => {
-      if (index == childrenLength - 1) {
+      if (index == items.length - 1) {
         return (
           <BreadcrumbDesktopWrapper key={index}>
             <BreadcrumbLinkStyle
