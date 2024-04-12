@@ -1,8 +1,8 @@
-import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { filter, fromEvent } from 'rxjs';
 
+import { entranceAnimation } from '../../exhibit-detail-animation';
 import { IllustrationsExhibitDetailsComponent } from './illustrations-exhibit-details/illustrations-exhibit-details.component';
 import { IllustrationsExhibitFilterComponent } from './illustrations-exhibit-filter/illustrations-exhibit-filter.component';
 import { IllustrationsExhibitListComponent } from './illustrations-exhibit-list/illustrations-exhibit-list.component';
@@ -18,15 +18,7 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
   ],
   templateUrl: './illustrations-exhibit.component.html',
   styleUrl: './illustrations-exhibit.component.scss',
-  animations: [
-    trigger('entranceAnimation', [
-      transition(':enter', [
-        style({ opacity: 0, translate: '0 24px' }),
-        animate('200ms ease-in-out', style({ opacity: 1, translate: '0' })),
-      ]),
-      transition(':leave', [animate('200ms ease-in-out', style({ opacity: 0, translate: '0 24px' }))]),
-    ]),
-  ],
+  animations: [entranceAnimation],
 })
 export class IllustrationsExhibitComponent {
   private illustrationsExhibitService = inject(IllustrationsExhibitService);

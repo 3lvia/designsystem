@@ -1,0 +1,39 @@
+<app-icon-preview-filter class="e-mb-24" [(term)]="searchTerm" [(filter)]="filter" [(theme)]="theme" />
+
+<div
+  class="icons e-color-background-1"
+  [ngClass]="{
+    'e-theme-dark': theme() === 'dark',
+    'e-theme-light': theme() === 'light'
+  }"
+>
+  @for (icon of visibleIcons(); track icon.title) {
+    <div class="icon-container">
+      <button
+        class="icon-card"
+        [ngClass]="{ selected: selectedIcon()?.title === icon.title }"
+        (click)="selectedIcon.set(icon)"
+      >
+        <i [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" aria-hidden="true"></i>
+        <span class="e-text-sm e-text-center">
+          {{ icon.pretty }}
+        </span>
+      </button>
+    </div>
+  } @empty {
+    <div class="no-results">
+      <p class="e-m-0">
+        Oh snap 😕 <br />
+        We can't find the icon you are looking for!
+      </p>
+      <p class="e-m-8">
+        <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact us</a>
+        if you want to add an icon
+      </p>
+    </div>
+  }
+</div>
+
+@if (selectedIcon()) {
+  <app-icon-preview-details [(selectedIcon)]="selectedIcon" @entranceAnimation />
+}
