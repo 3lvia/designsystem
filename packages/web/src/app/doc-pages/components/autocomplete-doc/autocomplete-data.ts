@@ -75,6 +75,11 @@ export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
       description: 'Makes the autocomplete required.',
       default: 'false',
     },
+    openOnFocus: {
+      type: 'boolean',
+      description: 'Open the autocomplete menu on focus, even if the input is empty.',
+      default: 'false',
+    },
     label: {
       type: 'string',
       description: 'The label for the autocomplete.',
