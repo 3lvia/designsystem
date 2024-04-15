@@ -91,6 +91,9 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     if (event.target.value) {
       openPopup();
     } else {
+      if (openOnFocus) {
+        return;
+      }
       setFadeOut(true);
     }
   };
