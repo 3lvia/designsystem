@@ -5570,16 +5570,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.13":
-  version: 18.2.24
-  resolution: "@types/react-dom@npm:18.2.24"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 10/bbd4005f2f65b7606505e9b8759b6e99e222d503602765594ea327893fb7061de8951279baef47a1932f04d94d1865daea05a32f9fcf6f9f1143dbabce5b33de
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:^18.2.25":
+"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.13, @types/react-dom@npm:^18.2.25":
   version: 18.2.25
   resolution: "@types/react-dom@npm:18.2.25"
   dependencies:
@@ -5588,17 +5579,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.28":
-  version: 18.2.75
-  resolution: "@types/react@npm:18.2.75"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10/d609cdc52d3c89871e0b1b0a77ed2d4077c1393709d0ac51a03b04c17704eb337484405aa646b193ac0c54f4fb286e311739b243ce50023ef8ba5bed422a0e8b
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^18.2.77":
+"@types/react@npm:*, @types/react@npm:^18.2.28, @types/react@npm:^18.2.77":
   version: 18.2.77
   resolution: "@types/react@npm:18.2.77"
   dependencies:
@@ -16018,20 +15999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.70.0, sass@npm:^1.71.1":
-  version: 1.74.1
-  resolution: "sass@npm:1.74.1"
-  dependencies:
-    chokidar: "npm:>=3.0.0 <4.0.0"
-    immutable: "npm:^4.0.0"
-    source-map-js: "npm:>=0.6.2 <2.0.0"
-  bin:
-    sass: sass.js
-  checksum: 10/fe49406d1ed37541cf69b842b76109a9ede6efe565b2aa0fa3f0f041d310673a713404677c1f82747089dfea4f5a873a761b8d3f94f4da3883ca402768cd58aa
-  languageName: node
-  linkType: hard
-
-"sass@npm:^1.75.0":
+"sass@npm:^1.70.0, sass@npm:^1.71.1, sass@npm:^1.75.0":
   version: 1.75.0
   resolution: "sass@npm:1.75.0"
   dependencies:
