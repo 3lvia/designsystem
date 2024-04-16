@@ -4,10 +4,10 @@
   "content": [
     {
       "date": "16.04.24",
-      "version": "1.5.0",
+      "version": "2.0.0",
       "changelog": [
         {
-          "type": "new_feature",
+          "type": "breaking_changes",
           "changes": [
             "Removed the max-width of the stepper, allowing it to grow to the full width of the content."
           ]
