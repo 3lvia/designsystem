@@ -8,6 +8,7 @@ export const config: ComponentConfig = {
     { name: 'errorOptions', type: 'object' },
     { name: 'hasBuiltInFilter', type: 'boolean' },
     { name: 'hasOptionalText', type: 'boolean' },
+    { name: 'openOnFocus', type: 'boolean' },
     { name: 'inlineStyle', type: 'object' },
     { name: 'isDisabled', type: 'boolean' },
     { name: 'isFullWidth', type: 'boolean' },

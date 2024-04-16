@@ -332,6 +332,22 @@ describe('Elvis Autocomplete', () => {
     });
   });
 
+  describe('should open on focus if openOnFocus is true', () => {
+    beforeEach(() => {
+      render(<Autocomplete items={items} openOnFocus />);
+    });
+
+    it('should open the popover when the input is focused', () => {
+      const input = screen.getByRole('combobox');
+      input.focus();
+
+      const popover = screen.queryByRole('listbox');
+      waitFor(() => {
+        expect(popover).toBeInTheDocument();
+      });
+    });
+  });
+
   describe('Accessibility', () => {
     it('should have no axe violations', async () => {
       render(

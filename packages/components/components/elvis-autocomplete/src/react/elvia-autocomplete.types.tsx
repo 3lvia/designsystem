@@ -15,6 +15,7 @@ export interface BaseAutocompleteProps extends BaseProps, HasValue<string | null
   isDisabled?: boolean;
   isFullWidth?: boolean;
   isRequired?: boolean;
+  openOnFocus?: boolean;
   items: AutocompleteItem[];
   label?: string;
   menuPosition?: AutocompleteMenuPosition;

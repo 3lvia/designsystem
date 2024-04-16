@@ -35,6 +35,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   isDisabled = false,
   isFullWidth = false,
   isRequired = false,
+  openOnFocus = false,
   items = [],
   label,
   menuPosition = 'auto',
@@ -90,6 +91,9 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     if (event.target.value) {
       openPopup();
     } else {
+      if (openOnFocus) {
+        return;
+      }
       setFadeOut(true);
     }
   };
@@ -117,7 +121,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
   };
 
   const handleOnInputFocus = () => {
-    if (currentValue) {
+    if (currentValue || openOnFocus) {
       openPopup();
     }
     setTouched(true);
