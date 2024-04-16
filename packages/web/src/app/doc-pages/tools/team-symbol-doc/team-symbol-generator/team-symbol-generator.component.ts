@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
 import { StepStates } from '@elvia/elvis-stepper';
 
 import { SafeHtmlPipe } from './safeHtml.pipe';
@@ -48,7 +47,7 @@ export class TeamSymbolGeneratorComponent {
 
   teamName: string = '';
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor() {}
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -128,7 +127,7 @@ export class TeamSymbolGeneratorComponent {
       const textY = circleDiameter / 2 + fontSize / 2;
 
       this.svgWithTeamName = `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${totalWidth} ${circleDiameter}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${totalWidth} ${circleDiameter}">
             <style>
               @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&amp;display=swap')
             </style>
@@ -141,7 +140,7 @@ export class TeamSymbolGeneratorComponent {
         `;
     } else {
       this.generatedSvg = `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
         ${circleBackground}
         <g transform="scale(${scaleFactor}) translate(${circleRadius}, ${circleRadius})">${this.svgContent}</g>
       </svg>

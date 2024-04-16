@@ -10,7 +10,6 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
   templateUrl: './team-symbol-doc.component.html',
   standalone: true,
   imports: [ComponentHeaderComponent, ComponentSectionComponent, TeamSymbolGeneratorComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TeamSymbolDocComponent {
   description = getDocPagesNotFromCMS('team-symbol')?.description;
