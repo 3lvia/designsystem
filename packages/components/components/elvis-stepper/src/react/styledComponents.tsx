@@ -39,7 +39,7 @@ export const Steps = styled.div<StepsProps>`
   justify-content: center;
   padding: unset;
   width: 100%;
-  max-width: ${({ $type }) => $type === 'vertical' && '400px')};
+  max-width: ${({ $type }) => $type !== 'vertical' && '400px'};
   margin-inline: auto;
 `;
 
