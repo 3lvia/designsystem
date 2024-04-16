@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { StepStates } from '@elvia/elvis-stepper';
 
 import { SafeHtmlPipe } from './safeHtml.pipe';
@@ -22,9 +22,14 @@ import {
 })
 export class TeamSymbolGeneratorComponent {
   stepStates: StepStates = {
-    '1': { heading: 'Upload image', nextButtonText: 'Next' },
-    '2': { heading: 'Find a color', nextButtonText: 'Next', previousButtonText: 'Back' },
-    '3': { heading: 'Add team name', nextButtonText: 'Create', previousButtonText: 'Back' },
+    '1': { heading: 'Upload image', nextButtonText: 'Next', isCompleted: false },
+    '2': { heading: 'Find a color', nextButtonText: 'Next', previousButtonText: 'Back', isCompleted: false },
+    '3': {
+      heading: 'Add team name',
+      nextButtonText: 'Create',
+      previousButtonText: 'Back',
+      isCompleted: false,
+    },
   };
 
   isFinished: boolean = false;
@@ -77,7 +82,8 @@ export class TeamSymbolGeneratorComponent {
   }
 
   handleNextClick() {
-    if (this.currentStep === 3) {
+    if (this.currentStep === 3 && this.teamName !== '') {
+      this.stepStates['3'].isCompleted = true;
       this.isFinished = true;
       this.generateTeamSymbol(true);
     }
@@ -108,22 +114,29 @@ export class TeamSymbolGeneratorComponent {
     `;
 
     if (withTeamName) {
-      const teamNameText = `
-          <text font-family="Red Hat Display" font-weight="900" font-size="44" fill="var(--e-color-illustration-main-1, #262626)">${this.teamName}</text>
-          `;
-      const textWidth = getTextElementWidth(teamNameText);
-      const totalWidth = 100 + textWidth + 50;
-      const symbolX = -(totalWidth / 2 - 50);
-      const textX = 100 + 25;
-      const textY = 50 + 44 / 2;
+      const fontSize = 44;
+      const circleDiameter = 100;
+      const margin = 16;
+
+      const textWidth = getTextElementWidth(`
+        <text font-family="Red Hat Display" font-weight="900" font-size="${fontSize}" fill="var(--e-color-illustration-main-1, #262626)">${this.teamName}</text>
+      `);
+
+      const totalWidth = circleDiameter + textWidth + 16;
+      const symbolX = -(totalWidth / 2 - circleDiameter / 2);
+      const textX = circleDiameter + margin;
+      const textY = circleDiameter / 2 + fontSize / 2;
 
       this.svgWithTeamName = `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${totalWidth} 100">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${totalWidth} ${circleDiameter}">
+            <style>
+              @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&amp;display=swap')
+            </style>
             <svg xmlns="http://www.w3.org/2000/svg" x="${symbolX}" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
               ${circleBackground}
               <g transform="scale(${scaleFactor}) translate(${circleRadius}, ${circleRadius})">${this.svgContent}</g>
             </svg>
-            <text x="${textX}" y="${textY}" font-family="Red Hat Display" font-weight="900" font-size="44" fill="var(--e-color-text-1, #000000)">${this.teamName}</text>
+            <text x="${textX}" y="${textY}" font-family="Red Hat Display, sans-serif" font-weight="900" font-size="44" fill="var(--e-color-text-1, #000000)">${this.teamName}</text>
           </svg>
         `;
     } else {

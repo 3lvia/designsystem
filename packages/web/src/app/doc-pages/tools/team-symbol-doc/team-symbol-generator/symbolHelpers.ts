@@ -17,16 +17,13 @@ export const generateRandomHexColors = () => {
 export const getTextElementWidth = (textElementString: string): number => {
   // Create a temporary SVG element
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  document.body.appendChild(svg); // Append the SVG element to the DOM
 
-  // Set the SVG content to the provided text element string
+  document.body.appendChild(svg);
   svg.innerHTML = textElementString;
 
-  // Find the text element within the SVG
   const textElement = svg.querySelector('text');
 
   if (textElement) {
-    // Get the bounding box of the text element
     const bbox = textElement.getBBox();
 
     // Remove the temporary SVG element from the DOM
@@ -34,7 +31,6 @@ export const getTextElementWidth = (textElementString: string): number => {
 
     return bbox.width;
   } else {
-    // If text element is not found, return 0
     svg.remove();
     return 0;
   }
@@ -50,22 +46,6 @@ export const findLastTwoViewBoxValues = (svgString: string): number[] | null => 
     }
   }
   return null;
-};
-
-export const exportSvg = (svgContent: string, filename: string) => {
-  // Create a blob from the SVG string
-  const blob = new Blob([svgContent.toString()], { type: 'image/svg+xml' });
-
-  // Create a download link
-  const link = document.createElement('a');
-  link.href = window.URL.createObjectURL(blob);
-  link.download = `${filename}.svg`;
-
-  // Trigger the download
-  link.click();
-
-  // Cleanup
-  window.URL.revokeObjectURL(link.href);
 };
 
 export const generateAndSaveZip = (svg1: string, svg2: string) => {
