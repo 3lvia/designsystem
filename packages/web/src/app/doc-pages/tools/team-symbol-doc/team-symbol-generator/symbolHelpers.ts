@@ -55,6 +55,6 @@ export const generateAndSaveZip = (svg1: string, svg2: string) => {
   zip.file('team-symbol-with-name.svg', svg2);
 
   zip.generateAsync({ type: 'blob' }).then((content) => {
-    saveAs(content, 'team-symbol.zip');
+    saveAs(content, 'team-symbols.zip');
   });
 };
