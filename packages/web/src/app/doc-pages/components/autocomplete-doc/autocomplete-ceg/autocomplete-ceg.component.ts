@@ -35,6 +35,7 @@ export class AutocompleteCegComponent implements ComponentExample {
           value: false,
         },
         isRequired: { type: 'checkbox', label: 'Required', group: 'Options' },
+        openOnFocus: { type: 'checkbox', label: 'Open On Focus', group: 'Options' },
         isDisabled: {
           group: 'State',
           type: 'checkbox',

@@ -1,14 +1,12 @@
 import { AutocompleteItem } from '../elvia-autocomplete.types';
 
-let previousFilteredItems: AutocompleteItem[] = [];
-
 export const filterItems = (
   items: AutocompleteItem[],
   filter: string | null | undefined,
   limit = 6,
 ): AutocompleteItem[] => {
   if (!filter) {
-    return previousFilteredItems;
+    return items.slice(0, limit);
   }
 
   const normalizedFilter = filter.toLowerCase().trim();
@@ -16,8 +14,6 @@ export const filterItems = (
   const filteredItems = items
     .filter(({ label }) => label.toLowerCase().includes(normalizedFilter))
     .slice(0, limit);
-
-  previousFilteredItems = filteredItems;
 
   return filteredItems;
 };
