@@ -11,6 +11,7 @@ export interface IconSegmentedControl {
   icon: string;
   iconSelected: string;
   ariaLabel: string;
+  tooltip?: string;
 }
 
 export interface BaseSegmentedControlProps extends BaseProps, HasValue<number> {

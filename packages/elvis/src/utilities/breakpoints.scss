@@ -22,3 +22,30 @@ $maxdesktop-min: 1440px;
     }
   }
 }
+
+// Note: This breakpoint is only here for backwards compability
+// with regards to Bootstrap. We can probably remove this when we
+// remove the .e-grid class some time in the future.
+@mixin xs-mobile() {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin gt-mobile() {
+  @media (min-width: #{$mobile-max + 1}) {
+    @content;
+  }
+}
+
+@mixin gt-tablet() {
+  @media (min-width: #{$tablet-max + 1}) {
+    @content;
+  }
+}
+
+@mixin gt-desktop() {
+  @media (min-width: #{$mindesktop-max + 1}) {
+    @content;
+  }
+}

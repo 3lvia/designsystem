@@ -4,20 +4,37 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <div class="example-wrapper">
-      <div style="width: 240px">
-        <div class="e-form-field e-form-field--small">
-          <label class="e-form-field__label">Small textarea readonly</label>
-          <div class="e-input e-input---readonly">
-            <textarea readonly>Text</textarea>
-          </div>
+      <elvia-accordion [isOpen]="true" isFullWidth size="small">
+        <div slot="openLabel">
+          <p>openLabel 1</p>
         </div>
-      </div>
-      <div class="e-form-field e-form-field--small">
-        <label class="e-form-field__label">small disabled</label>
-        <div class="e-input e-input---disabled">
-          <input type="text" value="Test" disabled />
+        <div slot="closeLabel">
+          <p>closeLabel 1</p>
         </div>
-      </div>
+        <div slot="content">
+          <elvia-accordion [isOpen]="true" isFullWidth size="small">
+            <div slot="openLabel">
+              <p>openLabel 2</p>
+            </div>
+            <div slot="closeLabel">
+              <p>closeLabel 2</p>
+            </div>
+            <div slot="content">
+              <elvia-autocomplete
+                (valueOnChange)="handleOnChange($any($event))"
+                errorOptions="{ text: 'Skriv inn noe godt' }"
+                label="Lunch"
+                [items]="[
+                  { value: 'lange', label: 'Lange' },
+                  { value: 'torsk', label: 'Torsk' },
+                  { value: 'sjampinjong', label: 'sjampinjong' }
+                ]"
+              />
+              Accordion content
+            </div>
+          </elvia-accordion>
+        </div>
+      </elvia-accordion>
     </div>
 
     <!--Normal version-->

@@ -10,21 +10,44 @@
         locale() === 'en-GB' ? 'Search through all illustrations' : 'Søk gjennom alle illustrasjoner'
       "
     />
-    <button
-      class="e-btn e-btn--icon"
-      [ngClass]="{ 'e-invisible': !(searchValue() ?? '').length }"
-      (click)="handleClearSearch()"
-      aria-label="Clear search field"
-    >
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--close" aria-hidden="true"> </i>
-      </span>
-    </button>
+    @if (searchValue()) {
+      <button class="e-btn e-btn--icon" (click)="handleClearSearch()" aria-label="Clear search field">
+        <span class="e-btn__icon">
+          <i class="e-icon e-icon--close" aria-hidden="true"> </i>
+        </span>
+      </button>
+    }
   </div>
 </div>
-<elvia-radio-filter
-  name="Illustration color"
-  [items]="colorFilters"
-  [value]="colorFilterValue()"
-  (valueOnChange)="handleColorFilterChange($any($event))"
-/>
+<div class="local-theme-switch-toggles e-none-sm">
+  <elvia-radio-filter
+    name="Illustration color"
+    [items]="colorFilters"
+    [value]="colorFilterValue()"
+    (valueOnChange)="handleColorFilterChange($any($event))"
+  />
+  <app-local-theme-switch [theme]="theme()" (themeChange)="handleNewTheme($event)" />
+</div>
+<elvia-popover *ifViewportSize="['sm']">
+  <div slot="content">
+    <div class="e-mb-32">
+      <span class="e-text-md-strong">Color</span>
+      <elvia-radio-filter
+        name="Illustration color"
+        [items]="colorFilters"
+        [value]="colorFilterValue()"
+        (valueOnChange)="handleColorFilterChange($any($event))"
+        [inlineStyle]="{ flexWrap: 'noWrap' }"
+      />
+    </div>
+    <div>
+      <span class="e-text-md-strong">Theme</span>
+      <app-local-theme-switch [theme]="theme()" (themeChange)="handleNewTheme($event)" />
+    </div>
+  </div>
+  <button slot="trigger" aria-label="Toggle filter" class="e-btn e-btn--icon">
+    <span class="e-btn__icon">
+      <i aria-hidden="true" class="e-icon e-icon--list"> </i>
+    </span>
+  </button>
+</elvia-popover>

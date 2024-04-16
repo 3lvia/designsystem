@@ -1,8 +1,15 @@
+import styleTokens from '@elvia/elvis-colors/dist/elvisIllustrationVariables.css';
+
 import { IllustrationColor } from '../../illustrations-data';
+
+interface Opts {
+  isDarkTheme?: boolean;
+}
 
 export const createSvgBlobFromElement = (
   illustrationElement: Element,
   colorValue: IllustrationColor | undefined,
+  theme?: 'light' | 'dark',
 ) => {
   const svgElement = illustrationElement?.shadowRoot?.querySelector('svg');
   const styleElement = illustrationElement?.shadowRoot?.querySelector('style');
@@ -12,7 +19,13 @@ export const createSvgBlobFromElement = (
   }
 
   const newSvgElement = svgElement.cloneNode(true) as SVGElement;
-  newSvgElement.insertBefore(styleElement.cloneNode(true), newSvgElement.firstChild);
+  const newStyleElement = styleElement.cloneNode(true);
+
+  if (theme === 'dark') {
+    newSvgElement.classList.add('e-theme-dark');
+    newStyleElement.textContent = newStyleElement.textContent + styleTokens;
+  }
+  newSvgElement.insertBefore(newStyleElement, newSvgElement.firstChild);
   newSvgElement.classList.add(colorValue ?? '');
 
   // Scale up height and width for better image quality in PNG, does not affect SVG
@@ -30,9 +43,10 @@ export const createSvgBlobFromElement = (
 export const createPngBlob = (
   illustrationElement: Element,
   colorValue: IllustrationColor | undefined,
+  theme?: 'light' | 'dark',
 ): Promise<string> => {
   return new Promise((resolve, reject) => {
-    const svgBlobUrl = createSvgBlobFromElement(illustrationElement, colorValue);
+    const svgBlobUrl = createSvgBlobFromElement(illustrationElement, colorValue, theme);
 
     if (!svgBlobUrl) {
       reject(new Error('No SVG blob url found'));
@@ -49,6 +63,7 @@ export const createPngBlob = (
       }
       canvas.width = img.width;
       canvas.height = img.height;
+      ctx.fillStyle = 'transparent';
       ctx.drawImage(img, 0, 0);
 
       canvas.toBlob((blob) => {

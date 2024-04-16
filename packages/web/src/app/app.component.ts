@@ -59,7 +59,6 @@ import '@elvia/elvis-toast';
 import '@elvia/elvis-tooltip';
 
 import { RouterService } from './core/services/router.service';
-import { UserQuestionnaireComponent } from './shared/user-questionnaire/user-questionnaire.component';
 import { FooterComponent } from './shell/footer/footer.component';
 import { HeaderComponent } from './shell/header/header.component';
 import { PageWithSidenavComponent } from './shell/page-with-sidenav/page-with-sidenav.component';
@@ -74,7 +73,6 @@ type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
   standalone: true,
   imports: [
     HeaderComponent,
-    UserQuestionnaireComponent,
     NgClass,
     RouterOutlet,
     PageWithSidenavComponent,

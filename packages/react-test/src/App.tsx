@@ -201,9 +201,23 @@ function App() {
               {/* Test the component here (delete what was here previously). When done add it to the list alphabetically */}
               <h3>Test your component here</h3>
               {/* Normal version */}
-              <div className="e-bg-white"></div>
-              {/* Inverted version */}
-              <div className="e-bg-grey"></div>
+              <div>
+                <Accordion
+                  isOpen={true}
+                  isFullWidth
+                  openLabel={'Show'}
+                  closeLabel={'Hide'}
+                  content={
+                    <Accordion
+                      isOpen={true}
+                      isFullWidth
+                      openLabel={'Show'}
+                      closeLabel={'Hide'}
+                      content={<div>Content</div>}
+                    />
+                  }
+                />
+              </div>
             </div>
             {/* ACCORDION */}
             <div className="example-wrapper">

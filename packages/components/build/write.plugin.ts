@@ -1,7 +1,7 @@
 import esbuild from 'esbuild';
-import fs from 'fs';
-import fsPromises from 'fs/promises';
-import path from 'path';
+import fs from 'node:fs';
+import fsPromises from 'node:fs/promises';
+import path from 'node:path';
 
 import { getComponentName, getMd5FromFile } from './utils';
 

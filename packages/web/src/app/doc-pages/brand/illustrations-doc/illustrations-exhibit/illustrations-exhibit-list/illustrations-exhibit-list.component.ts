@@ -21,6 +21,7 @@ export class IllustrationsExhibitListComponent {
   searchValue = toSignal(this.illustrationExhibitService.searchValue);
   colorValue = toSignal(this.illustrationExhibitService.colorValue);
   activeIllustration = toSignal(this.illustrationExhibitService.selectedIllustration);
+  theme = toSignal(this.illustrationExhibitService.theme);
 
   filteredIllustrationData = illustrationsExhibitData;
   private displayNamePipe = new IllustrationsExhibitListDisplayNamePipe();

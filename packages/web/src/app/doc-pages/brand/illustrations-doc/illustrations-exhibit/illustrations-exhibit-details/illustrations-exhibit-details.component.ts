@@ -21,6 +21,7 @@ export class IllustrationsExhibitDetailsComponent {
   selectedIllustration = toSignal(this.illustrationExhibitService.selectedIllustration);
   colorValue = toSignal(this.illustrationExhibitService.colorValue);
   locale = toSignal(inject(LocalizationService).listenLocalization());
+  private theme = toSignal(this.illustrationExhibitService.theme);
 
   get importString() {
     return `@elvia/illustrations/${this.selectedIllustration()}`;
@@ -43,25 +44,21 @@ export class IllustrationsExhibitDetailsComponent {
     this.illustrationExhibitService.setSelectedIllustration(null);
   }
 
-  imageFileName = (format: 'svg' | 'png') => {
+  downloadImage = async (format: 'svg' | 'png') => {
+    const a = document.createElement('a');
+    a.href = await (format === 'svg'
+      ? createSvgBlobFromElement(this.getIllustrationElement(), this.colorValue(), this.theme())
+      : createPngBlob(this.getIllustrationElement(), this.colorValue(), this.theme()));
+    a.download = this.imageFileName(format);
+    a.click();
+  };
+
+  private imageFileName = (format: 'svg' | 'png') => {
+    const theme = this.theme() ?? 'light';
     if (this.colorValue() === 'grey' || !this.colorValue()) {
-      return `${this.selectedIllustration()}.${format}`;
+      return `${this.selectedIllustration()}_${theme}.${format}`;
     }
-    return `${this.selectedIllustration()}_${this.colorValue()}.${format}`;
-  };
-
-  downloadSvg = () => {
-    const a = document.createElement('a');
-    a.href = createSvgBlobFromElement(this.getIllustrationElement(), this.colorValue());
-    a.download = this.imageFileName('svg');
-    a.click();
-  };
-
-  downloadPng = async () => {
-    const a = document.createElement('a');
-    a.href = await createPngBlob(this.getIllustrationElement(), this.colorValue());
-    a.download = this.imageFileName('png');
-    a.click();
+    return `${this.selectedIllustration()}_${theme}_${this.colorValue()}.${format}`;
   };
 
   private getIllustrationElement = () => {

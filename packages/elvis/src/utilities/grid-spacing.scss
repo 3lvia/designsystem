@@ -1,0 +1,120 @@
+@use 'breakpoints';
+
+@function get-value($size) {
+  @if $size == 0 {
+    @return 0rem;
+  } @else if $size == 1 {
+    @return 0.25rem;
+  } @else if $size == 2 {
+    @return 0.5rem;
+  } @else if $size == 3 {
+    @return 1rem;
+  } @else if $size == 4 {
+    @return 1.5rem;
+  } @else {
+    @return 3rem;
+  }
+}
+
+@mixin create-spacing-set($breakpoint, $size) {
+  // Margin
+  .m-#{$breakpoint}-#{$size} {
+    margin: get-value($size) !important;
+  }
+
+  .mt-#{$breakpoint}-#{$size},
+  .my-#{$breakpoint}-#{$size} {
+    margin-top: get-value($size) !important;
+  }
+
+  .mr-#{$breakpoint}-#{$size},
+  .mx-#{$breakpoint}-#{$size} {
+    margin-right: get-value($size) !important;
+  }
+
+  .mb-#{$breakpoint}-#{$size},
+  .my-#{$breakpoint}-#{$size} {
+    margin-bottom: get-value($size) !important;
+  }
+
+  .ml-#{$breakpoint}-#{$size},
+  .mx-#{$breakpoint}-#{$size} {
+    margin-left: get-value($size) !important;
+  }
+
+  // Negative margin
+  .m-#{$breakpoint}-n#{$size} {
+    margin: calc(get-value($size) * -1) !important;
+  }
+
+  .mt-#{$breakpoint}-n#{$size},
+  .my-#{$breakpoint}-n#{$size} {
+    margin-top: calc(get-value($size) * -1) !important;
+  }
+
+  .mr-#{$breakpoint}-n#{$size},
+  .mx-#{$breakpoint}-n#{$size} {
+    margin-right: calc(get-value($size) * -1) !important;
+  }
+
+  .mb-#{$breakpoint}-n#{$size},
+  .my-#{$breakpoint}-n#{$size} {
+    margin-bottom: calc(get-value($size) * -1) !important;
+  }
+
+  .ml-#{$breakpoint}-n#{$size},
+  .mx-#{$breakpoint}-n#{$size} {
+    margin-left: calc(get-value($size) * -1) !important;
+  }
+
+  // Padding
+  .p-#{$breakpoint}-#{$size} {
+    padding: get-value($size) !important;
+  }
+
+  .pt-#{$breakpoint}-#{$size},
+  .py-#{$breakpoint}-#{$size} {
+    padding-top: get-value($size) !important;
+  }
+
+  .pr-#{$breakpoint}-#{$size},
+  .px-#{$breakpoint}-#{$size} {
+    padding-right: get-value($size) !important;
+  }
+
+  .pb-#{$breakpoint}-#{$size},
+  .py-#{$breakpoint}-#{$size} {
+    padding-bottom: get-value($size) !important;
+  }
+
+  .pl-#{$breakpoint}-#{$size},
+  .px-#{$breakpoint}-#{$size} {
+    padding-left: get-value($size) !important;
+  }
+}
+
+.e-grid {
+  @for $i from 0 through 5 {
+    @include breakpoints.xs-mobile() {
+      @include create-spacing-set(sm, $i);
+    }
+  }
+
+  @for $i from 0 through 5 {
+    @include breakpoints.gt-mobile() {
+      @include create-spacing-set(md, $i);
+    }
+  }
+
+  @for $i from 0 through 5 {
+    @include breakpoints.gt-tablet() {
+      @include create-spacing-set(lg, $i);
+    }
+  }
+
+  @for $i from 0 through 5 {
+    @include breakpoints.gt-desktop() {
+      @include create-spacing-set(xl, $i);
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-breadcrumb",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/breadcrumb",
   "source": "src/react/elvia-breadcrumb.tsx",

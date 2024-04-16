@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "16.4.1",
+  "version": "17.0.1",
   "description": "Elvia design system",
   "license": "GPL-3.0-only",
   "homepage": "https://design.elvia.io/components/css-library",
@@ -22,10 +22,7 @@
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-colors": "^4.4.0",
-    "@elvia/elvis-typography": "^2.7.0",
-    "bootstrap": "4.6.1",
-    "jquery": "^3.6.4",
-    "popper.js": "^1.16.1"
+    "@elvia/elvis-typography": "^2.7.0"
   },
   "devDependencies": {
     "gulp": "^5.0.0",
@@ -35,7 +32,7 @@
     "gulp-tap": "^2.0.0",
     "gulp-terser": "^2.1.0",
     "resolve": "^1.22.8",
-    "sass": "^1.74.1"
+    "sass": "^1.75.0"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"
