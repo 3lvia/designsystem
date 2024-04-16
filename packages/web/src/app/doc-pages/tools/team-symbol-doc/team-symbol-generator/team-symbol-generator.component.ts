@@ -7,7 +7,7 @@ import { SafeHtmlPipe } from './safeHtml.pipe';
 import {
   findLastTwoViewBoxValues,
   generateAndSaveZip,
-  generateRandomHexColors,
+  generateRandomColors,
   getTextElementWidth,
 } from './symbolHelpers';
 
@@ -161,6 +161,6 @@ export class TeamSymbolGeneratorComponent {
   }
 
   generateColors() {
-    this.generatedColors = generateRandomHexColors();
+    this.generatedColors = generateRandomColors();
   }
 }

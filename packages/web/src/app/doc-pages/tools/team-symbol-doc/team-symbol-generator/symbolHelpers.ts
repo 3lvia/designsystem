@@ -1,15 +1,15 @@
 import saveAs from 'file-saver';
 import JSZip from 'jszip';
 
-export const generateRandomHexColors = () => {
+export const generateRandomColors = () => {
   const colors: string[] = [];
   for (let i = 0; i < 5; i++) {
-    const randomColor =
-      '#' +
-      Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, '0');
-    colors.push(randomColor);
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = Math.floor(Math.random() * 21) + 70; // Saturation between 70 and 90
+    const lightness = Math.floor(Math.random() * 18) + 72; // Lightness between 70 and 80
+
+    const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    colors.push(color);
   }
   return colors;
 };
