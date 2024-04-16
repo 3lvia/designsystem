@@ -17,7 +17,7 @@ export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
         },
         label: {
           type: 'string',
-          description: 'The label which is visible in the autocomplete dropdown.',
+          description: 'The label which is visible in the autocomplete menu.',
         },
       },
       description:
@@ -50,19 +50,19 @@ export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
         },
         hasErrorPlaceholder: {
           type: 'boolean',
-          description: 'Allows you to remove the padding below the date picker.',
+          description: 'Allows you to remove the padding below the input field.',
           default: 'true',
         },
       },
     },
     size: {
       type: '"small" | "medium"',
-      description: 'Autocomplete can be set to different sizes.',
+      description: 'Set the autocomplete to different sizes.',
       default: '"medium"',
     },
     isDisabled: {
       type: 'boolean',
-      description: 'Set autocomplete to a disabled state.',
+      description: 'Set the autocomplete to a disabled state.',
       default: 'false',
     },
     isFullWidth: {
@@ -101,12 +101,12 @@ export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
     onOpen: {
       specialType: 'event',
       type: '() => void',
-      description: 'Gets called when the autocomplete popup opens',
+      description: 'Gets called when the autocomplete menu opens',
     },
     onClose: {
       specialType: 'event',
       type: '() => void',
-      description: 'Gets called when the autocomplete popup closes',
+      description: 'Gets called when the autocomplete menu closes',
     },
     onFocus: {
       specialType: 'event',
@@ -116,12 +116,12 @@ export const autocompleteData: ComponentData<BaseAutocompleteProps> = {
     errorOnChange: {
       specialType: 'event',
       type: '(error: string) => void',
-      description: 'Gets called every time the internal date validation error is changed. ',
+      description: 'Gets called every time the internal validation error is changed. ',
     },
     onSelectItem: {
       specialType: 'event',
       type: '(value: string) => void',
-      description: 'Gets called when the user selects an item from the autocomplete popup',
+      description: 'Gets called when the user selects an item from the autocomplete menu',
     },
     ariaLabel: {
       type: 'string',
