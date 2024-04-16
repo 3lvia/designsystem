@@ -1,0 +1,125 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin-top: 87px;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    margin-top: 32px;
+    width: 200px;
+    height: 200px;
+    border: 2px dashed var(--e-color-border-2);
+
+    &.color-chosen {
+      border-color: transparent;
+    }
+
+    &.error {
+      border-color: var(--e-color-signal-danger);
+    }
+  }
+}
+
+.generated-colors {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 24px;
+  padding: 0;
+  margin-top: 24px;
+  margin-bottom: 0;
+
+  .color-circle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    transition: height 200ms ease-in-out;
+    cursor: pointer;
+
+    input[type='radio'] {
+      position: absolute;
+      cursor: pointer;
+      margin: 0;
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    &.chosen {
+      position: relative;
+
+      .checkmark {
+        position: absolute;
+        border-radius: 15px;
+        transform-origin: left bottom;
+        transition: height 200ms ease-in-out;
+
+        &.left {
+          top: 18px;
+          left: 7px;
+          width: 2px;
+          height: 8px;
+          transform: translateX(10px) rotate(-43deg);
+        }
+
+        &.right {
+          top: 10px;
+          left: 6px;
+          width: 2px;
+          height: 15px;
+          transform: translateX(10px) rotate(43deg);
+        }
+      }
+    }
+  }
+}
+
+.generated-symbols-container {
+  width: 100%;
+
+  .team-symbols {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .symbol-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      border-radius: 8px;
+      margin-top: 32px;
+      width: 100%;
+      height: 200px;
+      border: 2px solid var(--e-color-border-2);
+    }
+
+    .logo-display {
+      height: 100px;
+      display: flex;
+    }
+  }
+
+  .start-over-button {
+    float: right;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

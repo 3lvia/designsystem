@@ -12,4 +12,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./utilities-doc/utilities-doc.component').then((m) => m.UtilitiesDocComponent),
   },
+  {
+    path: Pages.TeamSymbol,
+    loadComponent: () =>
+      import('./team-symbol-doc/team-symbol-doc.component').then((m) => m.TeamSymbolDocComponent),
+  },
 ];

@@ -1,0 +1,148 @@
+<ng-template let-color="color" #symbolImage>
+  @if (generatedSvg) {
+    <div
+      [innerHTML]="generatedSvg | safeHtml"
+      class="image-container"
+      [ngClass]="{
+        'color-chosen': !!color
+      }"
+    ></div>
+  } @else {
+    <div
+      class="image-container"
+      [ngClass]="{
+        error: errorText
+      }"
+    >
+      <i class="e-icon e-icon--image e-icon--color-disabled-1 e-icon--xxl" aria-hidden="true"> </i>
+    </div>
+  }
+</ng-template>
+
+@if (!isFinished) {
+  <elvia-stepper
+    [value]="currentStep"
+    [steps]="stepStates"
+    (valueOnChange)="handleStepChange($any($event).target.value)"
+    (onNextClick)="handleNextClick()"
+    [isForced]="true"
+  >
+    <div slot="content">
+      <div class="step-container">
+        <span> Upload a cool image, icon or emoji that best symbolizes your team.</span>
+        <ng-container [ngTemplateOutlet]="symbolImage"></ng-container>
+        @if (!generatedSvg) {
+          <button class="e-btn e-btn--tertiary e-mt-24" (click)="fileInput.click()">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--upload" aria-hidden="true"> </i>
+            </span>
+            <span class="e-btn__title">Add image (svg)</span>
+          </button>
+          <input type="file" #fileInput hidden accept=".svg" (change)="onFileSelected($event)" />
+        } @else {
+          <button class="e-btn e-btn--tertiary e-mt-24" (click)="removeFile()">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--bin" aria-hidden="true"> </i>
+            </span>
+            <span class="e-btn__title">Remove</span>
+          </button>
+        }
+
+        <div
+          class="e-mt-4 e-flex e-align-items-center"
+          [ngClass]="{
+            hidden: generatedSvg
+          }"
+        >
+          @if (errorText) {
+            <i class="e-icon e-icon--remove_circle e-icon--color-error e-icon--xs e-mr-8" aria-hidden="true">
+            </i>
+          }
+          <span class="e-text-sm">
+            {{ errorText ? errorText : 'Max 100KB' }}
+          </span>
+        </div>
+      </div>
+
+      <div class="step-container">
+        <span> Generate random colors and choose one that you like. </span>
+        <ng-container
+          [ngTemplateOutlet]="symbolImage"
+          [ngTemplateOutletContext]="{ color: chosenColor }"
+        ></ng-container>
+
+        @if (generatedColors.length > 1) {
+          <ul class="generated-colors">
+            @for (color of generatedColors; track color) {
+              <li
+                class="color-circle"
+                [style.background-color]="color"
+                (click)="updateBackgroundCircle(color)"
+                [ngClass]="{
+                  chosen: chosenColor === color
+                }"
+              >
+                <input type="radio" />
+                @if (chosenColor === color) {
+                  <div class="checkmark left" [style.background-color]="'black'"></div>
+                  <div class="checkmark right" [style.background-color]="'black'"></div>
+                }
+              </li>
+            }
+          </ul>
+        }
+
+        <button class="e-btn e-btn--tertiary e-mt-24">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--sync" aria-hidden="true"> </i>
+          </span>
+          <span class="e-btn__title" (click)="generateColors()">{{
+            generatedColors.length > 0 ? 'Regenerate colors' : 'Generate colors'
+          }}</span>
+        </button>
+      </div>
+
+      <div class="step-container">
+        <span> The team name will appear in one of the symbols that we generate for you.</span>
+        <ng-container
+          [ngTemplateOutlet]="symbolImage"
+          [ngTemplateOutletContext]="{ color: chosenColor }"
+        ></ng-container>
+        <div class="e-form-field e-mt-24">
+          <div class="e-input">
+            <input id="team-name" placeholder="Team name" [(ngModel)]="teamName" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </elvia-stepper>
+} @else {
+  <div class="generated-symbols-container">
+    <button class="e-btn e-btn--tertiary e-mt-24" (click)="isFinished = false">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--arrow_long_left" aria-hidden="true"> </i>
+      </span>
+      <span class="e-btn__title">Edit</span>
+    </button>
+    <div class="team-symbols">
+      <h2 class="e-title-sm">Your team symbols 🥳</h2>
+      <span> Great! You have generated new symbols for you team.</span>
+      <div class="symbol-container">
+        <div [innerHTML]="generatedSvg | safeHtml" class="logo-display"></div>
+        <div [innerHTML]="svgWithTeamName | safeHtml" class="logo-display"></div>
+      </div>
+      <button class="e-btn e-btn--tertiary e-mt-24" (click)="downloadZip()">
+        <span class="e-btn__icon">
+          <i class="e-icon e-icon--download" aria-hidden="true"> </i>
+        </span>
+        <span class="e-btn__title">Download zip</span>
+      </button>
+    </div>
+    <button class="start-over-button e-btn e-btn--primary e-mt-24" (click)="reset()">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--reset" aria-hidden="true"> </i>
+      </span>
+      <span class="e-btn__title">Start over</span>
+    </button>
+  </div>
+}

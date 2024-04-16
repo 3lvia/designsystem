@@ -1,0 +1,25 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-team-symbol-generator></app-team-symbol-generator>
+  <app-component-section sectionTitle="Usage">
+    Follow these guidelines when generating and using these symbols:
+    <ol class="e-list e-list--numbers">
+      <li>
+        Team symbols should not be linked to Elvias' branding in any capacity, meaning there should be no
+        resemblances between the design of these symbols and Elvias' branding.
+      </li>
+      <li>
+        Team symbols should not be utilized externally in contexts where we represent Elvia, such as
+        presentations, customer dialogues, or public events.
+      </li>
+    </ol>
+  </app-component-section>
+</div>
