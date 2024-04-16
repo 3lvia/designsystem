@@ -8,7 +8,6 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-team-symbol-doc',
   templateUrl: './team-symbol-doc.component.html',
-  styleUrls: ['./team-symbol-doc.component.scss'],
   standalone: true,
   imports: [ComponentHeaderComponent, ComponentSectionComponent, TeamSymbolGeneratorComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

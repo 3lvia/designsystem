@@ -38,7 +38,7 @@ export const getTextElementWidth = (textElementString: string): number => {
 
 export const findLastTwoViewBoxValues = (svgString: string): number[] | null => {
   const viewBoxRegex = /<svg[^>]*\sviewBox="([^"]*)"/;
-  const match = svgString.match(viewBoxRegex);
+  const match = viewBoxRegex.exec(svgString);
   if (match) {
     const viewBoxValues = match[1].split(/\s+/);
     if (viewBoxValues.length >= 2) {
