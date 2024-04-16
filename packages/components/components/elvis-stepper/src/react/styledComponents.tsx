@@ -13,7 +13,6 @@ export const StepperContainer = styled.div<StepperContainerProps>`
   flex-direction: column;
   gap: ${({ $type }) => ($type === 'vertical' ? '4px' : 'initial')};
   width: 100%;
-  max-width: 400px;
 `;
 
 export const StatusMessage = styled.div`
@@ -39,6 +38,9 @@ export const Steps = styled.div<StepsProps>`
   align-items: ${({ $type }) => ($type === 'vertical' ? 'start' : 'center')};
   justify-content: center;
   padding: unset;
+  width: 100%;
+  max-width: 400px;
+  margin-inline: auto;
 `;
 
 interface StepProps {
