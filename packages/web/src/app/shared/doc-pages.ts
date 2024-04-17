@@ -877,7 +877,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Team symbol',
     description:
-      "Team symbols are like secret badges meant just for us within the organization. They are meant to help show off the team's unique identity. This generator will help you create a personalized symbol for your team.",
+      "Team symbols are like secret badges meant just for us within Elvia. They are meant to help show off the team's unique identity. This generator will help you create a personalized symbol for your team.",
     docUrl: Pages.TeamSymbol,
     absolutePath: '/tools/' + Pages.TeamSymbol,
     status: DocPageStatus.Done,

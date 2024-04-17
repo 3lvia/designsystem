@@ -31,23 +31,21 @@ export class TeamSymbolGeneratorComponent {
     },
   };
 
-  isFinished: boolean = false;
-  currentStep: number = 1;
+  isFinished = false;
+  currentStep = 1;
 
-  errorText: string = '';
+  errorText = '';
 
   fileUrl: string | ArrayBuffer | null = null;
 
   generatedColors: string[] = [];
   chosenColor: string | undefined;
 
-  svgContent: string = '';
-  generatedSvg: string = '';
-  svgWithTeamName: string = '';
+  svgContent = '';
+  generatedSvg = '';
+  svgWithTeamName = '';
 
-  teamName: string = '';
-
-  constructor() {}
+  teamName = '';
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];

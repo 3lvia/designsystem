@@ -14,6 +14,4 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 export class TeamSymbolDocComponent {
   description = getDocPagesNotFromCMS('team-symbol')?.description;
   title = getDocPagesNotFromCMS('team-symbol')?.title;
-
-  constructor() {}
 }
