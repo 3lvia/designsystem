@@ -4,11 +4,13 @@
   "content": [
     {
       "version": "17.0.2",
-      "date": "April xx, 2024",
+      "date": "April 17, 2024",
       "changelog": [
         {
           "type": "bug_fix",
-          "changes": ["Fixed some typographies that were wrong on mobile."],
+          "changes": [
+            "Typography line heights are now defined relative to the font size, instead of being fixed values."
+          ],
           "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
         }
       ]
