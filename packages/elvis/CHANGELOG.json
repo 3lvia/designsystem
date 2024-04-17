@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "17.0.2",
+      "date": "April xx, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed some typographies that were wrong on mobile."],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "17.0.1",
       "date": "April 11, 2024",
       "changelog": [
