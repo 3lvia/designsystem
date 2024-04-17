@@ -7,7 +7,7 @@
       "date": "April 17, 2024",
       "changelog": [
         {
-          "type": "bug_fix",
+          "type": "patch",
           "changes": [
             "Typography line heights are now defined relative to the font size, instead of being fixed values."
           ],
