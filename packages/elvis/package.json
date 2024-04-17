@@ -22,7 +22,7 @@
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-colors": "^4.4.0",
-    "@elvia/elvis-typography": "^2.7.0"
+    "@elvia/elvis-typography": "^2.7.1"
   },
   "devDependencies": {
     "gulp": "^5.0.0",
