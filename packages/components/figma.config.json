@@ -1,0 +1,11 @@
+{
+  "codeConnect": {
+    "include": ["components/elvis-*/src/react/*"],
+
+    "react": {
+      "importPaths": {
+        "*": ""
+      }
+    }
+  }
+}
