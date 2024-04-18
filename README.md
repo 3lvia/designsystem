@@ -6,12 +6,12 @@ Read our documentation at: [Design.elvia.io](https://design.elvia.io/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a7c263fb-8570-458d-8d9e-4fb84fbb2f8e/deploy-status)](https://app.netlify.com/sites/elvis-designsystem/deploys)
 
-Elvia’s design system is a scalable system of visual language, components and design assets which enables us
-to work together towards an ultimate brand experience.
+Elvia’s design system (Elvis) is a scalable system of visual language, components and design assets which
+enables us to work together towards an ultimate brand experience.
 
 ## ✨ Features
 
-- 🌈 Style guide and CSS library (Elvis) with lots of classes and utilities
+- 🌈 Style guide and CSS library with lots of classes and utilities
 - 📦 Components built in TypeScript and React (Supported in all JavaScript frameworks)
 - 💚 Elvia’s brand guide
 - 🛠 Design and development tools
@@ -30,7 +30,7 @@ Read our [get started guide](https://design.elvia.io/about/get-started) at desig
 using our CSS library and components. The CSS library and the components can be used through both NPM packages
 and CDN.
 
-### CSS library (Elvis)
+### CSS library
 
 **CSS library usage example:**
 
@@ -72,7 +72,7 @@ as you follow their license.
 - We use **Jest** for unit testing of our components.
 - **[Styled components](https://styled-components.com/)**,
   **[classnames](https://www.npmjs.com/package/classnames)** and **SCSS** for styling our components.
-- We use **[Percy](https://percy.io/)** for visual regression testing for our CSS library.
+- We use **[Percy](https://percy.io/)** for visual regression testing for our CSS library and components.
 - We use **Figma** for sketching the components. The
   [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
   has all the sketches for our components.
@@ -94,33 +94,29 @@ Setup for development environment:
 0. Clone repository, checkout new branch from master, and run `yarn`.
 1. Navigate to `packages/web/contentful` and follow the instructions in the `.env.template` file.
 2. Building projects:
-   1. Run `yarn build` to build all projects for productions. This commando will run on push.
-   1. Run `yarn build:web` to build the web project.
-   1. Run `yarn build:components` to build the components (includes more steps than start:components like
-      testing).
-   1. Run `yarn build:tokens` at root to build the two token packages. These are also built once (not watched)
-      when using `yarn start:components`.
+   1. Run `yarn build` to build all projects for productions.
+   2. Run `yarn build:web` to build the web project.
+   3. Run `yarn build:components` to build the components (will first clean all dist-folders).
+   4. Run `yarn build:tokens` to build the two token packages.
 3. Running projects:
-   1. Run `yarn start:web` at root to run the main documentation page (design.elvia.io).
-   2. Run `yarn start:components` at root to watch for the components (every time components are changed).
-   3. Run `yarn start:elvis` at root to watch for the style-library components (every time elvis-components
-      are changed).
-   4. Run `yarn start:react` at root to run the react test-project (testing components).
-   5. Run `yarn start:vue` at root to run the vue test-project (testing components).
+   1. Run `yarn start:web` to run the main documentation page (design.elvia.io).
+   2. Run `yarn start:components` to watch for the components (every time components are changed).
+   3. Run `yarn start:elvis` to watch for the style-library components (every time elvis-components are
+      changed).
+   4. Run `yarn start:react` to run the react test-project (testing components).
+   5. Run `yarn start:vue` to run the vue test-project (testing components).
 4. Useful extensions:
    1. Angular Language Service
    2. ESLint
    3. Prettier
    4. vscode-styled-components
-   5. Volar
-   6. Angular Files
+   5. Vue - Official
 5. Less useful, but still nice extensions:
    1. Color Highlight
-   2. Auto Rename Tag
-   3. GitLense
-   4. npm Intellisense
-   5. Template string converter
-   6. Angular Snippets
+   2. GitLense
+   3. npm Intellisense
+   4. Template string converter
+   5. Angular Snippets
 
 ### Start developing
 
@@ -132,8 +128,6 @@ To start developing components and styling follow the guides below:
   [Components README guide](https://github.com/3lvia/designsystem/blob/master/packages/components/README.md).
 - Read more about working on our documentation page here:
   [Web (design.elvia.io)](https://github.com/3lvia/designsystem/blob/master/packages/web/README.md).
-- Our CDN which publish all our NPM packages to [Elvia CDN](https://cdn.elvia.io/) can be read more about
-  here: [CDN resources](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/64471957894/CDN+-+Ressurser).
 
 ### Publish
 
@@ -144,15 +138,7 @@ If for some reason a package publishing fails, you can publish all the packages 
 `yarn publish --otp <INSERT_OTP>` from root. It will publish all packages where the version number is updated
 from what is currently published and the package is not marked as private in the `package.json`.
 
-### Updating Yarn
-
-We use Yarn 3 (berry) for this project. To update Yarn, run `yarn set version stable`. This will update the
-Yarn version in the `.yarn/releases`-folder, as well as the `.yarnrc.yml` and `package.json` files. If the
-`netlify.toml` doesn't automatically update the `[build.environment] YARN_VERSION`, this must be changed too.
-Commit the changes (including the `yarn-3.x.x.cjs`-file) and push to the repository.
-
 ## 🤝 Contribute
 
 Feedback from everyone in Elvia is welcomed and developers and designers are urged to contribute where they
-can. Read more about how to request component features and contribute
-[here](https://design.elvia.io/about/contribute).
+can.
