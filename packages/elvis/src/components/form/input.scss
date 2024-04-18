@@ -110,8 +110,8 @@
   }
 
   &.e-input---focus,
-  &:has(input:focus),
-  &:has(textarea:focus) {
+  &:not(.e-input---readonly):has(input:not(:read-only):focus),
+  &:not(.e-input---readonly):has(textarea:not(:read-only):focus) {
     --border-width: 2px;
     --border-color: var(--e-color-border-selected-1);
   }
