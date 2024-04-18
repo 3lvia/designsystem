@@ -11,6 +11,7 @@ import ComponentData from '../component-data.interface';
 import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
 import { getComponent } from 'src/app/shared/doc-pages';
 
+const docPage = getComponent('css-library');
 @Component({
   selector: 'app-css-library-doc',
   templateUrl: './css-library-doc.component.html',
@@ -34,8 +35,8 @@ export class CSSLibraryDocComponent {
   yarnAdd = 'yarn add @elvia/elvis';
   importStylesheet = "@use '@elvia/elvis/css/elvis.min.css';";
   importScript = "import '@elvia/elvis/elvis.js';";
-  title = getComponent('css-library')?.title;
-  description = getComponent('css-library')?.description;
+  title = docPage.title;
+  description = docPage.description;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('CSS Library | Elvia design system');

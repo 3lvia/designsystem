@@ -15,6 +15,7 @@ import { TypographyTitleExampleComponent } from './typography-title-example/typo
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
+const docPage = getDocPagesNotFromCMS('typography');
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
@@ -33,11 +34,11 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
   ],
 })
 export class TypographyDocComponent {
-  title = getDocPagesNotFromCMS('typography')?.title;
-  titleNo = getDocPagesNotFromCMS('typography')?.titleNo;
-  description = getDocPagesNotFromCMS('typography')?.description;
-  descriptionNo = getDocPagesNotFromCMS('typography')?.descriptionNo;
-  figmaUrl = getDocPagesNotFromCMS('typography')?.figmaUrl;
+  title = docPage.title;
+  titleNo = docPage.titleNo;
+  description = docPage.description;
+  descriptionNo = docPage.descriptionNo;
+  figmaUrl = docPage.figmaUrl;
   locale: Locale = 'en-GB';
 
   constructor(

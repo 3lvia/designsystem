@@ -30,11 +30,11 @@ const illustrationDocPage = getDocPagesNotFromCMS('illustration');
 })
 export class IllustrationsDocComponent {
   componentData = illustrationsData;
-  title = illustrationDocPage?.title;
-  titleNo = illustrationDocPage?.titleNo;
-  description = illustrationDocPage?.description;
-  descriptionNo = illustrationDocPage?.descriptionNo;
-  figmaUrl = illustrationDocPage?.figmaUrl;
+  title = illustrationDocPage.title;
+  titleNo = illustrationDocPage.titleNo;
+  description = illustrationDocPage.description;
+  descriptionNo = illustrationDocPage.descriptionNo;
+  figmaUrl = illustrationDocPage.figmaUrl;
 
   locale = toSignal(inject(LocalizationService).listenLocalization());
 }

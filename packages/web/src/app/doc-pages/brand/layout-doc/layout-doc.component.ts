@@ -18,6 +18,7 @@ import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-orderin
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
+const docPage = getDocPagesNotFromCMS('layout');
 @Component({
   selector: 'app-layout-doc',
   templateUrl: './layout-doc.component.html',
@@ -41,11 +42,11 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LayoutDocComponent {
-  title = getDocPagesNotFromCMS('layout')?.title;
-  titleNo = getDocPagesNotFromCMS('layout')?.titleNo;
-  description = getDocPagesNotFromCMS('layout')?.description;
-  descriptionNo = getDocPagesNotFromCMS('layout')?.descriptionNo;
-  figmaUrl = getDocPagesNotFromCMS('layout')?.figmaUrl;
+  title = docPage.title;
+  titleNo = docPage.titleNo;
+  description = docPage.description;
+  descriptionNo = docPage.descriptionNo;
+  figmaUrl = docPage.figmaUrl;
   locale: Locale = 'en-GB';
   egSelectedValue = 0;
   igSelectedValue = 0;
