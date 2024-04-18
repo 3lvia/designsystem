@@ -1,8 +1,8 @@
 import { DocPageName, DocPageStatus, Pages } from './shared.enum';
-import { DocPage } from './shared.interface';
+import { DocPage, HomeMenuCard } from './shared.interface';
 
 // Used for shortcuts at home page
-export const homeMenu: DocPage[] = [
+export const homeMenu: HomeMenuCard[] = [
   {
     title: 'Components',
     description: 'UI Library',

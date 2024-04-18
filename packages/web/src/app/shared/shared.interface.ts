@@ -1,24 +1,29 @@
 import data from '@elvia/elvis/.internal/classlist.json';
 
-import { DocPageName } from './shared.enum';
+import { DocPageName, DocPageStatus } from './shared.enum';
 
 export interface DocPage {
   title: string;
   titleNo?: string;
   description?: string;
   descriptionNo?: string;
-  imageUrl?: string;
-  imageUrlOn?: string;
-  imageUrlDark?: string;
-  imageUrlOnDark?: string;
   absolutePath?: string;
-  fragmentPath?: string;
-  docUrl?: string;
-  externalUrl?: string;
+  docUrl: DocPageName;
   figmaUrl?: string;
-  status?: string;
-  type?: string;
+  status?: DocPageStatus;
+  type?: 'About' | 'Brand' | 'Component' | 'Patterns' | 'Tools';
   searchTerms?: string[];
   elvisClassName?: keyof typeof data.block;
   relatedPages?: DocPageName[];
+}
+
+export interface HomeMenuCard {
+  title: string;
+  description: string;
+  docUrl: DocPageName;
+  absolutePath: string;
+  imageUrl: string;
+  imageUrlOn: string;
+  imageUrlDark: string;
+  imageUrlOnDark: string;
 }
