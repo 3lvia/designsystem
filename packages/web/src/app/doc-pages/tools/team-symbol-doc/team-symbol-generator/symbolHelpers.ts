@@ -37,12 +37,25 @@ export const getTextElementWidth = (textElementString: string): number => {
 };
 
 export const findLastTwoViewBoxValues = (svgString: string): number[] | null => {
-  const viewBoxRegex = /<svg[^>]*\sviewBox="([^"]*)"/;
-  const match = viewBoxRegex.exec(svgString);
+  const regex = /<svg[^>]*\sviewBox="([^"]*)"/;
+  const match = regex.exec(svgString);
   if (match) {
     const viewBoxValues = match[1].split(/\s+/);
     if (viewBoxValues.length >= 2) {
       return viewBoxValues.slice(-2).map((value) => parseInt(value, 10));
+    }
+  }
+  return null;
+};
+
+export const findHeightAndWidth = (svgString: string): number[] | null => {
+  const regex = /width="([^"]+)"[\s\S]*?height="([^"]+)"/;
+  const match = regex.exec(svgString);
+  if (match) {
+    const width = match[1];
+    const height = match[2];
+    if (!width.includes('%') && !height.includes('%')) {
+      return [parseInt(width, 10), parseInt(height, 10)];
     }
   }
   return null;

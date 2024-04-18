@@ -1,20 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ThemeName } from '@elvia/elvis-colors';
 import { StepStates } from '@elvia/elvis-stepper';
 
 import { SafeHtmlPipe } from './safeHtml.pipe';
 import {
+  findHeightAndWidth,
   findLastTwoViewBoxValues,
   generateAndSaveZip,
   generateRandomColors,
   getTextElementWidth,
 } from './symbolHelpers';
+import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/local-theme-switch.component';
 
 @Component({
   selector: 'app-team-symbol-generator',
   standalone: true,
-  imports: [CommonModule, FormsModule, SafeHtmlPipe],
+  imports: [CommonModule, FormsModule, SafeHtmlPipe, LocalThemeSwitchComponent],
   templateUrl: './team-symbol-generator.component.html',
   styleUrl: './team-symbol-generator.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
@@ -33,6 +36,7 @@ export class TeamSymbolGeneratorComponent {
 
   isFinished = false;
   currentStep = 1;
+  theme: ThemeName = 'light';
 
   errorText = '';
 
@@ -46,6 +50,11 @@ export class TeamSymbolGeneratorComponent {
   svgWithTeamName = '';
 
   teamName = '';
+
+  handleChangeThemeEvent = (newTheme: ThemeName) => {
+    this.theme = newTheme;
+    this.generateTeamSymbol(true);
+  };
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -101,10 +110,21 @@ export class TeamSymbolGeneratorComponent {
   }
 
   generateTeamSymbol(withTeamName?: boolean) {
-    const [width, height] = findLastTwoViewBoxValues(this.svgContent) ?? [0, 0];
+    let circleRadius = 100;
+    let svgTransform = '';
 
-    const circleRadius = Math.max(width, height);
-    const scaleFactor = 0.5;
+    const viewBoxValues = findLastTwoViewBoxValues(this.svgContent);
+    const heightAndWidth = findHeightAndWidth(this.svgContent);
+
+    if (heightAndWidth) {
+      const [width, height] = heightAndWidth;
+      circleRadius = Math.max(width, height);
+      svgTransform = `translate(${circleRadius / 2}, ${circleRadius / 2})`;
+    } else if (viewBoxValues) {
+      const [width, height] = viewBoxValues;
+      circleRadius = Math.max(width, height);
+      svgTransform = `scale(0.5) translate(${circleRadius}, ${circleRadius})`;
+    }
 
     const circleBackground = `
       <circle cx="${circleRadius}" cy="${circleRadius}" r="${circleRadius}" fill="${this.chosenColor ?? 'transparent'}" />
@@ -115,8 +135,9 @@ export class TeamSymbolGeneratorComponent {
       const circleDiameter = 100;
       const margin = 16;
 
+      const fallbackFontColor = this.theme === 'light' ? '#000000' : '#ededed';
       const textWidth = getTextElementWidth(`
-        <text font-family="Red Hat Display" font-weight="900" font-size="${fontSize}" fill="var(--e-color-illustration-main-1, #262626)">${this.teamName}</text>
+        <text font-family="Red Hat Display" font-weight="900" font-size="${fontSize}">${this.teamName}</text>
       `);
 
       const totalWidth = circleDiameter + textWidth + 16;
@@ -131,22 +152,23 @@ export class TeamSymbolGeneratorComponent {
             </style>
             <svg xmlns="http://www.w3.org/2000/svg" x="${symbolX}" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
               ${circleBackground}
-              <g transform="scale(${scaleFactor}) translate(${circleRadius}, ${circleRadius})">${this.svgContent}</g>
+              <g transform="${svgTransform}">${this.svgContent}</g>
             </svg>
-            <text x="${textX}" y="${textY}" font-family="Red Hat Display, sans-serif" font-weight="900" font-size="44" fill="var(--e-color-text-1, #000000)">${this.teamName}</text>
+            <text x="${textX}" y="${textY}" font-family="Red Hat Display, sans-serif" font-weight="900" font-size="44" fill="var(--e-color-text-1, ${fallbackFontColor})">${this.teamName}</text>
           </svg>
         `;
     } else {
       this.generatedSvg = `
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
         ${circleBackground}
-        <g transform="scale(${scaleFactor}) translate(${circleRadius}, ${circleRadius})">${this.svgContent}</g>
+        <g transform="${svgTransform}">${this.svgContent}</g>
       </svg>
     `;
     }
   }
 
   downloadZip() {
+    console.log(this.svgWithTeamName);
     generateAndSaveZip(this.generatedSvg, this.svgWithTeamName);
   }
 
