@@ -93,41 +93,37 @@
   }
 }
 
-.generated-symbols-container {
-  width: 100%;
+.team-symbols {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  .team-symbols {
+  .symbol-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    .symbol-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 32px;
-      border-radius: 8px;
-      margin-top: 32px;
-      width: 100%;
-      height: 200px;
-      border: 2px solid var(--e-color-border-2);
-    }
-
-    .logo-display {
-      height: 100px;
-      display: flex;
-    }
+    gap: 32px;
+    border-radius: 8px;
+    margin-top: 32px;
+    width: 100%;
+    height: 200px;
+    border: 2px solid var(--e-color-border-2);
   }
 
-  .top-buttons {
+  .logo-display {
+    height: 100px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
+}
 
-  .start-over-button {
-    display: flex;
-    margin-left: auto;
-  }
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.start-over-button {
+  display: flex;
+  margin-left: auto;
 }

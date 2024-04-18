@@ -19,7 +19,12 @@
   }
 </ng-template>
 
-@if (!isFinished) {
+<div
+  class="e-w-100"
+  [ngClass]="{
+    'e-none': isFinished
+  }"
+>
   <elvia-stepper
     [value]="currentStep"
     [steps]="stepStates"
@@ -122,39 +127,44 @@
       </div>
     </div>
   </elvia-stepper>
-} @else {
-  <div class="generated-symbols-container">
-    <div class="top-buttons">
-      <button class="e-btn e-btn--tertiary" (click)="isFinished = false">
-        <span class="e-btn__icon">
-          <i class="e-icon e-icon--arrow_long_left" aria-hidden="true"> </i>
-        </span>
-        <span class="e-btn__title">Edit</span>
-      </button>
-      <app-local-theme-switch (themeChange)="handleChangeThemeEvent($event)" />
-    </div>
-    <div class="team-symbols">
-      <h2 class="e-title-sm e-mt-16 e-mb-32">Your team symbols 🥳</h2>
-      <p>Great! You have generated new symbols for you team.</p>
-      <div
-        class="symbol-container theme-container e-color-background-1"
-        [ngClass]="theme === 'dark' ? 'e-theme-dark' : 'e-theme-light'"
-      >
-        <div [innerHTML]="generatedSvg | safeHtml" class="logo-display"></div>
-        <div [innerHTML]="svgWithTeamName | safeHtml" class="logo-display"></div>
-      </div>
-      <button class="e-btn e-btn--tertiary e-mt-24 e-mb-64" (click)="downloadZip()">
-        <span class="e-btn__icon">
-          <i class="e-icon e-icon--download" aria-hidden="true"> </i>
-        </span>
-        <span class="e-btn__title">team_symbols.zip</span>
-      </button>
-    </div>
-    <button class="start-over-button e-btn e-btn--primary e-mt-24" (click)="reset()">
+</div>
+
+<div
+  class="e-w-100"
+  [ngClass]="{
+    'e-none': !isFinished
+  }"
+>
+  <div class="top-buttons">
+    <button class="e-btn e-btn--tertiary" (click)="isFinished = false">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--reset" aria-hidden="true"> </i>
+        <i class="e-icon e-icon--arrow_long_left" aria-hidden="true"> </i>
       </span>
-      <span class="e-btn__title">Start over</span>
+      <span class="e-btn__title">Edit</span>
+    </button>
+    <app-local-theme-switch (themeChange)="handleChangeThemeEvent($event)" />
+  </div>
+  <div class="team-symbols">
+    <h2 class="e-title-sm e-mt-16 e-mb-32">Your team symbols 🥳</h2>
+    <p>Great! You have generated new symbols for you team.</p>
+    <div
+      class="symbol-container theme-container e-color-background-1"
+      [ngClass]="theme === 'dark' ? 'e-theme-dark' : 'e-theme-light'"
+    >
+      <div [innerHTML]="generatedSvg | safeHtml" class="logo-display"></div>
+      <div [innerHTML]="svgWithTeamName | safeHtml" class="logo-display"></div>
+    </div>
+    <button class="e-btn e-btn--tertiary e-mt-24 e-mb-64" (click)="downloadZip()">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--download" aria-hidden="true"> </i>
+      </span>
+      <span class="e-btn__title">team_symbols.zip</span>
     </button>
   </div>
-}
+  <button class="start-over-button e-btn e-btn--primary e-mt-16" (click)="reset()">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--reset" aria-hidden="true"> </i>
+    </span>
+    <span class="e-btn__title">Start over</span>
+  </button>
+</div>
