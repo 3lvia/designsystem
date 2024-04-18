@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "17.0.3",
+      "date": "April 18, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the text field and text area would get focus style when they were readonly."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "17.0.2",
       "date": "April 18, 2024",
       "changelog": [
@@ -62,7 +75,7 @@
           "changes": [
             "Fixed the color of the input text in <code>.e-form-field--small</code> when they are disabled and read only."
           ],
-          "pages": [{ "displayName": "Input", "url": "https://design.elvia.io/brand/input" }]
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         }
       ]
     },
@@ -2479,7 +2492,7 @@
           ],
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
-            { "displayName": "Input", "url": "https://design.elvia.io/components/input" }
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
           ]
         },
         {
