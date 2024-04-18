@@ -1,6 +1,6 @@
 import data from '@elvia/elvis/.internal/classlist.json';
 
-import { DocPageName, DocPageStatus } from './shared.enum';
+import { DocPageName } from './shared.enum';
 
 export interface DocPage {
   title: string;
@@ -10,7 +10,6 @@ export interface DocPage {
   absolutePath?: string;
   docUrl: DocPageName;
   figmaUrl?: string;
-  status?: DocPageStatus;
   type?: 'About' | 'Brand' | 'Component' | 'Patterns' | 'Tools';
   searchTerms?: string[];
   elvisClassName?: keyof typeof data.block;
