@@ -1,6 +1,6 @@
 # Elvia Typography Changelog
 
-## 2.7.1 (17.04.24)
+## 2.7.1 (18.04.24)
 
 ### Patch
 
