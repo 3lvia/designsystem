@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "17.0.2",
+      "date": "April 18, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Typography line heights are now defined relative to the font size, instead of being fixed values."
+          ],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "17.0.1",
       "date": "April 11, 2024",
       "changelog": [

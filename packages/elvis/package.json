@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "17.0.1",
+  "version": "17.0.2",
   "description": "Elvia design system",
   "license": "GPL-3.0-only",
   "homepage": "https://design.elvia.io/components/css-library",
@@ -21,8 +21,8 @@
   ],
   "dependencies": {
     "@elvia/elvis-assets-icons": "*",
-    "@elvia/elvis-colors": "^4.4.0",
-    "@elvia/elvis-typography": "^2.7.0"
+    "@elvia/elvis-colors": "^4.4.1",
+    "@elvia/elvis-typography": "^2.7.1"
   },
   "devDependencies": {
     "gulp": "^5.0.0",
