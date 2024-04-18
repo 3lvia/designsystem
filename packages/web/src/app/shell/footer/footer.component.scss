@@ -43,10 +43,6 @@
   display: flex;
   gap: 16px;
 
-  .inverted-img {
-    display: none;
-  }
-
   a {
     background-color: var(--e-dark-theme-grey);
 
@@ -54,14 +50,8 @@
       width: 16px;
     }
 
-    &:hover {
-      .inverted-img {
-        display: block;
-      }
-
-      .default-img {
-        display: none;
-      }
+    &:hover img {
+      filter: brightness(0);
     }
   }
 }

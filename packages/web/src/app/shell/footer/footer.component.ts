@@ -6,8 +6,7 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 interface IconLink {
   url: string;
   alt: string;
-  defaultImgSrc: string;
-  invertedImgSrc: string;
+  imgSrc: string;
 }
 
 @Component({
@@ -23,20 +22,17 @@ export class FooterComponent {
   links: IconLink[] = [
     {
       url: 'https://app.contentful.com/spaces/zez3t3t1iiwd/home',
-      defaultImgSrc: 'assets/icons/contentful-logo.svg',
-      invertedImgSrc: 'assets/icons/contentful-logo-inverted.svg',
+      imgSrc: 'assets/icons/contentful-logo.svg',
       alt: 'Contentful icon',
     },
     {
       url: 'https://www.figma.com/files/880078299274452916/project/5995782/Designsystem-(Elvis)',
-      defaultImgSrc: 'assets/icons/figma-logo.svg',
-      invertedImgSrc: 'assets/icons/figma-logo-inverted.svg',
+      imgSrc: 'assets/icons/figma-logo.svg',
       alt: 'Figma icon',
     },
     {
       url: 'https://github.com/3lvia/designsystem',
-      defaultImgSrc: 'assets/icons/github-logo.svg',
-      invertedImgSrc: 'assets/icons/github-logo-inverted.svg',
+      imgSrc: 'assets/icons/github-logo.svg',
       alt: 'GitHub icon',
     },
   ];
