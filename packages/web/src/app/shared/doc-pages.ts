@@ -876,18 +876,30 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
 ];
 
-export function getComponent(docUrl: DocPageName): DocPage | undefined {
-  return componentsDocPages.find((component) => component.docUrl === docUrl);
+export function getComponent(docUrl: DocPageName) {
+  const page = componentsDocPages.find((component) => component.docUrl === docUrl);
+  if (!page) {
+    throw new Error(`Component not found: ${docUrl}`);
+  }
+  return page;
 }
-export function getDocPagesNotFromCMS(docUrl: DocPageName): DocPage | undefined {
-  return docPagesNotFromCMS.find((component) => component.docUrl === docUrl);
+export function getDocPagesNotFromCMS(docUrl: DocPageName) {
+  const page = docPagesNotFromCMS.find((component) => component.docUrl === docUrl);
+  if (!page) {
+    throw new Error(`Page not found: ${docUrl}`);
+  }
+  return page;
 }
-export function getDocPage(docUrl: DocPageName): DocPage | undefined {
+export function getDocPage(docUrl: DocPageName) {
   const allDocPages: DocPage[] = [
     ...componentsDocPages,
     ...docPagesBrand,
     ...docPagesPattern,
     ...docPagesTools,
   ];
-  return allDocPages.find((component) => component.docUrl === docUrl);
+  const page = allDocPages.find((component) => component.docUrl === docUrl);
+  if (!page) {
+    throw new Error(`Page not found: ${docUrl}`);
+  }
+  return page;
 }
