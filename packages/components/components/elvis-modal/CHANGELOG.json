@@ -3,6 +3,18 @@
   "name": "elvis-modal",
   "content": [
     {
+      "date": "19.04.24",
+      "version": "4.0.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the focus trap would not update correctly when the content inside the modal changed."
+          ]
+        }
+      ]
+    },
+    {
       "date": "18.03.24",
       "version": "4.0.5",
       "changelog": [
