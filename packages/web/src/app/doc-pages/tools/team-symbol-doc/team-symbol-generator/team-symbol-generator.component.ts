@@ -5,13 +5,7 @@ import { ThemeName } from '@elvia/elvis-colors';
 import { StepStates } from '@elvia/elvis-stepper';
 
 import { SafeHtmlPipe } from './safeHtml.pipe';
-import {
-  findHeightAndWidth,
-  findLastTwoViewBoxValues,
-  generateAndSaveZip,
-  generateRandomColors,
-  getTextElementWidth,
-} from './symbolHelpers';
+import { createTeamSymbol, generateAndSaveZip, generateRandomColors } from './symbolHelpers';
 import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/local-theme-switch.component';
 
 @Component({
@@ -53,7 +47,7 @@ export class TeamSymbolGeneratorComponent {
 
   handleChangeThemeEvent = (newTheme: ThemeName) => {
     this.theme = newTheme;
-    this.generateTeamSymbol(true);
+    this.svgWithTeamName = createTeamSymbol(this.svgContent, this.theme, this.chosenColor, this.teamName);
   };
 
   onFileSelected(event: any) {
@@ -85,13 +79,19 @@ export class TeamSymbolGeneratorComponent {
 
   handleStepChange(step: number) {
     this.currentStep = step;
+
+    if (step === 1) {
+      this.generatedSvg = createTeamSymbol(this.svgContent, this.theme);
+    } else {
+      this.updateBackgroundCircle(this.chosenColor);
+    }
   }
 
   handleNextClick() {
     if (this.currentStep === 3 && this.teamName !== '') {
       this.stepStates['3'].isCompleted = true;
       this.isFinished = true;
-      this.generateTeamSymbol(true);
+      this.svgWithTeamName = createTeamSymbol(this.svgContent, this.theme, this.chosenColor, this.teamName);
     }
   }
 
@@ -109,73 +109,14 @@ export class TeamSymbolGeneratorComponent {
     this.teamName = '';
   }
 
-  generateTeamSymbol(withTeamName?: boolean) {
-    let circleRadius = 100;
-    let svgTransform = '';
-
-    const viewBoxValues = findLastTwoViewBoxValues(this.svgContent);
-    const heightAndWidth = findHeightAndWidth(this.svgContent);
-
-    if (heightAndWidth) {
-      const [width, height] = heightAndWidth;
-      circleRadius = Math.max(width, height);
-      svgTransform = `translate(${circleRadius / 2}, ${circleRadius / 2})`;
-    } else if (viewBoxValues) {
-      const [width, height] = viewBoxValues;
-      circleRadius = Math.max(width, height);
-      svgTransform = `scale(0.5) translate(${circleRadius}, ${circleRadius})`;
-    }
-
-    const circleBackground = `
-      <circle cx="${circleRadius}" cy="${circleRadius}" r="${circleRadius}" fill="${this.chosenColor ?? 'transparent'}" />
-    `;
-
-    if (withTeamName) {
-      const fontSize = 44;
-      const circleDiameter = 100;
-      const margin = 16;
-
-      const fallbackFontColor = this.theme === 'light' ? '#000000' : '#ededed';
-      const textWidth = getTextElementWidth(`
-        <text font-family="Red Hat Display" font-weight="900" font-size="${fontSize}">${this.teamName}</text>
-      `);
-
-      const totalWidth = circleDiameter + textWidth + 16;
-      const symbolX = -(totalWidth / 2 - circleDiameter / 2);
-      const textX = circleDiameter + margin;
-      const textY = circleDiameter / 2 + fontSize / 2;
-
-      this.svgWithTeamName = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${totalWidth} ${circleDiameter}">
-            <style>
-              @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&amp;display=swap')
-            </style>
-            <svg xmlns="http://www.w3.org/2000/svg" x="${symbolX}" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
-              ${circleBackground}
-              <g transform="${svgTransform}">${this.svgContent}</g>
-            </svg>
-            <text x="${textX}" y="${textY}" font-family="Red Hat Display, sans-serif" font-weight="900" font-size="44" fill="var(--e-color-text-1, ${fallbackFontColor})">${this.teamName}</text>
-          </svg>
-        `;
-    } else {
-      this.generatedSvg = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
-        ${circleBackground}
-        <g transform="${svgTransform}">${this.svgContent}</g>
-      </svg>
-    `;
-    }
-  }
-
   downloadZip() {
-    console.log(this.svgWithTeamName);
     generateAndSaveZip(this.generatedSvg, this.svgWithTeamName);
   }
 
   updateBackgroundCircle(color?: string) {
     this.chosenColor = color;
-    this.generateTeamSymbol();
-    if (this.chosenColor) {
+    this.generatedSvg = createTeamSymbol(this.svgContent, this.theme, color);
+    if (color) {
       this.stepStates['2'].isCompleted = true;
     }
   }

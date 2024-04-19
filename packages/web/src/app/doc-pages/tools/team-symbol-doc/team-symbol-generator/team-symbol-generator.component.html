@@ -1,10 +1,10 @@
-<ng-template let-color="color" #symbolImage>
+<ng-template #symbolImage>
   @if (generatedSvg) {
     <div
       [innerHTML]="generatedSvg | safeHtml"
       class="image-container"
       [ngClass]="{
-        'color-chosen': !!color
+        'color-chosen': currentStep !== 1 && chosenColor
       }"
     ></div>
   } @else {
@@ -71,10 +71,7 @@
 
       <div class="step-container">
         <p>Generate random colors and choose one that you like.</p>
-        <ng-container
-          [ngTemplateOutlet]="symbolImage"
-          [ngTemplateOutletContext]="{ color: chosenColor }"
-        ></ng-container>
+        <ng-container [ngTemplateOutlet]="symbolImage"></ng-container>
 
         @if (generatedColors.length > 1) {
           <ul class="generated-colors">
@@ -115,10 +112,7 @@
 
       <div class="step-container">
         <p>The team name will appear in one of the symbols that we generate for you.</p>
-        <ng-container
-          [ngTemplateOutlet]="symbolImage"
-          [ngTemplateOutletContext]="{ color: chosenColor }"
-        ></ng-container>
+        <ng-container [ngTemplateOutlet]="symbolImage"></ng-container>
         <div class="e-form-field e-mt-24 e-mb-48">
           <div class="e-input">
             <input id="team-name" placeholder="Team name" [(ngModel)]="teamName" />

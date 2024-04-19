@@ -1,3 +1,4 @@
+import { ThemeName } from '@elvia/elvis-colors';
 import saveAs from 'file-saver';
 import JSZip from 'jszip';
 
@@ -70,4 +71,61 @@ export const generateAndSaveZip = (svg1: string, svg2: string) => {
   zip.generateAsync({ type: 'blob' }).then((content) => {
     saveAs(content, 'team-symbols.zip');
   });
+};
+
+export const createTeamSymbol = (svgContent: string, theme: ThemeName, color?: string, teamName?: string) => {
+  let circleRadius = 100;
+  let svgTransform = '';
+
+  const viewBoxValues = findLastTwoViewBoxValues(svgContent);
+  const heightAndWidth = findHeightAndWidth(svgContent);
+
+  if (heightAndWidth) {
+    const [width, height] = heightAndWidth;
+    circleRadius = Math.max(width, height);
+    svgTransform = `translate(${circleRadius / 2}, ${circleRadius / 2})`;
+  } else if (viewBoxValues) {
+    const [width, height] = viewBoxValues;
+    circleRadius = Math.max(width, height);
+    svgTransform = `scale(0.5) translate(${circleRadius}, ${circleRadius})`;
+  }
+
+  const circleBackground = `
+      <circle cx="${circleRadius}" cy="${circleRadius}" r="${circleRadius}" fill="${color ?? 'transparent'}" />
+    `;
+
+  if (teamName) {
+    const fontSize = 44;
+    const circleDiameter = 100;
+    const margin = 16;
+
+    const fallbackFontColor = theme === 'light' ? '#000000' : '#ededed';
+    const textWidth = getTextElementWidth(`
+        <text font-family="Red Hat Display" font-weight="900" font-size="${fontSize}">${teamName}</text>
+      `);
+
+    const totalWidth = circleDiameter + textWidth + 16;
+    const symbolX = -(totalWidth / 2 - circleDiameter / 2);
+    const textX = circleDiameter + margin;
+    const textY = circleDiameter / 2 + fontSize / 2;
+
+    return `
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${totalWidth} ${circleDiameter}">
+            <style>
+              @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&amp;display=swap')
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" x="${symbolX}" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
+              ${circleBackground}
+              <g transform="${svgTransform}">${svgContent}</g>
+            </svg>
+            <text x="${textX}" y="${textY}" font-family="Red Hat Display, sans-serif" font-weight="900" font-size="44" fill="var(--e-color-text-1, ${fallbackFontColor})">${teamName}</text>
+          </svg>
+        `;
+  }
+  return `
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
+        ${circleBackground}
+        <g transform="${svgTransform}">${svgContent}</g>
+      </svg>
+    `;
 };
