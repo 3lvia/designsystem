@@ -16,21 +16,18 @@ export const useFocusTrap = (): {
 } => {
   let firstItem: Element;
   let lastItem: Element;
+  let mo: MutationObserver;
 
   const handleFirstItemTab = (e: KeyboardEvent) => {
     if (e.key === 'Tab' && e.shiftKey) {
-      if (lastItem) {
-        (lastItem as HTMLElement).focus();
-      }
+      (lastItem as HTMLElement)?.focus();
       e.preventDefault();
     }
   };
 
   const handleLastItemTab = (e: KeyboardEvent) => {
     if (e.key === 'Tab' && !e.shiftKey) {
-      if (firstItem) {
-        (firstItem as HTMLElement).focus();
-      }
+      (firstItem as HTMLElement)?.focus();
       e.preventDefault();
     }
   };
@@ -65,15 +62,21 @@ export const useFocusTrap = (): {
         lastItem.addEventListener('keydown', handleLastItemTab);
       }
     });
+
+    mo = new MutationObserver(() => {
+      releaseFocusTrap();
+      trapFocus(focusTrapContainer);
+    });
+
+    if (focusTrapContainer.current) {
+      mo.observe(focusTrapContainer.current, { childList: true, subtree: true });
+    }
   };
 
   const releaseFocusTrap = () => {
-    if (firstItem) {
-      firstItem.removeEventListener('keydown', handleFirstItemTab);
-    }
-    if (lastItem) {
-      lastItem.removeEventListener('keydown', handleLastItemTab);
-    }
+    firstItem?.removeEventListener('keydown', handleFirstItemTab);
+    lastItem?.removeEventListener('keydown', handleLastItemTab);
+    mo?.disconnect();
   };
 
   return { trapFocus, releaseFocusTrap };

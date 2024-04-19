@@ -3,6 +3,18 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "19.04.24",
+      "version": "11.5.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The <code>useFocusTrap</code> hook now correctly updates the focus trap when the content changes."
+          ]
+        }
+      ]
+    },
+    {
       "date": "19.03.24",
       "version": "11.5.0",
       "changelog": [
