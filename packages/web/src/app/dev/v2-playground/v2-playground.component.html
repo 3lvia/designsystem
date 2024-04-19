@@ -4,37 +4,7 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <div class="example-wrapper">
-      <elvia-accordion [isOpen]="true" isFullWidth size="small">
-        <div slot="openLabel">
-          <p>openLabel 1</p>
-        </div>
-        <div slot="closeLabel">
-          <p>closeLabel 1</p>
-        </div>
-        <div slot="content">
-          <elvia-accordion [isOpen]="true" isFullWidth size="small">
-            <div slot="openLabel">
-              <p>openLabel 2</p>
-            </div>
-            <div slot="closeLabel">
-              <p>closeLabel 2</p>
-            </div>
-            <div slot="content">
-              <elvia-autocomplete
-                (valueOnChange)="handleOnChange($any($event))"
-                errorOptions="{ text: 'Skriv inn noe godt' }"
-                label="Lunch"
-                [items]="[
-                  { value: 'lange', label: 'Lange' },
-                  { value: 'torsk', label: 'Torsk' },
-                  { value: 'sjampinjong', label: 'sjampinjong' }
-                ]"
-              />
-              Accordion content
-            </div>
-          </elvia-accordion>
-        </div>
-      </elvia-accordion>
+      <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
     </div>
 
     <!--Normal version-->
@@ -392,17 +362,23 @@
           Jeg er en heading (slot)
           <i class="e-icon e-icon--move_truck-color e-icon--sm" aria-hidden="true"> </i>
         </div>
-        <div slot="content">Content</div>
-        <button
-          slot="secondaryButton"
-          class="e-btn e-btn--secondary e-btn--lg"
-          (click)="isModalShowing = false"
-        >
-          Avbryt
-        </button>
-        <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">
-          Lagre
-        </button>
+        <div slot="content" class="e-flex e-flex-direction-column e-gap-8">
+          @if (modalContentToggle) {
+            Modal content 1
+            <button class="e-btn" (click)="modalContentToggle = !modalContentToggle">Toggle</button>
+            <button class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
+              Avbryt 1
+            </button>
+            <button class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">Lagre 1</button>
+          } @else {
+            Modal content 2
+            <button class="e-btn" (click)="modalContentToggle = !modalContentToggle">Toggle</button>
+            <button class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
+              Avbryt 2
+            </button>
+            <button class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">Lagre 2</button>
+          }
+        </div>
       </elvia-modal>
       <h4>Illustration</h4>
 
