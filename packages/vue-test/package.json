@@ -37,7 +37,7 @@
     "@elvia/elvis-toast": "*",
     "@elvia/elvis-tooltip": "*",
     "vue": "^3.4.23",
-    "vue-router": "^4.3.1"
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
