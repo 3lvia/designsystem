@@ -36,7 +36,7 @@
     "@elvia/elvis-timepicker": "*",
     "@elvia/elvis-toast": "*",
     "@elvia/elvis-tooltip": "*",
-    "vue": "^3.4.23",
+    "vue": "^3.4.24",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
