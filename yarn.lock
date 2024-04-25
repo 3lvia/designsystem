@@ -2526,6 +2526,7 @@ __metadata:
     jest: "npm:^29.7.0"
     jest-axe: "npm:^8.0.0"
     jest-environment-jsdom: "npm:^29.7.0"
+    playwright-core: "npm:^1.43.1"
     postcss: "npm:^8.4.38"
     postcss-modules: "npm:^6.0.0"
     react: "npm:^18.2.0"
@@ -14847,7 +14848,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.43.1":
+"playwright-core@npm:1.43.1, playwright-core@npm:^1.43.1":
   version: 1.43.1
   resolution: "playwright-core@npm:1.43.1"
   bin:
