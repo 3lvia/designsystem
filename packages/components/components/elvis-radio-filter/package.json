@@ -3,6 +3,11 @@
   "version": "1.8.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/radio-filter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-radio-filter"
+  },
   "source": "src/react/elvia-radio-filter.tsx",
   "main": "dist/main/web-component.js",
   "files": [

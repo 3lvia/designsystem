@@ -3,6 +3,11 @@
   "version": "5.0.7",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/datepicker-range",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-datepicker-range"
+  },
   "source": "src/react/elvia-datepicker-range.tsx",
   "main": "dist/main/web-component.js",
   "files": [

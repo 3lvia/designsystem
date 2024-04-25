@@ -4,6 +4,11 @@
   "description": "Elvia design system",
   "license": "GPL-3.0-only",
   "homepage": "https://design.elvia.io/components/css-library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/elvis"
+  },
   "main": "elvis.js",
   "style": "css/elvis.min.css",
   "scripts": {

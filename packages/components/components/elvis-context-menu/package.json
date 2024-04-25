@@ -3,6 +3,11 @@
   "version": "1.4.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/context-menu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-context-menu"
+  },
   "source": "src/react/elvia-context-menu.tsx",
   "main": "dist/main/web-component.js",
   "files": [
