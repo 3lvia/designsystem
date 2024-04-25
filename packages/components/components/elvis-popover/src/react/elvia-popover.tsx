@@ -83,12 +83,6 @@ export const Popover: FC<PopoverProps> = function ({
     updatePreferredPosition();
   }, [isShowingConnectedOverlayState, content, horizontalPosition, verticalPosition, heading]);
 
-  /* Add class to text-abbreviation element trigger element when the popover is open */
-  useEffect(() => {
-    const textAbbreviationElement = triggerRef.current?.querySelector('.e-text-abbreviation');
-    textAbbreviationElement?.classList.toggle('e-text-abbreviation---active', isShowingConnectedOverlayState);
-  }, [isShowingConnectedOverlayState]);
-
   const handleOnOpen = () => {
     onOpen?.();
     webcomponent?.triggerEvent('onOpen');

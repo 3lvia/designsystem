@@ -9,8 +9,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added a new prop <code>display</code> that can be used to set the CSS display property of the trigger element. This can be useful when you want to use the popover with inline elements.",
-            "Now adding automatic active state to a trigger element when used in conjunction with <code>e-text-abbreviation</code>."
+            "Added a new prop <code>display</code> that can be used to set the CSS display property of the trigger element. This can be useful when you want to use the popover with inline elements."
           ]
         },
         {
