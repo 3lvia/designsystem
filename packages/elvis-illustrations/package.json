@@ -3,6 +3,11 @@
   "version": "1.2.1",
   "description": "Elvia illustrations",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/elvis-illustrations"
+  },
   "type": "module",
   "exports": {
     "./CHANGELOG.json": "./CHANGELOG.json",

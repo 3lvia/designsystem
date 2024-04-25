@@ -3,6 +3,11 @@
   "version": "1.2.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/toast",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-toast"
+  },
   "source": "src/react/elvia-toast.tsx",
   "main": "web_component.js",
   "files": [

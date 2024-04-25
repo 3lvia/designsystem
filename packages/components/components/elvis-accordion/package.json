@@ -3,6 +3,11 @@
   "version": "3.2.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/accordion",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-accordion"
+  },
   "source": "src/react/elvia-accordion.tsx",
   "main": "dist/main/web-component.js",
   "files": [

@@ -3,6 +3,11 @@
   "version": "3.1.2",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/carousel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-carousel"
+  },
   "source": "src/react/elvia-carousel.tsx",
   "main": "dist/main/web-component.js",
   "files": [
