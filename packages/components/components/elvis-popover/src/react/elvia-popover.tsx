@@ -3,7 +3,6 @@ import {
   IconButton,
   IconWrapper,
   Overlay,
-  outlineListener,
   useConnectedOverlay,
   useFocusTrap,
   useSlot,
@@ -15,7 +14,6 @@ import { mapPositionToHorizontalPosition } from './mapPosition';
 import {
   CloseButtonContainer,
   Heading,
-  PopoverContainer,
   PopoverContent,
   PopoverTypography,
   TriggerContainer,
@@ -27,6 +25,7 @@ export const Popover: FC<PopoverProps> = function ({
   horizontalPosition = 'center',
   verticalPosition = 'top',
   trigger,
+  display = 'flex',
   hasCloseButton = true,
   isShowing = false,
   noPadding = false,
@@ -38,7 +37,6 @@ export const Popover: FC<PopoverProps> = function ({
   ...rest
 }) {
   const popoverRef = useRef<HTMLDivElement>(null);
-  const popoverContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
@@ -62,14 +60,6 @@ export const Popover: FC<PopoverProps> = function ({
 
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
 
-  /** Start outline listener */
-  useEffect(() => {
-    outlineListener(popoverContainerRef.current);
-    return () => {
-      outlineListener(popoverContainerRef.current, true);
-    };
-  }, []);
-
   /* Synchronize the isShowing prop and the setIsShowingConnectedOverlayState */
   useEffect(() => {
     if (isShowing !== isShowingConnectedOverlayState) {
@@ -92,6 +82,12 @@ export const Popover: FC<PopoverProps> = function ({
   useEffect(() => {
     updatePreferredPosition();
   }, [isShowingConnectedOverlayState, content, horizontalPosition, verticalPosition, heading]);
+
+  /* Add class to text-abbreviation element trigger element when the popover is open */
+  useEffect(() => {
+    const textAbbreviationElement = triggerRef.current?.querySelector('.e-text-abbreviation');
+    textAbbreviationElement?.classList.toggle('e-text-abbreviation---active', isShowingConnectedOverlayState);
+  }, [isShowingConnectedOverlayState]);
 
   const handleOnOpen = () => {
     onOpen?.();
@@ -123,11 +119,13 @@ export const Popover: FC<PopoverProps> = function ({
   const isStringOnly = (value: any) => typeof value === 'string';
 
   return (
-    <PopoverContainer ref={popoverContainerRef} {...rest}>
+    <>
       <TriggerContainer
         onClick={toggleVisibility}
         overlayIsOpen={isShowingConnectedOverlayState}
         ref={triggerRef}
+        style={{ display }}
+        {...rest}
       >
         {trigger}
       </TriggerContainer>
@@ -171,7 +169,7 @@ export const Popover: FC<PopoverProps> = function ({
           </PopoverContent>
         </Overlay>
       )}
-    </PopoverContainer>
+    </>
   );
 };
 

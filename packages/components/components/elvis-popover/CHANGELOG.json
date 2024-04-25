@@ -3,6 +3,23 @@
   "name": "elvis-popover",
   "content": [
     {
+      "date": "26.04.24",
+      "version": "7.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new prop <code>display</code> that can be used to set the CSS display property of the trigger element. This can be useful when you want to use the popover with inline elements.",
+            "Now adding automatic active state to a trigger element when used in conjunction with <code>e-text-abbreviation</code>."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Refactored the popover to simplify the DOM structure of the trigger element."]
+        }
+      ]
+    },
+    {
       "date": "20.02.24",
       "version": "7.3.4",
       "changelog": [
