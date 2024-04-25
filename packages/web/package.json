@@ -85,7 +85,7 @@
     "@types/safe-json-stringify": "^1.1.5",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
-    "contentful-management": "^11.25.1",
+    "contentful-management": "^11.25.2",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^8.57.0",
     "safe-json-stringify": "^1.2.0",
