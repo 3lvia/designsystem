@@ -7,12 +7,14 @@ import { ComponentChangelogComponent } from '../../../shared/component-documenta
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { AbbreviationExampleCegComponent } from './abbreviation-example-ceg/abbreviation-example-ceg.component';
 import { TypographyArticleExampleComponent } from './typography-article-example/typography-article-example.component';
 import { TypographyExampleExhibitComponent } from './typography-example-exhibit/typography-example-exhibit.component';
 import { TypographyFontExampleComponent } from './typography-font-example/typography-font-example.component';
 import { TypographyOutlineExampleComponent } from './typography-outline-example/typography-outline-example.component';
 import { TypographyTitleExampleComponent } from './typography-title-example/typography-title-example.component';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { StaticCegComponent } from 'src/app/shared/component-documentation/ceg';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
@@ -30,6 +32,8 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
     TypographyArticleExampleComponent,
     RouterLink,
     ComponentChangelogComponent,
+    StaticCegComponent,
+    AbbreviationExampleCegComponent,
   ],
 })
 export class TypographyDocComponent {
