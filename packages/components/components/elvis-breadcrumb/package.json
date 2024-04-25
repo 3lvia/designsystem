@@ -3,6 +3,11 @@
   "version": "2.3.4",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/breadcrumb",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-breadcrumb"
+  },
   "source": "src/react/elvia-breadcrumb.tsx",
   "main": "dist/main/web-component.js",
   "files": [
