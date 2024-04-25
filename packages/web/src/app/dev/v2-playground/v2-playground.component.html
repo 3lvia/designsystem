@@ -4,37 +4,16 @@
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
     <div class="example-wrapper">
-      <elvia-accordion [isOpen]="true" isFullWidth size="small">
-        <div slot="openLabel">
-          <p>openLabel 1</p>
-        </div>
-        <div slot="closeLabel">
-          <p>closeLabel 1</p>
-        </div>
-        <div slot="content">
-          <elvia-accordion [isOpen]="true" isFullWidth size="small">
-            <div slot="openLabel">
-              <p>openLabel 2</p>
-            </div>
-            <div slot="closeLabel">
-              <p>closeLabel 2</p>
-            </div>
-            <div slot="content">
-              <elvia-autocomplete
-                (valueOnChange)="handleOnChange($any($event))"
-                errorOptions="{ text: 'Skriv inn noe godt' }"
-                label="Lunch"
-                [items]="[
-                  { value: 'lange', label: 'Lange' },
-                  { value: 'torsk', label: 'Torsk' },
-                  { value: 'sjampinjong', label: 'sjampinjong' }
-                ]"
-              />
-              Accordion content
-            </div>
-          </elvia-accordion>
-        </div>
-      </elvia-accordion>
+      <p>
+        Lorem, ipsum dolor sit
+        <elvia-popover display="inline-block" content="abcdef">
+          <span slot="trigger" class="e-text-abbreviation" aria-label="lengre forklaring">trigger</span>
+        </elvia-popover>
+        consectetur adipisicing elit. Fugit alias harum autem eveniet? Vel maiores voluptatum mollitia nulla
+        omnis? Animi, adipisci explicabo velit nihil ducimus id illum reiciendis tempore officiis, excepturi
+        facere eligendi minima itaque voluptatem accusamus quas molestias. Consectetur, atque sequi! Vitae,
+        cum quam distinctio nesciunt quia nobis molestiae!
+      </p>
     </div>
 
     <!--Normal version-->
