@@ -53,13 +53,25 @@ export const ModalWrapper = styled.div<WrapperProps>`
   position: relative;
   display: flex;
   flex-direction: ${({ hasIllustration }) => (hasIllustration ? 'row-reverse' : 'column')};
-  height: ${({ hasIllustration }) => (hasIllustration ? '550px' : 'auto')};
-  width: ${({ hasIllustration }) => (hasIllustration ? '1090px' : 'max-content')};
-  max-width: ${({ maxWidth, hasIllustration }) =>
-    maxWidth ? maxWidth : hasIllustration ? 'min(100vw, 1090px)' : modalMaxWidth};
+  ${({ hasIllustration, maxWidth }) =>
+    hasIllustration
+      ? css`
+          min-height: 550px;
+          max-height: 800px;
+          width: 1090px;
+          max-width: ${maxWidth ?? 'min(100vw, 1090px)'};
+        `
+      : css`
+          height: auto;
+          width: max-content;
+          max-width: ${maxWidth ?? `${modalMaxWidth}`};
+        `}
+
   border-radius: ${modalBorderRadius};
   overflow: hidden;
-  background: ${getThemeColor('background-element-4')};
+
+  --modal-background: ${getThemeColor('background-element-4')};
+  background: var(--modal-background);
   box-shadow: ${getShadow('soft')};
 
   ${({ hasIllustration }) =>
@@ -97,7 +109,6 @@ const decideContentPadding = (hasIllustration: boolean, hasPadding: boolean, pad
 export const ModalContent = styled.div<ContentProps>`
   padding: ${({ hasIllustration, hasPadding }) =>
     decideContentPadding(hasIllustration, hasPadding, modalDesktopPadding)};
-  height: 100%;
   width: ${({ hasIllustration }) => (hasIllustration ? '620px' : 'auto')};
   display: flex;
   flex-direction: column;
@@ -135,18 +146,17 @@ export const ModalIllustration = styled.div`
   justify-content: center;
   position: relative;
   width: 470px;
-  height: 100%;
   z-index: 1;
   padding: 72px;
 
   ::after {
     content: '';
-    background: ${getThemeColor('background-element-4')};
+    background: var(--modal-background);
     border-radius: 100%;
     z-index: 0;
     position: absolute;
-    height: calc(550px * 4);
-    width: calc(550px * 5);
+    height: 400%;
+    width: 500%;
     right: calc(100% - 3.7vw);
     @media (min-width: ${desktopMin}) {
       right: calc(calc(100% - 44px));
