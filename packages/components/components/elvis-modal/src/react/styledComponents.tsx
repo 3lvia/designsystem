@@ -39,7 +39,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
     hasIllustration
       ? css`
           min-height: 550px;
-          max-height: 800px;
+          max-height: min(calc(100vh - 64px), 800px);
           width: 1090px;
           max-width: ${maxWidth ?? 'min(100vw, 1090px)'};
         `
@@ -64,6 +64,8 @@ export const ModalWrapper = styled.div<WrapperProps>`
         margin: 0;
         max-width: 500px;
         height: auto;
+        min-height: unset;
+        max-height: unset;
       }
     `};
 
@@ -73,6 +75,7 @@ export const ModalWrapper = styled.div<WrapperProps>`
     width: 100vw;
     max-width: 100%;
     height: 100vh;
+    max-height: 100vh;
     margin: 0;
     inset: 0;
   }
