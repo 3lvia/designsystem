@@ -2531,7 +2531,7 @@ __metadata:
     postcss-modules: "npm:^6.0.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    react-is: "npm:^18.2.0"
+    react-is: "npm:^18.3.0"
     resize-observer-polyfill: "npm:^1.5.1"
     sass: "npm:^1.75.0"
     sass-embedded: "npm:^1.75.0"
@@ -15318,7 +15318,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-is@npm:^18.0.0, react-is@npm:^18.2.0":
+"react-is@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-is@npm:^18.0.0":
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: 10/200cd65bf2e0be7ba6055f647091b725a45dd2a6abef03bf2380ce701fd5edccee40b49b9d15edab7ac08a762bf83cb4081e31ec2673a5bfb549a36ba21570df
@@ -15329,6 +15329,13 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 10/73b36281e58eeb27c9cc6031301b6ae19ecdc9f18ae2d518bdb39b0ac564e65c5779405d623f1df9abf378a13858b79442480244bd579968afc1faf9a2ce5e05
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^18.3.0":
+  version: 18.3.0
+  resolution: "react-is@npm:18.3.0"
+  checksum: 10/1593796b4bde2ce1196f151d926de01054f4345a14a38a8eeb154aed075c2f78658570352cffc71a0a8602cd135b369e604dfa1300ccc85a622ce2073578d160
   languageName: node
   linkType: hard
 
