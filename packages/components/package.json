@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
-    "@percy/cli": "^1.28.3",
+    "@percy/cli": "^1.28.5",
     "@percy/playwright": "^1.0.5",
     "@playwright/experimental-ct-react": "1.43.1",
     "@playwright/test": "1.43.1",
