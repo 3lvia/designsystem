@@ -9,7 +9,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   standalone: true,
   imports: [NgClass],
   templateUrl: './abbreviation-example-ceg.component.html',
-  styleUrl: './abbreviation-example-ceg.component.scss',
   providers: [{ provide: StaticComponentExample, useExisting: AbbreviationExampleCegComponent }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
