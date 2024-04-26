@@ -3,39 +3,7 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
-    <div class="example-wrapper">
-      <elvia-accordion [isOpen]="true" isFullWidth size="small">
-        <div slot="openLabel">
-          <p>openLabel 1</p>
-        </div>
-        <div slot="closeLabel">
-          <p>closeLabel 1</p>
-        </div>
-        <div slot="content">
-          <elvia-accordion [isOpen]="true" isFullWidth size="small">
-            <div slot="openLabel">
-              <p>openLabel 2</p>
-            </div>
-            <div slot="closeLabel">
-              <p>closeLabel 2</p>
-            </div>
-            <div slot="content">
-              <elvia-autocomplete
-                (valueOnChange)="handleOnChange($any($event))"
-                errorOptions="{ text: 'Skriv inn noe godt' }"
-                label="Lunch"
-                [items]="[
-                  { value: 'lange', label: 'Lange' },
-                  { value: 'torsk', label: 'Torsk' },
-                  { value: 'sjampinjong', label: 'sjampinjong' }
-                ]"
-              />
-              Accordion content
-            </div>
-          </elvia-accordion>
-        </div>
-      </elvia-accordion>
-    </div>
+    <div class="example-wrapper"></div>
 
     <!--Normal version-->
     <!--Inverted version-->

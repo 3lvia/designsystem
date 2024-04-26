@@ -103,3 +103,19 @@ body {
 .e-text-wrap-pretty {
   text-wrap: pretty !important;
 }
+
+.e-text-abbreviation {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--e-color-border-1);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+
+  &:hover {
+    text-decoration-color: var(--e-color-border-hover-1);
+  }
+
+  &.e-text-abbreviation---active {
+    text-decoration-color: var(--e-color-border-selected-1);
+  }
+}
