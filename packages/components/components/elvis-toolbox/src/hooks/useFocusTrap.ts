@@ -32,7 +32,7 @@ export const useFocusTrap = (): {
     }
   };
 
-  const trapFocus = (focusTrapContainer: RefObject<HTMLElement>) => {
+  const trapFocus = (focusTrapContainer: RefObject<HTMLElement>, updateFocus = true) => {
     setTimeout(() => {
       if (!focusTrapContainer.current) {
         return;
@@ -55,7 +55,7 @@ export const useFocusTrap = (): {
       lastItem = focusableItems[focusableItems.length - 1];
 
       if (firstItem) {
-        (focusedItem as HTMLElement).focus();
+        updateFocus && (focusedItem as HTMLElement).focus();
         firstItem.addEventListener('keydown', handleFirstItemTab);
       }
       if (lastItem) {
@@ -65,7 +65,7 @@ export const useFocusTrap = (): {
 
     mo = new MutationObserver(() => {
       releaseFocusTrap();
-      trapFocus(focusTrapContainer);
+      trapFocus(focusTrapContainer, false);
     });
 
     if (focusTrapContainer.current) {
