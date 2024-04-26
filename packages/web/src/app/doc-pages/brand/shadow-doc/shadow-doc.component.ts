@@ -11,6 +11,7 @@ import { doAndDont, styleText } from './texts';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
+const docPage = getDocPagesNotFromCMS('shadow');
 @Component({
   selector: 'app-shadow-doc',
   templateUrl: './shadow-doc.component.html',
@@ -24,11 +25,11 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
   ],
 })
 export class ShadowDocComponent {
-  figmaUrl = getDocPagesNotFromCMS('shadow')?.figmaUrl;
-  title = getDocPagesNotFromCMS('shadow')?.title;
-  titleNo = getDocPagesNotFromCMS('shadow')?.titleNo;
-  description = getDocPagesNotFromCMS('shadow')?.description;
-  descriptionNo = getDocPagesNotFromCMS('shadow')?.descriptionNo;
+  figmaUrl = docPage.figmaUrl;
+  title = docPage.title;
+  titleNo = docPage.titleNo;
+  description = docPage.description;
+  descriptionNo = docPage.descriptionNo;
   locale: Locale = 'en-GB';
   styleText = styleText;
   doDontText = doAndDont;
