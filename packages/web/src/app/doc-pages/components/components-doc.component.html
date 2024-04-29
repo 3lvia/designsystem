@@ -1,6 +1,6 @@
 <ng-template let-component="component" #componentCard>
-  <a [routerLink]="(component | docPage)?.absolutePath">
-    <elvia-card [heading]="(component | docPage)?.title" [maxHeadingLines]="2">
+  <a [routerLink]="(component | docPage).absolutePath">
+    <elvia-card [heading]="(component | docPage).title" [maxHeadingLines]="2">
       <div slot="icon">
         @if ((componentIcons | async)?.[component]) {
           <img alt="" [src]="(componentIcons | async)?.[component]" />
@@ -15,9 +15,9 @@
 <ng-template let-component="component" #componentLink>
   <a
     class="e-link e-link--action e-flex e-justify-content-between e-py-24 bottom-border"
-    [routerLink]="(component | docPage)?.absolutePath"
+    [routerLink]="(component | docPage).absolutePath"
   >
-    <span class="e-link__title">{{ (component | docPage)?.title }}</span>
+    <span class="e-link__title">{{ (component | docPage).title }}</span>
     <span class="e-link__icon">
       <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
       <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>

@@ -7,14 +7,17 @@ import { ComponentChangelogComponent } from '../../../shared/component-documenta
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { AbbreviationExampleCegComponent } from './abbreviation-example-ceg/abbreviation-example-ceg.component';
 import { TypographyArticleExampleComponent } from './typography-article-example/typography-article-example.component';
 import { TypographyExampleExhibitComponent } from './typography-example-exhibit/typography-example-exhibit.component';
 import { TypographyFontExampleComponent } from './typography-font-example/typography-font-example.component';
 import { TypographyOutlineExampleComponent } from './typography-outline-example/typography-outline-example.component';
 import { TypographyTitleExampleComponent } from './typography-title-example/typography-title-example.component';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
+import { StaticCegComponent } from 'src/app/shared/component-documentation/ceg';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
+const docPage = getDocPagesNotFromCMS('typography');
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
@@ -30,14 +33,16 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
     TypographyArticleExampleComponent,
     RouterLink,
     ComponentChangelogComponent,
+    StaticCegComponent,
+    AbbreviationExampleCegComponent,
   ],
 })
 export class TypographyDocComponent {
-  title = getDocPagesNotFromCMS('typography')?.title;
-  titleNo = getDocPagesNotFromCMS('typography')?.titleNo;
-  description = getDocPagesNotFromCMS('typography')?.description;
-  descriptionNo = getDocPagesNotFromCMS('typography')?.descriptionNo;
-  figmaUrl = getDocPagesNotFromCMS('typography')?.figmaUrl;
+  title = docPage.title;
+  titleNo = docPage.titleNo;
+  description = docPage.description;
+  descriptionNo = docPage.descriptionNo;
+  figmaUrl = docPage.figmaUrl;
   locale: Locale = 'en-GB';
 
   constructor(

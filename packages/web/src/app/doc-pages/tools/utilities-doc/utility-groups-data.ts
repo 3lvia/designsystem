@@ -401,6 +401,12 @@ export const utilityGroups: UtilityGroup[] = [
           'Wraps the text in a similar way to normal text wrapping, but with a more even distribution of words across lines. NB: slower performance than normal text wrapping.',
         styling: 'text-wrap: pretty',
       },
+      {
+        className: 'e-text-abbreviation',
+        description:
+          'Adds a dotted underline to the text, with a hover effect. Used in conjunction with a popover to give more information about an abbreviation or acronym.',
+        styling: 'text-decoration: underline dotted (...)',
+      },
     ],
   },
   {

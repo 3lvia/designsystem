@@ -11,11 +11,6 @@ interface PopoverTypographyProps {
   hasCloseButton: boolean;
 }
 
-export const PopoverContainer = styled.div`
-  display: flex;
-  box-sizing: border-box;
-`;
-
 export const PopoverContent = styled.div<{ noPadding: boolean }>`
   display: flex;
   position: relative;

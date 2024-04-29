@@ -3,6 +3,21 @@
   "name": "elvis",
   "content": [
     {
+      "version": "17.1.0",
+      "date": "April 26, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new class <code>.e-text-abbreviation</code> to make text abbreviations in conjunction with a popover."
+          ],
+          "pages": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "17.0.3",
       "date": "April 18, 2024",
       "changelog": [

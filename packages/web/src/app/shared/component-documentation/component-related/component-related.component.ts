@@ -24,10 +24,10 @@ export class ComponentRelatedComponent {
   componentIcons: ReturnType<typeof this.cmsService.getPageIcons>;
 
   getRelatedTitle = (docUrl: DocPageName) => {
-    return getDocPage(docUrl)?.title;
+    return getDocPage(docUrl).title;
   };
 
   getRelatedPath = (docUrl: DocPageName) => {
-    return getDocPage(docUrl)?.absolutePath;
+    return getDocPage(docUrl).absolutePath;
   };
 }

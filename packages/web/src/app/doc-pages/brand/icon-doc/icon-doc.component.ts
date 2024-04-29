@@ -59,7 +59,7 @@ export class IconDocComponent {
   constructor(private titleService: Title) {
     effect(() => {
       this.titleService.setTitle(
-        (this.locale() === 'nb-NO' ? this.docPage?.titleNo : this.docPage?.title) + ' | Elvia design system',
+        (this.locale() === 'nb-NO' ? this.docPage.titleNo : this.docPage.title) + ' | Elvia design system',
       );
     });
   }

@@ -17,6 +17,7 @@ import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-ill
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
+const docPage = getDocPagesNotFromCMS('color');
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
@@ -66,11 +67,11 @@ export class ColorComponent {
      Some kind of subtext with the e-color-text-2 color.
   </span>
 </div>`;
-  description = getDocPagesNotFromCMS('color')?.description;
-  descriptionNo = getDocPagesNotFromCMS('color')?.descriptionNo;
+  description = docPage.description;
+  descriptionNo = docPage.descriptionNo;
   locale: Locale = 'en-GB';
-  title = getDocPagesNotFromCMS('color')?.title;
-  titleNo = getDocPagesNotFromCMS('color')?.titleNo;
+  title = docPage.title;
+  titleNo = docPage.titleNo;
 
   constructor(
     private titleService: Title,

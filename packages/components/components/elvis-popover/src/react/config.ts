@@ -8,6 +8,7 @@ export const config: ComponentConfig = {
     { name: 'horizontalPosition', type: 'string' },
     { name: 'verticalPosition', type: 'string' },
     { name: 'trigger', type: 'string' },
+    { name: 'display', type: 'string' },
     { name: 'hasCloseButton', type: 'boolean' },
     { name: 'noPadding', type: 'boolean' },
     { name: 'isShowing', type: 'boolean' },

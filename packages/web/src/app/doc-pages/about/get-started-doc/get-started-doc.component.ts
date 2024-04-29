@@ -8,6 +8,7 @@ import { CssLibraryIllustrationComponent } from './css-library-illustration/css-
 import { WebComponentIllustrationComponent } from './web-component-illustration/web-component-illustration.component';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
+const docPage = getDocPagesNotFromCMS('get-started');
 @Component({
   selector: 'app-get-started',
   templateUrl: './get-started-doc.component.html',
@@ -23,8 +24,8 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class GetStartedDocComponent {
-  description = getDocPagesNotFromCMS('get-started')?.description;
-  title = getDocPagesNotFromCMS('get-started')?.title;
+  description = docPage.description;
+  title = docPage.title;
   elvisCssImport = "@use '@elvia/elvis/css/elvis.min.css';";
   elvisJsImport = "import '@elvia/elvis/elvis.js';";
 
