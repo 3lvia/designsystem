@@ -258,8 +258,8 @@
 			"psuedo": {
 				"e-input---focus": {},
 				"e-input---invalid": {},
-				"e-input---disabled": {},
 				"e-input---readonly": {},
+				"e-input---disabled": {},
 				"e-input---loading": {}
 			},
 			"modifier": {
@@ -1148,8 +1148,8 @@
 		"e-input--placeholder": {},
 		"e-input__suffix": {},
 		"e-input---invalid": {},
-		"e-input---disabled": {},
 		"e-input---readonly": {},
+		"e-input---disabled": {},
 		"e-input---loading": {},
 		"e-combined-field": {},
 		"e-input--compact": {},

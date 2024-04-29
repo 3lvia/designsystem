@@ -1,11 +1,11 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="docPage?.figmaUrl">
+<app-component-header [figmaUrl]="docPage.figmaUrl">
   <ng-container ngProjectAs="headerTitle">{{
-    locale() === 'nb-NO' ? docPage?.titleNo : docPage?.title
+    locale() === 'nb-NO' ? docPage.titleNo : docPage.title
   }}</ng-container>
   <div
     ngProjectAs="headerDescription"
-    [innerHTML]="locale() === 'nb-NO' ? docPage?.descriptionNo : docPage?.description"
+    [innerHTML]="locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description"
   ></div>
 </app-component-header>
 

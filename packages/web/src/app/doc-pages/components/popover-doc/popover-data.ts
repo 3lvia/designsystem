@@ -32,6 +32,12 @@ const popoverData: ComponentData<BasePopoverProps> = {
         'Can be used to remove all the padding from inside the popover. Should only be used in edge cases.',
       default: 'false',
     },
+    display: {
+      type: 'string',
+      description:
+        'The display property for the trigger wrapper. Change this if the default display property interferes with your app layout.',
+      default: 'flex',
+    },
     isShowing: {
       type: 'boolean',
       description: 'Determines if the popover is visible.',

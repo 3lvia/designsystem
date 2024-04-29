@@ -32,7 +32,7 @@ const emptyStatesDocPage = getDocPagesNotFromCMS('empty-states');
   templateUrl: './empty-states-doc.component.html',
 })
 export class EmptyStatesDocComponent {
-  title = emptyStatesDocPage?.title;
-  description = emptyStatesDocPage?.description;
-  figmaUrl = emptyStatesDocPage?.figmaUrl;
+  title = emptyStatesDocPage.title;
+  description = emptyStatesDocPage.description;
+  figmaUrl = emptyStatesDocPage.figmaUrl;
 }
