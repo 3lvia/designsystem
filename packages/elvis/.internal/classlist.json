@@ -833,6 +833,11 @@
 		"e-text-wrap-nowrap": {},
 		"e-text-wrap-balance": {},
 		"e-text-wrap-pretty": {},
+		"e-text-abbreviation": {
+			"psuedo": {
+				"e-text-abbreviation---active": {}
+			}
+		},
 		"e-none": {},
 		"e-none-xl": {},
 		"e-none-lg": {},
@@ -1626,6 +1631,8 @@
 		"e-text-wrap-nowrap": {},
 		"e-text-wrap-balance": {},
 		"e-text-wrap-pretty": {},
+		"e-text-abbreviation": {},
+		"e-text-abbreviation---active": {},
 		"e-none": {},
 		"e-none-xl": {},
 		"e-none-lg": {},
