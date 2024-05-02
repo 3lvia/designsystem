@@ -62,7 +62,7 @@
     "prettier": "^3.2.5",
     "prismjs": "^1.29.0",
     "rxjs": "^7.8.1",
-    "sass": "^1.75.0",
+    "sass": "^1.76.0",
     "tslib": "^2.6.2",
     "zone.js": "~0.14.4"
   },
@@ -85,7 +85,7 @@
     "@types/safe-json-stringify": "^1.1.5",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
-    "contentful-management": "^11.25.2",
+    "contentful-management": "^11.25.3",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^8.57.0",
     "safe-json-stringify": "^1.2.0",
