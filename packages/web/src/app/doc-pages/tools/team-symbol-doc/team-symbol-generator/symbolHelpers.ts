@@ -1,6 +1,7 @@
 import { ThemeName } from '@elvia/elvis-colors';
 import saveAs from 'file-saver';
 import JSZip from 'jszip';
+import opentype from 'opentype.js';
 
 export const generateRandomColors = () => {
   const colors: string[] = [];
@@ -73,7 +74,12 @@ export const generateAndSaveZip = (svg1: string, svg2: string) => {
   });
 };
 
-export const createTeamSymbol = (svgContent: string, theme: ThemeName, color?: string, teamName?: string) => {
+export const createTeamSymbol = async (
+  svgContent: string,
+  theme: ThemeName,
+  color?: string,
+  teamName?: string,
+) => {
   let circleRadius = 100;
   let svgTransform = '';
 
@@ -109,16 +115,15 @@ export const createTeamSymbol = (svgContent: string, theme: ThemeName, color?: s
     const textX = circleDiameter + margin;
     const textY = circleDiameter / 2 + fontSize / 2;
 
+    const textPath = await textToPath(teamName, textX, textY, fontSize, fallbackFontColor);
+
     return `
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${totalWidth} ${circleDiameter}">
-            <style>
-              @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&amp;display=swap')
-            </style>
             <svg xmlns="http://www.w3.org/2000/svg" x="${symbolX}" viewBox="0 0 ${circleRadius * 2} ${circleRadius * 2}">
               ${circleBackground}
               <g transform="${svgTransform}">${svgContent}</g>
             </svg>
-            <text x="${textX}" y="${textY}" font-family="Red Hat Display, sans-serif" font-weight="900" font-size="44" fill="var(--e-color-text-1, ${fallbackFontColor})">${teamName}</text>
+            ${textPath}
           </svg>
         `;
   }
@@ -128,4 +133,17 @@ export const createTeamSymbol = (svgContent: string, theme: ThemeName, color?: s
         <g transform="${svgTransform}">${svgContent}</g>
       </svg>
     `;
+};
+
+const textToPath = async (
+  text: string,
+  x: number,
+  y: number,
+  fontSize: number,
+  fallbackFontColor: string,
+) => {
+  const font = await opentype.load('assets/fonts/RedHatDisplay-Black.ttf');
+  const path = font.getPath(text, x, y, fontSize);
+  path.fill = `var(--e-color-text-1, ${fallbackFontColor})`;
+  return path.toSVG(2);
 };

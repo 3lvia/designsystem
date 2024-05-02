@@ -45,10 +45,15 @@ export class TeamSymbolGeneratorComponent {
 
   teamName = '';
 
-  handleChangeThemeEvent = (newTheme: ThemeName) => {
+  async handleChangeThemeEvent(newTheme: ThemeName) {
     this.theme = newTheme;
-    this.svgWithTeamName = createTeamSymbol(this.svgContent, this.theme, this.chosenColor, this.teamName);
-  };
+    this.svgWithTeamName = await createTeamSymbol(
+      this.svgContent,
+      this.theme,
+      this.chosenColor,
+      this.teamName,
+    );
+  }
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -77,21 +82,26 @@ export class TeamSymbolGeneratorComponent {
     this.stepStates['1'].isCompleted = false;
   }
 
-  handleStepChange(step: number) {
+  async handleStepChange(step: number) {
     this.currentStep = step;
 
     if (step === 1) {
-      this.generatedSvg = createTeamSymbol(this.svgContent, this.theme);
+      this.generatedSvg = await createTeamSymbol(this.svgContent, this.theme);
     } else {
       this.updateBackgroundCircle(this.chosenColor);
     }
   }
 
-  handleNextClick() {
+  async handleNextClick() {
     if (this.currentStep === 3 && this.teamName !== '') {
       this.stepStates['3'].isCompleted = true;
       this.isFinished = true;
-      this.svgWithTeamName = createTeamSymbol(this.svgContent, this.theme, this.chosenColor, this.teamName);
+      this.svgWithTeamName = await createTeamSymbol(
+        this.svgContent,
+        this.theme,
+        this.chosenColor,
+        this.teamName,
+      );
     }
   }
 
@@ -113,9 +123,9 @@ export class TeamSymbolGeneratorComponent {
     generateAndSaveZip(this.generatedSvg, this.svgWithTeamName);
   }
 
-  updateBackgroundCircle(color?: string) {
+  async updateBackgroundCircle(color?: string) {
     this.chosenColor = color;
-    this.generatedSvg = createTeamSymbol(this.svgContent, this.theme, color);
+    this.generatedSvg = await createTeamSymbol(this.svgContent, this.theme, color);
     if (color) {
       this.stepStates['2'].isCompleted = true;
     }
