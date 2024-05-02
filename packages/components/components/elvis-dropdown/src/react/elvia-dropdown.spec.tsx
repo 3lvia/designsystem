@@ -102,7 +102,7 @@ test('should look as expected 2', async ({ mount, page }) => {
   const dropdowns = await page.getByRole('combobox').all();
 
   await dropdowns[dropdowns.length - 1].click();
-  await percySnapshot(page, 'Dropdowns', { widths: [600] });
+  await percySnapshot(page, 'Dropdowns 2', { widths: [600] });
 });
 
 test('should look opened with nested items', async ({ mount, page }) => {
