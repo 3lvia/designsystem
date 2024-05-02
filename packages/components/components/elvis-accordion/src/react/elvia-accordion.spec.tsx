@@ -26,9 +26,43 @@ test('accordions', async ({ mount, page }) => {
           </div>
         }
       />
+
       <Accordion
-        openLabel="Open accordion"
-        closeLabel="Open accordion"
+        size="small"
+        openLabel="Small open accordion"
+        closeLabel="Small open accordion"
+        isOpen
+        content={
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
+            consequatur officiis animi nostrum facilis tenetur temporibus alias aliquam eum praesentium nisi?
+            Repudiandae dolor perspiciatis est sapiente porro. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptatibus ipsam, deleniti enim consequatur officiis animi nostrum facilis
+            tenetur temporibus alias aliquam eum praesentium nisi? Repudiandae dolor perspiciatis est sapiente
+            porro.
+          </div>
+        }
+      />
+      <Accordion
+        size="medium"
+        openLabel="Medium open accordion"
+        closeLabel="Medium open accordion"
+        isOpen
+        content={
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
+            consequatur officiis animi nostrum facilis tenetur temporibus alias aliquam eum praesentium nisi?
+            Repudiandae dolor perspiciatis est sapiente porro. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptatibus ipsam, deleniti enim consequatur officiis animi nostrum facilis
+            tenetur temporibus alias aliquam eum praesentium nisi? Repudiandae dolor perspiciatis est sapiente
+            porro.
+          </div>
+        }
+      />
+      <Accordion
+        size="large"
+        openLabel="Large open accordion"
+        closeLabel="Large open accordion"
         isOpen
         content={
           <div>
