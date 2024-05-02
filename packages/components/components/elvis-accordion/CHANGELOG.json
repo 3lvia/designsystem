@@ -3,6 +3,24 @@
   "name": "elvis-accordion",
   "content": [
     {
+      "date": "02.05.24",
+      "version": "3.2.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the accordion would sometimes not correctly be open on initial render when the <code>isOpen</code> prop is set to <code>true</code>."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.04.24",
       "version": "3.2.2",
       "changelog": [

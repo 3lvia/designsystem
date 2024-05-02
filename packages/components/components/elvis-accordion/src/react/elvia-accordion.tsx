@@ -1,6 +1,6 @@
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
-import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
+import { IconWrapper, outlineListener, useSlot } from '@elvia/elvis-toolbox';
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 
 import { AccordionProps, AccordionSize } from './elvia-accordion.types';
@@ -13,7 +13,6 @@ import {
   AccordionHeightAnimator,
   AccordionLabel,
   AccordionLabelText,
-  StyledIconWrapper,
 } from './styledComponents';
 
 export const Accordion: FC<AccordionProps> = ({
@@ -79,7 +78,7 @@ export const Accordion: FC<AccordionProps> = ({
   const { ref: accordionContentRef } = useSlot<HTMLDivElement>('content', webcomponent, {
     useEffectDependencies: useMemo(() => [type], [type]),
   });
-  const slotContentHeight = accordionContentRef.current?.getBoundingClientRect().height ?? 0;
+  const getSlotHeight = () => accordionContentRef.current?.getBoundingClientRect().height ?? 0;
 
   useEffect(() => {
     updateOpenState(isOpenState);
@@ -88,9 +87,9 @@ export const Accordion: FC<AccordionProps> = ({
   const updateOpenState = (newIsOpenState: boolean) => {
     if (newIsOpenState) {
       setVisibility('unset');
-      setContentHeight(`${slotContentHeight}px`);
+      setContentHeight(`${getSlotHeight()}px`);
     } else {
-      setContentHeight(`${slotContentHeight}px`);
+      setContentHeight(`${getSlotHeight()}px`);
       setTimeout(() => setContentHeight(getClosedHeight()));
     }
 
@@ -195,7 +194,7 @@ export const Accordion: FC<AccordionProps> = ({
               {!isOpenState ? openDetailText : closeDetailText}
             </AccordionDetailText>
           </AccordionLabel>
-          <StyledIconWrapper
+          <IconWrapper
             icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
             size={getIconSize(size)}
           />
@@ -203,7 +202,7 @@ export const Accordion: FC<AccordionProps> = ({
       </AccordionButtonArea>
       {type !== 'single' && (
         <AccordionHeightAnimator
-          contentHeight={slotContentHeight}
+          contentHeight={getSlotHeight()}
           isOpen={isOpenState}
           isOverflow={type === 'overflow'}
           onTransitionEnd={onTransitionEnd}
