@@ -29,6 +29,7 @@ test('accordions', async ({ mount, page }) => {
       <Accordion
         openLabel="Open accordion"
         closeLabel="Open accordion"
+        isOpen
         content={
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
@@ -73,5 +74,5 @@ test('accordions', async ({ mount, page }) => {
   );
   await page.getByRole('button', { name: 'Click to open accordion', exact: true }).click();
   await page.waitForTimeout(300);
-  await percySnapshot(page, 'Accordions');
+  await percySnapshot(page, 'Accordions', { widths: [900] });
 });
