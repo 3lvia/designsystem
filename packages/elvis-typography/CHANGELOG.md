@@ -1,5 +1,11 @@
 # Elvia Typography Changelog
 
+## 2.7.1 (18.04.24)
+
+### Patch
+
+- Typography line heights are now defined relative to the font size, instead of being fixed values.
+
 ## 2.7.0 (07.11.23)
 
 ### New feature

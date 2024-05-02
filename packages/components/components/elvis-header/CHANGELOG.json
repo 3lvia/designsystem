@@ -3,6 +3,18 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "18.04.24",
+      "version": "1.9.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Now setting the <code>color-scheme</code> on the <code>HTML</code> element instead of the <code>body</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "12.03.24",
       "version": "1.9.0",
       "changelog": [

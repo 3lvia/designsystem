@@ -36,15 +36,15 @@
     "@elvia/elvis-timepicker": "*",
     "@elvia/elvis-toast": "*",
     "@elvia/elvis-tooltip": "*",
-    "vue": "^3.4.22",
-    "vue-router": "^4.3.0"
+    "vue": "^3.4.26",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@vitejs/plugin-vue": "^5.0.4",
-    "sass": "^1.75.0",
+    "sass": "^1.76.0",
     "typescript": "~5.4.5",
-    "vite": "^5.2.9",
-    "vue-tsc": "^2.0.13"
+    "vite": "^5.2.10",
+    "vue-tsc": "^2.0.16"
   }
 }

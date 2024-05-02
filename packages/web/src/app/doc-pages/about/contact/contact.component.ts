@@ -17,6 +17,7 @@ type ContactInfo = {
   loadedImg: boolean;
 };
 
+const docPage = getDocPagesNotFromCMS('contact');
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -25,8 +26,8 @@ type ContactInfo = {
   imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass],
 })
 export class ContactComponent {
-  description = getDocPagesNotFromCMS('contact')?.description;
-  title = getDocPagesNotFromCMS('contact')?.title;
+  description = docPage.description;
+  title = docPage.title;
   contactList: ContactInfo[] = [
     {
       firstName: 'Fride',

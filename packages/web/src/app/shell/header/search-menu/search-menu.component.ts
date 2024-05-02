@@ -146,7 +146,6 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
           description: docPage.description?.replace(/<.*?>/g, ''),
           type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
           absolutePath: docPage.absolutePath,
-          fragmentPath: docPage.fragmentPath,
           searchTerms: docPage.searchTerms,
         };
       }),
@@ -156,7 +155,6 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
           description: docPage.description?.replace(/<.*?>/g, ''),
           type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
           absolutePath: docPage.absolutePath,
-          fragmentPath: docPage.fragmentPath,
         };
       }),
       utilityGroups.flatMap((utilityGroup) => {

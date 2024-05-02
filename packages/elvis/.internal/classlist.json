@@ -258,8 +258,8 @@
 			"psuedo": {
 				"e-input---focus": {},
 				"e-input---invalid": {},
-				"e-input---disabled": {},
 				"e-input---readonly": {},
+				"e-input---disabled": {},
 				"e-input---loading": {}
 			},
 			"modifier": {
@@ -833,6 +833,11 @@
 		"e-text-wrap-nowrap": {},
 		"e-text-wrap-balance": {},
 		"e-text-wrap-pretty": {},
+		"e-text-abbreviation": {
+			"psuedo": {
+				"e-text-abbreviation---active": {}
+			}
+		},
 		"e-none": {},
 		"e-none-xl": {},
 		"e-none-lg": {},
@@ -1148,8 +1153,8 @@
 		"e-input--placeholder": {},
 		"e-input__suffix": {},
 		"e-input---invalid": {},
-		"e-input---disabled": {},
 		"e-input---readonly": {},
+		"e-input---disabled": {},
 		"e-input---loading": {},
 		"e-combined-field": {},
 		"e-input--compact": {},
@@ -1626,6 +1631,8 @@
 		"e-text-wrap-nowrap": {},
 		"e-text-wrap-balance": {},
 		"e-text-wrap-pretty": {},
+		"e-text-abbreviation": {},
+		"e-text-abbreviation---active": {},
 		"e-none": {},
 		"e-none-xl": {},
 		"e-none-lg": {},

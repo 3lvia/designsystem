@@ -3,6 +3,11 @@
   "version": "3.10.0",
   "description": "Elvia icons",
   "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/elvis-assets-icons"
+  },
   "main": "icons.js",
   "types": "icons.d.ts",
   "scripts": {
@@ -26,7 +31,7 @@
   "devDependencies": {
     "@types/gulp": "^4.0.17",
     "@types/gulp-svgmin": "^1.2.4",
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.12.8",
     "gulp": "^5.0.0",
     "gulp-svgmin": "^4.1.0",
     "sharp": "^0.33.3",

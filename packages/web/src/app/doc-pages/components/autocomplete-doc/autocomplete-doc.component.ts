@@ -13,6 +13,7 @@ import { AutocompleteFilterCegComponent } from './autocomplete-filter-ceg/autoco
 import { AutocompleteLabelCegComponent } from './autocomplete-label-ceg/autocomplete-label-ceg.component';
 import { getComponent } from 'src/app/shared/doc-pages';
 
+const docPage = getComponent('autocomplete');
 @Component({
   selector: 'app-autocomplete-doc',
   templateUrl: './autocomplete-doc.component.html',
@@ -30,9 +31,9 @@ import { getComponent } from 'src/app/shared/doc-pages';
   ],
 })
 export class AutocompleteDocComponent {
-  figmaUrl = getComponent('autocomplete')?.figmaUrl;
-  description = getComponent('autocomplete')?.description;
-  title = getComponent('autocomplete')?.title;
+  figmaUrl = docPage.figmaUrl;
+  description = docPage.description;
+  title = docPage.title;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title + ' | Elvia design system');

@@ -4,26 +4,8 @@ import styled, { css, keyframes } from 'styled-components';
 
 const mobileMax = '767px';
 const desktopMin = '1024px';
-const modalBorderRadius = '8px';
-const modalMaxWidth = '704px';
 
-const modalMobilePadding = '32px 32px 24px 32px';
-const modalMobileTitlePaddingTop = '8px';
-const modalMobileTitlePaddingBottom = '8px';
 const modalMobileIllustrationHeight = '40vh';
-
-const modalTabletPadding = '40px';
-const modalTabletIllustrationHeight = '28vh';
-const modalTabletTitlePaddingBottom = '32px';
-const modalTabletMaxWidth = '500px';
-
-const modalTabletWithIllustrationTitlePaddingBottom = '16px';
-
-const modalDesktopPadding = '48px';
-const modalDesktopTitlePaddingBottom = '32px';
-
-const modalDesktopWithIllustrationPadding = '80px';
-const modalDesktopWithIllustrationTitlePaddingBottom = '24px';
 
 const fadeIn = keyframes`0% {opacity: 0;} 100% {opacity: 1;}`;
 
@@ -53,13 +35,25 @@ export const ModalWrapper = styled.div<WrapperProps>`
   position: relative;
   display: flex;
   flex-direction: ${({ hasIllustration }) => (hasIllustration ? 'row-reverse' : 'column')};
-  height: ${({ hasIllustration }) => (hasIllustration ? '550px' : 'auto')};
-  width: ${({ hasIllustration }) => (hasIllustration ? '1090px' : 'max-content')};
-  max-width: ${({ maxWidth, hasIllustration }) =>
-    maxWidth ? maxWidth : hasIllustration ? 'min(100vw, 1090px)' : modalMaxWidth};
-  border-radius: ${modalBorderRadius};
+  ${({ hasIllustration, maxWidth }) =>
+    hasIllustration
+      ? css`
+          min-height: 550px;
+          max-height: min(calc(100vh - 64px), 800px);
+          width: 1090px;
+          max-width: ${maxWidth ?? 'min(100vw, 1090px)'};
+        `
+      : css`
+          height: auto;
+          width: max-content;
+          max-width: ${maxWidth ?? '704px'};
+        `}
+
+  border-radius: 8px;
   overflow: hidden;
-  background: ${getThemeColor('background-element-4')};
+
+  --modal-background: ${getThemeColor('background-element-4')};
+  background: var(--modal-background);
   box-shadow: ${getShadow('soft')};
 
   ${({ hasIllustration }) =>
@@ -68,8 +62,10 @@ export const ModalWrapper = styled.div<WrapperProps>`
       @media (max-width: ${desktopMin}) {
         flex-direction: column;
         margin: 0;
-        max-width: ${modalTabletMaxWidth};
+        max-width: 500px;
         height: auto;
+        min-height: unset;
+        max-height: unset;
       }
     `};
 
@@ -78,7 +74,8 @@ export const ModalWrapper = styled.div<WrapperProps>`
     border-radius: 0;
     width: 100vw;
     max-width: 100%;
-    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     margin: 0;
     inset: 0;
   }
@@ -88,16 +85,14 @@ const decideContentPadding = (hasIllustration: boolean, hasPadding: boolean, pad
   if (!hasPadding) {
     return '0';
   } else if (hasIllustration) {
-    return modalDesktopWithIllustrationPadding;
+    return '80px';
   } else {
     return padding;
   }
 };
 
 export const ModalContent = styled.div<ContentProps>`
-  padding: ${({ hasIllustration, hasPadding }) =>
-    decideContentPadding(hasIllustration, hasPadding, modalDesktopPadding)};
-  height: 100%;
+  padding: ${({ hasIllustration, hasPadding }) => decideContentPadding(hasIllustration, hasPadding, '48px')};
   width: ${({ hasIllustration }) => (hasIllustration ? '620px' : 'auto')};
   display: flex;
   flex-direction: column;
@@ -105,13 +100,11 @@ export const ModalContent = styled.div<ContentProps>`
   background: transparent;
   max-height: calc(100vh - 64px);
 
-  ${({ hasIllustration }) =>
+  ${({ hasIllustration, hasPadding }) =>
     hasIllustration &&
     css`
       @media (max-width: ${desktopMin}) {
-        padding: ${modalTabletPadding};
-        padding: ${(props: { hasPadding: boolean }) =>
-          decideContentPadding(false, props.hasPadding, modalTabletPadding)};
+        padding: ${decideContentPadding(false, hasPadding, '40px')};
         padding-top: 24px;
         width: 100%;
         height: calc(100% - ${modalMobileIllustrationHeight});
@@ -119,7 +112,7 @@ export const ModalContent = styled.div<ContentProps>`
     `}
 
   @media (max-width: ${mobileMax}) {
-    padding: ${({ hasPadding }) => decideContentPadding(false, hasPadding, modalMobilePadding)};
+    padding: ${({ hasPadding }) => decideContentPadding(false, hasPadding, '32px 32px 24px 32px')};
     padding-top: ${({ hasIllustration }) => hasIllustration && '24px'};
     width: 100%;
     height: ${({ hasIllustration }) =>
@@ -135,18 +128,17 @@ export const ModalIllustration = styled.div`
   justify-content: center;
   position: relative;
   width: 470px;
-  height: 100%;
   z-index: 1;
   padding: 72px;
 
   ::after {
     content: '';
-    background: ${getThemeColor('background-element-4')};
+    background: var(--modal-background);
     border-radius: 100%;
     z-index: 0;
     position: absolute;
-    height: calc(550px * 4);
-    width: calc(550px * 5);
+    height: 400%;
+    width: 500%;
     right: calc(100% - 3.7vw);
     @media (min-width: ${desktopMin}) {
       right: calc(calc(100% - 44px));
@@ -162,7 +154,7 @@ export const ModalIllustration = styled.div`
 
   @media (max-width: ${desktopMin}) {
     width: 100%;
-    height: ${modalTabletIllustrationHeight};
+    height: 28vh;
     margin: 0;
     padding: 32px 48px 0;
 
@@ -182,18 +174,16 @@ export const ModalHeading = styled.h2<HeadingProps>`
   margin: 0 24px 0 0;
   padding: 0;
   ${({ hasIllustration }) => getTypographyCss(hasIllustration ? 'title-lg' : 'title-md')}
-  padding-bottom: ${({ hasIllustration }) =>
-    hasIllustration ? modalDesktopWithIllustrationTitlePaddingBottom : modalDesktopTitlePaddingBottom};
+  padding-bottom: ${({ hasIllustration }) => (hasIllustration ? '24px' : '32px')};
 
   @media (max-width: ${desktopMin}) {
     ${getTypographyCss('title-md')}
-    padding-bottom: ${({ hasIllustration }) =>
-      hasIllustration ? modalTabletWithIllustrationTitlePaddingBottom : modalTabletTitlePaddingBottom};
+    padding-bottom: ${({ hasIllustration }) => (hasIllustration ? '16px' : '32px')};
   }
   @media (max-width: ${mobileMax}) {
     ${getTypographyCss('title-md')}
-    padding-top: ${modalMobileTitlePaddingTop};
-    padding-bottom: ${modalMobileTitlePaddingBottom};
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 `;
 

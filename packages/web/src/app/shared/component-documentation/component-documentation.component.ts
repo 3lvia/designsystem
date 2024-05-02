@@ -59,12 +59,13 @@ export class ComponentDocumentationComponent implements OnInit {
   constructor(private titleService: Title) {}
 
   ngOnInit() {
-    this.title = getComponent(this.docUrl)?.title;
-    this.description = getComponent(this.docUrl)?.description;
-    this.figmaUrl = getComponent(this.docUrl)?.figmaUrl;
-    this.relatedPages = getComponent(this.docUrl)?.relatedPages;
+    const docPage = getComponent(this.docUrl);
+    this.title = docPage.title;
+    this.description = docPage.description;
+    this.figmaUrl = docPage.figmaUrl;
+    this.relatedPages = docPage.relatedPages;
     if (this.isElvis) {
-      this.elvisClassName = getComponent(this.docUrl)?.elvisClassName;
+      this.elvisClassName = docPage.elvisClassName;
       if (!this.elvisClassName) {
         this.elvisClassName = ('e-' + this.docUrl) as keyof typeof data.block;
       }

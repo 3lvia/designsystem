@@ -3,6 +3,11 @@
   "version": "3.1.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/autocomplete",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-autocomplete"
+  },
   "source": "src/react/elvia-autocomplete.tsx",
   "main": "dist/main/web-component.js",
   "files": [

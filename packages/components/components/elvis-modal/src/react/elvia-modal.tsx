@@ -1,6 +1,6 @@
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
 import { IconButton, IconWrapper, Overlay, useFocusTrap, useSlot } from '@elvia/elvis-toolbox';
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 
 import { ModalProps } from './elvia-modal.types';
 import {
@@ -43,21 +43,22 @@ export const Modal: FC<ModalProps> = function ({
   const [isModalOpen, setIsModalOpen] = useState(isShowing);
   const [fadeOut, setFadeOut] = useState(false);
 
+  const isModalOpenMemo = useMemo(() => [isModalOpen], [isModalOpen]);
   /** Get all slots */
   const { ref: modalHeading } = useSlot<HTMLHeadingElement>('heading', webcomponent, {
-    useEffectDependencies: isModalOpen,
+    useEffectDependencies: isModalOpenMemo,
   });
   const { ref: modalIllustration } = useSlot<HTMLDivElement>('illustration', webcomponent, {
-    useEffectDependencies: isModalOpen,
+    useEffectDependencies: isModalOpenMemo,
   });
   const { ref: modalPrimaryBtn } = useSlot<HTMLDivElement>('primaryButton', webcomponent, {
-    useEffectDependencies: isModalOpen,
+    useEffectDependencies: isModalOpenMemo,
   });
   const { ref: modalSecondaryBtn } = useSlot<HTMLDivElement>('secondaryButton', webcomponent, {
-    useEffectDependencies: isModalOpen,
+    useEffectDependencies: isModalOpenMemo,
   });
   const { ref: modalText } = useSlot<HTMLDivElement>('content', webcomponent, {
-    useEffectDependencies: isModalOpen,
+    useEffectDependencies: isModalOpenMemo,
   });
 
   const hasIllustration = !!illustration || !!webcomponent?.getSlot('illustration');
@@ -136,7 +137,7 @@ export const Modal: FC<ModalProps> = function ({
           {...rest}
         >
           {hasIllustration && (
-            <ModalIllustration role="presentation" ref={modalIllustration}>
+            <ModalIllustration className="e-theme-dark" role="presentation" ref={modalIllustration}>
               {illustration}
             </ModalIllustration>
           )}

@@ -3,6 +3,11 @@
   "version": "1.6.3",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/spotlight",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-spotlight"
+  },
   "source": "src/react/elvia-spotlight.tsx",
   "main": "dist/main/web-component.js",
   "files": [

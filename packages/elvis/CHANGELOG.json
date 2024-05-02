@@ -3,6 +3,47 @@
   "name": "elvis",
   "content": [
     {
+      "version": "17.1.0",
+      "date": "April 26, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new class <code>.e-text-abbreviation</code> to make text abbreviations in conjunction with a popover."
+          ],
+          "pages": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "17.0.3",
+      "date": "April 18, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the text field and text area would get focus style when they were readonly."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
+      "version": "17.0.2",
+      "date": "April 18, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Typography line heights are now defined relative to the font size, instead of being fixed values."
+          ],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "17.0.1",
       "date": "April 11, 2024",
       "changelog": [
@@ -49,7 +90,7 @@
           "changes": [
             "Fixed the color of the input text in <code>.e-form-field--small</code> when they are disabled and read only."
           ],
-          "pages": [{ "displayName": "Input", "url": "https://design.elvia.io/brand/input" }]
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         }
       ]
     },
@@ -2466,7 +2507,7 @@
           ],
           "components": [
             { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
-            { "displayName": "Input", "url": "https://design.elvia.io/components/input" }
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
           ]
         },
         {

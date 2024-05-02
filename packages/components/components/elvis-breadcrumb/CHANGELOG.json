@@ -3,6 +3,18 @@
   "name": "elvis-breadcrumbs",
   "content": [
     {
+      "date": "18.04.24",
+      "version": "2.3.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "12.04.24",
       "version": "2.3.3",
       "changelog": [

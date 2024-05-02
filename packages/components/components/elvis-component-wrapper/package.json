@@ -2,6 +2,11 @@
   "name": "@elvia/elvis-component-wrapper",
   "version": "4.2.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-component-wrapper"
+  },
   "source": "src/elvia-component.ts",
   "main": "dist/elvia-component.js",
   "types": "dist/elvia-component.d.ts",

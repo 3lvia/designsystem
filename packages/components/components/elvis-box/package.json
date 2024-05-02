@@ -3,6 +3,11 @@
   "version": "2.1.1",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/box",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-box"
+  },
   "source": "src/react/elvia-box.tsx",
   "main": "dist/main/web-component.js",
   "files": [

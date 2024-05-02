@@ -3,6 +3,11 @@
   "version": "3.1.1",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/divider",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-divider"
+  },
   "source": "src/react/elvia-divider.tsx",
   "main": "dist/main/web-component.js",
   "files": [

@@ -3,6 +3,11 @@
   "version": "9.0.7",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/datepicker",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-datepicker"
+  },
   "source": "src/react/elvia-datepicker.tsx",
   "main": "dist/main/web-component.js",
   "files": [

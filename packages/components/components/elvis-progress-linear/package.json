@@ -3,6 +3,11 @@
   "version": "2.5.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/progressbar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-progress-linear"
+  },
   "source": "src/react/elvia-progress-linear.tsx",
   "main": "dist/main/web-component.js",
   "files": [

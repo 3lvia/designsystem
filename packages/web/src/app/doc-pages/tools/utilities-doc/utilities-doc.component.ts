@@ -8,6 +8,7 @@ import { CopyComponent } from '../../../shared/copy/copy.component';
 import { utilityGroups } from './utility-groups-data';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
+const docPage = getDocPagesNotFromCMS('utility-classes');
 @Component({
   selector: 'app-utilities-doc',
   templateUrl: './utilities-doc.component.html',
@@ -16,8 +17,8 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
   imports: [ComponentHeaderComponent, ComponentSubsectionComponent, RouterLink, CopyComponent],
 })
 export class UtilitiesDocComponent {
-  description = getDocPagesNotFromCMS('utility-classes')?.description;
-  title = getDocPagesNotFromCMS('utility-classes')?.title;
+  description = docPage.description;
+  title = docPage.title;
   utilityGroups = utilityGroups;
 
   constructor(private titleService: Title) {
