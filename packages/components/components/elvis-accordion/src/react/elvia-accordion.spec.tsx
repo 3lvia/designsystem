@@ -11,7 +11,7 @@ test('should render', async ({ mount }) => {
 
 test('accordions', async ({ mount, page }) => {
   await mount(
-    <div className="e-flex e-gap-16 e-flex-direction-column">
+    <div className="e-flex e-gap-40 e-flex-direction-column">
       <Accordion
         openLabel="Closed accordion"
         closeLabel="Closed accordion"
@@ -27,9 +27,8 @@ test('accordions', async ({ mount, page }) => {
         }
       />
       <Accordion
-        openLabel="Default open accordion"
-        closeLabel="Default open accordion"
-        isOpen
+        openLabel="Open accordion"
+        closeLabel="Open accordion"
         content={
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
@@ -57,8 +56,8 @@ test('accordions', async ({ mount, page }) => {
         }
       />
       <Accordion
-        openLabel="Open accordion"
-        closeLabel="Open accordion"
+        openLabel="Click to open accordion"
+        closeLabel="Click to open accordion"
         content={
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
@@ -72,7 +71,7 @@ test('accordions', async ({ mount, page }) => {
       />
     </div>,
   );
-  await page.getByRole('button', { name: 'Open accordion', exact: true }).click();
-  await page.waitForTimeout(500);
+  await page.getByRole('button', { name: 'Click to open accordion', exact: true }).click();
+  await page.waitForTimeout(300);
   await percySnapshot(page, 'Accordions');
 });
