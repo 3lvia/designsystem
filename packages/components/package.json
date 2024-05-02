@@ -45,7 +45,7 @@
     "sass-embedded": "^1.76.0",
     "styled-components": "^5.3.3",
     "tiny-glob": "^0.2.9",
-    "tsx": "^4.7.3",
+    "tsx": "^4.8.2",
     "typescript": "~5.4.5",
     "typescript-plugin-css-modules": "^5.1.0",
     "typescript-plugin-styled-components": "^3.0.0"
