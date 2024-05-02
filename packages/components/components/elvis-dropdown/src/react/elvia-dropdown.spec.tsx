@@ -67,7 +67,7 @@ test('should look as expected', async ({ mount, page }) => {
   const dropdowns = await page.getByRole('combobox').all();
 
   await dropdowns[dropdowns.length - 1].click();
-  await percySnapshot(page, 'Dropdowns');
+  await percySnapshot(page, 'Dropdowns', { widths: [600, 1200] });
 });
 
 test('should look opened with nested items', async ({ mount, page }) => {
@@ -79,5 +79,5 @@ test('should look opened with nested items', async ({ mount, page }) => {
   await page.getByRole('option', { name: /bergen/i }).click();
   await page.waitForTimeout(300);
 
-  await percySnapshot(page, 'Open Dropdown with nested items');
+  await percySnapshot(page, 'Open Dropdown with nested items', { widths: [600, 1200] });
 });
