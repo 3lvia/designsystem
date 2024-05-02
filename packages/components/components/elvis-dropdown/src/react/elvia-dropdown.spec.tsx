@@ -37,16 +37,17 @@ test('should render', async ({ mount }) => {
   await expect(component).toBeAttached();
 });
 
-test('should look closed', async ({ mount, page }) => {
-  await mount(<Dropdown value={'Norge'} label={'Land'} items={items} />);
-  await percySnapshot(page, 'Closed Dropdown');
-});
-
 test('should look opened', async ({ mount, page }) => {
-  const component = await mount(<Dropdown value={'Norge'} label={'Land'} items={items} />);
+  await mount(
+    <div className="e-flex e-gap-8 e-flex-direction-column">
+      <Dropdown value={'Norge'} label={'Land'} items={items} />
+      <Dropdown value={'Norge'} label={'Land'} items={items} />
+    </div>,
+  );
 
-  await component.getByRole('combobox').click();
-  await percySnapshot(page, 'Open Dropdown');
+  const dropdowns = await page.getByRole('combobox').all();
+  await dropdowns[1].click();
+  await percySnapshot(page, 'Closed & open Dropdown');
 });
 
 test('should look opened with nested items', async ({ mount, page }) => {
