@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Dropdown } from '../../react';
 
-test.use({ viewport: { width: 1080, height: 1080 } });
+/* test.use({ viewport: { width: 1080, height: 300 } }); */
 
 const items = [
   { value: 'Norge', label: 'Norge' },
@@ -79,6 +79,7 @@ test('should look opened with nested items', async ({ mount, page }) => {
 
   await page.getByRole('option', { name: /norge/i }).click();
   await page.getByRole('option', { name: /bergen/i }).click();
+  await page.waitForTimeout(300);
 
   await percySnapshot(page, 'Open Dropdown with nested items');
 });
