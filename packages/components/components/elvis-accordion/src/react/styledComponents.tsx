@@ -1,7 +1,7 @@
 import { getThemeColor } from '@elvia/elvis-colors';
-import { IconWrapper } from '@elvia/elvis-toolbox';
 import { TypographyName, getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import {
   AccordionLabelPosition,
@@ -57,8 +57,6 @@ interface AccordionButtonProps {
   reverseLayout: boolean;
 }
 
-export const StyledIconWrapper = styled(IconWrapper)``;
-
 export const AccordionButton = styled.button<AccordionButtonProps>`
   border: none;
   background: transparent;
@@ -75,7 +73,7 @@ export const AccordionButton = styled.button<AccordionButtonProps>`
   align-items: center;
   user-select: text;
 
-  ${StyledIconWrapper} {
+  svg {
     transform: rotate(0deg);
     transition: transform 0.2s ease-out;
 
