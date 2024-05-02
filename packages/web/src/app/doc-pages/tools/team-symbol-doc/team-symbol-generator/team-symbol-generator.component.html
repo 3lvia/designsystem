@@ -80,6 +80,7 @@
                 class="color-circle"
                 [style.background-color]="color"
                 (click)="updateBackgroundCircle(color)"
+                (keydown.enter)="updateBackgroundCircle(color)"
                 [ngClass]="{
                   chosen: chosenColor === color
                 }"
