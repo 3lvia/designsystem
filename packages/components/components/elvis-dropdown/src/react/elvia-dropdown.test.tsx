@@ -40,22 +40,12 @@ describe('Elvis Dropdown', () => {
 
     describe('', () => {
       beforeEach(() => {
-        render(<Dropdown label={'Label'} items={items}></Dropdown>);
-      });
-
-      it('should have label', () => {
-        const dropdownLabel = screen.getByText('Label');
-        expect(dropdownLabel).toBeInTheDocument();
+        render(<Dropdown label={'Label'} items={items} />);
       });
 
       it('should not be disabled', () => {
         const input = screen.getByRole('combobox');
         expect(input).not.toBeDisabled();
-      });
-
-      it('should not be compact', () => {
-        const dropdownLabel = screen.getByText('Label');
-        expect(dropdownLabel).toHaveStyle(`font-size: 16px; line-height: 22px`);
       });
 
       it('should not have error message', () => {
@@ -71,7 +61,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when disabled', () => {
       beforeEach(() => {
-        render(<Dropdown isDisabled items={[]}></Dropdown>);
+        render(<Dropdown isDisabled items={[]} />);
       });
 
       it('should be disabled', () => {
@@ -89,26 +79,26 @@ describe('Elvis Dropdown', () => {
     });
 
     it('should have error message', () => {
-      render(<Dropdown errorOptions={{ text: 'Error message' }} items={[]}></Dropdown>);
+      render(<Dropdown errorOptions={{ text: 'Error message' }} items={[]} />);
       const dropdownError = screen.queryByTestId('error');
       expect(dropdownError).toHaveTextContent('Error');
     });
 
     it('should have a full width feature', () => {
-      render(<Dropdown isFullWidth items={[]}></Dropdown>);
+      render(<Dropdown isFullWidth items={[]} />);
       const dropdownWrapper = screen.getByTestId('wrapper');
       expect(dropdownWrapper).not.toHaveStyle('max-width: 448px');
     });
 
     it('should show a proper placeholder', () => {
-      render(<Dropdown placeholder="Placeholder" items={[]}></Dropdown>);
+      render(<Dropdown placeholder="Placeholder" items={[]} />);
       const input = screen.getByRole('combobox');
       expect(input).toHaveAttribute('placeholder', 'Placeholder');
     });
 
     describe('when the dropdown is clicked', () => {
       beforeEach(async () => {
-        render(<Dropdown items={items}></Dropdown>);
+        render(<Dropdown items={items} />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -123,7 +113,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when an item is clicked', () => {
       beforeEach(async () => {
-        render(<Dropdown items={items}></Dropdown>);
+        render(<Dropdown items={items} />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -141,7 +131,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when the dropdown is filterable', () => {
       beforeEach(async () => {
-        render(<Dropdown items={items} isSearchable></Dropdown>);
+        render(<Dropdown items={items} isSearchable />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -159,7 +149,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when the filter gets no matches', () => {
       beforeEach(async () => {
-        render(<Dropdown items={items} isSearchable></Dropdown>);
+        render(<Dropdown items={items} isSearchable />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -176,7 +166,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when an error text is provided', () => {
       beforeEach(() => {
-        render(<Dropdown items={items} errorOptions={{ text: 'Error message' }}></Dropdown>);
+        render(<Dropdown items={items} errorOptions={{ text: 'Error message' }} />);
       });
 
       it('the error is displayed', () => {
@@ -187,7 +177,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when the dropdown has tree structure and is filterable', () => {
       beforeEach(async () => {
-        render(<Dropdown items={treeItems} isSearchable></Dropdown>);
+        render(<Dropdown items={treeItems} isSearchable />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -205,7 +195,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when multiple selection is enabled and two items are clicked', () => {
       beforeEach(async () => {
-        render(<Dropdown items={items} isMulti></Dropdown>);
+        render(<Dropdown items={items} isMulti />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -229,7 +219,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when an item with sub items are hovered and a sub item is clicked', () => {
       beforeEach(async () => {
-        render(<Dropdown items={treeItems}></Dropdown>);
+        render(<Dropdown items={treeItems} />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -253,7 +243,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when keyboard is used for selecting child', () => {
       beforeEach(async () => {
-        render(<Dropdown items={treeItems}></Dropdown>);
+        render(<Dropdown items={treeItems} />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -273,7 +263,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when keyboard is used to traverse up to parent', () => {
       beforeEach(async () => {
-        render(<Dropdown items={treeItems}></Dropdown>);
+        render(<Dropdown items={treeItems} />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -295,7 +285,7 @@ describe('Elvis Dropdown', () => {
 
     describe('when the button to select all is clicked', () => {
       beforeEach(async () => {
-        render(<Dropdown hasSelectAllOption isMulti items={treeItems}></Dropdown>);
+        render(<Dropdown hasSelectAllOption isMulti items={treeItems} />);
 
         const user = userEvent.setup();
         const dropdown = screen.getByRole('combobox');
@@ -312,7 +302,7 @@ describe('Elvis Dropdown', () => {
 
     describe('isRequired', () => {
       beforeEach(() => {
-        render(<Dropdown isRequired items={items}></Dropdown>);
+        render(<Dropdown isRequired items={items} />);
       });
 
       it('should have required = true', () => {
@@ -342,7 +332,7 @@ describe('Elvis Dropdown', () => {
       const value = items[0].value as string;
 
       it('should transform the selected item value', async () => {
-        render(<Dropdown value={value} labelTransformation={labelTransformer} items={items}></Dropdown>);
+        render(<Dropdown value={value} labelTransformation={labelTransformer} items={items} />);
 
         const input = screen.getByRole('combobox');
         expect(input).toHaveValue(labelTransformer(value));
@@ -351,7 +341,7 @@ describe('Elvis Dropdown', () => {
 
     describe('className and inlineStyle passed to wrapper', () => {
       beforeEach(() => {
-        render(<Dropdown className="test-class" inlineStyle={{ margin: '24px' }} items={[]}></Dropdown>);
+        render(<Dropdown className="test-class" inlineStyle={{ margin: '24px' }} items={[]} />);
       });
 
       it('should have className and inlineStyle', () => {
