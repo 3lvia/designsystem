@@ -37,17 +37,39 @@ test('should render', async ({ mount }) => {
   await expect(component).toBeAttached();
 });
 
-test('should look opened', async ({ mount, page }) => {
+test('should look as expected', async ({ mount, page }) => {
   await mount(
     <div className="e-flex e-gap-8 e-flex-direction-column">
-      <Dropdown value={'Norge'} label={'Land'} items={items} />
+      <Dropdown value={'Norge'} size={'small'} label={'Small'} items={items} />
+      <Dropdown value={'Norge'} size={'medium'} label={'Medium'} items={items} />
+      <Dropdown value={'Norge'} isDisabled={true} label={'Disabled'} items={items} />
+      <Dropdown value={'Norge'} isFullWidth label={'Full Width'} items={items} />
+      <Dropdown
+        value={'Norge'}
+        label={'Error State'}
+        items={items}
+        errorOptions={{
+          hasErrorPlaceholder: false,
+          isErrorState: true,
+        }}
+      />
+      <Dropdown
+        value={'Norge'}
+        label={'Error Message'}
+        items={items}
+        errorOptions={{
+          text: 'Error message',
+          isErrorState: true,
+        }}
+      />
       <Dropdown value={'Norge'} label={'Land'} items={items} />
     </div>,
   );
 
   const dropdowns = await page.getByRole('combobox').all();
-  await dropdowns[1].click();
-  await percySnapshot(page, 'Closed & open Dropdown');
+
+  await dropdowns[dropdowns.length - 1].click();
+  await percySnapshot(page, 'Dropdowns');
 });
 
 test('should look opened with nested items', async ({ mount, page }) => {
