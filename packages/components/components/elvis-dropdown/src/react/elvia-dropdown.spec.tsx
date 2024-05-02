@@ -4,8 +4,6 @@ import React from 'react';
 
 import { Dropdown } from '../../react';
 
-test.use({ viewport: { width: 1080, height: 1080 } });
-
 const items = [
   { value: 'Norge', label: 'Norge' },
   { value: 'Sverige', label: 'Sverige' },
