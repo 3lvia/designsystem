@@ -23,6 +23,8 @@ const rootDir = 'components';
 const getComponentData = async () => {
   const paths = await tinyGlob('components/*/package.json');
 
+  // Exclude elvis-toolbox from the main build because it needs to be built without bundling
+  // to support tree-shaking. It has a separate build script.
   return paths
     .filter((packageJsonPath) => !packageJsonPath.includes('elvis-toolbox'))
     .map((packageJsonPath) => {
