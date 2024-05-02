@@ -820,7 +820,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
-
     type: 'About',
   },
   {
@@ -829,7 +828,6 @@ export const docPagesNotFromCMS: DocPage[] = [
       "Team symbols are like secret badges meant just for us within Elvia. They are meant to help show off the team's unique identity. This generator will help you create a personalized symbol for your team.",
     docUrl: Pages.TeamSymbol,
     absolutePath: '/tools/' + Pages.TeamSymbol,
-    status: DocPageStatus.Done,
     type: 'Tools',
   },
 ];
