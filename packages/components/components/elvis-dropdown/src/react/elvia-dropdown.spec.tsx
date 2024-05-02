@@ -30,6 +30,8 @@ const nestedItems = [
   { value: 'tyskland', label: 'Tyskland' },
 ];
 
+test.use({ viewport: { width: 1080, height: 1080 } });
+
 test('should render', async ({ mount }) => {
   const component = await mount(<Dropdown value={'Norge'} label={'Land'} items={items} />);
   await expect(component).toBeAttached();
