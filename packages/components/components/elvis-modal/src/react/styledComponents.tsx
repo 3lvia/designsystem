@@ -74,8 +74,8 @@ export const ModalWrapper = styled.div<WrapperProps>`
     border-radius: 0;
     width: 100vw;
     max-width: 100%;
-    height: 100vh;
-    max-height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     margin: 0;
     inset: 0;
   }
