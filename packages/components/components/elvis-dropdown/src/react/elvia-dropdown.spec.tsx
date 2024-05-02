@@ -55,8 +55,8 @@ test('should look opened with nested items', async ({ mount, page }) => {
 
   await page.getByRole('combobox').click();
 
-  await page.getByRole('option', { name: /norge/i }).hover();
-  await page.getByRole('option', { name: /bergen/i }).hover();
+  await page.getByRole('option', { name: /norge/i }).click();
+  await page.getByRole('option', { name: /bergen/i }).click();
   await page.waitForTimeout(300);
 
   await percySnapshot(page, 'Open Dropdown with nested items');
