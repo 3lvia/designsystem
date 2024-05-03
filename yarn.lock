@@ -2513,7 +2513,7 @@ __metadata:
     "@playwright/experimental-ct-react": "npm:1.43.1"
     "@playwright/test": "npm:1.43.1"
     "@testing-library/dom": "npm:10.1.0"
-    "@testing-library/jest-dom": "npm:6.4.2"
+    "@testing-library/jest-dom": "npm:6.4.3"
     "@testing-library/react": "npm:15.0.6"
     "@testing-library/user-event": "npm:14.5.2"
     "@types/identity-obj-proxy": "npm:^3.0.2"
@@ -5159,9 +5159,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:6.4.2":
-  version: 6.4.2
-  resolution: "@testing-library/jest-dom@npm:6.4.2"
+"@testing-library/jest-dom@npm:6.4.3":
+  version: 6.4.3
+  resolution: "@testing-library/jest-dom@npm:6.4.3"
   dependencies:
     "@adobe/css-tools": "npm:^4.3.2"
     "@babel/runtime": "npm:^7.9.2"
@@ -5169,7 +5169,7 @@ __metadata:
     chalk: "npm:^3.0.0"
     css.escape: "npm:^1.5.1"
     dom-accessibility-api: "npm:^0.6.3"
-    lodash: "npm:^4.17.15"
+    lodash: "npm:^4.17.21"
     redent: "npm:^3.0.0"
   peerDependencies:
     "@jest/globals": ">= 28"
@@ -5188,7 +5188,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 10/7ee1e51caffad032734a4a43a00bf72d49080cf1bbf53021b443e91c7fa3762a66f55ce68f1c6643590fe66fbc4df92142659b8cf17c92166a3fb22691987e0d
+  checksum: 10/2c02072cce9d1f05a7897637c103582a7a6241e30dd64cc008378335eb781bb3c6a3222e124a45b019df0a427d4e07022701dfa748effbef96b392ea2399506d
   languageName: node
   linkType: hard
 
@@ -13182,7 +13182,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.15, lodash@npm:^4.17.21":
+"lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10/c08619c038846ea6ac754abd6dd29d2568aa705feb69339e836dfa8d8b09abbb2f859371e86863eda41848221f9af43714491467b5b0299122431e202bb0c532
