@@ -78,7 +78,7 @@
     "@angular/language-service": "^17.3.7",
     "@babel/core": "^7.24.5",
     "@babel/eslint-parser": "^7.24.5",
-    "@netlify/functions": "^2.6.0",
+    "@netlify/functions": "^2.6.3",
     "@types/natural-compare-lite": "^1.4.2",
     "@types/node": "20.12.8",
     "@types/prismjs": "^1.26.3",
