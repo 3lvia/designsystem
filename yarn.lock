@@ -2538,7 +2538,7 @@ __metadata:
     sass-embedded: "npm:^1.76.0"
     styled-components: "npm:^5.3.3"
     tiny-glob: "npm:^0.2.9"
-    tsx: "npm:^4.9.0"
+    tsx: "npm:^4.9.3"
     typescript: "npm:~5.4.5"
     typescript-plugin-css-modules: "npm:^5.1.0"
     typescript-plugin-styled-components: "npm:^3.0.0"
@@ -2717,7 +2717,7 @@ __metadata:
     chalk: "npm:^5.3.0"
     esbuild: "npm:^0.20.2"
     svgo: "npm:^3.2.0"
-    tsx: "npm:^4.9.0"
+    tsx: "npm:^4.9.3"
   peerDependencies:
     "@elvia/elvis": ">=16.2.1"
   peerDependenciesMeta:
@@ -17840,9 +17840,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.9.0":
-  version: 4.9.0
-  resolution: "tsx@npm:4.9.0"
+"tsx@npm:^4.9.3":
+  version: 4.9.3
+  resolution: "tsx@npm:4.9.3"
   dependencies:
     esbuild: "npm:~0.20.2"
     fsevents: "npm:~2.3.3"
@@ -17852,7 +17852,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/75d176ceca8e17b28d220bd2c32350f41eb9189569c27950b890774bce318c5fa026b475cae8180dee90ad40737136cf741d868d8a8469084e7dab54a930f351
+  checksum: 10/17ed7b748d9f213e0b3795f99ef14edf26f814eb498d4a7be95a253648f39f376009e97d4202fdb3f8a03f3b0e1b3fe6e64b70be83d58beadf1a6158612a163b
   languageName: node
   linkType: hard
 
