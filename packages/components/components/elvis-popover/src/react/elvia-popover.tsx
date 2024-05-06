@@ -23,7 +23,6 @@ import {
 } from './styledComponents';
 import { useCloseOnEsc } from './useCloseOnEsc';
 import { useFocusTrap } from './useFocusTrap';
-import { useReturnFocus } from './useReturnFocus';
 
 export const Popover: FC<PopoverProps> = function ({
   heading,
@@ -109,7 +108,6 @@ export const Popover: FC<PopoverProps> = function ({
     }
   };
 
-  useReturnFocus(isOpen);
   useCloseOnEsc({ isOpen, setIsOpen, handleOnClose });
   useFocusTrap(focusTrapRef, isOpen);
 
