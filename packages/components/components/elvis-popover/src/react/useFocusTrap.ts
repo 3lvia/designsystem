@@ -8,8 +8,8 @@ export const useFocusTrap = (trapRef: RefObject<HTMLElement>, active: boolean) =
     if (!active) {
       return;
     }
-    trapFocus(trapRef);
     const originalFocusedElement = document.activeElement as HTMLElement | null;
+    trapFocus(trapRef);
     return () => {
       releaseFocusTrap();
       originalFocusedElement?.focus();

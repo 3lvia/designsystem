@@ -41,7 +41,6 @@ export const Popover: FC<PopoverProps> = function ({
   webcomponent,
   ...rest
 }) {
-  const focusTrapRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(isShowing);
@@ -109,7 +108,7 @@ export const Popover: FC<PopoverProps> = function ({
   };
 
   useCloseOnEsc({ isOpen, setIsOpen, handleOnClose });
-  useFocusTrap(focusTrapRef, isOpen);
+  useFocusTrap(refs.floating, isOpen);
 
   //does not work on slots
   const isStringOnly = (value: any) => typeof value === 'string';
@@ -127,7 +126,7 @@ export const Popover: FC<PopoverProps> = function ({
       </TriggerContainer>
 
       {isMounted && (
-        <FloatingPortal>
+        <FloatingPortal preserveTabOrder={false}>
           <FloatingOverlay onClick={toggleVisibility} />
           <div style={{ ...floatingStyles, ...transitionStyles }} ref={refs.setFloating}>
             <PopoverContent
@@ -139,7 +138,6 @@ export const Popover: FC<PopoverProps> = function ({
               role="dialog"
               aria-labelledby={heading ? 'ewc-popover-heading' : undefined}
               aria-describedby={content ? 'ewc-popover-content' : undefined}
-              ref={focusTrapRef}
             >
               {hasCloseButton && (
                 <CloseButtonContainer>
