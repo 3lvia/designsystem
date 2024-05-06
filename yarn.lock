@@ -2513,7 +2513,7 @@ __metadata:
     "@playwright/experimental-ct-react": "npm:1.43.1"
     "@playwright/test": "npm:1.43.1"
     "@testing-library/dom": "npm:10.1.0"
-    "@testing-library/jest-dom": "npm:6.4.3"
+    "@testing-library/jest-dom": "npm:6.4.5"
     "@testing-library/react": "npm:15.0.6"
     "@testing-library/user-event": "npm:14.5.2"
     "@types/identity-obj-proxy": "npm:^3.0.2"
@@ -5159,9 +5159,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:6.4.3":
-  version: 6.4.3
-  resolution: "@testing-library/jest-dom@npm:6.4.3"
+"@testing-library/jest-dom@npm:6.4.5":
+  version: 6.4.5
+  resolution: "@testing-library/jest-dom@npm:6.4.5"
   dependencies:
     "@adobe/css-tools": "npm:^4.3.2"
     "@babel/runtime": "npm:^7.9.2"
@@ -5188,7 +5188,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 10/2c02072cce9d1f05a7897637c103582a7a6241e30dd64cc008378335eb781bb3c6a3222e124a45b019df0a427d4e07022701dfa748effbef96b392ea2399506d
+  checksum: 10/6d9e6cc01ec9111ea631657d93596fa9505d294fdfc4172fbd750b8df6268f02d55900626423b195dac5b067a302557453894a5814bdf4e770dee37cdb1c0f2d
   languageName: node
   linkType: hard
 
