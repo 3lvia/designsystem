@@ -32,7 +32,7 @@
     },
     {
       "groupName": "all playwright dependencies",
-      "matchPackagePatterns": ["^@playwright"],
+      "matchPackagePatterns": ["^@playwright", "^playwright"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
