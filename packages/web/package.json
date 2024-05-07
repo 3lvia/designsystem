@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@angular/animations": "^17.3.7",
-    "@angular/cdk": "^17.3.6",
+    "@angular/cdk": "^17.3.7",
     "@angular/common": "^17.3.7",
     "@angular/compiler": "^17.3.7",
     "@angular/core": "^17.3.7",
@@ -81,7 +81,7 @@
     "@angular/language-service": "^17.3.7",
     "@babel/core": "^7.24.5",
     "@babel/eslint-parser": "^7.24.5",
-    "@netlify/functions": "^2.6.0",
+    "@netlify/functions": "^2.6.3",
     "@types/file-saver": "^2",
     "@types/natural-compare-lite": "^1.4.2",
     "@types/node": "20.12.8",

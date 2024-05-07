@@ -4,20 +4,109 @@ import React from 'react';
 
 import { Accordion } from '../../react';
 
-test.use({ viewport: { width: 500, height: 150 } });
-
 test('should render', async ({ mount }) => {
   const component = await mount(<Accordion openLabel="Open" closeLabel="Close" content={'test'} />);
   await expect(component).toBeAttached();
 });
 
-test('should look closed', async ({ mount, page }) => {
-  await mount(<Accordion openLabel="Open" closeLabel="Close" content={'test'} />);
-  await percySnapshot(page, 'Closed accordion');
-});
+test('accordions', async ({ mount, page }) => {
+  await mount(
+    <div className="e-flex e-gap-40 e-flex-direction-column">
+      <Accordion
+        openLabel="Closed accordion"
+        closeLabel="Closed accordion"
+        content={
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
+            consequatur officiis animi nostrum facilis tenetur temporibus alias aliquam eum praesentium nisi?
+            Repudiandae dolor perspiciatis est sapiente porro. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptatibus ipsam, deleniti enim consequatur officiis animi nostrum facilis
+            tenetur temporibus alias aliquam eum praesentium nisi? Repudiandae dolor perspiciatis est sapiente
+            porro.
+          </div>
+        }
+      />
 
-test('should look opened', async ({ mount, page }) => {
-  const component = await mount(<Accordion openLabel="Open" closeLabel="Close" content={'test'} />);
-  await component.click();
-  await percySnapshot(page, 'Open accordion');
+      <Accordion
+        size="small"
+        openLabel="Small open accordion"
+        closeLabel="Small open accordion"
+        isOpen
+        content={
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
+            consequatur officiis animi nostrum facilis tenetur temporibus alias aliquam eum praesentium nisi?
+            Repudiandae dolor perspiciatis est sapiente porro. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptatibus ipsam, deleniti enim consequatur officiis animi nostrum facilis
+            tenetur temporibus alias aliquam eum praesentium nisi? Repudiandae dolor perspiciatis est sapiente
+            porro.
+          </div>
+        }
+      />
+      <Accordion
+        size="medium"
+        openLabel="Medium open accordion"
+        closeLabel="Medium open accordion"
+        isOpen
+        content={
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
+            consequatur officiis animi nostrum facilis tenetur temporibus alias aliquam eum praesentium nisi?
+            Repudiandae dolor perspiciatis est sapiente porro. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptatibus ipsam, deleniti enim consequatur officiis animi nostrum facilis
+            tenetur temporibus alias aliquam eum praesentium nisi? Repudiandae dolor perspiciatis est sapiente
+            porro.
+          </div>
+        }
+      />
+      <Accordion
+        size="large"
+        openLabel="Large open accordion"
+        closeLabel="Large open accordion"
+        isOpen
+        content={
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
+            consequatur officiis animi nostrum facilis tenetur temporibus alias aliquam eum praesentium nisi?
+            Repudiandae dolor perspiciatis est sapiente porro. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptatibus ipsam, deleniti enim consequatur officiis animi nostrum facilis
+            tenetur temporibus alias aliquam eum praesentium nisi? Repudiandae dolor perspiciatis est sapiente
+            porro.
+          </div>
+        }
+      />
+      <Accordion
+        openLabel="Overflow accordion"
+        closeLabel="Overflow accordion"
+        type="overflow"
+        content={
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
+            consequatur officiis animi nostrum facilis tenetur temporibus alias aliquam eum praesentium nisi?
+            Repudiandae dolor perspiciatis est sapiente porro. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptatibus ipsam, deleniti enim consequatur officiis animi nostrum facilis
+            tenetur temporibus alias aliquam eum praesentium nisi? Repudiandae dolor perspiciatis est sapiente
+            porro.
+          </div>
+        }
+      />
+      <Accordion
+        openLabel="Click to open accordion"
+        closeLabel="Click to open accordion"
+        content={
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsam, deleniti enim
+            consequatur officiis animi nostrum facilis tenetur temporibus alias aliquam eum praesentium nisi?
+            Repudiandae dolor perspiciatis est sapiente porro. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Voluptatibus ipsam, deleniti enim consequatur officiis animi nostrum facilis
+            tenetur temporibus alias aliquam eum praesentium nisi? Repudiandae dolor perspiciatis est sapiente
+            porro.
+          </div>
+        }
+      />
+    </div>,
+  );
+  await page.getByRole('button', { name: 'Click to open accordion', exact: true }).click();
+  await page.waitForTimeout(300);
+  await percySnapshot(page, 'Accordions', { widths: [900] });
 });

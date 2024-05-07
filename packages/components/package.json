@@ -20,7 +20,7 @@
     "@playwright/experimental-ct-react": "1.43.1",
     "@playwright/test": "1.43.1",
     "@testing-library/dom": "10.1.0",
-    "@testing-library/jest-dom": "6.4.2",
+    "@testing-library/jest-dom": "6.4.5",
     "@testing-library/react": "15.0.6",
     "@testing-library/user-event": "14.5.2",
     "@types/identity-obj-proxy": "^3.0.2",
@@ -45,7 +45,7 @@
     "sass-embedded": "^1.76.0",
     "styled-components": "^5.3.3",
     "tiny-glob": "^0.2.9",
-    "tsx": "^4.8.2",
+    "tsx": "^4.9.3",
     "typescript": "~5.4.5",
     "typescript-plugin-css-modules": "^5.1.0",
     "typescript-plugin-styled-components": "^3.0.0"
