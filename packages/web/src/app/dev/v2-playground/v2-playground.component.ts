@@ -2,6 +2,7 @@ import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import type { DropdownItem } from '@elvia/elvis-dropdown';
+import '@elvia/elvis-dropdown-lit';
 import { openElviaToast } from '@elvia/elvis-toast';
 
 import { dropdownData } from './dropdown-data';
@@ -114,7 +115,6 @@ export class v2PlaygroundComponent {
   selectedDropdownItem = 'sverige';
   longDropdownList = dropdownData;
   dropdownItems: DropdownItem[] = [
-    { value: null, label: '- Posisjon -' },
     {
       value: 'norge',
       label: 'Norge',
@@ -146,8 +146,7 @@ export class v2PlaygroundComponent {
     { value: 'danmark', label: 'Danmark' },
     {
       value: 'finland',
-      label:
-        'Finland  med en veldig lang tekst som kommer til å overflowe overflowe overflowe overflowe som kommer til å overflowe overflowe overflowe overflowe som kommer til å overflowe overflowe overflowe overflowe',
+      label: 'Finland',
     },
     { value: 'spania', label: 'Spania' },
     { value: 'tyskland', label: 'Tyskland' },

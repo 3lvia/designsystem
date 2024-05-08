@@ -3,7 +3,17 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
-    <div class="example-wrapper"></div>
+    <div class="example-wrapper">
+      <e-dropdown label="Label" placeholder="Plassholder">
+        @for (item of dropdownItems; track item.value) {
+          <e-option [value]="item.value" [disabled]="item.isDisabled">
+            <div style="justify-content: space-between" class="e-flex e-w-100">
+              {{ item.label }}<i class="e-icon e-icon--access_control-color e-icon--sm"></i>
+            </div>
+          </e-option>
+        }
+      </e-dropdown>
+    </div>
 
     <!--Normal version-->
     <!--Inverted version-->

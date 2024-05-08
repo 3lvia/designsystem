@@ -2640,6 +2640,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-dropdown-lit@workspace:*, @elvia/elvis-dropdown-lit@workspace:packages/elvis-dropdown-lit":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-dropdown-lit@workspace:packages/elvis-dropdown-lit"
+  dependencies:
+    "@elvia/elvis-assets-icons": "npm:^3.10.0"
+    "@elvia/elvis-colors": "npm:^4.1.0"
+    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@lit/context": "npm:^1.1.1"
+    lit: "npm:^3.1.3"
+    lit-html: "npm:^3.1.3"
+    tsup: "npm:^8.0.2"
+    typescript: "npm:~5.4.5"
+  languageName: unknown
+  linkType: soft
+
 "@elvia/elvis-dropdown@npm:*, @elvia/elvis-dropdown@npm:^9.0.0, @elvia/elvis-dropdown@workspace:*, @elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
@@ -4517,6 +4532,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/ssr-dom-shim@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@lit-labs/ssr-dom-shim@npm:1.2.0"
+  checksum: 10/33679defe08538ac6fb612854e7d32b4ea1e787cceba2c3373d26fd56baa9833881887da7bade3930a176ba518dc00bb42ce95d82ddb6af6b05b8fbe1fc3169f
+  languageName: node
+  linkType: hard
+
+"@lit/context@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@lit/context@npm:1.1.1"
+  dependencies:
+    "@lit/reactive-element": "npm:^1.6.2 || ^2.0.0"
+  checksum: 10/18b78d9123646133246be8fcbd9ab09be745addce38f113cebf9d5ec003700fdb615499d9d8cb1071dda5eaf5a9540389b84caa91afc08075b00304f0c406b73
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^1.6.2 || ^2.0.0, @lit/reactive-element@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@lit/reactive-element@npm:2.0.4"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
+  checksum: 10/16aa5a8d917bce24d6c7cb5979f0a978e91f6205b4d9a8ebea2baf965e7a8215dab581b83b331123b04190612f4992ecc7b219cf00cf9b82f53403b08b1b6d49
+  languageName: node
+  linkType: hard
+
 "@ljharb/through@npm:^2.3.12":
   version: 2.3.12
   resolution: "@ljharb/through@npm:2.3.12"
@@ -6207,6 +6247,13 @@ __metadata:
   version: 2.0.4
   resolution: "@types/trusted-types@npm:2.0.4"
   checksum: 10/5256c4576cd1c90d33ddd9cc9cbd4f202b39c98cbe8b7f74963298f9eb2159c285ea5c25a6181b4c594d8d75641765bff85d72c2d251ad076e6529ce0eeedd1c
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:^2.0.2":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 10/8e4202766a65877efcf5d5a41b7dd458480b36195e580a3b1085ad21e948bc417d55d6f8af1fd2a7ad008015d4117d5fdfe432731157da3c68678487174e4ba3
   languageName: node
   linkType: hard
 
@@ -9337,6 +9384,7 @@ __metadata:
     "@elvia/elvis-datepicker-range": "workspace:*"
     "@elvia/elvis-divider": "workspace:*"
     "@elvia/elvis-dropdown": "workspace:*"
+    "@elvia/elvis-dropdown-lit": "workspace:*"
     "@elvia/elvis-header": "workspace:*"
     "@elvia/elvis-icon": "workspace:*"
     "@elvia/elvis-illustrations": "workspace:*"
@@ -13442,6 +13490,37 @@ __metadata:
     rfdc: "npm:^1.3.0"
     wrap-ansi: "npm:^9.0.0"
   checksum: 10/3fa83e8b709306b7efab69884ac1af08de3e18449bccf0b4d81f78dc7235dc921a32a5875b1e7deea0650f0faef2bca2d8992f16377d858158eb5a57bbb0d025
+  languageName: node
+  linkType: hard
+
+"lit-element@npm:^4.0.4":
+  version: 4.0.5
+  resolution: "lit-element@npm:4.0.5"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
+    "@lit/reactive-element": "npm:^2.0.4"
+    lit-html: "npm:^3.1.2"
+  checksum: 10/4569764e66c662851f0fcc450a7803b7cb5cf3f85f6e4a359f02e00d1c4945b222af4e639d0929331f9ffdc23479864926f3dd743028b20e3b653b2dec475527
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.1.2, lit-html@npm:^3.1.3":
+  version: 3.1.3
+  resolution: "lit-html@npm:3.1.3"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: 10/adae378602e3b81cdc806e0fe499ac80e0850c4d184813aae40f1697746c82799d26102f86f30cbf48b72dfb7f32a84f9c1a6be1fe60f377a266431935fd7ae0
+  languageName: node
+  linkType: hard
+
+"lit@npm:^3.1.3":
+  version: 3.1.3
+  resolution: "lit@npm:3.1.3"
+  dependencies:
+    "@lit/reactive-element": "npm:^2.0.4"
+    lit-element: "npm:^4.0.4"
+    lit-html: "npm:^3.1.2"
+  checksum: 10/122030f7622dd9a43e0a08821d424e359a3f8174bd31d7a3c95e304eafd873c15f6ded1675cc57995acf3a379c745624da754fa39411988eca2c96b4c1151dce
   languageName: node
   linkType: hard
 

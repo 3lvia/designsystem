@@ -38,6 +38,7 @@
     "@elvia/elvis-datepicker-range": "workspace:*",
     "@elvia/elvis-divider": "workspace:*",
     "@elvia/elvis-dropdown": "workspace:*",
+    "@elvia/elvis-dropdown-lit": "workspace:*",
     "@elvia/elvis-header": "workspace:*",
     "@elvia/elvis-icon": "workspace:*",
     "@elvia/elvis-illustrations": "workspace:*",
