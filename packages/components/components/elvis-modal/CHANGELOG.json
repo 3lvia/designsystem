@@ -3,6 +3,16 @@
   "name": "elvis-modal",
   "content": [
     {
+      "date": "08.05.24",
+      "version": "4.0.8",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where the <code>noPadding</code> prop would not work for web components."]
+        }
+      ]
+    },
+    {
       "date": "02.05.24",
       "version": "4.0.7",
       "changelog": [
