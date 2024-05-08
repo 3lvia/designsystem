@@ -5893,7 +5893,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/file-saver@npm:^2":
+"@types/file-saver@npm:^2.0.7":
   version: 2.0.7
   resolution: "@types/file-saver@npm:2.0.7"
   checksum: 10/c3d1cd80eab1214767922cabac97681f3fb688e82b74890450d70deaca49537949bbc96d80d363d91e8f0a4752c7164909cc8902d9721c5c4809baafc42a3801
@@ -6131,7 +6131,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/opentype.js@npm:^1":
+"@types/opentype.js@npm:^1.3.8":
   version: 1.3.8
   resolution: "@types/opentype.js@npm:1.3.8"
   checksum: 10/991cc9207ba9b0123738e3cc8a6896c08e4346cba5524c09b174ef79a16c74cfd810b9021bdac8a896a9137c70b13e9e7322b0ebbfcc6e53bf88d3c99bb692c8
@@ -9477,10 +9477,10 @@ __metadata:
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
     "@netlify/functions": "npm:^2.6.3"
-    "@types/file-saver": "npm:^2"
+    "@types/file-saver": "npm:^2.0.7"
     "@types/natural-compare-lite": "npm:^1.4.2"
     "@types/node": "npm:20.12.10"
-    "@types/opentype.js": "npm:^1"
+    "@types/opentype.js": "npm:^1.3.8"
     "@types/prismjs": "npm:^1.26.4"
     "@types/safe-json-stringify": "npm:^1.1.5"
     "@typescript-eslint/eslint-plugin": "npm:^7.8.0"
