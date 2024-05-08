@@ -4,7 +4,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
-  "files": [],
+  "files": [
+    "dist",
+    "react.ts"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm --out-dir dist",
     "start": "tsup src/index.ts --sourcemap --dts --format esm --out-dir dist --watch"
@@ -14,6 +17,7 @@
     "@elvia/elvis-colors": "^4.1.0",
     "@elvia/elvis-typography": "^2.7.1",
     "@lit/context": "^1.1.1",
+    "@lit/react": "^1.0.5",
     "lit": "^3.1.3",
     "lit-html": "^3.1.3"
   },

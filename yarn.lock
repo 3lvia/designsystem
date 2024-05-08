@@ -2674,7 +2674,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-dropdown-lit@workspace:*, @elvia/elvis-dropdown-lit@workspace:packages/elvis-dropdown-lit":
+"@elvia/elvis-dropdown-lit@npm:*, @elvia/elvis-dropdown-lit@workspace:*, @elvia/elvis-dropdown-lit@workspace:packages/elvis-dropdown-lit":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown-lit@workspace:packages/elvis-dropdown-lit"
   dependencies:
@@ -2682,6 +2682,7 @@ __metadata:
     "@elvia/elvis-colors": "npm:^4.1.0"
     "@elvia/elvis-typography": "npm:^2.7.1"
     "@lit/context": "npm:^1.1.1"
+    "@lit/react": "npm:^1.0.5"
     lit: "npm:^3.1.3"
     lit-html: "npm:^3.1.3"
     tsup: "npm:^8.0.2"
@@ -4639,6 +4640,15 @@ __metadata:
   dependencies:
     "@lit/reactive-element": "npm:^1.6.2 || ^2.0.0"
   checksum: 10/18b78d9123646133246be8fcbd9ab09be745addce38f113cebf9d5ec003700fdb615499d9d8cb1071dda5eaf5a9540389b84caa91afc08075b00304f0c406b73
+  languageName: node
+  linkType: hard
+
+"@lit/react@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@lit/react@npm:1.0.5"
+  peerDependencies:
+    "@types/react": 17 || 18
+  checksum: 10/f4fe7241827d7e239d83e5f3ac1a2d679fb3b6a3c4d4aa121a8f34932eb7f14ee9491b719a6b71397d428e1e0772e13510b0be74520bde34a85a3775e5a44f14
   languageName: node
   linkType: hard
 
@@ -15975,6 +15985,7 @@ __metadata:
     "@elvia/elvis-datepicker-range": "npm:*"
     "@elvia/elvis-divider": "npm:*"
     "@elvia/elvis-dropdown": "npm:*"
+    "@elvia/elvis-dropdown-lit": "npm:*"
     "@elvia/elvis-header": "npm:*"
     "@elvia/elvis-icon": "npm:*"
     "@elvia/elvis-modal": "npm:*"

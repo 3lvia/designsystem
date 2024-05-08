@@ -91,12 +91,13 @@ export class EDropdown extends LitElement {
     value: this.value,
     updateValue: (value) => {
       this.value = value;
-      console.log('value', value);
       this._selectedOptionLabel = this.findLabelFromValue(value) ?? '';
+      this.triggerValueChangeEvent(value);
     },
   };
 
-  @state() private _selectedOptionLabel = '';
+  @state()
+  private _selectedOptionLabel = '';
 
   render() {
     return html`
@@ -152,6 +153,10 @@ export class EDropdown extends LitElement {
       return newLabel.textContent;
     }
     throw new Error(`No option with value ${value} found, have you set the correct value on the e-option?`);
+  }
+
+  private triggerValueChangeEvent(value: string) {
+    this.dispatchEvent(new CustomEvent('valueChange', { detail: { value } }));
   }
 }
 

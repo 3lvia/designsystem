@@ -1,2 +1,2 @@
-import './e-dropdown';
-import './e-option';
+export { EDropdown } from './e-dropdown';
+export { EOption } from './e-option';

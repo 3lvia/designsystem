@@ -10,6 +10,7 @@ import { ContextMenu } from '@elvia/elvis-context-menu/react';
 import { DatepickerRange } from '@elvia/elvis-datepicker-range/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
+import { EDropdownComponent, EOptionComponent } from '@elvia/elvis-dropdown-lit/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Header } from '@elvia/elvis-header/react';
 import { Icon } from '@elvia/elvis-icon/react';
@@ -202,21 +203,22 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <div>
-                <Accordion
-                  isOpen={true}
-                  isFullWidth
-                  openLabel={'Show'}
-                  closeLabel={'Hide'}
-                  content={
-                    <Accordion
-                      isOpen={true}
-                      isFullWidth
-                      openLabel={'Show'}
-                      closeLabel={'Hide'}
-                      content={<div>Content</div>}
-                    />
-                  }
-                />
+                <EDropdownComponent
+                  label="Label"
+                  placeholder="Plassholder"
+                  onValueChange={(e) => {
+                    console.log('Value changed:', e.detail.value);
+                  }}
+                >
+                  {[...Array(10)].map((_, i) => (
+                    <EOptionComponent key={i} value={i.toString()}>
+                      <div className="e-flex e-gap-8 e-w-100" style={{ justifyContent: 'space-between' }}>
+                        Option {i}
+                        <i className="e-icon e-icon--access_control-color e-icon--sm"></i>
+                      </div>
+                    </EOptionComponent>
+                  ))}
+                </EDropdownComponent>
               </div>
             </div>
             {/* ACCORDION */}
