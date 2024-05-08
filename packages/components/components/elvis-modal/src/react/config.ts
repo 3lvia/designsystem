@@ -11,7 +11,7 @@ export const config: ComponentConfig = {
     { name: 'secondaryButton', type: 'string' },
     { name: 'hasCloseButton', type: 'boolean' },
     { name: 'hasLockBodyScroll', type: 'boolean' },
-    { name: 'hasPadding', type: 'boolean' },
+    { name: 'noPadding', type: 'boolean' },
     { name: 'disableClose', type: 'boolean' },
     { name: 'disableBackdrop', type: 'boolean' },
     { name: 'maxWidth', type: 'string' },
