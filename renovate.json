@@ -35,6 +35,12 @@
       "matchPackagePatterns": ["^@playwright", "^playwright"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "groupName": "yarn dependency",
+      "matchPackagePatterns": ["^yarn"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ],
   "ignoreDeps": ["styled-components"],
