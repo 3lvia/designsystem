@@ -8,13 +8,13 @@
   "packageRules": [
     {
       "groupName": "all angular dependencies",
-      "matchPackagePatterns": ["^@angular"],
+      "matchDepPatterns": ["^@angular"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
     {
       "groupName": "all @testing-library dependencies",
-      "matchPackagePatterns": ["^@testing-library"],
+      "matchDepPatterns": ["^@testing-library"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
@@ -26,19 +26,19 @@
     },
     {
       "groupName": "common dependencies",
-      "matchPackagePatterns": ["^contentful", "^vue-tsc", "^vite", "^vue", "^sass", "^postcss", "^express"],
+      "matchDepPatterns": ["^contentful", "^vue-tsc", "^vite", "^vue", "^sass", "^postcss", "^express"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
     {
       "groupName": "all playwright dependencies",
-      "matchPackagePatterns": ["^@playwright", "^playwright"],
+      "matchDepPatterns": ["^@playwright", "^playwright"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
     {
       "groupName": "yarn dependency",
-      "matchPackagePatterns": ["^yarn"],
+      "matchDepPatterns": ["^yarn"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
