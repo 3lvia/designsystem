@@ -120,7 +120,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
           <TooltipPopup
             position={placement as TooltipPosition}
             ref={refs.setFloating}
-            style={{ ...floatingStyles }}
+            style={floatingStyles}
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
             aria-live="polite"

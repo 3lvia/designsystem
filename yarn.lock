@@ -3102,7 +3102,7 @@ __metadata:
   dependencies:
     "@elvia/elvis-component-wrapper": "npm:^4.1.3"
     "@elvia/elvis-toolbox": "npm:^11.0.0"
-    "@floating-ui/react": "npm:^0.26.13"
+    "@floating-ui/react": "npm:~0.26.13"
     styled-components: "npm:^5.3.3"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -4042,7 +4042,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/react@npm:^0.26.13, @floating-ui/react@npm:~0.26.13":
+"@floating-ui/react@npm:~0.26.13":
   version: 0.26.13
   resolution: "@floating-ui/react@npm:0.26.13"
   dependencies:
