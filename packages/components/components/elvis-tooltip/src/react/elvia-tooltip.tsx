@@ -1,10 +1,9 @@
-import { TooltipPopup, isSsr, useConnectedOverlay, useSlot } from '@elvia/elvis-toolbox';
+import { TooltipPopup, isSsr, useSlot } from '@elvia/elvis-toolbox';
+import { FloatingPortal, autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
 
 import { TooltipPosition, TooltipProps } from './elviaTooltip.types';
-import { mapPositionToHorizontalPosition, mapPositionToVerticalPosition } from './mapPosition';
-import { TriggerContainer } from './styledComponents';
+import { TooltipContent, TriggerContainer } from './styledComponents';
 
 export const Tooltip: React.FC<TooltipProps> = ({
   content = '',
@@ -26,30 +25,36 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const { ref: triggerRef } = useSlot<HTMLDivElement>('trigger', webcomponent);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [fadeOut, setFadeOut] = useState(false);
-  const [actualPosition, setActualPosition] = useState<TooltipPosition>(position);
-  const { isShowing, setIsShowing, verticalPosition, horizontalPosition, updatePreferredPosition } =
-    useConnectedOverlay(triggerRef, overlayRef, {
-      alignWidths: false,
-      verticalPosition: mapPositionToVerticalPosition(position),
-      horizontalPosition: mapPositionToHorizontalPosition(position),
-      offset: 14,
-    });
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { refs, floatingStyles, placement } = useFloating({
+    placement: position,
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    elements: {
+      reference: triggerRef.current,
+    },
+    middleware: [offset({ mainAxis: 14 }), flip(), shift()],
+    whileElementsMounted: autoUpdate,
+    transform: false,
+  });
+
   useSlot('content', webcomponent, {
-    useEffectDependencies: [isShowing],
+    useEffectDependencies: [isOpen],
     ref: overlayRef,
   });
 
   const onOpen = (delay = true): void => {
     if (isSsr()) {
       setFadeOut(false);
-      setIsShowing(true);
+      setIsOpen(true);
     } else {
       window.clearTimeout(timeoutId);
       timeoutId = window.setTimeout(
         () => {
           if (!isDestroyed.current) {
             setFadeOut(false);
-            setIsShowing(true);
+            setIsOpen(true);
           }
         },
         delay ? delayAmount.current : 0,
@@ -66,7 +71,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
   const onAnimationEnd = () => {
     if (fadeOut) {
-      setIsShowing(false);
+      setIsOpen(false);
     }
   };
 
@@ -93,46 +98,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
     };
   }, [triggerAreaRef, triggerAreaRef?.current, triggerRef, triggerRef?.current]);
 
-  /* Update on position change and content change */
-  const getContentMutationObserver = (): MutationObserver => {
-    const observer = new MutationObserver(() => {
-      updatePreferredPosition(
-        mapPositionToVerticalPosition(position),
-        mapPositionToHorizontalPosition(position),
-      );
-    });
-    if (overlayRef.current) {
-      observer.observe(overlayRef.current, {
-        childList: true,
-        subtree: true,
-        characterData: true,
-        attributes: true,
-      });
-    }
-
-    return observer;
-  };
-
-  useEffect(() => {
-    if (!isShowing) {
-      return;
-    }
-    const observer = getContentMutationObserver();
-    updatePreferredPosition();
-    return () => observer.disconnect();
-  }, [isShowing, position]);
-
-  /** Update arrow position when overlay hook adjusts position */
-  useEffect(() => {
-    let newActualPosition: TooltipPosition = 'top';
-    if (horizontalPosition === 'left' || horizontalPosition === 'right') {
-      newActualPosition = horizontalPosition;
-    } else if (verticalPosition === 'bottom') {
-      newActualPosition = verticalPosition;
-    }
-    setActualPosition(newActualPosition);
-  }, [verticalPosition, horizontalPosition]);
-
   useEffect(() => {
     delayAmount.current = showDelay;
   }, [showDelay]);
@@ -150,22 +115,22 @@ export const Tooltip: React.FC<TooltipProps> = ({
         {trigger}
       </TriggerContainer>
 
-      {isShowing &&
-        !isDisabled &&
-        createPortal(
+      {isOpen && !isDisabled && (
+        <FloatingPortal>
           <TooltipPopup
-            position={actualPosition}
-            ref={overlayRef}
-            className={className ?? ''}
-            style={{ ...inlineStyle }}
+            position={placement as TooltipPosition}
+            ref={refs.setFloating}
+            style={{ ...floatingStyles }}
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
             aria-live="polite"
           >
-            {content}
-          </TooltipPopup>,
-          document.body,
-        )}
+            <TooltipContent className={className ?? ''} style={{ ...inlineStyle }} ref={overlayRef}>
+              {content}
+            </TooltipContent>
+          </TooltipPopup>
+        </FloatingPortal>
+      )}
     </>
   );
 };
