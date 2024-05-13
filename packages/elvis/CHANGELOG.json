@@ -3,6 +3,38 @@
   "name": "elvis",
   "content": [
     {
+      "version": "18.0.0",
+      "date": "May 13, 2024",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "All deprecated classes with a sunset before May 2024 have been removed. See the earlier changelogs (<code>10.6.0</code>, <code>12.0.0</code>, <code>12.4.0</code>, <code>12.5.0</code>, <code>12.7.0</code>, and <code>15.2.0</code>) for more details.",
+            "This reduces the minified CSS file size by approximately 13%."
+          ],
+          "fixes": [
+            "Remove and replace all deprecated classes in your application.",
+            "Install the previous version of Elvis to get console warnings for deprecated classes."
+          ],
+          "components": [
+            { "displayName": "Autocomplete", "url": "https://design.elvia.io/components/autocomplete" },
+            { "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" },
+            { "displayName": "Radio Button", "url": "https://design.elvia.io/components/radiobutton" },
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
+            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" },
+            { "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" },
+            { "displayName": "Stepper", "url": "https://design.elvia.io/components/stepper" }
+          ],
+          "pages": [
+            { "displayName": "Color", "url": "https://design.elvia.io/brand/color" },
+            { "displayName": "Icon", "url": "https://design.elvia.io/brand/icon" },
+            { "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" },
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "17.1.0",
       "date": "April 26, 2024",
       "changelog": [

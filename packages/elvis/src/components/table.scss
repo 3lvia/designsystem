@@ -4,11 +4,11 @@
 @use '../utilities/breakpoints';
 
 $table-padding: 10px 16px;
-$table-compact-padding: 9px 16px;
+$table-small-padding: 9px 16px;
 $table-phone-padding: 6px 8px;
 $table-border-radius: 8px;
 $table-header-height: 56px;
-$table-header-compact-height: 40px;
+$table-header-small-height: 40px;
 $table-invalid-border: 2px solid var(--e-color-signal-danger);
 $table-invalid-padding: 8px 16px;
 
@@ -51,7 +51,6 @@ $table-invalid-padding: 8px 16px;
   margin-top: 8px;
   @include mixins.typography('text-sm');
 
-  &.e-table__footnote--compact,
   &.e-table__footnote--small {
     font-size: 14px;
   }
@@ -122,8 +121,7 @@ $table-invalid-padding: 8px 16px;
       white-space: normal;
     }
 
-    &.e-table__cell--multiline-small,
-    &.e-table__cell--multiline-sm {
+    &.e-table__cell--multiline-small {
       width: 250px;
       min-width: 250px;
       max-width: 250px;
@@ -195,7 +193,6 @@ $table-invalid-padding: 8px 16px;
     }
   }
 
-  &.e-table--compact,
   &.e-table--small {
     thead {
       @extend %header-style;
@@ -207,13 +204,13 @@ $table-invalid-padding: 8px 16px;
     }
 
     tr {
-      height: $table-header-compact-height;
+      height: $table-header-small-height;
     }
 
     td,
     th {
       @include mixins.typography('text-sm');
-      padding: $table-compact-padding;
+      padding: $table-small-padding;
       color: var(--e-color-text-1);
     }
   }
@@ -317,11 +314,10 @@ $table-invalid-padding: 8px 16px;
     text-align: right;
   }
 
-  &.e-table-mobile--compact,
   &.e-table-mobile--small {
     thead {
       tr {
-        height: $table-header-compact-height;
+        height: $table-header-small-height;
       }
 
       th {
@@ -332,7 +328,7 @@ $table-invalid-padding: 8px 16px;
     td,
     th {
       @include mixins.typography('text-sm');
-      padding: $table-compact-padding;
+      padding: $table-small-padding;
       color: var(--e-color-text-1);
     }
 
@@ -381,10 +377,7 @@ $table-invalid-padding: 8px 16px;
     }
   }
 }
-// Compact
-.e-table.e-table--compact .e-table__input,
 .e-table.e-table--small .e-table__input,
-.e-table-mobile.e-table-mobile--compact td.e-table-mobile__input,
 .e-table-mobile.e-table-mobile--small td.e-table-mobile__input {
   padding: 2px;
 }
@@ -413,9 +406,7 @@ $table-invalid-padding: 8px 16px;
   }
 }
 // Small
-.e-table.e-table--compact .e-table__button,
 .e-table.e-table--small .e-table__button,
-.e-table-mobile.e-table-mobile--compact td.e-table-mobile__button,
 .e-table-mobile.e-table-mobile--small td.e-table-mobile__button {
   padding: 0 16px;
 }
@@ -500,7 +491,6 @@ $table-invalid-padding: 8px 16px;
   }
 }
 // Small
-.e-table-mobile.e-table-mobile--compact tr.e-table-mobile__select th,
 .e-table-mobile.e-table-mobile--small tr.e-table-mobile__select th {
   padding: 8px 16px;
 }
