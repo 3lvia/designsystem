@@ -40,7 +40,9 @@ export class IconPreviewDetailsComponent {
   };
 
   private getIconElement() {
-    const icon = this.elementRef.nativeElement.querySelector(`.e-icon.e-icon--${this.selectedIcon()?.title}`);
+    const icon = this.elementRef.nativeElement.querySelector(
+      `.e-icon.e-icon--${this.selectedIcon()?.title}`,
+    ) as HTMLElement;
     return icon?.querySelector('svg');
   }
 
