@@ -1,3 +1,4 @@
+import { CdkTrapFocus } from '@angular/cdk/a11y';
 import { NgClass } from '@angular/common';
 import { Component, computed, model, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -16,7 +17,14 @@ const allIcons = getIconList();
 @Component({
   selector: 'app-icon-preview',
   standalone: true,
-  imports: [NgClass, RouterLink, CopyComponent, IconPreviewFilterComponent, IconPreviewDetailsComponent],
+  imports: [
+    NgClass,
+    RouterLink,
+    CdkTrapFocus,
+    CopyComponent,
+    IconPreviewFilterComponent,
+    IconPreviewDetailsComponent,
+  ],
   templateUrl: './icon-preview.component.html',
   styleUrl: './icon-preview.component.scss',
   animations: [entranceAnimation],

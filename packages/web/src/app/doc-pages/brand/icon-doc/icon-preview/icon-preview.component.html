@@ -35,5 +35,11 @@
 </div>
 
 @if (selectedIcon()) {
-  <app-icon-preview-details [(selectedIcon)]="selectedIcon" [theme]="theme()" @entranceAnimation />
+  <app-icon-preview-details
+    [(selectedIcon)]="selectedIcon"
+    [theme]="theme()"
+    @entranceAnimation
+    [cdkTrapFocus]
+    [cdkTrapFocusAutoCapture]="true"
+  />
 }

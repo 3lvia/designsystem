@@ -1,3 +1,4 @@
+import { CdkTrapFocus } from '@angular/cdk/a11y';
 import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { filter, fromEvent } from 'rxjs';
@@ -12,6 +13,7 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
   selector: 'app-illustrations-exhibit',
   standalone: true,
   imports: [
+    CdkTrapFocus,
     IllustrationsExhibitFilterComponent,
     IllustrationsExhibitListComponent,
     IllustrationsExhibitDetailsComponent,
