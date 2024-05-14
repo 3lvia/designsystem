@@ -39,7 +39,8 @@ export class ColorPickerExhibitComponent {
     initialValue: 'light',
   });
   colorList = computed(() => (this.theme() === 'dark' ? darkColors : lightColors));
-  currentColor = toSignal(this.colorPickerService.chosenColor$);
+  currentColor = toSignal(this.colorPickerService.currentColor$);
+  previousColor = toSignal(this.colorPickerService.previousColor$);
   currentColorExistsInCurrentTheme = computed(() => {
     if (this.currentColor() === undefined) {
       return false;

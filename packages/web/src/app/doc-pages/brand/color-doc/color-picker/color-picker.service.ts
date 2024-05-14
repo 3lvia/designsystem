@@ -10,24 +10,24 @@ import { getColorElement } from './colors-util';
 })
 export class ColorPickerService {
   private _theme = new BehaviorSubject<ThemeName>('light');
-  private _chosenColor = new BehaviorSubject<ColorElement | undefined>(getColorElement('white'));
+  private _currentColor = new BehaviorSubject<ColorElement | undefined>(getColorElement('white'));
+  private _previousColor = new BehaviorSubject<ColorElement | undefined>(undefined);
 
-  previousColor: ColorElement | undefined;
-
-  chosenColor$ = this._chosenColor.asObservable();
   theme$ = this._theme.asObservable();
+  currentColor$ = this._currentColor.asObservable();
+  previousColor$ = this._previousColor.asObservable();
 
   setChosenColor(color: LightThemeColorName | DarkThemeColorName) {
-    this._chosenColor.next(getColorElement(color, this._theme.value));
+    this._currentColor.next(getColorElement(color, this._theme.value));
   }
 
   setTheme(theme: ThemeName) {
     this._theme.next(theme);
-    if (this._chosenColor.value) {
-      this.previousColor = this._chosenColor.value;
-      this._chosenColor.next(getColorElement(this._chosenColor.value?.name, theme));
+    if (this._currentColor.value) {
+      this._previousColor.next(this._currentColor.value);
+      this._currentColor.next(getColorElement(this._currentColor.value?.name, theme));
       return;
     }
-    this._chosenColor.next(getColorElement(this.previousColor?.name, theme));
+    this._currentColor.next(getColorElement(this._previousColor.value?.name, theme));
   }
 }

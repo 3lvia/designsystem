@@ -25,7 +25,7 @@ export class ColorPickerColorListComponent {
     initialValue: 'light',
   });
   colorList = computed(() => (this.theme() === 'dark' ? darkColors : lightColors));
-  currentColor = toSignal(this.colorPickerService.chosenColor$);
+  currentColor = toSignal(this.colorPickerService.currentColor$);
 
   chooseNewColor(color: ColorElement) {
     this.colorPickerService.setChosenColor(color.name);

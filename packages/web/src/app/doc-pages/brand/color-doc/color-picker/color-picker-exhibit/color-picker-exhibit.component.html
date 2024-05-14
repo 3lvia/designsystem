@@ -5,7 +5,7 @@
       'background-color': currentColorExistsInCurrentTheme() ? currentColor()?.hex : null
     }"
     [ngClass]="{
-      border: currentColor() && currentColor()?.name ? (currentColor()?.name | needsBorder: theme()) : false,
+      border: currentColor()?.name ? (currentColor()?.name | needsBorder: theme()) : false,
       nonexistent: !currentColorExistsInCurrentTheme()
     }"
   ></div>
@@ -97,7 +97,7 @@
     <div class="info nonexistent e-text-sm">
       <p class="e-mb-8 title e-title-md">Not in dark theme</p>
       <p>
-        <span class="e-capitalize">{{ currentColor()?.name }}</span>
+        <span class="e-capitalize">{{ previousColor()?.name }}</span>
         does not exist in {{ theme() }} theme.
       </p>
       <p>
