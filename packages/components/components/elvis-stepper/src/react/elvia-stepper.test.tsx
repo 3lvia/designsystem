@@ -146,6 +146,19 @@ describe('Elvis Stepper', () => {
     });
   });
 
+  describe('No actions', () => {
+    beforeEach(() => {
+      render(<Stepper type="horizontal" steps={steps} content={content} removeActions />);
+    });
+
+    it('should not have any actions', async () => {
+      const nextButton = screen.queryByRole('button', { name: /neste/i });
+      const backButton = screen.queryByRole('button', { name: /tilbake/i });
+      expect(nextButton).toBeNull();
+      expect(backButton).toBeNull();
+    });
+  });
+
   describe('Events', () => {
     const onFinishEvent = jest.fn();
     const valueOnChangeEvent = jest.fn();
