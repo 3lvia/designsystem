@@ -19,21 +19,14 @@
         <span class="e-btn__title">Copy</span>
       </button>
     </app-copy>
-    <a
-      class="e-btn e-btn--tertiary e-btn--sm"
-      download
-      [href]="'/assets/elvis/icons/svg/dist/' + selectedIcon()?.title + '.svg'"
-    >
+
+    <a class="e-btn e-btn--tertiary e-btn--sm" (click)="downloadImage('svg')">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--download" aria-hidden="true"> </i>
       </span>
       <span class="e-btn__title">SVG</span>
     </a>
-    <a
-      class="e-btn e-btn--tertiary e-btn--sm"
-      download
-      [href]="'/assets/elvis/icons/png/dist/' + selectedIcon()?.title + '.png'"
-    >
+    <a class="e-btn e-btn--tertiary e-btn--sm" (click)="downloadImage('png')">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--download" aria-hidden="true"> </i>
       </span>
