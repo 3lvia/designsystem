@@ -111,7 +111,7 @@ const getTokens = (hex: string, theme?: ThemeName) => {
 };
 
 export const getOpacityColors = (
-  colorName: DarkThemeColorName | LightThemeColorName,
+  colorName: DarkThemeColorName | LightThemeColorName | undefined,
   colorList: ColorsObject,
 ) => {
   return colorList['tertiary'].filter(
@@ -119,14 +119,20 @@ export const getOpacityColors = (
   );
 };
 
-const getBaseColorName = (colorName: DarkThemeColorName | LightThemeColorName) => {
-  return colorName.split('-').slice(0, 2).join('-');
+export const getBaseColorName = (colorName: DarkThemeColorName | LightThemeColorName | undefined) => {
+  if (!colorName) {
+    return '';
+  }
+  return colorName.split('-').slice(0, 2).join('-') as DarkThemeColorName | LightThemeColorName;
 };
 
 export const getColorElement = (
-  colorName: DarkThemeColorName | LightThemeColorName,
+  colorName: DarkThemeColorName | LightThemeColorName | undefined,
   theme?: ThemeName,
 ): ColorElement | undefined => {
+  if (!colorName) {
+    return undefined;
+  }
   try {
     return {
       name: colorName,
