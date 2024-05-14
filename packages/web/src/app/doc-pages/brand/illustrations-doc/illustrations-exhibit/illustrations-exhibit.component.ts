@@ -1,4 +1,5 @@
 import { CdkTrapFocus } from '@angular/cdk/a11y';
+import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { filter, fromEvent } from 'rxjs';
@@ -14,6 +15,7 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
   standalone: true,
   imports: [
     CdkTrapFocus,
+    NgClass,
     IllustrationsExhibitFilterComponent,
     IllustrationsExhibitListComponent,
     IllustrationsExhibitDetailsComponent,
@@ -25,6 +27,7 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
 export class IllustrationsExhibitComponent {
   private illustrationsExhibitService = inject(IllustrationsExhibitService);
   selectedIllustration = toSignal(this.illustrationsExhibitService.selectedIllustration);
+  theme = toSignal(this.illustrationsExhibitService.theme);
 
   constructor() {
     fromEvent(document, 'keydown')
