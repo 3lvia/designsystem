@@ -8,6 +8,7 @@ export const config: ComponentConfig = {
     { name: 'typography', type: 'string' },
     { name: 'className', type: 'string' },
     { name: 'isForced', type: 'boolean' },
+    { name: 'removeActions', type: 'boolean' },
     { name: 'inlineStyle', type: 'object' },
     { name: 'value', type: 'object' },
   ],

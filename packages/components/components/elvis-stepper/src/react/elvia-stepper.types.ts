@@ -21,6 +21,7 @@ export interface BaseStepperProps extends HasValue<number>, BaseProps {
   steps?: StepStates;
   type?: StepperType;
   typography?: TypographyName;
+  removeActions?: boolean;
 }
 
 export interface StepperProps extends BaseStepperProps, Omit<ComponentPropsWithoutRef<'div'>, 'content'> {}
