@@ -17,7 +17,7 @@ export class ColorPickerService {
   currentColor$ = this._currentColor.asObservable();
   previousColor$ = this._previousColor.asObservable();
 
-  setChosenColor(color: LightThemeColorName | DarkThemeColorName) {
+  setCurrentColor(color: LightThemeColorName | DarkThemeColorName) {
     this._currentColor.next(getColorElement(color, this._theme.value));
   }
 

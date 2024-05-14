@@ -55,7 +55,7 @@ export class ColorPickerExhibitComponent {
   });
 
   chooseColor = (color: ColorElement) => {
-    this.colorPickerService.setChosenColor(color.name);
+    this.colorPickerService.setCurrentColor(color.name);
   };
 
   getContrast = (color: ColorElement) => {

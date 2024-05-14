@@ -28,7 +28,7 @@ export class ColorPickerColorListComponent {
   currentColor = toSignal(this.colorPickerService.currentColor$);
 
   chooseNewColor(color: ColorElement) {
-    this.colorPickerService.setChosenColor(color.name);
+    this.colorPickerService.setCurrentColor(color.name);
   }
 
   getColorsFromCategory = () => {
