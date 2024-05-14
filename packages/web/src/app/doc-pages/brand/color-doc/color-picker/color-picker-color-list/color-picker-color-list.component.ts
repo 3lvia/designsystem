@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
 import { Component, Input, computed, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 
 import { ColorPickerService } from '../color-picker.service';
 import { darkColors } from '../colors-dark';
@@ -21,11 +20,9 @@ export class ColorPickerColorListComponent {
 
   private colorPickerService = inject(ColorPickerService);
 
-  theme = toSignal(this.colorPickerService.theme$, {
-    initialValue: 'light',
-  });
+  theme = this.colorPickerService.theme;
   colorList = computed(() => (this.theme() === 'dark' ? darkColors : lightColors));
-  currentColor = toSignal(this.colorPickerService.currentColor$);
+  currentColor = this.colorPickerService.currentColor;
 
   chooseNewColor(color: ColorElement) {
     this.colorPickerService.setCurrentColor(color.name);

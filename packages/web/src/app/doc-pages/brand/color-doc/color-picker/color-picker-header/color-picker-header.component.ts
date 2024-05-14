@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { ThemeName } from '@elvia/elvis-colors';
 
 import { ColorPickerService } from '../color-picker.service';
@@ -15,9 +14,8 @@ import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/loc
 })
 export class ColorPickerHeaderComponent {
   private colorPickerService = inject(ColorPickerService);
-  theme = toSignal(this.colorPickerService.theme$, {
-    initialValue: 'light',
-  });
+
+  theme = this.colorPickerService.theme;
 
   changeTheme(theme: ThemeName) {
     this.colorPickerService.setTheme(theme);

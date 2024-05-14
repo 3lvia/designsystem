@@ -5,7 +5,7 @@
   <div class="header-container">
     <app-color-picker-header />
   </div>
-  <app-color-picker-exhibit [theme]="theme" />
+  <app-color-picker-exhibit />
   <div class="color-list-container" appColorListBase>
     @for (category of categories; track category) {
       <app-color-picker-color-list [category]="category" />

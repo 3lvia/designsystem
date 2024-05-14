@@ -1,6 +1,5 @@
 import { KeyValuePipe, NgClass, NgPlural, NgPluralCase, NgStyle, UpperCasePipe } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
 import { CopyComponent } from '../../../../../shared/copy/copy.component';
@@ -35,12 +34,10 @@ import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
 export class ColorPickerExhibitComponent {
   private colorPickerService = inject(ColorPickerService);
 
-  theme = toSignal(this.colorPickerService.theme$, {
-    initialValue: 'light',
-  });
+  theme = this.colorPickerService.theme;
   colorList = computed(() => (this.theme() === 'dark' ? darkColors : lightColors));
-  currentColor = toSignal(this.colorPickerService.currentColor$);
-  previousColor = toSignal(this.colorPickerService.previousColor$);
+  currentColor = this.colorPickerService.currentColor;
+  previousColor = this.colorPickerService.previousColor;
   currentColorExistsInCurrentTheme = computed(() => {
     if (this.currentColor() === undefined) {
       return false;
@@ -48,7 +45,7 @@ export class ColorPickerExhibitComponent {
     return !!getColorElement(this.currentColor()?.name, this.theme());
   });
   opacityColors = computed(() => {
-    if (this.currentColor === undefined) {
+    if (this.currentColor() === undefined) {
       return [];
     }
     return getOpacityColors(this.currentColor()?.name, this.colorList());

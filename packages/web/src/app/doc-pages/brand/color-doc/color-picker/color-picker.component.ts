@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 
 import { ColorListBaseDirective } from './color-list-base.directive';
 import { ColorPickerColorListComponent } from './color-picker-color-list/color-picker-color-list.component';
@@ -24,8 +23,7 @@ import { ColorPickerService } from './color-picker.service';
 })
 export class ColorPickerComponent {
   private colorPickerService = inject(ColorPickerService);
-  theme = toSignal(this.colorPickerService.theme$, {
-    initialValue: 'light',
-  });
+
+  theme = this.colorPickerService.theme;
   categories = ['primary', 'secondary', 'tertiary', 'grey'] as const;
 }

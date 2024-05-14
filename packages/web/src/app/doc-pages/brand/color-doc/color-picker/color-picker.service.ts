@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis-colors';
-import { BehaviorSubject } from 'rxjs';
 
 import { ColorElement } from './colors-types';
 import { getColorElement } from './colors-util';
@@ -9,25 +8,25 @@ import { getColorElement } from './colors-util';
   providedIn: 'root',
 })
 export class ColorPickerService {
-  private _theme = new BehaviorSubject<ThemeName>('light');
-  private _currentColor = new BehaviorSubject<ColorElement | undefined>(getColorElement('white'));
-  private _previousColor = new BehaviorSubject<ColorElement | undefined>(undefined);
+  private themeSignal = signal<ThemeName>('light');
+  private currentColorSignal = signal<ColorElement | undefined>(getColorElement('white'));
+  private previousColorSignal = signal<ColorElement | undefined>(undefined);
 
-  theme$ = this._theme.asObservable();
-  currentColor$ = this._currentColor.asObservable();
-  previousColor$ = this._previousColor.asObservable();
+  theme = this.themeSignal.asReadonly();
+  currentColor = this.currentColorSignal.asReadonly();
+  previousColor = this.previousColorSignal.asReadonly();
 
   setCurrentColor(color: LightThemeColorName | DarkThemeColorName) {
-    this._currentColor.next(getColorElement(color, this._theme.value));
+    this.currentColorSignal.set(getColorElement(color, this.themeSignal()));
   }
 
   setTheme(theme: ThemeName) {
-    this._theme.next(theme);
-    if (this._currentColor.value) {
-      this._previousColor.next(this._currentColor.value);
-      this._currentColor.next(getColorElement(this._currentColor.value?.name, theme));
+    this.themeSignal.set(theme);
+    if (this.currentColorSignal()) {
+      this.previousColorSignal.set(this.currentColorSignal());
+      this.currentColorSignal.set(getColorElement(this.currentColorSignal()?.name, theme));
       return;
     }
-    this._currentColor.next(getColorElement(this._previousColor.value?.name, theme));
+    this.currentColorSignal.set(getColorElement(this.previousColorSignal()?.name, theme));
   }
 }
