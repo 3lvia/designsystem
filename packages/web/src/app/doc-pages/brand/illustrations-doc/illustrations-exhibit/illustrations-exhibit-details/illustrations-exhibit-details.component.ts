@@ -24,10 +24,10 @@ export class IllustrationsExhibitDetailsComponent {
   private theme = toSignal(this.illustrationExhibitService.theme);
 
   get importString() {
-    return `@elvia/illustrations/${this.selectedIllustration()}`;
+    return `@elvia/elvis-illustrations/${this.selectedIllustration()}`;
   }
   get importStatement() {
-    return `import '@elvia/illustrations/${this.selectedIllustration()}';`;
+    return `import '@elvia/elvis-illustrations/${this.selectedIllustration()}';`;
   }
   get colorString() {
     const color = this.colorValue();
