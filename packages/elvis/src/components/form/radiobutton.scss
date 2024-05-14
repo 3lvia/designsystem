@@ -111,9 +111,6 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
   }
 
   // Small
-  // DEPRECATED (compact, sm) -> small
-  &.e-radio--compact,
-  &.e-radio--sm,
   &.e-radio--small {
     input,
     .e-radio__mark {

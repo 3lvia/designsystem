@@ -83,9 +83,8 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
     }
   }
 
-  &.e-toggle--compact,
   &.e-toggle--small {
-    // Compact Label
+    // Small Label
     @include mixins.typography('text-small');
   }
 

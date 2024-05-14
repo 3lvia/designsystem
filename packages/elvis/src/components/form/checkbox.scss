@@ -114,9 +114,6 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 
   // Small
-  // DEPRECATED (compact, sm) -> small
-  &.e-checkbox--compact,
-  &.e-checkbox--sm,
   &.e-checkbox--small {
     input,
     .e-checkbox__mark {

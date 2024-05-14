@@ -209,11 +209,6 @@ module.exports = [
     ],
   },
   {
-    name: 'Old colors',
-    url: '/tokens/old-colors.html',
-    widths: [766, 1440],
-  },
-  {
     name: 'Grid',
     url: '/utilities/grid.html',
     widths: [767, 1023, 1439, 1440],
