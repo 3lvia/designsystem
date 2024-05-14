@@ -8,6 +8,7 @@ export const Stepper: FC<StepperProps> = function ({
   type = 'horizontal',
   steps,
   isForced = false,
+  removeActions,
   typography,
   content,
   value,
@@ -83,6 +84,7 @@ export const Stepper: FC<StepperProps> = function ({
           numberOfSteps={numberOfSteps}
           currentStep={currentStep}
           isForced={isForced}
+          removeActions={removeActions}
           handleStepChange={handleStepChange}
           onNextClick={handleNextClick}
           typography={typography}
@@ -98,6 +100,7 @@ export const Stepper: FC<StepperProps> = function ({
           numberOfSteps={numberOfSteps}
           currentStep={currentStep}
           isForced={isForced}
+          removeActions={removeActions}
           handleStepChange={handleStepChange}
           onNextClick={handleNextClick}
           typography={typography}

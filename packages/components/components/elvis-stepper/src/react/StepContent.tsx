@@ -10,6 +10,7 @@ type StepContentProps = {
   currentStep: number;
   steps?: StepStates;
   isForced?: boolean;
+  removeActions?: boolean;
   content?: JSX.Element[];
   contentRef: React.RefObject<HTMLDivElement>;
   type?: StepperType;
@@ -21,6 +22,7 @@ export const StepContent: FC<StepContentProps> = function ({
   currentStep,
   steps,
   isForced = false,
+  removeActions,
   content,
   contentRef,
   type = 'horizontal',
@@ -32,32 +34,36 @@ export const StepContent: FC<StepContentProps> = function ({
       <div ref={contentRef} role="tabpanel">
         {content?.[currentStep - 1]}
       </div>
-      <StepperActions>
-        {currentStep !== 1 ? (
-          <SecondaryButton onClick={() => handleStepChange(currentStep - 1)}>
-            {steps?.[currentStep]?.previousButtonText ?? 'Tilbake'}
-          </SecondaryButton>
-        ) : (
-          <div></div>
-        )}
-        {steps?.[currentStep]?.nextButtonState === 'loading' ? (
-          <PrimaryButton onClick={() => onNextClick?.()} isLoading aria-disabled aria-label="Laster inn">
-            <span></span>
-            <span></span>
-            <span></span>
-          </PrimaryButton>
-        ) : (
-          <PrimaryButton
-            aria-disabled={!isReachable(isForced, currentStep + 1, steps)}
-            onClick={() => {
-              onNextClick?.();
-              handleStepChange(isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep);
-            }}
-          >
-            {steps?.[currentStep]?.nextButtonText ?? 'Neste'}
-          </PrimaryButton>
-        )}
-      </StepperActions>
+      {!removeActions && (
+        <StepperActions>
+          {currentStep !== 1 ? (
+            <SecondaryButton onClick={() => handleStepChange(currentStep - 1)}>
+              {steps?.[currentStep]?.previousButtonText ?? 'Tilbake'}
+            </SecondaryButton>
+          ) : (
+            <div></div>
+          )}
+          {steps?.[currentStep]?.nextButtonState === 'loading' ? (
+            <PrimaryButton onClick={() => onNextClick?.()} isLoading aria-disabled aria-label="Laster inn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </PrimaryButton>
+          ) : (
+            <PrimaryButton
+              aria-disabled={!isReachable(isForced, currentStep + 1, steps)}
+              onClick={() => {
+                onNextClick?.();
+                handleStepChange(
+                  isReachable(isForced, currentStep + 1, steps) ? currentStep + 1 : currentStep,
+                );
+              }}
+            >
+              {steps?.[currentStep]?.nextButtonText ?? 'Neste'}
+            </PrimaryButton>
+          )}
+        </StepperActions>
+      )}
     </StepperContent>
   );
 };
