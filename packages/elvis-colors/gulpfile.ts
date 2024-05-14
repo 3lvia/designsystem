@@ -128,6 +128,21 @@ const generateIllustrationDarkThemeVariables = async () => {
   return writeFile('./dist/elvisIllustrationVariables.css', fileContent);
 };
 
+// The generated file is used to create dark theme icons to download in the brand documentation
+const generateIconDarkThemeVariables = async () => {
+  let fileContent = `.e-theme-dark {\n`;
+
+  const darkVariables = getPurposeColorCssVariables(darkTheme);
+  Object.entries(darkVariables)
+    .filter(([name]) => name.includes('icon') || name.includes('brand-accent'))
+    .forEach(([name, color]) => {
+      fileContent += `\t${name}: ${color};\n`;
+    });
+  fileContent += `}\n`;
+
+  return writeFile('./dist/elvisIconVariables.css', fileContent);
+};
+
 task(
   'default',
   series(
@@ -136,5 +151,6 @@ task(
     generateElvisShadowMapScss,
     generateElvisColorsCss,
     generateIllustrationDarkThemeVariables,
+    generateIconDarkThemeVariables,
   ),
 );
