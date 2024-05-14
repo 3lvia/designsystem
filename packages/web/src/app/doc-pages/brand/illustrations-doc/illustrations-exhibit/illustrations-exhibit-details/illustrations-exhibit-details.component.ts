@@ -1,9 +1,9 @@
 import { Component, ElementRef, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
+import { createPngBlob, createSvgBlobFromElement } from '../../../imageDownloadUtils';
 import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 import { IllustrationsGeneratorComponent } from '../illustrations-generator/illustrations-generator.component';
-import { createPngBlob, createSvgBlobFromElement } from './imageDownloadUtils';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
@@ -45,10 +45,27 @@ export class IllustrationsExhibitDetailsComponent {
   }
 
   downloadImage = async (format: 'svg' | 'png') => {
+    const illustrationElement = this.getIllustrationElement();
+    const svgElement = illustrationElement.shadowRoot?.querySelector('svg');
+    if (!svgElement) {
+      throw new Error('No SVG element found');
+    }
+    const styleElement = illustrationElement.shadowRoot?.querySelector('style');
+
     const a = document.createElement('a');
     a.href = await (format === 'svg'
-      ? createSvgBlobFromElement(this.getIllustrationElement(), this.colorValue(), this.theme())
-      : createPngBlob(this.getIllustrationElement(), this.colorValue(), this.theme()));
+      ? createSvgBlobFromElement(svgElement, {
+          tokens: 'illustration',
+          colorValue: this.colorValue(),
+          theme: this.theme(),
+          styleElement: styleElement,
+        })
+      : createPngBlob(svgElement, {
+          tokens: 'illustration',
+          colorValue: this.colorValue(),
+          theme: this.theme(),
+          styleElement: styleElement,
+        }));
     a.download = this.imageFileName(format);
     a.click();
   };
