@@ -41,10 +41,10 @@ test('should be able to close by clicking the backdrop', async ({ mount, page })
     <Modal heading={<span>I am heading</span>} content={<p>Content</p>} hasCloseButton isShowing />,
   );
 
-  expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page.getByRole('dialog')).toBeVisible();
 
   const backdrop = page.getByTestId('modal-backdrop');
   await backdrop.click({ position: { x: 100, y: 100 } });
 
-  expect(page.getByRole('dialog')).not.toBeVisible();
+  await expect(page.getByRole('dialog')).not.toBeVisible();
 });
