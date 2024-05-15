@@ -81,6 +81,16 @@ describe('Elvis Modal', () => {
       const closeButton = screen.getByRole('button', { name: 'Lukk modal' });
       expect(closeButton).toBeInTheDocument();
     });
+
+    it('should be able to close by clicking the backdrop', async () => {
+      const user = userEvent.setup();
+
+      expect(screen.getByRole('dialog')).toBeInTheDocument();
+      const backdrop = screen.getByTestId('modal-backdrop');
+      await user.click(backdrop);
+
+      await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    });
   });
 
   describe('className and inlineStyle passed to wrapper', () => {
