@@ -50,22 +50,10 @@
   flex-wrap: wrap-reverse;
 }
 
-.e-gap-8 {
-  gap: 8px;
-}
-
-.e-gap-16 {
-  gap: 16px;
-}
-
-.e-gap-24 {
-  gap: 24px;
-}
-
-.e-gap-32 {
-  gap: 32px;
-}
-
-.e-gap-40 {
-  gap: 40px;
+$i: 0;
+@while $i <= 72 {
+  .e-gap-#{$i} {
+    gap: #{$i}px;
+  }
+  $i: $i + 8;
 }
