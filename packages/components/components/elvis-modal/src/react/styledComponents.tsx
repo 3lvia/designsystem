@@ -45,7 +45,6 @@ export const ModalWrapper = styled.div<WrapperProps>`
         `
       : css`
           height: auto;
-          width: max-content;
           max-width: ${maxWidth ?? '704px'};
         `}
 

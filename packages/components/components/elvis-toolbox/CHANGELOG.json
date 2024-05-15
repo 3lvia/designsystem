@@ -3,6 +3,18 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "15.05.24",
+      "version": "11.5.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fix issue where text within an overflow container in global overlays could become blurry."
+          ]
+        }
+      ]
+    },
+    {
       "date": "29.04.24",
       "version": "11.5.1",
       "changelog": [

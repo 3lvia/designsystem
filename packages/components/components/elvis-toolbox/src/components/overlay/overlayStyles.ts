@@ -50,9 +50,9 @@ export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: bool
     css`
       position: fixed;
       max-width: unset;
-      top: 50%;
-      left: 50%;
-      translate: -50% -50%;
+      display: grid;
+      place-content: center;
+      inset: 0;
     `}
 `;
 
