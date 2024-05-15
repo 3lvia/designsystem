@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "18.1.0",
+      "date": "May 15, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added more <code>e-gap-</code>-classes for larger spacings."],
+          "pages": [
+            { "displayName": "Utility classes", "url": "https://design.elvia.io/tools/utility-classes" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "18.0.0",
       "date": "May 14, 2024",
       "changelog": [

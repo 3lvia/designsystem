@@ -157,7 +157,7 @@ export const utilityGroups: UtilityGroup[] = [
       },
       {
         className: 'e-gap-number',
-        description: 'Decides the gap between flex elements, from 0-40 following 8px multiplication.',
+        description: 'Decides the gap between flex elements, from 0-72 following 8px multiplication.',
         styling: 'gap: {number}px',
       },
     ],
