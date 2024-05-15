@@ -53,6 +53,11 @@ export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: bool
       display: grid;
       place-content: center;
       inset: 0;
+      pointer-events: none; // Allow clicks to pass through, to the backdrop
+
+      & > * {
+        pointer-events: all;
+      }
     `}
 `;
 
