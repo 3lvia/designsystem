@@ -124,7 +124,7 @@ export const Modal: FC<ModalProps> = function ({
         onClose={dispatchOnClose}
         center
         disableClose={isShowing && disableClose} // Can still be closed programmatically, but not from backdrop click
-        backdrop={!disableBackdrop ? <ModalBackdrop /> : undefined}
+        backdrop={!disableBackdrop ? <ModalBackdrop data-testid="modal-backdrop" /> : undefined}
         startFade={fadeOut}
       >
         <ModalWrapper
