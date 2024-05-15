@@ -3,25 +3,7 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
-    <div class="example-wrapper">
-      <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
-      <elvia-modal
-        (onClose)="isModalShowing = !isModalShowing"
-        [isShowing]="isModalShowing"
-        [disableClose]="false"
-      >
-        <div slot="content">
-          <div class="e-form-field">
-            <label class="e-form-field__label e-form-field__label--optional" for="textarea"> Label </label>
-            <div class="e-input">
-              <textarea id="textarea" placeholder="Plassholdertekst">
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, necessitatibus, error non libero laboriosam quasi incidunt distinctio natus, aliquam officia voluptatibus repellendus? Eius rerum perferendis nemo vitae id ad minus non quam aliquid cum suscipit officia, eligendi delectus ratione? Laboriosam excepturi, commodi voluptatum itaque et qui nam omnis magni quas eaque aperiam amet, aliquid, non illo ut sed dolorem? Iure pariatur facere debitis vel ea delectus fugit rerum minima hic necessitatibus! Voluptatibus voluptas ad excepturi, minima quod similique corporis assumenda delectus, tenetur, velit sit magnam nihil a id. Esse, tenetur delectus est eos facilis quam aliquam vero sequi dolorem voluptatum.</textarea
-              >
-            </div>
-          </div>
-        </div>
-      </elvia-modal>
-    </div>
+    <div class="example-wrapper"></div>
 
     <!--Normal version-->
     <!--Inverted version-->
@@ -369,7 +351,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, necessitatibus,
     <div class="example-wrapper">
       <h3>Modal</h3>
       <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
-      <!-- <elvia-modal
+      <elvia-modal
         (onClose)="isModalShowing = !isModalShowing"
         [isShowing]="isModalShowing"
         [disableClose]="false"
@@ -402,7 +384,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, necessitatibus,
           }
           <button class="e-btn" (click)="modalContentToggle = !modalContentToggle">Toggle</button>
         </div>
-      </elvia-modal> -->
+      </elvia-modal>
       <h4>Illustration</h4>
 
       <h4>Multiple pages</h4>
