@@ -149,7 +149,9 @@
     background: var(--e-color-background-readonly-1);
 
     > :is(input, textarea),
-    > :is(input, textarea):is(:focus, :read-only, :read-only:focus) {
+    > :is(input, textarea):focus,
+    > :is(input, textarea):read-only,
+    > :is(input, textarea):read-only:focus {
       color: var(--e-color-text-2);
 
       &[type='number'] {
@@ -297,7 +299,9 @@
 
   &.e-input---readonly {
     > :is(input, textarea),
-    > :is(input, textarea):is(:focus, :read-only, :read-only:focus) {
+    > :is(input, textarea):focus,
+    > :is(input, textarea):read-only,
+    > :is(input, textarea):read-only:focus {
       color: var(--e-color-text-2);
     }
   }
