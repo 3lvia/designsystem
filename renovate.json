@@ -34,7 +34,7 @@
         "^sass",
         "^postcss",
         "^express",
-        "^tsc",
+        "^tsx",
         "^esbuild"
       ],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
