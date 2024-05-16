@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "18.1.1",
+      "date": "May 16, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fixed some CSS selectors for <code>e-input</code>."],
+          "pages": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "18.1.0",
       "date": "May 15, 2024",
       "changelog": [
