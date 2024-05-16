@@ -26,7 +26,17 @@
     },
     {
       "groupName": "common dependencies",
-      "matchDepPatterns": ["^contentful", "^vue-tsc", "^vite", "^vue", "^sass", "^postcss", "^express"],
+      "matchDepPatterns": [
+        "^contentful",
+        "^vue-tsc",
+        "^vite",
+        "^vue",
+        "^sass",
+        "^postcss",
+        "^express",
+        "^tsc",
+        "^esbuild"
+      ],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
