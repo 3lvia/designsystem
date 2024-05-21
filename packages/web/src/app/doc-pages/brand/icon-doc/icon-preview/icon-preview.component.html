@@ -35,5 +35,12 @@
 </div>
 
 @if (selectedIcon()) {
-  <app-icon-preview-details [(selectedIcon)]="selectedIcon" @entranceAnimation />
+  <app-icon-preview-details
+    [ngClass]="{ 'e-theme-dark': theme() === 'dark' }"
+    [(selectedIcon)]="selectedIcon"
+    [theme]="theme()"
+    [cdkTrapFocus]
+    [cdkTrapFocusAutoCapture]="true"
+    @entranceAnimation
+  />
 }

@@ -68,16 +68,6 @@
               "src/_redirects",
               {
                 "glob": "**/*",
-                "input": "../elvis-assets-icons/icons/svg/dist/",
-                "output": "./assets/elvis/icons/svg/dist/"
-              },
-              {
-                "glob": "**/*",
-                "input": "../elvis-assets-icons/icons/png/dist/",
-                "output": "./assets/elvis/icons/png/dist/"
-              },
-              {
-                "glob": "**/*",
                 "input": "contentful/dist/",
                 "output": "./assets/contentful/dist/"
               }

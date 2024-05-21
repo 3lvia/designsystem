@@ -1,9 +1,9 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, model } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Component, ElementRef, inject, input, model } from '@angular/core';
 
+import { createPngBlob, createSvgBlobFromElement } from '../../../imageDownloadUtils';
 import { Icon } from '../utils';
-import { LocalizationService } from 'src/app/core/services/localization.service';
+import { Theme } from 'src/app/core/services/theme.service';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
@@ -14,7 +14,39 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   styleUrl: './icon-preview-details.component.scss',
 })
 export class IconPreviewDetailsComponent {
-  selectedIcon = model.required<Icon | null>();
+  private elementRef = inject(ElementRef);
 
-  locale = toSignal(inject(LocalizationService).listenLocalization());
+  selectedIcon = model.required<Icon | null>();
+  theme = input.required<Theme>();
+
+  downloadImage = async (format: 'svg' | 'png') => {
+    const svgElement = this.getIconElement();
+    if (!svgElement) {
+      throw new Error('No SVG element found');
+    }
+
+    const a = document.createElement('a');
+    a.href = await (format === 'svg'
+      ? createSvgBlobFromElement(svgElement, {
+          tokens: 'icon',
+          theme: this.theme(),
+        })
+      : createPngBlob(svgElement, {
+          tokens: 'icon',
+          theme: this.theme(),
+        }));
+    a.download = this.imageFileName(format);
+    a.click();
+  };
+
+  private getIconElement() {
+    const icon = this.elementRef.nativeElement.querySelector(
+      `.e-icon.e-icon--${this.selectedIcon()?.title}`,
+    ) as HTMLElement;
+    return icon?.querySelector('svg');
+  }
+
+  private imageFileName(format: 'svg' | 'png') {
+    return `${this.selectedIcon()?.title}_${this.theme()}.${format}`;
+  }
 }
