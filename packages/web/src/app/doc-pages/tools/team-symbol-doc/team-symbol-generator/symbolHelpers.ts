@@ -12,7 +12,6 @@ export const generateRandomColors = () => {
 
     const { r, g, b } = hslToRgb(hue, saturation, lightness);
 
-    //const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
     const color = `rgb(${r}, ${g}, ${b})`;
     colors.push(color);
   }
