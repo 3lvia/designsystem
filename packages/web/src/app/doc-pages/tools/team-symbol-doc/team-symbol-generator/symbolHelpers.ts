@@ -7,13 +7,60 @@ export const generateRandomColors = () => {
   const colors: string[] = [];
   for (let i = 0; i < 5; i++) {
     const hue = Math.floor(Math.random() * 360);
-    const saturation = Math.floor(Math.random() * 21) + 70; // Saturation between 70 and 90
-    const lightness = Math.floor(Math.random() * 18) + 72; // Lightness between 70 and 80
+    const saturation = Math.floor(Math.random() * 21) + 70; // Saturation between 70 and 91
+    const lightness = Math.floor(Math.random() * 18) + 72; // Lightness between 72 and 90
 
-    const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    const { r, g, b } = hslToRgb(hue, saturation, lightness);
+
+    const color = `rgb(${r}, ${g}, ${b})`;
     colors.push(color);
   }
   return colors;
+};
+
+const hslToRgb = (h: number, s: number, l: number) => {
+  const sNorm = s / 100;
+  const lNorm = l / 100;
+
+  const c = (1 - Math.abs(2 * lNorm - 1)) * sNorm;
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+  const m = lNorm - c / 2;
+
+  let rNorm = 0,
+    gNorm = 0,
+    bNorm = 0;
+
+  if (0 <= h && h < 60) {
+    rNorm = c;
+    gNorm = x;
+    bNorm = 0;
+  } else if (60 <= h && h < 120) {
+    rNorm = x;
+    gNorm = c;
+    bNorm = 0;
+  } else if (120 <= h && h < 180) {
+    rNorm = 0;
+    gNorm = c;
+    bNorm = x;
+  } else if (180 <= h && h < 240) {
+    rNorm = 0;
+    gNorm = x;
+    bNorm = c;
+  } else if (240 <= h && h < 300) {
+    rNorm = x;
+    gNorm = 0;
+    bNorm = c;
+  } else if (300 <= h && h < 360) {
+    rNorm = c;
+    gNorm = 0;
+    bNorm = x;
+  }
+
+  const r = Math.round((rNorm + m) * 255);
+  const g = Math.round((gNorm + m) * 255);
+  const b = Math.round((bNorm + m) * 255);
+
+  return { r, g, b };
 };
 
 export const getTextElementWidth = (textElementString: string): number => {
