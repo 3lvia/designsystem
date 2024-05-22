@@ -7,8 +7,8 @@ export const generateRandomColors = () => {
   const colors: string[] = [];
   for (let i = 0; i < 5; i++) {
     const hue = Math.floor(Math.random() * 360);
-    const saturation = Math.floor(Math.random() * 21) + 70; // Saturation between 70 and 90
-    const lightness = Math.floor(Math.random() * 18) + 72; // Lightness between 70 and 80
+    const saturation = Math.floor(Math.random() * 21) + 70; // Saturation between 70 and 91
+    const lightness = Math.floor(Math.random() * 18) + 72; // Lightness between 72 and 90
 
     const { r, g, b } = hslToRgb(hue, saturation, lightness);
 
