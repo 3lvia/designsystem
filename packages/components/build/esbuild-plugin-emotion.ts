@@ -3,14 +3,12 @@ import { type ParserPlugin } from '@babel/parser';
 import emotion from '@emotion/babel-plugin';
 import { type Plugin } from 'esbuild';
 
-interface Options {}
-
 // Based on the source code from esbuild-plugin-styled-components
-const esbuildPluginEmotion = ({}: Options): Plugin => ({
+const esbuildPluginEmotion = (): Plugin => ({
   name: 'emotion',
   setup: ({ onLoad, initialOptions }) => {
     const root = process.cwd();
-    onLoad({ filter: new RegExp('\\.[tj]sx?$') }, async (args) => {
+    onLoad({ filter: /\.[tj]sx?$/ }, async (args) => {
       // Determine plugins to use
       const plugins = [
         'importMeta',
