@@ -53,6 +53,7 @@ export const StepperHorizontal: FC<StepperTypeProps> = function ({
                   onClick={() =>
                     handleStepChange(isReachable(isForced, stepNumber, steps) ? stepNumber : currentStep)
                   }
+                  type="button"
                 >
                   {stepNumber}
                 </StepNumber>

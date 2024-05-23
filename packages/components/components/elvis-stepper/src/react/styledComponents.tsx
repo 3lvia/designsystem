@@ -1,6 +1,7 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { TypographyName, getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { StepperType } from './elvia-stepper.types';
 
@@ -144,7 +145,7 @@ const getStepNumberBorderColor = ({ isActive, isError, isDisabled }: StepNumberP
   }
 };
 
-export const StepNumber = styled.button.attrs({ type: 'button' })<StepNumberProps>`
+export const StepNumber = styled.button<StepNumberProps>`
   ${getTypographyCss('title-xs')}
   display: grid;
   width: 32px;

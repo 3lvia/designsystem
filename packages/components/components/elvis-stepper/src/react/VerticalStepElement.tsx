@@ -30,6 +30,7 @@ export const VerticalStepElement: FC<VerticalStepElementProps> = function ({
         isCompleted={steps?.[stepNumber]?.isCompleted}
         isDisabled={!isReachable(isForced, stepNumber, steps)}
         onClick={() => handleStepChange(isReachable(isForced, stepNumber, steps) ? stepNumber : currentStep)}
+        type="button"
       >
         {stepNumber}
       </StepNumber>

@@ -66,7 +66,7 @@ export const build = async () => {
     write: false,
     plugins: [
       dtsPlugin({ watchMode: watchMode }),
-      emotionPlugin({}),
+      emotionPlugin(),
       styledComponentsPlugin({ ssr: true, displayName: true }),
       sassPlugin({ transform: postcssModules({}) }),
       writeFilesAndInjectCssPlugin,
