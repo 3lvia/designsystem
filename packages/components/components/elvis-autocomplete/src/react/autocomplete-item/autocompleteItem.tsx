@@ -1,4 +1,4 @@
-import { FormFieldSizes, useIsOverflowing } from '@elvia/elvis-toolbox';
+import { type FormFieldSizes, useIsOverflowing } from '@elvia/elvis-toolbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import React, { useRef } from 'react';
 
