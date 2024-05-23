@@ -44,7 +44,6 @@
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.77.2",
     "sass-embedded": "^1.77.2",
-    "styled-components": "^5.3.3",
     "tiny-glob": "^0.2.9",
     "tsx": "^4.10.5",
     "typescript": "~5.4.5",

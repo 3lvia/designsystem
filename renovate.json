@@ -53,6 +53,6 @@
       "automerge": true
     }
   ],
-  "ignoreDeps": ["styled-components"],
+  "ignoreDeps": [],
   "ignorePaths": ["**/node_modules/**", "packages/components/components/**", "packages/elvis*"]
 }
