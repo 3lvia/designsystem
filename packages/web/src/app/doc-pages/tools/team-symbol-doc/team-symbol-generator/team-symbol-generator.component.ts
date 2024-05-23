@@ -5,7 +5,12 @@ import { ThemeName } from '@elvia/elvis-colors';
 import { StepStates } from '@elvia/elvis-stepper';
 
 import { SafeHtmlPipe } from './safeHtml.pipe';
-import { createTeamSymbol, generateAndSaveZip, generateRandomColors } from './symbolHelpers';
+import {
+  createTeamSymbol,
+  generateAndSaveZip,
+  generateRandomColors,
+  removeXmlElement,
+} from './symbolHelpers';
 import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/local-theme-switch.component';
 
 @Component({
@@ -69,7 +74,7 @@ export class TeamSymbolGeneratorComponent {
       }
       const reader: FileReader = new FileReader();
       reader.onload = (e: any) => {
-        this.svgContent = e.target.result;
+        this.svgContent = removeXmlElement(e.target.result);
         this.updateBackgroundCircle();
       };
       reader.readAsText(file);

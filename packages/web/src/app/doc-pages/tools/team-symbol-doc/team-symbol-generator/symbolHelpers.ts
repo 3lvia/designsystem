@@ -194,3 +194,7 @@ const textToPath = async (
   path.fill = `var(--e-color-text-1, ${fallbackFontColor})`;
   return path.toSVG(2);
 };
+
+export const removeXmlElement = (svgContent: string) => {
+  return svgContent.replace(/<\?xml.*?\?>/g, '');
+};
