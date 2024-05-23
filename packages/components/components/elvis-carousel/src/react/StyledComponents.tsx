@@ -1,10 +1,7 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css, keyframes } from 'styled-components';
-
-const typography = {
-  textMd: getTypographyCss('text-md'),
-};
+import { css, keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const mobileMax = '767px';
 
@@ -73,14 +70,14 @@ export const CarouselElementContainer = styled.div<CarouselElementContainerProps
     }
   }
 
-  ${(props) => css`
-    ${props.exitAnimation &&
+  ${({ exitAnimation, slideDirection, enterAnimation }) => css`
+    ${exitAnimation &&
     css`
-      animation: ${props.slideDirection === 'left' ? exitLeft : exitRight} 500ms ease-in;
+      animation: ${slideDirection === 'left' ? exitLeft : exitRight} 500ms ease-in;
     `}
-    ${props.enterAnimation &&
+    ${enterAnimation &&
     css`
-      animation: ${fadeInOpacity} 0.5s ease-in;
+      animation: ${fadeInOpacity} 500ms ease-in;
     `}
   `}
 `;
@@ -90,11 +87,11 @@ export const CarouselElement = styled.div`
   align-items: center;
   flex-direction: column;
 
-  ${typography.textMd}
+  ${getTypographyCss('text-md')}
   padding-bottom: '10px';
   * {
     margin: 0;
-    ${typography.textMd}
+    ${getTypographyCss('text-md')}
   }
 `;
 
