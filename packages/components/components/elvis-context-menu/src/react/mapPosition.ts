@@ -1,4 +1,4 @@
-import { OverlayHorizontalPosition } from '@elvia/elvis-toolbox';
+import { type OverlayHorizontalPosition } from '@elvia/elvis-toolbox';
 
 import { HorizontalPosition } from './elviaContextMenu.types';
 
