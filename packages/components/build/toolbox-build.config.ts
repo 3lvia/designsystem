@@ -1,5 +1,4 @@
 import esbuild from 'esbuild';
-import styledComponentsPlugin from 'esbuild-plugin-styled-components';
 import tinyGlob from 'tiny-glob';
 
 import dtsPlugin from './dts.plugin';
@@ -17,11 +16,7 @@ const buildToolbox = async (config: {
     entryPoints: paths,
     outdir: config.outDir,
     format: 'esm',
-    plugins: [
-      dtsPlugin({ watchMode: config.watch, silent: true }),
-      emotionPlugin(),
-      styledComponentsPlugin({ ssr: true, displayName: true }),
-    ],
+    plugins: [dtsPlugin({ watchMode: config.watch, silent: true }), emotionPlugin()],
   };
 
   if (config.watch) {
