@@ -3,6 +3,19 @@
   "$schema": "../../changelogSchema.json",
   "content": [
     {
+      "date": "23.05.24",
+      "version": "1.3.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "14.05.24",
       "version": "1.3.4",
       "changelog": [
