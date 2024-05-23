@@ -23,7 +23,7 @@
     "@elvia/elvis-typography": "^2.7.1",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "dompurify": "^3.0.3"
+    "dompurify": "^3.1.4"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",

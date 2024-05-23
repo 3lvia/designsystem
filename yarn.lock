@@ -2532,7 +2532,7 @@ __metadata:
     "@elvia/elvis-typography": "npm:^2.7.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
-    dompurify: "npm:^3.0.3"
+    dompurify: "npm:^3.1.4"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2743,7 +2743,7 @@ __metadata:
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
     "@types/dompurify": "npm:^3.0.0"
-    dompurify: "npm:^3.0.1"
+    dompurify: "npm:^3.1.4"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2769,7 +2769,7 @@ __metadata:
     "@elvia/elvis-typography": "npm:^2.7.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
-    dompurify: "npm:^3.0.3"
+    dompurify: "npm:^3.1.4"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2918,7 +2918,7 @@ __metadata:
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
     "@types/dompurify": "npm:^3.0.2"
-    dompurify: "npm:^3.0.3"
+    dompurify: "npm:^3.1.4"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -9084,10 +9084,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^3.0.1, dompurify@npm:^3.0.3":
-  version: 3.0.6
-  resolution: "dompurify@npm:3.0.6"
-  checksum: 10/bf6e8a240673f60f5aafa46b598cfb66a18ab68f2801840005bc784b3fd3598a6bfac1eca1f80a98b197054d2329cd6edbc857aca34364abdee389a8fe6c027a
+"dompurify@npm:^3.1.4":
+  version: 3.1.4
+  resolution: "dompurify@npm:3.1.4"
+  checksum: 10/be036d5c10bda3ca9cc8069f26f3e586ac0379fc2a2499df7c362eeee53de49594ead3cc7e82e012eadcb071cf7327001fca33751682882e42da87618b10a4e6
   languageName: node
   linkType: hard
 
