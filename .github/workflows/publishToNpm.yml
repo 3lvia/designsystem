@@ -8,6 +8,9 @@ on:
       - 'packages/elvis/package.json'
       - 'packages/elvis-*/package.json'
       - 'packages/components/components/*/package.json'
+concurrency:
+  group: 'publishToNpm'
+  cancel-in-progress: true
 jobs:
   publishToNpm:
     runs-on: ubuntu-latest
