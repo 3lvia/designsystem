@@ -4,6 +4,16 @@
   "content": [
     {
       "date": "23.05.24",
+      "version": "2.5.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "23.05.24",
       "version": "2.5.3",
       "changelog": [
         {
