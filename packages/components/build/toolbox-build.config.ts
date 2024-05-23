@@ -3,6 +3,7 @@ import styledComponentsPlugin from 'esbuild-plugin-styled-components';
 import tinyGlob from 'tiny-glob';
 
 import dtsPlugin from './dts.plugin';
+import emotionPlugin from './esbuild-plugin-emotion';
 import { toInOutTuple } from './utils';
 
 const buildToolbox = async (config: {
@@ -18,6 +19,7 @@ const buildToolbox = async (config: {
     format: 'esm',
     plugins: [
       dtsPlugin({ watchMode: config.watch, silent: true }),
+      emotionPlugin(),
       styledComponentsPlugin({ ssr: true, displayName: true }),
     ],
   };
