@@ -8,6 +8,7 @@ import tinyGlob from 'tiny-glob';
 
 import cleanDistFolders from './cleanDist';
 import dtsPlugin from './dts.plugin';
+import emotionPlugin from './esbuild-plugin-emotion';
 import buildToolbox from './toolbox-build.config';
 import { toInOutTuple } from './utils';
 import buildWebComponents from './web-component-build.config';
@@ -65,6 +66,7 @@ export const build = async () => {
     write: false,
     plugins: [
       dtsPlugin({ watchMode: watchMode }),
+      emotionPlugin({}),
       styledComponentsPlugin({ ssr: true, displayName: true }),
       sassPlugin({ transform: postcssModules({}) }),
       writeFilesAndInjectCssPlugin,
