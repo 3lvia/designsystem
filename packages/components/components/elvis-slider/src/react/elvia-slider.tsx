@@ -385,9 +385,10 @@ export const Slider: React.FC<SliderProps> = function ({
         <SliderTrack isDisabled={isDisabled} />
         <SliderFilledTrack
           isDisabled={isDisabled}
-          rangeTrackWidth={getFilledMiddleTrackWidth()}
-          trackWidth={leftThumbPosition}
-          $type={type}
+          style={{
+            left: type === 'range' ? `${leftThumbPosition}px` : undefined,
+            width: type === 'simple' ? `${leftThumbPosition}px` : `${getFilledMiddleTrackWidth()}px`,
+          }}
         />
       </SliderWrapper>
 

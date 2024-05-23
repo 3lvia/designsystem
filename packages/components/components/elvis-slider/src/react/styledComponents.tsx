@@ -4,16 +4,14 @@ import {
   FormFieldLabel as FormFieldLabelBase,
   FormFieldSizes,
 } from '@elvia/elvis-toolbox';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { BothSliders, Side, SliderType } from './elvia-slider.types';
 import { Hint } from './hint/styledHint';
 
 type SliderFilledTrackProps = {
   isDisabled: boolean;
-  rangeTrackWidth?: number;
-  trackWidth: number;
-  $type: SliderType;
 };
 
 type InputFieldsContainerProps = {
@@ -319,14 +317,7 @@ export const SliderTrack = styled.div<SliderTrackProps>`
 `;
 
 //`left` and `width` are as inline styles to avoid creating new classnames on every change
-export const SliderFilledTrack = styled.div.attrs<SliderFilledTrackProps>(
-  ({ $type, trackWidth, rangeTrackWidth }) => ({
-    style: {
-      left: $type === 'range' ? `${trackWidth}px` : undefined,
-      width: $type === 'simple' ? `${trackWidth}px` : `${rangeTrackWidth}px`,
-    },
-  }),
-)<SliderFilledTrackProps>`
+export const SliderFilledTrack = styled.div<SliderFilledTrackProps>`
   background-color: ${getThemeColor('color-text-1')};
   border-radius: 50px;
   height: 5px;
