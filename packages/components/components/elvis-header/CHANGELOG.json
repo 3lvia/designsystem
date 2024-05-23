@@ -3,6 +3,19 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "23.05.24",
+      "version": "1.9.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "18.04.24",
       "version": "1.9.1",
       "changelog": [

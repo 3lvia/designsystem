@@ -1,7 +1,8 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { device } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const borderOffset = '8px';
 
