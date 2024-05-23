@@ -1,7 +1,7 @@
 import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { ButtonProps, Size } from './button';
 
@@ -69,12 +69,13 @@ const IconButtonStyles = styled.button<Partial<ButtonProps>>`
     }
   }
 `;
-
-export const IconButton = ({
-  children,
-  ...props
-}: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => (
-  <IconButtonStyles type="button" {...props}>
+export const IconButton = forwardRef<
+  HTMLButtonElement,
+  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ children, ...props }, ref) => (
+  <IconButtonStyles ref={ref} type="button" {...props}>
     {children}
   </IconButtonStyles>
-);
+));
+
+IconButton.displayName = 'IconButton';
