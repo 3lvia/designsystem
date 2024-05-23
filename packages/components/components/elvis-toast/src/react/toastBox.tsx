@@ -35,7 +35,7 @@ export const ToastBox: React.FC<Props> = ({ toast, indexInQueue, onClose, classN
   );
 
   const onAnimationEnd = (ev: AnimationEvent<HTMLOutputElement>): void => {
-    if (ev.animationName === fadeOutKeyframes.getName()) {
+    if (ev.animationName === fadeOutKeyframes.name) {
       onClose();
     }
   };
