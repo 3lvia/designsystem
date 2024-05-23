@@ -1,7 +1,7 @@
 <elvia-segmented-control
   type="text"
   size="large"
-  [value]="activeTabIndex"
+  [value]="activeTabIndex()"
   [items]="tabs | tabToSegmentedControlItem"
   (valueOnChange)="setActiveTab($any($event).detail.value)"
 />
