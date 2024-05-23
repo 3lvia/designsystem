@@ -1,6 +1,6 @@
 import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { listButtonHeight } from './buttonHeight';
 
