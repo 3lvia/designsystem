@@ -77,7 +77,7 @@ export const CarouselElementContainer = styled.div<CarouselElementContainerProps
     `}
     ${enterAnimation &&
     css`
-      animation: ${fadeInOpacity} 0.5s ease-in;
+      animation: ${fadeInOpacity} 500ms ease-in;
     `}
   `}
 `;
