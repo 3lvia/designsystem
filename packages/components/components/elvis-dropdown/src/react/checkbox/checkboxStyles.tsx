@@ -1,5 +1,6 @@
 import { getThemeColor } from '@elvia/elvis-colors';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { CheckboxProps, IndeterminateLineProps } from './checkbox';
 

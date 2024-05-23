@@ -1,5 +1,6 @@
 import { FormFieldContainer, FormFieldInputContainer, FormFieldSizes } from '@elvia/elvis-toolbox';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export const DropdownContainer = styled(FormFieldContainer)`
   width: 100%;

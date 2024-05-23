@@ -1,7 +1,8 @@
 import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { FormFieldSizes, IconButton, TertiaryButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { DropdownItemStyles } from '../dropdown-item/dropdownItemStyles';
 
@@ -34,7 +35,7 @@ export const DropdownPopupContainer = styled.div<{ size: FormFieldSizes }>`
     `};
 `;
 
-export const DropdownPopup = styled.div.attrs({ role: 'listbox' })<{ isInvisible: boolean }>`
+export const DropdownPopup = styled.div<{ isInvisible: boolean }>`
   background-color: ${getThemeColor('background-overlay-1')};
   box-shadow: ${getShadow('hard')};
   position: relative;
@@ -98,17 +99,19 @@ export const LoadMoreButtonStyles = styled.div<{ isLoading?: boolean }>`
     `};
 `;
 
+const StyledIconButton = styled(IconButton)``;
+
 export const BackButtonStyles = styled(DropdownItemStyles)`
   ${getTypographyCss('text-md-strong')}
   gap: 8px;
 
-  ${IconButton} {
+  ${StyledIconButton} {
     pointer-events: none;
     cursor: inherit;
   }
 
   &:hover {
-    ${IconButton} {
+    ${StyledIconButton} {
       background-color: ${getThemeColor('background-hover-1')};
     }
   }
