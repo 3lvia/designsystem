@@ -1,14 +1,14 @@
 <ul class="color-list">
   @for (color of getColorsFromCategory(); track color.name; let i = $index) {
     <div class="color-container" [style.z-index]="i">
-      @for (opacityColor of getOpacityColors(color); track opacityColor.name; let j = $index) {
+      @for (opacityColor of getOpacityColors(color.name); track opacityColor.name; let j = $index) {
         <li
           class="color-circle opacity-color"
           [ngClass]="{
             border: opacityColor.name | needsBorder: theme(),
-            chosen: isChosen(opacityColor)
+            chosen: isChosen(opacityColor.name)
           }"
-          [style.bottom]="(getOpacityColors(color).length - j) * 8 + 'px'"
+          [style.bottom]="(getOpacityColors(color.name).length - j) * 8 + 'px'"
           [style.background-color]="opacityColor.hex"
         ></li>
       }
@@ -16,13 +16,13 @@
         class="color-circle"
         [ngClass]="{
           border: color.name | needsBorder: theme(),
-          chosen: isChosen(color)
+          chosen: isChosen(color.name)
         }"
         [style.background-color]="color.hex"
-        (click)="chooseNewColor(color)"
+        (click)="chooseNewColor(color.name)"
       >
         <input type="radio" />
-        @if (isChosen(color)) {
+        @if (isChosen(color.name)) {
           <div class="checkmark left" [style.background-color]="getContrast(color)"></div>
           <div class="checkmark right" [style.background-color]="getContrast(color)"></div>
         }

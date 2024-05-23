@@ -1,10 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component, Input, computed, inject } from '@angular/core';
+import { DarkThemeColorName, LightThemeColorName } from '@elvia/elvis-colors';
 
 import { ColorPickerService } from '../color-picker.service';
 import { darkColors } from '../colors-dark';
 import { lightColors } from '../colors-light';
-import { ColorElement } from '../colors-types';
+import { ColorElement, ColorName } from '../colors-types';
 import { getBaseColorName, getHighestContrast, getOpacityColors } from '../colors-util';
 import { NeedsBorderPipe } from '../needs-border.pipe';
 
@@ -24,8 +25,8 @@ export class ColorPickerColorListComponent {
   colorList = computed(() => (this.theme() === 'dark' ? darkColors : lightColors));
   currentColor = this.colorPickerService.currentColor;
 
-  chooseNewColor(color: ColorElement) {
-    this.colorPickerService.setCurrentColor(color.name);
+  chooseNewColor(colorName: ColorName) {
+    this.colorPickerService.setCurrentColor(colorName);
   }
 
   getColorsFromCategory = () => {
@@ -35,12 +36,12 @@ export class ColorPickerColorListComponent {
     return this.colorList()?.[this.category];
   };
 
-  isChosen = (color: ColorElement) => {
-    return getBaseColorName(this.currentColor()?.name) === color.name;
+  isChosen = (colorName: ColorName) => {
+    return getBaseColorName(this.currentColor()?.name) === colorName;
   };
 
-  getOpacityColors(color: ColorElement) {
-    return getOpacityColors(color.name, this.colorList()).slice(1).reverse();
+  getOpacityColors(colorName: ColorName) {
+    return getOpacityColors(colorName, this.colorList()).slice(1).reverse();
   }
 
   getOpacityColor(i: number) {

@@ -49,10 +49,7 @@
       <p class="e-title-caps">rgb</p>
       <p class="e-text-sm e-capitalize rgb">
         @for (rgbValue of currentColor()?.rgb; track rgbValue; let isLast = $last) {
-          {{ rgbValue }}
-          @if (!isLast) {
-            <ng-container>/</ng-container>
-          }
+          {{ rgbValue + (isLast ? '' : ' /') }}
         }
       </p>
 
