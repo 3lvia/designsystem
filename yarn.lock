@@ -2452,12 +2452,13 @@ __metadata:
   resolution: "@elvia/elvis-chip@workspace:packages/components/components/elvis-chip"
   dependencies:
     "@elvia/elvis-assets-icons": "npm:^3.10.0"
-    "@elvia/elvis-colors": "npm:^4.2.0"
-    "@elvia/elvis-component-wrapper": "npm:^4.1.3"
-    "@elvia/elvis-toolbox": "npm:^11.0.0"
-    "@elvia/elvis-typography": "npm:^2.7.0"
-    "@react-aria/interactions": "npm:^3.8.4"
-    styled-components: "npm:^5.3.3"
+    "@elvia/elvis-colors": "npm:^4.4.1"
+    "@elvia/elvis-component-wrapper": "npm:^4.2.0"
+    "@elvia/elvis-toolbox": "npm:^11.5.2"
+    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@emotion/react": "npm:^11.11.4"
+    "@emotion/styled": "npm:^11.11.5"
+    "@react-aria/interactions": "npm:^3.21.3"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2472,7 +2473,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-colors@npm:^4.1.0, @elvia/elvis-colors@npm:^4.2.0, @elvia/elvis-colors@npm:^4.4.1, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
+"@elvia/elvis-colors@npm:^4.1.0, @elvia/elvis-colors@npm:^4.4.1, @elvia/elvis-colors@workspace:*, @elvia/elvis-colors@workspace:packages/elvis-colors":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
@@ -5220,63 +5221,63 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-aria/interactions@npm:^3.8.4":
-  version: 3.19.0
-  resolution: "@react-aria/interactions@npm:3.19.0"
+"@react-aria/interactions@npm:^3.21.3":
+  version: 3.21.3
+  resolution: "@react-aria/interactions@npm:3.21.3"
   dependencies:
-    "@react-aria/ssr": "npm:^3.8.0"
-    "@react-aria/utils": "npm:^3.21.0"
-    "@react-types/shared": "npm:^3.21.0"
+    "@react-aria/ssr": "npm:^3.9.4"
+    "@react-aria/utils": "npm:^3.24.1"
+    "@react-types/shared": "npm:^3.23.1"
     "@swc/helpers": "npm:^0.5.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/f3e50e0e8f1955e4cf9e59e874c65b2b532506cacebc72e1ea68132ad5e1868c783a142f0bd7d8346f6e0712006bd9e9e9ac0bbc26fab0940a1179d3ea17d848
+  checksum: 10/84fe368a40631f02fb9b9fcc103820a7659132b74a029a3bac3939f4a8bee05c9fe1f023f2d170760adaf3cc110793c6b8db396f016bab740922ffc823f99833
   languageName: node
   linkType: hard
 
-"@react-aria/ssr@npm:^3.8.0":
-  version: 3.8.0
-  resolution: "@react-aria/ssr@npm:3.8.0"
-  dependencies:
-    "@swc/helpers": "npm:^0.5.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/24ff91541b7b7b1210f57654b9c3467e054ceb818dd1fedd0c1b1d22ce1d60caf5e22ce68079cb9d500549fe3ec8ee0c326bae4b1ad1ede15c0fa095699632e3
-  languageName: node
-  linkType: hard
-
-"@react-aria/utils@npm:^3.21.0":
-  version: 3.21.0
-  resolution: "@react-aria/utils@npm:3.21.0"
-  dependencies:
-    "@react-aria/ssr": "npm:^3.8.0"
-    "@react-stately/utils": "npm:^3.8.0"
-    "@react-types/shared": "npm:^3.21.0"
-    "@swc/helpers": "npm:^0.5.0"
-    clsx: "npm:^1.1.1"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/68b117b5ec3369c2c746b064e7d821f57715b752eb9256996bfc63e0f07ff489ca29a3b6ebb733cf2571e0bd56b828affa60a9b6da27d5c3486418d533825622
-  languageName: node
-  linkType: hard
-
-"@react-stately/utils@npm:^3.8.0":
-  version: 3.8.0
-  resolution: "@react-stately/utils@npm:3.8.0"
+"@react-aria/ssr@npm:^3.9.4":
+  version: 3.9.4
+  resolution: "@react-aria/ssr@npm:3.9.4"
   dependencies:
     "@swc/helpers": "npm:^0.5.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/11aa7427b893d4ae36ec8d1733df6f24cd9d8acafcb98316c12a4832f351d327d8175732690ff3cc5ee2f74e30f63af72b6440e11b08c1b7c72bf48d0781686d
+  checksum: 10/c55e5e0bf86bc39c7c0c9f86f4166e923cf62304903b7b5e700619bff64edc4fbeec5a66741aa39635445ff0b26d80ee03d6471c5df02ec764b9a71938dd17de
   languageName: node
   linkType: hard
 
-"@react-types/shared@npm:^3.21.0":
-  version: 3.21.0
-  resolution: "@react-types/shared@npm:3.21.0"
+"@react-aria/utils@npm:^3.24.1":
+  version: 3.24.1
+  resolution: "@react-aria/utils@npm:3.24.1"
+  dependencies:
+    "@react-aria/ssr": "npm:^3.9.4"
+    "@react-stately/utils": "npm:^3.10.1"
+    "@react-types/shared": "npm:^3.23.1"
+    "@swc/helpers": "npm:^0.5.0"
+    clsx: "npm:^2.0.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-  checksum: 10/e74330bb17e6315869cbb61654d197705b18d62d26c0857f4a65893b24ba84b8b858397debca59aa22528260da3751de3a89ff150fc5e0648a623a32d72260c5
+  checksum: 10/7acf52f3cdf66aaa0c55bde86959a3772bc266682389bf19865739ca8b77a652db8d9f970dc37600c69b8a7cce78b821913f3d7f066bdcb1224599e3fe35afce
+  languageName: node
+  linkType: hard
+
+"@react-stately/utils@npm:^3.10.1":
+  version: 3.10.1
+  resolution: "@react-stately/utils@npm:3.10.1"
+  dependencies:
+    "@swc/helpers": "npm:^0.5.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: 10/b3fc1367eb26afa1d7a4e3d5cf5cf215be4a4698296db25d34a9096a9eb79cff5c3770da48989970e6b6734199bfb9a10c31cd62a39b20980b2ede78061f8ee9
+  languageName: node
+  linkType: hard
+
+"@react-types/shared@npm:^3.23.1":
+  version: 3.23.1
+  resolution: "@react-types/shared@npm:3.23.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: 10/1ea30702a408554e45b827e66ebf2a9674aec7d7d04a4f3723f2fe1c677be36701d5f08d4914d6018c4bcb6f2fe07d8c3a5840dfe3299ee69092b78c723c9c03
   languageName: node
   linkType: hard
 
@@ -8271,10 +8272,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:^1.1.1":
-  version: 1.2.1
-  resolution: "clsx@npm:1.2.1"
-  checksum: 10/5ded6f61f15f1fa0350e691ccec43a28b12fb8e64c8e94715f2a937bc3722d4c3ed41d6e945c971fc4dcc2a7213a43323beaf2e1c28654af63ba70c9968a8643
+"clsx@npm:^2.0.0":
+  version: 2.1.1
+  resolution: "clsx@npm:2.1.1"
+  checksum: 10/cdfb57fa6c7649bbff98d9028c2f0de2f91c86f551179541cf784b1cfdc1562dcb951955f46d54d930a3879931a980e32a46b598acaea274728dbe068deca919
   languageName: node
   linkType: hard
 
