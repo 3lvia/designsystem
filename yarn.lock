@@ -2360,7 +2360,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-component-wrapper@npm:^4.1.2, @elvia/elvis-component-wrapper@npm:^4.1.3, @elvia/elvis-component-wrapper@npm:^4.2.0, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
+"@elvia/elvis-component-wrapper@npm:^4.1.3, @elvia/elvis-component-wrapper@npm:^4.2.0, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
   dependencies:
@@ -2452,10 +2452,11 @@ __metadata:
   dependencies:
     "@elvia/elvis-assets-icons": "npm:^3.10.0"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-datepicker": "npm:^9.0.6"
-    "@elvia/elvis-timepicker": "npm:^5.1.1"
-    "@elvia/elvis-toolbox": "npm:^11.2.0"
-    styled-components: "npm:^5.3.3"
+    "@elvia/elvis-datepicker": "npm:^9.0.8"
+    "@elvia/elvis-timepicker": "npm:^5.1.2"
+    "@elvia/elvis-toolbox": "npm:^12.0.0"
+    "@emotion/react": "npm:^11.11.4"
+    "@emotion/styled": "npm:^11.11.5"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2470,7 +2471,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-datepicker@npm:*, @elvia/elvis-datepicker@npm:^9.0.6, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
+"@elvia/elvis-datepicker@npm:*, @elvia/elvis-datepicker@npm:^9.0.8, @elvia/elvis-datepicker@workspace:*, @elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker@workspace:packages/components/components/elvis-datepicker"
   dependencies:
@@ -2868,16 +2869,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-timepicker@npm:*, @elvia/elvis-timepicker@npm:^5.1.1, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
+"@elvia/elvis-timepicker@npm:*, @elvia/elvis-timepicker@npm:^5.1.2, @elvia/elvis-timepicker@workspace:*, @elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-timepicker@workspace:packages/components/components/elvis-timepicker"
   dependencies:
     "@elvia/elvis-assets-icons": "npm:^3.10.0"
     "@elvia/elvis-colors": "npm:^4.1.0"
-    "@elvia/elvis-component-wrapper": "npm:^4.1.2"
-    "@elvia/elvis-toolbox": "npm:^11.0.1"
-    "@elvia/elvis-typography": "npm:^2.3.2"
-    styled-components: "npm:^5.3.3"
+    "@elvia/elvis-component-wrapper": "npm:^4.2.0"
+    "@elvia/elvis-toolbox": "npm:^12.0.0"
+    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@emotion/react": "npm:^11.11.4"
+    "@emotion/styled": "npm:^11.11.5"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2943,7 +2945,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@npm:^11.0.0, @elvia/elvis-toolbox@npm:^11.0.1, @elvia/elvis-toolbox@npm:^11.0.2, @elvia/elvis-toolbox@npm:^11.2.0, @elvia/elvis-toolbox@npm:^11.4.0, @elvia/elvis-toolbox@npm:^11.5.2":
+"@elvia/elvis-toolbox@npm:^11.0.0, @elvia/elvis-toolbox@npm:^11.0.2, @elvia/elvis-toolbox@npm:^11.2.0, @elvia/elvis-toolbox@npm:^11.4.0, @elvia/elvis-toolbox@npm:^11.5.2":
   version: 11.5.2
   resolution: "@elvia/elvis-toolbox@npm:11.5.2"
   dependencies:
@@ -2990,7 +2992,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-typography@npm:*, @elvia/elvis-typography@npm:^2.3.2, @elvia/elvis-typography@npm:^2.4.0, @elvia/elvis-typography@npm:^2.7.0, @elvia/elvis-typography@npm:^2.7.1, @elvia/elvis-typography@workspace:*, @elvia/elvis-typography@workspace:packages/elvis-typography":
+"@elvia/elvis-typography@npm:*, @elvia/elvis-typography@npm:^2.4.0, @elvia/elvis-typography@npm:^2.7.0, @elvia/elvis-typography@npm:^2.7.1, @elvia/elvis-typography@workspace:*, @elvia/elvis-typography@workspace:packages/elvis-typography":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
