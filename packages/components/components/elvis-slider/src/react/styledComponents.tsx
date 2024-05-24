@@ -316,7 +316,6 @@ export const SliderTrack = styled.div<SliderTrackProps>`
   }
 `;
 
-//`left` and `width` are as inline styles to avoid creating new classnames on every change
 export const SliderFilledTrack = styled.div<SliderFilledTrackProps>`
   background-color: ${getThemeColor('color-text-1')};
   border-radius: 50px;
