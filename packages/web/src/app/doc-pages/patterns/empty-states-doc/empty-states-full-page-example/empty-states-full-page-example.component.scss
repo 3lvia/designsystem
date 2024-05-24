@@ -16,4 +16,8 @@
   align-items: center;
   justify-content: center;
   gap: 48px;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    gap: 24px;
+  }
 }
