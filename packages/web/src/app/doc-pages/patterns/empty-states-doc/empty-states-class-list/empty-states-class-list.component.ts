@@ -10,6 +10,7 @@ interface Classes {
   illustrationSize: string;
   typographies: string[];
   action: string[];
+  spacing: string[];
 }
 
 @Component({
