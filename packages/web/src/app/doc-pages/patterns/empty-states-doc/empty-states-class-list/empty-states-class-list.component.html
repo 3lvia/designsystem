@@ -23,6 +23,14 @@
         }
       </li>
     }
+    @if (classes().desktop.spacing) {
+      <li>
+        Spacing:
+        @for (spacing of classes().desktop.spacing; track spacing; let last = $last) {
+          <code [ngClass]="{ 'e-mr-8': !last }">{{ spacing }}</code>
+        }
+      </li>
+    }
   </ul>
 </div>
 <div>
@@ -47,6 +55,14 @@
         Action:
         @for (action of classes().mobile.action; track action; let last = $last) {
           <code [ngClass]="{ 'e-mr-8': !last }">{{ action }}</code>
+        }
+      </li>
+    }
+    @if (classes().mobile.spacing) {
+      <li>
+        Spacing:
+        @for (spacing of classes().mobile.spacing; track spacing; let last = $last) {
+          <code [ngClass]="{ 'e-mr-8': !last }">{{ spacing }}</code>
         }
       </li>
     }
