@@ -11,12 +11,11 @@ export const publicStyles = (isGtMobile: boolean) => {
       flex-direction: row;
       gap: 1rem;
 
-      ${isGtMobile
-        ? css`
-            flex-direction: column;
-            gap: 1.5rem;
-          `
-        : css``}
+      ${isGtMobile &&
+      css`
+        flex-direction: column;
+        gap: 1.5rem;
+      `}
     }
 
     .e-sidenav__item {
@@ -38,13 +37,7 @@ export const publicStyles = (isGtMobile: boolean) => {
     }
 
     .e-sidenav__item-text {
-      ${isGtMobile
-        ? css`
-            display: inline-block;
-          `
-        : css`
-            display: none;
-          `}
+      ${isGtMobile ? 'display: inline-block;' : 'display: none;'}
     }
 
     .e-sidenav__icon-container {
