@@ -1,0 +1,17 @@
+<elvia-popover
+  (onClose)="isOpen = false"
+  (onOpen)="isOpen = true"
+  content="Scalable Vector Graphic"
+  display="inline-block"
+  hasCloseButton
+  heading="SVG"
+>
+  <span
+    [ngClass]="{ 'e-text-abbreviation---active': isOpen }"
+    aria-label="SVG"
+    class="e-text-abbreviation"
+    slot="trigger"
+  >
+    SVG
+  </span>
+</elvia-popover>
