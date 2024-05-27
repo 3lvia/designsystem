@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ThemeName } from '@elvia/elvis-colors';
 import { StepStates } from '@elvia/elvis-stepper';
 
+import { WhySvgPopoverComponent } from '../why-svg-popover/why-svg-popover.component';
 import { SafeHtmlPipe } from './safeHtml.pipe';
 import {
   createTeamSymbol,
@@ -16,7 +17,7 @@ import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/loc
 @Component({
   selector: 'app-team-symbol-generator',
   standalone: true,
-  imports: [CommonModule, FormsModule, SafeHtmlPipe, LocalThemeSwitchComponent],
+  imports: [CommonModule, FormsModule, SafeHtmlPipe, LocalThemeSwitchComponent, WhySvgPopoverComponent],
   templateUrl: './team-symbol-generator.component.html',
   styleUrl: './team-symbol-generator.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

@@ -1,0 +1,44 @@
+<elvia-popover
+  (onClose)="isOpen = false"
+  (onOpen)="isOpen = true"
+  [isShowing]="isOpen"
+  hasCloseButton
+  heading="Why SVG?"
+  inlineStyle="{ maxWidth: '512px' }"
+>
+  <div slot="content">
+    <p>
+      We use SVG to keep the symbol sharp and clear no matter how big or small you make it. Additionally, SVG
+      files are essential because of the technical requirements when assembling the components of the team
+      symbol.
+      <br />
+      <br />
+      There are multiple websites for finding free SVG icons and graphics, we recommend
+      <a
+        class="e-link e-link--sm e-link--new-tab"
+        href="https://www.svgrepo.com/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title"> SVG repo </span>
+        <span class="e-link__icon">
+          <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"> </i>
+        </span>
+      </a>
+      .
+    </p>
+  </div>
+  <button
+    (click)="isOpen = true"
+    [attr.aria-expanded]="isOpen"
+    [attr.aria-pressed]="isOpen"
+    [ngClass]="{ 'e-btn---selected': isOpen }"
+    aria-label="Why SVG?"
+    class="e-btn e-btn--icon e-btn--circled"
+  >
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--question_circle e-icon--sm" aria-hidden="true"> </i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"> </i>
+    </span>
+  </button>
+</elvia-popover>

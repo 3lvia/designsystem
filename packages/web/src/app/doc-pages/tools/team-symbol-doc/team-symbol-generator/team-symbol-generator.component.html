@@ -34,7 +34,10 @@
   >
     <div slot="content">
       <div class="step-container">
-        <p>Upload a cool image, icon or emoji that best symbolizes your team.</p>
+        <div class="e-flex e-align-items-center e-gap-8">
+          <p class="e-m-0">Upload a cool SVG that best symbolizes your team.</p>
+          <app-why-svg-popover />
+        </div>
         <ng-container [ngTemplateOutlet]="symbolImage"></ng-container>
         @if (!generatedSvg) {
           <button class="e-btn e-btn--tertiary e-mt-24" (click)="fileInput.click()">
