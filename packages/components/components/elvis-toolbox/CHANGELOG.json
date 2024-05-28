@@ -3,15 +3,12 @@
   "name": "elvis-toolbox",
   "content": [
     {
-      "date": "28.05.24",
+      "date": "23.05.24",
       "version": "12.0.0",
       "changelog": [
         {
           "type": "breaking_changes",
-          "changes": [
-            "Replaced <code>styled-components</code> with <code>@emotion</code>.",
-            "Added <code>@emotion/react</code> and <code>@emotion/styled</code> as a peer dependency."
-          ]
+          "changes": ["Replaced <code>styled-components</code> with <code>@emotion</code>."]
         }
       ]
     },
