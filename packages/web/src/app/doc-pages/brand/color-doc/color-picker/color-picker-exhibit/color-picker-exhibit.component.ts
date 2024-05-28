@@ -1,11 +1,13 @@
 import { KeyValuePipe, NgClass, NgPlural, NgPluralCase, NgStyle, UpperCasePipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ThemeName } from '@elvia/elvis-colors';
 
 import { CopyComponent } from '../../../../../shared/copy/copy.component';
 import { ColorListBaseDirective } from '../color-list-base.directive';
-import { ColorElement, ColorsObject } from '../colors-types';
+import { ColorPickerService } from '../color-picker.service';
+import { darkColors } from '../colors-dark';
+import { lightColors } from '../colors-light';
+import { ColorElement } from '../colors-types';
 import { getColorElement, getHighestContrast, getOpacityColors } from '../colors-util';
 import { NeedsBorderPipe } from '../needs-border.pipe';
 import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
@@ -30,40 +32,31 @@ import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
   ],
 })
 export class ColorPickerExhibitComponent {
-  @Input({ required: true }) readonly theme: ThemeName;
-  @Input({ required: true }) readonly colorList: ColorsObject;
-  @Input({ required: true })
-  get currentColor(): ColorElement {
-    return this._currentColor;
-  }
+  private colorPickerService = inject(ColorPickerService);
 
-  set currentColor(value: ColorElement | undefined) {
-    if (value) {
-      this._currentColor = value;
-    } else {
-      this._currentColor = {
-        ...this._currentColor,
-
-        //an empty color element, but keep the name for the empty state
-        contrast: { black: '', white: '' },
-        hex: '',
-        rgb: [-1, -1, -1],
-        tokens: [],
-      };
+  theme = this.colorPickerService.theme;
+  colorList = computed(() => (this.theme() === 'dark' ? darkColors : lightColors));
+  currentColor = this.colorPickerService.currentColor;
+  previousColor = this.colorPickerService.previousColor;
+  currentColorExistsInCurrentTheme = computed(() => {
+    if (this.currentColor() === undefined) {
+      return false;
     }
-  }
-  private _currentColor: ColorElement;
+    return !!getColorElement(this.currentColor()?.name, this.theme());
+  });
+  opacityColors = computed(() => {
+    if (this.currentColor() === undefined) {
+      return [];
+    }
+    return getOpacityColors(this.currentColor()?.name, this.colorList());
+  });
 
-  get currentColorExistsInCurrentTheme(): boolean {
-    return !!getColorElement(this.currentColor.name, this.theme);
-  }
-
-  get opacityColors() {
-    return getOpacityColors(this.currentColor.name, this.colorList);
-  }
+  chooseColor = (color: ColorElement) => {
+    this.colorPickerService.setCurrentColor(color.name);
+  };
 
   getContrast = (color: ColorElement) => {
-    return getHighestContrast(color, this.theme);
+    return getHighestContrast(color, this.theme());
   };
 
   getOpacityLevel(colorName: string) {

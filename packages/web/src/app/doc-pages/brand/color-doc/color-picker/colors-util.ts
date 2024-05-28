@@ -1,14 +1,6 @@
-import {
-  ColorLabel,
-  DarkThemeColorName,
-  LightThemeColorName,
-  ThemeName,
-  darkTheme,
-  getBaseColor,
-  lightTheme,
-} from '@elvia/elvis-colors';
+import { ColorLabel, ThemeName, darkTheme, getBaseColor, lightTheme } from '@elvia/elvis-colors';
 
-import { ColorElement, ColorsObject, ContrastType, RGB } from './colors-types';
+import { ColorElement, ColorName, ColorsObject, ContrastType, RGB } from './colors-types';
 
 const hexToRgb = (hex: string): RGB => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -42,11 +34,7 @@ const getContrastRatio = (color1: RGB, color2: RGB) => {
   return (Math.max(luminance1, luminance2) + 0.05) / (Math.min(luminance1, luminance2) + 0.05);
 };
 
-export const getContrastValue = (
-  color1: DarkThemeColorName | LightThemeColorName,
-  color2: DarkThemeColorName | LightThemeColorName,
-  theme?: ThemeName,
-) => {
+export const getContrastValue = (color1: ColorName, color2: ColorName, theme?: ThemeName) => {
   const colorRgb1 = hexToRgb(getBaseColor(color1, theme));
   const colorRgb2 = hexToRgb(getBaseColor(color2, theme));
   const contrast = getContrastRatio(colorRgb1, colorRgb2);
@@ -110,23 +98,26 @@ const getTokens = (hex: string, theme?: ThemeName) => {
   }
 };
 
-export const getOpacityColors = (
-  colorName: DarkThemeColorName | LightThemeColorName,
-  colorList: ColorsObject,
-) => {
+export const getOpacityColors = (colorName: ColorName | undefined, colorList: ColorsObject) => {
   return colorList['tertiary'].filter(
     (color) => getBaseColorName(colorName) === getBaseColorName(color.name),
   );
 };
 
-const getBaseColorName = (colorName: DarkThemeColorName | LightThemeColorName) => {
-  return colorName.split('-').slice(0, 2).join('-');
+export const getBaseColorName = (colorName: ColorName | undefined) => {
+  if (!colorName) {
+    return '';
+  }
+  return colorName.split('-').slice(0, 2).join('-') as ColorName;
 };
 
 export const getColorElement = (
-  colorName: DarkThemeColorName | LightThemeColorName,
+  colorName: ColorName | undefined,
   theme?: ThemeName,
 ): ColorElement | undefined => {
+  if (!colorName) {
+    return undefined;
+  }
   try {
     return {
       name: colorName,
