@@ -1,6 +1,7 @@
 <elvia-popover
   (onClose)="isOpen = false"
   (onOpen)="isOpen = true"
+  [isShowing]="isOpen"
   content="Scalable Vector Graphic"
   display="inline-block"
   hasCloseButton
