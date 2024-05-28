@@ -8,7 +8,10 @@
       "changelog": [
         {
           "type": "breaking_changes",
-          "changes": ["Replaced <code>styled-components</code> with <code>@emotion</code>."]
+          "changes": [
+            "Replaced <code>styled-components</code> with <code>@emotion</code>.",
+            "Added <code>@emotion/react</code> and <code>@emotion/styled</code> as a peer dependency."
+          ]
         }
       ]
     },
