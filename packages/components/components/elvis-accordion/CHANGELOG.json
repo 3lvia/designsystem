@@ -3,6 +3,16 @@
   "name": "elvis-accordion",
   "content": [
     {
+      "date": "28.05.24",
+      "version": "3.2.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where there would be spacing below a closed accordion."]
+        }
+      ]
+    },
+    {
       "date": "02.05.24",
       "version": "3.2.3",
       "changelog": [
