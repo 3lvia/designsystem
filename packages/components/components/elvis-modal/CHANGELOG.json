@@ -3,6 +3,18 @@
   "name": "elvis-modal",
   "content": [
     {
+      "date": "28.05.24",
+      "version": "4.0.10",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where padding would still be present when using utility classes like <code>e-none-md e-none-lg e-none-xl</code> on action buttons."
+          ]
+        }
+      ]
+    },
+    {
       "date": "15.05.24",
       "version": "4.0.9",
       "changelog": [

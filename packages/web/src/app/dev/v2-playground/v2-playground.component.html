@@ -354,36 +354,21 @@
       <elvia-modal
         (onClose)="isModalShowing = !isModalShowing"
         [isShowing]="isModalShowing"
-        [disableClose]="false"
+        [hasCloseButton]="true"
       >
         <div slot="heading" class="e-flex e-align-items-center e-gap-8">
           Jeg er en heading (slot)
           <i class="e-icon e-icon--move_truck-color e-icon--sm" aria-hidden="true"> </i>
         </div>
-        <div slot="content" class="e-flex e-flex-direction-column e-gap-8">
-          <button class="e-btn" (click)="modalContentToggle = !modalContentToggle">Toggle</button>
-          <button class="e-btn" (click)="modalContentToggle = !modalContentToggle">Toggle</button>
-          @if (modalContentToggle) {
-            <div class="e-p-8 e-flex e-flex-direction-column" [style.background]="'orange'">
-              Modal content 1
-              <button class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
-                Avbryt 1
-              </button>
-              <button class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">Lagre 1</button>
-              End modal content 1
-            </div>
-          } @else {
-            <div class="e-p-8 e-flex e-flex-direction-column" [style.background]="'yellow'">
-              Modal content 2
-              <button class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
-                Avbryt 2
-              </button>
-              <button class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">Lagre 2</button>
-              End modal content 2
-            </div>
-          }
-          <button class="e-btn" (click)="modalContentToggle = !modalContentToggle">Toggle</button>
-        </div>
+        <div slot="content" class="e-flex e-flex-direction-column e-gap-8">Test</div>
+        <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg e-none-md e-none-lg e-none-xl">
+          Godkjenn</button
+        ><button
+          slot="secondaryButton"
+          class="e-btn e-btn--secondary e-btn--lg e-none-md e-none-lg e-none-xl"
+        >
+          Avbryt
+        </button>
       </elvia-modal>
       <h4>Illustration</h4>
 
