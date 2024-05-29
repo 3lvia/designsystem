@@ -151,7 +151,6 @@ export const Accordion: FC<AccordionProps> = ({
       style={inlineStyle}
       data-testid="accordion-area"
       isOverflow={type === 'overflow'}
-      normalSpacing={spacingAboveContent}
       overflowSpacing={spacingBelowContent}
       ref={accordionRef}
       {...rest}
@@ -208,7 +207,13 @@ export const Accordion: FC<AccordionProps> = ({
           onTransitionEnd={onTransitionEnd}
           style={{ visibility: visibility, height: contentHeight }}
         >
-          <AccordionContent ref={accordionContentRef}>{content}</AccordionContent>
+          <AccordionContent
+            ref={accordionContentRef}
+            isOverflow={type === 'overflow'}
+            normalSpacing={spacingAboveContent}
+          >
+            {content}
+          </AccordionContent>
         </AccordionHeightAnimator>
       )}
     </AccordionArea>
