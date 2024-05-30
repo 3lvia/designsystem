@@ -53,6 +53,6 @@
       "automerge": true
     }
   ],
-  "ignoreDeps": [],
+  "ignoreDeps": ["@emotion/react", "@emotion/styled"],
   "ignorePaths": ["**/node_modules/**", "packages/components/components/**", "packages/elvis*"]
 }
