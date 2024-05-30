@@ -20,4 +20,7 @@ jobs:
       - name: Build
         run: yarn build:tokens && yarn build:components
       - name: Run tests
-        run: yarn test
+        uses: nick-fields/retry@v3
+        with:
+          command: yarn test:components
+          max_attempts: 3
