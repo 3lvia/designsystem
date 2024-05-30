@@ -4073,11 +4073,11 @@ __metadata:
     "@elvia/elvis-colors": "npm:^4.4.1"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
     "@elvia/elvis-typography": "npm:^2.7.1"
-    "@emotion/react": "npm:^11.11.4"
-    "@emotion/styled": "npm:^11.11.5"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.4.5"
   peerDependencies:
+    "@emotion/react": ^11.11.4
+    "@emotion/styled": ^11.11.5
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-is: ^16.8.0 || ^17.0.0 || ^18.0.0
