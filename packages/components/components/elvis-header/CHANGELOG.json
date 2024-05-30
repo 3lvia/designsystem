@@ -4,6 +4,16 @@
   "content": [
     {
       "date": "30.05.24",
+      "version": "1.9.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where overlay menus would not position correctly."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
       "version": "1.9.3",
       "changelog": [
         {
