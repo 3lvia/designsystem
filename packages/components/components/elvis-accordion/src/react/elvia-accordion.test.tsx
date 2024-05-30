@@ -42,7 +42,7 @@ describe('Elvis Accordion', () => {
       await user.click(accordionButton);
 
       const accordionButtonNormal = screen.getByText(/textcontent/i);
-      expect(accordionButtonNormal).toBeVisible();
+      expect(accordionButtonNormal).not.toBeVisible();
     });
   });
 
