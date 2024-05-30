@@ -1,7 +1,8 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { FormFieldSizes, IconButton } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { StyledCheckbox } from '../checkbox/checkboxStyles';
 
@@ -35,19 +36,19 @@ export const DropdownItemValue = styled.span`
   text-align: left;
 `;
 
+const StyledIconButton = styled(IconButton)``;
+
 export const IconContainer = styled.div`
   width: 60px;
   display: grid;
   place-items: center;
 
-  ${IconButton} {
+  ${StyledIconButton} {
     cursor: inherit;
   }
 `;
 
-export const DropdownItemStyles = styled.div.attrs(() => ({
-  role: 'option',
-}))<{
+export const DropdownItemStyles = styled.div<{
   isActive?: boolean;
   isFocused?: boolean;
   isDisabled?: boolean;

@@ -3,6 +3,19 @@
   "name": "elvis-dropdown",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "9.4.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "07.03.24",
       "version": "9.4.0",
       "changelog": [

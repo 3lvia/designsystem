@@ -1,5 +1,6 @@
 import { getBaseColor } from '@elvia/elvis-colors';
-import styled, { createGlobalStyle, css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export const StyledOutline = styled.div<{ animate: boolean }>`
   border: 2px solid ${getBaseColor('focus-outline', 'light')};
@@ -21,7 +22,7 @@ export const StyledOutline = styled.div<{ animate: boolean }>`
     `}
 `;
 
-export const GlobalOutlineReset = createGlobalStyle`
+export const globalOutlineReset = css`
   *:focus,
   *:focus ~ *,
   *:focus-visible,
@@ -29,11 +30,11 @@ export const GlobalOutlineReset = createGlobalStyle`
   *:focus-visible::before {
     outline: none !important;
   }
-  
+
   *:focus-visible::-webkit-slider-thumb {
     outline: none !important;
   }
-  
+
   :focus-visible::-moz-range-thumb {
     outline: none !important;
   }

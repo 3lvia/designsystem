@@ -3,6 +3,19 @@
   "name": "elvis-popover",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "7.4.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.05.24",
       "version": "7.4.1",
       "changelog": [

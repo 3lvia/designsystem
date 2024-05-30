@@ -1,8 +1,9 @@
 import { useInputModeDetection } from '@elvia/elvis-toolbox';
+import { Global } from '@emotion/react';
 import React, { useEffect, useState } from 'react';
 
 import { OutlineProps } from './elviaOutline.types';
-import { GlobalOutlineReset, StyledOutline } from './styledComponents';
+import { StyledOutline, globalOutlineReset } from './styledComponents';
 
 export const Outline: React.FC<OutlineProps> = ({ inlineStyle, className }) => {
   const offset = 4;
@@ -60,7 +61,7 @@ export const Outline: React.FC<OutlineProps> = ({ inlineStyle, className }) => {
 
   return (
     <>
-      <GlobalOutlineReset />
+      <Global styles={globalOutlineReset} />
       {inputMode === 'keyboard' && domRect && (
         <StyledOutline
           data-testid="outline"

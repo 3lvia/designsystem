@@ -3,6 +3,19 @@
   "name": "elvis-slider",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "5.0.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "23.01.24",
       "version": "5.0.0",
       "changelog": [

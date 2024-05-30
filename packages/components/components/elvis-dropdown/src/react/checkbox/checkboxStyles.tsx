@@ -1,5 +1,6 @@
 import { getThemeColor } from '@elvia/elvis-colors';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { CheckboxProps, IndeterminateLineProps } from './checkbox';
 
@@ -26,9 +27,8 @@ export const IndeterminateLine = styled.div<IndeterminateLineProps>`
   }
 `;
 
-const checkmarkLineBase = css<CheckboxProps>`
-  background-color: ${({ isDisabled }) =>
-    isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('static-black')};
+const checkmarkLineBase = ({ isDisabled }: CheckboxProps) => css`
+  background-color: ${isDisabled ? getThemeColor('text-disabled-1') : getThemeColor('static-black')};
   border-radius: 2px;
   content: '';
   height: 2px;

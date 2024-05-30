@@ -70,7 +70,7 @@ as you follow their license.
   **[Custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)** to
   make them accessible for multiple JavaScript frameworks.
 - We use **Jest** for unit testing of our components.
-- **[Styled components](https://styled-components.com/)**,
+- **[@emotion](https://emotion.sh/docs/introduction)**,
   **[classnames](https://www.npmjs.com/package/classnames)** and **SCSS** for styling our components.
 - We use **[Percy](https://percy.io/)** for visual regression testing for our CSS library and components.
 - We use **Figma** for sketching the components. The

@@ -3,6 +3,16 @@
   "name": "elvis-breadcrumbs",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "2.3.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Update internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "18.04.24",
       "version": "2.3.4",
       "changelog": [

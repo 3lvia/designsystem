@@ -238,7 +238,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
           size={size}
         >
           {!isRootOverlay && isGtMobile && <CursorCurve />}
-          <DropdownPopup isInvisible={!isGtMobile && !focusIsOnDirectDescendant}>
+          <DropdownPopup role="listbox" isInvisible={!isGtMobile && !focusIsOnDirectDescendant}>
             <ItemList ref={listRef}>
               {!filteredItems?.length && <NoItemsMessage>{noItemsText}</NoItemsMessage>}
               {!isGtMobile && !isRootOverlay && (

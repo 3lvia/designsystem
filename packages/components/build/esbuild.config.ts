@@ -1,6 +1,5 @@
 import chalk from 'chalk';
 import esbuild from 'esbuild';
-import styledComponentsPlugin from 'esbuild-plugin-styled-components';
 import { postcssModules, sassPlugin } from 'esbuild-sass-plugin';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -67,7 +66,6 @@ export const build = async () => {
     plugins: [
       dtsPlugin({ watchMode: watchMode }),
       emotionPlugin(),
-      styledComponentsPlugin({ ssr: true, displayName: true }),
       sassPlugin({ transform: postcssModules({}) }),
       writeFilesAndInjectCssPlugin,
     ],

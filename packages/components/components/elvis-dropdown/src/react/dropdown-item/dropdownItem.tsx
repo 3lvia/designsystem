@@ -173,6 +173,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         onMouseEnter={() => onMouseOver()}
         onMouseDown={(ev) => ev.preventDefault()}
         id={getDropdownItemId(item.value)}
+        role="option"
         aria-disabled={item.isDisabled}
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
@@ -215,7 +216,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
             <OpenOverlayButton
               size={size === 'small' ? 'sm' : 'md'}
               disabled={isGtMobile || !isMulti ? true : false}
-              onClick={(ev) => {
+              onClick={(ev: Event) => {
                 ev.stopPropagation();
                 showChildList(true);
               }}

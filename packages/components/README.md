@@ -25,7 +25,7 @@ Read about the
   **[Custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)** to
   make them accessible for multiple JavaScript frameworks.
 - We use **Jest** for unit testing of our components, and **Playwright** for visual component tests.
-- **[Styled components](https://styled-components.com/)**,
+- **[Emotion](https://emotion.sh/docs/introduction)**,
   **[classnames](https://www.npmjs.com/package/classnames)** and **SCSS** for styling our components.
 - We use **Figma** for sketching the components. Use
   [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)

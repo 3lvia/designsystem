@@ -1,5 +1,6 @@
 import { getThemeColor } from '@elvia/elvis-colors';
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { ProgressLinearSize } from './elvia-progress-linear.types';
 

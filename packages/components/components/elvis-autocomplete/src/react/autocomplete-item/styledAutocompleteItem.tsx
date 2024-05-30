@@ -1,7 +1,8 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { FormFieldSizes } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export const AutocompleteItemStyles = styled.div<{ $isFocused: boolean; $size: FormFieldSizes }>`
   color: ${getThemeColor('text-1')};
