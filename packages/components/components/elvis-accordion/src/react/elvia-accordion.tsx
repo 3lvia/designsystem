@@ -207,6 +207,7 @@ export const Accordion: FC<AccordionProps> = ({
           onTransitionEnd={onTransitionEnd}
           style={{ visibility: visibility, height: contentHeight }}
         >
+          Trigger tests
           <AccordionContent
             ref={accordionContentRef}
             isOverflow={type === 'overflow'}
