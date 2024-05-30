@@ -22,5 +22,6 @@ jobs:
       - name: Run tests
         uses: nick-fields/retry@v3
         with:
-          command: yarn test:components
+          command: yarn test
           max_attempts: 3
+          timeout_minutes: 10
