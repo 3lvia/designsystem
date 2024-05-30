@@ -1,6 +1,6 @@
 import { transformFileAsync } from '@babel/core';
 import { type ParserPlugin } from '@babel/parser';
-import emotion from '@emotion/babel-plugin';
+import emotionBabelPlugin from '@emotion/babel-plugin';
 import { type Plugin } from 'esbuild';
 
 // Based on the source code from esbuild-plugin-styled-components
@@ -40,9 +40,10 @@ const esbuildPluginEmotion = (): Plugin => ({
         },
         plugins: [
           [
-            emotion,
+            emotionBabelPlugin,
             {
               autoLabel: 'always',
+              sourceMap: false,
             },
           ],
         ],

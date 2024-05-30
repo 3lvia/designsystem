@@ -4,6 +4,16 @@
   "content": [
     {
       "date": "30.05.24",
+      "version": "3.5.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
       "version": "3.5.4",
       "changelog": [
         {
