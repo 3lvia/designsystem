@@ -24,3 +24,4 @@ jobs:
         with:
           command: yarn test:components
           max_attempts: 3
+          timeout_minutes: 10
