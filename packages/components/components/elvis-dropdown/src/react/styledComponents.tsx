@@ -2,7 +2,9 @@ import { FormFieldContainer, FormFieldInputContainer, FormFieldSizes } from '@el
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const DropdownContainer = styled(FormFieldContainer)`
+export const DropdownContainer = styled(FormFieldContainer, {
+  target: `${FormFieldContainer}`.replace(/\./g, ''),
+})`
   width: 100%;
 
   ${({ isFullWidth }) =>
@@ -29,13 +31,10 @@ export const DropdownContainer = styled(FormFieldContainer)`
     `};
 `;
 
-export const DropdownInputContainer = styled(FormFieldInputContainer)`
+export const DropdownInputContainer = styled(FormFieldInputContainer, {
+  target: `${FormFieldInputContainer}`.replace(/\./g, ''),
+})`
   width: 100%;
-`;
-
-export const OverlayPositioner = styled.div`
-  position: absolute;
-  z-index: 99999;
 `;
 
 export const IconRotator = styled.div<{ isRotated: boolean }>`

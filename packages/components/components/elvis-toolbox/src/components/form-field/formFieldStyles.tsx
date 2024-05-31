@@ -109,7 +109,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   ${({ isDisabled }) =>
     isDisabled &&
     css`
-      && ${FormFieldInputContainer} {
+      ${FormFieldInputContainer} {
          {
           cursor: not-allowed;
           border-color: ${getThemeColor('border-disabled-1')};
