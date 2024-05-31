@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "19.0.0",
+      "date": "May 31, 2024",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Updated internal <code>@elvia/elvis-typography</code> dependency to <code>^3.0.0</code>"
+          ],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "18.1.1",
       "date": "May 16, 2024",
       "changelog": [
