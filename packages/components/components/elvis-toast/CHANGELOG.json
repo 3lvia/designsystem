@@ -3,6 +3,29 @@
   "name": "elvis-toast",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "1.2.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "1.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "18.12.23",
       "version": "1.2.0",
       "changelog": [

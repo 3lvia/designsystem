@@ -54,8 +54,9 @@
               "react-dom/client",
               "react-is",
               "dompurify",
-              "shallowequal",
-              "classnames"
+              "classnames",
+              "file-saver",
+              "jszip"
             ],
             "index": "src/index.html",
             "browser": "src/main.ts",

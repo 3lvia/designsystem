@@ -59,6 +59,7 @@ export const SelectAllOption: React.FC<SelectAllOptionProps> = ({
         isFocused={focusedValue === item.value}
         size={size}
         id={getDropdownItemId(item.value)}
+        role="option"
       >
         <Checkbox
           size={size}

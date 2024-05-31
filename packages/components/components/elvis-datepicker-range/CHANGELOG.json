@@ -3,6 +3,29 @@
   "name": "elvis-datepicker-range",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "5.0.9",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "5.0.8",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "11.03.24",
       "version": "5.0.7",
       "changelog": [

@@ -3,6 +3,41 @@
   "name": "elvis-modal",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "4.0.12",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "4.0.11",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "28.05.24",
+      "version": "4.0.10",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where padding would still be present when using utility classes like <code>e-none-md e-none-lg e-none-xl</code> on action buttons."
+          ]
+        }
+      ]
+    },
+    {
       "date": "15.05.24",
       "version": "4.0.9",
       "changelog": [

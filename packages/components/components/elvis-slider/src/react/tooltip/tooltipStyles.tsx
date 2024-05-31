@@ -1,5 +1,5 @@
 import { FormFieldSizes, TooltipPopup as TooltipPopupBase } from '@elvia/elvis-toolbox';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { Side } from '../elvia-slider.types';
 
@@ -20,9 +20,7 @@ export const TooltipWrapper = styled.span<TooltipWrapperProps>`
   transform: ${({ $side }) => ($side === 'left' ? 'translateX(-50%)' : 'translateX(50%)')};
 `;
 
-export const TooltipPopup = styled(TooltipPopupBase).attrs(() => ({
-  role: 'tooltip',
-}))`
+export const TooltipPopup = styled(TooltipPopupBase)`
   && {
     max-width: unset;
     position: relative;

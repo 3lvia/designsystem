@@ -1,6 +1,7 @@
 import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const mobileMax = '767px';
 const desktopMin = '1024px';
@@ -192,8 +193,21 @@ export const ModalText = styled.div`
   height: 100%;
 `;
 
+const buttonMargin = css`
+  & > * {
+    margin-top: 24px;
+  }
+  @media (max-width: ${mobileMax}) {
+    & > * {
+      margin-top: initial;
+    }
+  }
+`;
+
 export const PrimaryButton = styled.div`
   grid-column: start-primary-btn / end-primary-btn;
+
+  ${buttonMargin}
   @media (max-width: ${mobileMax}) {
     grid-column: unset;
     grid-row: start-primary-btn / end-primary-btn;
@@ -202,6 +216,8 @@ export const PrimaryButton = styled.div`
 
 export const SecondaryButton = styled.div`
   grid-column: start-secondary-btn / end-secondary-btn;
+
+  ${buttonMargin}
   @media (max-width: ${mobileMax}) {
     grid-column: unset;
     grid-row: start-secondary-btn / end-secondary-btn;
@@ -218,7 +234,6 @@ export const ModalActions = styled.div`
   display: grid;
   grid-template-columns: [start-secondary-btn] 1fr [end-secondary-btn start-primary-btn] 1fr [end-primary-btn];
   grid-template-rows: 1fr;
-  padding-top: 24px;
   gap: 24px;
 
   button {
@@ -229,6 +244,7 @@ export const ModalActions = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: [start-secondary-btn] 1fr [end-secondary-btn start-primary-btn] 1fr [end-primary-btn];
     gap: 16px;
+    margin-top: 24px;
 
     // If :has is supported, this will completely remove an empty SecondaryButton in mobile view,
     // which reduces the ammount of padding between buttons and content
@@ -243,13 +259,9 @@ export const ModalActions = styled.div`
 
 export const CloseButtonContainer = styled.div<{ hasIllustration: boolean }>`
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 16px;
+  right: 16px;
   z-index: 2;
-  @media (max-width: ${mobileMax}) {
-    top: 16px;
-    right: 16px;
-  }
 
   ${({ hasIllustration }) =>
     hasIllustration &&
