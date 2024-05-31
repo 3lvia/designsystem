@@ -1,6 +1,6 @@
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
-import { IconWrapper, outlineListener, useSlot } from '@elvia/elvis-toolbox';
+import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 
 import { AccordionProps, AccordionSize } from './elvia-accordion.types';
@@ -13,6 +13,7 @@ import {
   AccordionHeightAnimator,
   AccordionLabel,
   AccordionLabelText,
+  StyledIconWrapper,
 } from './styledComponents';
 
 export const Accordion: FC<AccordionProps> = ({
@@ -193,7 +194,7 @@ export const Accordion: FC<AccordionProps> = ({
               {!isOpenState ? openDetailText : closeDetailText}
             </AccordionDetailText>
           </AccordionLabel>
-          <IconWrapper
+          <StyledIconWrapper
             icon={isHoveringButton || isHovering ? expandCircleFilledColor : expandCircleColor}
             size={getIconSize(size)}
           />
