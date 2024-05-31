@@ -4093,7 +4093,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-typography@npm:*, @elvia/elvis-typography@npm:^2.3.2, @elvia/elvis-typography@npm:^2.4.0, @elvia/elvis-typography@npm:^2.7.0, @elvia/elvis-typography@npm:^2.7.1, @elvia/elvis-typography@workspace:*, @elvia/elvis-typography@workspace:packages/elvis-typography":
+"@elvia/elvis-typography@npm:*, @elvia/elvis-typography@workspace:*, @elvia/elvis-typography@workspace:packages/elvis-typography":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
@@ -4105,6 +4105,13 @@ __metadata:
     typescript: "npm:~5.4.5"
   languageName: unknown
   linkType: soft
+
+"@elvia/elvis-typography@npm:^2.3.2, @elvia/elvis-typography@npm:^2.4.0, @elvia/elvis-typography@npm:^2.7.0, @elvia/elvis-typography@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "@elvia/elvis-typography@npm:2.7.1"
+  checksum: 10/8bc9bfdb2b1f96ddd0f167f6fa4a007340de085ee62e9e682e0164039378acc2c96aa07d770f68aefa3e189215032db25d315d63a1d9a0018825ebf1531667e5
+  languageName: node
+  linkType: hard
 
 "@elvia/elvis@npm:*, @elvia/elvis@workspace:*, @elvia/elvis@workspace:packages/elvis":
   version: 0.0.0-use.local
