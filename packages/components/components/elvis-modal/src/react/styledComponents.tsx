@@ -128,7 +128,9 @@ export const ModalIllustrationWrapper = styled.div`
   position: relative;
   width: 470px;
   z-index: 1;
-  padding: 72px;
+  padding-block: 72px;
+  padding-right: 72px;
+  padding-left: 96px;
 
   ::after {
     content: '';
@@ -170,10 +172,10 @@ export const ModalIllustrationWrapper = styled.div`
 `;
 
 export const ModalIllustration = styled.div`
-  height: 100%;
   width: 100%;
 
   @media (max-width: ${desktopMin}) {
+    height: 100%;
     width: 20vh;
   }
 
