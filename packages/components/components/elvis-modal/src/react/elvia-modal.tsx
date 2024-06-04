@@ -10,6 +10,7 @@ import {
   ModalContent,
   ModalHeading,
   ModalIllustration,
+  ModalIllustrationWrapper,
   ModalText,
   ModalWrapper,
   PrimaryButton,
@@ -137,9 +138,11 @@ export const Modal: FC<ModalProps> = function ({
           {...rest}
         >
           {hasIllustration && (
-            <ModalIllustration className="e-theme-dark" role="presentation" ref={modalIllustration}>
-              {illustration}
-            </ModalIllustration>
+            <ModalIllustrationWrapper>
+              <ModalIllustration className="e-theme-dark" role="presentation" ref={modalIllustration}>
+                {illustration}
+              </ModalIllustration>
+            </ModalIllustrationWrapper>
           )}
           {hasCloseButton && (
             <CloseButtonContainer hasIllustration={hasIllustration}>
