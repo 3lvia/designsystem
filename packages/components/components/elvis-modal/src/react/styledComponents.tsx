@@ -161,6 +161,8 @@ export const ModalIllustration = styled.div`
     ::after {
       right: unset;
       top: calc(93% - 3vw);
+      height: 685%;
+      width: 685%;
     }
   }
   @media (max-width: ${mobileMax}) {
