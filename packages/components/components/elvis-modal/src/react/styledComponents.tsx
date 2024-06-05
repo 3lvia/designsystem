@@ -107,6 +107,7 @@ export const ModalContent = styled.div<ContentProps>`
         padding: ${decideContentPadding(false, hasPadding, '40px')};
         padding-top: 24px;
         width: 100%;
+        height: calc(100% - ${modalMobileIllustrationHeight});
       }
     `}
 
@@ -120,7 +121,7 @@ export const ModalContent = styled.div<ContentProps>`
   }
 `;
 
-export const ModalIllustrationWrapper = styled.div`
+export const ModalIllustration = styled.div`
   background: ${getThemeColor('background-3')};
   display: flex;
   align-items: center;
@@ -128,9 +129,7 @@ export const ModalIllustrationWrapper = styled.div`
   position: relative;
   width: 470px;
   z-index: 1;
-  padding-block: 72px;
-  padding-right: 72px;
-  padding-left: 96px;
+  padding: 72px;
 
   ::after {
     content: '';
@@ -162,25 +161,12 @@ export const ModalIllustrationWrapper = styled.div`
     ::after {
       right: unset;
       top: calc(93% - 3vw);
-      height: 685%;
-      width: 685%;
+      height: calc(100vw * 4);
+      width: calc(100vw * 4);
     }
   }
   @media (max-width: ${mobileMax}) {
     height: ${modalMobileIllustrationHeight};
-  }
-`;
-
-export const ModalIllustration = styled.div`
-  width: 100%;
-
-  @media (max-width: ${desktopMin}) {
-    height: 100%;
-    width: 20vh;
-  }
-
-  @media (max-width: ${mobileMax}) {
-    width: 30vh;
   }
 `;
 
