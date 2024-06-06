@@ -2,11 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //[[INJECT_ICONS]]
   //[[INJECT_DEPRECATED_ELVIS_CLASSES]]
 
-  let DEBUG = false;
-  if (window.location.href.indexOf('#debug') > -1) {
-    DEBUG = true;
-  }
-
   let localhost = window.location.href.indexOf('localhost') > -1;
 
   /* A MutationObserver that is watching for changes in the DOM. */
