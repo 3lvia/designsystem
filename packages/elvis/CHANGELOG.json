@@ -4,7 +4,7 @@
   "content": [
     {
       "version": "19.0.0",
-      "date": "May 31, 2024",
+      "date": "June 6, 2024",
       "changelog": [
         {
           "type": "breaking_changes",
@@ -15,6 +15,11 @@
             "Check to see if there are any layout changes wherever <code>e-title-xxs</code>, <code>e-text-medium</code> and <code>e-text-lead</code> are used."
           ],
           "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        },
+        {
+          "type": "patch",
+          "changes": ["Fixed alignment issue on table header on mobile"],
+          "pages": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
         }
       ]
     },
