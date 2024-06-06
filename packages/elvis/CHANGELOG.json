@@ -3,6 +3,16 @@
   "name": "elvis",
   "content": [
     {
+      "version": "18.1.2",
+      "date": "June 6, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Use :focus-visible for keyboard focus outline, instead of JS"]
+        }
+      ]
+    },
+    {
       "version": "18.1.1",
       "date": "May 16, 2024",
       "changelog": [

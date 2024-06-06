@@ -33,12 +33,8 @@
 }
 
 @mixin focus($component) {
-  &:focus:not(:disabled) {
-    @include outline.e-outline();
-  }
-
   &.e-#{$component}---focus {
-    @include outline.e-outline-pseudoclass();
+    @include outline.e-outline();
   }
 
   // Removing default focus on firefox
