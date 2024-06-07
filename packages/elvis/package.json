@@ -18,6 +18,7 @@
   "files": [
     "elvis.js",
     "elvis.full.js",
+    "css-reset.css",
     "CHANGELOG.json",
     "README.md",
     "LICENSE",

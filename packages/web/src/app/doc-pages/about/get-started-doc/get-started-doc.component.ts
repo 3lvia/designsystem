@@ -26,8 +26,6 @@ const docPage = getDocPagesNotFromCMS('get-started');
 export class GetStartedDocComponent {
   description = docPage.description;
   title = docPage.title;
-  elvisCssImport = "@use '@elvia/elvis/css/elvis.min.css';";
-  elvisJsImport = "import '@elvia/elvis/elvis.js';";
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('Get started | Elvia design system');

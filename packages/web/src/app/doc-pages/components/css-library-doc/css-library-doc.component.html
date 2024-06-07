@@ -20,19 +20,30 @@
       </li>
       <li>
         <strong>Import stylesheet and script</strong>
-        <div class="e-mt-8">
-          <app-copy [message]="importStylesheet">
-            <code>{{ importStylesheet }}</code>
-          </app-copy>
-        </div>
-        <div class="e-mt-8">
-          <app-copy [message]="importScript">
-            <code>{{ importScript }}</code>
-          </app-copy>
-        </div>
+        <app-copy class="e-flex e-mt-8" [message]="importStylesheet">
+          <code>{{ importStylesheet }}</code>
+        </app-copy>
+        <app-copy class="e-flex e-mt-8" [message]="importScript">
+          <code>{{ importScript }}</code>
+        </app-copy>
         <p class="e-text-md e-mt-8">
           <strong>NB!</strong> The script should only be imported once, somewhere at the base-level of your
           app. Depending on what framework you are using, the method of doing this may differ.
+        </p>
+      </li>
+      <li>
+        <strong>Import CSS-reset (optional)</strong>
+        <app-copy class="e-flex e-mt-8" [message]="importCSSReset">
+          <code>{{ importCSSReset }}</code>
+        </app-copy>
+        <p class="e-text-md e-mt-8">
+          Different browsers have slightly different default styles. In addition to this, some HTML elements
+          have default styles that needs to be reset every time (like the background color and border of the
+          <code>button</code> element). This is where a CSS-reset helps. A CSS-reset aligns the defaults
+          between all the browsers, and may also reset annoying defaults, like the previously mentioned button
+          styles. Be aware that you may break styles in your app if you import this in an existing
+          application, since you may rely on vendor defaults without knowing it. This is why this import is
+          separate from the required Elvis import.
         </p>
       </li>
     </ol>
