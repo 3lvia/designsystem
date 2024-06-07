@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 
@@ -24,6 +24,7 @@ const docPage = getComponent('css-library');
     CopyComponent,
     ComponentChangelogComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CSSLibraryDocComponent {
   componentData: ComponentData = {
