@@ -11,10 +11,10 @@
     "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.6",
-    "@babel/preset-env": "^7.24.6",
-    "@babel/preset-react": "^7.24.6",
-    "@babel/preset-typescript": "^7.24.6",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
     "@emotion/babel-plugin": "^11.11.0",
     "@percy/cli": "^1.28.7",
     "@percy/playwright": "^1.0.5",
