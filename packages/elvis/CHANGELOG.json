@@ -3,6 +3,22 @@
   "name": "elvis",
   "content": [
     {
+      "version": "18.1.2",
+      "date": "June 12, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Changed design of Global Alert and changed background color of secondary button to transparent."
+          ],
+          "pages": [
+            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
+            { "displayName": "Button", "url": "https://design.elvia.io/components/button" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "18.1.1",
       "date": "May 16, 2024",
       "changelog": [
