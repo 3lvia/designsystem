@@ -9,7 +9,7 @@
         {
           "type": "patch",
           "changes": [
-            "Changed design of Global Alert and changed background color of secondary button to transparent."
+            "Changed design of Global Alert and changed background color of Secondary Button to transparent. This also implies that the Global Alert needs to be moved to the bottom of the screen instead of underneath the Header component. The expanded version of the Global Alert is now removed."
           ],
           "pages": [
             { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
