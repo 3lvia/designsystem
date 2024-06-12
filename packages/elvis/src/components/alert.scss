@@ -184,7 +184,6 @@ $global-mobile-notitle-padding: 14px; // -2px border
     .e-alert__title {
       @include mixins.typography('text-md-strong');
       margin: 0;
-      //color: var(--e-color-text-1);
     }
 
     .e-alert__close {
