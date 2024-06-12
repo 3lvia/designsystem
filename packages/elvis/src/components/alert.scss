@@ -247,13 +247,14 @@ $global-mobile-notitle-padding: 14px; // -2px border
         align-items: center;
         padding-left: 24px;
         margin-left: auto;
-        gap: 24px;
+        gap: 16px;
 
         @include breakpoints.breakpoint-up(Mobile) {
           width: calc(100% + 47px);
           padding-left: 0;
           margin-top: 16px;
           margin-left: -47px;
+          gap: 24px;
 
           button {
             width: 100%;
