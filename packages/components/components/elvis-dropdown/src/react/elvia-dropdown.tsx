@@ -1,6 +1,8 @@
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import {
   ErrorOptions,
+  FormFieldContainer,
+  FormFieldInputContainer,
   FormFieldLabel,
   IconWrapper,
   useBreakpoint,
@@ -19,7 +21,7 @@ import { DropdownProps, ErrorType } from './elviaDropdown.types';
 import { DropdownError } from './error/dropdownError';
 import { getInternalErrorText } from './getInternalErrorText';
 import { DropdownItem, DropdownValueType } from './publicApi.public';
-import { DropdownContainer, DropdownInputContainer, IconRotator } from './styledComponents';
+import { IconRotator } from './styledComponents';
 
 const filterItems = (items: DropdownItem[], filter: string): DropdownItem[] => {
   if (!filter) {
@@ -193,10 +195,10 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <>
-      <DropdownContainer
+      <FormFieldContainer
         size={size}
         className={className ?? ''}
-        style={{ ...inlineStyle }}
+        style={{ width: '100%', maxWidth: isFullWidth ? 'unset' : '448px', ...inlineStyle }}
         isFullWidth={isFullWidth}
         isDisabled={isDisabled}
         hasErrorPlaceholder={!!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text || !!error}
@@ -206,7 +208,10 @@ export const Dropdown: React.FC<DropdownProps> = ({
         aria-haspopup="true"
       >
         {!!label && <FormFieldLabel>{label}</FormFieldLabel>}
-        <DropdownInputContainer ref={connectedElementRef}>
+        <FormFieldInputContainer
+          style={{ width: '100%', cursor: isDisabled ? 'default' : 'pointer' }}
+          ref={connectedElementRef}
+        >
           <DropdownInput
             placeholder={placeholder}
             placeholderIcon={placeholderIcon}
@@ -227,18 +232,18 @@ export const Dropdown: React.FC<DropdownProps> = ({
             ariaLabel={ariaLabel}
           />
 
-          <IconRotator isRotated={isShowing}>
+          <IconRotator isRotated={isShowing} size={size}>
             <IconWrapper
               icon={arrowDownBold}
               color={isDisabled ? 'text-disabled-1' : 'text-1'}
               size={size === 'small' ? 'xs' : 'sm'}
             />
           </IconRotator>
-        </DropdownInputContainer>
+        </FormFieldInputContainer>
         {!!(mergedErrorOptions.text || error) && (
           <DropdownError errorText={mergedErrorOptions.text ?? getInternalErrorText(error, label)} />
         )}
-      </DropdownContainer>
+      </FormFieldContainer>
       {isShowing && (
         <DropdownOverlay
           id={id}
