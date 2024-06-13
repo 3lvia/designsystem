@@ -6,9 +6,9 @@ $local-padding: 22px 30px 22px 22px; // -2px for border;
 $local-mobile-padding: 14px; // -2px for border;
 $local-max-width: 650px;
 
-$global-padding: 22px;
-$global-mobile-padding: 22px 14px; // -2px border
-$global-mobile-notitle-padding: 14px; // -2px border
+$global-padding: 24px;
+$global-mobile-padding: 24px 16px; // -2px border
+$global-mobile-notitle-padding: 16px; // -2px border
 
 .e-alert {
   position: relative;
