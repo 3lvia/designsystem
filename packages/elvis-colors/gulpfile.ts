@@ -32,7 +32,7 @@ const generateElvisColorsCss = async () => {
   fileContent += `.e-theme-light, .e-alert--global.e-alert--warn *, .e-theme-dark .e-alert--global:not(.e-alert--warn):not(.e-alert--error) *, \n:root {\n`;
   Object.entries(lightVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
-  fileContent += `.e-theme-dark, .e-color-background-3, .e-theme-light .e-alert--global:not(.e-alert--warn):not(.e-alert--error) *, .e-alert--global.e-alert--error *, [class*='e-'][class*="--inverted"] {\n`;
+  fileContent += `.e-theme-dark, .e-color-background-3, .e-alert--global:not(.e-alert--warn):not(.e-alert--error) *, .e-alert--global.e-alert--error *, [class*='e-'][class*="--inverted"] {\n`;
   Object.entries(darkVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
 
