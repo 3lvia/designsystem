@@ -3763,10 +3763,10 @@ __metadata:
     react-dom: "npm:^18.3.1"
     react-is: "npm:^18.3.1"
     resize-observer-polyfill: "npm:^1.5.1"
-    sass: "npm:^1.77.4"
-    sass-embedded: "npm:^1.77.2"
+    sass: "npm:^1.77.5"
+    sass-embedded: "npm:^1.77.5"
     tiny-glob: "npm:^0.2.9"
-    tsx: "npm:^4.15.1"
+    tsx: "npm:^4.15.4"
     typescript: "npm:~5.4.5"
     typescript-plugin-css-modules: "npm:^5.1.0"
   languageName: unknown
@@ -3950,7 +3950,7 @@ __metadata:
     chalk: "npm:^5.3.0"
     esbuild: "npm:^0.21.5"
     svgo: "npm:^3.3.0"
-    tsx: "npm:^4.15.1"
+    tsx: "npm:^4.15.4"
   peerDependencies:
     "@elvia/elvis": ">=16.2.1"
   peerDependenciesMeta:
@@ -4358,7 +4358,7 @@ __metadata:
     gulp-tap: "npm:^2.0.0"
     gulp-terser: "npm:^2.1.0"
     resolve: "npm:^1.22.8"
-    sass: "npm:^1.77.4"
+    sass: "npm:^1.77.5"
   languageName: unknown
   linkType: soft
 
@@ -8820,7 +8820,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.6.0, axios@npm:^1.6.2, axios@npm:^1.6.7":
+"axios@npm:^1.6.0, axios@npm:^1.6.7, axios@npm:~1.6.8":
   version: 1.6.8
   resolution: "axios@npm:1.6.8"
   dependencies:
@@ -9769,18 +9769,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.27.0":
-  version: 11.27.0
-  resolution: "contentful-management@npm:11.27.0"
+"contentful-management@npm:^11.27.1":
+  version: 11.27.1
+  resolution: "contentful-management@npm:11.27.1"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.3.0"
     "@types/json-patch": "npm:0.0.30"
-    axios: "npm:^1.6.2"
+    axios: "npm:~1.6.8"
     contentful-sdk-core: "npm:^8.1.0"
     fast-copy: "npm:^3.0.0"
     lodash.isplainobject: "npm:^4.0.6"
     type-fest: "npm:^4.0.0"
-  checksum: 10/2e9e81707856881a5263c7342012c803d9573f350ac917242e282f2c0bb58c46b5fcabded3e70ccf5c5a14ced341f72363cc38e9f5fed6c6a0130718ace08d00
+  checksum: 10/0eb6e15b33c159483f7d84eee95df7963c2bf01320c6f981c919ad8be9d405459bcf65983dc369b347bac83396ebb81a7ad8305c7b1d5c8428eb9804ca5cd988
   languageName: node
   linkType: hard
 
@@ -10745,7 +10745,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^7.12.0"
     "@typescript-eslint/parser": "npm:^7.12.0"
     contentful: "npm:^9.3.6"
-    contentful-management: "npm:^11.27.0"
+    contentful-management: "npm:^11.27.1"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.57.0"
@@ -10758,7 +10758,7 @@ __metadata:
     prismjs: "npm:^1.29.0"
     rxjs: "npm:^7.8.1"
     safe-json-stringify: "npm:^1.2.0"
-    sass: "npm:^1.77.4"
+    sass: "npm:^1.77.5"
     ts-node: "npm:^10.9.2"
     tslib: "npm:^2.6.3"
     typescript: "npm:~5.4.5"
@@ -11264,6 +11264,86 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild@npm:^0.21.3, esbuild@npm:^0.21.5, esbuild@npm:~0.21.4":
+  version: 0.21.5
+  resolution: "esbuild@npm:0.21.5"
+  dependencies:
+    "@esbuild/aix-ppc64": "npm:0.21.5"
+    "@esbuild/android-arm": "npm:0.21.5"
+    "@esbuild/android-arm64": "npm:0.21.5"
+    "@esbuild/android-x64": "npm:0.21.5"
+    "@esbuild/darwin-arm64": "npm:0.21.5"
+    "@esbuild/darwin-x64": "npm:0.21.5"
+    "@esbuild/freebsd-arm64": "npm:0.21.5"
+    "@esbuild/freebsd-x64": "npm:0.21.5"
+    "@esbuild/linux-arm": "npm:0.21.5"
+    "@esbuild/linux-arm64": "npm:0.21.5"
+    "@esbuild/linux-ia32": "npm:0.21.5"
+    "@esbuild/linux-loong64": "npm:0.21.5"
+    "@esbuild/linux-mips64el": "npm:0.21.5"
+    "@esbuild/linux-ppc64": "npm:0.21.5"
+    "@esbuild/linux-riscv64": "npm:0.21.5"
+    "@esbuild/linux-s390x": "npm:0.21.5"
+    "@esbuild/linux-x64": "npm:0.21.5"
+    "@esbuild/netbsd-x64": "npm:0.21.5"
+    "@esbuild/openbsd-x64": "npm:0.21.5"
+    "@esbuild/sunos-x64": "npm:0.21.5"
+    "@esbuild/win32-arm64": "npm:0.21.5"
+    "@esbuild/win32-ia32": "npm:0.21.5"
+    "@esbuild/win32-x64": "npm:0.21.5"
+  dependenciesMeta:
+    "@esbuild/aix-ppc64":
+      optional: true
+    "@esbuild/android-arm":
+      optional: true
+    "@esbuild/android-arm64":
+      optional: true
+    "@esbuild/android-x64":
+      optional: true
+    "@esbuild/darwin-arm64":
+      optional: true
+    "@esbuild/darwin-x64":
+      optional: true
+    "@esbuild/freebsd-arm64":
+      optional: true
+    "@esbuild/freebsd-x64":
+      optional: true
+    "@esbuild/linux-arm":
+      optional: true
+    "@esbuild/linux-arm64":
+      optional: true
+    "@esbuild/linux-ia32":
+      optional: true
+    "@esbuild/linux-loong64":
+      optional: true
+    "@esbuild/linux-mips64el":
+      optional: true
+    "@esbuild/linux-ppc64":
+      optional: true
+    "@esbuild/linux-riscv64":
+      optional: true
+    "@esbuild/linux-s390x":
+      optional: true
+    "@esbuild/linux-x64":
+      optional: true
+    "@esbuild/netbsd-x64":
+      optional: true
+    "@esbuild/openbsd-x64":
+      optional: true
+    "@esbuild/sunos-x64":
+      optional: true
+    "@esbuild/win32-arm64":
+      optional: true
+    "@esbuild/win32-ia32":
+      optional: true
+    "@esbuild/win32-x64":
+      optional: true
+  bin:
+    esbuild: bin/esbuild
+  checksum: 10/d2ff2ca84d30cce8e871517374d6c2290835380dc7cd413b2d49189ed170d45e407be14de2cb4794cf76f75cf89955c4714726ebd3de7444b3046f5cab23ab6b
+  languageName: node
+  linkType: hard
+
 "esbuild@npm:^0.21.4":
   version: 0.21.4
   resolution: "esbuild@npm:0.21.4"
@@ -11341,86 +11421,6 @@ __metadata:
   bin:
     esbuild: bin/esbuild
   checksum: 10/d27b0fcdce514a73a10c6a687b3d2a90280d9ff07414a8d8b643f2be4e794f992f94de9044a5be90a9be07f368421e1b05d07209822f8f1a33ce47a18df2ebe8
-  languageName: node
-  linkType: hard
-
-"esbuild@npm:^0.21.5, esbuild@npm:~0.21.4":
-  version: 0.21.5
-  resolution: "esbuild@npm:0.21.5"
-  dependencies:
-    "@esbuild/aix-ppc64": "npm:0.21.5"
-    "@esbuild/android-arm": "npm:0.21.5"
-    "@esbuild/android-arm64": "npm:0.21.5"
-    "@esbuild/android-x64": "npm:0.21.5"
-    "@esbuild/darwin-arm64": "npm:0.21.5"
-    "@esbuild/darwin-x64": "npm:0.21.5"
-    "@esbuild/freebsd-arm64": "npm:0.21.5"
-    "@esbuild/freebsd-x64": "npm:0.21.5"
-    "@esbuild/linux-arm": "npm:0.21.5"
-    "@esbuild/linux-arm64": "npm:0.21.5"
-    "@esbuild/linux-ia32": "npm:0.21.5"
-    "@esbuild/linux-loong64": "npm:0.21.5"
-    "@esbuild/linux-mips64el": "npm:0.21.5"
-    "@esbuild/linux-ppc64": "npm:0.21.5"
-    "@esbuild/linux-riscv64": "npm:0.21.5"
-    "@esbuild/linux-s390x": "npm:0.21.5"
-    "@esbuild/linux-x64": "npm:0.21.5"
-    "@esbuild/netbsd-x64": "npm:0.21.5"
-    "@esbuild/openbsd-x64": "npm:0.21.5"
-    "@esbuild/sunos-x64": "npm:0.21.5"
-    "@esbuild/win32-arm64": "npm:0.21.5"
-    "@esbuild/win32-ia32": "npm:0.21.5"
-    "@esbuild/win32-x64": "npm:0.21.5"
-  dependenciesMeta:
-    "@esbuild/aix-ppc64":
-      optional: true
-    "@esbuild/android-arm":
-      optional: true
-    "@esbuild/android-arm64":
-      optional: true
-    "@esbuild/android-x64":
-      optional: true
-    "@esbuild/darwin-arm64":
-      optional: true
-    "@esbuild/darwin-x64":
-      optional: true
-    "@esbuild/freebsd-arm64":
-      optional: true
-    "@esbuild/freebsd-x64":
-      optional: true
-    "@esbuild/linux-arm":
-      optional: true
-    "@esbuild/linux-arm64":
-      optional: true
-    "@esbuild/linux-ia32":
-      optional: true
-    "@esbuild/linux-loong64":
-      optional: true
-    "@esbuild/linux-mips64el":
-      optional: true
-    "@esbuild/linux-ppc64":
-      optional: true
-    "@esbuild/linux-riscv64":
-      optional: true
-    "@esbuild/linux-s390x":
-      optional: true
-    "@esbuild/linux-x64":
-      optional: true
-    "@esbuild/netbsd-x64":
-      optional: true
-    "@esbuild/openbsd-x64":
-      optional: true
-    "@esbuild/sunos-x64":
-      optional: true
-    "@esbuild/win32-arm64":
-      optional: true
-    "@esbuild/win32-ia32":
-      optional: true
-    "@esbuild/win32-x64":
-      optional: true
-  bin:
-    esbuild: bin/esbuild
-  checksum: 10/d2ff2ca84d30cce8e871517374d6c2290835380dc7cd413b2d49189ed170d45e407be14de2cb4794cf76f75cf89955c4714726ebd3de7444b3046f5cab23ab6b
   languageName: node
   linkType: hard
 
@@ -17419,9 +17419,9 @@ __metadata:
     "@vitejs/plugin-react": "npm:^4.3.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    sass: "npm:^1.77.4"
+    sass: "npm:^1.77.5"
     typescript: "npm:~5.4.5"
-    vite: "npm:^5.2.13"
+    vite: "npm:^5.3.0"
   languageName: unknown
   linkType: soft
 
@@ -18032,176 +18032,176 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass-embedded-android-arm64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-android-arm64@npm:1.77.2"
+"sass-embedded-android-arm64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-android-arm64@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-android-arm@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-android-arm@npm:1.77.2"
+"sass-embedded-android-arm@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-android-arm@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"sass-embedded-android-ia32@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-android-ia32@npm:1.77.2"
+"sass-embedded-android-ia32@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-android-ia32@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=android & cpu=ia32
   languageName: node
   linkType: hard
 
-"sass-embedded-android-x64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-android-x64@npm:1.77.2"
+"sass-embedded-android-x64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-android-x64@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=android & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded-darwin-arm64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-darwin-arm64@npm:1.77.2"
+"sass-embedded-darwin-arm64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-darwin-arm64@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-darwin-x64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-darwin-x64@npm:1.77.2"
+"sass-embedded-darwin-x64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-darwin-x64@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-arm64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-linux-arm64@npm:1.77.2"
+"sass-embedded-linux-arm64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-linux-arm64@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-arm@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-linux-arm@npm:1.77.2"
+"sass-embedded-linux-arm@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-linux-arm@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-ia32@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-linux-ia32@npm:1.77.2"
+"sass-embedded-linux-ia32@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-linux-ia32@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-musl-arm64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-linux-musl-arm64@npm:1.77.2"
+"sass-embedded-linux-musl-arm64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-linux-musl-arm64@npm:1.77.5"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-musl-arm@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-linux-musl-arm@npm:1.77.2"
+"sass-embedded-linux-musl-arm@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-linux-musl-arm@npm:1.77.5"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-musl-ia32@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-linux-musl-ia32@npm:1.77.2"
+"sass-embedded-linux-musl-ia32@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-linux-musl-ia32@npm:1.77.5"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-musl-x64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-linux-musl-x64@npm:1.77.2"
+"sass-embedded-linux-musl-x64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-linux-musl-x64@npm:1.77.5"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-x64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-linux-x64@npm:1.77.2"
+"sass-embedded-linux-x64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-linux-x64@npm:1.77.5"
   bin:
     sass: dart-sass/sass
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded-win32-arm64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-win32-arm64@npm:1.77.2"
+"sass-embedded-win32-arm64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-win32-arm64@npm:1.77.5"
   bin:
     sass: dart-sass/sass.bat
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-win32-ia32@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-win32-ia32@npm:1.77.2"
+"sass-embedded-win32-ia32@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-win32-ia32@npm:1.77.5"
   bin:
     sass: dart-sass/sass.bat
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"sass-embedded-win32-x64@npm:1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded-win32-x64@npm:1.77.2"
+"sass-embedded-win32-x64@npm:1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded-win32-x64@npm:1.77.5"
   bin:
     sass: dart-sass/sass.bat
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded@npm:^1.77.2":
-  version: 1.77.2
-  resolution: "sass-embedded@npm:1.77.2"
+"sass-embedded@npm:^1.77.5":
+  version: 1.77.5
+  resolution: "sass-embedded@npm:1.77.5"
   dependencies:
     "@bufbuild/protobuf": "npm:^1.0.0"
     buffer-builder: "npm:^0.2.0"
     immutable: "npm:^4.0.0"
     rxjs: "npm:^7.4.0"
-    sass-embedded-android-arm: "npm:1.77.2"
-    sass-embedded-android-arm64: "npm:1.77.2"
-    sass-embedded-android-ia32: "npm:1.77.2"
-    sass-embedded-android-x64: "npm:1.77.2"
-    sass-embedded-darwin-arm64: "npm:1.77.2"
-    sass-embedded-darwin-x64: "npm:1.77.2"
-    sass-embedded-linux-arm: "npm:1.77.2"
-    sass-embedded-linux-arm64: "npm:1.77.2"
-    sass-embedded-linux-ia32: "npm:1.77.2"
-    sass-embedded-linux-musl-arm: "npm:1.77.2"
-    sass-embedded-linux-musl-arm64: "npm:1.77.2"
-    sass-embedded-linux-musl-ia32: "npm:1.77.2"
-    sass-embedded-linux-musl-x64: "npm:1.77.2"
-    sass-embedded-linux-x64: "npm:1.77.2"
-    sass-embedded-win32-arm64: "npm:1.77.2"
-    sass-embedded-win32-ia32: "npm:1.77.2"
-    sass-embedded-win32-x64: "npm:1.77.2"
+    sass-embedded-android-arm: "npm:1.77.5"
+    sass-embedded-android-arm64: "npm:1.77.5"
+    sass-embedded-android-ia32: "npm:1.77.5"
+    sass-embedded-android-x64: "npm:1.77.5"
+    sass-embedded-darwin-arm64: "npm:1.77.5"
+    sass-embedded-darwin-x64: "npm:1.77.5"
+    sass-embedded-linux-arm: "npm:1.77.5"
+    sass-embedded-linux-arm64: "npm:1.77.5"
+    sass-embedded-linux-ia32: "npm:1.77.5"
+    sass-embedded-linux-musl-arm: "npm:1.77.5"
+    sass-embedded-linux-musl-arm64: "npm:1.77.5"
+    sass-embedded-linux-musl-ia32: "npm:1.77.5"
+    sass-embedded-linux-musl-x64: "npm:1.77.5"
+    sass-embedded-linux-x64: "npm:1.77.5"
+    sass-embedded-win32-arm64: "npm:1.77.5"
+    sass-embedded-win32-ia32: "npm:1.77.5"
+    sass-embedded-win32-x64: "npm:1.77.5"
     supports-color: "npm:^8.1.1"
     varint: "npm:^6.0.0"
   dependenciesMeta:
@@ -18239,7 +18239,7 @@ __metadata:
       optional: true
     sass-embedded-win32-x64:
       optional: true
-  checksum: 10/d6281d1111a1aee251602f76a29b32f573e98eb2b54b6b5a6e25b3d76fb8a23b5f4e5d71005b27b5129230ec17dd43ca9b62762b97fbe62b88116f11361458da
+  checksum: 10/292e469a97296d43e664f575377145ed95781780ec4f87c53135a717bb0060452e795b355062b17a59a2bab46f1b84f2d923e480c354c313b24cfb8ca38dd21f
   languageName: node
   linkType: hard
 
@@ -18282,16 +18282,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.77.4":
-  version: 1.77.4
-  resolution: "sass@npm:1.77.4"
+"sass@npm:^1.77.5":
+  version: 1.77.5
+  resolution: "sass@npm:1.77.5"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 10/04e31ce4961a7b90238c274a268945cd67177d992273073e6fa5df09fe7a03ff378f1608fe646ec512c8691038ac9487e06ef5abb2185f56eb36204952538eea
+  checksum: 10/40e4eb70665f10494ede0fd3b17bf7f33352f02d1536b08c84eadd0a4e397ef2b475a70290f02b3c5421b3c77f312fd0e139920814daa49dc2c32b8e618f93ba
   languageName: node
   linkType: hard
 
@@ -19804,9 +19804,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.15.1":
-  version: 4.15.1
-  resolution: "tsx@npm:4.15.1"
+"tsx@npm:^4.15.4":
+  version: 4.15.4
+  resolution: "tsx@npm:4.15.4"
   dependencies:
     esbuild: "npm:~0.21.4"
     fsevents: "npm:~2.3.3"
@@ -19816,7 +19816,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/ee65bf4029281e28e1c64f49a44400479c4a3abdeab616382f1c0c2a65cabaf324b42a6f81a4cbb9e9ac999e3eaf3a741a3187520969aea318a07af7f9ff1618
+  checksum: 10/0f10ce7c2f103fac6eb4c220d601e895c39f64dfa59fde95335288674b011a0b43eaa66c78841fa71ba1890f62ff08ab22fbf0c95d93d8f7ad15a425c40d424f
   languageName: node
   linkType: hard
 
@@ -20383,11 +20383,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.2.13":
-  version: 5.2.13
-  resolution: "vite@npm:5.2.13"
+"vite@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "vite@npm:5.3.0"
   dependencies:
-    esbuild: "npm:^0.20.1"
+    esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
     postcss: "npm:^8.4.38"
     rollup: "npm:^4.13.0"
@@ -20419,7 +20419,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/eee65eebff8c839935fdf1a6f2bbc90b923d53a447cc0949abea71577166e7ad7ceb41f3ea42c79a54997319eacfa45445509da371a8ba0699fce8f7de137882
+  checksum: 10/0278f286fc38427328a2f33de4d2ab5c96c683948872790c2ba8e67d362a3464b8ff59de2e433f5cdebf1a9bee899e05ad7a65b7f4fd31da931a8b08fa1746d3
   languageName: node
   linkType: hard
 
@@ -20430,14 +20430,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.3.2":
-  version: 4.3.2
-  resolution: "vue-router@npm:4.3.2"
+"vue-router@npm:^4.3.3":
+  version: 4.3.3
+  resolution: "vue-router@npm:4.3.3"
   dependencies:
     "@vue/devtools-api": "npm:^6.5.1"
   peerDependencies:
     vue: ^3.2.0
-  checksum: 10/b7fa66e330d2122d6129372ecedf374da34be6238baf5b30c2fafaa4b341a0286aa834778c3960745536fe77de08a890585b7e064a2ac96b9f7b9e38bbbce6b0
+  checksum: 10/03a404608af00175f148db885a831ed560741502f49d97381e53aae534aca355404e0549b85d8704020ddca1cc5d2a4c7431c4cf7190cda428b6e93ecd373d49
   languageName: node
   linkType: hard
 
@@ -20485,11 +20485,11 @@ __metadata:
     "@elvia/elvis-tooltip": "npm:*"
     "@rollup/plugin-commonjs": "npm:^25.0.8"
     "@vitejs/plugin-vue": "npm:^5.0.5"
-    sass: "npm:^1.77.4"
+    sass: "npm:^1.77.5"
     typescript: "npm:~5.4.5"
-    vite: "npm:^5.2.13"
+    vite: "npm:^5.3.0"
     vue: "npm:^3.4.27"
-    vue-router: "npm:^4.3.2"
+    vue-router: "npm:^4.3.3"
     vue-tsc: "npm:^2.0.21"
   languageName: unknown
   linkType: soft
