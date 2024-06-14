@@ -62,7 +62,7 @@ export class ElviaBreadcrumb extends LitElement {
       transform-origin: center left;
     }
 
-    ::slotted(a:hover:not([aria-current='page']))::before {
+    :host(:not(.active)) ::slotted(a:hover)::before {
       scale: 1 1;
     }
 
