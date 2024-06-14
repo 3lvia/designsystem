@@ -29,6 +29,7 @@
     "@elvia/elvis-badge": "workspace:*",
     "@elvia/elvis-box": "workspace:*",
     "@elvia/elvis-breadcrumb": "workspace:*",
+    "@elvia/elvis-breadcrumbs-lit": "workspace:*",
     "@elvia/elvis-card": "workspace:*",
     "@elvia/elvis-carousel": "workspace:*",
     "@elvia/elvis-chip": "workspace:*",

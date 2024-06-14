@@ -1,6 +1,8 @@
 import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+import '@elvia/elvis-breadcrumbs-lit';
 import type { DropdownItem } from '@elvia/elvis-dropdown';
 import { openElviaToast } from '@elvia/elvis-toast';
 
@@ -19,13 +21,19 @@ interface StepStates {
   templateUrl: './v2-playground.component.html',
   styleUrls: ['./v2-playground.component.scss'],
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {
   //her
   endMinDate = new Date(2023, 9, 10);
   endTimeValue: Date | null = new Date(2023, 9, 10);
+
+  links = [
+    { url: '/', name: 'Home' },
+    { url: '/brand', name: 'Brand' },
+    { url: '/brand/icon', name: 'Icons' },
+  ];
 
   testDate = () => {
     this.endMinDate = new Date(2023, 9, 12);
@@ -36,6 +44,14 @@ export class v2PlaygroundComponent {
     this.endMinDate = new Date(2023, 9, 10);
     this.endTimeValue = new Date(2023, 9, 10);
   };
+
+  changeBreadcrumbs(change: 'add' | 'remove') {
+    if (change === 'add') {
+      this.links.push({ name: 'New breadcrumb', url: '/brand/icon/foo' });
+    } else {
+      this.links.pop();
+    }
+  }
 
   // Accordion
   accordionContent = 'Bacon ipsum dolor amet pork loin bacon jowl turkey.';

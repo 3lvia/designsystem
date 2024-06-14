@@ -3,7 +3,17 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
-    <div class="example-wrapper"></div>
+    <div class="example-wrapper" style="resize: horizontal; overflow: hidden; border: 1px solid black">
+      <e-breadcrumbs style="display: block">
+        @for (link of links; track $index; let last = $last) {
+          <e-breadcrumb>
+            <a [routerLink]="link.url">{{ link.name }}</a>
+          </e-breadcrumb>
+        }
+      </e-breadcrumbs>
+      <button (click)="changeBreadcrumbs('add')">Add breadcrumbs</button>
+      <button (click)="changeBreadcrumbs('remove')">Remove breadcrumbs</button>
+    </div>
 
     <!--Normal version-->
     <!--Inverted version-->
