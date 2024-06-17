@@ -3095,7 +3095,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@npm:*, @elvia/elvis-toolbox@npm:^12.0.1, @elvia/elvis-toolbox@npm:^12.0.2, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@npm:^12.0.1, @elvia/elvis-toolbox@npm:^12.0.2, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
@@ -15981,11 +15981,8 @@ __metadata:
     "@elvia/elvis-tabs": "npm:*"
     "@elvia/elvis-timepicker": "npm:*"
     "@elvia/elvis-toast": "npm:*"
-    "@elvia/elvis-toolbox": "npm:*"
     "@elvia/elvis-tooltip": "npm:*"
     "@elvia/elvis-typography": "npm:*"
-    "@emotion/react": "npm:^11.11.4"
-    "@emotion/styled": "npm:^11.11.5"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"
     "@vitejs/plugin-react": "npm:^4.3.1"
