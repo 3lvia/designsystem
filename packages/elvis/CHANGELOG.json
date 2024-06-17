@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "18.2.0",
+      "date": "June 17, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added an optional CSS reset"],
+          "pages": [{ "displayName": "Get started", "url": "https://design.elvia.io/components/css-library" }]
+        }
+      ]
+    },
+    {
       "version": "18.1.2",
       "date": "June 12, 2024",
       "changelog": [
