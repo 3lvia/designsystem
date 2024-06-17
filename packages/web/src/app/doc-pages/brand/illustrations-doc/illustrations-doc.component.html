@@ -1,4 +1,4 @@
-<app-component-header [figmaUrl]="figmaUrl">
+<app-component-header [figmaUrl]="figmaUrl" [lastUpdated]="componentData.changelog?.[0]?.date">
   <ng-container ngProjectAs="headerTitle">{{ locale() === 'nb-NO' ? titleNo : title }}</ng-container>
   <div ngProjectAs="headerDescription" [innerHTML]="locale() === 'nb-NO' ? descriptionNo : description"></div>
 </app-component-header>
