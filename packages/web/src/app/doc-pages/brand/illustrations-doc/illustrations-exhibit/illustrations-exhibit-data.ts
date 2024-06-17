@@ -103,8 +103,8 @@ export const illustrationsExhibitData = [
   },
   {
     name: 'power-meter',
-    searchKeywords: ['electricity'],
-    searchKeywordsNO: ['elektrisitet'],
+    searchKeywords: ['electricity', 'data', 'measure'],
+    searchKeywordsNO: ['elektrisitet', 'data', 'måler'],
   },
   {
     name: 'price',
