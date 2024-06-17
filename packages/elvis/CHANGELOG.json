@@ -4,12 +4,28 @@
   "content": [
     {
       "version": "18.2.0",
-      "date": "June 7, 2024",
+      "date": "June 17, 2024",
       "changelog": [
         {
           "type": "new_feature",
           "changes": ["Added an optional CSS reset"],
           "pages": [{ "displayName": "Get started", "url": "https://design.elvia.io/components/css-library" }]
+        }
+      ]
+    },
+    {
+      "version": "18.1.2",
+      "date": "June 12, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Changed design of Global Alert and changed background color of Secondary Button to transparent. This also implies that the Global Alert needs to be moved to the bottom of the screen instead of underneath the Header component. The expanded version of the Global Alert is now removed."
+          ],
+          "pages": [
+            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
+            { "displayName": "Button", "url": "https://design.elvia.io/components/button" }
+          ]
         }
       ]
     },

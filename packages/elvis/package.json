@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "18.1.1",
+  "version": "18.1.2",
   "description": "Elvia design system",
   "license": "GPL-3.0-only",
   "homepage": "https://design.elvia.io/components/css-library",
@@ -38,7 +38,7 @@
     "gulp-tap": "^2.0.0",
     "gulp-terser": "^2.1.0",
     "resolve": "^1.22.8",
-    "sass": "^1.77.4"
+    "sass": "^1.77.5"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"
