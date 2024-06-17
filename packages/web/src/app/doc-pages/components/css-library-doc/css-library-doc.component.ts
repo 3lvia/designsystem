@@ -35,7 +35,7 @@ export class CSSLibraryDocComponent {
   npmInstall = 'npm install @elvia/elvis';
   yarnAdd = 'yarn add @elvia/elvis';
   importStylesheet = "@import '@elvia/elvis/css/elvis.min.css';";
-  importCSSReset = "@import '@elvia/elvis/css-reset.css';";
+  importCSSReset = "@import '@elvia/elvis/css/css-reset.css';";
   importScript = "import '@elvia/elvis/elvis.js';";
   title = docPage.title;
   description = docPage.description;
