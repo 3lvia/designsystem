@@ -7,6 +7,10 @@
       "date": "June 17, 2024",
       "changelog": [
         {
+          "type": "patch",
+          "changes": ["Use :focus-visible for keyboard focus outline, instead of JS"]
+        },
+        {
           "type": "new_feature",
           "changes": ["Added an optional CSS reset"],
           "pages": [{ "displayName": "Get started", "url": "https://design.elvia.io/components/css-library" }]
