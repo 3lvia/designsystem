@@ -35,7 +35,6 @@
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-timepicker": "*",
     "@elvia/elvis-toast": "*",
-    "@elvia/elvis-toolbox": "*",
     "@elvia/elvis-tooltip": "*",
     "@elvia/elvis-typography": "*",
     "react": "^18.3.1",
