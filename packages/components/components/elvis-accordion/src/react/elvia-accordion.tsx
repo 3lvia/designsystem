@@ -1,7 +1,7 @@
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
-import { outlineListener, useSlot } from '@elvia/elvis-toolbox';
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
+import { useSlot } from '@elvia/elvis-toolbox';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 
 import { AccordionProps, AccordionSize } from './elvia-accordion.types';
 import {
@@ -55,20 +55,6 @@ export const Accordion: FC<AccordionProps> = ({
   const [visibility, setVisibility] = useState<'hidden' | 'unset'>(
     isOpen ? 'unset' : type === 'overflow' ? 'unset' : 'hidden',
   );
-
-  const accordionRef = useRef<HTMLDivElement>(null);
-
-  /** Start outline listener */
-  useEffect(() => {
-    if (accordionRef?.current) {
-      outlineListener(accordionRef.current);
-    }
-    return () => {
-      if (accordionRef?.current) {
-        outlineListener(accordionRef.current, true);
-      }
-    };
-  }, []);
 
   const { ref: openLabelRef } = useSlot<HTMLDivElement>('openLabel', webcomponent, {
     useEffectDependencies: useMemo(() => [isOpenState], [isOpenState]),
@@ -153,7 +139,6 @@ export const Accordion: FC<AccordionProps> = ({
       data-testid="accordion-area"
       isOverflow={type === 'overflow'}
       overflowSpacing={spacingBelowContent}
-      ref={accordionRef}
       {...rest}
     >
       <AccordionButtonArea labelPosition={labelPosition}>
