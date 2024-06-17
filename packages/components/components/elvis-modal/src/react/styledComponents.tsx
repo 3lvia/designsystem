@@ -138,7 +138,7 @@ export const ModalIllustration = styled.div`
     z-index: 0;
     position: absolute;
     height: 400%;
-    width: 500%;
+    width: 400%;
     right: calc(100% - 3.7vw);
     @media (min-width: ${desktopMin}) {
       right: calc(calc(100% - 44px));

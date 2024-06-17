@@ -8,7 +8,7 @@ import { compile } from 'sass';
 
 // Delete old css
 async function clean() {
-  return rm('css/', { force: true, recursive: true });
+  return Promise.all([rm('css/elvis.css', { force: true }), rm('css/elvis.min.css', { force: true })]);
 }
 
 // Generate elvis.css from scss files
@@ -28,7 +28,7 @@ function generateElvisStyle() {
 // Create minified version of elvis.css
 function minifyElvisStyle() {
   return gulp
-    .src('./css/*.css')
+    .src('./css/elvis.css')
     .pipe(
       cleanCSS({ debug: true }, (details) => {
         /* eslint-disable no-console*/
