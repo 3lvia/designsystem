@@ -88,7 +88,6 @@
     padding: 0;
     border: 0;
     font: inherit;
-    font-size: 100%;
     vertical-align: baseline;
   }
 
@@ -138,11 +137,14 @@
   button {
     user-select: none;
     background: transparent;
-    cursor: pointer;
     padding: 0;
     border: none;
     color: inherit;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
   }
 
   button::-moz-focus-inner {
