@@ -40,3 +40,38 @@
   background-color: var(--e-color-signal-danger);
   color: var(--e-color-signal-danger--contrast);
 }
+
+.badge--neutral {
+  background-color: var(--e-color-background-element-5);
+  color: var(--e-color-text-4);
+}
+
+.badge--green-apple {
+  background-color: var(--e-color-data-1);
+  color: var(--e-color-data-1--contrast);
+}
+
+.badge--blue-berry {
+  background-color: var(--e-color-data-3);
+  color: var(--e-color-data-3--contrast);
+}
+
+.badge--purple-plum {
+  background-color: var(--e-color-data-4);
+  color: var(--e-color-data-4--contrast);
+}
+
+.badge--orange-mango {
+  background-color: var(--e-color-data-5);
+  color: var(--e-color-data-5--contrast);
+}
+
+.badge--red-tomato {
+  background-color: var(--e-color-data-6);
+  color: var(--e-color-data-6--contrast);
+}
+
+.badge--violet-grape {
+  background-color: var(--e-color-data-2);
+  color: var(--e-color-data-2--contrast);
+}

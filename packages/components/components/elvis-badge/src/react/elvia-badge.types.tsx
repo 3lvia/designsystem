@@ -1,11 +1,19 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
-export type BadgeColor = 'red' | 'green' | 'neutral';
+type DataColors =
+  | 'green-apple'
+  | 'blue-berry'
+  | 'purple-plum'
+  | 'orange-mango'
+  | 'red-tomato'
+  | 'violet-grape';
+
+export type BadgeColor = 'red' | 'green' | 'neutral' | DataColors;
 export interface BaseBadgeProps extends BaseProps {
   badgeColor?: BadgeColor;
   content?: JSX.Element;
   count?: number | string;
 }
 
-export interface BadgeProps extends BaseBadgeProps, ComponentPropsWithoutRef<'div'> {}
+export interface BadgeProps extends BaseBadgeProps, Omit<ComponentPropsWithoutRef<'div'>, 'content'> {}
