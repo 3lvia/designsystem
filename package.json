@@ -58,7 +58,7 @@
     "node": ">=20.14.0"
   },
   "dependencies": {
-    "prettier": "^3.2.5"
+    "prettier": "^3.3.2"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
