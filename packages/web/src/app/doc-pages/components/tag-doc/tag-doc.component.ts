@@ -6,7 +6,8 @@ import { ComponentSectionComponent } from '../../../shared/component-documentati
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
 import { TagCegComponent } from './tag-ceg/tag-ceg.component';
-import { TagColoredCegComponent } from './tag-colored-ceg/tag-colored-ceg.component';
+import { TagDataColoredCegComponent } from './tag-data-colored-ceg/tag-data-colored-ceg.component';
+import { TagSignalColoredCegComponent } from './tag-signal-colored-ceg/tag-signal-colored-ceg.component';
 
 @Component({
   selector: 'app-tag-doc',
@@ -19,7 +20,8 @@ import { TagColoredCegComponent } from './tag-colored-ceg/tag-colored-ceg.compon
     TagCegComponent,
     ComponentSectionComponent,
     ComponentSubsectionComponent,
-    TagColoredCegComponent,
+    TagSignalColoredCegComponent,
+    TagDataColoredCegComponent,
     WhenToUseComponent,
   ],
 })
