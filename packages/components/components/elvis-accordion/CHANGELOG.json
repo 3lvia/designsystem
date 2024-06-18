@@ -3,6 +3,16 @@
   "name": "elvis-accordion",
   "content": [
     {
+      "date": "31.05.24",
+      "version": "3.2.7",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where an icon in the accordion open/close label would rotate."]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "3.2.6",
       "changelog": [

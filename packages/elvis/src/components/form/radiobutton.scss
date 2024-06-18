@@ -71,12 +71,9 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
     @extend %radio-mark-checked;
   }
 
-  input:focus ~ .e-radio__mark {
+  &.e-radio---focus .e-radio__mark,
+  &:has(:focus-visible) .e-radio__mark {
     @include outline.e-outline();
-  }
-
-  &.e-radio---focus .e-radio__mark {
-    @include outline.e-outline-pseudoclass();
   }
 
   input {

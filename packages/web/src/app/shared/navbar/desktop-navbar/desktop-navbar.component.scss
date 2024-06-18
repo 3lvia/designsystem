@@ -21,8 +21,9 @@
   gap: 16px;
   width: 100%;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  // Workaround to make tab outline visible
+  margin: -4px;
+  padding: 4px;
 
   mask-image: linear-gradient(to top, transparent 5px, black var(--gradient-height));
   mask-position: center;

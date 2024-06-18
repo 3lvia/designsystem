@@ -1,6 +1,6 @@
 # Elvia Typography Changelog
 
-## 3.0.0 (31.05.24)
+## 3.0.0 (18.06.24)
 
 ### Major
 

@@ -56,16 +56,14 @@
       <!-- Fake results loading -->
       <div class="results">
         @if (searchString) {
-          <div>
-            @for (result of [1, 2, 3]; track result; let last = $last) {
-              <div class="result-item loading">
-                <div class="e-content-loader e-w-100"></div>
-              </div>
-              @if (!last) {
-                <elvia-divider />
-              }
+          @for (result of [1, 2, 3]; track result; let last = $last) {
+            <div class="result-item loading">
+              <div class="e-content-loader e-w-100"></div>
+            </div>
+            @if (!last) {
+              <elvia-divider />
             }
-          </div>
+          }
         }
       </div>
     }

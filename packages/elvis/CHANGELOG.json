@@ -4,7 +4,7 @@
   "content": [
     {
       "version": "19.0.0",
-      "date": "June 6, 2024",
+      "date": "June 18, 2024",
       "changelog": [
         {
           "type": "breaking_changes",
@@ -20,6 +20,31 @@
           "type": "patch",
           "changes": ["Fixed alignment issue on table header on mobile"],
           "pages": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        },
+        {
+          "type": "patch",
+          "changes": ["Use :focus-visible for keyboard focus outline, instead of JS"]
+        },
+        {
+          "type": "new_feature",
+          "changes": ["Added an optional CSS reset"],
+          "pages": [{ "displayName": "Get started", "url": "https://design.elvia.io/components/css-library" }]
+        }
+      ]
+    },
+    {
+      "version": "18.1.2",
+      "date": "June 12, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Changed design of Global Alert and changed background color of Secondary Button to transparent. This also implies that the Global Alert needs to be moved to the bottom of the screen instead of underneath the Header component. The expanded version of the Global Alert is now removed."
+          ],
+          "pages": [
+            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
+            { "displayName": "Button", "url": "https://design.elvia.io/components/button" }
+          ]
         }
       ]
     },

@@ -108,11 +108,14 @@
   margin-top: 5%;
   margin-bottom: 40px;
   gap: 56px;
+
   .card-link {
     aspect-ratio: 1 / 1;
     width: 154px;
     max-width: 250px;
+    border-radius: 8px;
   }
+
   @include breakpoints.breakpoint-up(Tablet) {
     margin-top: 80px;
     gap: 32px;

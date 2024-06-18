@@ -2,20 +2,3 @@
   outline: 2px solid var(--e-color-focus-outline);
   outline-offset: 2px;
 }
-
-// for pseudoclasses :focus
-@mixin e-outline-pseudoclass() {
-  outline: 2px solid var(--e-color-focus-outline) !important;
-  outline-offset: 2px;
-}
-
-// Using this requires javascript to not fail WCAG criterion 2.4.7
-.e-no-outline {
-  * {
-    outline: none !important;
-  }
-}
-
-.e-outline {
-  @include e-outline-pseudoclass();
-}
