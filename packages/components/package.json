@@ -40,10 +40,10 @@
     "react-dom": "^18.3.1",
     "react-is": "^18.3.1",
     "resize-observer-polyfill": "^1.5.1",
-    "sass": "^1.77.5",
+    "sass": "^1.77.6",
     "sass-embedded": "^1.77.5",
     "tiny-glob": "^0.2.9",
-    "tsx": "^4.15.5",
+    "tsx": "^4.15.6",
     "typescript": "~5.4.5",
     "typescript-plugin-css-modules": "^5.1.0"
   }
