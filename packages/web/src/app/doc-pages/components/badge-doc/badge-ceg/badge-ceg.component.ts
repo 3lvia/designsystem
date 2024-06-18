@@ -23,6 +23,12 @@ export class BadgeCegComponent implements ComponentExample {
             { label: 'Green', value: 'green' },
             { label: 'Red', value: 'red' },
             { label: 'Neutral', value: 'neutral' },
+            { label: 'Green-apple', value: 'green-apple' },
+            { label: 'Blue-berry', value: 'blue-berry' },
+            { label: 'Purple-plum', value: 'purple-plum' },
+            { label: 'Orange-mange', value: 'orange-mango' },
+            { label: 'Red-tomato', value: 'red-tomato' },
+            { label: 'Violet-grape', value: 'violet-grape' },
           ],
         },
         count: {

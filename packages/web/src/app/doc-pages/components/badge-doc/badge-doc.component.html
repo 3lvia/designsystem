@@ -16,9 +16,29 @@
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
     <app-component-subsection [sectionTitle]="'Color'">
-      The
-      <code>neutral</code>
-      badge color adapts to user's color scheme, turning black in light mode and white in dark mode.
+      <div class="e-m-0">
+        The green badge is the default, but use the color that suits your case best. Red can be used in cases
+        where the case is negative, like deviations or missing information. The neutral (black/white) badge
+        has a more neutral and toned-down expression.
+
+        <div class="colors e-mt-16">
+          <div class="color green"></div>
+          <div class="color red"></div>
+          <div class="color neutral"></div>
+        </div>
+      </div>
+      <div class="e-m-0 e-mt-32">
+        Data-colors can also be used when you want to connect the badge to some data that uses a data-color
+        already.
+        <div class="colors e-mt-16">
+          <div class="color green-apple"></div>
+          <div class="color blue-berry"></div>
+          <div class="color purple-plum"></div>
+          <div class="color orange-mango"></div>
+          <div class="color red-tomato"></div>
+          <div class="color violet-grape"></div>
+        </div>
+      </div>
     </app-component-subsection>
   </app-component-section>
 

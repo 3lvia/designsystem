@@ -13,7 +13,7 @@ export const badgeData: ComponentData<BaseBadgeProps> = {
       description: 'Thumbnail or Icon buttons.',
     },
     badgeColor: {
-      type: '"red" | "green" | "neutral"',
+      type: '"green" | "red" | "neutral" | "green-apple" | "blue-berry" | "purple-plum" | "orange-mango" | "red-tomato" | "violet-grape"',
       description: 'The background color of the badge',
       default: '"green"',
     },
