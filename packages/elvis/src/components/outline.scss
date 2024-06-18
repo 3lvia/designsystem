@@ -1,0 +1,6 @@
+@use '../utilities/outline.scss';
+
+*:focus-visible,
+.e-outline {
+  @include outline.e-outline();
+}

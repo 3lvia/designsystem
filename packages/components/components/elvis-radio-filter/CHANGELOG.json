@@ -3,6 +3,16 @@
   "name": "elvis-radio-filter",
   "content": [
     {
+      "date": "17.06.24",
+      "version": "1.8.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Add missing outline when focused with keyboard"]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "1.8.4",
       "changelog": [

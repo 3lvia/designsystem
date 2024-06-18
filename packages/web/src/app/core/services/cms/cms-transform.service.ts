@@ -689,8 +689,7 @@ export class CMSTransformService {
           'https:' + this.extractLocale(this.extractLocale(card.fields.pageIconDarkTheme!)!.fields.file)?.url;
       }
       const cardTitle = this.extractLocale(card.fields.title);
-      returnString += `<div>
-      <a href="${fullPath}">
+      returnString += `<a href="${fullPath}">
         <elvia-card
           heading="${cardTitle}"
           maxHeadingLines="2"
@@ -698,7 +697,6 @@ export class CMSTransformService {
           <img slot="icon" src="${iconUrl}" alt="" aria-hidden="true"></img>
         </elvia-card>
       </a>
-    </div>
     `;
     });
     return (
