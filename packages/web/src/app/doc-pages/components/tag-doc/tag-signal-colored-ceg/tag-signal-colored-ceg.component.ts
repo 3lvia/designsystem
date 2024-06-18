@@ -6,6 +6,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 @Component({
   selector: 'app-tag-signal-colored-ceg',
   templateUrl: './tag-signal-colored-ceg.component.html',
+  styleUrl: './tag-signal-colored-ceg.component.scss',
   providers: [{ provide: StaticComponentExample, useExisting: TagSignalColoredCegComponent }],
   standalone: true,
 })
