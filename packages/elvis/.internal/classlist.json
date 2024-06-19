@@ -58,7 +58,6 @@
 				"e-alert--no-title": {}
 			}
 		},
-		"e-no-outline": {},
 		"e-outline": {},
 		"e-btn": {
 			"modifier": {
@@ -859,7 +858,6 @@
 		"e-alert__actions": {},
 		"e-alert--info": {},
 		"e-alert--no-title": {},
-		"e-no-outline": {},
 		"e-outline": {},
 		"e-btn": {},
 		"e-btn--primary": {},

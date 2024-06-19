@@ -35,7 +35,9 @@
         "^postcss",
         "^express",
         "^tsx",
-        "^esbuild"
+        "^esbuild",
+        "^lint-staged",
+        "^prettier"
       ],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true

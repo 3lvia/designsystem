@@ -36,6 +36,7 @@ import '@elvia/elvis-illustrations/nothing-new';
 import '@elvia/elvis-illustrations/office';
 import '@elvia/elvis-illustrations/photo';
 import '@elvia/elvis-illustrations/power-line';
+import '@elvia/elvis-illustrations/power-meter';
 import '@elvia/elvis-illustrations/price';
 import '@elvia/elvis-illustrations/secret';
 import '@elvia/elvis-illustrations/sharing';

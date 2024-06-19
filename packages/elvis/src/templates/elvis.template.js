@@ -2,33 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //[[INJECT_ICONS]]
   //[[INJECT_DEPRECATED_ELVIS_CLASSES]]
 
-  let DEBUG = false;
-  if (window.location.href.indexOf('#debug') > -1) {
-    DEBUG = true;
-  }
-
   let localhost = window.location.href.indexOf('localhost') > -1;
-
-  function outlineFix() {
-    if (DEBUG) {
-      return;
-    }
-    document.body.classList.add('e-no-outline');
-    document.documentElement.addEventListener('keydown', function (e) {
-      if (e.keyCode === 9) {
-        document.body.classList.remove('e-no-outline');
-      }
-    });
-
-    document.documentElement.addEventListener(
-      'mousedown',
-      function (event) {
-        document.body.classList.add('e-no-outline');
-      },
-      false
-    );
-  }
-  outlineFix();
 
   /* A MutationObserver that is watching for changes in the DOM. */
   let mo = new MutationObserver(function (mutations) {

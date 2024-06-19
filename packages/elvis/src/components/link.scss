@@ -70,10 +70,6 @@ $link-jumbo-phone-width: 287px;
   }
 
   &.e-link---focus {
-    @include outline.e-outline-pseudoclass();
-  }
-
-  &:focus {
     @include outline.e-outline();
   }
 
