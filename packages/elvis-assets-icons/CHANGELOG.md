@@ -1,5 +1,16 @@
 # Elvis-assets-icon
 
+## 3.11.0 (20.06.24)
+
+### New feature
+
+- Added the `ask_help`, `ask_information`, `hierarchy`, `hierarchy-color`, `more_menu-filled`, `user_testing`
+  and `web` icons.
+
+### Patch
+
+- Updated the `check-bold` icon.
+
 ## 3.10.0 (16.02.24)
 
 ### New feature

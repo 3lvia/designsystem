@@ -143,6 +143,16 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['arrow_up'] },
   },
   {
+    name: 'ask_help',
+    terms: ['ask', 'question', 'talk', 'bubble'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
+    name: 'ask_information',
+    terms: ['ask', 'info', 'talk', 'help', 'bubble'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
     name: 'attendance',
     terms: ['person', 'check', 'participation'],
     thirdparty: { name: ['streamline'] },
@@ -415,6 +425,16 @@ module.exports = [
   },
   { name: 'health_safety_environment', terms: ['HMS'], thirdparty: { name: ['streamline'] } },
   { name: 'heating', terms: ['warm up', 'radiator'] },
+  {
+    name: 'hierarchy',
+    terms: ['process', 'organize'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
+    name: 'hierarchy-color',
+    terms: ['process', 'organize'],
+    thirdparty: { name: ['streamline'], duplicate: ['hierarchy'] },
+  },
   { name: 'history', terms: ['time', 'clock', 'past', 'fortid'] },
   { name: 'home', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'home-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['home'] } },
@@ -925,7 +945,12 @@ module.exports = [
   { name: 'undo', terms: ['back', 'regret'] },
   { name: 'unlock', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'upload', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'user_testing-color', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'user_testing', terms: ['process'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'user_testing-color',
+    terms: ['process'],
+    thirdparty: { name: ['streamline'], duplicate: ['user_testing'] },
+  },
   {
     name: 'users',
     terms: ['profile', 'persons', 'people', 'group', 'multiple'],
@@ -960,6 +985,7 @@ module.exports = [
   },
   { name: 'water_heater', terms: ['hot-water tank', 'warmer'] },
   { name: 'washing_machine', terms: ['washer'] },
+  { name: 'web', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'web_library-color', terms: [], thirdparty: { name: ['streamline'] } },
   {
     name: 'worker',
