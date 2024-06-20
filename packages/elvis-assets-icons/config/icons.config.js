@@ -144,7 +144,7 @@ module.exports = [
   },
   {
     name: 'ask_help',
-    terms: ['ask', 'question', 'talk', 'bubble'],
+    terms: ['ask', 'question', 'talk', 'bubble', '?'],
     thirdparty: { name: ['streamline'] },
   },
   {
@@ -427,12 +427,12 @@ module.exports = [
   { name: 'heating', terms: ['warm up', 'radiator'] },
   {
     name: 'hierarchy',
-    terms: ['process', 'organize'],
+    terms: ['process', 'organize', 'structure'],
     thirdparty: { name: ['streamline'] },
   },
   {
     name: 'hierarchy-color',
-    terms: ['process', 'organize'],
+    terms: ['process', 'organize', 'structure'],
     thirdparty: { name: ['streamline'], duplicate: ['hierarchy'] },
   },
   { name: 'history', terms: ['time', 'clock', 'past', 'fortid'] },
@@ -950,10 +950,10 @@ module.exports = [
   { name: 'undo', terms: ['back', 'regret'] },
   { name: 'unlock', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'upload', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'user_testing', terms: ['process'], thirdparty: { name: ['streamline'] } },
+  { name: 'user_testing', terms: ['process', 'ux'], thirdparty: { name: ['streamline'] } },
   {
     name: 'user_testing-color',
-    terms: ['process'],
+    terms: ['process', 'ux'],
     thirdparty: { name: ['streamline'], duplicate: ['user_testing'] },
   },
   {
@@ -990,7 +990,7 @@ module.exports = [
   },
   { name: 'water_heater', terms: ['hot-water tank', 'warmer'] },
   { name: 'washing_machine', terms: ['washer'] },
-  { name: 'web', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'web', terms: ['www', 'internet', 'globe', 'world'], thirdparty: { name: ['streamline'] } },
   { name: 'web_library-color', terms: [], thirdparty: { name: ['streamline'] } },
   {
     name: 'worker',
