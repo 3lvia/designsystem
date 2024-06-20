@@ -5,9 +5,14 @@
 
   <!--TYPE-->
   <app-component-section type [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'Colored'">
+    <app-component-subsection [sectionTitle]="'Signal colors'">
       <app-static-ceg>
-        <app-tag-colored-ceg />
+        <app-tag-signal-colored-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Data colors'">
+      <app-static-ceg>
+        <app-tag-data-colored-ceg />
       </app-static-ceg>
     </app-component-subsection>
   </app-component-section>
