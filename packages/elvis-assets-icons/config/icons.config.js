@@ -543,6 +543,11 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   { name: 'more_menu', terms: ['actions', 'contextual', 'kebab', 'dots'] },
+  {
+    name: 'more_menu-filled',
+    terms: ['actions', 'contextual', 'kebab', 'dots'],
+    thirdparty: { duplicate: ['more_menu'] },
+  },
   { name: 'move_circle', terms: ['move', 'transfer'], thirdparty: { name: ['streamline'] } },
   { name: 'move_truck-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'movie', deprecated: '10.6.0', newIconName: 'media-color' },
