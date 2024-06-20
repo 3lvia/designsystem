@@ -6,7 +6,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 @Component({
   selector: 'app-tag-data-colored-ceg',
   templateUrl: './tag-data-colored-ceg.component.html',
-  styleUrl: './tag-data-colored-ceg.component.scss',
   providers: [{ provide: StaticComponentExample, useExisting: TagDataColoredCegComponent }],
   standalone: true,
 })
