@@ -1,13 +1,7 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
 import { ComponentPropsWithoutRef } from 'react';
 
-type DataColors =
-  | 'green-apple'
-  | 'blue-berry'
-  | 'purple-plum'
-  | 'orange-mango'
-  | 'red-tomato'
-  | 'violet-grape';
+type DataColors = 'data-1' | 'data-2' | 'data-3' | 'data-4' | 'data-5' | 'data-6';
 
 export type BadgeColor = 'red' | 'green' | 'orange' | 'neutral' | DataColors;
 export interface BaseBadgeProps extends BaseProps {
