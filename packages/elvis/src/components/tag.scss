@@ -57,7 +57,6 @@ $tag-colors: (
 
   @each $name, $variable in $tag-colors {
     &.e-tag--#{$name} {
-      color: var($variable + '-contrast');
       &::before {
         margin-right: 8px;
         display: inline-flex;
