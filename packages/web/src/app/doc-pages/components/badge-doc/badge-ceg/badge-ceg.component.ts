@@ -22,6 +22,7 @@ export class BadgeCegComponent implements ComponentExample {
           radios: [
             { label: 'Green', value: 'green' },
             { label: 'Red', value: 'red' },
+            { label: 'Orange', value: 'orange' },
             { label: 'Neutral', value: 'neutral' },
             { label: 'Green-apple', value: 'green-apple' },
             { label: 'Blue-berry', value: 'blue-berry' },

@@ -9,7 +9,7 @@ type DataColors =
   | 'red-tomato'
   | 'violet-grape';
 
-export type BadgeColor = 'red' | 'green' | 'neutral' | DataColors;
+export type BadgeColor = 'red' | 'green' | 'orange' | 'neutral' | DataColors;
 export interface BaseBadgeProps extends BaseProps {
   badgeColor?: BadgeColor;
   content?: JSX.Element;

@@ -41,6 +41,11 @@
   color: var(--e-color-signal-danger--contrast);
 }
 
+.badge--orange {
+  background-color: var(--e-color-signal-warning);
+  color: var(--e-color-signal-warning--contrast);
+}
+
 .badge--neutral {
   background-color: var(--e-color-background-element-5);
   color: var(--e-color-text-4);
