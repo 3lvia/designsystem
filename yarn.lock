@@ -364,9 +364,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cdk@npm:^18.0.3":
-  version: 18.0.3
-  resolution: "@angular/cdk@npm:18.0.3"
+"@angular/cdk@npm:^18.0.4":
+  version: 18.0.4
+  resolution: "@angular/cdk@npm:18.0.4"
   dependencies:
     parse5: "npm:^7.1.2"
     tslib: "npm:^2.3.0"
@@ -377,7 +377,7 @@ __metadata:
   dependenciesMeta:
     parse5:
       optional: true
-  checksum: 10/6d55487e75aa9e556c9710fd90527b3dcc4e406a839499fac410fe40ccf484c2a82284170a436dfde2a0092a1e0617874b06221f8492f9eed7f73e9e4a3dfecd
+  checksum: 10/4f87db90b91fdae80bb6293c6fb79645cdc3a9a9172987682afb7f33fb04bb9b630980cdd2111409679506edfb32c9de07b03b7e3256fc166f5d733929ca3e78
   languageName: node
   linkType: hard
 
@@ -2326,7 +2326,7 @@ __metadata:
     "@elvia/elvis-colors": "npm:^4.1.0"
     "@types/gulp": "npm:^4.0.17"
     "@types/gulp-svgmin": "npm:^1.2.4"
-    "@types/node": "npm:^20.14.5"
+    "@types/node": "npm:^20.14.6"
     gulp: "npm:^5.0.0"
     gulp-svgmin: "npm:^4.1.0"
     sharp: "npm:^0.33.4"
@@ -2516,7 +2516,7 @@ __metadata:
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.14.5"
+    "@types/node": "npm:^20.14.6"
     gulp: "npm:^5.0.0"
     ts-node: "npm:^10.9.2"
     tsup: "npm:^8.1.0"
@@ -3148,7 +3148,7 @@ __metadata:
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
     "@types/gulp": "npm:^4.0.17"
-    "@types/node": "npm:^20.14.5"
+    "@types/node": "npm:^20.14.6"
     gulp: "npm:^5.0.0"
     ts-node: "npm:^10.9.2"
     tsup: "npm:^8.1.0"
@@ -6061,12 +6061,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.14.5, @types/node@npm:^20.14.5":
-  version: 20.14.5
-  resolution: "@types/node@npm:20.14.5"
+"@types/node@npm:20.14.6, @types/node@npm:^20.14.6":
+  version: 20.14.6
+  resolution: "@types/node@npm:20.14.6"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/74c7974a8c75280f9397f22ce34d10d5575668e3c357a165f385c9365c39b3ccda3aa2e7237e7e907fc72e515afb93cc0be1f3e2074cc1889c1ffeb01d2843cc
+  checksum: 10/1dcfeeb03ce3c3a1d8a537fefee7cd0cffb78f89e9535b74ee12940559566b57c39dad20d1b165b60b5727408dd44e1a52e5c01cf02d0a99d93ef3da8062c86e
   languageName: node
   linkType: hard
 
@@ -9312,7 +9312,7 @@ __metadata:
     "@angular-eslint/schematics": "npm:^18.0.1"
     "@angular-eslint/template-parser": "npm:^18.0.1"
     "@angular/animations": "npm:^18.0.3"
-    "@angular/cdk": "npm:^18.0.3"
+    "@angular/cdk": "npm:^18.0.4"
     "@angular/cli": "npm:^18.0.4"
     "@angular/common": "npm:^18.0.3"
     "@angular/compiler": "npm:^18.0.3"
@@ -9363,7 +9363,7 @@ __metadata:
     "@netlify/functions": "npm:^2.7.0"
     "@types/file-saver": "npm:^2.0.7"
     "@types/natural-compare-lite": "npm:^1.4.2"
-    "@types/node": "npm:20.14.5"
+    "@types/node": "npm:20.14.6"
     "@types/opentype.js": "npm:^1.3.8"
     "@types/prismjs": "npm:^1.26.4"
     "@types/safe-json-stringify": "npm:^1.1.5"
@@ -11886,10 +11886,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ip@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "ip@npm:2.0.1"
-  checksum: 10/d6dd154e1bc5e8725adfdd6fb92218635b9cbe6d873d051bd63b178f009777f751a5eea4c67021723a7056325fc3052f8b6599af0a2d56f042c93e684b4a0349
+"ip-address@npm:^9.0.5":
+  version: 9.0.5
+  resolution: "ip-address@npm:9.0.5"
+  dependencies:
+    jsbn: "npm:1.1.0"
+    sprintf-js: "npm:^1.1.3"
+  checksum: 10/1ed81e06721af012306329b31f532b5e24e00cb537be18ddc905a84f19fe8f83a09a1699862bf3a1ec4b9dea93c55a3fa5faf8b5ea380431469df540f38b092c
   languageName: node
   linkType: hard
 
@@ -13067,6 +13070,13 @@ __metadata:
   bin:
     js-yaml: bin/js-yaml.js
   checksum: 10/c138a34a3fd0d08ebaf71273ad4465569a483b8a639e0b118ff65698d257c2791d3199e3f303631f2cb98213fa7b5f5d6a4621fd0fff819421b990d30d967140
+  languageName: node
+  linkType: hard
+
+"jsbn@npm:1.1.0":
+  version: 1.1.0
+  resolution: "jsbn@npm:1.1.0"
+  checksum: 10/bebe7ae829bbd586ce8cbe83501dd8cb8c282c8902a8aeeed0a073a89dc37e8103b1244f3c6acd60278bcbfe12d93a3f83c9ac396868a3b3bbc3c5e5e3b648ef
   languageName: node
   linkType: hard
 
@@ -17232,12 +17242,12 @@ __metadata:
   linkType: hard
 
 "socks@npm:^2.6.2, socks@npm:^2.7.1":
-  version: 2.7.1
-  resolution: "socks@npm:2.7.1"
+  version: 2.8.3
+  resolution: "socks@npm:2.8.3"
   dependencies:
-    ip: "npm:^2.0.0"
+    ip-address: "npm:^9.0.5"
     smart-buffer: "npm:^4.2.0"
-  checksum: 10/5074f7d6a13b3155fa655191df1c7e7a48ce3234b8ccf99afa2ccb56591c195e75e8bb78486f8e9ea8168e95a29573cbaad55b2b5e195160ae4d2ea6811ba833
+  checksum: 10/ffcb622c22481dfcd7589aae71fbfd71ca34334064d181df64bf8b7feaeee19706aba4cffd1de35cc7bbaeeaa0af96be2d7f40fcbc7bc0ab69533a7ae9ffc4fb
   languageName: node
   linkType: hard
 
@@ -17386,6 +17396,13 @@ __metadata:
     select-hose: "npm:^2.0.0"
     spdy-transport: "npm:^3.0.0"
   checksum: 10/d29b89e48e7d762e505a2f83b1bc2c92268bd518f1b411864ab42a9e032e387d10467bbce0d8dbf8647bf4914a063aa1d303dff85e248f7a57f81a7b18ac34ef
+  languageName: node
+  linkType: hard
+
+"sprintf-js@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "sprintf-js@npm:1.1.3"
+  checksum: 10/e7587128c423f7e43cc625fe2f87e6affdf5ca51c1cc468e910d8aaca46bb44a7fbcfa552f787b1d3987f7043aeb4527d1b99559e6621e01b42b3f45e5a24cbb
   languageName: node
   linkType: hard
 
