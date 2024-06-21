@@ -4,7 +4,7 @@
   "content": [
     {
       "version": "19.1.0",
-      "date": "June 20, 2024",
+      "date": "June 21, 2024",
       "changelog": [
         {
           "type": "new_feature",
@@ -17,6 +17,10 @@
           "type": "patch",
           "changes": ["Updated icon <code>check_bold</code>."],
           "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Keyboard outline visible on inputs when focused with mouse"]
         }
       ]
     },

@@ -4,3 +4,25 @@
 .e-outline {
   @include outline.e-outline();
 }
+
+// We hide the outline on text inputs,
+// since these receive visual focus
+// styling through a thicker border
+// and a blinking caret.
+input:is(
+    :not([type]),
+    [type='date'],
+    [type='datetime-local'],
+    [type='email'],
+    [type='month'],
+    [type='number'],
+    [type='password'],
+    [type='search'],
+    [type='tel'],
+    [type='text'],
+    [type='time'],
+    [type='url'],
+    [type='week']
+  ):focus-visible {
+  outline: none;
+}
