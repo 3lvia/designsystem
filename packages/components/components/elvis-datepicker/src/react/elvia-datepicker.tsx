@@ -326,6 +326,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             date={date}
             disabled={isDisabled}
             placeholder={placeholder}
+            fullWidth={isFullWidth}
             onChange={updateValue}
             onFocus={() => onFocus?.()}
             required={isRequired}
