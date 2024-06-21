@@ -3,9 +3,21 @@
   "name": "elvis",
   "content": [
     {
-      "version": "19.0.1",
+      "version": "19.1.0",
       "date": "June 21, 2024",
       "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new icons <code>ask_help</code>, <code>ask_information</code>, <code>hierarchy</code>, <code>hierarchy-color</code>, <code>more_menu-filled</code>, <code>user_testing</code> and <code>web</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated icon <code>check_bold</code>."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        },
         {
           "type": "bug_fix",
           "changes": ["Keyboard outline visible on inputs when focused with mouse"]
