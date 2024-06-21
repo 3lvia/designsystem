@@ -3,6 +3,16 @@
   "name": "elvis",
   "content": [
     {
+      "version": "19.0.1",
+      "date": "June 21, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Keyboard outline visible on inputs when focused with mouse"]
+        }
+      ]
+    },
+    {
       "version": "19.0.0",
       "date": "June 18, 2024",
       "changelog": [
