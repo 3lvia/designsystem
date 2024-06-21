@@ -36,6 +36,14 @@
   }
 }
 
+.desktop-navbar {
+  position: sticky;
+  top: 128px;
+  --offset-top: 128px;
+  --offset-bottom: 32px;
+  max-height: calc(100vh - var(--offset-top) - var(--offset-bottom));
+}
+
 .feedback-link {
   --feedback-inset: 48px;
   position: fixed;
