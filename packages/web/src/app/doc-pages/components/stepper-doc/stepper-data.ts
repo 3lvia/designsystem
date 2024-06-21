@@ -56,6 +56,12 @@ export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
         'A forced stepper requires the user to complete each step before continuing to the next one. They can always go back to an earlier step. If a step is incomplete and the user tries to go forward an error message should appear.',
       default: 'false',
     },
+    removeActions: {
+      type: 'boolean',
+      description:
+        'If true, the next- and previous-step buttons will not be visible. This is useful if you want to create your own buttons for the stepper.',
+      default: 'false',
+    },
     typography: {
       type: 'string',
       description:

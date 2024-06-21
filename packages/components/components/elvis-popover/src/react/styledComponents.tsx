@@ -1,6 +1,7 @@
 import { getShadow, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 interface TriggerContainerProps {
   overlayIsOpen: boolean;
@@ -10,11 +11,6 @@ interface PopoverTypographyProps {
   isStringOnly: boolean;
   hasCloseButton: boolean;
 }
-
-export const PopoverContainer = styled.div`
-  display: flex;
-  box-sizing: border-box;
-`;
 
 export const PopoverContent = styled.div<{ noPadding: boolean }>`
   display: flex;

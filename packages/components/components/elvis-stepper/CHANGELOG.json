@@ -3,6 +3,41 @@
   "name": "elvis-stepper",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "2.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "23.05.24",
+      "version": "2.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "14.05.24",
+      "version": "2.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added a new prop <code>removeActions</code> that can be used to remove the 'next' and 'previous' buttons from the stepper."
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.04.24",
       "version": "2.0.0",
       "changelog": [

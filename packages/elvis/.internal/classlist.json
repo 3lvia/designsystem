@@ -58,44 +58,6 @@
 				"e-alert--no-title": {}
 			}
 		},
-		"e-shadow-none": {},
-		"e-theme-light": {},
-		"e-theme-dark": {},
-		"e-shadow-soft": {},
-		"e-shadow-medium": {},
-		"e-shadow-hard": {},
-		"e-autocomplete": {
-			"element": {
-				"e-autocomplete__item": {}
-			}
-		},
-		"e-form-field": {
-			"modifier": {
-				"e-form-field--compact": {},
-				"e-form-field--small": {},
-				"e-form-field--full-width": {},
-				"e-form-field--width-auto": {}
-			},
-			"element": {
-				"e-form-field__label": {
-					"modifier": {
-						"e-form-field__label--optional": {}
-					}
-				},
-				"e-form-field__error": {
-					"modifier": {
-						"e-form-field__error--visible": {}
-					}
-				},
-				"e-form-field__nested": {
-					"modifier": {
-						"e-form-field__nested--sm": {}
-					}
-				},
-				"e-form-field__input": {}
-			}
-		},
-		"e-no-outline": {},
 		"e-outline": {},
 		"e-btn": {
 			"modifier": {
@@ -122,6 +84,8 @@
 				"e-btn---focus": {}
 			}
 		},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-color-background-3": {},
 		"e-button": {
 			"modifier": {
@@ -164,35 +128,6 @@
 				"e-list__icon": {}
 			}
 		},
-		"e-stepper": {
-			"element": {
-				"e-stepper__steps": {},
-				"e-stepper__step": {
-					"modifier": {
-						"e-stepper__step--active": {},
-						"e-stepper__step--active-done": {},
-						"e-stepper__step--done": {},
-						"e-stepper__step--error": {}
-					}
-				},
-				"e-stepper__step-number": {
-					"modifier": {
-						"e-stepper__step-number--hover": {}
-					}
-				},
-				"e-stepper__step-line": {},
-				"e-stepper__step-lines": {},
-				"e-stepper__title": {},
-				"e-stepper__content": {},
-				"e-stepper__actions": {},
-				"e-stepper__step-header": {},
-				"e-stepper__step-title": {}
-			},
-			"modifier": {
-				"e-stepper--vertical": {},
-				"e-stepper--forced": {}
-			}
-		},
 		"e-table-mobile": {
 			"element": {
 				"e-table-mobile__checkbox": {
@@ -205,14 +140,12 @@
 				"e-table-mobile__select": {}
 			},
 			"modifier": {
-				"e-table-mobile--compact": {},
 				"e-table-mobile--small": {},
 				"e-table-mobile--sticky-header": {}
 			}
 		},
 		"e-table": {
 			"modifier": {
-				"e-table--compact": {},
 				"e-table--small": {},
 				"e-table--inverted": {},
 				"e-table--no-stripes": {},
@@ -227,7 +160,6 @@
 				},
 				"e-table__footnote": {
 					"modifier": {
-						"e-table__footnote--compact": {},
 						"e-table__footnote--small": {}
 					}
 				},
@@ -235,8 +167,7 @@
 					"modifier": {
 						"e-table__cell--invalid": {},
 						"e-table__cell--multiline": {},
-						"e-table__cell--multiline-small": {},
-						"e-table__cell--multiline-sm": {}
+						"e-table__cell--multiline-small": {}
 					}
 				},
 				"e-table__row": {
@@ -258,13 +189,12 @@
 			"psuedo": {
 				"e-input---focus": {},
 				"e-input---invalid": {},
-				"e-input---disabled": {},
 				"e-input---readonly": {},
+				"e-input---disabled": {},
 				"e-input---loading": {}
 			},
 			"modifier": {
 				"e-input--placeholder": {},
-				"e-input--compact": {},
 				"e-input--small": {}
 			},
 			"element": {
@@ -274,8 +204,6 @@
 		"e-checkbox": {
 			"modifier": {
 				"e-checkbox--inverted": {},
-				"e-checkbox--compact": {},
-				"e-checkbox--sm": {},
 				"e-checkbox--small": {},
 				"e-checkbox--indeterminate": {}
 			},
@@ -328,6 +256,31 @@
 				"e-dragdrop--dragover": {}
 			}
 		},
+		"e-form-field": {
+			"element": {
+				"e-form-field__label": {
+					"modifier": {
+						"e-form-field__label--optional": {}
+					}
+				},
+				"e-form-field__error": {
+					"modifier": {
+						"e-form-field__error--visible": {}
+					}
+				},
+				"e-form-field__nested": {
+					"modifier": {
+						"e-form-field__nested--sm": {}
+					}
+				},
+				"e-form-field__input": {}
+			},
+			"modifier": {
+				"e-form-field--small": {},
+				"e-form-field--full-width": {},
+				"e-form-field--width-auto": {}
+			}
+		},
 		"e-inlined-field": {
 			"modifier": {
 				"e-inlined-field--full-width": {}
@@ -347,8 +300,6 @@
 		"e-radio": {
 			"modifier": {
 				"e-radio--inverted": {},
-				"e-radio--compact": {},
-				"e-radio--sm": {},
 				"e-radio--small": {}
 			},
 			"element": {
@@ -374,7 +325,6 @@
 		"e-toggle": {
 			"modifier": {
 				"e-toggle--inverted": {},
-				"e-toggle--compact": {},
 				"e-toggle--small": {}
 			},
 			"element": {
@@ -436,15 +386,24 @@
 		"e-align-items-end": {},
 		"e-flex-wrap": {},
 		"e-flex-wrap-reverse": {},
+		"e-gap-0": {},
 		"e-gap-8": {},
 		"e-gap-16": {},
 		"e-gap-24": {},
 		"e-gap-32": {},
 		"e-gap-40": {},
+		"e-gap-48": {},
+		"e-gap-56": {},
+		"e-gap-64": {},
+		"e-gap-72": {},
 		"e-grid": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
 		"e-grid-gutters-int": {},
+		"e-shadow-none": {},
+		"e-shadow-soft": {},
+		"e-shadow-medium": {},
+		"e-shadow-hard": {},
 		"e-w-100": {},
 		"e-w-75": {},
 		"e-w-50": {},
@@ -821,8 +780,6 @@
 		"e-text-micro-light": {},
 		"e-text-quote": {},
 		"e-text-img": {},
-		"e-text-label": {},
-		"e-text-option": {},
 		"e-uppercase": {},
 		"e-lowercase": {},
 		"e-capitalize": {},
@@ -833,6 +790,11 @@
 		"e-text-wrap-nowrap": {},
 		"e-text-wrap-balance": {},
 		"e-text-wrap-pretty": {},
+		"e-text-abbreviation": {
+			"psuedo": {
+				"e-text-abbreviation---active": {}
+			}
+		},
 		"e-none": {},
 		"e-none-xl": {},
 		"e-none-lg": {},
@@ -843,93 +805,7 @@
 		"e-invisible-lg": {},
 		"e-invisible-md": {},
 		"e-invisible-sm": {},
-		"e-hide": {},
-		"e-text": {},
-		"e-bg": {},
-		"e-text-yellow": {},
-		"e-bg-yellow": {},
-		"e-text-orange": {},
-		"e-bg-orange": {},
-		"e-text-warning": {},
-		"e-bg-warning": {},
-		"e-text-red": {},
-		"e-bg-red": {},
-		"e-text-error": {},
-		"e-bg-error": {},
-		"e-text-green-apple": {},
-		"e-bg-green-apple": {},
-		"e-text-violet-grape": {},
-		"e-bg-violet-grape": {},
-		"e-text-blue-berry": {},
-		"e-bg-blue-berry": {},
-		"e-text-purple-plum": {},
-		"e-bg-purple-plum": {},
-		"e-text-orange-mango": {},
-		"e-bg-orange-mango": {},
-		"e-text-red-tomato": {},
-		"e-bg-red-tomato": {},
-		"e-text-green": {},
-		"e-bg-green": {},
-		"e-text-elvia-charge": {},
-		"e-bg-elvia-charge": {},
-		"e-text-grey-90": {},
-		"e-bg-grey-90": {},
-		"e-text-grey-80": {},
-		"e-bg-grey-80": {},
-		"e-text-font-grey": {},
-		"e-bg-font-grey": {},
-		"e-text-text-light": {},
-		"e-bg-text-light": {},
-		"e-text-grey-70": {},
-		"e-bg-grey-70": {},
-		"e-text-placeholder": {},
-		"e-bg-placeholder": {},
-		"e-text-grey-60": {},
-		"e-bg-grey-60": {},
-		"e-text-grey-50": {},
-		"e-bg-grey-50": {},
-		"e-text-grey-40": {},
-		"e-bg-grey-40": {},
-		"e-text-grey-30": {},
-		"e-bg-grey-30": {},
-		"e-text-disabled": {},
-		"e-bg-disabled": {},
-		"e-text-light-inverted": {},
-		"e-bg-light-inverted": {},
-		"e-text-grey-20": {},
-		"e-bg-grey-20": {},
-		"e-text-grey-10": {},
-		"e-bg-grey-10": {},
-		"e-text-grey-05": {},
-		"e-bg-grey-05": {},
-		"e-text-disabled-light": {},
-		"e-bg-disabled-light": {},
-		"e-text-grey-02": {},
-		"e-bg-grey-02": {},
-		"e-text-white": {},
-		"e-bg-white": {},
-		"e-text-elvis-on": {},
-		"e-bg-elvis-on": {},
-		"e-text-elvia-on": {},
-		"e-bg-elvia-on": {},
-		"e-text-font-color-light": {},
-		"e-bg-font-color-light": {},
-		"e-text-elvia-inverted": {},
-		"e-bg-elvia-inverted": {},
-		"e-text-black": {},
-		"e-bg-black": {},
-		"e-text-elvis-off": {},
-		"e-bg-elvis-off": {},
-		"e-text-elvia-off": {},
-		"e-bg-elvia-off": {},
-		"e-text-font-color": {},
-		"e-bg-font-color": {},
-		"e-text-text": {},
-		"e-bg-text": {},
-		"e-text-grey": {},
-		"e-bg-grey": {},
-		"e-text-elvia-dark": {},
-		"e-bg-elvia-dark": {}
+		"e-hide": {}
 	},
 	"flat": {
 		"e-icon": {},
@@ -982,21 +858,11 @@
 		"e-alert__actions": {},
 		"e-alert--info": {},
 		"e-alert--no-title": {},
-		"e-shadow-none": {},
-		"e-theme-light": {},
-		"e-theme-dark": {},
-		"e-shadow-soft": {},
-		"e-shadow-medium": {},
-		"e-shadow-hard": {},
-		"e-autocomplete": {},
-		"e-autocomplete__item": {},
-		"e-form-field": {},
-		"e-form-field--compact": {},
-		"e-form-field--small": {},
-		"e-no-outline": {},
 		"e-outline": {},
 		"e-btn": {},
 		"e-btn--primary": {},
+		"e-theme-light": {},
+		"e-theme-dark": {},
 		"e-color-background-3": {},
 		"e-button--inverted": {},
 		"e-btn__icon": {},
@@ -1036,27 +902,8 @@
 		"e-list--numbers": {},
 		"e-list--icons": {},
 		"e-list__icon": {},
-		"e-stepper": {},
-		"e-stepper__steps": {},
-		"e-stepper__step": {},
-		"e-stepper__step-number": {},
-		"e-stepper__step-line": {},
-		"e-stepper__step-lines": {},
-		"e-stepper__title": {},
-		"e-stepper__content": {},
-		"e-stepper__actions": {},
-		"e-stepper--vertical": {},
-		"e-stepper__step-header": {},
-		"e-stepper__step-title": {},
-		"e-stepper__step--active": {},
-		"e-stepper--forced": {},
-		"e-stepper__step--active-done": {},
-		"e-stepper__step-number--hover": {},
-		"e-stepper__step--done": {},
-		"e-stepper__step--error": {},
 		"e-table-mobile": {},
 		"e-table": {},
-		"e-table--compact": {},
 		"e-table--small": {},
 		"e-table-mobile__checkbox": {},
 		"e-table-mobile__checkbox--selected": {},
@@ -1065,18 +912,15 @@
 		"e-table-container": {},
 		"e-table-footnote": {},
 		"e-table__footnote": {},
-		"e-table__footnote--compact": {},
 		"e-table__footnote--small": {},
 		"e-table--inverted": {},
 		"e-table__cell--invalid": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
-		"e-table__cell--multiline-sm": {},
 		"e-table__row--invalid": {},
 		"e-table--no-stripes": {},
 		"e-table--sticky-header": {},
 		"e-table--sticky-column-header": {},
-		"e-table-mobile--compact": {},
 		"e-table-mobile--small": {},
 		"e-table-mobile--sticky-header": {},
 		"e-text-mono": {},
@@ -1119,8 +963,6 @@
 		"e-checkbox__label": {},
 		"e-checkbox---focus": {},
 		"e-checkbox---hover": {},
-		"e-checkbox--compact": {},
-		"e-checkbox--sm": {},
 		"e-checkbox--small": {},
 		"e-checkbox---checked": {},
 		"e-checkbox---disabled-checked": {},
@@ -1129,12 +971,14 @@
 		"e-checkbox---invalid": {},
 		"e-dragdrop": {},
 		"e-dragdrop--dragover": {},
+		"e-form-field": {},
 		"e-form-field__label": {},
 		"e-form-field__label--optional": {},
 		"e-form-field__error": {},
 		"e-form-field__error--visible": {},
 		"e-form-field__nested": {},
 		"e-form-field__nested--sm": {},
+		"e-form-field--small": {},
 		"e-form-field--full-width": {},
 		"e-form-field__input": {},
 		"e-inlined-field": {},
@@ -1148,11 +992,10 @@
 		"e-input--placeholder": {},
 		"e-input__suffix": {},
 		"e-input---invalid": {},
-		"e-input---disabled": {},
 		"e-input---readonly": {},
+		"e-input---disabled": {},
 		"e-input---loading": {},
 		"e-combined-field": {},
-		"e-input--compact": {},
 		"e-input--small": {},
 		"e-radio": {},
 		"e-radio--inverted": {},
@@ -1160,8 +1003,6 @@
 		"e-radio__label": {},
 		"e-radio---focus": {},
 		"e-radio---hover": {},
-		"e-radio--compact": {},
-		"e-radio--sm": {},
 		"e-radio--small": {},
 		"e-radio---checked": {},
 		"e-radio---disabled-checked": {},
@@ -1174,7 +1015,6 @@
 		"e-toggle": {},
 		"e-toggle--inverted": {},
 		"e-toggle__input": {},
-		"e-toggle--compact": {},
 		"e-toggle--small": {},
 		"e-toggle---checked": {},
 		"e-toggle---focus": {},
@@ -1229,15 +1069,24 @@
 		"e-align-items-end": {},
 		"e-flex-wrap": {},
 		"e-flex-wrap-reverse": {},
+		"e-gap-0": {},
 		"e-gap-8": {},
 		"e-gap-16": {},
 		"e-gap-24": {},
 		"e-gap-32": {},
 		"e-gap-40": {},
+		"e-gap-48": {},
+		"e-gap-56": {},
+		"e-gap-64": {},
+		"e-gap-72": {},
 		"e-grid": {},
 		"e-grid-gutters-ext": {},
 		"e-grid-gutters-vertical": {},
 		"e-grid-gutters-int": {},
+		"e-shadow-none": {},
+		"e-shadow-soft": {},
+		"e-shadow-medium": {},
+		"e-shadow-hard": {},
 		"e-w-100": {},
 		"e-w-75": {},
 		"e-w-50": {},
@@ -1614,8 +1463,6 @@
 		"e-text-micro-light": {},
 		"e-text-quote": {},
 		"e-text-img": {},
-		"e-text-label": {},
-		"e-text-option": {},
 		"e-uppercase": {},
 		"e-lowercase": {},
 		"e-capitalize": {},
@@ -1626,6 +1473,8 @@
 		"e-text-wrap-nowrap": {},
 		"e-text-wrap-balance": {},
 		"e-text-wrap-pretty": {},
+		"e-text-abbreviation": {},
+		"e-text-abbreviation---active": {},
 		"e-none": {},
 		"e-none-xl": {},
 		"e-none-lg": {},
@@ -1636,92 +1485,6 @@
 		"e-invisible-lg": {},
 		"e-invisible-md": {},
 		"e-invisible-sm": {},
-		"e-hide": {},
-		"e-text": {},
-		"e-bg": {},
-		"e-text-yellow": {},
-		"e-bg-yellow": {},
-		"e-text-orange": {},
-		"e-bg-orange": {},
-		"e-text-warning": {},
-		"e-bg-warning": {},
-		"e-text-red": {},
-		"e-bg-red": {},
-		"e-text-error": {},
-		"e-bg-error": {},
-		"e-text-green-apple": {},
-		"e-bg-green-apple": {},
-		"e-text-violet-grape": {},
-		"e-bg-violet-grape": {},
-		"e-text-blue-berry": {},
-		"e-bg-blue-berry": {},
-		"e-text-purple-plum": {},
-		"e-bg-purple-plum": {},
-		"e-text-orange-mango": {},
-		"e-bg-orange-mango": {},
-		"e-text-red-tomato": {},
-		"e-bg-red-tomato": {},
-		"e-text-green": {},
-		"e-bg-green": {},
-		"e-text-elvia-charge": {},
-		"e-bg-elvia-charge": {},
-		"e-text-grey-90": {},
-		"e-bg-grey-90": {},
-		"e-text-grey-80": {},
-		"e-bg-grey-80": {},
-		"e-text-font-grey": {},
-		"e-bg-font-grey": {},
-		"e-text-text-light": {},
-		"e-bg-text-light": {},
-		"e-text-grey-70": {},
-		"e-bg-grey-70": {},
-		"e-text-placeholder": {},
-		"e-bg-placeholder": {},
-		"e-text-grey-60": {},
-		"e-bg-grey-60": {},
-		"e-text-grey-50": {},
-		"e-bg-grey-50": {},
-		"e-text-grey-40": {},
-		"e-bg-grey-40": {},
-		"e-text-grey-30": {},
-		"e-bg-grey-30": {},
-		"e-text-disabled": {},
-		"e-bg-disabled": {},
-		"e-text-light-inverted": {},
-		"e-bg-light-inverted": {},
-		"e-text-grey-20": {},
-		"e-bg-grey-20": {},
-		"e-text-grey-10": {},
-		"e-bg-grey-10": {},
-		"e-text-grey-05": {},
-		"e-bg-grey-05": {},
-		"e-text-disabled-light": {},
-		"e-bg-disabled-light": {},
-		"e-text-grey-02": {},
-		"e-bg-grey-02": {},
-		"e-text-white": {},
-		"e-bg-white": {},
-		"e-text-elvis-on": {},
-		"e-bg-elvis-on": {},
-		"e-text-elvia-on": {},
-		"e-bg-elvia-on": {},
-		"e-text-font-color-light": {},
-		"e-bg-font-color-light": {},
-		"e-text-elvia-inverted": {},
-		"e-bg-elvia-inverted": {},
-		"e-text-black": {},
-		"e-bg-black": {},
-		"e-text-elvis-off": {},
-		"e-bg-elvis-off": {},
-		"e-text-elvia-off": {},
-		"e-bg-elvia-off": {},
-		"e-text-font-color": {},
-		"e-bg-font-color": {},
-		"e-text-text": {},
-		"e-bg-text": {},
-		"e-text-grey": {},
-		"e-bg-grey": {},
-		"e-text-elvia-dark": {},
-		"e-bg-elvia-dark": {}
+		"e-hide": {}
 	}
 }

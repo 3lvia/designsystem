@@ -6,6 +6,7 @@ import { getMd5 } from './utils';
 
 interface Props {
   watchMode: boolean;
+  silent?: boolean;
 }
 
 // Fix imports of types from .public.ts to resolve from ../public-api folder.
@@ -84,7 +85,7 @@ const dtsPlugin = (config: Props) =>
 
         // Clear the files list for next build
         files = [];
-        if (!config.watchMode) {
+        if (!config.watchMode && !config.silent) {
           console.log(
             `✏️  Wrote ${emit.emittedFiles ? emit.emittedFiles.length : 0} typings in ${
               Date.now() - start

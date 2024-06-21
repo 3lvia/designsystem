@@ -171,6 +171,11 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     const elviaElement = /elvia-\S+/.exec(slotString)?.[0] ?? '';
     const slotName = /slot="(\w+)"/.exec(slotString)?.[1] ?? '';
     const rootElement = /<(\w+)/.exec(slotString)?.[1] ?? '';
+    const elviaIllustrationElement = /elvia-illustrations-[\w-]+/.exec(elviaElement)?.[0] ?? '';
+
+    if (elviaIllustrationElement) {
+      return `<${rootElement} slot="${slotName}"><${elviaIllustrationElement} /></${rootElement}>`;
+    }
     return `<${rootElement} slot="${slotName}">
   <${elviaElement}>Content removed for simplicity...</${elviaElement}>
 </${rootElement}>`;

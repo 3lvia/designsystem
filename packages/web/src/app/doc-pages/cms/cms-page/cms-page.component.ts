@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
@@ -19,8 +18,8 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
-  imports: [ComponentHeaderComponent, RouterOutlet, HttpClientModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [ComponentHeaderComponent, RouterOutlet],
 })
 export class CMSPageComponent implements OnDestroy {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;

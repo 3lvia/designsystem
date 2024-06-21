@@ -1,11 +1,11 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="docPage?.figmaUrl">
+<app-component-header [figmaUrl]="docPage.figmaUrl">
   <ng-container ngProjectAs="headerTitle">{{
-    locale() === 'nb-NO' ? docPage?.titleNo : docPage?.title
+    locale() === 'nb-NO' ? docPage.titleNo : docPage.title
   }}</ng-container>
   <div
     ngProjectAs="headerDescription"
-    [innerHTML]="locale() === 'nb-NO' ? docPage?.descriptionNo : docPage?.description"
+    [innerHTML]="locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description"
   ></div>
 </app-component-header>
 
@@ -162,7 +162,7 @@
           svart/hvitt i mørkt tema, og bør bare brukes på bestemte steder.
         }
       </p>
-      <app-static-ceg>
+      <app-static-ceg fullWidth>
         <app-icon-colors-ceg />
       </app-static-ceg>
       <p>

@@ -11,53 +11,55 @@ body {
 }
 
 @each $label, $map in TypographyMap.$typography {
-  $family: map.get($map, family);
-  $size: map.get($map, size);
-  $size-m: map.get($map, size-m);
-  $height: map.get($map, height);
-  $height-m: map.get($map, height-m);
-  $weight: map.get($map, weight);
-  $color: map.get($map, color);
-  $style: map.get($map, style);
-  $letter-spacing: map.get($map, letter-spacing);
-  $transform: map.get($map, transform);
-  $align: map.get($map, align);
+  @if (not str-index($label, 'text-option') and not str-index($label, 'text-label')) {
+    $family: map.get($map, family);
+    $size: map.get($map, size);
+    $size-m: map.get($map, size-m);
+    $height: map.get($map, height);
+    $height-m: map.get($map, height-m);
+    $weight: map.get($map, weight);
+    $color: map.get($map, color);
+    $style: map.get($map, style);
+    $letter-spacing: map.get($map, letter-spacing);
+    $transform: map.get($map, transform);
+    $align: map.get($map, align);
 
-  $alt-labels: map.get($map, altLabels);
-  $labels: ($label);
+    $alt-labels: map.get($map, altLabels);
+    $labels: ($label);
 
-  @if $alt-labels {
-    @each $label in $alt-labels {
-      $labels: list.append($labels, $label);
-    }
-  }
-
-  @each $label in $labels {
-    .e-#{$label} {
-      color: $color;
-      font-family: $family;
-      font-size: $size;
-      font-style: $style;
-      font-weight: $weight;
-      letter-spacing: $letter-spacing;
-      line-height: $height;
-      text-align: $align;
-      text-transform: $transform;
-      @include breakpoints.breakpoint-up(Mobile) {
-        font-size: $size-m;
-        line-height: $height-m;
+    @if $alt-labels {
+      @each $label in $alt-labels {
+        $labels: list.append($labels, $label);
       }
     }
-    @if (str-index($label, 'text-')) {
-      .e-#{$label} {
-        b,
-        strong {
-          font-weight: 500;
-        }
 
-        em,
-        i {
-          font-style: italic;
+    @each $label in $labels {
+      .e-#{$label} {
+        color: $color;
+        font-family: $family;
+        font-size: $size;
+        font-style: $style;
+        font-weight: $weight;
+        letter-spacing: $letter-spacing;
+        line-height: $height;
+        text-align: $align;
+        text-transform: $transform;
+        @include breakpoints.breakpoint-up(Mobile) {
+          font-size: $size-m;
+          line-height: $height-m;
+        }
+      }
+      @if (str-index($label, 'text-')) {
+        .e-#{$label} {
+          b,
+          strong {
+            font-weight: 500;
+          }
+
+          em,
+          i {
+            font-style: italic;
+          }
         }
       }
     }
@@ -102,4 +104,20 @@ body {
 
 .e-text-wrap-pretty {
   text-wrap: pretty !important;
+}
+
+.e-text-abbreviation {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--e-color-border-1);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+
+  &:hover {
+    text-decoration-color: var(--e-color-border-hover-1);
+  }
+
+  &.e-text-abbreviation---active {
+    text-decoration-color: var(--e-color-border-selected-1);
+  }
 }

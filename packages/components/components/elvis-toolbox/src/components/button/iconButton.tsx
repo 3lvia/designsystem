@@ -1,5 +1,7 @@
 import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import React, { forwardRef } from 'react';
 
 import { ButtonProps, Size } from './button';
 
@@ -28,7 +30,7 @@ const getSize = (size: Size) => {
   }
 };
 
-export const IconButton = styled.button.attrs({ type: 'button' })<Partial<ButtonProps>>`
+const IconButtonStyles = styled.button<Partial<ButtonProps>>`
   flex: none;
   display: grid;
   place-items: center;
@@ -67,3 +69,13 @@ export const IconButton = styled.button.attrs({ type: 'button' })<Partial<Button
     }
   }
 `;
+export const IconButton = forwardRef<
+  HTMLButtonElement,
+  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ children, ...props }, ref) => (
+  <IconButtonStyles ref={ref} type="button" {...props}>
+    {children}
+  </IconButtonStyles>
+));
+
+IconButton.displayName = 'IconButton';

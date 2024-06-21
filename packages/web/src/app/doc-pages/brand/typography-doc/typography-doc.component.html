@@ -236,6 +236,15 @@
         >utility overview.</a
       >
     </app-component-subsection>
+    <app-component-subsection [sectionTitle]="'Abbreviations'">
+      To use abbreviations, you can combine the class <code>e-text-abbreviation</code> and a
+      <a class="e-link e-link--inline" [routerLink]="['/components/popover']">popover</a>
+      . Remember to add the class
+      <code>e-text-abbreviation---active</code> when the popover is open.
+      <app-static-ceg>
+        <app-abbreviation-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
   </app-component-section>
 
   <app-component-section [sectionTitle]="'Changelog'">

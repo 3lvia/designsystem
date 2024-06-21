@@ -1,6 +1,7 @@
 import { LightThemeColorName, getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { keyframes } from 'styled-components';
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { ChipType, ColorType } from './elvia-chip.types';
 

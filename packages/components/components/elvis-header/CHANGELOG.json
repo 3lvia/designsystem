@@ -3,6 +3,51 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "1.9.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where overlay menus would not position correctly."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "1.9.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "1.9.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "18.04.24",
+      "version": "1.9.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Now setting the <code>color-scheme</code> on the <code>HTML</code> element instead of the <code>body</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "12.03.24",
       "version": "1.9.0",
       "changelog": [

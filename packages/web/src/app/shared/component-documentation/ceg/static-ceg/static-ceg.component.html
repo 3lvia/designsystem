@@ -1,10 +1,10 @@
 <div class="ceg-container e-mt-16">
   <div
     class="component-example-container"
-    #componentContainer
-    [ngClass]="{ 'ceg-non-interactive': nonInteractive }"
+    [class.ceg-non-interactive]="nonInteractive()"
+    [class.full-width]="fullWidth()"
   >
-    @if (phoneExample) {
+    @if (phoneExample()) {
       <app-phone-shell>
         <ng-container *ngTemplateOutlet="content"></ng-container>
       </app-phone-shell>
@@ -18,8 +18,8 @@
   </div>
 
   <app-static-code-generator
-    [staticContent]="staticContent.html"
-    [hideReact]="hideReact"
-    [comment]="staticContent.comment"
+    [staticContent]="staticContent().html"
+    [hideReact]="hideReact()"
+    [comment]="staticContent().comment"
   />
 </div>

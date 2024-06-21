@@ -1,6 +1,6 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const RadioFilterGroup = styled.div`
   display: flex;
@@ -30,6 +30,12 @@ export const RadioFilterLabel = styled.label<RadioFilterLabelProps>`
     border-color: ${({ isSelected }) =>
       `${isSelected ? getThemeColor('border-selected-2') : getThemeColor('border-hover-1')}`};
   }
+
+  &:has(:focus-visible) {
+    outline: 2px solid ${getThemeColor('focus-outline')};
+    outline-offset: 2px;
+  }
+
   white-space: nowrap;
   margin: 0;
 `;

@@ -157,7 +157,7 @@ export const utilityGroups: UtilityGroup[] = [
       },
       {
         className: 'e-gap-number',
-        description: 'Decides the gap between flex elements, from 0-40 following 8px multiplication.',
+        description: 'Decides the gap between flex/grid elements, from 0-72 following 8px multiplication.',
         styling: 'gap: {number}px',
       },
     ],
@@ -400,6 +400,12 @@ export const utilityGroups: UtilityGroup[] = [
         description:
           'Wraps the text in a similar way to normal text wrapping, but with a more even distribution of words across lines. NB: slower performance than normal text wrapping.',
         styling: 'text-wrap: pretty',
+      },
+      {
+        className: 'e-text-abbreviation',
+        description:
+          'Adds a dotted underline to the text, with a hover effect. Used in conjunction with a popover to give more information about an abbreviation or acronym.',
+        styling: 'text-decoration: underline dotted (...)',
       },
     ],
   },

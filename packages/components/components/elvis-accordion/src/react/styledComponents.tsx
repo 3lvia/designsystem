@@ -1,7 +1,8 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { IconWrapper } from '@elvia/elvis-toolbox';
 import { TypographyName, getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import {
   AccordionLabelPosition,
@@ -11,7 +12,6 @@ import {
 } from './elvia-accordion.types';
 
 interface AccordionAreaProps {
-  normalSpacing?: AccordionSpacingContent;
   overflowSpacing?: AccordionSpacingContent;
   isOverflow: boolean;
 }
@@ -19,11 +19,11 @@ interface AccordionAreaProps {
 export const AccordionArea = styled.div<AccordionAreaProps>`
   display: flex;
   flex-direction: ${({ isOverflow }) => (isOverflow ? 'column-reverse' : 'column')};
-  gap: ${({ normalSpacing, overflowSpacing, isOverflow }) => {
+  gap: ${({ overflowSpacing, isOverflow }) => {
     if (isOverflow) {
       return overflowSpacing ?? '8px';
     } else {
-      return normalSpacing ?? '8px';
+      return '0';
     }
   }};
   width: 100%;
@@ -99,7 +99,8 @@ const decideTypography = (size: AccordionSize) => {
     case 'small':
       return css`
         ${getTypographyCss('text-interactive-sm')}
-        line-height: 16px;
+        line-height: 100%;
+        height: 16px;
       `;
     case 'large':
       return css`
@@ -135,7 +136,10 @@ const decideDetailTextSize = (size: AccordionSize): string => {
   }
 };
 
-export const AccordionDetailText = styled.div<{ size: AccordionSize; openDetailText: string | undefined }>`
+export const AccordionDetailText = styled.div<{
+  size: AccordionSize;
+  openDetailText: string | undefined;
+}>`
   ${({ size }) => decideDetailTextSize(size)};
   display: flex;
   text-align: left;
@@ -143,8 +147,12 @@ export const AccordionDetailText = styled.div<{ size: AccordionSize; openDetailT
   margin-left: ${({ openDetailText }) => (openDetailText !== undefined ? '8px;' : '0;')};
 `;
 
-export const AccordionContent = styled.div`
+export const AccordionContent = styled.div<{
+  normalSpacing?: AccordionSpacingContent;
+  isOverflow: boolean;
+}>`
   overflow-x: auto;
+  padding-top: ${({ isOverflow, normalSpacing }) => (normalSpacing && !isOverflow ? normalSpacing : '0')};
 `;
 
 const decideContentTransitionDuration = (contentHeight: number): string => {

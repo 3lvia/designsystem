@@ -1,6 +1,5 @@
 import chalk from 'chalk';
 import esbuild from 'esbuild';
-import styledComponentsPlugin from 'esbuild-plugin-styled-components';
 import { postcssModules, sassPlugin } from 'esbuild-sass-plugin';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -8,6 +7,8 @@ import tinyGlob from 'tiny-glob';
 
 import cleanDistFolders from './cleanDist';
 import dtsPlugin from './dts.plugin';
+import emotionPlugin from './esbuild-plugin-emotion';
+import buildToolbox from './toolbox-build.config';
 import { toInOutTuple } from './utils';
 import buildWebComponents from './web-component-build.config';
 import writeFilesAndInjectCssPlugin from './write.plugin';
@@ -22,10 +23,14 @@ const rootDir = 'components';
 const getComponentData = async () => {
   const paths = await tinyGlob('components/*/package.json');
 
-  return paths.map((packageJsonPath) => {
-    const file = fs.readFileSync(packageJsonPath, 'utf-8');
-    return { content: JSON.parse(file), component: packageJsonPath.split(path.sep)[1] };
-  });
+  // Exclude elvis-toolbox from the main build because it needs to be built without bundling
+  // to support tree-shaking. It has a separate build script.
+  return paths
+    .filter((packageJsonPath) => !packageJsonPath.includes('elvis-toolbox'))
+    .map((packageJsonPath) => {
+      const file = fs.readFileSync(packageJsonPath, 'utf-8');
+      return { content: JSON.parse(file), component: packageJsonPath.split(path.sep)[1] };
+    });
 };
 
 const getEntryPoint = (componentData: ComponentData) => {
@@ -60,7 +65,7 @@ export const build = async () => {
     write: false,
     plugins: [
       dtsPlugin({ watchMode: watchMode }),
-      styledComponentsPlugin({ ssr: true, displayName: true }),
+      emotionPlugin(),
       sassPlugin({ transform: postcssModules({}) }),
       writeFilesAndInjectCssPlugin,
     ],
@@ -78,7 +83,11 @@ export const build = async () => {
       logLevel: 'info',
     });
 
-    return Promise.all([esBuildContext.watch(), buildWebComponents({ outDir: rootDir, watch: watchMode })]);
+    return Promise.all([
+      esBuildContext.watch(),
+      buildWebComponents({ outDir: rootDir, watch: watchMode }),
+      buildToolbox({ outDir: rootDir, watch: watchMode }),
+    ]);
   } else {
     console.log('🧹 Removing old dist folders...');
     await cleanDistFolders();
@@ -88,6 +97,7 @@ export const build = async () => {
     return Promise.all([
       esbuild.build(baseConfig),
       buildWebComponents({ outDir: rootDir, watch: watchMode }),
+      buildToolbox({ outDir: rootDir, watch: watchMode }),
     ]).then(() =>
       console.log(chalk.green(`⚡️ Built ${componentDataList.length} components in ${Date.now() - start}ms`)),
     );

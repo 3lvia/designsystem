@@ -3,6 +3,75 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "21.06.24",
+      "version": "12.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix layout issue after migrating to <code>@emotion</code>"]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "12.0.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Converted the <code>ButtonBase</code> to a <code>React.forwardRef</code> to fix an issue."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "12.0.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Republish the package to fix an issue with the previous release.",
+            "Moved the <code>@emotion</code> dependencies to <code>peerDependencies</code>."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "23.05.24",
+      "version": "12.0.0",
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Replaced <code>styled-components</code> with <code>@emotion</code>."]
+        }
+      ]
+    },
+    {
+      "date": "15.05.24",
+      "version": "11.5.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fix issue where text within an overflow container in global overlays could become blurry."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "29.04.24",
+      "version": "11.5.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The <code>useFocusTrap</code> hook now correctly updates the focus trap when the content changes."
+          ]
+        }
+      ]
+    },
+    {
       "date": "19.03.24",
       "version": "11.5.0",
       "changelog": [

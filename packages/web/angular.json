@@ -54,8 +54,9 @@
               "react-dom/client",
               "react-is",
               "dompurify",
-              "shallowequal",
-              "classnames"
+              "classnames",
+              "file-saver",
+              "jszip"
             ],
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -66,16 +67,6 @@
               "src/sitemap.xml",
               "src/assets",
               "src/_redirects",
-              {
-                "glob": "**/*",
-                "input": "../elvis-assets-icons/icons/svg/dist/",
-                "output": "./assets/elvis/icons/svg/dist/"
-              },
-              {
-                "glob": "**/*",
-                "input": "../elvis-assets-icons/icons/png/dist/",
-                "output": "./assets/elvis/icons/png/dist/"
-              },
               {
                 "glob": "**/*",
                 "input": "contentful/dist/",

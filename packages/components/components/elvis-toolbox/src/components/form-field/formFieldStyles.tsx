@@ -1,12 +1,13 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export type FormFieldSizes = 'small' | 'medium';
 
 const setActiveBorder = (size?: FormFieldSizes) => {
   return css`
-    border: 2px solid ${getThemeColor('border-selected-1')};
+    border-width: 2px;
     padding: ${size === 'small' ? '0 3px 0 7px' : '0 7px 0 15px'};
   `;
 };
@@ -17,7 +18,7 @@ export const FormFieldInputContainer = styled.div`
   gap: 8px;
   padding: 0 8px 0 16px;
   color: ${getThemeColor('text-1')};
-  border: 1px solid ${getThemeColor('border-1')};
+  border: 1px solid var(--border-color);
   background: ${getThemeColor('background-element-1')};
   height: 48px;
   border-radius: 4px;
@@ -52,6 +53,8 @@ export interface FormFieldContainerProps {
  * @since 5.4.0
  */
 export const FormFieldContainer = styled.label<FormFieldContainerProps>`
+  --border-color: ${getThemeColor('border-1')};
+
   display: inline-block;
   position: relative;
   box-sizing: border-box;
@@ -108,10 +111,11 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   ${({ isDisabled }) =>
     isDisabled &&
     css`
-      && ${FormFieldInputContainer} {
+      --border-color: ${getThemeColor('border-disabled-1')};
+
+      ${FormFieldInputContainer} {
          {
           cursor: not-allowed;
-          border-color: ${getThemeColor('border-disabled-1')};
         }
       }
 
@@ -124,22 +128,29 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   ${({ isInvalid, size }) =>
     isInvalid &&
     css`
+      --border-color: ${getThemeColor('signal-danger')};
+
       ${FormFieldInputContainer} {
         ${setActiveBorder(size)};
-        border-color: ${getThemeColor('signal-danger')};
       }
     `};
 
   ${({ isActive, size }) =>
     isActive &&
     css`
+      --border-color: ${getThemeColor('border-selected-1')};
+
       ${FormFieldInputContainer} {
-        ${setActiveBorder(size)}
+        ${setActiveBorder(size)};
       }
     `}
 
-  ${FormFieldInputContainer}:focus-within {
-    ${({ size }) => setActiveBorder(size)}
+  &:focus-within {
+    --border-color: ${getThemeColor('border-selected-1')};
+
+    ${FormFieldInputContainer} {
+      ${({ size }) => setActiveBorder(size)};
+    }
   }
 `;
 
@@ -182,5 +193,9 @@ export const FormFieldInput = styled.input`
   &:disabled {
     color: ${getThemeColor('text-disabled-1')};
     -webkit-text-fill-color: ${getThemeColor('text-disabled-1')};
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 `;

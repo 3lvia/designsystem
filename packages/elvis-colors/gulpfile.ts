@@ -29,10 +29,10 @@ const generateElvisColorsCss = async () => {
   fileContent += `:root {\n`;
   Object.entries(rootVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
-  fileContent += `.e-theme-light,\n:root {\n`;
+  fileContent += `.e-theme-light, .e-alert--global.e-alert--warn *, .e-theme-dark .e-alert--global:not(.e-alert--warn):not(.e-alert--error) *, \n:root {\n`;
   Object.entries(lightVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
-  fileContent += `.e-theme-dark, .e-color-background-3, [class*='e-'][class*="--inverted"] {\n`;
+  fileContent += `.e-theme-dark, .e-color-background-3, .e-alert--global:not(.e-alert--warn):not(.e-alert--error) *, .e-alert--global.e-alert--error *, [class*='e-'][class*="--inverted"] {\n`;
   Object.entries(darkVariables).forEach(([name, color]) => (fileContent += `\t${name}: ${color};\n`));
   fileContent += `}\n`;
 
@@ -128,6 +128,21 @@ const generateIllustrationDarkThemeVariables = async () => {
   return writeFile('./dist/elvisIllustrationVariables.css', fileContent);
 };
 
+// The generated file is used to create dark theme icons to download in the brand documentation
+const generateIconDarkThemeVariables = async () => {
+  let fileContent = `.e-theme-dark {\n`;
+
+  const darkVariables = getPurposeColorCssVariables(darkTheme);
+  Object.entries(darkVariables)
+    .filter(([name]) => name.includes('icon') || name.includes('brand-accent'))
+    .forEach(([name, color]) => {
+      fileContent += `\t${name}: ${color};\n`;
+    });
+  fileContent += `}\n`;
+
+  return writeFile('./dist/elvisIconVariables.css', fileContent);
+};
+
 task(
   'default',
   series(
@@ -136,5 +151,6 @@ task(
     generateElvisShadowMapScss,
     generateElvisColorsCss,
     generateIllustrationDarkThemeVariables,
+    generateIconDarkThemeVariables,
   ),
 );

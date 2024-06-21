@@ -1,7 +1,8 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { IconButton, device } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled, { css } from 'styled-components';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { ScrollPosition } from './elvia-tabs.types';
 

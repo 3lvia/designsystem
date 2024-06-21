@@ -1,5 +1,5 @@
 import { BaseProps } from '@elvia/elvis-toolbox';
-import { ComponentPropsWithoutRef } from 'react';
+import { CSSProperties, ComponentPropsWithoutRef } from 'react';
 
 export type VerticalPosition = 'bottom' | 'top';
 export type HorizontalPosition = 'left' | 'center' | 'right';
@@ -11,10 +11,11 @@ export interface BasePopoverProps extends BaseProps {
   verticalPosition?: VerticalPosition;
   trigger?: JSX.Element;
   hasCloseButton?: boolean;
+  display?: CSSProperties['display'];
   noPadding?: boolean;
   isShowing?: boolean;
   onOpen?: () => void;
   onClose?: () => void;
 }
 
-export interface PopoverProps extends BasePopoverProps, ComponentPropsWithoutRef<'div'> {}
+export interface PopoverProps extends BasePopoverProps, Omit<ComponentPropsWithoutRef<'div'>, 'content'> {}

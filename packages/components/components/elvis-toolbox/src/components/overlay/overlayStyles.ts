@@ -1,4 +1,5 @@
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export const exitDuration = 200;
 
@@ -50,9 +51,14 @@ export const OverlayContainer = styled.div<{ fadeOut: boolean; noAnimation: bool
     css`
       position: fixed;
       max-width: unset;
-      top: 50%;
-      left: 50%;
-      translate: -50% -50%;
+      display: grid;
+      place-content: center;
+      inset: 0;
+      pointer-events: none; // Allow clicks to pass through, to the backdrop
+
+      & > * {
+        pointer-events: auto;
+      }
     `}
 `;
 

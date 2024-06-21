@@ -4,8 +4,8 @@
   </app-static-ceg>
 
   <!-- TYPE -->
-  <app-component-section type [sectionTitle]="'Type'">
-    <app-component-subsection [sectionTitle]="'Primary'">
+  <app-component-section type sectionTitle="Type">
+    <app-component-subsection sectionTitle="Primary">
       Primary buttons are action-oriented buttons used for primary actions we want the user to do. Primary are
       design to stand out and take the most attention of all the buttons. Primary button are often used for
       saving, sending, submitting, registering and so on. It can be used alone or together with secondary and
@@ -15,7 +15,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Secondary'">
+    <app-component-subsection sectionTitle="Secondary">
       Secondary buttons are the alternative we give users to the primary action and should be used in less
       important actions. Secondary are often used for canceling, declining, go back and so on. It can be used
       alone or together to support primary or link style button.'
@@ -24,7 +24,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Tertiary'">
+    <app-component-subsection sectionTitle="Tertiary">
       Tertiary buttons are usually used for miscellaneous actions and may not be what the user is looking for
       to do right then. Tertiary are designed to be less striking than primary and secondary. Example of use
       is download and edit. It can be used isolated alone or paired together with primary or secondary.
@@ -33,7 +33,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Danger'">
+    <app-component-subsection sectionTitle="Danger">
       Danger button can be used for destructive actions with high severity. The red color warns the user, but
       make sure to confirm the action with a confirmation screen.
       <app-static-ceg>
@@ -41,14 +41,14 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Icon'">
+    <app-component-subsection sectionTitle="Icon">
       Icon buttons are used for well-known and simple actions such as close, edit, delete etc. They are ideal
       for task based actions where the button should not attract to much attention. Icon button should be
       supported by a tooltip.
       <app-static-ceg>
         <app-button-type-icon-ceg />
       </app-static-ceg>
-      <app-component-subsubsection [sectionTitle]="'Circled icon'">
+      <app-component-subsubsection sectionTitle="Circled icon">
         The modifier for circled icon button can be added when circled icon buttons are used alone, and
         results in a different hover effect than in the normal icon button.
         <app-static-ceg>
@@ -66,7 +66,7 @@
           <i class="e-icon e-icon--question_circle-filled-color e-icon--sm" aria-hidden="true"></i>
         </div>
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Touch target'">
+      <app-component-subsubsection sectionTitle="Touch target">
         The icon buttons all have at least 32 pixel touch dimensions to ensure that they are user-friendly and
         accessible to everyone across different devices. It is also important that there is enough space
         between icon buttons and other elements to decrease the chance of accidentally pressing an incorrect
@@ -82,8 +82,8 @@
   </app-component-section>
 
   <!--SIZE-->
-  <app-component-section size [sectionTitle]="'Size'">
-    <app-static-ceg>
+  <app-component-section size sectionTitle="Size">
+    <app-static-ceg fullWidth>
       <app-button-size-ceg />
     </app-static-ceg>
     <p class="e-mt-24">
@@ -95,20 +95,20 @@
       Make sure you have a good touch target on mobile. You can extend the button in full width on the mobile
       to make sure that the touch target is big enough for the thumb.
     </p>
-    <app-component-subsection [sectionTitle]="'Small'">
+    <app-component-subsection sectionTitle="Small">
       Use small if the button has low priority and don’t need a lot of attention.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Medium'">
+    <app-component-subsection sectionTitle="Medium">
       Medium is the default size and should fit to the majority of UI use cases.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Large'">
+    <app-component-subsection sectionTitle="Large">
       Use large if the button has high priority and needs a lot of attention.
     </app-component-subsection>
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section usage [sectionTitle]="'Usage'">
-    <app-component-subsection [sectionTitle]="'Order'">
+  <app-component-section usage sectionTitle="Usage">
+    <app-component-subsection sectionTitle="Order">
       When using buttons in a pair, the primary button are placed to the right and secondary to the left. This
       should be followed at all times.
       <div class="e-mt-24">
@@ -117,7 +117,7 @@
       </div>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Label'">
+    <app-component-subsection sectionTitle="Label">
       The button label should be a action verb and tell the user what the button will do. Label in a button
       should not be longer than three words.
       <app-do-dont-text>
@@ -132,7 +132,7 @@
       </app-do-dont-text>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Icon'">
+    <app-component-subsection sectionTitle="Icon">
       <div>
         Icons can be used to the left or right of the text on a button. This should only be done when used to
         clarify additional information that helps the context.
@@ -175,8 +175,8 @@
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
-    <app-component-subsection [sectionTitle]="'Links with button style'">
+  <app-component-section implementation sectionTitle="Implementation">
+    <app-component-subsection sectionTitle="Links with button style">
       The
       <code>e-btn</code>
       class can also be used on anchor tags to make links appear like buttons.
@@ -188,8 +188,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'ARIA'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="ARIA">
       <ul class="e-list">
         <li>
           <strong>Aria label:</strong>
@@ -206,7 +206,7 @@
         </li>
       </ul>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Tooltip'">
+    <app-component-subsection sectionTitle="Tooltip">
       If the icon in an icon-button is not very clear on it's own, use a tooltip to make it accessible for the
       user. Read more about
       <a class="e-link e-link--inline" [routerLink]="['/components/tooltip']">our tooltip here</a>

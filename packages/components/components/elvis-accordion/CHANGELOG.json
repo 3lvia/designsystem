@@ -3,6 +3,64 @@
   "name": "elvis-accordion",
   "content": [
     {
+      "date": "31.05.24",
+      "version": "3.2.7",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where an icon in the accordion open/close label would rotate."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "3.2.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "3.2.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "28.05.24",
+      "version": "3.2.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where there would be spacing below a closed accordion."]
+        }
+      ]
+    },
+    {
+      "date": "02.05.24",
+      "version": "3.2.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the accordion would sometimes not correctly be open on initial render when the <code>isOpen</code> prop is set to <code>true</code>."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.04.24",
       "version": "3.2.2",
       "changelog": [

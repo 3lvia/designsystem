@@ -3,6 +3,38 @@
   "name": "elvis-breadcrumbs",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "2.3.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "2.3.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Update internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "18.04.24",
+      "version": "2.3.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>."
+          ]
+        }
+      ]
+    },
+    {
       "date": "12.04.24",
       "version": "2.3.3",
       "changelog": [

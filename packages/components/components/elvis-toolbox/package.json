@@ -1,7 +1,12 @@
 {
   "name": "@elvia/elvis-toolbox",
-  "version": "11.5.0",
+  "version": "12.0.3",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/components/components/elvis-toolbox"
+  },
   "source": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,11 +16,12 @@
   "dependencies": {
     "@elvia/elvis-colors": "^4.4.1",
     "@elvia/elvis-component-wrapper": "^4.2.0",
-    "@elvia/elvis-typography": "^2.7.0",
-    "styled-components": "^5.3.6",
-    "tslib": "^2.4.1"
+    "@elvia/elvis-typography": "^2.7.1",
+    "tslib": "^2.6.2"
   },
   "peerDependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0"
@@ -32,6 +38,6 @@
     }
   },
   "devDependencies": {
-    "typescript": "~5.2.2"
+    "typescript": "~5.4.5"
   }
 }

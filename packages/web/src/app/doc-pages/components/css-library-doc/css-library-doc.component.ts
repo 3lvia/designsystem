@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 
@@ -11,6 +11,7 @@ import ComponentData from '../component-data.interface';
 import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
 import { getComponent } from 'src/app/shared/doc-pages';
 
+const docPage = getComponent('css-library');
 @Component({
   selector: 'app-css-library-doc',
   templateUrl: './css-library-doc.component.html',
@@ -23,6 +24,7 @@ import { getComponent } from 'src/app/shared/doc-pages';
     CopyComponent,
     ComponentChangelogComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CSSLibraryDocComponent {
   componentData: ComponentData = {
@@ -32,10 +34,11 @@ export class CSSLibraryDocComponent {
   changelog = changelogJson.content;
   npmInstall = 'npm install @elvia/elvis';
   yarnAdd = 'yarn add @elvia/elvis';
-  importStylesheet = "@use '@elvia/elvis/css/elvis.min.css';";
+  importStylesheet = "@import '@elvia/elvis/css/elvis.min.css';";
+  importCSSReset = "@import '@elvia/elvis/css/css-reset.css';";
   importScript = "import '@elvia/elvis/elvis.js';";
-  title = getComponent('css-library')?.title;
-  description = getComponent('css-library')?.description;
+  title = docPage.title;
+  description = docPage.description;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('CSS Library | Elvia design system');

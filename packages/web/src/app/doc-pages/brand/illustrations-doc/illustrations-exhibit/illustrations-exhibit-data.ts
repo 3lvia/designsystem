@@ -102,6 +102,11 @@ export const illustrationsExhibitData = [
     searchKeywordsNO: ['elektrisitet', 'ledning', 'strøm'],
   },
   {
+    name: 'power-meter',
+    searchKeywords: ['electricity', 'data', 'measure'],
+    searchKeywordsNO: ['elektrisitet', 'data', 'måler'],
+  },
+  {
     name: 'price',
     searchKeywords: ['money', 'spotpris', 'graph', 'cost', 'data'],
     searchKeywordsNO: ['penger', 'spotpris', 'graf', 'kostnad', 'data'],

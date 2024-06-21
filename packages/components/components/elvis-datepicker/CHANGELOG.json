@@ -3,6 +3,39 @@
   "name": "elvis-datepicker",
   "content": [
     {
+      "date": "21.06.24",
+      "version": "9.0.10",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix layout issue after migrating to <code>@emotion</code>"]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "9.0.9",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "9.0.8",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "05.04.24",
       "version": "9.0.7",
       "changelog": [

@@ -1,6 +1,6 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const BoxArea = styled.div`
   position: relative;
@@ -15,8 +15,8 @@ export const BoxColoredLine = styled.div`
   left: 0;
   width: 100%;
   height: 4px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   background: ${getThemeColor('brand-accent')};
 `;
 
@@ -40,7 +40,7 @@ export const BoxContent = styled.div`
   display: block;
   width: 100%;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 2px solid ${getThemeColor('border-5')};
   background: ${getThemeColor('background-element-4')};
   text-align: left;

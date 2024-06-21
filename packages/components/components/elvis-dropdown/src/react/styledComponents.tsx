@@ -1,43 +1,8 @@
-import { FormFieldContainer, FormFieldInputContainer, FormFieldSizes } from '@elvia/elvis-toolbox';
-import styled, { css } from 'styled-components';
+import { FormFieldSizes } from '@elvia/elvis-toolbox';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
-export const DropdownContainer = styled(FormFieldContainer)`
-  width: 100%;
-
-  ${({ isFullWidth }) =>
-    !isFullWidth &&
-    css`
-      max-width: 448px;
-    `}
-
-  ${({ isDisabled }) =>
-    !isDisabled &&
-    css`
-      ${DropdownInputContainer} {
-        cursor: pointer;
-      }
-    `};
-
-  ${({ size }) =>
-    size === 'small' &&
-    css`
-      ${IconRotator} {
-        width: 32px;
-        height: 32px;
-      }
-    `};
-`;
-
-export const DropdownInputContainer = styled(FormFieldInputContainer)`
-  width: 100%;
-`;
-
-export const OverlayPositioner = styled.div`
-  position: absolute;
-  z-index: 99999;
-`;
-
-export const IconRotator = styled.div<{ isRotated: boolean }>`
+export const IconRotator = styled.div<{ isRotated: boolean; size: FormFieldSizes }>`
   width: 40px;
   height: 40px;
   display: flex;
@@ -47,10 +12,17 @@ export const IconRotator = styled.div<{ isRotated: boolean }>`
   transform: rotate(0deg);
   transition: transform 150ms ease;
 
-  ${(props) =>
-    props.isRotated &&
+  ${({ isRotated }) =>
+    isRotated &&
     css`
       transform: rotate(180deg);
+    `}
+
+  ${({ size }) =>
+    size === 'small' &&
+    css`
+      width: 32px;
+      height: 32px;
     `}
 `;
 

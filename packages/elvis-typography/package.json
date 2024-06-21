@@ -1,8 +1,13 @@
 {
   "name": "@elvia/elvis-typography",
-  "version": "2.7.1",
+  "version": "3.0.0",
   "description": "Elvia typography",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3lvia/designsystem.git",
+    "directory": "packages/elvis-typography"
+  },
   "main": "dist/elviaTypography.js",
   "module": "dist/elviaTypography.mjs",
   "types": "dist/elviaTypography.d.ts",
@@ -20,10 +25,10 @@
   ],
   "devDependencies": {
     "@types/gulp": "^4.0.17",
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.14.7",
     "gulp": "^5.0.0",
     "ts-node": "^10.9.2",
-    "tsup": "^8.0.2",
+    "tsup": "^8.1.0",
     "typescript": "~5.4.5"
   }
 }

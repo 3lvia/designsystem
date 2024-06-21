@@ -1,10 +1,3 @@
-export enum DocPageStatus {
-  Coming = 'Coming',
-  Done = 'Done',
-  Ignore = 'Ignore',
-  Progress = 'In progress',
-}
-
 export enum Pages {
   // Home
   Index = '',
@@ -97,6 +90,7 @@ export enum Pages {
   Icebreakers = 'icebreakers',
   Ideation = 'ideation',
   Personas = 'personas',
+  TeamSymbol = 'team-symbol',
   Templates = 'templates',
   UserFeedback = 'user-feedback',
   UtilityClasses = 'utility-classes',

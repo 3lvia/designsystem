@@ -1,5 +1,7 @@
 import { getThemeColor, getThemeColorContrast } from '@elvia/elvis-colors';
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
+import React, { forwardRef } from 'react';
 
 export type Size = 'sm' | 'small' | 'md' | 'medium' | 'lg' | 'large';
 export interface ButtonProps {
@@ -52,7 +54,7 @@ const loadingAnimation = keyframes`
   }
 `;
 
-const ButtonBase = styled.button.attrs({ type: 'button' })<Partial<ButtonProps>>`
+const ButtonBaseStyle = styled.button<Partial<ButtonProps>>`
   ${({ size }) => getTypography(size ?? 'md')};
   font-weight: 500;
   display: flex;
@@ -98,6 +100,16 @@ const ButtonBase = styled.button.attrs({ type: 'button' })<Partial<ButtonProps>>
           }
         `}
 `;
+
+const ButtonBase = forwardRef<HTMLButtonElement, ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>>(
+  ({ children, ...props }, ref) => (
+    <ButtonBaseStyle ref={ref} type="button" {...props}>
+      {children}
+    </ButtonBaseStyle>
+  ),
+);
+
+ButtonBase.displayName = 'ButtonBase';
 
 const getButtonHeight = (size?: Size) => {
   switch (size) {

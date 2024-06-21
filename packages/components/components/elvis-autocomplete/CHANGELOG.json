@@ -3,6 +3,29 @@
   "name": "elvis-autocomplete",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "3.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "3.1.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "16.04.24",
       "version": "3.1.0",
       "changelog": [

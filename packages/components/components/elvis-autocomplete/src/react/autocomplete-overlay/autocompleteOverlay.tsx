@@ -1,4 +1,4 @@
-import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
+import { type FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
 import React, { forwardRef } from 'react';
 
 import { AutocompletePopupItem } from '../autocomplete-item/autocompleteItem';
@@ -39,6 +39,7 @@ export const AutocompleteOverlay = forwardRef<HTMLDivElement, AutocompleteOverla
         <AutocompletePopup
           $size={size}
           aria-labelledby={id}
+          role="listbox"
           id={popupId}
           onMouseDown={(e) => e.preventDefault()}
           onMouseLeave={() => setFocusedItem(undefined)}

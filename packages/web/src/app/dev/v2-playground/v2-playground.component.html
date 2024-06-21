@@ -3,43 +3,62 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
-    <div class="example-wrapper">
-      <elvia-accordion [isOpen]="true" isFullWidth size="small">
-        <div slot="openLabel">
-          <p>openLabel 1</p>
-        </div>
-        <div slot="closeLabel">
-          <p>closeLabel 1</p>
-        </div>
-        <div slot="content">
-          <elvia-accordion [isOpen]="true" isFullWidth size="small">
-            <div slot="openLabel">
-              <p>openLabel 2</p>
-            </div>
-            <div slot="closeLabel">
-              <p>closeLabel 2</p>
-            </div>
-            <div slot="content">
-              <elvia-autocomplete
-                (valueOnChange)="handleOnChange($any($event))"
-                errorOptions="{ text: 'Skriv inn noe godt' }"
-                label="Lunch"
-                [items]="[
-                  { value: 'lange', label: 'Lange' },
-                  { value: 'torsk', label: 'Torsk' },
-                  { value: 'sjampinjong', label: 'sjampinjong' }
-                ]"
-              />
-              Accordion content
-            </div>
-          </elvia-accordion>
-        </div>
-      </elvia-accordion>
-    </div>
+    <div class="example-wrapper"></div>
 
-    <!--Normal version-->
-    <!--Inverted version-->
+    <h3>Global Alert</h3>
     <div class="e-color-background-1 e-theme-dark"></div>
+    <div class="example-wrapper">
+      <div class="e-alert e-alert--global e-alert--actions" role="note">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle" aria-hidden="true"> </i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__text e-m-0">Explain what happened</div>
+          <div class="e-alert__actions">
+            <button class="e-btn e-btn--secondary e-btn--sm">
+              <span class="e-btn__title"> Secondary </span>
+            </button>
+            <button class="e-btn e-btn--sm">
+              <span class="e-btn__title"> Primary </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-alert e-alert--global e-alert--actions e-alert--error" role="note">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--remove_circle" aria-hidden="true"> </i>
+        </div>
+        <div class="e-alert__content">
+          <p class="e-alert__text e-m-0">Explain what happened</p>
+          <div class="e-alert__actions">
+            <button class="e-btn e-btn--secondary e-btn--sm">
+              <span class="e-btn__title"> Secondary </span>
+            </button>
+            <button class="e-btn e-btn--sm">
+              <span class="e-btn__title"> Primary </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-alert e-alert--global e-alert--actions e-alert--warn" role="note">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--warning_circle" aria-hidden="true"> </i>
+        </div>
+        <div class="e-alert__content">
+          <p class="e-alert__text e-m-0">Explain what happened</p>
+          <div class="e-alert__actions">
+            <button class="e-btn e-btn--secondary e-btn--sm">
+              <span class="e-btn__title"> Secondary </span>
+            </button>
+            <button class="e-btn e-btn--sm">
+              <span class="e-btn__title"> Primary </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!--Accordion-->
     <div class="example-wrapper">
@@ -386,22 +405,20 @@
       <elvia-modal
         (onClose)="isModalShowing = !isModalShowing"
         [isShowing]="isModalShowing"
-        [disableClose]="false"
+        [hasCloseButton]="true"
       >
         <div slot="heading" class="e-flex e-align-items-center e-gap-8">
           Jeg er en heading (slot)
           <i class="e-icon e-icon--move_truck-color e-icon--sm" aria-hidden="true"> </i>
         </div>
-        <div slot="content">Content</div>
-        <button
+        <div slot="content" class="e-flex e-flex-direction-column e-gap-8">Test</div>
+        <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg e-none-md e-none-lg e-none-xl">
+          Godkjenn</button
+        ><button
           slot="secondaryButton"
-          class="e-btn e-btn--secondary e-btn--lg"
-          (click)="isModalShowing = false"
+          class="e-btn e-btn--secondary e-btn--lg e-none-md e-none-lg e-none-xl"
         >
           Avbryt
-        </button>
-        <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg" (click)="isModalShowing = false">
-          Lagre
         </button>
       </elvia-modal>
       <h4>Illustration</h4>
@@ -426,7 +443,7 @@
           </elvia-carousel>
         </div>
         <div slot="illustration">
-          <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png" />
+          <elvia-illustrations-broken />
         </div>
       </elvia-modal>
     </div>

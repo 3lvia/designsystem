@@ -3,8 +3,41 @@
   "name": "elvis-chip",
   "content": [
     {
+      "date": "30.05.24",
+      "version": "2.5.5",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "2.5.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
+      "date": "23.05.24",
+      "version": "2.5.3",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.02.24",
-      "version": "2.5.2 ",
+      "version": "2.5.2",
       "changelog": [
         {
           "type": "patch",

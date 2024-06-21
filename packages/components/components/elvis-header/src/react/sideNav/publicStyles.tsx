@@ -1,8 +1,8 @@
 import { getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { FlattenInterpolation, ThemeProps, css } from 'styled-components';
+import { css } from '@emotion/react';
 
-export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemeProps<any>> => {
+export const publicStyles = (isGtMobile: boolean) => {
   return css`
     .e-sidenav__container {
       color: ${getThemeColor('text-1')};
@@ -11,16 +11,11 @@ export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemePro
       flex-direction: row;
       gap: 1rem;
 
-      ${() => {
-        if (isGtMobile) {
-          return css`
-            flex-direction: column;
-            gap: 1.5rem;
-          `;
-        }
-
-        return css``;
-      }}
+      ${isGtMobile &&
+      css`
+        flex-direction: column;
+        gap: 1.5rem;
+      `}
     }
 
     .e-sidenav__item {
@@ -42,14 +37,7 @@ export const publicStyles = (isGtMobile: boolean): FlattenInterpolation<ThemePro
     }
 
     .e-sidenav__item-text {
-      ${() =>
-        isGtMobile
-          ? css`
-              display: inline-block;
-            `
-          : css`
-              display: none;
-            `}
+      ${isGtMobile ? 'display: inline-block;' : 'display: none;'}
     }
 
     .e-sidenav__icon-container {

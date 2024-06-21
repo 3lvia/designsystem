@@ -35,6 +35,7 @@ export const BackButton: React.FC<SelectAllOptionProps> = ({
       onMouseDown={preventInputElementBlur}
       isFocused={inputIsKeyboard && focusedValue === item.value}
       size={size}
+      role="option"
     >
       <IconButton size={size === 'small' ? 'sm' : 'md'} disabled>
         <IconWrapper icon={arrowLeft} size={size === 'small' ? 'xs' : 'sm'} />

@@ -3,6 +3,39 @@
   "name": "elvis-dropdown",
   "content": [
     {
+      "date": "21.06.24",
+      "version": "9.4.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix layout issue after migrating to <code>@emotion</code>"]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "9.4.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Republish the package to fix an issue with the previous release."]
+        }
+      ]
+    },
+    {
+      "date": "30.05.24",
+      "version": "9.4.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Now using <code>@emotion</code> for styling instead of <code>styled-components</code>.",
+            "Updated internal dependencies."
+          ]
+        }
+      ]
+    },
+    {
       "date": "07.03.24",
       "version": "9.4.0",
       "changelog": [
