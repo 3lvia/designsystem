@@ -209,7 +209,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       >
         {!!label && <FormFieldLabel>{label}</FormFieldLabel>}
         <FormFieldInputContainer
-          style={{ width: '100%', cursor: isDisabled ? 'default' : 'pointer' }}
+          style={{ width: '100%', cursor: isDisabled ? 'not-allowed' : 'pointer' }}
           ref={connectedElementRef}
         >
           <DropdownInput
