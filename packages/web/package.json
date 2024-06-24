@@ -83,7 +83,7 @@
     "@angular/language-service": "^18.0.4",
     "@babel/core": "^7.24.7",
     "@babel/eslint-parser": "^7.24.7",
-    "@netlify/functions": "^2.7.0",
+    "@netlify/functions": "^2.8.0",
     "@types/file-saver": "^2.0.7",
     "@types/natural-compare-lite": "^1.4.2",
     "@types/node": "20.14.8",
