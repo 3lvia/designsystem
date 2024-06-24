@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "19.1.1",
+      "date": "June 24, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed the height of <code>e-tag</code>. It is now slightly smaller than it was."],
+          "components": [{ "displayName": "Tag", "url": "https://design.elvia.io/components/tag" }]
+        }
+      ]
+    },
+    {
       "version": "19.1.0",
       "date": "June 21, 2024",
       "changelog": [
