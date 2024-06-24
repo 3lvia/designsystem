@@ -35,10 +35,12 @@ export const ModalBackdrop = styled.div`
 export const ModalWrapper = styled.div<WrapperProps>`
   position: relative;
   display: flex;
-  flex-direction: ${({ hasIllustration }) => (hasIllustration ? 'row-reverse' : 'column')};
+  flex-direction: column;
+
   ${({ hasIllustration, maxWidth }) =>
     hasIllustration
       ? css`
+          flex-direction: row-reverse;
           min-height: 550px;
           max-height: min(calc(100vh - 64px), 800px);
           width: 1090px;
@@ -93,16 +95,16 @@ const decideContentPadding = (hasIllustration: boolean, hasPadding: boolean, pad
 
 export const ModalContent = styled.div<ContentProps>`
   padding: ${({ hasIllustration, hasPadding }) => decideContentPadding(hasIllustration, hasPadding, '48px')};
-  width: ${({ hasIllustration }) => (hasIllustration ? '620px' : 'auto')};
   display: flex;
   flex-direction: column;
   z-index: 1;
-  background: transparent;
   max-height: calc(100vh - 64px);
 
   ${({ hasIllustration, hasPadding }) =>
     hasIllustration &&
     css`
+      width: 620px;
+
       @media (max-width: ${desktopMin}) {
         padding: ${decideContentPadding(false, hasPadding, '40px')};
         padding-top: 24px;
