@@ -1,8 +1,8 @@
+import { FormFieldInput } from '@elvia/elvis-toolbox';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import { padDigit } from './padDigit';
 import { ErrorType } from './publicApi.public';
-import { Input } from './styledComponents';
 import { getFormattedInputValue } from './timeHelpers';
 
 interface Props {
@@ -228,11 +228,10 @@ export const TimepickerInput: React.FC<Props> = ({
   }, [inputElement]);
 
   return (
-    <Input
+    <FormFieldInput
+      style={{ width: isFullWidth ? '100%' : hasSecondPicker ? '4.5rem' : '2.875rem' }}
       ref={inputElement}
       disabled={disabled}
-      isFullWidth={isFullWidth}
-      hasSecondPicker={hasSecondPicker}
       placeholder={hasSecondPicker ? 'tt:mm:ss' : 'tt:mm'}
       value={inputValue}
       onKeyDown={onKeyDown}
