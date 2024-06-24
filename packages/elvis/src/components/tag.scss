@@ -18,27 +18,18 @@ $tag-colors: (
   'danger': --e-color-signal-danger,
   'red': --e-color-signal-danger,
   'green-apple': --e-color-data-1,
+  'data-1': --e-color-data-1,
   'violet-grape': --e-color-data-2,
+  'data-2': --e-color-data-2,
   'blue-berry': --e-color-data-3,
+  'data-3': --e-color-data-3,
   'purple-plum': --e-color-data-4,
+  'data-4': --e-color-data-4,
   'orange-mango': --e-color-data-5,
+  'data-5': --e-color-data-5,
   'red-tomato': --e-color-data-6,
+  'data-6': --e-color-data-6,
 );
-
-@mixin circle($variable) {
-  padding: 5px 8px 5px 24px;
-
-  &::before {
-    position: absolute;
-    left: 8px;
-    display: inline-flex;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var($variable);
-    content: ' ';
-  }
-}
 
 .e-tag {
   @include helpers.custom-light-theme-tokens {
@@ -54,7 +45,8 @@ $tag-colors: (
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 5px 8px;
+  height: 24px;
+  padding-inline: 8px;
   border-radius: 4px;
   background: var(--e-color-background-element-3);
   @include mixins.typography('text-micro');
@@ -65,7 +57,15 @@ $tag-colors: (
 
   @each $name, $variable in $tag-colors {
     &.e-tag--#{$name} {
-      @include circle($variable);
+      &::before {
+        margin-right: 8px;
+        display: inline-flex;
+        width: 8px;
+        height: 8px;
+        border-radius: 99999px;
+        background-color: var($variable);
+        content: '';
+      }
     }
   }
 }
