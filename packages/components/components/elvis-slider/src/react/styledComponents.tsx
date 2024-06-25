@@ -295,7 +295,7 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
     width: 100%;
   }
 
-  ${StyledSlider}:first-child {
+  ${StyledSlider}:first-of-type {
     z-index: ${({ isLeftSliderOnTop }) => (isLeftSliderOnTop ? 5 : 3)};
   }
 `;
