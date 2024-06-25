@@ -111,7 +111,7 @@
         [items]="[
           { value: 'lange', label: 'Lange' },
           { value: 'torsk', label: 'Torsk' },
-          { value: 'sjampinjong', label: 'sjampinjong' }
+          { value: 'sjampinjong', label: 'sjampinjong' },
         ]"
       />
     </div>
@@ -292,6 +292,7 @@
         (onOpen)="isContextMenuShowing = true"
         (onClose)="isContextMenuShowing = false"
         display="flex"
+        [anchorPosition]="{ top: 100, left: 100 }"
       >
         <button
           slot="trigger"
@@ -517,13 +518,13 @@
           {
             icon: '<i class=\'e-icon e-icon--thumbnail\'></i>',
             iconSelected: '<i class=\'e-icon e-icon--thumbnail-color\'></i>',
-            ariaLabel: 'Segmented control example label'
+            ariaLabel: 'Segmented control example label',
           },
           {
             icon: '<i class=\'e-icon e-icon--list\'></i>',
             iconSelected: '<i class=\'e-icon e-icon--list_color\'></i>',
-            ariaLabel: 'Segmented control example label'
-          }
+            ariaLabel: 'Segmented control example label',
+          },
         ]"
         (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
       ></elvia-segmented-control>
@@ -557,7 +558,7 @@
           '1': { heading: 'Tittel 1', isCompleted: true },
           '2': { heading: 'Tittel 2', isCompleted: false },
           '3': { heading: 'Tittel 3' },
-          '4': { heading: 'Tittel 4', nextButtonText: 'Lagre' }
+          '4': { heading: 'Tittel 4', nextButtonText: 'Lagre' },
         }"
         isForced
         (onFinish)="log('Stepper onFinish()')"

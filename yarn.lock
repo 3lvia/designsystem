@@ -2853,6 +2853,7 @@ __metadata:
     "@elvia/elvis-typography": "npm:^2.7.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
+    "@floating-ui/react": "npm:~0.26.16"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0

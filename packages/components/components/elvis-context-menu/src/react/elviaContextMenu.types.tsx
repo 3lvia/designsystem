@@ -14,6 +14,7 @@ export interface BaseContextMenuProps extends BaseProps {
   trigger?: JSX.Element;
   verticalPosition?: VerticalPosition;
   display?: CSSProperties['display'];
+  anchorPosition?: { top: number; left: number };
 }
 
 export interface ContextMenuProps

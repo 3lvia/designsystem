@@ -1,10 +1,22 @@
-import { useConnectedOverlay, useFocusTrap, useSlot, useUpdateEffect } from '@elvia/elvis-toolbox';
+import { useSlot } from '@elvia/elvis-toolbox';
+import {
+  FloatingOverlay,
+  FloatingPortal,
+  autoUpdate,
+  flip,
+  offset,
+  shift,
+  useFloating,
+  useTransitionStyles,
+} from '@floating-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
 
-import { ContextMenuOverlay } from './contextMenuOverlay';
+import { ContextMenuContent } from './ContextMenuContent';
 import { ContextMenuProps } from './elviaContextMenu.types';
-import { mapPositionToHorizontalPosition } from './mapPosition';
+import { mapPosition } from './mapPosition';
 import { TriggerContainer } from './styledComponents';
+import { useCloseOnEsc } from './useCloseOnEsc';
+import { useFocusTrap } from './useFocusTrap';
 
 export const ContextMenu: React.FC<ContextMenuProps> = ({
   content = '',
@@ -17,73 +29,73 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   trigger,
   inlineStyle,
   display = 'inline-block',
+  anchorPosition,
   className,
   webcomponent,
   ...rest
 }) => {
-  const popoverRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
-  const { trapFocus, releaseFocusTrap } = useFocusTrap();
-  const [prevFocusedElement, setPrevFocusedElement] = useState<HTMLElement>();
-  const [fadeOut, setFadeOut] = useState(false);
+  const [isOpen, setIsOpen] = useState(isShowing);
 
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
-  const { isShowing: isOverlayShowing = false, setIsShowing: setIsOverlayShowing } = useConnectedOverlay(
-    triggerRef,
-    popoverRef,
-    {
-      horizontalPosition: mapPositionToHorizontalPosition(horizontalPosition),
-      verticalPosition: verticalPosition,
-      alignWidths: false,
+  const { refs, floatingStyles, context } = useFloating({
+    placement: mapPosition(verticalPosition, horizontalPosition),
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    elements: {
+      reference: triggerRef.current,
     },
-  );
+    middleware: [offset({ mainAxis: 8 }), flip(), shift()],
+    whileElementsMounted: autoUpdate,
+    transform: false,
+  });
+
+  const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {
+    duration: 300,
+    common: {
+      transitionTimingFunction: 'ease',
+      zIndex: 99999,
+      maxWidth: 'calc(100% - 16px)',
+    },
+    close: {
+      opacity: 0,
+      transform: 'scale(.9)',
+    },
+    open: {
+      opacity: 1,
+      transform: 'scale(1)',
+    },
+  });
 
   const handleOnOpen = () => {
     onOpen?.();
     webcomponent?.triggerEvent('onOpen');
-
-    trapFocus(popoverRef);
   };
 
   const handleOnClose = () => {
     onClose?.();
     webcomponent?.triggerEvent('onClose');
-
-    releaseFocusTrap();
-  };
-
-  const toggleVisibility = (): void => {
-    if (!isOverlayShowing) {
-      setIsOverlayShowing(true);
-      setFadeOut(false);
-    } else {
-      setFadeOut(true);
-    }
   };
 
   useEffect(() => {
-    if (isShowing !== isOverlayShowing) {
-      setIsOverlayShowing(isShowing);
-    }
-
-    // Sync internal state with prop, if the context menu is only toggled
-    // through the prop (and not through a regular click on the trigger element.)
-    if (isShowing) {
-      setFadeOut(false);
+    if (isShowing !== isOpen) {
+      setIsOpen(isShowing);
     }
   }, [isShowing]);
 
-  useUpdateEffect(() => {
-    if (isOverlayShowing) {
-      setPrevFocusedElement(document.activeElement as HTMLElement);
-      handleOnOpen();
-    } else {
+  const toggleVisibility = () => {
+    if (isOpen) {
+      setIsOpen(false);
       handleOnClose();
-      prevFocusedElement?.focus();
-      setPrevFocusedElement(undefined);
+    } else {
+      setIsOpen(true);
+      handleOnOpen();
     }
-  }, [isOverlayShowing]);
+  };
+
+  useCloseOnEsc({ isOpen, setIsOpen, handleOnClose });
+  useFocusTrap(refs.floating, isOpen);
 
   return (
     <>
@@ -91,24 +103,38 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
         onClick={toggleVisibility}
         ref={triggerRef}
         triggerDisplay={display}
-        isShowing={isOverlayShowing}
+        isShowing={isMounted}
       >
         {trigger}
       </TriggerContainer>
 
-      {isOverlayShowing && (
-        <ContextMenuOverlay
-          content={content}
-          isSelectable={isSelectable}
-          ref={popoverRef}
-          onClose={() => setIsOverlayShowing(false)}
-          fadeOut={fadeOut}
-          setFadeOut={setFadeOut}
-          className={className}
-          inlineStyle={inlineStyle}
-          webcomponent={webcomponent}
-          {...rest}
-        />
+      {isMounted && (
+        <FloatingPortal preserveTabOrder={false}>
+          <FloatingOverlay onClick={toggleVisibility} />
+          <div
+            style={{
+              ...floatingStyles,
+              ...transitionStyles,
+              ...(anchorPosition
+                ? {
+                    top: anchorPosition.top,
+                    left: anchorPosition.left,
+                  }
+                : {}),
+            }}
+            ref={refs.setFloating}
+          >
+            <ContextMenuContent
+              content={content}
+              isSelectable={isSelectable}
+              toggleVisibility={toggleVisibility}
+              className={className}
+              inlineStyle={inlineStyle}
+              webcomponent={webcomponent}
+              {...rest}
+            />
+          </div>
+        </FloatingPortal>
       )}
     </>
   );

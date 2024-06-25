@@ -3,6 +3,22 @@
   "name": "elvis-context-menu",
   "content": [
     {
+      "date": "25.06.24",
+      "version": "1.5.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for customizing the context menu's position with the <code>anchorPosition</code> prop."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Now using <code>@floating-ui</code> to position floating elements."]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "1.4.2",
       "changelog": [
