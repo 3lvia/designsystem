@@ -1,12 +1,14 @@
 import { useSlot } from '@elvia/elvis-toolbox';
 import {
-  FloatingOverlay,
   FloatingPortal,
   autoUpdate,
   flip,
   offset,
   shift,
+  useClientPoint,
+  useDismiss,
   useFloating,
+  useInteractions,
   useTransitionStyles,
 } from '@floating-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
@@ -15,7 +17,6 @@ import { ContextMenuContent } from './ContextMenuContent';
 import { ContextMenuProps } from './elviaContextMenu.types';
 import { mapPosition } from './mapPosition';
 import { TriggerContainer } from './styledComponents';
-import { useCloseOnEsc } from './useCloseOnEsc';
 import { useFocusTrap } from './useFocusTrap';
 
 export const ContextMenu: React.FC<ContextMenuProps> = ({
@@ -39,10 +40,19 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
   useSlot('trigger', webcomponent, { ref: triggerRef });
 
+  const updateOpenState = (newState: boolean) => {
+    setIsOpen(newState);
+    if (newState) {
+      handleOnOpen();
+    } else {
+      handleOnClose();
+    }
+  };
+
   const { refs, floatingStyles, context } = useFloating({
     placement: mapPosition(verticalPosition, horizontalPosition),
     open: isOpen,
-    onOpenChange: setIsOpen,
+    onOpenChange: updateOpenState,
     elements: {
       reference: triggerRef.current,
     },
@@ -50,6 +60,17 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     whileElementsMounted: autoUpdate,
     transform: false,
   });
+
+  // This hook enables the floating element to be positioned based on the anchorPosition prop
+  const clientPoint = useClientPoint(context, {
+    enabled: !!anchorPosition,
+    x: anchorPosition?.left,
+    y: (anchorPosition?.top ?? 0) - window.scrollY, // Adjust for scroll position so the context menu is not positioned "fixed"
+  });
+
+  const dismiss = useDismiss(context);
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([dismiss, clientPoint]);
 
   const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {
     duration: 300,
@@ -84,50 +105,33 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     }
   }, [isShowing]);
 
-  const toggleVisibility = () => {
-    if (isOpen) {
-      setIsOpen(false);
-      handleOnClose();
-    } else {
-      setIsOpen(true);
-      handleOnOpen();
-    }
-  };
-
-  useCloseOnEsc({ isOpen, setIsOpen, handleOnClose });
   useFocusTrap(refs.floating, isOpen);
 
   return (
     <>
       <TriggerContainer
-        onClick={toggleVisibility}
+        onClick={() => updateOpenState(!isOpen)}
         ref={triggerRef}
         triggerDisplay={display}
-        isShowing={isMounted}
+        {...getReferenceProps()}
       >
         {trigger}
       </TriggerContainer>
 
       {isMounted && (
         <FloatingPortal preserveTabOrder={false}>
-          <FloatingOverlay onClick={toggleVisibility} />
           <div
             style={{
               ...floatingStyles,
               ...transitionStyles,
-              ...(anchorPosition
-                ? {
-                    top: anchorPosition.top,
-                    left: anchorPosition.left,
-                  }
-                : {}),
             }}
             ref={refs.setFloating}
+            {...getFloatingProps()}
           >
             <ContextMenuContent
               content={content}
               isSelectable={isSelectable}
-              toggleVisibility={toggleVisibility}
+              toggleVisibility={() => updateOpenState(!isOpen)}
               className={className}
               inlineStyle={inlineStyle}
               webcomponent={webcomponent}
