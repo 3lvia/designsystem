@@ -1,4 +1,5 @@
-import { LitElement, css, html } from 'lit';
+import { getThemeColor } from '@elvia/elvis-colors';
+import { LitElement, css, html, unsafeCSS } from 'lit';
 import { customElement, queryAssignedElements } from 'lit/decorators.js';
 
 import { ElviaBreadcrumb } from './breadcrumb';
@@ -26,6 +27,7 @@ export class ElviaBreadcrumbs extends LitElement {
         --flex-direction: row-reverse;
         --icon-rotation: 180deg;
         --font-weight: 500;
+        --text-color: ${unsafeCSS(getThemeColor('text-1'))};
       }
     }
   `;

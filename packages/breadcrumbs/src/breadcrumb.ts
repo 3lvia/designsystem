@@ -14,6 +14,7 @@ export class ElviaBreadcrumb extends LitElement {
       --font-weight: 400;
       --flex-direction: row;
       --icon-rotation: 0deg;
+      --text-color: ${unsafeCSS(getThemeColor('text-2'))};
 
       display: flex;
       flex-direction: var(--flex-direction);
@@ -28,15 +29,15 @@ export class ElviaBreadcrumb extends LitElement {
 
       ::slotted(a) {
         --font-weight: 500;
+        --text-color: ${unsafeCSS(getThemeColor('text-1'))};
         pointer-events: none;
         cursor: default;
-        color: ${unsafeCSS(getThemeColor('text-1'))};
       }
     }
 
     ::slotted(a) {
       ${unsafeCSS(getTypographyCss('text-sm'))};
-      color: ${unsafeCSS(getThemeColor('text-2'))};
+      color: var(--text-color);
       font-weight: var(--font-weight);
       display: block;
       position: relative;
