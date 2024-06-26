@@ -2522,20 +2522,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-html-renderer@npm:^16.5.2":
-  version: 16.5.2
-  resolution: "@contentful/rich-text-html-renderer@npm:16.5.2"
+"@contentful/rich-text-html-renderer@npm:^16.6.1":
+  version: 16.6.1
+  resolution: "@contentful/rich-text-html-renderer@npm:16.6.1"
   dependencies:
-    "@contentful/rich-text-types": "npm:^16.5.2"
+    "@contentful/rich-text-types": "npm:^16.6.1"
     escape-html: "npm:^1.0.3"
-  checksum: 10/9eac4ecf08a00316fce02285e0451b8100eaa87454d5f1426fd93887318368dfee71d62d92e5b43d3f8265393c745f72593617d2aa0a1d6620e22f4985d21aba
+  checksum: 10/dce9360cf486437297c8fa3950821d2a01f13402c73bc996dc797527b488aa7b7bba52c9127497d72e03e07b966f328b3ed7e4af343de786ad28b07405c1c5ea
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-types@npm:^16.0.2, @contentful/rich-text-types@npm:^16.3.0, @contentful/rich-text-types@npm:^16.5.2":
+"@contentful/rich-text-types@npm:^16.0.2, @contentful/rich-text-types@npm:^16.3.0":
   version: 16.5.2
   resolution: "@contentful/rich-text-types@npm:16.5.2"
   checksum: 10/16878d4e2f4eab68bf4e75383a83b49af310def162f29a590e35387264a1ffa9c3e450b48aa737b36128c1202324438ab01181705b076539afc91400a22a5e06
+  languageName: node
+  linkType: hard
+
+"@contentful/rich-text-types@npm:^16.6.1":
+  version: 16.6.1
+  resolution: "@contentful/rich-text-types@npm:16.6.1"
+  checksum: 10/6eceee5a277f6bbda1146b93ac448866ed58d6d0fdd99529775cb1bd7555bbe3274f5b022c5f25479ef2e521ba78d0d7c4dce7df095b93f190b7deb8cea58d8f
   languageName: node
   linkType: hard
 
@@ -10065,8 +10072,8 @@ __metadata:
     "@angular/router": "npm:^18.0.4"
     "@babel/core": "npm:^7.24.7"
     "@babel/eslint-parser": "npm:^7.24.7"
-    "@contentful/rich-text-html-renderer": "npm:^16.5.2"
-    "@contentful/rich-text-types": "npm:^16.5.2"
+    "@contentful/rich-text-html-renderer": "npm:^16.6.1"
+    "@contentful/rich-text-types": "npm:^16.6.1"
     "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
     "@elvia/elvis-assets-icons": "workspace:*"
