@@ -49,7 +49,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     }
   };
 
-  const { refs, floatingStyles, context } = useFloating({
+  const { refs, floatingStyles, context, placement } = useFloating({
     placement: mapPosition(verticalPosition, horizontalPosition),
     open: isOpen,
     onOpenChange: updateOpenState,
@@ -63,7 +63,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
   // This hook enables the floating element to be positioned based on the anchorPosition prop
   const clientPoint = useClientPoint(context, {
-    enabled: !!anchorPosition,
+    enabled: !!(anchorPosition && anchorPosition.left && anchorPosition.top),
     x: anchorPosition?.left,
     y: (anchorPosition?.top ?? 0) - window.scrollY, // Adjust for scroll position so the context menu is not positioned "fixed"
   });
@@ -75,17 +75,22 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {
     duration: 300,
     common: {
+      transformOrigin: placement.includes('top') ? 'bottom center' : 'top center',
       transitionTimingFunction: 'ease',
       zIndex: 99999,
       maxWidth: 'calc(100% - 16px)',
     },
+    initial: {
+      opacity: 0,
+      transform: 'scaleY(.9)',
+    },
     close: {
       opacity: 0,
-      transform: 'scale(.9)',
+      transform: 'scaleY(.9)',
     },
     open: {
       opacity: 1,
-      transform: 'scale(1)',
+      transform: 'scaleY(1)',
     },
   });
 
