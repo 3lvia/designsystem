@@ -3,15 +3,9 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const TriggerContainer = styled.div<{ isShowing: boolean; triggerDisplay: string }>`
+export const TriggerContainer = styled.div<{ triggerDisplay: string }>`
   user-select: none;
   display: ${(props) => props.triggerDisplay};
-
-  ${({ isShowing }) =>
-    isShowing &&
-    css`
-      z-index: 999999;
-    `};
 `;
 
 export const ItemList = styled.div<{ isSelectable: boolean }>`

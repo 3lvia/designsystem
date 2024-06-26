@@ -44,9 +44,11 @@ describe('Elvis Context Menu', () => {
         await user.click(trigger);
       });
 
-      it('a context menu is visible', () => {
-        const menuItem = screen.queryByText('Be om tilgang');
-        expect(menuItem).toBeVisible();
+      it('a context menu is visible', async () => {
+        await waitFor(() => {
+          const menuItem = screen.queryByText('Be om tilgang');
+          expect(menuItem).toBeVisible();
+        });
       });
 
       it('the context menu closes when an item is selected', async () => {
