@@ -3,6 +3,22 @@
   "name": "elvis-badge",
   "content": [
     {
+      "date": "26.06.24",
+      "version": "2.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for data colors in the <code>badgeColor</code> property. The new supported colors are <code>data-1</code> through <code>data-6</code>."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "17.06.24",
       "version": "2.1.4",
       "changelog": [

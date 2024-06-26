@@ -28,10 +28,8 @@ export const Badge: React.FC<BadgeProps> = ({
     return count.toString();
   };
 
-  const badgeCircleClasses = classnames(styles['badge-circle'], {
+  const badgeCircleClasses = classnames(styles['badge-circle'], styles[`badge--${badgeColor}`], {
     [styles['badge--wide']]: getCount(count) === '99+',
-    [styles['badge--green']]: badgeColor === 'green',
-    [styles['badge--red']]: badgeColor === 'red',
   });
 
   return (
