@@ -63,7 +63,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
 
   // This hook enables the floating element to be positioned based on the anchorPosition prop
   const clientPoint = useClientPoint(context, {
-    enabled: !!(anchorPosition && anchorPosition.left && anchorPosition.top),
+    enabled: !!(anchorPosition?.left && anchorPosition?.top),
     x: anchorPosition?.left,
     y: (anchorPosition?.top ?? 0) - window.scrollY, // Adjust for scroll position so the context menu is not positioned "fixed"
   });
