@@ -75,7 +75,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {
     duration: 300,
     common: {
-      transformOrigin: placement.includes('top') ? 'bottom center' : 'top center',
+      transformOrigin: placement.includes('top') ? 'bottom' : 'top',
       transitionTimingFunction: 'ease',
       zIndex: 99999,
       maxWidth: 'calc(100% - 16px)',
