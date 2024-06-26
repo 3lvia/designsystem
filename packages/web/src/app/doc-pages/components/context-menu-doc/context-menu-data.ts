@@ -38,16 +38,16 @@ const contextMenuData: ComponentData<BaseContextMenuProps> = {
         display = "flex";`,
     },
     anchorPosition: {
-      type: '',
+      type: 'object',
       description: 'Can be used to manually override the position of the context menu.',
       children: {
         top: {
           type: 'number',
-          description: 'The top position of the context menu.',
+          description: 'The top position of the context menu in pixels.',
         },
         left: {
           type: 'number',
-          description: 'The left position of the context menu.',
+          description: 'The left position of the context menu in pixels.',
         },
       },
     },
