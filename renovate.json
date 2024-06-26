@@ -53,6 +53,12 @@
       "matchDepPatterns": ["^yarn"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "groupName": "typescript-eslint monorepo",
+      "matchPackagePatterns": ["^@typescript-eslint/"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ],
   "ignoreDeps": ["@emotion/react", "@emotion/styled"],

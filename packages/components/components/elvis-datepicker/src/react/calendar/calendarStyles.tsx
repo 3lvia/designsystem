@@ -38,7 +38,7 @@ export const GridContainer = styled.div`
     grid-column: 1 / 1;
   }
 
-  *:first-child {
+  div:first-of-type {
     grid-row: 1 / 1;
     grid-column: 1 / 1;
   }

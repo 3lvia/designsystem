@@ -1,3 +1,4 @@
+import { FormFieldInput } from '@elvia/elvis-toolbox';
 import React, {
   ChangeEvent,
   FocusEventHandler,
@@ -11,7 +12,6 @@ import React, {
 
 import { formatDate, isSameDay, isValidDate } from './dateHelpers';
 import { ErrorType } from './elviaDatepicker.types';
-import { Input } from './styledComponents';
 import { validateDate } from './validateDate';
 
 interface Props {
@@ -21,6 +21,7 @@ interface Props {
   minDate?: Date;
   maxDate?: Date;
   placeholder?: string;
+  fullWidth: boolean;
   onChange: (newValue: Date | null) => void;
   onFocus: () => void;
   onErrorChange: (error?: ErrorType) => void;
@@ -36,6 +37,7 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
       minDate,
       maxDate,
       placeholder,
+      fullWidth,
       onChange,
       onFocus,
       onErrorChange,
@@ -221,7 +223,8 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
     }, [inputElement]);
 
     return (
-      <Input
+      <FormFieldInput
+        style={{ width: fullWidth ? '100%' : '5.4rem' }}
         ref={inputElement}
         disabled={disabled}
         placeholder={placeholder}

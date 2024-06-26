@@ -3,6 +3,16 @@
   "name": "elvis-slider",
   "content": [
     {
+      "date": "25.06.24",
+      "version": "5.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a css selector that was unsafe for SSR."]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "5.0.2",
       "changelog": [

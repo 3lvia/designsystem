@@ -1,4 +1,4 @@
-import { FormFieldSizes } from '@elvia/elvis-toolbox';
+import { FormFieldInput, FormFieldSizes } from '@elvia/elvis-toolbox';
 import DOMPurify from 'dompurify';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 
@@ -6,7 +6,6 @@ import { flattenTree, getDropdownItemId } from '../dropdownListUtils';
 import { DropdownProps } from '../elviaDropdown.types';
 import { DropdownItem, DropdownValue } from '../publicApi.public';
 import { DropdownIconContainer } from '../styledComponents';
-import { Input } from './dropdownInputStyles';
 
 interface Props {
   placeholder?: string;
@@ -123,7 +122,11 @@ export const DropdownInput: React.FC<Props> = ({
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(currentValIcon) }}
         ></DropdownIconContainer>
       )}
-      <Input
+      <FormFieldInput
+        style={{
+          flex: 1,
+          textOverflow: 'ellipsis',
+        }}
         required={isRequired}
         aria-activedescendant={focusedItem ? getDropdownItemId(focusedItem.value) : undefined}
         disabled={isDisabled}
@@ -134,7 +137,6 @@ export const DropdownInput: React.FC<Props> = ({
         onKeyDown={onKeyDown}
         onKeyUp={() => onKeyPress(undefined)}
         readOnly={!isEditable || !dropdownIsOpen}
-        $isEditable={isEditable}
         role="combobox"
         aria-autocomplete="none"
         aria-haspopup="true"

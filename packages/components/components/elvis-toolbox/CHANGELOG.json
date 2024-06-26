@@ -3,6 +3,16 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "21.06.24",
+      "version": "12.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix layout issue after migrating to <code>@emotion</code>"]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "12.0.2",
       "changelog": [
