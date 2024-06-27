@@ -66,20 +66,22 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   background: ${({ $type }) => ($type === 'text' ? getThemeColor('background-element-1') : 'transparent')};
 
   // Selected control background
-  ${({ $type, numberOfControls, selectedIndex }) =>
+  ${({ $type, selectedLeft, selectedWidth }) =>
     $type === 'text' &&
     css`
       &::after {
         will-change: left;
         content: '';
         position: absolute;
-        width: ${100 / numberOfControls}%;
+        width: ${selectedWidth}px;
         height: 100%;
         top: 0;
-        left: ${(100 / numberOfControls) * selectedIndex}%;
+        left: ${selectedLeft}px;
         border-radius: 100px;
         background-color: ${getThemeColor('background-element-5')};
-        transition: left 250ms ${controlAnimation};
+        transition:
+          left 250ms ${controlAnimation},
+          width 250ms ${controlAnimation};
       }
     `}
 `;

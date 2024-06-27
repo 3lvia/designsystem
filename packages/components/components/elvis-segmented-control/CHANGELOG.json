@@ -3,6 +3,18 @@
   "name": "elvis-segmented-control",
   "content": [
     {
+      "date": "27.06.24",
+      "version": "2.2.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Improved the way the selected value is shown in the segmented control when the component has limited width."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "2.2.2",
       "changelog": [
