@@ -70,18 +70,15 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
     $type === 'text' &&
     css`
       &::after {
-        will-change: left;
         content: '';
         position: absolute;
-        width: ${selectedWidth}px;
+        width: ${selectedWidth};
         height: 100%;
         top: 0;
-        left: ${selectedLeft}px;
+        translate: ${selectedLeft};
         border-radius: 100px;
         background-color: ${getThemeColor('background-element-5')};
-        transition:
-          left 250ms ${controlAnimation},
-          width 250ms ${controlAnimation};
+        transition: translate 250ms ${controlAnimation};
       }
     `}
 `;

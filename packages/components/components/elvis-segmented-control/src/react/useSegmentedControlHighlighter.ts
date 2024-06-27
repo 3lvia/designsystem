@@ -7,8 +7,8 @@ export const useSegmentedControlHighlighter = (
   items: SegmentedControlProps['items'],
 ) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [selectedLeft, setSelectedLeft] = useState(0);
-  const [selectedWidth, setSelectedWidth] = useState(0);
+  const [selectedLeft, setSelectedLeft] = useState('0px');
+  const [selectedWidth, setSelectedWidth] = useState(`0px`);
 
   useEffect(() => {
     const updateSelectedStates = () => {
@@ -17,15 +17,18 @@ export const useSegmentedControlHighlighter = (
         if (!selectedControl) {
           return;
         }
-        setSelectedLeft(selectedControl.offsetLeft);
-        setSelectedWidth(selectedControl.offsetWidth);
+        setSelectedLeft(`${selectedControl.offsetLeft}px`);
+        setSelectedWidth(`${selectedControl.offsetWidth}px`);
       }
     };
 
     updateSelectedStates();
-    window.addEventListener('resize', updateSelectedStates);
+    const ro = new ResizeObserver(updateSelectedStates);
+    if (ref.current) {
+      ro.observe(ref.current);
+    }
     return () => {
-      window.removeEventListener('resize', updateSelectedStates);
+      ro.disconnect();
     };
   }, [selectedIndex, items, ref.current]);
 
