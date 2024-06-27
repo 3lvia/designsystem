@@ -6,7 +6,7 @@
           class="color-circle opacity-color"
           [ngClass]="{
             border: opacityColor.name | needsBorder: theme(),
-            chosen: isChosen(opacityColor.name)
+            chosen: isChosen(opacityColor.name),
           }"
           [style.bottom]="(getOpacityColors(color.name).length - j) * 8 + 'px'"
           [style.background-color]="opacityColor.hex"
@@ -16,7 +16,7 @@
         class="color-circle"
         [ngClass]="{
           border: color.name | needsBorder: theme(),
-          chosen: isChosen(color.name)
+          chosen: isChosen(color.name),
         }"
         [style.background-color]="color.hex"
         (click)="chooseNewColor(color.name)"

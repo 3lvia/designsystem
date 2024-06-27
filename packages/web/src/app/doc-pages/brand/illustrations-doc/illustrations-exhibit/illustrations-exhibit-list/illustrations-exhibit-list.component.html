@@ -2,7 +2,7 @@
   class="illustrations e-color-background-1"
   [ngClass]="{
     'e-theme-dark': theme() === 'dark',
-    'e-theme-light': theme() === 'light'
+    'e-theme-light': theme() === 'light',
   }"
 >
   @for (illustration of filteredIllustrationData; track illustration.name) {

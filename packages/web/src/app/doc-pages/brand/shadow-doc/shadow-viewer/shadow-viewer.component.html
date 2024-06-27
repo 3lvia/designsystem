@@ -6,7 +6,7 @@
     (valueOnChange)="setTheme($any($event).detail.value)"
     [items]="[
       { label: currentLocale === 'en-GB' ? 'Light theme' : 'Lyst tema' },
-      { label: currentLocale === 'en-GB' ? 'Dark theme' : 'Mørkt tema' }
+      { label: currentLocale === 'en-GB' ? 'Dark theme' : 'Mørkt tema' },
     ]"
     [inlineStyle]="(isMobile | async) ? { width: '100%' } : {}"
     size="large"
