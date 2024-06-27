@@ -1,9 +1,7 @@
 <button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
 
 <elvia-modal (onClose)="isModalShowing = !isModalShowing" [isShowing]="isModalShowing">
-  <div slot="content">
-    <div>Er du sikker på at du vil du godkjenne at Google bruker data om deg?</div>
-  </div>
+  <div slot="content">Er du sikker på at du vil du godkjenne at Google bruker data om deg?</div>
   <elvia-illustrations-broken slot="illustration" />
   <button
     slot="primaryButton"
