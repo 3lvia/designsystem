@@ -1,10 +1,6 @@
 :host {
-  --offset-top: 128px;
-  --offset-bottom: 32px;
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 128px;
 }
 
 .content-loader {

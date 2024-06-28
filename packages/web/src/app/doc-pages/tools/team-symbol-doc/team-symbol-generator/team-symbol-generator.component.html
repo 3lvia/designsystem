@@ -4,14 +4,14 @@
       [innerHTML]="generatedSvg | safeHtml"
       class="image-container"
       [ngClass]="{
-        'color-chosen': currentStep !== 1 && chosenColor
+        'color-chosen': currentStep !== 1 && chosenColor,
       }"
     ></div>
   } @else {
     <div
       class="image-container"
       [ngClass]="{
-        error: errorText
+        error: errorText,
       }"
     >
       <i class="e-icon e-icon--image e-icon--color-disabled-1 e-icon--xxl" aria-hidden="true"> </i>
@@ -22,7 +22,7 @@
 <div
   class="e-w-100"
   [ngClass]="{
-    'e-none': isFinished
+    'e-none': isFinished,
   }"
 >
   <elvia-stepper
@@ -59,7 +59,7 @@
         <div
           class="file-guideline e-mt-8"
           [ngClass]="{
-            'e-invisible': generatedSvg
+            'e-invisible': generatedSvg,
           }"
         >
           @if (errorText) {
@@ -85,7 +85,7 @@
                 (click)="updateBackgroundCircle(color)"
                 (keydown.enter)="updateBackgroundCircle(color)"
                 [ngClass]="{
-                  chosen: chosenColor === color
+                  chosen: chosenColor === color,
                 }"
               >
                 <input type="radio" />
@@ -101,7 +101,7 @@
         <button
           class="e-btn e-btn--tertiary e-mt-24"
           [ngClass]="{
-            'e-mb-64': generatedColors.length === 0
+            'e-mb-64': generatedColors.length === 0,
           }"
           (click)="generateColors()"
         >
@@ -130,7 +130,7 @@
 <div
   class="e-w-100"
   [ngClass]="{
-    'e-none': !isFinished
+    'e-none': !isFinished,
   }"
 >
   <div class="top-buttons">
