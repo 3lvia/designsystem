@@ -2,11 +2,11 @@
   <div
     class="circle"
     [ngStyle]="{
-      'background-color': currentColorExistsInCurrentTheme() ? currentColor()?.hex : null
+      'background-color': currentColorExistsInCurrentTheme() ? currentColor()?.hex : null,
     }"
     [ngClass]="{
       border: currentColor()?.name ? (currentColor()?.name | needsBorder: theme()) : false,
-      nonexistent: !currentColorExistsInCurrentTheme()
+      nonexistent: !currentColorExistsInCurrentTheme(),
     }"
   ></div>
 
@@ -18,7 +18,7 @@
           [style.background-color]="opacityColor.hex"
           (click)="chooseColor(opacityColor)"
           [ngClass]="{
-            chosen: opacityColor.name === currentColor()?.name
+            chosen: opacityColor.name === currentColor()?.name,
           }"
         >
           <input type="radio" />

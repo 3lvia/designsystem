@@ -16,7 +16,6 @@ import { Subject, fromEvent, merge, switchMap, take, takeUntil } from 'rxjs';
 import { LocalePickerComponent } from '../locale-picker/locale-picker.component';
 import { NavbarBase } from '../navbar-base';
 import { SubMenuComponent } from '../sub-menu/sub-menu.component';
-import { FlexibleFullHeightDirective } from './flexible-full-height.directive';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { RouterService } from 'src/app/core/services/router.service';
@@ -26,7 +25,6 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
   selector: 'app-desktop-navbar',
   templateUrl: './desktop-navbar.component.html',
   styleUrls: ['./desktop-navbar.component.scss'],
-  hostDirectives: [FlexibleFullHeightDirective],
   animations: [
     trigger('animateHeightOnItemEnter', [
       state('true', style({ height: '*' })),

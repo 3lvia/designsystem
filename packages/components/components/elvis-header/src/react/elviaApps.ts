@@ -15,6 +15,12 @@ export const appList = [
     rotation: 22.5,
   },
   {
+    name: 'Convey',
+    iconLetters: 'Co',
+    url: 'convey',
+    rotation: 101.25,
+  },
+  {
     name: 'Datakatalog',
     iconLetters: 'Da',
     url: 'data',
@@ -69,12 +75,6 @@ export const appList = [
     rotation: 157.5,
   },
   {
-    name: 'MSIc',
-    iconLetters: 'Mc',
-    url: 'msic',
-    rotation: -157.5,
-  },
-  {
     name: 'MSIm',
     iconLetters: 'Ms',
     url: 'msim',
@@ -85,6 +85,12 @@ export const appList = [
     iconLetters: 'On',
     url: 'onetime',
     rotation: 11.25,
+  },
+  {
+    name: 'OrgAuth',
+    iconLetters: 'Oa',
+    url: 'orgauth',
+    rotation: 33.75,
   },
   {
     name: 'Refi',

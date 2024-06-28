@@ -1,32 +1,32 @@
 <div class="page-container">
-  <app-desktop-navbar *ifViewportSize="['lg', 'xl']" />
+  <app-desktop-navbar class="desktop-navbar" *ifViewportSize="['lg', 'xl']" />
 
-  <div class="page-content" data-page-content>
-    @if (!isLandingPage) {
+  <div class="page-content">
+    @if (!isLandingPage()) {
       <div class="page-content-header page-body">
         <a class="e-none-lg e-none-xl e-link e-link--sm" [routerLink]="'/' + currentRoute">
           <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold" aria-hidden="true"></i></span>
-          <span class="e-link__title">{{ backBtn | titlecase }}</span>
+          <span class="e-link__title">{{ backBtn() | titlecase }}</span>
         </a>
         <app-feedback-link class="feedback-link" />
       </div>
     }
 
     <ng-content />
-    <ng-container *ifViewportSize="['sm', 'md']">
-      @if (isLandingPage) {
+    @if (isLandingPage()) {
+      <ng-container *ifViewportSize="['sm', 'md']">
         <div class="mobile-navbar">
-          @if (currentRoute === 'brand') {
+          @if (currentRoute() === 'brand') {
             <app-locale-picker class="e-mb-16 e-justify-content-end" />
           }
-          @if (currentRoute !== 'components') {
+          @if (currentRoute() !== 'components') {
             <app-mobile-navbar />
           }
         </div>
-      }
-    </ng-container>
+      </ng-container>
+    }
 
-    @if (!isLandingPage) {
+    @if (!isLandingPage()) {
       <app-feedback />
     }
   </div>

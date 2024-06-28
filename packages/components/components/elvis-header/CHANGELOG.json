@@ -3,6 +3,19 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "27.06.24",
+      "version": "1.10.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added Convey (Co) and OrgAuth (Oa) to the app drawer.",
+            "Removed MSIc (Mc) from the app drawer."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "1.9.4",
       "changelog": [
