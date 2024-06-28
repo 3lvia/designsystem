@@ -3,6 +3,16 @@
   "name": "elvis-modal",
   "content": [
     {
+      "date": "28.06.24",
+      "version": "4.0.14",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Modal content missing on tablet."]
+        }
+      ]
+    },
+    {
       "date": "05.06.24",
       "version": "4.0.13",
       "changelog": [
