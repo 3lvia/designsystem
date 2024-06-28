@@ -10,6 +10,11 @@
           "type": "bug_fix",
           "changes": ["Fix issue where <code>.e-btn---selected</code> was not triggered on mobile."],
           "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": ["Text area receiving outline when focused."],
+          "components": [{ "displayName": "Text area", "url": "https://design.elvia.io/components/input" }]
         }
       ]
     },

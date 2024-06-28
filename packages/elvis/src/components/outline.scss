@@ -23,6 +23,7 @@ input:is(
     [type='time'],
     [type='url'],
     [type='week']
-  ):focus-visible {
+  ):focus-visible,
+textarea:focus-visible {
   outline: none;
 }
