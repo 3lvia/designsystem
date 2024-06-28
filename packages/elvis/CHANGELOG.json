@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "19.1.2",
+      "date": "June 28, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix issue where <code>.e-btn---selected</code> was not triggered on mobile."],
+          "components": [{ "displayName": "Button", "url": "https://design.elvia.io/components/button" }]
+        }
+      ]
+    },
+    {
       "version": "19.1.1",
       "date": "June 24, 2024",
       "changelog": [
