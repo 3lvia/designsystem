@@ -14,6 +14,7 @@ import {
   SegmentedControlInput,
   SegmentedControlLabel,
 } from './styledComponents';
+import { useSegmentedControlHighlighter } from './useSegmentedControlHighlighter';
 
 let UNIQUE_SEGMENTED_CONTROL_ID = 0;
 
@@ -30,26 +31,37 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(value);
   const segmentedControlId = useRef(`ewc-segmented-control-${UNIQUE_SEGMENTED_CONTROL_ID++}`);
+  const {
+    ref: containerRef,
+    selectedLeft,
+    selectedWidth,
+  } = useSegmentedControlHighlighter(selectedIndex, items);
 
-  const setSelected = useCallback((selectedIndex: number): void => {
-    setSelectedIndex(selectedIndex);
+  const setSelected = useCallback(
+    (selectedIndex: number): void => {
+      setSelectedIndex(selectedIndex);
 
-    valueOnChange?.(selectedIndex);
-    webcomponent?.setProps({ value: selectedIndex }, true);
-    webcomponent?.triggerEvent('valueOnChange', selectedIndex);
-  }, []);
+      valueOnChange?.(selectedIndex);
+      webcomponent?.setProps({ value: selectedIndex }, true);
+      webcomponent?.triggerEvent('valueOnChange', selectedIndex);
+    },
+    [setSelectedIndex, valueOnChange, webcomponent],
+  );
 
-  const getIconString = useCallback((icon: string): string => {
-    let newIconString = icon;
-    if (icon.includes('e-icon ')) {
-      if (size === 'large') {
-        newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--sm ');
-      } else {
-        newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--xs ');
+  const getIconString = useCallback(
+    (icon: string): string => {
+      let newIconString = icon;
+      if (icon.includes('e-icon ')) {
+        if (size === 'large') {
+          newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--sm ');
+        } else {
+          newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--xs ');
+        }
       }
-    }
-    return newIconString;
-  }, []);
+      return newIconString;
+    },
+    [size],
+  );
 
   useEffect(() => {
     setSelectedIndex(value);
@@ -58,12 +70,12 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   return (
     <SegmentedControlContainer
       $type={type}
-      size={size}
-      selectedIndex={selectedIndex}
-      numberOfControls={items?.length}
+      selectedWidth={selectedWidth}
+      selectedLeft={selectedLeft}
       role="radiogroup"
-      className={className ?? ''}
+      className={className}
       style={inlineStyle}
+      ref={containerRef}
       {...rest}
     >
       {items?.map((control, index) => (
