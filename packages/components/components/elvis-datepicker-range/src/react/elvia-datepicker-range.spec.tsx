@@ -22,7 +22,7 @@ test('should look closed', async ({ mount, page }) => {
       <DatepickerRange size="small" isVertical />
     </div>,
   );
-  await percySnapshot(page, 'Closed datepicker');
+  await percySnapshot(page, 'Datepicker-range: closed');
 });
 
 test('should look opened', async ({ mount, page }) => {
@@ -30,5 +30,5 @@ test('should look opened', async ({ mount, page }) => {
     <DatepickerRange value={{ start: new Date(2023, 5, 5), end: new Date(2023, 5, 22) }} />,
   );
   await component.getByTestId('popover-toggle').first().click();
-  await percySnapshot(page, 'Open datepicker');
+  await percySnapshot(page, 'Datepicker-range: open');
 });

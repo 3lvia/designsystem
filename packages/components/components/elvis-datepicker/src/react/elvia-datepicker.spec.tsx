@@ -20,11 +20,11 @@ test('should look closed', async ({ mount, page }) => {
       <Datepicker size="small" isDisabled />
     </div>,
   );
-  await percySnapshot(page, 'Closed datepicker');
+  await percySnapshot(page, 'Datepicker: closed');
 });
 
 test('should look opened', async ({ mount, page }) => {
   const component = await mount(<Datepicker value={new Date(2023, 5, 5)} />);
   await component.getByTestId('popover-toggle').click();
-  await percySnapshot(page, 'Open datepicker');
+  await percySnapshot(page, 'Datepicker: open');
 });
