@@ -12,7 +12,14 @@ test('should render', async ({ mount }) => {
 });
 
 test('should look closed', async ({ mount, page }) => {
-  await mount(<Datepicker />);
+  await mount(
+    <div>
+      <Datepicker />
+      <Datepicker isDisabled />
+      <Datepicker size="small" />
+      <Datepicker size="small" isDisabled />
+    </div>,
+  );
   await percySnapshot(page, 'Closed datepicker');
 });
 
