@@ -29,6 +29,6 @@ test('should look opened', async ({ mount, page }) => {
   const component = await mount(
     <DatepickerRange value={{ start: new Date(2023, 5, 5), end: new Date(2023, 5, 22) }} />,
   );
-  await component.getByTestId('popover-toggle').click();
+  await component.getByTestId('popover-toggle').first().click();
   await percySnapshot(page, 'Open datepicker');
 });
