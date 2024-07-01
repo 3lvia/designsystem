@@ -22,6 +22,12 @@ test.describe('breadcrumb screenshots desktop', () => {
     await mount(<Breadcrumb items={items} />);
     await percySnapshot(page, 'Breadcrumb Desktop');
   });
+  test('breadcrumb screenshots desktop hover', async ({ mount, page }) => {
+    const component = await mount(<Breadcrumb items={items} />);
+    await component.locator('text=Catalog').hover();
+    await page.waitForTimeout(500);
+    await percySnapshot(page, 'Breadcrumb Desktop Hover');
+  });
 });
 
 test.describe('breadcrumb screenshots mobile', () => {
