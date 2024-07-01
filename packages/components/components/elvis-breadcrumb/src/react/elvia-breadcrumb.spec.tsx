@@ -20,7 +20,7 @@ test.describe('breadcrumb screenshots desktop', () => {
 
   test('breadcrumb screenshots desktop', async ({ mount, page }) => {
     await mount(<Breadcrumb items={items} />);
-    await percySnapshot(page, 'Breadcrumb Mobile');
+    await percySnapshot(page, 'Breadcrumb Desktop');
   });
 });
 
