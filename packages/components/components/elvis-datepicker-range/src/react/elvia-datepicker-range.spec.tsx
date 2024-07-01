@@ -15,9 +15,11 @@ test('should look closed', async ({ mount, page }) => {
   await mount(
     <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
       <DatepickerRange />
+      <DatepickerRange hasTimepickers />
       <DatepickerRange isDisabled />
       <DatepickerRange isVertical />
       <DatepickerRange size="small" />
+      <DatepickerRange size="small" hasTimepickers />
       <DatepickerRange size="small" isDisabled />
       <DatepickerRange size="small" isVertical />
     </div>,
