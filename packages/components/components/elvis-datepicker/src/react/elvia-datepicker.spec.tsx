@@ -33,6 +33,6 @@ test('should look opened', async ({ mount, page }) => {
 test('should have year view open', async ({ mount, page }) => {
   const component = await mount(<Datepicker value={new Date(2023, 5, 5)} />);
   await component.getByTestId('popover-toggle').click();
-  await component.getByTestId('year-view-toggle').click();
+  await page.getByTestId('year-view-toggle').click();
   await percySnapshot(page, 'Datepicker: open year view');
 });
