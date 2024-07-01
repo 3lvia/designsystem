@@ -5,9 +5,9 @@ import React from 'react';
 import { Breadcrumb, type BreadcrumbProps } from '../../react';
 
 const items: BreadcrumbProps['items'] = [
-  { href: '#', text: 'Home' },
-  { href: '#', text: 'Catalog' },
-  { text: 'Product' },
+  { href: '/', text: 'Home' },
+  { href: '/catalog', text: 'Catalog' },
+  { href: '/catalog/product', text: 'Product' },
 ];
 
 test.use({ viewport: { width: 800, height: 250 } });
@@ -17,7 +17,8 @@ test('should render', async ({ mount }) => {
   await expect(component).toBeAttached();
 });
 
-test('breadcrumb screenshots', async ({ mount, page }) => {
+test('breadcrumb screenshots mobile', async ({ mount, page }) => {
+  test.use({ viewport: { width: 600, height: 250 } });
   await mount(<Breadcrumb items={items} />);
-  await percySnapshot(page, 'Breadcrumb', { widths: [600, 1200] });
+  await percySnapshot(page, 'Breadcrumb Mobile');
 });
