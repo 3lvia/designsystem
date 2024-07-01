@@ -16,6 +16,7 @@ test('should look closed', async ({ mount, page }) => {
     <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
       <Datepicker />
       <Datepicker isDisabled />
+      <Datepicker isFullWidth />
       <Datepicker size="small" />
       <Datepicker size="small" isDisabled />
     </div>,
