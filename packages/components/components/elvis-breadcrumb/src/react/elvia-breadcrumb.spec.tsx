@@ -10,15 +10,25 @@ const items: BreadcrumbProps['items'] = [
   { href: '/catalog/product', text: 'Product' },
 ];
 
-test.use({ viewport: { width: 800, height: 250 } });
-
 test('should render', async ({ mount }) => {
   const component = await mount(<Breadcrumb items={items} />);
   await expect(component).toBeAttached();
 });
 
-test('breadcrumb screenshots mobile', async ({ mount, page }) => {
+test.describe('breadcrumb screenshots desktop', () => {
+  test.use({ viewport: { width: 800, height: 250 } });
+
+  test('breadcrumb screenshots desktop', async ({ mount, page }) => {
+    await mount(<Breadcrumb items={items} />);
+    await percySnapshot(page, 'Breadcrumb Mobile');
+  });
+});
+
+test.describe('breadcrumb screenshots mobile', () => {
   test.use({ viewport: { width: 600, height: 250 } });
-  await mount(<Breadcrumb items={items} />);
-  await percySnapshot(page, 'Breadcrumb Mobile');
+
+  test('breadcrumb screenshots mobile', async ({ mount, page }) => {
+    await mount(<Breadcrumb items={items} />);
+    await percySnapshot(page, 'Breadcrumb Mobile');
+  });
 });
