@@ -11,7 +11,7 @@ test('should render', async ({ mount }) => {
 
 test('cards', async ({ mount, page }) => {
   await mount(
-    <div className="e-flex e-gap-40 e-flex-direction-column">
+    <div style={{ display: 'flex', gap: '16px', flexDirection: 'row', flexWrap: 'wrap' }}>
       <Card heading="Forbruk" description="Kort description" icon="Icon" />
       <Card type="simple" borderColor="green" heading="Forbruk" description="Kort description" icon="Icon" />
       <Card type="simple" borderColor="orange" heading="Forbruk" description="Kort description" icon="Icon" />
