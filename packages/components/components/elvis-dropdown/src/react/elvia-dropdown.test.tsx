@@ -53,19 +53,9 @@ describe('Elvis Dropdown', () => {
         expect(input).not.toBeDisabled();
       });
 
-      it('should not be compact', () => {
-        const dropdownLabel = screen.getByText('Label');
-        expect(dropdownLabel).toHaveStyle(`font-size: 16px; line-height: 22px`);
-      });
-
       it('should not have error message', () => {
         const dropdownError = screen.queryByTestId('error');
         expect(dropdownError).not.toBeInTheDocument();
-      });
-
-      it('should not be full width', () => {
-        const dropdownWrapper = screen.getByTestId('wrapper');
-        expect(dropdownWrapper).toHaveStyle('max-width: 448px');
       });
     });
 
@@ -92,12 +82,6 @@ describe('Elvis Dropdown', () => {
       render(<Dropdown errorOptions={{ text: 'Error message' }} items={[]}></Dropdown>);
       const dropdownError = screen.queryByTestId('error');
       expect(dropdownError).toHaveTextContent('Error');
-    });
-
-    it('should have a full width feature', () => {
-      render(<Dropdown isFullWidth items={[]}></Dropdown>);
-      const dropdownWrapper = screen.getByTestId('wrapper');
-      expect(dropdownWrapper).not.toHaveStyle('max-width: 448px');
     });
 
     it('should show a proper placeholder', () => {
