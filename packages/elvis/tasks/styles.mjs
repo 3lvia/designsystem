@@ -30,12 +30,22 @@ function minifyElvisStyle() {
   return gulp
     .src('./css/elvis.css')
     .pipe(
-      cleanCSS({ debug: true }, (details) => {
-        /* eslint-disable no-console*/
-        console.log(`Original ${details.name}: ${details.stats.originalSize.toLocaleString()}B`);
-        console.log(`Minified ${details.name}: ${details.stats.minifiedSize.toLocaleString()}B`);
-        /* eslint-enable */
-      }),
+      cleanCSS(
+        {
+          debug: true,
+          level: {
+            2: {
+              all: true,
+            },
+          },
+        },
+        (details) => {
+          /* eslint-disable no-console*/
+          console.log(`Original ${details.name}: ${details.stats.originalSize.toLocaleString()}B`);
+          console.log(`Minified ${details.name}: ${details.stats.minifiedSize.toLocaleString()}B`);
+          /* eslint-enable */
+        },
+      ),
     )
     .pipe(
       rename({
