@@ -1,7 +1,7 @@
 import { rm } from 'fs/promises';
 import gulp from 'gulp';
 import autoprefixer from 'gulp-autoprefixer';
-import cleanCSS from 'gulp-clean-css';
+import lightningcss from 'gulp-lightningcss';
 import rename from 'gulp-rename';
 import tap from 'gulp-tap';
 import { compile } from 'sass';
@@ -30,11 +30,22 @@ function minifyElvisStyle() {
   return gulp
     .src('./css/elvis.css')
     .pipe(
-      cleanCSS({ debug: true }, (details) => {
-        /* eslint-disable no-console*/
-        console.log(`Original ${details.name}: ${details.stats.originalSize.toLocaleString()}B`);
-        console.log(`Minified ${details.name}: ${details.stats.minifiedSize.toLocaleString()}B`);
-        /* eslint-enable */
+      tap((file) => {
+        // eslint-disable-next-line no-console
+        console.log(`Original size: ${file.contents.length.toLocaleString()}B`);
+        return file;
+      }),
+    )
+    .pipe(
+      lightningcss({
+        minify: true,
+      }),
+    )
+    .pipe(
+      tap((file) => {
+        // eslint-disable-next-line no-console
+        console.log(`Minified size: ${file.contents.length.toLocaleString()}B`);
+        return file;
       }),
     )
     .pipe(
