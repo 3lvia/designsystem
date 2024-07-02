@@ -73,10 +73,10 @@
 				"e-btn__title": {}
 			},
 			"psuedo": {
+				"e-btn---disabled": {},
 				"e-btn---hover": {},
 				"e-btn---selected": {},
 				"e-btn---active": {},
-				"e-btn---disabled": {},
 				"e-btn---focus": {}
 			}
 		},
@@ -873,10 +873,10 @@
 		"e-btn--lg": {},
 		"e-btn--loading": {},
 		"e-btn--sm": {},
+		"e-btn---disabled": {},
 		"e-btn---hover": {},
 		"e-btn---selected": {},
 		"e-btn---active": {},
-		"e-btn---disabled": {},
 		"e-btn---focus": {},
 		"e-btn--circled": {},
 		"e-btn--inverted": {},
