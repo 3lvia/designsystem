@@ -2576,7 +2576,7 @@ __metadata:
     sass: "npm:^1.77.6"
     sass-embedded: "npm:^1.77.5"
     tiny-glob: "npm:^0.2.9"
-    tsx: "npm:^4.16.0"
+    tsx: "npm:^4.16.2"
     typescript: "npm:~5.4.5"
     typescript-plugin-css-modules: "npm:^5.1.0"
   languageName: unknown
@@ -2763,7 +2763,7 @@ __metadata:
     chalk: "npm:^5.3.0"
     esbuild: "npm:^0.23.0"
     svgo: "npm:^3.3.2"
-    tsx: "npm:^4.16.0"
+    tsx: "npm:^4.16.2"
   peerDependencies:
     "@elvia/elvis": ">=16.2.1"
   peerDependenciesMeta:
@@ -8802,9 +8802,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.27.4":
-  version: 11.27.4
-  resolution: "contentful-management@npm:11.27.4"
+"contentful-management@npm:^11.27.5":
+  version: 11.27.5
+  resolution: "contentful-management@npm:11.27.5"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.3.0"
     "@types/json-patch": "npm:0.0.30"
@@ -8813,7 +8813,7 @@ __metadata:
     fast-copy: "npm:^3.0.0"
     lodash.isplainobject: "npm:^4.0.6"
     type-fest: "npm:^4.0.0"
-  checksum: 10/16679c34c8518d1b48dc486520393daf32297e2a05558ab4ad8355cda6be2132e45c528e08d2e351b19d46cd6b390012026035e63e38910e66782bfd968d319b
+  checksum: 10/5dcfc302d65a5144878e2487313bd073117f3dc53402010106079471e9071b8ad9dc7d09ae36233b48e0a81aa1a71d9b79edaa3f034c17e6f7c855b21a5fb90a
   languageName: node
   linkType: hard
 
@@ -9781,7 +9781,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.15.0"
     "@typescript-eslint/utils": "npm:^7.15.0"
     contentful: "npm:^9.3.6"
-    contentful-management: "npm:^11.27.4"
+    contentful-management: "npm:^11.27.5"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.57.0"
@@ -16437,7 +16437,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     sass: "npm:^1.77.6"
     typescript: "npm:~5.4.5"
-    vite: "npm:^5.3.2"
+    vite: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
 
@@ -18778,9 +18778,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.16.0":
-  version: 4.16.0
-  resolution: "tsx@npm:4.16.0"
+"tsx@npm:^4.16.2":
+  version: 4.16.2
+  resolution: "tsx@npm:4.16.2"
   dependencies:
     esbuild: "npm:~0.21.5"
     fsevents: "npm:~2.3.3"
@@ -18790,7 +18790,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/6a81423bd63d80185079d4ac390325066ddc5e7d057a810ba6c7071e8b7535fa6a6bb0fd2494da68e6f61480ec0fb9f1f204f8655f0cfe40480896992748c46d
+  checksum: 10/841ccbace3dc0c42704bb5c4cea47e1f4cd313aa4719fd4531e5ed40bb862b02349c76f7c56c53b64207eebbb1c2ac2e117482aabfbf197a30fbc0b2584b60be
   languageName: node
   linkType: hard
 
@@ -19343,7 +19343,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.2.8, vite@npm:^5.3.2":
+"vite@npm:^5.2.8":
   version: 5.3.2
   resolution: "vite@npm:5.3.2"
   dependencies:
@@ -19380,6 +19380,46 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10/77b284938921da6c2c4055a5edd916ab221a973aa1403dba2aef303db1bd54ac7325db13f3fad13d77a7ac55cac7ffef49dffaa69bcadcc3caf2cae32ca03127
+  languageName: node
+  linkType: hard
+
+"vite@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "vite@npm:5.3.3"
+  dependencies:
+    esbuild: "npm:^0.21.3"
+    fsevents: "npm:~2.3.3"
+    postcss: "npm:^8.4.39"
+    rollup: "npm:^4.13.0"
+  peerDependencies:
+    "@types/node": ^18.0.0 || >=20.0.0
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/e7a094cefedad9e204b715588502118e07d1b9c00c617f55b810169181907f55144f0a82f650995d6a74f12e3695fca65afc348b475b91a81dcbd0274d30a088
   languageName: node
   linkType: hard
 
@@ -19447,7 +19487,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^5.0.5"
     sass: "npm:^1.77.6"
     typescript: "npm:~5.4.5"
-    vite: "npm:^5.3.2"
+    vite: "npm:^5.3.3"
     vue: "npm:^3.4.31"
     vue-router: "npm:^4.4.0"
     vue-tsc: "npm:^2.0.24"
