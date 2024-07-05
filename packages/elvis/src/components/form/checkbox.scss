@@ -76,7 +76,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   }
 
   &.e-checkbox---focus .e-checkbox__mark,
-  &:has(:focus-visible) .e-checkbox__mark {
+  & input:focus-visible ~ .e-checkbox__mark {
     @include outline.e-outline();
   }
 

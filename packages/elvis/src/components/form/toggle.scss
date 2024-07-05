@@ -97,7 +97,7 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
 
   // Focus
   &.e-toggle---focus input.e-toggle__input,
-  &:has(:focus-visible) .e-toggle__input {
+  &:focus-within .e-toggle__input:focus-visible {
     @include outline.e-outline();
   }
 
