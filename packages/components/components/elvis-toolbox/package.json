@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-toolbox",
-  "version": "12.0.3",
+  "version": "12.0.4",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,6 +13,7 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "dependencies": {
     "@elvia/elvis-colors": "^4.4.1",
     "@elvia/elvis-component-wrapper": "^4.2.0",
