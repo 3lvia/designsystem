@@ -6887,30 +6887,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@volar/language-core@npm:2.4.0-alpha.5, @volar/language-core@npm:~2.4.0-alpha.2":
-  version: 2.4.0-alpha.5
-  resolution: "@volar/language-core@npm:2.4.0-alpha.5"
+"@volar/language-core@npm:2.4.0-alpha.15, @volar/language-core@npm:~2.4.0-alpha.15":
+  version: 2.4.0-alpha.15
+  resolution: "@volar/language-core@npm:2.4.0-alpha.15"
   dependencies:
-    "@volar/source-map": "npm:2.4.0-alpha.5"
-  checksum: 10/bbb76334dd63b98ed6f875c96840cd44ce14f677ba83d7da6b5948cf1ef432808971aea7029d1cee876c0a3bc060b78494a75eefaf289f5ee084a14133f15f3a
+    "@volar/source-map": "npm:2.4.0-alpha.15"
+  checksum: 10/55aafea96e28288db5afdac69fdfa9bf4f3ca6f4f7b922ed00704dc1269f1daae38003ff38b21a7e9c9acbe9182c0868dd2614e83121eb9c6d03de91086069ff
   languageName: node
   linkType: hard
 
-"@volar/source-map@npm:2.4.0-alpha.5":
-  version: 2.4.0-alpha.5
-  resolution: "@volar/source-map@npm:2.4.0-alpha.5"
-  checksum: 10/9a1722d9544dad3db30fb040c12f732050dfefced1ab2bebfe78fee881cacc20242eae477ab875eda374ac746299c644b84da2959242e3f3853751f42fa00301
+"@volar/source-map@npm:2.4.0-alpha.15":
+  version: 2.4.0-alpha.15
+  resolution: "@volar/source-map@npm:2.4.0-alpha.15"
+  checksum: 10/9d48c1d76e794af173c68933de65136482558bf69d661c53e10604a741c4989afd9f527005094c91ea6caadbda85d9554c9db6eb8fd17835f7fcddf25291b500
   languageName: node
   linkType: hard
 
-"@volar/typescript@npm:~2.4.0-alpha.2":
-  version: 2.4.0-alpha.5
-  resolution: "@volar/typescript@npm:2.4.0-alpha.5"
+"@volar/typescript@npm:~2.4.0-alpha.15":
+  version: 2.4.0-alpha.15
+  resolution: "@volar/typescript@npm:2.4.0-alpha.15"
   dependencies:
-    "@volar/language-core": "npm:2.4.0-alpha.5"
+    "@volar/language-core": "npm:2.4.0-alpha.15"
     path-browserify: "npm:^1.0.1"
     vscode-uri: "npm:^3.0.8"
-  checksum: 10/2bdba17bf0844f0e79064fa58857c295ebd81e851ce05dc5697bf02d1683934380384956c2ae40de7d009484c552ce82ed82dc4fdc9903a036706c645c3f0091
+  checksum: 10/99736fc01989929a157a97f19d5a75d4d60f1b439501d353210633625dee9e03fd5787f88d1a931cbdd68786d0260778a1d5c3a8097991a323def13c2d5dcb0f
   languageName: node
   linkType: hard
 
@@ -6971,11 +6971,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/language-core@npm:2.0.24":
-  version: 2.0.24
-  resolution: "@vue/language-core@npm:2.0.24"
+"@vue/language-core@npm:2.0.26":
+  version: 2.0.26
+  resolution: "@vue/language-core@npm:2.0.26"
   dependencies:
-    "@volar/language-core": "npm:~2.4.0-alpha.2"
+    "@volar/language-core": "npm:~2.4.0-alpha.15"
     "@vue/compiler-dom": "npm:^3.4.0"
     "@vue/shared": "npm:^3.4.0"
     computeds: "npm:^0.0.1"
@@ -6988,7 +6988,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/deb9fc8a7d5d0a1caed5efcd163cd4c04a2911beb882a585bdd5395cfcaedb57db1786fdfc767775c2af5c9d3023dbc80d667b09df0b41aada2c0ec9d921789c
+  checksum: 10/8ebeb7a68a1f9216da43f66e00ca40437b40e9769dbc3027dcf8a368efd2df177db749a0da56a6e7c5c0887ed7de20493cee1fad636d0ee5103bbab90a112c67
   languageName: node
   linkType: hard
 
@@ -8802,9 +8802,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.27.5":
-  version: 11.27.5
-  resolution: "contentful-management@npm:11.27.5"
+"contentful-management@npm:^11.27.6":
+  version: 11.27.6
+  resolution: "contentful-management@npm:11.27.6"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.3.0"
     "@types/json-patch": "npm:0.0.30"
@@ -8813,7 +8813,7 @@ __metadata:
     fast-copy: "npm:^3.0.0"
     lodash.isplainobject: "npm:^4.0.6"
     type-fest: "npm:^4.0.0"
-  checksum: 10/5dcfc302d65a5144878e2487313bd073117f3dc53402010106079471e9071b8ad9dc7d09ae36233b48e0a81aa1a71d9b79edaa3f034c17e6f7c855b21a5fb90a
+  checksum: 10/8f9d5795ec770cd6b0c5c2e1127a3444e49d4bbc0d410d0125b63f6e030a9d9c173d6b34fbeb46abbce1de069e070d76d99e8c6aaf04d8094a8f945b3c41f449
   languageName: node
   linkType: hard
 
@@ -9781,7 +9781,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.15.0"
     "@typescript-eslint/utils": "npm:^7.15.0"
     contentful: "npm:^9.3.6"
-    contentful-management: "npm:^11.27.5"
+    contentful-management: "npm:^11.27.6"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.57.0"
@@ -19504,22 +19504,22 @@ __metadata:
     vite: "npm:^5.3.3"
     vue: "npm:^3.4.31"
     vue-router: "npm:^4.4.0"
-    vue-tsc: "npm:^2.0.24"
+    vue-tsc: "npm:^2.0.26"
   languageName: unknown
   linkType: soft
 
-"vue-tsc@npm:^2.0.24":
-  version: 2.0.24
-  resolution: "vue-tsc@npm:2.0.24"
+"vue-tsc@npm:^2.0.26":
+  version: 2.0.26
+  resolution: "vue-tsc@npm:2.0.26"
   dependencies:
-    "@volar/typescript": "npm:~2.4.0-alpha.2"
-    "@vue/language-core": "npm:2.0.24"
+    "@volar/typescript": "npm:~2.4.0-alpha.15"
+    "@vue/language-core": "npm:2.0.26"
     semver: "npm:^7.5.4"
   peerDependencies:
     typescript: ">=5.0.0"
   bin:
     vue-tsc: ./bin/vue-tsc.js
-  checksum: 10/bbc0bc187db09b14e6a7f705abe533e8d8177068c497aab24ae8bdf542bdb3ea26ab4dc8165fec7c7d88649c3bd1f5c44c322b0ad3a4b953bfb3c666f527b06c
+  checksum: 10/cfcd810c32dc831fd60c39b9008efb037396fe37d0c0560f6ac523a3d4fcb824b0b724f01e5c45f93ac4803afea3a54d15e2db8fd82dffa7eb5352eba924775e
   languageName: node
   linkType: hard
 
