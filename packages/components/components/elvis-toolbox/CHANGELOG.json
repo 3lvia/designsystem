@@ -3,6 +3,18 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "08.07.24",
+      "version": "12.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Marked the package as side-effect free. This should reduce the bundle size of projects using the package."
+          ]
+        }
+      ]
+    },
+    {
       "date": "21.06.24",
       "version": "12.0.3",
       "changelog": [
