@@ -9,6 +9,7 @@
       class="ceg-controls"
       [controlManager]="controlManager"
       (propChange)="onPropChange($event.propName, $event.value)"
+      (slotToggle)="onSlotToggle($event.slotName, $event.isVisible)"
     />
   </div>
 
