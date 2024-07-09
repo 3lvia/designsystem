@@ -3,6 +3,18 @@
   "name": "elvis-popover",
   "content": [
     {
+      "date": "09.07.24",
+      "version": "7.4.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Removed <code>display: flex</code> from <code>div</code> containers inside the trigger container."
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.06.24",
       "version": "7.4.4",
       "changelog": [
