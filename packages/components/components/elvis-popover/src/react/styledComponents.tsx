@@ -31,10 +31,6 @@ export const TriggerContainer = styled.div<TriggerContainerProps>`
   user-select: none;
   cursor: pointer;
 
-  div {
-    display: flex;
-  }
-
   ${(props) =>
     props.overlayIsOpen &&
     css`
