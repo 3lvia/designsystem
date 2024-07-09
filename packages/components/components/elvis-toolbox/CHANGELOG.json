@@ -3,6 +3,18 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "09.07.24",
+      "version": "12.0.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Marked the package as ESM only. This should reduce the bundle size of projects using the package."
+          ]
+        }
+      ]
+    },
+    {
       "date": "08.07.24",
       "version": "12.0.4",
       "changelog": [

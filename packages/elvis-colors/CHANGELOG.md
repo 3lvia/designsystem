@@ -1,8 +1,14 @@
 # Elvia Colors Changelog
 
+## 4.4.2 (09.07.24)
+
+### Patch
+
+- Marked the package as side-effect free for better tree-shake ability
+
 ## 4.4.1 (16.02.24)
 
-### New feature
+### Bug fix
 
 - Fixed the dark theme color for `illustration-background-1`.
 
