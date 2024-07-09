@@ -7454,7 +7454,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.6.0, axios@npm:^1.6.7, axios@npm:~1.6.8":
+"axios@npm:^1.6.0, axios@npm:^1.6.7":
   version: 1.6.8
   resolution: "axios@npm:1.6.8"
   dependencies:
@@ -7462,6 +7462,17 @@ __metadata:
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
   checksum: 10/3f9a79eaf1d159544fca9576261ff867cbbff64ed30017848e4210e49f3b01e97cf416390150e6fdf6633f336cd43dc1151f890bbd09c3c01ad60bb0891eee63
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "axios@npm:1.7.2"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10/6ae80dda9736bb4762ce717f1a26ff997d94672d3a5799ad9941c24d4fb019c1dff45be8272f08d1975d7950bac281f3ba24aff5ecd49ef5a04d872ec428782f
   languageName: node
   linkType: hard
 
@@ -8403,18 +8414,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.27.6":
-  version: 11.27.6
-  resolution: "contentful-management@npm:11.27.6"
+"contentful-management@npm:^11.28.0":
+  version: 11.28.0
+  resolution: "contentful-management@npm:11.28.0"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.3.0"
     "@types/json-patch": "npm:0.0.30"
-    axios: "npm:~1.6.8"
-    contentful-sdk-core: "npm:^8.1.0"
+    axios: "npm:^1.7.2"
+    contentful-sdk-core: "npm:^8.3.1"
     fast-copy: "npm:^3.0.0"
     lodash.isplainobject: "npm:^4.0.6"
     type-fest: "npm:^4.0.0"
-  checksum: 10/8f9d5795ec770cd6b0c5c2e1127a3444e49d4bbc0d410d0125b63f6e030a9d9c173d6b34fbeb46abbce1de069e070d76d99e8c6aaf04d8094a8f945b3c41f449
+  checksum: 10/b71a3dcb83a696120d1caafa1f0f22c4bfcb8637de15308606993a4bbf9eb607d24eebbfa2b55b2cf31bebba41841c0fdb229ac742219b03bf5a65692eac5269
   languageName: node
   linkType: hard
 
@@ -8440,15 +8451,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-sdk-core@npm:^8.1.0":
-  version: 8.1.0
-  resolution: "contentful-sdk-core@npm:8.1.0"
+"contentful-sdk-core@npm:^8.3.1":
+  version: 8.3.1
+  resolution: "contentful-sdk-core@npm:8.3.1"
   dependencies:
     fast-copy: "npm:^2.1.7"
     lodash.isplainobject: "npm:^4.0.6"
     lodash.isstring: "npm:^4.0.1"
     p-throttle: "npm:^4.1.1"
-  checksum: 10/83e5e596607439ded80aa6aaf070f097a5a43c7d8a2d2d72e8cce17da51595e3e4a4efa7ea3862eade05eedb2735baa6b838e19263338f9fe0f38c5fd01bac19
+    qs: "npm:^6.11.2"
+  checksum: 10/645d3a5d296d0e2a5ce87cceb04cf1ddf572183b5946cb1b3b717436bc7be96864216225fb845e61850d580436021c6284e7c95da0600a16c89c0af81a5f0d2c
   languageName: node
   linkType: hard
 
@@ -9382,7 +9394,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.16.0"
     "@typescript-eslint/utils": "npm:^7.16.0"
     contentful: "npm:^9.3.6"
-    contentful-management: "npm:^11.27.6"
+    contentful-management: "npm:^11.28.0"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.57.0"
@@ -15836,6 +15848,15 @@ __metadata:
   dependencies:
     side-channel: "npm:^1.0.4"
   checksum: 10/5a3bfea3e2f359ede1bfa5d2f0dbe54001aa55e40e27dc3e60fab814362d83a9b30758db057c2011b6f53a2d4e4e5150194b5bac45372652aecb3e3c0d4b256e
+  languageName: node
+  linkType: hard
+
+"qs@npm:^6.11.2":
+  version: 6.12.3
+  resolution: "qs@npm:6.12.3"
+  dependencies:
+    side-channel: "npm:^1.0.6"
+  checksum: 10/486d80cfa5e12886de6fe15a5aa2b3c7023bf4461f949a742022c3ae608499dbaebcb57b1f15c1f59d86356772969028768b33c1a7c01e76d99f149239e63d59
   languageName: node
   linkType: hard
 
