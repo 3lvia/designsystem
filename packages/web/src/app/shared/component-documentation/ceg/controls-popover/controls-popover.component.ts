@@ -15,9 +15,15 @@ import { ControlsComponent } from '../controls/controls.component';
 export class ControlsPopoverComponent {
   @Input() controlManager: UnknownCegControlManager;
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
+  @Output() slotToggle = new EventEmitter<{ slotName: string; isVisible: boolean }>();
+
   popoverIsOpen = false;
 
   onPropChange(propName: string, value: ControlValue): void {
     this.propChange.emit({ propName: propName, value: value });
+  }
+
+  onSlotToggle(slotName: string, isVisible: boolean): void {
+    this.slotToggle.emit({ slotName: slotName, isVisible: isVisible });
   }
 }
