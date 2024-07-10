@@ -408,7 +408,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/common@npm:^18.0.7":
+"@angular/common@npm:^18.1.0":
   version: 18.1.0
   resolution: "@angular/common@npm:18.1.0"
   dependencies:
@@ -420,7 +420,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:^18.0.7":
+"@angular/compiler-cli@npm:^18.1.0":
   version: 18.1.0
   resolution: "@angular/compiler-cli@npm:18.1.0"
   dependencies:
@@ -443,7 +443,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler@npm:^18.0.7":
+"@angular/compiler@npm:^18.1.0":
   version: 18.1.0
   resolution: "@angular/compiler@npm:18.1.0"
   dependencies:
@@ -457,7 +457,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/core@npm:^18.0.7":
+"@angular/core@npm:^18.1.0":
   version: 18.1.0
   resolution: "@angular/core@npm:18.1.0"
   dependencies:
@@ -483,14 +483,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/language-service@npm:^18.0.7":
+"@angular/language-service@npm:^18.1.0":
   version: 18.1.0
   resolution: "@angular/language-service@npm:18.1.0"
   checksum: 10/1d5de6f637a5d8c682352cd662bfd8a86557a4200fe34e9f84eb9621b5bc706ca3aa43da23a74adeb48ea9a786c4b1ace51277976e077d5b46bcf54a8c5b5ca0
   languageName: node
   linkType: hard
 
-"@angular/platform-browser-dynamic@npm:^18.0.7":
+"@angular/platform-browser-dynamic@npm:^18.1.0":
   version: 18.1.0
   resolution: "@angular/platform-browser-dynamic@npm:18.1.0"
   dependencies:
@@ -504,7 +504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser@npm:^18.0.7":
+"@angular/platform-browser@npm:^18.1.0":
   version: 18.1.0
   resolution: "@angular/platform-browser@npm:18.1.0"
   dependencies:
@@ -9337,14 +9337,14 @@ __metadata:
     "@angular/animations": "npm:^18.1.0"
     "@angular/cdk": "npm:^18.0.6"
     "@angular/cli": "npm:^18.0.7"
-    "@angular/common": "npm:^18.0.7"
-    "@angular/compiler": "npm:^18.0.7"
-    "@angular/compiler-cli": "npm:^18.0.7"
-    "@angular/core": "npm:^18.0.7"
+    "@angular/common": "npm:^18.1.0"
+    "@angular/compiler": "npm:^18.1.0"
+    "@angular/compiler-cli": "npm:^18.1.0"
+    "@angular/core": "npm:^18.1.0"
     "@angular/forms": "npm:^18.1.0"
-    "@angular/language-service": "npm:^18.0.7"
-    "@angular/platform-browser": "npm:^18.0.7"
-    "@angular/platform-browser-dynamic": "npm:^18.0.7"
+    "@angular/language-service": "npm:^18.1.0"
+    "@angular/platform-browser": "npm:^18.1.0"
+    "@angular/platform-browser-dynamic": "npm:^18.1.0"
     "@angular/router": "npm:^18.1.0"
     "@babel/core": "npm:^7.24.7"
     "@babel/eslint-parser": "npm:^7.24.7"
