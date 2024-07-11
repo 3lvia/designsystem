@@ -1,0 +1,77 @@
+@use '../../utilities/breakpoints';
+@use '../../utilities/mixins';
+@use '../../utilities/outline';
+
+.e-radio-panel {
+  --border-color: var(--e-color-border-3);
+  --border-width: 1px;
+  align-items: center;
+  border-radius: 100px;
+  box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
+  cursor: pointer;
+  display: grid;
+  gap: 8px;
+  grid-template: auto auto / auto;
+  max-width: 350px;
+  min-width: 150px;
+  padding: 16px 24px;
+
+  @include breakpoints.gt-mobile() {
+    gap: 16px;
+    min-width: 200px;
+    padding: 24px 32px;
+  }
+
+  &:hover,
+  &:has(input:checked) {
+    --border-width: 2px;
+  }
+
+  &:hover {
+    --border-color: var(--e-color-border-hover-1);
+  }
+
+  &:has(input:checked) {
+    --border-color: var(--e-color-border-selected-2);
+  }
+
+  &:has(input:focus-visible) {
+    @include outline.e-outline();
+  }
+
+  // Hide default radiostyle
+  input {
+    margin: 0;
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.e-radio-panel__icon,
+.e-radio-panel__icon i {
+  justify-self: center;
+  height: 24px;
+  width: 24px;
+
+  @include breakpoints.gt-mobile() {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.e-radio-panel__description {
+  @include mixins.typography('text-micro-strong');
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+
+  @include breakpoints.gt-mobile() {
+    @include mixins.typography('text-sm-strong');
+  }
+}
