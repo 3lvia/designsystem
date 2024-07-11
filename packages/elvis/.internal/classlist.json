@@ -339,6 +339,16 @@
 				"e-toggle---disabled": {}
 			}
 		},
+		"e-radio-panel": {
+			"element": {
+				"e-radio-panel__icon": {},
+				"e-radio-panel__description": {},
+				"e-radio-panel__label": {}
+			},
+			"modifier": {
+				"e-radio-panel--detailed": {}
+			}
+		},
 		"e-sr-only": {},
 		"e-strip-fieldset": {},
 		"e-border-none": {},
@@ -1025,6 +1035,11 @@
 		"e-toggle---checked": {},
 		"e-toggle---focus": {},
 		"e-toggle---disabled": {},
+		"e-radio-panel": {},
+		"e-radio-panel__icon": {},
+		"e-radio-panel__description": {},
+		"e-radio-panel__label": {},
+		"e-radio-panel--detailed": {},
 		"e-sr-only": {},
 		"e-strip-fieldset": {},
 		"e-border-none": {},
