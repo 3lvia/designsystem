@@ -340,6 +340,9 @@
 			}
 		},
 		"e-radio-panel": {
+			"container": {
+				"e-radio-panel-container": {}
+			},
 			"element": {
 				"e-radio-panel__icon": {},
 				"e-radio-panel__description": {},
@@ -1035,6 +1038,7 @@
 		"e-toggle---checked": {},
 		"e-toggle---focus": {},
 		"e-toggle---disabled": {},
+		"e-radio-panel-container": {},
 		"e-radio-panel": {},
 		"e-radio-panel__icon": {},
 		"e-radio-panel__description": {},

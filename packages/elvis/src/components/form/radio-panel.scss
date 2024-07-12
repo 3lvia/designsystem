@@ -2,6 +2,16 @@
 @use '../../utilities/mixins';
 @use '../../utilities/outline';
 
+.e-radio-panel-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  @include breakpoints.gt-mobile() {
+    gap: 16px;
+  }
+}
+
 .e-radio-panel {
   --border-color: var(--e-color-border-3);
   --border-width: 1px;
