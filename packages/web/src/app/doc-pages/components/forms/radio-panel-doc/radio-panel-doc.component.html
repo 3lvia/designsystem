@@ -1,0 +1,39 @@
+<app-component-documentation docUrl="radio-panel" isElvis>
+  <app-static-ceg ceg>
+    <app-radio-panel-ceg />
+  </app-static-ceg>
+
+  <!--USAGE-->
+  <app-component-section usage [sectionTitle]="'Usage'">
+    <app-when-to-use [whens]="does" [whenNots]="donts" />
+  </app-component-section>
+
+  <!-- TYPE -->
+  <app-component-section type [sectionTitle]="'Type'">
+    <app-component-subsection [sectionTitle]="'Simple'">
+      The simple radio panel is mainly represented by an icon that should visualize the users choices.
+      <app-static-ceg>
+        <app-radio-panel-simple-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+
+    <app-component-subsection [sectionTitle]="'Detailed'">
+      The detailed radio panel can be used when you need an visualize element as well as an description of the
+      available choices.
+      <app-static-ceg>
+        <app-radio-panel-detailed-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section accessibility [sectionTitle]="'Accessibility'">
+    <app-component-subsection [sectionTitle]="'Use fieldset and legend elements'">
+      <p>
+        Use the <code>fieldset</code> and <code>legend</code> elements to inform screen readers that a group
+        of radio panels are related and to provide a label for the group. Place all radio panels inside the
+        <code>fieldset</code> element, and use the <code>legend</code> element to represent a group label.
+      </p>
+    </app-component-subsection>
+  </app-component-section>
+</app-component-documentation>

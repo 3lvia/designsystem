@@ -39,6 +39,7 @@ export enum Pages {
   Progressbar = 'progressbar',
   RadioFilter = 'radio-filter',
   Radiobutton = 'radiobutton',
+  RadioPanel = 'radio-panel',
   Search = 'search',
   SegmentedControl = 'segmented-control',
   Slider = 'slider',

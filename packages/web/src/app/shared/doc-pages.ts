@@ -407,6 +407,17 @@ export const componentsDocPages: DocPage[] = [
     relatedPages: ['segmented-control', 'chip', 'forms', 'filters'],
   },
   {
+    title: 'Radio Panel',
+    description:
+      'The radio panel can be used when you want the functionality of radio-buttons, but want  more visual and descriptive choices. These work the same way radio-buttons do, where only one choice can be selected at the same time.',
+    docUrl: Pages.RadioPanel,
+    absolutePath: '/components/' + Pages.RadioPanel,
+    figmaUrl: 'https://www.figma.com/design/vjprzL4qHP8wc1lvlGM2FE/Radio-panel?m=auto&t=bGqhyT8PjIz3mDuP-6',
+    type: 'Component',
+    searchTerms: ['choice', 'option', 'select', 'filter', 'toggle'],
+    relatedPages: ['checkbox', 'dropdown', 'forms', 'filters'],
+  },
+  {
     title: 'Search',
     description:
       'Search allows the user to find specific information by search terms as an alternative to the main navigation menu. Search results can either be displayed when the user presses the button or by instant search, where the results appear as you type.',

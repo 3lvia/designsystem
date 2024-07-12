@@ -171,6 +171,11 @@ export const routes: Routes = [
       import('./forms/radiobutton-doc/radiobutton-doc.component').then((m) => m.RadiobuttonDocComponent),
   },
   {
+    path: Pages.RadioPanel,
+    loadComponent: () =>
+      import('./forms/radio-panel-doc/radio-panel-doc.component').then((m) => m.RadioPanelDocComponent),
+  },
+  {
     path: Pages.SegmentedControl,
     loadComponent: () =>
       import('./forms/segmented-controls-doc/segmented-controls-doc.component').then(
