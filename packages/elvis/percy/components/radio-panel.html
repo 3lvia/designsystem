@@ -1,0 +1,89 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elvia Percytest</title>
+    <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
+    <script src="../../elvis.js"></script>
+  </head>
+  <body class="e-color-background-1">
+    <div class="e-title-sm e-mt-16">Radio Panel</div>
+    <form>
+      <fieldset class="e-strip-fieldset">
+        <legend class="e-title-xs e-my-16">Simple</legend>
+
+        <div class="e-radio-panel-container">
+          <label class="e-radio-panel">
+            <span class="e-radio-panel__icon">
+              <i class="e-icon e-icon--like" aria-hidden="true"> </i>
+            </span>
+            <p class="e-radio-panel__description">Super duper bra!</p>
+            <input type="radio" name="rating" value="good" checked />
+          </label>
+
+          <label class="e-radio-panel">
+            <span class="e-radio-panel__icon">
+              <i class="e-icon e-icon--feedback" aria-hidden="true"> </i>
+            </span>
+            <p class="e-radio-panel__description">Nøytral</p>
+            <input type="radio" name="rating" value="neutral" />
+          </label>
+
+          <label class="e-radio-panel">
+            <span class="e-radio-panel__icon">
+              <i class="e-icon e-icon--dislike" aria-hidden="true"> </i>
+            </span>
+            <p class="e-radio-panel__description">Dårlig</p>
+            <input type="radio" name="rating" value="bad" />
+          </label>
+        </div>
+      </fieldset>
+    </form>
+
+    <form>
+      <fieldset class="e-strip-fieldset">
+        <legend class="e-title-xs e-my-16">Detailed</legend>
+
+        <div class="e-radio-panel-container">
+          <label class="e-radio-panel e-radio-panel--detailed">
+            <span class="e-radio-panel__icon">
+              <i class="e-icon e-icon--home" aria-hidden="true"> </i>
+              <i class="e-icon e-icon--home-color" aria-hidden="true"> </i>
+            </span>
+            <p class="e-radio-panel__description">Forbruk</p>
+            <p class="e-radio-panel__label">6 362 853 kWh</p>
+            <input type="radio" name="view" value="consumption" checked />
+          </label>
+
+          <label class="e-radio-panel e-radio-panel--detailed">
+            <span class="e-radio-panel__icon">
+              <i class="e-icon e-icon--money-color" aria-hidden="true"> </i>
+            </span>
+            <p class="e-radio-panel__description">Nettleie</p>
+            <p class="e-radio-panel__label">1 248 049 kr</p>
+            <input type="radio" name="view" value="grid_rent" />
+          </label>
+
+          <label class="e-radio-panel e-radio-panel--detailed">
+            <span class="e-radio-panel__icon">
+              <i class="e-icon e-icon--piggy_bank-color" aria-hidden="true"> </i>
+            </span>
+            <p class="e-radio-panel__description">Strømstøtte</p>
+            <p class="e-radio-panel__label">10 000 kr</p>
+            <input type="radio" name="view" value="power_aid" />
+          </label>
+
+          <label class="e-radio-panel e-radio-panel--detailed">
+            <span class="e-radio-panel__icon">
+              <i class="e-icon e-icon--graph_bar" aria-hidden="true"> </i>
+              <i class="e-icon e-icon--graph_bar-color" aria-hidden="true"> </i>
+            </span>
+            <p class="e-radio-panel__description">Fastleddstrinn</p>
+            <p class="e-radio-panel__label">2</p>
+            <input type="radio" name="view" value="fixed_stage" />
+          </label>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
