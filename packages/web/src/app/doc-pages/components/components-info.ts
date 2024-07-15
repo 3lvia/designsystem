@@ -15,7 +15,7 @@ const componentsInfo: ComponentInfo = {
   navigation: [
     {
       title: 'Between pages',
-      components: [Pages.Breadcrumb, Pages.Header, Pages.Link, Pages.Card],
+      components: [Pages.Breadcrumb, Pages.Card, Pages.Header, Pages.Link],
     },
     {
       title: 'Between content',
@@ -34,22 +34,23 @@ const componentsInfo: ComponentInfo = {
         Pages.Autocomplete,
         Pages.Datepicker,
         Pages.DatepickerRange,
-        Pages.Timepicker,
         Pages.Dropdown,
         Pages.Input,
         Pages.Search,
+        Pages.Timepicker,
       ],
     },
     {
       title: 'Selection control',
       components: [
-        Pages.Radiobutton,
         Pages.Checkbox,
-        Pages.Toggle,
-        Pages.Slider,
         Pages.Chip,
         Pages.RadioFilter,
+        Pages.RadioPanel,
+        Pages.Radiobutton,
         Pages.SegmentedControl,
+        Pages.Slider,
+        Pages.Toggle,
       ],
     },
     {
@@ -75,11 +76,11 @@ const componentsInfo: ComponentInfo = {
     {
       components: [
         Pages.Alert,
-        Pages.ContentLoader,
-        Pages.Progressbar,
         Pages.Badge,
-        Pages.Spotlight,
+        Pages.ContentLoader,
         Pages.Outline,
+        Pages.Progressbar,
+        Pages.Spotlight,
         Pages.Toast,
       ],
     },
