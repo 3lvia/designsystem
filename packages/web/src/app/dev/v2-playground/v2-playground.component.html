@@ -3,61 +3,114 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
-    <div class="example-wrapper"></div>
+    <div>
+      <form>
+        <fieldset class="e-strip-fieldset">
+          <legend>legend</legend>
 
-    <h3>Global Alert</h3>
-    <div class="e-color-background-1 e-theme-dark"></div>
-    <div class="example-wrapper">
-      <div class="e-alert e-alert--global e-alert--actions" role="note">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle" aria-hidden="true"> </i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__text e-m-0">Explain what happened</div>
-          <div class="e-alert__actions">
-            <button class="e-btn e-btn--secondary e-btn--sm">
-              <span class="e-btn__title"> Secondary </span>
-            </button>
-            <button class="e-btn e-btn--sm">
-              <span class="e-btn__title"> Primary </span>
-            </button>
-          </div>
-        </div>
-      </div>
+          <div class="e-radio-panel-container">
+            <label class="e-radio-panel">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--home" aria-hidden="true"> </i>
+                <i class="e-icon e-icon--move_truck-color" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">Description 1</p>
+              <input type="radio" name="panel" value="1" />
+            </label>
 
-      <div class="e-alert e-alert--global e-alert--actions e-alert--error" role="note">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--remove_circle" aria-hidden="true"> </i>
-        </div>
-        <div class="e-alert__content">
-          <p class="e-alert__text e-m-0">Explain what happened</p>
-          <div class="e-alert__actions">
-            <button class="e-btn e-btn--secondary e-btn--sm">
-              <span class="e-btn__title"> Secondary </span>
-            </button>
-            <button class="e-btn e-btn--sm">
-              <span class="e-btn__title"> Primary </span>
-            </button>
-          </div>
-        </div>
-      </div>
+            <label class="e-radio-panel">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--move_truck-color" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">Description 2</p>
+              <input type="radio" name="panel" value="2" />
+            </label>
 
-      <div class="e-alert e-alert--global e-alert--actions e-alert--warn" role="note">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--warning_circle" aria-hidden="true"> </i>
-        </div>
-        <div class="e-alert__content">
-          <p class="e-alert__text e-m-0">Explain what happened</p>
-          <div class="e-alert__actions">
-            <button class="e-btn e-btn--secondary e-btn--sm">
-              <span class="e-btn__title"> Secondary </span>
-            </button>
-            <button class="e-btn e-btn--sm">
-              <span class="e-btn__title"> Primary </span>
-            </button>
+            <label class="e-radio-panel">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--home" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">Description 3</p>
+              <input type="radio" name="panel" value="3" />
+            </label>
           </div>
-        </div>
-      </div>
+
+          <div class="e-radio-panel-container e-mt-32">
+            <label class="e-radio-panel">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--home" aria-hidden="true"> </i>
+                <i class="e-icon e-icon--move_truck-color" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">Supder duper bra!</p>
+              <input type="radio" name="panel" value="1" />
+            </label>
+
+            <label class="e-radio-panel">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--move_truck-color" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, optio! Corrupti ex non beatae
+                quam voluptate!
+              </p>
+              <input type="radio" name="panel" value="2" />
+            </label>
+
+            <label class="e-radio-panel">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--home" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">Dårlig</p>
+              <input type="radio" name="panel" value="3" />
+            </label>
+          </div>
+
+          <div class="e-radio-panel-container e-mt-32">
+            <label class="e-radio-panel e-radio-panel--detailed">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--home-color" aria-hidden="true"> </i>
+                <i class="e-icon e-icon--home" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">Forbruk</p>
+              <p class="e-radio-panel__label">6 362 853 kWh</p>
+              <input type="radio" name="panel" value="4" />
+            </label>
+
+            <label class="e-radio-panel e-radio-panel--detailed">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--move_truck-color" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, optio! Corrupti ex non beatae
+                quam voluptate!
+              </p>
+              <p class="e-radio-panel__label">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, optio! Corrupti ex non beatae
+                quam voluptate!
+              </p>
+              <input type="radio" name="panel" value="5" />
+            </label>
+
+            <label class="e-radio-panel e-radio-panel--detailed">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--move_truck-color" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">Nettleie</p>
+              <p class="e-radio-panel__label">1 248 049 kr</p>
+              <input type="radio" name="panel" value="6" />
+            </label>
+
+            <label class="e-radio-panel e-radio-panel--detailed">
+              <span class="e-radio-panel__icon">
+                <i class="e-icon e-icon--move_truck-color" aria-hidden="true"> </i>
+              </span>
+              <p class="e-radio-panel__description">Nettleie</p>
+              <p class="e-radio-panel__label">1 248 049 kr</p>
+              <input type="radio" name="panel" value="6" />
+            </label>
+          </div>
+        </fieldset>
+      </form>
     </div>
 
     <!--Accordion-->
@@ -529,7 +582,7 @@
       ></elvia-segmented-control>
     </div>
 
-    Slider
+    <!-- Slider -->
     <div class="example-wrapper">
       <h3>Slider</h3>
       <h4>Simple</h4>
