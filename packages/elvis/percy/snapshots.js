@@ -144,6 +144,19 @@ module.exports = [
     ],
   },
   {
+    name: 'Radio Panel',
+    url: '/components/radio-panel.html',
+    widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
+  },
+  {
     name: 'Search',
     url: '/components/search.html',
     widths: [766, 1440],
