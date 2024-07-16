@@ -1,4 +1,4 @@
-@for (changelog of changelogs; track changelog; let isLast = $last) {
+@for (changelog of changelogs; track changelog.name; let isLast = $last) {
   <div class="changelog-container">
     <div class="changelog-name-and-icon">
       @if ((componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)]) {
@@ -10,15 +10,7 @@
       } @else {
         <div class="e-content-loader e-mr-24" style="width: 40px; height: 40px"></div>
       }
-      <a
-        class="e-link e-link--lg"
-        [routerLink]="
-          changelog.name === 'elvis'
-            ? '/components/css-library'
-            : '/components/' + (changelog.name | FrontPageChangelogUrlPipe)
-        "
-        fragment="Changelog"
-      >
+      <a class="e-link e-link--lg" [routerLink]="changelog.url" fragment="Changelog">
         {{ changelog.name === 'elvis' ? 'CSS Library' : (changelog.name | FrontPageChangelogNamePipe) }}
       </a>
     </div>
