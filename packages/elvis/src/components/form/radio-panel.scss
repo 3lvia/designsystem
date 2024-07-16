@@ -21,7 +21,7 @@
   gap: 8px;
   grid-auto-rows: 1fr; //same height rows
   grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
-  justify-items: stretch;
+  place-items: stretch;
 
   @include breakpoints.gt-mobile() {
     gap: 16px;
@@ -139,7 +139,7 @@
 
   .e-radio-panel__description {
     @include mixins.typography('text-micro-strong');
-    @include limit-lines(1);
+    @include limit-lines(2);
     text-align: center;
 
     @include breakpoints.gt-mobile() {
@@ -189,6 +189,7 @@
     }
 
     .e-radio-panel__description {
+      @include limit-lines(1);
       @include mixins.typography('text-micro');
       align-self: end;
       grid-area: 1 / 1 / 2 / 2;
