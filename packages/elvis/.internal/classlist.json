@@ -343,13 +343,13 @@
 			"container": {
 				"e-radio-panel-container": {}
 			},
+			"modifier": {
+				"e-radio-panel--detailed": {}
+			},
 			"element": {
 				"e-radio-panel__icon": {},
 				"e-radio-panel__description": {},
 				"e-radio-panel__label": {}
-			},
-			"modifier": {
-				"e-radio-panel--detailed": {}
 			}
 		},
 		"e-sr-only": {},
@@ -1039,11 +1039,11 @@
 		"e-toggle---focus": {},
 		"e-toggle---disabled": {},
 		"e-radio-panel-container": {},
+		"e-radio-panel--detailed": {},
 		"e-radio-panel": {},
 		"e-radio-panel__icon": {},
 		"e-radio-panel__description": {},
 		"e-radio-panel__label": {},
-		"e-radio-panel--detailed": {},
 		"e-sr-only": {},
 		"e-strip-fieldset": {},
 		"e-border-none": {},
