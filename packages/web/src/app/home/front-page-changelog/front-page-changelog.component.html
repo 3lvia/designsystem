@@ -1,12 +1,9 @@
 @for (changelog of changelogs; track changelog.name; let isLast = $last) {
   <div class="changelog-container">
     <div class="changelog-name-and-icon">
-      @if ((componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)]) {
-        <img
-          class="e-mr-24"
-          alt=""
-          [src]="(componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)]"
-        />
+      @let iconSrc = (componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)];
+      @if (iconSrc) {
+        <img class="e-mr-24" alt="" [src]="iconSrc" />
       } @else {
         <div class="e-content-loader e-mr-24" style="width: 40px; height: 40px"></div>
       }
