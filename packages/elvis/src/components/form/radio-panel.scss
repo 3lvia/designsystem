@@ -67,10 +67,14 @@
     @include outline.e-outline();
   }
 
+  .e-radio-panel__icon,
+  .e-radio-panel__icon i {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
   .e-radio-panel__icon {
     @include square(26px);
     display: grid;
-    grid-area: 1 / 1 / 2 / 2;
     justify-self: center;
     place-items: center;
 
@@ -90,12 +94,12 @@
 
       //hide "non" color icon by default,
       &:not([class*='color']) {
-        display: none;
+        visibility: hidden;
       }
 
       //but always show if only one icon
       &:only-child {
-        display: block;
+        visibility: visible;
       }
     }
   }
@@ -113,11 +117,11 @@
 
         //show "non" color icon on hover,
         &:not([class*='color']) {
-          display: block;
+          visibility: visible;
         }
         //hide "color" icon on hover, unless it's the only icon available
         &:not(:only-child)[class*='color'] {
-          display: none;
+          visibility: hidden;
         }
       }
     }
@@ -159,9 +163,13 @@
       padding: 32px 40px;
     }
 
+    .e-radio-panel__icon,
+    .e-radio-panel__icon i {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+
     .e-radio-panel__icon {
       @include square(26px);
-      grid-area: 1 / 2 / 3 / 3;
 
       @include breakpoints.gt-mobile() {
         @include square(50px);
