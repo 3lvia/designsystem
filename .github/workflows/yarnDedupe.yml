@@ -1,8 +1,8 @@
 name: Yarn Dedupe
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 5 1,15 * *
+  # schedule:
+  #   - cron: 0 5 1,15 * *
 permissions: write-all
 jobs:
   release:
