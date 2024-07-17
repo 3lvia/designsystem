@@ -35,6 +35,7 @@
         "^postcss",
         "^express",
         "^tsx",
+        "^tsup",
         "^esbuild",
         "^lint-staged",
         "^prettier"
@@ -45,6 +46,12 @@
     {
       "groupName": "all playwright dependencies",
       "matchDepPatterns": ["^@playwright", "^playwright"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "groupName": "all @contentful dependencies",
+      "matchDepPatterns": ["^@contentful/"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
