@@ -1154,7 +1154,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-jsx@npm:^7.24.7":
+"@babel/plugin-syntax-jsx@npm:^7.24.7, @babel/plugin-syntax-jsx@npm:^7.7.2":
   version: 7.24.7
   resolution: "@babel/plugin-syntax-jsx@npm:7.24.7"
   dependencies:
@@ -1162,17 +1162,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 10/a93516ae5b34868ab892a95315027d4e5e38e8bd1cfca6158f2974b0901cbb32bbe64ea10ad5b25f919ddc40c6d8113c4823372909c9c9922170c12b0b1acecb
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-syntax-jsx@npm:^7.7.2":
-  version: 7.24.1
-  resolution: "@babel/plugin-syntax-jsx@npm:7.24.1"
-  dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.24.0"
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 10/712f7e7918cb679f106769f57cfab0bc99b311032665c428b98f4c3e2e6d567601d45386a4f246df6a80d741e1f94192b3f008800d66c4f1daae3ad825c243f0
   languageName: node
   linkType: hard
 
@@ -1264,7 +1253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-typescript@npm:^7.24.7":
+"@babel/plugin-syntax-typescript@npm:^7.24.7, @babel/plugin-syntax-typescript@npm:^7.7.2":
   version: 7.24.7
   resolution: "@babel/plugin-syntax-typescript@npm:7.24.7"
   dependencies:
@@ -1272,17 +1261,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 10/2518cc06323f5673c93142935879c112fea0ee836dfa9a9ec744fc972fdeaf22a06fe631c23817562aaaddadf64626a4fbba98c300b3e2c828f48f0f1cca0ce0
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-syntax-typescript@npm:^7.7.2":
-  version: 7.24.1
-  resolution: "@babel/plugin-syntax-typescript@npm:7.24.1"
-  dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.24.0"
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 10/bf4bd70788d5456b5f75572e47a2e31435c7c4e43609bd4dffd2cc0c7a6cf90aabcf6cd389e351854de9a64412a07d30effef5373251fe8f6a4c9db0c0163bda
   languageName: node
   linkType: hard
 
@@ -15867,7 +15845,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.11.2":
+"qs@npm:^6.11.2, qs@npm:^6.9.4":
   version: 6.12.3
   resolution: "qs@npm:6.12.3"
   dependencies:
