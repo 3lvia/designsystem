@@ -3,6 +3,22 @@
   "name": "elvis-chip",
   "content": [
     {
+      "date": "18.06.24",
+      "version": "2.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The legend type of chip now supports a new prop: <code>markerStyle</code>. This can be <code>dot</code>, <code>line</code>, or <code>dashed</code>."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "2.5.5",
       "changelog": [

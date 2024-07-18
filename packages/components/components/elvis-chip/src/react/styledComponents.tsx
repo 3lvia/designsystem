@@ -1,9 +1,9 @@
 import { LightThemeColorName, getBaseColor, getThemeColor } from '@elvia/elvis-colors';
 import { getTypographyCss } from '@elvia/elvis-typography';
-import { keyframes } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { ChipType, ColorType } from './elvia-chip.types';
+import { ChipMarkerStyle, ChipType, ColorType } from './elvia-chip.types';
 
 const mapChipColor = (color: ColorType, opacity?: 10 | 30 | 50): LightThemeColorName => {
   switch (color) {
@@ -188,18 +188,58 @@ interface ChipDotProps {
   showDot: boolean;
   isDisabled: boolean;
   isHidden: boolean;
+  markerStyle?: ChipMarkerStyle;
 }
 
 export const ChipDot = styled.span<ChipDotProps>`
-  display: inline-block;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  transition: background-color 150ms ease-in;
-  background-color: ${({ showDot, color }) =>
+  --mark-color: ${({ showDot, color }) =>
     showDot ? getBaseColor(mapChipColor(color)) : getThemeColor('border-4')};
+  display: inline-block;
+  width: 10px;
+  transition: background-color 150ms ease-in;
+  background-color: var(--mark-color);
   opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
   visibility: ${({ isHidden }) => (isHidden ? 'hidden' : 'visible')};
+
+  ${({ markerStyle }) => {
+    switch (markerStyle) {
+      case 'line':
+        return css`
+          height: 2px;
+          border-radius: 2px;
+        `;
+      case 'dashed':
+        return css`
+          position: relative;
+
+          ::before,
+          ::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 6px;
+            height: 2px;
+            background-color: var(--mark-color);
+            border-radius: 2px;
+            transition: background-color 150ms ease-in;
+          }
+
+          ::before {
+            left: -2px;
+          }
+
+          ::after {
+            left: 6px;
+          }
+        `;
+      case 'dot':
+      default:
+        return css`
+          height: 10px;
+          border-radius: 50%;
+        `;
+    }
+  }}
 `;
 
 interface ChipTitleProps {
