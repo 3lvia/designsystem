@@ -3,11 +3,25 @@
   "name": "elvis-segmented-control",
   "content": [
     {
+      "date": "18.07.24",
+      "version": "2.2.4",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Prevented the animation on initial render of the component."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "28.06.24",
       "version": "2.2.3",
       "changelog": [
         {
-          "type": "bug_fix",
+          "type": "patch",
           "changes": [
             "Improved the way the selected value is shown in the segmented control when the component has limited width."
           ]

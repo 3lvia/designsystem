@@ -27,10 +27,12 @@ export interface SegmentedControlContainerProps {
   $type: Type;
   selectedLeft: string;
   selectedWidth: string;
+  hasAnimation: boolean;
 }
 
 export interface SegmentedControlLabelProps {
   $type: Type;
   size: string;
   isSelected: boolean;
+  hasAnimation: boolean;
 }

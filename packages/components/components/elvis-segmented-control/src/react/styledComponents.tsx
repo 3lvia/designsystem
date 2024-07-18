@@ -66,7 +66,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   background: ${({ $type }) => ($type === 'text' ? getThemeColor('background-element-1') : 'transparent')};
 
   // Selected control background
-  ${({ $type, selectedLeft, selectedWidth }) =>
+  ${({ $type, selectedLeft, selectedWidth, hasAnimation }) =>
     $type === 'text' &&
     css`
       &::after {
@@ -78,7 +78,10 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
         translate: ${selectedLeft};
         border-radius: 100px;
         background-color: ${getThemeColor('background-element-5')};
-        transition: translate 250ms ${controlAnimation};
+        ${hasAnimation &&
+        css`
+          transition: translate 250ms ${controlAnimation};
+        `}
       }
     `}
 `;
@@ -96,10 +99,14 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   ${({ size }) => getTypographyCss(size === 'large' ? 'text-interactive-md' : 'text-interactive-sm')};
   font-weight: ${({ isSelected }) => (isSelected ? '500' : '400')};
   color: ${({ isSelected }) => (isSelected ? getThemeColor('text-4') : getThemeColor('text-1'))};
-  transition:
-    color 250ms ${controlAnimation},
-    border 200ms linear,
-    font-weight 200ms ${controlAnimation};
+  ${({ hasAnimation }) =>
+    hasAnimation &&
+    css`
+      transition:
+        color 250ms ${controlAnimation},
+        border 200ms linear,
+        font-weight 200ms ${controlAnimation};
+    `}
 
   &:hover {
     font-weight: 500;
