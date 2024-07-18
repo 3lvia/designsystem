@@ -216,6 +216,7 @@ export const ChipDot = styled.span<ChipDotProps>`
           ::after {
             content: '';
             position: absolute;
+            top: -1px;
             display: block;
             width: 6px;
             height: 2px;
