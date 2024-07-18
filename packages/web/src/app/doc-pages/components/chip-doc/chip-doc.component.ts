@@ -34,10 +34,6 @@ export class ChipDocComponent {
   donts = chipData.donts;
   componentData = chipData;
 
-  filteredValues = { 2019: false, 2020: true, 2021: true, 2022: false, 2023: true, 2024: true };
-  filteredKeys = Object.keys(this.filteredValues);
-  deletedValues = [];
-
   deletableChipsList = [
     { value: 2022, color: 'green' },
     { value: 2023, color: 'blue' },
@@ -59,22 +55,17 @@ export class ChipDocComponent {
     { value: 'Ola Nordmann', color: 'green' },
   ];
 
-  handleOnChange = (event: { target: { value: string }; detail: { value: boolean } }): void => {
-    this.filteredValues = { ...this.filteredValues, [event.target.value]: event.detail.value };
-  };
-
   handleOnDelete = (event: number): void => {
-    const values = [...this.deletableChipsList];
-    this.deletableChipsList = values.filter((value) => value.value !== event);
+    this.deletableChipsList = [...this.deletableChipsList].filter((value) => value.value !== event);
   };
 
   handleOnDeleteInType = (event: number): void => {
-    const values = [...this.deletableChipsListInType];
-    this.deletableChipsListInType = values.filter((value) => value.value !== event);
+    this.deletableChipsListInType = [...this.deletableChipsListInType].filter(
+      (value) => value.value !== event,
+    );
   };
 
   handleOnDeleteColor = (event: string): void => {
-    const values = [...this.colorChips];
-    this.colorChips = values.filter((value) => value.value !== event);
+    this.colorChips = [...this.colorChips].filter((value) => value.value !== event);
   };
 }
