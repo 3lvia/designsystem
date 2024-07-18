@@ -9,7 +9,7 @@
         {
           "type": "new_feature",
           "changes": [
-            "The legend type of chip now supports a new prop: <code>markerStyle</code>. This can be <code>dot</code>, <code>line</code>, or <code>dashed</code>."
+            "The legend type of chip now supports a new prop: <code>markerStyle</code>. This can be <code>dot</code> (default), <code>line</code>, or <code>dashed</code>."
           ]
         },
         {
