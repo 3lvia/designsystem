@@ -205,28 +205,41 @@ export const ChipDot = styled.span<ChipDotProps>`
     switch (markerStyle) {
       case 'line':
         return css`
-          height: 2px;
-          border-radius: 2px;
+          position: relative;
+          height: 3px;
+          background-color: transparent;
+          ::before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            display: block;
+            width: 12px;
+            height: 3px;
+            background-color: var(--mark-color);
+            border-radius: 8px;
+            transition: background-color 150ms ease-in;
+          }
         `;
       case 'dashed':
         return css`
           position: relative;
+          height: 3px;
+          background-color: transparent;
 
           ::before,
           ::after {
             content: '';
             position: absolute;
-            top: -1px;
             display: block;
-            width: 6px;
-            height: 2px;
+            width: 5px;
+            height: 3px;
             background-color: var(--mark-color);
-            border-radius: 2px;
+            border-radius: 8px;
             transition: background-color 150ms ease-in;
           }
 
           ::before {
-            left: -2px;
+            left: -1px;
           }
 
           ::after {
