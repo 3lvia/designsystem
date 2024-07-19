@@ -7,6 +7,7 @@ export const config: ComponentConfig = {
     { name: 'color', type: 'string' },
     { name: 'isDisabled', type: 'boolean' },
     { name: 'type', type: 'string' },
+    { name: 'markerStyle', type: 'string' },
     { name: 'isLoading', type: 'boolean' },
     { name: 'isSelected', type: 'boolean' },
     { name: 'value', type: 'string' },

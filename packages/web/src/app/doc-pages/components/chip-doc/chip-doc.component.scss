@@ -1,3 +1,11 @@
 .no-interaction {
   pointer-events: none;
 }
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  flex-direction: row;
+  margin-top: 8px;
+}
