@@ -37,7 +37,6 @@
         "^tsx",
         "^tsup",
         "^esbuild",
-        "^lint-staged",
         "^prettier"
       ],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
