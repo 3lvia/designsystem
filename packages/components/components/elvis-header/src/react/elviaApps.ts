@@ -5,7 +5,7 @@ type AppLink = Readonly<{
   url: string;
 }>;
 
-type AppLinks = Readonly<AppLink[]>;
+type AppLinks = readonly AppLink[];
 
 export const appList = [
   {
