@@ -3,11 +3,7 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import {
-  SegmentedControlContainerProps,
-  SegmentedControlLabelProps,
-  Type,
-} from './elviaSegmentedControl.types';
+import { Size, Type } from './elviaSegmentedControl.types';
 
 const controlPaddingXLarge = 24;
 const controlPaddingYLarge = 11;
@@ -24,7 +20,7 @@ const iconControlPaddingSmall = 8;
 
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const getControlPadding = (size: string, $type: Type) => {
+const getControlPadding = (size: Size, $type: Type) => {
   if ($type === 'icon') {
     if (size === 'large') {
       return `${iconControlPaddingLarge - 1}px`;
@@ -53,6 +49,13 @@ const getControlBorder = ($type: Type, isSelected: boolean, isHovering?: boolean
     return '1px solid transparent';
   }
 };
+
+interface SegmentedControlContainerProps {
+  $type: Type;
+  selectedLeft: string;
+  selectedWidth: string;
+  hasAnimation: boolean;
+}
 
 export const SegmentedControlContainer = styled.div<SegmentedControlContainerProps>`
   display: grid;
@@ -85,6 +88,13 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
       }
     `}
 `;
+
+interface SegmentedControlLabelProps {
+  $type: Type;
+  size: Size;
+  isSelected: boolean;
+  hasAnimation: boolean;
+}
 
 export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   will-change: color, border;
