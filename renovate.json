@@ -35,7 +35,9 @@
         "^postcss",
         "^express",
         "^tsx",
-        "^esbuild"
+        "^tsup",
+        "^esbuild",
+        "^prettier"
       ],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
@@ -47,8 +49,20 @@
       "automerge": true
     },
     {
+      "groupName": "all @contentful dependencies",
+      "matchDepPatterns": ["^@contentful/"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
       "groupName": "yarn dependency",
       "matchDepPatterns": ["^yarn"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "groupName": "typescript-eslint monorepo",
+      "matchPackagePatterns": ["^@typescript-eslint/"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }

@@ -25,9 +25,8 @@ export interface SegmentedControlProps extends BaseSegmentedControlProps, Compon
 // Styling
 export interface SegmentedControlContainerProps {
   $type: Type;
-  size: Size;
-  selectedIndex: number;
-  numberOfControls: number;
+  selectedLeft: string;
+  selectedWidth: string;
 }
 
 export interface SegmentedControlLabelProps {

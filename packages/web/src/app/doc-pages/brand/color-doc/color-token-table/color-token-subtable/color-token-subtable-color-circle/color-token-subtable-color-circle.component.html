@@ -2,7 +2,7 @@
   <div
     class="circle border"
     [ngClass]="{
-      transparent: this.hex === 'transparent'
+      transparent: this.hex === 'transparent',
     }"
     [style]="{ backgroundColor: this.hex }"
   ></div>
@@ -13,7 +13,7 @@
     [ngClass]="{
       'black-white': colorType.includes('black-white'),
       signal: colorType.includes('signal'),
-      dark: colorType.includes('dark')
+      dark: colorType.includes('dark'),
     }"
   ></div>
 }

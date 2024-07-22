@@ -1,5 +1,12 @@
 # Elvia Typography Changelog
 
+## 3.0.0 (18.06.24)
+
+### Major
+
+- Title xxs has updated font size from 15px -> 16px and line height of 120%. Body text medium has an updated
+  line height of 160%. Text lead on mobile changed font size from 22px -> 20px.
+
 ## 2.7.1 (18.04.24)
 
 ### Patch

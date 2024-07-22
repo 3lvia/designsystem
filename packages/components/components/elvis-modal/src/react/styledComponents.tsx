@@ -20,10 +20,6 @@ type ContentProps = {
   hasPadding: boolean;
 };
 
-type HeadingProps = {
-  hasIllustration: boolean;
-};
-
 export const ModalBackdrop = styled.div`
   position: fixed;
   inset: 0;
@@ -35,17 +31,25 @@ export const ModalBackdrop = styled.div`
 export const ModalWrapper = styled.div<WrapperProps>`
   position: relative;
   display: flex;
-  flex-direction: ${({ hasIllustration }) => (hasIllustration ? 'row-reverse' : 'column')};
+  flex-direction: column;
+
   ${({ hasIllustration, maxWidth }) =>
     hasIllustration
       ? css`
+          flex-direction: row-reverse;
           min-height: 550px;
           max-height: min(calc(100vh - 64px), 800px);
           width: 1090px;
           max-width: ${maxWidth ?? 'min(100vw, 1090px)'};
+
+          @media (max-width: ${desktopMin}) {
+            flex-direction: column;
+            max-width: 500px;
+            min-height: unset;
+            max-height: unset;
+          }
         `
       : css`
-          height: auto;
           max-width: ${maxWidth ?? '704px'};
         `}
 
@@ -55,19 +59,6 @@ export const ModalWrapper = styled.div<WrapperProps>`
   --modal-background: ${getThemeColor('background-element-4')};
   background: var(--modal-background);
   box-shadow: ${getShadow('soft')};
-
-  ${({ hasIllustration }) =>
-    hasIllustration &&
-    css`
-      @media (max-width: ${desktopMin}) {
-        flex-direction: column;
-        margin: 0;
-        max-width: 500px;
-        height: auto;
-        min-height: unset;
-        max-height: unset;
-      }
-    `};
 
   @media (max-width: ${mobileMax}) {
     flex-direction: column;
@@ -93,21 +84,20 @@ const decideContentPadding = (hasIllustration: boolean, hasPadding: boolean, pad
 
 export const ModalContent = styled.div<ContentProps>`
   padding: ${({ hasIllustration, hasPadding }) => decideContentPadding(hasIllustration, hasPadding, '48px')};
-  width: ${({ hasIllustration }) => (hasIllustration ? '620px' : 'auto')};
   display: flex;
   flex-direction: column;
   z-index: 1;
-  background: transparent;
   max-height: calc(100vh - 64px);
 
   ${({ hasIllustration, hasPadding }) =>
     hasIllustration &&
     css`
+      width: 620px;
+
       @media (max-width: ${desktopMin}) {
         padding: ${decideContentPadding(false, hasPadding, '40px')};
         padding-top: 24px;
         width: 100%;
-        height: calc(100% - ${modalMobileIllustrationHeight});
       }
     `}
 
@@ -115,13 +105,13 @@ export const ModalContent = styled.div<ContentProps>`
     padding: ${({ hasPadding }) => decideContentPadding(false, hasPadding, '32px 32px 24px 32px')};
     padding-top: ${({ hasIllustration }) => hasIllustration && '24px'};
     width: 100%;
-    height: ${({ hasIllustration }) =>
-      hasIllustration ? `calc(100% - ${modalMobileIllustrationHeight})` : '100%'};
+    flex: 1;
     max-height: 100vh;
   }
 `;
 
 export const ModalIllustration = styled.div`
+  --curve-size: 44px;
   background: ${getThemeColor('background-3')};
   display: flex;
   align-items: center;
@@ -129,7 +119,7 @@ export const ModalIllustration = styled.div`
   position: relative;
   width: 470px;
   z-index: 1;
-  padding: 72px;
+  padding: 16px;
 
   ::after {
     content: '';
@@ -138,11 +128,7 @@ export const ModalIllustration = styled.div`
     z-index: 0;
     position: absolute;
     height: 400%;
-    width: 500%;
-    right: calc(100% - 3.7vw);
-    @media (min-width: ${desktopMin}) {
-      right: calc(calc(100% - 44px));
-    }
+    aspect-ratio: 1;
   }
 
   .e-color-background-3 &&,
@@ -152,25 +138,41 @@ export const ModalIllustration = styled.div`
     }
   }
 
+  // Position-logic for tablet and mobile
   @media (max-width: ${desktopMin}) {
+    --curve-size: 3vw;
     width: 100%;
     height: 28vh;
-    margin: 0;
-    padding: 32px 48px 0;
+
+    // Add padding left to account for space occupied by curve
+    padding-bottom: calc(16px + var(--curve-size));
 
     ::after {
-      right: unset;
-      top: calc(93% - 3vw);
-      height: calc(100vw * 4);
-      width: calc(100vw * 4);
+      top: calc(93% - var(--curve-size));
+      height: 400vw;
+    }
+
+    > * {
+      height: min(100%, 70vw);
     }
   }
+
+  // Position-logic for desktop
+  @media (min-width: ${desktopMin}) {
+    // Add padding left to account for space occupied by curve
+    padding-left: calc(16px + var(--curve-size));
+
+    ::after {
+      right: calc(100% - var(--curve-size));
+    }
+  }
+
   @media (max-width: ${mobileMax}) {
     height: ${modalMobileIllustrationHeight};
   }
 `;
 
-export const ModalHeading = styled.h2<HeadingProps>`
+export const ModalHeading = styled.h2<{ hasIllustration: boolean }>`
   margin: 0 24px 0 0;
   padding: 0;
   ${({ hasIllustration }) => getTypographyCss(hasIllustration ? 'title-lg' : 'title-md')}
@@ -190,7 +192,7 @@ export const ModalHeading = styled.h2<HeadingProps>`
 export const ModalText = styled.div`
   position: relative;
   overflow-y: auto;
-  height: 100%;
+  flex: 1;
 `;
 
 const buttonMargin = css`

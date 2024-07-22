@@ -15,6 +15,7 @@ export const Chip: FC<ChipProps> = ({
   isSelected = false,
   isLoading = false,
   type = 'removable',
+  markerStyle = 'dot',
   value,
   image,
   onDelete,
@@ -83,6 +84,7 @@ export const Chip: FC<ChipProps> = ({
           showDot={isHovered || isSelectedState}
           isDisabled={isDisabled}
           isHidden={isLoading}
+          markerStyle={markerStyle}
         />
       )}
       {type === 'removable' && <ChipImageContainer ref={imageRef}>{image}</ChipImageContainer>}

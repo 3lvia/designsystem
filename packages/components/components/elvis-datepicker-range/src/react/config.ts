@@ -9,7 +9,7 @@ export const config: ComponentConfig = {
     { name: 'isDisabled', type: 'boolean' },
     { name: 'isFullWidth', type: 'boolean' },
     { name: 'isRequired', type: 'object' },
-    { name: 'isVertical', type: 'object' },
+    { name: 'isVertical', type: 'boolean' },
     { name: 'hasTimepickers', type: 'boolean' },
     { name: 'timepickerInterval', type: 'string' },
     { name: 'hasSelectDateOnOpen', type: 'boolean' },

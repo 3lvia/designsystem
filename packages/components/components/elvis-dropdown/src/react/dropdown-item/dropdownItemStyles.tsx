@@ -36,7 +36,9 @@ export const DropdownItemValue = styled.span`
   text-align: left;
 `;
 
-const StyledIconButton = styled(IconButton)``;
+const StyledIconButton = styled(IconButton, {
+  target: `${IconButton}`.replace(/\./g, ''),
+})``;
 
 export const IconContainer = styled.div`
   width: 60px;
@@ -138,7 +140,9 @@ export const DropdownItemStyles = styled.div<{
     `};
 `;
 
-export const OpenOverlayButton = styled(IconButton)`
+export const OpenOverlayButton = styled(IconButton, {
+  target: `${IconButton}`.replace(/\./g, ''),
+})`
   &:disabled {
     pointer-events: none;
   }

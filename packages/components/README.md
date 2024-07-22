@@ -229,9 +229,7 @@ library), this class needs to be deprecated.
 3. **Review**: Review the
    [review process doc](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10427498683/Review+prosess) to
    make sure all points have been addressed.
-4. **Commit & push**: to your branch. Husky should run scripts before you are able to commit or push to ensure
-   everything is built and all tests are running. If you are doing just documentation updates skip these
-   scripts with `--no-verify`.
+4. **Commit & push**: to your branch.
 5. **Pull request**: Create a pull request with all the changes at the
    [Design system Github repo](https://github.com/3lvia/designsystem/pulls).
 6. **Preview**: Netlify will generate a preview link when the pull request is created. The link can be used to

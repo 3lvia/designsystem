@@ -3,6 +3,7 @@ import { ComponentPropsWithoutRef } from 'react';
 
 export type ChipType = 'removable' | 'legend' | 'choice';
 export type ColorType = 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'violet';
+export type ChipMarkerStyle = 'dot' | 'line' | 'dashed';
 
 export interface BaseChipProps extends BaseProps {
   ariaLabel?: string;
@@ -10,6 +11,7 @@ export interface BaseChipProps extends BaseProps {
   isDisabled?: boolean;
   isLoading?: boolean;
   type?: ChipType;
+  markerStyle?: ChipMarkerStyle;
   isSelected?: boolean;
   value: string | number;
   image?: JSX.Element;

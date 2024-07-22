@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { getDocPage } from '../../doc-pages';
 import { DocPageName } from '../../shared.enum';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-component-related',
@@ -17,8 +18,13 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 export class ComponentRelatedComponent {
   @Input({ required: true }) relatedPages: DocPageName[];
 
-  constructor(private cmsService: CMSService) {
-    this.componentIcons = this.cmsService.getPageIcons();
+  constructor(
+    private cmsService: CMSService,
+    themeService: ThemeService,
+  ) {
+    themeService.listenTheme().subscribe(() => {
+      this.componentIcons = this.cmsService.getPageIcons();
+    });
   }
 
   componentIcons: ReturnType<typeof this.cmsService.getPageIcons>;

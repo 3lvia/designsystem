@@ -1,7 +1,0 @@
-@use "../utilities/outline.scss";
-
-a:focus,
-button:focus,
-input:focus {
-  @include outline.e-outline();
-}

@@ -33,6 +33,11 @@ export const chipData: ComponentData<BaseChipProps> = {
       type: 'string',
       description: 'The value displayed in the chip.',
     },
+    markerStyle: {
+      type: '"dot" | "line" | "dashed"',
+      description: 'Set the style of the marker. Only works for legend type.',
+      default: '"dot"',
+    },
     isLoading: {
       type: 'boolean',
       description: 'Sets the chip to have loading state. Only works for legend type.',

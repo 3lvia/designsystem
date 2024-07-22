@@ -3,6 +3,40 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "09.07.24",
+      "version": "12.0.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Marked the package as ESM only. This should reduce the bundle size of projects using the package."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "08.07.24",
+      "version": "12.0.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Marked the package as side-effect free. This should reduce the bundle size of projects using the package."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "21.06.24",
+      "version": "12.0.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fix layout issue after migrating to <code>@emotion</code>"]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "12.0.2",
       "changelog": [

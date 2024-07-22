@@ -3,6 +3,28 @@
   "name": "elvis-popover",
   "content": [
     {
+      "date": "09.07.24",
+      "version": "7.4.5",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Removed <code>display: flex</code> from <code>div</code> containers inside the trigger container."
+          ]
+        }
+      ]
+    },
+    {
+      "date": "26.06.24",
+      "version": "7.4.4",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Improved the entrance and exit animations."]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "7.4.3",
       "changelog": [

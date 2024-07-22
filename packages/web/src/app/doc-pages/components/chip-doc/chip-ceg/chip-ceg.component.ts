@@ -64,6 +64,16 @@ export class ChipCegComponent implements ComponentExample {
           value: 'green',
           group: 'Color',
         },
+        markerStyle: {
+          type: 'radioGroup',
+          radios: [
+            { label: 'Dot', value: 'dot' },
+            { label: 'Line', value: 'line' },
+            { label: 'Dashed', value: 'dashed' },
+          ],
+          value: 'dot',
+          group: 'Marker style',
+        },
         isLoading: {
           label: 'Loading',
           type: 'checkbox',
@@ -78,7 +88,7 @@ export class ChipCegComponent implements ComponentExample {
           inputType: 'input',
         },
       },
-      groupOrder: ['Color', 'State', 'Text'],
+      groupOrder: ['Color', 'Marker style', 'State', 'Text'],
       staticProps: {
         isSelectedOnChange: () => '',
       },

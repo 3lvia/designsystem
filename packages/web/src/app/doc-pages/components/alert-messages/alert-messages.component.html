@@ -37,7 +37,7 @@
             <th scope="row"><strong>Global</strong></th>
             <td>System or product level alerts and not specific to an user action.</td>
             <td>High</td>
-            <td>Full-width strip above the header. Visible on the entire application.</td>
+            <td>Full-width strip on the bottom of the screen. Visible on the entire application.</td>
           </tr>
           <tr>
             <th scope="row"><strong>Local</strong></th>
@@ -123,14 +123,15 @@
     </table>
 
     <app-component-subsection [sectionTitle]="'Global Alert'">
-      Global alert is in most cases initiated by the application or system, but can also be used when an
-      important message needs to be flagged. It’s a general message to all users and are not associated with
-      user actions. Global alert appears on all pages of the application/website and extends in full length
-      above the header. It can include links or actions such as expand and close.
+      Global alert is in most cases initiated by the application or system, but it can also be used when an
+      important message needs to be flagged. It is a general message to all users and is not associated with
+      user actions. The global alert appears on all pages of the application/website and extends in full
+      length at the bottom of the viewport. It can include links or actions such as buttons and a close
+      button.
 
       <p>
-        NB: Remember to make the global alert fixed to the top of your application and make sure that it
-        extends the full length of the page!
+        NB: Remember to fix the global alert to the bottom of your application and ensure that it extends the
+        full length of the page!
       </p>
       <app-static-ceg>
         <app-alert-global-ceg />
@@ -141,14 +142,6 @@
         Global alerts can also have a close button.
         <app-static-ceg>
           <app-alert-global-closable-ceg />
-        </app-static-ceg>
-      </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Expandable'">
-        Global alerts can also be expandable. Add and remove the class
-        <code class="e-ml-8 e-lowercase">e-alert--open</code>
-        to open and close the alert.
-        <app-static-ceg>
-          <app-alert-global-expandable-ceg />
         </app-static-ceg>
       </app-component-subsubsection>
       <app-component-subsubsection [sectionTitle]="'Actions'">

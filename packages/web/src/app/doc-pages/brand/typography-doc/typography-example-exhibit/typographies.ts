@@ -84,7 +84,7 @@ export const titleTypographies = [
       'Titles are used as headings for your content. They will stand out from the rest with their heavyweight and enhance visual hierarchy.',
     class: 'e-title-xxs',
     details: {
-      size: '15px',
+      size: '16px',
       lineHeight: '120%',
       fontWeight: 700,
       fontFamily: 'Red Hat Display',
@@ -142,7 +142,7 @@ export const textTypographies = [
     class: 'e-text-md',
     details: {
       size: '16px',
-      lineHeight: '175%',
+      lineHeight: '160%',
       fontWeight: 400,
       fontFamily: 'Red Hat Text',
       fontStyle: 'regular',

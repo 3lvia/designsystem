@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -7,7 +7,6 @@ import { RouterService } from '../../core/services/router.service';
 import { FeedbackLinkComponent } from '../../shared/feedback/feedback-link/feedback-link.component';
 import { FeedbackComponent } from '../../shared/feedback/feedback.component';
 import { DesktopNavbarComponent } from '../../shared/navbar/desktop-navbar/desktop-navbar.component';
-import { FlexibleFullHeightDirective } from '../../shared/navbar/desktop-navbar/flexible-full-height.directive';
 import { LocalePickerComponent } from '../../shared/navbar/locale-picker/locale-picker.component';
 import { MobileNavbarComponent } from '../../shared/navbar/mobile-navbar/mobile-navbar.component';
 import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-size.directive';
@@ -19,7 +18,6 @@ import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-
   standalone: true,
   imports: [
     IfViewportSizeDirective,
-    FlexibleFullHeightDirective,
     DesktopNavbarComponent,
     RouterLink,
     FeedbackLinkComponent,
@@ -30,9 +28,9 @@ import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-
   ],
 })
 export class PageWithSidenavComponent {
-  @Input() isLandingPage = false;
-  backBtn = '';
-  currentRoute = '';
+  isLandingPage = input(false);
+  backBtn = signal('');
+  currentRoute = signal('');
 
   constructor(urlService: RouterService) {
     /**
@@ -49,7 +47,7 @@ export class PageWithSidenavComponent {
   }
 
   private setCurrentRoute(url: string): void {
-    this.currentRoute = url.split('/')[1];
-    this.backBtn = this.currentRoute.replace('-', ' ');
+    this.currentRoute.set(url.split('/')[1]);
+    this.backBtn.set(this.currentRoute().replace('-', ' '));
   }
 }

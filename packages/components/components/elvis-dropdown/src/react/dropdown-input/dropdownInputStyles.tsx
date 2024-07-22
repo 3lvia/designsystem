@@ -2,7 +2,9 @@ import { FormFieldInput } from '@elvia/elvis-toolbox';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const Input = styled(FormFieldInput)<{ $isEditable: boolean }>`
+export const Input = styled(FormFieldInput, {
+  target: `${FormFieldInput}`.replace(/\./g, ''),
+})<{ $isEditable: boolean }>`
   flex: 1;
   text-overflow: ellipsis;
 

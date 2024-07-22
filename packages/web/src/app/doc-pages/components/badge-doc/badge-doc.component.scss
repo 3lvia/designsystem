@@ -1,0 +1,39 @@
+.colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .color {
+    height: 16px;
+    width: 16px;
+    border-radius: 99999px;
+
+    &.green {
+      background-color: var(--e-color-signal-positive);
+    }
+    &.red {
+      background-color: var(--e-color-signal-danger);
+    }
+    &.neutral {
+      background-color: var(--e-color-background-element-5);
+    }
+    &.green-apple {
+      background-color: var(--e-color-data-1);
+    }
+    &.blue-berry {
+      background-color: var(--e-color-data-3);
+    }
+    &.purple-plum {
+      background-color: var(--e-color-data-4);
+    }
+    &.orange-mango {
+      background-color: var(--e-color-data-5);
+    }
+    &.red-tomato {
+      background-color: var(--e-color-data-6);
+    }
+    &.violet-grape {
+      background-color: var(--e-color-data-2);
+    }
+  }
+}

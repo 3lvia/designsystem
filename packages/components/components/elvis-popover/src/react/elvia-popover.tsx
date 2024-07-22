@@ -45,7 +45,7 @@ export const Popover: FC<PopoverProps> = function ({
   const triggerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(isShowing);
 
-  const { refs, floatingStyles, context } = useFloating({
+  const { refs, floatingStyles, context, placement } = useFloating({
     placement: mapPosition(verticalPosition, horizontalPosition),
     open: isOpen,
     onOpenChange: setIsOpen,
@@ -60,17 +60,22 @@ export const Popover: FC<PopoverProps> = function ({
   const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {
     duration: 300,
     common: {
+      transformOrigin: placement.includes('top') ? 'bottom' : 'top',
       transitionTimingFunction: 'ease',
       zIndex: 99999,
       maxWidth: 'calc(100% - 16px)',
     },
+    initial: {
+      opacity: 0,
+      transform: 'scaleY(.9)',
+    },
     close: {
       opacity: 0,
-      transform: 'scale(.9)',
+      transform: 'scaleY(.9)',
     },
     open: {
       opacity: 1,
-      transform: 'scale(1)',
+      transform: 'scaleY(1)',
     },
   });
 

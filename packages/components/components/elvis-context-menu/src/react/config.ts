@@ -12,6 +12,7 @@ export const config: ComponentConfig = {
     { name: 'isShowing', type: 'boolean' },
     { name: 'trigger', type: 'boolean' },
     { name: 'display', type: 'string' },
+    { name: 'anchorPosition', type: 'object' },
     { name: 'className', type: 'string' },
     { name: 'inlineStyle', type: 'object' },
   ],

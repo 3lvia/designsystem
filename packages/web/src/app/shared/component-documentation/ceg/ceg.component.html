@@ -19,6 +19,7 @@
         <app-controls-popover
           [controlManager]="componentExample.cegContent"
           (propChange)="setPropValue($event.propName, $event.value)"
+          (slotToggle)="toggleSlot($event.slotName, $event.isVisible)"
         />
       </div>
     }

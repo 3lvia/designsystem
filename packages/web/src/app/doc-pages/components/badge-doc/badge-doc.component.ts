@@ -12,6 +12,7 @@ import { ButtonBadgeCegComponent } from './button-badge-ceg/button-badge-ceg.com
 @Component({
   selector: 'app-badge-doc',
   templateUrl: './badge-doc.component.html',
+  styleUrl: './badge-doc.component.scss',
   standalone: true,
   imports: [
     ComponentDocumentationComponent,

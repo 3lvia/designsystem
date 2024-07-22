@@ -3,6 +3,18 @@
   "name": "elvis-datepicker-range",
   "content": [
     {
+      "date": "26.06.24",
+      "version": "5.0.10",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue for web components where the <code>isVertical</code> prop could be interpreted as an object instead of a boolean."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "5.0.9",
       "changelog": [

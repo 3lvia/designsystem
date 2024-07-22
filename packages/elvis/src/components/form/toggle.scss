@@ -96,20 +96,9 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
   }
 
   // Focus
-  &.e-toggle---focus input.e-toggle__input {
-    outline: none;
-
-    &::before {
-      @include outline.e-outline-pseudoclass();
-    }
-  }
-
-  input:focus-visible.e-toggle__input {
-    outline: none;
-
-    &::before {
-      @include outline.e-outline();
-    }
+  &.e-toggle---focus input.e-toggle__input,
+  &:focus-within .e-toggle__input:focus-visible {
+    @include outline.e-outline();
   }
 
   // Disabled

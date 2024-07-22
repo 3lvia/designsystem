@@ -106,7 +106,7 @@
   }
 
   &.e-input---focus {
-    @include outline.e-outline-pseudoclass();
+    @include outline.e-outline();
   }
 
   &.e-input---focus,

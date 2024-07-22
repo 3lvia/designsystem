@@ -12,3 +12,9 @@
 .ceg-non-interactive {
   pointer-events: none;
 }
+
+.component-example-container.full-width {
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
