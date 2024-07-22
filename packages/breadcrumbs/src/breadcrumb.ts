@@ -10,7 +10,7 @@ const arrowRightIcon = arrowRightBold.getIcon();
 export class ElviaBreadcrumb extends LitElement {
   static styles = css`
     :host {
-      // We use these variables for mobile view
+      /* We use these variables for mobile view */
       --font-weight: 400;
       --flex-direction: row;
       --icon-rotation: 0deg;
