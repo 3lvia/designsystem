@@ -78,8 +78,6 @@ as you follow their license.
   has all the sketches for our components.
 - We use **Contentful** as content management system for a lot of our documentation.
 - We use **SonarCloud** for automatic code quality checks.
-- We use [husky](https://www.npmjs.com/package/husky) to run build, tests and linting before committing or
-  pushing.
 
 ### How we work
 

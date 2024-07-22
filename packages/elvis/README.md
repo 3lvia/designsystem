@@ -168,9 +168,7 @@ information on how to use them.
    have been done, while fixes describes steps the user has to do to fix their code to be up to date.
    Components links to all related components, and pages links to all related pages.
 
-3. **Commit & push**: to your branch. Husky should run scripts before you can commit or push to ensure
-   everything is built and all tests are running. If you are doing just documentation updates skip these
-   scripts with `--no-verify`.
+3. **Commit & push**: to your branch.
 4. **Pull request**: Create a pull request with all the changes at the
    [Design system Github repo](https://github.com/3lvia/designsystem/pulls).
 5. **Preview**: Netlify will generate a preview link when the pull request is created. The link can be used to

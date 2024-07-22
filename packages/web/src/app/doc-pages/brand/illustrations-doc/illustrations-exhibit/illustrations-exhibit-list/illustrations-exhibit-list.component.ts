@@ -34,7 +34,7 @@ export class IllustrationsExhibitListComponent {
         }
         const searchValueLower = searchValue.toLowerCase();
         const searchKeyWords =
-          this.locale() === 'nb-NO' ? entry.searchKeywordsNO ?? entry.searchKeywords : entry.searchKeywords;
+          this.locale() === 'nb-NO' ? (entry.searchKeywordsNO ?? entry.searchKeywords) : entry.searchKeywords;
         return (
           this.displayNamePipe.transform(entry.name).toLowerCase().includes(searchValueLower) ||
           searchKeyWords.some((keyword) => keyword.toLowerCase().includes(searchValueLower))

@@ -25,34 +25,11 @@
     "start:icons": "yarn workspace @elvia/elvis-assets-icons start",
     "contentful": "yarn workspace elvia-designsystem contentful",
     "contentful:production": "yarn workspace elvia-designsystem contentful:production",
-    "prettier:elvis": "prettier --write \"packages/elvis/**/*.js\"",
-    "prettier:components": "prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
-    "prettier:web": "prettier --write \"packages/web/src/**/*.{ts,html,scss}\"",
-    "lint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
-    "lint:all": "yarn prettier:elvis && yarn prettier:web && yarn prettier:components && yarn eslint",
     "test": "yarn workspace @elvia/elvis-components test",
     "test-ct": "yarn workspace @elvia/elvis-components test-ct",
     "test:start": "yarn workspace @elvia/elvis-components test:start",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
     "publish": "yarn workspaces foreach -ipv --all --no-private npm publish --access public"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
-      "yarn prettier:elvis"
-    ],
-    "packages/web/**/*.+(js|ts|tsx)": [
-      "yarn prettier:web",
-      "yarn lint"
-    ],
-    "packages/components/components/**/*.+(js|ts|tsx)": [
-      "yarn prettier:components",
-      "yarn lint"
-    ]
   },
   "engines": {
     "node": ">=20.15.1"
@@ -67,8 +44,6 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.35.0",
     "express": "^4.19.2",
-    "husky": "^4.3.8",
-    "lint-staged": "^15.2.7",
     "postcss": "^8.4.39",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
