@@ -97,7 +97,6 @@ interface SegmentedControlLabelProps {
 }
 
 export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
-  will-change: color, border;
   position: relative;
   white-space: nowrap;
   background-color: transparent;
