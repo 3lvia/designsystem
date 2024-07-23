@@ -50,11 +50,11 @@ export class AlertMessagesComponent {
     'After a user operation.',
   ];
 
-  doesToastDefault = ['Confirmation message after an user action', 'Notification message'];
+  doesToastDefault = ['Confirmation message after a user action', 'Notification message'];
   dontsToastDefault = ['Error messages'];
 
   doesGlobalDefault = ['Give a general message to all users across the pages'];
-  dontsGlobalDefault = ['After an user action'];
+  dontsGlobalDefault = ['After a user action'];
 
   //Accessability
   doesAriaRoleAlertDefault = [

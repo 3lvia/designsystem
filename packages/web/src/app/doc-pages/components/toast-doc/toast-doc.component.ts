@@ -27,6 +27,6 @@ import { toastData } from './toast-data';
 export class ToastDocComponent {
   componentData = toastData;
 
-  does = ['Confirmation message after an user action', 'Notification message'];
+  does = ['Confirmation message after a user action', 'Notification message'];
   donts = ['Error messages'];
 }
