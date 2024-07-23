@@ -3,11 +3,7 @@ import { getTypographyCss } from '@elvia/elvis-typography';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import {
-  SegmentedControlContainerProps,
-  SegmentedControlLabelProps,
-  Type,
-} from './elviaSegmentedControl.types';
+import { Size, Type } from './elviaSegmentedControl.types';
 
 const controlPaddingXLarge = 24;
 const controlPaddingYLarge = 11;
@@ -24,7 +20,7 @@ const iconControlPaddingSmall = 8;
 
 const controlAnimation = 'cubic-bezier(0.71, 0, 0.31, 1)';
 
-const getControlPadding = (size: string, $type: Type) => {
+const getControlPadding = (size: Size, $type: Type) => {
   if ($type === 'icon') {
     if (size === 'large') {
       return `${iconControlPaddingLarge - 1}px`;
@@ -54,6 +50,13 @@ const getControlBorder = ($type: Type, isSelected: boolean, isHovering?: boolean
   }
 };
 
+interface SegmentedControlContainerProps {
+  $type: Type;
+  selectedLeft: string;
+  selectedWidth: string;
+  hasAnimation: boolean;
+}
+
 export const SegmentedControlContainer = styled.div<SegmentedControlContainerProps>`
   display: grid;
   grid-auto-columns: 1fr;
@@ -66,7 +69,7 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
   background: ${({ $type }) => ($type === 'text' ? getThemeColor('background-element-1') : 'transparent')};
 
   // Selected control background
-  ${({ $type, selectedLeft, selectedWidth }) =>
+  ${({ $type, selectedLeft, selectedWidth, hasAnimation }) =>
     $type === 'text' &&
     css`
       &::after {
@@ -78,13 +81,22 @@ export const SegmentedControlContainer = styled.div<SegmentedControlContainerPro
         translate: ${selectedLeft};
         border-radius: 100px;
         background-color: ${getThemeColor('background-element-5')};
-        transition: translate 250ms ${controlAnimation};
+        ${hasAnimation &&
+        css`
+          transition: translate 250ms ${controlAnimation};
+        `}
       }
     `}
 `;
 
+interface SegmentedControlLabelProps {
+  $type: Type;
+  size: Size;
+  isSelected: boolean;
+  hasAnimation: boolean;
+}
+
 export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
-  will-change: color, border;
   position: relative;
   white-space: nowrap;
   background-color: transparent;
@@ -96,10 +108,14 @@ export const SegmentedControlLabel = styled.label<SegmentedControlLabelProps>`
   ${({ size }) => getTypographyCss(size === 'large' ? 'text-interactive-md' : 'text-interactive-sm')};
   font-weight: ${({ isSelected }) => (isSelected ? '500' : '400')};
   color: ${({ isSelected }) => (isSelected ? getThemeColor('text-4') : getThemeColor('text-1'))};
-  transition:
-    color 250ms ${controlAnimation},
-    border 200ms linear,
-    font-weight 200ms ${controlAnimation};
+  ${({ hasAnimation }) =>
+    hasAnimation &&
+    css`
+      transition:
+        color 250ms ${controlAnimation},
+        border 200ms linear,
+        font-weight 200ms ${controlAnimation};
+    `}
 
   &:hover {
     font-weight: 500;

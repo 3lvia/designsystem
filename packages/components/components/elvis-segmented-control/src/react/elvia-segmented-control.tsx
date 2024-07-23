@@ -14,6 +14,7 @@ import {
   SegmentedControlInput,
   SegmentedControlLabel,
 } from './styledComponents';
+import { useDelayedFlag } from './useDelayedFlag';
 import { useSegmentedControlHighlighter } from './useSegmentedControlHighlighter';
 
 let UNIQUE_SEGMENTED_CONTROL_ID = 0;
@@ -36,6 +37,9 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
     selectedLeft,
     selectedWidth,
   } = useSegmentedControlHighlighter(selectedIndex, items);
+
+  // Delay adding animations to prevent animation on initial render
+  const hasAnimation = useDelayedFlag(500);
 
   const setSelected = useCallback(
     (selectedIndex: number): void => {
@@ -73,6 +77,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       selectedWidth={selectedWidth}
       selectedLeft={selectedLeft}
       role="radiogroup"
+      hasAnimation={hasAnimation}
       className={className}
       style={inlineStyle}
       ref={containerRef}
@@ -83,6 +88,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
           $type={type}
           size={size}
           isSelected={index === selectedIndex}
+          hasAnimation={hasAnimation}
           key={index}
           htmlFor={segmentedControlId.current + index}
           aria-label={type === 'icon' ? (control as IconSegmentedControl).ariaLabel : undefined}

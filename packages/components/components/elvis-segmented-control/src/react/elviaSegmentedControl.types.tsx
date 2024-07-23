@@ -21,16 +21,3 @@ export interface BaseSegmentedControlProps extends BaseProps, HasValue<number> {
 }
 
 export interface SegmentedControlProps extends BaseSegmentedControlProps, ComponentPropsWithoutRef<'div'> {}
-
-// Styling
-export interface SegmentedControlContainerProps {
-  $type: Type;
-  selectedLeft: string;
-  selectedWidth: string;
-}
-
-export interface SegmentedControlLabelProps {
-  $type: Type;
-  size: string;
-  isSelected: boolean;
-}

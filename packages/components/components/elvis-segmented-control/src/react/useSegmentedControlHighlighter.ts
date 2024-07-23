@@ -7,8 +7,8 @@ export const useSegmentedControlHighlighter = (
   items: SegmentedControlProps['items'],
 ) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [selectedLeft, setSelectedLeft] = useState('0px');
-  const [selectedWidth, setSelectedWidth] = useState(`0px`);
+  const [selectedLeft, setSelectedLeft] = useState(`${selectedIndex * 100}%`);
+  const [selectedWidth, setSelectedWidth] = useState(`${100 / (items?.length ?? 3)}%`);
 
   useEffect(() => {
     const updateSelectedStates = () => {
