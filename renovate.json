@@ -4,7 +4,7 @@
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 5,
   "rangeStrategy": "bump",
-  "schedule": ["before 5am on monday", "before 5am on friday"],
+  "schedule": ["after 10pm every weekday", "before 5am every weekday"],
   "packageRules": [
     {
       "groupName": "all angular dependencies",
