@@ -2321,14 +2321,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-types@npm:^16.0.2, @contentful/rich-text-types@npm:^16.3.0":
+"@contentful/rich-text-types@npm:^16.0.2":
   version: 16.6.1
   resolution: "@contentful/rich-text-types@npm:16.6.1"
   checksum: 10/6eceee5a277f6bbda1146b93ac448866ed58d6d0fdd99529775cb1bd7555bbe3274f5b022c5f25479ef2e521ba78d0d7c4dce7df095b93f190b7deb8cea58d8f
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-types@npm:^16.8.1":
+"@contentful/rich-text-types@npm:^16.6.1, @contentful/rich-text-types@npm:^16.8.1":
   version: 16.8.1
   resolution: "@contentful/rich-text-types@npm:16.8.1"
   checksum: 10/e12b77a8239ad635af731ba595b53754470f8bc38329428463eb3a35c6f5eb51ad77c665927e545f54543d8a92051c129d9628dd3c4575eb5126c2bc85f4d183
@@ -6118,13 +6118,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/json-patch@npm:0.0.30":
-  version: 0.0.30
-  resolution: "@types/json-patch@npm:0.0.30"
-  checksum: 10/3713ba41ff1157fabda8edca4db1f2972a8e84bae29018079ffe4a978c4b1b568613d605c37d9b0884fdeb4cfbedc36e4f7d52d151236aca6b0a21fcb891cff2
-  languageName: node
-  linkType: hard
-
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.8, @types/json-schema@npm:^7.0.9":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
@@ -8546,18 +8539,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.29.1":
-  version: 11.29.1
-  resolution: "contentful-management@npm:11.29.1"
+"contentful-management@npm:^11.30.1":
+  version: 11.30.1
+  resolution: "contentful-management@npm:11.30.1"
   dependencies:
-    "@contentful/rich-text-types": "npm:^16.3.0"
-    "@types/json-patch": "npm:0.0.30"
+    "@contentful/rich-text-types": "npm:^16.6.1"
     axios: "npm:^1.7.2"
     contentful-sdk-core: "npm:^8.3.1"
     fast-copy: "npm:^3.0.0"
-    lodash.isplainobject: "npm:^4.0.6"
-    type-fest: "npm:^4.0.0"
-  checksum: 10/c5c388a5859a060ac450e2f60c4ac535300a98ba359ec937ac7dd717015b7a85e61146a721e416ee3996a3fe53a1e639717b4478d43551e6f9fdad4deff79f2b
+  checksum: 10/2102a469f53e816dc5074eec25f5f1a76d428df126530d11279f3192f1795d9037cf53f97a5bd03282025c029f3121458406d5d15e17a630e186778c8889aed4
   languageName: node
   linkType: hard
 
@@ -9538,7 +9528,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.16.1"
     "@typescript-eslint/utils": "npm:^7.16.1"
     contentful: "npm:^9.3.6"
-    contentful-management: "npm:^11.29.1"
+    contentful-management: "npm:^11.30.1"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.57.0"
@@ -18256,13 +18246,6 @@ __metadata:
   version: 3.13.1
   resolution: "type-fest@npm:3.13.1"
   checksum: 10/9a8a2359ada34c9b3affcaf3a8f73ee14c52779e89950db337ce66fb74c3399776c697c99f2532e9b16e10e61cfdba3b1c19daffb93b338b742f0acd0117ce12
-  languageName: node
-  linkType: hard
-
-"type-fest@npm:^4.0.0":
-  version: 4.4.0
-  resolution: "type-fest@npm:4.4.0"
-  checksum: 10/c3c54af26f7a73cf9f054be7a2917138491f8b707993ca779c6c1f8a3ee18c66bee00ce2a2f8ba887b296cccf30a6cdd7e12bd4f653fd7e3c812bc4aea5a93c9
   languageName: node
   linkType: hard
 
