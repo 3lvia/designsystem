@@ -3,7 +3,12 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
-    <div class="example-wrapper"></div>
+    <div class="example-wrapper">
+      <elvia-segmented-control
+        items="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
+        [value]="2"
+      ></elvia-segmented-control>
+    </div>
 
     <h3>Global Alert</h3>
     <div class="e-color-background-1 e-theme-dark"></div>
@@ -507,11 +512,11 @@
     <!--Segmented control-->
     <div class="example-wrapper">
       <h3>Segmented control</h3>
-      <elvia-segmented-control
+      <!-- <elvia-segmented-control
         [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
         (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
-      ></elvia-segmented-control>
-      <elvia-segmented-control
+      ></elvia-segmented-control> -->
+      <!-- <elvia-segmented-control
         [type]="'icon'"
         [items]="[
           {
@@ -526,7 +531,7 @@
           },
         ]"
         (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
-      ></elvia-segmented-control>
+      ></elvia-segmented-control> -->
     </div>
 
     Slider
