@@ -125,36 +125,11 @@
 			}
 		},
 		"e-outline": {},
-		"e-table-mobile": {
-			"element": {
-				"e-table-mobile__checkbox": {
-					"modifier": {
-						"e-table-mobile__checkbox--selected": {}
-					}
-				},
-				"e-table-mobile__input": {},
-				"e-table-mobile__button": {},
-				"e-table-mobile__select": {}
-			},
-			"modifier": {
-				"e-table-mobile--small": {},
-				"e-table-mobile--sticky-header": {}
-			}
-		},
 		"e-table": {
-			"modifier": {
-				"e-table--small": {},
-				"e-table--inverted": {},
-				"e-table--no-stripes": {},
-				"e-table--sticky-header": {},
-				"e-table--sticky-column-header": {}
+			"container": {
+				"e-table-container": {}
 			},
 			"element": {
-				"e-table__checkbox": {
-					"modifier": {
-						"e-table__checkbox--selected": {}
-					}
-				},
 				"e-table__footnote": {
 					"modifier": {
 						"e-table__footnote--small": {}
@@ -174,13 +149,38 @@
 				},
 				"e-table__input": {},
 				"e-table__button": {},
+				"e-table__checkbox": {
+					"modifier": {
+						"e-table__checkbox--selected": {}
+					}
+				},
 				"e-table__select": {}
 			},
-			"container": {
-				"e-table-container": {}
+			"modifier": {
+				"e-table--inverted": {},
+				"e-table--no-stripes": {},
+				"e-table--small": {},
+				"e-table--sticky-header": {},
+				"e-table--sticky-column-header": {}
 			}
 		},
 		"e-table-footnote": {},
+		"e-table-mobile": {
+			"modifier": {
+				"e-table-mobile--small": {},
+				"e-table-mobile--sticky-header": {}
+			},
+			"element": {
+				"e-table-mobile__input": {},
+				"e-table-mobile__button": {},
+				"e-table-mobile__checkbox": {
+					"modifier": {
+						"e-table-mobile__checkbox--selected": {}
+					}
+				},
+				"e-table-mobile__select": {}
+			}
+		},
 		"e-text-mono": {},
 		"e-input": {
 			"psuedo": {
@@ -902,25 +902,21 @@
 		"e-list--icons": {},
 		"e-list__icon": {},
 		"e-outline": {},
-		"e-table-mobile": {},
-		"e-table": {},
-		"e-table--small": {},
-		"e-table-mobile__checkbox": {},
-		"e-table-mobile__checkbox--selected": {},
-		"e-table__checkbox": {},
-		"e-table__checkbox--selected": {},
 		"e-table-container": {},
 		"e-table-footnote": {},
 		"e-table__footnote": {},
 		"e-table__footnote--small": {},
+		"e-table": {},
 		"e-table--inverted": {},
 		"e-table__cell--invalid": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
 		"e-table__row--invalid": {},
 		"e-table--no-stripes": {},
+		"e-table--small": {},
 		"e-table--sticky-header": {},
 		"e-table--sticky-column-header": {},
+		"e-table-mobile": {},
 		"e-table-mobile--small": {},
 		"e-table-mobile--sticky-header": {},
 		"e-text-mono": {},
@@ -930,7 +926,11 @@
 		"e-input---focus": {},
 		"e-table__button": {},
 		"e-table-mobile__button": {},
+		"e-table__checkbox": {},
 		"e-checkbox": {},
+		"e-table-mobile__checkbox": {},
+		"e-table__checkbox--selected": {},
+		"e-table-mobile__checkbox--selected": {},
 		"e-table__select": {},
 		"e-table-mobile__select": {},
 		"e-tag": {},

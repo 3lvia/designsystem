@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "19.2.1",
+      "date": "July 25, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed an issue where the background of a table nested inside a table would be wrong."],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        }
+      ]
+    },
+    {
       "version": "19.2.0",
       "date": "July 25, 2024",
       "changelog": [
