@@ -12,19 +12,19 @@ $table-header-small-height: 40px;
 $table-invalid-border: 2px solid var(--e-color-signal-danger);
 $table-invalid-padding: 8px 16px;
 
-%header-style {
+@mixin header-style {
   width: 100%;
   background: var(--e-color-background-element-6);
 
   th {
     border-bottom: 1px solid var(--e-color-border-2);
-    background: var(--e-color-background-element-6);
+    background: var(--e-color-background-element-6) !important;
     color: var(--e-color-text-1);
     font-weight: 700;
   }
 }
 
-%checkbox-selected-style {
+@mixin checkbox-selected-style {
   position: relative;
 
   &::after {
@@ -78,7 +78,7 @@ $table-invalid-padding: 8px 16px;
   white-space: nowrap;
 
   thead {
-    @extend %header-style;
+    @include header-style;
 
     tr {
       height: $table-header-height;
@@ -137,8 +137,8 @@ $table-invalid-padding: 8px 16px;
       // Select the 1st column in a sticky vertical header, and make the background
       // non-transparent in dark theme so that it covers rest of row when scrolled
       &:nth-of-type(even) {
-        th:first-of-type,
-        th[scope='row'] {
+        & > th:first-of-type,
+        & > th[scope='row'] {
           background: var(--e-table-row-background);
         }
       }
@@ -164,8 +164,8 @@ $table-invalid-padding: 8px 16px;
       background: var(--e-color-background-element-2);
     }
 
-    tr:nth-of-type(odd) th,
-    tr:nth-of-type(odd) td {
+    tr:nth-of-type(odd) > th,
+    tr:nth-of-type(odd) > td {
       background: var(--e-color-background-element-2);
     }
 
@@ -195,7 +195,7 @@ $table-invalid-padding: 8px 16px;
 
   &.e-table--small {
     thead {
-      @extend %header-style;
+      @include header-style;
 
       th {
         @include mixins.typography('title-xxs');
@@ -251,7 +251,7 @@ $table-invalid-padding: 8px 16px;
   table-layout: auto;
 
   thead {
-    @extend %header-style;
+    @include header-style;
 
     tr {
       height: $table-header-height;
@@ -433,11 +433,11 @@ $table-invalid-padding: 8px 16px;
 }
 
 .e-table .e-table__checkbox.e-table__checkbox--selected {
-  @extend %checkbox-selected-style;
+  @include checkbox-selected-style;
 }
 
 .e-table-mobile tr.e-table-mobile__checkbox.e-table-mobile__checkbox--selected {
-  @extend %checkbox-selected-style;
+  @include checkbox-selected-style;
 }
 
 // Link
