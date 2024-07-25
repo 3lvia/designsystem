@@ -111,7 +111,9 @@
     <div class="e-title-xs e-my-16">Small</div>
     <div class="e-table-container">
       <table class="e-table e-table--small">
-        <caption class="e-sr-only">Example Table1</caption>
+        <caption class="e-sr-only">
+          Example Table1
+        </caption>
         <thead>
           <tr>
             <th scope="col">Periode</th>
@@ -250,7 +252,9 @@
 
     <div class="e-table-container">
       <table class="e-table">
-        <caption class="e-sr-only">Example Table2</caption>
+        <caption class="e-sr-only">
+          Example Table2
+        </caption>
         <thead>
           <tr>
             <th scope="col" class="e-text-left">Text left</th>
@@ -273,7 +277,9 @@
     <div class="e-title-xs e-my-16">Long Column</div>
     <div class="e-table-container">
       <table class="e-table">
-        <caption class="e-sr-only">Example Table3</caption>
+        <caption class="e-sr-only">
+          Example Table3
+        </caption>
         <thead>
           <tr>
             <th scope="col">Periode</th>
@@ -326,7 +332,9 @@
     <div class="e-title-xs e-my-16">Footnote</div>
     <div class="e-table-container">
       <table class="e-table">
-        <caption class="e-sr-only">Example Table4</caption>
+        <caption class="e-sr-only">
+          Example Table4
+        </caption>
         <thead>
           <tr>
             <th scope="col">Periode*</th>
@@ -356,7 +364,9 @@
     <div class="e-title-xs e-my-16">Input</div>
     <div class="e-table-container">
       <table class="e-table">
-        <caption class="e-sr-only">Example Table5</caption>
+        <caption class="e-sr-only">
+          Example Table5
+        </caption>
         <thead>
           <tr>
             <th scope="col">Address</th>
@@ -387,7 +397,9 @@
     <div class="e-title-xs e-my-16">Buttons</div>
     <div class="e-table-container">
       <table class="e-table">
-        <caption class="e-sr-only">Example Table6</caption>
+        <caption class="e-sr-only">
+          Example Table6
+        </caption>
         <thead>
           <tr>
             <th scope="col">Address</th>
@@ -427,7 +439,9 @@
     <div class="e-title-xs e-my-16">Select</div>
     <div class="e-table-container">
       <table class="e-table">
-        <caption class="e-sr-only">Example Table7</caption>
+        <caption class="e-sr-only">
+          Example Table7
+        </caption>
         <thead>
           <tr class="e-table__select">
             <th scope="col">
@@ -468,7 +482,9 @@
     <div class="e-title-xs e-my-16">Link</div>
     <div class="e-table-container">
       <table class="e-table">
-        <caption class="e-sr-only">Example Table8</caption>
+        <caption class="e-sr-only">
+          Example Table8
+        </caption>
         <thead>
           <tr>
             <th scope="col">Address</th>
@@ -508,7 +524,9 @@
     <div class="e-title-xs e-my-16">Validation</div>
     <div class="e-table-container overview-example">
       <table class="e-table" aria-label="Beskrivelse av tabellen">
-        <caption class="e-sr-only">Beskrivelse av tabellen</caption>
+        <caption class="e-sr-only">
+          Beskrivelse av tabellen
+        </caption>
         <thead>
           <tr>
             <th scope="col">Column 1</th>
@@ -537,7 +555,9 @@
     </div>
     <div class="e-table-container overview-example">
       <table class="e-table" aria-label="Beskrivelse av tabellen">
-        <caption class="e-sr-only">Beskrivelse av tabellen</caption>
+        <caption class="e-sr-only">
+          Beskrivelse av tabellen
+        </caption>
         <thead>
           <tr>
             <th scope="col">Column 1</th>
@@ -552,6 +572,156 @@
           </tr>
           <tr>
             <td class="e-table__cell--invalid">Row 3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="e-title-xs e-my-16">Table-in-table</div>
+    <div class="e-table-container e-mb-16">
+      <table class="e-table e-table--small">
+        <caption class="e-sr-only">
+          Fakturaer for 2023
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Tidsperiode</th>
+            <th scope="col">Status</th>
+            <th scope="col" class="e-text-right">Beløp (kr)</th>
+            <th scope="col" class="e-text-right">Faktura nr.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Januar 2023</th>
+            <td>Betalt</td>
+            <td class="e-text-right e-text-mono">543,10</td>
+            <td class="e-text-right e-text-mono">1023456</td>
+          </tr>
+          <tr>
+            <td colspan="4">
+              <div class="e-table-container">
+                <table class="e-table e-table--small">
+                  <caption class="e-sr-only">
+                    Fakturaer for 2023
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Tidsperiode</th>
+                      <th scope="col">Status</th>
+                      <th scope="col" class="e-text-right">Beløp (kr)</th>
+                      <th scope="col" class="e-text-right">Faktura nr.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Januar 2023</th>
+                      <td>Sendt</td>
+                      <td class="e-text-right e-text-mono">567,98</td>
+                      <td class="e-text-right e-text-mono">1023456</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Februar 2023</th>
+                      <td>Betalt</td>
+                      <td class="e-text-right e-text-mono">543,10</td>
+                      <td class="e-text-right e-text-mono">1023456</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Mars 2023</th>
+                      <td>Betalt</td>
+                      <td class="e-text-right e-text-mono">568,98</td>
+                      <td class="e-text-right e-text-mono">1023456</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Februar 2023</th>
+            <td>Betalt</td>
+            <td class="e-text-right e-text-mono">543,10</td>
+            <td class="e-text-right e-text-mono">1023456</td>
+          </tr>
+          <tr>
+            <th scope="row">Mars 2023</th>
+            <td>Betalt</td>
+            <td class="e-text-right e-text-mono">568,98</td>
+            <td class="e-text-right e-text-mono">1023456</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="e-table-container">
+      <table class="e-table">
+        <caption class="e-sr-only">
+          Fakturaer for 2023
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Tidsperiode</th>
+            <th scope="col">Status</th>
+            <th scope="col" class="e-text-right">Beløp (kr)</th>
+            <th scope="col" class="e-text-right">Faktura nr.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4">
+              <div class="e-table-container">
+                <table class="e-table">
+                  <caption class="e-sr-only">
+                    Fakturaer for 2023
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Tidsperiode</th>
+                      <th scope="col">Status</th>
+                      <th scope="col" class="e-text-right">Beløp (kr)</th>
+                      <th scope="col" class="e-text-right">Faktura nr.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Januar 2023</th>
+                      <td>Sendt</td>
+                      <td class="e-text-right e-text-mono">567,98</td>
+                      <td class="e-text-right e-text-mono">1023456</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Februar 2023</th>
+                      <td>Betalt</td>
+                      <td class="e-text-right e-text-mono">543,10</td>
+                      <td class="e-text-right e-text-mono">1023456</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Mars 2023</th>
+                      <td>Betalt</td>
+                      <td class="e-text-right e-text-mono">568,98</td>
+                      <td class="e-text-right e-text-mono">1023456</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Februar 2023</th>
+            <td>Betalt</td>
+            <td class="e-text-right e-text-mono">543,10</td>
+            <td class="e-text-right e-text-mono">1023456</td>
+          </tr>
+          <tr>
+            <th scope="row">Mars 2023</th>
+            <td>Betalt</td>
+            <td class="e-text-right e-text-mono">568,98</td>
+            <td class="e-text-right e-text-mono">1023456</td>
+          </tr>
+          <tr>
+            <th scope="row">April 2023</th>
+            <td>Sendt</td>
+            <td class="e-text-right e-text-mono">521,98</td>
+            <td class="e-text-right e-text-mono">1023456</td>
           </tr>
         </tbody>
       </table>
