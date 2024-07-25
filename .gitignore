@@ -9,6 +9,7 @@ packages/web/src/assets/changelogs
 /packages/elvis-assets-icons/icons.cjs.js
 /packages/elvis/css/elvis.css
 /packages/elvis/css/elvis.min.css
+/packages/elvis/checkDeprecations.js
 /packages/elvis/elvis.js
 /packages/elvis/elvis.full.js
 
