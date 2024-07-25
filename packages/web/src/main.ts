@@ -3,8 +3,8 @@ import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading } from '@angular/router';
-import '@elvia/elvis';
 import '@elvia/elvis/checkDeprecations';
+import '@elvia/elvis/elvis.js';
 
 import { routes } from './app/app-routing';
 import { AppComponent } from './app/app.component';
