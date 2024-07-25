@@ -33,6 +33,38 @@
       </li>
       <li>
         <strong class="e-flex e-gap-8 e-align-items-center">
+          Import deprecation warning script
+          <elvia-popover heading="Deprecation warnings">
+            <button
+              slot="trigger"
+              aria-label="Read more about the deprecation warning script"
+              class="e-btn e-btn--icon e-btn--circled e-btn--sm"
+            >
+              <span class="e-btn__icon">
+                <i aria-hidden="true" class="e-icon e-icon--information_circle"> </i>
+                <i aria-hidden="true" class="e-icon e-icon e-icon--information_circle-filled-color"> </i>
+              </span>
+            </button>
+            <div slot="content" style="max-width: 400px">
+              The deprecation warning script will show a warning in the console if you are using a deprecated
+              class from the CSS library that has not yet been fully removed. This is to help you keep your
+              app up-to-date with the latest changes in Elvis.
+            </div>
+          </elvia-popover>
+          <span class="e-text-small-light">(Optional)</span>
+        </strong>
+
+        <app-copy class="e-flex e-mt-8" [message]="importDeprecationScript">
+          <code>{{ importDeprecationScript }}</code>
+        </app-copy>
+        <p class="e-text-md e-mt-8">
+          <strong>NB!</strong> This script only works on localhost. It is not necessary to import in
+          production, as it will add unnecessary weight to your app. It should also only be imported once,
+          somewhere at the base-level of your app.
+        </p>
+      </li>
+      <li>
+        <strong class="e-flex e-gap-8 e-align-items-center">
           Import CSS reset
           <elvia-popover heading="CSS reset">
             <button

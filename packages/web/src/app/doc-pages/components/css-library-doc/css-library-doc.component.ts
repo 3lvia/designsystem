@@ -37,6 +37,7 @@ export class CSSLibraryDocComponent {
   importStylesheet = "@import '@elvia/elvis/css/elvis.min.css';";
   importCSSReset = "@import '@elvia/elvis/css/css-reset.css';";
   importScript = "import '@elvia/elvis/elvis.js';";
+  importDeprecationScript = "import '@elvia/elvis/checkDeprecations.js';";
   title = docPage.title;
   description = docPage.description;
 
