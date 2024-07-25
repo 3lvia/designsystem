@@ -43,6 +43,8 @@
               "@contentful/rich-text-html-renderer",
               "@contentful/rich-text-types",
               "@elvia/elvis-assets-icons/config/icons.config.js",
+              "@elvia/elvis/elvis.js",
+              "@elvia/elvis/checkDeprecations",
               "hoist-non-react-statics",
               "json5",
               "lodash.isequal",
