@@ -19,6 +19,7 @@
     "elvis.js",
     "elvis.full.js",
     "checkDeprecations.js",
+    "checkDeprecations.d.ts",
     "CHANGELOG.json",
     "README.md",
     "LICENSE",

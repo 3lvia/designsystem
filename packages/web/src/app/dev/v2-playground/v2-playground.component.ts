@@ -23,6 +23,7 @@ interface StepStates {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {
+  showDeprecated = 0;
   //her
   endMinDate = new Date(2023, 9, 10);
   endTimeValue: Date | null = new Date(2023, 9, 10);

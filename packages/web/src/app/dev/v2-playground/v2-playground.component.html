@@ -3,7 +3,20 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <h3>Test your component here</h3>
-    <div class="example-wrapper"></div>
+    <div class="example-wrapper">
+      <button class="e-btn" (click)="showDeprecated = showDeprecated + 1">Increment</button>
+      <button class="e-btn" (click)="showDeprecated = 0">Reset</button>
+      <div class="e-search"></div>
+      @switch (showDeprecated) {
+        @case (1) {
+          <div class="e-search--instant"></div>
+        }
+        @case (2) {
+          <div class="e-alert--no-title"></div>
+        }
+        @case (3) {}
+      }
+    </div>
 
     <h3>Global Alert</h3>
     <div class="e-color-background-1 e-theme-dark"></div>
