@@ -7,14 +7,13 @@ import { generateIcons } from './tasks/icons.mjs';
 import { generateCSS } from './tasks/styles.mjs';
 
 function copyElvisToElvisFull() {
-  const elvisSrc = 'elvis.js';
-  const elvisFull = 'elvis.full.js';
+  const elvisSrc = ['elvis.js'];
 
   return gulp
     .src(elvisSrc)
     .pipe(
       tap((file) => {
-        file.basename = elvisFull;
+        file.basename = file.basename.split('.')[0] + '.full.js';
       }),
     )
     .pipe(gulp.dest('.'));
@@ -22,7 +21,7 @@ function copyElvisToElvisFull() {
 
 function minifyElvisJs() {
   return gulp
-    .src('elvis.js')
+    .src(['elvis.js', 'checkDeprecations.js'])
     .pipe(terser())
     .pipe(
       gulp.dest('.', {
