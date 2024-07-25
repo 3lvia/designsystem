@@ -193,10 +193,10 @@ const injectDeprecatedElvisClasses = async () => {
   embeddedJs += `
 ];`;
 
-  // Write to elvis.js at "//[[INJECT_DEPRECATED_ELVIS_CLASSES]]"
-  const template = readFileSync('elvis.js').toString();
+  // Write to checkDeprecations.js at "//[[INJECT_DEPRECATED_ELVIS_CLASSES]]"
+  const template = readFileSync('./src/templates/checkDeprecations.template.js').toString();
   const newContent = template.replace('//[[INJECT_DEPRECATED_ELVIS_CLASSES]]', embeddedJs);
-  writeFileSync('elvis.js', newContent);
+  writeFileSync('checkDeprecations.js', newContent);
 
   return true;
 };
