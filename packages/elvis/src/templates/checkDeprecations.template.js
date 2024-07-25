@@ -32,15 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
       const usedDeprecatedClass = deprecatedElvisClasses.find(
         (deprecatedElvisClass) => deprecatedElvisClass.name === usedClass,
       );
-      // If the class is deprecated and has not been warned yet, warn the user.
-      if (usedDeprecatedClass && !warnedClasses.has(usedDeprecatedClass.name)) {
-        if (usedDeprecatedClass.requiredAncestor && !descendantCombinationExist(usedDeprecatedClass)) {
-          return;
-        } else {
-          warnedClasses.add(usedDeprecatedClass.name);
-          warnings.push(generateDeprecationWarning(usedDeprecatedClass));
-        }
+      if (!usedDeprecatedClass || warnedClasses.has(usedDeprecatedClass.name)) {
+        return;
       }
+      if (usedDeprecatedClass.requiredAncestor && !descendantCombinationExist(usedDeprecatedClass)) {
+        return;
+      }
+
+      warnedClasses.add(usedDeprecatedClass.name);
+      warnings.push(generateDeprecationWarning(usedDeprecatedClass));
     });
 
     if (warnings.length > 0) {
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function getUsedClasses(changedElement) {
-    if (!changedElement || !changedElement.querySelectorAll) {
+    if (!changedElement?.querySelectorAll) {
       return [];
     }
     return [
