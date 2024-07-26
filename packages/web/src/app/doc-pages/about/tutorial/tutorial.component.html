@@ -13,8 +13,16 @@
       [value]="activeTabIndex()"
       (valueOnChange)="setActiveTab($any($event).detail.value)"
     ></elvia-tabs>
-    <elvia-popover [isShowing]="isPopoverShowing">
-      <button slot="trigger" class="e-btn e-btn--tertiary e-btn--sm">
+    <elvia-popover
+      [isShowing]="isPopoverShowing"
+      (onOpen)="isPopoverShowing = true"
+      (onClose)="isPopoverShowing = false"
+    >
+      <button
+        slot="trigger"
+        class="e-btn e-btn--tertiary e-btn--sm"
+        [class.e-btn---active]="isPopoverShowing"
+      >
         <span class="e-btn__title">Framework support</span>
         <span class="e-btn__icon">
           <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
@@ -28,19 +36,19 @@
     </elvia-popover>
   </div>
 
-  <!--TUTORIAL-->  
+  <!--TUTORIAL-->
   @switch (activeTabName) {
-  @case ( 'angular') {
-    <app-angular-tutorial />
+    @case ('angular') {
+      <app-angular-tutorial />
+    }
+    @case ('vue') {
+      <app-vue-tutorial />
+    }
+    @case ('react') {
+      <app-react-tutorial />
+    }
+    @case ('blazor') {
+      <app-blazor-tutorial />
+    }
   }
-  @case ('vue') {
-    <app-vue-tutorial />
-  }
-  @case ('react') {
-    <app-react-tutorial />
-  }
-   @case ('blazor') {
-    <app-blazor-tutorial />
-  }
-}
 </div>
