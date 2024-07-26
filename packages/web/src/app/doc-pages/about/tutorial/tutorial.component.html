@@ -28,17 +28,19 @@
     </elvia-popover>
   </div>
 
-  <!--TUTORIAL-->
-  @if (activeTabName === 'angular') {
-    <app-angular-tutorial></app-angular-tutorial>
+  <!--TUTORIAL-->  
+  @switch (activeTabName) {
+  @case ( 'angular') {
+    <app-angular-tutorial />
   }
-  @if (activeTabName === 'vue') {
-    <app-vue-tutorial></app-vue-tutorial>
+  @case ('vue') {
+    <app-vue-tutorial />
   }
-  @if (activeTabName === 'react') {
-    <app-react-tutorial></app-react-tutorial>
+  @case ('react') {
+    <app-react-tutorial />
   }
-  @if (activeTabName === 'blazor') {
-    <app-blazor-tutorial></app-blazor-tutorial>
+   @case ('blazor') {
+    <app-blazor-tutorial />
   }
+}
 </div>

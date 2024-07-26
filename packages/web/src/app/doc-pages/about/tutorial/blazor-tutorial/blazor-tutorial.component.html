@@ -1,5 +1,5 @@
 <!--BASIC TUTORIAL-->
-<div class="e-alert e-alert--info e-mt-40" role="alert">
+<div class="e-alert e-alert--info e-mt-40" role="note">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
   </div>
@@ -29,15 +29,20 @@
     </p>
     <p class="e-my-8 e-text-md">
       <strong
-        >The packages acts like any other external dependency you install and update in your project.
+        >The packages act like any other external dependency you install and update in your project.
       </strong>
     </p>
     <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStep2" hideTabs />
   </li>
   <li class="e-mt-24">
     <div class="e-title-xsmall">Create index.js</div>
+    <<<<<<< HEAD
     <p class="e-my-8">Create a new file index.js and import the CSS library files.</p>
     <app-code-viewer [tabs]="['Typescript']" fileName="index.js" [activeCode]="codeStep3" hideTabs />
+    =======
+    <p class="e-my-8">Create a new file <code>index.js</code> and import the CSS library files.</p>
+    <app-code-viewer [tabs]="['Typescript']" [fileName]="'index.js'" [activeCode]="codeStep3" hideTabs />
+    >>>>>>> 1a16b945e5ef83f0c8529dcd642db987a8b90a15
   </li>
   <li class="e-mt-24">
     <div class="e-title-xsmall">Add CSS-reset<span class="e-tag e-ml-8">Optional</span></div>
@@ -55,7 +60,7 @@
   </li>
   <li class="e-mt-24">
     <div class="e-title-xsmall">Build-script setup</div>
-    <p class="e-my-8">Create a script in package.json to build the file you created.</p>
+    <p class="e-my-8">Create a script in <code>package.json</code> to build the file you created.</p>
     <app-code-viewer [tabs]="['JSON']" fileName="package.json" [activeCode]="codeStep5" hideTabs />
   </li>
   <li class="e-mt-24">
@@ -66,8 +71,8 @@
   <li class="e-mt-24">
     <div class="e-title-xsmall">Import built files</div>
     <p class="e-my-8">
-      Import the stylesheet and script that was built. The js/index.bundle.js script should be added after the
-      framework/blazor.web.js script.
+      Import the stylesheet and script that was built. The <code>js/index.bundle.js</code> script should be
+      added after the <code>framework/blazor.web.js</code> script.
     </p>
     <app-code-viewer [tabs]="['HTML']" fileName="App.razor" [activeCode]="codeStep7" hideTabs />
   </li>
@@ -94,7 +99,7 @@
     </p>
     <p class="e-my-8 e-text-md">
       <strong
-        >The packages acts like any other external dependency you install and update in your project.
+        >The packages act like any other external dependency you install and update in your project.
       </strong>
     </p>
     <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStepAdvanced1" hideTabs />
@@ -112,7 +117,7 @@
       <a routerLink="/components/datepicker" fragment="API" class="e-link e-link--inline">datepicker API</a>
       lists all the properties and events available for datepicker.
     </p>
-    <div class="e-alert e-alert--info e-my-16" role="alert">
+    <div class="e-alert e-alert--info e-my-16" role="note">
       <div class="e-alert__icon">
         <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
       </div>
