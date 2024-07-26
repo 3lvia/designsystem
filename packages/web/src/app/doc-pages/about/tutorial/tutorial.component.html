@@ -13,12 +13,7 @@
       [value]="activeTabIndex()"
       (valueOnChange)="setActiveTab($any($event).detail.value)"
     ></elvia-tabs>
-    <elvia-popover
-      [isShowing]="isPopoverShowing"
-      horizontalPosition="center"
-      verticalPosition="top"
-      display="inline-block"
-    >
+    <elvia-popover [isShowing]="isPopoverShowing">
       <button slot="trigger" class="e-btn e-btn--tertiary e-btn--sm">
         <span class="e-btn__title">Framework support</span>
         <span class="e-btn__icon">
