@@ -31,8 +31,8 @@ import '@elvia/elvis/css/elvis.min.css';`;
     <script src="js/index.bundle.js"></script>
   </body>
 </html>`;
-  codeStep8 = `<h1 class=”e-title-lg”>Elvia title</h1>
-<button class=”e-btn”>Elvia button</button>`;
+  codeStep8 = `<h1 class="e-title-lg">Elvia title</h1>
+<button class="e-btn">Elvia button</button>`;
   codeStepAdvanced1 = ` npm install @elvia/elvis-datepicker`;
   codeStepAdvanced2 = `import '@elvia/elvis-datepicker;'`;
   codeStepAdvanced3 = `<elvia-datepicker></elvia-datepicker>`;

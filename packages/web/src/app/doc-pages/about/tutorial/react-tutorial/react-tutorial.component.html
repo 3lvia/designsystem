@@ -49,6 +49,14 @@
 <!--ADVANCED TUTORIAL-->
 <h3 class="e-title-small e-mt-64">Add an advanced component</h3>
 <ol class="e-list e-list--numbers e-mt-40">
+  <li class="e-mt-24">
+    <div class="e-title-xsmall">Start using advanced components</div>
+    <p class="e-my-8">
+      Choose between several different advanced components and customize according to your needs by using the
+      available props.
+    </p>
+    <app-code-viewer [tabs]="['HTML']" [fileName]="'App.tsx'" [activeCode]="codeStepAdvanced1" hideTabs />
+  </li>
   <li>
     <div class="e-title-xsmall">Install component</div>
     <p class="e-mt-8">
@@ -60,25 +68,12 @@
         >The packages acts like any other external dependency you install and update in your project.
       </strong>
     </p>
-    <app-code-viewer [tabs]="['Bash']" [fileName]="'Terminal'" [activeCode]="codeStepAdvanced1" hideTabs />
-  </li>
-  <li class="e-mt-24">
-    <div class="e-title-xsmall">Start using advanced components</div>
-    <p class="e-my-8">
-      Choose between several different advanced components and customize according to your needs by using the
-      available props.
-    </p>
-    <app-code-viewer [tabs]="['HTML']" [fileName]="'App.tsx'" [activeCode]="codeStepAdvanced2" hideTabs />
+    <app-code-viewer [tabs]="['Bash']" [fileName]="'Terminal'" [activeCode]="codeStepAdvanced2" hideTabs />
   </li>
   <li class="e-mt-24">
     <div class="e-title-xsmall">Add imports</div>
     <p class="e-my-8">Import the component.</p>
-    <app-code-viewer
-      [tabs]="['Typescript']"
-      [fileName]="'App.tsx'"
-      [activeCode]="codeStepAdvanced3"
-      hideTabs
-    />
+    <app-code-viewer [tabs]="['React']" [fileName]="'App.tsx'" [activeCode]="codeStepAdvanced3" hideTabs />
   </li>
   <li class="e-mt-24">
     <div class="e-title-xsmall">Using props and events</div>
@@ -90,6 +85,6 @@
       >
       lists all the properties and events available for datepicker.
     </p>
-    <app-code-viewer [tabs]="['HTML']" [fileName]="'App.tsx'" [activeCode]="codeStepAdvanced4" hideTabs />
+    <app-code-viewer [tabs]="['React']" [fileName]="'App.tsx'" [activeCode]="codeStepAdvanced4" hideTabs />
   </li>
 </ol>

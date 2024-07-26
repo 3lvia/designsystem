@@ -13,17 +13,27 @@ export class AngularTutorialComponent {
   codeStep1 = `npm install @elvia/elvis`;
   codeStep2 = `import '@elvia/elvis/css/elvis.min.css';
 import '@elvia/elvis/elvis.js';`;
-  codeStep3 = `<h1 class=”e-title-lg”>Elvia title</h1>
-<button class=”e-btn”>Elvia button</button>`;
+  codeStep3 = `<h1 class="e-title-lg">Elvia title</h1>
+<button class="e-btn">Elvia button</button>`;
   codeStep4 = `import '@elvia/elvis/css-reset.min.css';`;
   codeStepAdvanced1 = ` npm install @elvia/elvis-datepicker`;
   codeStepAdvanced2 = `import '@elvia/elvis-datepicker;'`;
-  codeStepAdvanced3 = `import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+  codeStepAdvanced3 = `import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+  
+/* With modules
+@NgModule({
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  other imports and declarations... 
+}) */
 
-/* @NgModule({ */ schemas: [CUSTOM_ELEMENTS_SCHEMA] /* }) */`;
+/* With standalone components
+@Component({
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  other imports and declarations... 
+}) */  `;
   codeStepAdvanced4 = `<elvia-datepicker></elvia-datepicker>`;
   codeStepAdvanced5 = `<elvia-datepicker 
     [isFullWidth]="true"
-    (valueOnChange)="handleOnChange($event.detail.value)"
+    (valueOnChange)="handleOnChange($any($event.detail.value))"
   ></elvia-datepicker>`;
 }

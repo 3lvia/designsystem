@@ -212,7 +212,7 @@ export const componentsDocPages: DocPage[] = [
   },
   {
     title: 'Drag & Drop',
-    description: `Drag & Drop is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show content area.`,
+    description: `Drag & Drop is typically used in <a class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show content area.`,
     docUrl: Pages.DragAndDrop,
     absolutePath: '/components/' + Pages.DragAndDrop,
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1811%3A1080',
@@ -299,7 +299,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'List',
     description:
-      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon. Lists should usually inherit the typography from the text surrounding the list. See <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/patterns/groups">patterns</a> for list or group design patterns.',
+      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon. Lists should usually inherit the typography from the text surrounding the list. See <a class="e-link e-link--inline" href="/patterns/groups">patterns</a> for list or group design patterns.',
     docUrl: Pages.List,
     absolutePath: '/components/' + Pages.List,
     figmaUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Lists?node-id=353%3A0',
@@ -397,7 +397,7 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'Radio Filter',
     description:
-      'Radio filters are buttons you can toggle between to filter out different properties of same content. It should always be an “all” option (shows all content) in radio filter.',
+      'Radio filters are buttons you can toggle between to filter out different properties of same content. It should always be an “all" option (shows all content) in radio filter.',
     docUrl: Pages.RadioFilter,
     absolutePath: '/components/' + Pages.RadioFilter,
     figmaUrl:
@@ -702,7 +702,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Contact',
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+      <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>`,
@@ -727,7 +727,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Tutorial',
-    description: `Tutorial for setting up the design system with an Elvia app. This guide assumes you’ve set up a project using one of the approved <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia.atlassian.net/wiki/spaces/Utviklerhandbok/pages/964985018/Approved+programming+languages" >
+    description: `This guide assumes you’ve set up a project using one of the approved <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia.atlassian.net/wiki/spaces/Utviklerhandbok/pages/964985018/Approved+programming+languages" >
         <span class="e-link__title">frameworks</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
       </a>. You may want to check that your packages are up to date.`,
@@ -785,8 +785,8 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.Illustration,
     figmaUrl: 'https://www.figma.com/file/twcgKk3NMXmi2uBjMdZSKo/?node-id=1%3A11',
     absolutePath: '/brand/' + Pages.Illustration,
-    description: `An illustration can help to communicate a message visually and add personality to the page. Using illustration is a powerful tool when users are frustrated, lost or something went wrong. See <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for guidelines.`,
-    descriptionNo: `En illustrasjon kan bidra til å formidle et budskap visuelt og gi siden personlighet. Bruk av illustrasjoner er et effektivt verktøy når brukerne er frustrerte, har gått seg vill eller når noe har gått galt. Se <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for retningslinjer.`,
+    description: `An illustration can help to communicate a message visually and add personality to the page. Using illustration is a powerful tool when users are frustrated, lost or something went wrong. See <a class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for guidelines.`,
+    descriptionNo: `En illustrasjon kan bidra til å formidle et budskap visuelt og gi siden personlighet. Bruk av illustrasjoner er et effektivt verktøy når brukerne er frustrerte, har gått seg vill eller når noe har gått galt. Se <a class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for retningslinjer.`,
     searchTerms: [],
     relatedPages: [],
   },
@@ -823,7 +823,7 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Contact',
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on Slack at
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+    <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
     </a>`,
