@@ -726,6 +726,15 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/about/' + Pages.GetStarted,
   },
   {
+    title: 'Tutorial',
+    description: `Tutorial for setting up the design system with an Elvia app. This guide assumes you’ve set up a project using one of the approved <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia.atlassian.net/wiki/spaces/Utviklerhandbok/pages/964985018/Approved+programming+languages" >
+        <span class="e-link__title">frameworks</span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+      </a>. You may want to check that your packages are up to date.`,
+    docUrl: Pages.Tutorial,
+    absolutePath: '/about/' + Pages.Tutorial,
+  },
+  {
     title: 'Shadow',
     titleNo: 'Skygge',
     description:

@@ -1,12 +1,17 @@
 <div class="code-container">
-  @if (!hideTabs) {
-    <div class="top-menu e-theme-dark">
+  <div class="top-menu e-theme-dark">
+    @if (!hideTabs) {
       <elvia-segmented-control
         [size]="(breakpointService.matches(['md', 'lg', 'xl']) | async) ? 'medium' : 'small'"
         [items]="tabs | tabToSegmentedControlItem"
         [value]="activeTabIndex"
         (valueOnChange)="tabIndexChange.emit($any($event).detail.value)"
       />
+    }
+    @if (fileName !== '') {
+      <div class="file-name e-text-small-mono">{{ fileName }}</div>
+    }
+    @if (!hideCopy) {
       <div class="copy-code" *ifViewportSize="['md', 'lg', 'xl']">
         <div class="e-mr-8">
           {{ copyMessage }}
@@ -17,8 +22,8 @@
           </span>
         </button>
       </div>
-    </div>
-  }
+    }
+  </div>
 
   <div class="overflow-container">
     <pre><code [innerHtml]="activeCode | formatCode:language | async | highlighter:language" class="ceg-code"></code></pre>

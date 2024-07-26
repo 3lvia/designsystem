@@ -57,6 +57,7 @@ export enum Pages {
   Contact = 'contact',
   Faq = 'faq',
   GetStarted = 'get-started',
+  Tutorial = 'tutorial',
   Shadow = 'shadow',
   TheDesignSystem = 'the-design-system',
   Utilities = 'utility-classes',
