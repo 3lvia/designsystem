@@ -14,7 +14,7 @@ import { Language } from './types';
 })
 export class FormatCodePipe implements PipeTransform {
   async transform(code: string, language: Language): Promise<string> {
-    if (language === 'bash' || language === 'markup') {
+    if (language === 'bash' || language === 'json') {
       return code;
     }
     const codeWithClosedTags = this.addClosingTagsToVoidElements(code);

@@ -55,8 +55,8 @@ export class CodeViewerComponent {
       return 'css';
     } else if (this.activeTab === 'Bash') {
       return 'bash';
-    } else if (this.activeTab === 'Markup') {
-      return 'markup';
+    } else if (this.activeTab === 'JSON') {
+      return 'json';
     }
     return 'html';
   }
