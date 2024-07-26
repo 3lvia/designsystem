@@ -14,14 +14,14 @@
 <h3 class="e-title-small e-mt-40 e-mb-0">Set up the basics</h3>
 <ol class="e-list e-list--numbers e-mt-40">
   <li>
-    <div class="e-title-xsmall">Initialize NPM in Blazor</div>
+    <h3 class="e-title-xsmall e-m-0">Initialize NPM in Blazor</h3>
     <p class="e-my-8">
       Add a folder called NpmJs at root in your project to be able to install NPM packages.
     </p>
     <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStep1" hideTabs />
   </li>
   <li class="e-mt-24">
-    <div class="e-title-xsmall">Install CSS library and web bundler</div>
+    <h3 class="e-title-xsmall e-m-0">Install CSS library and web bundler</h3>
     <p class="e-mt-8">
       Install esbuild and the
       <a routerLink="/components/css-library" class="e-link e-link--inline">CSS library</a> to get the basic
@@ -35,17 +35,12 @@
     <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStep2" hideTabs />
   </li>
   <li class="e-mt-24">
-    <div class="e-title-xsmall">Create index.js</div>
-    <<<<<<< HEAD
-    <p class="e-my-8">Create a new file index.js and import the CSS library files.</p>
-    <app-code-viewer [tabs]="['Typescript']" fileName="index.js" [activeCode]="codeStep3" hideTabs />
-    =======
+    <h3 class="e-title-xsmall e-m-0">Create index.js</h3>
     <p class="e-my-8">Create a new file <code>index.js</code> and import the CSS library files.</p>
-    <app-code-viewer [tabs]="['Typescript']" [fileName]="'index.js'" [activeCode]="codeStep3" hideTabs />
-    >>>>>>> 1a16b945e5ef83f0c8529dcd642db987a8b90a15
+    <app-code-viewer [tabs]="['Typescript']" fileName="index.js" [activeCode]="codeStep3" hideTabs />
   </li>
   <li class="e-mt-24">
-    <div class="e-title-xsmall">Add CSS-reset<span class="e-tag e-ml-8">Optional</span></div>
+    <h3 class="e-title-xsmall e-m-0">Add CSS-reset<span class="e-tag e-ml-8">Optional</span></h3>
     <p class="e-mt-8">
       Import the Elvis CSS reset if you wish to apply a generic CSS reset to your application.
     </p>
@@ -59,17 +54,17 @@
     <app-code-viewer [tabs]="['Typescript']" fileName="index.js" [activeCode]="codeStep4" hideTabs />
   </li>
   <li class="e-mt-24">
-    <div class="e-title-xsmall">Build-script setup</div>
+    <h3 class="e-title-xsmall e-m-0">Build-script setup</h3>
     <p class="e-my-8">Create a script in <code>package.json</code> to build the file you created.</p>
     <app-code-viewer [tabs]="['JSON']" fileName="package.json" [activeCode]="codeStep5" hideTabs />
   </li>
   <li class="e-mt-24">
-    <div class="e-title-xsmall">Run the build script</div>
+    <h3 class="e-title-xsmall e-m-0">Run the build script</h3>
     <p class="e-my-8">Run the new build script that was created.</p>
     <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStep6" hideTabs />
   </li>
   <li class="e-mt-24">
-    <div class="e-title-xsmall">Import built files</div>
+    <h3 class="e-title-xsmall e-m-0">Import built files</h3>
     <p class="e-my-8">
       Import the stylesheet and script that was built. The <code>js/index.bundle.js</code> script should be
       added after the <code>framework/blazor.web.js</code> script.
@@ -77,7 +72,7 @@
     <app-code-viewer [tabs]="['HTML']" fileName="App.razor" [activeCode]="codeStep7" hideTabs />
   </li>
   <li class="e-mt-24">
-    <div class="e-title-xsmall">Start using classes</div>
+    <h3 class="e-title-xsmall e-m-0">Start using classes</h3>
     <p class="e-my-8">
       Choose between multiple
       <a routerLink="/tools/utility-classes" class="e-link e-link--inline">brand utilities</a> and
@@ -92,7 +87,7 @@
 <h3 class="e-title-small e-mt-64">Add an advanced component</h3>
 <ol class="e-list e-list--numbers e-mt-40">
   <li>
-    <div class="e-title-xsmall">Install component</div>
+    <h3 class="e-title-xsmall e-m-0">Install component</h3>
     <p class="e-mt-8">
       Install the
       <a routerLink="/components/datepicker" class="e-link e-link--inline">datepicker component.</a>
@@ -105,12 +100,12 @@
     <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStepAdvanced1" hideTabs />
   </li>
   <li class="e-mt-24">
-    <div class="e-title-xsmall">Add imports</div>
+    <h3 class="e-title-xsmall e-m-0">Add imports</h3>
     <p class="e-my-8">Import the component.</p>
     <app-code-viewer [tabs]="['Typescript']" fileName="index.js" [activeCode]="codeStepAdvanced2" hideTabs />
   </li>
   <li class="e-mt-24">
-    <div class="e-title-xsmall">Start using advanced components</div>
+    <h3 class="e-title-xsmall e-m-0">Start using advanced components</h3>
     <p class="e-mt-8">
       Choose between several different advanced component and customize according to your needs by using the
       available props. The
