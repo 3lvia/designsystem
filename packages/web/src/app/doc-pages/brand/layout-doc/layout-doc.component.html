@@ -10,311 +10,27 @@
 <div class="page-body">
   <!--GRID-->
   <app-component-section [sectionTitle]="locale === 'nb-NO' ? 'Rutenett' : 'Grid'">
-    <div>
-      @if (locale === 'en-GB') {
-        We use the 12-column grid in our design system. We have two versions of it, one for external use and
-        one for internal. They both are responsive and have the same number of columns, but they have
-        different gutters and margins.
-      }
-      @if (locale === 'nb-NO') {
-        Vi bruker et rutenett med 12 kolonner i designsystemet vårt. Vi har to versjoner av det, en for
-        ekstern bruk og en for intern bruk. Begge er responsive og har samme antall kolonner, men de har
-        forskjellige gutters og marginer.
-      }
-    </div>
-
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Eksternt rutenett' : 'External grid'">
-      @if (locale === 'en-GB') {
-        The external grid are used on elvia.no and design.elvia.io.
-      }
-      @if (locale === 'nb-NO') {
-        Det eksterne rutenettet brukes på elvia.no og design.elvia.io.
-      }
-
-      <div class="e-mt-16">
-        <elvia-tabs
-          id="egTabs"
-          [items]="['Desktop', 'Tablet', 'Mobile']"
-          [value]="0"
-          (valueOnChange)="egSelectedValue = $any($event).detail.value"
-        ></elvia-tabs>
-      </div>
-      @if (egSelectedValue === 0) {
-        <div class="grid-info e-mt-16">
-          <div>
-            <img
-              src="/assets/grid/externalDesktopGrid.svg"
-              alt="External grid desktop"
-              class="e-none-sm e-w-100"
-            />
-          </div>
-          <div class="circles-container">
-            <div class="information-container">
-              <div class="information-circle column-color"></div>
-              <div>
-                <div class="e-title-caps e-mr-8">Columns</div>
-                <div class="e-text-sm">12</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle margin-color">M</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Margin</div>
-                <div class="e-text-sm">120px</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle gutter-color">G</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Gutter</div>
-                <div class="e-text-sm">56px</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      }
-      @if (egSelectedValue === 1) {
-        <div class="grid-info e-mt-16">
-          <div>
-            <img
-              src="/assets/grid/externalTabletGrid.svg"
-              alt="External grid tablet"
-              class="e-none-sm e-w-100"
-            />
-          </div>
-          <div class="circles-container">
-            <div class="information-container">
-              <div class="information-circle column-color"></div>
-              <div>
-                <div class="e-title-caps e-mr-8">Columns</div>
-                <div class="e-text-sm">8</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle margin-color">M</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Margin</div>
-                <div class="e-text-sm">32px</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle gutter-color">G</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Gutter</div>
-                <div class="e-text-sm">32px</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      }
-      @if (egSelectedValue === 2) {
-        <div class="grid-info e-mt-16">
-          <div>
-            <img
-              src="/assets/grid/externalMobileGrid.svg"
-              alt="External grid mobile"
-              class="e-none-sm e-w-100"
-            />
-          </div>
-          <div class="circles-container">
-            <div class="information-container">
-              <div class="information-circle column-color"></div>
-              <div>
-                <div class="e-title-caps e-mr-8">Columns</div>
-                <div class="e-text-sm">6</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle margin-color">M</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Margin</div>
-                <div class="e-text-sm">16px</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle gutter-color">G</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Gutter</div>
-                <div class="e-text-sm">16px</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      }
-    </app-component-subsection>
-
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Internt rutenett' : 'Internal grid'">
-      @if (locale === 'en-GB') {
-        The internal grid is used on internal applications.
-      }
-      @if (locale === 'nb-NO') {
-        Det interne rutenettet brukes på interne applikasjoner.
-      }
-      <div class="e-mt-24">
-        <elvia-tabs
-          id="igTabs"
-          [items]="['Desktop', 'Tablet', 'Mobile']"
-          [value]="0"
-          (valueOnChange)="igSelectedValue = $any($event).detail.value"
-        ></elvia-tabs>
-      </div>
-      @if (igSelectedValue === 0) {
-        <div class="grid-info e-mt-16">
-          <div>
-            <img
-              src="/assets/grid/internalDesktopGrid.svg"
-              alt="Internal grid desktop"
-              class="e-none-sm e-w-100"
-            />
-          </div>
-          <div class="circles-container">
-            <div class="information-container">
-              <div class="information-circle column-color"></div>
-              <div>
-                <div class="e-title-caps e-mr-8">Columns</div>
-                <div class="e-text-sm">12</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle margin-color">M</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Margin</div>
-                <div class="e-text-sm">Left: 88px</div>
-                <div class="e-text-sm">Right: 32px</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle gutter-color">G</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Gutter</div>
-                <div class="e-text-sm">32px</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      }
-      @if (igSelectedValue === 1) {
-        <div class="grid-info e-mt-16">
-          <div>
-            <img
-              src="/assets/grid/internalTabletGrid.svg"
-              alt="Internal grid tablet"
-              class="e-none-sm e-w-100"
-            />
-          </div>
-          <div class="circles-container">
-            <div class="information-container">
-              <div class="information-circle column-color"></div>
-              <div>
-                <div class="e-title-caps e-mr-8">Columns</div>
-                <div class="e-text-sm">8</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle margin-color">M</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Margin</div>
-                <div class="e-text-sm">Left: 88px</div>
-                <div class="e-text-sm">Right: 32px</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle gutter-color">G</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Gutter</div>
-                <div class="e-text-sm">24px</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      }
-      @if (igSelectedValue === 2) {
-        <div class="grid-info e-mt-16">
-          <div>
-            <img
-              src="/assets/grid/internalMobileGrid.svg"
-              alt="Internal grid mobile"
-              class="e-none-sm e-w-100"
-            />
-          </div>
-          <div class="circles-container">
-            <div class="information-container">
-              <div class="information-circle column-color"></div>
-              <div>
-                <div class="e-title-caps e-mr-8">Columns</div>
-                <div class="e-text-sm">6</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle margin-color">M</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Margin</div>
-                <div class="e-text-sm">16px</div>
-              </div>
-            </div>
-            <div class="information-container">
-              <div class="information-circle gutter-color">G</div>
-              <div>
-                <div class="e-title-caps e-mr-8">Gutter</div>
-                <div class="e-text-sm">16px</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      }
-    </app-component-subsection>
-
-    <app-component-subsection [sectionTitle]="locale === 'nb-NO' ? 'Bruddpunkter' : 'Breakpoints'">
-      @if (locale === 'en-GB') {
-        The grid-system follows a 12 column rule, but the max number of columns should not exceed 8 on tablet
-        and 6 on mobile.
-      }
-      @if (locale === 'nb-NO') {
-        Rutenettet følger en 12-kolonners regel, men maks antall kolonner bør ikke overstige 8 på nettbrett og
-        6 på mobil.
-      }
-
-      <div class="e-table-container e-mt-24">
-        <table class="e-table" aria-label="Beskrivelse av tabellen">
-          <thead>
-            <tr>
-              <th scope="col">Device</th>
-              <th scope="col">Max columns</th>
-              <th scope="col">Sizes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="col">Mobile</th>
-              <td>6</td>
-              <td>-> 767px</td>
-            </tr>
-            <tr>
-              <th scope="row">Tablet</th>
-              <td>8</td>
-              <td>768px -> 1023px</td>
-            </tr>
-            <tr>
-              <th scope="row">MinDesktop</th>
-              <td>12</td>
-              <td>1024px -> 1439px</td>
-            </tr>
-            <tr>
-              <th scope="row">MaxDesktop</th>
-              <td>12</td>
-              <td>1440px -></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </app-component-subsection>
-
-    <app-component-subsection [sectionTitle]="'Implementation'">
-      <div>
-        Our grid-system shares the same philosophy as the Bootstrap grid-system and works almost the same. To
-        use the grid-system add the e-grid class on a wrapper element. The grid-system classes will only work
-        inside this wrapper, and will therefore not break any other potential grid-systems.
-      </div>
+    Each application can set up its own appropriate grid, since we don’t offer a common grid in the design
+    system. We recommend to use
+    <a
+      class="e-link e-link--inline e-link--new-tab"
+      href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="e-link__title">CSS grid</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span></a
+    >.
+    <app-component-subsection [sectionTitle]="'Old implementation (not recommended)'">
+      <p>
+        We previously had a common grid that shared the same philosophy as the Bootstrap grid-system, but we
+        no longer recommend this. We still have the documentation available for those who have already
+        implemented it.
+      </p>
+      <p>
+        To use the grid-system add the e-grid class on a wrapper element. The grid-system classes will only
+        work inside this wrapper, and will therefore not break any other potential grid-systems.
+      </p>
 
       <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
         <!--Breakpoints-->
@@ -337,16 +53,6 @@
         <!--Layout-->
         <elvia-accordion closeLabel="Layout" isFullWidth="true" openLabel="Layout" size="large">
           <div slot="content">
-            <app-component-subsubsection [sectionTitle]="'Standard'">
-              A grid layout for external and internal systems. If you don’t need to use all 12 columns
-              individually, you can group the columns to create wider columns.
-              <img
-                src="/assets/grid/standardLayout.svg"
-                alt="Internal grid mobile"
-                class="theme-image-background e-none-sm e-w-100 e-mt-32"
-              />
-            </app-component-subsubsection>
-
             <app-component-subsubsection [sectionTitle]="'Alignment'">
               Use
               <code>justify-content</code>
