@@ -3,6 +3,16 @@
   "name": "elvis",
   "content": [
     {
+      "version": "19.2.2",
+      "date": "July 29, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Fixes for sass breaking change regarding nested rules and declarations."]
+        }
+      ]
+    },
+    {
       "version": "19.2.1",
       "date": "July 25, 2024",
       "changelog": [
