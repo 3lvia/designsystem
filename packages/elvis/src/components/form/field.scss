@@ -13,11 +13,10 @@
   &__label {
     display: block;
     margin-bottom: 4px;
-    color: var(--e-color-text-1);
-
     text-align: left;
     @include mixins.typography('text-md-strong');
     & {
+      color: var(--e-color-text-1);
       line-height: 22px;
     }
 
@@ -32,9 +31,11 @@
     min-height: 22px;
     align-items: center;
     margin-top: 2px;
-    color: var(--e-color-text-1);
     visibility: hidden;
     @include mixins.typography('text-sm');
+    & {
+      color: var(--e-color-text-1);
+    }
 
     &.e-form-field__error--visible {
       visibility: unset;
