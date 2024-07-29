@@ -200,8 +200,10 @@ $table-invalid-padding: 8px 16px;
       @include header-style;
 
       th {
-        color: var(--e-color-text-1);
         @include mixins.typography('title-xxs');
+        & {
+          color: var(--e-color-text-1);
+        }
       }
     }
 
@@ -212,8 +214,10 @@ $table-invalid-padding: 8px 16px;
     td,
     th {
       padding: $table-small-padding;
-      color: var(--e-color-text-1);
       @include mixins.typography('text-sm');
+      & {
+        color: var(--e-color-text-1);
+      }
     }
   }
 
@@ -266,17 +270,21 @@ $table-invalid-padding: 8px 16px;
     }
 
     th {
-      color: var(--e-color-text-1);
       @include mixins.typography('title-xs');
+      & {
+        color: var(--e-color-text-1);
+      }
     }
   }
 
   th,
   td {
     padding: $table-padding;
-    color: var(--e-color-text-1);
     text-align: left;
     @include mixins.typography('text-md');
+    & {
+      color: var(--e-color-text-1);
+    }
 
     @include breakpoints.breakpoint-up(Mobile) {
       line-height: 27px; // Again, probably because of an error in text-md

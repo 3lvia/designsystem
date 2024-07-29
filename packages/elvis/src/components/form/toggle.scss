@@ -10,27 +10,26 @@ $toggle-slider-size: 10px;
 $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
 
 .e-toggle {
-  @include helpers.custom-light-theme-tokens {
-    --e-toggle-border-color: transparent;
-    --e-toggle-checked-disabled-switch: #c2ebba;
-  }
-
-  @include helpers.custom-dark-theme-tokens('toggle') {
-    --e-toggle-border-color: var(--e-dark-theme-white);
-    --e-toggle-checked-disabled-switch: #619655;
-  }
-}
-
-.e-toggle {
   // Label
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: var(--e-color-text-1);
   cursor: pointer;
   gap: 8px;
   @include mixins.typography('text-medium');
+  & {
+    color: var(--e-color-text-1);
+  }
+
+  @include helpers.custom-light-theme-tokens {
+    --e-toggle-border-color: transparent;
+    --e-toggle-checked-disabled-switch: #c2ebba;
+  }
+  @include helpers.custom-dark-theme-tokens('toggle') {
+    --e-toggle-border-color: var(--e-dark-theme-white);
+    --e-toggle-checked-disabled-switch: #619655;
+  }
 
   // Larger touch-target
   &::after {

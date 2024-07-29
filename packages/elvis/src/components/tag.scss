@@ -32,18 +32,6 @@ $tag-colors: (
 );
 
 .e-tag {
-  @include helpers.custom-light-theme-tokens {
-    --e-tag-color-neutral: var(--e-light-theme-black);
-    --e-tag-color-grey: var(--e-light-theme-grey);
-  }
-
-  @include helpers.custom-dark-theme-tokens('tag') {
-    --e-tag-color-neutral: var(--e-dark-theme-white);
-    --e-tag-color-grey: var(--e-dark-theme-grey-30);
-  }
-}
-
-.e-tag {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -53,11 +41,20 @@ $tag-colors: (
   background: var(--e-color-background-element-3);
 
   white-space: nowrap;
-  color: var(--e-color-text-1);
   @include mixins.typography('text-micro');
   & {
+    color: var(--e-color-text-1);
     letter-spacing: 0.5px;
     text-transform: uppercase;
+  }
+
+  @include helpers.custom-light-theme-tokens {
+    --e-tag-color-neutral: var(--e-light-theme-black);
+    --e-tag-color-grey: var(--e-light-theme-grey);
+  }
+  @include helpers.custom-dark-theme-tokens('tag') {
+    --e-tag-color-neutral: var(--e-dark-theme-white);
+    --e-tag-color-grey: var(--e-dark-theme-grey-30);
   }
 
   @each $name, $variable in $tag-colors {

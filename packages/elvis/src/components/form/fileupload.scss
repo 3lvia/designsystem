@@ -19,8 +19,10 @@
   }
 
   &__description {
-    color: var(--e-color-text-1);
     @include mixins.typography('text-medium');
+    & {
+      color: var(--e-color-text-1);
+    }
   }
 
   &__input {
@@ -36,9 +38,11 @@
       padding-bottom: 3.5px;
       border-radius: 0;
       border-bottom: 2.5px solid transparent;
-      color: var(--e-color-text-1);
       cursor: pointer;
       @include mixins.typography('text-interactive-md');
+      & {
+        color: var(--e-color-text-1);
+      }
 
       @include helpers.hover() {
         &:hover {

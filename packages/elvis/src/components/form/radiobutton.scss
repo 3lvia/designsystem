@@ -11,18 +11,6 @@ $radio-mark-checked-background: var(--e-radio-checked-background-color);
 $radio-mark-border: 1px solid var(--e-color-border-1);
 
 .e-radio {
-  @include helpers.custom-light-theme-tokens {
-    --e-radio-checked-color: var(--e-light-theme-black);
-    --e-radio-checked-background-color: var(--e-light-theme-green);
-  }
-
-  @include helpers.custom-dark-theme-tokens('radio') {
-    --e-radio-checked-color: var(--e-dark-theme-green);
-    --e-radio-checked-background-color: var(--e-dark-theme-black);
-  }
-}
-
-.e-radio {
   position: relative;
   display: flex;
   width: fit-content;
@@ -33,6 +21,15 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
 
   &:not(:last-child) {
     margin-bottom: 8px;
+  }
+
+  @include helpers.custom-light-theme-tokens {
+    --e-radio-checked-color: var(--e-light-theme-black);
+    --e-radio-checked-background-color: var(--e-light-theme-green);
+  }
+  @include helpers.custom-dark-theme-tokens('radio') {
+    --e-radio-checked-color: var(--e-dark-theme-green);
+    --e-radio-checked-background-color: var(--e-dark-theme-black);
   }
 
   &__mark {
@@ -50,9 +47,9 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
   &__label {
     flex-grow: 1;
     margin-left: 32px;
-    color: var(--e-color-text-1);
     @include mixins.typography('text-md');
     & {
+      color: var(--e-color-text-1);
       line-height: 24px;
     }
   }

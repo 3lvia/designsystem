@@ -47,8 +47,10 @@ $global-mobile-notitle-padding: 16px;
 
     .e-alert__text {
       max-width: 758px;
-      color: var(--e-color-text-1);
       @include mixins.typography('text-md');
+      & {
+        color: var(--e-color-text-1);
+      }
 
       ul {
         padding: 0;
@@ -97,8 +99,10 @@ $global-mobile-notitle-padding: 16px;
     }
 
     .e-alert__content .e-alert__title {
-      color: var(--e-color-text-1);
       @include mixins.typography('title-xs');
+      & {
+        color: var(--e-color-text-1);
+      }
     }
 
     .e-alert__content .e-alert__text {
@@ -183,8 +187,10 @@ $global-mobile-notitle-padding: 16px;
 
     .e-alert__title {
       margin: 0;
-      color: var(--e-color-text-1);
       @include mixins.typography('text-md-strong');
+      & {
+        color: var(--e-color-text-1);
+      }
     }
 
     .e-alert__close {
