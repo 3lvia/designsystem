@@ -2,8 +2,8 @@
 @use '../../utilities/mixins';
 
 .e-search {
-  @include mixins.typography('text-md');
   position: relative;
+  @include mixins.typography('text-md');
 
   &::-ms-clear {
     display: none;

@@ -20,7 +20,9 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
     --e-radio-checked-color: var(--e-dark-theme-green);
     --e-radio-checked-background-color: var(--e-dark-theme-black);
   }
+}
 
+.e-radio {
   position: relative;
   display: flex;
   width: fit-content;
@@ -48,9 +50,11 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
   &__label {
     flex-grow: 1;
     margin-left: 32px;
-    @include mixins.typography('text-md');
     color: var(--e-color-text-1);
-    line-height: 24px;
+    @include mixins.typography('text-md');
+    & {
+      line-height: 24px;
+    }
   }
 
   // Hide default radiostyle
@@ -118,7 +122,9 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
     .e-radio__label {
       margin-left: 24px;
       @include mixins.typography('text-sm');
-      line-height: 16px;
+      & {
+        line-height: 16px;
+      }
     }
 
     // States - small specific

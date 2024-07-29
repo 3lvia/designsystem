@@ -42,10 +42,9 @@ $sizes: (
 $default-size: 'md';
 
 .e-icon {
-  @include icon-size($default-size);
   display: inline-block;
-
   line-height: 0;
+  @include icon-size($default-size);
 
   @each $class, $colors in IconMap.$icon-theme-classes {
     &.e-icon--#{$class} {

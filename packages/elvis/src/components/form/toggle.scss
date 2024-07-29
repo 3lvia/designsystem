@@ -19,9 +19,10 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
     --e-toggle-border-color: var(--e-dark-theme-white);
     --e-toggle-checked-disabled-switch: #619655;
   }
+}
 
+.e-toggle {
   // Label
-  @include mixins.typography('text-medium');
   position: relative;
   display: flex;
   flex-direction: row;
@@ -29,6 +30,7 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
   color: var(--e-color-text-1);
   cursor: pointer;
   gap: 8px;
+  @include mixins.typography('text-medium');
 
   // Larger touch-target
   &::after {

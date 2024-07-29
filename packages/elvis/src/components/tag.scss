@@ -41,7 +41,9 @@ $tag-colors: (
     --e-tag-color-neutral: var(--e-dark-theme-white);
     --e-tag-color-grey: var(--e-dark-theme-grey-30);
   }
+}
 
+.e-tag {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -49,11 +51,14 @@ $tag-colors: (
   padding-inline: 8px;
   border-radius: 4px;
   background: var(--e-color-background-element-3);
-  @include mixins.typography('text-micro');
-  color: var(--e-color-text-1);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+
   white-space: nowrap;
+  color: var(--e-color-text-1);
+  @include mixins.typography('text-micro');
+  & {
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
 
   @each $name, $variable in $tag-colors {
     &.e-tag--#{$name} {

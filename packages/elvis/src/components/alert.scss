@@ -46,9 +46,9 @@ $global-mobile-notitle-padding: 16px;
     }
 
     .e-alert__text {
-      @include mixins.typography('text-md');
       max-width: 758px;
       color: var(--e-color-text-1);
+      @include mixins.typography('text-md');
 
       ul {
         padding: 0;
@@ -97,8 +97,8 @@ $global-mobile-notitle-padding: 16px;
     }
 
     .e-alert__content .e-alert__title {
-      @include mixins.typography('title-xs');
       color: var(--e-color-text-1);
+      @include mixins.typography('title-xs');
     }
 
     .e-alert__content .e-alert__text {
@@ -182,9 +182,9 @@ $global-mobile-notitle-padding: 16px;
     }
 
     .e-alert__title {
-      @include mixins.typography('text-md-strong');
       margin: 0;
       color: var(--e-color-text-1);
+      @include mixins.typography('text-md-strong');
     }
 
     .e-alert__close {

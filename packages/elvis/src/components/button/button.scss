@@ -9,11 +9,14 @@
     --e-button-icon-color-filled-foreground-light: var(--e-light-theme-black);
     --e-button-icon-color-filled-foreground-hover-light: var(--e-light-theme-white);
   }
-
   @include helpers.custom-dark-theme-tokens(button) {
     --e-button-icon-color-filled-foreground-light: var(--e-dark-theme-white);
     --e-button-icon-color-filled-foreground-hover-light: var(--e-dark-theme-white);
   }
+}
+
+.e-btn,
+.e-btn.e-btn--primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -21,12 +24,12 @@
   border: 1px solid var(--e-color-border-1);
   border-radius: 24px;
   background: var(--e-color-background-element-5);
-
-  @include mixins.typography('text-interactive-md');
   color: var(--e-color-text-4);
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
+
+  @include mixins.typography('text-interactive-md');
 
   // Icons
   .e-btn__icon {
@@ -53,8 +56,8 @@
   // Sizes
   &.e-btn--lg {
     padding: 11px 31px;
-    @include mixins.typography('text-interactive-lg');
     color: var(--e-color-text-4);
+    @include mixins.typography('text-interactive-lg');
 
     .e-btn__icon {
       @include icons.icon-size('sm');
@@ -68,8 +71,8 @@
 
   &.e-btn--sm {
     padding: 5px 15px;
-    @include mixins.typography('text-interactive-sm');
     color: var(--e-color-text-4);
+    @include mixins.typography('text-interactive-sm');
 
     &.e-btn--loading span {
       width: 8px;

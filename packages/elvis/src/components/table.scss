@@ -64,7 +64,9 @@ $table-invalid-padding: 8px 16px;
   @include helpers.custom-dark-theme-tokens('table') {
     --e-table-row-background: var(--e-dark-theme-grey);
   }
+}
 
+.e-table {
   position: relative;
   display: table;
   overflow: auto;
@@ -97,11 +99,11 @@ $table-invalid-padding: 8px 16px;
 
   td,
   th {
-    @include mixins.typography('text-md');
-
     padding: $table-padding;
     background: var(--e-table-row-background);
     text-align: left;
+
+    @include mixins.typography('text-md');
 
     @include breakpoints.breakpoint-up(Mobile) {
       line-height: 28px; // This looks like it may be here because the text-md typography defines the wrong mobile line height.
@@ -198,8 +200,8 @@ $table-invalid-padding: 8px 16px;
       @include header-style;
 
       th {
-        @include mixins.typography('title-xxs');
         color: var(--e-color-text-1);
+        @include mixins.typography('title-xxs');
       }
     }
 
@@ -209,9 +211,9 @@ $table-invalid-padding: 8px 16px;
 
     td,
     th {
-      @include mixins.typography('text-sm');
       padding: $table-small-padding;
       color: var(--e-color-text-1);
+      @include mixins.typography('text-sm');
     }
   }
 
@@ -264,17 +266,17 @@ $table-invalid-padding: 8px 16px;
     }
 
     th {
-      @include mixins.typography('title-xs');
       color: var(--e-color-text-1);
+      @include mixins.typography('title-xs');
     }
   }
 
   th,
   td {
-    @include mixins.typography('text-md');
     padding: $table-padding;
     color: var(--e-color-text-1);
     text-align: left;
+    @include mixins.typography('text-md');
 
     @include breakpoints.breakpoint-up(Mobile) {
       line-height: 27px; // Again, probably because of an error in text-md
@@ -292,8 +294,8 @@ $table-invalid-padding: 8px 16px;
   }
 
   tbody tr:first-of-type th {
-    @include mixins.typography('text-md-strong');
     background: var(--e-color-background-element-2);
+    @include mixins.typography('text-md-strong');
   }
 
   tbody th,
@@ -323,14 +325,14 @@ $table-invalid-padding: 8px 16px;
 
     td,
     th {
-      @include mixins.typography('text-sm');
       padding: $table-small-padding;
       color: var(--e-color-text-1);
+      @include mixins.typography('text-sm');
     }
 
     tbody tr:first-of-type th {
-      @include mixins.typography('text-sm-strong');
       color: var(--e-color-text-1);
+      @include mixins.typography('text-sm-strong');
     }
   }
 

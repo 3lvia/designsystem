@@ -10,7 +10,9 @@
   @include helpers.custom-dark-theme-tokens('btn') {
     --e-button-danger-hover-background: var(--e-dark-theme-white);
   }
+}
 
+.e-btn.e-btn--danger {
   border-color: var(--e-color-signal-danger);
   background: var(--e-color-signal-danger);
   color: var(--e-color-text-3);

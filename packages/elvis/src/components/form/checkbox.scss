@@ -17,7 +17,9 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   @include helpers.custom-dark-theme-tokens('checkbox') {
     --e-checkbox-border-checked-color: transparent;
   }
+}
 
+.e-checkbox {
   position: relative;
   display: flex;
   width: fit-content;
@@ -49,16 +51,12 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     margin-left: 8px;
     color: var(--e-color-text-1);
     @include mixins.typography('text-md');
-    line-height: 24px;
+    & {
+      line-height: 24px;
+    }
   }
 
   input {
-    @include helpers.hover() {
-      &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
-        background-color: var(--e-color-background-hover-1);
-      }
-    }
-
     // Hides initial checkbox
     position: absolute;
     z-index: -1;
@@ -67,6 +65,12 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     border-radius: 50%;
     margin: 0;
     opacity: 0;
+
+    @include helpers.hover() {
+      &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
+        background-color: var(--e-color-background-hover-1);
+      }
+    }
   }
 
   // States
@@ -119,9 +123,11 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
     }
 
     .e-checkbox__label {
-      @include mixins.typography('text-sm');
       color: var(--e-color-text-1);
-      line-height: 16px;
+      @include mixins.typography('text-sm');
+      & {
+        line-height: 16px;
+      }
     }
 
     // States - small specific

@@ -19,8 +19,8 @@
   }
 
   &__description {
-    @include mixins.typography('text-medium');
     color: var(--e-color-text-1);
+    @include mixins.typography('text-medium');
   }
 
   &__input {
@@ -36,9 +36,9 @@
       padding-bottom: 3.5px;
       border-radius: 0;
       border-bottom: 2.5px solid transparent;
-      @include mixins.typography('text-interactive-md');
       color: var(--e-color-text-1);
       cursor: pointer;
+      @include mixins.typography('text-interactive-md');
 
       @include helpers.hover() {
         &:hover {
@@ -52,9 +52,9 @@
       }
 
       i {
-        @include icons.icon-size('sm');
         display: flex;
         margin-right: 8px;
+        @include icons.icon-size('sm');
       }
     }
   }
