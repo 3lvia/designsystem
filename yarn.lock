@@ -2250,13 +2250,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-html-renderer@npm:^16.6.7":
-  version: 16.6.7
-  resolution: "@contentful/rich-text-html-renderer@npm:16.6.7"
+"@contentful/rich-text-html-renderer@npm:^16.6.8":
+  version: 16.6.8
+  resolution: "@contentful/rich-text-html-renderer@npm:16.6.8"
   dependencies:
-    "@contentful/rich-text-types": "npm:^16.8.2"
+    "@contentful/rich-text-types": "npm:^16.8.3"
     escape-html: "npm:^1.0.3"
-  checksum: 10/790756d2a17a1d3c48e1eae0b8b3a61f9beefd0fa75aa2b4b2c9ec7783426b82307c2d2690571c1be2abd71f9e372993e5ed7644dd3e13965fa98543c34585e6
+  checksum: 10/eafe2bb2f7fc72ba0bb5f308cf53fbf7c500394e954f143e0c52fd96912257993e67aff56e36b92f4762ad2c43fa511aa42ed1d9b652c8459b4f082bf8739d0d
   languageName: node
   linkType: hard
 
@@ -2267,10 +2267,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-types@npm:^16.8.2":
-  version: 16.8.2
-  resolution: "@contentful/rich-text-types@npm:16.8.2"
-  checksum: 10/f543dc5907a9075cf9e120c71fce9380eb6526a36a34c33353d084ff83beaff816f65321cab209b68f129c5340e074783ec1da4f24eecd7d0f3e7e76e76008e8
+"@contentful/rich-text-types@npm:^16.8.3":
+  version: 16.8.3
+  resolution: "@contentful/rich-text-types@npm:16.8.3"
+  checksum: 10/790b40930e89d6da910bc1522375c657f167d0002db04d8673fb4ec91f8044a4dbc49afd138e3cbad4d5586ddc8e71887ee6daf65319e42d4391462b5df4fae6
   languageName: node
   linkType: hard
 
@@ -9349,8 +9349,8 @@ __metadata:
     "@angular/router": "npm:^18.1.2"
     "@babel/core": "npm:^7.24.9"
     "@babel/eslint-parser": "npm:^7.24.8"
-    "@contentful/rich-text-html-renderer": "npm:^16.6.7"
-    "@contentful/rich-text-types": "npm:^16.8.2"
+    "@contentful/rich-text-html-renderer": "npm:^16.6.8"
+    "@contentful/rich-text-types": "npm:^16.8.3"
     "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
     "@elvia/elvis-assets-icons": "workspace:*"
