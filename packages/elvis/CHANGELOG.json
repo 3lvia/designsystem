@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "19.3.0",
+      "date": "July 30, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["All font-sizes and letter-spacing attributes are now defined in rem instead of px."],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "19.2.1",
       "date": "July 25, 2024",
       "changelog": [

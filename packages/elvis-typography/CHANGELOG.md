@@ -1,5 +1,11 @@
 # Elvia Typography Changelog
 
+## 3.1.0 (30.07.24)
+
+### Minor
+
+- All font-sizes and letter-spacing attributes are now defined in rem instead of px.
+
 ## 3.0.0 (18.06.24)
 
 ### Major
