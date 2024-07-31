@@ -2,8 +2,8 @@ export const ElviaTypography = {
   'title-lg': {
     altLabels: ['title-large'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
-    fontSize: '44px',
-    fontSizeMobile: '32px',
+    fontSize: '2.75rem',
+    fontSizeMobile: '2rem',
     fontWeight: '900',
     lineHeight: '1.2',
     letterSpacing: 'unset',
@@ -15,8 +15,8 @@ export const ElviaTypography = {
   'title-md': {
     altLabels: ['title-medium'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
-    fontSize: '30px',
-    fontSizeMobile: '24px',
+    fontSize: '1.875rem',
+    fontSizeMobile: '1.5rem',
     fontWeight: '700',
     lineHeight: '1.2',
     letterSpacing: 'unset',
@@ -28,8 +28,8 @@ export const ElviaTypography = {
   'title-sm': {
     altLabels: ['title-small'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
-    fontSize: '24px',
-    fontSizeMobile: '20px',
+    fontSize: '1.5rem',
+    fontSizeMobile: '1.25rem',
     fontWeight: '700',
     lineHeight: '1.2',
     letterSpacing: 'unset',
@@ -41,8 +41,8 @@ export const ElviaTypography = {
   'title-xs': {
     altLabels: ['title-xsmall'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
-    fontSize: '18px',
-    fontSizeMobile: '16px',
+    fontSize: '1.125rem',
+    fontSizeMobile: '1rem',
     fontWeight: '700',
     lineHeight: '1.2',
     letterSpacing: 'unset',
@@ -54,7 +54,7 @@ export const ElviaTypography = {
   'title-xxs': {
     altLabels: ['title-xxsmall'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
-    fontSize: '16px',
+    fontSize: '1rem',
     fontWeight: '700',
     lineHeight: '1.2',
     letterSpacing: 'unset',
@@ -66,10 +66,10 @@ export const ElviaTypography = {
   'title-caps': {
     altLabels: ['text-caps'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '14px',
+    fontSize: '0.875rem',
     fontWeight: '500',
     lineHeight: '1.2',
-    letterSpacing: '0.8px',
+    letterSpacing: '0.05rem',
     fontStyle: 'unset',
     textTransform: 'uppercase',
     color: 'inherit',
@@ -78,7 +78,7 @@ export const ElviaTypography = {
   'text-interactive-lg': {
     altLabels: ['text-interactive-large'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
-    fontSize: '18px',
+    fontSize: '1.125rem',
     fontWeight: '500',
     lineHeight: '1.33',
     letterSpacing: 'unset',
@@ -89,7 +89,7 @@ export const ElviaTypography = {
   'text-interactive-md': {
     altLabels: ['text-interactive-medium'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
-    fontSize: '16px',
+    fontSize: '1rem',
     fontWeight: '500',
     lineHeight: '1.38',
     letterSpacing: 'unset',
@@ -100,7 +100,7 @@ export const ElviaTypography = {
   'text-interactive-sm': {
     altLabels: ['text-interactive-small'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
-    fontSize: '14px',
+    fontSize: '0.875rem',
     fontWeight: '500',
     lineHeight: '1.43',
     letterSpacing: 'unset',
@@ -111,8 +111,8 @@ export const ElviaTypography = {
 
   'text-lead': {
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '24px',
-    fontSizeMobile: '20px',
+    fontSize: '1.5rem',
+    fontSizeMobile: '1.25rem',
     fontWeight: '400',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -124,8 +124,8 @@ export const ElviaTypography = {
   'text-lg': {
     altLabels: ['text-large', 'text-body'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '20px',
-    fontSizeMobile: '18px',
+    fontSize: '1.25rem',
+    fontSizeMobile: '1.125rem',
     fontWeight: '400',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -137,8 +137,8 @@ export const ElviaTypography = {
   'text-lg-strong': {
     altLabels: ['text-large-strong'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '20px',
-    fontSizeMobile: '18px',
+    fontSize: '1.25rem',
+    fontSizeMobile: '1.125rem',
     fontWeight: '500',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -150,8 +150,8 @@ export const ElviaTypography = {
   'text-lg-light': {
     altLabels: ['text-large-light'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '20px',
-    fontSizeMobile: '18px',
+    fontSize: '1.25rem',
+    fontSizeMobile: '1.125rem',
     fontWeight: '300',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -162,8 +162,8 @@ export const ElviaTypography = {
   'text-lg-mono': {
     altLabels: ['text-large-mono'],
     fontFamily: '"Red Hat Mono", monospace',
-    fontSize: '20px',
-    fontSizeMobile: '18px',
+    fontSize: '1.25rem',
+    fontSizeMobile: '1.125rem',
     fontWeight: '400',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -174,7 +174,7 @@ export const ElviaTypography = {
   'text-md': {
     altLabels: ['text-medium', 'text-description'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '16px',
+    fontSize: '1rem',
     fontWeight: '400',
     lineHeight: '1.6',
     lineHeightMobile: '1.6',
@@ -186,7 +186,7 @@ export const ElviaTypography = {
   'text-md-strong': {
     altLabels: ['text-medium-strong'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '16px',
+    fontSize: '1rem',
     fontWeight: '500',
     lineHeight: '1.75',
     lineHeightMobile: '1.6',
@@ -198,7 +198,7 @@ export const ElviaTypography = {
   'text-md-light': {
     altLabels: ['text-medium-light'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '16px',
+    fontSize: '1rem',
     fontWeight: '300',
     lineHeight: '1.75',
     lineHeightMobile: '1.6',
@@ -210,7 +210,7 @@ export const ElviaTypography = {
   'text-md-mono': {
     altLabels: ['text-medium-mono'],
     fontFamily: '"Red Hat Mono", monospace',
-    fontSize: '16px',
+    fontSize: '1rem',
     fontWeight: '400',
     lineHeight: '1.75',
     lineHeightMobile: '1.6',
@@ -222,7 +222,7 @@ export const ElviaTypography = {
   'text-sm': {
     altLabels: ['text-small', 'text-info'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '14px',
+    fontSize: '0.875rem',
     fontWeight: '400',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -233,7 +233,7 @@ export const ElviaTypography = {
   'text-sm-strong': {
     altLabels: ['text-small-strong'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '14px',
+    fontSize: '0.875rem',
     fontWeight: '500',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -244,7 +244,7 @@ export const ElviaTypography = {
   'text-sm-light': {
     altLabels: ['text-small-light'],
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '14px',
+    fontSize: '0.875rem',
     fontWeight: '300',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -255,7 +255,7 @@ export const ElviaTypography = {
   'text-sm-mono': {
     altLabels: ['text-small-mono'],
     fontFamily: '"Red Hat Mono", monospace',
-    fontSize: '14px',
+    fontSize: '0.875rem',
     fontWeight: '400',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -265,30 +265,30 @@ export const ElviaTypography = {
 
   'text-micro': {
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '11px',
+    fontSize: '0.6875rem',
     fontWeight: '400',
     lineHeight: '1.4',
-    letterSpacing: '0.2px',
+    letterSpacing: '0.0125rem',
     fontStyle: 'unset',
     textTransform: 'unset',
     color: 'inherit',
   },
   'text-micro-strong': {
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '11px',
+    fontSize: '0.6875rem',
     fontWeight: '500',
     lineHeight: '1.4',
-    letterSpacing: '0.2px',
+    letterSpacing: '0.0125rem',
     fontStyle: 'unset',
     textTransform: 'unset',
     color: 'inherit',
   },
   'text-micro-light': {
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '11px',
+    fontSize: '0.6875rem',
     fontWeight: '300',
     lineHeight: '1.4',
-    letterSpacing: '0.2px',
+    letterSpacing: '0.0125rem',
     fontStyle: 'unset',
     textTransform: 'unset',
     color: 'inherit',
@@ -296,8 +296,8 @@ export const ElviaTypography = {
 
   'text-quote': {
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '26px',
-    fontSizeMobile: '20px',
+    fontSize: '1.625rem',
+    fontSizeMobile: '1.25rem',
     fontWeight: '400',
     lineHeight: '1.6',
     letterSpacing: 'unset',
@@ -308,8 +308,8 @@ export const ElviaTypography = {
 
   'text-img': {
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
-    fontSize: '18px',
-    fontSizeMobile: '16px',
+    fontSize: '1.125rem',
+    fontSizeMobile: '1rem',
     fontWeight: '400',
     lineHeight: '1.6',
     letterSpacing: 'unset',
