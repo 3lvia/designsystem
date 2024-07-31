@@ -23,4 +23,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./get-started-doc/get-started-doc.component').then((m) => m.GetStartedDocComponent),
   },
+  {
+    path: Pages.Tutorial,
+    loadComponent: () => import('./tutorial/tutorial.component').then((m) => m.TutorialComponent),
+  },
 ];

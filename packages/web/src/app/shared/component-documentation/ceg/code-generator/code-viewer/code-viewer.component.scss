@@ -36,6 +36,13 @@
   margin-bottom: 8px;
   overflow: auto;
 
+  .file-name {
+    color: var(--e-color-text-1);
+    background: var(--e-color-background-element-3);
+    padding: 5px 8px;
+    border-radius: 4px;
+  }
+
   .copy-code {
     display: flex;
     flex-direction: row;

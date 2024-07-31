@@ -33,11 +33,13 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 })
 export class CodeViewerComponent {
   @Input() tabs: Tab[] = ['HTML'];
+  @Input() fileName = '';
   @Input() activeCode = '';
   @Input() activeTabIndex = 0;
   /** Hides tabs in the code viewer
    * NB: language must be specified in the 'tabs' property for syntax highlighting */
   @Input({ transform: booleanAttribute }) hideTabs = false;
+  @Input({ transform: booleanAttribute }) hideCopy = false;
   @Output() tabIndexChange = new EventEmitter<number>();
 
   copyMessage = '';
@@ -51,8 +53,11 @@ export class CodeViewerComponent {
       return 'typescript';
     } else if (this.activeTab === 'CSS') {
       return 'css';
+    } else if (this.activeTab === 'Bash') {
+      return 'bash';
+    } else if (this.activeTab === 'JSON') {
+      return 'json';
     }
-
     return 'html';
   }
 

@@ -1,0 +1,54 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">Tutorial</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TABS-->
+  <div class="e-flex e-gap-16 e-justify-content-between e-align-items-center e-mt-40">
+    <elvia-tabs
+      [items]="tabs"
+      [value]="activeTabIndex()"
+      (valueOnChange)="setActiveTab($any($event).detail.value)"
+    />
+    <elvia-popover
+      [isShowing]="isPopoverShowing"
+      (onOpen)="isPopoverShowing = true"
+      (onClose)="isPopoverShowing = false"
+    >
+      <button
+        slot="trigger"
+        class="e-btn e-btn--tertiary e-btn--sm"
+        [class.e-btn---active]="isPopoverShowing"
+      >
+        <span class="e-btn__title">Framework support</span>
+        <span class="e-btn__icon">
+          <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+        </span>
+      </button>
+      <div slot="content" class="popover-content">
+        The design system can be used with
+        <strong>any framework supporting web components, including React</strong>. Below are step-by-step
+        guides for the most used frameworks in Elvia.
+      </div>
+    </elvia-popover>
+  </div>
+
+  <!--TUTORIAL-->
+  @switch (activeTabName) {
+    @case ('angular') {
+      <app-angular-tutorial />
+    }
+    @case ('vue') {
+      <app-vue-tutorial />
+    }
+    @case ('react') {
+      <app-react-tutorial />
+    }
+    @case ('blazor') {
+      <app-blazor-tutorial />
+    }
+  }
+</div>

@@ -1,22 +1,29 @@
 <div class="code-container">
-  @if (!hideTabs) {
+  @if (!hideTabs || !hideCopy || fileName !== '') {
     <div class="top-menu e-theme-dark">
-      <elvia-segmented-control
-        [size]="(breakpointService.matches(['md', 'lg', 'xl']) | async) ? 'medium' : 'small'"
-        [items]="tabs | tabToSegmentedControlItem"
-        [value]="activeTabIndex"
-        (valueOnChange)="tabIndexChange.emit($any($event).detail.value)"
-      />
-      <div class="copy-code" *ifViewportSize="['md', 'lg', 'xl']">
-        <div class="e-mr-8">
-          {{ copyMessage }}
+      @if (!hideTabs) {
+        <elvia-segmented-control
+          [size]="(breakpointService.matches(['md', 'lg', 'xl']) | async) ? 'medium' : 'small'"
+          [items]="tabs | tabToSegmentedControlItem"
+          [value]="activeTabIndex"
+          (valueOnChange)="tabIndexChange.emit($any($event).detail.value)"
+        />
+      }
+      @if (fileName !== '') {
+        <div class="file-name e-text-small-mono">{{ fileName }}</div>
+      }
+      @if (!hideCopy) {
+        <div class="copy-code" *ifViewportSize="['md', 'lg', 'xl']">
+          <div class="e-mr-8">
+            {{ copyMessage }}
+          </div>
+          <button class="e-btn e-btn--icon e-btn--sm" (click)="copyCode()" aria-label="Copy code">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--copy" aria-hidden="true" aria-hidden="true"></i>
+            </span>
+          </button>
         </div>
-        <button class="e-btn e-btn--icon e-btn--sm" (click)="copyCode()" aria-label="Copy code">
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--copy" aria-hidden="true" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
+      }
     </div>
   }
 

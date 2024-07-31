@@ -10,38 +10,120 @@
 <div class="page-body">
   <!--FOR DEVELOPERS-->
   <app-component-section sectionTitle="For developers">
-    <ol class="e-list e-list--numbers">
-      <li>
-        <a class="e-link e-link--action" [routerLink]="['/components/css-library']">
-          <span class="e-link__title">Install CSS library</span>
-          <span class="e-link__icon">
-            <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
-            <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="e-link e-link--action" [routerLink]="['/components']">
-          <span class="e-link__title">Start using component</span>
-          <span class="e-link__icon">
-            <i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i>
-            <i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i>
-          </span>
-        </a>
-      </li>
-    </ol>
+    Here are some resources that can be useful to know about before you get going with the design system.
+    Check out the guide below for adding the design system to an Elvia application.
 
-    <div class="e-text-lg">
-      Our design system, Elvis, provides a CSS library (css components and utilities) and advanced component
-      packages. The CSS library <code>&#64;elvia/elvis</code> consists of the most basic components like
-      links, tags and inputs as well as utilities like colors, typography and icons. For more advanced
-      components we offer separate packages that can be installed individually, for example
-      <code>&#64;elvia/elvis-datepicker</code>.
+    <div class="tutorial-card e-mt-40">
+      <a routerLink="/about/tutorial">
+        <elvia-card
+          type="detail"
+          heading="Tutorial"
+          description="A step-by-step guide for setting up the design system with an existing application."
+        >
+          <i slot="cornerIcon" class="e-icon e-icon--code e-icon--xs" aria-hidden="true"></i
+        ></elvia-card>
+      </a>
     </div>
 
-    <div class="component-illustrations-container e-mt-80">
-      <app-css-library-illustration />
-      <app-web-component-illustration />
+    <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40">
+      <elvia-divider />
+      <elvia-accordion openLabel="What is it?" closeLabel="What is it?" isFullWidth size="large">
+        <div slot="content" class="e-text-lg e-mt-16">
+          Our design system, Elvis, provides a CSS library <code>&#64;elvia/elvis</code> (CSS components and
+          utilities) and advanced component packages. The CSS library consists of the most basic components
+          like links, tags and inputs as well as utilities like colors, typography and icons. For more
+          advanced components we offer separate packages that can be installed individually, for example
+          datepicker <code>&#64;elvia/elvis-datepicker</code>.
+
+          <div class="component-illustrations-container e-mt-24">
+            <app-css-library-illustration />
+            <app-web-component-illustration />
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion
+        openLabel="Why should I use it?"
+        closeLabel="Why should I use it?"
+        isFullWidth
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <ol class="e-list e-list--numbers">
+            <li>
+              <strong>Consistency and ownership:</strong> The design system provides a source of truth for
+              design assets, UI components, patterns and guidelines. Compared to using external design systems
+              we have full control over the design components and patterns, which ensures consistency across
+              products and platforms.
+            </li>
+            <li>
+              <strong>Efficiency and integration:</strong> The design system offers reusable components and
+              guidelines and these are set up to be integrated with existing tools, processes, and
+              technologies at Elvia. This lets us avoid duplication of effort and we can be more productive
+              when creating new features and products.
+            </li>
+            <li>
+              <strong>Tailored for Elvia:</strong> Our design system is customized for Elvia’s domain and
+              design profile, which makes the components and utilities compatible in both functionality and
+              design.
+            </li>
+          </ol>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
+      <elvia-accordion
+        openLabel="How should I proceed?"
+        closeLabel="How should I proceed?"
+        isFullWidth
+        size="large"
+      >
+        <div slot="content" class="e-text-lg e-mt-16">
+          <h3 class="e-title-caps">Start here</h3>
+          <div slot="content" class="e-text-lg e-mt-16">
+            <ul class="e-list">
+              <li>
+                <a class="e-link" routerLink="/brand/color" fragment="What are tokens?"> What are tokens? </a>
+              </li>
+              <li>
+                <a class="e-link" routerLink="/brand/icon" fragment="Implementation"> How to use icons </a>
+              </li>
+              <li>
+                <a class="e-link" routerLink="/brand/typography"> What typography / fonts do we use? </a>
+              </li>
+              <li>
+                <a class="e-link" routerLink="/brand/layout"> What layout and spacing do we use? </a>
+              </li>
+            </ul>
+          </div>
+          <h3 class="e-title-caps e-mt-40">Deep dive</h3>
+          <div slot="content" class="e-text-lg e-mt-16">
+            <ul class="e-list">
+              <li>
+                <a class="e-link" routerLink="/brand/theme"> How light/dark theme works? </a>
+              </li>
+              <li>
+                <a class="e-link" routerLink="/patterns/validations"> How to validate inputs</a>
+              </li>
+              <li>
+                <a class="e-link" routerLink="/tools/accessibility"> Accessibility for developers </a>
+              </li>
+            </ul>
+          </div>
+          <h3 class="e-title-caps e-mt-40">Nice to have</h3>
+          <div slot="content" class="e-text-lg e-mt-16">
+            <ul class="e-list">
+              <li>
+                <a class="e-link" routerLink="/tools/utility-classes"> Utility classes </a>
+              </li>
+              <li>
+                <a class="e-link" routerLink="/brand/illustration"> Illustrations </a> and
+                <a class="e-link" routerLink="/brand/images"> Images </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </elvia-accordion>
+      <elvia-divider />
     </div>
   </app-component-section>
 
@@ -50,8 +132,9 @@
     As a designer, there’s a few resources to gather before getting started with the design system in Elvia.
     First thing to do is to make sure you have access to the Figma library.
 
-    <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
+    <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40">
       <!--Figma-->
+      <elvia-divider />
       <elvia-accordion openLabel="Figma" closeLabel="Figma" isFullWidth="true" size="large">
         <div slot="content" class="e-text-lg e-mt-16">
           <div class="flex-container-figma">
@@ -258,6 +341,7 @@
           </div>
         </div>
       </elvia-accordion>
+      <elvia-divider />
     </div>
   </app-component-section>
 
@@ -280,6 +364,7 @@
 
     <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
       <!--Useful terms-->
+      <elvia-divider />
       <elvia-accordion openLabel="Useful terms" closeLabel="Useful terms" isFullWidth="true" size="large">
         <div slot="content" class="e-text-lg e-mt-16">
           <div>
@@ -606,6 +691,7 @@
           </div>
         </div>
       </elvia-accordion>
+      <elvia-divider />
     </div>
   </app-component-section>
 </div>

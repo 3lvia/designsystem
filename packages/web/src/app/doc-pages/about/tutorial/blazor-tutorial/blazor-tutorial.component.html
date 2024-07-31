@@ -1,0 +1,140 @@
+<!--BASIC TUTORIAL-->
+<div class="e-alert e-alert--info e-mt-40" role="note">
+  <div class="e-alert__icon">
+    <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+  </div>
+  <div class="e-alert__content">
+    <h3 class="e-alert__title e-mt-0">Not recommended</h3>
+    <p class="e-alert__text e-m-0">
+      Using and interacting with web components is more cumbersome in Blazor. Get familiar with using web
+      components in Blazor before choosing this framework.
+    </p>
+  </div>
+</div>
+<h3 class="e-title-small e-mt-40 e-mb-0">Set up the basics</h3>
+<ol class="e-list e-list--numbers e-mt-40">
+  <li>
+    <h3 class="e-title-xsmall e-m-0">Initialize NPM in Blazor</h3>
+    <p class="e-my-8">
+      Add a folder called NpmJs at root in your project to be able to install NPM packages.
+    </p>
+    <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStep1" hideTabs />
+  </li>
+  <li class="e-mt-24">
+    <h3 class="e-title-xsmall e-m-0">Install CSS library and web bundler</h3>
+    <p class="e-mt-8">
+      Install esbuild and the
+      <a routerLink="/components/css-library" class="e-link e-link--inline">CSS library</a> to get the basic
+      components and styling.
+    </p>
+    <p class="e-my-8 e-text-md">
+      <strong
+        >The packages act like any other external dependency you install and update in your project.
+      </strong>
+    </p>
+    <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStep2" hideTabs />
+  </li>
+  <li class="e-mt-24">
+    <h3 class="e-title-xsmall e-m-0">Create index.js</h3>
+    <p class="e-my-8">Create a new file <code>index.js</code> and import the CSS library files.</p>
+    <app-code-viewer [tabs]="['Typescript']" fileName="index.js" [activeCode]="codeStep3" hideTabs />
+  </li>
+  <li class="e-mt-24">
+    <h3 class="e-title-xsmall e-m-0">Add CSS-reset<span class="e-tag e-ml-8">Optional</span></h3>
+    <p class="e-mt-8">
+      Import the Elvis CSS reset if you wish to apply a generic CSS reset to your application.
+    </p>
+    <p class="e-my-8 e-text-md">
+      <strong
+        >Be aware that you may break styles in your app if you import this in an existing application, since
+        you may rely on browser defaults without knowing it. This is why this import is separate from the
+        required Elvis import.</strong
+      >
+    </p>
+    <app-code-viewer [tabs]="['Typescript']" fileName="index.js" [activeCode]="codeStep4" hideTabs />
+  </li>
+  <li class="e-mt-24">
+    <h3 class="e-title-xsmall e-m-0">Build-script setup</h3>
+    <p class="e-my-8">Create a script in <code>package.json</code> to build the file you created.</p>
+    <app-code-viewer [tabs]="['JSON']" fileName="package.json" [activeCode]="codeStep5" hideTabs />
+  </li>
+  <li class="e-mt-24">
+    <h3 class="e-title-xsmall e-m-0">Run the build script</h3>
+    <p class="e-my-8">Run the new build script that was created.</p>
+    <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStep6" hideTabs />
+  </li>
+  <li class="e-mt-24">
+    <h3 class="e-title-xsmall e-m-0">Import built files</h3>
+    <p class="e-my-8">
+      Import the stylesheet and script that was built. The <code>js/index.bundle.js</code> script should be
+      added after the <code>framework/blazor.web.js</code> script.
+    </p>
+    <app-code-viewer [tabs]="['HTML']" fileName="App.razor" [activeCode]="codeStep7" hideTabs />
+  </li>
+  <li class="e-mt-24">
+    <h3 class="e-title-xsmall e-m-0">Start using classes</h3>
+    <p class="e-my-8">
+      Choose between multiple
+      <a routerLink="/tools/utility-classes" class="e-link e-link--inline">brand utilities</a> and
+      <a routerLink="/components" class="e-link e-link--inline">components</a>. The components have multiple
+      variants and options to fit different needs.
+    </p>
+    <app-code-viewer [tabs]="['HTML']" fileName="Home.razor" [activeCode]="codeStep8" hideTabs />
+  </li>
+</ol>
+
+<!--ADVANCED TUTORIAL-->
+<h3 class="e-title-small e-mt-64">Add an advanced component</h3>
+<ol class="e-list e-list--numbers e-mt-40">
+  <li>
+    <h3 class="e-title-xsmall e-m-0">Install component</h3>
+    <p class="e-mt-8">
+      Install the
+      <a routerLink="/components/datepicker" class="e-link e-link--inline">datepicker component.</a>
+    </p>
+    <p class="e-my-8 e-text-md">
+      <strong
+        >The packages act like any other external dependency you install and update in your project.
+      </strong>
+    </p>
+    <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="codeStepAdvanced1" hideTabs />
+  </li>
+  <li class="e-mt-24">
+    <h3 class="e-title-xsmall e-m-0">Add imports</h3>
+    <p class="e-my-8">Import the component.</p>
+    <app-code-viewer [tabs]="['Typescript']" fileName="index.js" [activeCode]="codeStepAdvanced2" hideTabs />
+  </li>
+  <li class="e-mt-24">
+    <h3 class="e-title-xsmall e-m-0">Start using advanced components</h3>
+    <p class="e-mt-8">
+      Choose between several different advanced component and customize according to your needs by using the
+      available props. The
+      <a routerLink="/components/datepicker" fragment="API" class="e-link e-link--inline">datepicker API</a>
+      lists all the properties and events available for datepicker.
+    </p>
+    <div class="e-alert e-alert--info e-my-16" role="note">
+      <div class="e-alert__icon">
+        <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
+      </div>
+      <div class="e-alert__content">
+        <h3 class="e-alert__title e-mt-0">Updating props and events</h3>
+        <p class="e-alert__text e-m-0">
+          Blazor requires a bit more setup for events to work, read about using
+          <a
+            class="e-link e-link--inline e-link--new-tab"
+            href="https://brianlagunas.com/using-npm-packages-in-blazor/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="e-link__title">NPM packages in Blazor</span>
+            <span class="e-link__icon">
+              <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"> </i>
+            </span> </a
+          >. Remeber Blazor uses native JavaScript, which means for updating props and listening to event you
+          have to use addEventListener.
+        </p>
+      </div>
+    </div>
+    <app-code-viewer [tabs]="['HTML']" fileName="App.razor" [activeCode]="codeStepAdvanced3" hideTabs />
+  </li>
+</ol>
