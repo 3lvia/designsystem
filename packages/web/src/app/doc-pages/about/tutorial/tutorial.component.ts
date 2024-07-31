@@ -7,7 +7,7 @@ import { BlazorTutorialComponent } from './blazor-tutorial/blazor-tutorial.compo
 import { ReactTutorialComponent } from './react-tutorial/react-tutorial.component';
 import { VueTutorialComponent } from './vue-tutorial/vue-tutorial.component';
 import { PreferredLanguageService } from 'src/app/shared/component-documentation/preferredLanguage.service';
-import { LanguageType, Tab } from 'src/app/shared/component-documentation/types';
+import { LanguageType } from 'src/app/shared/component-documentation/types';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 const docPage = getDocPagesNotFromCMS('tutorial');
