@@ -29,7 +29,7 @@ export const ElviaTypography = {
     altLabels: ['title-small'],
     fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '1.5rem',
-    fontSizeMobile: '1.5rem',
+    fontSizeMobile: '1.25rem',
     fontWeight: '700',
     lineHeight: '1.2',
     letterSpacing: 'unset',
