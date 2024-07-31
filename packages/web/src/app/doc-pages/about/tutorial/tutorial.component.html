@@ -12,7 +12,7 @@
       [items]="tabs"
       [value]="activeTabIndex()"
       (valueOnChange)="setActiveTab($any($event).detail.value)"
-    ></elvia-tabs>
+    />
     <elvia-popover
       [isShowing]="isPopoverShowing"
       (onOpen)="isPopoverShowing = true"
