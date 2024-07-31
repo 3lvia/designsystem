@@ -48,8 +48,6 @@ export class LayoutDocComponent {
   descriptionNo = docPage.descriptionNo;
   figmaUrl = docPage.figmaUrl;
   locale: Locale = 'en-GB';
-  egSelectedValue = 0;
-  igSelectedValue = 0;
 
   constructor(
     private titleService: Title,
