@@ -1,0 +1,143 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elvia Percytest</title>
+    <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
+    <script src="../../elvis.js"></script>
+  </head>
+  <body>
+    <div class="e-title-xs e-my-16">Local Alert</div>
+    <div class="e-mt-16" style="width: 100%; display: grid; grid-template-rows: repeat(10, 300px)">
+      <div>
+        <h5>Regular</h5>
+        <div class="e-alert e-alert--local">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort tittel</div>
+            <div class="e-alert__text">
+              Description for a standard alert over multiple lines. Description for a standard alert over
+              multiple lines.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h5>Without title</h5>
+        <div class="e-alert e-alert--local">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__text">
+              Description for a standard alert over multiple lines. Description for a standard alert over
+              multiple lines.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h5>Actions</h5>
+        <div class="e-alert e-alert--local e-alert--actions">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort tittel</div>
+            <div class="e-alert__text">
+              <div>
+                Description with a list and an
+                <a class="e-link e-link--inline">inline link.</a>
+              </div>
+              <div class="e-alert__actions">
+                <button class="e-btn e-btn--secondary e-btn--sm">
+                  <span class="e-btn__title">Secondary</span>
+                </button>
+                <button class="e-btn e-btn--sm">
+                  <span class="e-btn__title">Primary</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h5>Links</h5>
+        <div class="e-alert e-alert--local e-alert--links">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--remove_circle e-icon--color-red" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort tittel</div>
+            <div class="e-alert__text">
+              <div>
+                Description with a list and an
+                <a class="e-link e-link--inline">inline link.</a>
+              </div>
+              <div class="e-alert__links">
+                <a class="e-link" href="https://design.elvia.io">Link 1</a>
+                <a class="e-link" href="https://design.elvia.io">Link 2</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h5>Closable</h5>
+        <div class="e-alert">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--remove_circle e-icon--color-danger" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort tittel</div>
+            <div class="e-alert__text">A descriptive text for closable local alert.</div>
+          </div>
+          <div class="e-alert__close">
+            <button class="e-btn e-btn--icon e-btn--sm" aria-label="Lukk alert">
+              <span class="e-btn__icon">
+                <i class="e-icon e-icon--close-bold" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h5>Statuses</h5>
+        <div class="e-alert e-alert--error e-alert--local">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle e-icon--color-red" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort tittel</div>
+            <div class="e-alert__text">En velykket bekreftelses melding!</div>
+          </div>
+        </div>
+        <div class="e-alert e-alert e-alert--warn e-alert--local">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle e-icon--color-orange" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort tittel</div>
+            <div class="e-alert__text">En velykket bekreftelses melding!</div>
+          </div>
+        </div>
+        <div class="e-alert e-alert e-alert--info e-alert--local">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle" aria-hidden="true"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">Kort tittel</div>
+            <div class="e-alert__text">En velykket bekreftelses melding!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

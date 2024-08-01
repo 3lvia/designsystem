@@ -1,7 +1,20 @@
 module.exports = [
   {
-    name: 'Alert',
-    url: '/components/alert.html',
+    name: 'Local alert',
+    url: '/components/local-alert.html',
+    widths: [766, 1440],
+    additionalSnapshots: [
+      {
+        suffix: ' - dark theme',
+        execute() {
+          document.body.classList.add('e-theme-dark');
+        },
+      },
+    ],
+  },
+  {
+    name: 'Global alert',
+    url: '/components/global-alert.html',
     widths: [766, 1440],
     additionalSnapshots: [
       {
