@@ -3,6 +3,28 @@
     <app-header-ceg></app-header-ceg>
   </app-ceg>
 
+  <app-component-section implementation sectionTitle="Type">
+    <app-component-subsection sectionTitle="Internal">
+      The internal header is used on all internal applications in Elvia. This page documents how to use and
+      implement this header.
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="External" [figmaOnly]="true">
+      The external header should only be used on applications when they are meant for external users, users
+      outside Elvia. The external version of the header has dark background instead of light and usually
+      doesn't require any login or profile. If you need login with your external header contact us and we will
+      consider offering the external header as a component.
+      <div width="100%" style="width: 100; overflow-x: auto" class="e-mt-24">
+        <iframe
+          style="border: 1px solid var(--e-color-border-2)"
+          width="500"
+          height="450"
+          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FQRhfgr0sd9MPmACos1xDNT%2FHeader%3Fm%3Dauto%26node-id%3D5319-1245%26t%3Ds2KFzjF27QIwar8p-1"
+          allowfullscreen
+          title="Figma embedded sketches of the external header"
+        ></iframe>
+      </div>
+    </app-component-subsection>
+  </app-component-section>
   <app-component-section implementation sectionTitle="Implementation">
     The header contains a general top menu and a side navigation section. The navigation bar on the side
     contain app-specific tabs, while the top menu gathers general navigation, such as the app switch and any
