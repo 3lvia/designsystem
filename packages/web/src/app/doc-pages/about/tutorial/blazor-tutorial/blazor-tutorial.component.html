@@ -3,13 +3,11 @@
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
   </div>
-  <div class="e-alert__content">
-    <h3 class="e-alert__title e-mt-0">Not recommended</h3>
-    <p class="e-alert__text e-m-0">
-      Using and interacting with web components is more cumbersome in Blazor. Get familiar with using web
-      components in Blazor before choosing this framework.
-    </p>
-  </div>
+  <h3 class="e-alert__title">Not recommended</h3>
+  <p class="e-alert__text">
+    Using and interacting with web components is more cumbersome in Blazor. Get familiar with using web
+    components in Blazor before choosing this framework.
+  </p>
 </div>
 <h3 class="e-title-small e-mt-40 e-mb-0">Set up the basics</h3>
 <ol class="e-list e-list--numbers e-mt-40">
@@ -116,24 +114,22 @@
       <div class="e-alert__icon">
         <i class="e-icon e-icon--information_circle" aria-hidden="true"></i>
       </div>
-      <div class="e-alert__content">
-        <h3 class="e-alert__title e-mt-0">Updating props and events</h3>
-        <p class="e-alert__text e-m-0">
-          Blazor requires a bit more setup for events to work, read about using
-          <a
-            class="e-link e-link--inline e-link--new-tab"
-            href="https://brianlagunas.com/using-npm-packages-in-blazor/"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="e-link__title">NPM packages in Blazor</span>
-            <span class="e-link__icon">
-              <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"> </i>
-            </span> </a
-          >. Remeber Blazor uses native JavaScript, which means for updating props and listening to event you
-          have to use addEventListener.
-        </p>
-      </div>
+      <h3 class="e-alert__title">Updating props and events</h3>
+      <p class="e-alert__text">
+        Blazor requires a bit more setup for events to work, read about using
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://brianlagunas.com/using-npm-packages-in-blazor/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">NPM packages in Blazor</span>
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"> </i>
+          </span> </a
+        >. Remeber Blazor uses native JavaScript, which means for updating props and listening to event you
+        have to use addEventListener.
+      </p>
     </div>
     <app-code-viewer [tabs]="['HTML']" fileName="App.razor" [activeCode]="codeStepAdvanced3" hideTabs />
   </li>
