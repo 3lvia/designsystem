@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "20.0.0? (or should it be 19.3.1?)",
+      "date": "August xx, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The Alert component has been rewritten from scratch, making the class <code>.e-alert__content</code> redundant. It is now ignored in the DOM, so if you have any custom styles applied to this class, they will no longer work."
+          ],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        }
+      ]
+    },
+    {
       "version": "19.3.0",
       "date": "July 31, 2024",
       "changelog": [
