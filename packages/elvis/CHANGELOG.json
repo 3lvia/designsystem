@@ -12,6 +12,13 @@
             "The Alert component has been rewritten from scratch, making the class <code>.e-alert__content</code> redundant. It is now ignored in the DOM, so if you have any custom styles applied to this class, they will no longer work."
           ],
           "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the link color was incorrect, despite being set to <code>.e-color-text-1</code>."
+          ],
+          "components": [{ "displayName": "Link", "url": "https://design.elvia.io/brand/link" }]
         }
       ]
     },

@@ -18,6 +18,7 @@ $link-jumbo-phone-width: 287px;
 
   @include mixins.typography('text-interactive-md');
   color: var(--e-color-text-1);
+
   cursor: pointer;
   font-weight: 700;
   text-decoration: none;
@@ -46,16 +47,19 @@ $link-jumbo-phone-width: 287px;
 
   &.e-link--lg {
     @include mixins.typography('text-interactive-lg');
+    color: var(--e-color-text-1);
     font-weight: 700;
   }
 
   &.e-link--md {
     @include mixins.typography('text-interactive-md');
+    color: var(--e-color-text-1);
     font-weight: 700;
   }
 
   &.e-link--sm {
     @include mixins.typography('text-interactive-sm');
+    color: var(--e-color-text-1);
     font-weight: 700;
   }
 
@@ -136,6 +140,7 @@ $link-jumbo-phone-width: 287px;
 
     &.e-link--lg {
       @include mixins.typography('text-interactive-lg');
+      color: var(--e-color-text-1);
       font-weight: 700;
 
       .e-link__icon {
@@ -145,6 +150,7 @@ $link-jumbo-phone-width: 287px;
 
     &.e-link--md {
       @include mixins.typography('text-interactive-lg');
+      color: var(--e-color-text-1);
       font-weight: 700;
 
       .e-link__icon {
@@ -154,6 +160,7 @@ $link-jumbo-phone-width: 287px;
 
     &.e-link--sm {
       @include mixins.typography('text-interactive-md');
+      color: var(--e-color-text-1);
       font-weight: 700;
 
       .e-link__icon {
