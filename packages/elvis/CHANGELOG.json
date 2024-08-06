@@ -3,9 +3,19 @@
   "name": "elvis",
   "content": [
     {
-      "version": "20.0.0? (or should it be 19.3.1?)",
+      "version": "20.0.0",
       "date": "August xx, 2024",
       "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": [
+            "Deprecated the classes <code>.e-alert__content</code>, <code>.e-alert__links</code>, <code>.e-alert--actions</code> and <code>.e-alert--local</code>."
+          ],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }],
+          "fixes": [
+            "Simply remove the classes <code>.e-alert__content</code>, <code>.e-alert--actions</code> and <code>.e-alert--local</code>, since they are no longer required. Replace <code>.e-alert__links</code> with <code>.e-alert__actions</code>"
+          ]
+        },
         {
           "type": "bug_fix",
           "changes": [

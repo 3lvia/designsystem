@@ -1,6 +1,9 @@
 @use '../utilities/mixins';
 @use '../utilities/breakpoints';
 
+// DEPRECATED CLASSES
+// .e-alert__content can be removed february 2025
+// .e-alert__links can be removed february 2025
 .e-alert {
   --alert-color: var(--e-color-signal-danger);
 

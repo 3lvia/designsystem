@@ -9,7 +9,7 @@
     "version": "20.0.0",
     "sunset": "February 2025",
     "replacement": {
-      "name": "e-input__actions",
+      "name": "e-alert__actions",
       "type": "class",
       "documentation": "https://design.elvia.io/components/alert"
     }
