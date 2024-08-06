@@ -158,7 +158,7 @@
     padding: 24px 16px;
 
     // Links should not take the full width
-    &:has(.e-alert__actions a, .e-alert__links a) {
+    &:has(.e-alert__actions > a, .e-alert__links > a) {
       grid-template-areas:
         'icon title'
         'icon text'
