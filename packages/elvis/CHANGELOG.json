@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "19.3.1",
+      "date": "August 6, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the link color was incorrect, despite being set to <code>.e-color-text-1</code>."
+          ],
+          "components": [{ "displayName": "Link", "url": "https://design.elvia.io/brand/link" }]
+        }
+      ]
+    },
+    {
       "version": "19.3.0",
       "date": "July 31, 2024",
       "changelog": [
