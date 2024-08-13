@@ -17,7 +17,12 @@ function generateElvisStyle() {
     .src('./src/main.scss')
     .pipe(
       tap(function (file) {
-        file.contents = Buffer.from(compile(file.path, { loadPaths: ['node_modules'] }).css.toString());
+        file.contents = Buffer.from(
+          compile(file.path, {
+            loadPaths: ['node_modules'],
+            silenceDeprecations: ['mixed-decls'],
+          }).css.toString(),
+        );
       }),
     )
     .pipe(autoprefixer({ cascade: false }))
