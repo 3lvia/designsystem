@@ -45,7 +45,8 @@
   }
 
   @include buttonHelper.only-primary-button {
-    .e-btn__icon i {
+    .e-btn__icon i,
+    .e-btn__icon e-icon {
       @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-light));
     }
   }
@@ -84,7 +85,8 @@
     color: var(--e-color-background-hover-1--contrast);
 
     @include buttonHelper.only-primary-button {
-      .e-btn__icon i {
+      .e-btn__icon i,
+      .e-btn__icon e-icon {
         @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
       }
     }
@@ -104,7 +106,8 @@
     cursor: not-allowed;
 
     @include buttonHelper.only-primary-button {
-      .e-btn__icon i {
+      .e-btn__icon i,
+      .e-btn__icon e-icon {
         @include icons.icon-currentcolor(var(--e-color-background-disabled-2));
       }
     }
