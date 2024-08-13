@@ -3,16 +3,16 @@ interface IconData {
 }
 type IconRegistry = Record<string, IconData>;
 
-let _icons: IconRegistry = {};
+let _elviaGlobalIconsStore: IconRegistry = {};
 
-export const add = (icons: IconRegistry) => {
-  _icons = { ..._icons, ...icons };
+export const addIcons = (icons: IconRegistry) => {
+  _elviaGlobalIconsStore = { ..._elviaGlobalIconsStore, ...icons };
 };
 
-export const get = (name: string) => {
+export const getIcon = (name: string) => {
   // TODO: should this throw, or be a silent error?
-  if (!_icons[name]) {
+  if (!_elviaGlobalIconsStore[name]) {
     throw new Error(`Icon "${name}" not found`);
   }
-  return _icons[name];
+  return _elviaGlobalIconsStore[name];
 };

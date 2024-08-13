@@ -1,2 +1,2 @@
 export { ElvisIcon } from './elvis-icon';
-export { add } from './store';
+export { addIcons } from './store';

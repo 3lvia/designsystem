@@ -9,15 +9,13 @@
     "react.ts"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --dts --format esm --out-dir dist",
+    "build": "tsup src/index.ts --sourcemap --dts --format esm --out-dir dist",
     "start": "tsup src/index.ts --sourcemap --dts --format esm --out-dir dist --watch"
   },
   "dependencies": {
-    "@elvia/elvis-assets-icons": "^3.10.0",
-    "@elvia/elvis-colors": "^4.1.0",
     "@lit/react": "^1.0.5",
-    "lit": "^3.1.3",
-    "lit-html": "^3.1.3"
+    "lit": "^3.2.0",
+    "lit-html": "^3.2.0"
   },
   "peerDependencies": {
     "react": "^18.0.0"
@@ -29,6 +27,6 @@
   },
   "devDependencies": {
     "tsup": "^8.0.2",
-    "typescript": "~5.4.5"
+    "typescript": "~5.5.4"
   }
 }
