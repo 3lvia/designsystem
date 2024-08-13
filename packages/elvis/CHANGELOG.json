@@ -5,6 +5,7 @@
     {
       "version": "20.0.0",
       "date": "August xx, 2024",
+      "private": true,
       "changelog": [
         {
           "type": "breaking_changes",
