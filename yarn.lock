@@ -8208,15 +8208,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.31.1":
-  version: 11.31.1
-  resolution: "contentful-management@npm:11.31.1"
+"contentful-management@npm:^11.31.4":
+  version: 11.31.4
+  resolution: "contentful-management@npm:11.31.4"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.6.1"
     axios: "npm:^1.7.2"
     contentful-sdk-core: "npm:^8.3.1"
     fast-copy: "npm:^3.0.0"
-  checksum: 10/0d15a84053720673d051cd3a2609241458ba350f3e4cdee82f65d887257e8d95dc5b0bcee98505de1e12c92757db655376c4f1d3b3b6bc7d7a4d8027c90364ee
+  checksum: 10/45b05011e88d325bb4027de484a7d5b2d5552e804f2b22d9316354d15bbb9212d1e3292e92d25d5434596b346dc87416302f54fe974682e092157b67beaa57c2
   languageName: node
   linkType: hard
 
@@ -9140,7 +9140,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.1.0"
     "@typescript-eslint/utils": "npm:^8.1.0"
     contentful: "npm:^9.3.7"
-    contentful-management: "npm:^11.31.1"
+    contentful-management: "npm:^11.31.4"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.57.0"
@@ -15259,7 +15259,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     sass: "npm:^1.77.8"
     typescript: "npm:~5.5.4"
-    vite: "npm:^5.4.0"
+    vite: "npm:^5.4.1"
   languageName: unknown
   linkType: soft
 
@@ -18101,7 +18101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.4.0, vite@npm:^5.2.8, vite@npm:^5.4.0":
+"vite@npm:5.4.0, vite@npm:^5.2.8":
   version: 5.4.0
   resolution: "vite@npm:5.4.0"
   dependencies:
@@ -18141,6 +18141,49 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10/5a98b1d30cc8c0263551f417a360102d40b78b9170e9e58a99c1a394ab700c7e604d3c52dafda323c11356a76eba865800d3d8588b33a8febdeaddd5a8981410
+  languageName: node
+  linkType: hard
+
+"vite@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "vite@npm:5.4.1"
+  dependencies:
+    esbuild: "npm:^0.21.3"
+    fsevents: "npm:~2.3.3"
+    postcss: "npm:^8.4.41"
+    rollup: "npm:^4.13.0"
+  peerDependencies:
+    "@types/node": ^18.0.0 || >=20.0.0
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    sass-embedded: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    sass-embedded:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/1cf22e5a8ec782ea9417a77ad4b16e518f69cf23c99a5af5bb92dc4acbfce70109a35a35faea8fc0789f4637b6304618f6b84e4c5dfe3c9c2875dff7d749b02d
   languageName: node
   linkType: hard
 
@@ -18198,7 +18241,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^5.1.2"
     sass: "npm:^1.77.8"
     typescript: "npm:~5.5.4"
-    vite: "npm:^5.4.0"
+    vite: "npm:^5.4.1"
     vue: "npm:^3.4.38"
     vue-router: "npm:^4.4.3"
     vue-tsc: "npm:^2.0.29"
