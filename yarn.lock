@@ -7349,7 +7349,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.6.7, axios@npm:^1.7.2":
+"axios@npm:^1.7.2, axios@npm:^1.7.4":
   version: 1.7.4
   resolution: "axios@npm:1.7.4"
   dependencies:
@@ -8296,19 +8296,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-sdk-core@npm:^7.0.5":
-  version: 7.1.0
-  resolution: "contentful-sdk-core@npm:7.1.0"
-  dependencies:
-    fast-copy: "npm:^2.1.7"
-    lodash.isplainobject: "npm:^4.0.6"
-    lodash.isstring: "npm:^4.0.1"
-    p-throttle: "npm:^4.1.1"
-    qs: "npm:^6.9.4"
-  checksum: 10/6210728554998bda05dd1fea8416f015d569e40f1868c187350a26f9f1e083e20ebeadbde93b7e113b2d6667019798205e29aba8c39be5746ae53a9d6aaf8fc2
-  languageName: node
-  linkType: hard
-
 "contentful-sdk-core@npm:^8.3.1":
   version: 8.3.1
   resolution: "contentful-sdk-core@npm:8.3.1"
@@ -8341,17 +8328,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful@npm:^9.3.6":
-  version: 9.3.6
-  resolution: "contentful@npm:9.3.6"
+"contentful@npm:^9.3.7":
+  version: 9.3.7
+  resolution: "contentful@npm:9.3.7"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.0.2"
-    axios: "npm:^1.6.7"
+    axios: "npm:^1.7.4"
     contentful-resolve-response: "npm:^1.3.12"
-    contentful-sdk-core: "npm:^7.0.5"
+    contentful-sdk-core: "npm:^8.3.1"
     fast-copy: "npm:^2.1.7"
     json-stringify-safe: "npm:^5.0.1"
-  checksum: 10/ee4b619f227201856e9b140c6223220c3957c2b6ce990223d3e9a81178a595d39ae69dbb14a8c70a90b5581ce6774294f770e190efb4641791019e748d4bbe4a
+  checksum: 10/edd30af166248f17eca42e715614748e95719c0b28f2ea72752f23390e9369d4146a493dbc40aac07f64a70266166bd236767cdd44a4b696eba7e2442fbdcebc
   languageName: node
   linkType: hard
 
@@ -9212,7 +9199,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^8.1.0"
     "@typescript-eslint/parser": "npm:^8.1.0"
     "@typescript-eslint/utils": "npm:^8.1.0"
-    contentful: "npm:^9.3.6"
+    contentful: "npm:^9.3.7"
     contentful-management: "npm:^11.31.1"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
@@ -15107,7 +15094,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.11.2, qs@npm:^6.9.4":
+"qs@npm:^6.11.2":
   version: 6.12.3
   resolution: "qs@npm:6.12.3"
   dependencies:
