@@ -14,37 +14,37 @@ export const dropdownData: ComponentData<DropdownProps & DropdownPropsWithStubbe
       isRequired: true,
       type: 'object[]',
       description: 'Items available in the dropdown menu.',
-      // children: {
-      //   icon: {
-      //     type: 'string',
-      //     description: 'HTML for icon that should be displayed with the dropdown item.',
-      //   },
-      //   isDisabled: {
-      //     type: 'boolean',
-      //     description: 'Disables the dropdown item.',
-      //   },
-      //   label: {
-      //     type: 'string',
-      //     description: 'The visible label for the dropdown item.',
-      //   },
-      //   status: {
-      //     type: "'error' | 'warning' | 'info' | 'informative'",
-      //     description: 'The status for the dropdown item.',
-      //   },
-      //   tooltip: {
-      //     type: 'string',
-      //     description: 'A tooltip that should be displayed on the dropdown item.',
-      //   },
-      //   value: {
-      //     type: 'string | number | null',
-      //     description:
-      //       'The value associated with the dropdown item. This is what is emitted from the dropdown component when selecting an item.',
-      //   },
-      //   children: {
-      //     type: 'object[]',
-      //     description: 'Adds another level of items that is opened in another dropdown window.',
-      //   },
-      // },
+      children: {
+        icon: {
+          type: 'string',
+          description: 'HTML for icon that should be displayed with the dropdown item.',
+        },
+        isDisabled: {
+          type: 'boolean',
+          description: 'Disables the dropdown item.',
+        },
+        label: {
+          type: 'string',
+          description: 'The visible label for the dropdown item.',
+        },
+        status: {
+          type: "'error' | 'warning' | 'info' | 'informative'",
+          description: 'The status for the dropdown item.',
+        },
+        tooltip: {
+          type: 'string',
+          description: 'A tooltip that should be displayed on the dropdown item.',
+        },
+        value: {
+          type: 'string | number | null',
+          description:
+            'The value associated with the dropdown item. This is what is emitted from the dropdown component when selecting an item.',
+        },
+        children: {
+          type: 'object[]',
+          description: 'Adds another level of items that is opened in another dropdown window.',
+        },
+      },
     },
     value: {
       type: 'string | string[] | number | number[]',
