@@ -16,7 +16,7 @@
           "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },{"displayName": "Text Field", "url": "https://design.elvia.io/components/input"}],
           "fixes": [
             "Simply remove the classes <code>.e-alert__content</code>, <code>.e-alert--actions</code> and <code>.e-alert--local</code>, since they are no longer required. Replace <code>.e-alert__links</code> with <code>.e-alert__actions</code>",
-            "Simply remove the class <code>.e-input--placeholder</code>, since it is no longer required. The placeholder styling is now handled by the <code>placeholder</code> attribute."
+            "Simply remove the class <code>.e-input--placeholder</code>, since it is no longer required."
           ]
         },
         {
