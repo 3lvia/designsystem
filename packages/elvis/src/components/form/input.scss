@@ -167,65 +167,34 @@
     }
   }
 
-  // Check if browser supports @property
-  @supports (background: paint(something)) {
-    @keyframes eInputLoadingAnimation {
-      from {
-        --e-input---loading-angle: 0deg;
-      }
-
-      to {
-        --e-input---loading-angle: 180deg;
-      }
+  @keyframes eInputLoadingAnimation {
+    from {
+      --e-input---loading-angle: 0deg;
     }
 
-    &.e-input---loading:not(:focus-within) {
-      --border-color: transparent;
-      border: 2px solid transparent;
-      animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
-      background-clip: padding-box, border-box;
-      background-image: linear-gradient(var(--e-color-background-1), var(--e-color-background-1)),
-        linear-gradient(
-          var(--e-input---loading-angle),
-          var(--e-color-brand-accent),
-          transparent 35% 65%,
-          var(--e-color-brand-accent)
-        );
-      background-origin: border-box;
-
-      > input:not(:focus),
-      > textarea:not(:focus) {
-        padding: 11px 14px;
-        cursor: wait;
-      }
+    to {
+      --e-input---loading-angle: 180deg;
     }
   }
 
-  @supports not (background: paint(something)) {
-    @keyframes eInputLoadingAnimation {
-      0% {
-        border-color: var(--e-color-brand-accent);
-      }
+  &.e-input---loading:not(:focus-within) {
+    --border-color: transparent;
+    border: 2px solid transparent;
+    animation: 1.7s eInputLoadingAnimation cubic-bezier(0.95, 0.05, 0.05, 0.95) infinite;
+    background-clip: padding-box, border-box;
+    background-image: linear-gradient(var(--e-color-background-1), var(--e-color-background-1)),
+      linear-gradient(
+        var(--e-input---loading-angle),
+        var(--e-color-brand-accent),
+        transparent 35% 65%,
+        var(--e-color-brand-accent)
+      );
+    background-origin: border-box;
 
-      40% {
-        border-color: var(--e-color-brand-accent);
-      }
-
-      100% {
-        border-color: color-mix(in srgb, var(--e-color-brand-accent) 20%, transparent);
-      }
-    }
-
-    &.e-input---loading:not(:focus-within) {
-      --border-color: transparent;
-      border: 2px solid var(--e-color-brand-accent);
-      animation: 1s eInputLoadingAnimation ease alternate infinite;
-
-      > input:not(:focus),
-      > textarea:not(:focus) {
-        padding: 11px 14px;
-        cursor: wait;
-      }
+    > input:not(:focus),
+    > textarea:not(:focus) {
+      padding: 11px 14px;
+      cursor: wait;
     }
   }
 
