@@ -32,6 +32,13 @@
             "Fixed an issue where the link color was incorrect, despite being set to <code>.e-color-text-1</code>."
           ],
           "components": [{ "displayName": "Link", "url": "https://design.elvia.io/brand/link" }]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Removed fallback on input loading animation, since it is no longer needed."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         }
       ]
     },
