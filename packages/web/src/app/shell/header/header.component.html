@@ -9,7 +9,7 @@
 
     @if (mainMenu) {
       <nav class="tabs e-ml-32 e-none-sm e-none-md" aria-label="tabs navigation" role="tablist">
-        @for (menuItem of mainMenu.pages; track menuItem) {
+        @for (menuItem of mainMenu.pages; track menuItem.title) {
           <a
             class="e-title-caps hover-underline tabs-links"
             [routerLink]="['/' + menuItem.path]"
