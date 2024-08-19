@@ -7,7 +7,7 @@ import { getIcon } from './store';
 
 @customElement('e-icon')
 export class ElvisIcon extends LitElement {
-  static styles = css`
+  static readonly styles = css`
     :host {
       display: inline-block;
       width: 24px;

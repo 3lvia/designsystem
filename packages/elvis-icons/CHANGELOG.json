@@ -1,0 +1,11 @@
+{
+  "$schema": "../components/changelogSchema.json",
+  "name": "elvis-icons",
+  "content": [
+    {
+      "version": "1.0.0",
+      "date": "xx.xx.24",
+      "changelog": [{ "type": "new_feature", "changes": ["Initial release of component."] }]
+    }
+  ]
+}
