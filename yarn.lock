@@ -2894,9 +2894,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-icons@npm:*, @elvia/elvis-icons@workspace:*, @elvia/elvis-icons@workspace:packages/icons":
+"@elvia/elvis-icons@npm:*, @elvia/elvis-icons@workspace:*, @elvia/elvis-icons@workspace:packages/elvis-icons":
   version: 0.0.0-use.local
-  resolution: "@elvia/elvis-icons@workspace:packages/icons"
+  resolution: "@elvia/elvis-icons@workspace:packages/elvis-icons"
   dependencies:
     "@lit/react": "npm:^1.0.5"
     lit: "npm:^3.2.0"
