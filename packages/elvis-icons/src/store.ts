@@ -5,6 +5,22 @@ type IconRegistry = Record<string, IconData>;
 
 let _elviaGlobalIconsStore: IconRegistry = {};
 
+/**
+ * Add icons to the global icon store to make them available for use in the `<elvis-icon>/ElvisIcon` component.
+ * @param icons - An object of icon names and their corresponding SVG data.
+ *
+ * @example
+ * ```ts
+ * import { addIcons } from '@elvis/icons';
+ *
+ * // import the icon data (SVG string)
+ * import { download } from '@elvia/elvis-assets-icons';
+ *
+ * addIcons({
+ *  download: { svg: download.getIcon() }
+ * });
+ * ```
+ */
 export const addIcons = (icons: IconRegistry) => {
   _elviaGlobalIconsStore = { ..._elviaGlobalIconsStore, ...icons };
 };

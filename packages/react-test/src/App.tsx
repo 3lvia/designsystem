@@ -14,7 +14,7 @@ import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Header } from '@elvia/elvis-header/react';
 import { Icon } from '@elvia/elvis-icon/react';
-import { EIcon, add } from '@elvia/elvis-icons/react';
+import { Icon as ElvisIcon, addIcons } from '@elvia/elvis-icons/react';
 import { Modal } from '@elvia/elvis-modal/react';
 import { Pagination } from '@elvia/elvis-pagination/react';
 import { Popover } from '@elvia/elvis-popover/react';
@@ -32,7 +32,7 @@ import { useState } from 'react';
 
 import './App.scss';
 
-add({
+addIcons({
   bookmark: { svg: bookmark.getIcon() },
   bookmarkFilled: { svg: bookmarkFilled.getIcon() },
   han: { svg: han.getIcon() },
@@ -210,9 +210,9 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <div>
-                <EIcon name="bookmark" ref={(el) => console.log(el)} />
-                <EIcon name="bookmarkFilled" />
-                <EIcon name="han" />
+                <ElvisIcon name="bookmark" ref={(el) => console.log(el)} />
+                <ElvisIcon name="bookmarkFilled" />
+                <ElvisIcon name="han" />
               </div>
             </div>
             {/* ACCORDION */}
