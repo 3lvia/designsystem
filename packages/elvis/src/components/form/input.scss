@@ -68,6 +68,11 @@
     margin-left: 16px;
   }
 
+  > input ~ .e-icon {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+
   > .e-btn.e-btn--icon {
     width: 40px;
     height: 40px;
