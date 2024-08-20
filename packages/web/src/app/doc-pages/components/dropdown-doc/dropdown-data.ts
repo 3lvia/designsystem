@@ -6,7 +6,8 @@ import ComponentData from '../component-data.interface';
 type DropdownPropsWithStubbedItems = {
   items: (DropdownItem & { children: any })[];
 };
-export const dropdownData: ComponentData<DropdownProps & DropdownPropsWithStubbedItems> = {
+
+export const dropdownData: ComponentData<Omit<DropdownProps, 'items'> & DropdownPropsWithStubbedItems> = {
   changelog: changelogJson.content,
   name: 'Dropdown',
   attributes: {
