@@ -2899,6 +2899,7 @@ __metadata:
   resolution: "@elvia/elvis-icons@workspace:packages/elvis-icons"
   dependencies:
     "@lit/react": "npm:^1.0.5"
+    dompurify: "npm:^3.1.6"
     lit: "npm:^3.2.0"
     lit-html: "npm:^3.2.0"
     tsup: "npm:^8.2.4"
@@ -9613,6 +9614,13 @@ __metadata:
   version: 3.1.4
   resolution: "dompurify@npm:3.1.4"
   checksum: 10/be036d5c10bda3ca9cc8069f26f3e586ac0379fc2a2499df7c362eeee53de49594ead3cc7e82e012eadcb071cf7327001fca33751682882e42da87618b10a4e6
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^3.1.6":
+  version: 3.1.6
+  resolution: "dompurify@npm:3.1.6"
+  checksum: 10/036844bc9b717b172ba27f5863b56f950289a05d8eebfb702d6953bbf80bd021e480ce4217bd084567186f2d0ada13358ce5556963492cfe402d774e8667f120
   languageName: node
   linkType: hard
 
