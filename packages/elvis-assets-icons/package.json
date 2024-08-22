@@ -5,7 +5,7 @@
   "license": "GPL-3.0-only",
   "repository": {
     "type": "git",
-    "url": "https://github.com/3lvia/designsystem.git",
+    "url": "git+https://github.com/3lvia/designsystem.git",
     "directory": "packages/elvis-assets-icons"
   },
   "main": "icons.js",

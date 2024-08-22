@@ -5,7 +5,7 @@
   "homepage": "https://design.elvia.io/components/slider",
   "repository": {
     "type": "git",
-    "url": "https://github.com/3lvia/designsystem.git",
+    "url": "git+https://github.com/3lvia/designsystem.git",
     "directory": "packages/components/components/elvis-slider"
   },
   "source": "src/react/elvia-slider.tsx",
