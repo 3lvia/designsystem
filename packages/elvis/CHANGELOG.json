@@ -24,7 +24,10 @@
         },
         {
           "type": "new_feature",
-          "changes": ["Added support for icons both before and after the text in the Text Field component."],
+          "changes": [
+            "Added support for icons both before and after the text in the Text Field component.",
+            "Added the new class <code>.e-input---active</code>."
+          ],
           "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         },
         {

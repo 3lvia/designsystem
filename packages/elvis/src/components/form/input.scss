@@ -115,6 +115,7 @@
     @include outline.e-outline();
   }
 
+  &.e-input---active,
   &.e-input---focus,
   &:not(.e-input---readonly):has(input:not(:read-only):focus),
   &:not(.e-input---readonly):has(textarea:not(:read-only):focus) {
