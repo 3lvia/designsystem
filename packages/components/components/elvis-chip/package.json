@@ -5,7 +5,7 @@
   "homepage": "https://design.elvia.io/components/chip",
   "repository": {
     "type": "git",
-    "url": "https://github.com/3lvia/designsystem.git",
+    "url": "git+https://github.com/3lvia/designsystem.git",
     "directory": "packages/components/components/elvis-chip"
   },
   "source": "src/react/elvia-chip.tsx",

@@ -6,7 +6,7 @@
   "homepage": "https://design.elvia.io/components/css-library",
   "repository": {
     "type": "git",
-    "url": "https://github.com/3lvia/designsystem.git",
+    "url": "git+https://github.com/3lvia/designsystem.git",
     "directory": "packages/elvis"
   },
   "main": "elvis.js",

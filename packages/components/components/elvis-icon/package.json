@@ -5,7 +5,7 @@
   "homepage": "https://design.elvia.io/brand/icon#Implementation",
   "repository": {
     "type": "git",
-    "url": "https://github.com/3lvia/designsystem.git",
+    "url": "git+https://github.com/3lvia/designsystem.git",
     "directory": "packages/components/components/elvis-icon"
   },
   "source": "src/react/elvia-icon.tsx",
