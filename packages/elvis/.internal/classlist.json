@@ -184,6 +184,7 @@
 				"e-input---focus": {},
 				"e-input---invalid": {},
 				"e-input---readonly": {},
+				"e-input---active": {},
 				"e-input---disabled": {},
 				"e-input---loading": {}
 			},
@@ -993,6 +994,7 @@
 		"e-input__suffix": {},
 		"e-input---invalid": {},
 		"e-input---readonly": {},
+		"e-input---active": {},
 		"e-input---disabled": {},
 		"e-input---loading": {},
 		"e-combined-field": {},
