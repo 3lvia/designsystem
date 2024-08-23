@@ -3,7 +3,15 @@ import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading } from '@angular/router';
-import { bookmark, bookmarkFilled, download, han } from '@elvia/elvis-assets-icons';
+import {
+  bookmark,
+  bookmarkFilled,
+  download,
+  han,
+  informationCircle,
+  informationCircleFilledColor,
+  upload,
+} from '@elvia/elvis-assets-icons';
 import { addIcons } from '@elvia/elvis-icons';
 import '@elvia/elvis/checkDeprecations';
 import '@elvia/elvis/elvis.js';
@@ -17,6 +25,9 @@ addIcons({
   bookmarkFilled: { svg: bookmarkFilled.getIcon() },
   han: { svg: han.getIcon() },
   download: { svg: download.getIcon() },
+  upload: { svg: upload.getIcon() },
+  informationCircle: { svg: informationCircle.getIcon() },
+  informationCircleFilledColor: { svg: informationCircleFilledColor.getIcon() },
 });
 
 if (environment.production) {
