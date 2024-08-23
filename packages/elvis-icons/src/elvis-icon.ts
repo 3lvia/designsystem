@@ -55,7 +55,7 @@ export class ElvisIcon extends LitElement {
     }
   `;
 
-  @property({ type: String })
+  @property({ type: String, reflect: true })
   name = '';
 
   // Setting this to reflect: true will make the size attribute reflect to the DOM, which makes the current
