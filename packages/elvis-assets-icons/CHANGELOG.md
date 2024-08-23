@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.11.1 (23.08.24)
+
+### Patch
+
+- Marked the package as side-effect free to improve tree-shaking.
+
 ## 3.11.0 (21.06.24)
 
 ### New feature
