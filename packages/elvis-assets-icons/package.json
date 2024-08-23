@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-assets-icons",
-  "version": "3.11.0",
+  "version": "3.11.1",
   "description": "Elvia icons",
   "license": "GPL-3.0-only",
   "repository": {
@@ -8,8 +8,10 @@
     "url": "git+https://github.com/3lvia/designsystem.git",
     "directory": "packages/elvis-assets-icons"
   },
-  "main": "icons.js",
+  "main": "icons.cjs.js",
+  "module": "icons.js",
   "types": "icons.d.ts",
+  "sideEffects": false,
   "scripts": {
     "start": "gulp watch",
     "build": "gulp"
