@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef } from '@angular/core';
 
 import * as template from './input-validation-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -8,6 +8,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   templateUrl: './input-validation-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: InputValidationCegComponent }],
   standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InputValidationCegComponent implements StaticComponentExample, AfterViewInit {
   html = template.default;

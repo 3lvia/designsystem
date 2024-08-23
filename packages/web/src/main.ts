@@ -10,7 +10,9 @@ import {
   han,
   informationCircle,
   informationCircleFilledColor,
+  removeCircle,
   upload,
+  viewOn,
 } from '@elvia/elvis-assets-icons';
 import { addIcons } from '@elvia/elvis-icons';
 import '@elvia/elvis/checkDeprecations';
@@ -26,8 +28,10 @@ addIcons({
   han: { svg: han.getIcon() },
   download: { svg: download.getIcon() },
   upload: { svg: upload.getIcon() },
+  removeCircle: { svg: removeCircle.getIcon() },
   informationCircle: { svg: informationCircle.getIcon() },
   informationCircleFilledColor: { svg: informationCircleFilledColor.getIcon() },
+  viewOn: { svg: viewOn.getIcon() },
 });
 
 if (environment.production) {
