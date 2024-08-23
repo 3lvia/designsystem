@@ -47,11 +47,10 @@ $default-size: 'md';
   display: inline-block;
 
   line-height: 0;
-
-  @each $class, $colors in IconMap.$icon-theme-classes {
-    &.e-icon--#{$class} {
-      @include icon-variables($colors);
-    }
+}
+@each $class, $colors in IconMap.$icon-theme-classes {
+  .e-icon--#{$class} {
+    @include icon-variables($colors);
   }
 }
 
