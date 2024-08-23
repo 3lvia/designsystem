@@ -211,7 +211,7 @@ function App() {
               {/* Normal version */}
               <div>
                 <ElvisIcon name="bookmark" ref={(el) => console.log(el)} />
-                <ElvisIcon name="bookmarkFilled" />
+                <ElvisIcon name="bookmarkFilled" size="xs" />
                 <ElvisIcon name="han" />
               </div>
             </div>

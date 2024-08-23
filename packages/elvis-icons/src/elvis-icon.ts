@@ -5,6 +5,8 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 import { getIcon } from './store';
 
+type IconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+
 @customElement('e-icon')
 export class ElvisIcon extends LitElement {
   static readonly styles = css`
@@ -55,6 +57,11 @@ export class ElvisIcon extends LitElement {
 
   @property({ type: String })
   name = '';
+
+  // Setting this to reflect: true will make the size attribute reflect to the DOM, which makes the current
+  // CSS-selector-based approach for sizing work in React. If another approach is used, this whole property may be removed.
+  @property({ type: String, reflect: true })
+  size: IconSize | undefined = undefined;
 
   render() {
     return html`${unsafeHTML(DOMPurify.sanitize(getIcon(this.name).svg))}`;
