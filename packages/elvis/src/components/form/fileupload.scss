@@ -51,6 +51,7 @@
         border-bottom: 1.5px solid var(--e-color-border-hover-1);
       }
 
+      e-icon,
       i {
         @include icons.icon-size('sm');
         display: flex;

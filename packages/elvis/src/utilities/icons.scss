@@ -74,3 +74,17 @@ $default-size: 'md';
   --e-color-icon-stroke-1: #{$color};
   --e-color-icon-filled-background-1: #{$color};
 }
+
+@mixin filledColor() {
+  i[class*='filled-color'],
+  e-icon[name*='filledColor' i] {
+    @content;
+  }
+}
+
+@mixin notFilledColor() {
+  i:not([class*='filled-color']),
+  e-icon:not([name*='filledColor' i]) {
+    @content;
+  }
+}

@@ -32,7 +32,8 @@ $link-jumbo-phone-width: 287px;
     display: inline-flex;
     align-items: center;
 
-    i {
+    i,
+    e-icon {
       @include icons.icon-size('xxs');
       display: flex;
     }
@@ -105,12 +106,14 @@ $link-jumbo-phone-width: 287px;
     border: transparent;
     @include helpers.hover() {
       &:hover {
-        .e-link__icon i[class*='filled-color'] {
-          visibility: unset;
-        }
+        .e-link__icon {
+          @include icons.filledColor {
+            visibility: unset;
+          }
 
-        .e-link__icon i:not([class*='filled-color']) {
-          visibility: hidden;
+          @include icons.notFilledColor {
+            visibility: hidden;
+          }
         }
       }
     }
@@ -120,15 +123,18 @@ $link-jumbo-phone-width: 287px;
       margin-left: 8px;
     }
 
-    .e-link__icon i[class*='filled-color'] {
-      visibility: hidden;
+    .e-link__icon {
+      @include icons.filledColor {
+        visibility: hidden;
+      }
     }
 
     .e-link__icon {
       position: relative;
       right: 0;
 
-      i {
+      i,
+      e-icon {
         position: absolute;
         top: 0;
         right: 0;
@@ -170,12 +176,14 @@ $link-jumbo-phone-width: 287px;
 
     &:active,
     &.e-link---hover {
-      .e-link__icon i[class*='filled-color'] {
-        visibility: unset;
-      }
+      .e-link__icon {
+        @include icons.filledColor {
+          visibility: unset;
+        }
 
-      .e-link__icon i:not([class*='filled-color']) {
-        visibility: hidden;
+        @include icons.notFilledColor {
+          visibility: hidden;
+        }
       }
     }
   }

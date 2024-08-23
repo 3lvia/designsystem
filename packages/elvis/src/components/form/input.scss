@@ -61,14 +61,16 @@
     color: var(--e-color-text-placeholder-1) !important;
   }
 
-  > .e-icon {
+  > .e-icon,
+  > e-icon {
     width: 24px;
     height: 24px;
     flex: none;
     margin-left: 16px;
   }
 
-  > input ~ .e-icon {
+  > input ~ .e-icon,
+  > input ~ e-icon {
     margin-left: 0;
     margin-right: 16px;
   }
@@ -81,7 +83,8 @@
     margin-right: 8px;
 
     .e-btn__icon,
-    .e-btn__icon i {
+    .e-btn__icon i,
+    .e-btn__icon e-icon {
       width: 24px;
       height: 24px;
     }
@@ -230,7 +233,8 @@
     padding: 5px 10px;
   }
 
-  > .e-icon {
+  > .e-icon,
+  > e-icon {
     width: 16px;
     height: 16px;
     margin-left: 10px;
@@ -242,7 +246,8 @@
     margin-right: 4px;
 
     .e-btn__icon,
-    .e-btn__icon i {
+    .e-btn__icon i,
+    .e-btn__icon e-icon {
       width: 16px;
       height: 16px;
     }
