@@ -4,35 +4,26 @@
   "content": [
     {
       "version": "20.0.0",
-      "date": "August xx, 2024",
-      "private": true,
+      "date": "August 23, 2024",
       "changelog": [
         {
           "type": "breaking_changes",
           "changes": [
-            "Deprecated the classes <code>.e-alert__content</code>, <code>.e-alert__links</code>, <code>.e-alert--actions</code> and <code>.e-alert--local</code>.",
-            "Deprecated the class <code>.e-input--placeholder</code>."
+            "Deprecated the classes <code>.e-alert__content</code>, <code>.e-alert__links</code>, <code>.e-alert--actions</code> and <code>.e-alert--local</code>."
           ],
-          "components": [
-            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" },
-            { "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }
-          ],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }],
           "fixes": [
-            "Simply remove the classes <code>.e-alert__content</code>, <code>.e-alert--actions</code> and <code>.e-alert--local</code>, since they are no longer required. Replace <code>.e-alert__links</code> with <code>.e-alert__actions</code>",
-            "Simply remove the class <code>.e-input--placeholder</code>, since it is no longer required."
+            "Simply remove the classes <code>.e-alert__content</code>, <code>.e-alert--actions</code> and <code>.e-alert--local</code>, since they are no longer required. Replace <code>.e-alert__links</code> with <code>.e-alert__actions</code>"
           ]
         },
         {
           "type": "new_feature",
           "changes": [
             "Added support for icons both before and after the text in the Text Field component.",
-            "Added the new class <code>.e-input---active</code>."
+            "Added the new class <code>.e-input---active</code>.",
+            "Removed fallback on input loading animation, since it is no longer needed in modern browsers.",
+            "Deprecated the class <code>.e-input--placeholder</code>, as a placeholder is styled by the placeholder attribute."
           ],
-          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
-        },
-        {
-          "type": "patch",
-          "changes": ["Removed fallback on input loading animation, since it is no longer needed."],
           "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
         },
         {
