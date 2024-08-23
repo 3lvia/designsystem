@@ -26,14 +26,14 @@ addIcons({
 });
 ```
 
-3. The `<elvia-icon>` custom element is registered when any import from `@elvia/elvis-icons` is done. The
-   element can now be used anywhere in the application. Note that the name corresponds to the name registered
-   in the `addIcons`-object.
+3. The `<e-icon>` custom element is registered when any import from `@elvia/elvis-icons` is done. The element
+   can now be used anywhere in the application. Note that the name corresponds to the name registered in the
+   `addIcons`-object.
 
 ```html
 <div>
-  <elvia-icon name="download"></elvia-icon>
-  <elvia-icon name="clock"></elvia-icon>
+  <e-icon name="download"></e-icon>
+  <e-icon name="clock"></e-icon>
 </div>
 ```
 
@@ -42,20 +42,20 @@ addIcons({
 
 ```html
 <div>
-  <elvia-icon name="download" size="xl"></elvia-icon>
-  <elvia-icon name="clock" size="sm"></elvia-icon>
+  <e-icon name="download" size="xl"></e-icon>
+  <e-icon name="clock" size="sm"></e-icon>
 </div>
 ```
 
 # **NB**: Should this be changed?
 
-4. The `<elvia-icon>` respects the icon-related size and color classes from the `@elvia/elvis` package. It is
+4. The `<e-icon>` respects the icon-related size and color classes from the `@elvia/elvis` package. It is
    therefore possible to set colors and sizes through the `.e-icon--color-COLOR` and `.e-icon--SIZE` classes.
 
 ```html
 <div>
-  <elvia-icon name="download" class="e-icon--xs"></elvia-icon>
-  <elvia-icon name="clock" class="e-icon--lg e-icon--color-positive"></elvia-icon>
+  <e-icon name="download" class="e-icon--xs"></e-icon>
+  <e-icon name="clock" class="e-icon--lg e-icon--color-positive"></e-icon>
 </div>
 ```
 
