@@ -27,7 +27,7 @@ export const addIcons = (icons: IconRegistry) => {
 
 export const getIcon = (name: string) => {
   // TODO: should this throw, or be a silent error?
-  if (!_elviaGlobalIconsStore[name]) {
+  if (name && !_elviaGlobalIconsStore[name]) {
     throw new Error(
       `Icon "${name}" not found. Have you remembered to add it to the global icon store using \`addIcons\`?`,
     );
