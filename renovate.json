@@ -38,7 +38,8 @@
         "^tsx",
         "^tsup",
         "^esbuild",
-        "^prettier"
+        "^prettier",
+        "^tslib"
       ],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
