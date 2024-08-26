@@ -2707,7 +2707,7 @@ __metadata:
     sass: "npm:^1.77.8"
     sass-embedded: "npm:^1.77.8"
     tiny-glob: "npm:^0.2.9"
-    tsx: "npm:^4.17.0"
+    tsx: "npm:^4.18.0"
     typescript: "npm:~5.5.4"
     typescript-plugin-css-modules: "npm:^5.1.0"
   languageName: unknown
@@ -2894,7 +2894,7 @@ __metadata:
     chalk: "npm:^5.3.0"
     esbuild: "npm:^0.23.1"
     svgo: "npm:^3.3.2"
-    tsx: "npm:^4.17.0"
+    tsx: "npm:^4.18.0"
   peerDependencies:
     "@elvia/elvis": ">=16.2.1"
   peerDependenciesMeta:
@@ -8766,15 +8766,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.31.7":
-  version: 11.31.7
-  resolution: "contentful-management@npm:11.31.7"
+"contentful-management@npm:^11.31.8":
+  version: 11.31.8
+  resolution: "contentful-management@npm:11.31.8"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.6.1"
     axios: "npm:^1.7.4"
     contentful-sdk-core: "npm:^8.3.1"
     fast-copy: "npm:^3.0.0"
-  checksum: 10/46a9b40ecf948e270839a29c64bcd4c330cc4930a0464235d0a762b641be715cad29cd3dd462491c072c81e2a79ae0cdf02050354431afd19a6a693ef9205fa1
+  checksum: 10/e31763e17770f0a4a23891132c0b12f72f3e70fe01935d038d8996de7f11bf6230af9650b1ed02a7337f423a31637e41951eafcf2b71ca691de5b956beffd1f1
   languageName: node
   linkType: hard
 
@@ -9707,7 +9707,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.2.0"
     "@typescript-eslint/utils": "npm:^8.2.0"
     contentful: "npm:^9.3.7"
-    contentful-management: "npm:^11.31.7"
+    contentful-management: "npm:^11.31.8"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.57.0"
@@ -18309,9 +18309,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.17.0":
-  version: 4.17.0
-  resolution: "tsx@npm:4.17.0"
+"tsx@npm:^4.18.0":
+  version: 4.18.0
+  resolution: "tsx@npm:4.18.0"
   dependencies:
     esbuild: "npm:~0.23.0"
     fsevents: "npm:~2.3.3"
@@ -18321,7 +18321,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/192dda2794c1e28b8e57cd5296953f49b2a4bca143a6ac427f30a244f9d2fb0aca6ea8f1d7c8d50ddf87cecc78d482ac68fc2d3f21bbcaaa0e84ef1f2dce0c79
+  checksum: 10/b292e48accbb42bc8e5f3c33fdd74b49177009e42a66999b091e0769b2ec5837f948187a5059c93057c11c4d7e8a238f824d91fc7bc4f2751cd5ecf9b07742ac
   languageName: node
   linkType: hard
 
