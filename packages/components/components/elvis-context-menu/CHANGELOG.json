@@ -3,6 +3,18 @@
   "name": "elvis-context-menu",
   "content": [
     {
+      "date": "xx.xx.24",
+      "version": "1.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The component now supports icons from the new <code>@elvia/elvis-icons</code> package."
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.06.24",
       "version": "1.5.0",
       "changelog": [

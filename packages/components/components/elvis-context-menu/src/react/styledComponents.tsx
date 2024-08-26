@@ -45,7 +45,8 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
     text-decoration: none;
     white-space: nowrap;
 
-    i {
+    i,
+    e-icon {
       margin-right: 16px;
     }
 
@@ -68,7 +69,8 @@ export const ItemList = styled.div<{ isSelectable: boolean }>`
       css`
         padding: 10px 16px 10px 48px;
 
-        i {
+        i,
+        e-icon {
           margin-left: -32px;
         }
       `};

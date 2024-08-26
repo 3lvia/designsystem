@@ -8,7 +8,9 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["The sidebar now supports icons from the new <code>@elvia/elvis-icons</code> package."]
+          "changes": [
+            "The component now supports icons from the new <code>@elvia/elvis-icons</code> package."
+          ]
         }
       ]
     },

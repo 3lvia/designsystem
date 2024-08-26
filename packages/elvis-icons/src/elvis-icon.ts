@@ -14,8 +14,6 @@ export class ElvisIcon extends LitElement {
       --_icon-size: 32px;
 
       display: inline-block;
-
-      // Should this set height and width, or height/width + aspect ratio?
       width: var(--_icon-size);
       height: var(--_icon-size);
       line-height: 0;
