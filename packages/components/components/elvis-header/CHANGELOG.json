@@ -3,6 +3,16 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "xx.xx.24",
+      "version": "1.11.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["The sidebar now supports icons from the new <code>@elvia/elvis-icons</code> package."]
+        }
+      ]
+    },
+    {
       "date": "27.06.24",
       "version": "1.10.0",
       "changelog": [
