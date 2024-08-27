@@ -11,6 +11,10 @@
           "changes": [
             "The component now supports icons from the new <code>@elvia/elvis-icons</code> package."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },
