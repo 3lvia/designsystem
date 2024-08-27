@@ -12,7 +12,6 @@ import { ComponentSectionComponent } from '../../../shared/component-documentati
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
 import { CopyComponent } from '../../../shared/copy/copy.component';
-import { IconCegComponent } from './icon-ceg/icon-ceg.component';
 import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
 import { elvisIconData } from './icon-data';
 import { IconPreviewComponent } from './icon-preview/icon-preview.component';
@@ -39,7 +38,6 @@ const docPage = getDocPagesNotFromCMS('icon');
     IconColorsCegComponent,
     CodeViewerComponent,
     CegComponent,
-    IconCegComponent,
     ComponentChangelogComponent,
     IconPreviewComponent,
   ],

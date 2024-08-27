@@ -290,12 +290,12 @@
 
   <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
-    <app-component-subsection [sectionTitle]="'General'">
-      All Elvia icons are available through the &#64;elvia/elvis package.
-    </app-component-subsection>
+    All Elvia icons are available through the <code>elvis.js</code> script in the
+    <a [routerLink]="'/components/css-library'" class="e-link e-link--inline">&#64;elvia/elvis package</a>.
 
-    <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
-    <p class="e-mb-16">Download the npm package and use Elvis.js from inside the npm package like this:</p>
+    <p class="e-mb-16">
+      Download the npm package and use <code>elvis.js</code> from inside the npm package like this:
+    </p>
     <app-code-viewer [activeCode]="scriptCodeHTML" />
 
     <p class="e-mb-16">The icons can then be used like this:</p>
@@ -303,11 +303,8 @@
     <p>
       <strong>How it works:</strong>
       <br />
-      Elvis.js looks for
-      <span class="code-text">e-icon</span>
-      and similar classes and injects a
-      <span class="code-text">img</span>
-      tag with the SVG icon at the desired location.
+      <code>elvis.js</code> looks for <code>.e-icon</code> and similar classes and injects an
+      <code>&lt;svg&gt;</code> tag with the SVG icon at the desired location.
     </p>
   </app-component-section>
 
