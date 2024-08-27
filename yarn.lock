@@ -3107,7 +3107,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-toolbox@npm:^12.0.1, @elvia/elvis-toolbox@npm:^12.0.2, @elvia/elvis-toolbox@npm:^12.0.3, @elvia/elvis-toolbox@npm:^12.0.5, @elvia/elvis-toolbox@npm:^12.0.6, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
+"@elvia/elvis-toolbox@npm:^12.0.1, @elvia/elvis-toolbox@npm:^12.0.2, @elvia/elvis-toolbox@npm:^12.0.3, @elvia/elvis-toolbox@npm:^12.0.5, @elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toolbox@workspace:packages/components/components/elvis-toolbox"
   dependencies:
