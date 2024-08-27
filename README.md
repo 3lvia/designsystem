@@ -27,8 +27,7 @@ enables us to work together towards an ultimate brand experience.
 ## 📚 How to use
 
 Read our [get started guide](https://design.elvia.io/about/get-started) at design.elvia.io to get started
-using our CSS library and components. The CSS library and the components can be used through both NPM packages
-and CDN.
+using our CSS library and components. The CSS library and the components can be used through NPM packages.
 
 ### CSS library
 
