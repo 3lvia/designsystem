@@ -28,6 +28,12 @@ test('should look closed', async ({ mount, page }) => {
   await percySnapshot(page, 'Datepicker-range: closed');
 });
 
+test('should look focused', async ({ mount, page }) => {
+  const component = await mount(<DatepickerRange size="small" hasTimepickers />);
+  await component.getByLabel(/fra dato/i).focus();
+  await percySnapshot(page, 'Datepicker-range: focused');
+});
+
 test('should look opened', async ({ mount, page }) => {
   const component = await mount(
     <DatepickerRange value={{ start: new Date(2023, 5, 5), end: new Date(2023, 5, 22) }} />,
