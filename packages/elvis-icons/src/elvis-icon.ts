@@ -62,7 +62,7 @@ export class ElvisIcon extends LitElement {
   size: IconSize | undefined = undefined;
 
   render() {
-    return html`${unsafeHTML(DOMPurify.sanitize(getIcon(this.name)?.svg))}`;
+    return html`${unsafeHTML(DOMPurify.sanitize(getIcon(this.name)?.svg ?? ''))}`;
   }
 }
 
