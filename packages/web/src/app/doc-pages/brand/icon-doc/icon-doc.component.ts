@@ -7,8 +7,6 @@ import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.co
 import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
-import { ComponentInstallationComponent } from '../../../shared/component-documentation/component-installation/component-installation.component';
-import { ComponentPropertiesTableComponent } from '../../../shared/component-documentation/component-properties-table/component-properties-table.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
@@ -42,8 +40,6 @@ const docPage = getDocPagesNotFromCMS('icon');
     CodeViewerComponent,
     CegComponent,
     IconCegComponent,
-    ComponentInstallationComponent,
-    ComponentPropertiesTableComponent,
     ComponentChangelogComponent,
     IconPreviewComponent,
   ],

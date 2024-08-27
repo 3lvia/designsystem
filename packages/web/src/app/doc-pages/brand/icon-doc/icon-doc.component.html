@@ -1,8 +1,8 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="docPage.figmaUrl">
-  <ng-container ngProjectAs="headerTitle">{{
-    locale() === 'nb-NO' ? docPage.titleNo : docPage.title
-  }}</ng-container>
+  <ng-container ngProjectAs="headerTitle">
+    {{ locale() === 'nb-NO' ? docPage.titleNo : docPage.title }}
+  </ng-container>
   <div
     ngProjectAs="headerDescription"
     [innerHTML]="locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description"
@@ -291,46 +291,24 @@
   <!--IMPLEMENTATION-->
   <app-component-section [sectionTitle]="'Implementation'">
     <app-component-subsection [sectionTitle]="'General'">
-      <div>All Elvia icons are available through the &#64;elvia/elvis package or CDN.</div>
+      All Elvia icons are available through the &#64;elvia/elvis package.
     </app-component-subsection>
 
-    <app-component-subsubsection [sectionTitle]="'Method 1 - Easiest if you are already using Elvis'">
-      <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
+    <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
+    <p class="e-mb-16">Download the npm package and use Elvis.js from inside the npm package like this:</p>
+    <app-code-viewer [activeCode]="scriptCodeHTML" />
 
-      <p class="e-mb-16">Download the npm package and use Elvis.js from inside the npm package like this:</p>
-      <app-code-viewer [activeCode]="scriptCodeHTML" />
-
-      <p class="e-mb-16">The icons can then be used like this:</p>
-      <app-code-viewer [activeCode]="iconExample" />
-      <p>
-        <strong>How it works:</strong>
-        <br />
-        Elvis.js looks for
-        <span class="code-text">e-icon</span>
-        and similar classes and injects a
-        <span class="code-text">img</span>
-        tag with the SVG icon at the desired location.
-      </p>
-    </app-component-subsubsection>
-
-    <app-component-subsubsection [sectionTitle]="'Method 2: Elvis-icon component'">
-      <a href="https://www.npmjs.com/package/@elvia/elvis-icon" class="e-link">Elvis-icon npm package</a>
-      <p class="e-mb-0">
-        Icons are also accessible through our icon component, as a custom element or React component.
-      </p>
-      <app-ceg>
-        <app-icon-ceg />
-      </app-ceg>
-
-      <!--INSTALLATION-->
-      <app-component-section [sectionTitle]="'Installation'">
-        <app-component-installation [componentData]="componentData"></app-component-installation>
-      </app-component-section>
-
-      <app-component-section sectionTitle="API">
-        <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
-      </app-component-section>
-    </app-component-subsubsection>
+    <p class="e-mb-16">The icons can then be used like this:</p>
+    <app-code-viewer [activeCode]="iconExample" />
+    <p>
+      <strong>How it works:</strong>
+      <br />
+      Elvis.js looks for
+      <span class="code-text">e-icon</span>
+      and similar classes and injects a
+      <span class="code-text">img</span>
+      tag with the SVG icon at the desired location.
+    </p>
   </app-component-section>
 
   <!--Changelog-->
