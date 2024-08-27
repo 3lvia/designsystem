@@ -23,6 +23,14 @@ interface StepStates {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {
+  date = new Date();
+
+  maxDate = this.date;
+  value = {
+    start: new Date(this.maxDate.getTime() + 1000 * 60 * 60 * 24),
+    end: new Date(this.maxDate.getTime() + 1000 * 60 * 60 * 48),
+  };
+
   //her
   endMinDate = new Date(2023, 9, 10);
   endTimeValue: Date | null = new Date(2023, 9, 10);
@@ -85,9 +93,9 @@ export class v2PlaygroundComponent {
   isContextMenuShowing = false;
 
   // Datepicker
-  date = new Date(2022, 9, 10, 22, 42, 42, 42);
+  /* date = new Date(2022, 9, 10, 22, 42, 42, 42);
   minDate = new Date(2022, 9, 5);
-  maxDate = new Date(2023, 9, 25);
+   maxDate = new Date(2023, 9, 25); */
   errorOptions = { hasErrorPlaceholder: false, isErrorState: true, text: 'Hello' };
   disableDate = (date: Date) => date.getDate() % 3 === 0;
   writeDate = (d: Date) => console.log('Retrieving in Angular: ', d);
