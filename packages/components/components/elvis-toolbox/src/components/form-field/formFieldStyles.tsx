@@ -148,7 +148,7 @@ export const FormFieldContainer = styled.label<FormFieldContainerProps>`
   &:focus-within {
     --border-color: ${getThemeColor('border-selected-1')};
 
-    ${FormFieldInputContainer} {
+    > ${FormFieldInputContainer} {
       ${({ size }) => setActiveBorder(size)};
     }
   }

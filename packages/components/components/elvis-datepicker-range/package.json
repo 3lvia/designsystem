@@ -20,7 +20,7 @@
     "@elvia/elvis-component-wrapper": "^4.2.0",
     "@elvia/elvis-datepicker": "^9.0.12",
     "@elvia/elvis-timepicker": "^5.1.4",
-    "@elvia/elvis-toolbox": "^12.0.5",
+    "@elvia/elvis-toolbox": "^12.0.6",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5"
   },
