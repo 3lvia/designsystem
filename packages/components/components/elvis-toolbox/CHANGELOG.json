@@ -11,6 +11,10 @@
           "changes": [
             "Fixed a bug where the <code>:focus-within</code> would select more <code>FormFieldInputContainer<code> elements than intended."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },
