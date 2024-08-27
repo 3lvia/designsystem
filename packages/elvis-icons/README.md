@@ -47,8 +47,6 @@ addIcons({
 </div>
 ```
 
-# **NB**: Should this be changed?
-
 4. The `<e-icon>` respects the icon-related size and color classes from the `@elvia/elvis` package. It is
    therefore possible to set colors and sizes through the `.e-icon--color-COLOR` and `.e-icon--SIZE` classes.
 
