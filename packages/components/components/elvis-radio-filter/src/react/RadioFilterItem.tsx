@@ -43,7 +43,16 @@ export const RadioFilterItem: FC<RadioFilterItemProps> = ({
         checked={optionsValue === selectedValue}
         onChange={() => setSelectedValue(optionsValue)}
       />
-      <RadioFilterTitle ref={titleRef} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(label) }} />
+      <RadioFilterTitle
+        ref={titleRef}
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(label, {
+            CUSTOM_ELEMENT_HANDLING: {
+              tagNameCheck: /^e-icon$/,
+            },
+          }),
+        }}
+      />
     </RadioFilterLabel>
   );
 };

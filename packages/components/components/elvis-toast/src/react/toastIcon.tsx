@@ -13,7 +13,11 @@ interface Props {
 
 export const ToastIcon: React.FC<Props> = ({ toast }) => {
   if (toast.customIcon) {
-    const sanitizedDom = DOMPurify.sanitize(toast.customIcon);
+    const sanitizedDom = DOMPurify.sanitize(toast.customIcon, {
+      CUSTOM_ELEMENT_HANDLING: {
+        tagNameCheck: /^e-icon$/,
+      },
+    });
     return <div dangerouslySetInnerHTML={{ __html: sanitizedDom }} />;
   } else if (toast.status === 'informative') {
     return <IconWrapper icon={informationCircle} color={'icon-info'} size="sm" />;

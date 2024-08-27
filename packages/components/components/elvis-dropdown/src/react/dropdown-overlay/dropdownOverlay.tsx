@@ -294,7 +294,13 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
                 >
                   {item.icon && !isMulti && (
                     <DropdownIconContainer
-                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.icon) }}
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(item.icon, {
+                          CUSTOM_ELEMENT_HANDLING: {
+                            tagNameCheck: /^e-icon$/,
+                          },
+                        }),
+                      }}
                     />
                   )}
                   <ItemValue item={item} focusedValue={focusedItem} isRootOverlay={isRootOverlay} />

@@ -113,13 +113,25 @@ export const DropdownInput: React.FC<Props> = ({
       {placeholderIcon && !inputValue && (
         <DropdownIconContainer
           size={size}
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(placeholderIcon) }}
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(placeholderIcon, {
+              CUSTOM_ELEMENT_HANDLING: {
+                tagNameCheck: /^e-icon$/,
+              },
+            }),
+          }}
         ></DropdownIconContainer>
       )}
       {!!currentValIcon && (
         <DropdownIconContainer
           size={size}
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(currentValIcon) }}
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(currentValIcon, {
+              CUSTOM_ELEMENT_HANDLING: {
+                tagNameCheck: /^e-icon$/,
+              },
+            }),
+          }}
         ></DropdownIconContainer>
       )}
       <FormFieldInput
