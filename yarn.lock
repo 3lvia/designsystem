@@ -2871,7 +2871,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-icon@npm:*, @elvia/elvis-icon@workspace:*, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
+"@elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-icon@workspace:packages/components/components/elvis-icon"
   dependencies:
@@ -9746,7 +9746,6 @@ __metadata:
     "@elvia/elvis-divider": "workspace:*"
     "@elvia/elvis-dropdown": "workspace:*"
     "@elvia/elvis-header": "workspace:*"
-    "@elvia/elvis-icon": "workspace:*"
     "@elvia/elvis-icons": "workspace:*"
     "@elvia/elvis-illustrations": "workspace:*"
     "@elvia/elvis-modal": "workspace:*"
@@ -15988,7 +15987,6 @@ __metadata:
     "@elvia/elvis-divider": "npm:*"
     "@elvia/elvis-dropdown": "npm:*"
     "@elvia/elvis-header": "npm:*"
-    "@elvia/elvis-icon": "npm:*"
     "@elvia/elvis-icons": "npm:*"
     "@elvia/elvis-modal": "npm:*"
     "@elvia/elvis-pagination": "npm:*"
@@ -19064,7 +19062,6 @@ __metadata:
     "@elvia/elvis-divider": "npm:*"
     "@elvia/elvis-dropdown": "npm:*"
     "@elvia/elvis-header": "npm:*"
-    "@elvia/elvis-icon": "npm:*"
     "@elvia/elvis-modal": "npm:*"
     "@elvia/elvis-pagination": "npm:*"
     "@elvia/elvis-popover": "npm:*"
