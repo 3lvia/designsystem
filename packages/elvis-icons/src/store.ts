@@ -32,7 +32,7 @@ export const getIcon = (name: string): IconData | undefined => {
   // Need to check `name` because it can be `undefined` on initial render depending on property vs attribute
   if (name && !_elviaGlobalIconsStore[name]) {
     throw new Error(
-      `Icon "${name}" not found. Have you remembered to add it to the global icon store using \`addIcons\`?`,
+      `Icon "${name}" not found. Ensure the icon name is correct and that it has been added to the global icon store using \`addIcons\`.`,
     );
   }
   return _elviaGlobalIconsStore[name];
