@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { HeaderProps } from '@elvia/elvis-header/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -10,6 +10,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   providers: [{ provide: ComponentExample, useExisting: HeaderCegComponent }],
   standalone: true,
   imports: [NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderCegComponent implements ComponentExample {
   headerIsVisible = false;

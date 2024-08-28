@@ -124,6 +124,11 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
                             index === selectedIndex ? 'iconSelected' : 'icon'
                           ],
                         ),
+                        {
+                          CUSTOM_ELEMENT_HANDLING: {
+                            tagNameCheck: /^e-icon$/,
+                          },
+                        },
                       ),
                     }}
                     data-testid="segmented-control-icon"

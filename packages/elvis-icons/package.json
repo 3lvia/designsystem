@@ -1,0 +1,41 @@
+{
+  "name": "@elvia/elvis-icons",
+  "version": "1.0.0",
+  "license": "GPL-3.0-only",
+  "homepage": "https://design.elvia.io/brand/icon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3lvia/designsystem.git",
+    "directory": "packages/elvis-icons"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "react.ts"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --sourcemap --dts --format esm --out-dir dist",
+    "start": "tsup src/index.ts --sourcemap --dts --format esm --out-dir dist --watch"
+  },
+  "dependencies": {
+    "@lit/react": "^1.0.5",
+    "dompurify": "^3.1.6",
+    "lit": "^3.2.0",
+    "lit-html": "^3.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.4",
+    "tsup": "^8.2.4",
+    "typescript": "~5.5.4"
+  }
+}

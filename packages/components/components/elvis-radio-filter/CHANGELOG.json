@@ -3,6 +3,22 @@
   "name": "elvis-radio-filter",
   "content": [
     {
+      "date": "28.08.24",
+      "version": "1.9.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "The component now supports icons from the new <code>@elvia/elvis-icons</code> package."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "17.06.24",
       "version": "1.8.5",
       "changelog": [

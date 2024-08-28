@@ -55,7 +55,7 @@
   @include buttonHelper.disabled() {
     background: none;
 
-    .e-btn__icon i {
+    .e-btn__icon > * {
       @include icons.icon-color(var(--e-color-text-disabled-1));
     }
   }
@@ -85,14 +85,17 @@
   }
 
   // Icons
-  i {
+  i,
+  e-icon {
     position: absolute;
     top: 0;
     left: 0;
   }
 
-  .e-btn__icon i[class*='filled-color'] {
-    visibility: hidden; // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
+  .e-btn__icon {
+    @include icons.filledColor {
+      visibility: hidden; // Hiding hover icon, the filled-color icons can't be replaced by css-variable switching
+    }
   }
 
   // Sizes
@@ -114,12 +117,14 @@
   @include buttonHelper.hover() {
     background: transparent;
 
-    .e-btn__icon i:not([class*='filled-color']) {
-      visibility: hidden; // Hiding original icon
-    }
+    .e-btn__icon {
+      @include icons.notFilledColor {
+        visibility: hidden; // Hiding original icon
+      }
 
-    .e-btn__icon i[class*='filled-color'] {
-      visibility: unset; // Showing hover icon
+      @include icons.filledColor {
+        visibility: unset; // Showing hover icon
+      }
     }
   }
 }

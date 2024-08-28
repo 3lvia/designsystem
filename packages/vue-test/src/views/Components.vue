@@ -165,8 +165,6 @@
     <!--Ikon-->
     <div class="example-wrapper">
       <h3>Icon</h3>
-      <elvia-icon name="arrowLeftBold"></elvia-icon>
-      <elvia-icon name="arrowRightBold"></elvia-icon>
     </div>
 
     <!--Modal-->

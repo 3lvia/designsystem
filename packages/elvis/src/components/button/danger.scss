@@ -16,10 +16,8 @@
   color: var(--e-color-text-3);
 
   // Icons
-  .e-btn__icon {
-    i {
-      @include icons.icon-currentcolor(var(--e-color-text-3--contrast));
-    }
+  .e-btn__icon > * {
+    @include icons.icon-currentcolor(var(--e-color-text-3--contrast));
   }
 
   // States
@@ -28,7 +26,7 @@
     background: var(--e-button-danger-hover-background);
     color: var(--e-color-text-4);
 
-    .e-btn__icon i {
+    .e-btn__icon > * {
       @include icons.icon-currentcolor(var(--e-button-danger-hover-background));
     }
   }

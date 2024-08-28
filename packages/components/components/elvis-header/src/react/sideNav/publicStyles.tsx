@@ -50,7 +50,8 @@ export const publicStyles = (isGtMobile: boolean) => {
       flex: none;
       border: 1px solid transparent;
 
-      i[class*='color'] {
+      i[class*='color'],
+      e-icon[name*='color' i] {
         display: none;
       }
     }
@@ -59,11 +60,13 @@ export const publicStyles = (isGtMobile: boolean) => {
       .e-sidenav__icon-container {
         border-color: ${getThemeColor('border-1')};
 
-        i {
+        i,
+        e-icon {
           display: none;
         }
 
-        i[class*='color'] {
+        i[class*='color'],
+        e-icon[name*='color' i] {
           display: initial;
         }
       }

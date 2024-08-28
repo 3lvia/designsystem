@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "20.1.0",
+      "date": "August 28, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added support for the new <code>@elvia/elvis-icons</code> package, which enables the use of Elvia icons with tree-shaking support. This new method should be used over the legacy <code>&lt;i class=\"e-icon\"&gt;</code>-method."
+          ],
+          "components": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        }
+      ]
+    },
+    {
       "version": "20.0.0",
       "date": "August 23, 2024",
       "changelog": [

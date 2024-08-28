@@ -2578,10 +2578,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu"
   dependencies:
-    "@elvia/elvis-colors": "npm:^4.4.1"
+    "@elvia/elvis-colors": "npm:^4.4.2"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.1"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-toolbox": "npm:^12.0.6"
+    "@elvia/elvis-typography": "npm:^3.1.0"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
     "@floating-ui/react": "npm:~0.26.16"
@@ -2677,15 +2677,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-dropdown@workspace:packages/components/components/elvis-dropdown"
   dependencies:
-    "@elvia/elvis-assets-icons": "npm:^3.10.0"
-    "@elvia/elvis-colors": "npm:^4.4.1"
+    "@elvia/elvis-assets-icons": "npm:^3.11.1"
+    "@elvia/elvis-colors": "npm:^4.4.2"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.3"
+    "@elvia/elvis-toolbox": "npm:^12.0.6"
     "@elvia/elvis-tooltip": "npm:^1.3.6"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-typography": "npm:^3.1.0"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
-    dompurify: "npm:^3.1.4"
+    dompurify: "npm:^3.1.6"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2704,11 +2704,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-header@workspace:packages/components/components/elvis-header"
   dependencies:
-    "@elvia/elvis-assets-icons": "npm:^3.10.0"
-    "@elvia/elvis-colors": "npm:^4.4.1"
+    "@elvia/elvis-assets-icons": "npm:^3.11.1"
+    "@elvia/elvis-colors": "npm:^4.4.2"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.3"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-toolbox": "npm:^12.0.6"
+    "@elvia/elvis-typography": "npm:^3.1.0"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
   peerDependencies:
@@ -2725,7 +2725,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-icon@npm:*, @elvia/elvis-icon@workspace:*, @elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
+"@elvia/elvis-icon@workspace:packages/components/components/elvis-icon":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-icon@workspace:packages/components/components/elvis-icon"
   dependencies:
@@ -2744,6 +2744,25 @@ __metadata:
     react-dom:
       optional: true
     react-is:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
+"@elvia/elvis-icons@npm:*, @elvia/elvis-icons@workspace:*, @elvia/elvis-icons@workspace:packages/elvis-icons":
+  version: 0.0.0-use.local
+  resolution: "@elvia/elvis-icons@workspace:packages/elvis-icons"
+  dependencies:
+    "@lit/react": "npm:^1.0.5"
+    "@types/react": "npm:^18.3.4"
+    dompurify: "npm:^3.1.6"
+    lit: "npm:^3.2.0"
+    lit-html: "npm:^3.2.0"
+    tsup: "npm:^8.2.4"
+    typescript: "npm:~5.5.4"
+  peerDependencies:
+    react: ^18.0.0
+  peerDependenciesMeta:
+    react:
       optional: true
   languageName: unknown
   linkType: soft
@@ -2891,14 +2910,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-radio-filter@workspace:packages/components/components/elvis-radio-filter"
   dependencies:
-    "@elvia/elvis-colors": "npm:^4.4.1"
+    "@elvia/elvis-colors": "npm:^4.4.2"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.1"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-toolbox": "npm:^12.0.6"
+    "@elvia/elvis-typography": "npm:^3.1.0"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
     "@types/dompurify": "npm:^3.0.0"
-    dompurify: "npm:^3.1.4"
+    dompurify: "npm:^3.1.6"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2919,12 +2938,12 @@ __metadata:
   dependencies:
     "@elvia/elvis-colors": "npm:^4.4.2"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.5"
+    "@elvia/elvis-toolbox": "npm:^12.0.6"
     "@elvia/elvis-tooltip": "npm:^1.3.6"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-typography": "npm:^3.1.0"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
-    dompurify: "npm:^3.1.4"
+    dompurify: "npm:^3.1.6"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3065,15 +3084,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-toast@workspace:packages/components/components/elvis-toast"
   dependencies:
-    "@elvia/elvis-assets-icons": "npm:^3.10.0"
-    "@elvia/elvis-colors": "npm:^4.4.1"
+    "@elvia/elvis-assets-icons": "npm:^3.11.1"
+    "@elvia/elvis-colors": "npm:^4.4.2"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.1"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-toolbox": "npm:^12.0.6"
+    "@elvia/elvis-typography": "npm:^3.1.0"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
-    "@types/dompurify": "npm:^3.0.2"
-    dompurify: "npm:^3.1.4"
+    "@types/dompurify": "npm:^3.0.5"
+    dompurify: "npm:^3.1.6"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -4686,6 +4705,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/ssr-dom-shim@npm:^1.2.0":
+  version: 1.2.1
+  resolution: "@lit-labs/ssr-dom-shim@npm:1.2.1"
+  checksum: 10/48e28c1f132eb1d5b385454dd23db2837bf913d108a0908e73816ceb594b1b09db34e05ccb86a18fb9c02fc100d62bbab350b6ec88e2c175f2c21c5f0220bfdd
+  languageName: node
+  linkType: hard
+
+"@lit/react@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@lit/react@npm:1.0.5"
+  peerDependencies:
+    "@types/react": 17 || 18
+  checksum: 10/f4fe7241827d7e239d83e5f3ac1a2d679fb3b6a3c4d4aa121a8f34932eb7f14ee9491b719a6b71397d428e1e0772e13510b0be74520bde34a85a3775e5a44f14
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@lit/reactive-element@npm:2.0.4"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
+  checksum: 10/16aa5a8d917bce24d6c7cb5979f0a978e91f6205b4d9a8ebea2baf965e7a8215dab581b83b331123b04190612f4992ecc7b219cf00cf9b82f53403b08b1b6d49
+  languageName: node
+  linkType: hard
+
 "@lmdb/lmdb-darwin-arm64@npm:3.0.13":
   version: 3.0.13
   resolution: "@lmdb/lmdb-darwin-arm64@npm:3.0.13"
@@ -5837,12 +5881,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/dompurify@npm:^3.0.0, @types/dompurify@npm:^3.0.2":
+"@types/dompurify@npm:^3.0.0":
   version: 3.0.3
   resolution: "@types/dompurify@npm:3.0.3"
   dependencies:
     "@types/trusted-types": "npm:*"
   checksum: 10/949a6affdd050be30b9a8eb53ae4b47c2d641e4f8665312507a7cf64760953d77f30aee379388f62789c6d7cf290269284cc65ff2ceadcc1eaa4c8583d3f53d8
+  languageName: node
+  linkType: hard
+
+"@types/dompurify@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "@types/dompurify@npm:3.0.5"
+  dependencies:
+    "@types/trusted-types": "npm:*"
+  checksum: 10/e544b3ce53c41215cabff3d89256ff707c7ee8e0c9a1b5034b22014725d288b16e6942cdcdeeb4221c578c3421a6a4721aa0676431f55d7abd18c07368855c5e
   languageName: node
   linkType: hard
 
@@ -6302,6 +6355,13 @@ __metadata:
   version: 2.0.4
   resolution: "@types/trusted-types@npm:2.0.4"
   checksum: 10/5256c4576cd1c90d33ddd9cc9cbd4f202b39c98cbe8b7f74963298f9eb2159c285ea5c25a6181b4c594d8d75641765bff85d72c2d251ad076e6529ce0eeedd1c
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:^2.0.2":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 10/8e4202766a65877efcf5d5a41b7dd458480b36195e580a3b1085ad21e948bc417d55d6f8af1fd2a7ad008015d4117d5fdfe432731157da3c68678487174e4ba3
   languageName: node
   linkType: hard
 
@@ -9174,10 +9234,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^3.1.4":
-  version: 3.1.4
-  resolution: "dompurify@npm:3.1.4"
-  checksum: 10/be036d5c10bda3ca9cc8069f26f3e586ac0379fc2a2499df7c362eeee53de49594ead3cc7e82e012eadcb071cf7327001fca33751682882e42da87618b10a4e6
+"dompurify@npm:^3.1.6":
+  version: 3.1.6
+  resolution: "dompurify@npm:3.1.6"
+  checksum: 10/036844bc9b717b172ba27f5863b56f950289a05d8eebfb702d6953bbf80bd021e480ce4217bd084567186f2d0ada13358ce5556963492cfe402d774e8667f120
   languageName: node
   linkType: hard
 
@@ -9293,7 +9353,7 @@ __metadata:
     "@elvia/elvis-divider": "workspace:*"
     "@elvia/elvis-dropdown": "workspace:*"
     "@elvia/elvis-header": "workspace:*"
-    "@elvia/elvis-icon": "workspace:*"
+    "@elvia/elvis-icons": "workspace:*"
     "@elvia/elvis-illustrations": "workspace:*"
     "@elvia/elvis-modal": "workspace:*"
     "@elvia/elvis-outline": "workspace:*"
@@ -13216,6 +13276,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lit-element@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "lit-element@npm:4.1.0"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
+    "@lit/reactive-element": "npm:^2.0.4"
+    lit-html: "npm:^3.2.0"
+  checksum: 10/953e601478d93a27d5ae48581e32b80196c554912b1751cf788fc96c8736b8ad8a01750f1bf03bddb2ef41a5602ab1b500af22255772162db1b636f6ed8df3c5
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "lit-html@npm:3.2.0"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: 10/c6e6f07b3aa02d6b3dc047664d144911a49c7ed95137320b769771f8386873f8d72858b205cad707fa88fd5d882de25981de80660888c6f1be106af01bbba979
+  languageName: node
+  linkType: hard
+
+"lit@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "lit@npm:3.2.0"
+  dependencies:
+    "@lit/reactive-element": "npm:^2.0.4"
+    lit-element: "npm:^4.1.0"
+    lit-html: "npm:^3.2.0"
+  checksum: 10/7f9f84f797f85a81a5c9c77a00bc0b7240194263aa32d1b47f8260de0b82dbd475dec0cefcbcf936799c070a63b2258183689d19a7d86e2c31ef74b01a2b16ad
+  languageName: node
+  linkType: hard
+
 "lmdb@npm:3.0.13":
   version: 3.0.13
   resolution: "lmdb@npm:3.0.13"
@@ -15422,6 +15513,7 @@ __metadata:
   dependencies:
     "@elvia/elvis": "npm:*"
     "@elvia/elvis-accordion": "npm:*"
+    "@elvia/elvis-assets-icons": "npm:*"
     "@elvia/elvis-autocomplete": "npm:*"
     "@elvia/elvis-badge": "npm:*"
     "@elvia/elvis-box": "npm:*"
@@ -15435,7 +15527,7 @@ __metadata:
     "@elvia/elvis-divider": "npm:*"
     "@elvia/elvis-dropdown": "npm:*"
     "@elvia/elvis-header": "npm:*"
-    "@elvia/elvis-icon": "npm:*"
+    "@elvia/elvis-icons": "npm:*"
     "@elvia/elvis-modal": "npm:*"
     "@elvia/elvis-pagination": "npm:*"
     "@elvia/elvis-popover": "npm:*"
@@ -18426,7 +18518,6 @@ __metadata:
     "@elvia/elvis-divider": "npm:*"
     "@elvia/elvis-dropdown": "npm:*"
     "@elvia/elvis-header": "npm:*"
-    "@elvia/elvis-icon": "npm:*"
     "@elvia/elvis-modal": "npm:*"
     "@elvia/elvis-pagination": "npm:*"
     "@elvia/elvis-popover": "npm:*"

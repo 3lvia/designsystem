@@ -9,6 +9,7 @@ import '@elvia/elvis/elvis.js';
 import { routes } from './app/app-routing';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
+import './icons';
 
 if (environment.production) {
   enableProdMode();
