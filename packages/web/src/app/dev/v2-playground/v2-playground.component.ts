@@ -23,7 +23,6 @@ interface StepStates {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {
-  //her
   endMinDate = new Date(2023, 9, 10);
   endTimeValue: Date | null = new Date(2023, 9, 10);
 
@@ -86,10 +85,7 @@ export class v2PlaygroundComponent {
 
   // Datepicker
   date = new Date(2022, 9, 10, 22, 42, 42, 42);
-  now = new Date();
-
-  minDate: any;
-
+  minDate = new Date(2022, 9, 5);
   maxDate = new Date(2023, 9, 25);
   errorOptions = { hasErrorPlaceholder: false, isErrorState: true, text: 'Hello' };
   disableDate = (date: Date) => date.getDate() % 3 === 0;
