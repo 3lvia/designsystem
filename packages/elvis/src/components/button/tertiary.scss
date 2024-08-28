@@ -13,8 +13,7 @@
   .e-btn__icon {
     @include icons.icon-size('sm');
 
-    i,
-    e-icon {
+    > * {
       @include icons.icon-currentcolor(var(--e-color-text-1--contrast));
       visibility: unset;
     }
@@ -39,8 +38,7 @@
     background: none;
     color: var(--e-color-text-1);
 
-    .e-btn__icon i,
-    .e-btn__icon e-icon {
+    .e-btn__icon > * {
       visibility: unset;
     }
   }
@@ -55,8 +53,7 @@
       padding-bottom: 4px;
     }
 
-    .e-btn__icon i,
-    .e-btn__icon e-icon {
+    .e-btn__icon > * {
       visibility: unset;
     }
   }

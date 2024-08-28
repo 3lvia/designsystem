@@ -83,8 +83,7 @@
     margin-right: 8px;
 
     .e-btn__icon,
-    .e-btn__icon i,
-    .e-btn__icon e-icon {
+    .e-btn__icon > * {
       width: 24px;
       height: 24px;
     }
@@ -246,8 +245,7 @@
     margin-right: 4px;
 
     .e-btn__icon,
-    .e-btn__icon i,
-    .e-btn__icon e-icon {
+    .e-btn__icon > * {
       width: 16px;
       height: 16px;
     }

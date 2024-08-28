@@ -85,8 +85,7 @@
       content: none;
     }
 
-    .e-list__icon > i,
-    .e-list__icon > e-icon {
+    .e-list__icon > * {
       position: absolute;
       top: get-marker-top-offset(var(--list-marker-size));
       left: get-text-offset(var(--list-marker-size), -1);

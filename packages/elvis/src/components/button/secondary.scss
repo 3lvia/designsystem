@@ -7,8 +7,7 @@
   color: var(--e-color-text-1);
 
   // Icons
-  .e-btn__icon i,
-  .e-btn__icon e-icon {
+  .e-btn__icon > * {
     @include icons.icon-currentcolor(var(--e-color-text-1--contrast));
   }
 
@@ -18,8 +17,7 @@
     background: var(--e-color-background-hover-1);
     color: var(--e-color-background-hover-1--contrast);
 
-    .e-btn__icon i,
-    .e-btn__icon e-icon {
+    .e-btn__icon > * {
       @include icons.icon-currentcolor(var(--e-button-icon-color-filled-foreground-hover-light));
     }
   }

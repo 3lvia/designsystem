@@ -32,8 +32,7 @@ $link-jumbo-phone-width: 287px;
     display: inline-flex;
     align-items: center;
 
-    i,
-    e-icon {
+    > * {
       @include icons.icon-size('xxs');
       display: flex;
     }
@@ -133,8 +132,7 @@ $link-jumbo-phone-width: 287px;
       position: relative;
       right: 0;
 
-      i,
-      e-icon {
+      > * {
         position: absolute;
         top: 0;
         right: 0;

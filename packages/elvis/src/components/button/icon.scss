@@ -55,8 +55,7 @@
   @include buttonHelper.disabled() {
     background: none;
 
-    .e-btn__icon i,
-    .e-btn__icon e-icon {
+    .e-btn__icon > * {
       @include icons.icon-color(var(--e-color-text-disabled-1));
     }
   }
@@ -86,8 +85,7 @@
   }
 
   // Icons
-  i,
-  e-icon {
+  > * {
     position: absolute;
     top: 0;
     left: 0;
