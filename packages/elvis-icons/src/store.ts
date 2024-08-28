@@ -8,8 +8,9 @@ let _elviaGlobalIconsStore: IconRegistry = {};
 /**
  * Add icons to the global icon store to make them available for use in the `<e-icon>/Icon` component.
  *
- * You can add multiple icons at once. The key of the input object is the icon name corresponding to the `name` prop in the `<e-icon>` component.
- * While this can be any string, it is recommended to use the icon name as the key.
+ * You can add multiple icons at once. The key of the input object is the icon name corresponding to the `name`
+ * prop in the `<e-icon>/Icon` component. While this can be any string, it is recommended to use the icon name as the key.
+ * Some selectors depend on the `filledColor` icons to keep `filledColor` in the icon name to work properly.
  * @param icons - An object of icon names and their corresponding SVG data.
  *
  * @example
