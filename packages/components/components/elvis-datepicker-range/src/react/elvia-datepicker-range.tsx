@@ -454,7 +454,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             />
           )}
         </RowContainer>
-        {currentErrorMessages.end && <DatepickerRangeError errorText={currentErrorMessages.end} />}
+        {currentErrorMessages.end && !currentErrorMessages.start && (
+          <DatepickerRangeError errorText={currentErrorMessages.end} />
+        )}
       </FormFieldContainer>
     </DatepickerRangeWrapper>
   );

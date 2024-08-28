@@ -3,6 +3,23 @@
   "name": "elvis-datepicker-range",
   "content": [
     {
+      "date": "28.08.24",
+      "version": "5.0.11",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where both the datepicker and the timpicker would get focused styles if the other was focused.",
+            "Fixed an issue where both datepickers would display an error if they were both invalid. It now displays one at a time."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "26.06.24",
       "version": "5.0.10",
       "changelog": [
