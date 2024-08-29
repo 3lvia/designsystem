@@ -5,9 +5,7 @@
 <div class="info e-color-text-1">
   <div class="installation-guide">
     <div>
-      <span class="step-title e-text-md-strong e-mb-8"
-        ><i class="e-icon e-icon--step_1 e-icon--sm"></i> Import</span
-      >
+      <span class="step-title e-text-md-strong e-mb-8"><e-icon name="step1" size="sm" />Import</span>
       <app-copy [message]="importStatement">
         <code class="e-flex e-flex-direction-row e-align-items-center e-gap-8 e-text-sm-mono">
           {{ importString }}
@@ -15,9 +13,7 @@
       </app-copy>
     </div>
     <div>
-      <span class="step-title e-text-md-strong e-mb-8"
-        ><i class="e-icon e-icon--step_2 e-icon--sm"></i>HTML</span
-      >
+      <span class="step-title e-text-md-strong e-mb-8"><e-icon name="step2" size="sm" />HTML</span>
       <app-copy [message]="usageCopyString">
         <code class="e-flex e-flex-direction-row e-align-items-center e-gap-8 e-text-sm-mono">
           {{ usageString }}
@@ -37,13 +33,13 @@
       <button class="e-btn e-btn--sm e-btn--tertiary" (click)="downloadImage('svg')">
         <span class="e-btn__title">SVG</span>
         <span class="e-btn__icon">
-          <i class="e-icon e-icon--download" aria-hidden="true"> </i>
+          <e-icon name="download" />
         </span>
       </button>
       <button class="e-btn e-btn--sm e-btn--tertiary" (click)="downloadImage('png')">
         <span class="e-btn__title">PNG</span>
         <span class="e-btn__icon">
-          <i class="e-icon e-icon--download" aria-hidden="true"> </i>
+          <e-icon name="download" />
         </span>
       </button>
     </span>
@@ -55,6 +51,6 @@
   (click)="clearSelection()"
 >
   <span class="e-btn__icon">
-    <i class="e-icon e-icon--close" aria-hidden="true"> </i>
+    <e-icon name="close" />
   </span>
 </button>

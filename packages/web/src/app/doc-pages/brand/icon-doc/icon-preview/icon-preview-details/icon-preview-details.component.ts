@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, ElementRef, inject, input, model } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, inject, input, model } from '@angular/core';
 
 import { createPngBlob, createSvgBlobFromElement } from '../../../imageDownloadUtils';
 import { Icon } from '../utils';
@@ -12,6 +12,7 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   imports: [NgClass, CopyComponent],
   templateUrl: './icon-preview-details.component.html',
   styleUrl: './icon-preview-details.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconPreviewDetailsComponent {
   private elementRef = inject(ElementRef);

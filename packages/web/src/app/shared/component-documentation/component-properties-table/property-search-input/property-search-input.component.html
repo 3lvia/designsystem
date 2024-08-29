@@ -1,6 +1,6 @@
 <div class="e-form-field properties-filter">
   <div class="e-input">
-    <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+    <e-icon name="searchColor" />
     <input
       aria-label="Search properties table"
       type="search"
@@ -10,12 +10,14 @@
       #searchInputElement
     />
     <button
-      class="e-btn e-btn--icon e-btn--lg"
+      class="e-btn e-btn--icon"
       (click)="clearSearchField()"
       aria-label="Clear search field"
       [ngClass]="{ 'e-invisible': searchTerm === '' }"
     >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close" aria-hidden="true"></i></span>
+      <span class="e-btn__icon">
+        <e-icon name="close" />
+      </span>
     </button>
   </div>
 </div>

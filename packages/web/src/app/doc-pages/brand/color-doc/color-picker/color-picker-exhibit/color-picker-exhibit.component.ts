@@ -1,5 +1,5 @@
 import { KeyValuePipe, NgClass, NgPlural, NgPluralCase, NgStyle, UpperCasePipe } from '@angular/common';
-import { Component, computed, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CopyComponent } from '../../../../../shared/copy/copy.component';
@@ -30,6 +30,7 @@ import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
     ReplacePipe,
     NeedsBorderPipe,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorPickerExhibitComponent {
   private colorPickerService = inject(ColorPickerService);

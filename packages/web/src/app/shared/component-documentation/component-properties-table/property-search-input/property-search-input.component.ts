@@ -1,5 +1,12 @@
 import { NgClass } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -8,6 +15,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./property-search-input.component.scss'],
   standalone: true,
   imports: [FormsModule, NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertySearchInputComponent {
   @ViewChild('searchInputElement') inputElement: ElementRef<HTMLInputElement>;

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
 import data from '@elvia/elvis/.internal/classlist.json';
 import deprecated from '@elvia/elvis/.internal/deprecated-classes.json';
 
@@ -10,6 +10,7 @@ import { CopyComponent } from '../../copy/copy.component';
   styleUrls: ['./component-properties.component.scss'],
   standalone: true,
   imports: [CopyComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentPropertiesComponent implements OnInit {
   @Input() componentName: keyof typeof data.block;

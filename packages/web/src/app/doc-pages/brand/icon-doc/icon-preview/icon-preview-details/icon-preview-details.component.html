@@ -14,7 +14,7 @@
     >
       <button class="e-btn e-btn--tertiary e-btn--sm">
         <span class="e-btn__icon">
-          <i class="e-icon e-icon--copy" aria-hidden="true"> </i>
+          <e-icon name="copy" />
         </span>
         <span class="e-btn__title">Copy</span>
       </button>
@@ -22,13 +22,13 @@
 
     <button class="e-btn e-btn--tertiary e-btn--sm" (click)="downloadImage('svg')">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--download" aria-hidden="true"> </i>
+        <e-icon name="download" />
       </span>
       <span class="e-btn__title">SVG</span>
     </button>
     <button class="e-btn e-btn--tertiary e-btn--sm" (click)="downloadImage('png')">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--download" aria-hidden="true"> </i>
+        <e-icon name="download" />
       </span>
       <span class="e-btn__title">PNG</span>
     </button>
@@ -41,6 +41,6 @@
   (click)="selectedIcon.set(null)"
 >
   <span class="e-btn__icon">
-    <i class="e-icon e-icon--close" aria-hidden="true"> </i>
+    <e-icon name="close" />
   </span>
 </button>

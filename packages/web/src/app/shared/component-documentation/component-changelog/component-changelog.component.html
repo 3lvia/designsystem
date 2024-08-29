@@ -7,7 +7,7 @@
     ></elvia-radio-filter>
     <div class="e-form-field">
       <div class="e-input">
-        <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+        <e-icon name="searchColor" />
         <input
           aria-label="Search changelog"
           type="search"
@@ -21,7 +21,9 @@
           aria-label="Clear search"
           [ngClass]="{ 'e-invisible': searchValue.length === 0 }"
         >
-          <span class="e-btn__icon"><i class="e-icon e-icon--close" aria-hidden="true"></i></span>
+          <span class="e-btn__icon">
+            <e-icon name="close" />
+          </span>
         </button>
       </div>
     </div>

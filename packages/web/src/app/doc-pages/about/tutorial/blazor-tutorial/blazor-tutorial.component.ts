@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
@@ -8,6 +8,7 @@ import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/
   templateUrl: './blazor-tutorial.component.html',
   standalone: true,
   imports: [CodeViewerComponent, RouterLink],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BlazorTutorialComponent {
   codeStep1 = `mkdir NpmJs

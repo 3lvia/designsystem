@@ -610,14 +610,14 @@ export const dataColors10 = [
 export const iconColors = [
   {
     token: 'icon-stroke-1',
-    example: '<i class="e-icon e-icon--check_circle e-icon--sm"></i>',
+    example: '<e-icon name="checkCircle" size="sm"></e-icon>',
     role: 'Stroke icons',
     light: { hex: getColor('icon-stroke-1', 'light'), label: 'Black' },
     dark: { hex: getColor('icon-stroke-1', 'dark'), label: 'Dark-white' },
   },
   {
     token: 'icon-filled-background-1',
-    example: '<i class="e-icon e-icon--check_circle-filled e-icon--sm"></i>',
+    example: '<e-icon name="checkCircleFilled" size="sm"></e-icon>',
     role: 'Background color for filled icons',
     light: { hex: getColor('icon-filled-background-1', 'light'), label: 'Black' },
     dark: { hex: getColor('icon-filled-background-1', 'dark'), label: 'Dark-white' },
@@ -625,7 +625,7 @@ export const iconColors = [
   {
     token: 'icon-filled-foreground-1',
     example:
-      '<i class="e-icon e-icon--check_circle-filled-color e-icon--sm"></i><i class="e-icon e-icon--check_circle-filled e-icon--sm"></i>',
+      '<e-icon name="checkCircleFilledColor" size="sm"></e-icon><e-icon name="checkCircleFilled" size="sm"></e-icon>',
     role: 'Automatically selects the best foreground color that contrasts best with the background (either black or white)',
     light: { hex: 'black/white', label: 'Black/white' },
     dark: { hex: 'dark-black/dark-white', label: 'Dark-black/ dark-white' },
@@ -633,7 +633,7 @@ export const iconColors = [
   {
     token: 'icon-[signal-type]',
     example:
-      '<i class="e-icon e-icon--check_circle e-icon--color-positive e-icon--sm"></i><i class="e-icon e-icon--check_circle-filled-color e-icon--sm"></i>',
+      '<e-icon name="checkCircle" size="sm" class="e-icon--color-positive"></e-icon><e-icon name="checkCircleFilledColor" size="sm"></e-icon>',
     role: 'Icons can use all the different signal colors. E.g. e-color-icon-positive',
     light: { hex: 'signal', label: 'Signal' },
     dark: { hex: 'dark-signal', label: 'Dark-signal' },

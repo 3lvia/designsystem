@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
 
 import { Locale } from 'src/app/core/services/localization.service';
 
@@ -7,7 +7,7 @@ import { Locale } from 'src/app/core/services/localization.service';
   templateUrl: './when-to-use.component.html',
   styleUrls: ['./when-to-use.component.scss'],
   standalone: true,
-  imports: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class WhenToUseComponent {
   @Input() whens? = [''];

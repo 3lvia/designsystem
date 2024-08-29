@@ -7,12 +7,8 @@
     [disabled]="counter.value <= counter.min || disabled"
   >
     <span class="e-btn__icon">
-      <i
-        class="e-icon e-icon--subtract_circle"
-        [ngClass]="{ 'e-icon--color-disabled': counter.value <= counter.min || disabled }"
-        aria-hidden="true"
-      ></i>
-      <i class="e-icon e-icon e-icon--subtract_circle-filled-color" aria-hidden="true"></i>
+      <e-icon name="subtractCircle" />
+      <e-icon name="subtractCircleFilledColor" />
     </span>
   </button>
 
@@ -27,12 +23,8 @@
     [disabled]="counter.value >= counter.max || disabled"
   >
     <span class="e-btn__icon">
-      <i
-        class="e-icon e-icon--add_circle"
-        [ngClass]="{ 'e-icon--color-disabled': counter.value >= counter.max || disabled }"
-        aria-hidden="true"
-      ></i>
-      <i class="e-icon e-icon e-icon--add_circle-filled-color" aria-hidden="true"></i>
+      <e-icon name="addCircle" />
+      <e-icon name="addCircleFilledColor" />
     </span>
   </button>
 </div>

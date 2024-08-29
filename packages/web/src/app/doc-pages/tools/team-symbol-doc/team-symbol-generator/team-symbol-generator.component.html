@@ -14,7 +14,7 @@
         error: errorText,
       }"
     >
-      <i class="e-icon e-icon--image e-icon--color-disabled-1 e-icon--xxl" aria-hidden="true"> </i>
+      <e-icon name="image" size="xxl" class="e-icon--color-disabled-1" />
     </div>
   }
 </ng-template>
@@ -42,7 +42,7 @@
         @if (!generatedSvg) {
           <button class="e-btn e-btn--tertiary e-mt-24" (click)="fileInput.click()">
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--upload" aria-hidden="true"> </i>
+              <e-icon name="upload" />
             </span>
             <span class="e-btn__title">Add image (SVG)</span>
           </button>
@@ -50,7 +50,7 @@
         } @else {
           <button class="e-btn e-btn--tertiary e-mt-24" (click)="removeFile()">
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--bin" aria-hidden="true"> </i>
+              <e-icon name="bin" />
             </span>
             <span class="e-btn__title">Remove</span>
           </button>
@@ -63,8 +63,7 @@
           }"
         >
           @if (errorText) {
-            <i class="e-icon e-icon--remove_circle e-icon--color-error e-icon--xs e-mr-8" aria-hidden="true">
-            </i>
+            <e-icon name="removeCircle" size="xs" class="e-icon--color-error e-mr-8" />
           }
           <span class="e-text-sm">
             {{ errorText ? errorText : 'Max 100 KB' }}
@@ -106,7 +105,7 @@
           (click)="generateColors()"
         >
           <span class="e-btn__icon">
-            <i class="e-icon e-icon--sync" aria-hidden="true"> </i>
+            <e-icon name="sync" />
           </span>
           <span class="e-btn__title">{{
             generatedColors.length > 0 ? 'Regenerate colors' : 'Generate colors'
@@ -136,7 +135,7 @@
   <div class="top-buttons">
     <button class="e-btn e-btn--tertiary" (click)="isFinished = false">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--arrow_long_left" aria-hidden="true"> </i>
+        <e-icon name="arrowLongLeft" />
       </span>
       <span class="e-btn__title">Edit</span>
     </button>
@@ -154,14 +153,14 @@
     </div>
     <button class="e-btn e-btn--tertiary e-mt-24 e-mb-64" (click)="downloadZip()">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--download" aria-hidden="true"> </i>
+        <e-icon name="download" />
       </span>
       <span class="e-btn__title">team_symbols.zip</span>
     </button>
   </div>
   <button class="start-over-button e-btn e-btn--primary e-mt-16" (click)="reset()">
     <span class="e-btn__icon">
-      <i class="e-icon e-icon--reset" aria-hidden="true"> </i>
+      <e-icon name="reset" />
     </span>
     <span class="e-btn__title">Start over</span>
   </button>

@@ -223,7 +223,7 @@ export class CMSTransformService {
   private getQuote(quote: string): string {
     return `<div class="cms-quote-container">
     <div>
-      <i class="e-icon e-icon--quotation-color e-icon--lg" aria-hidden="true"></i>
+      <e-icon name="quotationColor" size="lg"></e-icon>
     </div>
     <div class="cms-quote-text e-text-quote">
       ${quote}
@@ -335,14 +335,10 @@ export class CMSTransformService {
           <span class="e-link__title">${linkText}</span>
           ${
             isAction && !isInline
-              ? '<span class="e-link__icon"><i class="e-icon e-icon--arrow_right_circle-color" aria-hidden="true"></i><i class="e-icon e-icon--arrow_right_circle-filled-color" aria-hidden="true"></i></span>'
+              ? '<span class="e-link__icon"><e-icon name="arrowRightCircleColor"></e-icon><e-icon name="arrowRightCircleFilledColor"></e-icon></span>'
               : ''
           }
-          ${
-            isExternal
-              ? '<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>'
-              : ''
-          }
+          ${isExternal ? '<span class="e-link__icon"><e-icon name="newTabBold" ></e-icon></span>' : ''}
         </a>
       ${!isInline ? '</p>' : ''}`;
   }
@@ -375,7 +371,7 @@ export class CMSTransformService {
     <div class="when-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
-          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-positive" aria-hidden="true"></i>
+          <e-icon name="checkCircle" size="xs" class="e-icon--color-positive"></e-icon>
         </div>
         <div>When to use:</div>
       </div>
@@ -388,7 +384,7 @@ export class CMSTransformService {
     <div class="when-not-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
-          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-error" aria-hidden="true"></i>
+          <e-icon name="removeCircle" size="xs" class="e-icon--color-error"></e-icon>
         </div>
         <div>When not to use:</div>
       </div>
@@ -517,7 +513,7 @@ export class CMSTransformService {
         <a role="button" id="download-content-${assetName}">
           <button class="e-btn e-btn--tertiary ${inverted ? 'e-btn--inverted' : ''}">
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--download" aria-hidden="true"></i>
+              <e-icon name="download"></e-icon>
             </span>
             <span class="e-btn__title">${fileType}</span>
           </button>

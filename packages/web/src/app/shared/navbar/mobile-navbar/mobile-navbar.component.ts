@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { NavbarBase } from '../navbar-base';
@@ -9,5 +9,6 @@ import { NavbarBase } from '../navbar-base';
   styleUrls: ['./mobile-navbar.component.scss'],
   standalone: true,
   imports: [RouterLink],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MobileNavbarComponent extends NavbarBase {}
