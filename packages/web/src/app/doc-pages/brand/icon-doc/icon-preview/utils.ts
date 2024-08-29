@@ -34,3 +34,6 @@ const getShortIconName = (iconName: string): string => {
   const short = iconName.split(/[-_]/).join(' ');
   return short.charAt(0).toUpperCase() + short.slice(1);
 };
+
+export const kebabCaseToCamelCase = (str: string) =>
+  str.replace(/[-_]([a-z0-9])/g, (g) => g[1].toUpperCase());

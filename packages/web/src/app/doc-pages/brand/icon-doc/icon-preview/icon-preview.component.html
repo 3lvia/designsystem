@@ -14,7 +14,7 @@
         [ngClass]="{ selected: selectedIcon()?.title === icon.title }"
         (click)="selectedIcon.set(icon)"
       >
-        <i [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" aria-hidden="true"></i>
+        <app-icon-generator [name]="icon.title" size="sm" />
         <span class="e-text-sm e-text-center">
           {{ icon.pretty }}
         </span>
