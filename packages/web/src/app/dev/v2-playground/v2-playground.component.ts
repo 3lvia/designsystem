@@ -246,7 +246,10 @@ export class v2PlaygroundComponent {
     { label: 'All', value: 'all' },
     { label: 'Read', value: 'read' },
     { label: 'Unread', value: 'unread' },
-    { label: '<i class="e-icon e-icon--bookmark-filled e-icon--xs"></i>Flagged', value: 'flagged' },
+    {
+      label: '<e-icon name="bookmarkFilled" size="xs"></e-icon>Flagged',
+      value: 'flagged',
+    },
   ];
 
   // Spotlight

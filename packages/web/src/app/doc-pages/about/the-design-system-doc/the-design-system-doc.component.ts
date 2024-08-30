@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
@@ -25,6 +25,7 @@ import { QualityIconComponent } from './quality-icon/quality-icon.component';
     InnovativeIconComponent,
     RouterLink,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TheDesignSystemDocComponent {
   constructor(private titleService: Title) {

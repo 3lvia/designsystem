@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
 import { filter, fromEvent } from 'rxjs';
 
 import { entranceAnimation } from '../../exhibit-detail-animation';
+import { IconGeneratorComponent } from '../icon-generator/icon-generator.component';
 import { IconPreviewDetailsComponent } from './icon-preview-details/icon-preview-details.component';
 import { FilterValue, IconPreviewFilterComponent } from './icon-preview-filter/icon-preview-filter.component';
 import { Icon, getIconList } from './utils';
@@ -24,6 +25,7 @@ const allIcons = getIconList();
     CopyComponent,
     IconPreviewFilterComponent,
     IconPreviewDetailsComponent,
+    IconGeneratorComponent,
   ],
   templateUrl: './icon-preview.component.html',
   styleUrl: './icon-preview.component.scss',

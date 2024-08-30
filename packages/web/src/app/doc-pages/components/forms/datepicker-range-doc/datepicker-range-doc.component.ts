@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CegComponent } from '../../../../shared/component-documentation/ceg/ceg.component';
@@ -23,6 +23,7 @@ import { DatepickerRangeShortcutExampleComponent } from './datepicker-range-shor
     RouterLink,
     DatepickerRangeShortcutExampleComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerRangeDocComponent {
   componentData = datepickerRangeData;

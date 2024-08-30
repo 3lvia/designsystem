@@ -2,66 +2,7 @@
 <div class="components-examples" id="dev-component-examples">
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
-    <div class="example-wrapper">
-      <div class="e-flex e-gap-16 e-flex-wrap">
-        <button class="e-btn e-btn--icon" aria-label="Beskrivelse av ikon-knapp">
-          <span class="e-btn__icon">
-            <e-icon name="upload" />
-          </span>
-        </button>
-        <button class="e-btn e-btn--icon" disabled aria-label="Beskrivelse av ikon-knapp">
-          <span class="e-btn__icon">
-            <e-icon name="upload" />
-          </span>
-        </button>
-      </div>
-      <div class="e-flex e-gap-16 e-flex-wrap">
-        <button class="e-btn e-btn--icon e-btn--circled" aria-label="Beskrivelse av ikon-knapp">
-          <span class="e-btn__icon">
-            <e-icon name="informationCircle" />
-            <e-icon name="informationCircleFilledColor" />
-          </span>
-        </button>
-        <button class="e-btn e-btn--icon e-btn--circled" disabled aria-label="Beskrivelse av ikon-knapp">
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--information_circle" aria-hidden="true"> </i>
-            <i class="e-icon e-icon e-icon--information_circle-filled-color" aria-hidden="true"> </i>
-          </span>
-        </button>
-      </div>
-
-      <e-icon [name]="'bookmark'" class="e-icon--color-positive e-icon--xl" />
-      <e-icon name="bookmark" size="sm" />
-      <e-icon name="bookmarkFilled" />
-      <e-icon name="han" style="height: 60px; width: 60px" />
-
-      <div class="e-flex e-gap-8">
-        <button class="e-btn">
-          <span class="e-btn__icon">
-            <e-icon name="download" />
-          </span>
-          <span class="e-btn__title"> Primær </span>
-        </button>
-        <button class="e-btn e-btn--secondary">
-          <span class="e-btn__icon">
-            <e-icon name="upload" />
-          </span>
-          <span class="e-btn__title"> Sekundær </span>
-        </button>
-        <button class="e-btn e-btn--danger">
-          <span class="e-btn__icon">
-            <e-icon name="upload" />
-          </span>
-          <span class="e-btn__title"> Danger </span>
-        </button>
-        <button class="e-btn e-btn--tertiary">
-          <span class="e-btn__icon">
-            <e-icon name="upload" />
-          </span>
-          <span class="e-btn__title"> Tertiær </span>
-        </button>
-      </div>
-    </div>
+    <div class="example-wrapper"></div>
 
     <!--Accordion-->
     <div class="example-wrapper">
@@ -77,8 +18,8 @@
         (onOpen)="onOpen()"
         (onClose)="onClose()"
       >
-        <div slot="openLabel"><i class="e-icon e-icon--box e-icon--sm"></i> Open</div>
-        <div slot="closeLabel"><i class="e-icon e-icon--box e-icon--sm"></i> Close</div>
+        <div slot="openLabel"><e-icon name="box" size="sm" /> Open</div>
+        <div slot="closeLabel"><e-icon name="box" size="sm" /> Close</div>
         <div slot="content">
           <div class="e-text-lg" style="display: flex; flex-direction: column; justify-content: flex-start">
             <label class="e-checkbox" for="elvis-checkbox">
@@ -175,8 +116,8 @@
       <h3>Card</h3>
       <div class="e-gap-32" style="display: grid; grid-template-columns: 1fr 1fr">
         <elvia-card [heading]="'Hover!'" [borderColor]="'red'">
-          <i slot="icon" class="e-icon e-icon--search-bold e-icon--md" aria-hidden="true"></i>
-          <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md" aria-hidden="true"></i>
+          <e-icon name="searchBold" size="md" slot="icon" />
+          <e-icon name="searchBoldColor" size="md" slot="iconHover" />
         </elvia-card>
         <elvia-card
           [heading]="'Title3 is longer and overflows'"
@@ -193,7 +134,7 @@
           "
           [type]="'detail'"
         >
-          <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
+          <e-icon name="lock" size="xs" slot="cornerIcon" />
         </elvia-card>
         <elvia-card
           [heading]="'Heading 6'"
@@ -209,7 +150,7 @@
         description="It is not only outdoors that you should watch for dangerous conditions"
         type="detail"
       >
-        <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs" aria-hidden="true"></i>
+        <e-icon name="lock" size="xs" slot="cornerIcon" />
       </elvia-card>
     </div>
 
@@ -304,18 +245,18 @@
           aria-haspopup="menu"
         >
           <span class="e-btn__icon">
-            <i class="e-icon e-icon--more_menu" aria-hidden="true"></i>
+            <e-icon name="moreMenu" />
           </span>
         </button>
 
         <div slot="content">
           <div class="ewc-context-menu__list-group">
             <button role="menuitem">
-              <i class="e-icon e-icon--edit e-icon--xs"></i>
+              <e-icon name="edit" size="xs" />
               <span>Oppdater og valider på nytt</span>
             </button>
             <button role="menuitem">
-              <i class="e-icon e-icon--bin e-icon--xs"></i>
+              <e-icon name="bin" size="xs" />
               <span>Slett</span>
             </button>
           </div>
@@ -397,8 +338,8 @@
     <!--Icon-->
     <div class="example-wrapper">
       <h3>Icon</h3>
-      <e-icon name="arrowRightBold"></e-icon>
-      <e-icon name="arrowLeftBold"></e-icon>
+      <e-icon name="arrowRightBold" />
+      <e-icon name="arrowLeftBold" />
     </div>
 
     <!--Modal-->
@@ -412,7 +353,7 @@
       >
         <div slot="heading" class="e-flex e-align-items-center e-gap-8">
           Jeg er en heading (slot)
-          <i class="e-icon e-icon--move_truck-color e-icon--sm" aria-hidden="true"> </i>
+          <e-icon name="moveTruckColor" size="sm" />
         </div>
         <div slot="content" class="e-flex e-flex-direction-column e-gap-8">Test</div>
         <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg e-none-md e-none-lg e-none-xl">
@@ -640,7 +581,7 @@
             aria-label="Vis tooltip"
           >
             <span class="e-btn__icon">
-              <i class="e-icon e-icon--star" aria-hidden="true"></i>
+              <e-icon name="star" />
             </span>
           </button>
         </elvia-tooltip>
@@ -651,7 +592,7 @@
 
         <elvia-tooltip>
           <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
-            <i class="e-icon e-icon--search-bold e-icon--xs e-icon--color-info e-mr-8" aria-hidden="true"></i>
+            <e-icon name="searchBold" size="xs" class="e-icon--color-info e-mr-8" />
             This is custom content!
           </p>
           <div slot="trigger">Tooltip trigger with custom content</div>

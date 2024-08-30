@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 
@@ -15,6 +15,7 @@ interface IconLink {
   styleUrls: ['./footer.component.scss'],
   standalone: true,
   imports: [NgClass, RouterLink],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FooterComponent {
   bgClass = '';

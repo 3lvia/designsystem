@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import { EscapeHTMLPipe } from '../../../pipes/escape-html.pipe';
 import { SearchHighlighterPipe } from '../../../search-highlighter.pipe';
@@ -14,6 +14,7 @@ import { SearchResult } from 'src/app/shared/searcher';
   styleUrls: ['./property-table-desktop.component.scss'],
   standalone: true,
   imports: [NgClass, NgStyle, PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
   calculateMargin(i: number, propList: SearchResult<ComponentProp>[]) {

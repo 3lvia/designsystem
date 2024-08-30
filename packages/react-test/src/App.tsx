@@ -1,5 +1,4 @@
 import { Accordion } from '@elvia/elvis-accordion/react';
-import { bookmark, bookmarkFilled, han } from '@elvia/elvis-assets-icons';
 import { Autocomplete } from '@elvia/elvis-autocomplete/react';
 import { Badge } from '@elvia/elvis-badge/react';
 import { Box } from '@elvia/elvis-box/react';
@@ -13,8 +12,7 @@ import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Header } from '@elvia/elvis-header/react';
-import { Icon } from '@elvia/elvis-icon/react';
-import { Icon as ElvisIcon, addIcons } from '@elvia/elvis-icons/react';
+import { Icon } from '@elvia/elvis-icons/react';
 import { Modal } from '@elvia/elvis-modal/react';
 import { Pagination } from '@elvia/elvis-pagination/react';
 import { Popover } from '@elvia/elvis-popover/react';
@@ -31,12 +29,6 @@ import { Tooltip } from '@elvia/elvis-tooltip/react';
 import { useState } from 'react';
 
 import './App.scss';
-
-addIcons({
-  bookmark: { svg: bookmark.getIcon() },
-  bookmarkFilled: { svg: bookmarkFilled.getIcon() },
-  han: { svg: han.getIcon() },
-});
 
 function App() {
   const logValue = (component: string, value: string | number) => {
@@ -180,19 +172,19 @@ function App() {
         <div className="e-sidenav__container">
           <a href="/" className="e-sidenav__item e-sidenav__item--active" aria-label="Dashbord">
             <div className="e-sidenav__icon-container">
-              <Icon name="dashboard" size="sm"></Icon>
+              <Icon name="dashboard" size="sm" />
             </div>
             <div className="e-sidenav__item-text">Dashbord</div>
           </a>
           <a href="/search" className="e-sidenav__item" aria-label="Søk">
             <div className="e-sidenav__icon-container">
-              <Icon name="search" size="sm"></Icon>
+              <Icon name="search" size="sm" />
             </div>
             <div className="e-sidenav__item-text">Søk</div>
           </a>
           <a href="/pin" className="e-sidenav__item" aria-label="Analyse">
             <div className="e-sidenav__icon-container">
-              <Icon name="pin" size="sm"></Icon>
+              <Icon name="pin" size="sm" />
             </div>
             <div className="e-sidenav__item-text">Analyse</div>
           </a>
@@ -210,9 +202,9 @@ function App() {
               <h3>Test your component here</h3>
               {/* Normal version */}
               <div>
-                <ElvisIcon name="bookmark" ref={(el) => console.log(el)} />
-                <ElvisIcon name="bookmarkFilled" size="xs" />
-                <ElvisIcon name="han" />
+                <Icon name="bookmark" ref={(el) => console.log(el)} />
+                <Icon name="bookmarkFilled" size="xs" />
+                <Icon name="han" />
               </div>
             </div>
             {/* ACCORDION */}

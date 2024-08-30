@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CopyComponent } from '../../../copy/copy.component';
@@ -10,6 +10,7 @@ import { CopyComponent } from '../../../copy/copy.component';
   styleUrls: ['./component-section.component.scss'],
   standalone: true,
   imports: [CopyComponent, NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentSectionComponent {
   @Input() sectionTitle = '';

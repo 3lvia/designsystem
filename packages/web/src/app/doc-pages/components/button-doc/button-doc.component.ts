@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -41,6 +41,7 @@ import { ButtonTypeTertiaryCegComponent } from './button-type-tertiary-ceg/butto
     ButtonLinkCegComponent,
     RouterLink,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ButtonDocComponent {
   doesExample1 = [

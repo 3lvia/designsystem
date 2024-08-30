@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { Component, input, signal } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -26,6 +26,7 @@ import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-
     FeedbackComponent,
     TitleCasePipe,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PageWithSidenavComponent {
   isLandingPage = input(false);

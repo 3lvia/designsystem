@@ -1,6 +1,6 @@
 <div class="e-form-field">
   <div class="e-input">
-    <i class="e-icon e-icon--search-color" aria-hidden="true"> </i>
+    <e-icon name="searchColor" />
     <input
       [value]="searchValue()"
       (keyup)="handleSearchChange($event)"
@@ -13,7 +13,7 @@
     @if (searchValue()) {
       <button class="e-btn e-btn--icon" (click)="handleClearSearch()" aria-label="Clear search field">
         <span class="e-btn__icon">
-          <i class="e-icon e-icon--close" aria-hidden="true"> </i>
+          <e-icon name="close" />
         </span>
       </button>
     }
@@ -47,7 +47,7 @@
   </div>
   <button slot="trigger" aria-label="Toggle filter" class="e-btn e-btn--icon">
     <span class="e-btn__icon">
-      <i aria-hidden="true" class="e-icon e-icon--list"> </i>
+      <e-icon name="list" />
     </span>
   </button>
 </elvia-popover>

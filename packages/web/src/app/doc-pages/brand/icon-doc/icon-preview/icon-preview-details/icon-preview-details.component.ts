@@ -1,7 +1,8 @@
 import { NgClass } from '@angular/common';
-import { Component, ElementRef, inject, input, model } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, inject, input, model } from '@angular/core';
 
 import { createPngBlob, createSvgBlobFromElement } from '../../../imageDownloadUtils';
+import { IconGeneratorComponent } from '../../icon-generator/icon-generator.component';
 import { Icon } from '../utils';
 import { Theme } from 'src/app/core/services/theme.service';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
@@ -9,9 +10,10 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 @Component({
   selector: 'app-icon-preview-details',
   standalone: true,
-  imports: [NgClass, CopyComponent],
+  imports: [NgClass, CopyComponent, IconGeneratorComponent],
   templateUrl: './icon-preview-details.component.html',
   styleUrl: './icon-preview-details.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconPreviewDetailsComponent {
   private elementRef = inject(ElementRef);
@@ -40,10 +42,8 @@ export class IconPreviewDetailsComponent {
   };
 
   private getIconElement() {
-    const icon = this.elementRef.nativeElement.querySelector(
-      `.e-icon.e-icon--${this.selectedIcon()?.title}`,
-    ) as HTMLElement;
-    return icon?.querySelector('svg');
+    const icon = this.elementRef.nativeElement.querySelector(`e-icon`) as HTMLElement;
+    return icon?.shadowRoot?.querySelector('svg');
   }
 
   private imageFileName(format: 'svg' | 'png') {

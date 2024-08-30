@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
   styleUrls: ['./mobile-menu.component.scss'],
   standalone: true,
   imports: [RouterLink, ThemeSwitchComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MobileMenuComponent {
   @Output() closeMenu = new EventEmitter<void>();

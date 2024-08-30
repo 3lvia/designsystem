@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import { CegComponent } from '../../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
@@ -19,6 +19,7 @@ import { datepickerData } from './datepicker-data';
     ComponentSectionComponent,
     ComponentSubsectionComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerDocComponent {
   date = new Date(2021, 4, 20);

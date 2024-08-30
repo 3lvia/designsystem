@@ -61,7 +61,7 @@
                     </app-copy>
                     @if (hasExampleColumn) {
                       <td class="small-column">
-                        <div class="example-container" [innerHTML]="color.example"></div>
+                        <div class="example-container" [innerHTML]="color.example ?? '' | safeHtml"></div>
                       </td>
                     }
                     @if (hasRoleColumn) {
@@ -80,7 +80,7 @@
                                   {{ link.title }}
                                 </span>
                                 <span class="e-link__icon">
-                                  <i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i>
+                                  <e-icon name="newTabBold" />
                                 </span>
                               </a>
                             }
@@ -88,10 +88,11 @@
                           @if (color.warning) {
                             <div class="e-text-micro e-mt-16 e-flex e-align-items-center">
                               <div class="100%">
-                                <i
-                                  class="e-icon e-icon--warning_circle e-icon--color-warning e-icon--xs e-mr-16"
-                                  aria-hidden="true"
-                                ></i>
+                                <e-icon
+                                  name="warningCircle"
+                                  size="xs"
+                                  class="e-icon--color-warning e-mr-16"
+                                />
                               </div>
                               <div>NB! {{ color.warning }}</div>
                             </div>

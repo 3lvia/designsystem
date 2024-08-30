@@ -1,6 +1,6 @@
 <div class="e-form-field e-mb-32" style="width: 250px">
   <div class="e-input">
-    <i class="e-icon e-icon--search-color" aria-hidden="true"></i>
+    <e-icon name="searchColor" />
     <input aria-label="Search" type="search" placeholder="Filter tokens" #filterInput (keyup)="(0)" />
     <button
       class="e-btn e-btn--icon"
@@ -9,7 +9,7 @@
       [ngClass]="{ 'e-invisible': filterInput.value.length === 0 }"
     >
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--close" aria-hidden="true"></i>
+        <e-icon name="close" />
       </span>
     </button>
   </div>
@@ -130,7 +130,7 @@
 >
   <div class="e-alert e-alert--info e-alert--no-title e-mt-32" role="note">
     <div class="e-alert__icon">
-      <i class="e-icon e-icon--information_circle e-icon--color-grey" aria-hidden="true"></i>
+      <e-icon name="informationCircle" class="e-icon--color-grey" />
     </div>
     <div class="e-alert__text">
       <p class="e-m-0">

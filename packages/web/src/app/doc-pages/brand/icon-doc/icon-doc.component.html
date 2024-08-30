@@ -66,7 +66,9 @@
         @if (locale() === 'nb-NO') {
           <span class="e-link__title">her</span>
         }
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+        <span class="e-link__icon">
+          <e-icon name="newTabBold" />
+        </span>
       </a>
       .
     </app-component-subsection>
@@ -243,11 +245,7 @@
       <div class="doDontIcons">
         <div class="doDontIcons__container">
           <div class="doDontIcons__container__title">
-            <i
-              class="e-icon e-icon--check_circle e-icon--sm e-icon--color-positive"
-              aria-hidden="true"
-              aria-hidden="true"
-            ></i>
+            <e-icon name="checkCircle" size="sm" class="e-icon--color-positive" />
             @if (locale() === 'en-GB') {
               <div class="e-title-caps e-ml-16">Be consistent</div>
             }
@@ -256,18 +254,18 @@
             }
           </div>
           <div class="doDontIcons__container__icons">
-            <i class="e-icon e-icon--arrow_down e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-            <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-            <i class="e-icon e-icon--subtract_circle e-icon--sm" aria-hidden="true"></i>
-            <i class="e-icon e-icon--add_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-            <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-            <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
+            <e-icon name="arrowDown" size="sm" />
+            <e-icon name="arrowUp" size="sm" />
+            <e-icon name="subtractCircle" size="sm" />
+            <e-icon name="addCircle" size="sm" />
+            <e-icon name="removeCircle" size="sm" />
+            <e-icon name="informationCircle" size="sm" />
           </div>
         </div>
         <div class="doDontDivider"></div>
         <div class="doDontIcons__container">
           <div class="doDontIcons__container__title">
-            <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-error" aria-hidden="true"></i>
+            <e-icon name="removeCircle" size="sm" class="e-icon--color-error" />
             @if (locale() === 'en-GB') {
               <div class="e-title-caps e-ml-16">Don't mix</div>
             }
@@ -276,12 +274,12 @@
             }
           </div>
           <div class="doDontIcons__container__icons">
-            <i class="e-icon e-icon--arrow_down-bold e-icon--sm" aria-hidden="true"></i>
-            <i class="e-icon e-icon--arrow_up e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-            <i class="e-icon e-icon--subtract_circle-filled e-icon--sm" aria-hidden="true"></i>
-            <i class="e-icon e-icon--add_circle-filled e-icon--sm" aria-hidden="true"></i>
-            <i class="e-icon e-icon--remove_circle e-icon--sm" aria-hidden="true" aria-hidden="true"></i>
-            <i class="e-icon e-icon--information_circle e-icon--sm" aria-hidden="true"></i>
+            <e-icon name="arrowDownBold" size="sm" />
+            <e-icon name="arrowUp" size="sm" />
+            <e-icon name="subtractCircleFilled" size="sm" />
+            <e-icon name="addCircleFilled" size="sm" />
+            <e-icon name="removeCircle" size="sm" />
+            <e-icon name="informationCircle" size="sm" />
           </div>
         </div>
       </div>

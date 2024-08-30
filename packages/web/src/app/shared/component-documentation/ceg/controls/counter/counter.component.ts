@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Counter } from '../../controlType';
 
@@ -9,6 +9,7 @@ import { Counter } from '../../controlType';
   styleUrls: ['./counter.component.scss'],
   standalone: true,
   imports: [NgClass, NgStyle],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CounterComponent {
   @Input() counter: Counter;

@@ -49,10 +49,11 @@
       border-color: var(--e-color-border-selected-1);
     }
 
-    .e-icon {
+    app-icon-generator {
       transition: transform 300ms ease-in-out;
     }
-    &:hover .e-icon {
+
+    &:hover app-icon-generator {
       transform: scale(1.15);
     }
 

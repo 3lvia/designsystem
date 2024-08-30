@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { CopyComponent } from '../../../../../shared/copy/copy.component';
 import { TableColorArray } from '../colors';
 import { ColorTokenSubtableColorCircleComponent } from './color-token-subtable-color-circle/color-token-subtable-color-circle.component';
+import { SafeHtmlPipe } from 'src/app/doc-pages/tools/team-symbol-doc/team-symbol-generator/safeHtml.pipe';
 
 type Colors = {
   colors: TableColorArray;
@@ -17,7 +18,14 @@ type Colors = {
   templateUrl: './color-token-subtable.component.html',
   styleUrls: ['./color-token-subtable.component.scss'],
   standalone: true,
-  imports: [NgClass, CopyComponent, RouterLink, ColorTokenSubtableColorCircleComponent, LowerCasePipe],
+  imports: [
+    NgClass,
+    CopyComponent,
+    RouterLink,
+    ColorTokenSubtableColorCircleComponent,
+    LowerCasePipe,
+    SafeHtmlPipe,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorTokenSubtableComponent implements OnInit {

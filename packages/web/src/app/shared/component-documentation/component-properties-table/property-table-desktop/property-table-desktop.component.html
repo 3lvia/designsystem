@@ -29,22 +29,10 @@
                   (click)="group.expanded = !group.expanded"
                 >
                   <span class="e-btn__icon">
-                    <i
-                      class="e-icon"
-                      [ngClass]="
-                        group.expanded ? 'e-icon--collapse_circle-color' : 'e-icon--expand_circle-color'
-                      "
-                      aria-hidden="true"
-                    ></i>
-                    <i
-                      class="e-icon"
-                      [ngClass]="
-                        group.expanded
-                          ? 'e-icon--collapse_circle-filled-color'
-                          : 'e-icon--expand_circle-filled-color'
-                      "
-                      aria-hidden="true"
-                    ></i>
+                    <e-icon [name]="group.expanded ? 'collapseCircleColor' : 'expandCircleColor'" />
+                    <e-icon
+                      [name]="group.expanded ? 'collapseCircleFilledColor' : 'expandCircleFilledColor'"
+                    />
                   </span>
                 </button>
               </div>

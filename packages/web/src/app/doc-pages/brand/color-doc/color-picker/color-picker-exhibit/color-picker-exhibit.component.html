@@ -48,7 +48,7 @@
       <!-- RGB -->
       <p class="e-title-caps">rgb</p>
       <p class="e-text-sm e-capitalize rgb">
-        @for (rgbValue of currentColor()?.rgb; track rgbValue; let isLast = $last) {
+        @for (rgbValue of currentColor()?.rgb; track $index; let isLast = $last) {
           {{ rgbValue + (isLast ? '' : ' /') }}
         }
       </p>
@@ -56,12 +56,12 @@
       <!-- CONTRAST -->
       <p class="e-title-caps contrast--heading">contrast</p>
       <div class="contrast--container e-text-small">
-        @for (contrast of currentColor()?.contrast | keyvalue; track contrast.value) {
+        @for (contrast of currentColor()?.contrast | keyvalue; track $index) {
           <div class="contrast">
             @if (contrast.value) {
-              <i class="e-icon e-icon--check_circle-color e-icon--xs" aria-hidden="true"></i>
+              <e-icon name="checkCircleColor" size="xs" />
             } @else {
-              <i class="e-icon e-icon--remove_circle e-icon--xs" aria-hidden="true"></i>
+              <e-icon name="removeCircle" size="xs" />
             }
             <span class="e-capitalize e-text-sm">{{ contrast.key }}</span>
             @if (contrast.value) {
