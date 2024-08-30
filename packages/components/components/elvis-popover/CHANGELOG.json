@@ -3,6 +3,22 @@
   "name": "elvis-popover",
   "content": [
     {
+      "date": "30.08.24",
+      "version": "7.4.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the popover would sometimes cause a remounting of the content of the <code>content</code> slot, which could cause unexpected behavior relating to focus."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "09.07.24",
       "version": "7.4.5",
       "changelog": [
