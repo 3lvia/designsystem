@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.11.2 (30.08.24)
+
+### Patch
+
+- Updated internal dependencies.
+
 ## 3.11.1 (23.08.24)
 
 ### Patch
