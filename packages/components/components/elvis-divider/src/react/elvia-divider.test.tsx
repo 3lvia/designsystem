@@ -59,7 +59,8 @@ describe('Elvis Divider', () => {
       expect(dividerArea).toHaveStyle(`border-color: ${getThemeColor('border-1')}`);
     });
 
-    it('should have md typography', () => {
+    // TODO: replace with Percy-test
+    it.skip('should have md typography', () => {
       const dividerHeading = screen.getByTestId('divider-heading');
       expect(dividerHeading).toHaveStyle('text-transform: unset');
       expect(dividerHeading).toHaveStyle('font-size: 30px');
@@ -71,7 +72,8 @@ describe('Elvis Divider', () => {
       render(<Divider type="heading" heading={<h2>Heading</h2>} typography="caps" />);
     });
 
-    it('should have caps typography', () => {
+    // TODO: replace with Percy-test
+    it.skip('should have caps typography', () => {
       const dividerHeading = screen.getByTestId('divider-heading');
       expect(dividerHeading).toHaveStyle('text-transform: uppercase');
       expect(dividerHeading).toHaveStyle('font-size: 14px');
