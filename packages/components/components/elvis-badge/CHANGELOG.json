@@ -3,6 +3,16 @@
   "name": "elvis-badge",
   "content": [
     {
+      "date": "30.08.24",
+      "version": "2.2.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "26.06.24",
       "version": "2.2.0",
       "changelog": [

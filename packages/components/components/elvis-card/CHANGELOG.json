@@ -3,6 +3,16 @@
   "name": "elvis-card",
   "content": [
     {
+      "date": "30.08.24",
+      "version": "3.4.7",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "3.4.6",
       "changelog": [

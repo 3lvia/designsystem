@@ -3,6 +3,16 @@
   "name": "elvis-dropdown",
   "content": [
     {
+      "date": "30.08.24",
+      "version": "9.5.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "28.08.24",
       "version": "9.5.0",
       "changelog": [
