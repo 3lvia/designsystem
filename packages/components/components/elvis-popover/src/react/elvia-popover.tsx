@@ -10,7 +10,7 @@ import {
   useFloating,
   useTransitionStyles,
 } from '@floating-ui/react';
-import React, { type FC, useEffect, useRef, useState } from 'react';
+import React, { type FC, useEffect, useMemo, useRef, useState } from 'react';
 
 import { type PopoverProps } from './elviaPopover.types';
 import { mapPosition } from './mapPosition';
@@ -82,7 +82,7 @@ export const Popover: FC<PopoverProps> = function ({
   useSlot('trigger', webcomponent, { ref: triggerRef });
   useSlot('content', webcomponent, {
     ref: contentRef,
-    useEffectDependencies: [isOpen],
+    useEffectDependencies: useMemo(() => [contentRef.current], [contentRef.current]),
   });
 
   /* Synchronize the isShowing prop and the isOpen state */
