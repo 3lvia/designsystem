@@ -2559,7 +2559,7 @@ __metadata:
     jest-axe: "npm:^9.0.0"
     jest-environment-jsdom: "npm:^29.7.0"
     playwright-core: "npm:^1.46.1"
-    postcss: "npm:^8.4.41"
+    postcss: "npm:^8.4.43"
     postcss-modules: "npm:^6.0.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -6670,9 +6670,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/language-core@npm:2.1.2":
-  version: 2.1.2
-  resolution: "@vue/language-core@npm:2.1.2"
+"@vue/language-core@npm:2.1.4":
+  version: 2.1.4
+  resolution: "@vue/language-core@npm:2.1.4"
   dependencies:
     "@volar/language-core": "npm:~2.4.1"
     "@vue/compiler-dom": "npm:^3.4.0"
@@ -6687,7 +6687,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/dce05c0a33cc98045ce6b100c1cf456fee8bf1e4aba8f8c4726e8015abc29f2e6552a1f3b372d4d540f2ba697050e7e2f0b6aaa67f3515f7bc9f1883df6904f7
+  checksum: 10/d41bef476ca4718fe18e1be6ee060b9aa6fab331d048726e33a54ff37c53b3ebd515a71befa0593d2318bac31b7aa71dc81f56b97be0ddf8fe9f22875bab3ab8
   languageName: node
   linkType: hard
 
@@ -8429,15 +8429,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.32.0":
-  version: 11.32.0
-  resolution: "contentful-management@npm:11.32.0"
+"contentful-management@npm:^11.33.0":
+  version: 11.33.0
+  resolution: "contentful-management@npm:11.33.0"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.6.1"
     axios: "npm:^1.7.4"
     contentful-sdk-core: "npm:^8.3.1"
     fast-copy: "npm:^3.0.0"
-  checksum: 10/84925d0767d1fcc9435036098f7ceda5f65c29cff6178e729ca203097551f0480b794b17a9ad77e0117679627bd062b86c24d6e3b601bdc6684046579e0a0a76
+  checksum: 10/497e2ffc9cc80c3f292f5478baae45e102e0ba61e5a6b81413f99be042509e141e0bdcd600d3d512114ba3000520bcd34b555af2a807f9f683cc6a310369d4e3
   languageName: node
   linkType: hard
 
@@ -9354,7 +9354,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.3.0"
     "@typescript-eslint/utils": "npm:^8.3.0"
     contentful: "npm:^9.3.7"
-    contentful-management: "npm:^11.32.0"
+    contentful-management: "npm:^11.33.0"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^8.57.0"
@@ -15199,6 +15199,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss@npm:^8.4.43":
+  version: 8.4.43
+  resolution: "postcss@npm:8.4.43"
+  dependencies:
+    nanoid: "npm:^3.3.7"
+    picocolors: "npm:^1.0.1"
+    source-map-js: "npm:^1.2.0"
+  checksum: 10/612075f7ab27129486292fcf0b2e7aa770b90c33045cc9500620ad6a483ff5f33c288340f9527494c8aa124b1a0818259687b340ed7eb8aa18bdfc96cd0dfeed
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -16091,7 +16102,7 @@ __metadata:
     eslint: "npm:^8.57.0"
     eslint-plugin-react: "npm:^7.35.0"
     express: "npm:^4.19.2"
-    postcss: "npm:^8.4.41"
+    postcss: "npm:^8.4.43"
     prettier: "npm:^3.3.3"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -18511,22 +18522,22 @@ __metadata:
     vite: "npm:^5.4.2"
     vue: "npm:^3.4.38"
     vue-router: "npm:^4.4.3"
-    vue-tsc: "npm:^2.1.2"
+    vue-tsc: "npm:^2.1.4"
   languageName: unknown
   linkType: soft
 
-"vue-tsc@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "vue-tsc@npm:2.1.2"
+"vue-tsc@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "vue-tsc@npm:2.1.4"
   dependencies:
     "@volar/typescript": "npm:~2.4.1"
-    "@vue/language-core": "npm:2.1.2"
+    "@vue/language-core": "npm:2.1.4"
     semver: "npm:^7.5.4"
   peerDependencies:
     typescript: ">=5.0.0"
   bin:
     vue-tsc: ./bin/vue-tsc.js
-  checksum: 10/7cf5f1668bd703bd67c36853be735873e9f50781978fef92a94c56c5b7cf5359e816421fc09993916e117dd906b8255411f9df951517d090db930dffe29e5a75
+  checksum: 10/a45747d5d3f646dd3f08812d91f0eb20dcc6c2e448ddadb7855302be98131acd45f16e77b8334440e2e7b23b13eda3c9053d095ba1b5d9057755d22628b6dcc7
   languageName: node
   linkType: hard
 
