@@ -14,6 +14,7 @@ import { ComponentSubsubsectionComponent } from '../../../shared/component-docum
 import { CopyComponent } from '../../../shared/copy/copy.component';
 import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
 import { elvisIconData } from './icon-data';
+import { IconInstallationComponent } from './icon-installation/icon-installation.component';
 import { IconPreviewComponent } from './icon-preview/icon-preview.component';
 import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
 import { LocalizationService } from 'src/app/core/services/localization.service';
@@ -40,6 +41,7 @@ const docPage = getDocPagesNotFromCMS('icon');
     CegComponent,
     ComponentChangelogComponent,
     IconPreviewComponent,
+    IconInstallationComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

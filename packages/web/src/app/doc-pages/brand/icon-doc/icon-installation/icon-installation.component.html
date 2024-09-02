@@ -1,0 +1,65 @@
+<elvia-segmented-control
+  type="text"
+  size="large"
+  [value]="activeTabIndex()"
+  [items]="tabs | tabToSegmentedControlItem"
+  (valueOnChange)="setActiveTab($any($event).detail.value)"
+/>
+
+<ol class="e-list e-list--numbers e-mt-40">
+  <li>
+    <strong>Install packages</strong>
+    <div class="e-mt-8">
+      <app-copy message="npm install @elvia/elvis-icons @elvia/elvis-assets-icons">
+        <code>npm install &#64;elvia/elvis-icons &#64;elvia/elvis-assets-icons</code>
+      </app-copy>
+      <span class="e-text-md e-m-8">or</span>
+      <app-copy message="yarn add @elvia/elvis-icons @elvia/elvis-assets-icons">
+        <code>yarn add &#64;elvia/elvis-icons &#64;elvia/elvis-assets-icons</code>
+      </app-copy>
+    </div>
+  </li>
+  <li>
+    <strong>Register icons</strong>
+    <div class="e-mt-8">
+      <p class="e-pb-16">
+        All icons you wish to use must be registered in the global icon registry. This is done by importing
+        the icons from <code>&#64;elvia/elvis-assets-icons</code>, and then registering them with the
+        <code>addIcons</code>-function from the <code>&#64;elvia/elvis-icons</code> package.
+      </p>
+
+      <app-code-viewer [tabs]="['Typescript']" fileName="main.ts" [activeCode]="typescriptExample" hideTabs />
+      <div class="e-text-md e-mt-8">
+        <strong>NB!</strong> Each icon only needs to be registered once, and can then be used in multiple
+        places. This should be done in a global file, such as <code>main.ts</code>.
+      </div>
+    </div>
+  </li>
+  <li>
+    <strong>Use in HTML</strong>
+    <div class="e-mt-8">
+      @let message =
+        activeTabIndex() === 1 ? '<Icon name="accessControl" />' : '<e-icons name="accessControl"></e-icons>';
+      <app-copy [message]="message">
+        <code>
+          {{ message }}
+        </code>
+      </app-copy>
+    </div>
+  </li>
+  @if (activeTabIndex() === 0) {
+    <li @heightAnimation>
+      <strong>Import schemas</strong>
+      <div class="e-mt-8">
+        <app-copy message="import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';">
+          <code>import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';</code>
+        </app-copy>
+      </div>
+      <div class="e-mt-8">
+        <app-copy message="schemas: [ CUSTOM_ELEMENTS_SCHEMA ]">
+          <code>schemas: [ CUSTOM_ELEMENTS_SCHEMA ]</code>
+        </app-copy>
+      </div>
+    </li>
+  }
+</ol>
