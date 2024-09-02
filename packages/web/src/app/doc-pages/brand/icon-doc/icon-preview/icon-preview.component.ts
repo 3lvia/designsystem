@@ -40,7 +40,7 @@ export class IconPreviewComponent {
       .filter((icon) => {
         const searchTerm = this.searchTerm().toLowerCase();
         return (
-          icon.title.toLowerCase().includes(searchTerm) ||
+          icon.title.toLowerCase().replace(/[-_]/g, '').includes(searchTerm) ||
           icon.terms.some((term) => term.toLowerCase().includes(searchTerm))
         );
       })
