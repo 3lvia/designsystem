@@ -62,7 +62,8 @@
   }
 
   > .e-icon,
-  > e-icon {
+  > e-icon,
+  > .e-input__icon {
     width: 24px;
     height: 24px;
     flex: none;
@@ -70,7 +71,8 @@
   }
 
   > input ~ .e-icon,
-  > input ~ e-icon {
+  > input ~ e-icon,
+  > input ~ .e-input__icon {
     margin-left: 0;
     margin-right: 16px;
   }
