@@ -235,10 +235,17 @@
   }
 
   > .e-icon,
-  > e-icon {
+  > e-icon,
+  > .e-input__icon {
     width: 16px;
     height: 16px;
     margin-left: 10px;
+  }
+
+  > input ~ .e-icon,
+  > input ~ e-icon,
+  > input ~ .e-input__icon {
+    margin-right: 8px;
   }
 
   > .e-btn.e-btn--icon {
