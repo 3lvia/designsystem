@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "20.2.0",
+      "date": "September 03, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>.e-input--icon</code> class. "],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "20.1.0",
       "date": "August 28, 2024",
       "changelog": [
