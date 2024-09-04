@@ -128,6 +128,10 @@ export const routes: Routes = [
     loadComponent: () => import('./header-doc/header-doc.component').then((m) => m.HeaderDocComponent),
   },
   {
+    path: Pages.Icon,
+    redirectTo: `/brand/${Pages.Icon}`,
+  },
+  {
     path: Pages.Input,
     loadComponent: () => import('./forms/input-doc/input-doc.component').then((m) => m.InputDocComponent),
   },
