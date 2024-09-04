@@ -49,7 +49,7 @@ $radio-mark-border: 1px solid var(--e-color-border-1);
     flex-grow: 1;
     margin-left: 32px;
     @include mixins.typography('text-md');
-    color: var(--e-color-text-1);
+
     line-height: 24px;
   }
 

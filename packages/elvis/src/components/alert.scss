@@ -48,7 +48,7 @@
     align-self: center;
 
     @include mixins.typography('text-md-strong');
-    color: var(--e-color-text-1);
+
     margin: 0;
   }
 
@@ -57,7 +57,7 @@
     align-self: center;
 
     @include mixins.typography('text-md');
-    color: var(--e-color-text-1);
+
     margin: 0;
   }
 
@@ -97,12 +97,10 @@
 
     .e-alert__title {
       @include mixins.typography('text-sm-strong');
-      color: var(--e-color-text-1);
     }
 
     .e-alert__text {
       @include mixins.typography('text-sm');
-      color: var(--e-color-text-1);
     }
 
     .e-alert__actions,
@@ -131,7 +129,7 @@
 
   .e-alert__title {
     @include mixins.typography('title-xs');
-    color: var(--e-color-text-1);
+
     margin: 0 0 2px;
   }
 

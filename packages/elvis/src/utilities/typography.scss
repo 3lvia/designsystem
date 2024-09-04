@@ -5,9 +5,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400..900;1,500&family=Red+Hat+Mono&family=Red+Hat+Text:ital,wght@0,300..700;1,400..500&display=swap');
 
+html {
+  color: var(--e-color-text-primary, #000);
+}
+
 body {
   @include mixins.typography('text-md');
-  color: var(--e-color-text-primary, #000);
 }
 
 @each $label, $map in TypographyMap.$typography {

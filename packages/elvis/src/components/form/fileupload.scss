@@ -20,7 +20,6 @@
 
   &__description {
     @include mixins.typography('text-medium');
-    color: var(--e-color-text-1);
   }
 
   &__input {
@@ -37,7 +36,7 @@
       border-radius: 0;
       border-bottom: 2.5px solid transparent;
       @include mixins.typography('text-interactive-md');
-      color: var(--e-color-text-1);
+
       cursor: pointer;
 
       @include helpers.hover() {

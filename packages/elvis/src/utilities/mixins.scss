@@ -28,7 +28,6 @@ $typography: TypographyMap.$typography;
 }
 
 @mixin typography($name) {
-  color: getValue($name, color);
   font-family: getValue($name, family);
   font-size: getValue($name, size);
   font-style: getValue($name, style);
