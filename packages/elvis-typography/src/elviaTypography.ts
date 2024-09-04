@@ -78,6 +78,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
+    color: 'inherit',
   },
   'text-interactive-md': {
     altLabels: ['text-interactive-medium'],
@@ -88,6 +89,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
+    color: 'inherit',
   },
   'text-interactive-sm': {
     altLabels: ['text-interactive-small'],
@@ -98,6 +100,7 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
+    color: 'inherit',
   },
 
   'text-lead': {

@@ -15,7 +15,6 @@ $link-jumbo-phone-width: 287px;
   display: inline;
   box-sizing: border-box;
   border-bottom: 2px solid var(--e-color-border-1);
-  color: var(--e-color-text-1);
 
   @include mixins.typography('text-interactive-md');
 
