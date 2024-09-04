@@ -12,7 +12,7 @@ import elvisDatepickerChangelog from '@elvia/elvis-datepicker/CHANGELOG.json';
 import elvisDividerChangelog from '@elvia/elvis-divider/CHANGELOG.json';
 import elvisDropdownChangelog from '@elvia/elvis-dropdown/CHANGELOG.json';
 import elvisHeaderChangelog from '@elvia/elvis-header/CHANGELOG.json';
-import elvisIconChangelog from '@elvia/elvis-icon/CHANGELOG.json';
+import elvisIconsChangelog from '@elvia/elvis-icons/CHANGELOG.json';
 import elvisIllustrationsChangelog from '@elvia/elvis-illustrations/CHANGELOG.json';
 import elvisModalChangelog from '@elvia/elvis-modal/CHANGELOG.json';
 import elvisOutlineChangelog from '@elvia/elvis-outline/CHANGELOG.json';
@@ -50,7 +50,7 @@ const allChangelogs = [
   elvisDividerChangelog,
   elvisDropdownChangelog,
   elvisHeaderChangelog,
-  elvisIconChangelog,
+  elvisIconsChangelog,
   elvisIllustrationsChangelog,
   elvisModalChangelog,
   elvisOutlineChangelog,
@@ -102,6 +102,9 @@ const getChangelogUrl = (name: string) => {
     }
     case 'elvis-illustrations': {
       return '/brand/illustration';
+    }
+    case 'elvis-icons': {
+      return '/brand/icon';
     }
     default: {
       const pipe = new FrontPageChangelogUrlPipe();
