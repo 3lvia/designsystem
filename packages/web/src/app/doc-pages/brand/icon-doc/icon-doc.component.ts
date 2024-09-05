@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, effect, inject } from '@angular/core
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
+import changelogJson from '@elvia/elvis-icons/CHANGELOG.json';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
@@ -13,7 +14,7 @@ import { ComponentSubsectionComponent } from '../../../shared/component-document
 import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
 import { CopyComponent } from '../../../shared/copy/copy.component';
 import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
-import { elvisIconData } from './icon-data';
+import { IconInstallationComponent } from './icon-installation/icon-installation.component';
 import { IconPreviewComponent } from './icon-preview/icon-preview.component';
 import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
 import { LocalizationService } from 'src/app/core/services/localization.service';
@@ -40,11 +41,12 @@ const docPage = getDocPagesNotFromCMS('icon');
     CegComponent,
     ComponentChangelogComponent,
     IconPreviewComponent,
+    IconInstallationComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconDocComponent {
-  componentData = elvisIconData;
+  changelog = changelogJson.content;
   docPage = docPage;
   locale = toSignal(inject(LocalizationService).listenLocalization());
 

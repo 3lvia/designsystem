@@ -1,0 +1,106 @@
+<elvia-segmented-control
+  type="text"
+  size="large"
+  [value]="activeTabIndex()"
+  [items]="tabs | tabToSegmentedControlItem"
+  (valueOnChange)="setActiveTab($any($event).detail.value)"
+/>
+
+<ol class="e-list e-list--numbers e-mt-40">
+  <li>
+    <strong>
+      @if (locale() === 'en-GB') {
+        Install packages
+      }
+      @if (locale() === 'nb-NO') {
+        Installer pakker
+      }
+    </strong>
+    <div class="e-mt-8">
+      <app-copy message="npm install @elvia/elvis-icons @elvia/elvis-assets-icons">
+        <code>npm install &#64;elvia/elvis-icons &#64;elvia/elvis-assets-icons</code>
+      </app-copy>
+      <span class="e-text-md e-m-8">or</span>
+      <app-copy message="yarn add @elvia/elvis-icons @elvia/elvis-assets-icons">
+        <code>yarn add &#64;elvia/elvis-icons &#64;elvia/elvis-assets-icons</code>
+      </app-copy>
+    </div>
+  </li>
+  <li>
+    <strong>
+      @if (locale() === 'en-GB') {
+        Register icons
+      }
+      @if (locale() === 'nb-NO') {
+        Registrer ikoner
+      }
+    </strong>
+    <div class="e-mt-8">
+      <p class="e-pb-16">
+        @if (locale() === 'en-GB') {
+          All icons you wish to use must be registered in the global icon registry. This is done by importing
+          the icons from <code>&#64;elvia/elvis-assets-icons</code>, and then registering them with the
+          <code>addIcons</code>-function from the <code>&#64;elvia/elvis-icons</code> package.
+        }
+        @if (locale() === 'nb-NO') {
+          Alle ikoner du ønsker å bruke må registreres i det globale ikonregistret. Dette gjøres ved å
+          importere ikonene fra <code>&#64;elvia/elvis-assets-icons</code>, og deretter registrere dem med
+          <code>addIcons</code>-funksjonen fra pakken <code>&#64;elvia/elvis-icons</code>.
+        }
+      </p>
+
+      <app-code-viewer [tabs]="['Typescript']" fileName="main.ts" [activeCode]="typescriptExample" hideTabs />
+      <p class="e-text-md e-mt-8">
+        @if (locale() === 'en-GB') {
+          <strong>NB!</strong> Each icon only needs to be registered once, and can then be used in multiple
+          places. This should be done in a global file, such as <code>main.ts</code>.
+        }
+        @if (locale() === 'nb-NO') {
+          <strong>NB!</strong> Hvert ikon trenger kun å registreres én gang, og kan deretter brukes på flere
+          steder. Dette bør gjøres i en global fil, som for eksempel <code>main.ts</code>.
+        }
+      </p>
+    </div>
+  </li>
+  <li>
+    <strong>
+      @if (locale() === 'en-GB') {
+        Use in HTML
+      }
+      @if (locale() === 'nb-NO') {
+        Bruk i HTML
+      }
+    </strong>
+    <div class="e-mt-8">
+      @let message =
+        activeTabIndex() === 1 ? '<Icon name="accessControl" />' : '<e-icon name="accessControl"></e-icon>';
+      <app-copy [message]="message">
+        <code>
+          {{ message }}
+        </code>
+      </app-copy>
+    </div>
+  </li>
+  @if (activeTabIndex() === 0) {
+    <li @heightAnimation>
+      <strong>
+        @if (locale() === 'en-GB') {
+          Import schemas
+        }
+        @if (locale() === 'nb-NO') {
+          Importer schema
+        }
+      </strong>
+      <div class="e-mt-8">
+        <app-copy message="import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';">
+          <code>import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';</code>
+        </app-copy>
+      </div>
+      <div class="e-mt-8">
+        <app-copy message="schemas: [ CUSTOM_ELEMENTS_SCHEMA ]">
+          <code>schemas: [ CUSTOM_ELEMENTS_SCHEMA ]</code>
+        </app-copy>
+      </div>
+    </li>
+  }
+</ol>

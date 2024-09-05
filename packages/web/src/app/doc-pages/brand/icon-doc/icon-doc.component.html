@@ -91,48 +91,87 @@
           og/eller se ikoner som er for små.
         }
       </p>
-      <div>
-        <ul class="e-list">
-          <li>
-            <app-copy [message]="'e-icon--xxl'">
-              <span class="e-text-lg-strong">e-icon--xxl - 56px</span>
-            </app-copy>
-          </li>
-          <li>
-            <app-copy [message]="'e-icon--xl'">
-              <span class="e-text-lg-strong">e-icon--xl - 48px</span>
-            </app-copy>
-          </li>
-          <li>
-            <app-copy [message]="'e-icon--lg'">
-              <span class="e-text-lg-strong">e-icon--lg - 40px</span>
-            </app-copy>
-          </li>
-          <li>
-            <app-copy [message]="'e-icon--md'">
-              <span class="e-text-lg-strong">e-icon--md - 32px</span>
-            </app-copy>
-          </li>
-          <li>
-            <app-copy [message]="'e-icon--sm'">
-              <span class="e-text-lg-strong">e-icon--sm - 24px</span>
-            </app-copy>
-          </li>
-          <li>
-            <app-copy [message]="'e-icon--xs'">
-              <span class="e-text-lg-strong">e-icon--xs - 16px</span>
-            </app-copy>
-          </li>
-          <li>
-            <app-copy [message]="'e-icon--xxs'">
-              <span class="e-text-lg-strong">e-icon--xxs - 8px</span>
-            </app-copy>
-          </li>
-        </ul>
-      </div>
+      <p>
+        @if (locale() === 'en-GB') {
+          The different sizes are:
+        }
+        @if (locale() === 'nb-NO') {
+          De forskjellige størrelsene er:
+        }
+      </p>
+
+      <ul class="e-list">
+        <li class="e-text-lg-strong">xxl: 56px</li>
+        <li class="e-text-lg-strong">xl: 48px</li>
+        <li class="e-text-lg-strong">lg: 40px</li>
+        <li class="e-text-lg-strong">md: 32px</li>
+        <li class="e-text-lg-strong">sm: 24px</li>
+        <li class="e-text-lg-strong">xs: 16px</li>
+        <li class="e-text-lg-strong">xxs: 8px</li>
+      </ul>
+
       <app-static-ceg>
         <app-icon-sizes-ceg />
       </app-static-ceg>
+
+      <p>
+        @if (locale() === 'en-GB') {
+          It is recommended to set icon sizes through the <code>size</code> attribute on the
+          <code>e-icon</code> component. It is also possible to set the size of the icon through
+          <code>e-icon--SIZE</code> classes.
+        }
+        @if (locale() === 'nb-NO') {
+          Det anbefales å sette ikonstørrelser gjennom <code>size</code>-attributtet på
+          <code>e-icon</code> komponenten. Det er også mulig å sette størrelsen på ikonet gjennom
+          <code>e-icon--SIZE</code>-klasser.
+        }
+      </p>
+
+      <elvia-accordion
+        [openLabel]="locale() === 'en-GB' ? 'See size classes' : 'Se størrelseklasser'"
+        [closeLabel]="locale() === 'en-GB' ? 'Hide size classes' : 'Skjul størrelseklasser'"
+        size="small"
+      >
+        <div slot="content">
+          <ul class="e-list">
+            <li>
+              <app-copy [message]="'e-icon--xxl'">
+                <span class="e-text-lg-strong">e-icon--xxl - 56px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--xl'">
+                <span class="e-text-lg-strong">e-icon--xl - 48px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--lg'">
+                <span class="e-text-lg-strong">e-icon--lg - 40px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--md'">
+                <span class="e-text-lg-strong">e-icon--md - 32px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--sm'">
+                <span class="e-text-lg-strong">e-icon--sm - 24px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--xs'">
+                <span class="e-text-lg-strong">e-icon--xs - 16px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--xxs'">
+                <span class="e-text-lg-strong">e-icon--xxs - 8px</span>
+              </app-copy>
+            </li>
+          </ul>
+        </div>
+      </elvia-accordion>
     </app-component-subsection>
 
     <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Farger' : 'Color'">
@@ -287,29 +326,79 @@
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section [sectionTitle]="'Implementation'">
-    All Elvia icons are available through the <code>elvis.js</code> script in the
-    <a [routerLink]="'/components/css-library'" class="e-link e-link--inline">&#64;elvia/elvis package</a>.
+  <app-component-section [sectionTitle]="locale() === 'en-GB' ? 'Implementation' : 'Implementasjon'">
+    @if (locale() === 'en-GB') {
+      The recommended method to use Elvia icons is through the
+      <code>&#64;elvia/elvis-icons</code> and <code>&#64;elvia/elvis-assets-icons</code> packages. <br />
+      All icons are also available through the <code>elvis.js</code> script in the
+      <a [routerLink]="'/components/css-library'" class="e-link e-link--inline">&#64;elvia/elvis package</a>,
+      however this method is not recommended as it introduces a bundle size overhead.
+    }
+    @if (locale() === 'nb-NO') {
+      Den anbefalte metoden for å bruke Elvia-ikoner er gjennom
+      <code>&#64;elvia/elvis-icons</code>- og <code>&#64;elvia/elvis-assets-icons</code>-pakkene. <br />
+      Alle ikoner er også tilgjengelige gjennom <code>elvis.js</code>-skriptet i
+      <a [routerLink]="'/components/css-library'" class="e-link e-link--inline">&#64;elvia/elvis-pakken</a>,
+    }
 
-    <p class="e-mb-16">
-      Download the npm package and use <code>elvis.js</code> from inside the npm package like this:
-    </p>
-    <app-code-viewer [activeCode]="scriptCodeHTML" />
+    <app-component-subsection [sectionTitle]="'Icon packages'">
+      <app-icon-installation />
+    </app-component-subsection>
+    <app-component-subsection>
+      <h3 class="e-title-sm e-flex e-align-items-center e-mt-0 e-mb-16">
+        <span>elvis.js</span>
+        <span class="e-tag e-ml-16">
+          @if (locale() === 'en-GB') {
+            Not recommended
+          }
+          @if (locale() === 'nb-NO') {
+            Ikke anbefalt
+          }
+        </span>
+      </h3>
+      <p class="e-mb-16">
+        @if (locale() === 'en-GB') {
+          Download the <code>&#64;elvia/elvis</code> npm package and use <code>elvis.js</code> from inside the
+          npm package like this:
+        }
+        @if (locale() === 'nb-NO') {
+          Last ned <code>&#64;elvia/elvis</code> npm-pakken og bruk <code>elvis.js</code> fra npm-pakken slik:
+        }
+        Download the <code>&#64;elvia/elvis</code> npm package and use <code>elvis.js</code> from inside the
+        npm package like this:
+      </p>
+      <app-code-viewer [activeCode]="scriptCodeHTML" />
 
-    <p class="e-mb-16">The icons can then be used like this:</p>
-    <app-code-viewer [activeCode]="iconExample" />
-    <p>
-      <strong>How it works:</strong>
-      <br />
-      <code>elvis.js</code> looks for <code>.e-icon</code> and similar classes and injects an
-      <code>&lt;svg&gt;</code> tag with the SVG icon at the desired location.
-    </p>
+      <p class="e-mb-16">
+        @if (locale() === 'en-GB') {
+          The icons can then be used like this:
+        }
+        @if (locale() === 'nb-NO') {
+          Ikonene kan deretter brukes slik:
+        }
+      </p>
+      <app-code-viewer [activeCode]="iconExample" />
+      <p>
+        @if (locale() === 'en-GB') {
+          <strong>How it works:</strong>
+          <br />
+          <code>elvis.js</code> looks for <code>.e-icon</code> and similar classes and injects an
+          <code>&lt;svg&gt;</code> tag with the SVG icon at the desired location.
+        }
+        @if (locale() === 'nb-NO') {
+          <strong>Slik fungerer det:</strong>
+          <br />
+          <code>elvis.js</code> ser etter <code>.e-icon</code> og lignende klasser og injiserer en
+          <code>&lt;svg&gt;</code>-tagg med SVG-ikonet på ønsket sted.
+        }
+      </p>
+    </app-component-subsection>
   </app-component-section>
 
   <!--Changelog-->
   <app-component-section [sectionTitle]="'Changelog'">
     @defer {
-      <app-component-changelog [elvisComponentToFilter]="'Icons'" />
+      <app-component-changelog [changelog]="changelog" />
     }
   </app-component-section>
 </div>
