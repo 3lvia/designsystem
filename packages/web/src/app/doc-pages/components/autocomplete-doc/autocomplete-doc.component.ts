@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
@@ -29,6 +29,7 @@ const docPage = getComponent('autocomplete');
     ComponentSubsectionComponent,
     AutocompleteLabelCegComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AutocompleteDocComponent {
   figmaUrl = docPage.figmaUrl;

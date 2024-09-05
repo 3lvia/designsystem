@@ -50,14 +50,14 @@ export class SegmentedControlCegComponent implements ComponentExample {
       staticProps: {
         items: [
           {
-            icon: '<i class="e-icon e-icon--thumbnail"></i>',
-            iconSelected: '<i class="e-icon e-icon--thumbnail-color"></i>',
+            icon: '<e-icon name="thumbnail"></e-icon>',
+            iconSelected: '<e-icon name="thumbnailColor"></e-icon>',
             ariaLabel: 'Segmentert kontrolleksempeletikett',
             tooltip: 'Bilder',
           },
           {
-            icon: '<i class="e-icon e-icon--list"></i>',
-            iconSelected: '<i class="e-icon e-icon--list-color"></i>',
+            icon: '<e-icon name="list"></e-icon>',
+            iconSelected: '<e-icon name="listColor"></e-icon>',
             ariaLabel: 'Segmentert kontrolleksempeletikett',
             tooltip: 'Liste',
           },

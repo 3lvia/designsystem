@@ -13,6 +13,7 @@ import { ComponentSectionComponent } from '../../../shared/component-documentati
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
 import { CopyComponent } from '../../../shared/copy/copy.component';
+import { SafeHtmlPipe } from '../../tools/team-symbol-doc/team-symbol-generator/safeHtml.pipe';
 import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
 import { IconInstallationComponent } from './icon-installation/icon-installation.component';
 import { IconPreviewComponent } from './icon-preview/icon-preview.component';
@@ -42,6 +43,7 @@ const docPage = getDocPagesNotFromCMS('icon');
     ComponentChangelogComponent,
     IconPreviewComponent,
     IconInstallationComponent,
+    SafeHtmlPipe,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

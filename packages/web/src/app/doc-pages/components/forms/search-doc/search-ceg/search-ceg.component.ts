@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef } from '@angular/core';
 
 import * as template from './search-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -8,6 +8,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   templateUrl: './search-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: SearchCegComponent }],
   standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchCegComponent implements StaticComponentExample, AfterViewInit {
   html = template.default;

@@ -44,7 +44,7 @@ export const toastData: ComponentData<ToastProps> = {
           isRequired: false,
           type: 'string',
           description: 'Allows for writing inner HTML to replace the default icon.',
-          example: /* ts */ `customIcon = '<i class="e-icon e-icon--crane"></i>'`,
+          example: /* ts */ `customIcon = '<e-icon name="crane"></e-icon>'`,
         },
       },
     },

@@ -4,21 +4,19 @@ div[slot='trigger'] {
   height: $icon-size;
   width: $icon-size;
 
-  .e-icon--information_circle {
+  e-icon[name='informationCircle'] {
     display: inline-block;
-
-    &-filled-color {
-      display: none;
-    }
+  }
+  e-icon[name='informationCircleFilledColor'] {
+    display: none;
   }
 
   &:hover {
-    .e-icon--information_circle {
+    e-icon[name='informationCircle'] {
       display: none;
-
-      &-filled-color {
-        display: inline-block;
-      }
+    }
+    e-icon[name='informationCircleFilledColor'] {
+      display: inline-block;
     }
   }
 }
