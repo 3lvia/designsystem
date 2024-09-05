@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject } from '@angular/co
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { CodeViewerComponent } from '../../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
+import { LocalizationService } from 'src/app/core/services/localization.service';
 import { heightAnimation } from 'src/app/shared/component-documentation/component-installation/animations';
 import { PreferredLanguageService } from 'src/app/shared/component-documentation/preferredLanguage.service';
 import { TabToSegmentedControlItemPipe } from 'src/app/shared/component-documentation/tabToSegmentedControlItem.pipe';
@@ -25,6 +26,8 @@ export class IconInstallationComponent {
   accessControl: { svg: accessControl.getIcon() },
   addCircle: { svg: addCircle.getIcon() },
   });`;
+
+  locale = toSignal(inject(LocalizationService).listenLocalization());
 
   private preferredLanguageService = inject(PreferredLanguageService);
   private preferredLanguage = toSignal(
