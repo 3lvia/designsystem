@@ -140,6 +140,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
   private transformTagsToReactStyle(code: string): string {
     return code
       .split('elvia-')
+      .flatMap((elviaTag) => elviaTag.split(/(<\/?)e-/))
       .map((elviaTag) => {
         const tagParts = elviaTag.split(' ');
         if (tagParts[0].length > 1) {
