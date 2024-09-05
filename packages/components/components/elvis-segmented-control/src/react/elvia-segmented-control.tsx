@@ -57,9 +57,13 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       let newIconString = icon;
       if (icon.includes('e-icon ')) {
         if (size === 'large') {
-          newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--sm ');
+          newIconString = newIconString
+            .replace('e-icon ', 'e-icon e-icon--sm ')
+            .replace('<e-icon', '<e-icon size="sm"');
         } else {
-          newIconString = newIconString.replace('e-icon ', 'e-icon e-icon--xs ');
+          newIconString = newIconString
+            .replace('e-icon ', 'e-icon e-icon--xs ')
+            .replace('<e-icon', '<e-icon size="xs"');
         }
       }
       return newIconString;
