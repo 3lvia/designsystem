@@ -34,7 +34,7 @@
     "jest-axe": "^9.0.0",
     "jest-environment-jsdom": "^29.7.0",
     "playwright-core": "^1.46.1",
-    "postcss": "^8.4.44",
+    "postcss": "^8.4.45",
     "postcss-modules": "^6.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
