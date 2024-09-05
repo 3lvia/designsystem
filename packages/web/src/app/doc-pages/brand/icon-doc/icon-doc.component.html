@@ -91,9 +91,58 @@
           og/eller se ikoner som er for små.
         }
       </p>
+
       <app-static-ceg>
         <app-icon-sizes-ceg />
       </app-static-ceg>
+
+      <p>
+        It is recommended to set icon sizes through the <code>size</code> attribute on the
+        <code>e-icon</code> component. It is also possible to set the size of the icon through
+        <code>e-icon--SIZE</code> classes.
+      </p>
+
+      <elvia-accordion openLabel="See size classes" closeLabel="Hide size classes" size="small">
+        <div slot="content">
+          <ul class="e-list">
+            <li>
+              <app-copy [message]="'e-icon--xxl'">
+                <span class="e-text-lg-strong">e-icon--xxl - 56px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--xl'">
+                <span class="e-text-lg-strong">e-icon--xl - 48px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--lg'">
+                <span class="e-text-lg-strong">e-icon--lg - 40px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--md'">
+                <span class="e-text-lg-strong">e-icon--md - 32px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--sm'">
+                <span class="e-text-lg-strong">e-icon--sm - 24px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--xs'">
+                <span class="e-text-lg-strong">e-icon--xs - 16px</span>
+              </app-copy>
+            </li>
+            <li>
+              <app-copy [message]="'e-icon--xxs'">
+                <span class="e-text-lg-strong">e-icon--xxs - 8px</span>
+              </app-copy>
+            </li>
+          </ul>
+        </div>
+      </elvia-accordion>
     </app-component-subsection>
 
     <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Farger' : 'Color'">
