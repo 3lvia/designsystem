@@ -31,10 +31,9 @@ export class IconInstallationComponent {
     this.preferredLanguageService.listenLanguage(this.tabs.map((tab) => tab.toLowerCase() as LanguageType)),
   );
 
-  activeTabIndex = computed(() => {
-    const preferredLanguage = this.preferredLanguage();
-    return this.tabs.findIndex((tab) => tab.toLowerCase() === preferredLanguage);
-  });
+  activeTabIndex = computed(() =>
+    this.tabs.findIndex((tab) => tab.toLowerCase() === this.preferredLanguage()),
+  );
 
   setActiveTab(newIndex: number): void {
     this.preferredLanguageService.setPreferredLanguage(this.tabs[newIndex].toLowerCase() as LanguageType);
