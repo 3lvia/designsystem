@@ -211,8 +211,8 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
         const slotName = slotContent?.getAttribute('slot');
         slotContent?.removeAttribute('slot');
         return `${slotName}={<>${slotContent?.outerHTML
-          .replace(/<e\-icon/g, '<Icon')
-          .replace(/<\/e\-icon>/g, '</Icon>')}</>}`;
+          .replace(/<e-icon/g, '<Icon')
+          .replace(/<\/e-icon>/g, '</Icon>')}</>}`;
       })
       .map((slot) => this.transformTagsToReactStyle(slot))
       .map((slot) => slot.replace(/class=/g, 'className='))
