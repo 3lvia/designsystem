@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "20.2.1",
+      "date": "September 05, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Removed redundant color declaration and rather let the components inherit their text color from the class .e-color-background-1."
+          ],
+          "components": [{ "displayName": "Typography", "url": "https://design.elvia.io/brand/typography" }]
+        }
+      ]
+    },
+    {
       "version": "20.2.0",
       "date": "September 03, 2024",
       "changelog": [
