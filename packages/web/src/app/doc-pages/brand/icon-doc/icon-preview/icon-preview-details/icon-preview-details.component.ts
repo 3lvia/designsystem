@@ -1,10 +1,12 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, inject, input, model } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, computed, inject, input, model } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 import { createPngBlob, createSvgBlobFromElement } from '../../../imageDownloadUtils';
 import { IconGeneratorComponent } from '../../icon-generator/icon-generator.component';
-import { Icon } from '../utils';
+import { Icon, kebabCaseToCamelCase } from '../utils';
 import { Theme } from 'src/app/core/services/theme.service';
+import { PreferredLanguageService } from 'src/app/shared/component-documentation/preferredLanguage.service';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
@@ -17,9 +19,12 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 })
 export class IconPreviewDetailsComponent {
   private elementRef = inject(ElementRef);
+  preferredLanguage = toSignal(inject(PreferredLanguageService).listenLanguage(['angular', 'react', 'vue']));
 
   selectedIcon = model.required<Icon | null>();
   theme = input.required<Theme>();
+
+  transformedName = computed(() => kebabCaseToCamelCase(this.selectedIcon()?.title ?? ''));
 
   downloadImage = async (format: 'svg' | 'png') => {
     const svgElement = this.getIconElement();
