@@ -1,17 +1,18 @@
 <app-icon-generator [name]="selectedIcon()?.title" />
 
 <div class="info e-color-text-1">
+  @let iconText =
+    preferredLanguage() === 'react'
+      ? '<Icon name="' + transformedName() + '" size="sm" />'
+      : '<e-icon name="' + transformedName() + '" size="sm"></e-icon>';
   <div class="text">
     <h3 class="e-text-md-strong e-m-0">{{ selectedIcon()?.pretty }}</h3>
-    <span class="e-text-sm e-color-text-2 e-none-sm"
-      >e-icon e-icon--{{ selectedIcon()?.title }} e-icon--sm</span
-    >
+    <span class="e-text-sm e-color-text-2 e-none-sm">
+      {{ iconText }}
+    </span>
   </div>
   <div class="actions">
-    <app-copy
-      style="padding-bottom: 3px"
-      [message]="'e-icon e-icon--' + selectedIcon()?.title + ' e-icon--sm'"
-    >
+    <app-copy style="padding-bottom: 3px" [message]="iconText">
       <button class="e-btn e-btn--tertiary e-btn--sm">
         <span class="e-btn__icon">
           <e-icon name="copy" />
