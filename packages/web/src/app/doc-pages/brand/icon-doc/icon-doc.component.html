@@ -91,6 +91,24 @@
           og/eller se ikoner som er for små.
         }
       </p>
+      <p>
+        @if (locale() === 'en-GB') {
+          The different sizes are:
+        }
+        @if (locale() === 'nb-NO') {
+          De forskjellige størrelsene er:
+        }
+      </p>
+
+      <ul class="e-list">
+        <li class="e-text-lg-strong">xxl: 56px</li>
+        <li class="e-text-lg-strong">xl: 48px</li>
+        <li class="e-text-lg-strong">lg: 40px</li>
+        <li class="e-text-lg-strong">md: 32px</li>
+        <li class="e-text-lg-strong">sm: 24px</li>
+        <li class="e-text-lg-strong">xs: 16px</li>
+        <li class="e-text-lg-strong">xxs: 8px</li>
+      </ul>
 
       <app-static-ceg>
         <app-icon-sizes-ceg />
