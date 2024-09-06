@@ -18,14 +18,14 @@ export class DropdownIconsCegComponent implements StaticComponentExample {
     {
       value: 'Powerline',
       label: 'Høyspentlinje',
-      icon: '<i class="e-icon e-icon--powerline e-icon--sm"></i>',
+      icon: '<e-icon name="powerline" size="sm"></e-icon>',
     },
     {
       value: 'Electricity tower',
       label: 'Elektrisitetstårn',
-      icon: '<i class="e-icon e-icon--electricity_tower e-icon--sm"></i>',
+      icon: '<e-icon name="electricityTower" size="sm"></e-icon>',
     },
-    { value: 'Cable', label: 'Kabel', icon: '<i class="e-icon e-icon--cable e-icon--sm"></i>' },
+    { value: 'Cable', label: 'Kabel', icon: '<e-icon name="cable" size="sm"></e-icon>' },
   ];
 `;
 
@@ -33,14 +33,14 @@ export class DropdownIconsCegComponent implements StaticComponentExample {
     {
       value: 'Powerline',
       label: 'Høyspentlinje',
-      icon: '<i class="e-icon e-icon--powerline e-icon--sm"></i>',
+      icon: '<e-icon name="powerline" size="sm"></e-icon>',
     },
     {
       value: 'Electricity tower',
       label: 'Elektrisitetstårn',
-      icon: '<i class="e-icon e-icon--electricity_tower e-icon--sm"></i>',
+      icon: '<e-icon name="electricityTower" size="sm"></e-icon>',
     },
-    { value: 'Cable', label: 'Kabel', icon: '<i class="e-icon e-icon--cable e-icon--sm"></i>' },
+    { value: 'Cable', label: 'Kabel', icon: '<e-icon name="cable" size="sm"></e-icon>' },
   ];
 
   handleOnChange(newValues: string | string[]): void {

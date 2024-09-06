@@ -3,6 +3,18 @@
   "name": "elvis-segmented-control",
   "content": [
     {
+      "date": "06.09.24",
+      "version": "2.3.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Now setting the correct size for icons from the <code>@elvia/elvis-icons</code> package."
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.08.24",
       "version": "2.3.0",
       "changelog": [

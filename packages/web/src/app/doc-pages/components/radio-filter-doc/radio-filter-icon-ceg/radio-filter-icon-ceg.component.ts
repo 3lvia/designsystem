@@ -18,13 +18,13 @@ export class RadioFilterIconCegComponent implements StaticComponentExample {
     { label: 'Alle', value: 'all'},
     { label: 'Lest', value: 'read'},
     { label: 'Ulest', value: 'unread'},
-    { label: '<i class="e-icon e-icon--bookmark-filled e-icon--xs"></i>Flagged', value: 'flagged' },
+    { label: '<e-icon name="bookmarkFilled" size="xs"></e-icon>Flagged', value: 'flagged' },
   ];`;
 
   radioFilterItems: RadioFilterProps['items'] = [
     { label: 'Alle', value: 'all' },
     { label: 'Lest', value: 'read' },
     { label: 'Ulest', value: 'unread' },
-    { label: '<i class="e-icon e-icon--bookmark-filled e-icon--xs"></i>Flagget', value: 'flagged' },
+    { label: '<e-icon name="bookmarkFilled" size="xs"></e-icon>Flagget', value: 'flagged' },
   ];
 }

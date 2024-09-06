@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject } from '@angular/co
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
+import { SafeHtmlPipe } from '../../tools/team-symbol-doc/team-symbol-generator/safeHtml.pipe';
 import { AngularTutorialComponent } from './angular-tutorial/angular-tutorial.component';
 import { BlazorTutorialComponent } from './blazor-tutorial/blazor-tutorial.component';
 import { ReactTutorialComponent } from './react-tutorial/react-tutorial.component';
@@ -23,6 +24,7 @@ const docPage = getDocPagesNotFromCMS('tutorial');
     VueTutorialComponent,
     ReactTutorialComponent,
     BlazorTutorialComponent,
+    SafeHtmlPipe,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -155,7 +155,7 @@ export const dropdownData: ComponentData<Omit<DropdownProps, 'items'> & Dropdown
     placeholderIcon: {
       type: 'string',
       description:
-        'Use the <i> element for the icon in the placeholder. E.g. <i class="e-icon e-icon--electricity_tower e-icon--sm">',
+        'Use the <e-icon> element for the icon in the placeholder. E.g. <e-icon name="electricityTower" size="sm"></e-icon>',
     },
     valueOnChange: {
       specialType: 'event',

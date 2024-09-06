@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { SafeHtmlPipe } from '../../tools/team-symbol-doc/team-symbol-generator/safeHtml.pipe';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 type ContactInfo = {
@@ -23,7 +24,7 @@ const docPage = getDocPagesNotFromCMS('contact');
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
   standalone: true,
-  imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass],
+  imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass, SafeHtmlPipe],
 })
 export class ContactComponent {
   description = docPage.description;

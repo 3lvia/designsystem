@@ -5,7 +5,7 @@
   </ng-container>
   <div
     ngProjectAs="headerDescription"
-    [innerHTML]="locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description"
+    [innerHTML]="(locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description) ?? '' | safeHtml"
   ></div>
 </app-component-header>
 

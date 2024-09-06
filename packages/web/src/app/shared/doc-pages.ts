@@ -700,16 +700,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/about/' + Pages.TheDesignSystem,
   },
   {
-    title: 'Contact',
-    description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
-      <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
-        <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
-      </a>`,
-    docUrl: Pages.Contact,
-    absolutePath: '/about/' + Pages.Contact,
-  },
-  {
     title: 'Empty States',
     docUrl: Pages.EmptyStates,
     absolutePath: '/patterns/' + Pages.EmptyStates,
@@ -729,7 +719,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'Tutorial',
     description: `This guide assumes you’ve set up a project using one of the approved <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia.atlassian.net/wiki/spaces/Utviklerhandbok/pages/964985018/Approved+programming+languages" >
         <span class="e-link__title">frameworks</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+        <span class="e-link__icon"><e-icon name="newTabBold"></e-icon></span>
       </a>. You may want to check that your packages are up to date.`,
     docUrl: Pages.Tutorial,
     absolutePath: '/about/' + Pages.Tutorial,
@@ -765,13 +755,13 @@ export const docPagesNotFromCMS: DocPage[] = [
     as well guides on how to use them. Missing a specific icon? Let us know on our Slack channel 
   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
   <span class="e-link__title">#designsystemet</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+  <span class="e-link__icon"><e-icon name="newTabBold"></e-icon></span>
 </a>
    and we’ll look into adding it to the library.`,
     descriptionNo: `I ikonbiblioteket vårt finner du alle tilgjengelige ikoner i designsystemet, samt veiledninger om hvordan du bruker dem. Savner du et bestemt ikon? Gi oss beskjed på vår Slack-kanal 
    <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
    <span class="e-link__title">#designsystemet</span>
-   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+   <span class="e-link__icon"><e-icon name="newTabBold"></e-icon></span>
  </a>
    så skal vi se på muligheten for å legge det til i biblioteket.`,
     docUrl: Pages.Icon,
@@ -825,7 +815,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on Slack at
     <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold" aria-hidden="true"></i></span>
+      <span class="e-link__icon"><e-icon name="newTabBold"></e-icon></span>
     </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,

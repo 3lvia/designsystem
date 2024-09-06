@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
 
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
@@ -40,6 +40,7 @@ import { AlertRoleStatusCegComponent } from './alert-role-status-ceg/alert-role-
     AlertRoleStatusCegComponent,
     AlertRoleNoteCegComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AlertMessagesComponent {
   @ViewChild('alertAccordionExample') alertAccordionExample: ElementRef;

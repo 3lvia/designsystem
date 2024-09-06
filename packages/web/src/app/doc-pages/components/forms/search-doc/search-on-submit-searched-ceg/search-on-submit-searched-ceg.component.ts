@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import * as template from './search-on-submit-searched-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -8,6 +8,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   templateUrl: './search-on-submit-searched-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: SearchOnSubmitSearchedCegComponent }],
   standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchOnSubmitSearchedCegComponent implements StaticComponentExample {
   html = template.default;
