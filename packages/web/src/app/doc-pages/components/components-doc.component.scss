@@ -17,7 +17,9 @@
     margin-top: 8px;
 
     &.without-title {
-      margin-top: initial;
+      margin-top: calc(
+        32px + 8px + calc(0.875rem * 1.2)
+      ); // 32px (margin-top of title) + 8px (margin-top of this) + 1.2 (line-height) * 0.875rem (font-size)
     }
 
     .bottom-border {

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import '@elvia/elvis-accordion';
 import { FuseResultMatch } from 'fuse.js';
 
+import { SafeHtmlPipe } from '../../safeHtml.pipe';
 import { Searcher } from '../../searcher';
 import { ComponentDocumentationDatePipe } from '../component-documentation-date-pipe';
 import { Changelog, ChangelogEntry, ChangelogRadioFilter } from './changelogTypes';
@@ -24,6 +25,7 @@ import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.
     ComponentDocumentationDatePipe,
     ChangelogIdPipe,
     ChangelogTypePipe,
+    SafeHtmlPipe,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-component-changelog',
