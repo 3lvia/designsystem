@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import '@elvia/elvis-accordion';
 import { FuseResultMatch } from 'fuse.js';
 
+import { SafeHtmlPipe } from '../../safeHtml.pipe';
 import { Searcher } from '../../searcher';
 import { ComponentDocumentationDatePipe } from '../component-documentation-date-pipe';
 import { Changelog, ChangelogEntry, ChangelogRadioFilter } from './changelogTypes';
@@ -14,7 +15,6 @@ import { ChangelogTypePipe } from './component-changelog-pipe';
 import { createElvisFilteredChangelog } from './createElvisFilteredChangelog';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
-import { SafeHtmlPipe } from 'src/app/doc-pages/tools/team-symbol-doc/team-symbol-generator/safeHtml.pipe';
 
 @Component({
   standalone: true,
