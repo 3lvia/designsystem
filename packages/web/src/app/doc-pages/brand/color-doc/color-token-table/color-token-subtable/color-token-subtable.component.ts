@@ -2,10 +2,10 @@ import { LowerCasePipe, NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { CopyComponent } from '../../../../../shared/copy/copy.component';
 import { TableColorArray } from '../colors';
 import { ColorTokenSubtableColorCircleComponent } from './color-token-subtable-color-circle/color-token-subtable-color-circle.component';
-import { SafeHtmlPipe } from 'src/app/doc-pages/tools/team-symbol-doc/team-symbol-generator/safeHtml.pipe';
+import { CopyComponent } from 'src/app/shared/copy/copy.component';
+import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
 type Colors = {
   colors: TableColorArray;

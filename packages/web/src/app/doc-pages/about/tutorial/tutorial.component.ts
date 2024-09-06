@@ -1,15 +1,15 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
-import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
-import { SafeHtmlPipe } from '../../tools/team-symbol-doc/team-symbol-generator/safeHtml.pipe';
 import { AngularTutorialComponent } from './angular-tutorial/angular-tutorial.component';
 import { BlazorTutorialComponent } from './blazor-tutorial/blazor-tutorial.component';
 import { ReactTutorialComponent } from './react-tutorial/react-tutorial.component';
 import { VueTutorialComponent } from './vue-tutorial/vue-tutorial.component';
+import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
 import { PreferredLanguageService } from 'src/app/shared/component-documentation/preferredLanguage.service';
 import { LanguageType } from 'src/app/shared/component-documentation/types';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
 const docPage = getDocPagesNotFromCMS('tutorial');
 

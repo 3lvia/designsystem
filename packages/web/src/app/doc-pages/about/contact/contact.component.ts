@@ -2,10 +2,10 @@ import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { SafeHtmlPipe } from '../../tools/team-symbol-doc/team-symbol-generator/safeHtml.pipe';
+import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
 type ContactInfo = {
   firstName: string;
