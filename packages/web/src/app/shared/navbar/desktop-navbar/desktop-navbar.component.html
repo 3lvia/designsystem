@@ -1,6 +1,6 @@
 <ul class="scroll-container" [ngClass]="{ 'bottom-gradient': listOverflows }" #scrollContainer>
   @if (navbarList.length) {
-    @for (navbarItem of navbarList; track navbarItem) {
+    @for (navbarItem of navbarList; track navbarItem.fullPath) {
       <li>
         <a [routerLink]="navbarItem.fullPath" routerLinkActive="active" class="navbar-item__link">
           <div class="navbar-item__link-text e-text-sm-strong">{{ navbarItem.title }}</div>

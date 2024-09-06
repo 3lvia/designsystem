@@ -136,7 +136,7 @@
                         @for (change of changelog.changes; track change) {
                           <li>
                             <p
-                              [innerHTML]="change"
+                              [innerHTML]="change | safeHtml"
                               [id]="el.date | ChangelogIdPipe: el.version : change : 'entry'"
                             ></p>
                           </li>
@@ -146,7 +146,7 @@
                         <strong>How to fix</strong>
                         <ul>
                           @for (fix of changelog.fixes; track fix) {
-                            <li [innerHTML]="fix">{{ fix }}</li>
+                            <li [innerHTML]="fix | safeHtml"></li>
                           }
                         </ul>
                       }
