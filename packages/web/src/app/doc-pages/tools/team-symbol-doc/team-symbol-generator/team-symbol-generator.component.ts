@@ -6,7 +6,6 @@ import { StepStates } from '@elvia/elvis-stepper';
 
 import { SvgAbbreviationPopoverComponent } from '../svg-abbreviation-popover/svg-abbreviation-popover.component';
 import { WhySvgPopoverComponent } from '../why-svg-popover/why-svg-popover.component';
-import { SafeHtmlPipe } from './safeHtml.pipe';
 import {
   createTeamSymbol,
   generateAndSaveZip,
@@ -14,6 +13,7 @@ import {
   removeXmlElement,
 } from './symbolHelpers';
 import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/local-theme-switch.component';
+import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
 @Component({
   selector: 'app-team-symbol-generator',

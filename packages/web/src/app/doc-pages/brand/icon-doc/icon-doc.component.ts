@@ -4,22 +4,22 @@ import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import changelogJson from '@elvia/elvis-icons/CHANGELOG.json';
 
-import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
-import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
-import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
-import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
-import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
-import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
-import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { ComponentSubsubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
-import { CopyComponent } from '../../../shared/copy/copy.component';
-import { SafeHtmlPipe } from '../../tools/team-symbol-doc/team-symbol-generator/safeHtml.pipe';
 import { IconColorsCegComponent } from './icon-colors-ceg/icon-colors-ceg.component';
 import { IconInstallationComponent } from './icon-installation/icon-installation.component';
 import { IconPreviewComponent } from './icon-preview/icon-preview.component';
 import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
 import { LocalizationService } from 'src/app/core/services/localization.service';
+import { StaticCegComponent } from 'src/app/shared/component-documentation/ceg';
+import { CegComponent } from 'src/app/shared/component-documentation/ceg/ceg.component';
+import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
+import { ComponentChangelogComponent } from 'src/app/shared/component-documentation/component-changelog/component-changelog.component';
+import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
+import { ComponentSectionComponent } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.component';
+import { ComponentSubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.component';
+import { ComponentSubsubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
+import { CopyComponent } from 'src/app/shared/copy/copy.component';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
 const docPage = getDocPagesNotFromCMS('icon');
 
