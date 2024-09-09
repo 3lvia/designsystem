@@ -2,19 +2,13 @@
 
 ## Usage
 
-`import * as icons from '@elvia/elvis-assets-icons'`
+```ts
+import { clock } from '@elvia/elvis-assets-icons';
 
-`icons['ICONNAME'].getIcon(color*)`
+const clockSvg = clock.getIcon(color); // Color is optional
+```
 
-`*color is optional`
-
-color: 'inverted' -> Inverts the icon correctly <br> color: 'red' -> Makes the icon red
-
-### Example
-
-- `icons['add_circle-filled']`
-- `icons['add_circle'].getIcon(red)`
-- `icons['add_circle-filled'].getIcon('inverted')`
+color: 'red' -> Makes the icon red
 
 ## Icon usage
 

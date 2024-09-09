@@ -68,6 +68,7 @@ as you follow their license.
 - We use **React** to build our components and wrap them as
   **[Custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)** to
   make them accessible for multiple JavaScript frameworks.
+- We have some newer components written either as pure web components, or using **[@lit](https://lit.dev/)**.
 - We use **Jest** for unit testing of our components.
 - **[@emotion](https://emotion.sh/docs/introduction)**,
   **[classnames](https://www.npmjs.com/package/classnames)** and **SCSS** for styling our components.

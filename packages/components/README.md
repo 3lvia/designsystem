@@ -83,32 +83,14 @@ Read about the
 
 `packages/components/components/elvis-divider`
 
-- Copy a existing component under the /components catalog, for instance `elvis-divider`
+- Copy an existing component under the /components catalog, for instance `elvis-divider`
 - Rename all occurrences of `divider` to `component-name`, e.g. `elvis-divider` -> `elvis-dropdown`. Every
   file has something that needs to be renamed.
 - Create the component following the rules and tips above.
+- The build system depends on certain fields in the `package.json`-file, so a new component should include the
+  same information (e.g. `"source"` and `"main"`).
 
-#### Step 2 - Add entry to config
-
-`packages/components/elvia-components.config.js`
-
-The build system uses a file called `elvia-components.config.js` to build the custom element according to
-specifications. The file explains how to add the props and the meaning of the each field.
-
-**Divider in config example**
-
-```javascript
-{
-    name: 'Divider',
-    attributes: [
-      { name: 'type', type: 'string' },
-      { name: 'title', type: 'string' },
-    ],
-},
-
-```
-
-#### Step 3 - Run the building tools
+#### Step 2 - Run the building tools
 
 Test the component by running the build and dev tools and adding the component to the test projects. We have
 one test project for each framework; Angular, Vue and React. When running `yarn start` in
@@ -128,7 +110,7 @@ one test project for each framework; Angular, Vue and React. When running `yarn 
      of the page there should be a "DEV" where you can preview the v2 components. The code is at path
      `../web/src/app/dev/v2-playground`.
 
-#### Step 4 - Import your new component to the projects
+#### Step 3 - Import your new component to the projects
 
 1. Add your components to the package.json files: `web/package.json`, `vue-test/package.json` and
    `react-test/package.json`.
@@ -141,7 +123,7 @@ one test project for each framework; Angular, Vue and React. When running `yarn 
 
 2. Import the component in the test projects. This is done differently for each framework
 
-   **Angular** - in `v2-playground.module.ts`
+   **Angular** - in `app.component.ts`
 
    ```
    import '@elvia/elvis-divider';
@@ -153,13 +135,13 @@ one test project for each framework; Angular, Vue and React. When running `yarn 
    import '@elvia/elvis-divider';
    ```
 
-   **React** - in `App.js`
+   **React** - in `App.tsx`
 
    ```
    import '@elvia/elvis-divider/react';
    ```
 
-#### Step 5 - Document the component
+#### Step 4 - Document the component
 
 The component should be documented in the `packages/web` folder so that users of the design system can find
 information on how to use it.
@@ -174,12 +156,10 @@ information on how to use it.
   that will appear on the landing-page for the Components menu. Navigate to the 'Component' landing page and
   add a new card here with the new icon.
 
-#### Step 6 - Update changelog
+#### Step 5 - Update changelog
 
 Remember to update `CHANGELOG.json` in `packages/components/components/elvis-my-component`. The format is
-checked with json-schema. When the component is built the changelog will be copied to assets in the
-web-project and the format will be verified again with typescript. Remember do define the change type with one
-of the following types:
+checked with a json-schema. Remember to define the change type with one of the following types:
 
 - new_feature
 - bug_fix
@@ -210,7 +190,7 @@ Example of an update
     },
 ```
 
-#### Step 7 - Deprecating old classes
+#### Step 6 - Deprecating old classes
 
 If the component you have created is a replacement for an component that already existed in elvis (the style
 library), this class needs to be deprecated.
@@ -218,7 +198,7 @@ library), this class needs to be deprecated.
 - To deprecate the class read the guidelines in the
   [Elvis README](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md#good-to-know).
 
-#### Step 8 - Pull request and publish
+#### Step 7 - Pull request and publish
 
 > NOTE! You will need to set up two-factor authentication with NPM to manually publish your changes.
 > [Elvia NPM](https://www.npmjs.com/org/elvia).

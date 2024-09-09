@@ -33,6 +33,7 @@ typography as input, and returns an object containing the typography's attribute
 
 ```js
 import { getTypography } from '@elvia/elvis-typography';
+
 const typography = getTypography('text-md');
 ```
 
@@ -42,11 +43,12 @@ properties if there are any.
 
 ```js
 import { getTypographyCss } from '@elvia/elvis-typography';
+
 const typography = getTypographyCss('text-md');
 ```
 
 ## Maintaining
 
-All typographies are built from the `ElviaTypography`-object in `./src/elviaTypography.js` through Gulp.
-Remember to run `yarn build` if you make any changes. `Elvis` may also need to be rebuilt to include any
-changes made to the typographies.
+All typographies are built from the `ElviaTypography`-object in `./src/elviaTypography.ts` through Gulp.
+Remember to run `yarn build` if you make any changes. `@elvia/elvis` may also need to be rebuilt to include
+any changes made to the typographies.
