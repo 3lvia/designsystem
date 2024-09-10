@@ -1,9 +1,5 @@
 # Elvia colors
 
-**This package is meant for internal use only. All colors are available through
-[Elvis](https://www.npmjs.com/package/@elvia/elvis). This package should not be imported by an end-user
-directly.**
-
 Available colors reflect the colors illustrated at https://design.elvia.io/brand/color#Overview.
 
 All Color variables are named Elvia< Name > in CamelCase. Eg ElviaBlack, ElviaOrangeMango.
@@ -30,29 +26,6 @@ Example: <br>
   border: 1px solid elviaColors.$ElviaBlack;
   ```
 
-### Alternative @Import
-
-For making all variables accessible throughout your project you can use @Import. This function will be
-deprecated by sass in the future and we therefore recommend applying @use instead.
-
-Add colors file from package to scss file like: <br>
-
-- ```scss
-  @import '~@elvia/elvis-colors';
-  ```
-
-If this does not work for you, you may need to specify:
-
-- ```scss
-  @import '~@elvia/elvis-colors/dist/colors.scss';
-  ```
-
-Example: <br>
-
-- ```scss
-  border: 1px solid $ElviaBlack;
-  ```
-
 ## Usage Typescript/Javascript
 
 To use this package you can import the function `getThemeColor()`. It takes the label of the requested color
@@ -61,6 +34,7 @@ as input, and returns a css variable with a fallback to its its hex value if it 
 
 - ```typescript
   import { getThemeColor } from '@elvia/elvis-colors';
+
   const color = getThemeColor('state-on');
   ```
 
@@ -73,6 +47,7 @@ value.
 
 - ```typescript
   import { getColor } from '@elvia/elvis-colors';
+
   const color = getColor('elvia-charge');
   ```
 
