@@ -11,7 +11,6 @@ import { ComponentSectionComponent } from 'src/app/shared/component-documentatio
   standalone: true,
   imports: [CegComponent, AppBridgeCegComponent, ComponentDocumentationComponent, ComponentSectionComponent],
   templateUrl: './app-bridge-doc.component.html',
-  styleUrl: './app-bridge-doc.component.scss',
 })
 export class AppBridgeDocComponent {
   componentData = appBridgeData;
