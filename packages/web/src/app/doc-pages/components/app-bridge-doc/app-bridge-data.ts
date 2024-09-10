@@ -10,7 +10,7 @@ export const appBridgeData: ComponentData<BaseAppBridgeProps> = {
     targetId: {
       isRequired: true,
       type: 'string',
-      description: 'The target ID of the links in the app bridge.',
+      description: 'The target ID (e.g. a meteringpoint ID) of the links in the app bridge.',
     },
   },
 };

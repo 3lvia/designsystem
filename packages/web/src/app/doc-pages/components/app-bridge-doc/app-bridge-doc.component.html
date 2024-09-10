@@ -5,10 +5,23 @@
 
   <!--USAGE-->
   <app-component-section usage [sectionTitle]="'Usage'">
-    The app bridge should be located on pages related to meteringpoints, linking to other meteringpoint-pages
-    in Elvias systems. The component should be placed close to the meteringpoint-info so that the user
-    understand what the app bridge is in relation to. Not all application will need the app bridge, this is
-    dependent on if users needs to switch from this application or if it is considered an end-point
-    applications.
+    The app bridge should be located on pages related to meteringpoints, linking to other meteringpoint pages
+    in Elvia's systems. Not all application will need the app bridge, this is dependent on if users needs to
+    switch from this application or if it is considered an end-point applications.
+
+    <app-when-to-use
+      [whens]="[
+        'When the users of a system should be able to open the same meteringpoint in another application.',
+      ]"
+      [whenNots]="[
+        'Should not be used outside the context of meteringpoints.',
+        'If the system is an end-point application when the users are navigating betweeen Elvia apps.',
+      ]"
+    />
+
+    <app-component-subsection [sectionTitle]="'Placement'">
+      The component should be placed close to the meteringpoint info so that the user understand what the app
+      bridge is in relation to.
+    </app-component-subsection>
   </app-component-section>
 </app-component-documentation>

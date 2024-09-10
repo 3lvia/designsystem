@@ -67,12 +67,12 @@ export const componentsDocPages: DocPage[] = [
   {
     title: 'App Bridge',
     description:
-      'The app bridge can be used to open the selected meteringpoint in a different Elvia application. The list of application-links can be modified based on the systems needs. ',
+      'The app bridge can be used to open the selected meteringpoint in a different Elvia application. ',
     docUrl: Pages.AppBridge,
     absolutePath: '/components/' + Pages.AppBridge,
     figmaUrl: 'https://www.figma.com/design/g0Dva16HcsfI0JUmSJY2lE/App-bridge?node-id=1-539&m=dev',
     type: 'Component',
-    searchTerms: ['internal', 'application'],
+    searchTerms: ['internal', 'application', 'link', 'open'],
   },
   {
     title: 'Autocomplete',
