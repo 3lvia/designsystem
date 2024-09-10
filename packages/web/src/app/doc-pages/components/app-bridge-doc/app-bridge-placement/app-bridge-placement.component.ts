@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
     :host {
       display: block;
     }
+    svg {
+      width: 100%;
+      border-radius: 8px;
+    }
   `,
 })
 export class AppBridgePlacementComponent {}
