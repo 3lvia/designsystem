@@ -1,5 +1,11 @@
 # Elvia Typography Changelog
 
+## 3.1.1 (05.09.24)
+
+### Minor
+
+- Removed "color: inherit" from all typographies.
+
 ## 3.1.0 (31.07.24)
 
 ### Minor

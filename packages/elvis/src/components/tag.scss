@@ -50,7 +50,7 @@ $tag-colors: (
   border-radius: 4px;
   background: var(--e-color-background-element-3);
   @include mixins.typography('text-micro');
-  color: var(--e-color-text-1);
+
   letter-spacing: 0.5px;
   text-transform: uppercase;
   white-space: nowrap;

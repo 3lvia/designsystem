@@ -47,7 +47,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
   &__label {
     width: fit-content;
     margin-left: 8px;
-    color: var(--e-color-text-1);
+
     @include mixins.typography('text-md');
     line-height: 24px;
   }
@@ -120,7 +120,7 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
 
     .e-checkbox__label {
       @include mixins.typography('text-sm');
-      color: var(--e-color-text-1);
+
       line-height: 16px;
     }
 

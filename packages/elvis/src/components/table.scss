@@ -19,7 +19,7 @@ $table-invalid-padding: 8px 16px;
   th {
     border-bottom: 1px solid var(--e-color-border-2);
     background: var(--e-color-background-element-6) !important;
-    color: var(--e-color-text-1);
+
     font-weight: 700;
   }
 }
@@ -90,7 +90,6 @@ $table-invalid-padding: 8px 16px;
 
     th,
     td {
-      color: var(--e-color-text-1);
       text-align: left;
     }
   }
@@ -199,7 +198,6 @@ $table-invalid-padding: 8px 16px;
 
       th {
         @include mixins.typography('title-xxs');
-        color: var(--e-color-text-1);
       }
     }
 
@@ -211,7 +209,6 @@ $table-invalid-padding: 8px 16px;
     th {
       @include mixins.typography('text-sm');
       padding: $table-small-padding;
-      color: var(--e-color-text-1);
     }
   }
 
@@ -259,13 +256,11 @@ $table-invalid-padding: 8px 16px;
 
     th,
     td {
-      color: var(--e-color-text-1);
       text-align: left;
     }
 
     th {
       @include mixins.typography('title-xs');
-      color: var(--e-color-text-1);
     }
   }
 
@@ -273,7 +268,7 @@ $table-invalid-padding: 8px 16px;
   td {
     @include mixins.typography('text-md');
     padding: $table-padding;
-    color: var(--e-color-text-1);
+
     text-align: left;
 
     @include breakpoints.breakpoint-up(Mobile) {
@@ -325,12 +320,10 @@ $table-invalid-padding: 8px 16px;
     th {
       @include mixins.typography('text-sm');
       padding: $table-small-padding;
-      color: var(--e-color-text-1);
     }
 
     tbody tr:first-of-type th {
       @include mixins.typography('text-sm-strong');
-      color: var(--e-color-text-1);
     }
   }
 

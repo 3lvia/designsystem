@@ -36,7 +36,7 @@
   @include buttonHelper.hover() {
     border-color: var(--e-color-border-hover-1);
     background: none;
-    color: var(--e-color-text-1);
+    color: inherit;
 
     .e-btn__icon > * {
       visibility: unset;
@@ -47,7 +47,7 @@
     padding-bottom: 6px;
     border-bottom: 2px solid var(--e-color-border-hover-1);
     background: none;
-    color: var(--e-color-text-1);
+    color: inherit;
 
     &.e-btn--lg {
       padding-bottom: 4px;

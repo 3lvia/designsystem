@@ -21,6 +21,7 @@
   border: 1px solid var(--e-color-border-1);
   border-radius: 24px;
   background: var(--e-color-background-element-5);
+  color: var(--e-color-text-1);
 
   @include mixins.typography('text-interactive-md');
   color: var(--e-color-text-4);

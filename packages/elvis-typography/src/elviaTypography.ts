@@ -9,7 +9,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'title-md': {
@@ -22,7 +21,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'title-sm': {
@@ -35,7 +33,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'title-xs': {
@@ -48,7 +45,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'title-xxs': {
@@ -60,7 +56,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'title-caps': {
@@ -72,7 +67,6 @@ export const ElviaTypography = {
     letterSpacing: '0.05rem',
     fontStyle: 'unset',
     textTransform: 'uppercase',
-    color: 'inherit',
   },
 
   'text-interactive-lg': {
@@ -84,7 +78,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-interactive-md': {
     altLabels: ['text-interactive-medium'],
@@ -95,7 +88,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-interactive-sm': {
     altLabels: ['text-interactive-small'],
@@ -106,7 +98,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'text-lead': {
@@ -118,7 +109,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'text-lg': {
@@ -131,7 +121,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'text-lg-strong': {
@@ -144,7 +133,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'text-lg-light': {
@@ -157,7 +145,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-lg-mono': {
     altLabels: ['text-large-mono'],
@@ -181,7 +168,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-md-strong': {
     altLabels: ['text-medium-strong'],
@@ -193,7 +179,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-md-light': {
     altLabels: ['text-medium-light'],
@@ -205,7 +190,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-md-mono': {
     altLabels: ['text-medium-mono'],
@@ -228,7 +212,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-sm-strong': {
     altLabels: ['text-small-strong'],
@@ -239,7 +222,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-sm-light': {
     altLabels: ['text-small-light'],
@@ -250,7 +232,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-sm-mono': {
     altLabels: ['text-small-mono'],
@@ -271,7 +252,6 @@ export const ElviaTypography = {
     letterSpacing: '0.0125rem',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-micro-strong': {
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
@@ -281,7 +261,6 @@ export const ElviaTypography = {
     letterSpacing: '0.0125rem',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-micro-light': {
     fontFamily: '"Red Hat Text", Verdana, sans-serif',
@@ -291,7 +270,6 @@ export const ElviaTypography = {
     letterSpacing: '0.0125rem',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'text-quote': {
@@ -303,7 +281,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'italic',
     textTransform: 'unset',
-    color: 'inherit',
   },
 
   'text-img': {
@@ -315,7 +292,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'italic',
     textTransform: 'unset',
-    color: 'inherit',
     textAlign: 'center',
   },
 
@@ -328,7 +304,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
   'text-option': {
     deprecated: '1.0.0',
@@ -339,7 +314,6 @@ export const ElviaTypography = {
     letterSpacing: 'unset',
     fontStyle: 'unset',
     textTransform: 'unset',
-    color: 'inherit',
   },
 };
 

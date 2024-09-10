@@ -7,7 +7,6 @@
 
 body {
   @include mixins.typography('text-md');
-  color: var(--e-color-text-primary, #000);
 }
 
 @each $label, $map in TypographyMap.$typography {

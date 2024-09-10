@@ -9,6 +9,7 @@
   border: 2px dashed var(--e-color-border-3);
   border-radius: 4px;
   gap: 8px;
+  color: var(--e-color-text-1);
 
   &__icon,
   &__description,
@@ -20,7 +21,6 @@
 
   &__description {
     @include mixins.typography('text-medium');
-    color: var(--e-color-text-1);
   }
 
   &__input {
@@ -37,7 +37,7 @@
       border-radius: 0;
       border-bottom: 2.5px solid transparent;
       @include mixins.typography('text-interactive-md');
-      color: var(--e-color-text-1);
+
       cursor: pointer;
 
       @include helpers.hover() {
