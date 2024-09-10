@@ -25,6 +25,8 @@ const Icon = styled.div`
 
 const IconLetters = styled.div`
   ${getTypographyCss('text-sm-strong')};
+  font-size: 0.75rem;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
