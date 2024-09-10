@@ -2311,7 +2311,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-app-bridge@workspace:*, @elvia/elvis-app-bridge@workspace:packages/components/components/elvis-app-bridge":
+"@elvia/elvis-app-bridge@npm:*, @elvia/elvis-app-bridge@workspace:*, @elvia/elvis-app-bridge@workspace:packages/components/components/elvis-app-bridge":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-app-bridge@workspace:packages/components/components/elvis-app-bridge"
   dependencies:
@@ -15523,6 +15523,7 @@ __metadata:
   dependencies:
     "@elvia/elvis": "npm:*"
     "@elvia/elvis-accordion": "npm:*"
+    "@elvia/elvis-app-bridge": "npm:*"
     "@elvia/elvis-assets-icons": "npm:*"
     "@elvia/elvis-autocomplete": "npm:*"
     "@elvia/elvis-badge": "npm:*"

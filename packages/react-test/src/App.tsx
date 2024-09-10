@@ -1,4 +1,5 @@
 import { Accordion } from '@elvia/elvis-accordion/react';
+import { AppBridge } from '@elvia/elvis-app-bridge/react';
 import { Autocomplete } from '@elvia/elvis-autocomplete/react';
 import { Badge } from '@elvia/elvis-badge/react';
 import { Box } from '@elvia/elvis-box/react';
@@ -223,6 +224,12 @@ function App() {
                   'It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. It is not only outdoors that you should watch for dangerous conditions. '
                 }
               ></Accordion>
+            </div>
+
+            {/* APP BRIDGE */}
+            <div className="example-wrapper">
+              <h3>App Bridge</h3>
+              <AppBridge targetId="123456" />
             </div>
 
             {/* AUTOCOMPLETE */}
