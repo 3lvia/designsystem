@@ -93,6 +93,12 @@ export const appList = [
     rotation: 33.75,
   },
   {
+    name: 'Prosjektportalen',
+    iconLetters: 'Pp',
+    url: 'projectportal',
+    rotation: -157.5,
+  },
+  {
     name: 'Refi',
     iconLetters: 'Re',
     url: 'refi',
