@@ -10,6 +10,8 @@ import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import './icons';
 
+(globalThis.window as any).__webpack_nonce__ = 'my-nonce';
+
 if (environment.production) {
   enableProdMode();
 }
