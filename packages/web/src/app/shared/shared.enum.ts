@@ -9,6 +9,7 @@ export enum Pages {
   // Component Pages
   Accordion = 'accordion',
   Alert = 'alert',
+  AppBridge = 'app-bridge',
   Autocomplete = 'autocomplete',
   Badge = 'badge',
   Box = 'box',

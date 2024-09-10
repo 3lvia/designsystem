@@ -1,4 +1,5 @@
 import elvisAccordionChangelog from '@elvia/elvis-accordion/CHANGELOG.json';
+import elvisAppBridgeChangelog from '@elvia/elvis-app-bridge/CHANGELOG.json';
 import elvisAutocompleteChangelog from '@elvia/elvis-autocomplete/CHANGELOG.json';
 import elvisBadgeChangelog from '@elvia/elvis-badge/CHANGELOG.json';
 import elvisBoxChangelog from '@elvia/elvis-box/CHANGELOG.json';
@@ -37,6 +38,7 @@ type ChangelogArrayType = (Omit<ComponentChangelog, 'date'> & { name: string; da
 const allChangelogs = [
   elvisChangelog,
   elvisAccordionChangelog,
+  elvisAppBridgeChangelog,
   elvisAutocompleteChangelog,
   elvisBadgeChangelog,
   elvisBoxChangelog,

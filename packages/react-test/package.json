@@ -11,6 +11,7 @@
   "dependencies": {
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-app-bridge": "*",
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-autocomplete": "*",
     "@elvia/elvis-badge": "*",

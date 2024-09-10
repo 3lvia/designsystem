@@ -15,7 +15,7 @@ const componentsInfo: ComponentInfo = {
   navigation: [
     {
       title: 'Between pages',
-      components: [Pages.Breadcrumb, Pages.Header, Pages.Link, Pages.Card],
+      components: [Pages.Breadcrumb, Pages.Header, Pages.Link, Pages.Card, Pages.AppBridge],
     },
     {
       title: 'Between content',

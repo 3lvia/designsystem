@@ -65,6 +65,16 @@ export const componentsDocPages: DocPage[] = [
     relatedPages: ['toast', 'badge', 'cookies', 'validations'],
   },
   {
+    title: 'App Bridge',
+    description:
+      'The app bridge can be used to open the selected meteringpoint in a different Elvia application. ',
+    docUrl: Pages.AppBridge,
+    absolutePath: '/components/' + Pages.AppBridge,
+    figmaUrl: 'https://www.figma.com/design/g0Dva16HcsfI0JUmSJY2lE/App-bridge?node-id=1-539&m=dev',
+    type: 'Component',
+    searchTerms: ['internal', 'application', 'link', 'open'],
+  },
+  {
     title: 'Autocomplete',
     description:
       'Autocomplete gives filtered suggestions when the user starts to type. Use it when there are too many options, and it is not helpful for the user to see all options at the beginning. Autocomplete guides the user by giving suggestions, but the user doesn’t necessarily have to choose one of the suggestions.',

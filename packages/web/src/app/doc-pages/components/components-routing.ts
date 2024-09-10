@@ -28,6 +28,11 @@ export const routes: Routes = [
       import('./alert-messages/alert-messages.component').then((m) => m.AlertMessagesComponent),
   },
   {
+    path: Pages.AppBridge,
+    loadComponent: () =>
+      import('./app-bridge-doc/app-bridge-doc.component').then((m) => m.AppBridgeDocComponent),
+  },
+  {
     path: Pages.Autocomplete,
     loadComponent: () =>
       import('./autocomplete-doc/autocomplete-doc.component').then((m) => m.AutocompleteDocComponent),

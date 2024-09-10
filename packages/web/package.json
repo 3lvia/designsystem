@@ -24,6 +24,7 @@
     "@contentful/rich-text-types": "^16.8.5",
     "@elvia/elvis": "workspace:*",
     "@elvia/elvis-accordion": "workspace:*",
+    "@elvia/elvis-app-bridge": "workspace:*",
     "@elvia/elvis-assets-icons": "workspace:*",
     "@elvia/elvis-autocomplete": "workspace:*",
     "@elvia/elvis-badge": "workspace:*",
