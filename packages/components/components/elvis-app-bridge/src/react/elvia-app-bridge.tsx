@@ -22,7 +22,7 @@ export const AppBridge: React.FC<AppBridgeProps> = function ({ className, inline
       trigger={
         <Tooltip
           trigger={
-            <TertiaryButton isActive={isOpen} aria-haspopup="menu" aria-expanded={isOpen}>
+            <TertiaryButton size={'small'} isActive={isOpen} aria-haspopup="menu" aria-expanded={isOpen}>
               Åpne i
               <IconWrapper icon={newTab} size="xs" />
             </TertiaryButton>
