@@ -4,6 +4,7 @@ import { ComponentSubsectionComponent } from '../../../shared/component-document
 import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
 import { AppBridgeCegComponent } from './app-bridge-ceg/app-bridge-ceg.component';
 import { appBridgeData } from './app-bridge-data';
+import { AppBridgePlacementComponent } from './app-bridge-placement/app-bridge-placement.component';
 import { CegComponent } from 'src/app/shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from 'src/app/shared/component-documentation/component-documentation.component';
 import { ComponentSectionComponent } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.component';
@@ -18,6 +19,7 @@ import { ComponentSectionComponent } from 'src/app/shared/component-documentatio
     ComponentSectionComponent,
     ComponentSubsectionComponent,
     WhenToUseComponent,
+    AppBridgePlacementComponent,
   ],
   templateUrl: './app-bridge-doc.component.html',
 })
