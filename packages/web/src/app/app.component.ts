@@ -3,6 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
 import '@elvia/elvis-accordion';
+import '@elvia/elvis-app-bridge';
 import '@elvia/elvis-autocomplete';
 import '@elvia/elvis-badge';
 import '@elvia/elvis-box';

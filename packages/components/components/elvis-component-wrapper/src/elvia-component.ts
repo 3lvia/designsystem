@@ -258,6 +258,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (attrType === 'object') {
       try {
         return JSON5.parse(stringToConvert);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         this.logErrorMessage(
           'convertString',
