@@ -13,6 +13,7 @@ import {
 } from './constants';
 
 interface BetweenPageNumbersProps {
+  lang: 'no' | 'en';
   numberOfPages: number;
   selectedPageNumber: number;
   isMobile: boolean;
@@ -20,6 +21,7 @@ interface BetweenPageNumbersProps {
 }
 
 export const BetweenPageNumbers: FC<BetweenPageNumbersProps> = ({
+  lang,
   numberOfPages,
   selectedPageNumber,
   isMobile,
@@ -71,6 +73,7 @@ export const BetweenPageNumbers: FC<BetweenPageNumbersProps> = ({
         ) {
           return (
             <PageElement
+              lang={lang}
               pageNumber={pageNumber}
               selectedPageNumber={selectedPageNumber}
               setSelectedPageNumber={setSelectedPageNumber}

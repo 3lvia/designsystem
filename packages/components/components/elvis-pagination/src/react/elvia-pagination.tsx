@@ -1,7 +1,7 @@
 import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
-import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
+import { IconWrapper, useLang, useRovingFocus } from '@elvia/elvis-toolbox';
 import React, { FC, useEffect, useState } from 'react';
 
 import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
@@ -50,6 +50,8 @@ export const Pagination: FC<PaginationProps> = function ({
   const previousEnabled = currentPage > 0;
   const labelOptionsState: PaginationLabel = { ...defaultPaginationLabelOptions, ...labelOptions };
 
+  const [ariaLabel, setAriaLabel] = useState('');
+
   const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
 
   useEffect(() => {
@@ -77,6 +79,23 @@ export const Pagination: FC<PaginationProps> = function ({
       setCurrentPage(Math.floor(value.start / pageSize));
     }
   }, [value]);
+
+  // Toggle language for aria-label
+  const lang = useLang();
+  useEffect(() => {
+    let label = labelOptionsState.label;
+
+    if (lang === 'en') {
+      label = 'items';
+    }
+
+    const langLabel =
+      lang === 'no'
+        ? `viser ${selectedDropdownValue} ${label} per side`
+        : `showing ${selectedDropdownValue} ${label} per page`;
+
+    setAriaLabel(langLabel);
+  }, [lang, selectedDropdownValue, labelOptionsState.label]);
 
   const showPaginationNumbers = (): boolean => {
     const allDropdownValuesAreNumbers = dropdownItems
@@ -166,7 +185,7 @@ export const Pagination: FC<PaginationProps> = function ({
             className="number-of-items-dropdown"
             value={selectedDropdownValue}
             valueOnChange={(event: string) => handleDropdownValueChange(event)}
-            ariaLabel={`viser ${selectedDropdownValue} ${labelOptionsState.label} per side`}
+            ariaLabel={ariaLabel}
           />
         </PaginatorInfoDropdown>
         <PaginatorInfoAmount>
@@ -179,12 +198,13 @@ export const Pagination: FC<PaginationProps> = function ({
             visible={previousEnabled}
             aria-hidden={!previousEnabled}
             onClick={handleOnPreviousPageClick}
-            aria-label="Forrige side"
+            aria-label={lang === 'no' ? 'Forrige side' : 'Previous page'}
           >
             <IconWrapper icon={arrowLongLeft} size="xs" />
           </PaginatorSelectorArrowBtn>
 
           <PaginatorNumbersAndDots
+            lang={lang}
             numberOfPages={totalPages}
             selectedPageNumber={currentPage + 1}
             setSelectedPageNumber={(p) => handleOnPageClick(p - 1)}
@@ -195,7 +215,7 @@ export const Pagination: FC<PaginationProps> = function ({
             visible={nextEnabled}
             aria-hidden={!nextEnabled}
             onClick={handleOnNextPageClick}
-            aria-label="Neste side"
+            aria-label={lang === 'no' ? 'Neste side' : 'Next page'}
           >
             <IconWrapper icon={arrowLongRight} size="xs" />
           </PaginatorSelectorArrowBtn>

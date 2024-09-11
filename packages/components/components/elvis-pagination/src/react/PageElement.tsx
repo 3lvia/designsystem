@@ -3,18 +3,24 @@ import React, { FC } from 'react';
 import { PaginatorPage } from './styledComponents';
 
 interface PageElementProps {
+  lang: 'no' | 'en';
   pageNumber: number;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;
 }
 
 export const PageElement: FC<PageElementProps> = ({
+  lang,
   pageNumber,
   selectedPageNumber,
   setSelectedPageNumber,
 }) => {
   const getAriaLabel = (pageNumber: number): string => {
-    return pageNumber === selectedPageNumber ? 'Valgt side' : 'Velg side ' + pageNumber;
+    if (lang === 'no') {
+      return pageNumber === selectedPageNumber ? 'Valgt side' : 'Velg side ' + pageNumber;
+    } else {
+      return pageNumber === selectedPageNumber ? 'Selected page' : 'Select page ' + pageNumber;
+    }
   };
 
   return (
@@ -31,13 +37,19 @@ export const PageElement: FC<PageElementProps> = ({
 };
 
 interface FirstPageNumberProps {
+  lang: 'no' | 'en';
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;
 }
 
-export const FirstPageNumber: FC<FirstPageNumberProps> = ({ selectedPageNumber, setSelectedPageNumber }) => {
+export const FirstPageNumber: FC<FirstPageNumberProps> = ({
+  selectedPageNumber,
+  setSelectedPageNumber,
+  lang,
+}) => {
   return (
     <PageElement
+      lang={lang}
       pageNumber={1}
       selectedPageNumber={selectedPageNumber}
       setSelectedPageNumber={setSelectedPageNumber}
@@ -46,6 +58,7 @@ export const FirstPageNumber: FC<FirstPageNumberProps> = ({ selectedPageNumber, 
 };
 
 interface LastPageNumberProps {
+  lang: 'no' | 'en';
   numberOfPages: number;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;
@@ -54,6 +67,7 @@ interface LastPageNumberProps {
 }
 
 export const LastPageNumber: FC<LastPageNumberProps> = ({
+  lang,
   numberOfPages,
   selectedPageNumber,
   setSelectedPageNumber,
@@ -70,6 +84,7 @@ export const LastPageNumber: FC<LastPageNumberProps> = ({
 
   return (
     <PageElement
+      lang={lang}
       pageNumber={numberOfPages}
       selectedPageNumber={selectedPageNumber}
       setSelectedPageNumber={setSelectedPageNumber}
