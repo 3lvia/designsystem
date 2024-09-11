@@ -3,6 +3,16 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "11.09.24",
+      "version": "12.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new useLang hook to get the current language of the user."]
+        }
+      ]
+    },
+    {
       "date": "27.08.24",
       "version": "12.0.6",
       "changelog": [
