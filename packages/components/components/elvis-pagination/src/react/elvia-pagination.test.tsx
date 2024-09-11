@@ -108,7 +108,7 @@ describe('Elvis Pagination', () => {
 
     it('should have both arrows visible in middle of selection range', async () => {
       const user = userEvent.setup();
-      const nextButton = screen.getByRole('button', { name: /previous page/i });
+      const nextButton = screen.getByRole('button', { name: /next page/i });
 
       for (let i = 0; i < 4; i++) {
         await user.click(nextButton);
