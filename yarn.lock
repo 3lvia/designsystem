@@ -2543,10 +2543,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-component-wrapper@npm:^4.2.0, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
+"@elvia/elvis-component-wrapper@npm:^4.2.0, @elvia/elvis-component-wrapper@npm:^4.3.0, @elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-component-wrapper@workspace:packages/components/components/elvis-component-wrapper"
   dependencies:
+    "@emotion/cache": "npm:^11.11.4"
+    "@emotion/react": "npm:^11.11.4"
     "@types/lodash.isequal": "npm:^4.5.5"
     "@types/lodash.throttle": "npm:^4.1.7"
     "@types/react": "npm:^18.2.28"
@@ -2606,9 +2608,9 @@ __metadata:
   resolution: "@elvia/elvis-context-menu@workspace:packages/components/components/elvis-context-menu"
   dependencies:
     "@elvia/elvis-colors": "npm:^4.4.2"
-    "@elvia/elvis-component-wrapper": "npm:^4.2.0"
+    "@elvia/elvis-component-wrapper": "npm:^4.3.0"
     "@elvia/elvis-toolbox": "npm:^12.0.6"
-    "@elvia/elvis-typography": "npm:^3.1.0"
+    "@elvia/elvis-typography": "npm:^3.1.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
     "@floating-ui/react": "npm:~0.26.16"
@@ -2814,11 +2816,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-modal@workspace:packages/components/components/elvis-modal"
   dependencies:
-    "@elvia/elvis-assets-icons": "npm:^3.10.0"
-    "@elvia/elvis-colors": "npm:^4.4.1"
-    "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.1"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-assets-icons": "npm:^3.11.1"
+    "@elvia/elvis-colors": "npm:^4.4.2"
+    "@elvia/elvis-component-wrapper": "npm:^4.3.0"
+    "@elvia/elvis-toolbox": "npm:^12.0.6"
+    "@elvia/elvis-typography": "npm:^3.1.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
   peerDependencies:
@@ -2890,9 +2892,9 @@ __metadata:
   dependencies:
     "@elvia/elvis-assets-icons": "npm:^3.11.1"
     "@elvia/elvis-colors": "npm:^4.4.2"
-    "@elvia/elvis-component-wrapper": "npm:^4.2.0"
+    "@elvia/elvis-component-wrapper": "npm:^4.3.0"
     "@elvia/elvis-toolbox": "npm:^12.0.6"
-    "@elvia/elvis-typography": "npm:^3.1.0"
+    "@elvia/elvis-typography": "npm:^3.1.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
     "@floating-ui/react": "npm:~0.26.16"
@@ -3261,6 +3263,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/cache@npm:^11.11.4":
+  version: 11.13.1
+  resolution: "@emotion/cache@npm:11.13.1"
+  dependencies:
+    "@emotion/memoize": "npm:^0.9.0"
+    "@emotion/sheet": "npm:^1.4.0"
+    "@emotion/utils": "npm:^1.4.0"
+    "@emotion/weak-memoize": "npm:^0.4.0"
+    stylis: "npm:4.2.0"
+  checksum: 10/090c8ad2e5b23f1b3a95e94f1f0554a40ed1dcd844c9d31629a68ff824eff40f32d1362f67aefa440ee0aabd5a8cabcc76870fd6d77144d3ff251bdcdf1420b9
+  languageName: node
+  linkType: hard
+
 "@emotion/hash@npm:^0.9.2":
   version: 0.9.2
   resolution: "@emotion/hash@npm:0.9.2"
@@ -3332,6 +3347,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/sheet@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@emotion/sheet@npm:1.4.0"
+  checksum: 10/8ac6e9bf6b373a648f26ae7f1c24041038524f4c72f436f4f8c4761c665e58880c3229d8d89b1f7a4815dd8e5b49634d03e60187cb6f93097d7f7c1859e869d5
+  languageName: node
+  linkType: hard
+
 "@emotion/styled@npm:^11.11.5":
   version: 11.11.5
   resolution: "@emotion/styled@npm:11.11.5"
@@ -3375,10 +3397,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/utils@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@emotion/utils@npm:1.4.0"
+  checksum: 10/e4cdb51819db01fec21c3e35a1391900c9e7f3ac1e7ecb419c8e408464830cd7ef6e1a116381cbfe3fb1039406fb7ed35f16a1575d502c92bc9f81bc13a3ee5a
+  languageName: node
+  linkType: hard
+
 "@emotion/weak-memoize@npm:^0.3.1":
   version: 0.3.1
   resolution: "@emotion/weak-memoize@npm:0.3.1"
   checksum: 10/b2be47caa24a8122622ea18cd2d650dbb4f8ad37b636dc41ed420c2e082f7f1e564ecdea68122b546df7f305b159bf5ab9ffee872abd0f052e687428459af594
+  languageName: node
+  linkType: hard
+
+"@emotion/weak-memoize@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@emotion/weak-memoize@npm:0.4.0"
+  checksum: 10/db5da0e89bd752c78b6bd65a1e56231f0abebe2f71c0bd8fc47dff96408f7065b02e214080f99924f6a3bfe7ee15afc48dad999d76df86b39b16e513f7a94f52
   languageName: node
   linkType: hard
 

@@ -3,6 +3,16 @@
   "name": "elvis-modal",
   "content": [
     {
+      "date": "11.09.24",
+      "version": "4.0.15",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies. This fixes the use of CSP nonce for styling."]
+        }
+      ]
+    },
+    {
       "date": "28.06.24",
       "version": "4.0.14",
       "changelog": [

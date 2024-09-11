@@ -1,3 +1,5 @@
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
 import JSON5 from 'json5';
 import isEqual from 'lodash.isequal';
 import throttle from 'lodash.throttle';
@@ -171,7 +173,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected renderReactDOM(): void {
     this.mapAttributesToData();
     if (this.reactRoot) {
-      this.reactRoot.render(this.createReactElement(this.createReactData()));
+      this.reactRoot.render(this.createEmotionCache(this.createReactElement(this.createReactData())));
     }
   }
 
@@ -293,11 +295,19 @@ export class ElvisComponentWrapper extends HTMLElement {
     reactData.webcomponent = this;
     return createElement(this.reactComponent, reactData, createElement('slot'));
   }
+
+  private createEmotionCache(children: React.ReactElement): React.ReactElement {
+    const cache = createCache({
+      key: this.getElementName(),
+      nonce: (globalThis.window as any).__webpack_nonce__ || (globalThis as any).__elvia_nonce__,
+    });
+    return createElement(CacheProvider, { value: cache }, children);
+  }
 }
 
 /**
  * This is the class that is used to define a web component.
- * It comes from `elvia-component.template.ts`, and one is built for each component.
+ * It comes from `elvia-component.template.js`, and one is built for each component.
  *
  * This is just a type declaration for use in this file.
  */
