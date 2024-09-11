@@ -1,0 +1,11 @@
+{
+  "$schema": "../../changelogSchema.json",
+  "name": "elvis-app-bridge",
+  "content": [
+    {
+      "date": "10.09.24",
+      "version": "1.0.0",
+      "changelog": [{ "type": "new_feature", "changes": ["Initial release of component."] }]
+    }
+  ]
+}
