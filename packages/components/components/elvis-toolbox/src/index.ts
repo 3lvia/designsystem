@@ -38,7 +38,7 @@ export { useSlot } from './hooks/useSlot';
 export { useRovingFocus } from './hooks/useRovingFocus';
 export { useCurrentTheme } from './hooks/useCurrentTheme';
 export { useUpdateEffect } from './hooks/useUpdateEffect';
-export { useLanguage } from './hooks/useLanguage';
+export { useLanguage, type LanguageCode } from './hooks/useLanguage';
 
 export type { BaseProps } from './prop-blocks/baseProps';
 export type { ErrorOptions, HasError } from './prop-blocks/hasError';

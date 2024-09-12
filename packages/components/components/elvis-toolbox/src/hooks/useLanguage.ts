@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 
+export type LanguageCode = 'en' | 'no';
+
 export const useLanguage = () => {
-  const [lang, setLang] = useState<'no' | 'en'>('no');
+  const [lang, setLang] = useState<LanguageCode>('no');
   useEffect(() => {
     const handleLangChange = () => {
       const htmlLang = document.documentElement.lang;

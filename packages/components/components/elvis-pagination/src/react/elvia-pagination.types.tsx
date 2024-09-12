@@ -35,10 +35,4 @@ export const defaultPaginationDropdownItems: DropdownItem[] = [
   { value: '40', label: '40' },
 ];
 
-export const defaultPaginationLabelOptions: PaginationLabel = {
-  displaying: 'Viser',
-  of: 'av',
-  label: 'elementer',
-};
-
 export const defaultPaginationValue: VisibleElements = { start: undefined, end: undefined };

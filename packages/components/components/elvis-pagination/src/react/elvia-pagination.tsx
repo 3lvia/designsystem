@@ -6,13 +6,12 @@ import React, { FC, useEffect, useState } from 'react';
 
 import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
 import {
-  PaginationLabel,
   PaginationProps,
   VisibleElements,
   defaultPaginationDropdownItems,
-  defaultPaginationLabelOptions,
   defaultPaginationValue,
 } from './elvia-pagination.types';
+import { getDefaultPaginationLabelOptions } from './labelUtilities';
 import {
   Paginator,
   PaginatorInfoAmount,
@@ -48,8 +47,9 @@ export const Pagination: FC<PaginationProps> = function ({
   const totalPages = Math.ceil(numberOfElements / pageSize);
   const nextEnabled = currentPage < totalPages - 1;
   const previousEnabled = currentPage > 0;
-  const labelOptionsState: PaginationLabel = { ...defaultPaginationLabelOptions, ...labelOptions };
 
+  const lang = useLanguage();
+  const [labelOptionsState, setLabelOptionsState] = useState(getDefaultPaginationLabelOptions(lang));
   const [ariaLabel, setAriaLabel] = useState('');
 
   const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
@@ -81,13 +81,11 @@ export const Pagination: FC<PaginationProps> = function ({
   }, [value]);
 
   // Toggle language for aria-label
-  const lang = useLanguage();
   useEffect(() => {
-    let label = labelOptionsState.label;
+    const defaultLabelOptions = getDefaultPaginationLabelOptions(lang);
+    setLabelOptionsState({ ...defaultLabelOptions, ...labelOptions });
 
-    if (lang === 'en') {
-      label = 'items';
-    }
+    const label = defaultLabelOptions.label;
 
     const langLabel =
       lang === 'no'
