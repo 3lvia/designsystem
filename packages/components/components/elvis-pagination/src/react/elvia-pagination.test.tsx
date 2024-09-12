@@ -100,7 +100,7 @@ describe('Elvis Pagination', () => {
     it('should have hidden right arrow after clicking last paginator number', async () => {
       const user = userEvent.setup();
 
-      const lastPageButton = screen.getByRole('button', { name: /Select page 10/i });
+      const lastPageButton = screen.getByRole('button', { name: /select page 10/i });
       await user.click(lastPageButton);
       const nextButton = screen.queryByRole('button', { name: /next page/i });
       expect(nextButton).not.toBeInTheDocument();
