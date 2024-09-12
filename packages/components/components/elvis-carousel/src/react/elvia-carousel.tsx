@@ -180,13 +180,12 @@ export const Carousel: FC<CarouselProps> = function ({
         // For decrement you have to add the length of elements to prevent negative values
         if (dotClick) {
           updateValue(handleValueChangeIndex);
+        } else if (direction === 'left') {
+          updateValue((handleValueChangeIndex - 1 + lengthOfItems) % lengthOfItems);
         } else {
-          if (direction === 'left') {
-            updateValue((handleValueChangeIndex - 1 + lengthOfItems) % lengthOfItems);
-          } else {
-            updateValue((handleValueChangeIndex + 1) % lengthOfItems);
-          }
+          updateValue((handleValueChangeIndex + 1) % lengthOfItems);
         }
+
         setSlideDirection(direction);
         setFadeIn(true);
       },

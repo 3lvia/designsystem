@@ -171,12 +171,10 @@ export const useConnectedOverlay = (
       alignCenter();
     } else if (opts.verticalPosition === 'bottom-inside') {
       alignBottomInside();
+    } else if (hostRect.bottom + opts.offset + overlayRect.height < windowRect.height) {
+      alignBottom();
     } else {
-      if (hostRect.bottom + opts.offset + overlayRect.height < windowRect.height) {
-        alignBottom();
-      } else {
-        alignMostVisible();
-      }
+      alignMostVisible();
     }
   };
 
@@ -260,12 +258,10 @@ export const useConnectedOverlay = (
       alignCenter();
     } else if (opts.horizontalPosition === 'right-inside') {
       alignRightInside();
+    } else if (hostRect.right + opts.offset + overlayWidth < windowRect.width) {
+      alignRight();
     } else {
-      if (hostRect.right + opts.offset + overlayWidth < windowRect.width) {
-        alignRight();
-      } else {
-        alignMostVisible();
-      }
+      alignMostVisible();
     }
   };
 
