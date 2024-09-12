@@ -251,8 +251,7 @@ export const useConnectedOverlay = (
     if (opts.horizontalPosition === 'left') {
       if (hostRect.left - opts.offset - overlayWidth > 0) {
         alignLeft();
-      }
-      {
+      } else {
         alignMostVisible();
       }
     } else if (opts.horizontalPosition === 'left-inside') {
