@@ -1,9 +1,10 @@
+import { LanguageCode } from '@elvia/elvis-toolbox';
 import React, { FC } from 'react';
 
 import { PaginatorPage } from './styledComponents';
 
 interface PageElementProps {
-  lang: 'no' | 'en';
+  lang: LanguageCode;
   pageNumber: number;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;
@@ -37,7 +38,7 @@ export const PageElement: FC<PageElementProps> = ({
 };
 
 interface FirstPageNumberProps {
-  lang: 'no' | 'en';
+  lang: LanguageCode;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;
 }
@@ -58,7 +59,7 @@ export const FirstPageNumber: FC<FirstPageNumberProps> = ({
 };
 
 interface LastPageNumberProps {
-  lang: 'no' | 'en';
+  lang: LanguageCode;
   numberOfPages: number;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;

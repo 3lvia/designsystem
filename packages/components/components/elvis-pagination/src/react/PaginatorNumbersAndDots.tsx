@@ -1,4 +1,5 @@
 import { useBreakpoint } from '@elvia/elvis-toolbox';
+import { LanguageCode } from '@elvia/elvis-toolbox/src';
 import React, { FC, useMemo } from 'react';
 
 import { BetweenPageNumbers } from './BetweenPageNumbers';
@@ -12,7 +13,7 @@ import {
 import { PaginatorDots, PaginatorNumbersArea } from './styledComponents';
 
 interface PaginatorNumbersAndDotsProps {
-  lang: 'no' | 'en';
+  lang: LanguageCode;
   numberOfPages: number;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;

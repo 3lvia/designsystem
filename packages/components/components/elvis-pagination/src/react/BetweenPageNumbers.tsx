@@ -1,3 +1,4 @@
+import { LanguageCode } from '@elvia/elvis-toolbox';
 import React, { Dispatch, FC, SetStateAction, useMemo } from 'react';
 
 import { PageElement } from './PageElement';
@@ -13,7 +14,7 @@ import {
 } from './constants';
 
 interface BetweenPageNumbersProps {
-  lang: 'no' | 'en';
+  lang: LanguageCode;
   numberOfPages: number;
   selectedPageNumber: number;
   isMobile: boolean;
