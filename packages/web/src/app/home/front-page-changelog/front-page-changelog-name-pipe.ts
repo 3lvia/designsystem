@@ -12,7 +12,7 @@ export class FrontPageChangelogNamePipe implements PipeTransform {
       }
       const formattedName = name.split('-').slice(1).join(' ');
       return formattedName;
-    } catch (e) {
+    } catch (_error) {
       console.warn(`"name": "${name}" in changelog is invalid. Should be "elvis-(name)" or "elvis"`);
       return name ?? '';
     }

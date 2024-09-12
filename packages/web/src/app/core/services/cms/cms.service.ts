@@ -173,7 +173,7 @@ export class CMSService {
     const entryMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
 
     const menu: CMSMenu = {
-      title: entryMenu.fields.title?.['en-GB']!,
+      title: entryMenu.fields.title?.['en-GB'] ?? '',
       pages: [],
     };
     const subMenuEntries = extractLocale(entryMenu.fields.submenus!, localization);

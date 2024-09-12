@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error missing types for this kind of import, but it should be fine
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import naturalCompare from 'natural-compare-lite';
 

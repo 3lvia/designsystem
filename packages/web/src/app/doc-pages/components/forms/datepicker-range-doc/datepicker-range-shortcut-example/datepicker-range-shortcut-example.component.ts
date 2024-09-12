@@ -39,7 +39,7 @@ export class DatepickerRangeShortcutExampleComponent {
           end: todayEnd,
         };
         break;
-      case 'yesterday':
+      case 'yesterday': {
         const yesterdayStart = new Date(todayStart);
         yesterdayStart.setDate(todayStart.getDate() - 1);
 
@@ -51,7 +51,8 @@ export class DatepickerRangeShortcutExampleComponent {
           end: yesterdayEnd,
         };
         break;
-      case 'lastWeek':
+      }
+      case 'lastWeek': {
         const lastWeekStart = new Date(todayStart);
         lastWeekStart.setDate(todayStart.getDate() - 7);
 
@@ -60,7 +61,8 @@ export class DatepickerRangeShortcutExampleComponent {
           end: todayEnd,
         };
         break;
-      case 'lastMonth':
+      }
+      case 'lastMonth': {
         const lastMonthStart = new Date(todayStart);
         lastMonthStart.setDate(todayStart.getDate() - 30);
 
@@ -69,6 +71,7 @@ export class DatepickerRangeShortcutExampleComponent {
           end: todayEnd,
         };
         break;
+      }
       case 'custom':
       default:
         break;

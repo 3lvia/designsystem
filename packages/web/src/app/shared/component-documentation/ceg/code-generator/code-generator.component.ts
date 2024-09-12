@@ -40,7 +40,7 @@ export class CodeGeneratorComponent implements OnInit {
     }
   }
 
-  activeTabIndex: number = 0;
+  activeTabIndex = 0;
   tabs = signal<Tab[]>(['Angular', 'React', 'Vue']);
 
   constructor(private preferredLanguageService: PreferredLanguageService) {

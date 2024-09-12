@@ -21,7 +21,7 @@ export class ComponentDocumentationDatePipe implements PipeTransform {
         month: 'long',
         day: '2-digit',
       }).format(date);
-    } catch (e) {
+    } catch (_error) {
       console.warn(
         `"date": "${value}" in changelog is invalid. Should be "DD.MM.YY" or parsable by new Date()`,
       );

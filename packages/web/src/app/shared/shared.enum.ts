@@ -61,7 +61,6 @@ export enum Pages {
   Tutorial = 'tutorial',
   Shadow = 'shadow',
   TheDesignSystem = 'the-design-system',
-  Utilities = 'utility-classes',
 
   // Brand pages
   TheConcept = 'the-concept',

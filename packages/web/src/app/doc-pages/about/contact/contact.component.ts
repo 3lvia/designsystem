@@ -7,7 +7,7 @@ import { ComponentSubsectionComponent } from 'src/app/shared/component-documenta
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
-type ContactInfo = {
+interface ContactInfo {
   firstName: string;
   lastName: string;
   image: string;
@@ -16,7 +16,7 @@ type ContactInfo = {
   slackUrl: string;
   emoji: string;
   loadedImg: boolean;
-};
+}
 
 const docPage = getDocPagesNotFromCMS('contact');
 @Component({
