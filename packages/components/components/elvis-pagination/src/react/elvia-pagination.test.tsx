@@ -27,12 +27,14 @@ describe('Elvis Pagination', () => {
     });
 
     it('should have default info text', () => {
-      const infoText = screen.queryByText('Viser');
-      expect(infoText).toBeInTheDocument();
+      waitFor(() => {
+        const infoText = screen.queryByText('Showing');
+        expect(infoText).toBeInTheDocument();
+      });
     });
 
     it('should have default info amount', () => {
-      const infoAmount = screen.queryByText('av 0 elementer');
+      const infoAmount = screen.queryByText('of 0 items');
       expect(infoAmount).toBeInTheDocument();
     });
 
