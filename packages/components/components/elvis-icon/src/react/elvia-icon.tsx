@@ -30,7 +30,7 @@ export const Icon: React.FC<IconProps> = ({
     try {
       const newIcon = elvisIcons[icon as keyof typeof elvisIcons].getIcon(color);
       return getSize(newIcon, size, customSize);
-    } catch (error) {
+    } catch (_error) {
       const errorMessage = `No icon found with the name ${icon}${color ? ` and color ${color}` : ''}`;
       console.error(errorMessage);
       return errorMessage;
@@ -80,7 +80,6 @@ export const Icon: React.FC<IconProps> = ({
   const displayIcon = getIcon(name, size, color, customSize);
 
   // Remove children from rest because dangerouslySetInnerHTML is used
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children, ...restWithoutChildren } = rest;
 
   return (

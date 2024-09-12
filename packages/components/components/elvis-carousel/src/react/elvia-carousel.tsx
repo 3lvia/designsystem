@@ -181,9 +181,11 @@ export const Carousel: FC<CarouselProps> = function ({
         if (dotClick) {
           updateValue(handleValueChangeIndex);
         } else {
-          direction === 'left'
-            ? updateValue((handleValueChangeIndex - 1 + lengthOfItems) % lengthOfItems)
-            : updateValue((handleValueChangeIndex + 1) % lengthOfItems);
+          if (direction === 'left') {
+            updateValue((handleValueChangeIndex - 1 + lengthOfItems) % lengthOfItems);
+          } else {
+            updateValue((handleValueChangeIndex + 1) % lengthOfItems);
+          }
         }
         setSlideDirection(direction);
         setFadeIn(true);
@@ -195,7 +197,7 @@ export const Carousel: FC<CarouselProps> = function ({
   /** Dispatch onFinish events (when the checkmark button is clicked) */
   const triggerOnFinish = (): void => {
     if (!webcomponent) {
-      onFinish && onFinish();
+      onFinish?.();
     } else {
       webcomponent.triggerEvent('onFinish');
     }

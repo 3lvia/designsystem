@@ -100,7 +100,7 @@ export const Modal: FC<ModalProps> = function ({
 
     return () => {
       releaseFocusTrap();
-      originalFocusedElement && originalFocusedElement.focus();
+      originalFocusedElement?.focus();
 
       if (hasLockBodyScroll) {
         releaseBodyScroll();

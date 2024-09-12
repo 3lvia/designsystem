@@ -29,7 +29,8 @@
     "test-ct": "yarn workspace @elvia/elvis-components test-ct",
     "test:start": "yarn workspace @elvia/elvis-components test:start",
     "test:staged": "cd packages/components; jest --bail --findRelatedTests",
-    "publish": "yarn workspaces foreach -ipv --all --no-private npm publish --access public"
+    "publish": "yarn workspaces foreach -ipv --all --no-private npm publish --access public",
+    "lint": "eslint"
   },
   "engines": {
     "node": ">=20.17.0"
@@ -38,12 +39,15 @@
     "prettier": "^3.3.3"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.10.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.10.0",
     "eslint-plugin-react": "^7.35.2",
     "express": "^4.21.0",
+    "globals": "^15.9.0",
     "postcss": "^8.4.45",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -6,9 +6,9 @@ import * as sharp from 'sharp';
 
 import type { IconLabels } from './iconsScss';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const svgmin = require('gulp-svgmin');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const icons = require('../config/icons.config') as {
   name: string;
   terms?: string[];

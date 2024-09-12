@@ -44,7 +44,11 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
     }
 
     while (newIndex > 0 && newIndex < years.length - 1 && years[newIndex].isDisabled) {
-      newIndex > 0 ? newIndex++ : newIndex--;
+      if (newIndex > 0) {
+        newIndex++;
+      } else {
+        newIndex--;
+      }
     }
 
     return newIndex;
