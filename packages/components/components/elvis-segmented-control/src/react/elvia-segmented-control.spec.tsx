@@ -52,5 +52,7 @@ test('segmented-control screenshots', async ({ mount, page }) => {
       <SegmentedControl type="icon" items={iconItems} value={1} size="small" />
     </div>,
   );
+  // wait for animations to finish
+  await page.waitForTimeout(500);
   await percySnapshot(page, 'Segmented-Control');
 });
