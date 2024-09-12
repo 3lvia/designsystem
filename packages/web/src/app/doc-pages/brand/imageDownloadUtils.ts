@@ -20,7 +20,9 @@ export const createSvgBlobFromElement = (incomingSvgElement: SVGElement, opts?: 
       styleElement.textContent + (opts.tokens === 'icon' ? iconStyleTokens : illustrationStyleTokens);
   }
   svgElement.insertBefore(styleElement, svgElement.firstChild);
-  opts?.colorValue && svgElement.classList.add(opts?.colorValue);
+  if (opts?.colorValue) {
+    svgElement.classList.add(opts?.colorValue);
+  }
 
   // Scale up height and width for better image quality in PNG, does not affect SVG
   const viewBox = svgElement.getAttribute('viewBox');

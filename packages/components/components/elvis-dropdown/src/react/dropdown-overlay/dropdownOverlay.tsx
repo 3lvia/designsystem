@@ -211,7 +211,9 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
     }, [focusedItem]);
 
     useEffect(() => {
-      initialScreenSize !== isGtMobile && onClose();
+      if (initialScreenSize !== isGtMobile) {
+        onClose();
+      }
     }, [isGtMobile]);
 
     useEffect(() => {

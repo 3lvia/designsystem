@@ -180,11 +180,12 @@ export const Carousel: FC<CarouselProps> = function ({
         // For decrement you have to add the length of elements to prevent negative values
         if (dotClick) {
           updateValue(handleValueChangeIndex);
+        } else if (direction === 'left') {
+          updateValue((handleValueChangeIndex - 1 + lengthOfItems) % lengthOfItems);
         } else {
-          direction === 'left'
-            ? updateValue((handleValueChangeIndex - 1 + lengthOfItems) % lengthOfItems)
-            : updateValue((handleValueChangeIndex + 1) % lengthOfItems);
+          updateValue((handleValueChangeIndex + 1) % lengthOfItems);
         }
+
         setSlideDirection(direction);
         setFadeIn(true);
       },
@@ -195,7 +196,7 @@ export const Carousel: FC<CarouselProps> = function ({
   /** Dispatch onFinish events (when the checkmark button is clicked) */
   const triggerOnFinish = (): void => {
     if (!webcomponent) {
-      onFinish && onFinish();
+      onFinish?.();
     } else {
       webcomponent.triggerEvent('onFinish');
     }

@@ -1,7 +1,6 @@
 import { ColorLabel } from '@elvia/elvis-colors';
 import React, { FC } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 type AnyString = string & {};
 type ColorLabelOrString = ColorLabel | AnyString;
 type IconSizes = 'xxs' | 'xs' | 'sm' | 'small' | 'md' | 'medium' | 'lg' | 'large' | 'xl' | 'xxl' | AnyString;

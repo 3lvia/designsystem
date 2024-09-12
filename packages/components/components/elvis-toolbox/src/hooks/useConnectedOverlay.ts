@@ -152,21 +152,29 @@ export const useConnectedOverlay = (
       const overflowTop = hostRect.top - opts.offset - overlayRect.height;
       const overflowBottom = windowRect.height - (hostRect.bottom + opts.offset + overlayRect.height);
 
-      overflowBottom < overflowTop ? alignTop() : alignBottom();
+      if (overflowBottom < overflowTop) {
+        alignTop();
+      } else {
+        alignBottom();
+      }
     };
 
     if (opts.verticalPosition === 'top') {
-      hostRect.top - opts.offset - overlayRect.height > 0 ? alignTop() : alignMostVisible();
+      if (hostRect.top - opts.offset - overlayRect.height > 0) {
+        alignTop();
+      } else {
+        alignMostVisible();
+      }
     } else if (opts.verticalPosition === 'top-inside') {
       alignTopInside();
     } else if (opts.verticalPosition === 'center') {
       alignCenter();
     } else if (opts.verticalPosition === 'bottom-inside') {
       alignBottomInside();
+    } else if (hostRect.bottom + opts.offset + overlayRect.height < windowRect.height) {
+      alignBottom();
     } else {
-      hostRect.bottom + opts.offset + overlayRect.height < windowRect.height
-        ? alignBottom()
-        : alignMostVisible();
+      alignMostVisible();
     }
   };
 
@@ -231,19 +239,29 @@ export const useConnectedOverlay = (
       const overflowLeft = hostRect.left - opts.offset - overlayWidth;
       const overflowRight = windowRect.width - (hostRect.right + opts.offset + overlayWidth);
 
-      overflowRight < overflowLeft ? alignLeft() : alignRight();
+      if (overflowRight < overflowLeft) {
+        alignLeft();
+      } else {
+        alignRight();
+      }
     };
 
     if (opts.horizontalPosition === 'left') {
-      hostRect.left - opts.offset - overlayWidth > 0 ? alignLeft() : alignMostVisible();
+      if (hostRect.left - opts.offset - overlayWidth > 0) {
+        alignLeft();
+      } else {
+        alignMostVisible();
+      }
     } else if (opts.horizontalPosition === 'left-inside') {
       alignLeftInside();
     } else if (opts.horizontalPosition === 'center') {
       alignCenter();
     } else if (opts.horizontalPosition === 'right-inside') {
       alignRightInside();
+    } else if (hostRect.right + opts.offset + overlayWidth < windowRect.width) {
+      alignRight();
     } else {
-      hostRect.right + opts.offset + overlayWidth < windowRect.width ? alignRight() : alignMostVisible();
+      alignMostVisible();
     }
   };
 

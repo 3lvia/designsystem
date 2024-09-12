@@ -816,8 +816,8 @@ export const docPagesNotFromCMS: DocPage[] = [
     title: 'Utility Classes',
     description:
       'Elvis offers several utility classes that can be applied on elements without making any extra CSS classes or modifications in your project.',
-    docUrl: Pages.Utilities,
-    absolutePath: '/tools/' + Pages.Utilities,
+    docUrl: Pages.UtilityClasses,
+    absolutePath: '/tools/' + Pages.UtilityClasses,
     type: 'Tools',
   },
   {

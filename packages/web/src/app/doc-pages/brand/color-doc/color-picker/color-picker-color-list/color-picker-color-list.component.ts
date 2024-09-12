@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
 import { Component, Input, computed, inject } from '@angular/core';
-import { DarkThemeColorName, LightThemeColorName } from '@elvia/elvis-colors';
 
 import { ColorPickerService } from '../color-picker.service';
 import { darkColors } from '../colors-dark';

@@ -55,7 +55,9 @@ export const useFocusTrap = (): {
       lastItem = focusableItems[focusableItems.length - 1];
 
       if (firstItem) {
-        updateFocus && (focusedItem as HTMLElement).focus();
+        if (updateFocus) {
+          (focusedItem as HTMLElement).focus();
+        }
         firstItem.addEventListener('keydown', handleFirstItemTab);
       }
       if (lastItem) {

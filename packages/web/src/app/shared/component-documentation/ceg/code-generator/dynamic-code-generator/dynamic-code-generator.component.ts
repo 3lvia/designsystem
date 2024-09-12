@@ -227,16 +227,19 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
       .map((prop) => {
         const propName = `${frameworkSpec.attributePrefix}${prop.name}${frameworkSpec.attributePostfix}`;
         switch (typeof prop.value) {
-          case 'string':
+          case 'string': {
             return `${propName}="'${prop.value}'" `;
-          case 'function':
+          }
+          case 'function': {
             const eventName = `${frameworkSpec.eventPrefix}${prop.name}${frameworkSpec.eventPostfix}`;
             const eventObj = frameworkSpec.castEventDataAsAny ? '$any($event)' : '$event';
             return `${eventName}="handleOnChange(${eventObj}.detail.value)"`;
-          default:
+          }
+          default: {
             /** JSON.stringify gives us a string with double quotes for objects,
              * which we need to replace with single quotes for the web components. */
             return `${propName}="${JSON.stringify(prop.value).replace(/"/g, "'")}" `;
+          }
         }
       })
       .join('')}>${this.getWebComponentSlots(slots)}</elvia-${this.elementName}>`;

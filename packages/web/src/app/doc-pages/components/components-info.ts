@@ -104,7 +104,7 @@ const sortComponents = (components: CategoryComponentInfo[]): CategoryComponentI
 
 const sortComponentsInfo = (componentsInfo: ComponentInfo): ComponentInfo => {
   for (const key in componentsInfo) {
-    if (componentsInfo.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(componentsInfo, key)) {
       componentsInfo[key as Category] = sortComponents(componentsInfo[key as Category]);
     }
   }

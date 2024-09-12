@@ -21,7 +21,7 @@ export class ComponentInstallationComponent implements OnInit {
   @Input() componentData: ComponentData;
   reactElementName: string;
   packageName: string;
-  activeTabIndex: number = 0;
+  activeTabIndex = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
   constructor(private preferredLanguageService: PreferredLanguageService) {

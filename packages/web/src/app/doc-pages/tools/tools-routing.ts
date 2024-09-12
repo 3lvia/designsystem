@@ -8,7 +8,7 @@ export const routes: Routes = [
     loadComponent: () => import('../cms/cms-page/cms-page.component').then((m) => m.CMSPageComponent),
   },
   {
-    path: Pages.Utilities,
+    path: Pages.UtilityClasses,
     loadComponent: () =>
       import('./utilities-doc/utilities-doc.component').then((m) => m.UtilitiesDocComponent),
   },
