@@ -9457,7 +9457,7 @@ __metadata:
     ts-node: "npm:^10.9.2"
     tslib: "npm:^2.7.0"
     typescript: "npm:~5.5.4"
-    typescript-eslint: "npm:^8.2.0"
+    typescript-eslint: "npm:^8.5.0"
     zone.js: "npm:~0.15.0"
   languageName: unknown
   linkType: soft
@@ -18188,7 +18188,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-eslint@npm:^8.2.0":
+"typescript-eslint@npm:^8.5.0":
   version: 8.5.0
   resolution: "typescript-eslint@npm:8.5.0"
   dependencies:
