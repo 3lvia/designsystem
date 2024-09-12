@@ -8,7 +8,9 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added new useLang hook to get the current language of the user."]
+          "changes": [
+            "Added new useLanguage hook to get the current value of the lang attribute on the html element."
+          ]
         }
       ]
     },

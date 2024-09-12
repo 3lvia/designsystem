@@ -1,7 +1,7 @@
 import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
-import { IconWrapper, useLang, useRovingFocus } from '@elvia/elvis-toolbox';
+import { IconWrapper, useLanguage, useRovingFocus } from '@elvia/elvis-toolbox';
 import React, { FC, useEffect, useState } from 'react';
 
 import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
@@ -81,7 +81,7 @@ export const Pagination: FC<PaginationProps> = function ({
   }, [value]);
 
   // Toggle language for aria-label
-  const lang = useLang();
+  const lang = useLanguage();
   useEffect(() => {
     let label = labelOptionsState.label;
 
