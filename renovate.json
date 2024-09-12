@@ -41,7 +41,8 @@
         "^esbuild",
         "^prettier",
         "^tslib",
-        "^eslint"
+        "^eslint",
+        "^typescript-eslint"
       ],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
