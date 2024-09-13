@@ -45,7 +45,7 @@
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
     "eslint": "^9.10.0",
-    "eslint-plugin-react": "^7.36.0",
+    "eslint-plugin-react": "^7.36.1",
     "express": "^4.21.0",
     "globals": "^15.9.0",
     "postcss": "^8.4.45",
