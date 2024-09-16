@@ -494,7 +494,7 @@ export class CMSTransformService {
           <source type="image/avif" srcset="${displayImageAvif}"  />
           <source type="image/webp" srcset="${displayImageWebp}"  />
           <img
-            class="cms-section__img normal-img"
+            class="cms-section__img"
             src="${displayImage}"
             alt="${altText}"
             loading="lazy"
@@ -610,12 +610,7 @@ export class CMSTransformService {
       <span style="position: absolute; left: -36px; margin-top: 2px;">
         <elvia-tooltip class="cms-anchor-title" content="Copy" showDelay="400" display="relative" id="elvia-tooltip-${heading}">
           <span class="icons" slot="trigger" id="anchor-icons">
-            <i
-              class="cms-section__img normal-img icon e-icon e-icon--link e-icon--sm"
-            ></i>
-            <i
-              class="cms-section__img green-img icon e-icon e-icon--link e-icon--sm e-icon--color-positive"
-            ></i>
+            <e-icon name="link" size="sm" class="cms-section__img"></e-icon>
           </span>
         </elvia-tooltip>
       </span>
