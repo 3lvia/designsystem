@@ -182,15 +182,15 @@ export class CMSPageComponent implements OnDestroy {
    * @param id HTML-id of a title element.
    */
   copyAnchor(id: string): void {
-    const anchorTitleElement = document.getElementById(id);
+    const anchorTitleElement = document.getElementById(id)?.querySelector('e-icon');
     const tooltipElement = document.getElementById(
       `elvia-tooltip-${id.replace('anchor-heading-', '')}`,
     ) as ElvisComponentWrapper;
     tooltipElement.setProps({ content: 'Copied!' });
 
-    anchorTitleElement?.classList.add('anchor-copied');
+    anchorTitleElement?.classList.add('e-icon--color-positive');
     setTimeout(() => {
-      anchorTitleElement?.classList.remove('anchor-copied');
+      anchorTitleElement?.classList.remove('e-icon--color-positive');
       tooltipElement.setProps({ content: 'Copy' });
     }, 1400);
     const modifiedAnchor = id;

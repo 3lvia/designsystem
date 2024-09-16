@@ -150,7 +150,7 @@ $pageIndentedMargin: 72px;
     align-items: center;
     border-bottom: 1px solid var(--e-color-border-1);
 
-    &:hover .icons .normal-img {
+    &:hover .icons .cms-section__img {
       display: block;
     }
 
@@ -164,12 +164,6 @@ $pageIndentedMargin: 72px;
         display: none;
         position: absolute;
       }
-    }
-    &.anchor-copied .icons .green-img {
-      display: block;
-    }
-    &.anchor-copied .icons .normal-img {
-      display: none;
     }
   }
 }
