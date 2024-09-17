@@ -25,8 +25,8 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
   useEffect(() => {
     const newAriaLabel = lang === 'no' ? 'Progresjon' : 'Progress';
     const newAriaValueLabel = lang === 'no' ? 'Progresjonen er nå på ' : 'The progress is now at ';
-    setAriaLabel(newAriaLabel);
-    setAriaValueText(newAriaValueLabel + value + '%.');
+    setComputedAriaLabel(newAriaLabel);
+    setComputedAriaValueText(newAriaValueLabel + value + '%.');
   }, [lang, value]);
 
   return (
