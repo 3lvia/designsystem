@@ -28,13 +28,13 @@ describe('Elvis Pagination', () => {
 
     it('should have default info text', () => {
       waitFor(() => {
-        const infoText = screen.queryByText('Showing');
+        const infoText = screen.queryByText('Viser');
         expect(infoText).toBeInTheDocument();
       });
     });
 
     it('should have default info amount', () => {
-      const infoAmount = screen.queryByText('of 0 items');
+      const infoAmount = screen.queryByText('av 0 elementer');
       expect(infoAmount).toBeInTheDocument();
     });
 
@@ -81,42 +81,42 @@ describe('Elvis Pagination', () => {
     });
 
     it('should have hidden left arrow', () => {
-      const previousButton = screen.queryByRole('button', { name: /previous page/i });
+      const previousButton = screen.queryByRole('button', { name: /forrige side/i });
       expect(previousButton).not.toBeInTheDocument();
     });
 
     it('should have visible right arrow', () => {
-      const nextButton = screen.queryByRole('button', { name: /next page/i });
+      const nextButton = screen.queryByRole('button', { name: /neste side/i });
       expect(nextButton).toBeInTheDocument();
     });
 
     it('should have visible left arrow after clicking right arrow', async () => {
       const user = userEvent.setup();
-      const nextButton = screen.getByRole('button', { name: /next page/i });
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
 
       await user.click(nextButton);
-      const previousButton = screen.getByRole('button', { name: /previous page/i });
+      const previousButton = screen.getByRole('button', { name: /forrige side/i });
       expect(previousButton).toBeVisible();
     });
 
     it('should have hidden right arrow after clicking last paginator number', async () => {
       const user = userEvent.setup();
 
-      const lastPageButton = screen.getByRole('button', { name: /select page 10/i });
+      const lastPageButton = screen.getByRole('button', { name: /velg side 10/i });
       await user.click(lastPageButton);
-      const nextButton = screen.queryByRole('button', { name: /next page/i });
+      const nextButton = screen.queryByRole('button', { name: /neste side/i });
       expect(nextButton).not.toBeInTheDocument();
     });
 
     it('should have both arrows visible in middle of selection range', async () => {
       const user = userEvent.setup();
-      const nextButton = screen.getByRole('button', { name: /next page/i });
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
 
       for (let i = 0; i < 4; i++) {
         await user.click(nextButton);
       }
       expect(nextButton).toBeVisible();
-      const previousButton = screen.getByRole('button', { name: /previous page/i });
+      const previousButton = screen.getByRole('button', { name: /forrige side/i });
       expect(previousButton).toBeVisible();
     });
 
@@ -126,7 +126,7 @@ describe('Elvis Pagination', () => {
       await user.click(dropdown);
       await user.click(screen.getByRole('option', { name: /20/ }));
 
-      const buttons = screen.queryAllByRole('button', { name: /(select page \d+|selected page)/i }); //5 "page dots"
+      const buttons = screen.queryAllByRole('button', { name: /(velg side \d+|valgt side)/i }); //5 "page dots"
       expect(buttons.length).toBe(5);
     });
   });
@@ -190,7 +190,7 @@ describe('Elvis Pagination', () => {
 
     it('valueOnChange: should emit event when page button is clicked', async () => {
       const user = userEvent.setup();
-      const nextButton = screen.getByRole('button', { name: /next page/i });
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
       await user.click(nextButton);
       await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
     });
