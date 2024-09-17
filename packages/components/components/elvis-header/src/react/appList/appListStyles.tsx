@@ -55,6 +55,7 @@ export const IconLetters = styled.div`
 
 export const AppLink = styled.a<{ isActive: boolean }>`
   ${getTypographyCss('text-micro')}
+  color: ${getThemeColor('text-1')};
   text-decoration: none;
   display: flex;
   flex-direction: column;
