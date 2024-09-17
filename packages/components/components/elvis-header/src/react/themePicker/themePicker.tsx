@@ -59,9 +59,10 @@ export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
       <ThemeListContainer>
         {themes.map((pickerTheme) => (
           <ThemeButton
-            key={pickerTheme.theme}
             isActive={currentTheme === pickerTheme.theme}
+            key={pickerTheme.theme}
             onClick={() => changeTheme(pickerTheme.theme)}
+            type="button"
           >
             <ThemeIconOutline>
               {pickerTheme.theme === 'dark' && <DarkThemeIcon />}
