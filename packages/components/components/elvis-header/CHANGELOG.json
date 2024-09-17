@@ -3,6 +3,16 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "17.09.24",
+      "version": "1.12.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed a bug where links in the App Drawer would use the browsers default color."]
+        }
+      ]
+    },
+    {
       "date": "10.09.24",
       "version": "1.12.0",
       "changelog": [
