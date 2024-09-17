@@ -82,10 +82,10 @@ export const Pagination: FC<PaginationProps> = function ({
 
   // Toggle language for aria-label
   useEffect(() => {
-    const defaultLabelOptions = getDefaultPaginationLabelOptions(lang);
-    setLabelOptionsState({ ...defaultLabelOptions, ...labelOptions });
+    const newLabelOptions = getDefaultPaginationLabelOptions(lang, labelOptions);
+    setLabelOptionsState(newLabelOptions);
 
-    const label = defaultLabelOptions.label;
+    const label = newLabelOptions.label;
 
     const langLabel =
       lang === 'no'

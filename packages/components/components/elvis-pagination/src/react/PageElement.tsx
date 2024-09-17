@@ -1,21 +1,20 @@
-import { LanguageCode } from '@elvia/elvis-toolbox';
+import { useLanguage } from '@elvia/elvis-toolbox';
 import React, { FC } from 'react';
 
 import { PaginatorPage } from './styledComponents';
 
 interface PageElementProps {
-  lang: LanguageCode;
   pageNumber: number;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;
 }
 
 export const PageElement: FC<PageElementProps> = ({
-  lang,
   pageNumber,
   selectedPageNumber,
   setSelectedPageNumber,
 }) => {
+  const lang = useLanguage();
   const getAriaLabel = (pageNumber: number): string => {
     if (lang === 'no') {
       return pageNumber === selectedPageNumber ? 'Valgt side' : 'Velg side ' + pageNumber;
@@ -38,19 +37,13 @@ export const PageElement: FC<PageElementProps> = ({
 };
 
 interface FirstPageNumberProps {
-  lang: LanguageCode;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;
 }
 
-export const FirstPageNumber: FC<FirstPageNumberProps> = ({
-  selectedPageNumber,
-  setSelectedPageNumber,
-  lang,
-}) => {
+export const FirstPageNumber: FC<FirstPageNumberProps> = ({ selectedPageNumber, setSelectedPageNumber }) => {
   return (
     <PageElement
-      lang={lang}
       pageNumber={1}
       selectedPageNumber={selectedPageNumber}
       setSelectedPageNumber={setSelectedPageNumber}
@@ -59,7 +52,6 @@ export const FirstPageNumber: FC<FirstPageNumberProps> = ({
 };
 
 interface LastPageNumberProps {
-  lang: LanguageCode;
   numberOfPages: number;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;
@@ -68,7 +60,6 @@ interface LastPageNumberProps {
 }
 
 export const LastPageNumber: FC<LastPageNumberProps> = ({
-  lang,
   numberOfPages,
   selectedPageNumber,
   setSelectedPageNumber,
@@ -85,7 +76,6 @@ export const LastPageNumber: FC<LastPageNumberProps> = ({
 
   return (
     <PageElement
-      lang={lang}
       pageNumber={numberOfPages}
       selectedPageNumber={selectedPageNumber}
       setSelectedPageNumber={setSelectedPageNumber}
