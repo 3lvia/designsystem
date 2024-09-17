@@ -19,15 +19,6 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
   ...rest
 }) => {
   const lang = useLanguage();
-  const [computedAriaLabel, setComputedAriaLabel] = useState('');
-  const [computedAriaValueText, setComputedAriaValueText] = useState('');
-
-  useEffect(() => {
-    const newAriaLabel = lang === 'no' ? 'Progresjon' : 'Progress';
-    const newAriaValueLabel = lang === 'no' ? 'Progresjonen er nå på ' : 'The progress is now at ';
-    setComputedAriaLabel(newAriaLabel);
-    setComputedAriaValueText(newAriaValueLabel + value + '%.');
-  }, [lang, value]);
 
   return (
     <ProgressLinearWrapper
@@ -39,8 +30,8 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
       aria-valuemax={100}
       role={ariaRole}
       id={componentId}
-      aria-label={ariaLabel ?? computedAriaLabel}
-      aria-valuetext={ariaValueText ?? computedAriaValueText}
+      aria-label={(ariaLabel ?? lang === 'no') ? 'Progresjon' : 'Progress'}
+      aria-valuetext={(ariaValueText ?? lang === 'no') ? 'Progresjonen er nå på ' : 'The progress is now at '}
       className={className ?? ''}
       {...rest}
     >
