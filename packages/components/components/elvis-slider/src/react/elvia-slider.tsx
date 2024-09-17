@@ -3,8 +3,8 @@ import {
   FormFieldInputContainer,
   FormFieldInputSuffixText,
   useInputModeDetection,
+  useLanguage,
 } from '@elvia/elvis-toolbox';
-import { useLanguage } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
 
 import { BothSliders, ErrorType, FormFieldInputValue, Side, SliderProps } from './elvia-slider.types';
