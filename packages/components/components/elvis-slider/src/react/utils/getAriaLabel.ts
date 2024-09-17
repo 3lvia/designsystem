@@ -1,3 +1,5 @@
+import { LanguageCode } from '@elvia/elvis-toolbox/src/hooks/useLanguage';
+
 import { BothSliders, Side, SliderProps, SliderType } from '../elvia-slider.types';
 
 export const getAriaLabel = ({
@@ -7,6 +9,7 @@ export const getAriaLabel = ({
   ariaLabel,
   label,
   unit,
+  lang,
 }: {
   side: Side;
   sliderValue: BothSliders<number>;
@@ -14,15 +17,20 @@ export const getAriaLabel = ({
   ariaLabel?: SliderProps['ariaLabel'];
   label?: string;
   unit?: string;
+  lang: LanguageCode;
 }): string => {
   if (ariaLabel) {
-    return returnAriaLabelFromProp(side, ariaLabel);
+    return returnAriaLabelFromProp(side, ariaLabel, lang);
   } else {
-    return generateAutomaticAriaLabel(side, type, sliderValue, label, unit);
+    return generateAutomaticAriaLabel(side, type, sliderValue, lang, label, unit);
   }
 };
 
-const returnAriaLabelFromProp = (side: Side, ariaLabel: SliderProps['ariaLabel']): string => {
+const returnAriaLabelFromProp = (
+  side: Side,
+  ariaLabel: SliderProps['ariaLabel'],
+  lang: LanguageCode,
+): string => {
   if (typeof ariaLabel === 'object') {
     return ariaLabel[side];
   }
@@ -31,24 +39,35 @@ const returnAriaLabelFromProp = (side: Side, ariaLabel: SliderProps['ariaLabel']
     return ariaLabel;
   }
 
-  return 'Glidebryter';
+  if (lang === 'no') {
+    return 'Glidebryter';
+  } else {
+    return 'Slider';
+  }
 };
 
 const generateAutomaticAriaLabel = (
   side: Side,
   type: SliderType,
   sliderValue: BothSliders<number>,
+  lang: LanguageCode,
   label?: string,
   unit?: string,
 ): string => {
-  let newAriaLabel = 'Glidebryter';
+  let newAriaLabel = lang === 'no' ? 'Glidebryter' : 'Slider';
 
   if (type === 'range') {
-    const prefix = side === 'left' ? 'Startverdi' : 'Sluttverdi';
+    if (lang === 'no') {
+      const prefix = side === 'left' ? 'Startverdi' : 'Sluttverdi';
 
-    newAriaLabel = `${prefix} ${label ?? ''} rekkeviddeglidebryter ${
-      unit ? ' med verdi ' + sliderValue[side] + unit : ''
-    }`;
+      newAriaLabel = `${prefix} ${label ?? ''} rekkeviddeglidebryter ${
+        unit ? ' med verdi ' + sliderValue[side] + unit : ''
+      }`;
+    } else {
+      const prefix = side === 'left' ? 'Startvalue' : 'Endvalue';
+
+      newAriaLabel = `${prefix} ${label ?? ''} range slider ${unit ? ' with value ' + sliderValue[side] + unit : ''}`;
+    }
   }
 
   if (type === 'simple' && (label || unit)) {
@@ -56,4 +75,14 @@ const generateAutomaticAriaLabel = (
   }
 
   return newAriaLabel.replace(/\s+/g, ' ').trim();
+};
+
+export const getFormFieldLabel = (label: string | undefined, lang: LanguageCode): string => {
+  if (label) {
+    return label;
+  } else if (lang === 'no') {
+    return 'juster glidebryter';
+  } else {
+    return 'adjust slider';
+  }
 };

@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import { useLanguage } from '@elvia/elvis-toolbox';
+import React, { FC, useEffect, useState } from 'react';
 
 import { ProgressLinearProps } from './elvia-progress-linear.types';
 import { ProgressLinearProgress, ProgressLinearWrapper } from './styledComponents';
@@ -17,6 +18,17 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
   inlineStyle,
   ...rest
 }) => {
+  const lang = useLanguage();
+  const [computedAriaLabel, setAriaLabel] = useState('');
+  const [computedAriaValueText, setAriaValueText] = useState('');
+
+  useEffect(() => {
+    const newAriaLabel = lang === 'no' ? 'Progresjon' : 'Progress';
+    const newAriaValueLabel = lang === 'no' ? 'Progresjonen er nå på ' : 'The progress is now at ';
+    setAriaLabel(newAriaLabel);
+    setAriaValueText(newAriaValueLabel + value + '%.');
+  }, [lang, value]);
+
   return (
     <ProgressLinearWrapper
       $size={size}
@@ -27,8 +39,8 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
       aria-valuemax={100}
       role={ariaRole}
       id={componentId}
-      aria-label={ariaLabel ?? 'Progresjon'}
-      aria-valuetext={ariaValueText ?? 'Progresjonen er nå på ' + value + '%.'}
+      aria-label={ariaLabel ?? computedAriaLabel}
+      aria-valuetext={ariaValueText ?? computedAriaValueText}
       className={className ?? ''}
       {...rest}
     >
