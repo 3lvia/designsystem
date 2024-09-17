@@ -68,6 +68,7 @@ export const Chip: FC<ChipProps> = ({
       isLoading={isLoading}
       style={inlineStyle}
       disabled={isDisabled}
+      type="button"
       data-testid="chip-button"
       {...rest}
     >
