@@ -30,8 +30,8 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
       aria-valuemax={100}
       role={ariaRole}
       id={componentId}
-      aria-label={(ariaLabel ?? lang === 'no') ? 'Progresjon' : 'Progress'}
-      aria-valuetext={(ariaValueText ?? lang === 'no') ? 'Progresjonen er nå på ' : 'The progress is now at '}
+      aria-label={ariaLabel ?? (lang === 'no' ? 'Progresjon' : 'Progress')}
+      aria-valuetext={ariaValueText ?? (lang === 'no' ? 'Progresjonen er nå på ' : 'The progress is now at ')}
       className={className ?? ''}
       {...rest}
     >
