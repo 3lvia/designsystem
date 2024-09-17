@@ -202,7 +202,6 @@ export const Pagination: FC<PaginationProps> = function ({
           </PaginatorSelectorArrowBtn>
 
           <PaginatorNumbersAndDots
-            lang={lang}
             numberOfPages={totalPages}
             selectedPageNumber={currentPage + 1}
             setSelectedPageNumber={(p) => handleOnPageClick(p - 1)}

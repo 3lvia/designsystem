@@ -1,5 +1,4 @@
 import { useBreakpoint } from '@elvia/elvis-toolbox';
-import { LanguageCode } from '@elvia/elvis-toolbox/src';
 import React, { FC, useMemo } from 'react';
 
 import { BetweenPageNumbers } from './BetweenPageNumbers';
@@ -13,7 +12,6 @@ import {
 import { PaginatorDots, PaginatorNumbersArea } from './styledComponents';
 
 interface PaginatorNumbersAndDotsProps {
-  lang: LanguageCode;
   numberOfPages: number;
   selectedPageNumber: number;
   setSelectedPageNumber: (page: number) => void;
@@ -22,7 +20,6 @@ interface PaginatorNumbersAndDotsProps {
 }
 
 export const PaginatorNumbersAndDots: FC<PaginatorNumbersAndDotsProps> = ({
-  lang,
   numberOfPages,
   selectedPageNumber,
   setSelectedPageNumber,
@@ -49,13 +46,11 @@ export const PaginatorNumbersAndDots: FC<PaginatorNumbersAndDotsProps> = ({
   return (
     <PaginatorNumbersArea>
       <FirstPageNumber
-        lang={lang}
         selectedPageNumber={selectedPageNumber}
         setSelectedPageNumber={setSelectedPageNumber}
       />
       {shouldHaveVisibleFirstDots && <PaginatorDots>...</PaginatorDots>}
       <BetweenPageNumbers
-        lang={lang}
         isMobile={isMobile}
         numberOfPages={numberOfPages}
         selectedPageNumber={selectedPageNumber}
@@ -64,7 +59,6 @@ export const PaginatorNumbersAndDots: FC<PaginatorNumbersAndDotsProps> = ({
       {shouldHaveVisibleLastDots && <PaginatorDots>...</PaginatorDots>}
       {numberOfPages > 1 && (
         <LastPageNumber
-          lang={lang}
           selectedPageNumber={selectedPageNumber}
           setSelectedPageNumber={setSelectedPageNumber}
           numberOfElements={numberOfElements}

@@ -1,4 +1,3 @@
-import { LanguageCode } from '@elvia/elvis-toolbox';
 import React, { Dispatch, FC, SetStateAction, useMemo } from 'react';
 
 import { PageElement } from './PageElement';
@@ -14,7 +13,6 @@ import {
 } from './constants';
 
 interface BetweenPageNumbersProps {
-  lang: LanguageCode;
   numberOfPages: number;
   selectedPageNumber: number;
   isMobile: boolean;
@@ -22,7 +20,6 @@ interface BetweenPageNumbersProps {
 }
 
 export const BetweenPageNumbers: FC<BetweenPageNumbersProps> = ({
-  lang,
   numberOfPages,
   selectedPageNumber,
   isMobile,
@@ -74,7 +71,6 @@ export const BetweenPageNumbers: FC<BetweenPageNumbersProps> = ({
         ) {
           return (
             <PageElement
-              lang={lang}
               pageNumber={pageNumber}
               selectedPageNumber={selectedPageNumber}
               setSelectedPageNumber={setSelectedPageNumber}
