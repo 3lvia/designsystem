@@ -19,8 +19,8 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
   ...rest
 }) => {
   const lang = useLanguage();
-  const [computedAriaLabel, setAriaLabel] = useState('');
-  const [computedAriaValueText, setAriaValueText] = useState('');
+  const [computedAriaLabel, setComputedAriaLabel] = useState('');
+  const [computedAriaValueText, setComputedAriaValueText] = useState('');
 
   useEffect(() => {
     const newAriaLabel = lang === 'no' ? 'Progresjon' : 'Progress';
