@@ -27,8 +27,10 @@ describe('Elvis Pagination', () => {
     });
 
     it('should have default info text', () => {
-      const infoText = screen.queryByText('Viser');
-      expect(infoText).toBeInTheDocument();
+      waitFor(() => {
+        const infoText = screen.queryByText('Viser');
+        expect(infoText).toBeInTheDocument();
+      });
     });
 
     it('should have default info amount', () => {

@@ -3,6 +3,18 @@
   "name": "elvis-pagination",
   "content": [
     {
+      "date": "17.09.24",
+      "version": "3.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global lang attribute on the html-element"
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "3.5.5",
       "changelog": [

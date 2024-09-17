@@ -1,18 +1,17 @@
 import arrowLongLeft from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeft';
 import arrowLongRight from '@elvia/elvis-assets-icons/dist/icons/arrowLongRight';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
-import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
+import { IconWrapper, useLanguage, useRovingFocus } from '@elvia/elvis-toolbox';
 import React, { FC, useEffect, useState } from 'react';
 
 import { PaginatorNumbersAndDots } from './PaginatorNumbersAndDots';
 import {
-  PaginationLabel,
   PaginationProps,
   VisibleElements,
   defaultPaginationDropdownItems,
-  defaultPaginationLabelOptions,
   defaultPaginationValue,
 } from './elvia-pagination.types';
+import { getDefaultPaginationLabelOptions } from './labelUtilities';
 import {
   Paginator,
   PaginatorInfoAmount,
@@ -48,7 +47,10 @@ export const Pagination: FC<PaginationProps> = function ({
   const totalPages = Math.ceil(numberOfElements / pageSize);
   const nextEnabled = currentPage < totalPages - 1;
   const previousEnabled = currentPage > 0;
-  const labelOptionsState: PaginationLabel = { ...defaultPaginationLabelOptions, ...labelOptions };
+
+  const lang = useLanguage();
+  const [labelOptionsState, setLabelOptionsState] = useState(getDefaultPaginationLabelOptions(lang));
+  const [ariaLabel, setAriaLabel] = useState('');
 
   const { ref: listContainerRef } = useRovingFocus<HTMLElement>({ dir: 'horizontal' });
 
@@ -77,6 +79,21 @@ export const Pagination: FC<PaginationProps> = function ({
       setCurrentPage(Math.floor(value.start / pageSize));
     }
   }, [value]);
+
+  // Toggle language for aria-label
+  useEffect(() => {
+    const newLabelOptions = getDefaultPaginationLabelOptions(lang, labelOptions);
+    setLabelOptionsState(newLabelOptions);
+
+    const label = newLabelOptions.label;
+
+    const langLabel =
+      lang === 'no'
+        ? `viser ${selectedDropdownValue} ${label} per side`
+        : `showing ${selectedDropdownValue} ${label} per page`;
+
+    setAriaLabel(langLabel);
+  }, [lang, selectedDropdownValue, labelOptionsState.label]);
 
   const showPaginationNumbers = (): boolean => {
     const allDropdownValuesAreNumbers = dropdownItems
@@ -166,7 +183,7 @@ export const Pagination: FC<PaginationProps> = function ({
             className="number-of-items-dropdown"
             value={selectedDropdownValue}
             valueOnChange={(event: string) => handleDropdownValueChange(event)}
-            ariaLabel={`viser ${selectedDropdownValue} ${labelOptionsState.label} per side`}
+            ariaLabel={ariaLabel}
           />
         </PaginatorInfoDropdown>
         <PaginatorInfoAmount>
@@ -179,7 +196,7 @@ export const Pagination: FC<PaginationProps> = function ({
             visible={previousEnabled}
             aria-hidden={!previousEnabled}
             onClick={handleOnPreviousPageClick}
-            aria-label="Forrige side"
+            aria-label={lang === 'no' ? 'Forrige side' : 'Previous page'}
           >
             <IconWrapper icon={arrowLongLeft} size="xs" />
           </PaginatorSelectorArrowBtn>
@@ -195,7 +212,7 @@ export const Pagination: FC<PaginationProps> = function ({
             visible={nextEnabled}
             aria-hidden={!nextEnabled}
             onClick={handleOnNextPageClick}
-            aria-label="Neste side"
+            aria-label={lang === 'no' ? 'Neste side' : 'Next page'}
           >
             <IconWrapper icon={arrowLongRight} size="xs" />
           </PaginatorSelectorArrowBtn>

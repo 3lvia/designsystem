@@ -1,3 +1,4 @@
+import { useLanguage } from '@elvia/elvis-toolbox';
 import React, { FC } from 'react';
 
 import { PaginatorPage } from './styledComponents';
@@ -13,8 +14,13 @@ export const PageElement: FC<PageElementProps> = ({
   selectedPageNumber,
   setSelectedPageNumber,
 }) => {
+  const lang = useLanguage();
   const getAriaLabel = (pageNumber: number): string => {
-    return pageNumber === selectedPageNumber ? 'Valgt side' : 'Velg side ' + pageNumber;
+    if (lang === 'no') {
+      return pageNumber === selectedPageNumber ? 'Valgt side' : 'Velg side ' + pageNumber;
+    } else {
+      return pageNumber === selectedPageNumber ? 'Selected page' : 'Select page ' + pageNumber;
+    }
   };
 
   return (

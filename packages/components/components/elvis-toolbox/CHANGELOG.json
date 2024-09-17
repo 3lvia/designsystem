@@ -3,6 +3,18 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "11.09.24",
+      "version": "12.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new useLanguage hook to get the current value of the lang attribute on the html element."
+          ]
+        }
+      ]
+    },
+    {
       "date": "27.08.24",
       "version": "12.0.6",
       "changelog": [
