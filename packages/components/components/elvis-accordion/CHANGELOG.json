@@ -3,6 +3,18 @@
   "name": "elvis-accordion",
   "content": [
     {
+      "date": "17.09.24",
+      "version": "3.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global lang attribute on the html-element"
+          ]
+        }
+      ]
+    },
+    {
       "date": "31.05.24",
       "version": "3.2.7",
       "changelog": [
