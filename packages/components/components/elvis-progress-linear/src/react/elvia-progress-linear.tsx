@@ -1,3 +1,4 @@
+import { useLanguage } from '@elvia/elvis-toolbox';
 import React, { FC } from 'react';
 
 import { ProgressLinearProps } from './elvia-progress-linear.types';
@@ -17,6 +18,8 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
   inlineStyle,
   ...rest
 }) => {
+  const lang = useLanguage();
+
   return (
     <ProgressLinearWrapper
       $size={size}
@@ -27,8 +30,8 @@ export const ProgressLinear: FC<ProgressLinearProps> = ({
       aria-valuemax={100}
       role={ariaRole}
       id={componentId}
-      aria-label={ariaLabel ?? 'Progresjon'}
-      aria-valuetext={ariaValueText ?? 'Progresjonen er nå på ' + value + '%.'}
+      aria-label={ariaLabel ?? (lang === 'no' ? 'Progresjon' : 'Progress')}
+      aria-valuetext={ariaValueText ?? (lang === 'no' ? 'Progresjonen er nå på ' : 'The progress is now at ')}
       className={className ?? ''}
       {...rest}
     >

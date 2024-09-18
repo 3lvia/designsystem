@@ -3,6 +3,18 @@
   "name": "elvis-accordion",
   "content": [
     {
+      "date": "18.09.24",
+      "version": "3.2.8",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Explicitly set the <code>type</code> of the button inside the accordion to <code>'button'</code> to avoid issues with form submission."
+          ]
+        }
+      ]
+    },
+    {
       "date": "31.05.24",
       "version": "3.2.7",
       "changelog": [

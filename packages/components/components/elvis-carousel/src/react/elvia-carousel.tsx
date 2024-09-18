@@ -253,6 +253,7 @@ export const Carousel: FC<CarouselProps> = function ({
           onMouseEnter={() => setIsHoveringLeftButton(true)}
           onMouseLeave={() => setIsHoveringLeftButton(false)}
           data-testid="carousel-left-arrow"
+          type="button"
         >
           <IconWrapper
             icon={isHoveringLeftButton ? arrowLeftCircleFilledColor : arrowLeftCircleColor}
@@ -273,6 +274,7 @@ export const Carousel: FC<CarouselProps> = function ({
                 listIndex !== index &&
                 handleValueChange(listIndex, listIndex > index ? 'right' : 'left', true)
               }
+              type="button"
             />
           ))}
         </CarouselListOfDots>
@@ -284,6 +286,7 @@ export const Carousel: FC<CarouselProps> = function ({
             onMouseEnter={() => setIsHoveringRightButton(true)}
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-onboarding-checkmark"
+            type="button"
           >
             <IconWrapper icon={isHoveringRightButton ? checkCircleFilledColor : checkCircleColor} size="md" />
           </CarouselCheckButton>
@@ -297,6 +300,7 @@ export const Carousel: FC<CarouselProps> = function ({
             onMouseEnter={() => setIsHoveringRightButton(true)}
             onMouseLeave={() => setIsHoveringRightButton(false)}
             data-testid="carousel-right-arrow"
+            type="button"
           >
             <IconWrapper
               icon={isHoveringRightButton ? arrowRightCircleFilledColor : arrowRightCircleColor}

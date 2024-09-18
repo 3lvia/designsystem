@@ -3,6 +3,7 @@ import {
   FormFieldInputContainer,
   FormFieldInputSuffixText,
   useInputModeDetection,
+  useLanguage,
 } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
 
@@ -24,7 +25,7 @@ import {
 import { Tooltip } from './tooltip/tooltip';
 import { calculateHintReplacement } from './utils/calculateHintReplacement';
 import { calculateThumbPosition } from './utils/calculateThumbPosition';
-import { getAriaLabel } from './utils/getAriaLabel';
+import { getAriaLabel, getFormFieldLabel } from './utils/getAriaLabel';
 import {
   getAriaErrorMessage,
   getHasErrorPlaceholder,
@@ -89,6 +90,8 @@ export const Slider: React.FC<SliderProps> = function ({
 
   const { inputMode } = useInputModeDetection();
   const thumbWidth = inputMode === 'touch' ? 28 : 20;
+
+  const lang = useLanguage();
 
   const leftThumbPosition = calculateThumbPosition({
     side: 'left',
@@ -325,6 +328,7 @@ export const Slider: React.FC<SliderProps> = function ({
             ariaLabel,
             label,
             unit,
+            lang,
           })}
           aria-valuemax={max}
           aria-valuemin={min}
@@ -354,6 +358,7 @@ export const Slider: React.FC<SliderProps> = function ({
                 ariaLabel,
                 label,
                 unit,
+                lang,
               })}
               type={'range'}
               role={'slider'}
@@ -424,7 +429,7 @@ export const Slider: React.FC<SliderProps> = function ({
             isFullWidth={hintValueHasBeenReplaced || isFullWidthRangeInput}
             hasErrorPlaceholder={hasErrorPlaceholder && !(type === 'range' && isFullWidthRangeInput)}
           >
-            <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
+            <FormFieldLabel>{getFormFieldLabel(label, lang)}</FormFieldLabel>
             <FormFieldInputContainer
               style={{
                 width:
@@ -481,7 +486,7 @@ export const Slider: React.FC<SliderProps> = function ({
             hasErrorPlaceholder={hasErrorPlaceholder}
             isFullWidth={isFullWidthRangeInput}
           >
-            <FormFieldLabel>{label ? label : 'juster glidebryter'}</FormFieldLabel>
+            <FormFieldLabel>{getFormFieldLabel(label, lang)}</FormFieldLabel>
             <FormFieldInputContainer
               style={{
                 width:

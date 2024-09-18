@@ -152,6 +152,7 @@ export const Accordion: FC<AccordionProps> = ({
           onMouseLeave={() => setIsHoveringButton(false)}
           aria-label={decideButtonAriaLabel()}
           reverseLayout={isStartAligned && !isFullWidth}
+          type="button"
         >
           <AccordionLabel hasLabel={type !== 'single'} isFullWidth={isFullWidth}>
             {isOpenState ? (
