@@ -9,7 +9,7 @@
         {
           "type": "patch",
           "changes": [
-            "Explicitly set the <code>type</code> of the buttons inside the pagination to <code>'button'</code> to avoid issues with form submission."
+            "Explicitly set the <code>type</code> of the buttons inside the Chip to <code>'button'</code> to avoid issues with form submission."
           ]
         }
       ]
