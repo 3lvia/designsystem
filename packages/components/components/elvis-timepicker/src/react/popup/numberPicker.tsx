@@ -180,14 +180,15 @@ export const NumberPicker: React.FC<Props> = ({
         </ArrowButtonContainer>
         {loopedNumbers.map((number, index) => (
           <NumberButton
-            tabIndex={-1}
-            isSelected={number === currentValue}
+            aria-label={`${title} ${padDigit(number)}`}
+            data-id={`${title}-${padDigit(number)}`}
+            data-testid={`${title}-number-button`}
             isDisabled={isNumberDisabled(number)}
+            isSelected={number === currentValue}
             key={index}
             onClick={() => onSelect(timeUnit, number, isNumberDisabled(number))}
-            data-testid={`${title}-number-button`}
-            data-id={`${title}-${padDigit(number)}`}
-            aria-label={`${title} ${padDigit(number)}`}
+            tabIndex={-1}
+            type="button"
           >
             {padDigit(number)}
           </NumberButton>
