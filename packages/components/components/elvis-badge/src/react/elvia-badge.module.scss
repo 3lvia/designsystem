@@ -20,10 +20,17 @@
   right: 0;
   top: 0;
   transform: translate(50%, -50%);
+  transform-origin: top right;
+  scale: 1;
   user-select: none;
   height: 16px;
   width: 16px;
   z-index: 10;
+  transition: scale 0.25s ease;
+}
+
+.badge--hidden {
+  scale: 0;
 }
 
 .badge--wide {

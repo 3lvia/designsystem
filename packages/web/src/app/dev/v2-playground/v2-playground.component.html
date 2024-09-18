@@ -2,7 +2,18 @@
 <div class="components-examples" id="dev-component-examples">
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
-    <div class="example-wrapper"></div>
+    <div class="example-wrapper">
+      <elvia-badge [count]="10" [isHidden]="isHidden">
+        <button
+          class="e-thumbnail"
+          aria-label="Thumbnail button that opens the image in a larger view"
+          slot="content"
+          (click)="isHidden = !isHidden"
+        >
+          <img src="https://picsum.photos/56" alt="Thumbnail example image" />
+        </button>
+      </elvia-badge>
+    </div>
 
     <!--Accordion-->
     <div class="example-wrapper">

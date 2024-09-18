@@ -3,6 +3,22 @@
   "name": "elvis-badge",
   "content": [
     {
+      "date": "18.09.24",
+      "version": "2.3.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the <code>isHidden</code> property to hide the badge. The badge remains in the DOM but is not visible. It will animate in and out when the property changes."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "26.06.24",
       "version": "2.2.0",
       "changelog": [

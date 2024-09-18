@@ -25,6 +25,7 @@ interface StepStates {
 export class v2PlaygroundComponent {
   endMinDate = new Date(2023, 9, 10);
   endTimeValue: Date | null = new Date(2023, 9, 10);
+  isHidden = false;
 
   testDate = () => {
     this.endMinDate = new Date(2023, 9, 12);
