@@ -4,7 +4,7 @@ import arrowRightCircleColor from '@elvia/elvis-assets-icons/dist/icons/arrowRig
 import arrowRightCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/arrowRightCircleFilledColor';
 import checkCircleColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleColor';
 import checkCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/checkCircleFilledColor';
-import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
+import { IconWrapper, useLanguage, useRovingFocus } from '@elvia/elvis-toolbox';
 import React, { FC, MouseEvent, TouchEvent, useEffect, useRef, useState } from 'react';
 
 import {
@@ -202,6 +202,8 @@ export const Carousel: FC<CarouselProps> = function ({
     }
   };
 
+  const lang = useLanguage();
+
   return (
     <CarouselContainer
       className={className ?? ''}
@@ -247,7 +249,7 @@ export const Carousel: FC<CarouselProps> = function ({
         <CarouselLeftButton
           aria-controls={id}
           aria-hidden={hideLeftArrow}
-          aria-label={`Gå til forrige side`}
+          aria-label={lang === 'no' ? 'Gå til forrige side' : 'Go to previous page'}
           hidden={hideLeftArrow}
           onClick={() => handleValueChange(index, 'left')}
           onMouseEnter={() => setIsHoveringLeftButton(true)}
@@ -267,7 +269,13 @@ export const Carousel: FC<CarouselProps> = function ({
               isSelected={listIndex === index}
               tabIndex={0}
               aria-label={
-                listIndex === index ? `Du er på side ${listIndex + 1}` : `Gå til side ${listIndex + 1}`
+                listIndex === index
+                  ? lang === 'no'
+                    ? `Du er på side ${listIndex + 1}`
+                    : `You are on page ${listIndex + 1}`
+                  : lang === 'no'
+                    ? `Gå til side ${listIndex + 1}`
+                    : `Go to page ${listIndex + 1}`
               }
               onClick={() =>
                 listIndex !== index &&
@@ -279,7 +287,7 @@ export const Carousel: FC<CarouselProps> = function ({
 
         {showOnboardingCheckmark ? (
           <CarouselCheckButton
-            aria-label={'Fullfør og lukk.'}
+            aria-label={lang === 'no' ? 'Fullfør og lukk.' : 'Finish and close.'}
             onClick={() => triggerOnFinish()}
             onMouseEnter={() => setIsHoveringRightButton(true)}
             onMouseLeave={() => setIsHoveringRightButton(false)}
@@ -291,7 +299,7 @@ export const Carousel: FC<CarouselProps> = function ({
           <CarouselRightButton
             aria-controls={id}
             aria-hidden={hideRightArrow}
-            aria-label={`Gå til neste side`}
+            aria-label={lang === 'no' ? 'Gå til neste side' : 'Go to next page'}
             hidden={hideRightArrow}
             onClick={() => handleValueChange(index, 'right')}
             onMouseEnter={() => setIsHoveringRightButton(true)}

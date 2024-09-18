@@ -110,9 +110,9 @@ export const Accordion: FC<AccordionProps> = ({
 
   const decideButtonAriaLabel = (): string => {
     if (isOpenState) {
-      return (closeAriaLabel ?? closeLabel ?? lang === 'no') ? 'Lukk' : 'Close';
+      return closeAriaLabel ?? closeLabel ?? (lang === 'no' ? 'Lukk' : 'Close');
     } else {
-      return (openAriaLabel ?? openLabel ?? lang === 'no') ? 'Åpne' : 'Open';
+      return openAriaLabel ?? openLabel ?? (lang === 'no' ? 'Åpne' : 'Open');
     }
   };
 

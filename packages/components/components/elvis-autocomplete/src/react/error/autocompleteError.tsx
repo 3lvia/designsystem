@@ -4,6 +4,7 @@ import {
   FormFieldError,
   FormFieldErrorContainer,
   IconWrapper,
+  useLanguage,
 } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
 
@@ -19,11 +20,13 @@ interface Props {
 export const AutocompleteError: React.FC<Props> = ({ errorType, errorOptions, id, label }) => {
   const [errorText, setErrorText] = useState('');
 
+  const lang = useLanguage();
+
   useEffect(() => {
     if (errorOptions?.text) {
       setErrorText(errorOptions.text);
     } else if (errorType) {
-      setErrorText(getInternalErrorText(errorType, label));
+      setErrorText(getInternalErrorText(lang, errorType, label));
     } else {
       setErrorText('');
     }
