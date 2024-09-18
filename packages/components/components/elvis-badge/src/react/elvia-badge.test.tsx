@@ -98,6 +98,27 @@ describe('Elvis Badge', () => {
     });
   });
 
+  describe('the hidden badge', () => {
+    beforeEach(() => {
+      render(
+        <Badge
+          count={101}
+          isHidden={true}
+          content={
+            <span className="e-btn__icon">
+              <i className="e-icon e-icon--upload" aria-hidden="true"></i>
+            </span>
+          }
+        />,
+      );
+    });
+
+    it('should not be visible', () => {
+      const badgeCircle = screen.getByRole('status');
+      expect(badgeCircle).toHaveClass('badge--hidden');
+    });
+  });
+
   describe('the accessibility', () => {
     it('should have no axe violations', async () => {
       render(
