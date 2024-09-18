@@ -3,6 +3,18 @@
   "name": "elvis-slider",
   "content": [
     {
+      "date": "17.09.24",
+      "version": "5.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global lang attribute on the html-element"
+          ]
+        }
+      ]
+    },
+    {
       "date": "25.06.24",
       "version": "5.0.3",
       "changelog": [
