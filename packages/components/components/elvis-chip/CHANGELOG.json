@@ -3,6 +3,18 @@
   "name": "elvis-chip",
   "content": [
     {
+      "date": "18.09.24",
+      "version": "2.6.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Explicitly set the <code>type</code> of the buttons inside the pagination to <code>'button'</code> to avoid issues with form submission."
+          ]
+        }
+      ]
+    },
+    {
       "date": "19.06.24",
       "version": "2.6.0",
       "changelog": [
