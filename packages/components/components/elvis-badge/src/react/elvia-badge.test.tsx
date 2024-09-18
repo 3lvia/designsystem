@@ -93,7 +93,7 @@ describe('Elvis Badge', () => {
     });
 
     it('should have a red contrast text color', () => {
-      const badgeCircle = screen.getByRole('status', { hidden: true });
+      const badgeCircle = screen.getByRole('status');
       expect(badgeCircle).toHaveClass('badge--red');
     });
   });
@@ -114,7 +114,7 @@ describe('Elvis Badge', () => {
     });
 
     it('should not be visible', () => {
-      const badgeCircle = screen.getByRole('status');
+      const badgeCircle = screen.getByRole('status', { hidden: true });
       expect(badgeCircle).toHaveClass('badge--hidden');
     });
   });
