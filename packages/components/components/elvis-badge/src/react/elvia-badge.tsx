@@ -37,7 +37,7 @@ export const Badge: React.FC<BadgeProps> = ({
   return (
     <div className={classnames(className, styles['badge-container'])} style={{ ...inlineStyle }} {...rest}>
       <div ref={contentRef}>{content}</div>
-      <div className={badgeCircleClasses} role="status">
+      <div className={badgeCircleClasses} role="status" aria-hidden={isHidden}>
         {getCount(count)}
       </div>
     </div>
