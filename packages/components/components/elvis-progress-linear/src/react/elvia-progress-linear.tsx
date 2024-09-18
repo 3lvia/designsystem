@@ -1,5 +1,5 @@
 import { useLanguage } from '@elvia/elvis-toolbox';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 
 import { ProgressLinearProps } from './elvia-progress-linear.types';
 import { ProgressLinearProgress, ProgressLinearWrapper } from './styledComponents';
