@@ -7,13 +7,19 @@ import React, { useState } from 'react';
 import { AppIcon } from './AppIcon';
 import { AppBridgeProps } from './elvia-app-bridge.types';
 import { getLinks } from './getLinks';
-import { getActiveApp } from './utils';
+import { getCurrentApp } from './utils';
 
-export const AppBridge: React.FC<AppBridgeProps> = function ({ className, inlineStyle, targetId, ...rest }) {
+export const AppBridge: React.FC<AppBridgeProps> = function ({
+  className,
+  inlineStyle,
+  targetId,
+  activeApps,
+  ...rest
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = getLinks(targetId);
-  const activeApp = getActiveApp();
+  const currentApp = getCurrentApp();
 
   return (
     <ContextMenu
@@ -34,7 +40,8 @@ export const AppBridge: React.FC<AppBridgeProps> = function ({ className, inline
         <div>
           <div className="ewc-context-menu__list-group">
             {links
-              .filter((link) => !link.url.includes(activeApp))
+              .filter((link) => !link.url.includes(currentApp))
+              .filter((link) => !activeApps || activeApps.includes(link.name.toLowerCase()))
               .map((link) => (
                 <a
                   style={{
@@ -45,7 +52,9 @@ export const AppBridge: React.FC<AppBridgeProps> = function ({ className, inline
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <AppIcon iconLetters={link.iconInfo.iconLetters} rotation={link.iconInfo.rotation} />
+                  {link.iconInfo && (
+                    <AppIcon iconLetters={link.iconInfo.iconLetters} rotation={link.iconInfo.rotation} />
+                  )}
                   {link.name}
                 </a>
               ))}
@@ -53,7 +62,7 @@ export const AppBridge: React.FC<AppBridgeProps> = function ({ className, inline
         </div>
       }
       className={className}
-      style={{ ...inlineStyle }}
+      inlineStyle={{ ...inlineStyle }}
       {...rest}
     />
   );
