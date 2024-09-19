@@ -37,26 +37,24 @@ export const AppBridge: React.FC<AppBridgeProps> = function ({
         />
       }
       content={
-        <div>
-          <div className="ewc-context-menu__list-group">
-            {links
-              .filter((link) => !link.url.includes(currentApp))
-              .filter((link) => !activeApps || activeApps.includes(link.name.toLowerCase()))
-              .map((link) => (
-                <a
-                  style={{
-                    gap: '16px',
-                  }}
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <AppIcon link={link} />
-                  {link.name}
-                </a>
-              ))}
-          </div>
+        <div className="ewc-context-menu__list-group">
+          {links
+            .filter((link) => !link.url.includes(currentApp))
+            .filter((link) => !activeApps || activeApps.includes(link.name.toLowerCase()))
+            .map((link) => (
+              <a
+                style={{
+                  gap: '16px',
+                }}
+                key={link.url}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AppIcon link={link} />
+                {link.name}
+              </a>
+            ))}
         </div>
       }
       className={className}

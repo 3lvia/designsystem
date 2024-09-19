@@ -28,6 +28,14 @@ export const getLinks = (targetId: string): SystemLink[] => {
       },
     },
     {
+      name: 'Louvre',
+      url: `https://louvre.elvia.io/search?q=${targetId}`,
+      iconInfo: {
+        rotation: 0,
+        iconLetters: 'Lo',
+      },
+    },
+    {
       name: 'MSIm',
       url: `https://msim.elvia.io/tickets/meteringpoint/${targetId}`,
       iconInfo: {
@@ -41,14 +49,6 @@ export const getLinks = (targetId: string): SystemLink[] => {
       iconInfo: {
         rotation: 157.5,
         iconLetters: 'Mx',
-      },
-    },
-    {
-      name: 'Louvre',
-      url: `https://louvre.elvia.io/search?q=${targetId}`,
-      iconInfo: {
-        rotation: 0,
-        iconLetters: 'Lo',
       },
     },
     {
