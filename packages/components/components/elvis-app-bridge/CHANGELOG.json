@@ -16,7 +16,7 @@
         {
           "type": "patch",
           "changes": [
-            "The links will now to go <code>test-elvia.io</code> instead of <code>elvia.io</code> if linking from a test environment."
+            "The links will now to go <code>test-elvia.io</code> instead of <code>elvia.io</code> if linking from a test environment, and likewise for dev."
           ]
         }
       ]

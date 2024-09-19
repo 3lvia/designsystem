@@ -9,6 +9,7 @@ export const getCurrentApp = (): string => {
   return url;
 };
 
-export const isTestEnvironment = (): boolean => {
-  return getUrlParts().includes('test-elvia');
+export const getEnvironmentUrl = () => {
+  // Get e.g. 'test-elvia' from 'drops.test-elvia.io'
+  return getUrlParts().at(-2);
 };
