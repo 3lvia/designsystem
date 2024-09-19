@@ -47,7 +47,7 @@ export const AutocompleteOverlay = forwardRef<HTMLDivElement, AutocompleteOverla
         >
           {!filteredItems.length && (
             <NoItemsMessage $size={size}>
-              {lang === 'no' ? 'Ingen forslag.' : 'No suggestions'}
+              {lang === 'no' ? 'Ingen forslag.' : 'No suggestions.'}
             </NoItemsMessage>
           )}
           {filteredItems.map((item) => (

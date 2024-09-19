@@ -204,6 +204,14 @@ export const Carousel: FC<CarouselProps> = function ({
 
   const lang = useLanguage();
 
+  const getPageMessage = (lang: string, listIndex: number, isCurrentPage: boolean): string => {
+    if (isCurrentPage) {
+      return lang === 'no' ? `Du er på side ${listIndex + 1}` : `You are on page ${listIndex + 1}`;
+    } else {
+      return lang === 'no' ? `Gå til side ${listIndex + 1}` : `Go to page ${listIndex + 1}`;
+    }
+  };
+
   return (
     <CarouselContainer
       className={className ?? ''}
@@ -269,15 +277,7 @@ export const Carousel: FC<CarouselProps> = function ({
               key={listIndex}
               isSelected={listIndex === index}
               tabIndex={0}
-              aria-label={
-                listIndex === index
-                  ? lang === 'no'
-                    ? `Du er på side ${listIndex + 1}`
-                    : `You are on page ${listIndex + 1}`
-                  : lang === 'no'
-                    ? `Gå til side ${listIndex + 1}`
-                    : `Go to page ${listIndex + 1}`
-              }
+              aria-label={getPageMessage(lang, listIndex, listIndex === index)}
               onClick={() =>
                 listIndex !== index &&
                 handleValueChange(listIndex, listIndex > index ? 'right' : 'left', true)
