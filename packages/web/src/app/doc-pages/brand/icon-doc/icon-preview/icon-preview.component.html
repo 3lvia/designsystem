@@ -36,7 +36,7 @@
 
 @if (selectedIcon()) {
   <app-icon-preview-details
-    [ngClass]="{ 'e-theme-dark': theme() === 'dark' }"
+    [ngClass]="{ 'e-theme-dark': theme() === 'dark', 'e-theme-light': theme() === 'light' }"
     [(selectedIcon)]="selectedIcon"
     [theme]="theme()"
     [cdkTrapFocus]
