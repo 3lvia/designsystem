@@ -21,16 +21,12 @@
       <button (click)="isOpen = !isOpen">helo</button>
       <elvia-accordion
         [isOpen]="isOpen"
-        openLabel="Show"
-        closeLabel="Hide"
         size="medium"
         type="normal"
         typography="title-caps"
         (onOpen)="onOpen()"
         (onClose)="onClose()"
       >
-        <div slot="openLabel"><e-icon name="box" size="sm" /> Open</div>
-        <div slot="closeLabel"><e-icon name="box" size="sm" /> Close</div>
         <div slot="content">
           <div class="e-text-lg" style="display: flex; flex-direction: column; justify-content: flex-start">
             <label class="e-checkbox" for="elvis-checkbox">

@@ -1,5 +1,5 @@
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
-import { BaseProps, IconWrapper } from '@elvia/elvis-toolbox';
+import { BaseProps, IconWrapper, useLanguage } from '@elvia/elvis-toolbox';
 import React, { AnimationEvent, useEffect, useState } from 'react';
 
 import { usePauseableTimer } from './pauseableTimer';
@@ -40,6 +40,8 @@ export const ToastBox: React.FC<Props> = ({ toast, indexInQueue, onClose, classN
     }
   };
 
+  const lang = useLanguage();
+
   useEffect(() => {
     if (indexInQueue === 0) {
       setStartFade(false);
@@ -73,7 +75,12 @@ export const ToastBox: React.FC<Props> = ({ toast, indexInQueue, onClose, classN
       </TextContent>
 
       {toast.closable && (
-        <CloseButton onClick={fadeOut} size="sm" data-testid="close-btn" aria-label="Lukk toast">
+        <CloseButton
+          onClick={fadeOut}
+          size="sm"
+          data-testid="close-btn"
+          aria-label={lang === 'no' ? 'Lukk toast' : 'Close toast'}
+        >
           <IconWrapper icon={closeBold} size="xs" />
         </CloseButton>
       )}

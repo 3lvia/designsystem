@@ -3,6 +3,18 @@
   "name": "elvis-toast",
   "content": [
     {
+      "date": "19.09.24",
+      "version": "1.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global lang attribute on the html-element"
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.08.24",
       "version": "1.3.0",
       "changelog": [

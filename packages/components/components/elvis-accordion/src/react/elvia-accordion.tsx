@@ -1,6 +1,6 @@
 import expandCircleColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleColor';
 import expandCircleFilledColor from '@elvia/elvis-assets-icons/dist/icons/expandCircleFilledColor';
-import { useSlot } from '@elvia/elvis-toolbox';
+import { useLanguage, useSlot } from '@elvia/elvis-toolbox';
 import React, { FC, useEffect, useMemo, useState } from 'react';
 
 import { AccordionProps, AccordionSize } from './elvia-accordion.types';
@@ -106,11 +106,13 @@ export const Accordion: FC<AccordionProps> = ({
     updateOpenState(!isOpenState);
   };
 
+  const lang = useLanguage();
+
   const decideButtonAriaLabel = (): string => {
     if (isOpenState) {
-      return closeAriaLabel ?? closeLabel ?? 'Lukk';
+      return closeAriaLabel ?? closeLabel ?? (lang === 'no' ? 'Lukk' : 'Close');
     } else {
-      return openAriaLabel ?? openLabel ?? 'Åpne';
+      return openAriaLabel ?? openLabel ?? (lang === 'no' ? 'Åpne' : 'Open');
     }
   };
 
