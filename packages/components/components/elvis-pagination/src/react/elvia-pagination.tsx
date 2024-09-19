@@ -193,10 +193,11 @@ export const Pagination: FC<PaginationProps> = function ({
       {showPaginationNumbers() && (
         <PaginatorSelectorArea ref={listContainerRef}>
           <PaginatorSelectorArrowBtn
-            visible={previousEnabled}
             aria-hidden={!previousEnabled}
-            onClick={handleOnPreviousPageClick}
             aria-label={lang === 'no' ? 'Forrige side' : 'Previous page'}
+            onClick={handleOnPreviousPageClick}
+            type="button"
+            visible={previousEnabled}
           >
             <IconWrapper icon={arrowLongLeft} size="xs" />
           </PaginatorSelectorArrowBtn>
@@ -209,10 +210,11 @@ export const Pagination: FC<PaginationProps> = function ({
             lastNumberLimit={lastNumberLimit}
           />
           <PaginatorSelectorArrowBtn
-            visible={nextEnabled}
             aria-hidden={!nextEnabled}
-            onClick={handleOnNextPageClick}
             aria-label={lang === 'no' ? 'Neste side' : 'Next page'}
+            onClick={handleOnNextPageClick}
+            type="button"
+            visible={nextEnabled}
           >
             <IconWrapper icon={arrowLongRight} size="xs" />
           </PaginatorSelectorArrowBtn>

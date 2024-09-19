@@ -90,14 +90,15 @@ export const Tabs: FC<TabsProps> = ({
         {items &&
           items.map((item, i) => (
             <Tab
-              role="tab"
-              id={uniqueId + i}
-              key={item}
-              aria-selected={selectedIndex === i}
               aria-controls={uniqueId + i}
-              onClick={(event) => onTabClick(i, event)}
-              isSelected={selectedIndex == i}
+              aria-selected={selectedIndex === i}
+              id={uniqueId + i}
               isInverted={isInverted ?? false}
+              isSelected={selectedIndex == i}
+              key={item}
+              onClick={(event) => onTabClick(i, event)}
+              role="tab"
+              type="button"
             >
               <BoldTabTextPlaceholder aria-hidden="true">{item}</BoldTabTextPlaceholder>
               <TabText>{item}</TabText>

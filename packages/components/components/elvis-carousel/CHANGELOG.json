@@ -15,6 +15,18 @@
       ]
     },
     {
+      "date": "18.09.24",
+      "version": "3.1.6",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Explicitly set the <code>type</code> of the buttons inside the carousel to <code>'button'</code> to avoid issues with form submission."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "3.1.5",
       "changelog": [

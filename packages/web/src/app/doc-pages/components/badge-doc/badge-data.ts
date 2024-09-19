@@ -21,5 +21,10 @@ export const badgeData: ComponentData<BaseBadgeProps> = {
       type: 'number | string | undefined',
       description: 'The number displayed inside the badge',
     },
+    isHidden: {
+      type: 'boolean',
+      description: 'Hides the badge',
+      default: 'false',
+    },
   },
 };

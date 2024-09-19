@@ -3,6 +3,18 @@
   "name": "elvis-tabs",
   "content": [
     {
+      "date": "18.09.24",
+      "version": "2.2.6",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Explicitly set the <code>type</code> of the button inside the tabs to <code>'button'</code> to avoid issues with form submission."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "2.2.5",
       "changelog": [

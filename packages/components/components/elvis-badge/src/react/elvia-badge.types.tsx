@@ -8,6 +8,7 @@ export interface BaseBadgeProps extends BaseProps {
   badgeColor?: BadgeColor;
   content?: JSX.Element;
   count?: number | string;
+  isHidden?: boolean;
 }
 
 export interface BadgeProps extends BaseBadgeProps, Omit<ComponentPropsWithoutRef<'div'>, 'content'> {}

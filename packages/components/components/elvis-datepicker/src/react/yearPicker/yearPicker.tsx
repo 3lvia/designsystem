@@ -101,12 +101,13 @@ export const YearPicker: React.FC<Props> = ({ selectedDate, onYearChange, minDat
       <ScrollContainer ref={scrollContainer} tabIndex={0} onKeyDown={handleKeyDown}>
         {years.map((year, index) => (
           <YearButton
-            tabIndex={-1}
-            key={year.year}
+            disabled={year.isDisabled}
             isActive={year.isActive}
             isFocused={focusedYearIndex === index}
+            key={year.year}
             onClick={() => onYearChange(year.year)}
-            disabled={year.isDisabled}
+            tabIndex={-1}
+            type="button"
           >
             {year.year}
           </YearButton>

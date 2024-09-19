@@ -11,6 +11,7 @@ export const Badge: React.FC<BadgeProps> = ({
   content,
   count,
   inlineStyle,
+  isHidden = false,
   webcomponent,
   ...rest
 }) => {
@@ -30,12 +31,13 @@ export const Badge: React.FC<BadgeProps> = ({
 
   const badgeCircleClasses = classnames(styles['badge-circle'], styles[`badge--${badgeColor}`], {
     [styles['badge--wide']]: getCount(count) === '99+',
+    [styles['badge--hidden']]: isHidden,
   });
 
   return (
     <div className={classnames(className, styles['badge-container'])} style={{ ...inlineStyle }} {...rest}>
       <div ref={contentRef}>{content}</div>
-      <div className={badgeCircleClasses} role="status">
+      <div className={badgeCircleClasses} role="status" aria-hidden={isHidden}>
         {getCount(count)}
       </div>
     </div>
