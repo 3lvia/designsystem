@@ -8560,15 +8560,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.34.0":
-  version: 11.34.0
-  resolution: "contentful-management@npm:11.34.0"
+"contentful-management@npm:^11.35.0":
+  version: 11.35.0
+  resolution: "contentful-management@npm:11.35.0"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.6.1"
     axios: "npm:^1.7.4"
     contentful-sdk-core: "npm:^8.3.1"
     fast-copy: "npm:^3.0.0"
-  checksum: 10/2a0c915dcf7d7c683295149e4d59d9cced316efe06c0d32a87553d2837cf27aebf917781e8bcf07ff7747ac5f201c38510152fe0fb980d34802602fdc17f7b28
+  checksum: 10/8ba86f4b47ffff30a4ffdf5795257c8ddb30b5c1845c96baf134b0fb5936042396176b1092b4dbec62762f6ad699b05cae9bd421758ae7f48aababf1d47632f2
   languageName: node
   linkType: hard
 
@@ -9460,7 +9460,7 @@ __metadata:
     "@types/safe-json-stringify": "npm:^1.1.5"
     angular-eslint: "npm:^18.3.1"
     contentful: "npm:^9.3.7"
-    contentful-management: "npm:^11.34.0"
+    contentful-management: "npm:^11.35.0"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^9.10.0"
