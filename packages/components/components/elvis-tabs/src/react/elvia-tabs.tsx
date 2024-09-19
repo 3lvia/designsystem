@@ -1,6 +1,6 @@
 import arrowLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLeftBold';
 import arrowRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowRightBold';
-import { IconWrapper, useRovingFocus } from '@elvia/elvis-toolbox';
+import { IconWrapper, useLanguage, useRovingFocus } from '@elvia/elvis-toolbox';
 import React, { FC, MouseEvent, useEffect, useState } from 'react';
 
 import { TabsProps } from './elvia-tabs.types';
@@ -43,6 +43,18 @@ export const Tabs: FC<TabsProps> = ({
   });
   const scrollPosition = useScrollPositionDetection(scrollContainerRef);
 
+  const lang = useLanguage();
+  /** returns a localized scroll direction label based on the given direction and the current language */
+  const getScrollLabel = (direction: 'left' | 'right'): string => {
+    if (direction === 'left') {
+      return lang === 'no' ? 'Scroll mot venstre' : 'Scroll left';
+    } else if (direction === 'right') {
+      return lang === 'no' ? 'Scroll mot høyre' : 'Scroll right';
+    } else {
+      return '';
+    }
+  };
+
   /** When value changes, currValue and tabInFocus should be updated */
   useEffect(() => setSelectedIndex(value), [value]);
 
@@ -73,14 +85,16 @@ export const Tabs: FC<TabsProps> = ({
 
   return (
     <TabsContainer className={className} style={inlineStyle} data-testid="tabs-container" {...rest}>
-      <LeftButton
-        isVisible={['center', 'right'].includes(scrollPosition)}
-        size="md"
-        onClick={() => scroll('left')}
-        aria-label="Scroll mot venstre"
-      >
-        <IconWrapper icon={arrowLeftBold} size="xxs" color={isInverted ? 'white' : undefined} />
-      </LeftButton>
+      {scrollPosition !== 'left' && (
+        <LeftButton
+          isVisible={['center', 'right'].includes(scrollPosition)}
+          size="md"
+          onClick={() => scroll('left')}
+          aria-label={getScrollLabel('left')}
+        >
+          <IconWrapper icon={arrowLeftBold} size="xxs" color={isInverted ? 'white' : undefined} />
+        </LeftButton>
+      )}
       <ScrollContainer
         ref={scrollContainerRef}
         role="tablist"
@@ -105,14 +119,16 @@ export const Tabs: FC<TabsProps> = ({
             </Tab>
           ))}
       </ScrollContainer>
-      <RightButton
-        isVisible={['left', 'center'].includes(scrollPosition)}
-        size="md"
-        onClick={() => scroll('right')}
-        aria-label="Scroll mot høyre"
-      >
-        <IconWrapper icon={arrowRightBold} size="xxs" color={isInverted ? 'white' : undefined} />
-      </RightButton>
+      {scrollPosition !== 'right' && (
+        <RightButton
+          isVisible={['left', 'center'].includes(scrollPosition)}
+          size="md"
+          onClick={() => scroll('right')}
+          aria-label={getScrollLabel('right')}
+        >
+          <IconWrapper icon={arrowRightBold} size="xxs" color={isInverted ? 'white' : undefined} />
+        </RightButton>
+      )}
     </TabsContainer>
   );
 };

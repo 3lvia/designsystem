@@ -1,5 +1,5 @@
 import close from '@elvia/elvis-assets-icons/dist/icons/close';
-import { IconButton, IconWrapper, Overlay, useFocusTrap, useSlot } from '@elvia/elvis-toolbox';
+import { IconButton, IconWrapper, Overlay, useFocusTrap, useLanguage, useSlot } from '@elvia/elvis-toolbox';
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 
 import { ModalProps } from './elvia-modal.types';
@@ -66,14 +66,22 @@ export const Modal: FC<ModalProps> = function ({
   const hasSecondaryButton = !!secondaryButton || !!webcomponent?.getSlot('secondaryButton');
   const hasHeading = !!heading || !!webcomponent?.getSlot('heading');
 
+  const lang = useLanguage();
+
   const getAriaLabel = (): string => {
     if (heading && typeof heading === 'string') {
       return heading;
     } else if (webcomponent?.getSlot('heading')) {
-      return webcomponent.getSlot('heading').textContent ?? 'Forgrunnsvindu';
+      return (
+        webcomponent.getSlot('heading').textContent ?? (lang === 'no' ? 'Forgrunnsvindu' : 'Popup window')
+      );
     } else {
-      return 'Forgrunnsvindu';
+      return lang === 'no' ? 'Forgrunnsvindu' : 'Popup window';
     }
+  };
+
+  const getCloseAriaLabel = (): string => {
+    return lang === 'no' ? 'Lukk modal' : 'Close modal';
   };
 
   const dispatchOnClose = (): void => {
@@ -143,7 +151,7 @@ export const Modal: FC<ModalProps> = function ({
           )}
           {hasCloseButton && (
             <CloseButtonContainer hasIllustration={hasIllustration}>
-              <IconButton onClick={() => setFadeOut(true)} aria-label="Lukk modal" name="Lukk modal">
+              <IconButton onClick={() => setFadeOut(true)} aria-label={getCloseAriaLabel()}>
                 <IconWrapper icon={close} />
               </IconButton>
             </CloseButtonContainer>

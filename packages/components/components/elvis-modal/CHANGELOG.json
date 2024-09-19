@@ -3,6 +3,18 @@
   "name": "elvis-modal",
   "content": [
     {
+      "date": "19.09.24",
+      "version": "4.1.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global lang attribute on the html-element."
+          ]
+        }
+      ]
+    },
+    {
       "date": "11.09.24",
       "version": "4.0.15",
       "changelog": [
