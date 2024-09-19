@@ -2,7 +2,7 @@
 <app-illustrations-exhibit-list class="e-mt-24" />
 @if (selectedIllustration()) {
   <app-illustrations-exhibit-details
-    [ngClass]="{ 'e-theme-dark': theme() === 'dark' }"
+    [ngClass]="{ 'e-theme-dark': theme() === 'dark', 'e-theme-light': theme() === 'light' }"
     [cdkTrapFocus]
     [cdkTrapFocusAutoCapture]="true"
     @entranceAnimation
