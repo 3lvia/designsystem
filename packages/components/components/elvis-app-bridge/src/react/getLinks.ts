@@ -1,14 +1,24 @@
+import { isTestEnvironment } from './utils';
+
 export interface SystemLink {
   url: string;
   name: string;
-  iconInfo: {
+  iconInfo?: {
     rotation: number;
     iconLetters: string;
   };
 }
 
 export const getLinks = (targetId: string): SystemLink[] => {
-  return [
+  const links = [
+    {
+      name: 'Convey',
+      url: `https://convey.elvia.io/customerSearch?q=${targetId}`,
+      iconInfo: {
+        rotation: 101.25,
+        iconLetters: 'Co',
+      },
+    },
     {
       name: 'DROPS',
       url: `https://drops.elvia.io/meteringpoint/${targetId}`,
@@ -41,5 +51,20 @@ export const getLinks = (targetId: string): SystemLink[] => {
         iconLetters: 'Lo',
       },
     },
+    {
+      name: 'Salesforce',
+      url: `https://elvia.lightning.force.com/lightning/n/DirectLink?c__object=MeteringPoint__c&c__fieldName=MeteringPointID__c&c__fieldValue=${targetId}`,
+    },
   ].sort((a, b) => a.name.localeCompare(b.name));
+
+  if (isTestEnvironment()) {
+    return links.map((link) => {
+      return {
+        ...link,
+        url: link.url.replace('.elvia.io', '.test-elvia.io'),
+      };
+    });
+  }
+
+  return links;
 };

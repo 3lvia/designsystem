@@ -4,7 +4,11 @@ const getUrlParts = (): string[] => {
   return url.host.split('.');
 };
 
-export const getActiveApp = (): string => {
+export const getCurrentApp = (): string => {
   const url = getUrlParts()[0];
   return url;
+};
+
+export const isTestEnvironment = (): boolean => {
+  return getUrlParts().includes('test-elvia');
 };
