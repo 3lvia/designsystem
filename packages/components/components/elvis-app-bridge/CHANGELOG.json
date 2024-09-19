@@ -9,7 +9,8 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added new prop <code>activeApps</code> that can be used to select what apps to show links to."
+            "Added new prop <code>activeApps</code> that can be used to select what apps to show links to.",
+            "Added new app links: <code>Convey</code> and <code>Salesforce</code>."
           ]
         },
         {

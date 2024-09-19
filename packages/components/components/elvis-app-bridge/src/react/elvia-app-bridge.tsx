@@ -4,7 +4,7 @@ import { IconWrapper, TertiaryButton } from '@elvia/elvis-toolbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import React, { useState } from 'react';
 
-import { AppIcon } from './AppIcon';
+import { AppIcon, EmptyIconPlaceholder } from './AppIcon';
 import { AppBridgeProps } from './elvia-app-bridge.types';
 import { getLinks } from './getLinks';
 import { getCurrentApp } from './utils';
@@ -52,8 +52,10 @@ export const AppBridge: React.FC<AppBridgeProps> = function ({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {link.iconInfo && (
+                  {link.iconInfo ? (
                     <AppIcon iconLetters={link.iconInfo.iconLetters} rotation={link.iconInfo.rotation} />
+                  ) : (
+                    <EmptyIconPlaceholder />
                   )}
                   {link.name}
                 </a>
