@@ -3,16 +3,79 @@
   <div class="example-wrapper">
     <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
     <div class="example-wrapper">
-      <elvia-badge [count]="10" [isHidden]="isHidden">
-        <button
-          class="e-thumbnail"
-          aria-label="Thumbnail button that opens the image in a larger view"
-          slot="content"
-          (click)="isHidden = !isHidden"
-        >
-          <img src="https://picsum.photos/56" alt="Thumbnail example image" />
-        </button>
-      </elvia-badge>
+      <div>
+        <div class="e-flex e-gap-16 e-flex-wrap">
+          <elvia-chip value="2018" isDisabled type="legend" isSelected="true" />
+          <elvia-chip value="2019" isDisabled type="legend" color="purple" isSelected="true" />
+          <elvia-chip value="2020" isDisabled type="legend" color="red" />
+          <elvia-chip
+            value="2021"
+            isDisabled
+            type="legend"
+            color="orange"
+            isSelected="true"
+            markerStyle="line"
+          />
+          <elvia-chip
+            value="2022"
+            isDisabled
+            type="legend"
+            color="blue"
+            isSelected="true"
+            markerStyle="line"
+          />
+          <elvia-chip
+            value="2023"
+            isDisabled
+            type="legend"
+            color="violet"
+            isSelected="true"
+            markerStyle="dashed"
+          />
+          <elvia-chip value="2024" isDisabled type="legend" color="green" markerStyle="dashed" />
+        </div>
+
+        <div class="e-flex e-gap-16 e-flex-wrap e-mt-32">
+          <elvia-chip value="2018" isLoading type="legend" isSelected="true" />
+          <elvia-chip value="2019" isLoading type="legend" color="purple" isSelected="true" />
+          <elvia-chip value="2020" isLoading type="legend" color="red" />
+          <elvia-chip
+            value="2021"
+            isLoading
+            type="legend"
+            color="orange"
+            isSelected="true"
+            markerStyle="line"
+          />
+          <elvia-chip
+            value="2022"
+            isLoading
+            type="legend"
+            color="blue"
+            isSelected="true"
+            markerStyle="line"
+          />
+          <elvia-chip
+            value="2023"
+            isLoading
+            type="legend"
+            color="violet"
+            isSelected="true"
+            markerStyle="dashed"
+          />
+          <elvia-chip value="2024" isLoading type="legend" color="green" markerStyle="dashed" />
+        </div>
+
+        <div class="e-flex e-gap-16 e-flex-wrap e-mt-32">
+          <elvia-chip value="2018" type="legend" isSelected="true" />
+          <elvia-chip value="2019" type="legend" color="purple" isSelected="true" />
+          <elvia-chip value="2020" type="legend" color="red" />
+          <elvia-chip value="2021" type="legend" color="orange" isSelected="true" markerStyle="line" />
+          <elvia-chip value="2022" type="legend" color="blue" isSelected="true" markerStyle="line" />
+          <elvia-chip value="2023" type="legend" color="violet" isSelected="true" markerStyle="dashed" />
+          <elvia-chip value="2024" type="legend" color="green" markerStyle="dashed" />
+        </div>
+      </div>
     </div>
 
     <!--Accordion-->
