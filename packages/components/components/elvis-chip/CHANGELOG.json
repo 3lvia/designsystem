@@ -3,6 +3,22 @@
   "name": "elvis-chip",
   "content": [
     {
+      "date": "23.09.24",
+      "version": "2.6.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the legend Chip would still show colors during hover while disabled."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "18.09.24",
       "version": "2.6.1",
       "changelog": [
