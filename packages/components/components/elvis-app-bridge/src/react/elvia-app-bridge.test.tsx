@@ -38,6 +38,27 @@ describe('Elvis App Bridge', () => {
     });
   });
 
+  describe('with active apps', () => {
+    beforeEach(() => {
+      render(<AppBridge targetId="testTarget" activeApps={['msim', 'mdmx']} />);
+    });
+    it('should only render the active apps', async () => {
+      const user = userEvent.setup();
+
+      const appBridge = screen.getByText('Åpne i');
+      await user.click(appBridge);
+
+      const allLinks = screen.getAllByRole('link');
+      expect(allLinks).toHaveLength(2);
+
+      const mdmxLink = screen.getByText('MDMx');
+      expect(mdmxLink).toBeInTheDocument();
+
+      const msimLink = screen.getByText('MSIm');
+      expect(msimLink).toBeInTheDocument();
+    });
+  });
+
   describe('the accessability', () => {
     beforeEach(() => {
       render(<AppBridge targetId="testTarget" />);
