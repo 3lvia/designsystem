@@ -28,6 +28,14 @@ export const getLinks = (targetId: string): SystemLink[] => {
       },
     },
     {
+      name: 'Elflow',
+      url: `https://elflow.elvia.io/msg-overview/meteringpoint?meteringPointId=${targetId}`,
+      iconInfo: {
+        rotation: 90,
+        iconLetters: 'Ef',
+      },
+    },
+    {
       name: 'Louvre',
       url: `https://louvre.elvia.io/search?q=${targetId}`,
       iconInfo: {

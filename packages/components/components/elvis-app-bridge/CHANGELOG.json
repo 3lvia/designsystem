@@ -3,14 +3,14 @@
   "name": "elvis-app-bridge",
   "content": [
     {
-      "date": "19.09.24",
+      "date": "23.09.24",
       "version": "1.1.0",
       "changelog": [
         {
           "type": "new_feature",
           "changes": [
             "Added new prop <code>activeApps</code> that can be used to select what apps to show links to.",
-            "Added new app links: <code>Convey</code> and <code>Salesforce</code>."
+            "Added new app links: <code>Convey</code>, <code>Elflow</code>, and <code>Salesforce</code>."
           ]
         },
         {
