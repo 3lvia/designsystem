@@ -153,7 +153,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = function ({
     }
     setError(newError);
 
-    const errorText = getInternalErrorText(newError, label);
+    const errorText = getInternalErrorText('no', newError, label);
     errorOnChange?.(errorText);
     webcomponent?.triggerEvent('errorOnChange', errorText);
   };

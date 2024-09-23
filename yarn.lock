@@ -385,9 +385,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cdk@npm:^18.2.4":
-  version: 18.2.4
-  resolution: "@angular/cdk@npm:18.2.4"
+"@angular/cdk@npm:^18.2.5":
+  version: 18.2.5
+  resolution: "@angular/cdk@npm:18.2.5"
   dependencies:
     parse5: "npm:^7.1.2"
     tslib: "npm:^2.3.0"
@@ -398,7 +398,7 @@ __metadata:
   dependenciesMeta:
     parse5:
       optional: true
-  checksum: 10/17c656b7913c245fcbb1f0c319c32796586b6e6e0e91856392086e100754815c8990bc33660782f933effcadb5d1a5a7569606c21b550059f94b95ecd61cfe63
+  checksum: 10/8f04f374714c9f47f068c558236d88cf5238286b120c09a6ffc33ef376e09ceb649b95ba9b62e31ce6468e445a8cce7e0c2bb5f18dd352302efd4ebbfb7b5007
   languageName: node
   linkType: hard
 
@@ -2279,8 +2279,8 @@ __metadata:
     "@elvia/elvis-assets-icons": "npm:^3.10.0"
     "@elvia/elvis-colors": "npm:^4.4.1"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.1"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-toolbox": "npm:^12.1.0"
+    "@elvia/elvis-typography": "npm:^3.1.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
   peerDependencies:
@@ -2347,9 +2347,9 @@ __metadata:
     "@elvia/elvis-assets-icons": "npm:^3.10.0"
     "@elvia/elvis-colors": "npm:^4.4.1"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.1"
+    "@elvia/elvis-toolbox": "npm:^12.1.0"
     "@elvia/elvis-tooltip": "npm:^1.3.6"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-typography": "npm:^3.1.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
   peerDependencies:
@@ -2472,8 +2472,8 @@ __metadata:
     "@elvia/elvis-assets-icons": "npm:^3.10.0"
     "@elvia/elvis-colors": "npm:^4.4.1"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.1"
-    "@elvia/elvis-typography": "npm:^2.7.1"
+    "@elvia/elvis-toolbox": "npm:^12.1.0"
+    "@elvia/elvis-typography": "npm:^3.1.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
   peerDependencies:
@@ -2558,8 +2558,8 @@ __metadata:
     "@emotion/babel-plugin": "npm:^11.12.0"
     "@percy/cli": "npm:^1.29.3"
     "@percy/playwright": "npm:^1.0.6"
-    "@playwright/experimental-ct-react": "npm:1.47.1"
-    "@playwright/test": "npm:1.47.1"
+    "@playwright/experimental-ct-react": "npm:1.47.2"
+    "@playwright/test": "npm:1.47.2"
     "@testing-library/dom": "npm:10.4.0"
     "@testing-library/jest-dom": "npm:6.5.0"
     "@testing-library/react": "npm:16.0.1"
@@ -2573,15 +2573,15 @@ __metadata:
     jest: "npm:^29.7.0"
     jest-axe: "npm:^9.0.0"
     jest-environment-jsdom: "npm:^29.7.0"
-    playwright-core: "npm:^1.47.1"
+    playwright-core: "npm:^1.47.2"
     postcss: "npm:^8.4.47"
     postcss-modules: "npm:^6.0.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     react-is: "npm:^18.3.1"
     resize-observer-polyfill: "npm:^1.5.1"
-    sass: "npm:^1.79.1"
-    sass-embedded: "npm:^1.79.1"
+    sass: "npm:^1.79.2"
+    sass-embedded: "npm:^1.79.2"
     tiny-glob: "npm:^0.2.9"
     tsx: "npm:^4.19.1"
     typescript: "npm:~5.5.4"
@@ -2768,7 +2768,7 @@ __metadata:
   resolution: "@elvia/elvis-icons@workspace:packages/elvis-icons"
   dependencies:
     "@lit/react": "npm:^1.0.5"
-    "@types/react": "npm:^18.3.7"
+    "@types/react": "npm:^18.3.8"
     dompurify: "npm:^3.1.6"
     lit: "npm:^3.2.0"
     lit-html: "npm:^3.2.0"
@@ -3102,8 +3102,8 @@ __metadata:
     "@elvia/elvis-assets-icons": "npm:^3.11.1"
     "@elvia/elvis-colors": "npm:^4.4.2"
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
-    "@elvia/elvis-toolbox": "npm:^12.0.6"
-    "@elvia/elvis-typography": "npm:^3.1.0"
+    "@elvia/elvis-toolbox": "npm:^12.1.0"
+    "@elvia/elvis-typography": "npm:^3.1.1"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
     "@types/dompurify": "npm:^3.0.5"
@@ -3204,7 +3204,7 @@ __metadata:
     gulp-tap: "npm:^2.0.0"
     gulp-terser: "npm:^2.1.0"
     resolve: "npm:^1.22.8"
-    sass: "npm:^1.79.1"
+    sass: "npm:^1.79.2"
   languageName: unknown
   linkType: soft
 
@@ -5253,37 +5253,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-core@npm:1.47.1":
-  version: 1.47.1
-  resolution: "@playwright/experimental-ct-core@npm:1.47.1"
+"@playwright/experimental-ct-core@npm:1.47.2":
+  version: 1.47.2
+  resolution: "@playwright/experimental-ct-core@npm:1.47.2"
   dependencies:
-    playwright: "npm:1.47.1"
-    playwright-core: "npm:1.47.1"
+    playwright: "npm:1.47.2"
+    playwright-core: "npm:1.47.2"
     vite: "npm:^5.2.8"
-  checksum: 10/f7c3cd4045e528fb49208cca4c22672d3ef32f05059fa91b7000b431efcf77890ee954fa5dcfb0849d01e1d0d4ce80eccb2d176feecb262119e15d2950969b0e
+  checksum: 10/b7816d835d1bb08dc8b17883f6e7dab5ed0682c17dcae7cce8d4da1b948bdaf8a4f32cc572ab0b15c767ccb1723a346e3bb14b80f82c4f992c835de820a224a0
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-react@npm:1.47.1":
-  version: 1.47.1
-  resolution: "@playwright/experimental-ct-react@npm:1.47.1"
+"@playwright/experimental-ct-react@npm:1.47.2":
+  version: 1.47.2
+  resolution: "@playwright/experimental-ct-react@npm:1.47.2"
   dependencies:
-    "@playwright/experimental-ct-core": "npm:1.47.1"
+    "@playwright/experimental-ct-core": "npm:1.47.2"
     "@vitejs/plugin-react": "npm:^4.2.1"
   bin:
     playwright: cli.js
-  checksum: 10/9572b60f179101027160be4aceeab1468100bd14f0a1a5041a4559da72e56c7765142040113714cd0771162d8bc1f689efe51b2dd5133cf44cba5437e4c0fe52
+  checksum: 10/64f322d93a730511a6f111eea0cfdd8152e3537ab49aa4722788ae6d79f03765bc7d7cb683217ba0c1399e254eaca6a55f9120bb75ad9c431e970afe1bddd301
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.47.1":
-  version: 1.47.1
-  resolution: "@playwright/test@npm:1.47.1"
+"@playwright/test@npm:1.47.2":
+  version: 1.47.2
+  resolution: "@playwright/test@npm:1.47.2"
   dependencies:
-    playwright: "npm:1.47.1"
+    playwright: "npm:1.47.2"
   bin:
     playwright: cli.js
-  checksum: 10/d26656451cbd4cbb865c6acb25958a25171b3714907e1595301f21655b1be8f521dbd2197eecfa5b34325626c94b8ab535b8571478880633679e63ebfb6775b9
+  checksum: 10/374bf386b4eb8f3b6664fa017402f87e57ee121970661a5b3c83f0fa146a7e6b7456e28cd5b1539c0981cb9a9166b1c7484549d87dc0d8076305ec64278ec770
   languageName: node
   linkType: hard
 
@@ -6312,13 +6312,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.3.7":
-  version: 18.3.7
-  resolution: "@types/react@npm:18.3.7"
+"@types/react@npm:^18.3.8":
+  version: 18.3.8
+  resolution: "@types/react@npm:18.3.8"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/30cfbe33c82e8033df5f70a4f54068f4344a691cff3f2b3901dd678e89ce5477dc8faada4a45d333ea570e1992ca8fda5b096d9deddfafb8c373acababc40c70
+  checksum: 10/75e64e7f481c28e6c8ce6dae12f49ccc3f36c7b10b82da3eb7728ad9c02bec58a2c967105603e38665902e8db9296962c7718bc2062e2cb64a16e92333bd1f4b
   languageName: node
   linkType: hard
 
@@ -9403,7 +9403,7 @@ __metadata:
     "@angular-devkit/core": "npm:^18.2.5"
     "@angular-devkit/schematics": "npm:^18.2.5"
     "@angular/animations": "npm:^18.2.5"
-    "@angular/cdk": "npm:^18.2.4"
+    "@angular/cdk": "npm:^18.2.5"
     "@angular/cli": "npm:^18.2.5"
     "@angular/common": "npm:^18.2.5"
     "@angular/compiler": "npm:^18.2.5"
@@ -9473,7 +9473,7 @@ __metadata:
     prismjs: "npm:^1.29.0"
     rxjs: "npm:^7.8.1"
     safe-json-stringify: "npm:^1.2.0"
-    sass: "npm:^1.79.1"
+    sass: "npm:^1.79.2"
     ts-node: "npm:^10.9.2"
     tslib: "npm:^2.7.0"
     typescript: "npm:~5.5.4"
@@ -15112,27 +15112,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.47.1, playwright-core@npm:^1.47.1":
-  version: 1.47.1
-  resolution: "playwright-core@npm:1.47.1"
+"playwright-core@npm:1.47.2, playwright-core@npm:^1.47.2":
+  version: 1.47.2
+  resolution: "playwright-core@npm:1.47.2"
   bin:
     playwright-core: cli.js
-  checksum: 10/b5ee08e1a934237fca0f0f52a677e5d49e45578e14b48a886927428bdf453f355a120548ae2f3f97e28a9d5e23a213120f6d8f10e18ee3f9112b10716888dac4
+  checksum: 10/2a2b28b2f1d01bc447f4f1cb4b5248ed053fde38429484c909efa17226e692a79cd5e6d4c337e9040eaaf311b6cb4a36027d6d14f1f44c482c5fb3feb081f913
   languageName: node
   linkType: hard
 
-"playwright@npm:1.47.1":
-  version: 1.47.1
-  resolution: "playwright@npm:1.47.1"
+"playwright@npm:1.47.2":
+  version: 1.47.2
+  resolution: "playwright@npm:1.47.2"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.47.1"
+    playwright-core: "npm:1.47.2"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10/f4340f28485bd83a856a365a03af2013b3203c8134a075d05f1a834665e1204b98141c335d5c5c1600720c9e07db702db3dbff5ef138fc1c31d5feec3ac0057f
+  checksum: 10/73494a187be3e75222b65ebcce8d790eada340bd61ca0d07410060a52232ddbc2357c4882d7b42434054dc1f4802fdb039a47530b4b5500dcfd1bf0edd63c191
   languageName: node
   linkType: hard
 
@@ -15642,12 +15642,12 @@ __metadata:
     "@elvia/elvis-toast": "npm:*"
     "@elvia/elvis-tooltip": "npm:*"
     "@elvia/elvis-typography": "npm:*"
-    "@types/react": "npm:^18.3.7"
+    "@types/react": "npm:^18.3.8"
     "@types/react-dom": "npm:^18.3.0"
     "@vitejs/plugin-react": "npm:^4.3.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    sass: "npm:^1.79.1"
+    sass: "npm:^1.79.2"
     typescript: "npm:~5.5.4"
     vite: "npm:^5.4.6"
   languageName: unknown
@@ -16321,175 +16321,175 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass-embedded-android-arm64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-android-arm64@npm:1.79.1"
+"sass-embedded-android-arm64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-android-arm64@npm:1.79.2"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-android-arm@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-android-arm@npm:1.79.1"
+"sass-embedded-android-arm@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-android-arm@npm:1.79.2"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"sass-embedded-android-ia32@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-android-ia32@npm:1.79.1"
+"sass-embedded-android-ia32@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-android-ia32@npm:1.79.2"
   conditions: os=android & cpu=ia32
   languageName: node
   linkType: hard
 
-"sass-embedded-android-riscv64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-android-riscv64@npm:1.79.1"
+"sass-embedded-android-riscv64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-android-riscv64@npm:1.79.2"
   conditions: os=android & cpu=riscv64
   languageName: node
   linkType: hard
 
-"sass-embedded-android-x64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-android-x64@npm:1.79.1"
+"sass-embedded-android-x64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-android-x64@npm:1.79.2"
   conditions: os=android & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded-darwin-arm64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-darwin-arm64@npm:1.79.1"
+"sass-embedded-darwin-arm64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-darwin-arm64@npm:1.79.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-darwin-x64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-darwin-x64@npm:1.79.1"
+"sass-embedded-darwin-x64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-darwin-x64@npm:1.79.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-arm64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-arm64@npm:1.79.1"
+"sass-embedded-linux-arm64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-arm64@npm:1.79.2"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-arm@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-arm@npm:1.79.1"
+"sass-embedded-linux-arm@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-arm@npm:1.79.2"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-ia32@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-ia32@npm:1.79.1"
+"sass-embedded-linux-ia32@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-ia32@npm:1.79.2"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-musl-arm64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-musl-arm64@npm:1.79.1"
+"sass-embedded-linux-musl-arm64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-musl-arm64@npm:1.79.2"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-musl-arm@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-musl-arm@npm:1.79.1"
+"sass-embedded-linux-musl-arm@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-musl-arm@npm:1.79.2"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-musl-ia32@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-musl-ia32@npm:1.79.1"
+"sass-embedded-linux-musl-ia32@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-musl-ia32@npm:1.79.2"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-musl-riscv64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-musl-riscv64@npm:1.79.1"
+"sass-embedded-linux-musl-riscv64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-musl-riscv64@npm:1.79.2"
   conditions: os=linux & cpu=riscv64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-musl-x64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-musl-x64@npm:1.79.1"
+"sass-embedded-linux-musl-x64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-musl-x64@npm:1.79.2"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-riscv64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-riscv64@npm:1.79.1"
+"sass-embedded-linux-riscv64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-riscv64@npm:1.79.2"
   conditions: os=linux & cpu=riscv64
   languageName: node
   linkType: hard
 
-"sass-embedded-linux-x64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-linux-x64@npm:1.79.1"
+"sass-embedded-linux-x64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-linux-x64@npm:1.79.2"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded-win32-arm64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-win32-arm64@npm:1.79.1"
+"sass-embedded-win32-arm64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-win32-arm64@npm:1.79.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"sass-embedded-win32-ia32@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-win32-ia32@npm:1.79.1"
+"sass-embedded-win32-ia32@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-win32-ia32@npm:1.79.2"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"sass-embedded-win32-x64@npm:1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded-win32-x64@npm:1.79.1"
+"sass-embedded-win32-x64@npm:1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded-win32-x64@npm:1.79.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"sass-embedded@npm:^1.79.1":
-  version: 1.79.1
-  resolution: "sass-embedded@npm:1.79.1"
+"sass-embedded@npm:^1.79.2":
+  version: 1.79.2
+  resolution: "sass-embedded@npm:1.79.2"
   dependencies:
     "@bufbuild/protobuf": "npm:^2.0.0"
     buffer-builder: "npm:^0.2.0"
     colorjs.io: "npm:^0.5.0"
     immutable: "npm:^4.0.0"
     rxjs: "npm:^7.4.0"
-    sass-embedded-android-arm: "npm:1.79.1"
-    sass-embedded-android-arm64: "npm:1.79.1"
-    sass-embedded-android-ia32: "npm:1.79.1"
-    sass-embedded-android-riscv64: "npm:1.79.1"
-    sass-embedded-android-x64: "npm:1.79.1"
-    sass-embedded-darwin-arm64: "npm:1.79.1"
-    sass-embedded-darwin-x64: "npm:1.79.1"
-    sass-embedded-linux-arm: "npm:1.79.1"
-    sass-embedded-linux-arm64: "npm:1.79.1"
-    sass-embedded-linux-ia32: "npm:1.79.1"
-    sass-embedded-linux-musl-arm: "npm:1.79.1"
-    sass-embedded-linux-musl-arm64: "npm:1.79.1"
-    sass-embedded-linux-musl-ia32: "npm:1.79.1"
-    sass-embedded-linux-musl-riscv64: "npm:1.79.1"
-    sass-embedded-linux-musl-x64: "npm:1.79.1"
-    sass-embedded-linux-riscv64: "npm:1.79.1"
-    sass-embedded-linux-x64: "npm:1.79.1"
-    sass-embedded-win32-arm64: "npm:1.79.1"
-    sass-embedded-win32-ia32: "npm:1.79.1"
-    sass-embedded-win32-x64: "npm:1.79.1"
+    sass-embedded-android-arm: "npm:1.79.2"
+    sass-embedded-android-arm64: "npm:1.79.2"
+    sass-embedded-android-ia32: "npm:1.79.2"
+    sass-embedded-android-riscv64: "npm:1.79.2"
+    sass-embedded-android-x64: "npm:1.79.2"
+    sass-embedded-darwin-arm64: "npm:1.79.2"
+    sass-embedded-darwin-x64: "npm:1.79.2"
+    sass-embedded-linux-arm: "npm:1.79.2"
+    sass-embedded-linux-arm64: "npm:1.79.2"
+    sass-embedded-linux-ia32: "npm:1.79.2"
+    sass-embedded-linux-musl-arm: "npm:1.79.2"
+    sass-embedded-linux-musl-arm64: "npm:1.79.2"
+    sass-embedded-linux-musl-ia32: "npm:1.79.2"
+    sass-embedded-linux-musl-riscv64: "npm:1.79.2"
+    sass-embedded-linux-musl-x64: "npm:1.79.2"
+    sass-embedded-linux-riscv64: "npm:1.79.2"
+    sass-embedded-linux-x64: "npm:1.79.2"
+    sass-embedded-win32-arm64: "npm:1.79.2"
+    sass-embedded-win32-ia32: "npm:1.79.2"
+    sass-embedded-win32-x64: "npm:1.79.2"
     supports-color: "npm:^8.1.1"
     varint: "npm:^6.0.0"
   dependenciesMeta:
@@ -16535,7 +16535,7 @@ __metadata:
       optional: true
   bin:
     sass: dist/bin/sass.js
-  checksum: 10/e276ef14414dbac30007b46e2ef7ad7b0a7756005b1df9ae9224cd7db39b5ec42c2e6a742daa737d861f0eac898f18d934d45b1d675038fb4218b98432042e5d
+  checksum: 10/3fc3934a5b01cfe82e87bc9460d0d8ad232064cfdc53ad8c645634c46e66ed4c0fb19d4865e81e3fc726a3599035a4bb07d6803c5a45e4da5a463ed02f3808b2
   languageName: node
   linkType: hard
 
@@ -16591,16 +16591,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.79.1":
-  version: 1.79.1
-  resolution: "sass@npm:1.79.1"
+"sass@npm:^1.79.2":
+  version: 1.79.2
+  resolution: "sass@npm:1.79.2"
   dependencies:
     chokidar: "npm:^4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 10/e02d28401f371370e2444341ede4398916ab0fb368fe8cbbf5970a531a3ea57023f3fb743db63a17bca661c600b09d958417599d5d320767d06c410445750065
+  checksum: 10/aedb94e072e5db6b8b2bdb999c6396a37b27f8e40541ee4b60186c7ba4f6252587bab6040073195d5423ff465c013f026ea5561b24293e9a64472147ee0a38c0
   languageName: node
   linkType: hard
 
@@ -18645,7 +18645,7 @@ __metadata:
     "@elvia/elvis-tooltip": "npm:*"
     "@rollup/plugin-commonjs": "npm:^26.0.1"
     "@vitejs/plugin-vue": "npm:^5.1.4"
-    sass: "npm:^1.79.1"
+    sass: "npm:^1.79.2"
     typescript: "npm:~5.5.4"
     vite: "npm:^5.4.6"
     vue: "npm:^3.5.6"

@@ -1,28 +1,16 @@
-import iconStyleTokens from '@elvia/elvis-colors/dist/elvisIconVariables.css';
-import illustrationStyleTokens from '@elvia/elvis-colors/dist/elvisIllustrationVariables.css';
-
-import { IllustrationColor } from './illustrations-doc/illustrations-data';
-
 interface Opts {
-  colorValue?: IllustrationColor;
-  theme?: 'light' | 'dark';
   styleElement?: HTMLStyleElement | null;
-  tokens: 'icon' | 'illustration';
 }
 
 export const createSvgBlobFromElement = (incomingSvgElement: SVGElement, opts?: Opts) => {
-  const svgElement = incomingSvgElement.cloneNode(true) as SVGElement;
-  const styleElement = opts?.styleElement?.cloneNode(true) ?? document.createElement('style');
+  let svgElement = incomingSvgElement.cloneNode(true) as SVGElement;
 
-  if (opts?.theme === 'dark') {
-    svgElement.classList.add('e-theme-dark');
-    styleElement.textContent =
-      styleElement.textContent + (opts.tokens === 'icon' ? iconStyleTokens : illustrationStyleTokens);
+  const styleElement = opts?.styleElement?.cloneNode(true);
+  if (styleElement) {
+    svgElement.insertBefore(styleElement, svgElement.firstChild);
   }
-  svgElement.insertBefore(styleElement, svgElement.firstChild);
-  if (opts?.colorValue) {
-    svgElement.classList.add(opts?.colorValue);
-  }
+
+  svgElement = replacePathFillCssVariablesWithHex(svgElement, incomingSvgElement);
 
   // Scale up height and width for better image quality in PNG, does not affect SVG
   const viewBox = svgElement.getAttribute('viewBox');
@@ -36,7 +24,7 @@ export const createSvgBlobFromElement = (incomingSvgElement: SVGElement, opts?: 
   return URL.createObjectURL(blob);
 };
 
-export const createPngBlob = (svgElement: SVGElement, opts?: Opts): Promise<string> => {
+export const createPngBlobFromElement = (svgElement: SVGElement, opts?: Opts): Promise<string> => {
   return new Promise((resolve, reject) => {
     const svgBlobUrl = createSvgBlobFromElement(svgElement, opts);
 
@@ -68,4 +56,24 @@ export const createPngBlob = (svgElement: SVGElement, opts?: Opts): Promise<stri
       });
     };
   });
+};
+
+const replacePathFillCssVariablesWithHex = (svgElement: SVGElement, incomingSvgElement: SVGElement) => {
+  const paths = svgElement.querySelectorAll('path, rect, circle');
+  paths.forEach((path) => {
+    const fill = path.getAttribute('fill');
+
+    // Get the variable name from: var(--e-color-icon-stroke-1, var(--e-color-icon-stroke-1, #000000))
+    const variableName = fill?.split(',')[0].split('(')[1];
+
+    if (fill && variableName && fill.startsWith('var(--')) {
+      // Need to use the original SVG element since the computed style is not available on the cloned (non-mounted) element
+      // This ensures the color that is shown in the UI is the same as the downloaded image (e.g. dark mode, colored illustrations)
+      const color = getComputedStyle(incomingSvgElement).getPropertyValue(variableName);
+      if (color) {
+        path.setAttribute('fill', color);
+      }
+    }
+  });
+  return svgElement;
 };

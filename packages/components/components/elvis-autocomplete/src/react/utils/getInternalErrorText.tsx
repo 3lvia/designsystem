@@ -1,10 +1,12 @@
+import { LanguageCode } from '@elvia/elvis-toolbox';
+
 import { ErrorType } from '../elvia-autocomplete.types';
 
-export const getInternalErrorText = (error?: ErrorType, label?: string): string => {
+export const getInternalErrorText = (lang: LanguageCode, error?: ErrorType, label?: string): string => {
   if (error === 'required' && label) {
-    return `Skriv inn ${label}`;
+    return lang === 'no' ? `Skriv inn ${label}` : `Please enter ${label}`;
   } else if (error === 'required') {
-    return 'Påkrevd';
+    return lang === 'no' ? 'Påkrevd' : 'Required';
   } else {
     return '';
   }

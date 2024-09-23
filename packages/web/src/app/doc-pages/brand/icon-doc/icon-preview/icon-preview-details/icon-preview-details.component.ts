@@ -2,7 +2,7 @@ import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, computed, inject, input, model } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
-import { createPngBlob, createSvgBlobFromElement } from '../../../imageDownloadUtils';
+import { createPngBlobFromElement, createSvgBlobFromElement } from '../../../imageDownloadUtils';
 import { IconGeneratorComponent } from '../../icon-generator/icon-generator.component';
 import { Icon, kebabCaseToCamelCase } from '../utils';
 import { Theme } from 'src/app/core/services/theme.service';
@@ -34,14 +34,8 @@ export class IconPreviewDetailsComponent {
 
     const a = document.createElement('a');
     a.href = await (format === 'svg'
-      ? createSvgBlobFromElement(svgElement, {
-          tokens: 'icon',
-          theme: this.theme(),
-        })
-      : createPngBlob(svgElement, {
-          tokens: 'icon',
-          theme: this.theme(),
-        }));
+      ? createSvgBlobFromElement(svgElement)
+      : createPngBlobFromElement(svgElement));
     a.download = this.imageFileName(format);
     a.click();
   };

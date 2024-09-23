@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@angular/animations": "^18.2.5",
-    "@angular/cdk": "^18.2.4",
+    "@angular/cdk": "^18.2.5",
     "@angular/common": "^18.2.5",
     "@angular/compiler": "^18.2.5",
     "@angular/core": "^18.2.5",
@@ -66,7 +66,7 @@
     "prettier": "^3.3.3",
     "prismjs": "^1.29.0",
     "rxjs": "^7.8.1",
-    "sass": "^1.79.1",
+    "sass": "^1.79.2",
     "tslib": "^2.7.0",
     "zone.js": "~0.15.0"
   },
