@@ -70,6 +70,12 @@
       "matchPackagePatterns": ["^@typescript-eslint/"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "groupName": "@eslint monorepo",
+      "matchPackagePatterns": ["^@eslint/"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ],
   "ignoreDeps": ["@emotion/react", "@emotion/styled", "react", "react-dom"],
