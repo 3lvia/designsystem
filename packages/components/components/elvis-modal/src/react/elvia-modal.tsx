@@ -72,16 +72,14 @@ export const Modal: FC<ModalProps> = function ({
     if (heading && typeof heading === 'string') {
       return heading;
     } else if (webcomponent?.getSlot('heading')) {
-      return (
-        webcomponent.getSlot('heading').textContent ?? (lang === 'no' ? 'Forgrunnsvindu' : 'Popup window')
-      );
+      return webcomponent.getSlot('heading').textContent ?? (lang === 'no' ? 'Forgrunnsvindu' : 'Modal');
     } else {
-      return lang === 'no' ? 'Forgrunnsvindu' : 'Popup window';
+      return lang === 'no' ? 'Forgrunnsvindu' : 'Modal';
     }
   };
 
-  const getCloseAriaLabel = (): string => {
-    return lang === 'no' ? 'Lukk modal' : 'Close modal';
+  const getCloseAriaLabel = () => {
+    return lang === 'no' ? 'Lukk forgrunnsvindu' : 'Close modal';
   };
 
   const dispatchOnClose = (): void => {

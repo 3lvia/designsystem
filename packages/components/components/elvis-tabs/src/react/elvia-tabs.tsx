@@ -47,9 +47,9 @@ export const Tabs: FC<TabsProps> = ({
   /** returns a localized scroll direction label based on the given direction and the current language */
   const getScrollLabel = (direction: 'left' | 'right'): string => {
     if (direction === 'left') {
-      return lang === 'no' ? 'Scroll mot venstre' : 'Scroll left';
+      return lang === 'no' ? 'Skroll mot venstre' : 'Scroll left';
     } else if (direction === 'right') {
-      return lang === 'no' ? 'Scroll mot høyre' : 'Scroll right';
+      return lang === 'no' ? 'Skroll mot høyre' : 'Scroll right';
     } else {
       return '';
     }

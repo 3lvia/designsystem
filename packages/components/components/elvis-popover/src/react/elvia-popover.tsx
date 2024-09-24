@@ -47,7 +47,7 @@ export const Popover: FC<PopoverProps> = function ({
 
   const lang = useLanguage();
 
-  const getCloseAriaLabel = (): string => {
+  const getCloseAriaLabel = () => {
     return lang === 'no' ? 'Lukk' : 'Close';
   };
 
