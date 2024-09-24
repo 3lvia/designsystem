@@ -30,16 +30,6 @@ $toggle-slider-margin: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
   cursor: pointer;
   gap: 8px;
 
-  // Larger touch-target
-  &::after {
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    width: calc(100% + 8px);
-    height: calc(100% + 8px);
-    content: '';
-  }
-
   input[type='checkbox'] {
     appearance: none;
   }
