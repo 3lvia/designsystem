@@ -32,6 +32,10 @@ export class LocalizationService {
           }
         }
       });
+
+    this.localizationSubject.subscribe((locale) => {
+      document.documentElement.lang = locale;
+    });
   }
 
   listenLocalization(): Observable<Locale> {
