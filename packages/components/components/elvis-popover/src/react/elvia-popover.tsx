@@ -1,5 +1,5 @@
 import closeBold from '@elvia/elvis-assets-icons/dist/icons/closeBold';
-import { IconButton, IconWrapper, useSlot } from '@elvia/elvis-toolbox';
+import { IconButton, IconWrapper, useLanguage, useSlot } from '@elvia/elvis-toolbox';
 import {
   FloatingOverlay,
   FloatingPortal,
@@ -44,6 +44,12 @@ export const Popover: FC<PopoverProps> = function ({
   const contentRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(isShowing);
+
+  const lang = useLanguage();
+
+  const getCloseAriaLabel = () => {
+    return lang === 'no' ? 'Lukk' : 'Close';
+  };
 
   const { refs, floatingStyles, context, placement } = useFloating({
     placement: mapPosition(verticalPosition, horizontalPosition),
@@ -146,7 +152,7 @@ export const Popover: FC<PopoverProps> = function ({
             >
               {hasCloseButton && (
                 <CloseButtonContainer>
-                  <IconButton size="sm" onClick={toggleVisibility} aria-label="Lukk">
+                  <IconButton size="sm" onClick={toggleVisibility} aria-label={getCloseAriaLabel()}>
                     <IconWrapper icon={closeBold} size="xs" />
                   </IconButton>
                 </CloseButtonContainer>
