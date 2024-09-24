@@ -78,7 +78,7 @@ describe('Elvis Modal', () => {
     });
 
     it('should have close button', () => {
-      const closeButton = screen.getByRole('button', { name: 'Lukk modal' });
+      const closeButton = screen.getByRole('button', { name: 'Lukk forgrunnsvindu' });
       expect(closeButton).toBeInTheDocument();
     });
 
@@ -150,7 +150,7 @@ describe('Elvis Modal', () => {
       render(<Modal hasCloseButton isShowing content={<p>Content</p>} onClose={onClose} />);
 
       const user = userEvent.setup();
-      const closeButton = screen.getByRole('button', { name: 'Lukk modal' });
+      const closeButton = screen.getByRole('button', { name: 'Lukk forgrunnsvindu' });
       await user.click(closeButton);
 
       waitFor(() => {
