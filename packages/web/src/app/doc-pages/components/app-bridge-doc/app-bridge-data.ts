@@ -12,5 +12,12 @@ export const appBridgeData: ComponentData<BaseAppBridgeProps> = {
       type: 'string',
       description: 'The target ID (e.g. a meteringpoint ID) of the links in the app bridge.',
     },
+    activeApps: {
+      isRequired: false,
+      type: 'string[]',
+      description:
+        'The apps to show in the links in the app bridge. If not provided, all apps will be shown.',
+      example: `activeApps=['mdmx', 'msim']`,
+    },
   },
 };

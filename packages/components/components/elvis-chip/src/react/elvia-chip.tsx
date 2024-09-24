@@ -84,13 +84,13 @@ export const Chip: FC<ChipProps> = ({
           color={color}
           showDot={isHovered || isSelectedState}
           isDisabled={isDisabled}
-          isHidden={isLoading}
+          isHidden={isLoading || (isDisabled && !isSelectedState)}
           markerStyle={markerStyle}
         />
       )}
       {type === 'removable' && <ChipImageContainer ref={imageRef}>{image}</ChipImageContainer>}
       {isLoading && (
-        <ChipLoading color={color}>
+        <ChipLoading color={color} isDisabled={isDisabled}>
           <span />
           <span />
           <span />

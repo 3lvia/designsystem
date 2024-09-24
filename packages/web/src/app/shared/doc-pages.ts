@@ -822,11 +822,9 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
   {
     title: 'Contact',
-    description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on Slack at
-    <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
-      <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><e-icon name="newTabBold"></e-icon></span>
-    </a>`,
+    description: `Currently, no dedicated team is working on the design system. If you have any questions, please use our Slack channel <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+    <span class="e-link__title">#designsystemet</span>
+    </a> or contact Tom Schrier.`,
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,
     type: 'About',

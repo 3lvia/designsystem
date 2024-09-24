@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
-import { createPngBlob, createSvgBlobFromElement } from '../../../imageDownloadUtils';
+import { createPngBlobFromElement, createSvgBlobFromElement } from '../../../imageDownloadUtils';
 import { IllustrationsExhibitService } from '../illustrations-exhibit.service';
 import { IllustrationsGeneratorComponent } from '../illustrations-generator/illustrations-generator.component';
 import { LocalizationService } from 'src/app/core/services/localization.service';
@@ -56,15 +56,9 @@ export class IllustrationsExhibitDetailsComponent {
     const a = document.createElement('a');
     a.href = await (format === 'svg'
       ? createSvgBlobFromElement(svgElement, {
-          tokens: 'illustration',
-          colorValue: this.colorValue(),
-          theme: this.theme(),
           styleElement: styleElement,
         })
-      : createPngBlob(svgElement, {
-          tokens: 'illustration',
-          colorValue: this.colorValue(),
-          theme: this.theme(),
+      : createPngBlobFromElement(svgElement, {
           styleElement: styleElement,
         }));
     a.download = this.imageFileName(format);

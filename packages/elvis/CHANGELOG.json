@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "20.2.2",
+      "date": "September 24, 2024",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Removed an <code>::after</code> element on the toggle that could make it cause overflow in some overflow containers."
+          ],
+          "components": [{ "displayName": "Toggle", "url": "https://design.elvia.io/components/toggle" }]
+        }
+      ]
+    },
+    {
       "version": "20.2.1",
       "date": "September 05, 2024",
       "changelog": [

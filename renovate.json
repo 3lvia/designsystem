@@ -42,7 +42,8 @@
         "^prettier",
         "^tslib",
         "^eslint",
-        "^typescript-eslint"
+        "^typescript-eslint",
+        "^@rollup/"
       ],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
@@ -68,6 +69,12 @@
     {
       "groupName": "typescript-eslint monorepo",
       "matchPackagePatterns": ["^@typescript-eslint/"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "groupName": "@eslint monorepo",
+      "matchPackagePatterns": ["^@eslint/"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
