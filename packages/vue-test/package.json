@@ -39,7 +39,7 @@
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-commonjs": "^26.0.3",
     "@vitejs/plugin-vue": "^5.1.4",
     "sass": "^1.79.3",
     "typescript": "~5.5.4",
