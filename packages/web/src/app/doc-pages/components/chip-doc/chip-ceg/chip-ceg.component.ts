@@ -80,6 +80,12 @@ export class ChipCegComponent implements ComponentExample {
           value: false,
           group: 'State',
         },
+        isDisabled: {
+          label: 'Disabled',
+          type: 'checkbox',
+          value: false,
+          group: 'State',
+        },
         value: {
           type: 'text',
           value: '2024',

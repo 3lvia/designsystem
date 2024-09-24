@@ -46,7 +46,7 @@ const getChipBackgroundLight = (
       }
       return 'transparent';
     case 'legend':
-      if (isSelected && isHovering && !isLoading) {
+      if (isSelected && isHovering && !isLoading && !isDisabled) {
         return getBaseColor(mapChipColor(color, 10));
       } else if (isSelected && !isLoading) {
         return getBaseColor(mapChipColor(color, 30));
@@ -146,6 +146,7 @@ export const ChipComponent = styled.button<ChipComponentProps>`
 
 interface ChipLoadingProps {
   color: ColorType;
+  isDisabled: boolean;
 }
 
 const loadingDotsAnimation = keyframes`
@@ -169,6 +170,7 @@ export const ChipLoading = styled.div<ChipLoadingProps>`
     width: 10px;
     height: 10px;
     background-color: ${({ color }) => getBaseColor(mapChipColor(color))};
+    opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
     border-radius: 100%;
     display: inline-block;
     animation: ${loadingDotsAnimation} 1s infinite ease-in-out both;

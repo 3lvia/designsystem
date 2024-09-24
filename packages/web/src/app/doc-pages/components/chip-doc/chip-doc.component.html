@@ -25,13 +25,15 @@
       the data you are toggling on/off in a graph or map. Different <code>markerStyle</code>s can be used to
       differentiate data in the graph or map.
       <div class="chip-list">
-        <elvia-chip [value]="2018" type="legend" isSelected="true" />
-        <elvia-chip [value]="2019" type="legend" color="purple" isSelected="true" />
+        <elvia-chip [value]="2018" type="legend" isSelected />
+        <elvia-chip [value]="2019" type="legend" color="purple" isSelected />
         <elvia-chip [value]="2020" type="legend" color="red" />
-        <elvia-chip [value]="2021" type="legend" color="orange" isSelected="true" markerStyle="line" />
-        <elvia-chip [value]="2022" type="legend" color="blue" isSelected="true" markerStyle="line" />
-        <elvia-chip [value]="2023" type="legend" color="violet" isSelected="true" markerStyle="dashed" />
+        <elvia-chip [value]="2021" type="legend" color="orange" isSelected markerStyle="line" />
+        <elvia-chip [value]="2022" type="legend" color="blue" isSelected markerStyle="line" />
+        <elvia-chip [value]="2023" type="legend" color="violet" isSelected markerStyle="dashed" />
         <elvia-chip [value]="2024" type="legend" color="green" markerStyle="dashed" />
+        <elvia-chip [value]="2025" type="legend" color="orange" isDisabled />
+        <elvia-chip [value]="2026" type="legend" color="purple" isDisabled isSelected />
       </div>
     </app-component-subsection>
 
