@@ -1,4 +1,4 @@
-import { BaseProps, useWebComponentState } from '@elvia/elvis-toolbox';
+import { BaseProps, useLanguage, useWebComponentState } from '@elvia/elvis-toolbox';
 import React, { ComponentPropsWithoutRef, FC } from 'react';
 
 import { RadioFilterItem } from './RadioFilterItem';
@@ -25,7 +25,7 @@ export const RadioFilter: FC<RadioFilterProps> = ({
   name,
   items,
   value,
-  groupAriaLabel = 'Filtreringsknapper',
+  groupAriaLabel,
   valueOnChange,
   className,
   inlineStyle,
@@ -33,6 +33,8 @@ export const RadioFilter: FC<RadioFilterProps> = ({
   ...rest
 }) => {
   const [selectedValue, setSelectedValue] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
+  const lang = useLanguage();
+  const localizedGroupAriaLabel = groupAriaLabel || (lang === 'no' ? 'Filtreringsknapper' : 'Filter buttons');
 
   return (
     <RadioFilterGroup
@@ -40,7 +42,7 @@ export const RadioFilter: FC<RadioFilterProps> = ({
       className={className}
       style={inlineStyle}
       data-testid="radio-filter-group"
-      aria-label={groupAriaLabel}
+      aria-label={localizedGroupAriaLabel}
       {...rest}
     >
       {items &&
