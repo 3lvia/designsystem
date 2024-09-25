@@ -1,3 +1,5 @@
+import { useLanguage } from '@elvia/elvis-toolbox';
+
 import { StepStates } from './publicApi.public';
 
 export const isReachable = (forced: boolean, stepNumber: number, steps?: StepStates): boolean => {
@@ -43,25 +45,47 @@ export const numberShouldBeVisible = (
 };
 
 export const generateStatusMessage = (currentStep: number, steps: StepStates, errorSteps: number[]) => {
-  let statusMessage = `På steg ${currentStep}. `;
+  const lang = useLanguage();
+
+  const getTranslatedLabels = () => {
+    return {
+      onStep: lang === 'no' ? 'På steg' : 'On step',
+      previousStep: lang === 'no' ? 'Det forrige steget var' : 'The previous step was',
+      steps: lang === 'no' ? 'Steg' : 'Steps',
+      and: lang === 'no' ? 'og' : 'and',
+      wasInvalid: lang === 'no' ? 'var ugyldig' : 'was invalid',
+      statusLabel: (isCompleted: boolean) =>
+        isCompleted
+          ? lang === 'no'
+            ? 'fullført'
+            : 'completed'
+          : lang === 'no'
+            ? 'ikke fullført'
+            : 'not completed',
+    };
+  };
+
+  const labels = getTranslatedLabels();
+
+  let statusMessage = `${labels.onStep} ${currentStep}. `;
   if (currentStep > 1) {
-    statusMessage += `Det forrige steget var ${
-      steps?.[currentStep - 1]?.isCompleted ? 'vellykket' : 'ikke fullført'
-    }. `;
+    statusMessage += `${labels.previousStep} ${labels.statusLabel(
+      steps?.[currentStep - 1]?.isCompleted ?? false,
+    )}. `;
   }
 
   if (errorSteps.length > 0) {
-    statusMessage += 'Steg ';
+    statusMessage += `${labels.steps} `;
     errorSteps.forEach((stepNumber: number, i: number) => {
       if (i === errorSteps.length - 1) {
         statusMessage += stepNumber;
       } else if (i === errorSteps.length - 2) {
-        statusMessage += stepNumber + ' og ';
+        statusMessage += stepNumber + ` ${labels.and} `;
       } else {
         statusMessage += stepNumber + ', ';
       }
     });
-    statusMessage += ' var ugyldig.';
+    statusMessage += ` ${labels.wasInvalid}.`;
   }
   return statusMessage;
 };

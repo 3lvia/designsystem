@@ -34,7 +34,7 @@ export const RadioFilter: FC<RadioFilterProps> = ({
 }) => {
   const [selectedValue, setSelectedValue] = useWebComponentState(value, 'value', webcomponent, valueOnChange);
   const lang = useLanguage();
-  const localizedGroupAriaLabel = groupAriaLabel || (lang === 'no' ? 'Filtreringsknapper' : 'Filter buttons');
+  const localizedGroupAriaLabel = groupAriaLabel ?? (lang === 'no' ? 'Filtreringsknapper' : 'Filter buttons');
 
   return (
     <RadioFilterGroup
