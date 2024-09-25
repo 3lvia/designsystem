@@ -3,6 +3,18 @@
   "name": "elvis-dropdown",
   "content": [
     {
+      "date": "25.09.24",
+      "version": "9.6.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global lang attribute on the html-element"
+          ]
+        }
+      ]
+    },
+    {
       "date": "28.08.24",
       "version": "9.5.0",
       "changelog": [

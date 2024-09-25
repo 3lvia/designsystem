@@ -1,6 +1,6 @@
 import arrowRight from '@elvia/elvis-assets-icons/dist/icons/arrowRight';
 import { getThemeColor } from '@elvia/elvis-colors';
-import { FormFieldSizes, IconWrapper, isSsr, useConnectedOverlay } from '@elvia/elvis-toolbox';
+import { FormFieldSizes, IconWrapper, isSsr, useConnectedOverlay, useLanguage } from '@elvia/elvis-toolbox';
 import { Tooltip } from '@elvia/elvis-tooltip/react';
 import React, { KeyboardEvent, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 
@@ -156,6 +156,16 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
     };
   }, []);
 
+  const lang = useLanguage();
+  const translatedAriaLabel = () => {
+    return {
+      submenu: lang === 'no' ? 'undermeny' : 'submenu',
+      note: lang === 'no' ? 'Merknad' : 'Note',
+    };
+  };
+
+  const labels = translatedAriaLabel();
+
   return (
     <>
       <DropdownItemStyles
@@ -178,8 +188,8 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
         aria-selected={selfOrAllChildrenAreSelected}
-        aria-label={`${item.label}${item.children ? ' , undermeny' : ''}${
-          item.tooltip ? ' , Merknad: ' + item.tooltip : ''
+        aria-label={`${item.label}${item.children ? ` , ${labels.submenu} ` : ''}${
+          item.tooltip ? ` , ${labels.note} ` + item.tooltip : ''
         }`}
         data-testid="dropdown-item"
       >

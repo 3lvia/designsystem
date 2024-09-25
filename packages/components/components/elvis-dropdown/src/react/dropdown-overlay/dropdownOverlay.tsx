@@ -1,4 +1,5 @@
 import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
+import { LanguageCode } from '@elvia/elvis-toolbox/src';
 import DOMPurify from 'dompurify';
 import React, { KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 
@@ -27,6 +28,7 @@ interface DropdownOverlayProps {
   size: FormFieldSizes;
   isMulti: boolean;
   onClose: () => void;
+  lang: LanguageCode;
   noItemsText?: string;
   currentVal?: DropdownValue;
   onItemSelect: (value: DropdownValueType[]) => void;
@@ -70,6 +72,7 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       parentItem,
       isSearchMode,
       id,
+      lang,
     },
     ref,
   ) => {
@@ -80,14 +83,26 @@ export const DropdownOverlay = React.forwardRef<HTMLDivElement, DropdownOverlayP
       label: selectAllOption ?? '',
       value: `selectAll-${uniqueId++}`,
     });
-    const [backItem] = useState<DropdownItemOption>({
+    const [backItem, setBackItem] = useState<DropdownItemOption>({
       label: 'Tilbake',
       value: `back-${uniqueId++}`,
     });
-    const [loadMoreItem] = useState<DropdownItemOption>({
+    const [loadMoreItem, setLoadMoreItem] = useState<DropdownItemOption>({
       label: 'Last inn flere',
       value: `loadMore-${uniqueId++}`,
     });
+
+    useEffect(() => {
+      setBackItem({
+        ...backItem,
+        label: lang === 'no' ? 'Tilbake' : 'Go back',
+      });
+
+      setLoadMoreItem({
+        ...loadMoreItem,
+        label: lang === 'no' ? 'Last inn flere' : 'Load more',
+      });
+    }, [lang]);
 
     const fullTabList = useMemo<DropdownItemOption[]>(() => {
       const itemList = filteredItems.slice();
