@@ -2622,7 +2622,7 @@ __metadata:
     "@elvia/elvis-component-wrapper": "npm:^4.2.0"
     "@elvia/elvis-datepicker": "npm:^9.0.12"
     "@elvia/elvis-timepicker": "npm:^5.1.4"
-    "@elvia/elvis-toolbox": "npm:^12.0.6"
+    "@elvia/elvis-toolbox": "npm:^12.1.0"
     "@emotion/react": "npm:^11.11.4"
     "@emotion/styled": "npm:^11.11.5"
   peerDependencies:
