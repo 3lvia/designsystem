@@ -62,7 +62,7 @@ describe('Elvis Divider', () => {
     it('should have md typography', () => {
       const dividerHeading = screen.getByTestId('divider-heading');
       expect(dividerHeading).toHaveStyle('text-transform: unset');
-      expect(dividerHeading).toHaveStyle('font-size: 30px');
+      expect(dividerHeading).toHaveStyle('font-size: 1.875rem');
     });
   });
 
@@ -74,7 +74,7 @@ describe('Elvis Divider', () => {
     it('should have caps typography', () => {
       const dividerHeading = screen.getByTestId('divider-heading');
       expect(dividerHeading).toHaveStyle('text-transform: uppercase');
-      expect(dividerHeading).toHaveStyle('font-size: 14px');
+      expect(dividerHeading).toHaveStyle('font-size: 0.875rem');
     });
   });
 

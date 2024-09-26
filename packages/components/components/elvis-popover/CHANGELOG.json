@@ -3,6 +3,18 @@
   "name": "elvis-popover",
   "content": [
     {
+      "date": "24.09.24",
+      "version": "7.5.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global lang attribute on the html-element."
+          ]
+        }
+      ]
+    },
+    {
       "date": "11.09.24",
       "version": "7.4.7",
       "changelog": [

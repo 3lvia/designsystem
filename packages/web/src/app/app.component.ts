@@ -17,7 +17,6 @@ import '@elvia/elvis-datepicker-range';
 import '@elvia/elvis-divider';
 import '@elvia/elvis-dropdown';
 import '@elvia/elvis-header';
-import '@elvia/elvis-icon';
 import '@elvia/elvis-illustrations/broken';
 import '@elvia/elvis-illustrations/clock';
 import '@elvia/elvis-illustrations/confirmation';
