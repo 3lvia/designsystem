@@ -251,6 +251,7 @@ describe('Elvis Dropdown', () => {
 
       it('the proper item is selected', () => {
         const element = screen.getByRole('combobox');
+
         expect(element).toHaveValue('Subitem');
       });
     });
