@@ -157,14 +157,12 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   }, []);
 
   const lang = useLanguage();
-  const translatedAriaLabel = () => {
-    return {
-      submenu: lang === 'no' ? 'undermeny' : 'submenu',
-      note: lang === 'no' ? 'Merknad:' : 'Note:',
-    };
+  const labels = {
+    submenu: lang === 'no' ? 'undermeny' : 'submenu',
+    note: lang === 'no' ? 'Merknad:' : 'Note:',
   };
-
-  const labels = translatedAriaLabel();
+  const ariaItemLabel = `${item.label}${item.children ? ' ,' + labels.submenu : ''}`;
+  const ariaTooltipLabel = `${item.tooltip ? ' ,' + labels.note + item.tooltip : ''}`;
 
   return (
     <>
@@ -188,9 +186,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
         aria-selected={selfOrAllChildrenAreSelected}
-        aria-label={`${item.label}${item.children ? ` , ${labels.submenu}` : ''}${
-          item.tooltip ? ` , ${labels.note} ${item.tooltip}` : ''
-        }`}
+        aria-label={`${ariaItemLabel} ${ariaTooltipLabel}`}
         data-testid="dropdown-item"
       >
         {isMulti && (
