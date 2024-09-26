@@ -160,7 +160,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   const translatedAriaLabel = () => {
     return {
       submenu: lang === 'no' ? 'undermeny' : 'submenu',
-      note: lang === 'no' ? 'Merknad' : 'Note',
+      note: lang === 'no' ? 'Merknad:' : 'Note:',
     };
   };
 
@@ -188,8 +188,8 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         aria-haspopup={item.children ? 'listbox' : 'false'}
         aria-expanded={isShowing}
         aria-selected={selfOrAllChildrenAreSelected}
-        aria-label={`${item.label}${item.children ? ` , ${labels.submenu} ` : ''}${
-          item.tooltip ? ` , ${labels.note} ` + item.tooltip : ''
+        aria-label={`${item.label}${item.children ? ` , ${labels.submenu}` : ''}${
+          item.tooltip ? ` , ${labels.note} ${item.tooltip}` : ''
         }`}
         data-testid="dropdown-item"
       >
@@ -256,6 +256,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
           setFocusedItem={setFocusedItem}
           setHoveredItem={setHoveredItem}
           parentItem={item}
+          lang={lang}
         />
       )}
     </>

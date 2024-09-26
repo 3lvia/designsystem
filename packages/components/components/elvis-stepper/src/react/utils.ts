@@ -57,8 +57,8 @@ export const generateStatusMessage = (currentStep: number, steps: StepStates, er
       statusLabel: (isCompleted: boolean) =>
         isCompleted
           ? lang === 'no'
-            ? 'fullført'
-            : 'completed'
+            ? 'vellykket'
+            : 'successful'
           : lang === 'no'
             ? 'ikke fullført'
             : 'not completed',

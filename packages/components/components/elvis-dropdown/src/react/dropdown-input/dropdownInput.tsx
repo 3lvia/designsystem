@@ -91,7 +91,7 @@ export const DropdownInput: React.FC<Props> = ({
         ) {
           setInputValue(allOptionsSelectedLabel);
         } else if (selectedItems.length >= 2) {
-          setInputValue(`${selectedItems.length + (lang === 'no' ? ' valgte' : ' selected')}`);
+          setInputValue(`${selectedItems.length} ${lang === 'no' ? 'valgte' : 'selected'}`);
         } else if (selectedItems.length === 1) {
           // A value of null is specifically used when a dropdown item is used as a
           // "no item selected"-option. It should therefore set the input value to empty.
@@ -108,7 +108,7 @@ export const DropdownInput: React.FC<Props> = ({
 
     updateInputValue();
     updateCurrentValIcon();
-  }, [currentVal, items, dropdownIsOpen, allOptionsSelectedLabel]);
+  }, [currentVal, items, dropdownIsOpen]);
 
   return (
     <>
