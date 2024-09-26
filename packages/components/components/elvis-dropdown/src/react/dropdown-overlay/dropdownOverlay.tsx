@@ -1,5 +1,4 @@
-import { FormFieldSizes, Overlay } from '@elvia/elvis-toolbox';
-import { LanguageCode } from '@elvia/elvis-toolbox/src';
+import { FormFieldSizes, LanguageCode, Overlay } from '@elvia/elvis-toolbox';
 import DOMPurify from 'dompurify';
 import React, { KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react';
 

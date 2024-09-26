@@ -1,4 +1,4 @@
-import { LanguageCode } from '@elvia/elvis-toolbox/src/hooks/useLanguage';
+import { LanguageCode } from '@elvia/elvis-toolbox';
 
 import { BothSliders, Side, SliderProps, SliderType } from '../elvia-slider.types';
 

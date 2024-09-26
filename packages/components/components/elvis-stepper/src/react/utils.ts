@@ -50,8 +50,8 @@ export const generateStatusMessage = (
   errorSteps: number[],
   lang: LanguageCode,
 ) => {
-  const labels = (() => {
-    return lang === 'no'
+  const labels =
+    lang === 'no'
       ? {
           onStep: 'På steg',
           previousStep: 'Det forrige steget var',
@@ -70,7 +70,6 @@ export const generateStatusMessage = (
           successful: 'successful',
           notCompleted: 'not completed',
         };
-  })();
 
   const statusLabel = (isCompleted: boolean) => (isCompleted ? labels.successful : labels.notCompleted);
 
