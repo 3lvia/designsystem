@@ -1,5 +1,5 @@
 import arrowDown from '@elvia/elvis-assets-icons/dist/icons/arrowDown';
-import { IconWrapper, Overlay, TertiaryButton } from '@elvia/elvis-toolbox';
+import { IconWrapper, LanguageCode, Overlay, TertiaryButton } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
 
 import { Calendar } from '../calendar/calendar';
@@ -25,6 +25,7 @@ interface Props {
   maxDate?: Date;
   disableDate?: (date: Date) => boolean;
   dateRangeProps?: DatepickerRangeProps;
+  lang: LanguageCode;
 }
 
 export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
@@ -40,6 +41,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
       maxDate,
       disableDate,
       dateRangeProps,
+      lang,
     },
     ref,
   ) => {
@@ -83,9 +85,20 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
       initializeViewedDate();
     }, []);
 
+    const labels =
+      lang === 'no'
+        ? {
+            dateSelectorPopup: 'Datovelger popup',
+            changeYear: 'Endre år',
+          }
+        : {
+            dateSelector: 'Datepicker popup',
+            changeYear: 'Change year',
+          };
+
     return (
       <Overlay onClose={onClose} ref={ref} startFade={fadeOut}>
-        <Container data-testid="popover" role="dialog" aria-label="Datovelger popup" aria-modal="true">
+        <Container data-testid="popover" role="dialog" aria-label={labels.changeYear} aria-modal="true">
           <PopoverHeader>
             <SelectedDateName>
               {formatDate(selectedDate, { weekday: 'long', day: 'numeric', month: 'long' })}
@@ -93,7 +106,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
             <TertiaryButton
               size="sm"
               onClick={() => toggleView()}
-              aria-label="Endre år"
+              aria-label={labels.changeYear}
               data-testid="year-view-toggle"
             >
               {formatDate(viewedDate, { year: 'numeric' })}
@@ -128,6 +141,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
                 resetDate={resetDate}
                 clearButtonText={clearButtonText}
                 dateRangeProps={dateRangeProps}
+                lang={lang}
               />
             )}
           </PopoverBody>
