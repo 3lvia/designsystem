@@ -1,3 +1,4 @@
+import { useLanguage } from '@elvia/elvis-toolbox';
 import DOMPurify from 'dompurify';
 import React, { FC, useEffect, useRef, useState } from 'react';
 
@@ -20,12 +21,14 @@ export const RadioFilterItem: FC<RadioFilterItemProps> = ({
   name,
   ariaLabel,
 }) => {
+  const lang = useLanguage();
   // Use the innerText of an item to create an aria-label that doesn't include any HTML tags (e.g. icons)
   const titleRef = useRef<HTMLSpanElement>(null);
   const [defaultAriaLabel, setDefaultAriaLabel] = useState('');
   useEffect(() => {
     if (titleRef.current?.innerText) {
-      setDefaultAriaLabel(titleRef.current?.innerText + ' filtrering valgt');
+      const localizedLabel = lang === 'no' ? ' filtrering valgt' : ' filter selected';
+      setDefaultAriaLabel(titleRef.current?.innerText + localizedLabel);
     }
   }, [titleRef, titleRef.current]);
 

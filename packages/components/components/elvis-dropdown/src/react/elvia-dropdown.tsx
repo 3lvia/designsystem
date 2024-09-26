@@ -8,6 +8,7 @@ import {
   useBreakpoint,
   useConnectedOverlay,
   useInputModeDetection,
+  useLanguage,
   useWebComponentState,
   warnDeprecatedProps,
 } from '@elvia/elvis-toolbox';
@@ -47,7 +48,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   isFullWidth = false,
   isSearchable = false,
   isRequired = false,
-  allOptionsSelectedLabel = 'Alle',
+  allOptionsSelectedLabel,
   label = '',
   errorOptions,
   menuPosition = 'auto',
@@ -55,8 +56,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
   placeholderIcon,
   isMulti = false,
   hasSelectAllOption = false,
-  selectAllOption = 'Alle',
-  noOptionsMessage = 'Ingen tilgjengelige valg',
+  selectAllOption,
+  noOptionsMessage,
   valueOnChange,
   errorOnChange,
   onItemHover,
@@ -193,6 +194,17 @@ export const Dropdown: React.FC<DropdownProps> = ({
     return () => window.removeEventListener('keydown', closeOnEsc);
   }, [isShowing]);
 
+  const lang = useLanguage();
+
+  const labels = useMemo(() => {
+    return {
+      selectAllOption: selectAllOption ?? (lang === 'no' ? 'Alle' : 'All'),
+      allOptionsSelectedLabel: allOptionsSelectedLabel ?? (lang === 'no' ? 'Alle' : 'All'),
+      noOptionsMessage:
+        noOptionsMessage ?? (lang === 'no' ? 'Ingen tilgjengelige valg' : 'No available options'),
+    };
+  }, [lang, selectAllOption, allOptionsSelectedLabel, noOptionsMessage]);
+
   return (
     <>
       <FormFieldContainer
@@ -217,7 +229,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
             placeholderIcon={placeholderIcon}
             size={size}
             isRequired={isRequired}
-            allOptionsSelectedLabel={allOptionsSelectedLabel}
+            allOptionsSelectedLabel={labels.allOptionsSelectedLabel}
             isEditable={isSearchable}
             onChange={(value) => setFilter(value)}
             dropdownIsOpen={isShowing}
@@ -230,6 +242,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
             labelTransformation={labelTransformation}
             id={id}
             ariaLabel={ariaLabel}
+            lang={lang}
           />
 
           <IconRotator isRotated={isShowing} size={size}>
@@ -250,7 +263,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           ref={popoverRef}
           isRootOverlay
           isGtMobile={isGtMobile}
-          noItemsText={noOptionsMessage}
+          noItemsText={labels.noOptionsMessage}
           isMulti={isMulti}
           onItemSelect={setSelectedItem}
           size={size}
@@ -260,7 +273,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           allItems={items}
           pressedKey={pressedKey}
           currentVal={currentVal}
-          selectAllOption={hasSelectAllOption && isMulti ? selectAllOption : undefined}
+          selectAllOption={hasSelectAllOption && isMulti ? labels.selectAllOption : undefined}
           hasLoadMoreItemsButton={hasLoadMoreItemsButton}
           onLoadMoreItems={emitLoadMoreItems}
           isLoadingMoreItems={isLoadingMoreItems}
@@ -268,6 +281,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           setFocusedItem={updateFocusedItem}
           setHoveredItem={emitHoveredItem}
           isSearchMode={!!filter}
+          lang={lang}
         />
       )}
     </>

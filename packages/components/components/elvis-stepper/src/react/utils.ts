@@ -1,3 +1,5 @@
+import { LanguageCode } from '@elvia/elvis-toolbox';
+
 import { StepStates } from './publicApi.public';
 
 export const isReachable = (forced: boolean, stepNumber: number, steps?: StepStates): boolean => {
@@ -42,26 +44,54 @@ export const numberShouldBeVisible = (
   return false;
 };
 
-export const generateStatusMessage = (currentStep: number, steps: StepStates, errorSteps: number[]) => {
-  let statusMessage = `På steg ${currentStep}. `;
+export const generateStatusMessage = (
+  currentStep: number,
+  steps: StepStates,
+  errorSteps: number[],
+  lang: LanguageCode,
+) => {
+  const labels =
+    lang === 'no'
+      ? {
+          onStep: 'På steg',
+          previousStep: 'Det forrige steget var',
+          steps: 'Steg',
+          and: 'og',
+          wasInvalid: 'var ugyldig',
+          successful: 'vellykket',
+          notCompleted: 'ikke fullført',
+        }
+      : {
+          onStep: 'On step',
+          previousStep: 'The previous step was',
+          steps: 'Steps',
+          and: 'and',
+          wasInvalid: 'was invalid',
+          successful: 'successful',
+          notCompleted: 'not completed',
+        };
+
+  const statusLabel = (isCompleted: boolean) => (isCompleted ? labels.successful : labels.notCompleted);
+
+  let statusMessage = `${labels.onStep} ${currentStep}. `;
   if (currentStep > 1) {
-    statusMessage += `Det forrige steget var ${
-      steps?.[currentStep - 1]?.isCompleted ? 'vellykket' : 'ikke fullført'
-    }. `;
+    statusMessage += `${labels.previousStep} ${statusLabel(
+      steps?.[currentStep - 1]?.isCompleted ?? false,
+    )}. `;
   }
 
   if (errorSteps.length > 0) {
-    statusMessage += 'Steg ';
+    statusMessage += `${labels.steps} `;
     errorSteps.forEach((stepNumber: number, i: number) => {
       if (i === errorSteps.length - 1) {
         statusMessage += stepNumber;
       } else if (i === errorSteps.length - 2) {
-        statusMessage += stepNumber + ' og ';
+        statusMessage += stepNumber + ` ${labels.and} `;
       } else {
         statusMessage += stepNumber + ', ';
       }
     });
-    statusMessage += ' var ugyldig.';
+    statusMessage += ` ${labels.wasInvalid}.`;
   }
   return statusMessage;
 };

@@ -1,4 +1,4 @@
-import { FormFieldInput, FormFieldSizes } from '@elvia/elvis-toolbox';
+import { FormFieldInput, FormFieldSizes, LanguageCode } from '@elvia/elvis-toolbox';
 import DOMPurify from 'dompurify';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 
@@ -20,6 +20,7 @@ interface Props {
   onKeyPress: (ev?: KeyboardEvent<HTMLInputElement>) => void;
   dropdownIsOpen: boolean;
   onOpenDropdown: () => void;
+  lang: LanguageCode;
   currentVal?: DropdownValue | null;
   focusedItem?: DropdownItem;
   id?: string;
@@ -45,6 +46,7 @@ export const DropdownInput: React.FC<Props> = ({
   focusedItem,
   id,
   ariaLabel,
+  lang,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const [currentValIcon, setCurrentValIcon] = useState<string>();
@@ -89,7 +91,7 @@ export const DropdownInput: React.FC<Props> = ({
         ) {
           setInputValue(allOptionsSelectedLabel);
         } else if (selectedItems.length >= 2) {
-          setInputValue(`${selectedItems.length} valgte`);
+          setInputValue(`${selectedItems.length} ${lang === 'no' ? 'valgte' : 'selected'}`);
         } else if (selectedItems.length === 1) {
           // A value of null is specifically used when a dropdown item is used as a
           // "no item selected"-option. It should therefore set the input value to empty.

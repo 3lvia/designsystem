@@ -3,6 +3,18 @@
   "name": "elvis-stepper",
   "content": [
     {
+      "date": "26.09.24",
+      "version": "2.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global lang attribute on the html-element."
+          ]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "2.1.2",
       "changelog": [

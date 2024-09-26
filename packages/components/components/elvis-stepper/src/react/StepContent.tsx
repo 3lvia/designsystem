@@ -1,4 +1,4 @@
-import { PrimaryButton, SecondaryButton } from '@elvia/elvis-toolbox';
+import { PrimaryButton, SecondaryButton, useLanguage } from '@elvia/elvis-toolbox';
 import React, { FC } from 'react';
 
 import { StepperType } from './elvia-stepper.types';
@@ -29,6 +29,8 @@ export const StepContent: FC<StepContentProps> = function ({
   handleStepChange,
   onNextClick,
 }) {
+  const lang = useLanguage();
+
   return (
     <StepperContent $type={type}>
       <div ref={contentRef} role="tabpanel">
@@ -38,13 +40,18 @@ export const StepContent: FC<StepContentProps> = function ({
         <StepperActions>
           {currentStep !== 1 ? (
             <SecondaryButton onClick={() => handleStepChange(currentStep - 1)}>
-              {steps?.[currentStep]?.previousButtonText ?? 'Tilbake'}
+              {steps?.[currentStep]?.previousButtonText ?? (lang === 'no' ? 'Tilbake' : 'Go back')}
             </SecondaryButton>
           ) : (
             <div></div>
           )}
           {steps?.[currentStep]?.nextButtonState === 'loading' ? (
-            <PrimaryButton onClick={() => onNextClick?.()} isLoading aria-disabled aria-label="Laster inn">
+            <PrimaryButton
+              onClick={() => onNextClick?.()}
+              isLoading
+              aria-disabled
+              aria-label={lang === 'no' ? 'Laster inn' : 'Loading'}
+            >
               <span></span>
               <span></span>
               <span></span>
@@ -59,7 +66,7 @@ export const StepContent: FC<StepContentProps> = function ({
                 );
               }}
             >
-              {steps?.[currentStep]?.nextButtonText ?? 'Neste'}
+              {steps?.[currentStep]?.nextButtonText ?? (lang === 'no' ? 'Neste' : 'Next')}
             </PrimaryButton>
           )}
         </StepperActions>

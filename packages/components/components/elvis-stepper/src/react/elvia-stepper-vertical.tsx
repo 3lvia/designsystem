@@ -1,4 +1,4 @@
-import { useRovingFocus } from '@elvia/elvis-toolbox';
+import { useLanguage, useRovingFocus } from '@elvia/elvis-toolbox';
 import React, { FC } from 'react';
 
 import { StepContent } from './StepContent';
@@ -24,6 +24,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   inlineStyle,
   ...rest
 }) {
+  const lang = useLanguage();
   const [stepNumbersArray, errorSteps] = useStepNumbers(numberOfSteps, steps);
 
   const { ref: listContainerRef } = useRovingFocus<HTMLDivElement>({ dir: 'vertical' });
@@ -31,7 +32,7 @@ export const StepperVertical: FC<StepperTypeProps> = function ({
   return (
     <StepperContainer $type="vertical" className={className} style={inlineStyle} {...rest}>
       <StatusMessage aria-live="polite">
-        {steps && generateStatusMessage(currentStep, steps, errorSteps)}
+        {steps && generateStatusMessage(currentStep, steps, errorSteps, lang)}
       </StatusMessage>
       <Steps $type="vertical" role="tablist" aria-orientation="vertical" ref={listContainerRef}>
         {stepNumbersArray.map(
