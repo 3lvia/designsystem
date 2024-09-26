@@ -1,4 +1,4 @@
-import { useLanguage } from '@elvia/elvis-toolbox';
+import { LanguageCode } from '@elvia/elvis-toolbox';
 
 import { StepStates } from './publicApi.public';
 
@@ -44,32 +44,39 @@ export const numberShouldBeVisible = (
   return false;
 };
 
-export const generateStatusMessage = (currentStep: number, steps: StepStates, errorSteps: number[]) => {
-  const lang = useLanguage();
+export const generateStatusMessage = (
+  currentStep: number,
+  steps: StepStates,
+  errorSteps: number[],
+  lang: LanguageCode,
+) => {
+  const labels = (() => {
+    return lang === 'no'
+      ? {
+          onStep: 'På steg',
+          previousStep: 'Det forrige steget var',
+          steps: 'Steg',
+          and: 'og',
+          wasInvalid: 'var ugyldig',
+          successful: 'vellykket',
+          notCompleted: 'ikke fullført',
+        }
+      : {
+          onStep: 'On step',
+          previousStep: 'The previous step was',
+          steps: 'Steps',
+          and: 'and',
+          wasInvalid: 'was invalid',
+          successful: 'successful',
+          notCompleted: 'not completed',
+        };
+  })();
 
-  const getTranslatedLabels = () => {
-    return {
-      onStep: lang === 'no' ? 'På steg' : 'On step',
-      previousStep: lang === 'no' ? 'Det forrige steget var' : 'The previous step was',
-      steps: lang === 'no' ? 'Steg' : 'Steps',
-      and: lang === 'no' ? 'og' : 'and',
-      wasInvalid: lang === 'no' ? 'var ugyldig' : 'was invalid',
-      statusLabel: (isCompleted: boolean) =>
-        isCompleted
-          ? lang === 'no'
-            ? 'vellykket'
-            : 'successful'
-          : lang === 'no'
-            ? 'ikke fullført'
-            : 'not completed',
-    };
-  };
-
-  const labels = getTranslatedLabels();
+  const statusLabel = (isCompleted: boolean) => (isCompleted ? labels.successful : labels.notCompleted);
 
   let statusMessage = `${labels.onStep} ${currentStep}. `;
   if (currentStep > 1) {
-    statusMessage += `${labels.previousStep} ${labels.statusLabel(
+    statusMessage += `${labels.previousStep} ${statusLabel(
       steps?.[currentStep - 1]?.isCompleted ?? false,
     )}. `;
   }
