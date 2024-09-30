@@ -58,25 +58,24 @@ test('should render', async ({ mount }) => {
 
 test('should look as expected (simple, medium)', async ({ mount, page }) => {
   await mount(renderSliders('simple', 'medium'));
-  page.waitForTimeout(500);
+  await page.waitForTimeout(250);
   await percySnapshot(page, 'Slider: simple (medium)');
 });
 
 test('should look as expected (simple, small)', async ({ mount, page }) => {
   await mount(renderSliders('simple', 'small'));
+  await page.waitForTimeout(250);
   await percySnapshot(page, 'Slider: simple (small)');
 });
 
 test('should look as expected (range, medium)', async ({ mount, page }) => {
   await mount(renderSliders('range', 'medium'));
-  setTimeout(async () => {
-    await percySnapshot(page, 'Slider: range (medium)');
-  }, 500);
+  await page.waitForTimeout(250);
+  await percySnapshot(page, 'Slider: range (medium)');
 });
 
 test('should look as expected (range, small)', async ({ mount, page }) => {
   await mount(renderSliders('range', 'small'));
-  setTimeout(async () => {
-    await percySnapshot(page, 'Slider: range (small)');
-  }, 500);
+  await page.waitForTimeout(250);
+  await percySnapshot(page, 'Slider: range (small)');
 });
