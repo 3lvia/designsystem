@@ -1,6 +1,7 @@
 # Elvia design system
 
-> [!NOTE] Further development of the design sytstem is currently on hold.
+> [!NOTE]
+> Further development of the design system is currently on hold.
 
 ![Decorative image of the design system](https://design.elvia.io/assets/HomeIllustration.png)
 
