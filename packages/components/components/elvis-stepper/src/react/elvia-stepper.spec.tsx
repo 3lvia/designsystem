@@ -31,7 +31,7 @@ test('should render', async ({ mount }) => {
 
 test('should look as expected (horizontal)', async ({ mount, page }) => {
   await mount(
-    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
+    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column', margin: '64px' }}>
       <Stepper type="horizontal" steps={steps} content={content} />
     </div>,
   );
