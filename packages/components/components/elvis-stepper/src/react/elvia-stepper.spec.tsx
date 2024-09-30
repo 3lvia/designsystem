@@ -35,9 +35,8 @@ test('should look as expected (horizontal)', async ({ mount, page }) => {
       <Stepper type="horizontal" steps={steps} content={content} />
     </div>,
   );
-  setTimeout(async () => {
-    await percySnapshot(page, 'Stepper: horizontal');
-  }, 500);
+  await page.waitForTimeout(500);
+  await percySnapshot(page, 'Stepper: horizontal');
 });
 
 test('should look as expected (vertical)', async ({ mount, page }) => {
