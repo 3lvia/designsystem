@@ -74,26 +74,26 @@ test('should look as expected (simple, medium)', async ({ mount, page }) => {
   await mount(renderSliders('simple', 'medium'));
   setTimeout(async () => {
     await percySnapshot(page, 'Slider: simple (medium)');
-  }, 250); //timeout to wait for component to finish rendering
+  }, 500); //timeout to wait for component to finish rendering
 });
 
 test('should look as expected (simple, small)', async ({ mount, page }) => {
   await mount(renderSliders('simple', 'small'));
   setTimeout(async () => {
     await percySnapshot(page, 'Slider: simple (small)');
-  }, 250);
+  }, 500);
 });
 
 test('should look as expected (range, medium)', async ({ mount, page }) => {
   await mount(renderSliders('range', 'medium'));
   setTimeout(async () => {
     await percySnapshot(page, 'Slider: range (medium)');
-  }, 250);
+  }, 500);
 });
 
 test('should look as expected (range, small)', async ({ mount, page }) => {
   await mount(renderSliders('range', 'small'));
   setTimeout(async () => {
     await percySnapshot(page, 'Slider: range (small)');
-  }, 250);
+  }, 500);
 });
