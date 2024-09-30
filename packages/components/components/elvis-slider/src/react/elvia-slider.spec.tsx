@@ -15,38 +15,52 @@ const renderSliders = (type: SliderType, size: FormFieldSizes) => (
     <Slider type={type} size={size} label={'Label'} hasInputField={false} />
     <Slider type={type} size={size} label={'Label'} isDisabled />
     {type === 'range' && (
-      <Slider
-        type={type}
-        size={size}
-        label={'Label'}
-        errorOptions={{
-          left: {
-            text: 'Left error text',
-            hideText: false,
-            isErrorState: true,
-            hasErrorPlaceholder: true,
-          },
-          right: {
-            text: 'Right error text',
-            hideText: false,
-            isErrorState: true,
-            hasErrorPlaceholder: true,
-          },
-        }}
-      />
+      <>
+        <Slider
+          type={type}
+          size={size}
+          label={'Label'}
+          value={{
+            left: 20,
+            right: 80,
+          }}
+        />
+        <Slider
+          type={type}
+          size={size}
+          label={'Label'}
+          errorOptions={{
+            left: {
+              text: 'Left error text',
+              hideText: false,
+              isErrorState: true,
+              hasErrorPlaceholder: true,
+            },
+            right: {
+              text: 'Right error text',
+              hideText: false,
+              isErrorState: true,
+              hasErrorPlaceholder: true,
+            },
+          }}
+        />
+      </>
     )}
     {type !== 'range' && (
-      <Slider
-        type={type}
-        size={size}
-        label={'Label'}
-        errorOptions={{
-          text: 'Error message',
-          hideText: false,
-          isErrorState: true,
-          hasErrorPlaceholder: true,
-        }}
-      />
+      <>
+        <Slider type={type} size={size} label={'Label'} value={50} />
+        <Slider
+          type={type}
+          size={size}
+          label={'Label'}
+          errorOptions={{
+            text: 'Error message',
+            hideText: false,
+            isErrorState: true,
+            hasErrorPlaceholder: true,
+          }}
+        />
+      </>
     )}
   </div>
 );
@@ -60,20 +74,26 @@ test('should look as expected (simple, medium)', async ({ mount, page }) => {
   await mount(renderSliders('simple', 'medium'));
   setTimeout(async () => {
     await percySnapshot(page, 'Slider: simple (medium)');
-  }, 500);
+  }, 500); //timeout to wait for component to finish rendering
 });
 
 test('should look as expected (simple, small)', async ({ mount, page }) => {
   await mount(renderSliders('simple', 'small'));
-  await percySnapshot(page, 'Slider: simple (small)');
+  setTimeout(async () => {
+    await percySnapshot(page, 'Slider: simple (small)');
+  }, 500);
 });
 
 test('should look as expected (range, medium)', async ({ mount, page }) => {
   await mount(renderSliders('range', 'medium'));
-  await percySnapshot(page, 'Slider: range (medium)');
+  setTimeout(async () => {
+    await percySnapshot(page, 'Slider: range (medium)');
+  }, 500);
 });
 
 test('should look as expected (range, small)', async ({ mount, page }) => {
   await mount(renderSliders('range', 'small'));
-  await percySnapshot(page, 'Slider: range (small)');
+  setTimeout(async () => {
+    await percySnapshot(page, 'Slider: range (small)');
+  }, 500);
 });
