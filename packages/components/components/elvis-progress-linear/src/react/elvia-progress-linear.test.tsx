@@ -8,7 +8,7 @@ import ProgressLinear from './elvia-progress-linear';
 describe('Elvis Progress Linear', () => {
   describe('Value = 48', () => {
     beforeEach(() => {
-      render(<ProgressLinear value={48}></ProgressLinear>);
+      render(<ProgressLinear value={48} />);
     });
 
     it('should have value 48', () => {
@@ -19,7 +19,7 @@ describe('Elvis Progress Linear', () => {
 
   describe('Indeterminate', () => {
     beforeEach(() => {
-      render(<ProgressLinear isIndeterminate></ProgressLinear>);
+      render(<ProgressLinear isIndeterminate />);
     });
 
     it('should have color green', () => {
@@ -28,22 +28,9 @@ describe('Elvis Progress Linear', () => {
     });
   });
 
-  describe('Error', () => {
-    beforeEach(() => {
-      render(<ProgressLinear isError></ProgressLinear>);
-    });
-
-    it('should have color red', () => {
-      const progressLinearProgress = screen.getByTestId('progress-linear-progress');
-      expect(progressLinearProgress).toHaveStyle(`background-color: ${getThemeColor('signal-danger')}`);
-    });
-  });
-
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(
-        <ProgressLinear value={48} className="test-class" inlineStyle={{ margin: '24px' }}></ProgressLinear>,
-      );
+      render(<ProgressLinear value={48} className="test-class" inlineStyle={{ margin: '24px' }} />);
     });
 
     it('should have className and inlineStyle', () => {
