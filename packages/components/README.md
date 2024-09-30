@@ -49,8 +49,8 @@ Read about the
 - Follow the
   [versioning guidelines](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/10421994468/Retningslinjer+for+versjonering)
   for publishing to NPM.
-- If a package, published to NPM, has errors making the component stop working, follow the
-  [deprecating packages guide](https://elvia.atlassian.net/wiki/spaces/TEAMATOM/pages/71257653542/NPM+-+Deprecating+pakker).
+- If a package, published to NPM, has errors making the component stop working, follow the guide further below
+  in this document.
 
 #### Good to know
 
@@ -273,6 +273,18 @@ export interface CardProps {
 The function `warnDeprecatedProps(config, props)` from `@elvia/elvis-toolbox` must be called inside the
 component in order to `console.warn()` about the use of deprecated props. For information on how to use this
 function, see it's JSDoc for an example.
+
+## Deprecating versions on NPM
+
+Deprecate package versions if a bug is introduced or an erroneous breaking change happens. Fix the bug and
+publish a functioning version. Deprecate all the versions that included the bug.
+
+Format of the deprecation message: ‘Deprecated! This version introduces a bug. Use version “12.3.2” or later
+instead.
+
+```bash
+npm deprecate <package>@<version> "Deprecated! This is an explanation of why." --otp=<YOUR_OTP_CODE>
+```
 
 ## Playwright tests
 
