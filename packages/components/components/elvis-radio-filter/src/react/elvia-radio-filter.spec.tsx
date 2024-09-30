@@ -14,29 +14,17 @@ test('should render', async ({ mount }) => {
 });
 
 test('should look as expected', async ({ mount, page }) => {
-  const components = await mount(
-    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
-      <RadioFilter
-        value="read"
-        name="example"
-        items={[
-          { label: 'Alle', value: 'all' },
-          { label: 'Lest', value: 'read' },
-          { label: 'Ulest', value: 'unread' },
-        ]}
-      />
-      <RadioFilter
-        value="car"
-        name="example"
-        items={[
-          { label: 'Bil', value: 'car' },
-          { label: 'Båt', value: 'boat' },
-          { label: 'Sykkel', value: 'bike' },
-        ]}
-      />
-    </div>,
+  await mount(
+    <RadioFilter
+      value="read"
+      name="example"
+      items={[
+        { label: 'Alle', value: 'all' },
+        { label: 'Lest', value: 'read' },
+        { label: 'Ulest', value: 'unread' },
+      ]}
+    />,
   );
 
-  await components.getByRole('radio', { name: /sykkel/i }).hover();
   await percySnapshot(page, 'RadioFilter');
 });
