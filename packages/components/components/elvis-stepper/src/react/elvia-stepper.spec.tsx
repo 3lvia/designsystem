@@ -35,12 +35,14 @@ test('should look as expected (horizontal)', async ({ mount, page }) => {
       <Stepper type="horizontal" steps={steps} content={content} />
     </div>,
   );
-  await percySnapshot(page, 'Stepper: horizontal');
+  setTimeout(async () => {
+    await percySnapshot(page, 'Stepper: horizontal');
+  }, 500);
 });
 
 test('should look as expected (vertical)', async ({ mount, page }) => {
   await mount(
-    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
+    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column', margin: '64px' }}>
       <Stepper type="vertical" steps={steps} content={content} />
     </div>,
   );
