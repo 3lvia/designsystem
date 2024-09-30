@@ -65,7 +65,9 @@ test('should look as expected (simple, medium)', async ({ mount, page }) => {
 
 test('should look as expected (simple, small)', async ({ mount, page }) => {
   await mount(renderSliders('simple', 'small'));
-  await percySnapshot(page, 'Slider: simple (small)');
+  setTimeout(async () => {
+    await percySnapshot(page, 'Slider: simple (small)');
+  }, 500);
 });
 
 test('should look as expected (range, medium)', async ({ mount, page }) => {
