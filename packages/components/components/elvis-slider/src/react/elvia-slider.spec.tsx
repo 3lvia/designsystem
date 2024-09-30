@@ -58,7 +58,7 @@ test('should render', async ({ mount }) => {
 
 test('should look as expected (simple, medium)', async ({ mount, page }) => {
   await mount(renderSliders('simple', 'medium'));
-  page.waitForTimeout(250);
+  page.waitForTimeout(500);
   await percySnapshot(page, 'Slider: simple (medium)');
 });
 
