@@ -31,7 +31,7 @@ export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
   const themes: PickerTheme[] = [
     { theme: 'light', label: lang === 'no' ? 'Lys' : 'Light' },
     { theme: 'dark', label: lang === 'no' ? 'Mørk' : 'Dark' },
-    { theme: 'system', label: lang === 'no' ? 'System' : 'System' },
+    { theme: 'system', label: 'System' },
   ];
   const [currentTheme, setCurrentTheme] = useState<Theme>(getStoredActiveTheme());
 
