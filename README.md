@@ -1,5 +1,8 @@
 # Elvia design system
 
+> [!NOTE]
+> Further development of the design system is currently on hold.
+
 ![Decorative image of the design system](https://design.elvia.io/assets/HomeIllustration.png)
 
 Read our documentation at: [Design.elvia.io](https://design.elvia.io/)
