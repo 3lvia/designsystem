@@ -1,3 +1,4 @@
+import { LanguageCode } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
 
 import { Theme, ThemeEvent, themeLocalStorageKey } from '../elviaHeader.types';
@@ -20,13 +21,14 @@ interface PickerTheme {
 
 interface ThemePickerProps {
   onThemeChange: ThemeEvent | undefined;
+  lang: LanguageCode;
 }
 
-export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
+export const ThemePicker: React.FC<ThemePickerProps> = ({ lang, onThemeChange }) => {
   const themes: PickerTheme[] = [
-    { theme: 'light', label: 'Lys' },
-    { theme: 'dark', label: 'Mørk' },
-    { theme: 'system', label: 'System' },
+    { theme: 'light', label: lang === 'no' ? 'Lys' : 'Light' },
+    { theme: 'dark', label: lang === 'no' ? 'Mørk' : 'Dark' },
+    { theme: 'system', label: lang === 'no' ? 'System' : 'System' },
   ];
   const [currentTheme, setCurrentTheme] = useState<Theme>(getStoredActiveTheme());
 

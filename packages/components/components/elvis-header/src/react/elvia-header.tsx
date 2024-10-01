@@ -130,6 +130,7 @@ export const Header: React.FC<HeaderProps> = ({
               menuContent={menuContent}
               webcomponent={webcomponent}
               labels={labels}
+              lang={lang}
             />
           </SquareContainer>
         )}
@@ -146,6 +147,7 @@ export const Header: React.FC<HeaderProps> = ({
               menuContent={menuContent}
               webcomponent={webcomponent}
               labels={labels}
+              lang={lang}
             />
           </>
         )}

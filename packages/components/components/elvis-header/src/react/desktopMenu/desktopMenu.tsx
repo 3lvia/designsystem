@@ -32,6 +32,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
   menuContent,
   webcomponent,
   labels,
+  lang,
 }) => {
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const connectedElementRef = useRef<HTMLButtonElement>(null);
@@ -90,7 +91,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
               <Email>{email}</Email>
             </UserGrid>
             <DesktopMenuSlot ref={menuContentRef}>{menuContent}</DesktopMenuSlot>
-            {!hideThemeSwitch && <ThemePicker onThemeChange={onThemeChange} />}
+            {!hideThemeSwitch && <ThemePicker lang={lang} onThemeChange={onThemeChange} />}
             <MenuHr></MenuHr>
             <Footer>
               <TertiaryButton size="sm" onClick={onSignOutClick}>
