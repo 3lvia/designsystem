@@ -26,11 +26,6 @@ export const emptyDateRange: DateRange = {
   end: null,
 };
 
-export const defaultLabelOptions: LabelOptions = {
-  start: 'Fra dato',
-  end: 'Til dato',
-};
-
 export const emptyErrorMessage: CustomError = {
   start: undefined,
   end: undefined,

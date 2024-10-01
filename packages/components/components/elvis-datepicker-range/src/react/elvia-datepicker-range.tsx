@@ -12,7 +12,6 @@ import {
   DisableDates,
   ErrorOptions,
   IsRequired,
-  defaultLabelOptions,
   emptyDateRange,
   emptyErrorMessage,
 } from './elviaDatepickerRange.types';
@@ -315,7 +314,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
 
   const labels =
     lang === 'no'
-      ? defaultLabelOptions
+      ? {
+          start: 'Fra dato',
+          end: 'Til dato',
+        }
       : {
           start: 'From date',
           end: 'To date',
