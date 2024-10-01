@@ -272,6 +272,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
               minTime={minTime}
               maxTime={maxTime}
               hasSecondPicker={hasSecondPicker}
+              lang={lang}
             />
           )}
         </div>
