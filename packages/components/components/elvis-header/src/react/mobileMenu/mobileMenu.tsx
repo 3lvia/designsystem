@@ -44,7 +44,6 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
   menuContent,
   webcomponent,
   labels,
-  lang,
 }) => {
   const [view, setView] = useState<'mainPage' | 'appSelector'>('mainPage');
   const [backButtonIsHovered, setBackButtonIsHovered] = useState(false);
@@ -103,7 +102,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   <TextSmall>{email}</TextSmall>
                   <MobileMenuSlot ref={menuContentRef}>{menuContent}</MobileMenuSlot>
                   <AppSelector labels={labels} appTitle={appTitle} onClick={() => setView('appSelector')} />
-                  {!hideThemeSwitch && <ThemePicker lang={lang} onThemeChange={onThemeChange} />}
+                  {!hideThemeSwitch && <ThemePicker onThemeChange={onThemeChange} />}
                   <MobileMenuFooter>
                     <TertiaryButton size="sm" onClick={onSignOutClick}>
                       <IconWrapper icon={logout} size="xs" />
