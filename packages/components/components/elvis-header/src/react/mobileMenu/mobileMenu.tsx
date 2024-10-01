@@ -43,6 +43,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
   onThemeChange,
   menuContent,
   webcomponent,
+  labels,
 }) => {
   const [view, setView] = useState<'mainPage' | 'appSelector'>('mainPage');
   const [backButtonIsHovered, setBackButtonIsHovered] = useState(false);
@@ -70,7 +71,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
     <>
       <IconButton
         onClick={() => onMobileMenuToggle(!userMenuIsOpen)}
-        aria-label="Åpne brukermeny"
+        aria-label={labels.openMenuLabel}
         aria-expanded={userMenuIsOpen}
         aria-haspopup="dialog"
         aria-controls="ewc-header-mobile-menu"
@@ -100,12 +101,12 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                   <TextSmallStrong>{username}</TextSmallStrong>
                   <TextSmall>{email}</TextSmall>
                   <MobileMenuSlot ref={menuContentRef}>{menuContent}</MobileMenuSlot>
-                  <AppSelector appTitle={appTitle} onClick={() => setView('appSelector')} />
+                  <AppSelector labels={labels} appTitle={appTitle} onClick={() => setView('appSelector')} />
                   {!hideThemeSwitch && <ThemePicker onThemeChange={onThemeChange} />}
                   <MobileMenuFooter>
                     <TertiaryButton size="sm" onClick={onSignOutClick}>
                       <IconWrapper icon={logout} size="xs" />
-                      Logg ut
+                      {labels.logoutLabel}
                     </TertiaryButton>
                   </MobileMenuFooter>
                 </>
@@ -122,7 +123,7 @@ export const MobileMenu: React.FC<MobileUserMenuProps> = ({
                       icon={backButtonIsHovered ? arrowLeftCircleFilledColor : arrowLeftCircleColor}
                       size="sm"
                     />
-                    <TextMdStrong>Velg applikasjon</TextMdStrong>
+                    <TextMdStrong>{labels.selectAppLabel}</TextMdStrong>
                     <ButtonSpacer />
                   </BackButton>
                   <AppListContainer>

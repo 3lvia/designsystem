@@ -31,6 +31,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
   onThemeChange,
   menuContent,
   webcomponent,
+  labels,
 }) => {
   const { trapFocus, releaseFocusTrap } = useFocusTrap();
   const connectedElementRef = useRef<HTMLButtonElement>(null);
@@ -66,7 +67,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
       <ProfileButton
         size="sm"
         onClick={() => togglePopupVisibility(!isShowing)}
-        aria-label="Åpne brukermeny"
+        aria-label={labels.openMenuLabel}
         aria-expanded={isShowing}
         aria-haspopup="dialog"
         aria-controls="ewc-header-desktop-menu"
@@ -94,7 +95,7 @@ export const DesktopMenu: React.FC<UserMenuProps> = ({
             <Footer>
               <TertiaryButton size="sm" onClick={onSignOutClick}>
                 <IconWrapper icon={logout} size="xs" />
-                Logg ut
+                {labels.logoutLabel}
               </TertiaryButton>
             </Footer>
           </MenuContainer>
