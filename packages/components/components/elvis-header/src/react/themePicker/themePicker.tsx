@@ -26,6 +26,8 @@ interface ThemePickerProps {
 export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
   const lang = useLanguage();
 
+  const themeLabel = lang === 'no' ? 'Tema' : 'Theme';
+
   const themes: PickerTheme[] = [
     { theme: 'light', label: lang === 'no' ? 'Lys' : 'Light' },
     { theme: 'dark', label: lang === 'no' ? 'Mørk' : 'Dark' },
@@ -58,7 +60,7 @@ export const ThemePicker: React.FC<ThemePickerProps> = ({ onThemeChange }) => {
 
   return (
     <ThemeContainer>
-      <ThemeLabel>Tema</ThemeLabel>
+      <ThemeLabel>{themeLabel}</ThemeLabel>
       <ThemeListContainer>
         {themes.map((pickerTheme) => (
           <ThemeButton

@@ -3,6 +3,18 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "01.10.24",
+      "version": "1.13.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global lang attribute on the html-element."
+          ]
+        }
+      ]
+    },
+    {
       "date": "17.09.24",
       "version": "1.12.1",
       "changelog": [
