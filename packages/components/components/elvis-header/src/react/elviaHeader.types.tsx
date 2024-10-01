@@ -1,5 +1,5 @@
 import { ThemeName } from '@elvia/elvis-colors';
-import { BaseProps, LanguageCode } from '@elvia/elvis-toolbox';
+import { BaseProps } from '@elvia/elvis-toolbox';
 
 export type Theme = ThemeName | 'system';
 export const themeLocalStorageKey = 'elviaHeaderPreferredTheme';
@@ -22,7 +22,6 @@ export interface UserMenuProps {
   menuContent?: JSX.Element;
   webcomponent: BaseProps['webcomponent'];
   labels: Labels;
-  lang: LanguageCode;
 }
 
 export interface HeaderProps extends BaseProps {
