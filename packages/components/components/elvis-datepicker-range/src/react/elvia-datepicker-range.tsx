@@ -1,6 +1,6 @@
 import { Datepicker, DatepickerProps } from '@elvia/elvis-datepicker/react';
 import { Timepicker } from '@elvia/elvis-timepicker/react';
-import { FormFieldContainer, useUpdateEffect } from '@elvia/elvis-toolbox';
+import { FormFieldContainer, useLanguage, useUpdateEffect } from '@elvia/elvis-toolbox';
 import React, { FC, useEffect, useMemo, useState } from 'react';
 
 import { isSameDate, isValidDate, localISOTime } from './dateHelpers';
@@ -12,7 +12,6 @@ import {
   DisableDates,
   ErrorOptions,
   IsRequired,
-  defaultLabelOptions,
   emptyDateRange,
   emptyErrorMessage,
 } from './elviaDatepickerRange.types';
@@ -311,6 +310,19 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
     handleEndDatepickerValueOnChange(newDate, 'time');
   };
 
+  const lang = useLanguage();
+
+  const labels =
+    lang === 'no'
+      ? {
+          start: 'Fra dato',
+          end: 'Til dato',
+        }
+      : {
+          start: 'From date',
+          end: 'To date',
+        };
+
   return (
     <DatepickerRangeWrapper
       isFullWidth={isFullWidth ?? false}
@@ -325,7 +337,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <RowContainer size={size}>
           <Datepicker
             {...passThroughProps}
-            label={labelOptions?.start ?? defaultLabelOptions.start}
+            label={labelOptions?.start ?? labels.start}
             value={selectedDateRange.start}
             valueOnChange={handleStartDatePickerValueOnChange}
             isRequired={isRequiredState?.start}
@@ -392,7 +404,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
         <RowContainer size={size}>
           <Datepicker
             {...passThroughProps}
-            label={labelOptions?.end ?? defaultLabelOptions.end}
+            label={labelOptions?.end ?? labels.end}
             value={selectedDateRange.end}
             valueOnChange={handleEndDatePickerValueOnChange}
             isRequired={isRequiredState?.end}

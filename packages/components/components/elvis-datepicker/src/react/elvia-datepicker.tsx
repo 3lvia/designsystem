@@ -8,6 +8,7 @@ import {
   IconWrapper,
   useConnectedOverlay,
   useFocusTrap,
+  useLanguage,
 } from '@elvia/elvis-toolbox';
 import React, { FocusEventHandler, useEffect, useRef, useState } from 'react';
 
@@ -26,7 +27,7 @@ const defaultErrorOptions = {
 } satisfies Partial<ErrorOptions>;
 
 export const Datepicker: React.FC<DatepickerProps> = ({
-  clearButtonText = 'Nullstill',
+  clearButtonText,
   dateRangeProps,
   onFocus,
   disableDate,
@@ -38,13 +39,13 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   isFullWidth = false,
   isOpen = false,
   isRequired = false,
-  label = 'Velg dato',
+  label,
   maxDate,
   minDate,
   onClose,
   onOpen,
   onReset,
-  placeholder = 'dd.mm.åååå',
+  placeholder,
   resetTime,
   value,
   valueOnChange,
@@ -54,6 +55,23 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   inlineStyle,
   webcomponent,
 }) => {
+  const lang = useLanguage();
+
+  const labels =
+    lang === 'no'
+      ? {
+          clearButtonText: clearButtonText ?? 'Nullstill',
+          label: label ?? 'Velg dato',
+          placeholder: placeholder ?? 'dd.mm.åååå',
+          openDatepicker: 'Åpne datovelger',
+        }
+      : {
+          clearButtonText: clearButtonText ?? 'Clear',
+          label: label ?? 'Select date',
+          placeholder: placeholder ?? 'dd.mm.yyyy',
+          openDatepicker: 'Open datepicker',
+        };
+
   const [date, setDate] = useState<Date | undefined | null>(value || null);
   const [error, setError] = useState<ErrorType | undefined>();
   const [minDateWithoutTime, setMinDateWithoutTime] = useState<Date | undefined>(undefined);
@@ -180,7 +198,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     }
     setError(newError);
 
-    const errorText = getErrorText(newError, minDate, maxDate, dateRangeProps?.showTimeInError);
+    const errorText = getErrorText(lang, newError, minDate, maxDate, dateRangeProps?.showTimeInError);
 
     errorOnChange?.(errorText);
     webcomponent?.triggerEvent('errorOnChange', errorText);
@@ -315,9 +333,9 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
         data-testid="wrapper"
       >
-        {!!label && (
+        {!!labels.label && (
           <FormFieldLabel data-testid="label" hasOptionalText={hasOptionalText}>
-            {label}
+            {labels.label}
           </FormFieldLabel>
         )}
         <FormFieldInputContainer ref={connectedElementRef} data-testid="input-container">
@@ -325,7 +343,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             ref={inputRef}
             date={date}
             disabled={isDisabled}
-            placeholder={placeholder}
+            placeholder={labels.placeholder}
             fullWidth={isFullWidth}
             onChange={updateValue}
             onFocus={() => onFocus?.()}
@@ -346,7 +364,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
             ref={openPopoverButtonRef}
             size={size}
             data-testid="popover-toggle"
-            aria-label="Åpne datovelger"
+            aria-label={labels.openDatepicker}
             aria-haspopup="dialog"
           >
             <IconWrapper
@@ -359,7 +377,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
         {((error && !mergedErrorOptions.hideText) || mergedErrorOptions.text) && (
           <DatepickerError
             customText={mergedErrorOptions.text}
-            errorText={getErrorText(error, minDate, maxDate, dateRangeProps?.showTimeInError)}
+            errorText={getErrorText(lang, error, minDate, maxDate, dateRangeProps?.showTimeInError)}
           />
         )}
       </FormFieldContainer>
@@ -371,11 +389,12 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           onCalendarViewToggle={reinitiateFocusTrap}
           onReset={triggerResetEvent}
           selectedDate={date}
-          clearButtonText={clearButtonText}
+          clearButtonText={labels.clearButtonText}
           minDate={minDateWithoutTime}
           maxDate={maxDateWithoutTime}
           disableDate={disableDate}
           dateRangeProps={dateRangeProps}
+          lang={lang}
         />
       )}
     </>
