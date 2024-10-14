@@ -5073,12 +5073,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/functions@npm:^2.8.1":
-  version: 2.8.1
-  resolution: "@netlify/functions@npm:2.8.1"
+"@netlify/functions@npm:^2.8.2":
+  version: 2.8.2
+  resolution: "@netlify/functions@npm:2.8.2"
   dependencies:
-    "@netlify/serverless-functions-api": "npm:1.19.1"
-  checksum: 10/75ac01e845df51d52ad32696350d1d628d9c104a89b84362fbcf23f9e917b310b7c868280e6bb4d91b789176c3954ee2f857d4462ceca81963d75678b29adac5
+    "@netlify/serverless-functions-api": "npm:1.26.1"
+  checksum: 10/7d0850d69d15f80d6d1fc1dd0d06e47b9aa6f0cd763a1569df091174894a42afe906f940c90371276c7f62f42389554d793fd28eeef0eb8e45bef8c262c26825
   languageName: node
   linkType: hard
 
@@ -5089,13 +5089,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/serverless-functions-api@npm:1.19.1":
-  version: 1.19.1
-  resolution: "@netlify/serverless-functions-api@npm:1.19.1"
+"@netlify/serverless-functions-api@npm:1.26.1":
+  version: 1.26.1
+  resolution: "@netlify/serverless-functions-api@npm:1.26.1"
   dependencies:
     "@netlify/node-cookies": "npm:^0.1.0"
     urlpattern-polyfill: "npm:8.0.2"
-  checksum: 10/8413af18b68fe9f2ace410eb8aaf8aa69996209a34fc34d1db1308fd6f2ce28d4371c2cfa439ff82c69c1d10034bd4f141f1e656f18edac0be7043426e10318b
+  checksum: 10/a24c7424d7f06f2b527d19fc1607c93e9f517860369f1b2edae90dc6f68d5222be6b0d15be80d80cd28c5322a8cbd521fcd38f5fe945e1e045e6db5d2b15ba89
   languageName: node
   linkType: hard
 
@@ -9610,7 +9610,7 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
-    "@netlify/functions": "npm:^2.8.1"
+    "@netlify/functions": "npm:^2.8.2"
     "@types/file-saver": "npm:^2.0.7"
     "@types/natural-compare-lite": "npm:^1.4.2"
     "@types/node": "npm:20.16.11"
