@@ -3771,7 +3771,7 @@ __metadata:
     "@types/react": "npm:^18.3.11"
     dompurify: "npm:^3.1.7"
     lit: "npm:^3.2.0"
-    lit-html: "npm:^3.2.0"
+    lit-html: "npm:^3.2.1"
     tsup: "npm:^8.3.0"
     typescript: "npm:~5.5.4"
   peerDependencies:
@@ -14653,6 +14653,15 @@ __metadata:
   dependencies:
     "@types/trusted-types": "npm:^2.0.2"
   checksum: 10/c6e6f07b3aa02d6b3dc047664d144911a49c7ed95137320b769771f8386873f8d72858b205cad707fa88fd5d882de25981de80660888c6f1be106af01bbba979
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "lit-html@npm:3.2.1"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: 10/d670a8e49da98d04b83dd13807fec86305d85915b30814c5461e7a34d001ce1efcd8395467897118d0ab5c09d9c224617b25a4eb2b743491f634f6a3bf155753
   languageName: node
   linkType: hard
 
