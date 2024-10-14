@@ -3770,7 +3770,7 @@ __metadata:
     "@lit/react": "npm:^1.0.6"
     "@types/react": "npm:^18.3.11"
     dompurify: "npm:^3.1.7"
-    lit: "npm:^3.2.0"
+    lit: "npm:^3.2.1"
     lit-html: "npm:^3.2.1"
     tsup: "npm:^8.3.0"
     typescript: "npm:~5.5.4"
@@ -14738,14 +14738,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "lit@npm:3.2.0"
+"lit@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "lit@npm:3.2.1"
   dependencies:
     "@lit/reactive-element": "npm:^2.0.4"
     lit-element: "npm:^4.1.0"
     lit-html: "npm:^3.2.0"
-  checksum: 10/7f9f84f797f85a81a5c9c77a00bc0b7240194263aa32d1b47f8260de0b82dbd475dec0cefcbcf936799c070a63b2258183689d19a7d86e2c31ef74b01a2b16ad
+  checksum: 10/6a2cd0547b3ccff11f41753d1d98d789ed1051aef8fb0865344c7e1e4d77aafcf384f660c6d98125cc81ea0c9f87786528742d359359a52d7af956eefb713fe4
   languageName: node
   linkType: hard
 
