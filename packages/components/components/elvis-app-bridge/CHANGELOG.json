@@ -3,6 +3,16 @@
   "name": "elvis-app-bridge",
   "content": [
     {
+      "date": "14.10.24",
+      "version": "1.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added new app link: <code>Jordfeil</code>."]
+        }
+      ]
+    },
+    {
       "date": "23.09.24",
       "version": "1.1.0",
       "changelog": [
