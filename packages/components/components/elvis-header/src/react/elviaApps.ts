@@ -110,6 +110,12 @@ export const appList = [
     url: 'sluttbrukeravbrudd',
     rotation: -67.5,
   },
+  {
+    name: 'Voltage Dashboard',
+    iconLetters: 'Vd',
+    url: 'voltagedashboard',
+    rotation: 168.75,
+  },
 ] as const satisfies AppLinks;
 
 const getUrlParts = (): string[] => {
