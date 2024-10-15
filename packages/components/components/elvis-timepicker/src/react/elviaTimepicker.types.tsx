@@ -2,8 +2,6 @@ import { BaseProps, type FormFieldSizes, HasError, HasValue } from '@elvia/elvis
 
 import { MinuteInterval } from './publicApi.public';
 
-export type ChangeType = 'hour' | 'minute' | 'second';
-
 export interface TimepickerProps extends BaseProps, HasValue<Date | null>, HasError {
   minuteInterval: MinuteInterval;
   isDisabled: boolean;

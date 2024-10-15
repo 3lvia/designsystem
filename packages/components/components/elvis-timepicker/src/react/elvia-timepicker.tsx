@@ -239,6 +239,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             onFocus={() => onFocus?.()}
             required={isRequired}
             onErrorChange={onError}
+            lang={lang}
             isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
             errorId={errorId}
           />
