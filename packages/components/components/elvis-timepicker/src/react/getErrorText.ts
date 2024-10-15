@@ -24,8 +24,7 @@ export const getErrorText = (
           beforeMinTime: 'Earliest time is ',
           afterMaxTime: 'Latest time is ',
         };
-  // eslint-disable-next-line no-console
-  console.log(labels.invalidTime);
+
   switch (error) {
     case 'invalidTime': {
       return labels.invalidTime;
