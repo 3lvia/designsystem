@@ -178,7 +178,7 @@ export const Calendar: React.FC<Props> = ({
       <CalendarHeader>
         <IconButton
           onClick={() => shuffleViewedMonth(-1)}
-          aria-label={`${labels.prevMonth}`}
+          aria-label={labels.prevMonth}
           data-testid="prev-month-btn"
           size="sm"
         >
@@ -189,7 +189,7 @@ export const Calendar: React.FC<Props> = ({
         </MonthName>
         <IconButton
           onClick={() => shuffleViewedMonth(1)}
-          aria-label={`${labels.nextMonth}`}
+          aria-label={labels.nextMonth}
           data-testid="next-month-btn"
           size="sm"
         >
@@ -211,7 +211,7 @@ export const Calendar: React.FC<Props> = ({
           month: '2-digit',
           year: 'numeric',
         })}`}
-        aria-label={`${labels.calendarDescription}`}
+        aria-label={labels.calendarDescription}
       >
         {daysInMonth.map((day, index) => (
           <DateRangeHighlighter
@@ -245,7 +245,7 @@ export const Calendar: React.FC<Props> = ({
           </DateRangeHighlighter>
         ))}
       </GridContainer>
-      <ResetButton onClick={resetDate} aria-label={`${labels.resetDate}`} size="sm">
+      <ResetButton onClick={resetDate} aria-label={labels.resetDate} size="sm">
         <IconWrapper icon={reset} size="xs" />
         {clearButtonText}
       </ResetButton>

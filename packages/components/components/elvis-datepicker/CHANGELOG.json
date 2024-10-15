@@ -9,7 +9,8 @@
         {
           "type": "new_feature",
           "changes": [
-            "Added automatic support for switching aria-labels based on the global <code>lang</code> attribute on the <code>html</code>-element."
+            "Added automatic support for switching aria-labels based on the global <code>lang</code> attribute on the <code>html</code>-element.",
+            "Updated internal dependencies."
           ]
         }
       ]

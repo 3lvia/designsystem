@@ -66,7 +66,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
           openDatepicker: 'Åpne datovelger',
         }
       : {
-          clearButtonText: clearButtonText ?? 'Clear',
+          clearButtonText: clearButtonText ?? 'Reset',
           label: label ?? 'Select date',
           placeholder: placeholder ?? 'dd.mm.yyyy',
           openDatepicker: 'Open datepicker',
