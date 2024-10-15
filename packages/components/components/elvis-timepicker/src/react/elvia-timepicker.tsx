@@ -62,7 +62,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         }
       : {
           label: label ?? 'Select time',
-          timeSelector: 'Time selector',
+          timeSelector: 'Time picker',
         };
 
   const [errorId] = useState(`ewc-timerpicker-error-${elvisTimePickerErrorId++}`);
