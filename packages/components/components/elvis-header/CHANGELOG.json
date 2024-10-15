@@ -3,6 +3,16 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "14.10.24",
+      "version": "1.13.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added Voltage Dashboard (Vd) to the app drawer."]
+        }
+      ]
+    },
+    {
       "date": "15.10.24",
       "version": "1.13.0",
       "changelog": [
@@ -30,7 +40,7 @@
       "changelog": [
         {
           "type": "new_feature",
-          "changes": ["Added ProjectPortal (PP) to the app drawer."]
+          "changes": ["Added ProjectPortal (Pp) to the app drawer."]
         },
         {
           "type": "patch",

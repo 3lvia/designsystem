@@ -20,10 +20,10 @@
     "start": "tsup src/index.ts --sourcemap --dts --format esm --out-dir dist --watch"
   },
   "dependencies": {
-    "@lit/react": "^1.0.5",
+    "@lit/react": "^1.0.6",
     "dompurify": "^3.1.7",
-    "lit": "^3.2.0",
-    "lit-html": "^3.2.0"
+    "lit": "^3.2.1",
+    "lit-html": "^3.2.1"
   },
   "peerDependencies": {
     "react": "^18.0.0"
@@ -34,7 +34,7 @@
     }
   },
   "devDependencies": {
-    "@types/react": "^18.3.10",
+    "@types/react": "^18.3.11",
     "tsup": "^8.3.0",
     "typescript": "~5.5.4"
   }

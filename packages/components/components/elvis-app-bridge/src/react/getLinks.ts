@@ -36,6 +36,14 @@ export const getLinks = (targetId: string): SystemLink[] => {
       },
     },
     {
+      name: 'Jordfeil',
+      url: `https://jordfeildashboard.elvia.io/?search=${targetId}`,
+      iconInfo: {
+        rotation: -90,
+        iconLetters: 'Jo',
+      },
+    },
+    {
       name: 'Louvre',
       url: `https://louvre.elvia.io/search?q=${targetId}`,
       iconInfo: {
