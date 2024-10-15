@@ -3,14 +3,16 @@ import arrowRightFilled from '@elvia/elvis-assets-icons/dist/icons/arrowRightCir
 import { IconWrapper } from '@elvia/elvis-toolbox';
 import React, { useState } from 'react';
 
+import { Labels } from '../elviaHeader.types';
 import { AppSelectorTrigger, TextMicro, TextSmallStrong } from './mobileMenuStyles';
 
 interface Props {
+  labels: Labels;
   appTitle?: string;
   onClick: () => void;
 }
 
-export const AppSelector: React.FC<Props> = ({ appTitle, onClick }) => {
+export const AppSelector: React.FC<Props> = ({ labels, appTitle, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -20,7 +22,7 @@ export const AppSelector: React.FC<Props> = ({ appTitle, onClick }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div>
-        <TextSmallStrong>Velg applikasjon</TextSmallStrong>
+        <TextSmallStrong>{labels.selectAppLabel}</TextSmallStrong>
         <TextMicro>{appTitle}</TextMicro>
       </div>
       <IconWrapper icon={isHovered ? arrowRightFilled : arrowRight} size="sm" />
