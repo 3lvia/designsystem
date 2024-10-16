@@ -1,5 +1,5 @@
 import { getThemeColor } from '@elvia/elvis-colors';
-import { useBreakpoint, useSlot } from '@elvia/elvis-toolbox';
+import { useBreakpoint, useLanguage, useSlot } from '@elvia/elvis-toolbox';
 import React, { useEffect, useState } from 'react';
 
 import { AppDrawer } from './appDrawer/appDrawer';
@@ -66,6 +66,25 @@ export const Header: React.FC<HeaderProps> = ({
     setThemeClassOnDocument(getStoredActiveTheme());
   }, []);
 
+  const lang = useLanguage();
+
+  const labels =
+    lang === 'no'
+      ? {
+          openMenuLabel: 'Åpne brukermeny',
+          selectAppLabel: 'Velg applikasjon',
+          logoutLabel: 'Logg ut',
+          minimizeLabel: 'Minimer',
+          maximizeLabel: 'Maksimer',
+        }
+      : {
+          openMenuLabel: 'Open user menu',
+          selectAppLabel: 'Select application',
+          logoutLabel: 'Log out',
+          minimizeLabel: 'Minimize',
+          maximizeLabel: 'Maximize',
+        };
+
   return (
     <div className={className} style={{ ...inlineStyle }}>
       <StyledHeader>
@@ -110,6 +129,7 @@ export const Header: React.FC<HeaderProps> = ({
               onMenuToggle={(isOpen) => setMobileMenuIsOpen(isOpen)}
               menuContent={menuContent}
               webcomponent={webcomponent}
+              labels={labels}
             />
           </SquareContainer>
         )}
@@ -125,12 +145,14 @@ export const Header: React.FC<HeaderProps> = ({
               onThemeChange={themeChange}
               menuContent={menuContent}
               webcomponent={webcomponent}
+              labels={labels}
             />
           </>
         )}
       </StyledHeader>
       {hasNavItems && (
         <SideNav
+          labels={labels}
           ref={sidenavRef}
           onSideNavToggle={() => setSidenavIsExpanded(!sidenavIsExpanded)}
           isExpanded={sidenavIsExpanded}

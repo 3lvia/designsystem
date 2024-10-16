@@ -5,6 +5,14 @@ export type Theme = ThemeName | 'system';
 export const themeLocalStorageKey = 'elviaHeaderPreferredTheme';
 export type ThemeEvent = (themeName: Theme) => void;
 
+export interface Labels {
+  openMenuLabel: string;
+  selectAppLabel: string;
+  logoutLabel: string;
+  minimizeLabel: string;
+  maximizeLabel: string;
+}
+
 export interface UserMenuProps {
   onSignOutClick?: () => void;
   onThemeChange?: ThemeEvent;
@@ -13,6 +21,7 @@ export interface UserMenuProps {
   hideThemeSwitch?: boolean;
   menuContent?: JSX.Element;
   webcomponent: BaseProps['webcomponent'];
+  labels: Labels;
 }
 
 export interface HeaderProps extends BaseProps {
