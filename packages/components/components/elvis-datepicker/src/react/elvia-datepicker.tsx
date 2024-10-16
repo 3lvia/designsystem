@@ -68,7 +68,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
       : {
           clearButtonText: clearButtonText ?? 'Reset',
           label: label ?? 'Select date',
-          placeholder: placeholder ?? 'dd.mm.yyyy',
+          placeholder: placeholder ?? 'dd/mm/yyyy',
           openDatepicker: 'Open datepicker',
         };
 
@@ -145,7 +145,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
   };
 
   const revalidateInputValue = () => {
-    const [day, month, year] = (inputRef.current?.value ?? '').split('.');
+    const [day, month, year] = (inputRef.current?.value ?? '').split(/[./]/g);
     const error = validateDate({
       inputValue: { day: parseInt(day), month: parseInt(month), year: parseInt(year) },
       minDate: minDateWithoutTime,
@@ -249,7 +249,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
 
     const inputValue = inputRef.current?.value ?? '';
 
-    const [dayString, monthString, yearString] = inputValue.split('.');
+    const [dayString, monthString, yearString] = inputValue.split(/[./]/g);
     const [day, month, year] = [parseInt(dayString), parseInt(monthString), parseInt(yearString)];
 
     const error = validateDate({
@@ -262,7 +262,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     let newDate: Date | null = new Date(`${year}/${month}/${day}`);
     newDate = isValidDate(newDate) ? newDate : null;
 
-    if (!isSameDay(newDate, date) && newDate !== date) {
+    if (!isSameDay(lang, newDate, date) && newDate !== date) {
       updateValue(newDate);
     }
     onError(error === 'valid' ? undefined : error);
@@ -296,7 +296,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (minDate) {
       const d = new Date(minDate);
       d.setHours(0, 0, 0, 0);
-      if (!isSameDay(d, minDateWithoutTime)) {
+      if (!isSameDay(lang, d, minDateWithoutTime)) {
         setMinDateWithoutTime(d);
       }
     } else {
@@ -308,7 +308,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({
     if (maxDate) {
       const d = new Date(maxDate);
       d.setHours(23, 59, 59, 59); // End of day
-      if (!isSameDay(d, maxDateWithoutTime)) {
+      if (!isSameDay(lang, d, maxDateWithoutTime)) {
         setMaxDateWithoutTime(d);
       }
     } else {

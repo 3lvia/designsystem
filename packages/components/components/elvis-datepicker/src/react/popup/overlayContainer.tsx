@@ -101,7 +101,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
         <Container data-testid="popover" role="dialog" aria-label={labels.changeYear} aria-modal="true">
           <PopoverHeader>
             <SelectedDateName>
-              {formatDate(selectedDate, { weekday: 'long', day: 'numeric', month: 'long' })}
+              {formatDate(lang, selectedDate, { weekday: 'long', day: 'numeric', month: 'long' })}
             </SelectedDateName>
             <TertiaryButton
               size="sm"
@@ -109,7 +109,7 @@ export const OverlayContainer = React.forwardRef<HTMLDivElement, Props>(
               aria-label={labels.changeYear}
               data-testid="year-view-toggle"
             >
-              {formatDate(viewedDate, { year: 'numeric' })}
+              {formatDate(lang, viewedDate, { year: 'numeric' })}
               <RotatingContainer isRotated={yearPickerIsOpen}>
                 <IconWrapper icon={arrowDown} size="xs" />
               </RotatingContainer>

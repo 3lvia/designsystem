@@ -56,8 +56,8 @@ export const Calendar: React.FC<Props> = ({
 
   const createListOfDays = (): Date[] => {
     const lastDayOfMonth = new Date(viewedDate.getFullYear(), viewedDate.getMonth() + 1, 0).getDate();
-    const weekIndexOfFirstDayInMonth = getWeekDayNames().findIndex((dayName) => {
-      const firstDayOfMonth = getDayName(new Date(viewedDate.getFullYear(), viewedDate.getMonth(), 1));
+    const weekIndexOfFirstDayInMonth = getWeekDayNames(lang).findIndex((dayName) => {
+      const firstDayOfMonth = getDayName(lang, new Date(viewedDate.getFullYear(), viewedDate.getMonth(), 1));
       return dayName === firstDayOfMonth;
     });
 
@@ -82,8 +82,9 @@ export const Calendar: React.FC<Props> = ({
   };
 
   const formatCalendarDay = (date?: Date | null): string => {
-    const dateString = formatDate(date, { day: 'numeric' });
-    return dateString.substring(0, dateString.length - 1);
+    const dateString = formatDate(lang, date, { day: 'numeric' });
+    // console.info(dateString);
+    return dateString.replace('.', '');
   };
 
   const getNumberOfDaysToJump = (event: KeyboardEvent<HTMLDivElement>): number => {
@@ -185,7 +186,7 @@ export const Calendar: React.FC<Props> = ({
           <IconWrapper icon={arrowLongLeftBold} size="xs" />
         </IconButton>
         <MonthName data-testid="month-name" aria-live="polite">
-          {formatDate(viewedDate, { month: 'long', year: 'numeric' })}
+          {formatDate(lang, viewedDate, { month: 'long', year: 'numeric' })}
         </MonthName>
         <IconButton
           onClick={() => shuffleViewedMonth(1)}
@@ -197,7 +198,7 @@ export const Calendar: React.FC<Props> = ({
         </IconButton>
       </CalendarHeader>
       <GridContainer>
-        {getWeekDayNames().map((dayName) => (
+        {getWeekDayNames(lang).map((dayName) => (
           <DayName key={dayName}>{dayName}</DayName>
         ))}
       </GridContainer>
@@ -206,7 +207,7 @@ export const Calendar: React.FC<Props> = ({
         onKeyDown={(ev) => handleCalendarKeydown(ev)}
         onFocus={() => setCalendarHasFocus(true)}
         onBlur={() => setCalendarHasFocus(false)}
-        aria-activedescendant={`date-${formatDate(viewedDate, {
+        aria-activedescendant={`date-${formatDate(lang, viewedDate, {
           day: '2-digit',
           month: '2-digit',
           year: 'numeric',
@@ -228,17 +229,18 @@ export const Calendar: React.FC<Props> = ({
             hoveredDate={hoveredDate}
             disabled={dateIsDisabled(day)}
             onClick={() => day && !dateIsDisabled(day) && onDateChange(day, true)}
-            isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
+            isFocused={isSameDay(lang, day, viewedDate) && calendarHasFocus}
+            lang={lang}
           >
             <DayButton
               tabIndex={-1}
-              aria-label={formatDate(day, { day: 'numeric', month: 'long', year: 'numeric' })}
-              isToday={isSameDay(day, new Date())}
-              isActive={isSameDay(day, selectedDate)}
+              aria-label={formatDate(lang, day, { day: 'numeric', month: 'long', year: 'numeric' })}
+              isToday={isSameDay(lang, day, new Date())}
+              isActive={isSameDay(lang, day, selectedDate)}
               disabled={dateIsDisabled(day)}
               type="button"
-              aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}
-              id={`date-${formatDate(day, { day: '2-digit', month: '2-digit', year: 'numeric' })}`}
+              aria-current={isSameDay(lang, day, selectedDate) ? 'date' : undefined}
+              id={`date-${formatDate(lang, day, { day: '2-digit', month: '2-digit', year: 'numeric' })}`}
             >
               {formatCalendarDay(day)}
             </DayButton>

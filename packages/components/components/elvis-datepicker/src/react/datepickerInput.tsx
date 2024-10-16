@@ -1,4 +1,4 @@
-import { FormFieldInput } from '@elvia/elvis-toolbox';
+import { FormFieldInput, useLanguage } from '@elvia/elvis-toolbox';
 import React, {
   ChangeEvent,
   FocusEventHandler,
@@ -58,6 +58,8 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
       return /^\d+$/.test(value);
     };
 
+    const lang = useLanguage();
+
     const onKeyDown = () => {
       const selectionStart = inputElement.current?.selectionStart || 0;
       const selectionEnd = inputElement.current?.selectionEnd || 0;
@@ -82,7 +84,7 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
         case 1:
         case 4: {
           if ([2, 5].includes(newInputValue.length) && isNumericValue(pressedKey)) {
-            setInputValue(`${newInputValue}.`);
+            setInputValue(lang === 'no' ? `${newInputValue}.` : `${newInputValue}/`);
           } else if (isNumericValue(pressedKey)) {
             setInputValue(newInputValue);
           }
@@ -90,7 +92,7 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
         }
         case 2:
         case 5: {
-          if (pressedKey === '.') {
+          if (pressedKey === '.' || pressedKey === '/') {
             setInputValue(newInputValue);
           }
           break;
@@ -108,7 +110,8 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
       if (isModifierKey) {
         setInputValue(newInputValue);
       } else if (isPaste) {
-        const [day, month, year] = newInputValue.split('.');
+        console.info(newInputValue);
+        const [day, month, year] = newInputValue.split(/[./]/g);
         if (isNaN(parseInt(day)) || isNaN(parseInt(month)) || isNaN(parseInt(year))) {
           return;
         }
@@ -130,7 +133,7 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
     };
 
     const emitNewValue = (newValue: Date | null): void => {
-      if (!isSameDay(newValue, date) && newValue != date) {
+      if (!isSameDay(lang, newValue, date) && newValue != date) {
         onChange(isValidDate(newValue) ? newValue : null);
       }
     };
@@ -171,7 +174,7 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
         return;
       }
 
-      const [day, month, year] = inputValue.split('.');
+      const [day, month, year] = inputValue.split(/[./]/g);
       validateInputValue(parseInt(day), parseInt(month), parseInt(year));
 
       const newValue = new Date(date ? date : new Date());
@@ -184,7 +187,7 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
         return '';
       }
 
-      return formatDate(date, { day: '2-digit', month: '2-digit', year: 'numeric' });
+      return formatDate(lang, date, { day: '2-digit', month: '2-digit', year: 'numeric' });
     };
 
     const onInputFocus = (): void => {
@@ -203,7 +206,7 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
 
     useEffect(() => {
       if (touched) {
-        const [day, month, year] = inputValue.split('.');
+        const [day, month, year] = inputValue.split(/[./]/g);
         validateInputValue(parseInt(day), parseInt(month), parseInt(year));
       }
     }, [required]);
