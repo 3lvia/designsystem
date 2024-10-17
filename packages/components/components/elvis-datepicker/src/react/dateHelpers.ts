@@ -41,9 +41,7 @@ export const isSameDay = (lang: LanguageCode, d1?: Date | null, d2?: Date | null
 };
 
 export const getDayName = (lang: LanguageCode, date: Date): string => {
-  return lang === 'no'
-    ? date.toLocaleDateString('nb-NO', { weekday: 'short' }).substring(0, 2)
-    : date.toLocaleDateString('en-GB', { weekday: 'short' }).substring(0, 2);
+  return date.toLocaleDateString(lang === 'no' ? 'nb-NO' : 'en-GB', { weekday: 'short' }).substring(0, 2);
 };
 
 export const getWeekDayNames = (lang: LanguageCode): string[] => {
@@ -64,7 +62,7 @@ export const formatDate = (
     return '';
   }
 
-  return lang === 'no' ? date.toLocaleString('nb-NO', options) : date.toLocaleString('en-GB', options);
+  return date.toLocaleString(lang === 'no' ? 'nb-NO' : 'en-GB', options);
 };
 
 export const isValidDate = (date: unknown): date is Date => {

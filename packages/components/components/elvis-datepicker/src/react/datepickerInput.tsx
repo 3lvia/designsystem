@@ -110,7 +110,6 @@ export const DatepickerInput = forwardRef<HTMLInputElement, Props>(
       if (isModifierKey) {
         setInputValue(newInputValue);
       } else if (isPaste) {
-        console.info(newInputValue);
         const [day, month, year] = newInputValue.split(/[./]/g);
         if (isNaN(parseInt(day)) || isNaN(parseInt(month)) || isNaN(parseInt(year))) {
           return;

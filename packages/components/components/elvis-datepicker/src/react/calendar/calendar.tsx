@@ -83,6 +83,7 @@ export const Calendar: React.FC<Props> = ({
 
   const formatCalendarDay = (date?: Date | null): string => {
     const dateString = formatDate(lang, date, { day: 'numeric' });
+    // Replace periods with empty string to show dates in calendar as clean numbers without dots. Eg. "1" instead of "1."
     return dateString.replace('.', '');
   };
 
