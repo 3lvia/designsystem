@@ -83,7 +83,6 @@ export const Calendar: React.FC<Props> = ({
 
   const formatCalendarDay = (date?: Date | null): string => {
     const dateString = formatDate(lang, date, { day: 'numeric' });
-    // console.info(dateString);
     return dateString.replace('.', '');
   };
 
