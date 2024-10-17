@@ -3,6 +3,18 @@
   "name": "elvis-timepicker",
   "content": [
     {
+      "date": "17.10.24",
+      "version": "5.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added automatic support for switching aria-labels based on the global <code>lang</code> attribute on the <code>html</code>-element."
+          ]
+        }
+      ]
+    },
+    {
       "date": "21.06.24",
       "version": "5.1.4",
       "changelog": [

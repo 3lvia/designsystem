@@ -1,7 +1,7 @@
 import arrowLongLeftBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongLeftBold';
 import arrowLongRightBold from '@elvia/elvis-assets-icons/dist/icons/arrowLongRightBold';
 import reset from '@elvia/elvis-assets-icons/dist/icons/reset';
-import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
+import { IconButton, IconWrapper, LanguageCode } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 
 import {
@@ -34,6 +34,7 @@ interface Props {
   resetDate: () => void;
   clearButtonText: string;
   dateRangeProps?: DatepickerRangeProps;
+  lang: LanguageCode;
 }
 
 export const Calendar: React.FC<Props> = ({
@@ -47,6 +48,7 @@ export const Calendar: React.FC<Props> = ({
   resetDate,
   clearButtonText,
   dateRangeProps,
+  lang,
 }) => {
   const [calendarHasFocus, setCalendarHasFocus] = useState(false);
   const [hoveredDate, setHoveredDate] = useState<Date | undefined>();
@@ -54,8 +56,8 @@ export const Calendar: React.FC<Props> = ({
 
   const createListOfDays = (): Date[] => {
     const lastDayOfMonth = new Date(viewedDate.getFullYear(), viewedDate.getMonth() + 1, 0).getDate();
-    const weekIndexOfFirstDayInMonth = getWeekDayNames().findIndex((dayName) => {
-      const firstDayOfMonth = getDayName(new Date(viewedDate.getFullYear(), viewedDate.getMonth(), 1));
+    const weekIndexOfFirstDayInMonth = getWeekDayNames(lang).findIndex((dayName) => {
+      const firstDayOfMonth = getDayName(lang, new Date(viewedDate.getFullYear(), viewedDate.getMonth(), 1));
       return dayName === firstDayOfMonth;
     });
 
@@ -80,8 +82,9 @@ export const Calendar: React.FC<Props> = ({
   };
 
   const formatCalendarDay = (date?: Date | null): string => {
-    const dateString = formatDate(date, { day: 'numeric' });
-    return dateString.substring(0, dateString.length - 1);
+    const dateString = formatDate(lang, date, { day: 'numeric' });
+    // Replace periods with empty string to show dates in calendar as clean numbers without dots. Eg. "1" instead of "1."
+    return dateString.replace('.', '');
   };
 
   const getNumberOfDaysToJump = (event: KeyboardEvent<HTMLDivElement>): number => {
@@ -156,23 +159,38 @@ export const Calendar: React.FC<Props> = ({
     }
   }, [hoveredDate]);
 
+  const labels =
+    lang === 'no'
+      ? {
+          prevMonth: 'Forrige måned',
+          nextMonth: 'Neste måned',
+          calendarDescription: 'Kalender. Bruk piltaster for navigasjon.',
+          resetDate: 'Nullstill dato',
+        }
+      : {
+          prevMonth: 'Previous month',
+          nextMonth: 'Next month',
+          calendarDescription: 'Calendar. Use arrow keys for navigation.',
+          resetDate: 'Reset date',
+        };
+
   return (
     <Container>
       <CalendarHeader>
         <IconButton
           onClick={() => shuffleViewedMonth(-1)}
-          aria-label="Forrige måned"
+          aria-label={labels.prevMonth}
           data-testid="prev-month-btn"
           size="sm"
         >
           <IconWrapper icon={arrowLongLeftBold} size="xs" />
         </IconButton>
         <MonthName data-testid="month-name" aria-live="polite">
-          {formatDate(viewedDate, { month: 'long', year: 'numeric' })}
+          {formatDate(lang, viewedDate, { month: 'long', year: 'numeric' })}
         </MonthName>
         <IconButton
           onClick={() => shuffleViewedMonth(1)}
-          aria-label="Neste måned"
+          aria-label={labels.nextMonth}
           data-testid="next-month-btn"
           size="sm"
         >
@@ -180,7 +198,7 @@ export const Calendar: React.FC<Props> = ({
         </IconButton>
       </CalendarHeader>
       <GridContainer>
-        {getWeekDayNames().map((dayName) => (
+        {getWeekDayNames(lang).map((dayName) => (
           <DayName key={dayName}>{dayName}</DayName>
         ))}
       </GridContainer>
@@ -189,12 +207,12 @@ export const Calendar: React.FC<Props> = ({
         onKeyDown={(ev) => handleCalendarKeydown(ev)}
         onFocus={() => setCalendarHasFocus(true)}
         onBlur={() => setCalendarHasFocus(false)}
-        aria-activedescendant={`date-${formatDate(viewedDate, {
+        aria-activedescendant={`date-${formatDate(lang, viewedDate, {
           day: '2-digit',
           month: '2-digit',
           year: 'numeric',
         })}`}
-        aria-label="Kalender. Bruk piltaster for navigasjon."
+        aria-label={labels.calendarDescription}
       >
         {daysInMonth.map((day, index) => (
           <DateRangeHighlighter
@@ -211,24 +229,25 @@ export const Calendar: React.FC<Props> = ({
             hoveredDate={hoveredDate}
             disabled={dateIsDisabled(day)}
             onClick={() => day && !dateIsDisabled(day) && onDateChange(day, true)}
-            isFocused={isSameDay(day, viewedDate) && calendarHasFocus}
+            isFocused={isSameDay(lang, day, viewedDate) && calendarHasFocus}
+            lang={lang}
           >
             <DayButton
               tabIndex={-1}
-              aria-label={formatDate(day, { day: 'numeric', month: 'long', year: 'numeric' })}
-              isToday={isSameDay(day, new Date())}
-              isActive={isSameDay(day, selectedDate)}
+              aria-label={formatDate(lang, day, { day: 'numeric', month: 'long', year: 'numeric' })}
+              isToday={isSameDay(lang, day, new Date())}
+              isActive={isSameDay(lang, day, selectedDate)}
               disabled={dateIsDisabled(day)}
               type="button"
-              aria-current={isSameDay(day, selectedDate) ? 'date' : undefined}
-              id={`date-${formatDate(day, { day: '2-digit', month: '2-digit', year: 'numeric' })}`}
+              aria-current={isSameDay(lang, day, selectedDate) ? 'date' : undefined}
+              id={`date-${formatDate(lang, day, { day: '2-digit', month: '2-digit', year: 'numeric' })}`}
             >
               {formatCalendarDay(day)}
             </DayButton>
           </DateRangeHighlighter>
         ))}
       </GridContainer>
-      <ResetButton onClick={resetDate} aria-label="Nullstill dato" size="sm">
+      <ResetButton onClick={resetDate} aria-label={labels.resetDate} size="sm">
         <IconWrapper icon={reset} size="xs" />
         {clearButtonText}
       </ResetButton>

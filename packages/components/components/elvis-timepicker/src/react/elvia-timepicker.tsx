@@ -8,6 +8,7 @@ import {
   IconWrapper,
   useConnectedOverlay,
   useFocusTrap,
+  useLanguage,
   useUpdateEffect,
 } from '@elvia/elvis-toolbox';
 import React, { useEffect, useRef, useState } from 'react';
@@ -32,7 +33,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   value,
   valueOnChange,
   errorOnChange,
-  label = 'Velg tid',
+  label,
   maxTime,
   minTime,
   minuteInterval = '15',
@@ -51,6 +52,19 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
   inlineStyle,
   webcomponent,
 }) => {
+  const lang = useLanguage();
+
+  const labels =
+    lang === 'no'
+      ? {
+          label: label ?? 'Velg tid',
+          timeSelector: 'Tidvelger',
+        }
+      : {
+          label: label ?? 'Select time',
+          timeSelector: 'Time picker',
+        };
+
   const [errorId] = useState(`ewc-timerpicker-error-${elvisTimePickerErrorId++}`);
   const [time, setTime] = useState<Date | undefined | null>(value);
   const [error, setError] = useState<ErrorType | undefined>();
@@ -132,7 +146,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
     }
     setError(newError);
 
-    const errorText = getErrorText(newError, minTime, maxTime, hasSecondPicker);
+    const errorText = getErrorText(lang, newError, minTime, maxTime, hasSecondPicker);
     errorOnChange?.(errorText);
     webcomponent?.triggerEvent('errorOnChange', errorText);
   };
@@ -214,7 +228,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
         isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
         hasErrorPlaceholder={!!error || !!mergedErrorOptions.hasErrorPlaceholder || !!mergedErrorOptions.text}
       >
-        {!!label && <FormFieldLabel data-testid="label">{label}</FormFieldLabel>}
+        {!!labels.label && <FormFieldLabel data-testid="label">{labels.label}</FormFieldLabel>}
         <FormFieldInputContainer ref={connectedElementRef}>
           <TimepickerInput
             time={time}
@@ -225,6 +239,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             onFocus={() => onFocus?.()}
             required={isRequired}
             onErrorChange={onError}
+            lang={lang}
             isInvalid={!!error || !!mergedErrorOptions.text || !!mergedErrorOptions.isErrorState}
             errorId={errorId}
           />
@@ -238,7 +253,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
             ref={openPopoverButtonRef}
             size={size === 'small' ? 'sm' : 'md'}
             data-testid="popover-toggle"
-            aria-label="Åpne tidvelger"
+            aria-label={labels.timeSelector}
             aria-haspopup="dialog"
           >
             <IconWrapper
@@ -258,6 +273,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
               minTime={minTime}
               maxTime={maxTime}
               hasSecondPicker={hasSecondPicker}
+              lang={lang}
             />
           )}
         </div>
@@ -272,6 +288,7 @@ export const Timepicker: React.FC<Partial<TimepickerProps>> = ({
           hasSecondPicker={hasSecondPicker}
           minTime={minTime}
           maxTime={maxTime}
+          lang={lang}
         />
       )}
     </>

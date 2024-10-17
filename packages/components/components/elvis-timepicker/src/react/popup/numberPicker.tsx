@@ -1,6 +1,6 @@
 import arrowDownBold from '@elvia/elvis-assets-icons/dist/icons/arrowDownBold';
 import arrowUpBold from '@elvia/elvis-assets-icons/dist/icons/arrowUpBold';
-import { IconButton, IconWrapper } from '@elvia/elvis-toolbox';
+import { IconButton, IconWrapper, LanguageCode } from '@elvia/elvis-toolbox';
 import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
 
 import { ChangeType } from '../elviaTimepicker.types';
@@ -18,6 +18,7 @@ import {
 interface Props {
   title: string;
   numbers: number[];
+  lang: LanguageCode;
   currentTime?: Date | null;
   onSelect: (changeType: ChangeType, value: number, isDisabled?: boolean) => void;
   timeUnit: ChangeType;
@@ -33,6 +34,7 @@ export const NumberPicker: React.FC<Props> = ({
   timeUnit,
   minTime,
   maxTime,
+  lang,
 }) => {
   const listRef = useRef<HTMLDivElement>(null);
   const [loopedNumbers, setLoopedNumbers] = useState<number[]>([]);
@@ -156,6 +158,19 @@ export const NumberPicker: React.FC<Props> = ({
     setLoopedNumbers([...listClone.slice(listClone.length - 2), ...listClone, ...listClone.slice(0, 2)]);
   }, []);
 
+  const labels =
+    lang === 'no'
+      ? {
+          useArrowLabel: 'valg. Bruk piltaster for å endre verdi.',
+          previous: 'Forrige',
+          next: 'Neste',
+        }
+      : {
+          useArrowLabel: 'options. Use arrow keys to change value.',
+          previous: 'Previous',
+          next: 'Next',
+        };
+
   return (
     <NumberPickerContainer data-testid={`${title}-number-list`}>
       <NumberPickerTitle data-testid="number-list-title">{title}</NumberPickerTitle>
@@ -165,11 +180,11 @@ export const NumberPicker: React.FC<Props> = ({
         tabIndex={0}
         onScroll={loopScroll}
         onKeyDown={onKeyDown}
-        aria-label={`${title} valg. Bruk piltaster for å endre verdi.`}
+        aria-label={`${title} ${labels.useArrowLabel}`}
       >
         <ArrowButtonContainer>
           <IconButton
-            aria-label={`Forrige ${title}`}
+            aria-label={`${labels.previous} ${title}`}
             size="sm"
             tabIndex={-1}
             onClick={() => shuffleTo('previous')}
@@ -195,7 +210,7 @@ export const NumberPicker: React.FC<Props> = ({
         ))}
         <ArrowButtonContainer>
           <IconButton
-            aria-label={`Neste ${title}`}
+            aria-label={`${labels.next} ${title}`}
             size="sm"
             tabIndex={-1}
             onClick={() => shuffleTo('next')}

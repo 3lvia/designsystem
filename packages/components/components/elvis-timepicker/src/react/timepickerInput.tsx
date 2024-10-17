@@ -1,4 +1,5 @@
 import { FormFieldInput } from '@elvia/elvis-toolbox';
+import { LanguageCode } from '@elvia/elvis-toolbox/src';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import { padDigit } from './padDigit';
@@ -14,6 +15,7 @@ interface Props {
   onChange: (newValue: Date | null) => void;
   onFocus: () => void;
   onErrorChange: (error?: ErrorType) => void;
+  lang: LanguageCode;
   isInvalid?: boolean;
   errorId?: string;
 }
@@ -27,6 +29,7 @@ export const TimepickerInput: React.FC<Props> = ({
   onChange,
   onFocus,
   onErrorChange,
+  lang,
   isInvalid,
   errorId,
 }) => {
@@ -88,6 +91,15 @@ export const TimepickerInput: React.FC<Props> = ({
       }
     }
   };
+
+  const labels =
+    lang === 'no'
+      ? {
+          placeholder: hasSecondPicker ? 'tt:mm:ss' : 'tt:mm',
+        }
+      : {
+          placeholder: hasSecondPicker ? 'hh:mm:ss' : 'hh:mm',
+        };
 
   const parseInput = (ev: ChangeEvent<HTMLInputElement>): void => {
     const isModifierKey = ['deleteContentBackward', 'deleteContentForward'].includes(
@@ -232,7 +244,7 @@ export const TimepickerInput: React.FC<Props> = ({
       style={{ width: isFullWidth ? '100%' : hasSecondPicker ? '4.5rem' : '2.875rem' }}
       ref={inputElement}
       disabled={disabled}
-      placeholder={hasSecondPicker ? 'tt:mm:ss' : 'tt:mm'}
+      placeholder={labels.placeholder}
       value={inputValue}
       onKeyDown={onKeyDown}
       onChange={parseInput}

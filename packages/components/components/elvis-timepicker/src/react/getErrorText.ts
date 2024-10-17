@@ -1,24 +1,42 @@
+import { LanguageCode } from '@elvia/elvis-toolbox';
+
 import { ErrorType } from './publicApi.public';
 import { getFormattedInputValue } from './timeHelpers';
 
 export const getErrorText = (
+  lang: LanguageCode,
   error?: ErrorType,
   minTime?: Date,
   maxTime?: Date,
   hasSecondPicker?: boolean,
 ): string => {
+  const labels =
+    lang === 'no'
+      ? {
+          invalidTime: 'Ugyldig tidspunkt',
+          required: 'Velg tidspunkt',
+          beforeMinTime: 'Tidligste tidspunkt er',
+          afterMaxTime: 'Seneste tidspunkt er',
+        }
+      : {
+          invalidTime: 'Invalid time',
+          required: 'Select time',
+          beforeMinTime: 'Earliest time is ',
+          afterMaxTime: 'Latest time is ',
+        };
+
   switch (error) {
     case 'invalidTime': {
-      return 'Ugyldig tidspunkt';
+      return labels.invalidTime;
     }
     case 'required': {
-      return 'Velg tidspunkt';
+      return labels.required;
     }
     case 'beforeMinTime': {
-      return `Tidligste tidspunkt er ${getFormattedInputValue(minTime, hasSecondPicker)}`;
+      return `${labels.beforeMinTime} ${getFormattedInputValue(minTime, hasSecondPicker)}`;
     }
     case 'afterMaxTime': {
-      return `Seneste tidspunkt er ${getFormattedInputValue(maxTime, hasSecondPicker)}`;
+      return `${labels.afterMaxTime} ${getFormattedInputValue(maxTime, hasSecondPicker)}`;
     }
     default: {
       return '';
