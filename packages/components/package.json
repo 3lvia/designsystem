@@ -43,7 +43,7 @@
     "sass": "^1.80.4",
     "sass-embedded": "^1.80.4",
     "tiny-glob": "^0.2.9",
-    "tsx": "^4.19.1",
+    "tsx": "^4.19.2",
     "typescript": "~5.5.4",
     "typescript-plugin-css-modules": "^5.1.0"
   }
