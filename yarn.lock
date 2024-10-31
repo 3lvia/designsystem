@@ -3317,20 +3317,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-html-renderer@npm:^16.6.10":
-  version: 16.6.10
-  resolution: "@contentful/rich-text-html-renderer@npm:16.6.10"
+"@contentful/rich-text-html-renderer@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "@contentful/rich-text-html-renderer@npm:17.0.0"
   dependencies:
-    "@contentful/rich-text-types": "npm:^16.8.5"
+    "@contentful/rich-text-types": "npm:^17.0.0"
     escape-html: "npm:^1.0.3"
-  checksum: 10/fdf5121524355c96cd8a4628b2cc50a61b9b9d37da167dd983cc8fa24fa822427809d00064ebca9b85b8f40d92719f0b86f0e4ea4eaa8d078656ed56c51df6bb
+  checksum: 10/19ab7a21663f94b726bf871f22ab456aa451efa2f6fa3faa1bdcbaf4b91c20872aeaf091943cf1c3ca99ca4ca6fa4fd8fd733b93ea87ab439700b534f34579f0
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-types@npm:^16.0.2, @contentful/rich-text-types@npm:^16.6.1, @contentful/rich-text-types@npm:^16.8.5":
+"@contentful/rich-text-types@npm:^16.0.2, @contentful/rich-text-types@npm:^16.6.1":
   version: 16.8.5
   resolution: "@contentful/rich-text-types@npm:16.8.5"
   checksum: 10/7c1ec7088cc39bbd8f5edc14867ed3d59d06a55f2c92e6c62913aa2312056e920528e6ca6d59780b32c6fe2ab89c429b9f0bce9a52f456be7260f458527ccc3b
+  languageName: node
+  linkType: hard
+
+"@contentful/rich-text-types@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "@contentful/rich-text-types@npm:17.0.0"
+  dependencies:
+    is-plain-obj: "npm:^3.0.0"
+  checksum: 10/d9960ab17ee91f6cf2ab988b42ab33155e5674e62e1a8fc582081542e0df8e96a191e27f4f1b9be982639d5afc19db216d84d43658af64c6df77222c83914ba5
   languageName: node
   linkType: hard
 
@@ -10844,8 +10853,8 @@ __metadata:
     "@angular/platform-browser-dynamic": "npm:^18.2.10"
     "@angular/router": "npm:^18.2.10"
     "@babel/core": "npm:^7.26.0"
-    "@contentful/rich-text-html-renderer": "npm:^16.6.10"
-    "@contentful/rich-text-types": "npm:^16.8.5"
+    "@contentful/rich-text-html-renderer": "npm:^17.0.0"
+    "@contentful/rich-text-types": "npm:^17.0.0"
     "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
     "@elvia/elvis-app-bridge": "workspace:*"
