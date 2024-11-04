@@ -120,8 +120,8 @@ $checkbox-mark-border-checked: 1px solid var(--e-checkbox-border-checked-color);
 
     .e-checkbox__label {
       @include mixins.typography('text-sm');
-
       line-height: 16px;
+      overflow-y: hidden;
     }
 
     // States - small specific
