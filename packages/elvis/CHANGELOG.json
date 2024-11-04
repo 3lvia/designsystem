@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "20.2.3",
+      "date": "November 4, 2024",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the small checkbox would unnecessarily overflow when used in a container with the same height."
+          ],
+          "components": [{ "displayName": "Checkbox", "url": "https://design.elvia.io/components/checkbox" }]
+        }
+      ]
+    },
+    {
       "version": "20.2.2",
       "date": "September 24, 2024",
       "changelog": [
