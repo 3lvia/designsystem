@@ -10,12 +10,12 @@ import { Datepicker } from './elvia-datepicker';
 describe('Elvis Datepicker', () => {
   describe('Default', () => {
     beforeEach(() => {
-      render(<Datepicker></Datepicker>);
+      render(<Datepicker />);
     });
 
     it('should have default label = Velg dato', () => {
       const datepickerLabel = screen.getByTestId('label');
-      expect(datepickerLabel).toHaveTextContent('Velg dato');
+      expect(datepickerLabel).toHaveTextContent(/^Velg dato$/);
     });
 
     it('should not have date selected when untouched', () => {
@@ -33,7 +33,7 @@ describe('Elvis Datepicker', () => {
   describe('Value = custom', () => {
     beforeEach(() => {
       const oddDateFilter = (d: Date) => d.getDate() % 2 !== 0;
-      render(<Datepicker value={new Date('2024/04/02')} disableDate={oddDateFilter}></Datepicker>);
+      render(<Datepicker value={new Date('2024/04/02')} disableDate={oddDateFilter} />);
     });
 
     it('should have value = 02.04.2024', () => {
@@ -46,7 +46,7 @@ describe('Elvis Datepicker', () => {
       await user.click(screen.getByTestId('popover-toggle'));
       await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
 
-      expect(screen.getByTestId('month-name')).toHaveTextContent('april 2024');
+      expect(screen.getByTestId('month-name')).toHaveTextContent(/^april 2024$/);
     });
 
     it('should be able to view next month', async () => {
@@ -56,7 +56,7 @@ describe('Elvis Datepicker', () => {
       await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
       await user.click(screen.getByTestId('next-month-btn'));
 
-      expect(screen.getByTestId('month-name')).toHaveTextContent('mai 2024');
+      expect(screen.getByTestId('month-name')).toHaveTextContent(/^mai 2024$/);
     });
 
     it('should be able to select month from the calendar', async () => {
@@ -87,23 +87,23 @@ describe('Elvis Datepicker', () => {
       await user.click(screen.getByTestId('year-view-toggle'));
       await user.click(screen.getByText('2025'));
 
-      expect(screen.queryByTestId('month-name')).toHaveTextContent('april 2025');
+      expect(screen.queryByTestId('month-name')).toHaveTextContent(/^april 2025$/);
     });
   });
 
   describe('Label = Custom label', () => {
     beforeEach(() => {
-      render(<Datepicker label="Custom label"></Datepicker>);
+      render(<Datepicker label="Custom label" />);
     });
 
     it('should have label = Custom label', () => {
-      expect(screen.getByTestId('label')).toHaveTextContent('Custom label');
+      expect(screen.getByTestId('label')).toHaveTextContent(/^Custom label$/);
     });
   });
 
   describe('Full width', () => {
     beforeEach(() => {
-      render(<Datepicker isFullWidth></Datepicker>);
+      render(<Datepicker isFullWidth />);
     });
 
     it('should have full width class', () => {
@@ -114,7 +114,7 @@ describe('Elvis Datepicker', () => {
 
   describe('Disabled', () => {
     beforeEach(() => {
-      render(<Datepicker isDisabled></Datepicker>);
+      render(<Datepicker isDisabled />);
     });
 
     it('should have a disabled input', () => {
@@ -128,7 +128,7 @@ describe('Elvis Datepicker', () => {
 
   describe('Required', () => {
     beforeEach(() => {
-      render(<Datepicker isRequired></Datepicker>);
+      render(<Datepicker isRequired />);
     });
 
     it('should not have error when untouched', () => {
@@ -144,13 +144,13 @@ describe('Elvis Datepicker', () => {
       await user.tab();
       await user.tab();
 
-      expect(screen.getByTestId('error')).toHaveTextContent('Velg dato');
+      expect(screen.getByTestId('error')).toHaveTextContent(/^Velg dato$/);
     });
   });
 
   describe('Custom error = Feil', () => {
     beforeEach(() => {
-      render(<Datepicker errorOptions={{ text: 'Feil' }}></Datepicker>);
+      render(<Datepicker errorOptions={{ text: 'Feil' }} />);
     });
 
     it('should have error style', () => {
@@ -159,14 +159,14 @@ describe('Elvis Datepicker', () => {
     });
 
     it('should have custom error in DOM', () => {
-      expect(screen.getByTestId('error')).toHaveTextContent('Feil');
+      expect(screen.getByTestId('error')).toHaveTextContent(/^Feil$/);
     });
   });
 
   describe('Min date', () => {
     beforeEach(() => {
       // A high min date, to ensure that the test doesn't break for a long time
-      render(<Datepicker minDate={new Date('2077/05/01')}></Datepicker>);
+      render(<Datepicker minDate={new Date('2077/05/01')} />);
     });
 
     it('should pick minimum date when opened', async () => {
@@ -179,7 +179,7 @@ describe('Elvis Datepicker', () => {
       const user = userEvent.setup();
       await user.click(screen.getByTestId('popover-toggle'));
       await waitFor(() => expect(screen.queryByTestId('month-name')).toBeInTheDocument());
-      expect(screen.getByTestId('month-name')).toHaveTextContent('mai 2077');
+      expect(screen.getByTestId('month-name')).toHaveTextContent(/^mai 2077$/);
     });
 
     it('should show an error if a date before the min date is typed into the input', async () => {
@@ -189,13 +189,13 @@ describe('Elvis Datepicker', () => {
       await user.tab();
       await user.tab();
 
-      expect(screen.queryByTestId('error')).toHaveTextContent('Tidligste dato er 01.05.2077');
+      expect(screen.queryByTestId('error')).toHaveTextContent(/^Tidligste dato er 01.05.2077$/);
     });
   });
 
   describe('Max date', () => {
     beforeEach(() => {
-      render(<Datepicker maxDate={new Date('2022/05/01')}></Datepicker>);
+      render(<Datepicker maxDate={new Date('2022/05/01')} />);
     });
 
     it('should pick maximum date when opened', async () => {
@@ -212,13 +212,13 @@ describe('Elvis Datepicker', () => {
       await user.tab();
       await user.tab();
 
-      expect(screen.queryByTestId('error')).toHaveTextContent('Seneste dato er 01.05.2022');
+      expect(screen.queryByTestId('error')).toHaveTextContent(/^Seneste dato er 01.05.2022$/);
     });
   });
 
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(<Datepicker className="test-class" inlineStyle={{ margin: '24px' }}></Datepicker>);
+      render(<Datepicker className="test-class" inlineStyle={{ margin: '24px' }} />);
     });
 
     it('should have className', () => {
@@ -234,7 +234,7 @@ describe('Elvis Datepicker', () => {
 
   describe('Error state from prop', () => {
     beforeEach(() => {
-      render(<Datepicker errorOptions={{ isErrorState: true }}></Datepicker>);
+      render(<Datepicker errorOptions={{ isErrorState: true }} />);
     });
 
     it('should have error state', () => {
@@ -347,7 +347,7 @@ describe('Elvis Datepicker', () => {
       render(
         <div data-testid="dateppickers-wrapper">
           <Datepicker />
-          <Datepicker value={new Date('2024/04/02')}></Datepicker>
+          <Datepicker value={new Date('2024/04/02')} />
         </div>,
       );
 
