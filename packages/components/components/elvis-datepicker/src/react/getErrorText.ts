@@ -13,16 +13,16 @@ export const getErrorText = (
   const labels =
     lang === 'no'
       ? {
+          afterMaxDate: `Seneste dato er`,
+          beforeMinDate: `Tidligste dato er`,
           invalidDate: 'Ugyldig dato',
           required: 'Velg dato',
-          beforeMinDate: `Tidligste dato er ${getFormattedDate(lang, minDate, withTime)}`,
-          afterMaxDate: `Seneste dato er ${getFormattedDate(lang, maxDate, withTime)}`,
         }
       : {
+          afterMaxDate: `Latest date is`,
+          beforeMinDate: `Earliest date is`,
           invalidDate: 'Invalid date',
           required: 'Select date',
-          beforeMinDate: `Earliest date is ${getFormattedDate(lang, minDate, withTime)}`,
-          afterMaxDate: `Latest date is ${getFormattedDate(lang, maxDate, withTime)}`,
         };
 
   switch (error) {
