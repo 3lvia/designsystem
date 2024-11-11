@@ -36,3 +36,8 @@ test('should have year view open', async ({ mount, page }) => {
   await page.getByTestId('year-view-toggle').click();
   await percySnapshot(page, 'Datepicker: open year view');
 });
+
+test('should look correct when invalid', async ({ mount, page }) => {
+  await mount(<Datepicker value={new Date(2024, 0, 2)} maxDate={new Date(2024, 0, 1)} />);
+  await percySnapshot(page, 'Datepicker: invalid');
+});
