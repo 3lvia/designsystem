@@ -88,7 +88,7 @@
     "angular-eslint": "^18.4.0",
     "contentful-management": "^11.38.0",
     "contentful-typescript-codegen": "^3.4.0",
-    "eslint": "^9.14.0",
+    "eslint": "^9.15.0",
     "safe-json-stringify": "^1.2.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.5.4",
