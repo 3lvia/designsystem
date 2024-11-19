@@ -3636,8 +3636,8 @@ __metadata:
     "@emotion/babel-plugin": "npm:^11.12.0"
     "@percy/cli": "npm:^1.30.2"
     "@percy/playwright": "npm:^1.0.6"
-    "@playwright/experimental-ct-react": "npm:1.48.2"
-    "@playwright/test": "npm:1.48.2"
+    "@playwright/experimental-ct-react": "npm:1.49.0"
+    "@playwright/test": "npm:1.49.0"
     "@testing-library/dom": "npm:10.4.0"
     "@testing-library/jest-dom": "npm:6.6.3"
     "@testing-library/react": "npm:16.0.1"
@@ -3651,7 +3651,7 @@ __metadata:
     jest: "npm:^29.7.0"
     jest-axe: "npm:^9.0.0"
     jest-environment-jsdom: "npm:^29.7.0"
-    playwright-core: "npm:^1.48.2"
+    playwright-core: "npm:^1.49.0"
     postcss: "npm:^8.4.49"
     postcss-modules: "npm:^6.0.1"
     react: "npm:^18.3.1"
@@ -6637,37 +6637,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-core@npm:1.48.2":
-  version: 1.48.2
-  resolution: "@playwright/experimental-ct-core@npm:1.48.2"
+"@playwright/experimental-ct-core@npm:1.49.0":
+  version: 1.49.0
+  resolution: "@playwright/experimental-ct-core@npm:1.49.0"
   dependencies:
-    playwright: "npm:1.48.2"
-    playwright-core: "npm:1.48.2"
+    playwright: "npm:1.49.0"
+    playwright-core: "npm:1.49.0"
     vite: "npm:^5.2.8"
-  checksum: 10/cfdf3dfde69b77af41b1b0fd3058b95e77a63228cf9525714e5f168f69c51cd517e08ffd0e88627b0816413a05d2097b095c9ab9e563e0aa7c953cc5bb5ad33d
+  checksum: 10/63641ff89519870fceb57806203e56613f554798e875275bbfcbfef53ad9a3997f033739f7b66358ca0d365fa8488206a2abce8ad05591aa6e82a24b6f415bc1
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-react@npm:1.48.2":
-  version: 1.48.2
-  resolution: "@playwright/experimental-ct-react@npm:1.48.2"
+"@playwright/experimental-ct-react@npm:1.49.0":
+  version: 1.49.0
+  resolution: "@playwright/experimental-ct-react@npm:1.49.0"
   dependencies:
-    "@playwright/experimental-ct-core": "npm:1.48.2"
+    "@playwright/experimental-ct-core": "npm:1.49.0"
     "@vitejs/plugin-react": "npm:^4.2.1"
   bin:
     playwright: cli.js
-  checksum: 10/eba1096fb8a2f6140e5dee0105963ba776003baba2ca425011dba0d2a6c00797b0eb127199ee2343e4c200fdf618ecaa8fa1776b74095e08edce4443dc94cc63
+  checksum: 10/4b0800e423c3fed400e0eb0815c02a8fe47308865a90d1b36fea384ce6b1bc18739a16062ce22cc80eecf618af216a5247fc485acd00b9a7596571c28abadfb3
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.48.2":
-  version: 1.48.2
-  resolution: "@playwright/test@npm:1.48.2"
+"@playwright/test@npm:1.49.0":
+  version: 1.49.0
+  resolution: "@playwright/test@npm:1.49.0"
   dependencies:
-    playwright: "npm:1.48.2"
+    playwright: "npm:1.49.0"
   bin:
     playwright: cli.js
-  checksum: 10/8557f9d60b93b9a60b66599d46f991b56df26b691f9285e8755298dabd9f42d1421c330a7d7578b76445fdd56040fe790d3f1081daa80e5e89a380170e0fd217
+  checksum: 10/e87485ab4c02b6dc0bc20a43ea3965c949c45caa4e7f5beea4a0abd29be0a318662931e887072db0d165f8dde93709b97ea1b2c6f4c833b403aa13427d76dd22
   languageName: node
   linkType: hard
 
@@ -16765,27 +16765,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.48.2, playwright-core@npm:^1.48.2":
-  version: 1.48.2
-  resolution: "playwright-core@npm:1.48.2"
+"playwright-core@npm:1.49.0, playwright-core@npm:^1.49.0":
+  version: 1.49.0
+  resolution: "playwright-core@npm:1.49.0"
   bin:
     playwright-core: cli.js
-  checksum: 10/dd029f797b1afb2240713a032fecc50e1ffc5464a39c075570cf10e929c145da3a8d0951a3f2b279e33b2f09cbeb8ff4330822cb1078452c0c75cc4ce34ca171
+  checksum: 10/ef9c708293adab100337ed7fd8e61660be381707fc2b84f07b5f40d1ead44feb6a8e52fef98075e594522229d15a9ad56dd1471689cfa59409bec6447c22944d
   languageName: node
   linkType: hard
 
-"playwright@npm:1.48.2":
-  version: 1.48.2
-  resolution: "playwright@npm:1.48.2"
+"playwright@npm:1.49.0":
+  version: 1.49.0
+  resolution: "playwright@npm:1.49.0"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.48.2"
+    playwright-core: "npm:1.49.0"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10/331af352504336f419cdf1369f0ef399c6f0e905fdb79a5e97c41f33e74766efd21430ab6ae2de0b237ae765ebfbe701e119a990d8dc01bcdac3bc43c1fa1fbf
+  checksum: 10/1fb198d09d388ec46cc2f0fc6b889a8bde8a75066ded82d35f08ba333091ebf3fc4ddf11263a86058a7078c7238ec4f23a86a9f1dc3ebd4f610c9eb07841fb32
   languageName: node
   linkType: hard
 
