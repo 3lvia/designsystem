@@ -39,7 +39,6 @@ interface SlotMap {
   selector: 'app-ceg',
   templateUrl: './ceg.component.html',
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
-  standalone: true,
   imports: [
     TypeSwitcherComponent,
     NgClass,

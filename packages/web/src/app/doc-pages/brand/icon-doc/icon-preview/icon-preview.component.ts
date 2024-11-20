@@ -11,18 +11,15 @@ import { IconPreviewDetailsComponent } from './icon-preview-details/icon-preview
 import { FilterValue, IconPreviewFilterComponent } from './icon-preview-filter/icon-preview-filter.component';
 import { Icon, getIconList } from './utils';
 import { Theme } from 'src/app/core/services/theme.service';
-import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 const allIcons = getIconList();
 
 @Component({
   selector: 'app-icon-preview',
-  standalone: true,
   imports: [
     NgClass,
     RouterLink,
     CdkTrapFocus,
-    CopyComponent,
     IconPreviewFilterComponent,
     IconPreviewDetailsComponent,
     IconGeneratorComponent,

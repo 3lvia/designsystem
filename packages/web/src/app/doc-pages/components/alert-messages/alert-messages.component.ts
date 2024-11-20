@@ -21,7 +21,6 @@ import { AlertRoleStatusCegComponent } from './alert-role-status-ceg/alert-role-
   selector: 'app-alert-messages',
   templateUrl: './alert-messages.component.html',
   styleUrls: ['./alert-messages.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

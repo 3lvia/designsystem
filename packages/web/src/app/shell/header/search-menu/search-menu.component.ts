@@ -30,7 +30,6 @@ import { SearchResult, Searcher } from 'src/app/shared/searcher';
   selector: 'app-search-menu',
   templateUrl: './search-menu.component.html',
   styleUrls: ['./search-menu.component.scss'],
-  standalone: true,
   imports: [CdkTrapFocus, FormsModule, NgClass, RouterLink, AsyncPipe, SearchHighlighterPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

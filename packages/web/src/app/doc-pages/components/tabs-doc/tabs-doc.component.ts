@@ -12,7 +12,6 @@ import { tabsData } from './tabs-data';
   selector: 'app-tabs-doc',
   templateUrl: './tabs-doc.component.html',
   styleUrls: ['./tabs-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

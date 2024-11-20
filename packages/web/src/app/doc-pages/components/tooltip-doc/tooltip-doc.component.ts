@@ -11,7 +11,6 @@ import { tooltipData } from './tooltip-data';
 @Component({
   selector: 'app-tooltip-doc',
   templateUrl: './tooltip-doc.component.html',
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

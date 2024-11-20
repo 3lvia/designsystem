@@ -8,7 +8,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-header-ceg',
   templateUrl: './header-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: HeaderCegComponent }],
-  standalone: true,
   imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -8,7 +8,6 @@ import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/loc
   selector: 'app-color-picker-header',
   templateUrl: './color-picker-header.component.html',
   styleUrls: ['./color-picker-header.component.scss'],
-  standalone: true,
   imports: [LocalThemeSwitchComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

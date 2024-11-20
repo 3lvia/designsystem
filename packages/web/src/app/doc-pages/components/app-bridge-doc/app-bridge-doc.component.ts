@@ -11,7 +11,6 @@ import { ComponentSectionComponent } from 'src/app/shared/component-documentatio
 
 @Component({
   selector: 'app-app-bridge-doc',
-  standalone: true,
   imports: [
     CegComponent,
     AppBridgeCegComponent,

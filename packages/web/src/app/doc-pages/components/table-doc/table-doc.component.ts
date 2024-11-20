@@ -37,7 +37,6 @@ import { TableValidationRowCegComponent } from './table-validation-row-ceg/table
   selector: 'app-table-doc',
   templateUrl: './table-doc.component.html',
   styleUrls: ['./table-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

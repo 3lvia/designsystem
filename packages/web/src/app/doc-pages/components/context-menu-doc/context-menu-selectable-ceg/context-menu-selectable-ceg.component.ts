@@ -8,7 +8,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-context-menu-selectable-ceg',
   templateUrl: './context-menu-selectable-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ContextMenuSelectableCegComponent }],
-  standalone: true,
   imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

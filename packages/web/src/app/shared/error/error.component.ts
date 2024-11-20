@@ -6,7 +6,6 @@ import { RouterLink } from '@angular/router';
   selector: 'app-error',
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss'],
-  standalone: true,
   imports: [RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

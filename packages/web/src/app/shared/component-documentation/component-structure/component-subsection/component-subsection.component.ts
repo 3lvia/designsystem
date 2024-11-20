@@ -6,7 +6,6 @@ import { CopyComponent } from '../../../copy/copy.component';
   selector: 'app-component-subsection',
   templateUrl: './component-subsection.component.html',
   styleUrls: ['./component-subsection.component.scss'],
-  standalone: true,
   imports: [CopyComponent],
 })
 export class ComponentSubsectionComponent {

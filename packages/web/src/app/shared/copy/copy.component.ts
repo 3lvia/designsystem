@@ -6,7 +6,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, ViewEncapsulation, booleanAtt
   templateUrl: './copy.component.html',
   styleUrls: ['./copy.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

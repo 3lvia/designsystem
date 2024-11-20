@@ -10,7 +10,6 @@ import { outlineData } from './outline-data';
   selector: 'app-outline-doc',
   templateUrl: './outline-doc.component.html',
   styleUrls: ['./outline-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

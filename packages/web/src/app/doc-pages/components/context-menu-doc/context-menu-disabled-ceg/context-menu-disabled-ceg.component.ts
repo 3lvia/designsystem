@@ -8,7 +8,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-context-menu-disabled-ceg',
   templateUrl: './context-menu-disabled-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ContextMenuDisabledCegComponent }],
-  standalone: true,
   imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

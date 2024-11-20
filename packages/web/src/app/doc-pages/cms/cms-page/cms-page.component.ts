@@ -17,7 +17,6 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   templateUrl: './cms-page.component.html',
   styleUrls: ['./cms-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [ComponentHeaderComponent, RouterOutlet],
 })

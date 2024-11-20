@@ -8,7 +8,6 @@ import { ControlsComponent } from '../controls/controls.component';
 @Component({
   selector: 'app-controls-popover',
   templateUrl: './controls-popover.component.html',
-  standalone: true,
   imports: [ControlsComponent, NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -13,7 +13,6 @@ import { TagSignalColoredCegComponent } from './tag-signal-colored-ceg/tag-signa
   selector: 'app-tag-doc',
   templateUrl: './tag-doc.component.html',
   styleUrls: ['./tag-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

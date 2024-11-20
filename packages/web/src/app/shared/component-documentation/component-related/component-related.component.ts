@@ -11,7 +11,6 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   selector: 'app-component-related',
   templateUrl: './component-related.component.html',
   styleUrls: ['./component-related.component.scss'],
-  standalone: true,
   imports: [RouterLink, AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

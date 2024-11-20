@@ -13,7 +13,6 @@ const docPage = getDocPagesNotFromCMS('get-started');
   selector: 'app-get-started',
   templateUrl: './get-started-doc.component.html',
   styleUrls: ['./get-started-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentHeaderComponent,
     ComponentSectionComponent,

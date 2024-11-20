@@ -22,7 +22,6 @@ const docPage = getDocPagesNotFromCMS('color');
   selector: 'app-color',
   templateUrl: './color.component.html',
   styleUrls: ['./color.component.scss'],
-  standalone: true,
   imports: [
     ComponentHeaderComponent,
     ColorPickerComponent,

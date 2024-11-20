@@ -13,7 +13,6 @@ import { popoverData } from './popover-data';
   selector: 'app-popover-doc',
   templateUrl: './popover-doc.component.html',
   styleUrls: ['./popover-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

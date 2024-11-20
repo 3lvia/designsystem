@@ -8,7 +8,6 @@ import { CopyComponent } from '../../../copy/copy.component';
   selector: 'app-component-section',
   templateUrl: './component-section.component.html',
   styleUrls: ['./component-section.component.scss'],
-  standalone: true,
   imports: [CopyComponent, NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

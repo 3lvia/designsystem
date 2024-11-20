@@ -21,7 +21,6 @@ import { ButtonTypeTertiaryCegComponent } from './button-type-tertiary-ceg/butto
 @Component({
   selector: 'app-button-doc',
   templateUrl: './button-doc.component.html',
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

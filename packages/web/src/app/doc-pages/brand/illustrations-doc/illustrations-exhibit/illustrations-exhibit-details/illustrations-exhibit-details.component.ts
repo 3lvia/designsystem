@@ -9,7 +9,6 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
   selector: 'app-illustrations-exhibit-details',
-  standalone: true,
   imports: [CopyComponent, IllustrationsGeneratorComponent],
   templateUrl: './illustrations-exhibit-details.component.html',
   styleUrl: './illustrations-exhibit-details.component.scss',

@@ -12,7 +12,6 @@ import { carouselData } from './carousel-data';
   selector: 'app-carousel-doc',
   templateUrl: './carousel-doc.component.html',
   styleUrls: ['./carousel-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

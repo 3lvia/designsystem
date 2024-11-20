@@ -33,7 +33,6 @@ export interface Anchor {
       ]),
     ]),
   ],
-  standalone: true,
   imports: [NgClass],
 })
 export class SubMenuComponent {

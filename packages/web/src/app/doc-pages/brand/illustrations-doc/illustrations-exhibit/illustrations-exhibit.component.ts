@@ -12,7 +12,6 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
 
 @Component({
   selector: 'app-illustrations-exhibit',
-  standalone: true,
   imports: [
     CdkTrapFocus,
     NgClass,

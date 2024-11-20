@@ -19,7 +19,6 @@ interface Shadow {
   selector: 'app-shadow-viewer',
   templateUrl: './shadow-viewer.component.html',
   styleUrls: ['./shadow-viewer.component.scss'],
-  standalone: true,
   imports: [NgClass, CopyComponent, AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

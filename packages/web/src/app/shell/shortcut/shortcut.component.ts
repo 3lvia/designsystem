@@ -10,7 +10,6 @@ import { ShortcutModalContentComponent } from './shortcut-modal-content/shortcut
   selector: 'app-shortcut',
   templateUrl: './shortcut.component.html',
   styleUrls: ['./shortcut.component.scss'],
-  standalone: true,
   imports: [ShortcutModalContentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

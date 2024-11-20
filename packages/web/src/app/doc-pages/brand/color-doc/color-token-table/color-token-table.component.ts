@@ -27,7 +27,6 @@ import {
   selector: 'app-color-token-table',
   templateUrl: './color-token-table.component.html',
   styleUrls: ['./color-token-table.component.scss'],
-  standalone: true,
   imports: [NgClass, ColorTokenSubtableComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -17,7 +17,6 @@ const docPage = getComponent('autocomplete');
 @Component({
   selector: 'app-autocomplete-doc',
   templateUrl: './autocomplete-doc.component.html',
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

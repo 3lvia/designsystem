@@ -26,7 +26,6 @@ import { InputValidationCegComponent } from './input-validation-ceg/input-valida
   selector: 'app-input-doc',
   templateUrl: './input-doc.component.html',
   styleUrls: ['./input-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

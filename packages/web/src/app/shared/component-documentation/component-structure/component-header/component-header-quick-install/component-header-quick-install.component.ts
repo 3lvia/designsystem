@@ -8,7 +8,6 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   selector: 'app-component-header-quick-install',
   templateUrl: './component-header-quick-install.component.html',
   styleUrls: ['./component-header-quick-install.component.scss'],
-  standalone: true,
   imports: [CopyComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

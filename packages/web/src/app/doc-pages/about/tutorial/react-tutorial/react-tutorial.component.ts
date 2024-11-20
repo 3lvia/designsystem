@@ -6,7 +6,6 @@ import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/
 @Component({
   selector: 'app-react-tutorial',
   templateUrl: './react-tutorial.component.html',
-  standalone: true,
   imports: [CodeViewerComponent, RouterLink],
 })
 export class ReactTutorialComponent {

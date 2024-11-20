@@ -15,7 +15,6 @@ import { CodeViewerComponent } from './code-viewer/code-viewer.component';
 @Component({
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',
-  standalone: true,
   imports: [CodeViewerComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -19,7 +19,6 @@ interface Prop {
   selector: 'app-dynamic-code-generator',
   templateUrl: './dynamic-code-generator.component.html',
   styleUrls: ['./dynamic-code-generator.component.scss'],
-  standalone: true,
   imports: [CodeGeneratorComponent, AsyncPipe],
 })
 export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {

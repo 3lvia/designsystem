@@ -15,7 +15,6 @@ const docPage = getComponent('css-library');
 @Component({
   selector: 'app-css-library-doc',
   templateUrl: './css-library-doc.component.html',
-  standalone: true,
   imports: [
     ComponentHeaderComponent,
     ComponentSectionComponent,

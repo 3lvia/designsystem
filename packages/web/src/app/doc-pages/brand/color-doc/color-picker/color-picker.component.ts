@@ -11,7 +11,6 @@ import { ColorPickerService } from './color-picker.service';
   selector: 'app-color-picker',
   templateUrl: './color-picker.component.html',
   styleUrls: ['./color-picker.component.scss'],
-  standalone: true,
   imports: [
     NgClass,
     ColorPickerHeaderComponent,

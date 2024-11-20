@@ -4,7 +4,6 @@ import { Theme } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-local-theme-switch',
-  standalone: true,
   imports: [],
   templateUrl: './local-theme-switch.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

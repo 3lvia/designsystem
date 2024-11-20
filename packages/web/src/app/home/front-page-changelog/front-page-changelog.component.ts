@@ -10,7 +10,6 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
-  standalone: true,
   imports: [
     CommonModule,
     RouterModule,

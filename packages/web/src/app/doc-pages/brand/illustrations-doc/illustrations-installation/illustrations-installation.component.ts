@@ -9,7 +9,6 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
   selector: 'app-illustrations-installation',
-  standalone: true,
   imports: [CopyComponent, TabToSegmentedControlItemPipe],
   templateUrl: './illustrations-installation.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

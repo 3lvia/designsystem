@@ -20,7 +20,6 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
   selector: 'app-code-viewer',
   templateUrl: './code-viewer.component.html',
   styleUrls: ['./code-viewer.component.scss'],
-  standalone: true,
   imports: [
     IfViewportSizeDirective,
     AsyncPipe,

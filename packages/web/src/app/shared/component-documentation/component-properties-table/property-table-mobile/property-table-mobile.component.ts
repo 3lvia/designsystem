@@ -10,7 +10,6 @@ import { SearchResult } from 'src/app/shared/searcher';
 @Component({
   selector: 'app-property-table-mobile',
   templateUrl: './property-table-mobile.component.html',
-  standalone: true,
   imports: [PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
 })
 export class PropertyTableMobileComponent extends PropertyTableBaseDirective {

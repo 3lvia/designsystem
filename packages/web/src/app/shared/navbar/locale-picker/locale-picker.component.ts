@@ -8,7 +8,6 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
   selector: 'app-locale-picker',
   templateUrl: './locale-picker.component.html',
   styleUrls: ['./locale-picker.component.scss'],
-  standalone: true,
   imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

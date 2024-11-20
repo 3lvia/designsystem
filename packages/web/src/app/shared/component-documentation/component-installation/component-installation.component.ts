@@ -12,7 +12,6 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
 @Component({
   selector: 'app-component-installation',
   templateUrl: './component-installation.component.html',
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   animations: [heightAnimation],
   imports: [CopyComponent, TabToSegmentedControlItemPipe],

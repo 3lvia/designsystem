@@ -16,7 +16,6 @@ const emptyStatesDocPage = getDocPagesNotFromCMS('empty-states');
 
 @Component({
   selector: 'app-empty-states-doc',
-  standalone: true,
   imports: [
     ComponentSectionComponent,
     ComponentSubsectionComponent,

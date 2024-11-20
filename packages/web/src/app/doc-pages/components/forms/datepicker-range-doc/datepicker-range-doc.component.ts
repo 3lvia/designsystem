@@ -13,7 +13,6 @@ import { DatepickerRangeShortcutExampleComponent } from './datepicker-range-shor
   selector: 'app-datepicker-range-doc',
   templateUrl: './datepicker-range-doc.component.html',
   styleUrls: ['./datepicker-range-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

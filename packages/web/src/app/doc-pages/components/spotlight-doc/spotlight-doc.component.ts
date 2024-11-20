@@ -11,7 +11,6 @@ import { spotlightData } from './spotlight-data';
 @Component({
   selector: 'app-spotlight-doc',
   templateUrl: './spotlight-doc.component.html',
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

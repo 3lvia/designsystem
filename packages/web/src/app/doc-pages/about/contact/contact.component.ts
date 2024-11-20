@@ -23,7 +23,6 @@ const docPage = getDocPagesNotFromCMS('contact');
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  standalone: true,
   imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass, SafeHtmlPipe],
 })
 export class ContactComponent {

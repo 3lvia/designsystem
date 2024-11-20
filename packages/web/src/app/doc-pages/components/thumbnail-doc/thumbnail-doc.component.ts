@@ -11,7 +11,6 @@ import { ThumbnailSelectedCegComponent } from './thumbnail-selected-ceg/thumbnai
 @Component({
   selector: 'app-thumbnail-doc',
   templateUrl: './thumbnail-doc.component.html',
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

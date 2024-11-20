@@ -8,7 +8,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-context-menu-ceg',
   templateUrl: './context-menu-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ContextMenuCegComponent }],
-  standalone: true,
   imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

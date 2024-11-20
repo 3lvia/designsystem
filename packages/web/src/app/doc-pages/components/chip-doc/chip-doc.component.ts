@@ -15,7 +15,6 @@ import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-em
   selector: 'app-chips',
   templateUrl: './chip-doc.component.html',
   styleUrls: ['./chip-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

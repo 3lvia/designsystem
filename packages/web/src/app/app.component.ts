@@ -71,7 +71,6 @@ type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: true,
   imports: [
     HeaderComponent,
     NgClass,

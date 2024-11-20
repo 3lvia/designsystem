@@ -17,7 +17,6 @@ const docPage = getDocPagesNotFromCMS('tutorial');
   selector: 'app-tutorial',
   templateUrl: './tutorial.component.html',
   styleUrls: ['./tutorial.component.scss'],
-  standalone: true,
   imports: [
     ComponentHeaderComponent,
     AngularTutorialComponent,

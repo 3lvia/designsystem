@@ -11,7 +11,6 @@ import { timepickerData } from './timepicker-data';
   selector: 'app-timepicker-doc',
   templateUrl: './timepicker-doc.component.html',
   styleUrls: ['./timepicker-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

@@ -16,7 +16,6 @@ import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
   selector: 'app-color-picker-exhibit',
   templateUrl: './color-picker-exhibit.component.html',
   styleUrls: ['./color-picker-exhibit.component.scss'],
-  standalone: true,
   imports: [
     NgStyle,
     NgClass,

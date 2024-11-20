@@ -15,7 +15,6 @@ const docPage = getDocPagesNotFromCMS('shadow');
 @Component({
   selector: 'app-shadow-doc',
   templateUrl: './shadow-doc.component.html',
-  standalone: true,
   imports: [
     ComponentHeaderComponent,
     ShadowViewerComponent,

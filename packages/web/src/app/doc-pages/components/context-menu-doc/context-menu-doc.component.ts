@@ -18,7 +18,6 @@ import { ContextMenuSelectableCegComponent } from './context-menu-selectable-ceg
   selector: 'app-context-menu-doc',
   templateUrl: './context-menu-doc.component.html',
   styleUrls: ['./context-menu-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

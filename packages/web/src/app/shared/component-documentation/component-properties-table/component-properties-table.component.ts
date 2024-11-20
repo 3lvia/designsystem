@@ -11,7 +11,6 @@ import ComponentData, { NestedProp } from 'src/app/doc-pages/components/componen
   selector: 'app-component-properties-table',
   templateUrl: './component-properties-table.component.html',
   styleUrls: ['./component-properties-table.component.scss'],
-  standalone: true,
   imports: [PropertySearchInputComponent, PropertyTableDesktopComponent, PropertyTableMobileComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

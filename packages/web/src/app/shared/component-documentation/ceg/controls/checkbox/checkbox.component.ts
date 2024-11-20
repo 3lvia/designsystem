@@ -9,7 +9,6 @@ let CEG_CHECKBOX_ID = 0;
   selector: 'app-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
-  standalone: true,
   imports: [NgClass],
 })
 export class CheckboxComponent {

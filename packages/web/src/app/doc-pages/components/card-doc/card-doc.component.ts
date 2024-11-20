@@ -15,7 +15,6 @@ import { CardLinksCegComponent } from './card-links-ceg/card-links-ceg.component
   selector: 'app-card-doc',
   templateUrl: './card-doc.component.html',
   styleUrls: ['./card-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

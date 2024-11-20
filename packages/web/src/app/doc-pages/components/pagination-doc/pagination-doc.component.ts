@@ -12,7 +12,6 @@ import { paginationData } from './pagination-data';
   selector: 'app-pagination-doc',
   templateUrl: './pagination-doc.component.html',
   styleUrls: ['./pagination-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

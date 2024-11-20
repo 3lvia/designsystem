@@ -5,7 +5,6 @@ import { TypographyExampleExhibitFilterComponent } from './typography-example-ex
 import { TypographyExampleExhibitListComponent } from './typography-example-exhibit-list/typography-example-exhibit-list.component';
 
 @Component({
-  standalone: true,
   imports: [TypographyExampleExhibitFilterComponent, TypographyExampleExhibitListComponent],
   selector: 'app-typography-example-exhibit',
   templateUrl: './typography-example-exhibit.component.html',

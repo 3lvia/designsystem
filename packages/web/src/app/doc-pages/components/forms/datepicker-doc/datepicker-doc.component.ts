@@ -11,7 +11,6 @@ import { datepickerData } from './datepicker-data';
   selector: 'app-datepicker-doc',
   templateUrl: './datepicker-doc.component.html',
   styleUrls: ['./datepicker-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

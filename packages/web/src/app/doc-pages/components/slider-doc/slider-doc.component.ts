@@ -11,7 +11,6 @@ import { sliderData } from './slider-data';
 @Component({
   selector: 'app-slider-doc',
   templateUrl: './slider-doc.component.html',
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

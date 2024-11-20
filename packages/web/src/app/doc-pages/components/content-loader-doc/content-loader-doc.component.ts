@@ -13,7 +13,6 @@ import { ContentLoaderTextCegComponent } from './content-loader-text-ceg/content
   selector: 'app-content-loader-doc',
   templateUrl: './content-loader-doc.component.html',
   styleUrls: ['./content-loader-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

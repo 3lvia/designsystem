@@ -20,7 +20,6 @@ import { DropdownTreeCegComponent } from './dropdown-tree-ceg/dropdown-tree-ceg.
   selector: 'app-dropdown-doc',
   templateUrl: './dropdown-doc.component.html',
   styleUrls: ['./dropdown-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

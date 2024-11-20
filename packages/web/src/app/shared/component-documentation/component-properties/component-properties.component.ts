@@ -8,7 +8,6 @@ import { CopyComponent } from '../../copy/copy.component';
   selector: 'app-component-properties',
   templateUrl: './component-properties.component.html',
   styleUrls: ['./component-properties.component.scss'],
-  standalone: true,
   imports: [CopyComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

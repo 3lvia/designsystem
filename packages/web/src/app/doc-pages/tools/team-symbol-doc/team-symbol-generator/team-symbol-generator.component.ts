@@ -17,7 +17,6 @@ import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
 @Component({
   selector: 'app-team-symbol-generator',
-  standalone: true,
   imports: [
     CommonModule,
     FormsModule,

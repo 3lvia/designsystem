@@ -11,7 +11,6 @@ import { DraganddropDragoverCegComponent } from './draganddrop-dragover-ceg/drag
   selector: 'app-draganddrop-doc',
   templateUrl: './draganddrop-doc.component.html',
   styleUrls: ['./draganddrop-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

@@ -12,7 +12,6 @@ import { ScrollNotifierService } from './scroll-notifier.service';
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss'],
-  standalone: true,
   imports: [EmojiBadComponent, EmojiNeutralComponent, EmojiGoodComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

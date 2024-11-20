@@ -23,7 +23,6 @@ const docPage = getDocPagesNotFromCMS('layout');
   selector: 'app-layout-doc',
   templateUrl: './layout-doc.component.html',
   styleUrls: ['./layout-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentHeaderComponent,
     ComponentSectionComponent,

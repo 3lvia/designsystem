@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, computed, inject, input, model } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -11,8 +10,7 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
   selector: 'app-icon-preview-details',
-  standalone: true,
-  imports: [NgClass, CopyComponent, IconGeneratorComponent],
+  imports: [CopyComponent, IconGeneratorComponent],
   templateUrl: './icon-preview-details.component.html',
   styleUrl: './icon-preview-details.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -8,7 +8,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-popover-ceg',
   templateUrl: './popover-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: PopoverCegComponent }],
-  standalone: true,
   imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -8,7 +8,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-context-menu-headings-ceg',
   templateUrl: './context-menu-headings-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ContextMenuHeadingsCegComponent }],
-  standalone: true,
   imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

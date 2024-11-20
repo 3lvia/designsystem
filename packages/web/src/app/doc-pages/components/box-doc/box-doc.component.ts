@@ -12,7 +12,6 @@ import { boxData } from './box-data';
 @Component({
   selector: 'app-box-doc',
   templateUrl: './box-doc.component.html',
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

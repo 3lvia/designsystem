@@ -7,7 +7,6 @@ let CEG_RADIO_GROUP_ID = 0;
 @Component({
   selector: 'app-radio-group',
   templateUrl: './radio-group.component.html',
-  standalone: true,
   imports: [],
 })
 export class RadioGroupComponent {

@@ -6,7 +6,6 @@ import { Modifier, Typographies } from '../typographies';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
-  standalone: true,
   imports: [FormsModule, TextFieldModule, CopyComponent],
   selector: 'app-typography-example-exhibit-list',
   templateUrl: './typography-example-exhibit-list.component.html',

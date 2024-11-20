@@ -10,7 +10,6 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   selector: 'app-component-header',
   templateUrl: './component-header.component.html',
   styleUrls: ['./component-header.component.scss'],
-  standalone: true,
   imports: [
     ComponentHeaderQuickInstallComponent,
     IfViewportSizeDirective,

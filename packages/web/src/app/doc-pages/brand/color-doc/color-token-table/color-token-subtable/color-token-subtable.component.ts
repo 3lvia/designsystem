@@ -17,7 +17,6 @@ type Colors = {
   selector: 'app-color-token-subtable',
   templateUrl: './color-token-subtable.component.html',
   styleUrls: ['./color-token-subtable.component.scss'],
-  standalone: true,
   imports: [
     NgClass,
     CopyComponent,

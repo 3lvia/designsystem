@@ -6,7 +6,6 @@ import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/
 @Component({
   selector: 'app-blazor-tutorial',
   templateUrl: './blazor-tutorial.component.html',
-  standalone: true,
   imports: [CodeViewerComponent, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

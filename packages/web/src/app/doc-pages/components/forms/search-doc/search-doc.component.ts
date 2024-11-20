@@ -17,7 +17,6 @@ import { SearchSizeSmallCegComponent } from './search-size-small-ceg/search-size
 @Component({
   selector: 'app-search-doc',
   templateUrl: './search-doc.component.html',
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

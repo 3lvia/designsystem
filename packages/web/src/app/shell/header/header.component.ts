@@ -14,7 +14,6 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { Theme, ThemeService } from 'src/app/core/services/theme.service';
-import { SearchHighlighterPipe } from 'src/app/shared/search-highlighter.pipe';
 
 type MenuType = 'search' | 'mobileMenu' | null;
 
@@ -22,7 +21,6 @@ type MenuType = 'search' | 'mobileMenu' | null;
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone: true,
   imports: [
     NgClass,
     CdkTrapFocus,
@@ -34,7 +32,6 @@ type MenuType = 'search' | 'mobileMenu' | null;
     CommonModule,
     RouterModule,
     FormsModule,
-    SearchHighlighterPipe,
     A11yModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

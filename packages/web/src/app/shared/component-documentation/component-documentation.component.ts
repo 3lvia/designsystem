@@ -33,7 +33,6 @@ import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-component-documentation',
   templateUrl: './component-documentation.component.html',
-  standalone: true,
   imports: [
     ComponentHeaderComponent,
     ComponentSectionComponent,

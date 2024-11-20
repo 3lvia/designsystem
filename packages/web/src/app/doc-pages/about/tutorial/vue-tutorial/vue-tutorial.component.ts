@@ -6,7 +6,6 @@ import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/
 @Component({
   selector: 'app-vue-tutorial',
   templateUrl: './vue-tutorial.component.html',
-  standalone: true,
   imports: [CodeViewerComponent, RouterLink],
 })
 export class VueTutorialComponent {

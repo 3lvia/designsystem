@@ -15,7 +15,6 @@ import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-
   selector: 'app-page-with-sidenav',
   templateUrl: './page-with-sidenav.component.html',
   styleUrls: ['./page-with-sidenav.component.scss'],
-  standalone: true,
   imports: [
     IfViewportSizeDirective,
     DesktopNavbarComponent,

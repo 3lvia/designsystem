@@ -14,7 +14,6 @@ import { radioFilterData } from './radio-filter.data';
   selector: 'app-radio-filter-doc',
   templateUrl: './radio-filter-doc.component.html',
   styleUrls: ['./radio-filter-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

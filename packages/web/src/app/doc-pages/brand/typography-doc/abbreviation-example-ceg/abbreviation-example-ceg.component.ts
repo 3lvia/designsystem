@@ -6,7 +6,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 
 @Component({
   selector: 'app-abbreviation-ceg',
-  standalone: true,
   imports: [NgClass],
   templateUrl: './abbreviation-example-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AbbreviationExampleCegComponent }],

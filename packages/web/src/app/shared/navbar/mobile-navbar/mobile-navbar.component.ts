@@ -7,7 +7,6 @@ import { NavbarBase } from '../navbar-base';
   selector: 'app-mobile-navbar',
   templateUrl: './mobile-navbar.component.html',
   styleUrls: ['./mobile-navbar.component.scss'],
-  standalone: true,
   imports: [RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

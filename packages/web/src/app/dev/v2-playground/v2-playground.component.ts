@@ -18,7 +18,6 @@ interface StepStates {
   selector: 'app-v2-playground',
   templateUrl: './v2-playground.component.html',
   styleUrls: ['./v2-playground.component.scss'],
-  standalone: true,
   imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

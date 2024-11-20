@@ -19,7 +19,6 @@ import { LinkSizesCegComponent } from './link-sizes-ceg/link-sizes-ceg.component
   selector: 'app-link-doc',
   templateUrl: './link-doc.component.html',
   styleUrls: ['./link-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

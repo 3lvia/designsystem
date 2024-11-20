@@ -11,7 +11,6 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
   selector: 'app-icon-installation',
-  standalone: true,
   imports: [CopyComponent, TabToSegmentedControlItemPipe, CodeViewerComponent],
   templateUrl: './icon-installation.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

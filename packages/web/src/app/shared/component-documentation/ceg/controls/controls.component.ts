@@ -20,7 +20,6 @@ interface Group {
   selector: 'app-controls',
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss'],
-  standalone: true,
   imports: [
     RadioGroupComponent,
     CheckboxComponent,

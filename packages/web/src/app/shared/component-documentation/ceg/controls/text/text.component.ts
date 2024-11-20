@@ -9,7 +9,6 @@ let CEG_INPUT_ID = 0;
   selector: 'app-text',
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss'],
-  standalone: true,
   imports: [NgClass],
 })
 export class TextComponent {

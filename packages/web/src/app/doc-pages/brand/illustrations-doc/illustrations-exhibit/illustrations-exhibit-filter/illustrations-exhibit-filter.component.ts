@@ -11,7 +11,6 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
 
 @Component({
   selector: 'app-illustrations-exhibit-filter',
-  standalone: true,
   imports: [IfViewportSizeDirective, LocalThemeSwitchComponent],
   templateUrl: './illustrations-exhibit-filter.component.html',
   styleUrl: './illustrations-exhibit-filter.component.scss',

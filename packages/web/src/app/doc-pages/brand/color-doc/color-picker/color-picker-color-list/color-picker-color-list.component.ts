@@ -12,7 +12,6 @@ import { NeedsBorderPipe } from '../needs-border.pipe';
   selector: 'app-color-picker-color-list',
   templateUrl: './color-picker-color-list.component.html',
   styleUrls: ['./color-picker-color-list.component.scss'],
-  standalone: true,
   imports: [NgClass, NeedsBorderPipe],
 })
 export class ColorPickerColorListComponent {

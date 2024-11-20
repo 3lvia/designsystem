@@ -7,7 +7,6 @@ import { CodeViewerComponent } from '../../ceg/code-generator/code-viewer/code-v
   selector: 'app-property-example-popover',
   templateUrl: './property-example-popover.component.html',
   styleUrls: ['./property-example-popover.component.scss'],
-  standalone: true,
   imports: [NgClass, CodeViewerComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

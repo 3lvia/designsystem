@@ -15,7 +15,6 @@ interface Classes {
 
 @Component({
   selector: 'app-empty-states-class-list',
-  standalone: true,
   imports: [NgClass],
   templateUrl: './empty-states-class-list.component.html',
   styleUrl: './empty-states-class-list.component.scss',

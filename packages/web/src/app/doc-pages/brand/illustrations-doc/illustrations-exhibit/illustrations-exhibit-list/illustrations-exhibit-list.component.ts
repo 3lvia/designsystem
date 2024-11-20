@@ -10,7 +10,6 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 
 @Component({
   selector: 'app-illustrations-exhibit-list',
-  standalone: true,
   imports: [NgClass, IllustrationsGeneratorComponent, IllustrationsExhibitListDisplayNamePipe],
   templateUrl: './illustrations-exhibit-list.component.html',
   styleUrl: './illustrations-exhibit-list.component.scss',

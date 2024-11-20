@@ -17,7 +17,6 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
-  standalone: true,
   imports: [
     CommonModule,
     RouterModule,

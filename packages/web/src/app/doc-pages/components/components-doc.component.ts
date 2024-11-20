@@ -12,7 +12,6 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
   selector: 'app-components-doc',
   templateUrl: './components-doc.component.html',
   styleUrls: ['./components-doc.component.scss'],
-  standalone: true,
   imports: [RouterLink, AsyncPipe, IfViewportSizeDirective, DocPagePipe, CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

@@ -13,7 +13,6 @@ import { BreadcrumbEventCegComponent } from './breadcrumb-event-ceg/breadcrumb-e
   selector: 'app-breadcrumb-doc',
   templateUrl: './breadcrumb-doc.component.html',
   styleUrls: ['./breadcrumb-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

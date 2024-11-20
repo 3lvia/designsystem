@@ -16,7 +16,6 @@ type Holiday = 'Birthday' | 'Christmas' | 'Halloween' | 'Pride' | 'ConstitutionD
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: true,
   imports: [NgClass, RouterLink, FrontPageChangelogComponent, AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

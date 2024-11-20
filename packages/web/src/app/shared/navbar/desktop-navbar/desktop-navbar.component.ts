@@ -33,7 +33,6 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
       transition(':leave', [animate(animationMotion, style({ height: 0 }))]),
     ]),
   ],
-  standalone: true,
   imports: [NgClass, RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

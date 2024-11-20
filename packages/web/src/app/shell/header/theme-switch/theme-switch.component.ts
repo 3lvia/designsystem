@@ -8,7 +8,6 @@ import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.servic
   selector: 'app-theme-switch',
   templateUrl: './theme-switch.component.html',
   styleUrls: ['./theme-switch.component.scss'],
-  standalone: true,
   imports: [NgClass, AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

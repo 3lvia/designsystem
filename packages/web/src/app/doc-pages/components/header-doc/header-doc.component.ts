@@ -12,7 +12,6 @@ import { headerData } from './header-data';
   selector: 'app-header-doc',
   templateUrl: './header-doc.component.html',
   styleUrls: ['./header-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

@@ -6,7 +6,6 @@ import { CodeGeneratorComponent } from '../code-generator.component';
   selector: 'app-static-code-generator',
   templateUrl: './static-code-generator.component.html',
   styleUrls: ['./static-code-generator.component.scss'],
-  standalone: true,
   imports: [CodeGeneratorComponent],
 })
 export class StaticCodeGeneratorComponent implements OnInit {

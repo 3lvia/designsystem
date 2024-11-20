@@ -11,7 +11,6 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
   selector: 'app-mobile-menu',
   templateUrl: './mobile-menu.component.html',
   styleUrls: ['./mobile-menu.component.scss'],
-  standalone: true,
   imports: [RouterLink, ThemeSwitchComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

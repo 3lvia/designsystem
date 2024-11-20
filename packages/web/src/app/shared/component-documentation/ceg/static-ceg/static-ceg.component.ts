@@ -9,7 +9,6 @@ import { StaticComponentExample } from './static-component-example';
   selector: 'app-static-ceg',
   templateUrl: './static-ceg.component.html',
   styleUrls: ['./static-ceg.component.scss', '../shared-styles.scss'],
-  standalone: true,
   imports: [PhoneShellComponent, NgTemplateOutlet, StaticCodeGeneratorComponent],
 })
 export class StaticCegComponent {

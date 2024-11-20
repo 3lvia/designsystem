@@ -13,7 +13,6 @@ const docPage = getDocPagesNotFromCMS('utility-classes');
   selector: 'app-utilities-doc',
   templateUrl: './utilities-doc.component.html',
   styleUrls: ['./utilities-doc.component.scss'],
-  standalone: true,
   imports: [ComponentHeaderComponent, ComponentSubsectionComponent, RouterLink, CopyComponent],
 })
 export class UtilitiesDocComponent {

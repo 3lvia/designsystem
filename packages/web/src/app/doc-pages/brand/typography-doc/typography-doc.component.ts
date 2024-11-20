@@ -21,7 +21,6 @@ const docPage = getDocPagesNotFromCMS('typography');
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
-  standalone: true,
   imports: [
     ComponentHeaderComponent,
     ComponentSubsectionComponent,

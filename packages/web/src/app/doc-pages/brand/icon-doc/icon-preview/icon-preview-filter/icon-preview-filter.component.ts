@@ -9,7 +9,6 @@ export type FilterValue = 'all' | 'outline' | 'filled' | 'colored';
 
 @Component({
   selector: 'app-icon-preview-filter',
-  standalone: true,
   imports: [FormsModule, LocalThemeSwitchComponent, IfViewportSizeDirective],
   templateUrl: './icon-preview-filter.component.html',
   styleUrl: './icon-preview-filter.component.scss',

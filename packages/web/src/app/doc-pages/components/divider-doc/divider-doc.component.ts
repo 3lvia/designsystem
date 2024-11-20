@@ -12,7 +12,6 @@ import { dividerData } from './divider-data';
   selector: 'app-divider-doc',
   templateUrl: './divider-doc.component.html',
   styleUrls: ['./divider-doc.component.scss'],
-  standalone: true,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,
