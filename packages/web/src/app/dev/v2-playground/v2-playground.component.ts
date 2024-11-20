@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import type { DropdownItem } from '@elvia/elvis-dropdown';
 import { openElviaToast } from '@elvia/elvis-toast';
@@ -22,6 +22,8 @@ interface StepStates {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {
+  private titleService = inject(Title);
+
   endMinDate = new Date(2023, 9, 10);
   endTimeValue: Date | null = new Date(2023, 9, 10);
   isHidden = false;
@@ -348,7 +350,7 @@ export class v2PlaygroundComponent {
     console.log('Slider value changed: ', event.detail.value);
   };
 
-  constructor(private titleService: Title) {
+  constructor() {
     this.titleService.setTitle('DEV-playground | Elvia design system');
   }
 }

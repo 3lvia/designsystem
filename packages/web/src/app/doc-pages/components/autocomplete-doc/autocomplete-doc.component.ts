@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
@@ -31,11 +31,13 @@ const docPage = getComponent('autocomplete');
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AutocompleteDocComponent {
+  private titleService = inject(Title);
+
   figmaUrl = docPage.figmaUrl;
   description = docPage.description;
   title = docPage.title;
 
-  constructor(private titleService: Title) {
+  constructor() {
     this.titleService.setTitle(this.title + ' | Elvia design system');
   }
 

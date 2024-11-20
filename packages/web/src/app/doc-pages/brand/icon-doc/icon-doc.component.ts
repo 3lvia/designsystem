@@ -43,6 +43,8 @@ const docPage = getDocPagesNotFromCMS('icon');
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconDocComponent {
+  private titleService = inject(Title);
+
   changelog = changelogJson.content;
   docPage = docPage;
   locale = toSignal(inject(LocalizationService).listenLocalization());
@@ -50,7 +52,7 @@ export class IconDocComponent {
   scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>`;
   iconExample = `<i class="e-icon e-icon--chat e-icon--md" aria-hidden="true"></i>`;
 
-  constructor(private titleService: Title) {
+  constructor() {
     effect(() => {
       this.titleService.setTitle(
         (this.locale() === 'nb-NO' ? this.docPage.titleNo : this.docPage.title) + ' | Elvia design system',

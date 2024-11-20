@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -15,6 +15,9 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MobileMenuComponent {
+  private cmsService = inject(CMSService);
+  private localizationService = inject(LocalizationService);
+
   @Output() closeMenu = new EventEmitter<void>();
   mainMenu: CMSMenu;
   isLoaded = false;
@@ -27,10 +30,7 @@ export class MobileMenuComponent {
     );
   }
 
-  constructor(
-    private cmsService: CMSService,
-    private localizationService: LocalizationService,
-  ) {
+  constructor() {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())

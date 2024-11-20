@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, OnDestroy, ViewEncapsulation, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
@@ -21,6 +21,14 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   imports: [ComponentHeaderComponent, RouterOutlet],
 })
 export class CMSPageComponent implements OnDestroy {
+  private cmsService = inject(CMSService);
+  private sanitizer = inject(DomSanitizer);
+  private localizationService = inject(LocalizationService);
+  private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
+  private elementRef = inject(ElementRef);
+  private titleService = inject(Title);
+
   cmsContent: TransformedDocPage = {} as TransformedDocPage;
   showContentLoader = true;
   contentHTML: SafeHtml = '';
@@ -32,16 +40,9 @@ export class CMSPageComponent implements OnDestroy {
   activeEventListeners: HTMLElement[] = [];
   errorMessages: CMSDocPageError[] = [];
 
-  constructor(
-    private cmsService: CMSService,
-    private sanitizer: DomSanitizer,
-    private localizationService: LocalizationService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private elementRef: ElementRef,
-    private titleService: Title,
-    themeService: ThemeService,
-  ) {
+  constructor() {
+    const themeService = inject(ThemeService);
+
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
     }

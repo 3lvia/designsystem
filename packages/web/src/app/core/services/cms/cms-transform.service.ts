@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { NodeRenderer, Options, documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -35,6 +35,10 @@ import { extractLocale } from './extractLocale';
   providedIn: 'root',
 })
 export class CMSTransformService {
+  private router = inject(Router);
+  private cmsTransformErrorsService = inject(CMSTransformErrorsService);
+  private themeService = inject(ThemeService);
+
   private locale: LOCALE_CODE = 'en-GB'; // Fallback
   private currentTheme: ThemeName = 'light';
   private subMenu: CMSSubMenu[];
@@ -61,11 +65,7 @@ export class CMSTransformService {
   private extractLocale = <T extends Parameters<typeof extractLocale>[0]>(data: T) =>
     extractLocale(data, this.locale);
 
-  constructor(
-    private router: Router,
-    private cmsTransformErrorsService: CMSTransformErrorsService,
-    private themeService: ThemeService,
-  ) {
+  constructor() {
     this.themeService
       .listenTheme()
       .pipe(takeUntilDestroyed())

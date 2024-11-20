@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, pairwise, startWith } from 'rxjs/operators';
@@ -7,7 +7,8 @@ import { filter, map, pairwise, startWith } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class RouterService {
-  constructor(private router: Router) {}
+  private router = inject(Router);
+
 
   /**
    * Only emit routing events when the path (URL without query params) has changed.

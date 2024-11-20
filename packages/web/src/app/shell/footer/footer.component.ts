@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 
@@ -17,6 +17,8 @@ interface IconLink {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FooterComponent {
+  private router = inject(Router);
+
   bgClass = '';
   currentYear = new Date().getFullYear();
   links: IconLink[] = [
@@ -37,7 +39,7 @@ export class FooterComponent {
     },
   ];
 
-  constructor(private router: Router) {
+  constructor() {
     this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const eventUrl = event.urlAfterRedirects;

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 
@@ -26,6 +26,8 @@ const docPage = getComponent('css-library');
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CSSLibraryDocComponent {
+  private titleService = inject(Title);
+
   componentData: ComponentData = {
     attributes: {},
     name: '',
@@ -40,7 +42,7 @@ export class CSSLibraryDocComponent {
   title = docPage.title;
   description = docPage.description;
 
-  constructor(private titleService: Title) {
+  constructor() {
     this.titleService.setTitle('CSS Library | Elvia design system');
   }
 }

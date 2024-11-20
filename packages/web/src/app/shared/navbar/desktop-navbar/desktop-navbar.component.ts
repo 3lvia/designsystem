@@ -1,14 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { NgClass } from '@angular/common';
-import {
-  AfterViewInit,
-  CUSTOM_ELEMENTS_SCHEMA,
-  Component,
-  ElementRef,
-  NgZone,
-  OnDestroy,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, NgZone, OnDestroy, ViewChild, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Subject, fromEvent, merge, switchMap, take, takeUntil } from 'rxjs';
@@ -37,6 +29,8 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit, OnDestroy {
+  private ngZone = inject(NgZone);
+
   private unsubscriber = new Subject<void>();
   @ViewChild('scrollContainer') scrollContainer: ElementRef<HTMLDivElement>;
   listOverflows = false;
@@ -46,12 +40,11 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit,
     return this.activeRoute.split('/')[1];
   }
 
-  constructor(
-    private ngZone: NgZone,
-    routerService: RouterService,
-    cmsService: CMSService,
-    localeService: LocalizationService,
-  ) {
+  constructor() {
+    const routerService = inject(RouterService);
+    const cmsService = inject(CMSService);
+    const localeService = inject(LocalizationService);
+
     super(cmsService, localeService, routerService);
     this.setActiveRoute();
 

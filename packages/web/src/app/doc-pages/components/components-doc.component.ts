@@ -1,5 +1,5 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { Category, allComponents, sortedComponentsInfo } from './components-info';
@@ -16,12 +16,14 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class ComponentsDocComponent {
+  private cmsService = inject(CMSService);
+
   filterValue: Category | 'all' = 'all';
 
-  constructor(
-    private cmsService: CMSService,
-    themeService: ThemeService,
-  ) {
+  constructor() {
+    const cmsService = this.cmsService;
+    const themeService = inject(ThemeService);
+
     themeService.listenTheme().subscribe(() => {
       this.componentIcons = cmsService.getPageIcons();
     });

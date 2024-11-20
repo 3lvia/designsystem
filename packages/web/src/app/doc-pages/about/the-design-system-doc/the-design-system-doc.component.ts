@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
@@ -25,7 +25,9 @@ import { QualityIconComponent } from './quality-icon/quality-icon.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TheDesignSystemDocComponent {
-  constructor(private titleService: Title) {
+  private titleService = inject(Title);
+
+  constructor() {
     this.titleService.setTitle('The Design System' + ' | ' + 'Elvia design system');
   }
 }

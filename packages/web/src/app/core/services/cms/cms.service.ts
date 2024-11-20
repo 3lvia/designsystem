@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { ThemeName } from '@elvia/elvis-colors';
@@ -24,6 +24,11 @@ import { extractLocale } from './extractLocale';
   providedIn: 'root',
 })
 export class CMSService {
+  private http = inject(HttpClient);
+  private cmsTransformService = inject(CMSTransformService);
+  private router = inject(Router);
+  private themeService = inject(ThemeService);
+
   private entries: Record<string, IEntry> = {};
   private entriesToSync: string[] = [];
   private cmsPageLoaded = new Subject<void>();
@@ -31,12 +36,7 @@ export class CMSService {
   private currentTheme: ThemeName = 'light';
   private currentRouteIsCms = new BehaviorSubject(false);
 
-  constructor(
-    private http: HttpClient,
-    private cmsTransformService: CMSTransformService,
-    private router: Router,
-    private themeService: ThemeService,
-  ) {
+  constructor() {
     this.themeService
       .listenTheme()
       .pipe(takeUntilDestroyed())

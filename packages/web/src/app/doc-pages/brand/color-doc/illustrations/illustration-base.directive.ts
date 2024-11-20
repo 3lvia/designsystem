@@ -1,13 +1,13 @@
-import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, inject } from '@angular/core';
 
 @Directive({
   selector: '[appIllustrationBase]',
   standalone: true,
 })
 export class IllustrationBaseDirective {
-  @HostBinding('class.overflow-right') showGradient = true;
+  private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
-  constructor(private elementRef: ElementRef<HTMLElement>) {}
+  @HostBinding('class.overflow-right') showGradient = true;
 
   @HostListener('window:resize')
   @HostListener('scroll')

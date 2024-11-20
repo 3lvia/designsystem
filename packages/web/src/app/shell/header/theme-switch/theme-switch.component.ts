@@ -1,5 +1,5 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.service';
@@ -12,12 +12,14 @@ import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.servic
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ThemeSwitchComponent {
+  private themeService = inject(ThemeService);
+
   @Output() preferredThemeSwitched = new EventEmitter<void>();
 
   preferredTheme: Observable<PreferredTheme>;
   themes: PreferredTheme[] = ['system', 'light', 'dark'];
 
-  constructor(private themeService: ThemeService) {
+  constructor() {
     this.preferredTheme = this.themeService.listenPreferredTheme();
   }
 

@@ -1,6 +1,6 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Location, NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { first, fromEvent, of, switchMap } from 'rxjs';
@@ -36,17 +36,18 @@ export interface Anchor {
   imports: [NgClass],
 })
 export class SubMenuComponent {
+  private router = inject(Router);
+  private location = inject(Location);
+  private cmsService = inject(CMSService);
+
   anchors: Anchor[] = [];
   activeAnchor = '';
 
-  constructor(
-    private router: Router,
-    private location: Location,
-    private cmsService: CMSService,
-    changeDetectorRef: ChangeDetectorRef,
-    localization: LocalizationService,
-    zone: NgZone,
-  ) {
+  constructor() {
+    const changeDetectorRef = inject(ChangeDetectorRef);
+    const localization = inject(LocalizationService);
+    const zone = inject(NgZone);
+
     this.setActiveAnchorOnScroll();
     this.scrollToCorrectAnchorOnPageLoad();
 

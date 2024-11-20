@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { Observable, filter, fromEvent, map, tap } from 'rxjs';
@@ -21,7 +21,9 @@ export class ShortcutComponent {
   private shortcutGlossaryButtonTimeoutId: number | undefined;
   private shortcuts = shortcuts;
 
-  constructor(router: Router) {
+  constructor() {
+    const router = inject(Router);
+
     this.listenForShortcut(this.shortcuts).subscribe((triggeredShortcut) => {
       this.closeShortcutGlossary();
       this.hideShortcutGlossaryButton();

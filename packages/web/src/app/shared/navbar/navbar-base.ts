@@ -1,4 +1,4 @@
-import { Directive, HostBinding } from '@angular/core';
+import { Directive, HostBinding, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Subject, distinctUntilChanged, map, startWith, switchMap } from 'rxjs';
 
@@ -19,16 +19,16 @@ import { RouterService } from 'src/app/core/services/router.service';
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class NavbarBase {
+  private cmsService = inject(CMSService);
+  private localeService = inject(LocalizationService);
+  protected routerService = inject(RouterService);
+
   private navbarListChangedSubject = new Subject<void>();
   @HostBinding('attr.role') hostRole = 'navigation';
   navbarList: CMSNavbarItem[] = [];
   navbarListChange = this.navbarListChangedSubject.asObservable();
 
-  constructor(
-    private cmsService: CMSService,
-    private localeService: LocalizationService,
-    protected routerService: RouterService,
-  ) {
+  constructor() {
     this.getNavItemsOnLocaleOrUrlChange();
   }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import { Component, Input, OnInit, booleanAttribute, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import data from '@elvia/elvis/.internal/classlist.json';
@@ -45,6 +45,8 @@ import { getComponent } from 'src/app/shared/doc-pages';
   ],
 })
 export class ComponentDocumentationComponent implements OnInit {
+  private titleService = inject(Title);
+
   @Input({ required: true }) docUrl: DocPageName;
   @Input({ transform: booleanAttribute }) isElvis = false;
   @Input() componentData: ComponentData | undefined;
@@ -54,8 +56,6 @@ export class ComponentDocumentationComponent implements OnInit {
   figmaUrl: string | undefined;
   elvisClassName: keyof typeof data.block | undefined;
   relatedPages: DocPageName[] | undefined;
-
-  constructor(private titleService: Title) {}
 
   ngOnInit() {
     const docPage = getComponent(this.docUrl);

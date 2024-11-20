@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
@@ -23,10 +23,12 @@ const docPage = getDocPagesNotFromCMS('get-started');
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class GetStartedDocComponent {
+  private titleService = inject(Title);
+
   description = docPage.description;
   title = docPage.title;
 
-  constructor(private titleService: Title) {
+  constructor() {
     this.titleService.setTitle('Get started | Elvia design system');
   }
 }

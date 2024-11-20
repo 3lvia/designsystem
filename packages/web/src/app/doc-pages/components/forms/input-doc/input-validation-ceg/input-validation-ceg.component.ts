@@ -1,4 +1,4 @@
-import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, inject } from '@angular/core';
 
 import * as template from './input-validation-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -11,9 +11,9 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InputValidationCegComponent implements StaticComponentExample, AfterViewInit {
-  html = template.default;
+  private element = inject<ElementRef<HTMLElement>>(ElementRef);
 
-  constructor(private element: ElementRef<HTMLElement>) {}
+  html = template.default;
 
   ngAfterViewInit(): void {
     // Add event listeners like this, as they can't be added in the template because of the StaticCeg

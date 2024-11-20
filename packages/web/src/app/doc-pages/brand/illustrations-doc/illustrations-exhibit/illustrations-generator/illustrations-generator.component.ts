@@ -1,4 +1,4 @@
-import { Component, ElementRef, effect, input } from '@angular/core';
+import { Component, ElementRef, effect, input, inject } from '@angular/core';
 
 import { IllustrationColor } from '../../illustrations-data';
 import { IllustrationName } from '../illustrations-exhibit-data';
@@ -9,10 +9,12 @@ import { IllustrationName } from '../illustrations-exhibit-data';
   template: '',
 })
 export class IllustrationsGeneratorComponent {
+  private el = inject(ElementRef);
+
   protected illustrationName = input.required<IllustrationName | undefined | null>();
   protected color = input<IllustrationColor | null>();
 
-  constructor(private el: ElementRef) {
+  constructor() {
     effect(() => {
       this.updateIllustration();
     });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 
@@ -24,6 +24,9 @@ const docPage = getDocPagesNotFromCMS('shadow');
   ],
 })
 export class ShadowDocComponent {
+  private titleService = inject(Title);
+  private localizationService = inject(LocalizationService);
+
   figmaUrl = docPage.figmaUrl;
   title = docPage.title;
   titleNo = docPage.titleNo;
@@ -33,10 +36,7 @@ export class ShadowDocComponent {
   styleText = styleText;
   doDontText = doAndDont;
 
-  constructor(
-    private titleService: Title,
-    private localizationService: LocalizationService,
-  ) {
+  constructor() {
     this.setTabTitle();
     this.localizationService
       .listenLocalization()

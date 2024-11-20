@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, input, signal } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input, signal, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -32,7 +32,9 @@ export class PageWithSidenavComponent {
   backBtn = signal('');
   currentRoute = signal('');
 
-  constructor(urlService: RouterService) {
+  constructor() {
+    const urlService = inject(RouterService);
+
     /**
      * We need this initial setter, because the url is resolved
      * before this component is mounted, thus the urlPathChange()

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { createChangelogs } from './changelogs';
@@ -23,10 +23,11 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   styleUrls: ['./front-page-changelog.component.scss'],
 })
 export class FrontPageChangelogComponent {
-  constructor(
-    private cmsService: CMSService,
-    themeService: ThemeService,
-  ) {
+  private cmsService = inject(CMSService);
+
+  constructor() {
+    const themeService = inject(ThemeService);
+
     themeService.listenTheme().subscribe(() => {
       this.componentIcons = this.cmsService.getPageIcons();
     });

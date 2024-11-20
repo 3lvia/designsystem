@@ -1,12 +1,4 @@
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  Component,
-  Input,
-  OnInit,
-  booleanAttribute,
-  effect,
-  signal,
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, booleanAttribute, effect, signal, inject } from '@angular/core';
 
 import { PreferredLanguageService } from '../../preferredLanguage.service';
 import { LanguageType, Tab } from '../../types';
@@ -19,6 +11,8 @@ import { CodeViewerComponent } from './code-viewer/code-viewer.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeGeneratorComponent implements OnInit {
+  private preferredLanguageService = inject(PreferredLanguageService);
+
   @Input() angularCode = '';
   @Input() reactCode = '';
   @Input() vueCode = '';
@@ -42,7 +36,7 @@ export class CodeGeneratorComponent implements OnInit {
   activeTabIndex = 0;
   tabs = signal<Tab[]>(['Angular', 'React', 'Vue']);
 
-  constructor(private preferredLanguageService: PreferredLanguageService) {
+  constructor() {
     effect((cleanup) => {
       const subscription = this.preferredLanguageService
         .listenLanguage(this.tabs().map((tab) => tab.toLowerCase() as LanguageType))

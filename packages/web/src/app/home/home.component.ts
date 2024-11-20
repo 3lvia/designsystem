@@ -20,6 +20,8 @@ type Holiday = 'Birthday' | 'Christmas' | 'Halloween' | 'Pride' | 'ConstitutionD
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeComponent implements OnInit {
+  private titleService = inject(Title);
+
   pages = homeMenu;
   fontLoaded = false;
   holiday: Holiday = 'None';
@@ -55,10 +57,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  constructor(
-    localizationService: LocalizationService,
-    private titleService: Title,
-  ) {
+  constructor() {
+    const localizationService = inject(LocalizationService);
+
     localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 
 import { ScrollNotifierService } from '../scroll-notifier.service';
 
@@ -9,7 +9,8 @@ import { ScrollNotifierService } from '../scroll-notifier.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FeedbackLinkComponent {
-  constructor(private scrollService: ScrollNotifierService) {}
+  private scrollService = inject(ScrollNotifierService);
+
 
   scrollToFeedback(): void {
     this.scrollService.scrollToFeedback();

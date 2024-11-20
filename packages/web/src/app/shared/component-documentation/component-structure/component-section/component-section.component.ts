@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CopyComponent } from '../../../copy/copy.component';
@@ -12,13 +12,13 @@ import { CopyComponent } from '../../../copy/copy.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentSectionComponent {
+  private router = inject(Router);
+
   @Input() sectionTitle = '';
   @Input() propertiesClass = '';
   @Input() figmaOnly = false;
 
   titleIsCopied = false;
-
-  constructor(private router: Router) {}
 
   copyAnchor(): void {
     this.titleIsCopied = true;

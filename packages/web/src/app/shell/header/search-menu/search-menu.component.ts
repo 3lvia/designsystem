@@ -1,16 +1,6 @@
 import { CdkTrapFocus } from '@angular/cdk/a11y';
 import { AsyncPipe, NgClass } from '@angular/common';
-import {
-  AfterViewInit,
-  CUSTOM_ELEMENTS_SCHEMA,
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostListener,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -34,6 +24,11 @@ import { SearchResult, Searcher } from 'src/app/shared/searcher';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchMenuComponent implements OnInit, AfterViewInit {
+  private cmsService = inject(CMSService);
+  private localizationService = inject(LocalizationService);
+  private router = inject(Router);
+  breakpointService = inject(BreakpointService);
+
   @ViewChild('searchInput') searchInputElement: ElementRef<HTMLInputElement>;
   @Output() closeSearchMenu = new EventEmitter<void>();
   private mainMenu: CMSMenu;
@@ -45,12 +40,7 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
   filteredResults: SearchResult<SearchItem>[] = [];
   synonymComponents: SearchItem[] = [];
 
-  constructor(
-    private cmsService: CMSService,
-    private localizationService: LocalizationService,
-    private router: Router,
-    public breakpointService: BreakpointService,
-  ) {
+  constructor() {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())

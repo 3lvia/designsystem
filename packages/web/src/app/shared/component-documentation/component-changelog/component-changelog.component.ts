@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -32,6 +32,8 @@ import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.
   styleUrls: ['./component-changelog.component.scss'],
 })
 export class ComponentChangelogComponent implements OnInit {
+  private breakpointService = inject(BreakpointService);
+
   @Input() changelog?: Changelog;
   /**
    * If enabled the changelog-list will be in an accordion
@@ -63,7 +65,7 @@ export class ComponentChangelogComponent implements OnInit {
 
   private searcher: Searcher<ChangelogEntry>;
 
-  constructor(private breakpointService: BreakpointService) {
+  constructor() {
     // Reset search value and filter when the screen is resized to mobile
     this.breakpointService
       .matches(['sm'])

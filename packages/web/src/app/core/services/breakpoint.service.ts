@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, distinctUntilChanged, map } from 'rxjs';
 
 export type ScreenSize = keyof typeof config;
@@ -16,7 +16,8 @@ const config = {
   providedIn: 'root',
 })
 export class BreakpointService {
-  constructor(private observer: BreakpointObserver) {}
+  private observer = inject(BreakpointObserver);
+
 
   matches(sizes: ScreenSize[]): Observable<boolean> {
     return this.observer.observe(sizes.map((value) => config[value])).pipe(

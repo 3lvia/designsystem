@@ -1,5 +1,5 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeName } from '@elvia/elvis-colors';
 import { Observable } from 'rxjs';
@@ -48,7 +48,10 @@ export class ShadowViewerComponent {
     },
   };
 
-  constructor(breakpointService: BreakpointService, localeService: LocalizationService) {
+  constructor() {
+    const breakpointService = inject(BreakpointService);
+    const localeService = inject(LocalizationService);
+
     this.isMobile = breakpointService.matches(['sm']);
 
     localeService

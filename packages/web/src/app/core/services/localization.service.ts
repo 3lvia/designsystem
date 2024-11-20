@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LOCALE_CODE } from 'contentful/types';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -13,10 +13,12 @@ const LOCALIZATION_STORAGE_KEY = 'preferredDesignElviaIoLocale';
   providedIn: 'root',
 })
 export class LocalizationService {
+  private routerService = inject(RouterService);
+
   readonly defaultLocale: Locale = 'en-GB';
   private localizationSubject = new BehaviorSubject<Locale>(this.getInitialStreamValue());
 
-  constructor(private routerService: RouterService) {
+  constructor() {
     // Set localization to english on route change outside of brand
     this.routerService
       .urlPathChange()

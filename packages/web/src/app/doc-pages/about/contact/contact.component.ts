@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
@@ -26,6 +26,8 @@ const docPage = getDocPagesNotFromCMS('contact');
   imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass, SafeHtmlPipe],
 })
 export class ContactComponent {
+  private titleService = inject(Title);
+
   description = docPage.description;
   title = docPage.title;
   contactList: ContactInfo[] = [
@@ -41,7 +43,7 @@ export class ContactComponent {
     },
   ];
 
-  constructor(private titleService: Title) {
+  constructor() {
     this.titleService.setTitle(this.title + ' | ' + 'Elvia design system');
   }
 

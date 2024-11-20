@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
@@ -16,11 +16,13 @@ const docPage = getDocPagesNotFromCMS('utility-classes');
   imports: [ComponentHeaderComponent, ComponentSubsectionComponent, RouterLink, CopyComponent],
 })
 export class UtilitiesDocComponent {
+  private titleService = inject(Title);
+
   description = docPage.description;
   title = docPage.title;
   utilityGroups = utilityGroups;
 
-  constructor(private titleService: Title) {
+  constructor() {
     this.titleService.setTitle(this.title + ' | Elvia design system');
   }
 }

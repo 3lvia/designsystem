@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RoutesRecognized } from '@angular/router';
 
@@ -16,6 +16,10 @@ import { ScrollNotifierService } from './scroll-notifier.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FeedbackComponent {
+  private router = inject(Router);
+  private http = inject(HttpClient);
+  private scrollNotifierService = inject(ScrollNotifierService);
+
   @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;
 
   isEmoji = true;
@@ -23,11 +27,7 @@ export class FeedbackComponent {
   isSent = false;
   currentEmoji: string;
 
-  constructor(
-    private router: Router,
-    private http: HttpClient,
-    private scrollNotifierService: ScrollNotifierService,
-  ) {
+  constructor() {
     this.router.events.pipe(takeUntilDestroyed()).subscribe((data) => {
       if (data instanceof RoutesRecognized) {
         this.resetFeedback();

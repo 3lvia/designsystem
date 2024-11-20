@@ -1,17 +1,6 @@
 import { AsyncPipe, Location, NgClass } from '@angular/common';
 import { HttpParams } from '@angular/common/http';
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Component,
-  ContentChild,
-  ElementRef,
-  Input,
-  NgZone,
-  OnDestroy,
-  ViewChild,
-  booleanAttribute,
-} from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ContentChild, ElementRef, Input, NgZone, OnDestroy, ViewChild, booleanAttribute, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
@@ -49,6 +38,10 @@ interface SlotMap {
   ],
 })
 export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy {
+  private zone = inject(NgZone);
+  private route = inject(ActivatedRoute);
+  private location = inject(Location);
+
   @Input({ transform: booleanAttribute }) fullWidth = false;
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
@@ -73,12 +66,6 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
       takeUntil(this.unsubscriber),
     );
   }
-
-  constructor(
-    private zone: NgZone,
-    private route: ActivatedRoute,
-    private location: Location,
-  ) {}
 
   ngAfterViewInit(): void {
     this.setCegStateFromURL();

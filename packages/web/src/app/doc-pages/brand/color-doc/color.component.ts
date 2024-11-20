@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -39,6 +39,9 @@ const docPage = getDocPagesNotFromCMS('color');
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorComponent {
+  private titleService = inject(Title);
+  private localizationService = inject(LocalizationService);
+
   purposeTokenExample = `.container {
   color: var(--e-color-text-1);
   background: var(--e-color-background-1);  
@@ -73,10 +76,7 @@ export class ColorComponent {
   title = docPage.title;
   titleNo = docPage.titleNo;
 
-  constructor(
-    private titleService: Title,
-    private localizationService: LocalizationService,
-  ) {
+  constructor() {
     this.setTabTitle();
     this.localizationService
       .listenLocalization()

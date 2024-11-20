@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -41,6 +41,9 @@ const docPage = getDocPagesNotFromCMS('layout');
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LayoutDocComponent {
+  private titleService = inject(Title);
+  private localizationService = inject(LocalizationService);
+
   title = docPage.title;
   titleNo = docPage.titleNo;
   description = docPage.description;
@@ -48,10 +51,7 @@ export class LayoutDocComponent {
   figmaUrl = docPage.figmaUrl;
   locale: Locale = 'en-GB';
 
-  constructor(
-    private titleService: Title,
-    private localizationService: LocalizationService,
-  ) {
+  constructor() {
     this.setTabTitle();
     this.localizationService
       .listenLocalization()

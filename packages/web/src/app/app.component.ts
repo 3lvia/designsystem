@@ -1,5 +1,5 @@
 import { NgClass, ViewportScroller } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
 import '@elvia/elvis-accordion';
@@ -82,13 +82,14 @@ type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {
+  private routerService = inject(RouterService);
+
   currentRoute: PageLayout = 'standalonePage';
   isLandingPage = false;
 
-  constructor(
-    private routerService: RouterService,
-    viewportScroller: ViewportScroller,
-  ) {
+  constructor() {
+    const viewportScroller = inject(ViewportScroller);
+
     viewportScroller.setOffset([0, 80]);
     this.setCurrentRouteFromUrl(location.pathname);
     this.listenForCurrentPageLayout();

@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { getDocPage } from '../../doc-pages';
@@ -15,12 +15,13 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentRelatedComponent {
+  private cmsService = inject(CMSService);
+
   @Input({ required: true }) relatedPages: DocPageName[];
 
-  constructor(
-    private cmsService: CMSService,
-    themeService: ThemeService,
-  ) {
+  constructor() {
+    const themeService = inject(ThemeService);
+
     themeService.listenTheme().subscribe(() => {
       this.componentIcons = this.cmsService.getPageIcons();
     });
