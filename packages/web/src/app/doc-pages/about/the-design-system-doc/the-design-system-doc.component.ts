@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
 
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
@@ -22,7 +21,6 @@ import { QualityIconComponent } from './quality-icon/quality-icon.component';
     OpenIconComponent,
     QualityIconComponent,
     InnovativeIconComponent,
-    RouterLink,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

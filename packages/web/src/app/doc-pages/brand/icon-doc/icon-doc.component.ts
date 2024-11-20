@@ -10,13 +10,11 @@ import { IconPreviewComponent } from './icon-preview/icon-preview.component';
 import { IconSizesCegComponent } from './icon-sizes-ceg/icon-sizes-ceg.component';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { StaticCegComponent } from 'src/app/shared/component-documentation/ceg';
-import { CegComponent } from 'src/app/shared/component-documentation/ceg/ceg.component';
 import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
 import { ComponentChangelogComponent } from 'src/app/shared/component-documentation/component-changelog/component-changelog.component';
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.component';
 import { ComponentSubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { ComponentSubsubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.component';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
@@ -33,12 +31,10 @@ const docPage = getDocPagesNotFromCMS('icon');
     ComponentHeaderComponent,
     ComponentSectionComponent,
     ComponentSubsectionComponent,
-    ComponentSubsubsectionComponent,
     StaticCegComponent,
     IconSizesCegComponent,
     IconColorsCegComponent,
     CodeViewerComponent,
-    CegComponent,
     ComponentChangelogComponent,
     IconPreviewComponent,
     IconInstallationComponent,

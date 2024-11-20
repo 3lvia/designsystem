@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
-import { ComponentPropertiesTableComponent } from '../../../shared/component-documentation/component-properties-table/component-properties-table.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
 import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
 import { ToastCegComponent } from './toast-ceg/toast-ceg.component';
@@ -20,7 +19,6 @@ import { toastData } from './toast-data';
     ComponentSectionComponent,
     WhenToUseComponent,
     RouterLink,
-    ComponentPropertiesTableComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
