@@ -24,28 +24,27 @@ import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 const docPage = getDocPagesNotFromCMS('icon');
 
 @Component({
-  selector: 'app-icon-doc',
-  templateUrl: './icon-doc.component.html',
-  styleUrls: ['./icon-doc.component.scss'],
-  standalone: true,
-  imports: [
-    RouterLink,
-    CopyComponent,
-    ComponentHeaderComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    ComponentSubsubsectionComponent,
-    StaticCegComponent,
-    IconSizesCegComponent,
-    IconColorsCegComponent,
-    CodeViewerComponent,
-    CegComponent,
-    ComponentChangelogComponent,
-    IconPreviewComponent,
-    IconInstallationComponent,
-    SafeHtmlPipe,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-icon-doc',
+    templateUrl: './icon-doc.component.html',
+    styleUrls: ['./icon-doc.component.scss'],
+    imports: [
+        RouterLink,
+        CopyComponent,
+        ComponentHeaderComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        ComponentSubsubsectionComponent,
+        StaticCegComponent,
+        IconSizesCegComponent,
+        IconColorsCegComponent,
+        CodeViewerComponent,
+        CegComponent,
+        ComponentChangelogComponent,
+        IconPreviewComponent,
+        IconInstallationComponent,
+        SafeHtmlPipe,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class IconDocComponent {
   changelog = changelogJson.content;

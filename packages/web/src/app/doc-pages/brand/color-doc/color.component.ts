@@ -19,25 +19,24 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 const docPage = getDocPagesNotFromCMS('color');
 @Component({
-  selector: 'app-color',
-  templateUrl: './color.component.html',
-  styleUrls: ['./color.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentHeaderComponent,
-    ColorPickerComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    ComponentSubsubsectionComponent,
-    DoDontTextComponent,
-    PurposeTokenIllustrationComponent,
-    ThemeTokenIllustrationComponent,
-    ColorShadeIllustrationComponent,
-    ColorTokenTableComponent,
-    CodeViewerComponent,
-    RouterLink,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-color',
+    templateUrl: './color.component.html',
+    styleUrls: ['./color.component.scss'],
+    imports: [
+        ComponentHeaderComponent,
+        ColorPickerComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        ComponentSubsubsectionComponent,
+        DoDontTextComponent,
+        PurposeTokenIllustrationComponent,
+        ThemeTokenIllustrationComponent,
+        ColorShadeIllustrationComponent,
+        ColorTokenTableComponent,
+        CodeViewerComponent,
+        RouterLink,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ColorComponent {
   purposeTokenExample = `.container {

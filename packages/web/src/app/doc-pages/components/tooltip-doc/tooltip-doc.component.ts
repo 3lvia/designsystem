@@ -9,17 +9,16 @@ import { TooltipCegComponent } from './tooltip-ceg/tooltip-ceg.component';
 import { tooltipData } from './tooltip-data';
 
 @Component({
-  selector: 'app-tooltip-doc',
-  templateUrl: './tooltip-doc.component.html',
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    CegComponent,
-    TooltipCegComponent,
-    ComponentSectionComponent,
-    WhenToUseComponent,
-    ComponentSubsectionComponent,
-  ],
+    selector: 'app-tooltip-doc',
+    templateUrl: './tooltip-doc.component.html',
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        TooltipCegComponent,
+        ComponentSectionComponent,
+        WhenToUseComponent,
+        ComponentSubsectionComponent,
+    ]
 })
 export class TooltipDocComponent {
   componentData = tooltipData;

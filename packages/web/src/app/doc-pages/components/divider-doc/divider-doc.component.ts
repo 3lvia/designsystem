@@ -9,18 +9,17 @@ import { DividerCegComponent } from './divider-ceg/divider-ceg.component';
 import { dividerData } from './divider-data';
 
 @Component({
-  selector: 'app-divider-doc',
-  templateUrl: './divider-doc.component.html',
-  styleUrls: ['./divider-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    CegComponent,
-    DividerCegComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    RouterLink,
-  ],
+    selector: 'app-divider-doc',
+    templateUrl: './divider-doc.component.html',
+    styleUrls: ['./divider-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        DividerCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        RouterLink,
+    ]
 })
 export class DividerDocComponent {
   componentData = dividerData;

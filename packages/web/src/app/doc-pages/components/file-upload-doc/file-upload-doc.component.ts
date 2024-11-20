@@ -9,18 +9,17 @@ import { FileUploadCegComponent } from './file-upload-ceg/file-upload-ceg.compon
 import { FileUploadDragoverCegComponent } from './file-upload-dragover-ceg/file-upload-dragover-ceg.component';
 
 @Component({
-  selector: 'app-file-upload-doc',
-  templateUrl: './file-upload-doc.component.html',
-  styleUrls: ['./file-upload-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    StaticCegComponent,
-    FileUploadCegComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    FileUploadDragoverCegComponent,
-    RouterLink,
-  ],
+    selector: 'app-file-upload-doc',
+    templateUrl: './file-upload-doc.component.html',
+    styleUrls: ['./file-upload-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        StaticCegComponent,
+        FileUploadCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        FileUploadDragoverCegComponent,
+        RouterLink,
+    ]
 })
 export class FileUploadDocComponent {}

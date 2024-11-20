@@ -10,20 +10,19 @@ import { TagDataColoredCegComponent } from './tag-data-colored-ceg/tag-data-colo
 import { TagSignalColoredCegComponent } from './tag-signal-colored-ceg/tag-signal-colored-ceg.component';
 
 @Component({
-  selector: 'app-tag-doc',
-  templateUrl: './tag-doc.component.html',
-  styleUrls: ['./tag-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    StaticCegComponent,
-    TagCegComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    TagSignalColoredCegComponent,
-    TagDataColoredCegComponent,
-    WhenToUseComponent,
-  ],
+    selector: 'app-tag-doc',
+    templateUrl: './tag-doc.component.html',
+    styleUrls: ['./tag-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        StaticCegComponent,
+        TagCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        TagSignalColoredCegComponent,
+        TagDataColoredCegComponent,
+        WhenToUseComponent,
+    ]
 })
 export class TagDocComponent {
   headerDoes = ['When you need to categorize or view the status of items.'];

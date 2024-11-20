@@ -15,24 +15,23 @@ import { SearchSizeMediumCegComponent } from './search-size-medium-ceg/search-si
 import { SearchSizeSmallCegComponent } from './search-size-small-ceg/search-size-small-ceg.component';
 
 @Component({
-  selector: 'app-search-doc',
-  templateUrl: './search-doc.component.html',
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    StaticCegComponent,
-    SearchCegComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    SearchInstantCegComponent,
-    RouterLink,
-    SearchOnSubmitCegComponent,
-    SearchOnSubmitSearchedCegComponent,
-    SearchFullwidthCegComponent,
-    SearchSizeMediumCegComponent,
-    SearchSizeSmallCegComponent,
-    WhenToUseComponent,
-  ],
+    selector: 'app-search-doc',
+    templateUrl: './search-doc.component.html',
+    imports: [
+        ComponentDocumentationComponent,
+        StaticCegComponent,
+        SearchCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        SearchInstantCegComponent,
+        RouterLink,
+        SearchOnSubmitCegComponent,
+        SearchOnSubmitSearchedCegComponent,
+        SearchFullwidthCegComponent,
+        SearchSizeMediumCegComponent,
+        SearchSizeSmallCegComponent,
+        WhenToUseComponent,
+    ]
 })
 export class SearchDocComponent {
   does = [

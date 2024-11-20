@@ -15,21 +15,20 @@ import { getComponent } from 'src/app/shared/doc-pages';
 
 const docPage = getComponent('autocomplete');
 @Component({
-  selector: 'app-autocomplete-doc',
-  templateUrl: './autocomplete-doc.component.html',
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    CegComponent,
-    AutocompleteCegComponent,
-    ComponentSectionComponent,
-    WhenToUseComponent,
-    StaticCegComponent,
-    AutocompleteFilterCegComponent,
-    ComponentSubsectionComponent,
-    AutocompleteLabelCegComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-autocomplete-doc',
+    templateUrl: './autocomplete-doc.component.html',
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        AutocompleteCegComponent,
+        ComponentSectionComponent,
+        WhenToUseComponent,
+        StaticCegComponent,
+        AutocompleteFilterCegComponent,
+        ComponentSubsectionComponent,
+        AutocompleteLabelCegComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AutocompleteDocComponent {
   figmaUrl = docPage.figmaUrl;

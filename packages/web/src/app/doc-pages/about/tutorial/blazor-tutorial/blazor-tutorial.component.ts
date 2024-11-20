@@ -4,11 +4,10 @@ import { RouterLink } from '@angular/router';
 import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
 
 @Component({
-  selector: 'app-blazor-tutorial',
-  templateUrl: './blazor-tutorial.component.html',
-  standalone: true,
-  imports: [CodeViewerComponent, RouterLink],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-blazor-tutorial',
+    templateUrl: './blazor-tutorial.component.html',
+    imports: [CodeViewerComponent, RouterLink],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class BlazorTutorialComponent {
   codeStep1 = `mkdir NpmJs

@@ -14,19 +14,18 @@ type Colors = {
 }[];
 
 @Component({
-  selector: 'app-color-token-subtable',
-  templateUrl: './color-token-subtable.component.html',
-  styleUrls: ['./color-token-subtable.component.scss'],
-  standalone: true,
-  imports: [
-    NgClass,
-    CopyComponent,
-    RouterLink,
-    ColorTokenSubtableColorCircleComponent,
-    LowerCasePipe,
-    SafeHtmlPipe,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-color-token-subtable',
+    templateUrl: './color-token-subtable.component.html',
+    styleUrls: ['./color-token-subtable.component.scss'],
+    imports: [
+        NgClass,
+        CopyComponent,
+        RouterLink,
+        ColorTokenSubtableColorCircleComponent,
+        LowerCasePipe,
+        SafeHtmlPipe,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ColorTokenSubtableComponent implements OnInit {
   @Input({ required: true }) colors: Colors;

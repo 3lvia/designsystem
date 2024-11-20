@@ -5,12 +5,11 @@ import { Router } from '@angular/router';
 import { CopyComponent } from '../../../copy/copy.component';
 
 @Component({
-  selector: 'app-component-section',
-  templateUrl: './component-section.component.html',
-  styleUrls: ['./component-section.component.scss'],
-  standalone: true,
-  imports: [CopyComponent, NgClass],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-component-section',
+    templateUrl: './component-section.component.html',
+    styleUrls: ['./component-section.component.scss'],
+    imports: [CopyComponent, NgClass],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ComponentSectionComponent {
   @Input() sectionTitle = '';

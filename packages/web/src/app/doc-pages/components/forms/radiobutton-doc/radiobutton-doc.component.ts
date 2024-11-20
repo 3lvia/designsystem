@@ -12,22 +12,21 @@ import { RadiobuttonSmCegComponent } from './radiobutton-sm-ceg/radiobutton-sm-c
 import { RadiobuttonStatesCegComponent } from './radiobutton-states-ceg/radiobutton-states-ceg.component';
 
 @Component({
-  selector: 'app-radiobutton-doc',
-  templateUrl: './radiobutton-doc.component.html',
-  styleUrls: ['./radiobutton-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    StaticCegComponent,
-    RadiobuttonCegComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    RadiobuttonMdCegComponent,
-    RadiobuttonSmCegComponent,
-    RadiobuttonStatesCegComponent,
-    WhenToUseComponent,
-    RouterLink,
-  ],
+    selector: 'app-radiobutton-doc',
+    templateUrl: './radiobutton-doc.component.html',
+    styleUrls: ['./radiobutton-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        StaticCegComponent,
+        RadiobuttonCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        RadiobuttonMdCegComponent,
+        RadiobuttonSmCegComponent,
+        RadiobuttonStatesCegComponent,
+        WhenToUseComponent,
+        RouterLink,
+    ]
 })
 export class RadiobuttonDocComponent {
   does = [

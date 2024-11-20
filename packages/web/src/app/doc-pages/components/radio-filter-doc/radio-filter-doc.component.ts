@@ -11,21 +11,20 @@ import { RadioFilterIconCegComponent } from './radio-filter-icon-ceg/radio-filte
 import { radioFilterData } from './radio-filter.data';
 
 @Component({
-  selector: 'app-radio-filter-doc',
-  templateUrl: './radio-filter-doc.component.html',
-  styleUrls: ['./radio-filter-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    CegComponent,
-    RadioFilterCegComponent,
-    ComponentSectionComponent,
-    WhenToUseComponent,
-    ComponentSubsectionComponent,
-    StaticCegComponent,
-    RadioFilterIconCegComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-radio-filter-doc',
+    templateUrl: './radio-filter-doc.component.html',
+    styleUrls: ['./radio-filter-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        RadioFilterCegComponent,
+        ComponentSectionComponent,
+        WhenToUseComponent,
+        ComponentSubsectionComponent,
+        StaticCegComponent,
+        RadioFilterIconCegComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class RadioFilterDocComponent {
   componentData = radioFilterData;

@@ -10,12 +10,11 @@ import {
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-property-search-input',
-  templateUrl: './property-search-input.component.html',
-  styleUrls: ['./property-search-input.component.scss'],
-  standalone: true,
-  imports: [FormsModule, NgClass],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-property-search-input',
+    templateUrl: './property-search-input.component.html',
+    styleUrls: ['./property-search-input.component.scss'],
+    imports: [FormsModule, NgClass],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PropertySearchInputComponent {
   @ViewChild('searchInputElement') inputElement: ElementRef<HTMLInputElement>;

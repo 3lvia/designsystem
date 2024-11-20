@@ -13,16 +13,15 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 const docPage = getDocPagesNotFromCMS('shadow');
 @Component({
-  selector: 'app-shadow-doc',
-  templateUrl: './shadow-doc.component.html',
-  standalone: true,
-  imports: [
-    ComponentHeaderComponent,
-    ShadowViewerComponent,
-    ComponentSectionComponent,
-    WhenToUseComponent,
-    ComponentChangelogComponent,
-  ],
+    selector: 'app-shadow-doc',
+    templateUrl: './shadow-doc.component.html',
+    imports: [
+        ComponentHeaderComponent,
+        ShadowViewerComponent,
+        ComponentSectionComponent,
+        WhenToUseComponent,
+        ComponentChangelogComponent,
+    ]
 })
 export class ShadowDocComponent {
   figmaUrl = docPage.figmaUrl;

@@ -10,18 +10,17 @@ import { ComponentDocumentationComponent } from 'src/app/shared/component-docume
 import { ComponentSectionComponent } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.component';
 
 @Component({
-  selector: 'app-app-bridge-doc',
-  standalone: true,
-  imports: [
-    CegComponent,
-    AppBridgeCegComponent,
-    ComponentDocumentationComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    WhenToUseComponent,
-    AppBridgePlacementComponent,
-  ],
-  templateUrl: './app-bridge-doc.component.html',
+    selector: 'app-app-bridge-doc',
+    imports: [
+        CegComponent,
+        AppBridgeCegComponent,
+        ComponentDocumentationComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        WhenToUseComponent,
+        AppBridgePlacementComponent,
+    ],
+    templateUrl: './app-bridge-doc.component.html'
 })
 export class AppBridgeDocComponent {
   componentData = appBridgeData;

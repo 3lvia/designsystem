@@ -9,11 +9,10 @@ import { getBaseColorName, getHighestContrast, getOpacityColors } from '../color
 import { NeedsBorderPipe } from '../needs-border.pipe';
 
 @Component({
-  selector: 'app-color-picker-color-list',
-  templateUrl: './color-picker-color-list.component.html',
-  styleUrls: ['./color-picker-color-list.component.scss'],
-  standalone: true,
-  imports: [NgClass, NeedsBorderPipe],
+    selector: 'app-color-picker-color-list',
+    templateUrl: './color-picker-color-list.component.html',
+    styleUrls: ['./color-picker-color-list.component.scss'],
+    imports: [NgClass, NeedsBorderPipe]
 })
 export class ColorPickerColorListComponent {
   @Input({ required: true }) category: 'primary' | 'secondary' | 'tertiary' | 'grey';

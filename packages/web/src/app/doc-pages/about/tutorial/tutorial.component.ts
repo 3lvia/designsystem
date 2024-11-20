@@ -14,19 +14,18 @@ import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 const docPage = getDocPagesNotFromCMS('tutorial');
 
 @Component({
-  selector: 'app-tutorial',
-  templateUrl: './tutorial.component.html',
-  styleUrls: ['./tutorial.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentHeaderComponent,
-    AngularTutorialComponent,
-    VueTutorialComponent,
-    ReactTutorialComponent,
-    BlazorTutorialComponent,
-    SafeHtmlPipe,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-tutorial',
+    templateUrl: './tutorial.component.html',
+    styleUrls: ['./tutorial.component.scss'],
+    imports: [
+        ComponentHeaderComponent,
+        AngularTutorialComponent,
+        VueTutorialComponent,
+        ReactTutorialComponent,
+        BlazorTutorialComponent,
+        SafeHtmlPipe,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TutorialComponent {
   description = docPage.description;

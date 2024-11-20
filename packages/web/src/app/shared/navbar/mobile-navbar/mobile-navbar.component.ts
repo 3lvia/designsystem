@@ -4,11 +4,10 @@ import { RouterLink } from '@angular/router';
 import { NavbarBase } from '../navbar-base';
 
 @Component({
-  selector: 'app-mobile-navbar',
-  templateUrl: './mobile-navbar.component.html',
-  styleUrls: ['./mobile-navbar.component.scss'],
-  standalone: true,
-  imports: [RouterLink],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-mobile-navbar',
+    templateUrl: './mobile-navbar.component.html',
+    styleUrls: ['./mobile-navbar.component.scss'],
+    imports: [RouterLink],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MobileNavbarComponent extends NavbarBase {}

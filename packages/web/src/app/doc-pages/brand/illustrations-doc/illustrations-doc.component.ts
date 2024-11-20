@@ -15,18 +15,17 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 const illustrationDocPage = getDocPagesNotFromCMS('illustration');
 
 @Component({
-  selector: 'app-illustrations-doc',
-  templateUrl: './illustrations-doc.component.html',
-  standalone: true,
-  imports: [
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    ComponentHeaderComponent,
-    IllustrationsExhibitComponent,
-    IllustrationsInstallationComponent,
-    ComponentPropertiesTableComponent,
-    ComponentChangelogComponent,
-  ],
+    selector: 'app-illustrations-doc',
+    templateUrl: './illustrations-doc.component.html',
+    imports: [
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        ComponentHeaderComponent,
+        IllustrationsExhibitComponent,
+        IllustrationsInstallationComponent,
+        ComponentPropertiesTableComponent,
+        ComponentChangelogComponent,
+    ]
 })
 export class IllustrationsDocComponent {
   componentData = illustrationsData;

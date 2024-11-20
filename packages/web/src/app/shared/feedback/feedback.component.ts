@@ -9,12 +9,11 @@ import { EmojiNeutralComponent } from './emoji-neutral/emoji-neutral.component';
 import { ScrollNotifierService } from './scroll-notifier.service';
 
 @Component({
-  selector: 'app-feedback',
-  templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.scss'],
-  standalone: true,
-  imports: [EmojiBadComponent, EmojiNeutralComponent, EmojiGoodComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-feedback',
+    templateUrl: './feedback.component.html',
+    styleUrls: ['./feedback.component.scss'],
+    imports: [EmojiBadComponent, EmojiNeutralComponent, EmojiGoodComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FeedbackComponent {
   @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;

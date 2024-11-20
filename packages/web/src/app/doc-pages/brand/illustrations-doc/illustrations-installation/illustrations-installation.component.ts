@@ -8,12 +8,11 @@ import { LanguageType, Tab } from 'src/app/shared/component-documentation/types'
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
-  selector: 'app-illustrations-installation',
-  standalone: true,
-  imports: [CopyComponent, TabToSegmentedControlItemPipe],
-  templateUrl: './illustrations-installation.component.html',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  animations: [heightAnimation],
+    selector: 'app-illustrations-installation',
+    imports: [CopyComponent, TabToSegmentedControlItemPipe],
+    templateUrl: './illustrations-installation.component.html',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    animations: [heightAnimation]
 })
 export class IllustrationsInstallationComponent {
   tabs: Tab[] = ['Angular', 'React', 'Vue'];

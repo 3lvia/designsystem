@@ -15,12 +15,11 @@ interface StepStates {
   [step: number]: Partial<StepState>;
 }
 @Component({
-  selector: 'app-v2-playground',
-  templateUrl: './v2-playground.component.html',
-  styleUrls: ['./v2-playground.component.scss'],
-  standalone: true,
-  imports: [NgClass],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-v2-playground',
+    templateUrl: './v2-playground.component.html',
+    styleUrls: ['./v2-playground.component.scss'],
+    imports: [NgClass],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class v2PlaygroundComponent {
   endMinDate = new Date(2023, 9, 10);

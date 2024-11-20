@@ -4,10 +4,9 @@ import { RouterLink } from '@angular/router';
 import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
 
 @Component({
-  selector: 'app-vue-tutorial',
-  templateUrl: './vue-tutorial.component.html',
-  standalone: true,
-  imports: [CodeViewerComponent, RouterLink],
+    selector: 'app-vue-tutorial',
+    templateUrl: './vue-tutorial.component.html',
+    imports: [CodeViewerComponent, RouterLink]
 })
 export class VueTutorialComponent {
   codeStep1 = `npm install @elvia/elvis`;

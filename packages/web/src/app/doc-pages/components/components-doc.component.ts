@@ -9,12 +9,11 @@ import { ThemeService } from 'src/app/core/services/theme.service';
 import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewport-size.directive';
 
 @Component({
-  selector: 'app-components-doc',
-  templateUrl: './components-doc.component.html',
-  styleUrls: ['./components-doc.component.scss'],
-  standalone: true,
-  imports: [RouterLink, AsyncPipe, IfViewportSizeDirective, DocPagePipe, CommonModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+    selector: 'app-components-doc',
+    templateUrl: './components-doc.component.html',
+    styleUrls: ['./components-doc.component.scss'],
+    imports: [RouterLink, AsyncPipe, IfViewportSizeDirective, DocPagePipe, CommonModule],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class ComponentsDocComponent {
   filterValue: Category | 'all' = 'all';

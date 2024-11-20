@@ -5,12 +5,11 @@ import { Observable } from 'rxjs';
 import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
-  selector: 'app-theme-switch',
-  templateUrl: './theme-switch.component.html',
-  styleUrls: ['./theme-switch.component.scss'],
-  standalone: true,
-  imports: [NgClass, AsyncPipe],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-theme-switch',
+    templateUrl: './theme-switch.component.html',
+    styleUrls: ['./theme-switch.component.scss'],
+    imports: [NgClass, AsyncPipe],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ThemeSwitchComponent {
   @Output() preferredThemeSwitched = new EventEmitter<void>();

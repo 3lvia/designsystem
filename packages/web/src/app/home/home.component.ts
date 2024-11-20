@@ -13,12 +13,11 @@ import { homeMenu } from 'src/app/shared/doc-pages';
 type Holiday = 'Birthday' | 'Christmas' | 'Halloween' | 'Pride' | 'ConstitutionDay' | 'None';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  standalone: true,
-  imports: [NgClass, RouterLink, FrontPageChangelogComponent, AsyncPipe],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    imports: [NgClass, RouterLink, FrontPageChangelogComponent, AsyncPipe],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeComponent implements OnInit {
   pages = homeMenu;

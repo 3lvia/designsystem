@@ -27,12 +27,11 @@ import { componentsDocPages, docPagesNotFromCMS } from 'src/app/shared/doc-pages
 import { SearchResult, Searcher } from 'src/app/shared/searcher';
 
 @Component({
-  selector: 'app-search-menu',
-  templateUrl: './search-menu.component.html',
-  styleUrls: ['./search-menu.component.scss'],
-  standalone: true,
-  imports: [CdkTrapFocus, FormsModule, NgClass, RouterLink, AsyncPipe, SearchHighlighterPipe],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-search-menu',
+    templateUrl: './search-menu.component.html',
+    styleUrls: ['./search-menu.component.scss'],
+    imports: [CdkTrapFocus, FormsModule, NgClass, RouterLink, AsyncPipe, SearchHighlighterPipe],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SearchMenuComponent implements OnInit, AfterViewInit {
   @ViewChild('searchInput') searchInputElement: ElementRef<HTMLInputElement>;

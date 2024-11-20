@@ -7,16 +7,15 @@ import { ComponentHeaderQuickInstallComponent } from './component-header-quick-i
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
-  selector: 'app-component-header',
-  templateUrl: './component-header.component.html',
-  styleUrls: ['./component-header.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentHeaderQuickInstallComponent,
-    IfViewportSizeDirective,
-    SubMenuComponent,
-    ComponentDocumentationDatePipe,
-  ],
+    selector: 'app-component-header',
+    templateUrl: './component-header.component.html',
+    styleUrls: ['./component-header.component.scss'],
+    imports: [
+        ComponentHeaderQuickInstallComponent,
+        IfViewportSizeDirective,
+        SubMenuComponent,
+        ComponentDocumentationDatePipe,
+    ]
 })
 export class ComponentHeaderComponent {
   @Input() figmaUrl?: string;

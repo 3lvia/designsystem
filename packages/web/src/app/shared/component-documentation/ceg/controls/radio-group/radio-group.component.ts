@@ -5,10 +5,9 @@ import { RadioGroup } from '../../controlType';
 let CEG_RADIO_GROUP_ID = 0;
 
 @Component({
-  selector: 'app-radio-group',
-  templateUrl: './radio-group.component.html',
-  standalone: true,
-  imports: [],
+    selector: 'app-radio-group',
+    templateUrl: './radio-group.component.html',
+    imports: []
 })
 export class RadioGroupComponent {
   @Input() radioGroup: RadioGroup;

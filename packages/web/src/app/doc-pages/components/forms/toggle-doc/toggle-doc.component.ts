@@ -12,22 +12,21 @@ import { ToggleSizeSmCegComponent } from './toggle-size-sm-ceg/toggle-size-sm-ce
 import { ToggleStatesCegComponent } from './toggle-states-ceg/toggle-states-ceg.component';
 
 @Component({
-  selector: 'app-toggle-doc',
-  templateUrl: './toggle-doc.component.html',
-  styleUrls: ['./toggle-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    StaticCegComponent,
-    ToggleCegComponent,
-    ComponentSectionComponent,
-    WhenToUseComponent,
-    ComponentSubsectionComponent,
-    ToggleStatesCegComponent,
-    ToggleLabelCegComponent,
-    ToggleSizeMdCegComponent,
-    ToggleSizeSmCegComponent,
-  ],
+    selector: 'app-toggle-doc',
+    templateUrl: './toggle-doc.component.html',
+    styleUrls: ['./toggle-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        StaticCegComponent,
+        ToggleCegComponent,
+        ComponentSectionComponent,
+        WhenToUseComponent,
+        ComponentSubsectionComponent,
+        ToggleStatesCegComponent,
+        ToggleLabelCegComponent,
+        ToggleSizeMdCegComponent,
+        ToggleSizeSmCegComponent,
+    ]
 })
 export class ToggleDocComponent {
   does = ['Single state that is either on or off.'];

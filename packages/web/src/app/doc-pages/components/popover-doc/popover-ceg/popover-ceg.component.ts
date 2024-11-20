@@ -5,12 +5,11 @@ import { BasePopoverProps } from '@elvia/elvis-popover/react';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
-  selector: 'app-popover-ceg',
-  templateUrl: './popover-ceg.component.html',
-  providers: [{ provide: ComponentExample, useExisting: PopoverCegComponent }],
-  standalone: true,
-  imports: [NgClass],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-popover-ceg',
+    templateUrl: './popover-ceg.component.html',
+    providers: [{ provide: ComponentExample, useExisting: PopoverCegComponent }],
+    imports: [NgClass],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PopoverCegComponent implements ComponentExample {
   elementName = 'popover';

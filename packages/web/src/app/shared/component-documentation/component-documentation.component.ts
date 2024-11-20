@@ -31,19 +31,18 @@ import { getComponent } from 'src/app/shared/doc-pages';
  * @see [Angular Content Projection Guide](https://angular.io/guide/content-projection)
  */
 @Component({
-  selector: 'app-component-documentation',
-  templateUrl: './component-documentation.component.html',
-  standalone: true,
-  imports: [
-    ComponentHeaderComponent,
-    ComponentSectionComponent,
-    ComponentInstallationComponent,
-    RouterLink,
-    ComponentPropertiesTableComponent,
-    ComponentPropertiesComponent,
-    ComponentChangelogComponent,
-    ComponentRelatedComponent,
-  ],
+    selector: 'app-component-documentation',
+    templateUrl: './component-documentation.component.html',
+    imports: [
+        ComponentHeaderComponent,
+        ComponentSectionComponent,
+        ComponentInstallationComponent,
+        RouterLink,
+        ComponentPropertiesTableComponent,
+        ComponentPropertiesComponent,
+        ComponentChangelogComponent,
+        ComponentRelatedComponent,
+    ]
 })
 export class ComponentDocumentationComponent implements OnInit {
   @Input({ required: true }) docUrl: DocPageName;

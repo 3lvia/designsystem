@@ -10,11 +10,10 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 const docPage = getDocPagesNotFromCMS('utility-classes');
 @Component({
-  selector: 'app-utilities-doc',
-  templateUrl: './utilities-doc.component.html',
-  styleUrls: ['./utilities-doc.component.scss'],
-  standalone: true,
-  imports: [ComponentHeaderComponent, ComponentSubsectionComponent, RouterLink, CopyComponent],
+    selector: 'app-utilities-doc',
+    templateUrl: './utilities-doc.component.html',
+    styleUrls: ['./utilities-doc.component.scss'],
+    imports: [ComponentHeaderComponent, ComponentSubsectionComponent, RouterLink, CopyComponent]
 })
 export class UtilitiesDocComponent {
   description = docPage.description;

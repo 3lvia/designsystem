@@ -10,19 +10,18 @@ import { ContentLoaderCircleCegComponent } from './content-loader-circle-ceg/con
 import { ContentLoaderTextCegComponent } from './content-loader-text-ceg/content-loader-text-ceg.component';
 
 @Component({
-  selector: 'app-content-loader-doc',
-  templateUrl: './content-loader-doc.component.html',
-  styleUrls: ['./content-loader-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    StaticCegComponent,
-    ContentLoaderCegComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    ContentLoaderBoxCegComponent,
-    ContentLoaderCircleCegComponent,
-    ContentLoaderTextCegComponent,
-  ],
+    selector: 'app-content-loader-doc',
+    templateUrl: './content-loader-doc.component.html',
+    styleUrls: ['./content-loader-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        StaticCegComponent,
+        ContentLoaderCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        ContentLoaderBoxCegComponent,
+        ContentLoaderCircleCegComponent,
+        ContentLoaderTextCegComponent,
+    ]
 })
 export class ContentLoaderDocComponent {}

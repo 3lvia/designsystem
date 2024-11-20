@@ -8,12 +8,11 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
 export type FilterValue = 'all' | 'outline' | 'filled' | 'colored';
 
 @Component({
-  selector: 'app-icon-preview-filter',
-  standalone: true,
-  imports: [FormsModule, LocalThemeSwitchComponent, IfViewportSizeDirective],
-  templateUrl: './icon-preview-filter.component.html',
-  styleUrl: './icon-preview-filter.component.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-icon-preview-filter',
+    imports: [FormsModule, LocalThemeSwitchComponent, IfViewportSizeDirective],
+    templateUrl: './icon-preview-filter.component.html',
+    styleUrl: './icon-preview-filter.component.scss',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class IconPreviewFilterComponent {
   term = model('');

@@ -12,22 +12,21 @@ import { ChipImageCegComponent } from './chip-image-ceg/chip-image-ceg.component
 import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-empty-ceg.component';
 
 @Component({
-  selector: 'app-chips',
-  templateUrl: './chip-doc.component.html',
-  styleUrls: ['./chip-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    CegComponent,
-    ChipCegComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    StaticCegComponent,
-    ChipImageCegComponent,
-    ChipImageEmptyCegComponent,
-    WhenToUseComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-chips',
+    templateUrl: './chip-doc.component.html',
+    styleUrls: ['./chip-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        ChipCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        StaticCegComponent,
+        ChipImageCegComponent,
+        ChipImageEmptyCegComponent,
+        WhenToUseComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ChipDocComponent {
   does = chipData.does;

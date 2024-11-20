@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "esModuleInterop": true,
     "module": "ES2020",
     "target": "ES2022",
     "outDir": "./dist/out-tsc",

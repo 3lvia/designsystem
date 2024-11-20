@@ -8,12 +8,11 @@ import { ComponentProp } from './types';
 import ComponentData, { NestedProp } from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
-  selector: 'app-component-properties-table',
-  templateUrl: './component-properties-table.component.html',
-  styleUrls: ['./component-properties-table.component.scss'],
-  standalone: true,
-  imports: [PropertySearchInputComponent, PropertyTableDesktopComponent, PropertyTableMobileComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-component-properties-table',
+    templateUrl: './component-properties-table.component.html',
+    styleUrls: ['./component-properties-table.component.scss'],
+    imports: [PropertySearchInputComponent, PropertyTableDesktopComponent, PropertyTableMobileComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ComponentPropertiesTableComponent implements OnInit {
   @Input() componentData: ComponentData;

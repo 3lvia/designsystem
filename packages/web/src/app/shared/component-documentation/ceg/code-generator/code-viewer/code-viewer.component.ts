@@ -17,19 +17,18 @@ import { Language } from '../types';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 
 @Component({
-  selector: 'app-code-viewer',
-  templateUrl: './code-viewer.component.html',
-  styleUrls: ['./code-viewer.component.scss'],
-  standalone: true,
-  imports: [
-    IfViewportSizeDirective,
-    AsyncPipe,
-    TabToSegmentedControlItemPipe,
-    FormatCodePipe,
-    HighlighterPipe,
-  ],
-  providers: [FormatCodePipe, HighlighterPipe],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-code-viewer',
+    templateUrl: './code-viewer.component.html',
+    styleUrls: ['./code-viewer.component.scss'],
+    imports: [
+        IfViewportSizeDirective,
+        AsyncPipe,
+        TabToSegmentedControlItemPipe,
+        FormatCodePipe,
+        HighlighterPipe,
+    ],
+    providers: [FormatCodePipe, HighlighterPipe],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CodeViewerComponent {
   @Input() tabs: Tab[] = ['HTML'];

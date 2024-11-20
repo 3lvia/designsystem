@@ -14,24 +14,23 @@ import { CheckboxStandardCegComponent } from './checkbox-standard-ceg/checkbox-s
 import { CheckboxStatesCegComponent } from './checkbox-states-ceg/checkbox-states-ceg.component';
 
 @Component({
-  selector: 'app-checkbox-doc',
-  templateUrl: './checkbox-doc.component.html',
-  styleUrls: ['./checkbox-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    StaticCegComponent,
-    CheckboxCegComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    CheckboxStandardCegComponent,
-    CheckboxNestedCegComponent,
-    ComponentSubsubsectionComponent,
-    CheckboxSizeCegComponent,
-    CheckboxStatesCegComponent,
-    WhenToUseComponent,
-    RouterLink,
-  ],
+    selector: 'app-checkbox-doc',
+    templateUrl: './checkbox-doc.component.html',
+    styleUrls: ['./checkbox-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        StaticCegComponent,
+        CheckboxCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        CheckboxStandardCegComponent,
+        CheckboxNestedCegComponent,
+        ComponentSubsubsectionComponent,
+        CheckboxSizeCegComponent,
+        CheckboxStatesCegComponent,
+        WhenToUseComponent,
+        RouterLink,
+    ]
 })
 export class CheckboxDocComponent {
   does = ['When user can select multiple options from a list.', 'Toggle a single option on or off.'];

@@ -9,18 +9,17 @@ import { ProgressbarCegComponent } from './progressbar-ceg/progressbar-ceg.compo
 import { progressbarData } from './progressbar-data';
 
 @Component({
-  selector: 'app-progressbar-doc',
-  templateUrl: './progressbar-doc.component.html',
-  styleUrls: ['./progressbar-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    CegComponent,
-    ProgressbarCegComponent,
-    ComponentSectionComponent,
-    RouterLink,
-    ComponentSubsectionComponent,
-  ],
+    selector: 'app-progressbar-doc',
+    templateUrl: './progressbar-doc.component.html',
+    styleUrls: ['./progressbar-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        ProgressbarCegComponent,
+        ComponentSectionComponent,
+        RouterLink,
+        ComponentSubsectionComponent,
+    ]
 })
 export class ProgressbarDocComponent {
   componentData = progressbarData;

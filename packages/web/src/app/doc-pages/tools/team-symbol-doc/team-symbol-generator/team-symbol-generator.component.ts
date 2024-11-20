@@ -16,19 +16,18 @@ import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/loc
 import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
 @Component({
-  selector: 'app-team-symbol-generator',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    LocalThemeSwitchComponent,
-    SafeHtmlPipe,
-    SvgAbbreviationPopoverComponent,
-    WhySvgPopoverComponent,
-  ],
-  templateUrl: './team-symbol-generator.component.html',
-  styleUrl: './team-symbol-generator.component.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+    selector: 'app-team-symbol-generator',
+    imports: [
+        CommonModule,
+        FormsModule,
+        LocalThemeSwitchComponent,
+        SafeHtmlPipe,
+        SvgAbbreviationPopoverComponent,
+        WhySvgPopoverComponent,
+    ],
+    templateUrl: './team-symbol-generator.component.html',
+    styleUrl: './team-symbol-generator.component.scss',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class TeamSymbolGeneratorComponent {
   stepStates: StepStates = {

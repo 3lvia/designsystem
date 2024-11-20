@@ -9,19 +9,18 @@ import { HeaderCegComponent } from './header-ceg/header-ceg.component';
 import { headerData } from './header-data';
 
 @Component({
-  selector: 'app-header-doc',
-  templateUrl: './header-doc.component.html',
-  styleUrls: ['./header-doc.component.scss'],
-  standalone: true,
-  imports: [
-    ComponentDocumentationComponent,
-    CegComponent,
-    HeaderCegComponent,
-    ComponentSectionComponent,
-    ComponentSubsectionComponent,
-    RouterLink,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-header-doc',
+    templateUrl: './header-doc.component.html',
+    styleUrls: ['./header-doc.component.scss'],
+    imports: [
+        ComponentDocumentationComponent,
+        CegComponent,
+        HeaderCegComponent,
+        ComponentSectionComponent,
+        ComponentSubsectionComponent,
+        RouterLink,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HeaderDocComponent {
   componentData = headerData;
