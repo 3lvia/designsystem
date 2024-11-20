@@ -11,20 +11,20 @@ import { OpenIconComponent } from './open-icon/open-icon.component';
 import { QualityIconComponent } from './quality-icon/quality-icon.component';
 
 @Component({
-    selector: 'app-the-design-system-doc',
-    templateUrl: './the-design-system-doc.component.html',
-    styleUrls: ['./the-design-system-doc.component.scss'],
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSectionComponent,
-        EasyIconComponent,
-        FlexibleIconComponent,
-        OpenIconComponent,
-        QualityIconComponent,
-        InnovativeIconComponent,
-        RouterLink,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-the-design-system-doc',
+  templateUrl: './the-design-system-doc.component.html',
+  styleUrls: ['./the-design-system-doc.component.scss'],
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSectionComponent,
+    EasyIconComponent,
+    FlexibleIconComponent,
+    OpenIconComponent,
+    QualityIconComponent,
+    InnovativeIconComponent,
+    RouterLink,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TheDesignSystemDocComponent {
   constructor(private titleService: Title) {

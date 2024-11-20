@@ -9,16 +9,16 @@ import { SpotlightCegComponent } from './spotlight-ceg/spotlight-ceg.component';
 import { spotlightData } from './spotlight-data';
 
 @Component({
-    selector: 'app-spotlight-doc',
-    templateUrl: './spotlight-doc.component.html',
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        SpotlightCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        ComponentSubsubsectionComponent,
-    ]
+  selector: 'app-spotlight-doc',
+  templateUrl: './spotlight-doc.component.html',
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    SpotlightCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    ComponentSubsubsectionComponent,
+  ],
 })
 export class SpotlightDocComponent {
   componentData = spotlightData;

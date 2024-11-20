@@ -4,11 +4,11 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output } from '
 import { Counter } from '../../controlType';
 
 @Component({
-    selector: 'app-counter',
-    templateUrl: './counter.component.html',
-    styleUrls: ['./counter.component.scss'],
-    imports: [NgClass, NgStyle],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-counter',
+  templateUrl: './counter.component.html',
+  styleUrls: ['./counter.component.scss'],
+  imports: [NgClass, NgStyle],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CounterComponent {
   @Input() counter: Counter;

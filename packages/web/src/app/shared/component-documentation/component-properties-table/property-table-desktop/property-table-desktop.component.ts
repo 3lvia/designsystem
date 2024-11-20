@@ -9,11 +9,11 @@ import { ComponentProp } from '../types';
 import { SearchResult } from 'src/app/shared/searcher';
 
 @Component({
-    selector: 'app-property-table-desktop',
-    templateUrl: './property-table-desktop.component.html',
-    styleUrls: ['./property-table-desktop.component.scss'],
-    imports: [NgClass, NgStyle, PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-property-table-desktop',
+  templateUrl: './property-table-desktop.component.html',
+  styleUrls: ['./property-table-desktop.component.scss'],
+  imports: [NgClass, NgStyle, PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
   calculateMargin(i: number, propList: SearchResult<ComponentProp>[]) {

@@ -5,11 +5,11 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 
 @Component({
-    selector: 'app-locale-picker',
-    templateUrl: './locale-picker.component.html',
-    styleUrls: ['./locale-picker.component.scss'],
-    imports: [NgClass],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-locale-picker',
+  templateUrl: './locale-picker.component.html',
+  styleUrls: ['./locale-picker.component.scss'],
+  imports: [NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LocalePickerComponent {
   selectedLocale: Locale = 'en-GB';

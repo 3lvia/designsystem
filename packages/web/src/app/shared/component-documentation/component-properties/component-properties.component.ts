@@ -5,11 +5,11 @@ import deprecated from '@elvia/elvis/.internal/deprecated-classes.json';
 import { CopyComponent } from '../../copy/copy.component';
 
 @Component({
-    selector: 'app-component-properties',
-    templateUrl: './component-properties.component.html',
-    styleUrls: ['./component-properties.component.scss'],
-    imports: [CopyComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-component-properties',
+  templateUrl: './component-properties.component.html',
+  styleUrls: ['./component-properties.component.scss'],
+  imports: [CopyComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentPropertiesComponent implements OnInit {
   @Input() componentName: keyof typeof data.block;

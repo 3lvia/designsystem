@@ -16,19 +16,19 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
 const allIcons = getIconList();
 
 @Component({
-    selector: 'app-icon-preview',
-    imports: [
-        NgClass,
-        RouterLink,
-        CdkTrapFocus,
-        CopyComponent,
-        IconPreviewFilterComponent,
-        IconPreviewDetailsComponent,
-        IconGeneratorComponent,
-    ],
-    templateUrl: './icon-preview.component.html',
-    styleUrl: './icon-preview.component.scss',
-    animations: [entranceAnimation]
+  selector: 'app-icon-preview',
+  imports: [
+    NgClass,
+    RouterLink,
+    CdkTrapFocus,
+    CopyComponent,
+    IconPreviewFilterComponent,
+    IconPreviewDetailsComponent,
+    IconGeneratorComponent,
+  ],
+  templateUrl: './icon-preview.component.html',
+  styleUrl: './icon-preview.component.scss',
+  animations: [entranceAnimation],
 })
 export class IconPreviewComponent {
   searchTerm = model('');

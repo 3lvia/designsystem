@@ -4,10 +4,10 @@ import { Component, Input, OnInit } from '@angular/core';
 type ColorType = 'default' | 'black-white' | 'dark-black-white' | 'signal' | 'dark-signal';
 
 @Component({
-    selector: 'app-color-token-subtable-color-circle',
-    templateUrl: './color-token-subtable-color-circle.component.html',
-    styleUrls: ['./color-token-subtable-color-circle.component.scss'],
-    imports: [NgClass]
+  selector: 'app-color-token-subtable-color-circle',
+  templateUrl: './color-token-subtable-color-circle.component.html',
+  styleUrls: ['./color-token-subtable-color-circle.component.scss'],
+  imports: [NgClass],
 })
 export class ColorTokenSubtableColorCircleComponent implements OnInit {
   @Input() hex: string;

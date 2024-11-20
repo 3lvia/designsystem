@@ -13,10 +13,10 @@ import { LanguageType, Tab } from '../../types';
 import { CodeViewerComponent } from './code-viewer/code-viewer.component';
 
 @Component({
-    selector: 'app-code-generator',
-    templateUrl: './code-generator.component.html',
-    imports: [CodeViewerComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-code-generator',
+  templateUrl: './code-generator.component.html',
+  imports: [CodeViewerComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeGeneratorComponent implements OnInit {
   @Input() angularCode = '';

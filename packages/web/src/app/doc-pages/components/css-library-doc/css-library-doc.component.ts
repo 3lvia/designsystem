@@ -13,17 +13,17 @@ import { getComponent } from 'src/app/shared/doc-pages';
 
 const docPage = getComponent('css-library');
 @Component({
-    selector: 'app-css-library-doc',
-    templateUrl: './css-library-doc.component.html',
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSectionComponent,
-        CssLibraryIllustrationComponent,
-        ComponentSubsectionComponent,
-        CopyComponent,
-        ComponentChangelogComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-css-library-doc',
+  templateUrl: './css-library-doc.component.html',
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSectionComponent,
+    CssLibraryIllustrationComponent,
+    ComponentSubsectionComponent,
+    CopyComponent,
+    ComponentChangelogComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CSSLibraryDocComponent {
   componentData: ComponentData = {

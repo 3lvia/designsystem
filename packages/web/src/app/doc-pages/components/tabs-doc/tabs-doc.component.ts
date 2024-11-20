@@ -9,18 +9,18 @@ import { TabsCegComponent } from './tabs-ceg/tabs-ceg.component';
 import { tabsData } from './tabs-data';
 
 @Component({
-    selector: 'app-tabs-doc',
-    templateUrl: './tabs-doc.component.html',
-    styleUrls: ['./tabs-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        TabsCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-tabs-doc',
+  templateUrl: './tabs-doc.component.html',
+  styleUrls: ['./tabs-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    TabsCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TabsDocComponent {
   componentData = tabsData;

@@ -9,17 +9,17 @@ import { ThumbnailCegComponent } from './thumbnail-ceg/thumbnail-ceg.component';
 import { ThumbnailSelectedCegComponent } from './thumbnail-selected-ceg/thumbnail-selected-ceg.component';
 
 @Component({
-    selector: 'app-thumbnail-doc',
-    templateUrl: './thumbnail-doc.component.html',
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        ThumbnailCegComponent,
-        ComponentSectionComponent,
-        ThumbnailSelectedCegComponent,
-        NgClass,
-        ComponentSubsectionComponent,
-    ]
+  selector: 'app-thumbnail-doc',
+  templateUrl: './thumbnail-doc.component.html',
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    ThumbnailCegComponent,
+    ComponentSectionComponent,
+    ThumbnailSelectedCegComponent,
+    NgClass,
+    ComponentSubsectionComponent,
+  ],
 })
 export class ThumbnailDocComponent {
   selectedImage = 'assets/thumbnail/image-3.jpg';

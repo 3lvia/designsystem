@@ -19,28 +19,28 @@ import { ButtonTypeSecondaryCegComponent } from './button-type-secondary-ceg/but
 import { ButtonTypeTertiaryCegComponent } from './button-type-tertiary-ceg/button-type-tertiary-ceg.component';
 
 @Component({
-    selector: 'app-button-doc',
-    templateUrl: './button-doc.component.html',
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        ButtonCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        ButtonTypePrimaryCegComponent,
-        ButtonTypeSecondaryCegComponent,
-        ButtonTypeTertiaryCegComponent,
-        ButtonTypeDangerCegComponent,
-        ButtonTypeIconCegComponent,
-        ComponentSubsubsectionComponent,
-        ButtonTypeIconCircledCegComponent,
-        WhenToUseComponent,
-        ButtonSizeCegComponent,
-        DoDontTextComponent,
-        ButtonLinkCegComponent,
-        RouterLink,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-button-doc',
+  templateUrl: './button-doc.component.html',
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    ButtonCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    ButtonTypePrimaryCegComponent,
+    ButtonTypeSecondaryCegComponent,
+    ButtonTypeTertiaryCegComponent,
+    ButtonTypeDangerCegComponent,
+    ButtonTypeIconCegComponent,
+    ComponentSubsubsectionComponent,
+    ButtonTypeIconCircledCegComponent,
+    WhenToUseComponent,
+    ButtonSizeCegComponent,
+    DoDontTextComponent,
+    ButtonLinkCegComponent,
+    RouterLink,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ButtonDocComponent {
   doesExample1 = [

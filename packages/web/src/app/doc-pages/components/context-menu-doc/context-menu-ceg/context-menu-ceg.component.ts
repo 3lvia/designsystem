@@ -5,11 +5,11 @@ import { BaseContextMenuProps } from '@elvia/elvis-context-menu/react';
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
-    selector: 'app-context-menu-ceg',
-    templateUrl: './context-menu-ceg.component.html',
-    providers: [{ provide: ComponentExample, useExisting: ContextMenuCegComponent }],
-    imports: [NgClass],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-context-menu-ceg',
+  templateUrl: './context-menu-ceg.component.html',
+  providers: [{ provide: ComponentExample, useExisting: ContextMenuCegComponent }],
+  imports: [NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ContextMenuCegComponent implements ComponentExample {
   elementName = 'context-menu';

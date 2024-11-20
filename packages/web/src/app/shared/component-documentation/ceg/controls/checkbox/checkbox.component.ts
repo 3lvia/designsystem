@@ -6,10 +6,10 @@ import { Checkbox } from '../../controlType';
 let CEG_CHECKBOX_ID = 0;
 
 @Component({
-    selector: 'app-checkbox',
-    templateUrl: './checkbox.component.html',
-    styleUrls: ['./checkbox.component.scss'],
-    imports: [NgClass]
+  selector: 'app-checkbox',
+  templateUrl: './checkbox.component.html',
+  styleUrls: ['./checkbox.component.scss'],
+  imports: [NgClass],
 })
 export class CheckboxComponent {
   @Input() checkbox: Checkbox;

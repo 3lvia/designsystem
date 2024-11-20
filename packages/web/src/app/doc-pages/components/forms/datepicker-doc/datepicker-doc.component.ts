@@ -8,17 +8,17 @@ import { DatepickerCegComponent } from './datepicker-ceg/datepicker-ceg.componen
 import { datepickerData } from './datepicker-data';
 
 @Component({
-    selector: 'app-datepicker-doc',
-    templateUrl: './datepicker-doc.component.html',
-    styleUrls: ['./datepicker-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        DatepickerCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-datepicker-doc',
+  templateUrl: './datepicker-doc.component.html',
+  styleUrls: ['./datepicker-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    DatepickerCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerDocComponent {
   date = new Date(2021, 4, 20);

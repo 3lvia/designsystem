@@ -8,11 +8,11 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
-    selector: 'app-component-related',
-    templateUrl: './component-related.component.html',
-    styleUrls: ['./component-related.component.scss'],
-    imports: [RouterLink, AsyncPipe],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-component-related',
+  templateUrl: './component-related.component.html',
+  styleUrls: ['./component-related.component.scss'],
+  imports: [RouterLink, AsyncPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentRelatedComponent {
   @Input({ required: true }) relatedPages: DocPageName[];

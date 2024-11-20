@@ -68,18 +68,18 @@ import { ShortcutComponent } from './shell/shortcut/shortcut.component';
 type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    imports: [
-        HeaderComponent,
-        NgClass,
-        RouterOutlet,
-        PageWithSidenavComponent,
-        FooterComponent,
-        ShortcutComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [
+    HeaderComponent,
+    NgClass,
+    RouterOutlet,
+    PageWithSidenavComponent,
+    FooterComponent,
+    ShortcutComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {
   currentRoute: PageLayout = 'standalonePage';

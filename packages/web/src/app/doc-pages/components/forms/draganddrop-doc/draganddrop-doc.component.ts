@@ -8,16 +8,16 @@ import { DraganddropCegComponent } from './draganddrop-ceg/draganddrop-ceg.compo
 import { DraganddropDragoverCegComponent } from './draganddrop-dragover-ceg/draganddrop-dragover-ceg.component';
 
 @Component({
-    selector: 'app-draganddrop-doc',
-    templateUrl: './draganddrop-doc.component.html',
-    styleUrls: ['./draganddrop-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        DraganddropCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        DraganddropDragoverCegComponent,
-    ]
+  selector: 'app-draganddrop-doc',
+  templateUrl: './draganddrop-doc.component.html',
+  styleUrls: ['./draganddrop-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    DraganddropCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    DraganddropDragoverCegComponent,
+  ],
 })
 export class DraganddropDocComponent {}

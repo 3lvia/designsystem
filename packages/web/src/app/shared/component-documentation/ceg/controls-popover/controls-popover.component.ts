@@ -6,10 +6,10 @@ import { ControlValue } from '../controlType';
 import { ControlsComponent } from '../controls/controls.component';
 
 @Component({
-    selector: 'app-controls-popover',
-    templateUrl: './controls-popover.component.html',
-    imports: [ControlsComponent, NgClass],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-controls-popover',
+  templateUrl: './controls-popover.component.html',
+  imports: [ControlsComponent, NgClass],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ControlsPopoverComponent {
   @Input() controlManager: UnknownCegControlManager;

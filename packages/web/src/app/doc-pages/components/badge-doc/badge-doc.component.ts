@@ -10,18 +10,18 @@ import { badgeData } from './badge-data';
 import { ButtonBadgeCegComponent } from './button-badge-ceg/button-badge-ceg.component';
 
 @Component({
-    selector: 'app-badge-doc',
-    templateUrl: './badge-doc.component.html',
-    styleUrl: './badge-doc.component.scss',
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        BadgeCegComponent,
-        ComponentSectionComponent,
-        StaticCegComponent,
-        ButtonBadgeCegComponent,
-        ComponentSubsectionComponent,
-    ]
+  selector: 'app-badge-doc',
+  templateUrl: './badge-doc.component.html',
+  styleUrl: './badge-doc.component.scss',
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    BadgeCegComponent,
+    ComponentSectionComponent,
+    StaticCegComponent,
+    ButtonBadgeCegComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class BadgeDocComponent {
   componentData = badgeData;

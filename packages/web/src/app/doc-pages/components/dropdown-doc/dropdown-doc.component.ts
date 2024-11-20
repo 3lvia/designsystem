@@ -17,26 +17,26 @@ import { DropdownStatusCegComponent } from './dropdown-status-ceg/dropdown-statu
 import { DropdownTreeCegComponent } from './dropdown-tree-ceg/dropdown-tree-ceg.component';
 
 @Component({
-    selector: 'app-dropdown-doc',
-    templateUrl: './dropdown-doc.component.html',
-    styleUrls: ['./dropdown-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        DropdownCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        RouterLink,
-        StaticCegComponent,
-        DropdownIconsCegComponent,
-        DropdownImagesCegComponent,
-        DropdownTreeCegComponent,
-        DropdownStatusCegComponent,
-        DropdownLoadMoreCegComponent,
-        DropdownEmptyCegComponent,
-        WhenToUseComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-dropdown-doc',
+  templateUrl: './dropdown-doc.component.html',
+  styleUrls: ['./dropdown-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    DropdownCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    RouterLink,
+    StaticCegComponent,
+    DropdownIconsCegComponent,
+    DropdownImagesCegComponent,
+    DropdownTreeCegComponent,
+    DropdownStatusCegComponent,
+    DropdownLoadMoreCegComponent,
+    DropdownEmptyCegComponent,
+    WhenToUseComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DropdownDocComponent {
   componentData = dropdownData;

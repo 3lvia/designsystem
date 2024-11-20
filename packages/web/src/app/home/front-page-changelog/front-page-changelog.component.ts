@@ -10,17 +10,17 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
-    imports: [
-        CommonModule,
-        RouterModule,
-        FrontPageChangelogDatePipe,
-        FrontPageChangelogNamePipe,
-        FrontPageChangelogUrlPipe,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    selector: 'app-front-page-changelog',
-    templateUrl: './front-page-changelog.component.html',
-    styleUrls: ['./front-page-changelog.component.scss']
+  imports: [
+    CommonModule,
+    RouterModule,
+    FrontPageChangelogDatePipe,
+    FrontPageChangelogNamePipe,
+    FrontPageChangelogUrlPipe,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  selector: 'app-front-page-changelog',
+  templateUrl: './front-page-changelog.component.html',
+  styleUrls: ['./front-page-changelog.component.scss'],
 })
 export class FrontPageChangelogComponent {
   constructor(

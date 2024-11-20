@@ -13,12 +13,12 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
 import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
-    selector: 'app-cms-page',
-    templateUrl: './cms-page.component.html',
-    styleUrls: ['./cms-page.component.scss'],
-    encapsulation: ViewEncapsulation.None,
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    imports: [ComponentHeaderComponent, RouterOutlet]
+  selector: 'app-cms-page',
+  templateUrl: './cms-page.component.html',
+  styleUrls: ['./cms-page.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [ComponentHeaderComponent, RouterOutlet],
 })
 export class CMSPageComponent implements OnDestroy {
   cmsContent: TransformedDocPage = {} as TransformedDocPage;

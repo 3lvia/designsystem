@@ -10,17 +10,17 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 const docPage = getDocPagesNotFromCMS('get-started');
 @Component({
-    selector: 'app-get-started',
-    templateUrl: './get-started-doc.component.html',
-    styleUrls: ['./get-started-doc.component.scss'],
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSectionComponent,
-        RouterLink,
-        CssLibraryIllustrationComponent,
-        WebComponentIllustrationComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-get-started',
+  templateUrl: './get-started-doc.component.html',
+  styleUrls: ['./get-started-doc.component.scss'],
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSectionComponent,
+    RouterLink,
+    CssLibraryIllustrationComponent,
+    WebComponentIllustrationComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class GetStartedDocComponent {
   description = docPage.description;

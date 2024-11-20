@@ -10,17 +10,17 @@ import { BoxCegComponent } from './box-ceg/box-ceg.component';
 import { boxData } from './box-data';
 
 @Component({
-    selector: 'app-box-doc',
-    templateUrl: './box-doc.component.html',
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        BoxCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-        ComponentSubsubsectionComponent,
-    ]
+  selector: 'app-box-doc',
+  templateUrl: './box-doc.component.html',
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    BoxCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+    ComponentSubsubsectionComponent,
+  ],
 })
 export class BoxDocComponent {
   componentData = boxData;

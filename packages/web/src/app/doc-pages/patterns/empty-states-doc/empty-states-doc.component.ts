@@ -15,20 +15,20 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 const emptyStatesDocPage = getDocPagesNotFromCMS('empty-states');
 
 @Component({
-    selector: 'app-empty-states-doc',
-    imports: [
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        ComponentHeaderComponent,
-        RouterLink,
-        EmptyStatesClassListComponent,
-        EmptyStatesFullPageExampleComponent,
-        EmptyStatesLeftAlignedExampleComponent,
-        EmptyStatesSmallerSectionsExample1Component,
-        EmptyStatesSmallerSectionsExample2Component,
-        EmptyStatesTopExampleComponent,
-    ],
-    templateUrl: './empty-states-doc.component.html'
+  selector: 'app-empty-states-doc',
+  imports: [
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    ComponentHeaderComponent,
+    RouterLink,
+    EmptyStatesClassListComponent,
+    EmptyStatesFullPageExampleComponent,
+    EmptyStatesLeftAlignedExampleComponent,
+    EmptyStatesSmallerSectionsExample1Component,
+    EmptyStatesSmallerSectionsExample2Component,
+    EmptyStatesTopExampleComponent,
+  ],
+  templateUrl: './empty-states-doc.component.html',
 })
 export class EmptyStatesDocComponent {
   title = emptyStatesDocPage.title;

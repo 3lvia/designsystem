@@ -10,11 +10,11 @@ import { LanguageType, Tab } from 'src/app/shared/component-documentation/types'
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
-    selector: 'app-icon-installation',
-    imports: [CopyComponent, TabToSegmentedControlItemPipe, CodeViewerComponent],
-    templateUrl: './icon-installation.component.html',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    animations: [heightAnimation]
+  selector: 'app-icon-installation',
+  imports: [CopyComponent, TabToSegmentedControlItemPipe, CodeViewerComponent],
+  templateUrl: './icon-installation.component.html',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  animations: [heightAnimation],
 })
 export class IconInstallationComponent {
   tabs: Tab[] = ['Angular', 'React', 'Vue'];

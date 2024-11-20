@@ -12,20 +12,20 @@ import { cardData } from './card-data';
 import { CardLinksCegComponent } from './card-links-ceg/card-links-ceg.component';
 
 @Component({
-    selector: 'app-card-doc',
-    templateUrl: './card-doc.component.html',
-    styleUrls: ['./card-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        CardCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-        ComponentSubsubsectionComponent,
-        StaticCegComponent,
-        CardLinksCegComponent,
-    ]
+  selector: 'app-card-doc',
+  templateUrl: './card-doc.component.html',
+  styleUrls: ['./card-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    CardCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+    ComponentSubsubsectionComponent,
+    StaticCegComponent,
+    CardLinksCegComponent,
+  ],
 })
 export class CardDocComponent {
   componentData = cardData;

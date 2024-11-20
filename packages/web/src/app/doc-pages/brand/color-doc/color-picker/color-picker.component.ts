@@ -8,17 +8,17 @@ import { ColorPickerHeaderComponent } from './color-picker-header/color-picker-h
 import { ColorPickerService } from './color-picker.service';
 
 @Component({
-    selector: 'app-color-picker',
-    templateUrl: './color-picker.component.html',
-    styleUrls: ['./color-picker.component.scss'],
-    imports: [
-        NgClass,
-        ColorPickerHeaderComponent,
-        ColorPickerExhibitComponent,
-        ColorListBaseDirective,
-        ColorPickerColorListComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-color-picker',
+  templateUrl: './color-picker.component.html',
+  styleUrls: ['./color-picker.component.scss'],
+  imports: [
+    NgClass,
+    ColorPickerHeaderComponent,
+    ColorPickerExhibitComponent,
+    ColorListBaseDirective,
+    ColorPickerColorListComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorPickerComponent {
   private colorPickerService = inject(ColorPickerService);

@@ -16,11 +16,11 @@ interface Shadow {
 }
 
 @Component({
-    selector: 'app-shadow-viewer',
-    templateUrl: './shadow-viewer.component.html',
-    styleUrls: ['./shadow-viewer.component.scss'],
-    imports: [NgClass, CopyComponent, AsyncPipe],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-shadow-viewer',
+  templateUrl: './shadow-viewer.component.html',
+  styleUrls: ['./shadow-viewer.component.scss'],
+  imports: [NgClass, CopyComponent, AsyncPipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShadowViewerComponent {
   currentLocale: Locale = 'en-GB';

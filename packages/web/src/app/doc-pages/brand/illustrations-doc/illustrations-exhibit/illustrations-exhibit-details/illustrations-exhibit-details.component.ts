@@ -8,11 +8,11 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
-    selector: 'app-illustrations-exhibit-details',
-    imports: [CopyComponent, IllustrationsGeneratorComponent],
-    templateUrl: './illustrations-exhibit-details.component.html',
-    styleUrl: './illustrations-exhibit-details.component.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-illustrations-exhibit-details',
+  imports: [CopyComponent, IllustrationsGeneratorComponent],
+  templateUrl: './illustrations-exhibit-details.component.html',
+  styleUrl: './illustrations-exhibit-details.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IllustrationsExhibitDetailsComponent {
   private elementRef = inject(ElementRef);

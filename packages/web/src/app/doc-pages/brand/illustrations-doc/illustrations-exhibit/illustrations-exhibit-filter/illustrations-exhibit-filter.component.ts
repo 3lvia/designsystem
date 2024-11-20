@@ -10,11 +10,11 @@ import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/loc
 import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewport-size.directive';
 
 @Component({
-    selector: 'app-illustrations-exhibit-filter',
-    imports: [IfViewportSizeDirective, LocalThemeSwitchComponent],
-    templateUrl: './illustrations-exhibit-filter.component.html',
-    styleUrl: './illustrations-exhibit-filter.component.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-illustrations-exhibit-filter',
+  imports: [IfViewportSizeDirective, LocalThemeSwitchComponent],
+  templateUrl: './illustrations-exhibit-filter.component.html',
+  styleUrl: './illustrations-exhibit-filter.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IllustrationsExhibitFilterComponent {
   private illustrationExhibitService = inject(IllustrationsExhibitService);

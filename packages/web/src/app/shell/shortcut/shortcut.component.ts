@@ -7,11 +7,11 @@ import { Shortcut, shortcuts } from './keys';
 import { ShortcutModalContentComponent } from './shortcut-modal-content/shortcut-modal-content.component';
 
 @Component({
-    selector: 'app-shortcut',
-    templateUrl: './shortcut.component.html',
-    styleUrls: ['./shortcut.component.scss'],
-    imports: [ShortcutModalContentComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-shortcut',
+  templateUrl: './shortcut.component.html',
+  styleUrls: ['./shortcut.component.scss'],
+  imports: [ShortcutModalContentComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShortcutComponent {
   showShortcutGlossary = false;

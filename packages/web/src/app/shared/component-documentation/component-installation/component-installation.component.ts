@@ -10,11 +10,11 @@ import { getPackageName } from './getPackageName';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
-    selector: 'app-component-installation',
-    templateUrl: './component-installation.component.html',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    animations: [heightAnimation],
-    imports: [CopyComponent, TabToSegmentedControlItemPipe]
+  selector: 'app-component-installation',
+  templateUrl: './component-installation.component.html',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  animations: [heightAnimation],
+  imports: [CopyComponent, TabToSegmentedControlItemPipe],
 })
 export class ComponentInstallationComponent implements OnInit {
   @Input() componentData: ComponentData;

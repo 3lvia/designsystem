@@ -19,23 +19,23 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 const docPage = getDocPagesNotFromCMS('typography');
 @Component({
-    selector: 'app-typography-doc',
-    templateUrl: './typography-doc.component.html',
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSubsectionComponent,
-        TypographyExampleExhibitComponent,
-        ComponentSectionComponent,
-        TypographyFontExampleComponent,
-        TypographyTitleExampleComponent,
-        TypographyOutlineExampleComponent,
-        TypographyArticleExampleComponent,
-        RouterLink,
-        ComponentChangelogComponent,
-        StaticCegComponent,
-        AbbreviationExampleCegComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-typography-doc',
+  templateUrl: './typography-doc.component.html',
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSubsectionComponent,
+    TypographyExampleExhibitComponent,
+    ComponentSectionComponent,
+    TypographyFontExampleComponent,
+    TypographyTitleExampleComponent,
+    TypographyOutlineExampleComponent,
+    TypographyArticleExampleComponent,
+    RouterLink,
+    ComponentChangelogComponent,
+    StaticCegComponent,
+    AbbreviationExampleCegComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TypographyDocComponent {
   title = docPage.title;

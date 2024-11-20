@@ -20,10 +20,10 @@ interface ContactInfo {
 
 const docPage = getDocPagesNotFromCMS('contact');
 @Component({
-    selector: 'app-contact',
-    templateUrl: './contact.component.html',
-    styleUrls: ['./contact.component.scss'],
-    imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass, SafeHtmlPipe]
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss'],
+  imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass, SafeHtmlPipe],
 })
 export class ContactComponent {
   description = docPage.description;

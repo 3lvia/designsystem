@@ -14,10 +14,10 @@ interface Classes {
 }
 
 @Component({
-    selector: 'app-empty-states-class-list',
-    imports: [NgClass],
-    templateUrl: './empty-states-class-list.component.html',
-    styleUrl: './empty-states-class-list.component.scss'
+  selector: 'app-empty-states-class-list',
+  imports: [NgClass],
+  templateUrl: './empty-states-class-list.component.html',
+  styleUrl: './empty-states-class-list.component.scss',
 })
 export class EmptyStatesClassListComponent {
   classes = input.required<DesktopAndMobile<Partial<Classes>>>();

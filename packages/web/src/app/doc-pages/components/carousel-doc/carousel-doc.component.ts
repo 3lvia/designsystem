@@ -9,17 +9,17 @@ import { CarouselCegComponent } from './carousel-ceg/carousel-ceg.component';
 import { carouselData } from './carousel-data';
 
 @Component({
-    selector: 'app-carousel-doc',
-    templateUrl: './carousel-doc.component.html',
-    styleUrls: ['./carousel-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        CarouselCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-    ]
+  selector: 'app-carousel-doc',
+  templateUrl: './carousel-doc.component.html',
+  styleUrls: ['./carousel-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    CarouselCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class CarouselDocComponent {
   componentData = carouselData;

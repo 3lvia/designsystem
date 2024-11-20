@@ -24,11 +24,11 @@ import {
 } from './colors';
 
 @Component({
-    selector: 'app-color-token-table',
-    templateUrl: './color-token-table.component.html',
-    styleUrls: ['./color-token-table.component.scss'],
-    imports: [NgClass, ColorTokenSubtableComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-color-token-table',
+  templateUrl: './color-token-table.component.html',
+  styleUrls: ['./color-token-table.component.scss'],
+  imports: [NgClass, ColorTokenSubtableComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorTokenTableComponent {
   textColorsDefault = textColorsDefault;

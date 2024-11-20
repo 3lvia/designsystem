@@ -5,9 +5,9 @@ import { TypographyExampleExhibitFilterComponent } from './typography-example-ex
 import { TypographyExampleExhibitListComponent } from './typography-example-exhibit-list/typography-example-exhibit-list.component';
 
 @Component({
-    imports: [TypographyExampleExhibitFilterComponent, TypographyExampleExhibitListComponent],
-    selector: 'app-typography-example-exhibit',
-    templateUrl: './typography-example-exhibit.component.html'
+  imports: [TypographyExampleExhibitFilterComponent, TypographyExampleExhibitListComponent],
+  selector: 'app-typography-example-exhibit',
+  templateUrl: './typography-example-exhibit.component.html',
 })
 export class TypographyExampleExhibitComponent {
   selectedCategory: Category = 'title';

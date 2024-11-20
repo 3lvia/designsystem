@@ -17,19 +17,19 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.interface';
 
 @Component({
-    imports: [
-        CommonModule,
-        RouterModule,
-        FormsModule,
-        ComponentDocumentationDatePipe,
-        ChangelogIdPipe,
-        ChangelogTypePipe,
-        SafeHtmlPipe,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    selector: 'app-component-changelog',
-    templateUrl: './component-changelog.component.html',
-    styleUrls: ['./component-changelog.component.scss']
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ComponentDocumentationDatePipe,
+    ChangelogIdPipe,
+    ChangelogTypePipe,
+    SafeHtmlPipe,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  selector: 'app-component-changelog',
+  templateUrl: './component-changelog.component.html',
+  styleUrls: ['./component-changelog.component.scss'],
 })
 export class ComponentChangelogComponent implements OnInit {
   @Input() changelog?: Changelog;

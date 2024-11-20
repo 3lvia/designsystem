@@ -10,11 +10,11 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 type DisplayCategories = 'Title' | 'Body' | 'Body text' | 'Special' | 'Special text';
 
 @Component({
-    selector: 'app-typography-example-exhibit-filter',
-    templateUrl: './typography-example-exhibit-filter.component.html',
-    styleUrls: ['./typography-example-exhibit-filter.component.scss'],
-    imports: [CommonModule],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-typography-example-exhibit-filter',
+  templateUrl: './typography-example-exhibit-filter.component.html',
+  styleUrls: ['./typography-example-exhibit-filter.component.scss'],
+  imports: [CommonModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TypographyExampleExhibitFilterComponent {
   @Input({ required: true }) activeCategory: Category;

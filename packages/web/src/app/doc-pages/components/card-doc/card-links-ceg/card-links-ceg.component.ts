@@ -5,11 +5,11 @@ import * as template from './card-links-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
 
 @Component({
-    selector: 'app-card-links-ceg',
-    templateUrl: './card-links-ceg.component.html',
-    providers: [{ provide: StaticComponentExample, useExisting: CardLinksCegComponent }],
-    imports: [RouterLink],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-card-links-ceg',
+  templateUrl: './card-links-ceg.component.html',
+  providers: [{ provide: StaticComponentExample, useExisting: CardLinksCegComponent }],
+  imports: [RouterLink],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CardLinksCegComponent implements StaticComponentExample {
   html = template.default;

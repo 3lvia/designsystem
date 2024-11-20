@@ -10,11 +10,11 @@ interface IconLink {
 }
 
 @Component({
-    selector: 'app-footer',
-    templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss'],
-    imports: [NgClass, RouterLink],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss'],
+  imports: [NgClass, RouterLink],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FooterComponent {
   bgClass = '';

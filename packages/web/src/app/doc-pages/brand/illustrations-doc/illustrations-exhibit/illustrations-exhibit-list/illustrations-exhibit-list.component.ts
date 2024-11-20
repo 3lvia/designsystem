@@ -9,10 +9,10 @@ import { IllustrationsExhibitListDisplayNamePipe } from './illustrations-exhibit
 import { LocalizationService } from 'src/app/core/services/localization.service';
 
 @Component({
-    selector: 'app-illustrations-exhibit-list',
-    imports: [NgClass, IllustrationsGeneratorComponent, IllustrationsExhibitListDisplayNamePipe],
-    templateUrl: './illustrations-exhibit-list.component.html',
-    styleUrl: './illustrations-exhibit-list.component.scss'
+  selector: 'app-illustrations-exhibit-list',
+  imports: [NgClass, IllustrationsGeneratorComponent, IllustrationsExhibitListDisplayNamePipe],
+  templateUrl: './illustrations-exhibit-list.component.html',
+  styleUrl: './illustrations-exhibit-list.component.scss',
 })
 export class IllustrationsExhibitListComponent {
   private illustrationExhibitService = inject(IllustrationsExhibitService);

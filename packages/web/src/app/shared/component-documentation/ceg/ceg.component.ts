@@ -36,17 +36,17 @@ interface SlotMap {
 }
 
 @Component({
-    selector: 'app-ceg',
-    templateUrl: './ceg.component.html',
-    styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
-    imports: [
-        TypeSwitcherComponent,
-        NgClass,
-        ControlsPopoverComponent,
-        ControlsComponent,
-        DynamicCodeGeneratorComponent,
-        AsyncPipe,
-    ]
+  selector: 'app-ceg',
+  templateUrl: './ceg.component.html',
+  styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
+  imports: [
+    TypeSwitcherComponent,
+    NgClass,
+    ControlsPopoverComponent,
+    ControlsComponent,
+    DynamicCodeGeneratorComponent,
+    AsyncPipe,
+  ],
 })
 export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   @Input({ transform: booleanAttribute }) fullWidth = false;

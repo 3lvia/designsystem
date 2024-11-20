@@ -10,19 +10,19 @@ import { datepickerRangeData } from './datepicker-range-data';
 import { DatepickerRangeShortcutExampleComponent } from './datepicker-range-shortcut-example/datepicker-range-shortcut-example.component';
 
 @Component({
-    selector: 'app-datepicker-range-doc',
-    templateUrl: './datepicker-range-doc.component.html',
-    styleUrls: ['./datepicker-range-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        DatepickerRangeCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        RouterLink,
-        DatepickerRangeShortcutExampleComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-datepicker-range-doc',
+  templateUrl: './datepicker-range-doc.component.html',
+  styleUrls: ['./datepicker-range-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    DatepickerRangeCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    RouterLink,
+    DatepickerRangeShortcutExampleComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerRangeDocComponent {
   componentData = datepickerRangeData;

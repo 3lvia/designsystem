@@ -8,9 +8,9 @@ import { ComponentProp } from '../types';
 import { SearchResult } from 'src/app/shared/searcher';
 
 @Component({
-    selector: 'app-property-table-mobile',
-    templateUrl: './property-table-mobile.component.html',
-    imports: [PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe]
+  selector: 'app-property-table-mobile',
+  templateUrl: './property-table-mobile.component.html',
+  imports: [PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
 })
 export class PropertyTableMobileComponent extends PropertyTableBaseDirective {
   get itemsWithoutChildren(): SearchResult<ComponentProp>[] {

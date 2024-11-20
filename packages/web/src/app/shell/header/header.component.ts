@@ -19,24 +19,24 @@ import { SearchHighlighterPipe } from 'src/app/shared/search-highlighter.pipe';
 type MenuType = 'search' | 'mobileMenu' | null;
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'],
-    imports: [
-        NgClass,
-        CdkTrapFocus,
-        RouterLink,
-        RouterLinkActive,
-        ThemeSwitchComponent,
-        SearchMenuComponent,
-        MobileMenuComponent,
-        CommonModule,
-        RouterModule,
-        FormsModule,
-        SearchHighlighterPipe,
-        A11yModule,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+  imports: [
+    NgClass,
+    CdkTrapFocus,
+    RouterLink,
+    RouterLinkActive,
+    ThemeSwitchComponent,
+    SearchMenuComponent,
+    MobileMenuComponent,
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    SearchHighlighterPipe,
+    A11yModule,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderComponent {
   visibleMenuType: MenuType = null;

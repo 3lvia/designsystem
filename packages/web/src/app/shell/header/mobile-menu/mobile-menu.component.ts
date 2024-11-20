@@ -8,11 +8,11 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 
 @Component({
-    selector: 'app-mobile-menu',
-    templateUrl: './mobile-menu.component.html',
-    styleUrls: ['./mobile-menu.component.scss'],
-    imports: [RouterLink, ThemeSwitchComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-mobile-menu',
+  templateUrl: './mobile-menu.component.html',
+  styleUrls: ['./mobile-menu.component.scss'],
+  imports: [RouterLink, ThemeSwitchComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MobileMenuComponent {
   @Output() closeMenu = new EventEmitter<void>();

@@ -20,25 +20,25 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 const docPage = getDocPagesNotFromCMS('layout');
 @Component({
-    selector: 'app-layout-doc',
-    templateUrl: './layout-doc.component.html',
-    styleUrls: ['./layout-doc.component.scss'],
-    imports: [
-        ComponentHeaderComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        StaticCegComponent,
-        LayoutBreakpointsCegComponent,
-        ComponentSubsubsectionComponent,
-        LayoutAlignmentCegComponent,
-        LayoutOrderingCegComponent,
-        LayoutLevelsCegComponent,
-        LayoutGuttersCegComponent,
-        LayoutGuttersCustomCegComponent,
-        LayoutGuttersNoCegComponent,
-        RouterLink,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-layout-doc',
+  templateUrl: './layout-doc.component.html',
+  styleUrls: ['./layout-doc.component.scss'],
+  imports: [
+    ComponentHeaderComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    StaticCegComponent,
+    LayoutBreakpointsCegComponent,
+    ComponentSubsubsectionComponent,
+    LayoutAlignmentCegComponent,
+    LayoutOrderingCegComponent,
+    LayoutLevelsCegComponent,
+    LayoutGuttersCegComponent,
+    LayoutGuttersCustomCegComponent,
+    LayoutGuttersNoCegComponent,
+    RouterLink,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LayoutDocComponent {
   title = docPage.title;

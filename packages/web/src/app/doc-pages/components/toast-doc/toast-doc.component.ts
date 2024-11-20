@@ -10,19 +10,19 @@ import { ToastCegComponent } from './toast-ceg/toast-ceg.component';
 import { toastData } from './toast-data';
 
 @Component({
-    selector: 'app-toast-doc',
-    templateUrl: './toast-doc.component.html',
-    styleUrls: ['./toast-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        ToastCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        RouterLink,
-        ComponentPropertiesTableComponent,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-toast-doc',
+  templateUrl: './toast-doc.component.html',
+  styleUrls: ['./toast-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    ToastCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    RouterLink,
+    ComponentPropertiesTableComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ToastDocComponent {
   componentData = toastData;

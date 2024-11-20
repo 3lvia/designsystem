@@ -7,15 +7,15 @@ import { OutlineCegComponent } from './outline-ceg/outline-ceg.component';
 import { outlineData } from './outline-data';
 
 @Component({
-    selector: 'app-outline-doc',
-    templateUrl: './outline-doc.component.html',
-    styleUrls: ['./outline-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        StaticCegComponent,
-        OutlineCegComponent,
-        ComponentSectionComponent,
-    ]
+  selector: 'app-outline-doc',
+  templateUrl: './outline-doc.component.html',
+  styleUrls: ['./outline-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    StaticCegComponent,
+    OutlineCegComponent,
+    ComponentSectionComponent,
+  ],
 })
 export class OutlineDocComponent {
   componentData = outlineData;

@@ -6,9 +6,9 @@ import { ComponentSectionComponent } from 'src/app/shared/component-documentatio
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 
 @Component({
-    selector: 'app-team-symbol-doc',
-    templateUrl: './team-symbol-doc.component.html',
-    imports: [ComponentHeaderComponent, ComponentSectionComponent, TeamSymbolGeneratorComponent]
+  selector: 'app-team-symbol-doc',
+  templateUrl: './team-symbol-doc.component.html',
+  imports: [ComponentHeaderComponent, ComponentSectionComponent, TeamSymbolGeneratorComponent],
 })
 export class TeamSymbolDocComponent {
   description = getDocPagesNotFromCMS('team-symbol')?.description;

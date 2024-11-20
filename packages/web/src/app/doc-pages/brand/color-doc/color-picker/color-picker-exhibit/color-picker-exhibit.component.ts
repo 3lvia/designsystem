@@ -13,23 +13,23 @@ import { NeedsBorderPipe } from '../needs-border.pipe';
 import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
 
 @Component({
-    selector: 'app-color-picker-exhibit',
-    templateUrl: './color-picker-exhibit.component.html',
-    styleUrls: ['./color-picker-exhibit.component.scss'],
-    imports: [
-        NgStyle,
-        NgClass,
-        CopyComponent,
-        NgPlural,
-        NgPluralCase,
-        ColorListBaseDirective,
-        RouterLink,
-        UpperCasePipe,
-        KeyValuePipe,
-        ReplacePipe,
-        NeedsBorderPipe,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-color-picker-exhibit',
+  templateUrl: './color-picker-exhibit.component.html',
+  styleUrls: ['./color-picker-exhibit.component.scss'],
+  imports: [
+    NgStyle,
+    NgClass,
+    CopyComponent,
+    NgPlural,
+    NgPluralCase,
+    ColorListBaseDirective,
+    RouterLink,
+    UpperCasePipe,
+    KeyValuePipe,
+    ReplacePipe,
+    NeedsBorderPipe,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorPickerExhibitComponent {
   private colorPickerService = inject(ColorPickerService);

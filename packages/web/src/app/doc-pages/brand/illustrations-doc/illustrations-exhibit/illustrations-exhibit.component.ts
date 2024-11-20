@@ -11,17 +11,17 @@ import { IllustrationsExhibitListComponent } from './illustrations-exhibit-list/
 import { IllustrationsExhibitService } from './illustrations-exhibit.service';
 
 @Component({
-    selector: 'app-illustrations-exhibit',
-    imports: [
-        CdkTrapFocus,
-        NgClass,
-        IllustrationsExhibitFilterComponent,
-        IllustrationsExhibitListComponent,
-        IllustrationsExhibitDetailsComponent,
-    ],
-    templateUrl: './illustrations-exhibit.component.html',
-    styleUrl: './illustrations-exhibit.component.scss',
-    animations: [entranceAnimation]
+  selector: 'app-illustrations-exhibit',
+  imports: [
+    CdkTrapFocus,
+    NgClass,
+    IllustrationsExhibitFilterComponent,
+    IllustrationsExhibitListComponent,
+    IllustrationsExhibitDetailsComponent,
+  ],
+  templateUrl: './illustrations-exhibit.component.html',
+  styleUrl: './illustrations-exhibit.component.scss',
+  animations: [entranceAnimation],
 })
 export class IllustrationsExhibitComponent {
   private illustrationsExhibitService = inject(IllustrationsExhibitService);

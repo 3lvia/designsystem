@@ -12,20 +12,20 @@ import { accordionData } from './accordion-data';
 import { AccordionGroupCegComponent } from './accordion-group-ceg/accordion-group-ceg.component';
 
 @Component({
-    selector: 'app-accordion-doc',
-    templateUrl: './accordion-doc.component.html',
-    styleUrls: ['./accordion-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        AccordionCegComponent,
-        ComponentSectionComponent,
-        ComponentSubsectionComponent,
-        WhenToUseComponent,
-        RouterLink,
-        StaticCegComponent,
-        AccordionGroupCegComponent,
-    ]
+  selector: 'app-accordion-doc',
+  templateUrl: './accordion-doc.component.html',
+  styleUrls: ['./accordion-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    AccordionCegComponent,
+    ComponentSectionComponent,
+    ComponentSubsectionComponent,
+    WhenToUseComponent,
+    RouterLink,
+    StaticCegComponent,
+    AccordionGroupCegComponent,
+  ],
 })
 export class AccordionDocComponent {
   componentData = accordionData;

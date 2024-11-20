@@ -10,11 +10,11 @@ import { PreferredLanguageService } from 'src/app/shared/component-documentation
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
 
 @Component({
-    selector: 'app-icon-preview-details',
-    imports: [NgClass, CopyComponent, IconGeneratorComponent],
-    templateUrl: './icon-preview-details.component.html',
-    styleUrl: './icon-preview-details.component.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-icon-preview-details',
+  imports: [NgClass, CopyComponent, IconGeneratorComponent],
+  templateUrl: './icon-preview-details.component.html',
+  styleUrl: './icon-preview-details.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconPreviewDetailsComponent {
   private elementRef = inject(ElementRef);

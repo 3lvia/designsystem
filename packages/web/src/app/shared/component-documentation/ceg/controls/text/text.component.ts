@@ -6,10 +6,10 @@ import { Text } from '../../controlType';
 let CEG_INPUT_ID = 0;
 
 @Component({
-    selector: 'app-text',
-    templateUrl: './text.component.html',
-    styleUrls: ['./text.component.scss'],
-    imports: [NgClass]
+  selector: 'app-text',
+  templateUrl: './text.component.html',
+  styleUrls: ['./text.component.scss'],
+  imports: [NgClass],
 })
 export class TextComponent {
   @Input() input: Text;

@@ -9,17 +9,17 @@ import { PaginationCegComponent } from './pagination-ceg/pagination-ceg.componen
 import { paginationData } from './pagination-data';
 
 @Component({
-    selector: 'app-pagination-doc',
-    templateUrl: './pagination-doc.component.html',
-    styleUrls: ['./pagination-doc.component.scss'],
-    imports: [
-        ComponentDocumentationComponent,
-        CegComponent,
-        PaginationCegComponent,
-        ComponentSectionComponent,
-        WhenToUseComponent,
-        ComponentSubsectionComponent,
-    ]
+  selector: 'app-pagination-doc',
+  templateUrl: './pagination-doc.component.html',
+  styleUrls: ['./pagination-doc.component.scss'],
+  imports: [
+    ComponentDocumentationComponent,
+    CegComponent,
+    PaginationCegComponent,
+    ComponentSectionComponent,
+    WhenToUseComponent,
+    ComponentSubsectionComponent,
+  ],
 })
 export class PaginationDocComponent {
   componentData = paginationData;
