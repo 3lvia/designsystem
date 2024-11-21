@@ -2745,7 +2745,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.26.0"
     "@emotion/babel-plugin": "npm:^11.12.0"
     "@percy/cli": "npm:^1.30.2"
-    "@percy/playwright": "npm:^1.0.6"
+    "@percy/playwright": "npm:^1.0.7"
     "@playwright/experimental-ct-react": "npm:1.49.0"
     "@playwright/test": "npm:1.49.0"
     "@testing-library/dom": "npm:10.4.0"
@@ -5774,12 +5774,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/playwright@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "@percy/playwright@npm:1.0.6"
+"@percy/playwright@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "@percy/playwright@npm:1.0.7"
   peerDependencies:
     playwright-core: ">=1"
-  checksum: 10/d64564c5fe5f2c4adcfff86f067d0eed77368bd8498284697037d19f7aaf21f78ac49eafc5648fd0b0d74a3fd90dd1461edce920abd75f55f438e32ed9a5e3cd
+  checksum: 10/a044e68984ff3819b086c7368088535e678026cc37cd811d3567cd3ebd1d69de8733f72eb4712fefd153cdb693013e51884db9a761a7c42d9fbda848c61f0d49
   languageName: node
   linkType: hard
 
