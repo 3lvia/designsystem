@@ -14,7 +14,6 @@ import { ToggleStatesCegComponent } from './toggle-states-ceg/toggle-states-ceg.
 @Component({
   selector: 'app-toggle-doc',
   templateUrl: './toggle-doc.component.html',
-  styleUrls: ['./toggle-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

@@ -11,7 +11,6 @@ import { stepperData } from './stepper-data';
 @Component({
   selector: 'app-stepper-doc',
   templateUrl: './stepper-doc.component.html',
-  styleUrls: ['./stepper-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

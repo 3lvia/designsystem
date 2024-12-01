@@ -14,7 +14,6 @@ import { CardLinksCegComponent } from './card-links-ceg/card-links-ceg.component
 @Component({
   selector: 'app-card-doc',
   templateUrl: './card-doc.component.html',
-  styleUrls: ['./card-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

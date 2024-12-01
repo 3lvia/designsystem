@@ -14,7 +14,6 @@ import { AccordionGroupCegComponent } from './accordion-group-ceg/accordion-grou
 @Component({
   selector: 'app-accordion-doc',
   templateUrl: './accordion-doc.component.html',
-  styleUrls: ['./accordion-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

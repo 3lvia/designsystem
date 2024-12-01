@@ -15,7 +15,6 @@ import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
 @Component({
   selector: 'app-modal-doc',
   templateUrl: './modal-doc.component.html',
-  styleUrls: ['./modal-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

@@ -13,7 +13,6 @@ import { NumberedListCegComponent } from './list-numbered-ceg/list-numbered-ceg.
 @Component({
   selector: 'app-list-doc',
   templateUrl: './list-doc.component.html',
-  styleUrls: ['./list-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

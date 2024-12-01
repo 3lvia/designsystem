@@ -11,7 +11,6 @@ import { progressbarData } from './progressbar-data';
 @Component({
   selector: 'app-progressbar-doc',
   templateUrl: './progressbar-doc.component.html',
-  styleUrls: ['./progressbar-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

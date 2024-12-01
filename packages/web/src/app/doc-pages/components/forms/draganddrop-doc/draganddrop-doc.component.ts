@@ -10,7 +10,6 @@ import { DraganddropDragoverCegComponent } from './draganddrop-dragover-ceg/drag
 @Component({
   selector: 'app-draganddrop-doc',
   templateUrl: './draganddrop-doc.component.html',
-  styleUrls: ['./draganddrop-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,
