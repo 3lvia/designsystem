@@ -16,7 +16,6 @@ import { CheckboxStatesCegComponent } from './checkbox-states-ceg/checkbox-state
 @Component({
   selector: 'app-checkbox-doc',
   templateUrl: './checkbox-doc.component.html',
-  styleUrls: ['./checkbox-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

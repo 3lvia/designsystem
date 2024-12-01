@@ -13,7 +13,6 @@ import { radioFilterData } from './radio-filter.data';
 @Component({
   selector: 'app-radio-filter-doc',
   templateUrl: './radio-filter-doc.component.html',
-  styleUrls: ['./radio-filter-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

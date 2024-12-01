@@ -11,7 +11,6 @@ import { carouselData } from './carousel-data';
 @Component({
   selector: 'app-carousel-doc',
   templateUrl: './carousel-doc.component.html',
-  styleUrls: ['./carousel-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

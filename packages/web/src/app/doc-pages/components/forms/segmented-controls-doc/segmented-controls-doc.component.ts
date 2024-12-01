@@ -11,7 +11,6 @@ import { segmentedControlData } from './segmented-controls-data';
 @Component({
   selector: 'app-segmented-controls-doc',
   templateUrl: './segmented-controls-doc.component.html',
-  styleUrls: ['./segmented-controls-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

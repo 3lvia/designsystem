@@ -12,7 +12,6 @@ import { BreadcrumbEventCegComponent } from './breadcrumb-event-ceg/breadcrumb-e
 @Component({
   selector: 'app-breadcrumb-doc',
   templateUrl: './breadcrumb-doc.component.html',
-  styleUrls: ['./breadcrumb-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

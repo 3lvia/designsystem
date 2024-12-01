@@ -14,7 +14,6 @@ import { RadiobuttonStatesCegComponent } from './radiobutton-states-ceg/radiobut
 @Component({
   selector: 'app-radiobutton-doc',
   templateUrl: './radiobutton-doc.component.html',
-  styleUrls: ['./radiobutton-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

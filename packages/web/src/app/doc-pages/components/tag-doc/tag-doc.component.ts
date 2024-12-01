@@ -12,7 +12,6 @@ import { TagSignalColoredCegComponent } from './tag-signal-colored-ceg/tag-signa
 @Component({
   selector: 'app-tag-doc',
   templateUrl: './tag-doc.component.html',
-  styleUrls: ['./tag-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

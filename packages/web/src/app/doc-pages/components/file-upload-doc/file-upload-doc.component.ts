@@ -11,7 +11,6 @@ import { FileUploadDragoverCegComponent } from './file-upload-dragover-ceg/file-
 @Component({
   selector: 'app-file-upload-doc',
   templateUrl: './file-upload-doc.component.html',
-  styleUrls: ['./file-upload-doc.component.scss'],
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,
